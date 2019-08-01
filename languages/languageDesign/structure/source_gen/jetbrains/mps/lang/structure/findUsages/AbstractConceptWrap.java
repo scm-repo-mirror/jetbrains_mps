@@ -5,9 +5,10 @@ package jetbrains.mps.lang.structure.findUsages;
 import jetbrains.mps.core.aspects.behaviour.api.AbstractConceptLike;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ abstract class AbstractConceptWrap implements AbstractConceptLike {
@@ -23,7 +24,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   @Override
   public String getName() {
-    return SPropertyOperations.getString(myPeer, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(myPeer, PROPS.name$tAp1);
   }
 
   @Override
@@ -41,10 +42,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   @NotNull
   public static AbstractConceptWrap wrap(SNode toWrap) {
-    if (SNodeOperations.isInstanceOf(toWrap, AUX_n1l388.ConceptDeclaration_cb225da8)) {
-      return new ConceptWrap(SNodeOperations.cast(toWrap, AUX_n1l388.ConceptDeclaration_cb225da8));
-    } else if (SNodeOperations.isInstanceOf(toWrap, AUX_n1l388.InterfaceConceptDeclaration_efdf2bc9)) {
-      return new InterfaceConceptWrap(SNodeOperations.cast(toWrap, AUX_n1l388.InterfaceConceptDeclaration_efdf2bc9));
+    if (SNodeOperations.isInstanceOf(toWrap, CONCEPTS.ConceptDeclaration$qU)) {
+      return new ConceptWrap(SNodeOperations.cast(toWrap, CONCEPTS.ConceptDeclaration$qU));
+    } else if (SNodeOperations.isInstanceOf(toWrap, CONCEPTS.InterfaceConceptDeclaration$MT)) {
+      return new InterfaceConceptWrap(SNodeOperations.cast(toWrap, CONCEPTS.InterfaceConceptDeclaration$MT));
     }
     throw new IllegalArgumentException("Impossible to wrap the " + toWrap);
   }
@@ -54,8 +55,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return "AbstractConceptWrap{" + "myPeer=" + myPeer + "}";
   }
 
-  private static final class AUX_n1l388 {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
   }
 }

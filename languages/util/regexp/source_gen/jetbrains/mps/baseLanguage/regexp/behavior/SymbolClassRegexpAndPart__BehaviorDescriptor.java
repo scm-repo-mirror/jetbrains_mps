@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.regexp.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,11 +17,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class SymbolClassRegexpAndPart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_sxjeld.SymbolClassRegexpAndPart_9d20b03a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11c22ec8f79L, "jetbrains.mps.baseLanguage.regexp.structure.SymbolClassRegexpAndPart");
 
   public static final SMethod<String> getRepresentation_id75Jea4IEZbM = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getRepresentation").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("75Jea4IEZbM").build();
 
@@ -72,9 +71,5 @@ public final class SymbolClassRegexpAndPart__BehaviorDescriptor extends BaseBHDe
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class AUX_sxjeld {
-    /*package*/ static final SInterfaceConcept SymbolClassRegexpAndPart_9d20b03a = MetaAdapterFactory.getInterfaceConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11c22ec8f79L, "jetbrains.mps.baseLanguage.regexp.structure.SymbolClassRegexpAndPart");
   }
 }

@@ -10,11 +10,12 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_RequestHandler_inPluginModel_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -22,7 +23,7 @@ public class check_RequestHandler_inPluginModel_NonTypesystemRule extends Abstra
   }
   public void applyRule(final SNode requestHandler, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     String modelName = SModelOperations.getModelName(SNodeOperations.getModel(requestHandler));
-    String correctName = SPropertyOperations.getString(SModelOperations.getModuleStub(SNodeOperations.getModel(requestHandler)), MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe23L, "namespace")) + ".plugin";
+    String correctName = SPropertyOperations.getString(SModelOperations.getModuleStub(SNodeOperations.getModel(requestHandler)), PROPS.namespace$8m0W) + ".plugin";
 
     if (!(modelName.equals(correctName))) {
       {
@@ -32,7 +33,7 @@ public class check_RequestHandler_inPluginModel_NonTypesystemRule extends Abstra
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_s9o0h7.RequestHandler_d49288c4;
+    return CONCEPTS.RequestHandler$Wu;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +42,11 @@ public class check_RequestHandler_inPluginModel_NonTypesystemRule extends Abstra
     return false;
   }
 
-  private static final class AUX_s9o0h7 {
-    /*package*/ static final SConcept RequestHandler_d49288c4 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4d5ac72154f4d780L, "jetbrains.mps.ide.httpsupport.structure.RequestHandler");
+  private static final class PROPS {
+    /*package*/ static final SProperty namespace$8m0W = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe23L, "namespace");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RequestHandler$Wu = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4d5ac72154f4d780L, "jetbrains.mps.ide.httpsupport.structure.RequestHandler");
   }
 }

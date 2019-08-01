@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -27,15 +26,16 @@ import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PrivateStaticMethodCall_Constraints extends BaseConstraintsDescriptor {
   public PrivateStaticMethodCall_Constraints() {
-    super(AUX_ij549v.PrivateStaticMethodCall_125f4a01);
+    super(CONCEPTS.PrivateStaticMethodCall$m1);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.baseMethodDeclaration$$A7i, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,14 +50,14 @@ public class PrivateStaticMethodCall_Constraints extends BaseConstraintsDescript
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            if (!(SNodeOperations.isInstanceOf(_context.getContextNode(), AUX_ij549v.PrivateStaticMethodCall_125f4a01))) {
+            if (!(SNodeOperations.isInstanceOf(_context.getContextNode(), CONCEPTS.PrivateStaticMethodCall$m1))) {
               return new EmptyScope();
             }
-            SNode call = SNodeOperations.as(_context.getContextNode(), AUX_ij549v.PrivateStaticMethodCall_125f4a01);
+            SNode call = SNodeOperations.as(_context.getContextNode(), CONCEPTS.PrivateStaticMethodCall$m1);
 
-            Iterable<SNode> staticMembers = (Iterable<SNode>) Sequence.fromIterable(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SLinkOperations.getTarget(call, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept"))))).where(new IWhereFilter<SNode>() {
+            Iterable<SNode> staticMembers = (Iterable<SNode>) Sequence.fromIterable(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SLinkOperations.getTarget(call, LINKS.classConcept$BsUa)))).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
-                return SNodeOperations.isInstanceOf(it, AUX_ij549v.StaticMethodDeclaration_9cd8c445);
+                return SNodeOperations.isInstanceOf(it, CONCEPTS.StaticMethodDeclaration$eX);
               }
             });
             return new NamedElementsScope(staticMembers);
@@ -71,8 +71,13 @@ public class PrivateStaticMethodCall_Constraints extends BaseConstraintsDescript
   }
   private static final SNodePointer breakingNode_ij549v_a0a0a0a0a1a0a0a0c = new SNodePointer("r:c8ec5cc5-f63f-40c3-ab3e-3fbb9a638ceb(jetbrains.mps.debugger.java.privateMembers.constraints)", "6836281137582821877");
 
-  private static final class AUX_ij549v {
-    /*package*/ static final SConcept PrivateStaticMethodCall_125f4a01 = MetaAdapterFactory.getConcept(0x802088974572437dL, 0xb50e8f050cba9566L, 0x2ed6380fd7a2facbL, "jetbrains.mps.debugger.java.privateMembers.structure.PrivateStaticMethodCall");
-    /*package*/ static final SConcept StaticMethodDeclaration_9cd8c445 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrivateStaticMethodCall$m1 = MetaAdapterFactory.getConcept(0x802088974572437dL, 0xb50e8f050cba9566L, 0x2ed6380fd7a2facbL, "jetbrains.mps.debugger.java.privateMembers.structure.PrivateStaticMethodCall");
+    /*package*/ static final SConcept StaticMethodDeclaration$eX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SReferenceLink classConcept$BsUa = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept");
   }
 }

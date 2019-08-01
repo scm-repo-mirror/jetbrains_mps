@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.extensionMethods.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,7 +16,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -23,9 +23,12 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ExtensionMethodDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_yyqz8t.ExtensionMethodDeclaration_9924fbf7;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ExtensionMethodDeclaration");
 
   public static final SMethod<SNode> getThisType_id6XkcKt_eUWM = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getThisType").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6XkcKt_eUWM").build();
   public static final SMethod<SNode> getClassifier_id6EBM_lhz9HU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getClassifier").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6EBM_lhz9HU").build();
@@ -37,31 +40,31 @@ public final class ExtensionMethodDeclaration__BehaviorDescriptor extends BaseBH
   }
 
   /*package*/ static SNode getThisType_id6XkcKt_eUWM(@NotNull SNode __thisNode__) {
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), AUX_yyqz8t.TypeExtension_ee1bdf38)) {
-      return SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), AUX_yyqz8t.TypeExtension_ee1bdf38), MetaAdapterFactory.getContainmentLink(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1a4abaca2a94ce10L, 0x1a4abaca2a959cfeL, "type"));
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), CONCEPTS.TypeExtension$sE)) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.TypeExtension$sE), LINKS.type$UU3);
     } else {
-      return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, 0x6f54330765374812L, "extendedType"));
+      return SLinkOperations.getTarget(__thisNode__, LINKS.extendedType$S0L);
     }
   }
   /*package*/ static SNode getClassifier_id6EBM_lhz9HU(@NotNull SNode __thisNode__) {
     SNode type = ExtensionMethodDeclaration__BehaviorDescriptor.getThisType_id6XkcKt_eUWM.invoke(__thisNode__);
     SNode classifierType;
-    if (SNodeOperations.isInstanceOf(type, AUX_yyqz8t.ClassifierType_42700403)) {
-      classifierType = SNodeOperations.cast(type, AUX_yyqz8t.ClassifierType_42700403);
+    if (SNodeOperations.isInstanceOf(type, CONCEPTS.ClassifierType$IZ)) {
+      classifierType = SNodeOperations.cast(type, CONCEPTS.ClassifierType$IZ);
     } else {
-      classifierType = TypecheckingFacade.getFromContext().strongCoerceType(type, AUX_yyqz8t.ClassifierType_42700403);
+      classifierType = TypecheckingFacade.getFromContext().strongCoerceType(type, CONCEPTS.ClassifierType$IZ);
     }
     if (classifierType == null) {
       return null;
     }
-    return SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+    return SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R);
   }
   /*package*/ static String getFqName_idhEwIO9y(@NotNull SNode __thisNode__) {
-    SNode containingClassifier = SNodeOperations.getNodeAncestor(__thisNode__, AUX_yyqz8t.Classifier_4b7e553, false, false);
+    SNode containingClassifier = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.Classifier$hJ, false, false);
     if (containingClassifier != null) {
-      return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(containingClassifier) + "." + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(containingClassifier) + "." + SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
     }
-    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke0(__thisNode__, AUX_yyqz8t.BaseMethodDeclaration_9dbf9acb);
+    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke0(__thisNode__, CONCEPTS.BaseMethodDeclaration$RR);
   }
 
   /*package*/ ExtensionMethodDeclaration__BehaviorDescriptor() {
@@ -114,11 +117,20 @@ public final class ExtensionMethodDeclaration__BehaviorDescriptor extends BaseBH
     return CONCEPT;
   }
 
-  private static final class AUX_yyqz8t {
-    /*package*/ static final SConcept ExtensionMethodDeclaration_9924fbf7 = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ExtensionMethodDeclaration");
-    /*package*/ static final SConcept TypeExtension_ee1bdf38 = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1a4abaca2a94ce10L, "jetbrains.mps.baseLanguage.extensionMethods.structure.TypeExtension");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypeExtension$sE = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1a4abaca2a94ce10L, "jetbrains.mps.baseLanguage.extensionMethods.structure.TypeExtension");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$UU3 = MetaAdapterFactory.getContainmentLink(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1a4abaca2a94ce10L, 0x1a4abaca2a959cfeL, "type");
+    /*package*/ static final SContainmentLink extendedType$S0L = MetaAdapterFactory.getContainmentLink(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, 0x6f54330765374812L, "extendedType");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

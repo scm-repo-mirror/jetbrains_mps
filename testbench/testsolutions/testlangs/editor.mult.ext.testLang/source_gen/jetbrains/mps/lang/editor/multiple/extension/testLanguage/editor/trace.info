@@ -45,8 +45,8 @@
       <node id="1217012833662768755" at="57,49,58,49" concept="1" />
       <node id="1217012833662768584" at="58,49,59,22" concept="6" />
       <node id="1217012833662768753" at="61,41,62,39" concept="1" />
-      <node id="1217012833662768753" at="63,9,64,146" concept="5" />
-      <node id="1217012833662768753" at="64,146,65,76" concept="1" />
+      <node id="1217012833662768753" at="63,9,64,49" concept="5" />
+      <node id="1217012833662768753" at="64,49,65,76" concept="1" />
       <node id="1217012833662768753" at="65,76,66,149" concept="5" />
       <node id="1217012833662768753" at="66,149,67,45" concept="1" />
       <node id="1217012833662768753" at="67,45,68,52" concept="1" />
@@ -55,15 +55,15 @@
       <node id="1217012833662768753" at="70,51,71,42" concept="1" />
       <node id="1217012833662768753" at="71,42,72,86" concept="1" />
       <node id="1217012833662768753" at="72,86,73,33" concept="1" />
-      <node id="1217012833662768753" at="73,33,74,196" concept="5" />
+      <node id="1217012833662768753" at="73,33,74,188" concept="5" />
       <node id="1217012833662768753" at="76,41,77,118" concept="6" />
       <node id="1217012833662768753" at="80,74,81,89" concept="5" />
       <node id="1217012833662768753" at="81,89,82,145" concept="6" />
       <node id="1217012833662768753" at="83,12,84,24" concept="6" />
       <node id="1217012833662768753" at="85,15,86,40" concept="1" />
       <node id="1217012833662768755" at="89,41,90,39" concept="1" />
-      <node id="1217012833662768755" at="91,9,92,171" concept="5" />
-      <node id="1217012833662768755" at="92,171,93,76" concept="1" />
+      <node id="1217012833662768755" at="91,9,92,64" concept="5" />
+      <node id="1217012833662768755" at="92,64,93,76" concept="1" />
       <node id="1217012833662768755" at="93,76,94,149" concept="5" />
       <node id="1217012833662768755" at="94,149,95,60" concept="1" />
       <node id="1217012833662768755" at="95,60,96,67" concept="1" />
@@ -72,22 +72,24 @@
       <node id="1217012833662768755" at="98,51,99,42" concept="1" />
       <node id="1217012833662768755" at="99,42,100,86" concept="1" />
       <node id="1217012833662768755" at="100,86,101,33" concept="1" />
-      <node id="1217012833662768755" at="101,33,102,196" concept="5" />
+      <node id="1217012833662768755" at="101,33,102,188" concept="5" />
       <node id="1217012833662768755" at="104,41,105,118" concept="6" />
       <node id="1217012833662768755" at="108,74,109,89" concept="5" />
       <node id="1217012833662768755" at="109,89,110,145" concept="6" />
       <node id="1217012833662768755" at="111,12,112,24" concept="6" />
       <node id="1217012833662768755" at="113,15,114,40" concept="1" />
-      <node id="1217012833662768584" at="119,0,120,0" concept="7" trace="PropertyAttribute_d001db89" />
+      <node id="1217012833662768584" at="119,0,120,0" concept="7" trace="name$tAp1" />
+      <node id="1217012833662768584" at="120,0,121,0" concept="7" trace="richCompactProperty$APQX" />
+      <node id="1217012833662768584" at="124,0,125,0" concept="7" trace="PropertyAttribute$jT" />
       <node id="1217012833662768584" at="33,0,35,0" concept="2" trace="myNode" />
       <node id="1217012833662768584" at="47,0,50,0" concept="4" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <node id="1217012833662768753" at="76,0,79,0" concept="4" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="1217012833662768755" at="104,0,107,0" concept="4" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="1217012833662768584" at="36,0,40,0" concept="0" trace="MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="1217012833662768584" at="41,0,46,0" concept="4" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1217012833662768753" at="74,196,79,9" concept="5" />
+      <node id="1217012833662768753" at="74,188,79,9" concept="5" />
       <node id="1217012833662768753" at="79,9,84,24" concept="3" />
-      <node id="1217012833662768755" at="102,196,107,9" concept="5" />
+      <node id="1217012833662768755" at="102,188,107,9" concept="5" />
       <node id="1217012833662768755" at="107,9,112,24" concept="3" />
       <node id="1217012833662768584" at="51,0,61,0" concept="4" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <node id="1217012833662768753" at="62,39,87,5" concept="9" />
@@ -142,10 +144,11 @@
       <scope id="1217012833662768755" at="89,41,115,5" />
       <scope id="1217012833662768753" at="61,0,89,0" />
       <scope id="1217012833662768755" at="89,0,117,0" />
-      <unit id="1217012833662768584" at="118,0,121,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a$AUX_148bwl" />
+      <unit id="1217012833662768584" at="123,0,126,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a$CONCEPTS" />
       <unit id="1217012833662768753" at="75,102,79,7" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a$1" />
       <unit id="1217012833662768755" at="103,102,107,7" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a$2" />
-      <unit id="1217012833662768584" at="32,0,122,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a" />
+      <unit id="1217012833662768584" at="118,0,122,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a$PROPS" />
+      <unit id="1217012833662768584" at="32,0,127,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestEditorComponentChild_compactRich_ComponentBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:a554b43d-e081-43aa-820b-45da05206260(jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor)/6355695904178424145">
@@ -180,8 +183,8 @@
       <node id="8572332134194711091" at="59,49,60,49" concept="1" />
       <node id="6355695904178424145" at="60,49,61,22" concept="6" />
       <node id="8572332134194711084" at="63,41,64,39" concept="1" />
-      <node id="8572332134194711084" at="65,9,66,146" concept="5" />
-      <node id="8572332134194711084" at="66,146,67,76" concept="1" />
+      <node id="8572332134194711084" at="65,9,66,49" concept="5" />
+      <node id="8572332134194711084" at="66,49,67,76" concept="1" />
       <node id="8572332134194711084" at="67,76,68,149" concept="5" />
       <node id="8572332134194711084" at="68,149,69,45" concept="1" />
       <node id="8572332134194711084" at="69,45,70,44" concept="1" />
@@ -190,15 +193,15 @@
       <node id="8572332134194711084" at="72,51,73,42" concept="1" />
       <node id="8572332134194711084" at="73,42,74,86" concept="1" />
       <node id="8572332134194711084" at="74,86,75,33" concept="1" />
-      <node id="8572332134194711084" at="75,33,76,196" concept="5" />
+      <node id="8572332134194711084" at="75,33,76,188" concept="5" />
       <node id="8572332134194711084" at="78,41,79,118" concept="6" />
       <node id="8572332134194711084" at="82,74,83,89" concept="5" />
       <node id="8572332134194711084" at="83,89,84,145" concept="6" />
       <node id="8572332134194711084" at="85,12,86,24" concept="6" />
       <node id="8572332134194711084" at="87,15,88,40" concept="1" />
       <node id="8572332134194711091" at="91,41,92,39" concept="1" />
-      <node id="8572332134194711091" at="93,9,94,171" concept="5" />
-      <node id="8572332134194711091" at="94,171,95,76" concept="1" />
+      <node id="8572332134194711091" at="93,9,94,64" concept="5" />
+      <node id="8572332134194711091" at="94,64,95,76" concept="1" />
       <node id="8572332134194711091" at="95,76,96,149" concept="5" />
       <node id="8572332134194711091" at="96,149,97,60" concept="1" />
       <node id="8572332134194711091" at="97,60,98,59" concept="1" />
@@ -207,22 +210,24 @@
       <node id="8572332134194711091" at="100,51,101,42" concept="1" />
       <node id="8572332134194711091" at="101,42,102,86" concept="1" />
       <node id="8572332134194711091" at="102,86,103,33" concept="1" />
-      <node id="8572332134194711091" at="103,33,104,196" concept="5" />
+      <node id="8572332134194711091" at="103,33,104,188" concept="5" />
       <node id="8572332134194711091" at="106,41,107,118" concept="6" />
       <node id="8572332134194711091" at="110,74,111,89" concept="5" />
       <node id="8572332134194711091" at="111,89,112,145" concept="6" />
       <node id="8572332134194711091" at="113,12,114,24" concept="6" />
       <node id="8572332134194711091" at="115,15,116,40" concept="1" />
-      <node id="6355695904178424145" at="121,0,122,0" concept="7" trace="PropertyAttribute_d001db89" />
+      <node id="6355695904178424145" at="121,0,122,0" concept="7" trace="name$tAp1" />
+      <node id="6355695904178424145" at="122,0,123,0" concept="7" trace="richCompactProperty$WRgA" />
+      <node id="6355695904178424145" at="126,0,127,0" concept="7" trace="PropertyAttribute$jT" />
       <node id="6355695904178424145" at="33,0,35,0" concept="2" trace="myNode" />
       <node id="6355695904178424145" at="47,0,50,0" concept="4" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <node id="8572332134194711084" at="78,0,81,0" concept="4" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="8572332134194711091" at="106,0,109,0" concept="4" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="6355695904178424145" at="36,0,40,0" concept="0" trace="MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="6355695904178424145" at="41,0,46,0" concept="4" trace="getNode#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="8572332134194711084" at="76,196,81,9" concept="5" />
+      <node id="8572332134194711084" at="76,188,81,9" concept="5" />
       <node id="8572332134194711084" at="81,9,86,24" concept="3" />
-      <node id="8572332134194711091" at="104,196,109,9" concept="5" />
+      <node id="8572332134194711091" at="104,188,109,9" concept="5" />
       <node id="8572332134194711091" at="109,9,114,24" concept="3" />
       <node id="6355695904178424145" at="51,0,63,0" concept="4" trace="createCollection_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <node id="8572332134194711084" at="64,39,89,5" concept="9" />
@@ -277,10 +282,11 @@
       <scope id="8572332134194711091" at="91,41,117,5" />
       <scope id="8572332134194711084" at="63,0,91,0" />
       <scope id="8572332134194711091" at="91,0,119,0" />
-      <unit id="6355695904178424145" at="120,0,123,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a$AUX_23anwk" />
+      <unit id="6355695904178424145" at="125,0,128,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a$CONCEPTS" />
       <unit id="8572332134194711084" at="77,102,81,7" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a$1" />
       <unit id="8572332134194711091" at="105,102,109,7" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a$2" />
-      <unit id="6355695904178424145" at="32,0,124,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a" />
+      <unit id="6355695904178424145" at="120,0,124,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a$PROPS" />
+      <unit id="6355695904178424145" at="32,0,129,0" name="jetbrains.mps.lang.editor.multiple.extension.testLanguage.editor.MultipleEditorsTestMostSpecificChild_compact_rich_EditorBuilder_a" />
     </file>
   </root>
 </debug-info>

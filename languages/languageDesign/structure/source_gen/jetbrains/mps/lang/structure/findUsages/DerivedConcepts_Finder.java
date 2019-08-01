@@ -35,7 +35,7 @@ public class DerivedConcepts_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_8vu8m6.ConceptDeclaration_cb225da8;
+    return CONCEPTS.ConceptDeclaration$qU;
   }
 
   @Override
@@ -43,7 +43,7 @@ public class DerivedConcepts_Finder extends GeneratedFinder {
     try {
       monitor.start("Derived Concepts", 1000);
       final Queue<SNode> currentConcepts = QueueSequence.fromQueue(new LinkedList<SNode>());
-      QueueSequence.fromQueue(currentConcepts).addLastElement(SNodeOperations.cast(node, AUX_8vu8m6.ConceptDeclaration_cb225da8));
+      QueueSequence.fromQueue(currentConcepts).addLastElement(SNodeOperations.cast(node, CONCEPTS.ConceptDeclaration$qU));
       while (QueueSequence.fromQueue(currentConcepts).isNotEmpty()) {
         SNode nextNode = QueueSequence.fromQueue(currentConcepts).removeFirstElement();
         FindUtils.searchForResults(monitor.subTask(1), new IFinder.FindCallback() {
@@ -51,7 +51,7 @@ public class DerivedConcepts_Finder extends GeneratedFinder {
             SNode nodeParam = (SNode) searchResult.getObject();
             new _FunctionTypes._void_P1_E0<SNode>() {
               public void invoke(SNode directDescendant) {
-                SNode foundConcept = SNodeOperations.cast(directDescendant, AUX_8vu8m6.ConceptDeclaration_cb225da8);
+                SNode foundConcept = SNodeOperations.cast(directDescendant, CONCEPTS.ConceptDeclaration$qU);
                 QueueSequence.fromQueue(currentConcepts).addLastElement(foundConcept);
                 callback.onUsageFound(createSingleResult(foundConcept));
               }
@@ -75,7 +75,7 @@ public class DerivedConcepts_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "6869265041613386780");
   }
 
-  private static final class AUX_8vu8m6 {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
   }
 }

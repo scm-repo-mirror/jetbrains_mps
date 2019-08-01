@@ -25,7 +25,7 @@ public class typeof_Node_IsRoleOperation_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2d7xt3.Node_IsRoleOperation_c87db080;
+    return CONCEPTS.Node_IsRoleOperation$Vy;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_Node_IsRoleOperation_InferenceRule extends AbstractInference
     return quotedNode_1;
   }
 
-  private static final class AUX_2d7xt3 {
-    /*package*/ static final SConcept Node_IsRoleOperation_c87db080 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a67578ddeL, "jetbrains.mps.lang.smodel.structure.Node_IsRoleOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_IsRoleOperation$Vy = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a67578ddeL, "jetbrains.mps.lang.smodel.structure.Node_IsRoleOperation");
   }
 }

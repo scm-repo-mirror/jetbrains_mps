@@ -20,12 +20,12 @@ import jetbrains.mps.lang.editor.menus.transformation.IncludeSubstituteMenuTrans
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.lang.editor.menus.transformation.IncludeTransformationMenuTransformationMenuPart;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class Empty_Visibility_TransformtaionMenu extends TransformationMenuBase {
@@ -85,7 +85,7 @@ public class Empty_Visibility_TransformtaionMenu extends TransformationMenuBase 
     }
     @Override
     protected SContainmentLink getContainmentLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+      return LINKS.visibility$2GiC;
     }
     @Override
     protected SubstituteMenuLookup getSubstituteMenuLookup(TransformationMenuContext context) {
@@ -94,7 +94,7 @@ public class Empty_Visibility_TransformtaionMenu extends TransformationMenuBase 
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_ej8f50.Visibility_62961edf;
+      return CONCEPTS.Visibility$Lz;
     }
   }
   public class TMP_Include_ej8f50_a1 extends IncludeTransformationMenuTransformationMenuPart {
@@ -113,7 +113,11 @@ public class Empty_Visibility_TransformtaionMenu extends TransformationMenuBase 
 
   }
 
-  private static final class AUX_ej8f50 {
-    /*package*/ static final SConcept Visibility_62961edf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af957d96eL, "jetbrains.mps.baseLanguage.structure.Visibility");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Visibility$Lz = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af957d96eL, "jetbrains.mps.baseLanguage.structure.Visibility");
   }
 }

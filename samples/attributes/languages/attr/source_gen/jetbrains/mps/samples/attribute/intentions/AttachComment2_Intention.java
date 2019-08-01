@@ -50,7 +50,7 @@ public final class AttachComment2_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      AttributeOperations.createAndAddAttribute(node, new IAttributeDescriptor.AllAttributes(), AUX_kt8zpe.CommentAttribute2_c4f69027);
+      AttributeOperations.createAndAddAttribute(node, new IAttributeDescriptor.AllAttributes(), CONCEPTS.CommentAttribute2$gr);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -58,7 +58,7 @@ public final class AttachComment2_Intention extends AbstractIntentionDescriptor 
     }
   }
 
-  private static final class AUX_kt8zpe {
-    /*package*/ static final SConcept CommentAttribute2_c4f69027 = MetaAdapterFactory.getConcept(0xe8e38af60cf34cc1L, 0xbaa3ba261722e8f3L, 0x702703eb14011dd3L, "jetbrains.mps.samples.attribute.structure.CommentAttribute2");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommentAttribute2$gr = MetaAdapterFactory.getConcept(0xe8e38af60cf34cc1L, 0xbaa3ba261722e8f3L, 0x702703eb14011dd3L, "jetbrains.mps.samples.attribute.structure.CommentAttribute2");
   }
 }

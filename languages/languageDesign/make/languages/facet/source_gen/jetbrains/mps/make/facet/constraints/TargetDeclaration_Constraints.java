@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TargetDeclaration_Constraints extends BaseConstraintsDescriptor {
   public TargetDeclaration_Constraints() {
-    super(AUX_5z7oj4.TargetDeclaration_ec040aeb);
+    super(CONCEPTS.TargetDeclaration$7n);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, 0x5912a2ab1cd24c55L, "overrides"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.overrides$wf3Z, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -48,9 +49,9 @@ public class TargetDeclaration_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(Sequence.fromIterable(FacetDeclaration__BehaviorDescriptor.allExtends_id6O0kUTrsU9c.invoke(SNodeOperations.as((((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()))), AUX_5z7oj4.FacetDeclaration_ec040a6d))).skip(1).translate(new ITranslator2<SNode, SNode>() {
+            return ListScope.forResolvableElements(Sequence.fromIterable(FacetDeclaration__BehaviorDescriptor.allExtends_id6O0kUTrsU9c.invoke(SNodeOperations.as((((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()))), CONCEPTS.FacetDeclaration$al))).skip(1).translate(new ITranslator2<SNode, SNode>() {
               public Iterable<SNode> translate(SNode fd) {
-                return SLinkOperations.getChildren(fd, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration"));
+                return SLinkOperations.getChildren(fd, LINKS.targetDeclaration$DCGr);
               }
             }));
           }
@@ -63,8 +64,13 @@ public class TargetDeclaration_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_5z7oj4_a0a0a0a0a1a0a0a0c = new SNodePointer("r:6df86908-c97f-4644-97f0-5eff375e8e15(jetbrains.mps.make.facet.constraints)", "6836281137582789894");
 
-  private static final class AUX_5z7oj4 {
-    /*package*/ static final SConcept TargetDeclaration_ec040aeb = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, "jetbrains.mps.make.facet.structure.TargetDeclaration");
-    /*package*/ static final SConcept FacetDeclaration_ec040a6d = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, "jetbrains.mps.make.facet.structure.FacetDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TargetDeclaration$7n = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, "jetbrains.mps.make.facet.structure.TargetDeclaration");
+    /*package*/ static final SConcept FacetDeclaration$al = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, "jetbrains.mps.make.facet.structure.FacetDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink overrides$wf3Z = MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, 0x5912a2ab1cd24c55L, "overrides");
+    /*package*/ static final SContainmentLink targetDeclaration$DCGr = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration");
   }
 }

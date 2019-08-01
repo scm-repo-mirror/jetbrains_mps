@@ -7,7 +7,9 @@ import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class BaseLanguageUtil {
@@ -26,16 +28,21 @@ public class BaseLanguageUtil {
     return SetSequence.fromSet(ClassifierScopeUtils.getExtendedClassifiers(fromClassifier)).contains(toClassifier);
   }
   public static SNode getSuperclass(SNode subClass) {
-    return SNodeOperations.cast(check_b9g70l_a0a0c(SLinkOperations.getTarget(subClass, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass"))), AUX_b9g70l.ClassConcept_e2711824);
+    return SNodeOperations.cast(check_b9g70l_a0a0c(SLinkOperations.getTarget(subClass, LINKS.superclass$_pqe)), CONCEPTS.ClassConcept$IY);
   }
   private static SNode check_b9g70l_a0a0c(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return SLinkOperations.getTarget(checkedDotOperand, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+      return SLinkOperations.getTarget(checkedDotOperand, LINKS.classifier$pQ_R);
     }
     return null;
   }
 
-  private static final class AUX_b9g70l {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink superclass$_pqe = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

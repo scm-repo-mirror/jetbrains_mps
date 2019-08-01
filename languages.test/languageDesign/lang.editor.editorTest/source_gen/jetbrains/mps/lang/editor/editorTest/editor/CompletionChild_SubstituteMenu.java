@@ -22,17 +22,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_a(), AUX_vwyoh8.CompletionChild_ff54e6a6));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_b(), AUX_vwyoh8.CompletionChild_ff54e6a6));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_c(), AUX_vwyoh8.CompletionChild_ff54e6a6));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_d(), AUX_vwyoh8.CompletionChild_ff54e6a6));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_e(), AUX_vwyoh8.CompletionChild_ff54e6a6));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_a(), CONCEPTS.CompletionChild$PW));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_b(), CONCEPTS.CompletionChild$PW));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_c(), CONCEPTS.CompletionChild$PW));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_d(), CONCEPTS.CompletionChild$PW));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vwyoh8_e(), CONCEPTS.CompletionChild$PW));
     return result;
   }
 
@@ -77,7 +78,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_vwyoh8.CompletionChild_ff54e6a6, context);
+        super(CONCEPTS.CompletionChild$PW, context);
         _context = context;
       }
 
@@ -89,7 +90,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x57524858938023adL, "jetbrains.mps.lang.editor.editorTest.structure.CompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "full");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "full");
         return node;
       }
 
@@ -132,7 +133,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_vwyoh8.CompletionChild_ff54e6a6, context);
+        super(CONCEPTS.CompletionChild$PW, context);
         _context = context;
       }
 
@@ -144,7 +145,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x57524858938023adL, "jetbrains.mps.lang.editor.editorTest.structure.CompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "startEnd");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "startEnd");
         return node;
       }
 
@@ -187,7 +188,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_vwyoh8.CompletionChild_ff54e6a6, context);
+        super(CONCEPTS.CompletionChild$PW, context);
         _context = context;
       }
 
@@ -199,7 +200,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x57524858938023adL, "jetbrains.mps.lang.editor.editorTest.structure.CompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "startMiddleEnd");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "startMiddleEnd");
         return node;
       }
 
@@ -242,7 +243,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_vwyoh8.CompletionChild_ff54e6a6, context);
+        super(CONCEPTS.CompletionChild$PW, context);
         _context = context;
       }
 
@@ -254,7 +255,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x57524858938023adL, "jetbrains.mps.lang.editor.editorTest.structure.CompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "start Space");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "start Space");
         return node;
       }
 
@@ -297,7 +298,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_vwyoh8.CompletionChild_ff54e6a6, context);
+        super(CONCEPTS.CompletionChild$PW, context);
         _context = context;
       }
 
@@ -309,7 +310,7 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x57524858938023adL, "jetbrains.mps.lang.editor.editorTest.structure.CompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "start.dot");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "start.dot");
         return node;
       }
 
@@ -325,7 +326,11 @@ public class CompletionChild_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_vwyoh8 {
-    /*package*/ static final SConcept CompletionChild_ff54e6a6 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x57524858938023adL, "jetbrains.mps.lang.editor.editorTest.structure.CompletionChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CompletionChild$PW = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x57524858938023adL, "jetbrains.mps.lang.editor.editorTest.structure.CompletionChild");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

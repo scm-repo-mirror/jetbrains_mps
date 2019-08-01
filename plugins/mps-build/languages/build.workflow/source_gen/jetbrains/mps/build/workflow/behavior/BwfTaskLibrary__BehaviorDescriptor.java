@@ -4,6 +4,7 @@ package jetbrains.mps.build.workflow.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -18,14 +19,14 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
 import java.util.ArrayDeque;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class BwfTaskLibrary__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_qnodj7.BwfTaskLibrary_91f5a8b5;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, "jetbrains.mps.build.workflow.structure.BwfTaskLibrary");
 
   public static final SMethod<Set<SNode>> closureWithImported_id2U15YDCRefA = new SMethodBuilder<Set<SNode>>(new SJavaCompoundTypeImpl((Class<Set<SNode>>) ((Class) Object.class))).name("closureWithImported").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2U15YDCRefA").build();
 
@@ -42,8 +43,8 @@ public final class BwfTaskLibrary__BehaviorDescriptor extends BaseBHDescriptor {
     queue.add(__thisNode__);
     do {
       SNode lib = queue.removeFirst();
-      for (SNode dep : SLinkOperations.getChildren(lib, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, 0x6565da114725c6b6L, "imports"))) {
-        SNode targetLib = SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target"));
+      for (SNode dep : SLinkOperations.getChildren(lib, LINKS.imports$ZpQS)) {
+        SNode targetLib = SLinkOperations.getTarget(dep, LINKS.target$LSxw);
         if (!(SetSequence.fromSet(rv).contains(targetLib))) {
           SetSequence.fromSet(rv).addElement(targetLib);
           queue.addLast(targetLib);
@@ -99,7 +100,8 @@ public final class BwfTaskLibrary__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_qnodj7 {
-    /*package*/ static final SConcept BwfTaskLibrary_91f5a8b5 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, "jetbrains.mps.build.workflow.structure.BwfTaskLibrary");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$LSxw = MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target");
+    /*package*/ static final SContainmentLink imports$ZpQS = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, 0x6565da114725c6b6L, "imports");
   }
 }

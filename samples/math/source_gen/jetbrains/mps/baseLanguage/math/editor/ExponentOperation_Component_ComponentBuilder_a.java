@@ -10,7 +10,6 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Superscript;
 import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart;
@@ -48,6 +47,7 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.editor.runtime.EditorCell_Empty;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class ExponentOperation_Component_ComponentBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -77,7 +77,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
     return editorCell;
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new exprSingleRoleHandler_spngij_a0(myNode, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr"), getEditorContext());
+    SingleRoleCellProvider provider = new exprSingleRoleHandler_spngij_a0(myNode, LINKS.expr$XA0Z, getEditorContext());
     return provider.createCell();
   }
   private static class exprSingleRoleHandler_spngij_a0 extends SingleRoleCellProvider {
@@ -97,8 +97,8 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 
     protected EditorCell createChildCell(SNode child) {
       EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr"), child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr"), child));
+      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.expr$XA0Z, child));
+      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.expr$XA0Z, child));
       installCellInfo(child, editorCell, false);
       return editorCell;
     }
@@ -110,13 +110,13 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
         editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
       }
       if (editorCell.getSRole() == null) {
-        editorCell.setSRole(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr"));
+        editorCell.setSRole(LINKS.expr$XA0Z);
       }
     }
     @Override
     protected EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.expr$XA0Z));
       try {
         EditorCell editorCell = super.createEmptyCell();
         editorCell.setCellId("empty_expr");
@@ -160,7 +160,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
     public List<?> createParameterObjects(SNode node, IOperationContext operationContext, EditorContext editorContext) {
       List<SConcept> result = ListSequence.fromList(new ArrayList<SConcept>());
       for (SAbstractConcept a : ListSequence.fromList(SConceptOperations.getAllSubConcepts(SNodeOperations.asSConcept(ListSequence.fromList(ExponentialOperation__BehaviorDescriptor.getAllowedSubstituends_id2D1PBM_bxH0.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)))).first()), SNodeOperations.getModel(node)))) {
-        if (!(a.isAbstract()) && SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(a), AUX_sj4qbo.ExponentialOperation_5f7fb6a3)) {
+        if (!(a.isAbstract()) && SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(a), CONCEPTS.ExponentialOperation$Ov)) {
           ListSequence.fromList(result).addElement((SConcept) a);
         }
       }
@@ -170,7 +170,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
       this.handleAction_impl((SConcept) parameterObject, node, model, operationContext, editorContext);
     }
     public void handleAction_impl(SConcept parameterObject, SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SNodeOperations.replaceWithAnother(node, SNodeFactoryOperations.createNewNode(parameterObject, SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr"))));
+      SNodeOperations.replaceWithAnother(node, SNodeFactoryOperations.createNewNode(parameterObject, SLinkOperations.getTarget(node, LINKS.expr$XA0Z)));
     }
     public boolean isReferentPresentation() {
       return false;
@@ -204,7 +204,11 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
     return editorCell;
   }
 
-  private static final class AUX_sj4qbo {
-    /*package*/ static final SConcept ExponentialOperation_5f7fb6a3 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, "jetbrains.mps.baseLanguage.math.structure.ExponentialOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expr$XA0Z = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExponentialOperation$Ov = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, "jetbrains.mps.baseLanguage.math.structure.ExponentialOperation");
   }
 }

@@ -7,11 +7,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class delete_reexport_inJavaDependencyLibrary {
 
@@ -24,7 +25,7 @@ public class delete_reexport_inJavaDependencyLibrary {
         if (DeletionApproverUtil.approve(editorContext, node, "reexportKeyword")) {
           return;
         }
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd9079dceL, 0x52fab202d8f26228L, "reexport"), false);
+        SPropertyOperations.assign(node, PROPS.reexport$qwse, false);
       }
 
     };
@@ -63,5 +64,9 @@ public class delete_reexport_inJavaDependencyLibrary {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty reexport$qwse = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd9079dceL, 0x52fab202d8f26228L, "reexport");
   }
 }

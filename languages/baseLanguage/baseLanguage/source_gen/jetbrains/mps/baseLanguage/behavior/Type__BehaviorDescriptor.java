@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -24,7 +25,6 @@ import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -35,9 +35,10 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_whj271.Type_4199e276;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
 
   public static final SMethod<List<String>> getVariableSuffixes_idhEwIzNo = new SMethodBuilder<List<String>>(new SJavaCompoundTypeImpl((Class<List<String>>) ((Class) Object.class))).name("getVariableSuffixes").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIzNo").build();
   public static final SMethod<Boolean> hasPluralVariableSuffixes_id1gn9ujF3bz3 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasPluralVariableSuffixes").modifiers(SModifiersImpl.create(8, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("1gn9ujF3bz3").build();
@@ -124,7 +125,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     return Type__BehaviorDescriptor.getAbstractCreators_idhQFCQT0.invoke(__thisNode__);
   }
   /*package*/ static SNode getJavaType_idhEwIzO1(@NotNull SNode __thisNode__) {
-    return TypecheckingFacade.getFromContext().coerceType(__thisNode__, AUX_whj271.ClassifierType_42700403);
+    return TypecheckingFacade.getFromContext().coerceType(__thisNode__, CONCEPTS.ClassifierType$IZ);
   }
   /*package*/ static boolean selectOnVariableCreation_idhEwIzO8(@NotNull SNode __thisNode__) {
     return ((boolean) Type__BehaviorDescriptor.hasMissingParameters_id32KZwowVoMu.invoke(__thisNode__));
@@ -132,9 +133,9 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
   @Deprecated
   /*package*/ static SNode getClassExpression_idhEwIzOd(@NotNull SNode __thisNode__) {
     {
-      SNode coercedNode_smb55n_a0n = TypecheckingFacade.getFromContext().coerceType(__thisNode__, AUX_whj271.ClassifierType_42700403);
+      SNode coercedNode_smb55n_a0n = TypecheckingFacade.getFromContext().coerceType(__thisNode__, CONCEPTS.ClassifierType$IZ);
       if (coercedNode_smb55n_a0n != null) {
-        return _quotation_createNode_smb55n_a0a1a0a31(SLinkOperations.getTarget(coercedNode_smb55n_a0n, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
+        return _quotation_createNode_smb55n_a0a1a0a31(SLinkOperations.getTarget(coercedNode_smb55n_a0n, LINKS.classifier$pQ_R));
       } else {
         throw new UnsupportedOperationException();
       }
@@ -152,8 +153,8 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     return false;
   }
   /*package*/ static boolean isSupersetOf_id7PgshREdQKp(@NotNull SNode __thisNode__, SNode t, Map<SNode, SNode> substitutions) {
-    if (SNodeOperations.isInstanceOf(t, AUX_whj271.TypeVariableReference_3815fc3)) {
-      t = SNodeOperations.cast(MapSequence.fromMap(substitutions).get(SLinkOperations.getTarget(SNodeOperations.cast(t, AUX_whj271.TypeVariableReference_3815fc3), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration"))), AUX_whj271.Type_4199e276);
+    if (SNodeOperations.isInstanceOf(t, CONCEPTS.TypeVariableReference$vZ)) {
+      t = SNodeOperations.cast(MapSequence.fromMap(substitutions).get(SLinkOperations.getTarget(SNodeOperations.cast(t, CONCEPTS.TypeVariableReference$vZ), LINKS.typeVariableDeclaration$U0X4)), CONCEPTS.Type$IG);
       if (t == null) {
         return false;
       }
@@ -169,7 +170,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static SNode getLooseType_id4YTQtEKnnzf(@NotNull SNode __thisNode__, @NotNull Set<SNode> visitedTypes) {
     SNode looseType = SNodeOperations.copyNode(__thisNode__);
-    for (SNode varRef : SNodeOperations.getNodeDescendants(looseType, AUX_whj271.TypeVariableReference_3815fc3, false, new SAbstractConcept[]{})) {
+    for (SNode varRef : SNodeOperations.getNodeDescendants(looseType, CONCEPTS.TypeVariableReference$vZ, false, new SAbstractConcept[]{})) {
       SNodeOperations.replaceWithAnother(varRef, Type__BehaviorDescriptor.getLooseType_id4YTQtEKnnzf.invoke(varRef, visitedTypes));
     }
     return looseType;
@@ -278,7 +279,7 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x103fb730c14L, "ClassifierClassExpression"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x103fb730c14L, 0x103fb73a43eL, "classifier"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.classifier$V09, (SNode) parameter_1);
     return quotedNode_2;
   }
   private static SNode _quotation_createNode_smb55n_a0a0a0a0o(Object parameter_1) {
@@ -290,9 +291,15 @@ public final class Type__BehaviorDescriptor extends BaseBHDescriptor {
     return quotedNode_2;
   }
 
-  private static final class AUX_whj271 {
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept TypeVariableReference_3815fc3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept TypeVariableReference$vZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SReferenceLink typeVariableDeclaration$U0X4 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration");
+    /*package*/ static final SReferenceLink classifier$V09 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x103fb730c14L, 0x103fb73a43eL, "classifier");
   }
 }

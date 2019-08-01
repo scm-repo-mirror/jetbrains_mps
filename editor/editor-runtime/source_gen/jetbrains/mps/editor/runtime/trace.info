@@ -367,66 +367,70 @@
   </root>
   <root nodeRef="r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)/779128492854173535">
     <file name="SideTransformInfoUtil.java">
-      <node id="329454058123723311" at="16,89,17,41" concept="5" />
-      <node id="329454058123722579" at="20,88,21,42" concept="5" />
-      <node id="329454058123723795" at="24,102,25,198" concept="10" />
-      <node id="329454058123723801" at="25,198,26,169" concept="5" />
-      <node id="329454058123723813" at="26,169,27,841" concept="5" />
-      <node id="329454058123723822" at="27,841,28,128" concept="5" />
-      <node id="779128492854764985" at="31,59,32,326" concept="11" />
-      <node id="779128492854765202" at="35,58,36,326" concept="11" />
-      <node id="779128492854780780" at="39,54,40,128" concept="5" />
-      <node id="779128492854791669" at="43,63,44,284" concept="11" />
-      <node id="779128492854797653" at="47,66,48,287" concept="11" />
-      <node id="779128492854173535" at="52,0,53,0" concept="14" trace="SideTransformInfo_88337662" />
-      <node id="329454058123723309" at="16,0,19,0" concept="15" trace="addRightTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
-      <node id="329454058123722577" at="20,0,23,0" concept="15" trace="addLeftTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
-      <node id="779128492854815775" at="31,0,34,0" concept="15" trace="hasRightTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="779128492854817027" at="35,0,38,0" concept="15" trace="hasLeftTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="779128492854818263" at="39,0,42,0" concept="15" trace="removeTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="779128492854819483" at="43,0,46,0" concept="15" trace="getCellIdFromTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="779128492854820709" at="47,0,50,0" concept="15" trace="getAnchorTagFromTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="329454058123723793" at="24,0,30,0" concept="15" trace="addTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Z)V" />
-      <scope id="329454058123723310" at="16,89,17,41" />
-      <scope id="329454058123722578" at="20,88,21,42" />
-      <scope id="779128492854752792" at="31,59,32,326" />
-      <scope id="779128492854756227" at="35,58,36,326" />
-      <scope id="779128492854778748" at="39,54,40,128" />
-      <scope id="779128492854784030" at="43,63,44,284" />
-      <scope id="779128492854793988" at="47,66,48,287" />
-      <scope id="329454058123723309" at="16,0,19,0">
+      <node id="329454058123723311" at="17,89,18,41" concept="5" />
+      <node id="329454058123722579" at="21,88,22,42" concept="5" />
+      <node id="329454058123723795" at="25,102,26,198" concept="10" />
+      <node id="329454058123723801" at="26,198,27,64" concept="5" />
+      <node id="329454058123723813" at="27,64,28,736" concept="5" />
+      <node id="329454058123723822" at="28,736,29,120" concept="5" />
+      <node id="779128492854764985" at="32,59,33,213" concept="11" />
+      <node id="779128492854765202" at="36,58,37,213" concept="11" />
+      <node id="779128492854780780" at="40,54,41,120" concept="5" />
+      <node id="779128492854791669" at="44,63,45,171" concept="11" />
+      <node id="779128492854797653" at="48,66,49,174" concept="11" />
+      <node id="779128492854173535" at="53,0,54,0" concept="14" trace="cellId$s7SZ" />
+      <node id="779128492854173535" at="54,0,55,0" concept="14" trace="side$g7J3" />
+      <node id="779128492854173535" at="55,0,56,0" concept="14" trace="anchorTag$w7nz" />
+      <node id="779128492854173535" at="59,0,60,0" concept="14" trace="SideTransformInfo$l0" />
+      <node id="329454058123723309" at="17,0,20,0" concept="15" trace="addRightTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
+      <node id="329454058123722577" at="21,0,24,0" concept="15" trace="addLeftTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
+      <node id="779128492854815775" at="32,0,35,0" concept="15" trace="hasRightTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="779128492854817027" at="36,0,39,0" concept="15" trace="hasLeftTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="779128492854818263" at="40,0,43,0" concept="15" trace="removeTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="779128492854819483" at="44,0,47,0" concept="15" trace="getCellIdFromTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="779128492854820709" at="48,0,51,0" concept="15" trace="getAnchorTagFromTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="329454058123723793" at="25,0,31,0" concept="15" trace="addTransformInfo#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;Z)V" />
+      <scope id="329454058123723310" at="17,89,18,41" />
+      <scope id="329454058123722578" at="21,88,22,42" />
+      <scope id="779128492854752792" at="32,59,33,213" />
+      <scope id="779128492854756227" at="36,58,37,213" />
+      <scope id="779128492854778748" at="40,54,41,120" />
+      <scope id="779128492854784030" at="44,63,45,171" />
+      <scope id="779128492854793988" at="48,66,49,174" />
+      <scope id="329454058123723309" at="17,0,20,0">
         <var name="cellId" id="329454058123723320" />
         <var name="node" id="329454058123723317" />
       </scope>
-      <scope id="329454058123722577" at="20,0,23,0">
+      <scope id="329454058123722577" at="21,0,24,0">
         <var name="cellId" id="329454058123722588" />
         <var name="node" id="329454058123722585" />
       </scope>
-      <scope id="779128492854815775" at="31,0,34,0">
+      <scope id="779128492854815775" at="32,0,35,0">
         <var name="node" id="779128492854754975" />
       </scope>
-      <scope id="779128492854817027" at="35,0,38,0">
+      <scope id="779128492854817027" at="36,0,39,0">
         <var name="node" id="779128492854756230" />
       </scope>
-      <scope id="779128492854818263" at="39,0,42,0">
+      <scope id="779128492854818263" at="40,0,43,0">
         <var name="node" id="779128492854779770" />
       </scope>
-      <scope id="779128492854819483" at="43,0,46,0">
+      <scope id="779128492854819483" at="44,0,47,0">
         <var name="node" id="779128492854786247" />
       </scope>
-      <scope id="779128492854820709" at="47,0,50,0">
+      <scope id="779128492854820709" at="48,0,51,0">
         <var name="node" id="779128492854797386" />
       </scope>
-      <scope id="329454058123723794" at="24,102,28,128">
+      <scope id="329454058123723794" at="25,102,29,120">
         <var name="info" id="329454058123723796" />
       </scope>
-      <scope id="329454058123723793" at="24,0,30,0">
+      <scope id="329454058123723793" at="25,0,31,0">
         <var name="cellId" id="329454058123723832" />
         <var name="isRight" id="329454058123723838" />
         <var name="node" id="329454058123723829" />
       </scope>
-      <unit id="779128492854173535" at="51,0,54,0" name="jetbrains.mps.editor.runtime.SideTransformInfoUtil$AUX_q4j49e" />
-      <unit id="779128492854173535" at="15,0,55,0" name="jetbrains.mps.editor.runtime.SideTransformInfoUtil" />
+      <unit id="779128492854173535" at="58,0,61,0" name="jetbrains.mps.editor.runtime.SideTransformInfoUtil$CONCEPTS" />
+      <unit id="779128492854173535" at="52,0,57,0" name="jetbrains.mps.editor.runtime.SideTransformInfoUtil$PROPS" />
+      <unit id="779128492854173535" at="16,0,62,0" name="jetbrains.mps.editor.runtime.SideTransformInfoUtil" />
     </file>
   </root>
   <root nodeRef="r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)/7973955287399271868">
@@ -760,8 +764,8 @@
       <node id="8201881142991905057" at="177,5,178,31" concept="11" />
       <node id="8201881142993463871" at="181,42,182,38" concept="10" />
       <node id="8201881142993446411" at="183,38,184,47" concept="5" />
-      <node id="6134356521067655263" at="184,47,185,256" concept="10" />
-      <node id="5544326523158192776" at="186,83,187,229" concept="5" />
+      <node id="6134356521067655263" at="184,47,185,139" concept="10" />
+      <node id="5544326523158192776" at="186,75,187,205" concept="5" />
       <node id="8201881142993454610" at="189,28,190,64" concept="5" />
       <node id="8201881142993466223" at="190,64,191,26" concept="5" />
       <node id="8201881142993467368" at="192,14,193,65" concept="5" />
@@ -818,9 +822,10 @@
       <node id="8201881142993417180" at="324,33,325,61" concept="5" />
       <node id="8201881142993417189" at="326,9,327,20" concept="11" />
       <node id="2200986774883573299" at="329,7,330,76" concept="11" />
-      <node id="8201881142993420812" at="333,81,334,241" concept="11" />
+      <node id="8201881142993420812" at="333,73,334,217" concept="11" />
       <node id="8201881142993420821" at="335,5,336,37" concept="11" />
-      <node id="8201881142991326455" at="340,0,341,0" concept="14" trace="ChildAttribute_96496d6c" />
+      <node id="8201881142991326455" at="340,0,341,0" concept="14" trace="smodelAttribute$K8bJ" />
+      <node id="8201881142991326455" at="344,0,345,0" concept="14" trace="ChildAttribute$XQ" />
       <node id="8201881142991337982" at="38,0,40,0" concept="6" trace="myNodesToMove" />
       <node id="8201881142991337997" at="40,0,42,0" concept="6" trace="myEditorContext" />
       <node id="8201881142993446427" at="192,12,194,7" concept="1" />
@@ -834,7 +839,7 @@
       <node id="8201881142991923323" at="120,32,123,9" concept="8" />
       <node id="8201881142991734384" at="126,77,129,11" concept="8" />
       <node id="1955149605058962391" at="131,64,134,11" concept="8" />
-      <node id="5544326523158190965" at="185,256,188,7" concept="8" />
+      <node id="5544326523158190965" at="185,139,188,7" concept="8" />
       <node id="8201881142993360942" at="216,77,219,11" concept="8" />
       <node id="8201881142993369644" at="226,38,229,13" concept="8" />
       <node id="8201881142992113458" at="246,24,249,9" concept="8" />
@@ -900,7 +905,7 @@
       <scope id="1955149605058990217" at="137,42,138,25" />
       <scope id="1955149605058929725" at="143,37,144,34" />
       <scope id="1955149605058936019" at="145,46,146,25" />
-      <scope id="5544326523158190967" at="186,83,187,229" />
+      <scope id="5544326523158190967" at="186,75,187,205" />
       <scope id="8201881142993446428" at="192,14,193,65" />
       <scope id="8201881142993360944" at="217,30,218,25" />
       <scope id="8201881142993369651" at="227,71,228,78" />
@@ -910,7 +915,7 @@
       <scope id="8201881142992881697" at="276,37,277,20" />
       <scope id="8201881142992747188" at="288,65,289,180" />
       <scope id="8201881142993417164" at="320,45,321,27" />
-      <scope id="8201881142993420811" at="333,81,334,241" />
+      <scope id="8201881142993420811" at="333,73,334,217" />
       <scope id="8201881142993574533" at="98,18,100,196">
         <var name="selectionManager" id="8201881142993574534" />
       </scope>
@@ -1069,13 +1074,14 @@
         <var name="result" id="5295890148250392764" />
       </scope>
       <scope id="8201881142991347385" at="69,0,107,0" />
-      <unit id="8201881142991326455" at="339,0,342,0" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$AUX_9l6nqc" />
+      <unit id="8201881142991326455" at="339,0,342,0" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$LINKS" />
+      <unit id="8201881142991326455" at="343,0,346,0" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$CONCEPTS" />
       <unit id="4149817326827321618" at="94,73,103,7" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$2" />
       <unit id="2200986774883566484" at="315,79,329,5" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$4" />
       <unit id="5295890148250207559" at="74,75,89,5" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$1" />
       <unit id="8201881142991636971" at="292,0,307,0" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$PlaceToMove" />
       <unit id="5295890148250168634" at="119,84,151,5" name="jetbrains.mps.editor.runtime.IntelligentNodeMover$3" />
-      <unit id="8201881142991326455" at="37,0,343,0" name="jetbrains.mps.editor.runtime.IntelligentNodeMover" />
+      <unit id="8201881142991326455" at="37,0,347,0" name="jetbrains.mps.editor.runtime.IntelligentNodeMover" />
     </file>
   </root>
   <root nodeRef="r:2af017c2-293f-4ebb-99f3-81e353b3d6e6(jetbrains.mps.editor.runtime)/8288306652661982667">

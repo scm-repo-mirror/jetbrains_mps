@@ -6,7 +6,6 @@ import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.template.BaseMappingRuleContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -15,80 +14,83 @@ import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.generator.template.MapSrcMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.generator.template.MapSrcMacroPostProcContext;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @Generated
 public class QueriesGenerated {
   public static boolean rule_Condition_0_0(final BaseMappingRuleContext _context) {
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest")), 0x117eb40957dL);
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.useInTest$QJWm), 0x117eb40957dL);
   }
   public static boolean rule_Condition_0_1(final BaseMappingRuleContext _context) {
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest")), 0x117eb40957dL);
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.useInTest$QJWm), 0x117eb40957dL);
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
     SNode node = _context.getPreviousInputNodeByMappingLabel("ROOT INPUT");
-    return "ROOT INPUT: " + SPropertyOperations.getString(SNodeOperations.cast(node, AUX_x583g4.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "ROOT INPUT: " + SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
   }
   public static Object propertyMacro_GetValue_1_1(final PropertyMacroContext _context) {
     SNode inputNode = _context.getPreviousInputNodeByMappingLabel("LEVEL 1");
-    return "LEVEL 1: " + SPropertyOperations.getString(inputNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "LEVEL 1: " + SPropertyOperations.getString(inputNode, PROPS.name$tAp1);
   }
   public static Object propertyMacro_GetValue_1_2(final PropertyMacroContext _context) {
     SNode inputNode = _context.getPreviousInputNodeByMappingLabel("LEVEL 2");
-    return "LEVEL 2: " + SPropertyOperations.getString(inputNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "LEVEL 2: " + SPropertyOperations.getString(inputNode, PROPS.name$tAp1);
   }
   public static Object propertyMacro_GetValue_1_3(final PropertyMacroContext _context) {
-    return "created from " + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "created from " + SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1);
   }
   public static Object propertyMacro_GetValue_2_0(final PropertyMacroContext _context) {
-    return "created from " + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "created from " + SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1);
   }
   public static boolean ifMacro_Condition_1_0(final IfMacroContext _context) {
     return true;
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    _context.showInformationMessage(_context.getNode(), "MAP LEVEL1 " + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x11645abf534L, "inputChild"));
+    _context.showInformationMessage(_context.getNode(), "MAP LEVEL1 " + SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.inputChild$lNls);
   }
   public static Iterable<SNode> sourceNodesQuery_1_1(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645a1114eL, 0x117ebec4674L, "inputChild"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.inputChild$$tZ1);
   }
   public static Iterable<SNode> sourceNodesQuery_1_2(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645a1114eL, 0x117ebec4674L, "inputChild"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.inputChild$$tZ1);
   }
   public static Iterable<SNode> sourceNodesQuery_2_0(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x11645abf534L, "inputChild"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.inputChild$lNls);
   }
   public static Iterable<SNode> sourceNodesQuery_2_1(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645a1114eL, 0x117ebec4674L, "inputChild"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.inputChild$$tZ1);
   }
   public static Iterable<SNode> sourceNodesQuery_2_2(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645a1114eL, 0x117ebec4674L, "inputChild"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.inputChild$$tZ1);
   }
   public static SNode mapSrcMacro_map_2_0(final MapSrcMacroContext _context) {
     SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1164564a526L, "jetbrains.mps.transformation.test.outputLang.structure.OutputNode"));
     SNode node = _context.getPreviousInputNodeByMappingLabel("ROOT INPUT");
-    String text = "ROOT INPUT: " + SPropertyOperations.getString(SNodeOperations.cast(node, AUX_x583g4.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1164564a526L, 0x11645b5a797L, "text"), text);
+    String text = "ROOT INPUT: " + SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
+    SPropertyOperations.set(result, PROPS.text$FHzw, text);
     return result;
   }
   public static SNode mapSrcMacro_map_2_1(final MapSrcMacroContext _context) {
     SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1164564a526L, "jetbrains.mps.transformation.test.outputLang.structure.OutputNode"));
     SNode node = _context.getPreviousInputNodeByMappingLabel("LEVEL 1");
-    String text = "LEVEL 1: " + SPropertyOperations.getString(SNodeOperations.cast(node, AUX_x583g4.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1164564a526L, 0x11645b5a797L, "text"), text);
+    String text = "LEVEL 1: " + SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
+    SPropertyOperations.set(result, PROPS.text$FHzw, text);
     return result;
   }
   public static SNode mapSrcMacro_map_2_2(final MapSrcMacroContext _context) {
     SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1164564a526L, "jetbrains.mps.transformation.test.outputLang.structure.OutputNode"));
     SNode node = _context.getPreviousInputNodeByMappingLabel("LEVEL 2");
-    String text = "LEVEL 2: " + SPropertyOperations.getString(SNodeOperations.cast(node, AUX_x583g4.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1164564a526L, 0x11645b5a797L, "text"), text);
+    String text = "LEVEL 2: " + SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
+    SPropertyOperations.set(result, PROPS.text$FHzw, text);
     return result;
   }
   public static void mapSrcMacro_post_1_0(final MapSrcMacroPostProcContext _context) {
-    _context.showInformationMessage(_context.getNode(), "POST-PROC LEVEL1 " + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    _context.showInformationMessage(_context.getNode(), "POST-PROC LEVEL1 " + SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1));
   }
   public static void mapSrcMacro_post_1_1(final MapSrcMacroPostProcContext _context) {
     _context.showInformationMessage(_context.getNode(), "TEST post-proc (I in)");
@@ -102,7 +104,18 @@ public class QueriesGenerated {
     _context.showInformationMessage(_context.getOutputNode(), "TEST post-proc (III)");
   }
 
-  private static final class AUX_x583g4 {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class PROPS {
+    /*package*/ static final SProperty useInTest$QJWm = MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty text$FHzw = MetaAdapterFactory.getProperty(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1164564a526L, 0x11645b5a797L, "text");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink inputChild$lNls = MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x11645abf534L, "inputChild");
+    /*package*/ static final SContainmentLink inputChild$$tZ1 = MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645a1114eL, 0x117ebec4674L, "inputChild");
   }
 }

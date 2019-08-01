@@ -22,12 +22,12 @@ import jetbrains.mps.lang.editor.menus.transformation.IncludeSubstituteMenuTrans
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class BasePlaceholder_TransformationMenu extends TransformationMenuBase {
@@ -55,7 +55,7 @@ public class BasePlaceholder_TransformationMenu extends TransformationMenuBase {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.SUBSTITUTE).contains(_context.getMenuLocation())) {
       result.add(new TMP_IncludeSM_9icz4y_a0());
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_9icz4y.BasePlaceholder_150d8742)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.BasePlaceholder$1w)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -98,7 +98,7 @@ public class BasePlaceholder_TransformationMenu extends TransformationMenuBase {
     }
     @Override
     protected SContainmentLink getContainmentLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x339681b4da4ef1a7L, 0x339681b4da4ef1bdL, "content");
+      return LINKS.content$GcO1;
     }
     @Override
     protected SubstituteMenuLookup getSubstituteMenuLookup(TransformationMenuContext context) {
@@ -107,12 +107,16 @@ public class BasePlaceholder_TransformationMenu extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_9icz4y.IPlaceholderContent_2e80d875;
+      return CONCEPTS.IPlaceholderContent$md;
     }
   }
 
-  private static final class AUX_9icz4y {
-    /*package*/ static final SConcept BasePlaceholder_150d8742 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x339681b4da4ef1a7L, "jetbrains.mps.lang.core.structure.BasePlaceholder");
-    /*package*/ static final SInterfaceConcept IPlaceholderContent_2e80d875 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x38518aff8a105fd6L, "jetbrains.mps.lang.core.structure.IPlaceholderContent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BasePlaceholder$1w = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x339681b4da4ef1a7L, "jetbrains.mps.lang.core.structure.BasePlaceholder");
+    /*package*/ static final SInterfaceConcept IPlaceholderContent$md = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x38518aff8a105fd6L, "jetbrains.mps.lang.core.structure.IPlaceholderContent");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink content$GcO1 = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x339681b4da4ef1a7L, 0x339681b4da4ef1bdL, "content");
   }
 }

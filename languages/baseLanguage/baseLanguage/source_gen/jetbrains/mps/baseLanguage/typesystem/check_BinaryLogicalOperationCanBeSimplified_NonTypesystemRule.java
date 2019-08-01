@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -20,16 +19,19 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_BinaryLogicalOperationCanBeSimplified_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BinaryLogicalOperationCanBeSimplified_NonTypesystemRule() {
   }
   public void applyRule(final SNode binaryOperation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!(SNodeOperations.isInstanceOf(binaryOperation, AUX_mlpnys.AndExpression_68694788)) && !(SNodeOperations.isInstanceOf(binaryOperation, AUX_mlpnys.OrExpression_9cfbcc24))) {
+    if (!(SNodeOperations.isInstanceOf(binaryOperation, CONCEPTS.AndExpression$zq)) && !(SNodeOperations.isInstanceOf(binaryOperation, CONCEPTS.OrExpression$uY))) {
       return;
     }
-    SNode left = SLinkOperations.getTarget(binaryOperation, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"));
-    SNode right = SLinkOperations.getTarget(binaryOperation, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"));
+    SNode left = SLinkOperations.getTarget(binaryOperation, LINKS.leftExpression$rxLZ);
+    SNode right = SLinkOperations.getTarget(binaryOperation, LINKS.rightExpression$rxBl);
     SNode remainingNode;
     Boolean value;
     SModule module = SNodeOperations.getModel(binaryOperation).getModule();
@@ -64,12 +66,12 @@ public class check_BinaryLogicalOperationCanBeSimplified_NonTypesystemRule exten
     } else {
       return;
     }
-    if (SNodeOperations.isInstanceOf(binaryOperation, AUX_mlpnys.AndExpression_68694788) && !(value)) {
-      remainingNode = SNodeFactoryOperations.createNewNode(AUX_mlpnys.BooleanConstant_9dbf9ad0, null);
-      SPropertyOperations.assign(SNodeOperations.cast(remainingNode, AUX_mlpnys.BooleanConstant_9dbf9ad0), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), false);
-    } else if (SNodeOperations.isInstanceOf(binaryOperation, AUX_mlpnys.OrExpression_9cfbcc24) && value) {
-      remainingNode = SNodeFactoryOperations.createNewNode(AUX_mlpnys.BooleanConstant_9dbf9ad0, null);
-      SPropertyOperations.assign(SNodeOperations.cast(remainingNode, AUX_mlpnys.BooleanConstant_9dbf9ad0), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), true);
+    if (SNodeOperations.isInstanceOf(binaryOperation, CONCEPTS.AndExpression$zq) && !(value)) {
+      remainingNode = SNodeFactoryOperations.createNewNode(CONCEPTS.BooleanConstant$Ui, null);
+      SPropertyOperations.assign(SNodeOperations.cast(remainingNode, CONCEPTS.BooleanConstant$Ui), PROPS.value$WIn0, false);
+    } else if (SNodeOperations.isInstanceOf(binaryOperation, CONCEPTS.OrExpression$uY) && value) {
+      remainingNode = SNodeFactoryOperations.createNewNode(CONCEPTS.BooleanConstant$Ui, null);
+      SPropertyOperations.assign(SNodeOperations.cast(remainingNode, CONCEPTS.BooleanConstant$Ui), PROPS.value$WIn0, true);
     }
 
     {
@@ -85,7 +87,7 @@ public class check_BinaryLogicalOperationCanBeSimplified_NonTypesystemRule exten
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_mlpnys.BinaryOperation_7c4c55f3;
+    return CONCEPTS.BinaryOperation$vf;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -94,10 +96,19 @@ public class check_BinaryLogicalOperationCanBeSimplified_NonTypesystemRule exten
     return false;
   }
 
-  private static final class AUX_mlpnys {
-    /*package*/ static final SConcept AndExpression_68694788 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb7c3070eeL, "jetbrains.mps.baseLanguage.structure.AndExpression");
-    /*package*/ static final SConcept OrExpression_9cfbcc24 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb8255689fL, "jetbrains.mps.baseLanguage.structure.OrExpression");
-    /*package*/ static final SConcept BooleanConstant_9dbf9ad0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AndExpression$zq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb7c3070eeL, "jetbrains.mps.baseLanguage.structure.AndExpression");
+    /*package*/ static final SConcept OrExpression$uY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb8255689fL, "jetbrains.mps.baseLanguage.structure.OrExpression");
+    /*package*/ static final SConcept BooleanConstant$Ui = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$WIn0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value");
   }
 }

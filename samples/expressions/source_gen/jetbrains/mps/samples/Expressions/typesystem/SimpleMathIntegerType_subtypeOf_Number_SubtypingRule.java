@@ -19,7 +19,7 @@ public class SimpleMathIntegerType_subtypeOf_Number_SubtypingRule extends Subtyp
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b835454eL, "jetbrains.mps.samples.Expressions.structure.SimpleMathElementType"));
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4ksuva.SimpleMathIntegerType_85425185;
+    return CONCEPTS.SimpleMathIntegerType$TX;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -28,7 +28,7 @@ public class SimpleMathIntegerType_subtypeOf_Number_SubtypingRule extends Subtyp
     return false;
   }
 
-  private static final class AUX_4ksuva {
-    /*package*/ static final SConcept SimpleMathIntegerType_85425185 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b82698e0L, "jetbrains.mps.samples.Expressions.structure.SimpleMathIntegerType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleMathIntegerType$TX = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b82698e0L, "jetbrains.mps.samples.Expressions.structure.SimpleMathIntegerType");
   }
 }

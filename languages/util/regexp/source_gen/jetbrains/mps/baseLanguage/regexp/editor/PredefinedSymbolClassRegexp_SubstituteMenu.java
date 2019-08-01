@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class PredefinedSymbolClassRegexp_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_lmi5ai_a(), AUX_lmi5ai.PredefinedSymbolClassRegexp_4456959c));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_lmi5ai_a(), CONCEPTS.PredefinedSymbolClassRegexp$P6));
     result.add(new SMP_Subconcepts_lmi5ai_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class PredefinedSymbolClassRegexp_SubstituteMenu extends SubstituteMenuBa
 
     public SMP_ReferenceScope_lmi5ai_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_lmi5ai.PredefinedSymbolClassRegexp_4456959c, MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178fa2a18L, 0x11178fbdc7dL, "symbolClass"));
+      super((SAbstractConcept) CONCEPTS.PredefinedSymbolClassRegexp$P6, LINKS.symbolClass$v5fr);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class PredefinedSymbolClassRegexp_SubstituteMenu extends SubstituteMenuBa
   }
   public class SMP_Subconcepts_lmi5ai_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_lmi5ai.PredefinedSymbolClassRegexp_4456959c);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.PredefinedSymbolClassRegexp$P6);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class PredefinedSymbolClassRegexp_SubstituteMenu extends SubstituteMenuBa
     }
   }
 
-  private static final class AUX_lmi5ai {
-    /*package*/ static final SConcept PredefinedSymbolClassRegexp_4456959c = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178fa2a18L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassRegexp");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PredefinedSymbolClassRegexp$P6 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178fa2a18L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassRegexp");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink symbolClass$v5fr = MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178fa2a18L, 0x11178fbdc7dL, "symbolClass");
   }
 }

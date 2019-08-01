@@ -4,6 +4,7 @@ package jetbrains.mps.samples.multipleProjections.stateMachine.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AbstractStateMachineElement__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dyzg6q.AbstractStateMachineElement_6ed4e4d8;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x530533eef7894c1eL, 0xba56de1bbf3afda7L, 0x6e3eaf7a54e76eeaL, "jetbrains.mps.samples.multipleProjections.stateMachine.structure.AbstractStateMachineElement");
 
   public static final SMethod<SNode> getStateMachine_id6SYFRDkTQVW = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getStateMachine").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6SYFRDkTQVW").build();
 
@@ -31,7 +31,7 @@ public final class AbstractStateMachineElement__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ static SNode getStateMachine_id6SYFRDkTQVW(@NotNull SNode __thisNode__) {
-    return SNodeOperations.as(SNodeOperations.getParent(__thisNode__), AUX_dyzg6q.StateMachine_23cbcaa2);
+    return SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.StateMachine$$0);
   }
 
   /*package*/ AbstractStateMachineElement__BehaviorDescriptor() {
@@ -80,8 +80,7 @@ public final class AbstractStateMachineElement__BehaviorDescriptor extends BaseB
     return CONCEPT;
   }
 
-  private static final class AUX_dyzg6q {
-    /*package*/ static final SConcept AbstractStateMachineElement_6ed4e4d8 = MetaAdapterFactory.getConcept(0x530533eef7894c1eL, 0xba56de1bbf3afda7L, 0x6e3eaf7a54e76eeaL, "jetbrains.mps.samples.multipleProjections.stateMachine.structure.AbstractStateMachineElement");
-    /*package*/ static final SConcept StateMachine_23cbcaa2 = MetaAdapterFactory.getConcept(0x530533eef7894c1eL, 0xba56de1bbf3afda7L, 0xa99ffe1c8456ba1L, "jetbrains.mps.samples.multipleProjections.stateMachine.structure.StateMachine");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StateMachine$$0 = MetaAdapterFactory.getConcept(0x530533eef7894c1eL, 0xba56de1bbf3afda7L, 0xa99ffe1c8456ba1L, "jetbrains.mps.samples.multipleProjections.stateMachine.structure.StateMachine");
   }
 }

@@ -47,7 +47,7 @@ public class subs_InvokeFunction_Contribution extends SubstituteMenuBase {
   public class SMP_Group_z1qq49_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_z1qq49.ClosureLiteral_6eeca0d3, false, false) != null);
+      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ClosureLiteral$zJ, false, false) != null);
     }
     @NotNull
     @Override
@@ -63,7 +63,7 @@ public class subs_InvokeFunction_Contribution extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_z1qq49.InvokeExpression_e0aa09fe) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.InvokeExpression$k$) {
 
         @NotNull
         @Override
@@ -76,12 +76,12 @@ public class subs_InvokeFunction_Contribution extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_z1qq49.InvokeExpression_e0aa09fe));
+      }, CONCEPTS.InvokeExpression$k$));
     }
   }
 
-  private static final class AUX_z1qq49 {
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
-    /*package*/ static final SConcept InvokeExpression_e0aa09fe = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x117545d385aL, "jetbrains.mps.baseLanguage.closures.structure.InvokeExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+    /*package*/ static final SConcept InvokeExpression$k$ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x117545d385aL, "jetbrains.mps.baseLanguage.closures.structure.InvokeExpression");
   }
 }

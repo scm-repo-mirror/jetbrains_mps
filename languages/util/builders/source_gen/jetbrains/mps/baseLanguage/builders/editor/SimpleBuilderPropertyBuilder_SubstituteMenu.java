@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class SimpleBuilderPropertyBuilder_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_3dcfn1_a(), AUX_3dcfn1.SimpleBuilderPropertyBuilder_43bc9179));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_3dcfn1_a(), CONCEPTS.SimpleBuilderPropertyBuilder$O9));
     result.add(new SMP_Subconcepts_3dcfn1_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class SimpleBuilderPropertyBuilder_SubstituteMenu extends SubstituteMenuB
 
     public SMP_ReferenceScope_3dcfn1_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_3dcfn1.SimpleBuilderPropertyBuilder_43bc9179, MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4acc05c8d72ec05fL, 0x4acc05c8d72ec061L, "declaration"));
+      super((SAbstractConcept) CONCEPTS.SimpleBuilderPropertyBuilder$O9, LINKS.declaration$$rFZ);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class SimpleBuilderPropertyBuilder_SubstituteMenu extends SubstituteMenuB
   }
   public class SMP_Subconcepts_3dcfn1_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_3dcfn1.SimpleBuilderPropertyBuilder_43bc9179);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.SimpleBuilderPropertyBuilder$O9);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class SimpleBuilderPropertyBuilder_SubstituteMenu extends SubstituteMenuB
     }
   }
 
-  private static final class AUX_3dcfn1 {
-    /*package*/ static final SConcept SimpleBuilderPropertyBuilder_43bc9179 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4acc05c8d72ec05fL, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderPropertyBuilder");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleBuilderPropertyBuilder$O9 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4acc05c8d72ec05fL, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderPropertyBuilder");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$$rFZ = MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4acc05c8d72ec05fL, 0x4acc05c8d72ec061L, "declaration");
   }
 }

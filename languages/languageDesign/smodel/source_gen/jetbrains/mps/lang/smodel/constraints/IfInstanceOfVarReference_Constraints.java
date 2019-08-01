@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -24,15 +23,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class IfInstanceOfVarReference_Constraints extends BaseConstraintsDescriptor {
   public IfInstanceOfVarReference_Constraints() {
-    super(AUX_p36rc2.IfInstanceOfVarReference_4011662b);
+    super(CONCEPTS.IfInstanceOfVarReference$Un);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4c4b92003e49a704L, 0x4c4b92003e49a705L, "baseVariableDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.baseVariableDeclaration$$Ls0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,9 +48,9 @@ public class IfInstanceOfVarReference_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getContextNode(), AUX_p36rc2.IfInstanceOfStatement_3e5d1b96, false)).select(new ISelector<SNode, SNode>() {
+            return ListScope.forResolvableElements(ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getContextNode(), CONCEPTS.IfInstanceOfStatement$qc, false)).select(new ISelector<SNode, SNode>() {
               public SNode select(SNode it) {
-                return SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1a228da1357e4a44L, 0x1a228da1357e4a47L, "variable"));
+                return SLinkOperations.getTarget(it, LINKS.variable$CK59);
               }
             }));
           }
@@ -62,8 +63,13 @@ public class IfInstanceOfVarReference_Constraints extends BaseConstraintsDescrip
   }
   private static final SNodePointer breakingNode_p36rc2_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "6836281137582800563");
 
-  private static final class AUX_p36rc2 {
-    /*package*/ static final SConcept IfInstanceOfVarReference_4011662b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1a228da1357fca73L, "jetbrains.mps.lang.smodel.structure.IfInstanceOfVarReference");
-    /*package*/ static final SConcept IfInstanceOfStatement_3e5d1b96 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1a228da1357e4a44L, "jetbrains.mps.lang.smodel.structure.IfInstanceOfStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfInstanceOfVarReference$Un = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1a228da1357fca73L, "jetbrains.mps.lang.smodel.structure.IfInstanceOfVarReference");
+    /*package*/ static final SConcept IfInstanceOfStatement$qc = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1a228da1357e4a44L, "jetbrains.mps.lang.smodel.structure.IfInstanceOfStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseVariableDeclaration$$Ls0 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4c4b92003e49a704L, 0x4c4b92003e49a705L, "baseVariableDeclaration");
+    /*package*/ static final SContainmentLink variable$CK59 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1a228da1357e4a44L, 0x1a228da1357e4a47L, "variable");
   }
 }

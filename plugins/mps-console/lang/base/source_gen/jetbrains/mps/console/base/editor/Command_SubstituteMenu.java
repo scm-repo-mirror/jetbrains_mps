@@ -21,7 +21,6 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -38,13 +37,15 @@ import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Command_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_2t0axy_a(), AUX_2t0axy.BLExpression_1b85bb03));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_2t0axy_a(), CONCEPTS.BLExpression$iZ));
     result.add(new SMP_Subconcepts_2t0axy_b());
     return result;
   }
@@ -85,15 +86,15 @@ public class Command_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_2t0axy.BLExpression_1b85bb03;
+          return CONCEPTS.BLExpression$iZ;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
           myCreatedNode = nodeToWrap;
-          SNode result = SNodeFactoryOperations.createNewNode(SNodeOperations.getModel(nodeToWrap), AUX_2t0axy.BLExpression_1b85bb03, null);
-          SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6a40a3596560a9d9L, 0x6a40a3596560aa42L, "expression"), nodeToWrap);
+          SNode result = SNodeFactoryOperations.createNewNode(SNodeOperations.getModel(nodeToWrap), CONCEPTS.BLExpression$iZ, null);
+          SLinkOperations.setTarget(result, LINKS.expression$HQe6, nodeToWrap);
           return result;
         }
         @Override
@@ -120,12 +121,12 @@ public class Command_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_2t0axy.Expression_4199e28d;
+      return CONCEPTS.Expression$TP;
     }
   }
   public class SMP_Subconcepts_2t0axy_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_2t0axy.Command_d03ba149);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.Command$sT);
     }
     @NotNull
     @Override
@@ -145,9 +146,13 @@ public class Command_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_2t0axy {
-    /*package*/ static final SConcept BLExpression_1b85bb03 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6a40a3596560a9d9L, "jetbrains.mps.console.base.structure.BLExpression");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept Command_d03ba149 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f1fb64db424879fL, "jetbrains.mps.console.base.structure.Command");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BLExpression$iZ = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6a40a3596560a9d9L, "jetbrains.mps.console.base.structure.BLExpression");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept Command$sT = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f1fb64db424879fL, "jetbrains.mps.console.base.structure.Command");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$HQe6 = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6a40a3596560a9d9L, 0x6a40a3596560aa42L, "expression");
   }
 }

@@ -9,10 +9,11 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_ModelProperties_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -26,14 +27,14 @@ public class typeof_ModelProperties_InferenceRule extends AbstractInferenceRule_
     }
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(modelProperties, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587b0L, 0x4d7759afce9587b1L, "targetModel"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(modelProperties, LINKS.targetModel$Qcg0);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:71e81c80-d7fe-47f3-91de-9281cfae8376(jetbrains.mps.console.ideCommands.typesystem)", "5582028874769074343", 0, null);
         typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:71e81c80-d7fe-47f3-91de-9281cfae8376(jetbrains.mps.console.ideCommands.typesystem)", "5582028874769074348", true), (SNode) _quotation_createNode_era7ya_a1a0c0a0b0b(), true, _info_12389875345);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_era7ya.ModelProperties_48a6c9c2;
+    return CONCEPTS.ModelProperties$Rw;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,7 +55,11 @@ public class typeof_ModelProperties_InferenceRule extends AbstractInferenceRule_
     return quotedNode_1;
   }
 
-  private static final class AUX_era7ya {
-    /*package*/ static final SConcept ModelProperties_48a6c9c2 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587b0L, "jetbrains.mps.console.ideCommands.structure.ModelProperties");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink targetModel$Qcg0 = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587b0L, 0x4d7759afce9587b1L, "targetModel");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModelProperties$Rw = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587b0L, "jetbrains.mps.console.ideCommands.structure.ModelProperties");
   }
 }

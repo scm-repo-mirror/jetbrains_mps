@@ -25,7 +25,7 @@ public class typeOf_NullLiteral_InferenceRule extends AbstractInferenceRule_Runt
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_kk3qo8.NullLiteral_5b038c9e;
+    return CONCEPTS.NullLiteral$q4;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeOf_NullLiteral_InferenceRule extends AbstractInferenceRule_Runt
     return quotedNode_1;
   }
 
-  private static final class AUX_kk3qo8 {
-    /*package*/ static final SConcept NullLiteral_5b038c9e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NullLiteral$q4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral");
   }
 }

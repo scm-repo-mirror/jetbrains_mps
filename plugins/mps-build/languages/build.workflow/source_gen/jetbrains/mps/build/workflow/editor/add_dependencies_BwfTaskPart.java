@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -37,6 +36,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class add_dependencies_BwfTaskPart extends TransformationMenuBase {
@@ -71,7 +72,7 @@ public class add_dependencies_BwfTaskPart extends TransformationMenuBase {
   public class TMP_Group_5stah4_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x36fb0dc9fd32c1b8L, 0x36fb0dc9fd37a1c2L, "additionalDependencies"))).isEmpty();
+      return ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.additionalDependencies$QRrD)).isEmpty();
     }
 
     @NotNull
@@ -127,7 +128,7 @@ public class add_dependencies_BwfTaskPart extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x36fb0dc9fd32c1b8L, 0x36fb0dc9fd37a1c2L, "additionalDependencies"))).addElement(SModelOperations.createNewNode(_context.getModel(), null, AUX_5stah4.BwfTaskDependency_e8eeaba9));
+          ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.additionalDependencies$QRrD)).addElement(SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.BwfTaskDependency$zp));
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -152,7 +153,11 @@ public class add_dependencies_BwfTaskPart extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_5stah4 {
-    /*package*/ static final SConcept BwfTaskDependency_e8eeaba9 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5ace56L, "jetbrains.mps.build.workflow.structure.BwfTaskDependency");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink additionalDependencies$QRrD = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x36fb0dc9fd32c1b8L, 0x36fb0dc9fd37a1c2L, "additionalDependencies");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfTaskDependency$zp = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5ace56L, "jetbrains.mps.build.workflow.structure.BwfTaskDependency");
   }
 }

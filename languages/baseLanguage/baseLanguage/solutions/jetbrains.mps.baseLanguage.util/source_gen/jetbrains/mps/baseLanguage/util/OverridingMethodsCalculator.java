@@ -8,12 +8,12 @@ import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
@@ -23,6 +23,9 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.search.VisibilityUtil;
 import java.util.LinkedHashSet;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /**
@@ -36,7 +39,7 @@ public final class OverridingMethodsCalculator {
   }
 
   public OverridingMethodsCalculator(SNode container, SNode enumConstant) {
-    Iterable<SNode> result = SLinkOperations.getChildren(enumConstant, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"));
+    Iterable<SNode> result = SLinkOperations.getChildren(enumConstant, LINKS.method$3$mN);
 
     Map<String, Set<SNode>> nameToMethodsMap = MapSequence.fromMap(new HashMap<String, Set<SNode>>());
     for (SNode methodToCheck : Sequence.fromIterable(result).where(new IWhereFilter<SNode>() {
@@ -44,11 +47,11 @@ public final class OverridingMethodsCalculator {
         return canOverride(it);
       }
     })) {
-      SetSequence.fromSet(safeGet(nameToMethodsMap, SPropertyOperations.getString(methodToCheck, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))).addElement(methodToCheck);
+      SetSequence.fromSet(safeGet(nameToMethodsMap, SPropertyOperations.getString(methodToCheck, PROPS.name$tAp1))).addElement(methodToCheck);
     }
     if (MapSequence.fromMap(nameToMethodsMap).isNotEmpty()) {
       SNode dummy = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass"));
-      SLinkOperations.setTarget(dummy, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier"), container);
+      SLinkOperations.setTarget(dummy, LINKS.classifier$1y5e, container);
       collectOverridingMethodsInClassifierHierarchy(dummy, nameToMethodsMap, SetSequence.fromSet(new HashSet<SNode>()));
     }
   }
@@ -60,7 +63,7 @@ public final class OverridingMethodsCalculator {
         return canOverride(it);
       }
     })) {
-      SetSequence.fromSet(safeGet(nameToMethodsMap, SPropertyOperations.getString(methodToCheck, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))).addElement(methodToCheck);
+      SetSequence.fromSet(safeGet(nameToMethodsMap, SPropertyOperations.getString(methodToCheck, PROPS.name$tAp1))).addElement(methodToCheck);
     }
     if (MapSequence.fromMap(nameToMethodsMap).isNotEmpty()) {
       collectOverridingMethodsInClassifierHierarchy(container, nameToMethodsMap, SetSequence.fromSet(new HashSet<SNode>()));
@@ -76,18 +79,18 @@ public final class OverridingMethodsCalculator {
   }
 
   private void collectOverridingMethodsInClassifierHierarchy(final SNode classifier, final Map<String, Set<SNode>> nameToMethodsMap, final Set<SNode> visitedClassifiers) {
-    if (SNodeOperations.isInstanceOf(classifier, AUX_qrs7o5.ClassConcept_e2711824)) {
-      SNode clazz = SNodeOperations.cast(classifier, AUX_qrs7o5.ClassConcept_e2711824);
+    if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.ClassConcept$IY)) {
+      SNode clazz = SNodeOperations.cast(classifier, CONCEPTS.ClassConcept$IY);
       SNode superClass;
-      if (SNodeOperations.isInstanceOf(clazz, AUX_qrs7o5.AnonymousClass_e4a73f97)) {
-        superClass = SLinkOperations.getTarget(SNodeOperations.cast(clazz, AUX_qrs7o5.AnonymousClass_e4a73f97), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier"));
+      if (SNodeOperations.isInstanceOf(clazz, CONCEPTS.AnonymousClass$aF)) {
+        superClass = SLinkOperations.getTarget(SNodeOperations.cast(clazz, CONCEPTS.AnonymousClass$aF), LINKS.classifier$1y5e);
       } else {
-        superClass = ((SLinkOperations.getTarget(SLinkOperations.getTarget(clazz, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) != null) ? SLinkOperations.getTarget(SLinkOperations.getTarget(clazz, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) : SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object"));
+        superClass = ((SLinkOperations.getTarget(SLinkOperations.getTarget(clazz, LINKS.superclass$_pqe), LINKS.classifier$pQ_R) != null) ? SLinkOperations.getTarget(SLinkOperations.getTarget(clazz, LINKS.superclass$_pqe), LINKS.classifier$pQ_R) : SNodeOperations.getNode("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Object"));
       }
       if (addIfNotContains(visitedClassifiers, superClass)) {
         collectOverridingMethods(classifier, superClass, nameToMethodsMap, visitedClassifiers);
       }
-      Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(clazz, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))).where(new IWhereFilter<SNode>() {
+      Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(clazz, LINKS.implementedInterface$mdc6), LINKS.classifier$pQ_R)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode implementedInterface) {
           return implementedInterface != null && addIfNotContains(visitedClassifiers, implementedInterface);
         }
@@ -96,8 +99,8 @@ public final class OverridingMethodsCalculator {
           collectOverridingMethods(classifier, intfc, nameToMethodsMap, visitedClassifiers);
         }
       });
-    } else if (SNodeOperations.isInstanceOf(classifier, AUX_qrs7o5.Interface_bca2069)) {
-      Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.cast(classifier, AUX_qrs7o5.Interface_bca2069), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, 0x101eddadad7L, "extendedInterface")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))).where(new IWhereFilter<SNode>() {
+    } else if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.Interface$Kp)) {
+      Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.cast(classifier, CONCEPTS.Interface$Kp), LINKS.extendedInterface$rbvY), LINKS.classifier$pQ_R)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode extendedInterface) {
           return extendedInterface != null && addIfNotContains(visitedClassifiers, extendedInterface);
         }
@@ -111,20 +114,20 @@ public final class OverridingMethodsCalculator {
 
   private void collectOverridingMethods(final SNode classifier, final SNode superClassifier, Map<String, Set<SNode>> nameToMethodsMap, Set<SNode> visitedClassifiers) {
     Map<String, Set<SNode>> methodNameToMethodMapCopy = copyMap(nameToMethodsMap);
-    for (final SNode superClassifierMethod : Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(superClassifier, AUX_qrs7o5.Classifier_4b7e553, SMethodTrimmedId.create("methods", AUX_qrs7o5.Classifier_4b7e553, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
+    for (final SNode superClassifierMethod : Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(superClassifier, CONCEPTS.Classifier$hJ, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$hJ, "4_LVZ3pBKCn")))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         // not very comprehensible condition (it is a dummy anonymous stub for enum constant) AP 
-        boolean enumConstant = SNodeOperations.isInstanceOf(classifier, AUX_qrs7o5.AnonymousClass_e4a73f97) && SNodeOperations.getModel(classifier) == null;
-        return canBeOverridden(it) && ((SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) != null) || enumConstant || packagesAreTheSame(superClassifier, classifier));
+        boolean enumConstant = SNodeOperations.isInstanceOf(classifier, CONCEPTS.AnonymousClass$aF) && SNodeOperations.getModel(classifier) == null;
+        return canBeOverridden(it) && ((SLinkOperations.getTarget(it, LINKS.visibility$2GiC) != null) || enumConstant || packagesAreTheSame(superClassifier, classifier));
       }
     })) {
-      Set<SNode> methodsWithNameOfSuperMethod = MapSequence.fromMap(methodNameToMethodMapCopy).get(SPropertyOperations.getString(superClassifierMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+      Set<SNode> methodsWithNameOfSuperMethod = MapSequence.fromMap(methodNameToMethodMapCopy).get(SPropertyOperations.getString(superClassifierMethod, PROPS.name$tAp1));
       if (methodsWithNameOfSuperMethod == null) {
         continue;
       }
       List<SNode> overridingMethods = SetSequence.fromSet(methodsWithNameOfSuperMethod).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ((boolean) (Boolean) BHReflection.invoke0(superClassifierMethod, AUX_qrs7o5.BaseMethodDeclaration_9dbf9acb, SMethodTrimmedId.create("hasSameSignature", AUX_qrs7o5.BaseMethodDeclaration_9dbf9acb, "hEwIB0z"), it));
+          return ((boolean) (Boolean) BHReflection.invoke0(superClassifierMethod, CONCEPTS.BaseMethodDeclaration$RR, SMethodTrimmedId.create("hasSameSignature", CONCEPTS.BaseMethodDeclaration$RR, "hEwIB0z"), it));
         }
       }).toListSequence();
       for (SNode overridingMethod : ListSequence.fromList(overridingMethods)) {
@@ -132,7 +135,7 @@ public final class OverridingMethodsCalculator {
       }
       SetSequence.fromSet(methodsWithNameOfSuperMethod).removeSequence(ListSequence.fromList(overridingMethods));
       if (SetSequence.fromSet(methodsWithNameOfSuperMethod).isEmpty()) {
-        MapSequence.fromMap(methodNameToMethodMapCopy).removeKey(SPropertyOperations.getString(superClassifierMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        MapSequence.fromMap(methodNameToMethodMapCopy).removeKey(SPropertyOperations.getString(superClassifierMethod, PROPS.name$tAp1));
       }
     }
     if (!(MapSequence.fromMap(methodNameToMethodMapCopy).isEmpty())) {
@@ -153,21 +156,21 @@ public final class OverridingMethodsCalculator {
   }
 
   public static Iterable<SNode> getInstanceMethods(SNode containingClassifier) {
-    Iterable<SNode> result = ((Iterable<SNode>) BHReflection.invoke0(containingClassifier, AUX_qrs7o5.Classifier_4b7e553, SMethodTrimmedId.create("methods", AUX_qrs7o5.Classifier_4b7e553, "4_LVZ3pBKCn")));
-    if (SNodeOperations.isInstanceOf(containingClassifier, AUX_qrs7o5.EnumClass_acf68fc0)) {
-      for (SNode enumConstant : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(containingClassifier, AUX_qrs7o5.EnumClass_acf68fc0), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant")))) {
-        result = Sequence.fromIterable(result).concat(ListSequence.fromList(SLinkOperations.getChildren(enumConstant, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"))));
+    Iterable<SNode> result = ((Iterable<SNode>) BHReflection.invoke0(containingClassifier, CONCEPTS.Classifier$hJ, SMethodTrimmedId.create("methods", CONCEPTS.Classifier$hJ, "4_LVZ3pBKCn")));
+    if (SNodeOperations.isInstanceOf(containingClassifier, CONCEPTS.EnumClass$uy)) {
+      for (SNode enumConstant : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(containingClassifier, CONCEPTS.EnumClass$uy), LINKS.enumConstant$urAQ))) {
+        result = Sequence.fromIterable(result).concat(ListSequence.fromList(SLinkOperations.getChildren(enumConstant, LINKS.method$3$mN)));
       }
     }
     return result;
   }
 
   public static boolean canOverride(SNode method) {
-    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_qrs7o5.PrivateVisibility_63f5dbd4)) && isNotEmptyString(SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.visibility$2GiC), CONCEPTS.PrivateVisibility$Se)) && isNotEmptyString(SPropertyOperations.getString(method, PROPS.name$tAp1));
   }
 
   public static boolean canBeOverridden(SNode method) {
-    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_qrs7o5.PrivateVisibility_63f5dbd4)) && isNotEmptyString(SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(method, LINKS.visibility$2GiC), CONCEPTS.PrivateVisibility$Se)) && isNotEmptyString(SPropertyOperations.getString(method, PROPS.name$tAp1));
   }
 
   public static <K, V> Set<V> safeGet(Map<K, Set<V>> map, K key) {
@@ -188,13 +191,28 @@ public final class OverridingMethodsCalculator {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_qrs7o5 {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept PrivateVisibility_63f5dbd4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink method$3$mN = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method");
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+    /*package*/ static final SContainmentLink superclass$_pqe = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink implementedInterface$mdc6 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface");
+    /*package*/ static final SContainmentLink extendedInterface$rbvY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, 0x101eddadad7L, "extendedInterface");
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink enumConstant$urAQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept PrivateVisibility$Se = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
   }
 }

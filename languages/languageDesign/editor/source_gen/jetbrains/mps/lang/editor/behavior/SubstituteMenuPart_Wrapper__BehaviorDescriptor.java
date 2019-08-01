@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,15 +16,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class SubstituteMenuPart_Wrapper__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_x75zg0.SubstituteMenuPart_Wrapper_6d2f926b;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5cc5669cafd1be9bL, "jetbrains.mps.lang.editor.structure.SubstituteMenuPart_Wrapper");
 
   public static final SMethod<SNode> getReference_id3rSzFHWOe4u = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3rSzFHWOe4u").build();
   public static final SMethod<SNode> getCreatedConcept_id6e716hiEcRp = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCreatedConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6e716hiEcRp").build();
@@ -35,13 +36,13 @@ public final class SubstituteMenuPart_Wrapper__BehaviorDescriptor extends BaseBH
   }
 
   /*package*/ static SNode getReference_id3rSzFHWOe4u(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5cc5669cafd1be9bL, 0x5480a271c0d515beL, "reference"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.reference$Othg);
   }
   /*package*/ static SNode getCreatedConcept_id6e716hiEcRp(@NotNull SNode __thisNode__) {
-    return IMenuReference__BehaviorDescriptor.getApplicableConcept_id1quYWAD4TFX.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5cc5669cafd1be9bL, 0x5480a271c0d515beL, "reference")));
+    return IMenuReference__BehaviorDescriptor.getApplicableConcept_id1quYWAD4TFX.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.reference$Othg));
   }
   /*package*/ static List<SConcept> getAdditionalFeatureParameters_id394Ruzxf8fe(@NotNull SNode __thisNode__) {
-    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), AUX_x75zg0.QueryFunctionParameter_SubstituteMenu_WrappedItem_b5bfc53);
+    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.QueryFunctionParameter_SubstituteMenu_WrappedItem$PJ);
   }
 
   /*package*/ SubstituteMenuPart_Wrapper__BehaviorDescriptor() {
@@ -94,8 +95,11 @@ public final class SubstituteMenuPart_Wrapper__BehaviorDescriptor extends BaseBH
     return CONCEPT;
   }
 
-  private static final class AUX_x75zg0 {
-    /*package*/ static final SConcept SubstituteMenuPart_Wrapper_6d2f926b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5cc5669cafd1be9bL, "jetbrains.mps.lang.editor.structure.SubstituteMenuPart_Wrapper");
-    /*package*/ static final SConcept QueryFunctionParameter_SubstituteMenu_WrappedItem_b5bfc53 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1280eecL, "jetbrains.mps.lang.editor.structure.QueryFunctionParameter_SubstituteMenu_WrappedItem");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink reference$Othg = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5cc5669cafd1be9bL, 0x5480a271c0d515beL, "reference");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryFunctionParameter_SubstituteMenu_WrappedItem$PJ = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1280eecL, "jetbrains.mps.lang.editor.structure.QueryFunctionParameter_SubstituteMenu_WrappedItem");
   }
 }

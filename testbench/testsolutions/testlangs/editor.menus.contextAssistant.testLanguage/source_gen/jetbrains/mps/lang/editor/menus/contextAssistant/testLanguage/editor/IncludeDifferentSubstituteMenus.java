@@ -20,12 +20,12 @@ import jetbrains.mps.lang.editor.menus.transformation.IncludeSubstituteMenuTrans
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.lang.editor.menus.substitute.NamedSubstituteMenuLookup;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class IncludeDifferentSubstituteMenus extends TransformationMenuBase {
@@ -83,7 +83,7 @@ public class IncludeDifferentSubstituteMenus extends TransformationMenuBase {
     }
     @Override
     protected SContainmentLink getContainmentLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getContainmentLink(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a0703eL, 0x1a41c6fb280bf85eL, "childIncludeDifferentSubstituteMenus");
+      return LINKS.childIncludeDifferentSubstituteMenus$uQy3;
     }
     @Override
     protected SubstituteMenuLookup getSubstituteMenuLookup(TransformationMenuContext context) {
@@ -92,7 +92,7 @@ public class IncludeDifferentSubstituteMenus extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_dmlyok.ToIncludeSubstituteMenu_740db920;
+      return CONCEPTS.ToIncludeSubstituteMenu$D2;
     }
   }
   public class TMP_IncludeSM_dmlyok_b0 extends IncludeSubstituteMenuTransformationMenuPart {
@@ -120,7 +120,7 @@ public class IncludeDifferentSubstituteMenus extends TransformationMenuBase {
     }
     @Override
     protected SContainmentLink getContainmentLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getContainmentLink(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a0703eL, 0x1a41c6fb280bf85eL, "childIncludeDifferentSubstituteMenus");
+      return LINKS.childIncludeDifferentSubstituteMenus$uQy3;
     }
     @Override
     protected SubstituteMenuLookup getSubstituteMenuLookup(TransformationMenuContext context) {
@@ -129,11 +129,15 @@ public class IncludeDifferentSubstituteMenus extends TransformationMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.NamedSubstituteMenuToInclude");
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_dmlyok.ToIncludeSubstituteMenu_740db920;
+      return CONCEPTS.ToIncludeSubstituteMenu$D2;
     }
   }
 
-  private static final class AUX_dmlyok {
-    /*package*/ static final SConcept ToIncludeSubstituteMenu_740db920 = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a82ca7L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.ToIncludeSubstituteMenu");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink childIncludeDifferentSubstituteMenus$uQy3 = MetaAdapterFactory.getContainmentLink(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a0703eL, 0x1a41c6fb280bf85eL, "childIncludeDifferentSubstituteMenus");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ToIncludeSubstituteMenu$D2 = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a82ca7L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.ToIncludeSubstituteMenu");
   }
 }

@@ -24,7 +24,7 @@ public class typeof_AbstractOperation_InferenceRule extends AbstractInferenceRul
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_eqsxx2.AbstractStyledTextOperation_67d1ed80;
+    return CONCEPTS.AbstractStyledTextOperation$7y;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_AbstractOperation_InferenceRule extends AbstractInferenceRul
     return false;
   }
 
-  private static final class AUX_eqsxx2 {
-    /*package*/ static final SConcept AbstractStyledTextOperation_67d1ed80 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, "jetbrains.mps.lang.editor.structure.AbstractStyledTextOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractStyledTextOperation$7y = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, "jetbrains.mps.lang.editor.structure.AbstractStyledTextOperation");
   }
 }

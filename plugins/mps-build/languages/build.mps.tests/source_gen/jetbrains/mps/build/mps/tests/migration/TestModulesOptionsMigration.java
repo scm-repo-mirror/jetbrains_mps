@@ -11,9 +11,10 @@ import jetbrains.mps.project.EditableFilteringScope;
 import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class TestModulesOptionsMigration extends MigrationScriptBase {
@@ -37,10 +38,10 @@ public class TestModulesOptionsMigration extends MigrationScriptBase {
           return scope_hxqppu_a0d_0;
         }
       };
-      for (SNode testModules : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_hxqppu.BuildMpsLayout_TestModules_bb9add5f, false))) {
-        if (SLinkOperations.getTarget(testModules, MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, 0x5b81705cdfb31570L, "options")) == null) {
-          SLinkOperations.setTarget(testModules, MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, 0x5b81705cdfb31570L, "options"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModules_Options")));
-          SLinkOperations.setTarget(SLinkOperations.getTarget(testModules, MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, 0x5b81705cdfb31570L, "options")), MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, 0x5b81705cdfb323cdL, "haltonfailure"), SLinkOperations.getTarget(testModules, MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, 0x6402cbb11c1307aeL, "haltonfailure")));
+      for (SNode testModules : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.BuildMpsLayout_TestModules$Rz, false))) {
+        if (SLinkOperations.getTarget(testModules, LINKS.options$xNNT) == null) {
+          SLinkOperations.setTarget(testModules, LINKS.options$xNNT, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModules_Options")));
+          SLinkOperations.setTarget(SLinkOperations.getTarget(testModules, LINKS.options$xNNT), LINKS.haltonfailure$JTP8, SLinkOperations.getTarget(testModules, LINKS.haltonfailure$OvcS));
         }
       }
     }
@@ -49,7 +50,13 @@ public class TestModulesOptionsMigration extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x3600cb0a44dd4a5bL, 0x996822924406419eL, "jetbrains.mps.build.mps.tests"), 0);
   }
 
-  private static final class AUX_hxqppu {
-    /*package*/ static final SConcept BuildMpsLayout_TestModules_bb9add5f = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModules");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink options$xNNT = MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, 0x5b81705cdfb31570L, "options");
+    /*package*/ static final SContainmentLink haltonfailure$JTP8 = MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, 0x5b81705cdfb323cdL, "haltonfailure");
+    /*package*/ static final SContainmentLink haltonfailure$OvcS = MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, 0x6402cbb11c1307aeL, "haltonfailure");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMpsLayout_TestModules$Rz = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x3f496e80bd8ef36dL, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModules");
   }
 }

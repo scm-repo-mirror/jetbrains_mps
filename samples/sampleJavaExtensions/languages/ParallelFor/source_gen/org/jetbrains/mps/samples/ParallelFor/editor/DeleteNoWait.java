@@ -7,11 +7,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DeleteNoWait {
 
@@ -24,7 +25,7 @@ public class DeleteNoWait {
         if (DeletionApproverUtil.approve(editorContext, node, "noWaitKeyword")) {
           return;
         }
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x74391c966b0f1304L, "nowait"), false);
+        SPropertyOperations.assign(node, PROPS.nowait$ez6i, false);
       }
 
     };
@@ -63,5 +64,9 @@ public class DeleteNoWait {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty nowait$ez6i = MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x74391c966b0f1304L, "nowait");
   }
 }

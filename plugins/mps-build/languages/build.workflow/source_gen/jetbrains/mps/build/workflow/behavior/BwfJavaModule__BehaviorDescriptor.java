@@ -4,6 +4,7 @@ package jetbrains.mps.build.workflow.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class BwfJavaModule__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_wugmrk.BwfJavaModule_2d8d648b;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, "jetbrains.mps.build.workflow.structure.BwfJavaModule");
 
   public static final SMethod<List<String>> getCompilerNames_id3Par5_LaIPl = new SMethodBuilder<List<String>>(new SJavaCompoundTypeImpl((Class<List<String>>) ((Class) Object.class))).name("getCompilerNames").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3Par5_LaIPl").build();
   public static final SMethod<String> getAntTargetName_id6pYRYgn8i1z = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAntTargetName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6pYRYgn8i1z").build();
@@ -30,18 +30,18 @@ public final class BwfJavaModule__BehaviorDescriptor extends BaseBHDescriptor {
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCompilerNames_id3Par5_LaIPl, getAntTargetName_id6pYRYgn8i1z, needsFork_id3Par5_LaArg);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x3d4a6c597112f405L, "fork"), true);
+    SPropertyOperations.assign(__thisNode__, PROPS.fork$RER2, true);
   }
 
   /*package*/ static List<String> getCompilerNames_id3Par5_LaIPl(@NotNull SAbstractConcept __thisConcept__) {
     return Arrays.asList(new String[]{"modern", "IntelliJ", "jikes", "gcj"});
   }
   /*package*/ static String getAntTargetName_id6pYRYgn8i1z(@NotNull SNode __thisNode__) {
-    return "java.compile." + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "java.compile." + SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
   }
   /*package*/ static boolean needsFork_id3Par5_LaArg(@NotNull SNode __thisNode__) {
-    boolean userFork = SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x3d4a6c597112f405L, "fork"));
-    boolean compilerForkedByDefault = isNotEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x1c936d31d30fdf98L, "compiler"))) && !(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x1c936d31d30fdf98L, "compiler")).equals("IntelliJ")) && !(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x1c936d31d30fdf98L, "compiler")).equals("modern"));
+    boolean userFork = SPropertyOperations.getBoolean(__thisNode__, PROPS.fork$RER2);
+    boolean compilerForkedByDefault = isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.compiler$Rqm0)) && !(SPropertyOperations.getString(__thisNode__, PROPS.compiler$Rqm0).equals("IntelliJ")) && !(SPropertyOperations.getString(__thisNode__, PROPS.compiler$Rqm0).equals("modern"));
     return !(compilerForkedByDefault) && userFork;
   }
 
@@ -98,7 +98,9 @@ public final class BwfJavaModule__BehaviorDescriptor extends BaseBHDescriptor {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_wugmrk {
-    /*package*/ static final SConcept BwfJavaModule_2d8d648b = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, "jetbrains.mps.build.workflow.structure.BwfJavaModule");
+  private static final class PROPS {
+    /*package*/ static final SProperty fork$RER2 = MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x3d4a6c597112f405L, "fork");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty compiler$Rqm0 = MetaAdapterFactory.getProperty(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, 0x1c936d31d30fdf98L, "compiler");
   }
 }

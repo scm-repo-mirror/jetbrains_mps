@@ -25,6 +25,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DeleteNode_Action extends BaseAction {
@@ -115,7 +116,7 @@ public class DeleteNode_Action extends BaseAction {
       public Iterable<SNode> translate(final Pair<SModel, String> pack) {
         return ListSequence.fromList(SModelOperations.roots(((SModel) pack.o1), null)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode node) {
-            return SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")) != null && SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")).startsWith(pack.o2);
+            return SPropertyOperations.getString(node, PROPS.virtualPackage$j19t) != null && SPropertyOperations.getString(node, PROPS.virtualPackage$j19t).startsWith(pack.o2);
           }
         });
       }
@@ -131,5 +132,9 @@ public class DeleteNode_Action extends BaseAction {
       return checkedDotOperand.isReadOnly();
     }
     return false;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

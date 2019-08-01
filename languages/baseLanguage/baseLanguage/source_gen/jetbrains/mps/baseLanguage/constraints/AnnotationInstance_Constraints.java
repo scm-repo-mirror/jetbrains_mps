@@ -19,7 +19,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class AnnotationInstance_Constraints extends BaseConstraintsDescriptor {
   public AnnotationInstance_Constraints() {
-    super(AUX_7iaawd.AnnotationInstance_51bc59df);
+    super(CONCEPTS.AnnotationInstance$5z);
   }
 
   @Override
@@ -41,14 +41,14 @@ public class AnnotationInstance_Constraints extends BaseConstraintsDescriptor {
     if (link == null) {
       return false;
     }
-    if (Objects.equals(link.getTargetConcept(), AUX_7iaawd.AnnotationInstance_51bc59df)) {
+    if (Objects.equals(link.getTargetConcept(), CONCEPTS.AnnotationInstance$5z)) {
       return true;
     }
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_7iaawd.AnnotationInstance_51bc59df, true, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.AnnotationInstance$5z, true, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1227128029536558454");
 
-  private static final class AUX_7iaawd {
-    /*package*/ static final SConcept AnnotationInstance_51bc59df = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnnotationInstance$5z = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.execution.configurations.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -19,15 +20,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.execution.common.behavior.IGeneratedToClass__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class RunConfiguration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dhv8ye.RunConfiguration_fcc7b945;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, "jetbrains.mps.execution.configurations.structure.RunConfiguration");
 
   public static final SMethod<SNode> getExecutor_id3gs394eDyIj = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExecutor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3gs394eDyIj").build();
   public static final SMethod<Boolean> isForeign_id3wpI_WC06mf = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isForeign").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3wpI_WC06mf").build();
@@ -40,17 +41,17 @@ public final class RunConfiguration__BehaviorDescriptor extends BaseBHDescriptor
 
   @Nullable
   /*package*/ static SNode getExecutor_id3gs394eDyIj(@NotNull final SNode __thisNode__) {
-    return ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(__thisNode__), AUX_dhv8ye.AbstractRunConfigurationExecutor_fd0cc5b0)).findFirst(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(__thisNode__), CONCEPTS.AbstractRunConfigurationExecutor$YM)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration")) == __thisNode__;
+        return SLinkOperations.getTarget(it, LINKS.configuration$RmX0) == __thisNode__;
       }
     });
   }
   /*package*/ static boolean isForeign_id3wpI_WC06mf(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, 0x2153d8f1c1f48ae2L, "configurationKind")) == null)) {
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.configurationKind$z8mV) == null)) {
       return false;
     }
-    return !(Objects.equals(SNodeOperations.getModel(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, 0x2153d8f1c1f48ae2L, "configurationKind"))), SNodeOperations.getModel(__thisNode__)));
+    return !(Objects.equals(SNodeOperations.getModel(SLinkOperations.getTarget(__thisNode__, LINKS.configurationKind$z8mV)), SNodeOperations.getModel(__thisNode__)));
   }
   /*package*/ static String getGeneratedFactoryName_id1XgDflG1h5w(@NotNull SNode __thisNode__) {
     return IGeneratedToClass__BehaviorDescriptor.getGeneratedClassName_idO$iR4JBsSg.invoke(__thisNode__) + "_Factory";
@@ -106,8 +107,12 @@ public final class RunConfiguration__BehaviorDescriptor extends BaseBHDescriptor
     return CONCEPT;
   }
 
-  private static final class AUX_dhv8ye {
-    /*package*/ static final SConcept RunConfiguration_fcc7b945 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, "jetbrains.mps.execution.configurations.structure.RunConfiguration");
-    /*package*/ static final SConcept AbstractRunConfigurationExecutor_fd0cc5b0 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractRunConfigurationExecutor$YM = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink configuration$RmX0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration");
+    /*package*/ static final SReferenceLink configurationKind$z8mV = MetaAdapterFactory.getReferenceLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, 0x2153d8f1c1f48ae2L, "configurationKind");
   }
 }

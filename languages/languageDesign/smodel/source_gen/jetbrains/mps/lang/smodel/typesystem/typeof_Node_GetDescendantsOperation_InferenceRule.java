@@ -14,6 +14,7 @@ import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class typeof_Node_GetDescendantsOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_Node_GetDescendantsOperation_InferenceRule() {
@@ -30,7 +31,7 @@ public class typeof_Node_GetDescendantsOperation_InferenceRule extends AbstractI
     // so typeof(op) was simply nlist<> without concept 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_iyyi8n.Node_GetDescendantsOperation_2f48d9cb;
+    return CONCEPTS.Node_GetDescendantsOperation$VR;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,11 +43,15 @@ public class typeof_Node_GetDescendantsOperation_InferenceRule extends AbstractI
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x10aae26be32L, "SNodeListType"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10aae26be32L, 0x10aae27c421L, "elementConcept"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.elementConcept$AB72, (SNode) parameter_1);
     return quotedNode_2;
   }
 
-  private static final class AUX_iyyi8n {
-    /*package*/ static final SConcept Node_GetDescendantsOperation_2f48d9cb = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110b73c3484L, "jetbrains.mps.lang.smodel.structure.Node_GetDescendantsOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_GetDescendantsOperation$VR = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110b73c3484L, "jetbrains.mps.lang.smodel.structure.Node_GetDescendantsOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink elementConcept$AB72 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10aae26be32L, 0x10aae27c421L, "elementConcept");
   }
 }

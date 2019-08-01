@@ -66,7 +66,7 @@ public class MoveAspectsParticipant extends RefactoringParticipantBase<SNodeRefe
   }
 
   public boolean isApplicable(SNodeReference initialState, SRepository repository) {
-    return (SNodeOperations.as(initialState.resolve(repository), AUX_k053lg.AbstractConceptDeclaration_ec74828f) != null) && SNodeOperations.getModel(SNodeOperations.cast(initialState.resolve(repository), AUX_k053lg.AbstractConceptDeclaration_ec74828f)).getModule() instanceof Language;
+    return (SNodeOperations.as(initialState.resolve(repository), CONCEPTS.AbstractConceptDeclaration$UN) != null) && SNodeOperations.getModel(SNodeOperations.cast(initialState.resolve(repository), CONCEPTS.AbstractConceptDeclaration$UN)).getModule() instanceof Language;
   }
   public List<RefactoringParticipant.Option> getAvailableOptions(SNodeReference initialState, SRepository repository) {
     if (isApplicable(initialState, repository)) {
@@ -95,7 +95,7 @@ public class MoveAspectsParticipant extends RefactoringParticipantBase<SNodeRefe
     if (!((isApplicable(initialState, repository))) || !(ListSequence.fromList(selectedOptions).contains(OPTION))) {
       return ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, SNodeReference>>());
     } else {
-      final SNode sourceConcept = SNodeOperations.cast(initialState.resolve(repository), AUX_k053lg.AbstractConceptDeclaration_ec74828f);
+      final SNode sourceConcept = SNodeOperations.cast(initialState.resolve(repository), CONCEPTS.AbstractConceptDeclaration$UN);
       Language sourceLanguage = ((Language) SNodeOperations.getModel(sourceConcept).getModule());
 
       Map<LanguageAspect, List<SNode>> aspectsMap = MoveConceptUtil.getAspectNodes(sourceLanguage, Sequence.<SNode>singleton(sourceConcept));
@@ -174,7 +174,7 @@ public class MoveAspectsParticipant extends RefactoringParticipantBase<SNodeRefe
                   }));
                 }
                 public void confirm(SNodeReference finalState, final SRepository repository, final RefactoringSession refactoringSession) {
-                  SNode targetConcept = SNodeOperations.cast(finalState.resolve(repository), AUX_k053lg.AbstractConceptDeclaration_ec74828f);
+                  SNode targetConcept = SNodeOperations.cast(finalState.resolve(repository), CONCEPTS.AbstractConceptDeclaration$UN);
                   Language targetLanguage = ((Language) SNodeOperations.getModel(targetConcept).getModule());
                   NodeLocation.NodeLocationRootWithAspectModelCreation newLocation = new NodeLocation.NodeLocationRootWithAspectModelCreation(targetLanguage, mapping.key());
 
@@ -205,7 +205,7 @@ public class MoveAspectsParticipant extends RefactoringParticipantBase<SNodeRefe
   }
   public static final RefactoringParticipant.Option OPTION = new RefactoringParticipant.Option("moveNode.options.moveConceptAspects", "Move concept aspects");
 
-  private static final class AUX_k053lg {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.generationContext.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,15 +15,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class GenerationContextOp_ContextVarRef__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_g6r7hm.GenerationContextOp_ContextVarRef_4f0f126e;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ContextVarRef");
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
 
@@ -32,7 +32,7 @@ public final class GenerationContextOp_ContextVarRef__BehaviorDescriptor extends
   }
 
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    return (SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName")) == null ? SNodeOperations.getConcept(__thisNode__).getName() : SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName")));
+    return (SPropertyOperations.getString(__thisNode__, PROPS.contextVarName$SNbV) == null ? SNodeOperations.getConcept(__thisNode__).getName() : SPropertyOperations.getString(__thisNode__, PROPS.contextVarName$SNbV));
   }
 
   /*package*/ GenerationContextOp_ContextVarRef__BehaviorDescriptor() {
@@ -81,7 +81,7 @@ public final class GenerationContextOp_ContextVarRef__BehaviorDescriptor extends
     return CONCEPT;
   }
 
-  private static final class AUX_g6r7hm {
-    /*package*/ static final SConcept GenerationContextOp_ContextVarRef_4f0f126e = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ContextVarRef");
+  private static final class PROPS {
+    /*package*/ static final SProperty contextVarName$SNbV = MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName");
   }
 }

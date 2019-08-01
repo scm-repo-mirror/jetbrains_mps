@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RunConfigurationCreator_Constraints extends BaseConstraintsDescriptor {
   public RunConfigurationCreator_Constraints() {
-    super(AUX_lut0yk.RunConfigurationCreator_122e133f);
+    super(CONCEPTS.RunConfigurationCreator$g3);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class RunConfigurationCreator_Constraints extends BaseConstraintsDescript
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_lut0yk.RunConfigurationProducerPart_8983d282, false, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.RunConfigurationProducerPart$Ow, false, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:d6e5159c-3299-41f5-8a8a-81b5b79d5073(jetbrains.mps.execution.configurations.constraints)", "1227128029536565983");
 
-  private static final class AUX_lut0yk {
-    /*package*/ static final SConcept RunConfigurationCreator_122e133f = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x328e81d9f20cd1deL, "jetbrains.mps.execution.configurations.structure.RunConfigurationCreator");
-    /*package*/ static final SConcept RunConfigurationProducerPart_8983d282 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c84cda6L, "jetbrains.mps.execution.configurations.structure.RunConfigurationProducerPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RunConfigurationCreator$g3 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x328e81d9f20cd1deL, "jetbrains.mps.execution.configurations.structure.RunConfigurationCreator");
+    /*package*/ static final SConcept RunConfigurationProducerPart$Ow = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c84cda6L, "jetbrains.mps.execution.configurations.structure.RunConfigurationProducerPart");
   }
 }

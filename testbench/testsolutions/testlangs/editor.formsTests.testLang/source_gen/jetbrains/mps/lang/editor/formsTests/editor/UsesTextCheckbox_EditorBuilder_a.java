@@ -10,8 +10,9 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class UsesTextCheckbox_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -54,7 +55,7 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
     return editorCell;
   }
   private boolean nodeCondition_c4zoug_a0a() {
-    return SPropertyOperations.getBoolean(myNode, MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x4a35f271d9f26e94L, 0x4a35f271d9f26e95L, "property"));
+    return SPropertyOperations.getBoolean(myNode, PROPS.property$Ho30);
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "x");
@@ -67,5 +68,9 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
     editorCell.setCellId("Constant_c4zoug_a0a_0");
     editorCell.setDefaultText("");
     return editorCell;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty property$Ho30 = MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x4a35f271d9f26e94L, 0x4a35f271d9f26e95L, "property");
   }
 }

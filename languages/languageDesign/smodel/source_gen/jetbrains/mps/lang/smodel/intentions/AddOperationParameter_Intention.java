@@ -12,7 +12,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.behavior.SNodeOperation__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
@@ -21,6 +20,8 @@ import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AddOperationParameter_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -39,7 +40,7 @@ public final class AddOperationParameter_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1090ea2ebacL, 0x10a61ef5a56L, "parameter"))).isEmpty()) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.parameter$3FGp)).isEmpty()) {
       return ListSequence.fromList(SNodeOperation__BehaviorDescriptor.getParameterConcepts_id6ALWH9fQysn.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)))).isNotEmpty();
     }
     return false;
@@ -65,14 +66,18 @@ public final class AddOperationParameter_Intention extends AbstractIntentionDesc
     public void execute(final SNode node, final EditorContext editorContext) {
       List<SConcept> applicableParms = SNodeOperation__BehaviorDescriptor.getParameterConcepts_id6ALWH9fQysn.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)));
       if (ListSequence.fromList(applicableParms).count() == 1) {
-        ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1090ea2ebacL, 0x10a61ef5a56L, "parameter"))).addElement(SNodeFactoryOperations.createNewNode(ListSequence.fromList(applicableParms).first(), null));
+        ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.parameter$3FGp)).addElement(SNodeFactoryOperations.createNewNode(ListSequence.fromList(applicableParms).first(), null));
       } else {
-        SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1090ea2ebacL, 0x10a61ef5a56L, "parameter"), null);
+        SNodeFactoryOperations.addNewChild(node, LINKS.parameter$3FGp, null);
       }
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return AddOperationParameter_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$3FGp = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1090ea2ebacL, 0x10a61ef5a56L, "parameter");
   }
 }

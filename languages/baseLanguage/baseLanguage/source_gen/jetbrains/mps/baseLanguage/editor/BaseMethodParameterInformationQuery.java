@@ -8,41 +8,48 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.style.StyledTextPrinter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BaseMethodParameterInformationQuery implements ParametersInformation<SNode> {
   public BaseMethodParameterInformationQuery() {
   }
   public Iterable<SNode> getMethods(SNode node, EditorContext editorContext) {
     SNode selectedActualArgument = this.getSelectedActualArgument(editorContext);
-    SNode methodCall = (selectedActualArgument != null ? SNodeOperations.cast(SNodeOperations.getParent(selectedActualArgument), AUX_1nkmah.IMethodCall_ee2c776b) : node);
+    SNode methodCall = (selectedActualArgument != null ? SNodeOperations.cast(SNodeOperations.getParent(selectedActualArgument), CONCEPTS.IMethodCall$ln) : node);
     return BaseMethodParameterInformationQueryUtil.getMethodsToShow(methodCall);
   }
   public void getStyledMethodPresentation(SNode node, EditorContext editorContext, SNode parameterObject, StyledTextPrinter styledText) {
     BaseMethodParameterInformationQueryUtil.fillPresentation(parameterObject, this.getSelectedActualArgument(editorContext), styledText);
   }
   public boolean isMethodCurrent(SNode node, EditorContext editorContext, SNode parameterObject) {
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")) == parameterObject;
+    return SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i) == parameterObject;
   }
   private SNode getSelectedActualArgument(EditorContext editorContext) {
     SNode selectedNode = editorContext.getSelectedNode();
     if (selectedNode == null) {
       return null;
     }
-    return ListSequence.fromList(SNodeOperations.getNodeAncestors(selectedNode, AUX_1nkmah.Expression_4199e28d, true)).findFirst(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SNodeOperations.getNodeAncestors(selectedNode, CONCEPTS.Expression$TP, true)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), AUX_1nkmah.IMethodCall_ee2c776b) && Objects.equals(SNodeOperations.getContainingLink(it), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"));
+        return SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), CONCEPTS.IMethodCall$ln) && Objects.equals(SNodeOperations.getContainingLink(it), LINKS.actualArgument$$A7L);
       }
     });
   }
 
-  private static final class AUX_1nkmah {
-    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
   }
 }

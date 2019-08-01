@@ -11,10 +11,11 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class DetachFromThreadPool_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -33,7 +34,7 @@ public final class DetachFromThreadPool_Intention extends AbstractIntentionDescr
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x40a8d217b6d881feL, "threadPool")) != null;
+    return SLinkOperations.getTarget(node, LINKS.threadPool$1iZ4) != null;
   }
   @Override
   public boolean isSurroundWith() {
@@ -54,11 +55,15 @@ public final class DetachFromThreadPool_Intention extends AbstractIntentionDescr
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x40a8d217b6d881feL, "threadPool"), null);
+      SLinkOperations.setTarget(node, LINKS.threadPool$1iZ4, null);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return DetachFromThreadPool_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink threadPool$1iZ4 = MetaAdapterFactory.getContainmentLink(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x40a8d217b6d881feL, "threadPool");
   }
 }

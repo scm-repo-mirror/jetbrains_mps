@@ -31,7 +31,7 @@ public class ExactConceptInstances_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_boq19k.ConceptDeclaration_cb225da8;
+    return CONCEPTS.ConceptDeclaration$qU;
   }
 
   @Override
@@ -58,7 +58,7 @@ public class ExactConceptInstances_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1211301915928");
   }
 
-  private static final class AUX_boq19k {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
   }
 }

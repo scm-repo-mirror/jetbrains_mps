@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -28,10 +27,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CommandParameterReference_Constraints extends BaseConstraintsDescriptor {
   public CommandParameterReference_Constraints() {
-    super(AUX_m122yq.CommandParameterReference_30caf01c);
+    super(CONCEPTS.CommandParameterReference$b6);
   }
 
   @Override
@@ -51,7 +51,7 @@ public class CommandParameterReference_Constraints extends BaseConstraintsDescri
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bdcL, 0xbe3a0d5ba1a2bdeL, "parameter"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.parameter$noXv, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -66,7 +66,7 @@ public class CommandParameterReference_Constraints extends BaseConstraintsDescri
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(ExecuteCommandPart__BehaviorDescriptor.getParameters_id5keEkmeCqHW.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_m122yq.ExecuteCommandPart_c37ee4d, false, false)));
+            return ListScope.forResolvableElements(ExecuteCommandPart__BehaviorDescriptor.getParameters_id5keEkmeCqHW.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ExecuteCommandPart$EP, false, false)));
           }
         };
       }
@@ -76,13 +76,17 @@ public class CommandParameterReference_Constraints extends BaseConstraintsDescri
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_m122yq.ExecuteCommandPart_c37ee4d, false, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.ExecuteCommandPart$EP, false, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:fa479534-722a-48ea-9a2e-0d6cd7ab1559(jetbrains.mps.execution.commands.constraints)", "1227128029536565753");
   private static final SNodePointer breakingNode_m122yq_a0a0a0a0a1a0a0a0d = new SNodePointer("r:fa479534-722a-48ea-9a2e-0d6cd7ab1559(jetbrains.mps.execution.commands.constraints)", "6836281137582825113");
 
-  private static final class AUX_m122yq {
-    /*package*/ static final SConcept CommandParameterReference_30caf01c = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bdcL, "jetbrains.mps.execution.commands.structure.CommandParameterReference");
-    /*package*/ static final SConcept ExecuteCommandPart_c37ee4d = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, "jetbrains.mps.execution.commands.structure.ExecuteCommandPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommandParameterReference$b6 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bdcL, "jetbrains.mps.execution.commands.structure.CommandParameterReference");
+    /*package*/ static final SConcept ExecuteCommandPart$EP = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, "jetbrains.mps.execution.commands.structure.ExecuteCommandPart");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink parameter$noXv = MetaAdapterFactory.getReferenceLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bdcL, 0xbe3a0d5ba1a2bdeL, "parameter");
   }
 }

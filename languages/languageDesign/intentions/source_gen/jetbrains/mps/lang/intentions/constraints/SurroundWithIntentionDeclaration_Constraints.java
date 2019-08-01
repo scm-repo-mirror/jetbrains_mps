@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SurroundWithIntentionDeclaration_Constraints extends BaseConstraintsDescriptor {
   public SurroundWithIntentionDeclaration_Constraints() {
-    super(AUX_igki1g.SurroundWithIntentionDeclaration_bcfcd3b6);
+    super(CONCEPTS.SurroundWithIntentionDeclaration$9G);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class SurroundWithIntentionDeclaration_Constraints extends BaseConstraint
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959034f(jetbrains.mps.lang.intentions.constraints)", "6263518417926802272");
 
-  private static final class AUX_igki1g {
-    /*package*/ static final SConcept SurroundWithIntentionDeclaration_bcfcd3b6 = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x2303633a9c3e6815L, "jetbrains.mps.lang.intentions.structure.SurroundWithIntentionDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SurroundWithIntentionDeclaration$9G = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x2303633a9c3e6815L, "jetbrains.mps.lang.intentions.structure.SurroundWithIntentionDeclaration");
   }
 }

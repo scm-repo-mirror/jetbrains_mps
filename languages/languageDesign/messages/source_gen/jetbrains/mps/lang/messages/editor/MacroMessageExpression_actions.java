@@ -8,7 +8,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -20,6 +19,9 @@ import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MacroMessageExpression_actions {
 
@@ -32,14 +34,14 @@ public class MacroMessageExpression_actions {
         if (DeletionApproverUtil.approve(editorContext, node)) {
           return;
         }
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(node), AUX_jg075k.LiteralMessageExpression_d1e3ef58) && SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(node), AUX_jg075k.LiteralMessageExpression_d1e3ef58)) {
-          String prevMessage = SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getPrevSibling(node), AUX_jg075k.LiteralMessageExpression_d1e3ef58), MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"));
-          String nextMessage = SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getNextSibling(node), AUX_jg075k.LiteralMessageExpression_d1e3ef58), MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"));
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(node), CONCEPTS.LiteralMessageExpression$Ga) && SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(node), CONCEPTS.LiteralMessageExpression$Ga)) {
+          String prevMessage = SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getPrevSibling(node), CONCEPTS.LiteralMessageExpression$Ga), PROPS.message$vnr0);
+          String nextMessage = SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getNextSibling(node), CONCEPTS.LiteralMessageExpression$Ga), PROPS.message$vnr0);
           SNode replacement = SNodeOperations.replaceWithAnother(node, createLiteralMessageExpression_jg075k_a0a0c0b0a0(prevMessage + nextMessage));
           SNodeOperations.deleteNode(SNodeOperations.getPrevSibling(replacement));
           SNodeOperations.deleteNode(SNodeOperations.getNextSibling(replacement));
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacement, SelectionManager.FIRST_EDITABLE_CELL, prevMessage.length());
-        } else if (ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_jg075k.CombinedMessageExpression_4c275d), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part"))).count() == 1) {
+        } else if (ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.CombinedMessageExpression$e_), LINKS.part$x7tZ)).count() == 1) {
           SNodeOperations.deleteNode(SNodeOperations.getParent(node));
         } else {
           SNode toSelect = SNodeOperations.getParent(node);
@@ -120,25 +122,33 @@ public class MacroMessageExpression_actions {
   }
   private static SNode createLiteralMessageExpression_jg075k_a0a0c0b0a0(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_jg075k.LiteralMessageExpression_d1e3ef58, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message").getType().toString(p0));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.LiteralMessageExpression$Ga, null, null, false);
+    n1.setProperty(PROPS.message$vnr0, PROPS.message$vnr0.getType().toString(p0));
     return n1;
   }
   private static SNode createLiteralMessageExpression_jg075k_a0a0a0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_jg075k.LiteralMessageExpression_d1e3ef58, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.LiteralMessageExpression$Ga, null, null, false);
+    n1.setProperty(PROPS.message$vnr0, "");
     return n1;
   }
   private static SNode createLiteralMessageExpression_jg075k_a0a0a0c() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_jg075k.LiteralMessageExpression_d1e3ef58, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.LiteralMessageExpression$Ga, null, null, false);
+    n1.setProperty(PROPS.message$vnr0, "");
     return n1;
   }
 
-  private static final class AUX_jg075k {
-    /*package*/ static final SConcept LiteralMessageExpression_d1e3ef58 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
-    /*package*/ static final SConcept CombinedMessageExpression_4c275d = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LiteralMessageExpression$Ga = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
+    /*package*/ static final SConcept CombinedMessageExpression$e_ = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty message$vnr0 = MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink part$x7tZ = MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part");
   }
 }

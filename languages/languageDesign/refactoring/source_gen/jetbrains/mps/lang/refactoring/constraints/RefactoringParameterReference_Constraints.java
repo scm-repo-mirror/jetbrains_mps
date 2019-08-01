@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -21,15 +20,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RefactoringParameterReference_Constraints extends BaseConstraintsDescriptor {
   public RefactoringParameterReference_Constraints() {
-    super(AUX_vznh2k.RefactoringParameterReference_68fff972);
+    super(CONCEPTS.RefactoringParameterReference$gK);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77cda06L, 0x5fb04b74a77cda07L, "refactoringParameter"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.refactoringParameter$ZFC0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -44,7 +45,7 @@ public class RefactoringParameterReference_Constraints extends BaseConstraintsDe
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_vznh2k.Refactoring_6541bab9, false, false), MetaAdapterFactory.getContainmentLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, 0x5fb04b74a778e2d8L, "parameter")));
+            return ListScope.forResolvableElements(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.Refactoring$J9, false, false), LINKS.parameter$dQA8));
           }
         };
       }
@@ -55,8 +56,13 @@ public class RefactoringParameterReference_Constraints extends BaseConstraintsDe
   }
   private static final SNodePointer breakingNode_vznh2k_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590313(jetbrains.mps.lang.refactoring.constraints)", "6836281137582796958");
 
-  private static final class AUX_vznh2k {
-    /*package*/ static final SConcept RefactoringParameterReference_68fff972 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77cda06L, "jetbrains.mps.lang.refactoring.structure.RefactoringParameterReference");
-    /*package*/ static final SConcept Refactoring_6541bab9 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, "jetbrains.mps.lang.refactoring.structure.Refactoring");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RefactoringParameterReference$gK = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77cda06L, "jetbrains.mps.lang.refactoring.structure.RefactoringParameterReference");
+    /*package*/ static final SConcept Refactoring$J9 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, "jetbrains.mps.lang.refactoring.structure.Refactoring");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink refactoringParameter$ZFC0 = MetaAdapterFactory.getReferenceLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77cda06L, 0x5fb04b74a77cda07L, "refactoringParameter");
+    /*package*/ static final SContainmentLink parameter$dQA8 = MetaAdapterFactory.getContainmentLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, 0x5fb04b74a778e2d8L, "parameter");
   }
 }

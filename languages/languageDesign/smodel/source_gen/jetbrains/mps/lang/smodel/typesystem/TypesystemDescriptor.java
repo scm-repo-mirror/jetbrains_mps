@@ -12,8 +12,9 @@ import jetbrains.mps.typesystem.inference.IVariableConverter_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class TypesystemDescriptor extends BaseHelginsDescriptor {
   public TypesystemDescriptor() {
@@ -739,10 +740,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
           if (isAggregation) {
             return false;
           }
-          if (!(SNodeOperations.isInstanceOf(contextNode, AUX_3ist9o.SNodeType_dcb080ab))) {
+          if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.SNodeType$gn))) {
             return false;
           }
-          SNode concept = SLinkOperations.getTarget(SNodeOperations.cast(contextNode, AUX_3ist9o.SNodeType_dcb080ab), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept"));
+          SNode concept = SLinkOperations.getTarget(SNodeOperations.cast(contextNode, CONCEPTS.SNodeType$gn), LINKS.concept$HWFQ);
           return concept == variable;
         }
         public SNode convert(SNode contextNode, String role, SNode variable, boolean isAggregation) {
@@ -757,10 +758,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
           if (isAggregation) {
             return false;
           }
-          if (!(SNodeOperations.isInstanceOf(contextNode, AUX_3ist9o.ConceptNodeType_842b4d80))) {
+          if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.ConceptNodeType$7y))) {
             return false;
           }
-          SNode concept = SLinkOperations.getTarget(SNodeOperations.cast(contextNode, AUX_3ist9o.ConceptNodeType_842b4d80), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, 0x112da284156L, "conceptDeclaraton"));
+          SNode concept = SLinkOperations.getTarget(SNodeOperations.cast(contextNode, CONCEPTS.ConceptNodeType$7y), LINKS.conceptDeclaraton$Qe25);
           return concept == variable;
         }
         public SNode convert(SNode contextNode, String role, SNode variable, boolean isAggregation) {
@@ -771,8 +772,13 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     }
   }
 
-  private static final class AUX_3ist9o {
-    /*package*/ static final SConcept SNodeType_dcb080ab = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
-    /*package*/ static final SConcept ConceptNodeType_842b4d80 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, "jetbrains.mps.lang.smodel.structure.ConceptNodeType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SNodeType$gn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
+    /*package*/ static final SConcept ConceptNodeType$7y = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, "jetbrains.mps.lang.smodel.structure.ConceptNodeType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink concept$HWFQ = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept");
+    /*package*/ static final SReferenceLink conceptDeclaraton$Qe25 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, 0x112da284156L, "conceptDeclaraton");
   }
 }

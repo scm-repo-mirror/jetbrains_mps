@@ -17,13 +17,14 @@ import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.MethodRefactoringUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.platform.refactoring.RenameMethodDialog;
 import jetbrains.mps.ide.platform.actions.core.RefactoringProcessor;
 import jetbrains.mps.ide.platform.actions.core.RenameRefactoringBody;
 import jetbrains.mps.ide.platform.actions.core.DefaultRefactoringUI;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RenameMethod_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -39,7 +40,7 @@ public class RenameMethod_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), AUX_d13k9n.IMethodCall_ee2c776b) && !(SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), AUX_d13k9n.EnumConstantDeclaration_b06144d8)) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), AUX_d13k9n.BaseMethodDeclaration_9dbf9acb) && !(SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), AUX_d13k9n.ConstructorDeclaration_9dbf9ae8));
+    return SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), CONCEPTS.IMethodCall$ln) && !(SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), CONCEPTS.EnumConstantDeclaration$ma)) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), CONCEPTS.BaseMethodDeclaration$RR) && !(SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("target")), CONCEPTS.ConstructorDeclaration$5U));
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -76,7 +77,7 @@ public class RenameMethod_Action extends BaseAction {
     modelAccess.runReadAction(new Runnable() {
       public void run() {
         methodDeclaration.value = MethodRefactoringUtil.getMethodDeclaration(((SNode) MapSequence.fromMap(_params).get("target")));
-        oldName.value = SPropertyOperations.getString(methodDeclaration.value, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        oldName.value = SPropertyOperations.getString(methodDeclaration.value, PROPS.name$tAp1);
       }
     });
     final RenameMethodDialog d = new RenameMethodDialog(((MPSProject) MapSequence.fromMap(_params).get("project")).getProject(), oldName.value);
@@ -91,10 +92,14 @@ public class RenameMethod_Action extends BaseAction {
     RefactoringProcessor.performRefactoringInProject(((MPSProject) MapSequence.fromMap(_params).get("project")), new DefaultRefactoringUI(((MPSProject) MapSequence.fromMap(_params).get("project"))), refactoringBody);
   }
 
-  private static final class AUX_d13k9n {
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept EnumConstantDeclaration_b06144d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
-    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept EnumConstantDeclaration$ma = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
+    /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

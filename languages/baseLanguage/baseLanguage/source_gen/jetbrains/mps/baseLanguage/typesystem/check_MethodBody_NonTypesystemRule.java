@@ -27,7 +27,7 @@ public class check_MethodBody_NonTypesystemRule extends AbstractNonTypesystemRul
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_w5eenq.InstanceMethodDeclaration_9dbf9b2b;
+    return CONCEPTS.InstanceMethodDeclaration$An;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +36,7 @@ public class check_MethodBody_NonTypesystemRule extends AbstractNonTypesystemRul
     return false;
   }
 
-  private static final class AUX_w5eenq {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
   }
 }

@@ -12,7 +12,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
@@ -20,7 +19,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class MergeStringConcatenation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -39,7 +41,7 @@ public final class MergeStringConcatenation_Intention extends AbstractIntentionD
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")), AUX_lcu0b2.StringLiteral_aa5a8cf6) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")), AUX_lcu0b2.StringLiteral_aa5a8cf6);
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.leftExpression$rxLZ), CONCEPTS.StringLiteral$4G) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.rightExpression$rxBl), CONCEPTS.StringLiteral$4G);
   }
   @Override
   public boolean isSurroundWith() {
@@ -60,10 +62,10 @@ public final class MergeStringConcatenation_Intention extends AbstractIntentionD
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode stringLiteral = SNodeFactoryOperations.replaceWithNewChild(node, AUX_lcu0b2.StringLiteral_aa5a8cf6);
-      String left = SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")), AUX_lcu0b2.StringLiteral_aa5a8cf6), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"));
-      String right = SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")), AUX_lcu0b2.StringLiteral_aa5a8cf6), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"));
-      SPropertyOperations.set(stringLiteral, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), left + right);
+      SNode stringLiteral = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.StringLiteral$4G);
+      String left = SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(node, LINKS.leftExpression$rxLZ), CONCEPTS.StringLiteral$4G), PROPS.value$kiE0);
+      String right = SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(node, LINKS.rightExpression$rxBl), CONCEPTS.StringLiteral$4G), PROPS.value$kiE0);
+      SPropertyOperations.set(stringLiteral, PROPS.value$kiE0, left + right);
       SelectionUtil.selectLabelCellAnSetCaret(editorContext, stringLiteral, "*" + CellIdManager.createPropertyId("value"), left.length());
     }
     @Override
@@ -72,7 +74,16 @@ public final class MergeStringConcatenation_Intention extends AbstractIntentionD
     }
   }
 
-  private static final class AUX_lcu0b2 {
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
   }
 }

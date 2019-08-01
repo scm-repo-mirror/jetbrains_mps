@@ -5,12 +5,12 @@ package jetbrains.mps.lang.core.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SLanguage;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.adapter.ids.SLanguageId;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -20,12 +20,12 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class MigrationAnnotation_Constraints extends BaseConstraintsDescriptor {
   public MigrationAnnotation_Constraints() {
-    super(AUX_lqtwru.MigrationAnnotation_5468364d);
+    super(CONCEPTS.MigrationAnnotation$aP);
   }
 
   public static class CreatedByScript_Property extends BasePropertyConstraintsDescriptor {
     public CreatedByScript_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript"), container);
+      super(PROPS.createdByScript$1_lw, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -55,11 +55,15 @@ public class MigrationAnnotation_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript"), new CreatedByScript_Property(this));
+    properties.put(PROPS.createdByScript$1_lw, new CreatedByScript_Property(this));
     return properties;
   }
 
-  private static final class AUX_lqtwru {
-    /*package*/ static final SInterfaceConcept MigrationAnnotation_5468364d = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, "jetbrains.mps.lang.core.structure.MigrationAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MigrationAnnotation$aP = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, "jetbrains.mps.lang.core.structure.MigrationAnnotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty createdByScript$1_lw = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript");
   }
 }

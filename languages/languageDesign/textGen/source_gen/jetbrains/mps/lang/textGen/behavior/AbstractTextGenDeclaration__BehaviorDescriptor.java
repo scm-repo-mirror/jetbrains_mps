@@ -4,6 +4,7 @@ package jetbrains.mps.lang.textGen.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -16,11 +17,9 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AbstractTextGenDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_olhcbx.AbstractTextGenDeclaration_a362e3b0;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f60f06a49L, "jetbrains.mps.lang.textGen.structure.AbstractTextGenDeclaration");
 
   public static final SMethod<List<SNode>> getAvailableOperations_idhXYHpEa = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getAvailableOperations").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hXYHpEa").build();
 
@@ -77,9 +76,5 @@ public final class AbstractTextGenDeclaration__BehaviorDescriptor extends BaseBH
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class AUX_olhcbx {
-    /*package*/ static final SConcept AbstractTextGenDeclaration_a362e3b0 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f60f06a49L, "jetbrains.mps.lang.textGen.structure.AbstractTextGenDeclaration");
   }
 }

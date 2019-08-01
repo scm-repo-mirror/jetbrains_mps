@@ -27,7 +27,7 @@ public class check_RunConfiguration_NonTypesystemRule extends AbstractNonTypesys
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_5cq68q.RunConfiguration_fcc7b945;
+    return CONCEPTS.RunConfiguration$UX;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +36,7 @@ public class check_RunConfiguration_NonTypesystemRule extends AbstractNonTypesys
     return false;
   }
 
-  private static final class AUX_5cq68q {
-    /*package*/ static final SConcept RunConfiguration_fcc7b945 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, "jetbrains.mps.execution.configurations.structure.RunConfiguration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RunConfiguration$UX = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, "jetbrains.mps.execution.configurations.structure.RunConfiguration");
   }
 }

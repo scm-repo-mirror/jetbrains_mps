@@ -29,6 +29,7 @@ import jetbrains.mps.lang.migration.behavior.QuotationConsequence__BehaviorDescr
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TransformStatementDetachFix extends MigrationScriptBase {
   public String getCaption() {
@@ -58,7 +59,7 @@ public class TransformStatementDetachFix extends MigrationScriptBase {
   public Iterable<Problem> check(SModule m) {
     return ListSequence.fromList(findAffectedVariables(m)).concat(ListSequence.fromList(findAffectedAntiquotations(m))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_xvsotb.ReviewMigration_54683616)) == null);
+        return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ReviewMigration$Kc)) == null);
       }
     }).select(new ISelector<SNode, Problem>() {
       public Problem select(SNode it) {
@@ -78,20 +79,20 @@ public class TransformStatementDetachFix extends MigrationScriptBase {
 
   private void addAnnotationVariableReference(SNode expression) {
     SNode ann = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, "jetbrains.mps.lang.core.structure.ReviewMigration"));
-    SPropertyOperations.set(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript"), this.getReference().serialize());
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e07L, "reasonShort"), "language semantic changed");
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e08L, "todo"), "Pattern variable references now are not detached from their model on first variable read. If detach is needed for the code to work properly, perform detach manually.");
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e09L, "readableId"), "Transform Detach Changed");
-    AttributeOperations.setAttribute(expression, new IAttributeDescriptor.NodeAttribute(AUX_xvsotb.ReviewMigration_54683616), ann);
+    SPropertyOperations.set(ann, PROPS.createdByScript$1_lw, this.getReference().serialize());
+    SPropertyOperations.assign(ann, PROPS.reasonShort$1$U0, "language semantic changed");
+    SPropertyOperations.assign(ann, PROPS.todo$1_4E, "Pattern variable references now are not detached from their model on first variable read. If detach is needed for the code to work properly, perform detach manually.");
+    SPropertyOperations.assign(ann, PROPS.readableId$1_59, "Transform Detach Changed");
+    AttributeOperations.setAttribute(expression, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ReviewMigration$Kc), ann);
   }
 
   private void addAnnotationAntiquotation(SNode expression) {
     SNode ann = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, "jetbrains.mps.lang.core.structure.ReviewMigration"));
-    SPropertyOperations.set(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript"), this.getReference().serialize());
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e07L, "reasonShort"), "language semantic changed");
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e08L, "todo"), "When embedded into transform statement, quotations behave quite differently: instead of copying node while inserting in into the antiquotation, the node is detached from its parent. If copying is needed for the code to work properly, perform copy manually.");
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e09L, "readableId"), "Transform Detach Changed");
-    AttributeOperations.setAttribute(expression, new IAttributeDescriptor.NodeAttribute(AUX_xvsotb.ReviewMigration_54683616), ann);
+    SPropertyOperations.set(ann, PROPS.createdByScript$1_lw, this.getReference().serialize());
+    SPropertyOperations.assign(ann, PROPS.reasonShort$1$U0, "language semantic changed");
+    SPropertyOperations.assign(ann, PROPS.todo$1_4E, "When embedded into transform statement, quotations behave quite differently: instead of copying node while inserting in into the antiquotation, the node is detached from its parent. If copying is needed for the code to work properly, perform copy manually.");
+    SPropertyOperations.assign(ann, PROPS.readableId$1_59, "Transform Detach Changed");
+    AttributeOperations.setAttribute(expression, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ReviewMigration$Kc), ann);
   }
 
 
@@ -105,14 +106,14 @@ public class TransformStatementDetachFix extends MigrationScriptBase {
           return scope_xvsotb_b0n_0;
         }
       };
-      ListSequence.fromList(affectedUsages).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_xvsotb.NodePatternVariableReference_187f141a, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(affectedUsages).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.NodePatternVariableReference$U8, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode node) {
-          return SNodeOperations.getNodeAncestor(node, AUX_xvsotb.QuotationConsequence_ca755f82, false, false) == null || !((boolean) QuotationConsequence__BehaviorDescriptor.isMyAntiquotationExpression_id4SwrQttKYC0.invoke(SNodeOperations.getNodeAncestor(node, AUX_xvsotb.QuotationConsequence_ca755f82, false, false), node));
+          return SNodeOperations.getNodeAncestor(node, CONCEPTS.QuotationConsequence$w, false, false) == null || !((boolean) QuotationConsequence__BehaviorDescriptor.isMyAntiquotationExpression_id4SwrQttKYC0.invoke(SNodeOperations.getNodeAncestor(node, CONCEPTS.QuotationConsequence$w, false, false), node));
         }
       }));
-      ListSequence.fromList(affectedUsages).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_xvsotb.ListPatternVariableReference_c227f7dd, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(affectedUsages).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ListPatternVariableReference$c_, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode node) {
-          return SNodeOperations.getNodeAncestor(node, AUX_xvsotb.QuotationConsequence_ca755f82, false, false) == null || !((boolean) QuotationConsequence__BehaviorDescriptor.isMyAntiquotationExpression_id4SwrQttKYC0.invoke(SNodeOperations.getNodeAncestor(node, AUX_xvsotb.QuotationConsequence_ca755f82, false, false), node));
+          return SNodeOperations.getNodeAncestor(node, CONCEPTS.QuotationConsequence$w, false, false) == null || !((boolean) QuotationConsequence__BehaviorDescriptor.isMyAntiquotationExpression_id4SwrQttKYC0.invoke(SNodeOperations.getNodeAncestor(node, CONCEPTS.QuotationConsequence$w, false, false), node));
         }
       }));
     }
@@ -129,11 +130,11 @@ public class TransformStatementDetachFix extends MigrationScriptBase {
           return scope_xvsotb_b0p_0;
         }
       };
-      ListSequence.fromList(affectedUsages).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_xvsotb.QuotationConsequence_ca755f82, false)).translate(new ITranslator2<SNode, SNode>() {
+      ListSequence.fromList(affectedUsages).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.QuotationConsequence$w, false)).translate(new ITranslator2<SNode, SNode>() {
         public Iterable<SNode> translate(final SNode qc) {
-          return ListSequence.fromList(SNodeOperations.getNodeDescendants(qc, AUX_xvsotb.Expression_4199e28d, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+          return ListSequence.fromList(SNodeOperations.getNodeDescendants(qc, CONCEPTS.Expression$TP, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return (boolean) QuotationConsequence__BehaviorDescriptor.isMyAntiquotationExpression_id4SwrQttKYC0.invoke(qc, it) && !(SNodeOperations.isInstanceOf(it, AUX_xvsotb.NodePatternVariableReference_187f141a)) && !(SNodeOperations.isInstanceOf(it, AUX_xvsotb.ListPatternVariableReference_c227f7dd));
+              return (boolean) QuotationConsequence__BehaviorDescriptor.isMyAntiquotationExpression_id4SwrQttKYC0.invoke(qc, it) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.NodePatternVariableReference$U8)) && !(SNodeOperations.isInstanceOf(it, CONCEPTS.ListPatternVariableReference$c_));
             }
           });
         }
@@ -142,11 +143,18 @@ public class TransformStatementDetachFix extends MigrationScriptBase {
     return affectedUsages;
   }
 
-  private static final class AUX_xvsotb {
-    /*package*/ static final SConcept ReviewMigration_54683616 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, "jetbrains.mps.lang.core.structure.ReviewMigration");
-    /*package*/ static final SConcept NodePatternVariableReference_187f141a = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x6877ea6323b8f1a3L, "jetbrains.mps.lang.migration.structure.NodePatternVariableReference");
-    /*package*/ static final SConcept QuotationConsequence_ca755f82 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x4e382b39b6532d41L, "jetbrains.mps.lang.migration.structure.QuotationConsequence");
-    /*package*/ static final SConcept ListPatternVariableReference_c227f7dd = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x550f7de0eda8c07aL, "jetbrains.mps.lang.migration.structure.ListPatternVariableReference");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReviewMigration$Kc = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, "jetbrains.mps.lang.core.structure.ReviewMigration");
+    /*package*/ static final SConcept NodePatternVariableReference$U8 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x6877ea6323b8f1a3L, "jetbrains.mps.lang.migration.structure.NodePatternVariableReference");
+    /*package*/ static final SConcept QuotationConsequence$w = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x4e382b39b6532d41L, "jetbrains.mps.lang.migration.structure.QuotationConsequence");
+    /*package*/ static final SConcept ListPatternVariableReference$c_ = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x550f7de0eda8c07aL, "jetbrains.mps.lang.migration.structure.ListPatternVariableReference");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty createdByScript$1_lw = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript");
+    /*package*/ static final SProperty reasonShort$1$U0 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e07L, "reasonShort");
+    /*package*/ static final SProperty todo$1_4E = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e08L, "todo");
+    /*package*/ static final SProperty readableId$1_59 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e09L, "readableId");
   }
 }

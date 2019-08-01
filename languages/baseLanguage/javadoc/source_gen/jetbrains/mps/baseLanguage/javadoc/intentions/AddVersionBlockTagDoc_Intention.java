@@ -12,11 +12,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class AddVersionBlockTagDoc_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -36,7 +37,7 @@ public final class AddVersionBlockTagDoc_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f963L, "version"))).isEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.version$UGOZ)).isEmpty();
   }
   @Override
   public boolean isSurroundWith() {
@@ -57,7 +58,7 @@ public final class AddVersionBlockTagDoc_Intention extends AbstractIntentionDesc
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode addedNode = SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"), AUX_2wz4ds.VersionBlockDocTag_7c82a696);
+      SNode addedNode = SNodeFactoryOperations.addNewChild(node, LINKS.tags$LJD$, CONCEPTS.VersionBlockDocTag$Ic);
       BlockDocTagHelper.setFocus(editorContext, addedNode);
     }
     @Override
@@ -66,7 +67,12 @@ public final class AddVersionBlockTagDoc_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_2wz4ds {
-    /*package*/ static final SConcept VersionBlockDocTag_7c82a696 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87dda0L, "jetbrains.mps.baseLanguage.javadoc.structure.VersionBlockDocTag");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink version$UGOZ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f963L, "version");
+    /*package*/ static final SContainmentLink tags$LJD$ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VersionBlockDocTag$Ic = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87dda0L, "jetbrains.mps.baseLanguage.javadoc.structure.VersionBlockDocTag");
   }
 }

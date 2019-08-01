@@ -11,7 +11,6 @@ import jetbrains.mps.project.EditableFilteringScope;
 import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.lang.structure.migration.EnumUsagesMigration;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.migration.PropertyPatternVariableMigration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
@@ -23,6 +22,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.UsageOfMigrateNodeNotMigratedProblem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class MigrateEnumPropertyUsagesAndPropertyPatternVaraibles extends MigrationScriptBase {
@@ -47,17 +48,17 @@ public class MigrateEnumPropertyUsagesAndPropertyPatternVaraibles extends Migrat
         }
       };
       EnumUsagesMigration migration = new EnumUsagesMigration();
-      for (SNode propMessageTarget : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_qggrhk.PropertyMessageTarget_2aba8385, false))) {
-        migration.migratePropertyReference(propMessageTarget, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, 0x11db4a6fbeeL, "propertyDeclaration"));
+      for (SNode propMessageTarget : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.PropertyMessageTarget$LX, false))) {
+        migration.migratePropertyReference(propMessageTarget, LINKS.propertyDeclaration$T4As);
       }
       new PropertyPatternVariableMigration<SNode>() {
         @Override
         protected Iterable<SNode> getUsagesToMigrate() {
-          return CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_qggrhk.PropertyPatternVariableReference_a0fc7d41, false);
+          return CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.PropertyPatternVariableReference$D1, false);
         }
         @Override
         protected SNode getDeclaration(SNode usage) {
-          return SLinkOperations.getTarget(usage, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d97ff9L, 0x11192d9d83cL, "patternVarDecl"));
+          return SLinkOperations.getTarget(usage, LINKS.patternVarDecl$7KKb);
         }
         @Override
         protected void migrateRawValue(SNode usage, SNode datatype) {
@@ -81,13 +82,13 @@ public class MigrateEnumPropertyUsagesAndPropertyPatternVaraibles extends Migrat
         }
       };
       List<Problem> problems = ListSequence.fromList(new ArrayList<Problem>());
-      ListSequence.fromList(problems).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_qggrhk.PropertyMessageTarget_2aba8385, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(problems).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.PropertyMessageTarget$LX, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(SNodeOperations.getParent(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, 0x11db4a6fbeeL, "propertyDeclaration"))), AUX_qggrhk.EnumPropertyMigrationInfo_a791f212);
+          return SNodeOperations.isInstanceOf(SNodeOperations.getParent(SLinkOperations.getTarget(it, LINKS.propertyDeclaration$T4As)), CONCEPTS.EnumPropertyMigrationInfo$Yg);
         }
       }).select(new ISelector<SNode, UsageOfMigrateNodeNotMigratedProblem>() {
         public UsageOfMigrateNodeNotMigratedProblem select(SNode it) {
-          return new UsageOfMigrateNodeNotMigratedProblem(it, SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, 0x11db4a6fbeeL, "propertyDeclaration")));
+          return new UsageOfMigrateNodeNotMigratedProblem(it, SLinkOperations.getTarget(it, LINKS.propertyDeclaration$T4As));
         }
       }));
       return problems;
@@ -100,9 +101,14 @@ public class MigrateEnumPropertyUsagesAndPropertyPatternVaraibles extends Migrat
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, "jetbrains.mps.lang.typesystem"), 1);
   }
 
-  private static final class AUX_qggrhk {
-    /*package*/ static final SConcept PropertyMessageTarget_2aba8385 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, "jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget");
-    /*package*/ static final SConcept PropertyPatternVariableReference_a0fc7d41 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d97ff9L, "jetbrains.mps.lang.typesystem.structure.PropertyPatternVariableReference");
-    /*package*/ static final SConcept EnumPropertyMigrationInfo_a791f212 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f1035942a5abL, "jetbrains.mps.lang.structure.structure.EnumPropertyMigrationInfo");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink propertyDeclaration$T4As = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, 0x11db4a6fbeeL, "propertyDeclaration");
+    /*package*/ static final SReferenceLink patternVarDecl$7KKb = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d97ff9L, 0x11192d9d83cL, "patternVarDecl");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyMessageTarget$LX = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, "jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget");
+    /*package*/ static final SConcept PropertyPatternVariableReference$D1 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d97ff9L, "jetbrains.mps.lang.typesystem.structure.PropertyPatternVariableReference");
+    /*package*/ static final SConcept EnumPropertyMigrationInfo$Yg = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f1035942a5abL, "jetbrains.mps.lang.structure.structure.EnumPropertyMigrationInfo");
   }
 }

@@ -24,7 +24,7 @@ public class Create_TextMacro_Contribution extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_tr6eyh.TextMacro_aa9279e8) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.TextMacro$9U) {
 
       @NotNull
       @Override
@@ -37,7 +37,7 @@ public class Create_TextMacro_Contribution extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_tr6eyh.TextMacro_aa9279e8));
+    }, CONCEPTS.TextMacro$9U));
     return result;
   }
 
@@ -54,7 +54,7 @@ public class Create_TextMacro_Contribution extends SubstituteMenuBase {
   }
 
 
-  private static final class AUX_tr6eyh {
-    /*package*/ static final SConcept TextMacro_aa9279e8 = MetaAdapterFactory.getConcept(0xa1896bc34f5b4a31L, 0xb78bb65514f8d0e5L, 0x7f05a5bbee374ae1L, "jetbrains.mps.samples.xmlLiterals.structure.TextMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextMacro$9U = MetaAdapterFactory.getConcept(0xa1896bc34f5b4a31L, 0xb78bb65514f8d0e5L, 0x7f05a5bbee374ae1L, "jetbrains.mps.samples.xmlLiterals.structure.TextMacro");
   }
 }

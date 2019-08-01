@@ -15,9 +15,10 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.textGen.behavior.AbstractAppendPart__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class SetWithIndent_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -36,7 +37,7 @@ public final class SetWithIndent_Intention extends AbstractIntentionDescriptor i
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SNodeOperations.isInstanceOf(node, AUX_su4gw.ConstantStringAppendPart_a217ccb8) || SNodeOperations.isInstanceOf(node, AUX_su4gw.NodeAppendPart_9e9083d4);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.ConstantStringAppendPart$AE) || SNodeOperations.isInstanceOf(node, CONCEPTS.NodeAppendPart$oe);
   }
   @Override
   public boolean isSurroundWith() {
@@ -58,10 +59,10 @@ public final class SetWithIndent_Intention extends AbstractIntentionDescriptor i
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       boolean indent = (boolean) AbstractAppendPart__BehaviorDescriptor.withIndent_idi0uJgJ6.invoke(node);
-      if (SNodeOperations.isInstanceOf(node, AUX_su4gw.ConstantStringAppendPart_a217ccb8)) {
-        SPropertyOperations.assign(SNodeOperations.cast(node, AUX_su4gw.ConstantStringAppendPart_a217ccb8), MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, 0x1201534c74dL, "withIndent"), !(indent));
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConstantStringAppendPart$AE)) {
+        SPropertyOperations.assign(SNodeOperations.cast(node, CONCEPTS.ConstantStringAppendPart$AE), PROPS.withIndent$rzdW, !(indent));
       } else {
-        SPropertyOperations.assign(SNodeOperations.cast(node, AUX_su4gw.NodeAppendPart_9e9083d4), MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015251a28L, 0x12015341f3eL, "withIndent"), !(indent));
+        SPropertyOperations.assign(SNodeOperations.cast(node, CONCEPTS.NodeAppendPart$oe), PROPS.withIndent$KkK_, !(indent));
       }
     }
     @Override
@@ -70,8 +71,13 @@ public final class SetWithIndent_Intention extends AbstractIntentionDescriptor i
     }
   }
 
-  private static final class AUX_su4gw {
-    /*package*/ static final SConcept NodeAppendPart_9e9083d4 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015251a28L, "jetbrains.mps.lang.textGen.structure.NodeAppendPart");
-    /*package*/ static final SConcept ConstantStringAppendPart_a217ccb8 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, "jetbrains.mps.lang.textGen.structure.ConstantStringAppendPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeAppendPart$oe = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015251a28L, "jetbrains.mps.lang.textGen.structure.NodeAppendPart");
+    /*package*/ static final SConcept ConstantStringAppendPart$AE = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, "jetbrains.mps.lang.textGen.structure.ConstantStringAppendPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty withIndent$rzdW = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, 0x1201534c74dL, "withIndent");
+    /*package*/ static final SProperty withIndent$KkK_ = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015251a28L, 0x12015341f3eL, "withIndent");
   }
 }

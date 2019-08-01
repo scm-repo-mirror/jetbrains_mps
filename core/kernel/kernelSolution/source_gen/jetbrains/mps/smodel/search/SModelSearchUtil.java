@@ -31,7 +31,7 @@ public class SModelSearchUtil {
     if (role == null) {
       return null;
     }
-    return ((SNode) BHReflection.invoke0(SNodeOperations.cast(conceptDeclaration, AUX_ensy2o.AbstractConceptDeclaration_ec74828f), AUX_ensy2o.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("findLinkDeclaration", AUX_ensy2o.AbstractConceptDeclaration_ec74828f, "hEwILKz"), role));
+    return ((SNode) BHReflection.invoke0(SNodeOperations.cast(conceptDeclaration, CONCEPTS.AbstractConceptDeclaration$UN), CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("findLinkDeclaration", CONCEPTS.AbstractConceptDeclaration$UN, "hEwILKz"), role));
   }
   /**
    * use node<ACD />.getLinkDeclarations()
@@ -39,13 +39,13 @@ public class SModelSearchUtil {
   @Deprecated
   @ToRemove(version = 2018.1)
   public static List<SNode> getLinkDeclarations(SNode concept) {
-    return ((List<SNode>) (List<SNode>) BHReflection.invoke0(SNodeOperations.cast(concept, AUX_ensy2o.AbstractConceptDeclaration_ec74828f), AUX_ensy2o.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("getLinkDeclarations", AUX_ensy2o.AbstractConceptDeclaration_ec74828f, "hEwILKK")));
+    return ((List<SNode>) (List<SNode>) BHReflection.invoke0(SNodeOperations.cast(concept, CONCEPTS.AbstractConceptDeclaration$UN), CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("getLinkDeclarations", CONCEPTS.AbstractConceptDeclaration$UN, "hEwILKK")));
   }
   @Deprecated
   @ToRemove(version = 2018.1)
   public static List<SNode> getPropertyDeclarations(SNode concept) {
     // uses in mbeddr 
-    return ((List<SNode>) BHReflection.invoke0(SNodeOperations.cast(concept, AUX_ensy2o.AbstractConceptDeclaration_ec74828f), AUX_ensy2o.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("getPropertyDeclarations", AUX_ensy2o.AbstractConceptDeclaration_ec74828f, "hEwILLM")));
+    return ((List<SNode>) BHReflection.invoke0(SNodeOperations.cast(concept, CONCEPTS.AbstractConceptDeclaration$UN), CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("getPropertyDeclarations", CONCEPTS.AbstractConceptDeclaration$UN, "hEwILLM")));
   }
   @Nullable
   @Deprecated
@@ -54,10 +54,10 @@ public class SModelSearchUtil {
     if (concept == null || propertyName == null) {
       return null;
     }
-    return ((SNode) BHReflection.invoke0(SNodeOperations.cast(concept, AUX_ensy2o.AbstractConceptDeclaration_ec74828f), AUX_ensy2o.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("findPropertyDeclaration", AUX_ensy2o.AbstractConceptDeclaration_ec74828f, "hK3S4A1"), propertyName));
+    return ((SNode) BHReflection.invoke0(SNodeOperations.cast(concept, CONCEPTS.AbstractConceptDeclaration$UN), CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("findPropertyDeclaration", CONCEPTS.AbstractConceptDeclaration$UN, "hK3S4A1"), propertyName));
   }
 
-  private static final class AUX_ensy2o {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

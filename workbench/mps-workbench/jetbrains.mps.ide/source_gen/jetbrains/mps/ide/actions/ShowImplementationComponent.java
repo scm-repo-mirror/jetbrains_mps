@@ -185,7 +185,7 @@ public class ShowImplementationComponent extends JPanel {
 
     public ImplementationNode(SNode node) {
       myNode = node;
-      myNodePresentation = (SNodeOperations.isInstanceOf(((SNode) node), AUX_8lgp8n.InstanceMethodDeclaration_9dbf9b2b) && node.getParent() != null ? node.getParent() + "." + node.getPresentation() : node.getPresentation());
+      myNodePresentation = (SNodeOperations.isInstanceOf(((SNode) node), CONCEPTS.InstanceMethodDeclaration$An) && node.getParent() != null ? node.getParent() + "." + node.getPresentation() : node.getPresentation());
       myNodeIcon = GlobalIconManager.getInstance().getIconFor(node);
       myModuleName = node.getModel().getModule().getModuleName();
       myModuleIcon = GlobalIconManager.getInstance().getIconFor(node.getModel().getModule());
@@ -254,7 +254,7 @@ public class ShowImplementationComponent extends JPanel {
     }
   }
 
-  private static final class AUX_8lgp8n {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
   }
 }

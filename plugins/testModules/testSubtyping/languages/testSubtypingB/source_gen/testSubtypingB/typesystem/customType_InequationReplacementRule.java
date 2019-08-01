@@ -6,18 +6,19 @@ import jetbrains.mps.lang.typesystem.runtime.AbstractInequationReplacementRule_R
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicable2Status;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class customType_InequationReplacementRule extends AbstractInequationReplacementRule_Runtime {
   public customType_InequationReplacementRule() {
   }
   public boolean isApplicableCustom(SNode subtype, SNode supertype, IsApplicable2Status status) {
-    return String.valueOf(SPropertyOperations.getString(subtype, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))).startsWith(String.valueOf(SPropertyOperations.getString(supertype, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))));
+    return String.valueOf(SPropertyOperations.getString(subtype, PROPS.name$tAp1)).startsWith(String.valueOf(SPropertyOperations.getString(supertype, PROPS.name$tAp1)));
   }
   public void processInequation(final SNode subtype, final SNode supertype, final EquationInfo equationInfo, final TypeCheckingContext typeCheckingContext, IsApplicable2Status status, final boolean inequalityIsWeak, final boolean inequalityIsLessThan) {
     // ok 
@@ -38,13 +39,17 @@ public class customType_InequationReplacementRule extends AbstractInequationRepl
   }
 
   public SAbstractConcept getApplicableSubtypeConcept() {
-    return AUX_e49m0k.CustomType_6ea296ce;
+    return CONCEPTS.CustomType$9k;
   }
   public SAbstractConcept getApplicableSupertypeConcept() {
-    return AUX_e49m0k.CustomType_6ea296ce;
+    return CONCEPTS.CustomType$9k;
   }
 
-  private static final class AUX_e49m0k {
-    /*package*/ static final SConcept CustomType_6ea296ce = MetaAdapterFactory.getConcept(0x6561193424fb470cL, 0x813ea9df6058b93aL, 0x1cd6df1ae5a9b2a3L, "testSubtypingB.structure.CustomType");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CustomType$9k = MetaAdapterFactory.getConcept(0x6561193424fb470cL, 0x813ea9df6058b93aL, 0x1cd6df1ae5a9b2a3L, "testSubtypingB.structure.CustomType");
   }
 }

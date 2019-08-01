@@ -20,10 +20,11 @@ import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.lang.pattern.util.IMatchModifier;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MethodParameter extends MethodParameterModel {
   private SNode myDeclaration;
@@ -41,7 +42,7 @@ public class MethodParameter extends MethodParameterModel {
       this.setTypeName("null");
     }
     this.setName(name);
-    this.myVariableReference = SNodeOperations.cast(reference, AUX_8psez8.Expression_4199e28d);
+    this.myVariableReference = SNodeOperations.cast(reference, CONCEPTS.Expression$TP);
     this.myAvailableTypes = this.createAvailableTypes();
   }
   public List<String> createAvailableTypes() {
@@ -59,7 +60,7 @@ public class MethodParameter extends MethodParameterModel {
       }
       ListSequence.fromList(found).addElement(t);
       SetSequence.fromSet(visited).addElement(new NodeWrapper(t));
-      ListSequence.fromList(((List<SNode>) BHReflection.invoke0(t, AUX_8psez8.Type_4199e276, SMethodTrimmedId.create("getSupertypes", null, "4w2h6RLlygH")))).visitAll(new IVisitor<SNode>() {
+      ListSequence.fromList(((List<SNode>) BHReflection.invoke0(t, CONCEPTS.Type$IG, SMethodTrimmedId.create("getSupertypes", null, "4w2h6RLlygH")))).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
           LinkedListSequence.fromLinkedListNew(queue).addElement(it);
         }
@@ -100,8 +101,8 @@ public class MethodParameter extends MethodParameterModel {
     return SNodeOperations.copyNode(this.myVariableReference);
   }
   public boolean isFinal() {
-    if (SNodeOperations.isInstanceOf(this.myDeclaration, AUX_8psez8.VariableDeclaration_3c610994)) {
-      return SPropertyOperations.getBoolean(SNodeOperations.cast(this.myDeclaration, AUX_8psez8.VariableDeclaration_3c610994), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"));
+    if (SNodeOperations.isInstanceOf(this.myDeclaration, CONCEPTS.VariableDeclaration$xe)) {
+      return SPropertyOperations.getBoolean(SNodeOperations.cast(this.myDeclaration, CONCEPTS.VariableDeclaration$xe), PROPS.isFinal$hIht);
     }
     return false;
   }
@@ -130,9 +131,13 @@ public class MethodParameter extends MethodParameterModel {
     }
   }
 
-  private static final class AUX_8psez8 {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$hIht = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
   }
 }

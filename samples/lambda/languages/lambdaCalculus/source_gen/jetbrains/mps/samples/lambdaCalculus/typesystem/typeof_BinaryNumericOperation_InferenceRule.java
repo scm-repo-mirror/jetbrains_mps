@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_BinaryNumericOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,13 +21,13 @@ public class typeof_BinaryNumericOperation_InferenceRule extends AbstractInferen
   }
   public void applyRule(final SNode binaryNumericOperation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(binaryNumericOperation, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x1ad829a6925a095bL, 0x1ad829a6925a095cL, "left"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(binaryNumericOperation, LINKS.left$8fcw);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:8c01d5e0-82c3-43e7-9986-af954df6cb8b(jetbrains.mps.samples.lambdaCalculus.typesystem)", "1888188276221891124", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:8c01d5e0-82c3-43e7-9986-af954df6cb8b(jetbrains.mps.samples.lambdaCalculus.typesystem)", "1888188276221891115", true), (SNode) _quotation_createNode_h9lwhb_a1a0c0a0b(), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_h9lwhb.BinaryNumericOperation_e85e594e;
+    return CONCEPTS.BinaryNumericOperation$Zk;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +42,11 @@ public class typeof_BinaryNumericOperation_InferenceRule extends AbstractInferen
     return quotedNode_1;
   }
 
-  private static final class AUX_h9lwhb {
-    /*package*/ static final SConcept BinaryNumericOperation_e85e594e = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x1a34313bb1413cb4L, "jetbrains.mps.samples.lambdaCalculus.structure.BinaryNumericOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink left$8fcw = MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x1ad829a6925a095bL, 0x1ad829a6925a095cL, "left");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryNumericOperation$Zk = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x1a34313bb1413cb4L, "jetbrains.mps.samples.lambdaCalculus.structure.BinaryNumericOperation");
   }
 }

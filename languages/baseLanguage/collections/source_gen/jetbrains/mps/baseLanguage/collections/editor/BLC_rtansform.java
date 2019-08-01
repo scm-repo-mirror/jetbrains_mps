@@ -31,7 +31,6 @@ import jetbrains.mps.openapi.editor.menus.transformation.ConstraintsVerifiableAc
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -43,6 +42,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BLC_rtansform extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -80,14 +81,14 @@ public class BLC_rtansform extends TransformationMenuBase {
       super.initialize(_context);
       mapType = new Computable<SNode>() {
         public SNode compute() {
-          return TypecheckingFacade.getFromContext().strongCoerceType(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), AUX_ahju1d.MapType_a7cf7955);
+          return TypecheckingFacade.getFromContext().strongCoerceType(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), CONCEPTS.MapType$2H);
         }
       }.compute();
     }
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
       SNode type = TypecheckingFacade.getFromContext().getTypeOf(_context.getNode());
-      return (TypecheckingFacade.getFromContext().strongCoerceType(type, AUX_ahju1d.MapType_a7cf7955) != null);
+      return (TypecheckingFacade.getFromContext().strongCoerceType(type, CONCEPTS.MapType$2H) != null);
     }
 
     @NotNull
@@ -103,7 +104,7 @@ public class BLC_rtansform extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_ahju1d_a0.TMP_Action_ahju1d_a0a(), AUX_ahju1d.MapElement_26fd0ec6));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_ahju1d_a0.TMP_Action_ahju1d_a0a(), CONCEPTS.MapElement$_s));
     }
     private class TMP_Action_ahju1d_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -143,8 +144,8 @@ public class BLC_rtansform extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode mapElement = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_ahju1d.MapElement_26fd0ec6);
-          SLinkOperations.setTarget(mapElement, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116ea555a25L, 0x116ea576ac7L, "map"), _context.getNode());
+          SNode mapElement = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.MapElement$_s);
+          SLinkOperations.setTarget(mapElement, LINKS.map$KWLJ, _context.getNode());
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), mapElement, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -152,11 +153,11 @@ public class BLC_rtansform extends TransformationMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_ahju1d.MapElement_26fd0ec6;
+          return CONCEPTS.MapElement$_s;
         }
         @Override
         public SNode getActionType(@NotNull String pattern) {
-          return SLinkOperations.getTarget(mapType, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116db7e6bcbL, 0x116db7f8516L, "valueType"));
+          return SLinkOperations.getTarget(mapType, LINKS.valueType$ZdlW);
         }
 
 
@@ -167,7 +168,7 @@ public class BLC_rtansform extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_ahju1d.MapElement_26fd0ec6;
+          SAbstractConcept outputConcept = CONCEPTS.MapElement$_s;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -178,8 +179,13 @@ public class BLC_rtansform extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_ahju1d {
-    /*package*/ static final SConcept MapType_a7cf7955 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116db7e6bcbL, "jetbrains.mps.baseLanguage.collections.structure.MapType");
-    /*package*/ static final SConcept MapElement_26fd0ec6 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116ea555a25L, "jetbrains.mps.baseLanguage.collections.structure.MapElement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MapType$2H = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116db7e6bcbL, "jetbrains.mps.baseLanguage.collections.structure.MapType");
+    /*package*/ static final SConcept MapElement$_s = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116ea555a25L, "jetbrains.mps.baseLanguage.collections.structure.MapElement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink map$KWLJ = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116ea555a25L, 0x116ea576ac7L, "map");
+    /*package*/ static final SContainmentLink valueType$ZdlW = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116db7e6bcbL, 0x116db7f8516L, "valueType");
   }
 }

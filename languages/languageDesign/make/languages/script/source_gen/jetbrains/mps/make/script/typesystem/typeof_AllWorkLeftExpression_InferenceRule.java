@@ -25,7 +25,7 @@ public class typeof_AllWorkLeftExpression_InferenceRule extends AbstractInferenc
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_1yrd6k.AllWorkLeftExpression_30e2c1bf;
+    return CONCEPTS.AllWorkLeftExpression$m3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_AllWorkLeftExpression_InferenceRule extends AbstractInferenc
     return quotedNode_1;
   }
 
-  private static final class AUX_1yrd6k {
-    /*package*/ static final SConcept AllWorkLeftExpression_30e2c1bf = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x2dc2243445538ecaL, "jetbrains.mps.make.script.structure.AllWorkLeftExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AllWorkLeftExpression$m3 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x2dc2243445538ecaL, "jetbrains.mps.make.script.structure.AllWorkLeftExpression");
   }
 }

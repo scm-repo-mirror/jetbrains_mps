@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DeclaredCheckpointSpec_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_dbxorx_a(), AUX_dbxorx.DeclaredCheckpointSpec_e4d64064));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_dbxorx_a(), CONCEPTS.DeclaredCheckpointSpec$HY));
     result.add(new SMP_Subconcepts_dbxorx_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class DeclaredCheckpointSpec_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_dbxorx_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_dbxorx.DeclaredCheckpointSpec_e4d64064, MetaAdapterFactory.getReferenceLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb2fdL, 0x340cd07aed7cb300L, "cpDecl"));
+      super((SAbstractConcept) CONCEPTS.DeclaredCheckpointSpec$HY, LINKS.cpDecl$LTxY);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class DeclaredCheckpointSpec_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_dbxorx_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_dbxorx.DeclaredCheckpointSpec_e4d64064);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.DeclaredCheckpointSpec$HY);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class DeclaredCheckpointSpec_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_dbxorx {
-    /*package*/ static final SConcept DeclaredCheckpointSpec_e4d64064 = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb2fdL, "jetbrains.mps.lang.generator.plan.structure.DeclaredCheckpointSpec");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DeclaredCheckpointSpec$HY = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb2fdL, "jetbrains.mps.lang.generator.plan.structure.DeclaredCheckpointSpec");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink cpDecl$LTxY = MetaAdapterFactory.getReferenceLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb2fdL, 0x340cd07aed7cb300L, "cpDecl");
   }
 }

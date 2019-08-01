@@ -8,9 +8,10 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.ide.editor.actions.EditorActionUtils;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class forbid_Insert {
 
@@ -29,7 +30,7 @@ public class forbid_Insert {
             if (cell.getSNode() != node) {
               break;
             }
-            if (!(Objects.equals(cell.getSRole(), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts")))) {
+            if (!(Objects.equals(cell.getSRole(), LINKS.parts$aVY3))) {
               break;
             }
             cell = cell.getParent();
@@ -57,7 +58,7 @@ public class forbid_Insert {
             if (cell.getSNode() != node) {
               break;
             }
-            if (!(Objects.equals(cell.getSRole(), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts")))) {
+            if (!(Objects.equals(cell.getSRole(), LINKS.parts$aVY3))) {
               break;
             }
             cell = cell.getParent();
@@ -108,5 +109,9 @@ public class forbid_Insert {
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parts$aVY3 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts");
   }
 }

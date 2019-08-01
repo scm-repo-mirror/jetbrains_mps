@@ -20,15 +20,16 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Lambda_Substitute extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rc2mtl_a(), AUX_rc2mtl.StringConstant_e7f176dd));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rc2mtl_a(), CONCEPTS.StringConstant$g_));
     return result;
   }
 
@@ -73,7 +74,7 @@ public class Lambda_Substitute extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rc2mtl.StringConstant_e7f176dd, context);
+        super(CONCEPTS.StringConstant$g_, context);
         _context = context;
       }
 
@@ -88,8 +89,8 @@ public class Lambda_Substitute extends SubstituteMenuBase {
         if (smallPattern.endsWith("\"")) {
           smallPattern = smallPattern.substring(0, smallPattern.length() - 1);
         }
-        SNode result = SNodeFactoryOperations.createNewNode(AUX_rc2mtl.StringConstant_e7f176dd, null);
-        SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dc8L, 0x37d11ba7d7ee2dc9L, "value"), smallPattern);
+        SNode result = SNodeFactoryOperations.createNewNode(CONCEPTS.StringConstant$g_, null);
+        SPropertyOperations.assign(result, PROPS.value$bAtw, smallPattern);
         return result;
       }
 
@@ -108,7 +109,11 @@ public class Lambda_Substitute extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_rc2mtl {
-    /*package*/ static final SConcept StringConstant_e7f176dd = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dc8L, "jetbrains.mps.samples.lambdaCalculus.structure.StringConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringConstant$g_ = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dc8L, "jetbrains.mps.samples.lambdaCalculus.structure.StringConstant");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$bAtw = MetaAdapterFactory.getProperty(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dc8L, 0x37d11ba7d7ee2dc9L, "value");
   }
 }

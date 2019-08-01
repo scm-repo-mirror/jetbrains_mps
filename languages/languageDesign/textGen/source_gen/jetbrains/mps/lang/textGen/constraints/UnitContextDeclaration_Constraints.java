@@ -5,7 +5,6 @@ package jetbrains.mps.lang.textGen.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -14,15 +13,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class UnitContextDeclaration_Constraints extends BaseConstraintsDescriptor {
   public UnitContextDeclaration_Constraints() {
-    super(AUX_v4izqr.UnitContextDeclaration_be355b81);
+    super(CONCEPTS.UnitContextDeclaration$g1);
   }
 
   public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
     public ShortDescription_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), container);
+      super(PROPS.shortDescription$w2Xj, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -30,19 +30,24 @@ public class UnitContextDeclaration_Constraints extends BaseConstraintsDescripto
     }
     @Override
     public Object getValue(SNode node) {
-      String container = SPropertyOperations.getString(SNodeOperations.getNodeAncestor(node, AUX_v4izqr.LanguageTextGenDeclaration_4366b437, false, false), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      String container = SPropertyOperations.getString(SNodeOperations.getNodeAncestor(node, CONCEPTS.LanguageTextGenDeclaration$8b, false, false), PROPS.name$tAp1);
       return String.format("context object from %s", container);
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), new ShortDescription_Property(this));
+    properties.put(PROPS.shortDescription$w2Xj, new ShortDescription_Property(this));
     return properties;
   }
 
-  private static final class AUX_v4izqr {
-    /*package*/ static final SConcept UnitContextDeclaration_be355b81 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x377692d961aaee79L, "jetbrains.mps.lang.textGen.structure.UnitContextDeclaration");
-    /*package*/ static final SConcept LanguageTextGenDeclaration_4366b437 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept UnitContextDeclaration$g1 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x377692d961aaee79L, "jetbrains.mps.lang.textGen.structure.UnitContextDeclaration");
+    /*package*/ static final SConcept LanguageTextGenDeclaration$8b = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty shortDescription$w2Xj = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -29,7 +29,7 @@ public class SingleLineComment_SubstituteMenu extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_eygiu2_a(), AUX_eygiu2.SingleLineComment_36a4c8f4));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_eygiu2_a(), CONCEPTS.SingleLineComment$jI));
     return result;
   }
 
@@ -74,7 +74,7 @@ public class SingleLineComment_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_eygiu2.SingleLineComment_36a4c8f4, context);
+        super(CONCEPTS.SingleLineComment$jI, context);
         _context = context;
       }
 
@@ -88,7 +88,7 @@ public class SingleLineComment_SubstituteMenu extends SubstituteMenuBase {
         if ((SNodeOperations.getNextSibling(_context.getCurrentTargetNode()) == null)) {
           SNodeOperations.insertNextSiblingChild(_context.getCurrentTargetNode(), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement")));
         }
-        return SNodeFactoryOperations.createNewNode(AUX_eygiu2.SingleLineComment_36a4c8f4, _context.getCurrentTargetNode());
+        return SNodeFactoryOperations.createNewNode(CONCEPTS.SingleLineComment$jI, _context.getCurrentTargetNode());
       }
 
       @Override
@@ -103,7 +103,7 @@ public class SingleLineComment_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_eygiu2 {
-    /*package*/ static final SConcept SingleLineComment_36a4c8f4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SingleLineComment$jI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
   }
 }

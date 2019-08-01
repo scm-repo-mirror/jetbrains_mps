@@ -8,18 +8,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_LongLiteral_within_range_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_LongLiteral_within_range_NonTypesystemRule() {
   }
   public void applyRule(final SNode longLiteral, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    String value = SPropertyOperations.getString(longLiteral, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "value"));
+    String value = SPropertyOperations.getString(longLiteral, PROPS.value$ODo0);
     if (value == null) {
       return;
     }
@@ -33,7 +34,7 @@ public class check_LongLiteral_within_range_NonTypesystemRule extends AbstractNo
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_x40427.LongLiteral_59a69852;
+    return CONCEPTS.LongLiteral$5g;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,7 +43,11 @@ public class check_LongLiteral_within_range_NonTypesystemRule extends AbstractNo
     return false;
   }
 
-  private static final class AUX_x40427 {
-    /*package*/ static final SConcept LongLiteral_59a69852 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, "jetbrains.mps.baseLanguage.structure.LongLiteral");
+  private static final class PROPS {
+    /*package*/ static final SProperty value$ODo0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "value");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LongLiteral$5g = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, "jetbrains.mps.baseLanguage.structure.LongLiteral");
   }
 }

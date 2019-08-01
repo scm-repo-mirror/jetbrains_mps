@@ -5,13 +5,16 @@ package jetbrains.mps.lang.structure.findUsages;
 import jetbrains.mps.core.aspects.behaviour.api.AbstractConceptLike;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ConceptWrap extends AbstractConceptWrap implements AbstractConceptLike.ConceptLike {
   private final SNode myPeer;
@@ -23,13 +26,13 @@ public final class ConceptWrap extends AbstractConceptWrap implements AbstractCo
 
   @Override
   public boolean isAbstract() {
-    return SPropertyOperations.getBoolean(myPeer, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"));
+    return SPropertyOperations.getBoolean(myPeer, PROPS.abstract$moSU);
   }
 
   @Nullable
   @Override
   public AbstractConceptLike.ConceptLike getSuperConcept() {
-    SNode superConcept = SLinkOperations.getTarget(myPeer, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends"));
+    SNode superConcept = SLinkOperations.getTarget(myPeer, LINKS.extends$LQV3);
     if (superConcept == null) {
       return null;
     }
@@ -40,10 +43,20 @@ public final class ConceptWrap extends AbstractConceptWrap implements AbstractCo
   @Override
   public List<AbstractConceptLike.InterfaceConceptLike> getSuperInterfaces() {
     List<AbstractConceptLike.InterfaceConceptLike> result = new ArrayList<AbstractConceptLike.InterfaceConceptLike>();
-    List<SNode> superInterfaces = SLinkOperations.getChildren(myPeer, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements"));
+    List<SNode> superInterfaces = SLinkOperations.getChildren(myPeer, LINKS.implements$oQDh);
     for (SNode superInterfaceRef : ListSequence.fromList(superInterfaces)) {
-      result.add(new InterfaceConceptWrap(SLinkOperations.getTarget(superInterfaceRef, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc"))));
+      result.add(new InterfaceConceptWrap(SLinkOperations.getTarget(superInterfaceRef, LINKS.intfc$fO5)));
     }
     return result;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstract$moSU = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
+    /*package*/ static final SContainmentLink implements$oQDh = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements");
+    /*package*/ static final SReferenceLink intfc$fO5 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc");
   }
 }

@@ -17,14 +17,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class IApplicableToNothing_Constraints extends BaseConstraintsDescriptor {
   public IApplicableToNothing_Constraints() {
-    super(AUX_n9ubkw.IApplicableToNothing_ec2f3bee);
+    super(CONCEPTS.IApplicableToNothing$4O);
   }
 
   @Override
@@ -43,16 +43,20 @@ public class IApplicableToNothing_Constraints extends BaseConstraintsDescriptor 
     };
   }
   private static boolean staticCanBeAChild(SNode node, final SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SetSequence.fromSet(IApplicableToNothing__BehaviorDescriptor.getAllApplicableTypes_id5cL0w3DYWgB.invoke(SNodeOperations.asSConcept(SNodeOperations.castConcept(childConcept, AUX_n9ubkw.IApplicableToNothing_ec2f3bee)))).any(new IWhereFilter<SNode>() {
+    return SetSequence.fromSet(IApplicableToNothing__BehaviorDescriptor.getAllApplicableTypes_id5cL0w3DYWgB.invoke(SNodeOperations.asSConcept(SNodeOperations.castConcept(childConcept, CONCEPTS.IApplicableToNothing$4O)))).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return TypecheckingFacade.getFromContext().isStrongSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(parentNode, AUX_n9ubkw.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"))), it);
+        return TypecheckingFacade.getFromContext().isStrongSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.as(parentNode, CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr)), it);
       }
     });
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590328(jetbrains.mps.baseLanguage.collections.constraints)", "2879969100346192021");
 
-  private static final class AUX_n9ubkw {
-    /*package*/ static final SInterfaceConcept IApplicableToNothing_ec2f3bee = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eaf6L, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToNothing");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IApplicableToNothing$4O = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eaf6L, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToNothing");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
   }
 }

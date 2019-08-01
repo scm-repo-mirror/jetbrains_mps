@@ -20,10 +20,11 @@ import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
 import jetbrains.mps.analyzers.runtime.framework.GeneratedInstruction;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.dataFlow.framework.instructions.WriteInstruction;
 import jetbrains.mps.lang.dataFlow.framework.AnalysisDirection;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class NullableAnalyzerRunner extends CustomAnalyzerRunner<Map<SNode, NullableState>> {
   private SNode myNode;
@@ -75,8 +76,8 @@ public class NullableAnalyzerRunner extends CustomAnalyzerRunner<Map<SNode, Null
         if (instruction instanceof nullInstruction) {
           nullableState = NullableState.NULL;
         }
-        if (SNodeOperations.isInstanceOf(node, AUX_4e6y3.VariableReference_24d60dac)) {
-          node = SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_4e6y3.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"));
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.VariableReference$sQ)) {
+          node = SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6);
         }
         if (node != null) {
           result.put(node, nullableState);
@@ -85,8 +86,8 @@ public class NullableAnalyzerRunner extends CustomAnalyzerRunner<Map<SNode, Null
       if (instruction instanceof WriteInstruction) {
         WriteInstruction write = (WriteInstruction) instruction;
         SNode value = (SNode) write.getValue();
-        if (SNodeOperations.isInstanceOf(value, AUX_4e6y3.VariableReference_24d60dac)) {
-          value = SLinkOperations.getTarget(SNodeOperations.cast(value, AUX_4e6y3.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"));
+        if (SNodeOperations.isInstanceOf(value, CONCEPTS.VariableReference$sQ)) {
+          value = SLinkOperations.getTarget(SNodeOperations.cast(value, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6);
         }
         NullableState valueState = result.get(value);
         if (valueState == null) {
@@ -110,7 +111,11 @@ public class NullableAnalyzerRunner extends CustomAnalyzerRunner<Map<SNode, Null
     }
   }
 
-  private static final class AUX_4e6y3 {
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 }

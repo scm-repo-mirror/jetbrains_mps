@@ -4,6 +4,7 @@ package jetbrains.mps.lang.typesystem.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -14,14 +15,13 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class InequationReplacementRule__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_vjzzj3.InequationReplacementRule_536e0cf5;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
 
   public static final SMethod<SNode> getSecondNodeCondition_id3SW4jvYrbIS = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getSecondNodeCondition").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3SW4jvYrbIS").build();
 
@@ -31,7 +31,7 @@ public final class InequationReplacementRule__BehaviorDescriptor extends BaseBHD
   }
 
   /*package*/ static SNode getSecondNodeCondition_id3SW4jvYrbIS(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, 0x117c567f086L, "supertypeNode"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.supertypeNode$b3lK);
   }
 
   /*package*/ InequationReplacementRule__BehaviorDescriptor() {
@@ -80,7 +80,7 @@ public final class InequationReplacementRule__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_vjzzj3 {
-    /*package*/ static final SConcept InequationReplacementRule_536e0cf5 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink supertypeNode$b3lK = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, 0x117c567f086L, "supertypeNode");
   }
 }

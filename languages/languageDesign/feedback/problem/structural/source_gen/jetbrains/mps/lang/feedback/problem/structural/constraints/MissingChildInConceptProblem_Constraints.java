@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,16 @@ import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class MissingChildInConceptProblem_Constraints extends BaseConstraintsDescriptor {
   public MissingChildInConceptProblem_Constraints() {
-    super(AUX_3ysgg4.MissingChildInConceptProblem_4ddb1e90);
+    super(CONCEPTS.MissingChildInConceptProblem$bi);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.kind$Wl20, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -58,7 +58,11 @@ public class MissingChildInConceptProblem_Constraints extends BaseConstraintsDes
   }
   private static final SNodePointer breakingNode_3ysgg4_a0a0a0a0a1a0a0a0c = new SNodePointer("r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)", "2554379189374332326");
 
-  private static final class AUX_3ysgg4 {
-    /*package*/ static final SConcept MissingChildInConceptProblem_4ddb1e90 = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x2372fa56cc4ea3f4L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MissingChildInConceptProblem$bi = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x2372fa56cc4ea3f4L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink kind$Wl20 = MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind");
   }
 }

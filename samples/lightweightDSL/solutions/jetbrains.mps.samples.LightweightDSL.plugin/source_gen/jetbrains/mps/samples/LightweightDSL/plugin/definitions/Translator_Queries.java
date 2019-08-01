@@ -10,17 +10,17 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Translator_Queries {
   public static SNode translate_from_type(SNode point) {
-    return (SNode) Converter__BehaviorDescriptor.getSourceType_id4PvwzwVa630.invoke(SNodeOperations.getNodeAncestor(point, AUX_59usg.Converter_ded24cc5, false, false));
+    return (SNode) Converter__BehaviorDescriptor.getSourceType_id4PvwzwVa630.invoke(SNodeOperations.getNodeAncestor(point, CONCEPTS.Converter$GX, false, false));
   }
   public static SNode translate_ret(SNode point) {
-    return (SNode) Converter__BehaviorDescriptor.getTargetType_id4PvwzwVa6sI.invoke(SNodeOperations.getNodeAncestor(point, AUX_59usg.Converter_ded24cc5, false, false));
+    return (SNode) Converter__BehaviorDescriptor.getTargetType_id4PvwzwVa6sI.invoke(SNodeOperations.getNodeAncestor(point, CONCEPTS.Converter$GX, false, false));
   }
   public static boolean translate_null_opt(SNode method) {
-    return SNodeOperations.isInstanceOf(Converter__BehaviorDescriptor.getSourceType_id4PvwzwVa630.invoke(SNodeOperations.getNodeAncestor(method, AUX_59usg.Converter_ded24cc5, false, false)), AUX_59usg.BooleanType_6530abf6);
+    return SNodeOperations.isInstanceOf(Converter__BehaviorDescriptor.getSourceType_id4PvwzwVa630.invoke(SNodeOperations.getNodeAncestor(method, CONCEPTS.Converter$GX, false, false)), CONCEPTS.BooleanType$8G);
   }
 
-  private static final class AUX_59usg {
-    /*package*/ static final SConcept Converter_ded24cc5 = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0x4d5f82383b28563fL, "jetbrains.mps.samples.SwingBuilder.structure.Converter");
-    /*package*/ static final SConcept BooleanType_6530abf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d6513eL, "jetbrains.mps.baseLanguage.structure.BooleanType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Converter$GX = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0x4d5f82383b28563fL, "jetbrains.mps.samples.SwingBuilder.structure.Converter");
+    /*package*/ static final SConcept BooleanType$8G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d6513eL, "jetbrains.mps.baseLanguage.structure.BooleanType");
   }
 }

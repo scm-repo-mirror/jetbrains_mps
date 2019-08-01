@@ -23,7 +23,6 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
@@ -34,6 +33,9 @@ import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
@@ -65,12 +67,12 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
       super.initialize(_context);
       condition = new Computable<Boolean>() {
         public Boolean compute() {
-          return SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_aabwkk.BuildLayout_JarManifest_bd0e9b46);
+          return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BuildLayout_JarManifest$Ns);
         }
       }.compute();
       condition_1 = new Computable<Boolean>() {
         public Boolean compute() {
-          return SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_aabwkk.BuildLayout_JarManifest_Section_e40bbec2) || SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_aabwkk.BuildLayout_JarManifest_bd0e9b46);
+          return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BuildLayout_JarManifest_Section$zw) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BuildLayout_JarManifest$Ns);
         }
       }.compute();
     }
@@ -109,7 +111,7 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
 
       @Override
       protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_aabwkk_a.SMP_Group_aabwkk_a0.SMP_Action_aabwkk_a0a(), AUX_aabwkk.BuildLayout_JarManifest_Section_e40bbec2));
+        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_aabwkk_a.SMP_Group_aabwkk_a0.SMP_Action_aabwkk_a0a(), CONCEPTS.BuildLayout_JarManifest_Section$zw));
       }
       private class SMP_Action_aabwkk_a0a extends SingleItemSubstituteMenuPart {
 
@@ -139,7 +141,7 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_aabwkk.BuildLayout_JarManifest_Section_e40bbec2, context);
+            super(CONCEPTS.BuildLayout_JarManifest_Section$zw, context);
             _context = context;
           }
 
@@ -150,8 +152,8 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode section = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_aabwkk.BuildLayout_JarManifest_Section_e40bbec2, null);
-            SNodeFactoryOperations.setNewChild(section, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf47d7bL, 0x5ee439f214c0c758L, "name"), null);
+            SNode section = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.BuildLayout_JarManifest_Section$zw, null);
+            SNodeFactoryOperations.setNewChild(section, LINKS.name$e370, null);
             return section;
           }
 
@@ -191,7 +193,7 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
 
       @Override
       protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_aabwkk_a.SMP_Group_aabwkk_b0.SMP_Action_aabwkk_a1a(), AUX_aabwkk.BuildLayout_JarManifest_Attribute_bd0e9b48));
+        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_aabwkk_a.SMP_Group_aabwkk_b0.SMP_Action_aabwkk_a1a(), CONCEPTS.BuildLayout_JarManifest_Attribute$Oq));
       }
       private class SMP_Action_aabwkk_a1a extends SingleItemSubstituteMenuPart {
 
@@ -221,7 +223,7 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_aabwkk.BuildLayout_JarManifest_Attribute_bd0e9b48, context);
+            super(CONCEPTS.BuildLayout_JarManifest_Attribute$Oq, context);
             _context = context;
           }
 
@@ -232,7 +234,7 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode newInitializedNode = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_aabwkk.BuildLayout_JarManifest_Attribute_bd0e9b48, null);
+            SNode newInitializedNode = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.BuildLayout_JarManifest_Attribute$Oq, null);
             String name;
             String value = null;
             if (pattern.contains(":")) {
@@ -241,9 +243,9 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
             } else {
               name = pattern;
             }
-            SLinkOperations.setTarget(newInitializedNode, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, 0x115d3b22faf20f31L, "name"), createBuildStringNotEmpty_aabwkk_a0a4a0a1a(name));
+            SLinkOperations.setTarget(newInitializedNode, LINKS.name$OJj0, createBuildStringNotEmpty_aabwkk_a0a4a0a1a(name));
             if ((value != null && value.length() > 0)) {
-              SLinkOperations.setTarget(newInitializedNode, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, 0x115d3b22faf20f32L, "value"), createBuildStringNotEmpty_aabwkk_a0a0a5a0a1a(value));
+              SLinkOperations.setTarget(newInitializedNode, LINKS.value$OJtE, createBuildStringNotEmpty_aabwkk_a0a0a5a0a1a(value));
             }
             return newInitializedNode;
           }
@@ -269,7 +271,7 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
             return canExecute_internal(pattern, true);
           }
           public boolean canExecute_internal(@NotNull String pattern, boolean strictly) {
-            return SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_aabwkk.BuildLayout_JarManifest_Section_e40bbec2) || !(pattern.equals("section")) && !(pattern.contains("$"));
+            return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BuildLayout_JarManifest_Section$zw) || !(pattern.equals("section")) && !(pattern.contains("$"));
           }
         }
       }
@@ -297,7 +299,7 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
       }
       public class SMP_Subconcepts_aabwkk_a2a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
         protected Collection getConcepts(final SubstituteMenuContext _context) {
-          return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_aabwkk.BuildLayout_JarManifest_Part_468a8d80);
+          return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildLayout_JarManifest_Part$7y);
         }
         @NotNull
         @Override
@@ -320,31 +322,42 @@ public class BuildLayout_JarManifest_Part_SubstituteMenu extends SubstituteMenuB
   }
   private static SNode createBuildStringNotEmpty_aabwkk_a0a4a0a1a(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_aabwkk.BuildStringNotEmpty_fb110cc3, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.BuildStringNotEmpty$FZ, null, null, false);
     {
-      SNode n2 = SModelUtil_new.instantiateConceptDeclaration(AUX_aabwkk.BuildTextStringPart_a64ab0ce, null, null, false);
-      n2.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text").getType().toString(p0));
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts"), n2);
+      SNode n2 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.BuildTextStringPart$xk, null, null, false);
+      n2.setProperty(PROPS.text$2p89, PROPS.text$2p89.getType().toString(p0));
+      n1.addChild(LINKS.parts$aVY3, n2);
     }
     return n1;
   }
   private static SNode createBuildStringNotEmpty_aabwkk_a0a0a5a0a1a(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_aabwkk.BuildStringNotEmpty_fb110cc3, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.BuildStringNotEmpty$FZ, null, null, false);
     {
-      SNode n2 = SModelUtil_new.instantiateConceptDeclaration(AUX_aabwkk.BuildTextStringPart_a64ab0ce, null, null, false);
-      n2.setProperty(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text").getType().toString(p0));
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts"), n2);
+      SNode n2 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.BuildTextStringPart$xk, null, null, false);
+      n2.setProperty(PROPS.text$2p89, PROPS.text$2p89.getType().toString(p0));
+      n1.addChild(LINKS.parts$aVY3, n2);
     }
     return n1;
   }
 
-  private static final class AUX_aabwkk {
-    /*package*/ static final SConcept BuildLayout_JarManifest_bd0e9b46 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f2eL, "jetbrains.mps.build.structure.BuildLayout_JarManifest");
-    /*package*/ static final SConcept BuildLayout_JarManifest_Section_e40bbec2 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf47d7bL, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Section");
-    /*package*/ static final SConcept BuildLayout_JarManifest_Attribute_bd0e9b48 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Attribute");
-    /*package*/ static final SConcept BuildLayout_JarManifest_Part_468a8d80 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x76d807f8dd95718eL, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Part");
-    /*package*/ static final SConcept BuildStringNotEmpty_fb110cc3 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee17fe57L, "jetbrains.mps.build.structure.BuildStringNotEmpty");
-    /*package*/ static final SConcept BuildTextStringPart_a64ab0ce = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_JarManifest$Ns = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f2eL, "jetbrains.mps.build.structure.BuildLayout_JarManifest");
+    /*package*/ static final SConcept BuildLayout_JarManifest_Section$zw = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf47d7bL, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Section");
+    /*package*/ static final SConcept BuildLayout_JarManifest_Attribute$Oq = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Attribute");
+    /*package*/ static final SConcept BuildLayout_JarManifest_Part$7y = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x76d807f8dd95718eL, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Part");
+    /*package*/ static final SConcept BuildStringNotEmpty$FZ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee17fe57L, "jetbrains.mps.build.structure.BuildStringNotEmpty");
+    /*package*/ static final SConcept BuildTextStringPart$xk = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink name$e370 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf47d7bL, 0x5ee439f214c0c758L, "name");
+    /*package*/ static final SContainmentLink name$OJj0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, 0x115d3b22faf20f31L, "name");
+    /*package*/ static final SContainmentLink value$OJtE = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, 0x115d3b22faf20f32L, "value");
+    /*package*/ static final SContainmentLink parts$aVY3 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, 0x440d7ea3b68cba4bL, "parts");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$2p89 = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text");
   }
 }

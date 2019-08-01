@@ -46,7 +46,7 @@ public class LoadedLanguages_CellMenu extends AbstractCellMenuComponent {
       return this.customCreateChildNode_impl((SLanguage) parameterObject, node, currentChild, defaultConceptOfChild.getDeclarationNode(), defaultConceptOfChild, model, operationContext, editorContext);
     }
     public SNode customCreateChildNode_impl(SLanguage parameterObject, SNode node, SNode currentChild, SNode defaultConceptOfChild, SAbstractConcept defaultChildConcept, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SNode lid = SModelOperations.createNewNode(model, null, AUX_lbhw0l.LanguageId_f5e2e6b);
+      SNode lid = SModelOperations.createNewNode(model, null, CONCEPTS.LanguageId$Tn);
       LanguageIdentity__BehaviorDescriptor.setLanguage_id34EJa6aIcyw.invoke(lid, parameterObject);
       return lid;
     }
@@ -60,7 +60,7 @@ public class LoadedLanguages_CellMenu extends AbstractCellMenuComponent {
     }
   }
 
-  private static final class AUX_lbhw0l {
-    /*package*/ static final SConcept LanguageId_f5e2e6b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LanguageId$Tn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
   }
 }

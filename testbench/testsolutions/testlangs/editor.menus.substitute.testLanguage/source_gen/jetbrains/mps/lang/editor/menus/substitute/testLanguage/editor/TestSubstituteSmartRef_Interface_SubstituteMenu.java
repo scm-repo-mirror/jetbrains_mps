@@ -14,15 +14,16 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class TestSubstituteSmartRef_Interface_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_l5co44_a(), AUX_l5co44.TestSubstituteSmartRef_Interface_f8129194));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_l5co44_a(), CONCEPTS.TestSubstituteSmartRef_Interface$1e));
     return result;
   }
 
@@ -43,7 +44,7 @@ public class TestSubstituteSmartRef_Interface_SubstituteMenu extends SubstituteM
 
     public SMP_ReferenceScope_l5co44_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_l5co44.TestSubstituteSmartRef_Interface_f8129194, MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7dd7af941a6edd1bL, 0x7dd7af941a6edd1eL, "childToReference"));
+      super((SAbstractConcept) CONCEPTS.TestSubstituteSmartRef_Interface$1e, LINKS.childToReference$ks49);
     }
     @NotNull
     @Override
@@ -59,7 +60,11 @@ public class TestSubstituteSmartRef_Interface_SubstituteMenu extends SubstituteM
 
   }
 
-  private static final class AUX_l5co44 {
-    /*package*/ static final SInterfaceConcept TestSubstituteSmartRef_Interface_f8129194 = MetaAdapterFactory.getInterfaceConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7dd7af941a6edd1bL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSmartRef_Interface");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept TestSubstituteSmartRef_Interface$1e = MetaAdapterFactory.getInterfaceConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7dd7af941a6edd1bL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSmartRef_Interface");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink childToReference$ks49 = MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7dd7af941a6edd1bL, 0x7dd7af941a6edd1eL, "childToReference");
   }
 }

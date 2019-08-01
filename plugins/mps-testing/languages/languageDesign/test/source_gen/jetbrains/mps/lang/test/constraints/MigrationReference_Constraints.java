@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -15,15 +14,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MigrationReference_Constraints extends BaseConstraintsDescriptor {
   public MigrationReference_Constraints() {
-    super(AUX_93b1my.MigrationReference_6f8f00db);
+    super(CONCEPTS.MigrationReference$BB);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.migration$RUsw, this) {
       @Override
       public boolean hasOwnOnReferenceSetHandler() {
         return true;
@@ -34,8 +36,8 @@ public class MigrationReference_Constraints extends BaseConstraintsDescriptor {
       }
       @Override
       public void onReferenceSet(final SNode referenceNode, final SNode oldReferentNode, final SNode newReferentNode) {
-        if (SNodeOperations.hasRole(referenceNode, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration")) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(referenceNode), AUX_93b1my.MigrationTestCase_f9a226ab), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration"))).count() == 1) {
-          SPropertyOperations.assign(SNodeOperations.cast(SNodeOperations.getParent(referenceNode), AUX_93b1my.MigrationTestCase_f9a226ab), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), SPropertyOperations.getString(newReferentNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "_Test");
+        if (SNodeOperations.hasRole(referenceNode, LINKS.migration$wvkx) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(referenceNode), CONCEPTS.MigrationTestCase$Sn), LINKS.migration$wvkx)).count() == 1) {
+          SPropertyOperations.assign(SNodeOperations.cast(SNodeOperations.getParent(referenceNode), CONCEPTS.MigrationTestCase$Sn), PROPS.name$tAp1, SPropertyOperations.getString(newReferentNode, PROPS.name$tAp1) + "_Test");
         }
       }
     };
@@ -44,8 +46,17 @@ public class MigrationReference_Constraints extends BaseConstraintsDescriptor {
     return references;
   }
 
-  private static final class AUX_93b1my {
-    /*package*/ static final SConcept MigrationReference_6f8f00db = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, "jetbrains.mps.lang.test.structure.MigrationReference");
-    /*package*/ static final SConcept MigrationTestCase_f9a226ab = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, "jetbrains.mps.lang.test.structure.MigrationTestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MigrationReference$BB = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, "jetbrains.mps.lang.test.structure.MigrationReference");
+    /*package*/ static final SConcept MigrationTestCase$Sn = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, "jetbrains.mps.lang.test.structure.MigrationTestCase");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink migration$RUsw = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration");
+    /*package*/ static final SContainmentLink migration$wvkx = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.collections.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -19,11 +20,11 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class IApplicableToStack__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nyeorn.IApplicableToStack_ec2fb0ab;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eefdL, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToStack");
 
   public static final SMethod<List<SNode>> getApplicableTypes_id5cL0w3DYzxf = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getApplicableTypes").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5cL0w3DYzxf").build();
 
@@ -33,7 +34,7 @@ public final class IApplicableToStack__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static List<SNode> getApplicableTypes_id5cL0w3DYzxf(@NotNull SAbstractConcept __thisConcept__) {
-    List<SNode> result = IApplicableToNothing__BehaviorDescriptor.getApplicableTypes_id5cL0w3DYzxf.invokeSuper(__thisConcept__, AUX_nyeorn.IApplicableToStack_ec2fb0ab);
+    List<SNode> result = IApplicableToNothing__BehaviorDescriptor.getApplicableTypes_id5cL0w3DYzxf.invokeSuper(__thisConcept__, CONCEPTS.IApplicableToStack$gn);
     ListSequence.fromList(result).addElement(_quotation_createNode_r7s30m_a0a1a0());
     return result;
   }
@@ -89,11 +90,15 @@ public final class IApplicableToStack__BehaviorDescriptor extends BaseBHDescript
     SNode quotedNode_2 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x5e6446aa46ee5eecL, "StackType"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x110dae5f4a3L, "WildCardType"), null, null, false);
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.elementType$B4nw, quotedNode_2);
     return quotedNode_1;
   }
 
-  private static final class AUX_nyeorn {
-    /*package*/ static final SInterfaceConcept IApplicableToStack_ec2fb0ab = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eefdL, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToStack");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IApplicableToStack$gn = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eefdL, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToStack");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$B4nw = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType");
   }
 }

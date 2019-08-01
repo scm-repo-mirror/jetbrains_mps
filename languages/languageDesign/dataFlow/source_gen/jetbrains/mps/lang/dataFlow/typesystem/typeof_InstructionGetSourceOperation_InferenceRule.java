@@ -25,7 +25,7 @@ public class typeof_InstructionGetSourceOperation_InferenceRule extends Abstract
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tghz1i.InstructionGetSourceOperation_8131006f;
+    return CONCEPTS.InstructionGetSourceOperation$Nj;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_InstructionGetSourceOperation_InferenceRule extends Abstract
     return quotedNode_1;
   }
 
-  private static final class AUX_tghz1i {
-    /*package*/ static final SConcept InstructionGetSourceOperation_8131006f = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x194dbbd57c9dbb64L, "jetbrains.mps.lang.dataFlow.structure.InstructionGetSourceOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstructionGetSourceOperation$Nj = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x194dbbd57c9dbb64L, "jetbrains.mps.lang.dataFlow.structure.InstructionGetSourceOperation");
   }
 }

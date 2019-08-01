@@ -32,7 +32,7 @@ public class replace_node_macro extends AbstractCellMenuComponent {
     }
 
     public List<?> createParameterObjects(SNode node, IOperationContext operationContext, EditorContext editorContext) {
-      return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(AUX_f12orh.NodeMacro_2cb20614, SNodeOperations.getModel(node))).where(new IWhereFilter<SConcept>() {
+      return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(CONCEPTS.NodeMacro$Je, SNodeOperations.getModel(node))).where(new IWhereFilter<SConcept>() {
         public boolean accept(SConcept it) {
           return !(it.isAbstract());
         }
@@ -76,7 +76,7 @@ public class replace_node_macro extends AbstractCellMenuComponent {
     }
   }
 
-  private static final class AUX_f12orh {
-    /*package*/ static final SConcept NodeMacro_2cb20614 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeMacro$Je = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
   }
 }

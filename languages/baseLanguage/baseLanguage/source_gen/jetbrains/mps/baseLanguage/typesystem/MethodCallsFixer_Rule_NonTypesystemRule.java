@@ -10,12 +10,13 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.baseLanguage.scopes.MethodResolveUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -26,11 +27,11 @@ public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesyst
     SNode newTarget = resolveResult._0();
     boolean goodReplacement = (boolean) resolveResult._1();
 
-    SNode baseMethodDeclaration = SLinkOperations.getTarget(methodCallNode, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+    SNode baseMethodDeclaration = SLinkOperations.getTarget(methodCallNode, LINKS.baseMethodDeclaration$$A7i);
     if (newTarget != null) {
       if (baseMethodDeclaration == null) {
         {
-          final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+          final MessageTarget errorTarget = new ReferenceMessageTarget(LINKS.baseMethodDeclaration$$A7i);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(methodCallNode, "Unresolved reference to method declaration", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "869282237625475452", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.MethodCallsFixer_Quickfix_QuickFix", true);
@@ -41,7 +42,7 @@ public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesyst
         }
       } else if (goodReplacement) {
         if (!(newTarget == baseMethodDeclaration)) {
-          final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+          final MessageTarget errorTarget = new ReferenceMessageTarget(LINKS.baseMethodDeclaration$$A7i);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(methodCallNode, "Reference to wrong overriden method", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "869282237625479726", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.MethodCallsFixer_Quickfix_QuickFix", true);
@@ -54,7 +55,7 @@ public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesyst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_j8xv28.IMethodCall_ee2c776b;
+    return CONCEPTS.IMethodCall$ln;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -63,7 +64,11 @@ public class MethodCallsFixer_Rule_NonTypesystemRule extends AbstractNonTypesyst
     return false;
   }
 
-  private static final class AUX_j8xv28 {
-    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
   }
 }

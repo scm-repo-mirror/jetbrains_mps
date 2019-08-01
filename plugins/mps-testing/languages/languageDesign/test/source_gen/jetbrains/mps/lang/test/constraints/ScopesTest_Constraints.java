@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,15 +25,16 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ScopesTest_Constraints extends BaseConstraintsDescriptor {
   public ScopesTest_Constraints() {
-    super(AUX_jzm89w.ScopesTest_1ed83fd8);
+    super(CONCEPTS.ScopesTest$Ea);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.checkingReference$ZKEm, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -53,7 +53,7 @@ public class ScopesTest_Constraints extends BaseConstraintsDescriptor {
               @Override
               public Iterable<SNode> getAvailableElements(@Nullable String prefix) {
                 List<SNode> nodes = new ArrayList<SNode>();
-                for (SReference reference : ListSequence.fromList(SNodeOperations.getReferences(SNodeOperations.getParent(SNodeOperations.cast(_context.getContextNode(), AUX_jzm89w.ScopesTest_1ed83fd8))))) {
+                for (SReference reference : ListSequence.fromList(SNodeOperations.getReferences(SNodeOperations.getParent(SNodeOperations.cast(_context.getContextNode(), CONCEPTS.ScopesTest$Ea))))) {
                   ListSequence.fromList(nodes).addElement(SLinkOperations.getTargetNode(reference));
                 }
                 return nodes;
@@ -80,7 +80,11 @@ public class ScopesTest_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_jzm89w_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590382(jetbrains.mps.lang.test.constraints)", "6836281137582846165");
 
-  private static final class AUX_jzm89w {
-    /*package*/ static final SConcept ScopesTest_1ed83fd8 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ScopesTest$Ea = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink checkingReference$ZKEm = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference");
   }
 }

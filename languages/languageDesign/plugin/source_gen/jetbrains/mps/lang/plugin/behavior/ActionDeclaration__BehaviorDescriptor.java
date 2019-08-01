@@ -4,6 +4,7 @@ package jetbrains.mps.lang.plugin.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,7 +18,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -32,11 +32,13 @@ import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ActionDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_es1l5e.ActionDeclaration_5aac4105;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
 
   public static final SMethod<String> getGeneratedName_idhEwIGgA = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIGgA").build();
   public static final SMethod<String> getGeneratedClassFQName_idhEwIGgK = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassFQName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIGgK").build();
@@ -51,33 +53,33 @@ public final class ActionDeclaration__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ static String getGeneratedName_idhEwIGgA(@NotNull SNode __thisNode__) {
-    return NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) + "_Action";
+    return NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1)) + "_Action";
   }
   /*package*/ static String getGeneratedClassFQName_idhEwIGgK(@NotNull SNode __thisNode__) {
     return SNodeOperations.getModel(__thisNode__).getName().getLongName() + "." + ActionDeclaration__BehaviorDescriptor.getGeneratedName_idhEwIGgA.invoke(__thisNode__);
   }
   /*package*/ static String getActionId_id2JiSCAPXEb8(@NotNull SNode __thisNode__) {
-    return (isNotEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x374ac263e13f4abeL, "ID"))) ? SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x374ac263e13f4abeL, "ID")) : ActionDeclaration__BehaviorDescriptor.getGeneratedClassFQName_idhEwIGgK.invoke(__thisNode__));
+    return (isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.ID$IQFk)) ? SPropertyOperations.getString(__thisNode__, PROPS.ID$IQFk) : ActionDeclaration__BehaviorDescriptor.getGeneratedClassFQName_idhEwIGgK.invoke(__thisNode__));
   }
   /*package*/ static SNode createType_idhEwJimy(@NotNull SNode __thisNode__) {
     SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x118c26632a3L, "jetbrains.mps.lang.plugin.structure.ActionType"));
-    SLinkOperations.setTarget(type, MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x118c26632a3L, 0x118c266a4d7L, "action"), __thisNode__);
+    SLinkOperations.setTarget(type, LINKS.action$2bWe, __thisNode__);
     return type;
   }
   /*package*/ static PropertyReference getPropertyToCheck_id4cWf37B8oYh(@NotNull SNode __thisNode__) {
-    return new PropertyReference(__thisNode__, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x1189e8d9a59L, "caption"));
+    return new PropertyReference(__thisNode__, PROPS.caption$_nKE);
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), AUX_es1l5e.MethodDeclaration_637cfcff)) {
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), CONCEPTS.MethodDeclaration$93)) {
       SNode baseActionType = IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SNodeOperations.getNode("742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.action(MPS.Platform/)", "~BaseAction"));
       Iterable<SNode> methods = Sequence.fromIterable(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(baseActionType)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, AUX_es1l5e.InstanceMethodDeclaration_9dbf9b2b);
+          return SNodeOperations.isInstanceOf(it, CONCEPTS.InstanceMethodDeclaration$An);
         }
       });
       return Scopes.forMethods(kind, new MethodsScope(baseActionType, methods), ScopeUtils.lazyParentScope(__thisNode__, kind));
     }
-    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, AUX_es1l5e.ScopeProvider_545e361a, kind, child));
+    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$M8, kind, child));
   }
 
   /*package*/ ActionDeclaration__BehaviorDescriptor() {
@@ -139,10 +141,19 @@ public final class ActionDeclaration__BehaviorDescriptor extends BaseBHDescripto
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_es1l5e {
-    /*package*/ static final SConcept ActionDeclaration_5aac4105 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept MethodDeclaration_637cfcff = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, "jetbrains.mps.baseLanguage.structure.MethodDeclaration");
-    /*package*/ static final SInterfaceConcept ScopeProvider_545e361a = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty ID$IQFk = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x374ac263e13f4abeL, "ID");
+    /*package*/ static final SProperty caption$_nKE = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x1189e8d9a59L, "caption");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink action$2bWe = MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x118c26632a3L, 0x118c266a4d7L, "action");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept MethodDeclaration$93 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, "jetbrains.mps.baseLanguage.structure.MethodDeclaration");
+    /*package*/ static final SInterfaceConcept ScopeProvider$M8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
   }
 }

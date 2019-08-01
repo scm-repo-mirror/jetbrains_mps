@@ -25,7 +25,7 @@ public class typeof_EnumerationIdRefExpression_InferenceRule extends AbstractInf
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ciq50m.EnumerationIdRefExpression_a6f8f501;
+    return CONCEPTS.EnumerationIdRefExpression$E1;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_EnumerationIdRefExpression_InferenceRule extends AbstractInf
     return quotedNode_1;
   }
 
-  private static final class AUX_ciq50m {
-    /*package*/ static final SConcept EnumerationIdRefExpression_a6f8f501 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x50352c802d81bed4L, "jetbrains.mps.lang.smodel.structure.EnumerationIdRefExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumerationIdRefExpression$E1 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x50352c802d81bed4L, "jetbrains.mps.lang.smodel.structure.EnumerationIdRefExpression");
   }
 }

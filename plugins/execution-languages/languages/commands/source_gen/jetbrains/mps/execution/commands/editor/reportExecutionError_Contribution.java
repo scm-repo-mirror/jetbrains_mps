@@ -30,7 +30,7 @@ public class reportExecutionError_Contribution extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_8w9np1_a(), AUX_8w9np1.ReportExecutionError_30caf092));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_8w9np1_a(), CONCEPTS.ReportExecutionError$4g));
     return result;
   }
 
@@ -75,7 +75,7 @@ public class reportExecutionError_Contribution extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_8w9np1.ReportExecutionError_30caf092, context);
+        super(CONCEPTS.ReportExecutionError$4g, context);
         _context = context;
       }
 
@@ -86,7 +86,7 @@ public class reportExecutionError_Contribution extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        return SNodeFactoryOperations.createNewNode(AUX_8w9np1.ReportExecutionError_30caf092, null);
+        return SNodeFactoryOperations.createNewNode(CONCEPTS.ReportExecutionError$4g, null);
       }
 
       @Override
@@ -106,7 +106,7 @@ public class reportExecutionError_Contribution extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_8w9np1 {
-    /*package*/ static final SConcept ReportExecutionError_30caf092 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bfeL, "jetbrains.mps.execution.commands.structure.ReportExecutionError");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReportExecutionError$4g = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bfeL, "jetbrains.mps.execution.commands.structure.ReportExecutionError");
   }
 }

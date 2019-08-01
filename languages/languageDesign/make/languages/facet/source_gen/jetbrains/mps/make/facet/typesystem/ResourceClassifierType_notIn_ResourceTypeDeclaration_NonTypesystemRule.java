@@ -20,7 +20,7 @@ public class ResourceClassifierType_notIn_ResourceTypeDeclaration_NonTypesystemR
   public ResourceClassifierType_notIn_ResourceTypeDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode rct, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(rct), AUX_dy2qxw.ResourceTypeDeclaration_495b1793))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(rct), CONCEPTS.ResourceTypeDeclaration$CJ))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(rct, "Invalid usage of concept", "r:e67eab7b-bc9a-4900-b958-c99ccf24a565(jetbrains.mps.make.facet.typesystem)", "4902420589280088721", null, errorTarget);
@@ -32,7 +32,7 @@ public class ResourceClassifierType_notIn_ResourceTypeDeclaration_NonTypesystemR
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_dy2qxw.ResourceClassifierType_721617bb;
+    return CONCEPTS.ResourceClassifierType$W7;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,8 +41,8 @@ public class ResourceClassifierType_notIn_ResourceTypeDeclaration_NonTypesystemR
     return false;
   }
 
-  private static final class AUX_dy2qxw {
-    /*package*/ static final SConcept ResourceTypeDeclaration_495b1793 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1a6da65e8aab1d4L, "jetbrains.mps.make.facet.structure.ResourceTypeDeclaration");
-    /*package*/ static final SConcept ResourceClassifierType_721617bb = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1a6da65e8aea0b4L, "jetbrains.mps.make.facet.structure.ResourceClassifierType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ResourceTypeDeclaration$CJ = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1a6da65e8aab1d4L, "jetbrains.mps.make.facet.structure.ResourceTypeDeclaration");
+    /*package*/ static final SConcept ResourceClassifierType$W7 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1a6da65e8aea0b4L, "jetbrains.mps.make.facet.structure.ResourceClassifierType");
   }
 }

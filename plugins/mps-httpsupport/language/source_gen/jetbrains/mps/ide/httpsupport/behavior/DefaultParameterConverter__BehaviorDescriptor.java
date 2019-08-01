@@ -4,6 +4,7 @@ package jetbrains.mps.ide.httpsupport.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,14 +16,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class DefaultParameterConverter__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_gvaeng.DefaultParameterConverter_683ab528;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdcb2eL, "jetbrains.mps.ide.httpsupport.structure.DefaultParameterConverter");
 
   public static final SMethod<SNode> getParameterType_id4rKp80ZJrgq = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getParameterType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4rKp80ZJrgq").build();
 
@@ -32,7 +32,7 @@ public final class DefaultParameterConverter__BehaviorDescriptor extends BaseBHD
   }
 
   /*package*/ static SNode getParameterType_id4rKp80ZJrgq(@NotNull SNode __thisNode__) {
-    return SNodeOperations.copyNode(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdcb2eL, 0x46f064803fbdcb48L, "parameterType")));
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(__thisNode__, LINKS.parameterType$lCCX));
   }
 
   /*package*/ DefaultParameterConverter__BehaviorDescriptor() {
@@ -81,7 +81,7 @@ public final class DefaultParameterConverter__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_gvaeng {
-    /*package*/ static final SConcept DefaultParameterConverter_683ab528 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdcb2eL, "jetbrains.mps.ide.httpsupport.structure.DefaultParameterConverter");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameterType$lCCX = MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdcb2eL, 0x46f064803fbdcb48L, "parameterType");
   }
 }

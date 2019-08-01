@@ -37,11 +37,11 @@ public class BaseMethodUsages_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_kaygwg.InstanceMethodDeclaration_9dbf9b2b;
+    return CONCEPTS.InstanceMethodDeclaration$An;
   }
   @Override
   public boolean isApplicable(SNode node) {
-    return (SNodeOperations.getNodeAncestor(node, AUX_kaygwg.ClassConcept_e2711824, false, false) != null) || (SNodeOperations.getNodeAncestor(node, AUX_kaygwg.Interface_bca2069, false, false) != null);
+    return (SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$IY, false, false) != null) || (SNodeOperations.getNodeAncestor(node, CONCEPTS.Interface$Kp, false, false) != null);
   }
 
   @Override
@@ -78,9 +78,9 @@ public class BaseMethodUsages_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1216385454403");
   }
 
-  private static final class AUX_kaygwg {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
   }
 }

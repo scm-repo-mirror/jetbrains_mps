@@ -8,13 +8,16 @@ import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.build.mps.util.MPSModulesClosure;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Collections;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /*package*/ final class IdeaPluginDependenciesHelper {
   private SNode plugin;
@@ -32,18 +35,18 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return;
     }
 
-    visible.addAll(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(plugin, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbeaL, "content")), AUX_scfq80.BuildMps_IdeaPluginModule_d1bbcefc), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, 0x5b7be37b4de9bbddL, "target"))).toListSequence());
-    visible.addAll(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(plugin, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbeaL, "content")), AUX_scfq80.BuildMps_IdeaPluginGroup_d3614963), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4deb1201L, 0x5b7be37b4deb1202L, "group")), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x14d3fb6fb843ebddL, 0x14d3fb6fb843ebdeL, "modules"))).toListSequence());
-    for (SNode dep : ListSequence.fromList(SLinkOperations.getChildren(plugin, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbd4L, "dependencies")))) {
-      collectVisible(SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbd3L, 0x5b7be37b4de9bbfaL, "target")), seen);
+    visible.addAll(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(plugin, LINKS.content$uhXf), CONCEPTS.BuildMps_IdeaPluginModule$ZA), LINKS.target$umH0)).toListSequence());
+    visible.addAll(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(plugin, LINKS.content$uhXf), CONCEPTS.BuildMps_IdeaPluginGroup$9v), LINKS.group$abww), LINKS.modules$4DA0)).toListSequence());
+    for (SNode dep : ListSequence.fromList(SLinkOperations.getChildren(plugin, LINKS.dependencies$uhk4))) {
+      collectVisible(SLinkOperations.getTarget(dep, LINKS.target$unp6), seen);
     }
   }
   public Iterable<SNode> getUnsatisfiedDependencies(SNode module) {
     if (visible == null) {
       buildVisible();
     }
-    if (SNodeOperations.isInstanceOf(module, AUX_scfq80.BuildMps_Module_8d74323e)) {
-      MPSModulesClosure runtimeDependencies = new MPSModulesClosure(SNodeOperations.cast(module, AUX_scfq80.BuildMps_Module_8d74323e), new MPSModulesClosure.ModuleDependenciesOptions()).runtimeClosure();
+    if (SNodeOperations.isInstanceOf(module, CONCEPTS.BuildMps_Module$j$)) {
+      MPSModulesClosure runtimeDependencies = new MPSModulesClosure(SNodeOperations.cast(module, CONCEPTS.BuildMps_Module$j$), new MPSModulesClosure.ModuleDependenciesOptions()).runtimeClosure();
       Iterable<SNode> seq = Sequence.fromIterable(runtimeDependencies.getAllModules()).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return !(visible.contains(it));
@@ -56,17 +59,30 @@ import org.jetbrains.mps.openapi.language.SConcept;
   public void printUnsatisfiedDependencies(StringBuilder sb, SNode module, boolean includeModuleName) {
     for (SNode uns : getUnsatisfiedDependencies(module)) {
       if (includeModuleName) {
-        sb.append("unsatisfied dependency: module " + SPropertyOperations.getString(module, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " requires " + SPropertyOperations.getString(uns, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        sb.append("unsatisfied dependency: module " + SPropertyOperations.getString(module, PROPS.name$tAp1) + " requires " + SPropertyOperations.getString(uns, PROPS.name$tAp1));
       } else {
-        sb.append("unsatisfied dependency on " + SPropertyOperations.getString(uns, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        sb.append("unsatisfied dependency on " + SPropertyOperations.getString(uns, PROPS.name$tAp1));
       }
       sb.append('\n');
     }
   }
 
-  private static final class AUX_scfq80 {
-    /*package*/ static final SConcept BuildMps_IdeaPluginModule_d1bbcefc = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginModule");
-    /*package*/ static final SConcept BuildMps_IdeaPluginGroup_d3614963 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4deb1201L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginGroup");
-    /*package*/ static final SConcept BuildMps_Module_8d74323e = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink content$uhXf = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbeaL, "content");
+    /*package*/ static final SReferenceLink target$umH0 = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, 0x5b7be37b4de9bbddL, "target");
+    /*package*/ static final SReferenceLink group$abww = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4deb1201L, 0x5b7be37b4deb1202L, "group");
+    /*package*/ static final SContainmentLink modules$4DA0 = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x14d3fb6fb843ebddL, 0x14d3fb6fb843ebdeL, "modules");
+    /*package*/ static final SReferenceLink target$unp6 = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbd3L, 0x5b7be37b4de9bbfaL, "target");
+    /*package*/ static final SContainmentLink dependencies$uhk4 = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbd4L, "dependencies");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_IdeaPluginModule$ZA = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginModule");
+    /*package*/ static final SConcept BuildMps_IdeaPluginGroup$9v = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4deb1201L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginGroup");
+    /*package*/ static final SConcept BuildMps_Module$j$ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

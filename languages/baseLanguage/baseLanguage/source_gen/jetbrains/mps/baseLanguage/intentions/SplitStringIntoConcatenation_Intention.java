@@ -14,10 +14,12 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class SplitStringIntoConcatenation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -59,11 +61,11 @@ public final class SplitStringIntoConcatenation_Intention extends AbstractIntent
     public void execute(final SNode node, final EditorContext editorContext) {
       EditorCell_Property cell = ((EditorCell_Property) editorContext.getContextCell());
       int caretPosition = cell.getCaretPosition();
-      String s1 = (SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")) != null ? SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")).substring(0, caretPosition) : "");
-      String s2 = (SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")) != null ? SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")).substring(caretPosition) : "");
-      SNode plusExpression = SNodeFactoryOperations.replaceWithNewChild(node, AUX_da2jel.PlusExpression_d4768414);
-      SPropertyOperations.set(SNodeFactoryOperations.setNewChild(plusExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), AUX_da2jel.StringLiteral_aa5a8cf6), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), s1);
-      SPropertyOperations.set(SNodeFactoryOperations.setNewChild(plusExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), AUX_da2jel.StringLiteral_aa5a8cf6), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), s2);
+      String s1 = (SPropertyOperations.getString(node, PROPS.value$kiE0) != null ? SPropertyOperations.getString(node, PROPS.value$kiE0).substring(0, caretPosition) : "");
+      String s2 = (SPropertyOperations.getString(node, PROPS.value$kiE0) != null ? SPropertyOperations.getString(node, PROPS.value$kiE0).substring(caretPosition) : "");
+      SNode plusExpression = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.PlusExpression$Re);
+      SPropertyOperations.set(SNodeFactoryOperations.setNewChild(plusExpression, LINKS.leftExpression$rxLZ, CONCEPTS.StringLiteral$4G), PROPS.value$kiE0, s1);
+      SPropertyOperations.set(SNodeFactoryOperations.setNewChild(plusExpression, LINKS.rightExpression$rxBl, CONCEPTS.StringLiteral$4G), PROPS.value$kiE0, s2);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -71,8 +73,17 @@ public final class SplitStringIntoConcatenation_Intention extends AbstractIntent
     }
   }
 
-  private static final class AUX_da2jel {
-    /*package*/ static final SConcept PlusExpression_d4768414 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  private static final class PROPS {
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PlusExpression$Re = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.execution.configurations.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,14 +17,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.execution.common.behavior.IGeneratedToClass__BehaviorDescriptor;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class RunConfigurationProducer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_a3dlnz.RunConfigurationProducer_8949ae6d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c842305L, "jetbrains.mps.execution.configurations.structure.RunConfigurationProducer");
 
   public static final SMethod<String> getDisplayedName_id3MnZbusxbtz = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDisplayedName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3MnZbusxbtz").build();
   public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").build();
@@ -42,10 +43,10 @@ public final class RunConfigurationProducer__BehaviorDescriptor extends BaseBHDe
     return "Producer";
   }
   /*package*/ static String getBaseName_id3MnZbusxcPI(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c842305L, 0x3c97fcb79c84a8efL, "configuration")) == null)) {
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.configuration$zpA6) == null)) {
       return "Unknown";
     }
-    return check_5u07ui_a1a2(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c842305L, 0x3c97fcb79c84a8efL, "configuration")), MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration")));
+    return check_5u07ui_a1a2(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.configuration$zpA6), LINKS.persistentConfiguration$28v0));
   }
 
   /*package*/ RunConfigurationProducer__BehaviorDescriptor() {
@@ -104,7 +105,8 @@ public final class RunConfigurationProducer__BehaviorDescriptor extends BaseBHDe
     return null;
   }
 
-  private static final class AUX_a3dlnz {
-    /*package*/ static final SConcept RunConfigurationProducer_8949ae6d = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c842305L, "jetbrains.mps.execution.configurations.structure.RunConfigurationProducer");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink configuration$zpA6 = MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c842305L, 0x3c97fcb79c84a8efL, "configuration");
+    /*package*/ static final SReferenceLink persistentConfiguration$28v0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration");
   }
 }

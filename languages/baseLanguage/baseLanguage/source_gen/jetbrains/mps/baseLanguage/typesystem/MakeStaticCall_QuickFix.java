@@ -10,6 +10,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.ResolveUnknownUtil;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class MakeStaticCall_QuickFix extends QuickFix_Runtime {
@@ -18,14 +19,19 @@ public class MakeStaticCall_QuickFix extends QuickFix_Runtime {
   }
   public void execute(SNode node) {
     SNode smc = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall"));
-    SLinkOperations.setTarget(smc, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept"), SNodeOperations.getNodeAncestor(((SNode) MakeStaticCall_QuickFix.this.getField("staticMethod")[0]), AUX_nohsau.ClassConcept_e2711824, false, false));
-    SLinkOperations.setTarget(smc, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), ((SNode) MakeStaticCall_QuickFix.this.getField("staticMethod")[0]));
+    SLinkOperations.setTarget(smc, LINKS.classConcept$BsUa, SNodeOperations.getNodeAncestor(((SNode) MakeStaticCall_QuickFix.this.getField("staticMethod")[0]), CONCEPTS.ClassConcept$IY, false, false));
+    SLinkOperations.setTarget(smc, LINKS.baseMethodDeclaration$$A7i, ((SNode) MakeStaticCall_QuickFix.this.getField("staticMethod")[0]));
     ResolveUnknownUtil.reattachMethodArguments(((SNode) MakeStaticCall_QuickFix.this.getField("replacee")[0]), smc);
     ResolveUnknownUtil.reattachTypeArguments(((SNode) MakeStaticCall_QuickFix.this.getField("replacee")[0]), smc);
     SNodeOperations.replaceWithAnother(((SNode) MakeStaticCall_QuickFix.this.getField("replacee")[0]), smc);
   }
 
-  private static final class AUX_nohsau {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classConcept$BsUa = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept");
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

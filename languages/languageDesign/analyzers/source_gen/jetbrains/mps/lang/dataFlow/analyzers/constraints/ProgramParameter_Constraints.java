@@ -13,13 +13,13 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ProgramParameter_Constraints extends BaseConstraintsDescriptor {
   public ProgramParameter_Constraints() {
-    super(AUX_e2wzem.ProgramParameter_9aca5960);
+    super(CONCEPTS.ProgramParameter$82);
   }
 
   @Override
@@ -38,13 +38,17 @@ public class ProgramParameter_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(parentNode), AUX_e2wzem.Rule_af60f527) && SNodeOperations.hasRole(ListSequence.fromList(SNodeOperations.getNodeAncestors(parentNode, AUX_e2wzem.StatementList_9dbf9acf, true)).last(), MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, 0x449938e788ee338aL, "actions"));
+    return SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(parentNode), CONCEPTS.Rule$Wr) && SNodeOperations.hasRole(ListSequence.fromList(SNodeOperations.getNodeAncestors(parentNode, CONCEPTS.StatementList$TN, true)).last(), LINKS.actions$gTZX);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:73c9a355-2bf0-4466-8a7d-8b8d8a945cd4(jetbrains.mps.lang.dataFlow.analyzers.constraints)", "1227128029536560828");
 
-  private static final class AUX_e2wzem {
-    /*package*/ static final SConcept ProgramParameter_9aca5960 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x33bb3f8bce3bc61cL, "jetbrains.mps.lang.dataFlow.analyzers.structure.ProgramParameter");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
-    /*package*/ static final SConcept Rule_af60f527 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Rule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ProgramParameter$82 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x33bb3f8bce3bc61cL, "jetbrains.mps.lang.dataFlow.analyzers.structure.ProgramParameter");
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+    /*package*/ static final SConcept Rule$Wr = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Rule");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink actions$gTZX = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, 0x449938e788ee338aL, "actions");
   }
 }

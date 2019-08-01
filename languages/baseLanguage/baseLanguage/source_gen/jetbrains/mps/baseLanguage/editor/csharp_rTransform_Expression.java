@@ -29,7 +29,6 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.baseLanguage.actions.ExpectedType_FactoryUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class csharp_rTransform_Expression extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -66,7 +67,7 @@ public class csharp_rTransform_Expression extends TransformationMenuBase {
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_i67b4i_a0(), AUX_i67b4i.AsExpression_7044074e));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_i67b4i_a0(), CONCEPTS.AsExpression$7k));
     }
     return result;
   }
@@ -109,13 +110,13 @@ public class csharp_rTransform_Expression extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_i67b4i.AsExpression_7044074e, null);
+        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.AsExpression$7k, null);
         SNode type = ExpectedType_FactoryUtil.createExpectedType(_context.getNode());
-        if (SNodeOperations.isInstanceOf(type, AUX_i67b4i.ClassifierType_42700403)) {
-          SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, 0x11d00538be1L, "classifierType"), SNodeOperations.cast(type, AUX_i67b4i.ClassifierType_42700403));
+        if (SNodeOperations.isInstanceOf(type, CONCEPTS.ClassifierType$IZ)) {
+          SLinkOperations.setTarget(result, LINKS.classifierType$w7mv, SNodeOperations.cast(type, CONCEPTS.ClassifierType$IZ));
         }
         SNodeOperations.replaceWithAnother(_context.getNode(), result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, 0x11d00538be0L, "expression"), _context.getNode());
+        SLinkOperations.setTarget(result, LINKS.expression$w7m0, _context.getNode());
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -123,7 +124,7 @@ public class csharp_rTransform_Expression extends TransformationMenuBase {
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_i67b4i.AsExpression_7044074e;
+        return CONCEPTS.AsExpression$7k;
       }
 
 
@@ -134,7 +135,7 @@ public class csharp_rTransform_Expression extends TransformationMenuBase {
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_i67b4i.AsExpression_7044074e;
+        SAbstractConcept outputConcept = CONCEPTS.AsExpression$7k;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -144,8 +145,13 @@ public class csharp_rTransform_Expression extends TransformationMenuBase {
 
   }
 
-  private static final class AUX_i67b4i {
-    /*package*/ static final SConcept AsExpression_7044074e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, "jetbrains.mps.baseLanguage.structure.AsExpression");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AsExpression$7k = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, "jetbrains.mps.baseLanguage.structure.AsExpression");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classifierType$w7mv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, 0x11d00538be1L, "classifierType");
+    /*package*/ static final SContainmentLink expression$w7m0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, 0x11d00538be0L, "expression");
   }
 }

@@ -6,6 +6,7 @@ import jetbrains.mps.errors.QuickFix_Runtime;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class MakeAbstractMethodVirtual_QuickFix extends QuickFix_Runtime {
@@ -13,10 +14,16 @@ public class MakeAbstractMethodVirtual_QuickFix extends QuickFix_Runtime {
     super(new SNodePointer("r:f7f8a091-d98d-402d-85c4-5f05cb2b8c61(jetbrains.mps.lang.behavior.typesystem)", "8014340958386764454"));
   }
   public String getDescription(SNode node) {
-    return "Mark an abstract method '" + SPropertyOperations.getString(((SNode) MakeAbstractMethodVirtual_QuickFix.this.getField("conceptMethod")[0]), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' virtual as well";
+    return "Mark an abstract method '" + SPropertyOperations.getString(((SNode) MakeAbstractMethodVirtual_QuickFix.this.getField("conceptMethod")[0]), PROPS.name$tAp1) + "' virtual as well";
   }
   public void execute(SNode node) {
-    assert SPropertyOperations.getBoolean(((SNode) MakeAbstractMethodVirtual_QuickFix.this.getField("conceptMethod")[0]), MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d43480582L, "isAbstract"));
-    SPropertyOperations.assign(((SNode) MakeAbstractMethodVirtual_QuickFix.this.getField("conceptMethod")[0]), MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d43480580L, "isVirtual"), true);
+    assert SPropertyOperations.getBoolean(((SNode) MakeAbstractMethodVirtual_QuickFix.this.getField("conceptMethod")[0]), PROPS.isAbstract$6dnX);
+    SPropertyOperations.assign(((SNode) MakeAbstractMethodVirtual_QuickFix.this.getField("conceptMethod")[0]), PROPS.isVirtual$6dmZ, true);
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isAbstract$6dnX = MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d43480582L, "isAbstract");
+    /*package*/ static final SProperty isVirtual$6dmZ = MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d43480580L, "isVirtual");
   }
 }

@@ -14,6 +14,7 @@ import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class MoveStaticFieldRefactoring extends BasicMoveRefactoring {
   public MoveStaticFieldRefactoring(SNode moving, SNode destination) {
@@ -31,32 +32,37 @@ public class MoveStaticFieldRefactoring extends BasicMoveRefactoring {
   @Override
   public void replaceSingleUsage(SNode usage) {
     super.replaceSingleUsage(usage);
-    if (SNodeOperations.getNodeAncestor(usage, AUX_fls06q.Classifier_4b7e553, false, false) == this.myDestination) {
+    if (SNodeOperations.getNodeAncestor(usage, CONCEPTS.Classifier$hJ, false, false) == this.myDestination) {
       SNodeOperations.replaceWithAnother(usage, _quotation_createNode_fls06q_a0a0a1a2(this.myReplacing));
     } else {
       SNodeOperations.replaceWithAnother(usage, _quotation_createNode_fls06q_a0a0a0b0c(this.myDestination, this.myReplacing));
     }
   }
   protected boolean goodDestination() {
-    return SNodeOperations.isInstanceOf(this.myDestination, AUX_fls06q.Classifier_4b7e553);
+    return SNodeOperations.isInstanceOf(this.myDestination, CONCEPTS.Classifier$hJ);
   }
   private static SNode _quotation_createNode_fls06q_a0a0a0b0c(Object parameter_1, Object parameter_2) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_3 = null;
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940c80846L, "StaticFieldReference"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_3, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, 0x10a75869f9bL, "classifier"), (SNode) parameter_1);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_3, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"), (SNode) parameter_2);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_3, LINKS.classifier$ZTjE, (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_3, LINKS.variableDeclaration$2ky6, (SNode) parameter_2);
     return quotedNode_3;
   }
   private static SNode _quotation_createNode_fls06q_a0a0a1a2(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c77f1e98L, "VariableReference"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.variableDeclaration$2ky6, (SNode) parameter_1);
     return quotedNode_2;
   }
 
-  private static final class AUX_fls06q {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$ZTjE = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, 0x10a75869f9bL, "classifier");
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 }

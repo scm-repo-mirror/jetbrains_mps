@@ -11,7 +11,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -21,62 +20,66 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class DotExpressionForInstanceMethodCallOperation_threadSafe_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public DotExpressionForInstanceMethodCallOperation_threadSafe_NonTypesystemRule() {
   }
   public void applyRule(final SNode dotExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode directAncestor = SNodeOperations.getNodeAncestor(dotExpression, AUX_ttr84v.ParallelFor_3fc29b38, false, false);
+    SNode directAncestor = SNodeOperations.getNodeAncestor(dotExpression, CONCEPTS.ParallelFor$GE, false, false);
 
     if (directAncestor != null) {
-      if (AttributeOperations.getAttribute(dotExpression, new IAttributeDescriptor.NodeAttribute(AUX_ttr84v.ThreadSafe_dcd8a07b)) != null) {
+      if (AttributeOperations.getAttribute(dotExpression, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ThreadSafe$T7)) != null) {
         return;
       }
-      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")), AUX_ttr84v.ThisExpression_a046bcfc)) {
-        SNode type = TypecheckingFacade.getFromContext().getTypeOf(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")), AUX_ttr84v.ThisExpression_a046bcfc));
-        if (SNodeOperations.isInstanceOf(type, AUX_ttr84v.ClassifierType_42700403)) {
-          final SNode clazz = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(type, AUX_ttr84v.ClassifierType_42700403), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")), AUX_ttr84v.ClassConcept_e2711824);
-          if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(AUX_ttr84v.ThreadSafe_dcd8a07b)) != null && SPropertyOperations.getBoolean(clazz, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal"))) {
+      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(dotExpression, LINKS.operand$Lcrr), CONCEPTS.ThisExpression$7A)) {
+        SNode type = TypecheckingFacade.getFromContext().getTypeOf(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, LINKS.operand$Lcrr), CONCEPTS.ThisExpression$7A));
+        if (SNodeOperations.isInstanceOf(type, CONCEPTS.ClassifierType$IZ)) {
+          final SNode clazz = SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(type, CONCEPTS.ClassifierType$IZ), LINKS.classifier$pQ_R), CONCEPTS.ClassConcept$IY);
+          if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ThreadSafe$T7)) != null && SPropertyOperations.getBoolean(clazz, PROPS.isFinal$dzaH)) {
             return;
           }
-          if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(AUX_ttr84v.NonThreadSafeClass_dea93301)) != null) {
+          if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NonThreadSafeClass$M1)) != null) {
             {
               final MessageTarget errorTarget = new NodeMessageTarget();
-              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")), "Calling a method on a non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396645537", null, errorTarget);
+              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(dotExpression, LINKS.operation$X4R8), "Calling a method on a non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396645537", null, errorTarget);
             }
             return;
           }
 
           if (!(ListSequence.fromList(CheckingRuleHelper.allowedClasses()).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == clazz;
+              return SLinkOperations.getTarget(it, LINKS.classifier$pQ_R) == clazz;
             }
           }))) {
             {
               final MessageTarget errorTarget = new NodeMessageTarget();
-              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")), "Calling a method on a potentially non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396649371", null, errorTarget);
+              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(dotExpression, LINKS.operation$X4R8), "Calling a method on a potentially non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396649371", null, errorTarget);
             }
           }
         }
       }
-      if ((SNodeOperations.isInstanceOf(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")), AUX_ttr84v.VariableReference_24d60dac) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")), AUX_ttr84v.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_ttr84v.LocalVariableDeclaration_d47683f3))) {
-        SNode variableDeclaration = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")), AUX_ttr84v.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"));
-        SNode declarationsAncestor = SNodeOperations.getNodeAncestor(variableDeclaration, AUX_ttr84v.ParallelFor_3fc29b38, false, false);
+      if ((SNodeOperations.isInstanceOf(SLinkOperations.getTarget(dotExpression, LINKS.operand$Lcrr), CONCEPTS.VariableReference$sQ) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, LINKS.operand$Lcrr), CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.LocalVariableDeclaration$Bf))) {
+        SNode variableDeclaration = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(dotExpression, LINKS.operand$Lcrr), CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6);
+        SNode declarationsAncestor = SNodeOperations.getNodeAncestor(variableDeclaration, CONCEPTS.ParallelFor$GE, false, false);
         if (directAncestor != declarationsAncestor) {
-          if (AttributeOperations.getAttribute(variableDeclaration, new IAttributeDescriptor.NodeAttribute(AUX_ttr84v.ThreadSafe_dcd8a07b)) != null) {
+          if (AttributeOperations.getAttribute(variableDeclaration, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ThreadSafe$T7)) != null) {
             return;
           }
 
-          final SNode targetClassifier = check_ttr84v_a0c0c0c0c0b(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"))), AUX_ttr84v.ClassifierType_42700403));
-          if (SNodeOperations.isInstanceOf(targetClassifier, AUX_ttr84v.ClassConcept_e2711824)) {
-            SNode clazz = SNodeOperations.cast(targetClassifier, AUX_ttr84v.ClassConcept_e2711824);
-            if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(AUX_ttr84v.ThreadSafe_dcd8a07b)) != null && SPropertyOperations.getBoolean(clazz, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal"))) {
+          final SNode targetClassifier = check_ttr84v_a0c0c0c0c0b(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(dotExpression, LINKS.operand$Lcrr)), CONCEPTS.ClassifierType$IZ));
+          if (SNodeOperations.isInstanceOf(targetClassifier, CONCEPTS.ClassConcept$IY)) {
+            SNode clazz = SNodeOperations.cast(targetClassifier, CONCEPTS.ClassConcept$IY);
+            if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ThreadSafe$T7)) != null && SPropertyOperations.getBoolean(clazz, PROPS.isFinal$dzaH)) {
               return;
             }
-            if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(AUX_ttr84v.NonThreadSafeClass_dea93301)) != null) {
+            if (AttributeOperations.getAttribute(clazz, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NonThreadSafeClass$M1)) != null) {
               {
                 final MessageTarget errorTarget = new NodeMessageTarget();
-                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")), "Calling a method on a non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396547859", null, errorTarget);
+                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(dotExpression, LINKS.operation$X4R8), "Calling a method on a non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396547859", null, errorTarget);
               }
               return;
             }
@@ -84,12 +87,12 @@ public class DotExpressionForInstanceMethodCallOperation_threadSafe_NonTypesyste
 
           if (targetClassifier == null || !(ListSequence.fromList(CheckingRuleHelper.allowedClasses()).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == targetClassifier;
+              return SLinkOperations.getTarget(it, LINKS.classifier$pQ_R) == targetClassifier;
             }
           }))) {
             {
               final MessageTarget errorTarget = new NodeMessageTarget();
-              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")), "Calling a method on a potentially non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396547907", null, errorTarget);
+              IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(dotExpression, LINKS.operation$X4R8), "Calling a method on a potentially non-thread-safe shared object", "r:4c36f4b4-7816-4067-aa6e-a49c547265ed(org.jetbrains.mps.samples.ParallelFor.typesystem)", "3540747636396547907", null, errorTarget);
             }
           }
         }
@@ -98,7 +101,7 @@ public class DotExpressionForInstanceMethodCallOperation_threadSafe_NonTypesyste
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ttr84v.DotExpression_97ed08d8;
+    return CONCEPTS.DotExpression$6a;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -108,20 +111,31 @@ public class DotExpressionForInstanceMethodCallOperation_threadSafe_NonTypesyste
   }
   private static SNode check_ttr84v_a0c0c0c0c0b(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return SLinkOperations.getTarget(checkedDotOperand, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+      return SLinkOperations.getTarget(checkedDotOperand, LINKS.classifier$pQ_R);
     }
     return null;
   }
 
-  private static final class AUX_ttr84v {
-    /*package*/ static final SConcept ParallelFor_3fc29b38 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, "org.jetbrains.mps.samples.ParallelFor.structure.ParallelFor");
-    /*package*/ static final SConcept ThreadSafe_dcd8a07b = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b84332e6L, "org.jetbrains.mps.samples.ParallelFor.structure.ThreadSafe");
-    /*package*/ static final SConcept ThisExpression_a046bcfc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept NonThreadSafeClass_dea93301 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b8450380L, "org.jetbrains.mps.samples.ParallelFor.structure.NonThreadSafeClass");
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParallelFor$GE = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, "org.jetbrains.mps.samples.ParallelFor.structure.ParallelFor");
+    /*package*/ static final SConcept ThreadSafe$T7 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b84332e6L, "org.jetbrains.mps.samples.ParallelFor.structure.ThreadSafe");
+    /*package*/ static final SConcept ThisExpression$7A = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept NonThreadSafeClass$M1 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b8450380L, "org.jetbrains.mps.samples.ParallelFor.structure.NonThreadSafeClass");
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$dzaH = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
   }
 }

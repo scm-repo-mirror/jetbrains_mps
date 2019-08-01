@@ -4,6 +4,7 @@ package jetbrains.mps.samples.CustomTestCases.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -16,16 +17,15 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class MyTestCase__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_vljdzr.MyTestCase_4b4e4f64;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x41a74638991d41c3L, 0xb85c39ba842bab0dL, 0x5d85e89a43eecf60L, "jetbrains.mps.samples.CustomTestCases.structure.MyTestCase");
 
   public static final SMethod<List<SNode>> getTestSet_idhGB2z8L = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTestSet").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hGB2z8L").build();
   public static final SMethod<List<SNode>> getTestMethods_id1RfJDyhAUar = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTestMethods").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1RfJDyhAUar").build();
@@ -37,11 +37,11 @@ public final class MyTestCase__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static List<SNode> getTestSet_idhGB2z8L(@NotNull SNode __thisNode__) {
     List<SNode> testmethods = ListSequence.fromList(new ArrayList<SNode>());
-    return ListSequence.fromList(testmethods).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x41a74638991d41c3L, 0xb85c39ba842bab0dL, 0x5d85e89a43eecf60L, 0x5d85e89a43efbbccL, "methods"))));
+    return ListSequence.fromList(testmethods).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.methods$RDUZ)));
   }
   /*package*/ static List<SNode> getTestMethods_id1RfJDyhAUar(@NotNull SNode __thisNode__) {
-    List<SNode> testMethods = ITestCase__BehaviorDescriptor.getTestMethods_id1RfJDyhAUar.invoke0(__thisNode__, AUX_vljdzr.ITestCase_8c8c490a);
-    return ListSequence.fromList(testMethods).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x41a74638991d41c3L, 0xb85c39ba842bab0dL, 0x5d85e89a43eecf60L, 0x5d85e89a43efbbccL, "methods"))));
+    List<SNode> testMethods = ITestCase__BehaviorDescriptor.getTestMethods_id1RfJDyhAUar.invoke0(__thisNode__, CONCEPTS.ITestCase$uo);
+    return ListSequence.fromList(testMethods).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.methods$RDUZ)));
   }
 
   /*package*/ MyTestCase__BehaviorDescriptor() {
@@ -92,8 +92,11 @@ public final class MyTestCase__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_vljdzr {
-    /*package*/ static final SConcept MyTestCase_4b4e4f64 = MetaAdapterFactory.getConcept(0x41a74638991d41c3L, 0xb85c39ba842bab0dL, 0x5d85e89a43eecf60L, "jetbrains.mps.samples.CustomTestCases.structure.MyTestCase");
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink methods$RDUZ = MetaAdapterFactory.getContainmentLink(0x41a74638991d41c3L, 0xb85c39ba842bab0dL, 0x5d85e89a43eecf60L, 0x5d85e89a43efbbccL, "methods");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
   }
 }

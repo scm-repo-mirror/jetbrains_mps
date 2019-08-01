@@ -8,18 +8,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_Concept_IsSuperConceptOfOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_Concept_IsSuperConceptOfOperation_InferenceRule() {
   }
   public void applyRule(final SNode op, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode conceptArg = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x112bf289d94L, 0x112bf2b9fc0L, "conceptArgument"));
+    SNode conceptArg = SLinkOperations.getTarget(op, LINKS.conceptArgument$XT2m);
     {
       SNode _nodeToCheck_1029348928467 = conceptArg;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "8933148862033741312", 0, null);
@@ -33,7 +34,7 @@ public class typeof_Concept_IsSuperConceptOfOperation_InferenceRule extends Abst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_goto9h.Concept_IsSuperConceptOfOperation_7fa2a7d6;
+    return CONCEPTS.Concept_IsSuperConceptOfOperation$9c;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,7 +55,11 @@ public class typeof_Concept_IsSuperConceptOfOperation_InferenceRule extends Abst
     return quotedNode_1;
   }
 
-  private static final class AUX_goto9h {
-    /*package*/ static final SConcept Concept_IsSuperConceptOfOperation_7fa2a7d6 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x112bf289d94L, "jetbrains.mps.lang.smodel.structure.Concept_IsSuperConceptOfOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink conceptArgument$XT2m = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x112bf289d94L, 0x112bf2b9fc0L, "conceptArgument");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Concept_IsSuperConceptOfOperation$9c = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x112bf289d94L, "jetbrains.mps.lang.smodel.structure.Concept_IsSuperConceptOfOperation");
   }
 }

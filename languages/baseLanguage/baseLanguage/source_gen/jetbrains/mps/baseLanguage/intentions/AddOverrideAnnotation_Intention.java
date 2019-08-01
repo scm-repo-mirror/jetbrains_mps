@@ -14,7 +14,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.util.OverridingMethodsCalculator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -26,6 +25,9 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.SReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AddOverrideAnnotation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -44,13 +46,13 @@ public final class AddOverrideAnnotation_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    SNode classConcept = SNodeOperations.as(SNodeOperations.getParent(node), AUX_swpeqs.ClassConcept_e2711824);
+    SNode classConcept = SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.ClassConcept$IY);
     if (classConcept == null) {
       return false;
     }
-    if (!(OverridingMethodsCalculator.canOverride(node)) || ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).any(new IWhereFilter<SNode>() {
+    if (!(OverridingMethodsCalculator.canOverride(node)) || ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.annotation$oVP4)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return "java.lang.Override".equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"))));
+        return "java.lang.Override".equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(it, LINKS.annotation$zNxu)));
       }
     })) {
       return false;
@@ -77,10 +79,10 @@ public final class AddOverrideAnnotation_Intention extends AbstractIntentionDesc
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode classConcept = SNodeOperations.cast(SNodeOperations.getParent(node), AUX_swpeqs.ClassConcept_e2711824);
+      SNode classConcept = SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.ClassConcept$IY);
       OverridingMethodsCalculator finder = new OverridingMethodsCalculator(classConcept, Sequence.<SNode>singleton(node));
       for (SNode meth : SetSequence.fromSet(finder.getOverridingMethods())) {
-        ListSequence.fromList(SLinkOperations.getChildren(meth, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).addElement(createAnnotationInstance_4i19oe_a0a0a2a0());
+        ListSequence.fromList(SLinkOperations.getChildren(meth, LINKS.annotation$oVP4)).addElement(createAnnotationInstance_4i19oe_a0a0a2a0());
       }
     }
     @Override
@@ -90,13 +92,18 @@ public final class AddOverrideAnnotation_Intention extends AbstractIntentionDesc
   }
   private static SNode createAnnotationInstance_4i19oe_a0a0a2a0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_swpeqs.AnnotationInstance_51bc59df, null, null, false);
-    n1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"), n1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Override")));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.AnnotationInstance$5z, null, null, false);
+    n1.setReference(LINKS.annotation$zNxu, SReference.create(LINKS.annotation$zNxu, n1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Override")));
     return n1;
   }
 
-  private static final class AUX_swpeqs {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept AnnotationInstance_51bc59df = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept AnnotationInstance$5z = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink annotation$oVP4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
+    /*package*/ static final SReferenceLink annotation$zNxu = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation");
   }
 }

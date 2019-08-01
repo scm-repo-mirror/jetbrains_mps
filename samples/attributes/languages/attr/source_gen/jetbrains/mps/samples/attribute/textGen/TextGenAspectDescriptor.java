@@ -37,7 +37,7 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
   @Override
   public void breakdownToUnits(@NotNull TextGenModelOutline outline) {
     for (SNode root : outline.getModel().getRootNodes()) {
-      if (root.getConcept().equals(AUX_t8hmqt.HandlerAsRoot_3311a7db)) {
+      if (root.getConcept().equals(CONCEPTS.HandlerAsRoot$bB)) {
         String fname = getFileName_HandlerAsRoot(root);
         String ext = getFileExtension_HandlerAsRoot(root);
         outline.registerTextUnit(createTextUnit0((ext == null ? fname : (fname + '.' + ext)), root));
@@ -64,7 +64,7 @@ public class TextGenAspectDescriptor extends TextGenAspectBase {
     return rv;
   }
 
-  private static final class AUX_t8hmqt {
-    /*package*/ static final SConcept HandlerAsRoot_3311a7db = MetaAdapterFactory.getConcept(0xe8e38af60cf34cc1L, 0xbaa3ba261722e8f3L, 0x33ec18d5113abcd9L, "jetbrains.mps.samples.attribute.structure.HandlerAsRoot");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept HandlerAsRoot$bB = MetaAdapterFactory.getConcept(0xe8e38af60cf34cc1L, 0xbaa3ba261722e8f3L, 0x33ec18d5113abcd9L, "jetbrains.mps.samples.attribute.structure.HandlerAsRoot");
   }
 }

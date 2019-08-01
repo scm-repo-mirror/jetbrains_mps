@@ -11,8 +11,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ConceptEditor_DefaultContextHintLabel extends KeyMapImpl {
   public ConceptEditor_DefaultContextHintLabel() {
@@ -37,7 +38,7 @@ public class ConceptEditor_DefaultContextHintLabel extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_u3lscq.ConceptEditorDeclaration_9422d3dc))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.ConceptEditorDeclaration$s6))) {
         return false;
       }
       return true;
@@ -47,14 +48,18 @@ public class ConceptEditor_DefaultContextHintLabel extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, 0x240ba2de0c6c0b6eL, "contextHints"), null);
+      SNodeFactoryOperations.addNewChild(node, LINKS.contextHints$QcT4, null);
     }
     public String getKeyStroke() {
       return " letter or digit";
     }
   }
 
-  private static final class AUX_u3lscq {
-    /*package*/ static final SConcept ConceptEditorDeclaration_9422d3dc = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptEditorDeclaration$s6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink contextHints$QcT4 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, 0x240ba2de0c6c0b6eL, "contextHints");
   }
 }

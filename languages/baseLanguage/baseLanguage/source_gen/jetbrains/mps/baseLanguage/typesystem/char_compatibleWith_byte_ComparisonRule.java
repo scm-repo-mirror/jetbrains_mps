@@ -27,14 +27,14 @@ public class char_compatibleWith_byte_ComparisonRule extends ComparisonRule_Runt
   }
 
   public SAbstractConcept getApplicableConcept1() {
-    return AUX_we6kvk.CharType_638a765e;
+    return CONCEPTS.CharType$j4;
   }
   public SAbstractConcept getApplicableConcept2() {
-    return AUX_we6kvk.ByteType_64f858f8;
+    return CONCEPTS.ByteType$lE;
   }
 
-  private static final class AUX_we6kvk {
-    /*package*/ static final SConcept CharType_638a765e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d4f826L, "jetbrains.mps.baseLanguage.structure.CharType");
-    /*package*/ static final SConcept ByteType_64f858f8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d5b617L, "jetbrains.mps.baseLanguage.structure.ByteType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CharType$j4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d4f826L, "jetbrains.mps.baseLanguage.structure.CharType");
+    /*package*/ static final SConcept ByteType$lE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d5b617L, "jetbrains.mps.baseLanguage.structure.ByteType");
   }
 }

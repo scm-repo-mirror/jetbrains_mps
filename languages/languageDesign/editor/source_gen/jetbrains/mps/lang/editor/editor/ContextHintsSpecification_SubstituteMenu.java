@@ -34,14 +34,16 @@ import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ContextHintsSpecification_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_yb5v9l_a(), AUX_yb5v9l.ExplicitHintsSpecification_ff0de2ae));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_yb5v9l.QueryHintsSpecification_18a16a79) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_yb5v9l_a(), CONCEPTS.ExplicitHintsSpecification$9O));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.QueryHintsSpecification$g9) {
 
       @NotNull
       @Override
@@ -54,7 +56,7 @@ public class ContextHintsSpecification_SubstituteMenu extends SubstituteMenuBase
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_yb5v9l.QueryHintsSpecification_18a16a79));
+    }, CONCEPTS.QueryHintsSpecification$g9));
     return result;
   }
 
@@ -96,7 +98,7 @@ public class ContextHintsSpecification_SubstituteMenu extends SubstituteMenuBase
       Set<SModel> allVisibleModels = SetSequence.fromSetWithValues(new HashSet<SModel>(), (List<SModel>) SModelOperations.allImportedModels(_context.getModel()));
       SetSequence.fromSet(allVisibleModels).addElement(_context.getModel());
       for (SModel nextModel : SetSequence.fromSet(allVisibleModels)) {
-        ListSequence.fromList(result).addSequence(ListSequence.fromList(jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations.nodes(nextModel, AUX_yb5v9l.ConceptEditorHintDeclaration_6ecf73a7)));
+        ListSequence.fromList(result).addSequence(ListSequence.fromList(jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations.nodes(nextModel, CONCEPTS.ConceptEditorHintDeclaration$2r)));
       }
       return result;
     }
@@ -133,7 +135,7 @@ public class ContextHintsSpecification_SubstituteMenu extends SubstituteMenuBase
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_yb5v9l.ExplicitHintsSpecification_ff0de2ae, context);
+          super(CONCEPTS.ExplicitHintsSpecification$9O, context);
           _context = context;
         }
 
@@ -146,8 +148,8 @@ public class ContextHintsSpecification_SubstituteMenu extends SubstituteMenuBase
         public SNode createNode(@NotNull String pattern) {
           SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ae0865e9a712712L, "jetbrains.mps.lang.editor.structure.ExplicitHintsSpecification"));
           SNode hintReference = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5eadaecad41188dcL, "jetbrains.mps.lang.editor.structure.ConceptEditorHintDeclarationReference"));
-          SLinkOperations.setTarget(hintReference, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5eadaecad41188dcL, 0x527faacef66db74dL, "hint"), myParameterObject);
-          ListSequence.fromList(SLinkOperations.getChildren(result, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ae0865e9a712712L, 0x3ae0865e9a71295bL, "hints"))).addElement(hintReference);
+          SLinkOperations.setTarget(hintReference, LINKS.hint$7sDk, myParameterObject);
+          ListSequence.fromList(SLinkOperations.getChildren(result, LINKS.hints$M21Z)).addElement(hintReference);
           return result;
         }
 
@@ -157,7 +159,7 @@ public class ContextHintsSpecification_SubstituteMenu extends SubstituteMenuBase
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_yb5v9l.ExplicitHintsSpecification_ff0de2ae, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.ExplicitHintsSpecification$9O, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -188,9 +190,14 @@ public class ContextHintsSpecification_SubstituteMenu extends SubstituteMenuBase
 
   }
 
-  private static final class AUX_yb5v9l {
-    /*package*/ static final SConcept ExplicitHintsSpecification_ff0de2ae = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ae0865e9a712712L, "jetbrains.mps.lang.editor.structure.ExplicitHintsSpecification");
-    /*package*/ static final SConcept QueryHintsSpecification_18a16a79 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x555cb285f801e1a1L, "jetbrains.mps.lang.editor.structure.QueryHintsSpecification");
-    /*package*/ static final SConcept ConceptEditorHintDeclaration_6ecf73a7 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x527faacef50d095eL, "jetbrains.mps.lang.editor.structure.ConceptEditorHintDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExplicitHintsSpecification$9O = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ae0865e9a712712L, "jetbrains.mps.lang.editor.structure.ExplicitHintsSpecification");
+    /*package*/ static final SConcept QueryHintsSpecification$g9 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x555cb285f801e1a1L, "jetbrains.mps.lang.editor.structure.QueryHintsSpecification");
+    /*package*/ static final SConcept ConceptEditorHintDeclaration$2r = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x527faacef50d095eL, "jetbrains.mps.lang.editor.structure.ConceptEditorHintDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink hint$7sDk = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5eadaecad41188dcL, 0x527faacef66db74dL, "hint");
+    /*package*/ static final SContainmentLink hints$M21Z = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ae0865e9a712712L, 0x3ae0865e9a71295bL, "hints");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.refactoring.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,7 +16,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
@@ -23,9 +23,11 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class NodesOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_9ef1uj.NodesOperation_dc978660;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x6e6245e06b616475L, "jetbrains.mps.lang.refactoring.structure.NodesOperation");
 
   public static final SMethod<SNode> createType_id65fYhwGpPk$ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("createType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("65fYhwGpPk$").build();
 
@@ -35,9 +37,9 @@ public final class NodesOperation__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode createType_id65fYhwGpPk$(@NotNull SNode __thisNode__) {
-    SNode refactoringNode = SNodeOperations.getNodeAncestor(__thisNode__, AUX_9ef1uj.Refactoring_6541bab9, false, false);
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(refactoringNode, MetaAdapterFactory.getContainmentLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, 0x5fb04b74a77a0656L, "target")), AUX_9ef1uj.NodeTarget_66d7bd58)) {
-      return _quotation_createNode_b95jz1_a0a1a0(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(refactoringNode, MetaAdapterFactory.getContainmentLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, 0x5fb04b74a77a0656L, "target")), AUX_9ef1uj.NodeTarget_66d7bd58), MetaAdapterFactory.getReferenceLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77a056cL, 0x5fb04b74a77a0596L, "concept")));
+    SNode refactoringNode = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.Refactoring$J9, false, false);
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(refactoringNode, LINKS.target$oyxZ), CONCEPTS.NodeTarget$Oa)) {
+      return _quotation_createNode_b95jz1_a0a1a0(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(refactoringNode, LINKS.target$oyxZ), CONCEPTS.NodeTarget$Oa), LINKS.concept$XTiS));
     }
     return _quotation_createNode_b95jz1_a2a0();
   }
@@ -91,7 +93,7 @@ public final class NodesOperation__BehaviorDescriptor extends BaseBHDescriptor {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x10aae26be32L, "SNodeListType"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10aae26be32L, 0x10aae27c421L, "elementConcept"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.elementConcept$AB72, (SNode) parameter_1);
     return quotedNode_2;
   }
   private static SNode _quotation_createNode_b95jz1_a2a0() {
@@ -101,9 +103,14 @@ public final class NodesOperation__BehaviorDescriptor extends BaseBHDescriptor {
     return quotedNode_1;
   }
 
-  private static final class AUX_9ef1uj {
-    /*package*/ static final SConcept NodesOperation_dc978660 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x6e6245e06b616475L, "jetbrains.mps.lang.refactoring.structure.NodesOperation");
-    /*package*/ static final SConcept Refactoring_6541bab9 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, "jetbrains.mps.lang.refactoring.structure.Refactoring");
-    /*package*/ static final SConcept NodeTarget_66d7bd58 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77a056cL, "jetbrains.mps.lang.refactoring.structure.NodeTarget");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Refactoring$J9 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, "jetbrains.mps.lang.refactoring.structure.Refactoring");
+    /*package*/ static final SConcept NodeTarget$Oa = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77a056cL, "jetbrains.mps.lang.refactoring.structure.NodeTarget");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink target$oyxZ = MetaAdapterFactory.getContainmentLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a778e245L, 0x5fb04b74a77a0656L, "target");
+    /*package*/ static final SReferenceLink concept$XTiS = MetaAdapterFactory.getReferenceLink(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x5fb04b74a77a056cL, 0x5fb04b74a77a0596L, "concept");
+    /*package*/ static final SReferenceLink elementConcept$AB72 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10aae26be32L, 0x10aae27c421L, "elementConcept");
   }
 }

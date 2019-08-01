@@ -19,7 +19,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ActionTestSidetransformTestAncestor_Constraints extends BaseConstraintsDescriptor {
   public ActionTestSidetransformTestAncestor_Constraints() {
-    super(AUX_x6sip0.ActionTestSidetransformTestAncestor_9ee352ef);
+    super(CONCEPTS.ActionTestSidetransformTestAncestor$Dj);
   }
 
   @Override
@@ -38,14 +38,14 @@ public class ActionTestSidetransformTestAncestor_Constraints extends BaseConstra
     };
   }
   private static boolean staticCanBeAnAncestor(SNode node, SNode childNode, SAbstractConcept childConcept, SNode parentNode, SContainmentLink link) {
-    return childConcept != AUX_x6sip0.ActionTestSidetransformChild1_6bf2a3a1 && !(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), AUX_x6sip0.ActionTestSidetransformAnotherChildCommonSuperConcept_28bdd342)) && childConcept != AUX_x6sip0.ActionTestSidetransformAddConceptChild_83b20222;
+    return childConcept != CONCEPTS.ActionTestSidetransformChild1$Zx && !(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.ActionTestSidetransformAnotherChildCommonSuperConcept$hw)) && childConcept != CONCEPTS.ActionTestSidetransformAddConceptChild$60;
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:51315b9d-b515-42e5-b0a0-21c0544c81b4(jetbrains.mps.lang.actions.testLanguage.constraints)", "1227128029536583749");
 
-  private static final class AUX_x6sip0 {
-    /*package*/ static final SConcept ActionTestSidetransformTestAncestor_9ee352ef = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2c35cefefc9cfa78L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformTestAncestor");
-    /*package*/ static final SConcept ActionTestSidetransformAddConceptChild_83b20222 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x43d1b15d4168a426L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformAddConceptChild");
-    /*package*/ static final SConcept ActionTestSidetransformChild1_6bf2a3a1 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x44969b12b8c94c1bL, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformChild1");
-    /*package*/ static final SConcept ActionTestSidetransformAnotherChildCommonSuperConcept_28bdd342 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2c35cefefcaa0dd0L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformAnotherChildCommonSuperConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionTestSidetransformTestAncestor$Dj = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2c35cefefc9cfa78L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformTestAncestor");
+    /*package*/ static final SConcept ActionTestSidetransformAddConceptChild$60 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x43d1b15d4168a426L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformAddConceptChild");
+    /*package*/ static final SConcept ActionTestSidetransformChild1$Zx = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x44969b12b8c94c1bL, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformChild1");
+    /*package*/ static final SConcept ActionTestSidetransformAnotherChildCommonSuperConcept$hw = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2c35cefefcaa0dd0L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestSidetransformAnotherChildCommonSuperConcept");
   }
 }

@@ -15,9 +15,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ChangeStaticInInner_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -36,7 +37,7 @@ public final class ChangeStaticInInner_Intention extends AbstractIntentionDescri
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (boolean) Classifier__BehaviorDescriptor.isInner_idsWroEc0xXl.invoke(node) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_j9schs.Interface_bca2069)) && (SNodeOperations.isInstanceOf(node, AUX_j9schs.Interface_bca2069) || SNodeOperations.isInstanceOf(node, AUX_j9schs.ClassConcept_e2711824));
+    return (boolean) Classifier__BehaviorDescriptor.isInner_idsWroEc0xXl.invoke(node) && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Interface$Kp)) && (SNodeOperations.isInstanceOf(node, CONCEPTS.Interface$Kp) || SNodeOperations.isInstanceOf(node, CONCEPTS.ClassConcept$IY));
   }
   @Override
   public boolean isSurroundWith() {
@@ -53,11 +54,11 @@ public final class ChangeStaticInInner_Intention extends AbstractIntentionDescri
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return "Make " + ((!(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic"))) ? "Non" : "")) + " Static";
+      return "Make " + ((!(SPropertyOperations.getBoolean(node, PROPS.nonStatic$pNlE)) ? "Non" : "")) + " Static";
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic"))));
+      SPropertyOperations.assign(node, PROPS.nonStatic$pNlE, !(SPropertyOperations.getBoolean(node, PROPS.nonStatic$pNlE)));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -65,8 +66,12 @@ public final class ChangeStaticInInner_Intention extends AbstractIntentionDescri
     }
   }
 
-  private static final class AUX_j9schs {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty nonStatic$pNlE = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic");
   }
 }

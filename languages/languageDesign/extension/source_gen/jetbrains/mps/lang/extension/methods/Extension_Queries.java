@@ -5,15 +5,22 @@ package jetbrains.mps.lang.extension.methods;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Extension_Queries {
   public static SNode get_ret(SNode point) {
-    return SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(point, AUX_199y1f.Extension_576e895e, false, false), MetaAdapterFactory.getReferenceLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x1c30c5b543be3b2L, 0x1c30c5b543be565L, "extensionPoint")), MetaAdapterFactory.getContainmentLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x33c018482cafa9d6L, 0x6f6f7f3b7a17bd0bL, "objectType"));
+    return SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(point, CONCEPTS.Extension$74, false, false), LINKS.extensionPoint$ODiV), LINKS.objectType$NJyf);
   }
 
-  private static final class AUX_199y1f {
-    /*package*/ static final SConcept Extension_576e895e = MetaAdapterFactory.getConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x1c30c5b543be3b2L, "jetbrains.mps.lang.extension.structure.Extension");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Extension$74 = MetaAdapterFactory.getConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x1c30c5b543be3b2L, "jetbrains.mps.lang.extension.structure.Extension");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extensionPoint$ODiV = MetaAdapterFactory.getReferenceLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x1c30c5b543be3b2L, 0x1c30c5b543be565L, "extensionPoint");
+    /*package*/ static final SContainmentLink objectType$NJyf = MetaAdapterFactory.getContainmentLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x33c018482cafa9d6L, 0x6f6f7f3b7a17bd0bL, "objectType");
   }
 }

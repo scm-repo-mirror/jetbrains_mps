@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import jetbrains.mps.smodel.IOperationContext;
@@ -29,10 +28,12 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XMLSAXAttributeReference_Constraints extends BaseConstraintsDescriptor {
   public XMLSAXAttributeReference_Constraints() {
-    super(AUX_4osf4s.XMLSAXAttributeReference_1c3fd37f);
+    super(CONCEPTS.XMLSAXAttributeReference$J3);
   }
 
   @Override
@@ -52,7 +53,7 @@ public class XMLSAXAttributeReference_Constraints extends BaseConstraintsDescrip
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, 0x1f6c736337b5e2caL, "attribute"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.attribute$YvIw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -67,11 +68,11 @@ public class XMLSAXAttributeReference_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            if (SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_4osf4s.XMLSAXNodeRule_1c3fd687, true, false) != SNodeOperations.getParent(_context.getParameterNode())) {
-              SNode nodeRule = SNodeOperations.as(SNodeOperations.getParent(_context.getParameterNode()), AUX_4osf4s.XMLSAXNodeRule_1c3fd687);
-              return ((nodeRule == null ? "<unknown>" : SPropertyOperations.getString(nodeRule, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) + "." + SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+            if (SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.XMLSAXNodeRule$AV, true, false) != SNodeOperations.getParent(_context.getParameterNode())) {
+              SNode nodeRule = SNodeOperations.as(SNodeOperations.getParent(_context.getParameterNode()), CONCEPTS.XMLSAXNodeRule$AV);
+              return ((nodeRule == null ? "<unknown>" : SPropertyOperations.getString(nodeRule, PROPS.name$tAp1))) + "." + SPropertyOperations.getString(_context.getParameterNode(), PROPS.name$tAp1);
             }
-            return SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+            return SPropertyOperations.getString(_context.getParameterNode(), PROPS.name$tAp1);
           }
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
@@ -79,7 +80,7 @@ public class XMLSAXAttributeReference_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_4osf4s.XMLSAXAttributeRule_1c3fd381);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.XMLSAXAttributeRule$K1);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
@@ -90,15 +91,23 @@ public class XMLSAXAttributeReference_Constraints extends BaseConstraintsDescrip
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_4osf4s.XMLSAXParser_1c3fd6ab, true, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.XMLSAXParser$Sn, true, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:a2a452cd-a0b4-4774-9b7e-00f9c8226bfa(jetbrains.mps.core.xml.sax.constraints)", "1227128029536581177");
   private static final SNodePointer breakingNode_4osf4s_a0a2a0a0a1a0a0a0d = new SNodePointer("r:a2a452cd-a0b4-4774-9b7e-00f9c8226bfa(jetbrains.mps.core.xml.sax.constraints)", "980633948652566941");
 
-  private static final class AUX_4osf4s {
-    /*package*/ static final SConcept XMLSAXAttributeReference_1c3fd37f = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
-    /*package*/ static final SConcept XMLSAXNodeRule_1c3fd687 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
-    /*package*/ static final SConcept XMLSAXAttributeRule_1c3fd381 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cbL, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeRule");
-    /*package*/ static final SConcept XMLSAXParser_1c3fd6ab = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, "jetbrains.mps.core.xml.sax.structure.XMLSAXParser");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXAttributeReference$J3 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
+    /*package*/ static final SConcept XMLSAXNodeRule$AV = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
+    /*package*/ static final SConcept XMLSAXAttributeRule$K1 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cbL, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeRule");
+    /*package*/ static final SConcept XMLSAXParser$Sn = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, "jetbrains.mps.core.xml.sax.structure.XMLSAXParser");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink attribute$YvIw = MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, 0x1f6c736337b5e2caL, "attribute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

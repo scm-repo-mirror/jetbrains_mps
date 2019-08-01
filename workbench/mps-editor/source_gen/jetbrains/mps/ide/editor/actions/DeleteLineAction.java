@@ -14,13 +14,13 @@ import jetbrains.mps.editor.runtime.cells.ReadOnlyUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.CellLayout;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class DeleteLineAction {
@@ -62,7 +62,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return false;
     }
 
-    return containmentLink.isMultiple() && (Objects.equals(containmentLink, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement")) || DeleteLineAction.isVerticalCellLayout(parentCell));
+    return containmentLink.isMultiple() && (Objects.equals(containmentLink, LINKS.statement$WHn8) || DeleteLineAction.isVerticalCellLayout(parentCell));
   }
   private static boolean isVerticalCellLayout(@NotNull EditorCell_Collection cell) {
     CellLayout cellLayout = cell.getCellLayout();
@@ -74,10 +74,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   private static SContainmentLink getContainmentLink(SNode node) {
-    return (SNodeOperations.isInstanceOf(node, AUX_a19vay.ChildAttribute_96496d6c) ? ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(node, AUX_a19vay.ChildAttribute_96496d6c), AUX_a19vay.ChildAttribute_96496d6c, SMethodTrimmedId.create("getLink", AUX_a19vay.ChildAttribute_96496d6c, "BpxLfMirzf"))) : node.getContainmentLink());
+    return (SNodeOperations.isInstanceOf(node, CONCEPTS.ChildAttribute$XQ) ? ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(node, CONCEPTS.ChildAttribute$XQ), CONCEPTS.ChildAttribute$XQ, SMethodTrimmedId.create("getLink", CONCEPTS.ChildAttribute$XQ, "BpxLfMirzf"))) : node.getContainmentLink());
   }
 
-  private static final class AUX_a19vay {
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
   }
 }

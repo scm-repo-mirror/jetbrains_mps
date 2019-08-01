@@ -27,10 +27,12 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import com.intellij.openapi.extensions.PluginId;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ClassLikes_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.baseLanguage.lightweightdsl.pluginSolution.plugin.ClassLikes_ActionGroup";
@@ -58,11 +60,11 @@ public class ClassLikes_ActionGroup extends GeneratedActionGroup {
       }
     }).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel it) {
-        return SModelOperations.roots(((SModel) it), AUX_ur1rqf.DSLDescriptor_799dc12a);
+        return SModelOperations.roots(((SModel) it), CONCEPTS.DSLDescriptor$dS);
       }
     }).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return (SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept")) != null) && SPropertyOperations.getBoolean(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable"));
+        return (SLinkOperations.getTarget(it, LINKS.preferredConcept$ybbQ) != null) && SPropertyOperations.getBoolean(SLinkOperations.getTarget(it, LINKS.preferredConcept$ybbQ), PROPS.rootable$vg$g);
       }
     });
 
@@ -80,7 +82,15 @@ public class ClassLikes_ActionGroup extends GeneratedActionGroup {
     return false;
   }
 
-  private static final class AUX_ur1rqf {
-    /*package*/ static final SConcept DSLDescriptor_799dc12a = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLDescriptor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DSLDescriptor$dS = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLDescriptor");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink preferredConcept$ybbQ = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty rootable$vg$g = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable");
   }
 }

@@ -25,7 +25,7 @@ public class typeof_MoneyGetCurrencyMethodCall_InferenceRule extends AbstractInf
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_i0acud.MoneyGetCurrencyMethodCall_fad46234;
+    return CONCEPTS.MoneyGetCurrencyMethodCall$eI;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_MoneyGetCurrencyMethodCall_InferenceRule extends AbstractInf
     return quotedNode_1;
   }
 
-  private static final class AUX_i0acud {
-    /*package*/ static final SConcept MoneyGetCurrencyMethodCall_fad46234 = MetaAdapterFactory.getConcept(0xf43135f9b8334685L, 0x8d26ffb6c8215f72L, 0x114740c6f9bL, "jetbrains.mps.baseLanguage.money.structure.MoneyGetCurrencyMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MoneyGetCurrencyMethodCall$eI = MetaAdapterFactory.getConcept(0xf43135f9b8334685L, 0x8d26ffb6c8215f72L, 0x114740c6f9bL, "jetbrains.mps.baseLanguage.money.structure.MoneyGetCurrencyMethodCall");
   }
 }

@@ -10,20 +10,21 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.build.behavior.BuildLayout_Node__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class IdeaPluginIsInLayout_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public IdeaPluginIsInLayout_NonTypesystemRule() {
   }
   public void applyRule(final SNode ideaPlugin, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode buildProject = SNodeOperations.getNodeAncestor(ideaPlugin, AUX_xuzzt7.BuildProject_808bb057, false, false);
-    for (SNode layoutNode : ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(buildProject, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout")), AUX_xuzzt7.BuildLayout_Node_b7bb997a, false, new SAbstractConcept[]{}))) {
+    SNode buildProject = SNodeOperations.getNodeAncestor(ideaPlugin, CONCEPTS.BuildProject$BF, false, false);
+    for (SNode layoutNode : ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(buildProject, LINKS.layout$tpCz), CONCEPTS.BuildLayout_Node$kC, false, new SAbstractConcept[]{}))) {
       if ((boolean) BuildLayout_Node__BehaviorDescriptor.exports_id5FtnUVJQES1.invoke(layoutNode, ideaPlugin)) {
         return;
       }
@@ -34,7 +35,7 @@ public class IdeaPluginIsInLayout_NonTypesystemRule extends AbstractNonTypesyste
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_xuzzt7.BuildMps_IdeaPlugin_d1bb7c62;
+    return CONCEPTS.BuildMps_IdeaPlugin$X0;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -43,9 +44,13 @@ public class IdeaPluginIsInLayout_NonTypesystemRule extends AbstractNonTypesyste
     return false;
   }
 
-  private static final class AUX_xuzzt7 {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildLayout_Node_b7bb997a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
-    /*package*/ static final SConcept BuildMps_IdeaPlugin_d1bb7c62 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildLayout_Node$kC = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
+    /*package*/ static final SConcept BuildMps_IdeaPlugin$X0 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink layout$tpCz = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout");
   }
 }

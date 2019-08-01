@@ -7,6 +7,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class DeprecationUtil {
@@ -19,12 +20,17 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
    */
   /*package*/ static SNode createDocComment(SConcept commentConcept) {
     SNode comment = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(commentConcept));
-    SNode tag = SLinkOperations.addNewChild(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"), AUX_o4cji3.DeprecatedBlockDocTag_7c8f64d8);
-    SLinkOperations.setNewChild(tag, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text"), null);
+    SNode tag = SLinkOperations.addNewChild(comment, LINKS.tags$LJD$, CONCEPTS.DeprecatedBlockDocTag$ma);
+    SLinkOperations.setNewChild(tag, LINKS.text$e7yL, null);
     return comment;
   }
 
-  private static final class AUX_o4cji3 {
-    /*package*/ static final SConcept DeprecatedBlockDocTag_7c8f64d8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink tags$LJD$ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
+    /*package*/ static final SContainmentLink text$e7yL = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DeprecatedBlockDocTag$ma = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag");
   }
 }

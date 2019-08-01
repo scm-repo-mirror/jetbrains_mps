@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -31,10 +30,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PullUpMethod_Constraints extends BaseConstraintsDescriptor {
   public PullUpMethod_Constraints() {
-    super(AUX_8xrh0c.PullUpMethod_c0e8e74d);
+    super(CONCEPTS.PullUpMethod$6P);
   }
 
   @Override
@@ -54,7 +54,7 @@ public class PullUpMethod_Constraints extends BaseConstraintsDescriptor {
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, 0x3ae1f3a73b9e55daL, "newMethodDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.newMethodDeclaration$swRl, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -69,10 +69,10 @@ public class PullUpMethod_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode ancestor = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_8xrh0c.ExtractInterfaceMigration_4551b965, true, false);
-            return new SimpleScope(ListSequence.fromList(IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invoke(SLinkOperations.getTarget(ancestor, MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, 0x5c5c94143857349bL, "newClassifier")))).where(new IWhereFilter<SNode>() {
+            SNode ancestor = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ExtractInterfaceMigration$at, true, false);
+            return new SimpleScope(ListSequence.fromList(IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invoke(SLinkOperations.getTarget(ancestor, LINKS.newClassifier$dFxZ))).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
-                return SNodeOperations.isInstanceOf(it, AUX_8xrh0c.InstanceMethodDeclaration_9dbf9b2b);
+                return SNodeOperations.isInstanceOf(it, CONCEPTS.InstanceMethodDeclaration$An);
               }
             })) {
               @Nullable
@@ -90,14 +90,19 @@ public class PullUpMethod_Constraints extends BaseConstraintsDescriptor {
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_8xrh0c.ExtractInterfaceMigration_4551b965);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ExtractInterfaceMigration$at);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959031e(jetbrains.mps.lang.script.constraints)", "1227128029536563366");
   private static final SNodePointer breakingNode_8xrh0c_a0a0a0a0a1a0a0a0d = new SNodePointer("r:00000000-0000-4000-0000-011c8959031e(jetbrains.mps.lang.script.constraints)", "6836281137582797392");
 
-  private static final class AUX_8xrh0c {
-    /*package*/ static final SConcept PullUpMethod_c0e8e74d = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, "jetbrains.mps.lang.script.structure.PullUpMethod");
-    /*package*/ static final SConcept ExtractInterfaceMigration_4551b965 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, "jetbrains.mps.lang.script.structure.ExtractInterfaceMigration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PullUpMethod$6P = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, "jetbrains.mps.lang.script.structure.PullUpMethod");
+    /*package*/ static final SConcept ExtractInterfaceMigration$at = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, "jetbrains.mps.lang.script.structure.ExtractInterfaceMigration");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink newMethodDeclaration$swRl = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, 0x3ae1f3a73b9e55daL, "newMethodDeclaration");
+    /*package*/ static final SReferenceLink newClassifier$dFxZ = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, 0x5c5c94143857349bL, "newClassifier");
   }
 }

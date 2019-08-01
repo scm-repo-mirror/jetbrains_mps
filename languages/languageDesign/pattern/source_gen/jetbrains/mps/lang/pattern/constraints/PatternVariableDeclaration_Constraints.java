@@ -5,7 +5,6 @@ package jetbrains.mps.lang.pattern.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Map;
@@ -13,15 +12,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PatternVariableDeclaration_Constraints extends BaseConstraintsDescriptor {
   public PatternVariableDeclaration_Constraints() {
-    super(AUX_mg5wuq.PatternVariableDeclaration_b5cd3dd8);
+    super(CONCEPTS.PatternVariableDeclaration$Ma);
   }
 
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -29,12 +29,12 @@ public class PatternVariableDeclaration_Constraints extends BaseConstraintsDescr
     }
     @Override
     public Object getValue(SNode node) {
-      return "#" + SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, 0x108a9cb4794L, "varName"));
+      return "#" + SPropertyOperations.getString(node, PROPS.varName$DO_b);
     }
   }
   public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
     public ShortDescription_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), container);
+      super(PROPS.shortDescription$w2Xj, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -48,12 +48,18 @@ public class PatternVariableDeclaration_Constraints extends BaseConstraintsDescr
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), new ShortDescription_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
+    properties.put(PROPS.shortDescription$w2Xj, new ShortDescription_Property(this));
     return properties;
   }
 
-  private static final class AUX_mg5wuq {
-    /*package*/ static final SConcept PatternVariableDeclaration_b5cd3dd8 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PatternVariableDeclaration$Ma = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty varName$DO_b = MetaAdapterFactory.getProperty(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, 0x108a9cb4794L, "varName");
+    /*package*/ static final SProperty shortDescription$w2Xj = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
   }
 }

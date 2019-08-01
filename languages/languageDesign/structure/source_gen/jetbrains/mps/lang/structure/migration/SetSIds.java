@@ -12,7 +12,6 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodeId;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -22,7 +21,10 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.NotMigratedNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class SetSIds extends MigrationScriptBase {
   public String getCaption() {
@@ -45,22 +47,22 @@ public class SetSIds extends MigrationScriptBase {
           return scope_u6fl1v_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_u6fl1v.AbstractConceptDeclaration_ec74828f, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AbstractConceptDeclaration$UN, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          if (isEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")))) {
-            SPropertyOperations.assign(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId"), ((SNodeId.Regular) it.getNodeId()).getId() + "");
+          if (isEmptyString(SPropertyOperations.getString(it, PROPS.conceptId$TMc5))) {
+            SPropertyOperations.assign(it, PROPS.conceptId$TMc5, ((SNodeId.Regular) it.getNodeId()).getId() + "");
           }
-          it.setProperty(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x16096a174f259419L, "intConceptId"), null);
+          it.setProperty(PROPS.intConceptId$Ie7A, null);
 
-          for (SNode p : ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration")))) {
-            if (isEmptyString(SPropertyOperations.getString(p, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId")))) {
-              SPropertyOperations.assign(p, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId"), ((SNodeId.Regular) p.getNodeId()).getId() + "");
+          for (SNode p : ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.propertyDeclaration$lL73))) {
+            if (isEmptyString(SPropertyOperations.getString(p, PROPS.propertyId$cckp))) {
+              SPropertyOperations.assign(p, PROPS.propertyId$cckp, ((SNodeId.Regular) p.getNodeId()).getId() + "");
             }
           }
 
-          for (SNode l : ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration")))) {
-            if (isEmptyString(SPropertyOperations.getString(l, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")))) {
-              SPropertyOperations.assign(l, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId"), ((SNodeId.Regular) l.getNodeId()).getId() + "");
+          for (SNode l : ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.linkDeclaration$lL6$))) {
+            if (isEmptyString(SPropertyOperations.getString(l, PROPS.linkId$ccI3))) {
+              SPropertyOperations.assign(l, PROPS.linkId$ccI3, ((SNodeId.Regular) l.getNodeId()).getId() + "");
             }
           }
         }
@@ -77,9 +79,9 @@ public class SetSIds extends MigrationScriptBase {
           return scope_u6fl1v_a0e_0;
         }
       };
-      Iterable<Problem> notSet = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_u6fl1v.AbstractConceptDeclaration_ec74828f, false)).where(new IWhereFilter<SNode>() {
+      Iterable<Problem> notSet = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AbstractConceptDeclaration$UN, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return isEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")));
+          return isEmptyString(SPropertyOperations.getString(it, PROPS.conceptId$TMc5));
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
@@ -90,9 +92,9 @@ public class SetSIds extends MigrationScriptBase {
           });
         }
       });
-      Iterable<Problem> notSetProp = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_u6fl1v.PropertyDeclaration_ce818bfd, false)).where(new IWhereFilter<SNode>() {
+      Iterable<Problem> notSetProp = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.PropertyDeclaration$c5, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return isEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId")));
+          return isEmptyString(SPropertyOperations.getString(it, PROPS.propertyId$cckp));
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
@@ -103,9 +105,9 @@ public class SetSIds extends MigrationScriptBase {
           });
         }
       });
-      Iterable<Problem> notSetLinks = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_u6fl1v.LinkDeclaration_ce818bfc, false)).where(new IWhereFilter<SNode>() {
+      Iterable<Problem> notSetLinks = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.LinkDeclaration$bA, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return isEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")));
+          return isEmptyString(SPropertyOperations.getString(it, PROPS.linkId$ccI3));
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
@@ -116,9 +118,9 @@ public class SetSIds extends MigrationScriptBase {
           });
         }
       });
-      Iterable<Problem> notEmpty = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_u6fl1v.AbstractConceptDeclaration_ec74828f, false)).where(new IWhereFilter<SNode>() {
+      Iterable<Problem> notEmpty = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AbstractConceptDeclaration$UN, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SPropertyOperations.getInteger(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x16096a174f259419L, "intConceptId")) != 0;
+          return SPropertyOperations.getInteger(it, PROPS.intConceptId$Ie7A) != 0;
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
@@ -140,9 +142,21 @@ public class SetSIds extends MigrationScriptBase {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_u6fl1v {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept PropertyDeclaration_ce818bfd = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
-    /*package*/ static final SConcept LinkDeclaration_ce818bfc = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept PropertyDeclaration$c5 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
+    /*package*/ static final SConcept LinkDeclaration$bA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptId$TMc5 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId");
+    /*package*/ static final SProperty intConceptId$Ie7A = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x16096a174f259419L, "intConceptId");
+    /*package*/ static final SProperty propertyId$cckp = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId");
+    /*package*/ static final SProperty linkId$ccI3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink propertyDeclaration$lL73 = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration");
+    /*package*/ static final SContainmentLink linkDeclaration$lL6$ = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration");
   }
 }

@@ -16,9 +16,10 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class SurroundWithPassByRef_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -58,9 +59,9 @@ public final class SurroundWithPassByRef_Intention extends AbstractIntentionDesc
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode createdNode = SNodeFactoryOperations.createNewNode(AUX_3c260a.PassByRefExpression_243679e4, node);
+      SNode createdNode = SNodeFactoryOperations.createNewNode(CONCEPTS.PassByRefExpression$7Y, node);
       SNodeOperations.replaceWithAnother(node, createdNode);
-      SLinkOperations.setTarget(createdNode, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, 0x5fc1cc47cb462337L, "expr"), node);
+      SLinkOperations.setTarget(createdNode, LINKS.expr$NNix, node);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -68,7 +69,11 @@ public final class SurroundWithPassByRef_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_3c260a {
-    /*package*/ static final SConcept PassByRefExpression_243679e4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, "jetbrains.mps.baseLanguage.structure.PassByRefExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PassByRefExpression$7Y = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, "jetbrains.mps.baseLanguage.structure.PassByRefExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expr$NNix = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, 0x5fc1cc47cb462337L, "expr");
   }
 }

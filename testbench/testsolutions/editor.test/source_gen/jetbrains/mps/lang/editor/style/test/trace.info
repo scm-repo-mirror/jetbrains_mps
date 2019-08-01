@@ -131,40 +131,41 @@
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/23293207022857579">
     <file name="StyleAttributeNonInheritanceTest_Test.java">
-      <node id="23293207022857579" at="26,50,27,25" concept="8" />
-      <node id="23293207022857579" at="31,72,32,36" concept="1" />
-      <node id="23293207022857579" at="37,52,38,19" concept="8" />
-      <node id="23293207022857579" at="42,51,43,51" concept="1" />
-      <node id="23293207022857584" at="45,27,46,117" concept="4" />
-      <node id="23293207022857591" at="46,117,47,225" concept="4" />
-      <node id="23293207022865460" at="47,225,48,227" concept="4" />
-      <node id="23293207022857607" at="48,227,49,233" concept="4" />
-      <node id="23293207022857599" at="49,233,50,227" concept="4" />
-      <node id="23293207022884597" at="50,227,51,233" concept="4" />
-      <node id="23293207022866229" at="51,233,52,0" concept="6" />
-      <node id="23293207022857615" at="52,0,53,218" concept="1" />
-      <node id="23293207022907227" at="53,218,54,342" concept="1" />
-      <node id="23293207022917316" at="54,342,55,220" concept="1" />
-      <node id="23293207022917327" at="55,220,56,348" concept="1" />
-      <node id="23293207022912758" at="56,348,57,221" concept="1" />
-      <node id="23293207022857626" at="57,221,58,348" concept="1" />
-      <node id="23293207022857579" at="65,0,66,0" concept="7" trace="NodeContainer_db6c3199" />
-      <node id="23293207022857579" at="23,0,25,0" concept="7" trace="ourParamCache" />
-      <node id="23293207022857579" at="26,0,29,0" concept="0" trace="StyleAttributeNonInheritanceTest_Test#()V" />
-      <node id="23293207022857579" at="37,0,40,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="23293207022857579" at="30,0,34,0" concept="3" trace="test_StyleAttributeNonInheritanceTest#()V" />
-      <node id="23293207022857582" at="45,0,60,0" concept="3" trace="run#()V" />
-      <node id="23293207022857581" at="43,51,60,9" concept="1" />
-      <node id="23293207022857579" at="41,0,62,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="23293207022857579" at="26,50,27,25" />
-      <scope id="23293207022857579" at="31,72,32,36" />
-      <scope id="23293207022857579" at="37,52,38,19" />
-      <scope id="23293207022857579" at="26,0,29,0" />
-      <scope id="23293207022857579" at="37,0,40,0">
+      <node id="23293207022857579" at="27,50,28,25" concept="8" />
+      <node id="23293207022857579" at="32,72,33,36" concept="1" />
+      <node id="23293207022857579" at="38,52,39,19" concept="8" />
+      <node id="23293207022857579" at="43,51,44,51" concept="1" />
+      <node id="23293207022857584" at="46,27,47,109" concept="4" />
+      <node id="23293207022857591" at="47,109,48,111" concept="4" />
+      <node id="23293207022865460" at="48,111,49,113" concept="4" />
+      <node id="23293207022857607" at="49,113,50,119" concept="4" />
+      <node id="23293207022857599" at="50,119,51,113" concept="4" />
+      <node id="23293207022884597" at="51,113,52,119" concept="4" />
+      <node id="23293207022866229" at="52,119,53,0" concept="6" />
+      <node id="23293207022857615" at="53,0,54,218" concept="1" />
+      <node id="23293207022907227" at="54,218,55,342" concept="1" />
+      <node id="23293207022917316" at="55,342,56,220" concept="1" />
+      <node id="23293207022917327" at="56,220,57,348" concept="1" />
+      <node id="23293207022912758" at="57,348,58,221" concept="1" />
+      <node id="23293207022857626" at="58,221,59,348" concept="1" />
+      <node id="23293207022857579" at="66,0,67,0" concept="7" trace="NodeContainer$3D" />
+      <node id="23293207022857579" at="70,0,71,0" concept="7" trace="node$_a4Q" />
+      <node id="23293207022857579" at="24,0,26,0" concept="7" trace="ourParamCache" />
+      <node id="23293207022857579" at="27,0,30,0" concept="0" trace="StyleAttributeNonInheritanceTest_Test#()V" />
+      <node id="23293207022857579" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="23293207022857579" at="31,0,35,0" concept="3" trace="test_StyleAttributeNonInheritanceTest#()V" />
+      <node id="23293207022857582" at="46,0,61,0" concept="3" trace="run#()V" />
+      <node id="23293207022857581" at="44,51,61,9" concept="1" />
+      <node id="23293207022857579" at="42,0,63,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="23293207022857579" at="27,50,28,25" />
+      <scope id="23293207022857579" at="32,72,33,36" />
+      <scope id="23293207022857579" at="38,52,39,19" />
+      <scope id="23293207022857579" at="27,0,30,0" />
+      <scope id="23293207022857579" at="38,0,41,0">
         <var name="owner" id="23293207022857579" />
       </scope>
-      <scope id="23293207022857579" at="30,0,34,0" />
-      <scope id="23293207022857583" at="45,27,58,348">
+      <scope id="23293207022857579" at="31,0,35,0" />
+      <scope id="23293207022857583" at="46,27,59,348">
         <var name="inner1" id="23293207022865461" />
         <var name="inner1Leaf" id="23293207022857608" />
         <var name="inner2" id="23293207022857600" />
@@ -172,51 +173,53 @@
         <var name="leaf" id="23293207022857592" />
         <var name="root" id="23293207022857585" />
       </scope>
-      <scope id="23293207022857582" at="45,0,60,0" />
-      <scope id="23293207022857579" at="42,51,60,9" />
-      <scope id="23293207022857579" at="41,0,62,0" />
-      <unit id="23293207022857579" at="64,0,67,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test$AUX_nin0hn" />
-      <unit id="23293207022857582" at="44,97,60,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test$TestBody$1" />
-      <unit id="23293207022857579" at="35,0,63,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test$TestBody" />
-      <unit id="23293207022857579" at="21,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test" />
+      <scope id="23293207022857582" at="46,0,61,0" />
+      <scope id="23293207022857579" at="43,51,61,9" />
+      <scope id="23293207022857579" at="42,0,63,0" />
+      <unit id="23293207022857579" at="65,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test$CONCEPTS" />
+      <unit id="23293207022857579" at="69,0,72,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test$LINKS" />
+      <unit id="23293207022857582" at="45,97,61,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test$TestBody$1" />
+      <unit id="23293207022857579" at="36,0,64,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test$TestBody" />
+      <unit id="23293207022857579" at="22,0,73,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeNonInheritanceTest_Test" />
     </file>
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/23293207022980697">
     <file name="StyleAttributePriorityTest_Test.java">
-      <node id="23293207022980697" at="26,44,27,25" concept="8" />
-      <node id="23293207022980697" at="31,66,32,36" concept="1" />
-      <node id="23293207022980697" at="37,52,38,19" concept="8" />
-      <node id="23293207022980697" at="42,51,43,51" concept="1" />
-      <node id="23293207022980702" at="45,27,46,117" concept="4" />
-      <node id="23293207022980709" at="46,117,47,225" concept="4" />
-      <node id="23293207022980717" at="47,225,48,229" concept="4" />
-      <node id="23293207022980725" at="48,229,49,234" concept="4" />
-      <node id="23293207023020900" at="49,234,50,231" concept="4" />
-      <node id="23293207022980741" at="50,231,51,233" concept="4" />
-      <node id="23293207023022220" at="51,233,52,0" concept="6" />
-      <node id="23293207023032993" at="52,0,53,213" concept="1" />
-      <node id="23293207022980750" at="53,213,54,213" concept="1" />
-      <node id="23293207023034625" at="54,213,55,222" concept="1" />
-      <node id="23293207023051534" at="55,222,56,223" concept="1" />
-      <node id="23293207023035536" at="56,223,57,220" concept="1" />
-      <node id="23293207023053521" at="57,220,58,224" concept="1" />
-      <node id="23293207022980697" at="65,0,66,0" concept="7" trace="NodeContainer_db6c3199" />
-      <node id="23293207022980697" at="23,0,25,0" concept="7" trace="ourParamCache" />
-      <node id="23293207022980697" at="26,0,29,0" concept="0" trace="StyleAttributePriorityTest_Test#()V" />
-      <node id="23293207022980697" at="37,0,40,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="23293207022980697" at="30,0,34,0" concept="3" trace="test_StyleAttributePriorityTest#()V" />
-      <node id="23293207022980700" at="45,0,60,0" concept="3" trace="run#()V" />
-      <node id="23293207022980699" at="43,51,60,9" concept="1" />
-      <node id="23293207022980697" at="41,0,62,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="23293207022980697" at="26,44,27,25" />
-      <scope id="23293207022980697" at="31,66,32,36" />
-      <scope id="23293207022980697" at="37,52,38,19" />
-      <scope id="23293207022980697" at="26,0,29,0" />
-      <scope id="23293207022980697" at="37,0,40,0">
+      <node id="23293207022980697" at="27,44,28,25" concept="8" />
+      <node id="23293207022980697" at="32,66,33,36" concept="1" />
+      <node id="23293207022980697" at="38,52,39,19" concept="8" />
+      <node id="23293207022980697" at="43,51,44,51" concept="1" />
+      <node id="23293207022980702" at="46,27,47,109" concept="4" />
+      <node id="23293207022980709" at="47,109,48,111" concept="4" />
+      <node id="23293207022980717" at="48,111,49,115" concept="4" />
+      <node id="23293207022980725" at="49,115,50,120" concept="4" />
+      <node id="23293207023020900" at="50,120,51,117" concept="4" />
+      <node id="23293207022980741" at="51,117,52,119" concept="4" />
+      <node id="23293207023022220" at="52,119,53,0" concept="6" />
+      <node id="23293207023032993" at="53,0,54,213" concept="1" />
+      <node id="23293207022980750" at="54,213,55,213" concept="1" />
+      <node id="23293207023034625" at="55,213,56,222" concept="1" />
+      <node id="23293207023051534" at="56,222,57,223" concept="1" />
+      <node id="23293207023035536" at="57,223,58,220" concept="1" />
+      <node id="23293207023053521" at="58,220,59,224" concept="1" />
+      <node id="23293207022980697" at="66,0,67,0" concept="7" trace="NodeContainer$3D" />
+      <node id="23293207022980697" at="70,0,71,0" concept="7" trace="node$_a4Q" />
+      <node id="23293207022980697" at="24,0,26,0" concept="7" trace="ourParamCache" />
+      <node id="23293207022980697" at="27,0,30,0" concept="0" trace="StyleAttributePriorityTest_Test#()V" />
+      <node id="23293207022980697" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="23293207022980697" at="31,0,35,0" concept="3" trace="test_StyleAttributePriorityTest#()V" />
+      <node id="23293207022980700" at="46,0,61,0" concept="3" trace="run#()V" />
+      <node id="23293207022980699" at="44,51,61,9" concept="1" />
+      <node id="23293207022980697" at="42,0,63,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="23293207022980697" at="27,44,28,25" />
+      <scope id="23293207022980697" at="32,66,33,36" />
+      <scope id="23293207022980697" at="38,52,39,19" />
+      <scope id="23293207022980697" at="27,0,30,0" />
+      <scope id="23293207022980697" at="38,0,41,0">
         <var name="owner" id="23293207022980697" />
       </scope>
-      <scope id="23293207022980697" at="30,0,34,0" />
-      <scope id="23293207022980701" at="45,27,58,224">
+      <scope id="23293207022980697" at="31,0,35,0" />
+      <scope id="23293207022980701" at="46,27,59,224">
         <var name="ignore" id="23293207023020901" />
         <var name="ignoreLeaf" id="23293207022980742" />
         <var name="innerLeaf" id="23293207022980726" />
@@ -224,51 +227,53 @@
         <var name="priority" id="23293207022980718" />
         <var name="root" id="23293207022980703" />
       </scope>
-      <scope id="23293207022980700" at="45,0,60,0" />
-      <scope id="23293207022980697" at="42,51,60,9" />
-      <scope id="23293207022980697" at="41,0,62,0" />
-      <unit id="23293207022980697" at="64,0,67,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test$AUX_y1rllk" />
-      <unit id="23293207022980700" at="44,97,60,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test$TestBody$1" />
-      <unit id="23293207022980697" at="35,0,63,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test$TestBody" />
-      <unit id="23293207022980697" at="21,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test" />
+      <scope id="23293207022980700" at="46,0,61,0" />
+      <scope id="23293207022980697" at="43,51,61,9" />
+      <scope id="23293207022980697" at="42,0,63,0" />
+      <unit id="23293207022980697" at="65,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test$CONCEPTS" />
+      <unit id="23293207022980697" at="69,0,72,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test$LINKS" />
+      <unit id="23293207022980700" at="45,97,61,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test$TestBody$1" />
+      <unit id="23293207022980697" at="36,0,64,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test$TestBody" />
+      <unit id="23293207022980697" at="22,0,73,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributePriorityTest_Test" />
     </file>
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/23293207023100634">
     <file name="StyleAttributeUnapplyTest_Test.java">
-      <node id="23293207023100634" at="26,43,27,25" concept="8" />
-      <node id="23293207023100634" at="31,65,32,36" concept="1" />
-      <node id="23293207023100634" at="37,52,38,19" concept="8" />
-      <node id="23293207023100634" at="42,51,43,51" concept="1" />
-      <node id="23293207023100639" at="45,27,46,117" concept="4" />
-      <node id="23293207023100646" at="46,117,47,225" concept="4" />
-      <node id="23293207023100654" at="47,225,48,229" concept="4" />
-      <node id="23293207023100662" at="48,229,49,234" concept="4" />
-      <node id="23293207023100670" at="49,234,50,232" concept="4" />
-      <node id="23293207023100678" at="50,232,51,235" concept="4" />
-      <node id="23293207023100686" at="51,235,52,0" concept="6" />
-      <node id="23293207023100687" at="52,0,53,213" concept="1" />
-      <node id="23293207023100698" at="53,213,54,213" concept="1" />
-      <node id="23293207023100709" at="54,213,55,222" concept="1" />
-      <node id="23293207023100720" at="55,222,56,223" concept="1" />
-      <node id="23293207023100731" at="56,223,57,216" concept="1" />
-      <node id="23293207023100742" at="57,216,58,220" concept="1" />
-      <node id="23293207023100634" at="65,0,66,0" concept="7" trace="NodeContainer_db6c3199" />
-      <node id="23293207023100634" at="23,0,25,0" concept="7" trace="ourParamCache" />
-      <node id="23293207023100634" at="26,0,29,0" concept="0" trace="StyleAttributeUnapplyTest_Test#()V" />
-      <node id="23293207023100634" at="37,0,40,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="23293207023100634" at="30,0,34,0" concept="3" trace="test_StyleAttributeUnapplyTest#()V" />
-      <node id="23293207023100637" at="45,0,60,0" concept="3" trace="run#()V" />
-      <node id="23293207023100636" at="43,51,60,9" concept="1" />
-      <node id="23293207023100634" at="41,0,62,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="23293207023100634" at="26,43,27,25" />
-      <scope id="23293207023100634" at="31,65,32,36" />
-      <scope id="23293207023100634" at="37,52,38,19" />
-      <scope id="23293207023100634" at="26,0,29,0" />
-      <scope id="23293207023100634" at="37,0,40,0">
+      <node id="23293207023100634" at="27,43,28,25" concept="8" />
+      <node id="23293207023100634" at="32,65,33,36" concept="1" />
+      <node id="23293207023100634" at="38,52,39,19" concept="8" />
+      <node id="23293207023100634" at="43,51,44,51" concept="1" />
+      <node id="23293207023100639" at="46,27,47,109" concept="4" />
+      <node id="23293207023100646" at="47,109,48,111" concept="4" />
+      <node id="23293207023100654" at="48,111,49,115" concept="4" />
+      <node id="23293207023100662" at="49,115,50,120" concept="4" />
+      <node id="23293207023100670" at="50,120,51,118" concept="4" />
+      <node id="23293207023100678" at="51,118,52,121" concept="4" />
+      <node id="23293207023100686" at="52,121,53,0" concept="6" />
+      <node id="23293207023100687" at="53,0,54,213" concept="1" />
+      <node id="23293207023100698" at="54,213,55,213" concept="1" />
+      <node id="23293207023100709" at="55,213,56,222" concept="1" />
+      <node id="23293207023100720" at="56,222,57,223" concept="1" />
+      <node id="23293207023100731" at="57,223,58,216" concept="1" />
+      <node id="23293207023100742" at="58,216,59,220" concept="1" />
+      <node id="23293207023100634" at="66,0,67,0" concept="7" trace="NodeContainer$3D" />
+      <node id="23293207023100634" at="70,0,71,0" concept="7" trace="node$_a4Q" />
+      <node id="23293207023100634" at="24,0,26,0" concept="7" trace="ourParamCache" />
+      <node id="23293207023100634" at="27,0,30,0" concept="0" trace="StyleAttributeUnapplyTest_Test#()V" />
+      <node id="23293207023100634" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="23293207023100634" at="31,0,35,0" concept="3" trace="test_StyleAttributeUnapplyTest#()V" />
+      <node id="23293207023100637" at="46,0,61,0" concept="3" trace="run#()V" />
+      <node id="23293207023100636" at="44,51,61,9" concept="1" />
+      <node id="23293207023100634" at="42,0,63,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="23293207023100634" at="27,43,28,25" />
+      <scope id="23293207023100634" at="32,65,33,36" />
+      <scope id="23293207023100634" at="38,52,39,19" />
+      <scope id="23293207023100634" at="27,0,30,0" />
+      <scope id="23293207023100634" at="38,0,41,0">
         <var name="owner" id="23293207023100634" />
       </scope>
-      <scope id="23293207023100634" at="30,0,34,0" />
-      <scope id="23293207023100638" at="45,27,58,220">
+      <scope id="23293207023100634" at="31,0,35,0" />
+      <scope id="23293207023100638" at="46,27,59,220">
         <var name="innerLeaf" id="23293207023100663" />
         <var name="leaf" id="23293207023100647" />
         <var name="priority" id="23293207023100655" />
@@ -276,51 +281,53 @@
         <var name="unapply" id="23293207023100671" />
         <var name="unapplyLeaf" id="23293207023100679" />
       </scope>
-      <scope id="23293207023100637" at="45,0,60,0" />
-      <scope id="23293207023100634" at="42,51,60,9" />
-      <scope id="23293207023100634" at="41,0,62,0" />
-      <unit id="23293207023100634" at="64,0,67,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test$AUX_xst516" />
-      <unit id="23293207023100637" at="44,97,60,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test$TestBody$1" />
-      <unit id="23293207023100634" at="35,0,63,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test$TestBody" />
-      <unit id="23293207023100634" at="21,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test" />
+      <scope id="23293207023100637" at="46,0,61,0" />
+      <scope id="23293207023100634" at="43,51,61,9" />
+      <scope id="23293207023100634" at="42,0,63,0" />
+      <unit id="23293207023100634" at="65,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test$CONCEPTS" />
+      <unit id="23293207023100634" at="69,0,72,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test$LINKS" />
+      <unit id="23293207023100637" at="45,97,61,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test$TestBody$1" />
+      <unit id="23293207023100634" at="36,0,64,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test$TestBody" />
+      <unit id="23293207023100634" at="22,0,73,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeUnapplyTest_Test" />
     </file>
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/23293207023146489">
     <file name="StyleAttributeSetHiddenThenUnhideTest_Test.java">
-      <node id="23293207023146489" at="26,55,27,25" concept="8" />
-      <node id="23293207023146489" at="31,77,32,36" concept="1" />
-      <node id="23293207023146489" at="37,52,38,19" concept="8" />
-      <node id="23293207023146489" at="42,51,43,51" concept="1" />
-      <node id="23293207023146494" at="45,27,46,117" concept="4" />
-      <node id="23293207023146501" at="46,117,47,225" concept="4" />
-      <node id="23293207023146509" at="47,225,48,227" concept="4" />
-      <node id="23293207023146517" at="48,227,49,233" concept="4" />
-      <node id="23293207023146525" at="49,233,50,230" concept="4" />
-      <node id="23293207023146533" at="50,230,51,235" concept="4" />
-      <node id="23293207023146541" at="51,235,52,0" concept="6" />
-      <node id="23293207023146542" at="52,0,53,218" concept="1" />
-      <node id="23293207023146553" at="53,218,54,218" concept="1" />
-      <node id="23293207023146564" at="54,218,55,220" concept="1" />
-      <node id="23293207023146575" at="55,220,56,224" concept="1" />
-      <node id="23293207023146586" at="56,224,57,219" concept="1" />
-      <node id="23293207023146597" at="57,219,58,223" concept="1" />
-      <node id="23293207023146489" at="65,0,66,0" concept="7" trace="NodeContainer_db6c3199" />
-      <node id="23293207023146489" at="23,0,25,0" concept="7" trace="ourParamCache" />
-      <node id="23293207023146489" at="26,0,29,0" concept="0" trace="StyleAttributeSetHiddenThenUnhideTest_Test#()V" />
-      <node id="23293207023146489" at="37,0,40,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="23293207023146489" at="30,0,34,0" concept="3" trace="test_StyleAttributeSetHiddenThenUnhideTest#()V" />
-      <node id="23293207023146492" at="45,0,60,0" concept="3" trace="run#()V" />
-      <node id="23293207023146491" at="43,51,60,9" concept="1" />
-      <node id="23293207023146489" at="41,0,62,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="23293207023146489" at="26,55,27,25" />
-      <scope id="23293207023146489" at="31,77,32,36" />
-      <scope id="23293207023146489" at="37,52,38,19" />
-      <scope id="23293207023146489" at="26,0,29,0" />
-      <scope id="23293207023146489" at="37,0,40,0">
+      <node id="23293207023146489" at="27,55,28,25" concept="8" />
+      <node id="23293207023146489" at="32,77,33,36" concept="1" />
+      <node id="23293207023146489" at="38,52,39,19" concept="8" />
+      <node id="23293207023146489" at="43,51,44,51" concept="1" />
+      <node id="23293207023146494" at="46,27,47,109" concept="4" />
+      <node id="23293207023146501" at="47,109,48,111" concept="4" />
+      <node id="23293207023146509" at="48,111,49,113" concept="4" />
+      <node id="23293207023146517" at="49,113,50,119" concept="4" />
+      <node id="23293207023146525" at="50,119,51,116" concept="4" />
+      <node id="23293207023146533" at="51,116,52,121" concept="4" />
+      <node id="23293207023146541" at="52,121,53,0" concept="6" />
+      <node id="23293207023146542" at="53,0,54,218" concept="1" />
+      <node id="23293207023146553" at="54,218,55,218" concept="1" />
+      <node id="23293207023146564" at="55,218,56,220" concept="1" />
+      <node id="23293207023146575" at="56,220,57,224" concept="1" />
+      <node id="23293207023146586" at="57,224,58,219" concept="1" />
+      <node id="23293207023146597" at="58,219,59,223" concept="1" />
+      <node id="23293207023146489" at="66,0,67,0" concept="7" trace="NodeContainer$3D" />
+      <node id="23293207023146489" at="70,0,71,0" concept="7" trace="node$_a4Q" />
+      <node id="23293207023146489" at="24,0,26,0" concept="7" trace="ourParamCache" />
+      <node id="23293207023146489" at="27,0,30,0" concept="0" trace="StyleAttributeSetHiddenThenUnhideTest_Test#()V" />
+      <node id="23293207023146489" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="23293207023146489" at="31,0,35,0" concept="3" trace="test_StyleAttributeSetHiddenThenUnhideTest#()V" />
+      <node id="23293207023146492" at="46,0,61,0" concept="3" trace="run#()V" />
+      <node id="23293207023146491" at="44,51,61,9" concept="1" />
+      <node id="23293207023146489" at="42,0,63,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="23293207023146489" at="27,55,28,25" />
+      <scope id="23293207023146489" at="32,77,33,36" />
+      <scope id="23293207023146489" at="38,52,39,19" />
+      <scope id="23293207023146489" at="27,0,30,0" />
+      <scope id="23293207023146489" at="38,0,41,0">
         <var name="owner" id="23293207023146489" />
       </scope>
-      <scope id="23293207023146489" at="30,0,34,0" />
-      <scope id="23293207023146493" at="45,27,58,223">
+      <scope id="23293207023146489" at="31,0,35,0" />
+      <scope id="23293207023146493" at="46,27,59,223">
         <var name="hidden" id="23293207023146510" />
         <var name="hiddenLeaf" id="23293207023146518" />
         <var name="leaf" id="23293207023146502" />
@@ -328,63 +335,66 @@
         <var name="unapply" id="23293207023146526" />
         <var name="unapplyLeaf" id="23293207023146534" />
       </scope>
-      <scope id="23293207023146492" at="45,0,60,0" />
-      <scope id="23293207023146489" at="42,51,60,9" />
-      <scope id="23293207023146489" at="41,0,62,0" />
-      <unit id="23293207023146489" at="64,0,67,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test$AUX_qgcx1v" />
-      <unit id="23293207023146492" at="44,97,60,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test$TestBody$1" />
-      <unit id="23293207023146489" at="35,0,63,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test$TestBody" />
-      <unit id="23293207023146489" at="21,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test" />
+      <scope id="23293207023146492" at="46,0,61,0" />
+      <scope id="23293207023146489" at="43,51,61,9" />
+      <scope id="23293207023146489" at="42,0,63,0" />
+      <unit id="23293207023146489" at="65,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test$CONCEPTS" />
+      <unit id="23293207023146489" at="69,0,72,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test$LINKS" />
+      <unit id="23293207023146492" at="45,97,61,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test$TestBody$1" />
+      <unit id="23293207023146489" at="36,0,64,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test$TestBody" />
+      <unit id="23293207023146489" at="22,0,73,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeSetHiddenThenUnhideTest_Test" />
     </file>
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/23293207023291586">
     <file name="StyleAttributeThreeLayerTest_Test.java">
-      <node id="23293207023291586" at="26,46,27,25" concept="8" />
-      <node id="23293207023291586" at="31,68,32,36" concept="1" />
-      <node id="23293207023291586" at="37,52,38,19" concept="8" />
-      <node id="23293207023291586" at="42,51,43,51" concept="1" />
-      <node id="23293207023291591" at="45,27,46,117" concept="4" />
-      <node id="23293207023291606" at="46,117,47,225" concept="4" />
-      <node id="23293207023291614" at="47,225,48,229" concept="4" />
-      <node id="23293207023311988" at="48,229,49,240" concept="4" />
-      <node id="23293207023291630" at="49,240,50,236" concept="4" />
-      <node id="23293207023312962" at="50,236,51,0" concept="6" />
-      <node id="23293207023291638" at="51,0,52,0" concept="6" />
-      <node id="23293207023317413" at="52,0,53,213" concept="1" />
-      <node id="23293207023291639" at="53,213,54,214" concept="1" />
-      <node id="23293207023319285" at="54,214,55,218" concept="1" />
-      <node id="23293207023320180" at="55,218,56,225" concept="1" />
-      <node id="23293207023326471" at="56,225,57,214" concept="1" />
-      <node id="23293207023291586" at="64,0,65,0" concept="7" trace="NodeContainer_db6c3199" />
-      <node id="23293207023291586" at="23,0,25,0" concept="7" trace="ourParamCache" />
-      <node id="23293207023291586" at="26,0,29,0" concept="0" trace="StyleAttributeThreeLayerTest_Test#()V" />
-      <node id="23293207023291586" at="37,0,40,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="23293207023291586" at="30,0,34,0" concept="3" trace="test_StyleAttributeThreeLayerTest#()V" />
-      <node id="23293207023291589" at="45,0,59,0" concept="3" trace="run#()V" />
-      <node id="23293207023291588" at="43,51,59,9" concept="1" />
-      <node id="23293207023291586" at="41,0,61,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="23293207023291586" at="26,46,27,25" />
-      <scope id="23293207023291586" at="31,68,32,36" />
-      <scope id="23293207023291586" at="37,52,38,19" />
-      <scope id="23293207023291586" at="26,0,29,0" />
-      <scope id="23293207023291586" at="37,0,40,0">
+      <node id="23293207023291586" at="27,46,28,25" concept="8" />
+      <node id="23293207023291586" at="32,68,33,36" concept="1" />
+      <node id="23293207023291586" at="38,52,39,19" concept="8" />
+      <node id="23293207023291586" at="43,51,44,51" concept="1" />
+      <node id="23293207023291591" at="46,27,47,109" concept="4" />
+      <node id="23293207023291606" at="47,109,48,111" concept="4" />
+      <node id="23293207023291614" at="48,111,49,115" concept="4" />
+      <node id="23293207023311988" at="49,115,50,126" concept="4" />
+      <node id="23293207023291630" at="50,126,51,122" concept="4" />
+      <node id="23293207023312962" at="51,122,52,0" concept="6" />
+      <node id="23293207023291638" at="52,0,53,0" concept="6" />
+      <node id="23293207023317413" at="53,0,54,213" concept="1" />
+      <node id="23293207023291639" at="54,213,55,214" concept="1" />
+      <node id="23293207023319285" at="55,214,56,218" concept="1" />
+      <node id="23293207023320180" at="56,218,57,225" concept="1" />
+      <node id="23293207023326471" at="57,225,58,214" concept="1" />
+      <node id="23293207023291586" at="65,0,66,0" concept="7" trace="NodeContainer$3D" />
+      <node id="23293207023291586" at="69,0,70,0" concept="7" trace="node$_a4Q" />
+      <node id="23293207023291586" at="24,0,26,0" concept="7" trace="ourParamCache" />
+      <node id="23293207023291586" at="27,0,30,0" concept="0" trace="StyleAttributeThreeLayerTest_Test#()V" />
+      <node id="23293207023291586" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="23293207023291586" at="31,0,35,0" concept="3" trace="test_StyleAttributeThreeLayerTest#()V" />
+      <node id="23293207023291589" at="46,0,60,0" concept="3" trace="run#()V" />
+      <node id="23293207023291588" at="44,51,60,9" concept="1" />
+      <node id="23293207023291586" at="42,0,62,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="23293207023291586" at="27,46,28,25" />
+      <scope id="23293207023291586" at="32,68,33,36" />
+      <scope id="23293207023291586" at="38,52,39,19" />
+      <scope id="23293207023291586" at="27,0,30,0" />
+      <scope id="23293207023291586" at="38,0,41,0">
         <var name="owner" id="23293207023291586" />
       </scope>
-      <scope id="23293207023291586" at="30,0,34,0" />
-      <scope id="23293207023291590" at="45,27,57,214">
+      <scope id="23293207023291586" at="31,0,35,0" />
+      <scope id="23293207023291590" at="46,27,58,214">
         <var name="huge" id="23293207023291607" />
         <var name="leaf" id="23293207023291631" />
         <var name="priority" id="23293207023291615" />
         <var name="root" id="23293207023291592" />
         <var name="unapplyPriority" id="23293207023311989" />
       </scope>
-      <scope id="23293207023291589" at="45,0,59,0" />
-      <scope id="23293207023291586" at="42,51,59,9" />
-      <scope id="23293207023291586" at="41,0,61,0" />
-      <unit id="23293207023291586" at="63,0,66,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test$AUX_m8ehlc" />
-      <unit id="23293207023291589" at="44,97,59,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test$TestBody$1" />
-      <unit id="23293207023291586" at="35,0,62,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test$TestBody" />
-      <unit id="23293207023291586" at="21,0,67,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test" />
+      <scope id="23293207023291589" at="46,0,60,0" />
+      <scope id="23293207023291586" at="43,51,60,9" />
+      <scope id="23293207023291586" at="42,0,62,0" />
+      <unit id="23293207023291586" at="64,0,67,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test$CONCEPTS" />
+      <unit id="23293207023291586" at="68,0,71,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test$LINKS" />
+      <unit id="23293207023291589" at="45,97,60,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test$TestBody$1" />
+      <unit id="23293207023291586" at="36,0,63,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test$TestBody" />
+      <unit id="23293207023291586" at="22,0,72,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeThreeLayerTest_Test" />
     </file>
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/2542823481375799028">
@@ -618,47 +628,49 @@
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/6609104295326585615">
     <file name="StyleAttributeInheritanceTest_Test.java">
-      <node id="6609104295326585615" at="26,47,27,25" concept="8" />
-      <node id="6609104295326585615" at="31,69,32,36" concept="1" />
-      <node id="6609104295326585615" at="37,52,38,19" concept="8" />
-      <node id="6609104295326585615" at="42,51,43,53" concept="1" />
-      <node id="4078300376848891514" at="45,27,46,117" concept="4" />
-      <node id="4078300376848940381" at="46,117,47,225" concept="4" />
-      <node id="4078300376848950715" at="47,225,48,226" concept="4" />
-      <node id="4078300376848914810" at="48,226,49,231" concept="4" />
-      <node id="4078300376848904636" at="49,231,50,213" concept="1" />
-      <node id="4078300376848966120" at="50,213,51,213" concept="1" />
-      <node id="4078300376848910752" at="51,213,52,216" concept="1" />
-      <node id="4078300376848968352" at="52,216,53,220" concept="1" />
-      <node id="6609104295326585615" at="60,0,61,0" concept="7" trace="NodeContainer_db6c3199" />
-      <node id="6609104295326585615" at="23,0,25,0" concept="7" trace="ourParamCache" />
-      <node id="6609104295326585615" at="26,0,29,0" concept="0" trace="StyleAttributeInheritanceTest_Test#()V" />
-      <node id="6609104295326585615" at="37,0,40,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="6609104295326585615" at="30,0,34,0" concept="3" trace="test_StyleAttributeInheritanceTest#()V" />
-      <node id="23293207022826798" at="45,0,55,0" concept="3" trace="run#()V" />
-      <node id="23293207022826796" at="43,53,55,9" concept="1" />
-      <node id="6609104295326585615" at="41,0,57,0" concept="3" trace="testMethodImpl#()V" />
-      <scope id="6609104295326585615" at="26,47,27,25" />
-      <scope id="6609104295326585615" at="31,69,32,36" />
-      <scope id="6609104295326585615" at="37,52,38,19" />
-      <scope id="6609104295326585615" at="26,0,29,0" />
-      <scope id="6609104295326585615" at="37,0,40,0">
+      <node id="6609104295326585615" at="27,47,28,25" concept="8" />
+      <node id="6609104295326585615" at="32,69,33,36" concept="1" />
+      <node id="6609104295326585615" at="38,52,39,19" concept="8" />
+      <node id="6609104295326585615" at="43,51,44,53" concept="1" />
+      <node id="4078300376848891514" at="46,27,47,109" concept="4" />
+      <node id="4078300376848940381" at="47,109,48,111" concept="4" />
+      <node id="4078300376848950715" at="48,111,49,112" concept="4" />
+      <node id="4078300376848914810" at="49,112,50,117" concept="4" />
+      <node id="4078300376848904636" at="50,117,51,213" concept="1" />
+      <node id="4078300376848966120" at="51,213,52,213" concept="1" />
+      <node id="4078300376848910752" at="52,213,53,216" concept="1" />
+      <node id="4078300376848968352" at="53,216,54,220" concept="1" />
+      <node id="6609104295326585615" at="61,0,62,0" concept="7" trace="NodeContainer$3D" />
+      <node id="6609104295326585615" at="65,0,66,0" concept="7" trace="node$_a4Q" />
+      <node id="6609104295326585615" at="24,0,26,0" concept="7" trace="ourParamCache" />
+      <node id="6609104295326585615" at="27,0,30,0" concept="0" trace="StyleAttributeInheritanceTest_Test#()V" />
+      <node id="6609104295326585615" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="6609104295326585615" at="31,0,35,0" concept="3" trace="test_StyleAttributeInheritanceTest#()V" />
+      <node id="23293207022826798" at="46,0,56,0" concept="3" trace="run#()V" />
+      <node id="23293207022826796" at="44,53,56,9" concept="1" />
+      <node id="6609104295326585615" at="42,0,58,0" concept="3" trace="testMethodImpl#()V" />
+      <scope id="6609104295326585615" at="27,47,28,25" />
+      <scope id="6609104295326585615" at="32,69,33,36" />
+      <scope id="6609104295326585615" at="38,52,39,19" />
+      <scope id="6609104295326585615" at="27,0,30,0" />
+      <scope id="6609104295326585615" at="38,0,41,0">
         <var name="owner" id="6609104295326585615" />
       </scope>
-      <scope id="6609104295326585615" at="30,0,34,0" />
-      <scope id="23293207022826800" at="45,27,53,220">
+      <scope id="6609104295326585615" at="31,0,35,0" />
+      <scope id="23293207022826800" at="46,27,54,220">
         <var name="inner" id="4078300376848950716" />
         <var name="innerLeaf" id="4078300376848914811" />
         <var name="leaf" id="4078300376848940382" />
         <var name="root" id="4078300376848891515" />
       </scope>
-      <scope id="23293207022826798" at="45,0,55,0" />
-      <scope id="6609104295326585615" at="42,51,55,9" />
-      <scope id="6609104295326585615" at="41,0,57,0" />
-      <unit id="6609104295326585615" at="59,0,62,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test$AUX_sr3hr4" />
-      <unit id="23293207022826798" at="44,97,55,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test$TestBody$1" />
-      <unit id="6609104295326585615" at="35,0,58,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test$TestBody" />
-      <unit id="6609104295326585615" at="21,0,63,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test" />
+      <scope id="23293207022826798" at="46,0,56,0" />
+      <scope id="6609104295326585615" at="43,51,56,9" />
+      <scope id="6609104295326585615" at="42,0,58,0" />
+      <unit id="6609104295326585615" at="60,0,63,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test$CONCEPTS" />
+      <unit id="6609104295326585615" at="64,0,67,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test$LINKS" />
+      <unit id="23293207022826798" at="45,97,56,7" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test$TestBody$1" />
+      <unit id="6609104295326585615" at="36,0,59,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test$TestBody" />
+      <unit id="6609104295326585615" at="22,0,68,0" name="jetbrains.mps.lang.editor.style.test.StyleAttributeInheritanceTest_Test" />
     </file>
   </root>
   <root nodeRef="r:e796bc79-24a8-4433-8903-c71c59526bf7(jetbrains.mps.lang.editor.style.test)/8545423393708262847">

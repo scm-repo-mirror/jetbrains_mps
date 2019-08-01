@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.figures.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,14 +16,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class FigureParameterAttributeViewProperty__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_gai5y1.FigureParameterAttributeViewProperty_ed9b0d7;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x6595651980a1f8ecL, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeViewProperty");
 
   public static final SMethod<SNode> getParameterMember_id4H19mAwT7Py = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getParameterMember").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4H19mAwT7Py").build();
   public static final SMethod<SNode> getStaticFieldDeclaration_id6RaK14zkc88 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getStaticFieldDeclaration").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6RaK14zkc88").build();
@@ -37,10 +38,10 @@ public final class FigureParameterAttributeViewProperty__BehaviorDescriptor exte
     return FigureParameterAttributeViewProperty__BehaviorDescriptor.getStaticFieldDeclaration_id6RaK14zkc88.invoke(__thisNode__);
   }
   /*package*/ static SNode getStaticFieldDeclaration_id6RaK14zkc88(@NotNull SNode __thisNode__) {
-    return SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), AUX_gai5y1.StaticFieldDeclaration_9649293d);
+    return SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.StaticFieldDeclaration$R5);
   }
   /*package*/ static SNode getParameterType_idiZqVFYvBew(@NotNull SNode __thisNode__) {
-    return SNodeOperations.as(SLinkOperations.getTarget(FigureParameterAttributeViewProperty__BehaviorDescriptor.getStaticFieldDeclaration_id6RaK14zkc88.invoke(__thisNode__), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), AUX_gai5y1.ClassifierType_42700403);
+    return SNodeOperations.as(SLinkOperations.getTarget(FigureParameterAttributeViewProperty__BehaviorDescriptor.getStaticFieldDeclaration_id6RaK14zkc88.invoke(__thisNode__), LINKS.type$pLrO), CONCEPTS.ClassifierType$IZ);
   }
 
   /*package*/ FigureParameterAttributeViewProperty__BehaviorDescriptor() {
@@ -93,9 +94,12 @@ public final class FigureParameterAttributeViewProperty__BehaviorDescriptor exte
     return CONCEPT;
   }
 
-  private static final class AUX_gai5y1 {
-    /*package*/ static final SConcept FigureParameterAttributeViewProperty_ed9b0d7 = MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x6595651980a1f8ecL, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeViewProperty");
-    /*package*/ static final SConcept StaticFieldDeclaration_9649293d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticFieldDeclaration$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }

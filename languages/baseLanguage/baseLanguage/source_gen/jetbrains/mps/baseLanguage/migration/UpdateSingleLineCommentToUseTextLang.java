@@ -26,6 +26,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.behavior.SingleLineComment__BehaviorDescriptor;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class UpdateSingleLineCommentToUseTextLang extends MigrationScriptBase {
   public String getCaption() {
@@ -54,9 +56,9 @@ public class UpdateSingleLineCommentToUseTextLang extends MigrationScriptBase {
         public void visit(final SModel currentModel) {
           final Wrappers._boolean importsUpdated = new Wrappers._boolean(false);
 
-          CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(new ModelsScope(Sequence.<SModel>singleton(currentModel)), context), AUX_ldzx6u.SingleLineComment_36a4c8f4, false)).visitAll(new IVisitor<SNode>() {
+          CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(new ModelsScope(Sequence.<SModel>singleton(currentModel)), context), CONCEPTS.SingleLineComment$jI, false)).visitAll(new IVisitor<SNode>() {
             public void visit(final SNode slc) {
-              if (ListSequence.fromList(SLinkOperations.getChildren(slc, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x57d533a7af16ff73L, "commentPart"))).isEmpty()) {
+              if (ListSequence.fromList(SLinkOperations.getChildren(slc, LINKS.commentPart$_gGy)).isEmpty()) {
                 return;
               }
 
@@ -69,23 +71,23 @@ public class UpdateSingleLineCommentToUseTextLang extends MigrationScriptBase {
                 importsUpdated.value = true;
               }
 
-              SNode l = SLinkOperations.addNewChild(slc, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text"), AUX_ldzx6u.Line_c0b9df3f);
-              ListSequence.fromList(SLinkOperations.getChildren(l, MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"))).clear();
-              ListSequence.fromList(SLinkOperations.getChildren(slc, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x57d533a7af16ff73L, "commentPart"))).visitAll(new IVisitor<SNode>() {
+              SNode l = SLinkOperations.addNewChild(slc, LINKS.text$BOhB, CONCEPTS.Line$w3);
+              ListSequence.fromList(SLinkOperations.getChildren(l, LINKS.elements$eRew)).clear();
+              ListSequence.fromList(SLinkOperations.getChildren(slc, LINKS.commentPart$_gGy)).visitAll(new IVisitor<SNode>() {
                 public void visit(SNode part) {
-                  if (SNodeOperations.isInstanceOf(part, AUX_ldzx6u.TextCommentPart_36a4c8f7)) {
-                    String t = SPropertyOperations.getString(SNodeOperations.cast(part, AUX_ldzx6u.TextCommentPart_36a4c8f7), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text"));
+                  if (SNodeOperations.isInstanceOf(part, CONCEPTS.TextCommentPart$lb)) {
+                    String t = SPropertyOperations.getString(SNodeOperations.cast(part, CONCEPTS.TextCommentPart$lb), PROPS.text$AaEw);
                     if ((t != null && t.length() > 0)) {
                       SingleLineComment__BehaviorDescriptor.parseAndAddWords_id45vN3dBFprj.invoke(slc, t);
                     }
                   }
                 }
               });
-              if (ListSequence.fromList(SLinkOperations.getChildren(l, MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"))).isEmpty()) {
-                SLinkOperations.addNewChild(l, MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"), AUX_ldzx6u.Word_f8e99bb0);
+              if (ListSequence.fromList(SLinkOperations.getChildren(l, LINKS.elements$eRew)).isEmpty()) {
+                SLinkOperations.addNewChild(l, LINKS.elements$eRew, CONCEPTS.Word$AM);
 
               }
-              ListSequence.fromList(SLinkOperations.getChildren(slc, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x57d533a7af16ff73L, "commentPart"))).clear();
+              ListSequence.fromList(SLinkOperations.getChildren(slc, LINKS.commentPart$_gGy)).clear();
             }
           });
         }
@@ -96,10 +98,20 @@ public class UpdateSingleLineCommentToUseTextLang extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 8);
   }
 
-  private static final class AUX_ldzx6u {
-    /*package*/ static final SConcept SingleLineComment_36a4c8f4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
-    /*package*/ static final SConcept Line_c0b9df3f = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
-    /*package*/ static final SConcept TextCommentPart_36a4c8f7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
-    /*package*/ static final SConcept Word_f8e99bb0 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SingleLineComment$jI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
+    /*package*/ static final SConcept Line$w3 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
+    /*package*/ static final SConcept TextCommentPart$lb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
+    /*package*/ static final SConcept Word$AM = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink commentPart$_gGy = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x57d533a7af16ff73L, "commentPart");
+    /*package*/ static final SContainmentLink text$BOhB = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text");
+    /*package*/ static final SContainmentLink elements$eRew = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$AaEw = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text");
   }
 }

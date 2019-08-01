@@ -25,7 +25,6 @@ import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -38,6 +37,9 @@ import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class add_fromPluginXml extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.SUBSTITUTE);
@@ -113,8 +115,8 @@ public class add_fromPluginXml extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SNodeFactoryOperations.setNewChild(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x1131bde13f3dbe2aL, "pluginXml"), null), SelectionManager.FIRST_CELL, -1);
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x450018b736351dc3L, "pluginXmlProvided"), false);
+        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SNodeFactoryOperations.setNewChild(_context.getNode(), LINKS.pluginXml$qWwH, null), SelectionManager.FIRST_CELL, -1);
+        SPropertyOperations.assign(_context.getNode(), PROPS.pluginXmlProvided$9kIE, false);
       }
 
 
@@ -174,8 +176,8 @@ public class add_fromPluginXml extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNodeOperations.deleteNode(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x1131bde13f3dbe2aL, "pluginXml")));
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x450018b736351dc3L, "pluginXmlProvided"), true);
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(_context.getNode(), LINKS.pluginXml$qWwH));
+        SPropertyOperations.assign(_context.getNode(), PROPS.pluginXmlProvided$9kIE, true);
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -236,8 +238,8 @@ public class add_fromPluginXml extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNodeOperations.deleteNode(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x1131bde13f3dbe2aL, "pluginXml")));
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x450018b736351dc3L, "pluginXmlProvided"), false);
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(_context.getNode(), LINKS.pluginXml$qWwH));
+        SPropertyOperations.assign(_context.getNode(), PROPS.pluginXmlProvided$9kIE, false);
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -259,5 +261,13 @@ public class add_fromPluginXml extends TransformationMenuBase {
       }
     }
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink pluginXml$qWwH = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x1131bde13f3dbe2aL, "pluginXml");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty pluginXmlProvided$9kIE = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x450018b736351dc3L, "pluginXmlProvided");
   }
 }

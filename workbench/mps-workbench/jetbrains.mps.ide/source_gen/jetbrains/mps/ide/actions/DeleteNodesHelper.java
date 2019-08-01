@@ -145,7 +145,7 @@ public class DeleteNodesHelper {
                   return;
                 }
 
-                if (SNodeOperations.isInstanceOf(it, AUX_6odbu.AbstractConceptDeclaration_ec74828f)) {
+                if (SNodeOperations.isInstanceOf(it, CONCEPTS.AbstractConceptDeclaration$UN)) {
                   SearchResults<SNode> instances = FindUtils.getSearchResults(new EmptyProgressMonitor(), it, scope, "jetbrains.mps.lang.structure.findUsages.ConceptInstances_Finder");
                   SetSequence.fromSet(results).addSequence(ListSequence.fromList(instances.getSearchResults()));
                 }
@@ -202,7 +202,7 @@ public class DeleteNodesHelper {
     });
   }
 
-  private static final class AUX_6odbu {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

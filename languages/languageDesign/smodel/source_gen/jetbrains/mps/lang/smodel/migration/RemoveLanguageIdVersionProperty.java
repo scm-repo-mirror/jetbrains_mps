@@ -12,9 +12,10 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RemoveLanguageIdVersionProperty extends MigrationScriptBase {
   public String getCaption() {
@@ -37,9 +38,9 @@ public class RemoveLanguageIdVersionProperty extends MigrationScriptBase {
           return scope_8n7xrv_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_8n7xrv.LanguageId_f5e2e6b, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.LanguageId$Tn, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SPropertyOperations.remove(it, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, 0x312abca18ab8ccd9L, "version"));
+          SPropertyOperations.remove(it, PROPS.version$OX7X);
         }
       });
     }
@@ -48,7 +49,11 @@ public class RemoveLanguageIdVersionProperty extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 11);
   }
 
-  private static final class AUX_8n7xrv {
-    /*package*/ static final SConcept LanguageId_f5e2e6b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LanguageId$Tn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty version$OX7X = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, 0x312abca18ab8ccd9L, "version");
   }
 }

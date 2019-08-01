@@ -25,7 +25,7 @@ public class typeOf_IntegerLiteral_InferenceRule extends AbstractInferenceRule_R
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_8jy4ru.IntegerLiteral_a37ae2f1;
+    return CONCEPTS.IntegerLiteral$Eh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeOf_IntegerLiteral_InferenceRule extends AbstractInferenceRule_R
     return quotedNode_1;
   }
 
-  private static final class AUX_8jy4ru {
-    /*package*/ static final SConcept IntegerLiteral_a37ae2f1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1129778b846L, "jetbrains.mps.baseLanguage.structure.IntegerLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IntegerLiteral$Eh = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1129778b846L, "jetbrains.mps.baseLanguage.structure.IntegerLiteral");
   }
 }

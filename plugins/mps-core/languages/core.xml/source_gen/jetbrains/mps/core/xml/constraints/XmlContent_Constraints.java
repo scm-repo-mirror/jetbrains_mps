@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlContent_Constraints extends BaseConstraintsDescriptor {
   public XmlContent_Constraints() {
-    super(AUX_ozj0mk.XmlContent_5d5001c3);
+    super(CONCEPTS.XmlContent$nZ);
   }
 
-  private static final class AUX_ozj0mk {
-    /*package*/ static final SConcept XmlContent_5d5001c3 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486bL, "jetbrains.mps.core.xml.structure.XmlContent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlContent$nZ = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486bL, "jetbrains.mps.core.xml.structure.XmlContent");
   }
 }

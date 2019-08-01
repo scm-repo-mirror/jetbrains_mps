@@ -20,10 +20,11 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import jetbrains.mps.core.properties.util.PropEscapeUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class PropertiesDeclaration_InspectorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -68,7 +69,7 @@ import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
   private EditorCell createReadOnlyModelAccessor_0() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor() {
       public String getText() {
-        return PropEscapeUtil.escapeKey(SPropertyOperations.getString(myNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return PropEscapeUtil.escapeKey(SPropertyOperations.getString(myNode, PROPS.name$tAp1));
       }
       public void setText(String s) {
       }
@@ -98,7 +99,7 @@ import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
   private EditorCell createReadOnlyModelAccessor_1() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor() {
       public String getText() {
-        return PropEscapeUtil.escapeValue(SPropertyOperations.getString(myNode, MetaAdapterFactory.getProperty(0x58f98fef90ad4b72L, 0xa390fad66ec7005aL, 0x36fb0dc9fd3a3ac1L, 0x36fb0dc9fd3a3ae4L, "value")));
+        return PropEscapeUtil.escapeValue(SPropertyOperations.getString(myNode, PROPS.value$17Zv));
       }
       public void setText(String s) {
       }
@@ -113,5 +114,10 @@ import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
     return editorCell;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty value$17Zv = MetaAdapterFactory.getProperty(0x58f98fef90ad4b72L, 0xa390fad66ec7005aL, 0x36fb0dc9fd3a3ac1L, 0x36fb0dc9fd3a3ae4L, "value");
   }
 }

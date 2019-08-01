@@ -29,8 +29,9 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.ide.MPSCodeInsightBundle;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class GoToInheritedClassifier_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -46,7 +47,7 @@ public class GoToInheritedClassifier_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("classifierNode")), AUX_ccpcu6.ClassConcept_e2711824) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("classifierNode")), AUX_ccpcu6.Interface_bca2069);
+    return SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("classifierNode")), CONCEPTS.ClassConcept$IY) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("classifierNode")), CONCEPTS.Interface$Kp);
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -59,7 +60,7 @@ public class GoToInheritedClassifier_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_ccpcu6.Classifier_4b7e553))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$hJ))) {
         node = null;
       }
       MapSequence.fromMap(_params).put("classifierNode", node);
@@ -98,7 +99,7 @@ public class GoToInheritedClassifier_Action extends BaseAction {
     final Wrappers._boolean isClass = new Wrappers._boolean();
     modelAccess.runReadAction(new Runnable() {
       public void run() {
-        isClass.value = SNodeOperations.isInstanceOf(classifier, AUX_ccpcu6.ClassConcept_e2711824);
+        isClass.value = SNodeOperations.isInstanceOf(classifier, CONCEPTS.ClassConcept$IY);
       }
     });
     InputEvent inputEvent = event.getInputEvent();
@@ -119,16 +120,20 @@ public class GoToInheritedClassifier_Action extends BaseAction {
       public String caption(final int usagesFound, final boolean finished) {
         return new ModelAccessHelper(mpsProject.getRepository()).runReadAction(new Computable<String>() {
           public String compute() {
-            return MPSCodeInsightBundle.message("goto.implementation.chooserTitle", SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), usagesFound, (finished ? "" : " so far"));
+            return MPSCodeInsightBundle.message("goto.implementation.chooserTitle", SPropertyOperations.getString(node, PROPS.name$tAp1), usagesFound, (finished ? "" : " so far"));
           }
         });
       }
     };
   }
 
-  private static final class AUX_ccpcu6 {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

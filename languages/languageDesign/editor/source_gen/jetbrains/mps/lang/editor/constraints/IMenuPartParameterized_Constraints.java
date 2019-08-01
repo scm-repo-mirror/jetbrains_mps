@@ -21,7 +21,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class IMenuPartParameterized_Constraints extends BaseConstraintsDescriptor {
   public IMenuPartParameterized_Constraints() {
-    super(AUX_j0wf96.IMenuPartParameterized_a9bc224b);
+    super(CONCEPTS.IMenuPartParameterized$pR);
   }
 
   @Override
@@ -44,14 +44,14 @@ public class IMenuPartParameterized_Constraints extends BaseConstraintsDescripto
       // Only allow parameterizable or abstract menu parts as children 
       // be child of parameterized' and 
       // instead let the typesystem rule show the message about the concept being abstract). 
-      return childConcept.isAbstract() || SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), AUX_j0wf96.IParameterizableMenuPart_a9bc2234);
+      return childConcept.isAbstract() || SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.IParameterizableMenuPart$eI);
     }
     return true;
   }
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "1227128029536561162");
 
-  private static final class AUX_j0wf96 {
-    /*package*/ static final SInterfaceConcept IMenuPartParameterized_a9bc224b = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9002d0fL, "jetbrains.mps.lang.editor.structure.IMenuPartParameterized");
-    /*package*/ static final SInterfaceConcept IParameterizableMenuPart_a9bc2234 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9002d0dL, "jetbrains.mps.lang.editor.structure.IParameterizableMenuPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMenuPartParameterized$pR = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9002d0fL, "jetbrains.mps.lang.editor.structure.IMenuPartParameterized");
+    /*package*/ static final SInterfaceConcept IParameterizableMenuPart$eI = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9002d0dL, "jetbrains.mps.lang.editor.structure.IParameterizableMenuPart");
   }
 }

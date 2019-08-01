@@ -76,11 +76,11 @@ public class LogLowFirstCell extends TransformationMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.baseLanguage.logging.editor.ReplaceLogWithMessage");
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_gpckzl.LogLowLevelStatement_66a96b81;
+      return CONCEPTS.LogLowLevelStatement$g1;
     }
   }
 
-  private static final class AUX_gpckzl {
-    /*package*/ static final SConcept LogLowLevelStatement_66a96b81 = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x1c3d779b2be2f0b9L, "jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LogLowLevelStatement$g1 = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x1c3d779b2be2f0b9L, "jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement");
   }
 }

@@ -17,13 +17,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.ParameterizedIntentionExecutable;
 import jetbrains.mps.lang.core.behavior.ICanSuppressErrors__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class UnsuppressError_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   public UnsuppressError_Intention() {
@@ -52,9 +53,9 @@ public final class UnsuppressError_Intention extends AbstractIntentionDescriptor
     return list;
   }
   private List<SNode> parameter(final SNode node, final EditorContext editorContext) {
-    return ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(AUX_f7r5z7.SuppressErrorsAnnotation_4912d93))).where(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return isNotEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message")));
+        return isNotEmptyString(SPropertyOperations.getString(it, PROPS.message$PX4b));
       }
     }).toListSequence();
   }
@@ -65,7 +66,7 @@ public final class UnsuppressError_Intention extends AbstractIntentionDescriptor
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return "Don't suppress error '" + SPropertyOperations.getString(myParameter, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message")) + "' for " + ICanSuppressErrors__BehaviorDescriptor.nodeDescription_id4oS1ku9jIXr.invoke(node);
+      return "Don't suppress error '" + SPropertyOperations.getString(myParameter, PROPS.message$PX4b) + "' for " + ICanSuppressErrors__BehaviorDescriptor.nodeDescription_id4oS1ku9jIXr.invoke(node);
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
@@ -84,7 +85,11 @@ public final class UnsuppressError_Intention extends AbstractIntentionDescriptor
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_f7r5z7 {
-    /*package*/ static final SConcept SuppressErrorsAnnotation_4912d93 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuppressErrorsAnnotation$gJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty message$PX4b = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message");
   }
 }

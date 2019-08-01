@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -19,11 +20,10 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class SetBoldOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_us6de8.SetBoldOperation_68812b44;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3e34c38c0b28cacL, "jetbrains.mps.lang.editor.structure.SetBoldOperation");
 
   public static final SMethod<String> getMethodToGenerate_id1653mnvAf1C = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMethodToGenerate").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAf1C").build();
   public static final SMethod<List<SNode>> getOperationArgumentType_id5GZRL5t2d36 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getOperationArgumentType").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5GZRL5t2d36").build();
@@ -37,7 +37,7 @@ public final class SetBoldOperation__BehaviorDescriptor extends BaseBHDescriptor
     return "setBold";
   }
   /*package*/ static List<SNode> getOperationArgumentType_id5GZRL5t2d36(@NotNull SAbstractConcept __thisConcept__) {
-    List<SNode> result = AbstractStyledTextOperation__BehaviorDescriptor.getOperationArgumentType_id5GZRL5t2d36.invokeSuper(__thisConcept__, AUX_us6de8.SetBoldOperation_68812b44);
+    List<SNode> result = AbstractStyledTextOperation__BehaviorDescriptor.getOperationArgumentType_id5GZRL5t2d36.invokeSuper(__thisConcept__, CONCEPTS.SetBoldOperation$Mu);
     ListSequence.fromList(result).addElement(_quotation_createNode_s26y4o_a0a1a1());
     return result;
   }
@@ -96,7 +96,7 @@ public final class SetBoldOperation__BehaviorDescriptor extends BaseBHDescriptor
     return quotedNode_1;
   }
 
-  private static final class AUX_us6de8 {
-    /*package*/ static final SConcept SetBoldOperation_68812b44 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3e34c38c0b28cacL, "jetbrains.mps.lang.editor.structure.SetBoldOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SetBoldOperation$Mu = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3e34c38c0b28cacL, "jetbrains.mps.lang.editor.structure.SetBoldOperation");
   }
 }

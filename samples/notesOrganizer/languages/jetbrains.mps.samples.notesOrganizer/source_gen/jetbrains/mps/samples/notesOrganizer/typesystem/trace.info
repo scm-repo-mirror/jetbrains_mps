@@ -25,19 +25,19 @@
     <file name="check_NotesConfiguration_NonTypesystemRule.java">
       <node id="8908453262579960025" at="25,7,26,66" concept="5" />
       <node id="8908453262579960025" at="26,66,27,289" concept="5" />
-      <node id="8908453262579948273" at="31,50,32,50" concept="6" />
+      <node id="8908453262579948273" at="31,50,32,42" concept="6" />
       <node id="8908453262579948273" at="34,68,35,102" concept="6" />
       <node id="8908453262579948273" at="37,30,38,17" concept="6" />
-      <node id="8908453262579948273" at="42,0,43,0" concept="7" trace="NotesConfiguration_8c48f8b4" />
+      <node id="8908453262579948273" at="42,0,43,0" concept="7" trace="NotesConfiguration$OI" />
       <node id="8908453262579948273" at="21,0,23,0" concept="1" trace="check_NotesConfiguration_NonTypesystemRule#()V" />
       <node id="8908453262579948273" at="31,0,34,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="8908453262579948273" at="34,0,37,0" concept="4" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
       <node id="8908453262579948273" at="37,0,40,0" concept="4" trace="overrides#()Z" />
-      <node id="8908453262579960025" at="24,154,28,7" concept="0" />
+      <node id="8908453262579960025" at="24,146,28,7" concept="0" />
       <node id="8908453262579959768" at="23,131,29,5" concept="3" />
       <node id="8908453262579948273" at="23,0,31,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="8908453262579948273" at="21,55,21,55" />
-      <scope id="8908453262579948273" at="31,50,32,50" />
+      <scope id="8908453262579948273" at="31,50,32,42" />
       <scope id="8908453262579948273" at="34,68,35,102" />
       <scope id="8908453262579948273" at="37,30,38,17" />
       <scope id="8908453262579948273" at="21,0,23,0" />
@@ -50,14 +50,14 @@
         <var name="argument" id="8908453262579948273" />
       </scope>
       <scope id="8908453262579948273" at="37,0,40,0" />
-      <scope id="8908453262579959798" at="24,154,28,7" />
+      <scope id="8908453262579959798" at="24,146,28,7" />
       <scope id="8908453262579948274" at="23,131,29,5" />
       <scope id="8908453262579948273" at="23,0,31,0">
         <var name="notesConfiguration" id="8908453262579948273" />
         <var name="status" id="8908453262579948273" />
         <var name="typeCheckingContext" id="8908453262579948273" />
       </scope>
-      <unit id="8908453262579948273" at="41,0,44,0" name="jetbrains.mps.samples.notesOrganizer.typesystem.check_NotesConfiguration_NonTypesystemRule$AUX_1fvqnz" />
+      <unit id="8908453262579948273" at="41,0,44,0" name="jetbrains.mps.samples.notesOrganizer.typesystem.check_NotesConfiguration_NonTypesystemRule$CONCEPTS" />
       <unit id="8908453262579948273" at="20,0,45,0" name="jetbrains.mps.samples.notesOrganizer.typesystem.check_NotesConfiguration_NonTypesystemRule" />
     </file>
   </root>

@@ -9,11 +9,12 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import java.util.Collections;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -33,15 +34,15 @@ public class EditorDeclarationScanner {
 
   public EditorDeclarationScanner scan(SModel m) {
     SModule owner = m.getModule();
-    for (SNode ac : SModelOperations.roots(m, AUX_44j0lk.AbstractComponent_15de0cd2)) {
-      SNode cd = SLinkOperations.getTarget(ac, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration"));
+    for (SNode ac : SModelOperations.roots(m, CONCEPTS.AbstractComponent$Ng)) {
+      SNode cd = SLinkOperations.getTarget(ac, LINKS.conceptDeclaration$sbgS);
       if (cd != null && SNodeOperations.getModel(cd).getModule() != owner) {
         myExternalConcepts.add(cd);
         myExtendedModels.add(SNodeOperations.getModel(cd));
       }
     }
-    for (SNode menuRef : SModelOperations.nodes(m, AUX_44j0lk.IMenuReference_b576167b)) {
-      SNode cd = ((SNode) BHReflection.invoke0(menuRef, AUX_44j0lk.IMenuReference_b576167b, SMethodTrimmedId.create("getApplicableConcept", null, "1quYWAD4TFX")));
+    for (SNode menuRef : SModelOperations.nodes(m, CONCEPTS.IMenuReference$x7)) {
+      SNode cd = ((SNode) BHReflection.invoke0(menuRef, CONCEPTS.IMenuReference$x7, SMethodTrimmedId.create("getApplicableConcept", null, "1quYWAD4TFX")));
       if (cd != null && SNodeOperations.getModel(cd).getModule() != owner) {
         myExternalConcepts.add(cd);
         myExtendedModels.add(SNodeOperations.getModel(cd));
@@ -65,8 +66,12 @@ public class EditorDeclarationScanner {
     return Collections.unmodifiableSet(myExternalConcepts);
   }
 
-  private static final class AUX_44j0lk {
-    /*package*/ static final SConcept AbstractComponent_15de0cd2 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, "jetbrains.mps.lang.editor.structure.AbstractComponent");
-    /*package*/ static final SInterfaceConcept IMenuReference_b576167b = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a90a41b3L, "jetbrains.mps.lang.editor.structure.IMenuReference");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$sbgS = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractComponent$Ng = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, "jetbrains.mps.lang.editor.structure.AbstractComponent");
+    /*package*/ static final SInterfaceConcept IMenuReference$x7 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a90a41b3L, "jetbrains.mps.lang.editor.structure.IMenuReference");
   }
 }

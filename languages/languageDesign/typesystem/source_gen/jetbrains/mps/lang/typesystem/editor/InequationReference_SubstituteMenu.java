@@ -69,12 +69,12 @@ public class InequationReference_SubstituteMenu extends SubstituteMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.typesystem.editor.InequationReference_SmartReference");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_49tcbz.InequationReference_c8ce3df0;
+      return CONCEPTS.InequationReference$XM;
     }
   }
   public class SMP_Subconcepts_49tcbz_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_49tcbz.InequationReference_c8ce3df0);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.InequationReference$XM);
     }
     @NotNull
     @Override
@@ -94,7 +94,7 @@ public class InequationReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_49tcbz {
-    /*package*/ static final SConcept InequationReference_c8ce3df0 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x42501924d0bd1913L, "jetbrains.mps.lang.typesystem.structure.InequationReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InequationReference$XM = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x42501924d0bd1913L, "jetbrains.mps.lang.typesystem.structure.InequationReference");
   }
 }

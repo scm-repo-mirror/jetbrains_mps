@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class EnumSwitchExpression_Constraints extends BaseConstraintsDescriptor {
   public EnumSwitchExpression_Constraints() {
-    super(AUX_wgtpxe.EnumSwitchExpression_7e988de2);
+    super(CONCEPTS.EnumSwitchExpression$R0);
   }
 
   @Override
@@ -37,21 +37,21 @@ public class EnumSwitchExpression_Constraints extends BaseConstraintsDescriptor 
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    if (SNodeOperations.isInstanceOf(parentNode, AUX_wgtpxe.StatementList_9dbf9acf)) {
+    if (SNodeOperations.isInstanceOf(parentNode, CONCEPTS.StatementList$TN)) {
       // Just to make completion works :( 
       return true;
     }
     // generation into bl is supported only for these cases 
-    return SNodeOperations.isInstanceOf(parentNode, AUX_wgtpxe.LocalVariableDeclaration_d47683f3) || SNodeOperations.isInstanceOf(parentNode, AUX_wgtpxe.ExpressionStatement_9dbf9b0c) || SNodeOperations.isInstanceOf(parentNode, AUX_wgtpxe.ReturnStatement_d4768417) || SNodeOperations.isInstanceOf(parentNode, AUX_wgtpxe.AssignmentExpression_24d60daa) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(parentNode), AUX_wgtpxe.ExpressionStatement_9dbf9b0c);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.LocalVariableDeclaration$Bf) || SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ExpressionStatement$nm) || SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ReturnStatement$SF) || SNodeOperations.isInstanceOf(parentNode, CONCEPTS.AssignmentExpression$rS) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(parentNode), CONCEPTS.ExpressionStatement$nm);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "2453008993630109573");
 
-  private static final class AUX_wgtpxe {
-    /*package*/ static final SConcept EnumSwitchExpression_7e988de2 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SConcept AssignmentExpression_24d60daa = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
-    /*package*/ static final SConcept ReturnStatement_d4768417 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumSwitchExpression$R0 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, "jetbrains.mps.lang.smodel.structure.EnumSwitchExpression");
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SConcept AssignmentExpression$rS = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
+    /*package*/ static final SConcept ReturnStatement$SF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
   }
 }

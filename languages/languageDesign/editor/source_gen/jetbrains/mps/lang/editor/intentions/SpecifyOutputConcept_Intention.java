@@ -11,12 +11,13 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class SpecifyOutputConcept_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -39,10 +40,10 @@ public final class SpecifyOutputConcept_Intention extends AbstractIntentionDescr
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xbb2f315607dc214L, 0xbb2f315607dd080L, "outputConceptReference")) == null);
+    return (SLinkOperations.getTarget(node, LINKS.outputConceptReference$$wf5) == null);
   }
   private boolean isVisibleInChild(final SNode node, final SNode childNode, final EditorContext editorContext) {
-    return SNodeOperations.getNodeAncestor(childNode, AUX_j8fjx5.StatementList_9dbf9acf, false, false) == null;
+    return SNodeOperations.getNodeAncestor(childNode, CONCEPTS.StatementList$TN, false, false) == null;
   }
   @Override
   public boolean isSurroundWith() {
@@ -63,7 +64,7 @@ public final class SpecifyOutputConcept_Intention extends AbstractIntentionDescr
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xbb2f315607dc214L, 0xbb2f315607dd080L, "outputConceptReference"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xbb2f315607dc1f1L, "jetbrains.mps.lang.editor.structure.OptionalConceptReference")));
+      SLinkOperations.setTarget(node, LINKS.outputConceptReference$$wf5, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xbb2f315607dc1f1L, "jetbrains.mps.lang.editor.structure.OptionalConceptReference")));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -71,7 +72,11 @@ public final class SpecifyOutputConcept_Intention extends AbstractIntentionDescr
     }
   }
 
-  private static final class AUX_j8fjx5 {
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink outputConceptReference$$wf5 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xbb2f315607dc214L, 0xbb2f315607dd080L, "outputConceptReference");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
   }
 }

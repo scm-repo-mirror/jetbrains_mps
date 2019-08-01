@@ -6,12 +6,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.baseLanguage.util.CodeStyleSettings;
 import jetbrains.mps.baseLanguage.util.CodeStyleSettingsRegistry;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class GenerateGettersAndSettersUtil {
   public GenerateGettersAndSettersUtil() {
@@ -32,7 +34,7 @@ public class GenerateGettersAndSettersUtil {
   }
   public static String getFieldGetterName(SNode fieldDeclaration, Project project) {
     String get = "get";
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(fieldDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), AUX_1wbi0p.BooleanType_6530abf6)) {
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(fieldDeclaration, LINKS.type$pLrO), CONCEPTS.BooleanType$8G)) {
       get = "is";
     }
     return get + NameUtil.capitalize(getPreparedFieldName(fieldDeclaration, project));
@@ -57,7 +59,7 @@ public class GenerateGettersAndSettersUtil {
     return paramName;
   }
   public static String getPreparedFieldName(SNode fieldDeclaration, Project project) {
-    String rawName = SPropertyOperations.getString(fieldDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    String rawName = SPropertyOperations.getString(fieldDeclaration, PROPS.name$tAp1);
     if (rawName == null || rawName.length() == 0) {
       return "unnamedField";
     }
@@ -68,7 +70,15 @@ public class GenerateGettersAndSettersUtil {
     return getPreparedName(rawName, codeStyleSettings.getFieldPrefix(), codeStyleSettings.getFieldSuffix());
   }
 
-  private static final class AUX_1wbi0p {
-    /*package*/ static final SConcept BooleanType_6530abf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d6513eL, "jetbrains.mps.baseLanguage.structure.BooleanType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BooleanType$8G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d6513eL, "jetbrains.mps.baseLanguage.structure.BooleanType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

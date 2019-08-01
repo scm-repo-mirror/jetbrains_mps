@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.javadoc.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.baseLanguage.javadoc.editor.NodeCaretPair;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,17 +17,18 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class CommentLine__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_jfe8uy.CommentLine_7c8f6780;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, "jetbrains.mps.baseLanguage.javadoc.structure.CommentLine");
 
   public static final SMethod<NodeCaretPair> tryMergeToRight_idooaTF_3fF3 = new SMethodBuilder<NodeCaretPair>(new SJavaCompoundTypeImpl(NodeCaretPair.class)).name("tryMergeToRight").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("ooaTF_3fF3").build(SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
   public static final SMethod<String> buildCommentText_id7Qt73fl2z8k = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("buildCommentText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Qt73fl2z8k").build();
@@ -37,19 +39,19 @@ public final class CommentLine__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static NodeCaretPair tryMergeToRight_idooaTF_3fF3(@NotNull SNode __thisNode__, int index) {
-    if (index >= 0 && index + 1 < ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part"))).count() && SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part"))).getElement(index), AUX_jfe8uy.TextCommentLinePart_b468bde4) && SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part"))).getElement(index + 1), AUX_jfe8uy.TextCommentLinePart_b468bde4)) {
-      SNode leftPart = SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part"))).getElement(index), AUX_jfe8uy.TextCommentLinePart_b468bde4);
-      int offset = SPropertyOperations.getString(leftPart, MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text")).length();
-      SNode rightPart = SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part"))).getElement(index + 1), AUX_jfe8uy.TextCommentLinePart_b468bde4);
-      String text = ((isEmptyString(SPropertyOperations.getString(leftPart, MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text"))) ? "" : SPropertyOperations.getString(leftPart, MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text")))) + ((isEmptyString(SPropertyOperations.getString(rightPart, MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text"))) ? "" : SPropertyOperations.getString(rightPart, MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text"))));
-      SPropertyOperations.assign(leftPart, MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text"), text);
+    if (index >= 0 && index + 1 < ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$fv9R)).count() && SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$fv9R)).getElement(index), CONCEPTS.TextCommentLinePart$RY) && SNodeOperations.isInstanceOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$fv9R)).getElement(index + 1), CONCEPTS.TextCommentLinePart$RY)) {
+      SNode leftPart = SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$fv9R)).getElement(index), CONCEPTS.TextCommentLinePart$RY);
+      int offset = SPropertyOperations.getString(leftPart, PROPS.text$5Ox0).length();
+      SNode rightPart = SNodeOperations.cast(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$fv9R)).getElement(index + 1), CONCEPTS.TextCommentLinePart$RY);
+      String text = ((isEmptyString(SPropertyOperations.getString(leftPart, PROPS.text$5Ox0)) ? "" : SPropertyOperations.getString(leftPart, PROPS.text$5Ox0))) + ((isEmptyString(SPropertyOperations.getString(rightPart, PROPS.text$5Ox0)) ? "" : SPropertyOperations.getString(rightPart, PROPS.text$5Ox0)));
+      SPropertyOperations.assign(leftPart, PROPS.text$5Ox0, text);
       SNodeOperations.deleteNode(rightPart);
       return new NodeCaretPair(leftPart, offset);
     }
     return null;
   }
   /*package*/ static String buildCommentText_id7Qt73fl2z8k(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part"))).foldLeft("", new ILeftCombinator<SNode, String>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$fv9R)).foldLeft("", new ILeftCombinator<SNode, String>() {
       public String combine(String s, SNode it) {
         return s + CommentLinePart__BehaviorDescriptor.buildCommentText_id7Qt73fl2F3N.invoke(it);
       }
@@ -107,8 +109,15 @@ public final class CommentLine__BehaviorDescriptor extends BaseBHDescriptor {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_jfe8uy {
-    /*package*/ static final SConcept CommentLine_7c8f6780 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, "jetbrains.mps.baseLanguage.javadoc.structure.CommentLine");
-    /*package*/ static final SConcept TextCommentLinePart_b468bde4 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, "jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink part$fv9R = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, 0x7c7f5b2f3199028dL, "part");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextCommentLinePart$RY = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, "jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$5Ox0 = MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text");
   }
 }

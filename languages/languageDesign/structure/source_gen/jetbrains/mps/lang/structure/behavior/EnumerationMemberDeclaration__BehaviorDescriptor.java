@@ -4,6 +4,7 @@ package jetbrains.mps.lang.structure.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,16 +15,17 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class EnumerationMemberDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_u9h6v1.EnumerationMemberDeclaration_dd035f4c;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, "jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration");
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
   public static final SMethod<String> getMemberPresentation_idVFd4X$DFGV = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMemberPresentation").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("VFd4X$DFGV").build();
@@ -35,14 +37,14 @@ public final class EnumerationMemberDeclaration__BehaviorDescriptor extends Base
   }
 
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
   }
   /*package*/ static String getMemberPresentation_idVFd4X$DFGV(@NotNull SNode __thisNode__) {
-    String presentation = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x9538e3a78561888L, "presentation"));
-    return ((presentation == null || presentation.length() == 0) ? SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : presentation);
+    String presentation = SPropertyOperations.getString(__thisNode__, PROPS.presentation$aFIS);
+    return ((presentation == null || presentation.length() == 0) ? SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1) : presentation);
   }
   /*package*/ static boolean isDefault_idVFd4X$DLvk(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), AUX_u9h6v1.EnumerationDeclartaion_dd035f36), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0xeeb344f63fe016cL, "defaultMember")) == __thisNode__;
+    return SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.EnumerationDeclartaion$rG), LINKS.defaultMember$iFMB) == __thisNode__;
   }
 
   /*package*/ EnumerationMemberDeclaration__BehaviorDescriptor() {
@@ -95,8 +97,16 @@ public final class EnumerationMemberDeclaration__BehaviorDescriptor extends Base
     return CONCEPT;
   }
 
-  private static final class AUX_u9h6v1 {
-    /*package*/ static final SConcept EnumerationMemberDeclaration_dd035f4c = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, "jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration");
-    /*package*/ static final SConcept EnumerationDeclartaion_dd035f36 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty presentation$aFIS = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x9538e3a78561888L, "presentation");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumerationDeclartaion$rG = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink defaultMember$iFMB = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0xeeb344f63fe016cL, "defaultMember");
   }
 }

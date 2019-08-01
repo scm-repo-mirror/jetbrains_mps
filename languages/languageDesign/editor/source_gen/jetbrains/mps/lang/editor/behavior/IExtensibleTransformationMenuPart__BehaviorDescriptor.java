@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -21,7 +22,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.Collection;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -29,10 +29,10 @@ import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class IExtensibleTransformationMenuPart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_fv9rc0.IExtensibleTransformationMenuPart_c440c883;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, "jetbrains.mps.lang.editor.structure.IExtensibleTransformationMenuPart");
 
   public static final SMethod<Iterable<SConcept>> getMissingFeatures_id6kJcyCQjeiA = new SMethodBuilder<Iterable<SConcept>>(new SJavaCompoundTypeImpl((Class<Iterable<SConcept>>) ((Class) Object.class))).name("getMissingFeatures").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6kJcyCQjeiA").build();
   public static final SMethod<List<SNode>> getLocations_id6V0bp$oM1WF = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getLocations").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6V0bp$oM1WF").build();
@@ -49,7 +49,7 @@ public final class IExtensibleTransformationMenuPart__BehaviorDescriptor extends
         return (Collection<SConcept>) TransformationLocation__BehaviorDescriptor.getRequiredFeatures_id7L5lpRJHK_w.invoke(it);
       }
     }));
-    Iterable<SConcept> present = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, 0x7c45559defbb3517L, "features"))).select(new ISelector<SNode, SConcept>() {
+    Iterable<SConcept> present = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.features$645q)).select(new ISelector<SNode, SConcept>() {
       public SConcept select(SNode it) {
         return SNodeOperations.getConcept(it);
       }
@@ -58,7 +58,7 @@ public final class IExtensibleTransformationMenuPart__BehaviorDescriptor extends
     return required;
   }
   /*package*/ static List<SNode> getLocations_id6V0bp$oM1WF(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(__thisNode__, AUX_fv9rc0.TransformationMenuSection_68a16062, false, false), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, 0x6ec02d9918b4efbdL, "locations"));
+    return SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.TransformationMenuSection$H0, false, false), LINKS.locations$aTw0);
   }
   /*package*/ static List<SConcept> getAdditionalFeatureParameters_id6kJcyCQ_bk0(@NotNull SNode __thisNode__) {
     return ListSequence.fromList(new ArrayList<SConcept>());
@@ -114,8 +114,12 @@ public final class IExtensibleTransformationMenuPart__BehaviorDescriptor extends
     return CONCEPT;
   }
 
-  private static final class AUX_fv9rc0 {
-    /*package*/ static final SInterfaceConcept IExtensibleTransformationMenuPart_c440c883 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, "jetbrains.mps.lang.editor.structure.IExtensibleTransformationMenuPart");
-    /*package*/ static final SConcept TransformationMenuSection_68a16062 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, "jetbrains.mps.lang.editor.structure.TransformationMenuSection");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink features$645q = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, 0x7c45559defbb3517L, "features");
+    /*package*/ static final SContainmentLink locations$aTw0 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, 0x6ec02d9918b4efbdL, "locations");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenuSection$H0 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, "jetbrains.mps.lang.editor.structure.TransformationMenuSection");
   }
 }

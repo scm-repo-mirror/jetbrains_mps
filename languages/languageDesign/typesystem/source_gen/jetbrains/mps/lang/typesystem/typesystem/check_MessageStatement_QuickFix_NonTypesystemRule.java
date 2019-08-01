@@ -9,23 +9,25 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class check_MessageStatement_QuickFix_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_MessageStatement_QuickFix_NonTypesystemRule() {
   }
   public void applyRule(final SNode messageStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    List<SNode> intentions = SLinkOperations.getChildren(messageStatement, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, 0x11db4ab45e7L, "helginsIntention"));
+    List<SNode> intentions = SLinkOperations.getChildren(messageStatement, LINKS.helginsIntention$f1IL);
     if (ListSequence.fromList(intentions).count() > 1) {
       for (SNode intention : intentions) {
-        if (SPropertyOperations.getBoolean(intention, MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, 0x11b26df4083L, "applyImmediately"))) {
+        if (SPropertyOperations.getBoolean(intention, PROPS.applyImmediately$fto8)) {
           {
             final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(intention, "can't apply immediately if there are multiple quick fixes", "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "4258793651770372659", null, errorTarget);
@@ -35,7 +37,7 @@ public class check_MessageStatement_QuickFix_NonTypesystemRule extends AbstractN
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_a2pihp.MessageStatement_2fbb1f6d;
+    return CONCEPTS.MessageStatement$Ql;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -44,7 +46,15 @@ public class check_MessageStatement_QuickFix_NonTypesystemRule extends AbstractN
     return false;
   }
 
-  private static final class AUX_a2pihp {
-    /*package*/ static final SInterfaceConcept MessageStatement_2fbb1f6d = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink helginsIntention$f1IL = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, 0x11db4ab45e7L, "helginsIntention");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty applyImmediately$fto8 = MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, 0x11b26df4083L, "applyImmediately");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MessageStatement$Ql = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
   }
 }

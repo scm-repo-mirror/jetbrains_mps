@@ -13,13 +13,13 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CommandDebuggerOperation_Constraints extends BaseConstraintsDescriptor {
   public CommandDebuggerOperation_Constraints() {
-    super(AUX_t7npcp.CommandDebuggerOperation_30caf05b);
+    super(CONCEPTS.CommandDebuggerOperation$DB);
   }
 
   @Override
@@ -38,13 +38,17 @@ public class CommandDebuggerOperation_Constraints extends BaseConstraintsDescrip
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, AUX_t7npcp.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")), AUX_t7npcp.CommandReferenceExpression_30caf019);
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr), CONCEPTS.CommandReferenceExpression$9D);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:fa479534-722a-48ea-9a2e-0d6cd7ab1559(jetbrains.mps.execution.commands.constraints)", "1227128029536565763");
 
-  private static final class AUX_t7npcp {
-    /*package*/ static final SConcept CommandDebuggerOperation_30caf05b = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bf1L, "jetbrains.mps.execution.commands.structure.CommandDebuggerOperation");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept CommandReferenceExpression_30caf019 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bd9L, "jetbrains.mps.execution.commands.structure.CommandReferenceExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommandDebuggerOperation$DB = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bf1L, "jetbrains.mps.execution.commands.structure.CommandDebuggerOperation");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept CommandReferenceExpression$9D = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bd9L, "jetbrains.mps.execution.commands.structure.CommandReferenceExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
   }
 }

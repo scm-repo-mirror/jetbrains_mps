@@ -4,6 +4,7 @@ package jetbrains.mps.lang.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,14 +19,13 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AbstractNodeWarningCheckOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_ko7kh8.AbstractNodeWarningCheckOperation_ec7e5974;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x73a7cdcfbbbf1ec9L, "jetbrains.mps.lang.test.structure.AbstractNodeWarningCheckOperation");
 
   public static final SMethod<String> getDefaultName_id7scb9XJdmH2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDefaultName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7scb9XJdmH2").build();
   public static final SMethod<CheckExpectedMessageAction> checkAction_id7jfLc8W17Cr = new SMethodBuilder<CheckExpectedMessageAction>(new SJavaCompoundTypeImpl(CheckExpectedMessageAction.class)).name("checkAction").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7jfLc8W17Cr").build(SMethodBuilder.createJavaParameter(SRepository.class, ""));
@@ -53,7 +53,7 @@ public final class AbstractNodeWarningCheckOperation__BehaviorDescriptor extends
     if ((IReferenceAttachable__BehaviorDescriptor.getReference_id7eBNsYUkslm.invoke(__thisNode__) == null)) {
       return null;
     }
-    return SLinkOperations.getTarget(IReferenceAttachable__BehaviorDescriptor.getReference_id7eBNsYUkslm.invoke(__thisNode__), MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6abc06f5f4afab9dL, 0x73a7cdcfba51f755L, "declaration"));
+    return SLinkOperations.getTarget(IReferenceAttachable__BehaviorDescriptor.getReference_id7eBNsYUkslm.invoke(__thisNode__), LINKS.declaration$tW8o);
   }
 
   /*package*/ AbstractNodeWarningCheckOperation__BehaviorDescriptor() {
@@ -106,7 +106,7 @@ public final class AbstractNodeWarningCheckOperation__BehaviorDescriptor extends
     return CONCEPT;
   }
 
-  private static final class AUX_ko7kh8 {
-    /*package*/ static final SConcept AbstractNodeWarningCheckOperation_ec7e5974 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x73a7cdcfbbbf1ec9L, "jetbrains.mps.lang.test.structure.AbstractNodeWarningCheckOperation");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$tW8o = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6abc06f5f4afab9dL, 0x73a7cdcfba51f755L, "declaration");
   }
 }

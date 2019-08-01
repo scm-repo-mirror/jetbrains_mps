@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class StyleReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_3y4dr_a(), AUX_3y4dr.StyleReference_7ceada86));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_3y4dr_a(), CONCEPTS.StyleReference$ms));
     result.add(new SMP_Subconcepts_3y4dr_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class StyleReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_3y4dr_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_3y4dr.StyleReference_7ceada86, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1edbd2fbL, 0x7e9b10ab1edbd57eL, "style"));
+      super((SAbstractConcept) CONCEPTS.StyleReference$ms, LINKS.style$pN77);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class StyleReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_3y4dr_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_3y4dr.StyleReference_7ceada86);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.StyleReference$ms);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class StyleReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_3y4dr {
-    /*package*/ static final SConcept StyleReference_7ceada86 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1edbd2fbL, "jetbrains.mps.lang.editor.structure.StyleReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StyleReference$ms = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1edbd2fbL, "jetbrains.mps.lang.editor.structure.StyleReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink style$pN77 = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1edbd2fbL, 0x7e9b10ab1edbd57eL, "style");
   }
 }

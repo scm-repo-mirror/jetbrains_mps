@@ -4,6 +4,7 @@ package jetbrains.mps.console.ideCommands.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -14,14 +15,13 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ActionCallGlobalParameter__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_pn2rh5.ActionCallGlobalParameter_48a6c9a6;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a9L, "jetbrains.mps.console.ideCommands.structure.ActionCallGlobalParameter");
 
   public static final SMethod<SNode> getParameterDeclaration_id4PRmqZe_o$D = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getParameterName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4PRmqZe_o$D").build();
 
@@ -31,7 +31,7 @@ public final class ActionCallGlobalParameter__BehaviorDescriptor extends BaseBHD
   }
 
   /*package*/ static SNode getParameterDeclaration_id4PRmqZe_o$D(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a9L, 0x4d7759afce9587aaL, "declaration"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.declaration$Qccb);
   }
 
   /*package*/ ActionCallGlobalParameter__BehaviorDescriptor() {
@@ -80,7 +80,7 @@ public final class ActionCallGlobalParameter__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_pn2rh5 {
-    /*package*/ static final SConcept ActionCallGlobalParameter_48a6c9a6 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a9L, "jetbrains.mps.console.ideCommands.structure.ActionCallGlobalParameter");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$Qccb = MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a9L, 0x4d7759afce9587aaL, "declaration");
   }
 }

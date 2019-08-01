@@ -10,23 +10,24 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_BuildMps_GeneratorOptions_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildMps_GeneratorOptions_NonTypesystemRule() {
   }
   public void applyRule(final SNode genOpts, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(genOpts), AUX_ejhpv6.BuildProject_808bb057)) {
-      SNode bp = SNodeOperations.cast(SNodeOperations.getParent(genOpts), AUX_ejhpv6.BuildProject_808bb057);
-      if (ListSequence.fromList(SLinkOperations.getChildren(bp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts"))).where(new IWhereFilter<SNode>() {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(genOpts), CONCEPTS.BuildProject$BF)) {
+      SNode bp = SNodeOperations.cast(SNodeOperations.getParent(genOpts), CONCEPTS.BuildProject$BF);
+      if (ListSequence.fromList(SLinkOperations.getChildren(bp, LINKS.parts$tgxg)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, AUX_ejhpv6.BuildMps_GeneratorOptions_40e332) && it != genOpts;
+          return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildMps_GeneratorOptions$9K) && it != genOpts;
         }
       }).isNotEmpty()) {
         {
@@ -37,7 +38,7 @@ public class check_BuildMps_GeneratorOptions_NonTypesystemRule extends AbstractN
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ejhpv6.BuildMps_GeneratorOptions_40e332;
+    return CONCEPTS.BuildMps_GeneratorOptions$9K;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,8 +47,12 @@ public class check_BuildMps_GeneratorOptions_NonTypesystemRule extends AbstractN
     return false;
   }
 
-  private static final class AUX_ejhpv6 {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildMps_GeneratorOptions_40e332 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3ba296405b6f3b1bL, "jetbrains.mps.build.mps.structure.BuildMps_GeneratorOptions");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildMps_GeneratorOptions$9K = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3ba296405b6f3b1bL, "jetbrains.mps.build.mps.structure.BuildMps_GeneratorOptions");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parts$tgxg = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
   }
 }

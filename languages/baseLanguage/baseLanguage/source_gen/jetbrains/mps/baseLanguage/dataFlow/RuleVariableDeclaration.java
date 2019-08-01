@@ -8,10 +8,12 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.dataFlow.framework.Program;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RuleVariableDeclaration implements DataFlowConstructor {
   public boolean isApplicable(SNode node) {
@@ -20,12 +22,12 @@ public class RuleVariableDeclaration implements DataFlowConstructor {
     return concept.equals(applicableConcept) || concept.isSubConceptOf(applicableConcept);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_1kbya9.VariableDeclaration_3c610994;
+    return CONCEPTS.VariableDeclaration$xe;
   }
   public void performActions(Program o, SNode node) {
-    if (SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation")) != null) {
-      for (SNode annotation : SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))) {
-        if (SLinkOperations.hasPointer(annotation, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"), new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~Nullable"))) {
+    if (SLinkOperations.getChildren(node, LINKS.annotation$oVP4) != null) {
+      for (SNode annotation : SLinkOperations.getChildren(node, LINKS.annotation$oVP4)) {
+        if (SLinkOperations.hasPointer(annotation, LINKS.annotation$zNxu, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~Nullable"))) {
           {
             Object object = node;
             if (((Program) o).contains(object)) {
@@ -38,7 +40,7 @@ public class RuleVariableDeclaration implements DataFlowConstructor {
             }
           }
         }
-        if (SLinkOperations.hasPointer(annotation, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"), new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~NotNull"))) {
+        if (SLinkOperations.hasPointer(annotation, LINKS.annotation$zNxu, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~NotNull"))) {
           {
             Object object = node;
             if (((Program) o).contains(object)) {
@@ -55,7 +57,12 @@ public class RuleVariableDeclaration implements DataFlowConstructor {
     }
   }
 
-  private static final class AUX_1kbya9 {
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink annotation$zNxu = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation");
+    /*package*/ static final SContainmentLink annotation$oVP4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
   }
 }

@@ -11,12 +11,13 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ElsifTransform_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -36,8 +37,8 @@ public final class ElsifTransform_Intention extends AbstractIntentionDescriptor 
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    SNode ifFalseStatement = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement"));
-    return (ifFalseStatement != null) && SNodeOperations.isInstanceOf(ifFalseStatement, AUX_g4jq20.IfStatement_9dbf9b10);
+    SNode ifFalseStatement = SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2);
+    return (ifFalseStatement != null) && SNodeOperations.isInstanceOf(ifFalseStatement, CONCEPTS.IfStatement$pi);
   }
   @Override
   public boolean isSurroundWith() {
@@ -58,18 +59,18 @@ public final class ElsifTransform_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode ifFalseStatement = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement"));
+      SNode ifFalseStatement = SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2);
       while (true) {
-        SNode ifStatement = SNodeOperations.cast(ifFalseStatement, AUX_g4jq20.IfStatement_9dbf9b10);
-        SNode elsifClause = SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"), null);
-        SLinkOperations.setTarget(elsifClause, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0983eL, "condition"), SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition")));
-        SLinkOperations.setTarget(elsifClause, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList"), SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")));
-        ifFalseStatement = SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement"));
+        SNode ifStatement = SNodeOperations.cast(ifFalseStatement, CONCEPTS.IfStatement$pi);
+        SNode elsifClause = SNodeFactoryOperations.addNewChild(node, LINKS.elsifClauses$uXBQ, null);
+        SLinkOperations.setTarget(elsifClause, LINKS.condition$3oC9, SLinkOperations.getTarget(ifStatement, LINKS.condition$WJ1b));
+        SLinkOperations.setTarget(elsifClause, LINKS.statementList$TaC3, SLinkOperations.getTarget(ifStatement, LINKS.ifTrue$WJ1E));
+        ifFalseStatement = SLinkOperations.getTarget(ifStatement, LINKS.ifFalseStatement$Xnu2);
         if ((ifFalseStatement == null)) {
           break;
         }
-        if (!(SNodeOperations.isInstanceOf(ifFalseStatement, AUX_g4jq20.IfStatement_9dbf9b10))) {
-          SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement"), ifFalseStatement);
+        if (!(SNodeOperations.isInstanceOf(ifFalseStatement, CONCEPTS.IfStatement$pi))) {
+          SLinkOperations.setTarget(node, LINKS.ifFalseStatement$Xnu2, ifFalseStatement);
           break;
         }
       }
@@ -80,7 +81,16 @@ public final class ElsifTransform_Intention extends AbstractIntentionDescriptor 
     }
   }
 
-  private static final class AUX_g4jq20 {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
+    /*package*/ static final SContainmentLink elsifClauses$uXBQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses");
+    /*package*/ static final SContainmentLink condition$3oC9 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0983eL, "condition");
+    /*package*/ static final SContainmentLink condition$WJ1b = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
+    /*package*/ static final SContainmentLink statementList$TaC3 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList");
+    /*package*/ static final SContainmentLink ifTrue$WJ1E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
   }
 }

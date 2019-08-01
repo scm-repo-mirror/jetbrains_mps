@@ -21,11 +21,12 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptMemberNotMigratedProblem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MoveDocTagsIntoTagsChildCollection extends MigrationScriptBase {
   public String getCaption() {
@@ -43,7 +44,7 @@ public class MoveDocTagsIntoTagsChildCollection extends MigrationScriptBase {
     Iterable<SModel> models = m.getModels();
     Sequence.fromIterable(models).ofType(SModel.class).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel model) {
-        return SModelOperations.nodes(model, AUX_i7tkk0.ClassifierDocComment_18e1a1e);
+        return SModelOperations.nodes(model, CONCEPTS.ClassifierDocComment$$4);
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -52,7 +53,7 @@ public class MoveDocTagsIntoTagsChildCollection extends MigrationScriptBase {
     });
     Sequence.fromIterable(models).ofType(SModel.class).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel model) {
-        return SModelOperations.nodes(model, AUX_i7tkk0.MethodDocComment_a2b8d4a1);
+        return SModelOperations.nodes(model, CONCEPTS.MethodDocComment$Vx);
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -61,7 +62,7 @@ public class MoveDocTagsIntoTagsChildCollection extends MigrationScriptBase {
     });
     Sequence.fromIterable(models).ofType(SModel.class).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel model) {
-        return SModelOperations.nodes(model, AUX_i7tkk0.FieldDocComment_200d971a);
+        return SModelOperations.nodes(model, CONCEPTS.FieldDocComment$I8);
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -70,7 +71,7 @@ public class MoveDocTagsIntoTagsChildCollection extends MigrationScriptBase {
     });
     Sequence.fromIterable(models).ofType(SModel.class).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel model) {
-        return SModelOperations.nodes(model, AUX_i7tkk0.BaseDocComment_a28e0b95);
+        return SModelOperations.nodes(model, CONCEPTS.BaseDocComment$pH);
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -89,85 +90,85 @@ public class MoveDocTagsIntoTagsChildCollection extends MigrationScriptBase {
         }
       };
       List<Problem> result = ListSequence.fromList(new ArrayList<Problem>());
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.ClassifierDocComment_18e1a1e, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ClassifierDocComment$$4, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, 0x1cb65d9fe66a764eL, "param"))).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.param$KGYv)).isNotEmpty();
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, 0x1cb65d9fe66a764eL, "param"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.param$KGYv);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.MethodDocComment_a2b8d4a1, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MethodDocComment$Vx, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x757ba20a4c90eaf9L, "param"))).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.param$pEic)).isNotEmpty();
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x757ba20a4c90eaf9L, "param"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.param$pEic);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.MethodDocComment_a2b8d4a1, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MethodDocComment$Vx, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x514c0f687050918cL, "throwsTag"))).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.throwsTag$3WQN)).isNotEmpty();
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x514c0f687050918cL, "throwsTag"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.throwsTag$3WQN);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.MethodDocComment_a2b8d4a1, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MethodDocComment$Vx, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x514c0f6870509198L, "return")) != null);
+          return (SLinkOperations.getTarget(it, LINKS.return$3XgX) != null);
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x514c0f6870509198L, "return"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.return$3XgX);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.BaseDocComment_a28e0b95, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.BaseDocComment$pH, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f96bL, "deprecated")) != null);
+          return (SLinkOperations.getTarget(it, LINKS.deprecated$UGSR) != null);
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f96bL, "deprecated"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.deprecated$UGSR);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.BaseDocComment_a28e0b95, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.BaseDocComment$pH, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4a3c146b7faeeb32L, "author"))).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.author$VPpR)).isNotEmpty();
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4a3c146b7faeeb32L, "author"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.author$VPpR);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.BaseDocComment_a28e0b95, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.BaseDocComment$pH, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f962L, "since"))).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.since$UGOw)).isNotEmpty();
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f962L, "since"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.since$UGOw);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.BaseDocComment_a28e0b95, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.BaseDocComment$pH, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f963L, "version"))).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.version$UGOZ)).isNotEmpty();
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f963L, "version"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.version$UGOZ);
         }
       }));
-      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_i7tkk0.BaseDocComment_a28e0b95, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(result).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.BaseDocComment$pH, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x1ec532ec252df7ddL, "see"))).isNotEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.see$fbTt)).isNotEmpty();
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x1ec532ec252df7ddL, "see"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedContainmentLink(it, LINKS.see$fbTt);
         }
       }));
       return result;
@@ -177,10 +178,22 @@ public class MoveDocTagsIntoTagsChildCollection extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xf280165065d5424eL, 0xbb1b463a8781b786L, "jetbrains.mps.baseLanguage.javadoc"), 1);
   }
 
-  private static final class AUX_i7tkk0 {
-    /*package*/ static final SConcept ClassifierDocComment_18e1a1e = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, "jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment");
-    /*package*/ static final SConcept MethodDocComment_a2b8d4a1 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment");
-    /*package*/ static final SConcept FieldDocComment_200d971a = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dc44bf2L, "jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment");
-    /*package*/ static final SConcept BaseDocComment_a28e0b95 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassifierDocComment$$4 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, "jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment");
+    /*package*/ static final SConcept MethodDocComment$Vx = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocComment");
+    /*package*/ static final SConcept FieldDocComment$I8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dc44bf2L, "jetbrains.mps.baseLanguage.javadoc.structure.FieldDocComment");
+    /*package*/ static final SConcept BaseDocComment$pH = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink param$KGYv = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1cb65d9fe66a764cL, 0x1cb65d9fe66a764eL, "param");
+    /*package*/ static final SContainmentLink param$pEic = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x757ba20a4c90eaf9L, "param");
+    /*package*/ static final SContainmentLink throwsTag$3WQN = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x514c0f687050918cL, "throwsTag");
+    /*package*/ static final SContainmentLink return$3XgX = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faeeb34L, 0x514c0f6870509198L, "return");
+    /*package*/ static final SContainmentLink deprecated$UGSR = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f96bL, "deprecated");
+    /*package*/ static final SContainmentLink author$VPpR = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4a3c146b7faeeb32L, "author");
+    /*package*/ static final SContainmentLink since$UGOw = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f962L, "since");
+    /*package*/ static final SContainmentLink version$UGOZ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f963L, "version");
+    /*package*/ static final SContainmentLink see$fbTt = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x1ec532ec252df7ddL, "see");
   }
 }

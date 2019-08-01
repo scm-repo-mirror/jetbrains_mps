@@ -27,7 +27,7 @@ public class typeof_FigureParameter_InferenceRule extends AbstractInferenceRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_1q0no6.FigureParameter_f6cd8394;
+    return CONCEPTS.FigureParameter$Te;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +36,7 @@ public class typeof_FigureParameter_InferenceRule extends AbstractInferenceRule_
     return false;
   }
 
-  private static final class AUX_1q0no6 {
-    /*package*/ static final SInterfaceConcept FigureParameter_f6cd8394 = MetaAdapterFactory.getInterfaceConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x4bf6bbafe7e7155L, "jetbrains.mps.lang.editor.figures.structure.FigureParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept FigureParameter$Te = MetaAdapterFactory.getInterfaceConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x4bf6bbafe7e7155L, "jetbrains.mps.lang.editor.figures.structure.FigureParameter");
   }
 }

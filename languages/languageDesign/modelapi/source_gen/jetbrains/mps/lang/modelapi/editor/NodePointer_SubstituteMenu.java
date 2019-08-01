@@ -37,13 +37,14 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class NodePointer_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_rihg66_a(), AUX_rihg66.NodePointer_a7ab22d1));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_rihg66_a(), CONCEPTS.NodePointer$qL));
     return result;
   }
 
@@ -83,14 +84,14 @@ public class NodePointer_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_rihg66.NodePointer_a7ab22d1;
+          return CONCEPTS.NodePointer$qL;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
           SNode nodePtr = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, "jetbrains.mps.lang.modelapi.structure.NodePointer"));
-          SLinkOperations.setTarget(nodePtr, MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf84L, "modelRef"), nodeToWrap);
+          SLinkOperations.setTarget(nodePtr, LINKS.modelRef$nNf5, nodeToWrap);
           return nodePtr;
         }
 
@@ -117,12 +118,16 @@ public class NodePointer_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_rihg66.ModelIdentity_ef1ff795;
+      return CONCEPTS.ModelIdentity$DH;
     }
   }
 
-  private static final class AUX_rihg66 {
-    /*package*/ static final SConcept NodePointer_a7ab22d1 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, "jetbrains.mps.lang.modelapi.structure.NodePointer");
-    /*package*/ static final SInterfaceConcept ModelIdentity_ef1ff795 = MetaAdapterFactory.getInterfaceConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x7d58bd9fd9c8b6d3L, "jetbrains.mps.lang.modelapi.structure.ModelIdentity");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodePointer$qL = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, "jetbrains.mps.lang.modelapi.structure.NodePointer");
+    /*package*/ static final SInterfaceConcept ModelIdentity$DH = MetaAdapterFactory.getInterfaceConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x7d58bd9fd9c8b6d3L, "jetbrains.mps.lang.modelapi.structure.ModelIdentity");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modelRef$nNf5 = MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf84L, "modelRef");
   }
 }

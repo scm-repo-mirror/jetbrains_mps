@@ -19,7 +19,7 @@ public class DependentType_subtypeOfItsValue_SubtypingRule extends SubtypingRule
     return (SNode) DependentTypeInstance__BehaviorDescriptor.getMyType_id7T23sO8yx5P.invoke(dependentTypeInstance);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ys9ek4.DependentTypeInstance_799dc14a;
+    return CONCEPTS.DependentTypeInstance$to;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -31,7 +31,7 @@ public class DependentType_subtypeOfItsValue_SubtypingRule extends SubtypingRule
     return true;
   }
 
-  private static final class AUX_ys9ek4 {
-    /*package*/ static final SConcept DependentTypeInstance_799dc14a = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d16bL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DependentTypeInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DependentTypeInstance$to = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d16bL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DependentTypeInstance");
   }
 }

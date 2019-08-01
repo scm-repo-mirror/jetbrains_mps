@@ -66,6 +66,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.ide.migration.AntTaskExecutionUtil;
 import com.intellij.openapi.application.ModalityState;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MoveConceptRefactoring_Test extends AbstractRefactoringTest {
   private static final Logger LOG = LogManager.getLogger(MoveConceptRefactoring_Test.class);
@@ -245,7 +246,7 @@ public class MoveConceptRefactoring_Test extends AbstractRefactoringTest {
       }
     }, new _FunctionTypes._return_P0_E0<MoveNodesUtil.NodeCreatingProcessor>() {
       public MoveNodesUtil.NodeCreatingProcessor invoke() {
-        return new MoveNodesUtil.NodeCreatingProcessor(new NodeLocation.NodeLocationChild(getConcept_PropertySupercontainer(), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration")), project);
+        return new MoveNodesUtil.NodeCreatingProcessor(new NodeLocation.NodeLocationChild(getConcept_PropertySupercontainer(), LINKS.propertyDeclaration$lL73), project);
       }
     }, new _FunctionTypes._void_P0_E0() {
       public void invoke() {
@@ -520,5 +521,9 @@ public class MoveConceptRefactoring_Test extends AbstractRefactoringTest {
     if (LOG.isInfoEnabled()) {
       LOG.info("Check finished");
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink propertyDeclaration$lL73 = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration");
   }
 }

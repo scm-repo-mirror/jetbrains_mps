@@ -4,6 +4,7 @@ package jetbrains.mps.lang.findUsages.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,17 +17,17 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class FinderDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_4pds9m.FinderDeclaration_c4096cf8;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, "jetbrains.mps.lang.findUsages.structure.FinderDeclaration");
 
   public static final SMethod<String> getGeneratedClassName_idhEwIc4_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIc4_").build();
   public static final SMethod<String> getConceptName_idhEwIc4J = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getConceptName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIc4J").build();
@@ -41,22 +42,22 @@ public final class FinderDeclaration__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ static String getGeneratedClassName_idhEwIc4_(@NotNull SNode __thisNode__) {
-    return NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) + "_Finder";
+    return NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1)) + "_Finder";
   }
   /*package*/ static String getConceptName_idhEwIc4J(@NotNull SNode __thisNode__) {
-    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x11bd0c17f12L, 0x11bd0c2f241L, "forConcept")));
+    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.forConcept$vx0W));
   }
   /*package*/ static String getGeneratedClassLongName_idhEwIc4S(@NotNull SNode __thisNode__) {
     return SNodeOperations.getModel(__thisNode__).getName().getLongName() + "." + FinderDeclaration__BehaviorDescriptor.getGeneratedClassName_idhEwIc4_.invoke(__thisNode__);
   }
   /*package*/ static PropertyReference getPropertyToCheck_id4cWf37B8oYh(@NotNull SNode __thisNode__) {
-    return new PropertyReference(__thisNode__, MetaAdapterFactory.getProperty(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, 0x116c9c44c38L, "description"));
+    return new PropertyReference(__thisNode__, PROPS.description$TObG);
   }
   /*package*/ static SNode getBaseConcept_id2hxg_BDjKM8(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x11bd0c17f12L, 0x11bd0c2f241L, "forConcept"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.forConcept$vx0W);
   }
   /*package*/ static void setBaseConcept_id5r_35Ihc58c(@NotNull SNode __thisNode__, SNode baseConcept) {
-    SLinkOperations.setTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x11bd0c17f12L, 0x11bd0c2f241L, "forConcept"), baseConcept);
+    SLinkOperations.setTarget(__thisNode__, LINKS.forConcept$vx0W, baseConcept);
   }
 
   /*package*/ FinderDeclaration__BehaviorDescriptor() {
@@ -116,7 +117,12 @@ public final class FinderDeclaration__BehaviorDescriptor extends BaseBHDescripto
     return CONCEPT;
   }
 
-  private static final class AUX_4pds9m {
-    /*package*/ static final SConcept FinderDeclaration_c4096cf8 = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, "jetbrains.mps.lang.findUsages.structure.FinderDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty description$TObG = MetaAdapterFactory.getProperty(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, 0x116c9c44c38L, "description");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink forConcept$vx0W = MetaAdapterFactory.getReferenceLink(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x11bd0c17f12L, 0x11bd0c2f241L, "forConcept");
   }
 }

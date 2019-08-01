@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguageInternal.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Map;
@@ -13,15 +12,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ExtractStaticInnerClassConcept_Constraints extends BaseConstraintsDescriptor {
   public ExtractStaticInnerClassConcept_Constraints() {
-    super(AUX_vzrbrr.ExtractStaticInnerClassConcept_70c84def);
+    super(CONCEPTS.ExtractStaticInnerClassConcept$Xj);
   }
 
   public static class ResolveInfo_Property extends BasePropertyConstraintsDescriptor {
     public ResolveInfo_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo"), container);
+      super(PROPS.resolveInfo$eeN8, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -29,17 +29,22 @@ public class ExtractStaticInnerClassConcept_Constraints extends BaseConstraintsD
     }
     @Override
     public Object getValue(SNode node) {
-      return SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return SPropertyOperations.getString(node, PROPS.name$tAp1);
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo"), new ResolveInfo_Property(this));
+    properties.put(PROPS.resolveInfo$eeN8, new ResolveInfo_Property(this));
     return properties;
   }
 
-  private static final class AUX_vzrbrr {
-    /*package*/ static final SConcept ExtractStaticInnerClassConcept_70c84def = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0xd01bb6e8b1cd97aL, "jetbrains.mps.baseLanguageInternal.structure.ExtractStaticInnerClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExtractStaticInnerClassConcept$Xj = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0xd01bb6e8b1cd97aL, "jetbrains.mps.baseLanguageInternal.structure.ExtractStaticInnerClassConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty resolveInfo$eeN8 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

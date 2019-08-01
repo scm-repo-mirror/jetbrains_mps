@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildSource_JavaSources_Constraints extends BaseConstraintsDescriptor {
   public BuildSource_JavaSources_Constraints() {
-    super(AUX_vbr21n.BuildSource_JavaSources_ac1cf634);
+    super(CONCEPTS.BuildSource_JavaSources$YI);
   }
 
-  private static final class AUX_vbr21n {
-    /*package*/ static final SConcept BuildSource_JavaSources_ac1cf634 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db92974fcL, "jetbrains.mps.build.structure.BuildSource_JavaSources");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaSources$YI = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db92974fcL, "jetbrains.mps.build.structure.BuildSource_JavaSources");
   }
 }

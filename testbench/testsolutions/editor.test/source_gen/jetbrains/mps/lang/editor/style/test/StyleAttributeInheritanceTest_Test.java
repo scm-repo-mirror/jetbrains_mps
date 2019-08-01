@@ -13,10 +13,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import junit.framework.Assert;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @MPSLaunch
 public class StyleAttributeInheritanceTest_Test extends BaseTransformationTest {
@@ -43,10 +44,10 @@ public class StyleAttributeInheritanceTest_Test extends BaseTransformationTest {
       initEditorComponent("4078300376848433553", "");
       getEditorComponent().getEditorContext().getRepository().getModelAccess().runReadAction(new Runnable() {
         public void run() {
-          SNode root = SNodeOperations.cast(getEditorComponent().getEditedNode(), AUX_sr3hr4.NodeContainer_db6c3199);
-          SNode leaf = ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x74e28664f056014cL, 0x74e28664f05605aeL, "node"))).getElement(0);
-          SNode inner = ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x74e28664f056014cL, 0x74e28664f05605aeL, "node"))).getElement(1);
-          SNode innerLeaf = ListSequence.fromList(SLinkOperations.getChildren(inner, MetaAdapterFactory.getContainmentLink(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x74e28664f056014cL, 0x74e28664f05605aeL, "node"))).getElement(0);
+          SNode root = SNodeOperations.cast(getEditorComponent().getEditedNode(), CONCEPTS.NodeContainer$3D);
+          SNode leaf = ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.node$_a4Q)).getElement(0);
+          SNode inner = ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.node$_a4Q)).getElement(1);
+          SNode innerLeaf = ListSequence.fromList(SLinkOperations.getChildren(inner, LINKS.node$_a4Q)).getElement(0);
           Assert.assertEquals(getEditorComponent().findNodeCell(root).getStyle().get(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.styleTests", "test-inherited-attribute")), "top");
           Assert.assertEquals(getEditorComponent().findNodeCell(leaf).getStyle().get(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.styleTests", "test-inherited-attribute")), "top");
           Assert.assertEquals(getEditorComponent().findNodeCell(inner).getStyle().get(StyleAttributes.getInstance().<String>getAttribute("jetbrains.mps.lang.editor.styleTests", "test-inherited-attribute")), "inner");
@@ -56,7 +57,11 @@ public class StyleAttributeInheritanceTest_Test extends BaseTransformationTest {
     }
   }
 
-  private static final class AUX_sr3hr4 {
-    /*package*/ static final SConcept NodeContainer_db6c3199 = MetaAdapterFactory.getConcept(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x74e28664f056014cL, "jetbrains.mps.lang.editor.styleTests.structure.NodeContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeContainer$3D = MetaAdapterFactory.getConcept(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x74e28664f056014cL, "jetbrains.mps.lang.editor.styleTests.structure.NodeContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink node$_a4Q = MetaAdapterFactory.getContainmentLink(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x74e28664f056014cL, 0x74e28664f05605aeL, "node");
   }
 }

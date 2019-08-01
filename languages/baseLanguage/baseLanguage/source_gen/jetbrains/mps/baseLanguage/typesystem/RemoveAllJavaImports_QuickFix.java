@@ -16,11 +16,11 @@ public class RemoveAllJavaImports_QuickFix extends QuickFix_Runtime {
     super(new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2235632002330965611"));
   }
   public void execute(SNode node) {
-    SNodeOperations.deleteNode(AttributeOperations.getAttribute(SNodeOperations.cast(node, AUX_zfs67w.Classifier_4b7e553), new IAttributeDescriptor.NodeAttribute(AUX_zfs67w.JavaImports_af71158f)));
+    SNodeOperations.deleteNode(AttributeOperations.getAttribute(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN)));
   }
 
-  private static final class AUX_zfs67w {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept JavaImports_af71158f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept JavaImports$IN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
   }
 }

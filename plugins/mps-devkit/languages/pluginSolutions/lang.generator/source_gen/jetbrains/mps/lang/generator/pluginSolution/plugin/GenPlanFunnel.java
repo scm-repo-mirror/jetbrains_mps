@@ -12,13 +12,14 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.behavior.ModuleIdentity__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.lang.smodel.behavior.LanguageIdentity__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class GenPlanFunnel {
   private final SRepository myGeneratorLookupRepo;
@@ -57,46 +58,53 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
 
     if (myUseGenerators) {
-      SNode gmp = SModelOperations.createNewNode(myTargetModel, null, AUX_mld0p3.GeneratorModulePointer_1f6a09d9);
-      SLinkOperations.setNewChild(gmp, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, 0x73246de9adecb874L, "module"), null);
-      ModuleIdentity__BehaviorDescriptor.setModuleReference_idnJmxU5cSTj.invoke(SLinkOperations.getTarget(gmp, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, 0x73246de9adecb874L, "module")), generatorIdentity);
+      SNode gmp = SModelOperations.createNewNode(myTargetModel, null, CONCEPTS.GeneratorModulePointer$2D);
+      SLinkOperations.setNewChild(gmp, LINKS.module$gjS8, null);
+      ModuleIdentity__BehaviorDescriptor.setModuleReference_idnJmxU5cSTj.invoke(SLinkOperations.getTarget(gmp, LINKS.module$gjS8), generatorIdentity);
 
       SNode generatorStep;
       if (myDistinctSteps || mySharedGeneratorsStep == null) {
-        generatorStep = SModelOperations.createNewNode(myTargetModel, null, AUX_mld0p3.ApplyGenerators_1f67a8b7);
-        ListSequence.fromList(SLinkOperations.getChildren(myTarget, MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, 0x19443180a2071807L, "steps"))).addElement(generatorStep);
+        generatorStep = SModelOperations.createNewNode(myTargetModel, null, CONCEPTS.ApplyGenerators$Qb);
+        ListSequence.fromList(SLinkOperations.getChildren(myTarget, LINKS.steps$TW4w)).addElement(generatorStep);
       } else {
         generatorStep = mySharedGeneratorsStep;
       }
       if (!(myDistinctSteps) && mySharedGeneratorsStep == null) {
         mySharedGeneratorsStep = generatorStep;
       }
-      ListSequence.fromList(SLinkOperations.getChildren(generatorStep, MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, 0x73246de9adf5a45cL, "generator"))).addElement(gmp);
+      ListSequence.fromList(SLinkOperations.getChildren(generatorStep, LINKS.generator$DSQD)).addElement(gmp);
     } else {
       SLanguage srcLanguage = as_mld0p3_a0a0a0a2a71(generatorIdentity.resolve(myGeneratorLookupRepo), Generator.class).sourceLanguage();
-      SNode langId = SModelOperations.createNewNode(myTargetModel, null, AUX_mld0p3.LanguageId_f5e2e6b);
+      SNode langId = SModelOperations.createNewNode(myTargetModel, null, CONCEPTS.LanguageId$Tn);
       LanguageIdentity__BehaviorDescriptor.setLanguage_id34EJa6aIcyw.invoke(langId, srcLanguage);
       SNode transform;
       if (myDistinctSteps || mySharedLanguagesStep == null) {
-        transform = SModelOperations.createNewNode(myTargetModel, null, AUX_mld0p3.Transform_4c7f41a8);
-        ListSequence.fromList(SLinkOperations.getChildren(myTarget, MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, 0x19443180a2071807L, "steps"))).addElement(transform);
+        transform = SModelOperations.createNewNode(myTargetModel, null, CONCEPTS.Transform$aU);
+        ListSequence.fromList(SLinkOperations.getChildren(myTarget, LINKS.steps$TW4w)).addElement(transform);
       } else {
         transform = mySharedLanguagesStep;
       }
       if (!(myDistinctSteps) && mySharedLanguagesStep == null) {
         mySharedLanguagesStep = transform;
       }
-      ListSequence.fromList(SLinkOperations.getChildren(transform, MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, 0x28dd6d5a7549fa8dL, "languages"))).addElement(langId);
+      ListSequence.fromList(SLinkOperations.getChildren(transform, LINKS.languages$ISM8)).addElement(langId);
     }
   }
   private static <T> T as_mld0p3_a0a0a0a2a71(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 
-  private static final class AUX_mld0p3 {
-    /*package*/ static final SConcept GeneratorModulePointer_1f6a09d9 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, "jetbrains.mps.lang.smodel.structure.GeneratorModulePointer");
-    /*package*/ static final SConcept ApplyGenerators_1f67a8b7 = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, "jetbrains.mps.lang.generator.plan.structure.ApplyGenerators");
-    /*package*/ static final SConcept LanguageId_f5e2e6b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
-    /*package*/ static final SConcept Transform_4c7f41a8 = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, "jetbrains.mps.lang.generator.plan.structure.Transform");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GeneratorModulePointer$2D = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, "jetbrains.mps.lang.smodel.structure.GeneratorModulePointer");
+    /*package*/ static final SConcept ApplyGenerators$Qb = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, "jetbrains.mps.lang.generator.plan.structure.ApplyGenerators");
+    /*package*/ static final SConcept LanguageId$Tn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
+    /*package*/ static final SConcept Transform$aU = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, "jetbrains.mps.lang.generator.plan.structure.Transform");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink module$gjS8 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x73246de9adecb80dL, 0x73246de9adecb874L, "module");
+    /*package*/ static final SContainmentLink steps$TW4w = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, 0x19443180a2071807L, "steps");
+    /*package*/ static final SContainmentLink generator$DSQD = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x73246de9adeca171L, 0x73246de9adf5a45cL, "generator");
+    /*package*/ static final SContainmentLink languages$ISM8 = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071802L, 0x28dd6d5a7549fa8dL, "languages");
   }
 }

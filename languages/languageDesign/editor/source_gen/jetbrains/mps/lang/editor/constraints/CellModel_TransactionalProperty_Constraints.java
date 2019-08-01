@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,16 @@ import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__Behavio
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CellModel_TransactionalProperty_Constraints extends BaseConstraintsDescriptor {
   public CellModel_TransactionalProperty_Constraints() {
-    super(AUX_bnan1a.CellModel_TransactionalProperty_c197ca8a);
+    super(CONCEPTS.CellModel_TransactionalProperty$oo);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, 0x11b35f87187L, "property"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.property$p2l_, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -46,7 +46,7 @@ public class CellModel_TransactionalProperty_Constraints extends BaseConstraints
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode editorComponent = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_bnan1a.BaseEditorComponent_8ae20940, true, false);
+            SNode editorComponent = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BaseEditorComponent$Sy, true, false);
             SNode editedConcept = AbstractComponent__BehaviorDescriptor.getConceptDeclaration_id67EYkym$wx3.invoke(editorComponent);
             return ListScope.forResolvableElements(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(editedConcept));
           }
@@ -59,8 +59,12 @@ public class CellModel_TransactionalProperty_Constraints extends BaseConstraints
   }
   private static final SNodePointer breakingNode_bnan1a_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "6836281137582785483");
 
-  private static final class AUX_bnan1a {
-    /*package*/ static final SConcept CellModel_TransactionalProperty_c197ca8a = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, "jetbrains.mps.lang.editor.structure.CellModel_TransactionalProperty");
-    /*package*/ static final SConcept BaseEditorComponent_8ae20940 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, "jetbrains.mps.lang.editor.structure.BaseEditorComponent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_TransactionalProperty$oo = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, "jetbrains.mps.lang.editor.structure.CellModel_TransactionalProperty");
+    /*package*/ static final SConcept BaseEditorComponent$Sy = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, "jetbrains.mps.lang.editor.structure.BaseEditorComponent");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink property$p2l_ = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, 0x11b35f87187L, "property");
   }
 }

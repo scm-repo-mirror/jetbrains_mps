@@ -32,6 +32,7 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ResultStatement_subs extends SubstituteMenuBase {
   @NotNull
@@ -58,8 +59,8 @@ public class ResultStatement_subs extends SubstituteMenuBase {
   public class SMP_Group_358bbk_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      SNode anc = SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{AUX_358bbk.JobDefinition_b2a5a9c8, AUX_358bbk.ConfigDefinition_ead0810f, AUX_358bbk.IStatementListContainer_5e186851}, false, false);
-      return SNodeOperations.isInstanceOf(anc, AUX_358bbk.JobDefinition_b2a5a9c8) || SNodeOperations.isInstanceOf(anc, AUX_358bbk.ConfigDefinition_ead0810f);
+      SNode anc = SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{CONCEPTS.JobDefinition$Uq, CONCEPTS.ConfigDefinition$N, CONCEPTS.IStatementListContainer$4L}, false, false);
+      return SNodeOperations.isInstanceOf(anc, CONCEPTS.JobDefinition$Uq) || SNodeOperations.isInstanceOf(anc, CONCEPTS.ConfigDefinition$N);
     }
     @NotNull
     @Override
@@ -75,7 +76,7 @@ public class ResultStatement_subs extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_358bbk_a.SMP_Param_358bbk_a0(), AUX_358bbk.ResultStatement_b0306c8d));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_358bbk_a.SMP_Param_358bbk_a0(), CONCEPTS.ResultStatement$hP));
     }
     private class SMP_Param_358bbk_a0 extends ParameterizedMenuPart<SEnumerationLiteral, SubstituteMenuItem, SubstituteMenuContext> {
       @NotNull
@@ -132,7 +133,7 @@ public class ResultStatement_subs extends SubstituteMenuBase {
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_358bbk.ResultStatement_b0306c8d, context);
+            super(CONCEPTS.ResultStatement$hP, context);
             _context = context;
           }
 
@@ -143,8 +144,8 @@ public class ResultStatement_subs extends SubstituteMenuBase {
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode rs = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_358bbk.ResultStatement_b0306c8d, null);
-            SPropertyOperations.assignEnum(rs, MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x6237d5bb8b2a942dL, 0x6237d5bb8b2a942eL, "result"), SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a9472daL, "jetbrains.mps.make.script.structure.Result"), SEnumOperations.getMemberName0(myParameterObject)));
+            SNode rs = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.ResultStatement$hP, null);
+            SPropertyOperations.assignEnum(rs, PROPS.result$3hPw, SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a9472daL, "jetbrains.mps.make.script.structure.Result"), SEnumOperations.getMemberName0(myParameterObject)));
             return rs;
           }
 
@@ -154,7 +155,7 @@ public class ResultStatement_subs extends SubstituteMenuBase {
           }
           @NotNull
           protected CompletionItemInformation createInformation(String pattern) {
-            return new CompletionItemInformation(myParameterObject, AUX_358bbk.ResultStatement_b0306c8d, getMatchingText(pattern), getDescriptionText(pattern));
+            return new CompletionItemInformation(myParameterObject, CONCEPTS.ResultStatement$hP, getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -177,10 +178,14 @@ public class ResultStatement_subs extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_358bbk {
-    /*package*/ static final SConcept JobDefinition_b2a5a9c8 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a972dabL, "jetbrains.mps.make.script.structure.JobDefinition");
-    /*package*/ static final SConcept ConfigDefinition_ead0810f = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dcbee4L, "jetbrains.mps.make.script.structure.ConfigDefinition");
-    /*package*/ static final SInterfaceConcept IStatementListContainer_5e186851 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
-    /*package*/ static final SConcept ResultStatement_b0306c8d = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x6237d5bb8b2a942dL, "jetbrains.mps.make.script.structure.ResultStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept JobDefinition$Uq = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a972dabL, "jetbrains.mps.make.script.structure.JobDefinition");
+    /*package*/ static final SConcept ConfigDefinition$N = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dcbee4L, "jetbrains.mps.make.script.structure.ConfigDefinition");
+    /*package*/ static final SInterfaceConcept IStatementListContainer$4L = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
+    /*package*/ static final SConcept ResultStatement$hP = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x6237d5bb8b2a942dL, "jetbrains.mps.make.script.structure.ResultStatement");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty result$3hPw = MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x6237d5bb8b2a942dL, 0x6237d5bb8b2a942eL, "result");
   }
 }

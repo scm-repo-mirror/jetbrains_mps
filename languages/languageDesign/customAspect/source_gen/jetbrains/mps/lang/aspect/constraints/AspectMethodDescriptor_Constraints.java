@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -24,15 +23,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class AspectMethodDescriptor_Constraints extends BaseConstraintsDescriptor {
   public AspectMethodDescriptor_Constraints() {
-    super(AUX_10kavj.AspectMethodDescriptor_d4c767c5);
+    super(CONCEPTS.AspectMethodDescriptor$X);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x4ac0e6949ea3f2b0L, 0x4ac0e6949ea3f2b1L, "method"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.method$V8hw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,10 +49,10 @@ public class AspectMethodDescriptor_Constraints extends BaseConstraintsDescripto
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return new SimpleScope(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(_context.getReferenceNode()), AUX_10kavj.GenerationDescriptor_ByInterface_d4c767c0), MetaAdapterFactory.getReferenceLink(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x5c6b2d0d258655f8L, 0x7ce2ed69c7e7de33L, "mainIntfcClass")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member")), AUX_10kavj.InstanceMethodDeclaration_9dbf9b2b)) {
+            return new SimpleScope(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(_context.getReferenceNode()), CONCEPTS.GenerationDescriptor_ByInterface$Yy), LINKS.mainIntfcClass$CpAm), LINKS.member$oYX5), CONCEPTS.InstanceMethodDeclaration$An)) {
               @Nullable
               public String getReferenceText(@NotNull SNode target) {
-                return SPropertyOperations.getString(SNodeOperations.cast(target, AUX_10kavj.InstanceMethodDeclaration_9dbf9b2b), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+                return SPropertyOperations.getString(SNodeOperations.cast(target, CONCEPTS.InstanceMethodDeclaration$An), PROPS.name$tAp1);
               }
             };
           }
@@ -63,9 +65,19 @@ public class AspectMethodDescriptor_Constraints extends BaseConstraintsDescripto
   }
   private static final SNodePointer breakingNode_10kavj_a0a0a0a0a1a0a0a0c = new SNodePointer("r:a0e4ce7a-b15e-427f-b0fd-cb52ffcd3e91(jetbrains.mps.lang.aspect.constraints)", "6836281137582782104");
 
-  private static final class AUX_10kavj {
-    /*package*/ static final SConcept AspectMethodDescriptor_d4c767c5 = MetaAdapterFactory.getConcept(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x4ac0e6949ea3f2b0L, "jetbrains.mps.lang.aspect.structure.AspectMethodDescriptor");
-    /*package*/ static final SConcept GenerationDescriptor_ByInterface_d4c767c0 = MetaAdapterFactory.getConcept(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x4ac0e6949ea3f2abL, "jetbrains.mps.lang.aspect.structure.GenerationDescriptor_ByInterface");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AspectMethodDescriptor$X = MetaAdapterFactory.getConcept(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x4ac0e6949ea3f2b0L, "jetbrains.mps.lang.aspect.structure.AspectMethodDescriptor");
+    /*package*/ static final SConcept GenerationDescriptor_ByInterface$Yy = MetaAdapterFactory.getConcept(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x4ac0e6949ea3f2abL, "jetbrains.mps.lang.aspect.structure.GenerationDescriptor_ByInterface");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink method$V8hw = MetaAdapterFactory.getReferenceLink(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x4ac0e6949ea3f2b0L, 0x4ac0e6949ea3f2b1L, "method");
+    /*package*/ static final SReferenceLink mainIntfcClass$CpAm = MetaAdapterFactory.getReferenceLink(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x5c6b2d0d258655f8L, 0x7ce2ed69c7e7de33L, "mainIntfcClass");
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

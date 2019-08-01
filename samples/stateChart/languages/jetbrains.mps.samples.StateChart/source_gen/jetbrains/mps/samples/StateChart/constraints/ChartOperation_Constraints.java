@@ -8,16 +8,16 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ChartOperation_Constraints extends BaseConstraintsDescriptor {
   public ChartOperation_Constraints() {
-    super(AUX_hek174.ChartOperation_42cc7d56);
+    super(CONCEPTS.ChartOperation$Nc);
   }
 
   @Override
   public SConcept getDefaultConcreteConcept() {
-    return AUX_hek174.EmptyOperation_42cc849b;
+    return CONCEPTS.EmptyOperation$SB;
   }
 
-  private static final class AUX_hek174 {
-    /*package*/ static final SConcept ChartOperation_42cc7d56 = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26a37L, "jetbrains.mps.samples.StateChart.structure.ChartOperation");
-    /*package*/ static final SConcept EmptyOperation_42cc849b = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26aecL, "jetbrains.mps.samples.StateChart.structure.EmptyOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChartOperation$Nc = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26a37L, "jetbrains.mps.samples.StateChart.structure.ChartOperation");
+    /*package*/ static final SConcept EmptyOperation$SB = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26aecL, "jetbrains.mps.samples.StateChart.structure.EmptyOperation");
   }
 }

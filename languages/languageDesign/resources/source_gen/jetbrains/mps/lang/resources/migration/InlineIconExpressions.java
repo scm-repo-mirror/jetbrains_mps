@@ -13,13 +13,14 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.NotMigratedNode;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class InlineIconExpressions extends MigrationScriptBase {
   public String getCaption() {
@@ -42,13 +43,13 @@ public class InlineIconExpressions extends MigrationScriptBase {
           return scope_a8f904_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_a8f904.IconExpression_a9e20c31, false)).where(new IWhereFilter<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.IconExpression$_h, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, 0x7c8b08a50a39c6c5L, "icon")), AUX_a8f904.FileIcon_a9e20c14), MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x60d1cf8c81faea09L, "iconExpression")) != null);
+          return (SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(it, LINKS.icon$gh7Z), CONCEPTS.FileIcon$ne), LINKS.iconExpression$nMMS) != null);
         }
       }).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SNodeOperations.replaceWithAnother(it, SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, 0x7c8b08a50a39c6c5L, "icon")), AUX_a8f904.FileIcon_a9e20c14), MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x60d1cf8c81faea09L, "iconExpression")));
+          SNodeOperations.replaceWithAnother(it, SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(it, LINKS.icon$gh7Z), CONCEPTS.FileIcon$ne), LINKS.iconExpression$nMMS));
         }
       });
     }
@@ -63,9 +64,9 @@ public class InlineIconExpressions extends MigrationScriptBase {
           return scope_a8f904_a0e_0;
         }
       };
-      return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_a8f904.IconExpression_a9e20c31, false)).where(new IWhereFilter<SNode>() {
+      return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.IconExpression$_h, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, 0x7c8b08a50a39c6c5L, "icon")), AUX_a8f904.FileIcon_a9e20c14), MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x60d1cf8c81faea09L, "iconExpression")) != null);
+          return (SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(it, LINKS.icon$gh7Z), CONCEPTS.FileIcon$ne), LINKS.iconExpression$nMMS) != null);
         }
       }).select(new ISelector<SNode, NotMigratedNode>() {
         public NotMigratedNode select(SNode it) {
@@ -82,8 +83,13 @@ public class InlineIconExpressions extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x982eb8df2c964bd7L, 0x996311712ea622e5L, "jetbrains.mps.lang.resources"), 1);
   }
 
-  private static final class AUX_a8f904 {
-    /*package*/ static final SConcept IconExpression_a9e20c31 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, "jetbrains.mps.lang.resources.structure.IconExpression");
-    /*package*/ static final SConcept FileIcon_a9e20c14 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IconExpression$_h = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, "jetbrains.mps.lang.resources.structure.IconExpression");
+    /*package*/ static final SConcept FileIcon$ne = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink icon$gh7Z = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, 0x7c8b08a50a39c6c5L, "icon");
+    /*package*/ static final SContainmentLink iconExpression$nMMS = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x60d1cf8c81faea09L, "iconExpression");
   }
 }

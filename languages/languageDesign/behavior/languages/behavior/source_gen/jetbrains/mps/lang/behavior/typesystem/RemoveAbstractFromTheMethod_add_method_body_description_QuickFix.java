@@ -6,6 +6,7 @@ import jetbrains.mps.errors.QuickFix_Runtime;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RemoveAbstractFromTheMethod_add_method_body_description_QuickFix extends QuickFix_Runtime {
@@ -13,10 +14,15 @@ public class RemoveAbstractFromTheMethod_add_method_body_description_QuickFix ex
     super(new SNodePointer("r:f7f8a091-d98d-402d-85c4-5f05cb2b8c61(jetbrains.mps.lang.behavior.typesystem)", "8014340958387190847"));
   }
   public String getDescription(SNode node) {
-    return "Add method body to '" + SPropertyOperations.getString(((SNode) RemoveAbstractFromTheMethod_add_method_body_description_QuickFix.this.getField("conceptMethod")[0]), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'";
+    return "Add method body to '" + SPropertyOperations.getString(((SNode) RemoveAbstractFromTheMethod_add_method_body_description_QuickFix.this.getField("conceptMethod")[0]), PROPS.name$tAp1) + "'";
   }
   public void execute(SNode node) {
-    assert SPropertyOperations.getBoolean(((SNode) RemoveAbstractFromTheMethod_add_method_body_description_QuickFix.this.getField("conceptMethod")[0]), MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d43480582L, "isAbstract"));
-    SPropertyOperations.assign(((SNode) RemoveAbstractFromTheMethod_add_method_body_description_QuickFix.this.getField("conceptMethod")[0]), MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d43480582L, "isAbstract"), false);
+    assert SPropertyOperations.getBoolean(((SNode) RemoveAbstractFromTheMethod_add_method_body_description_QuickFix.this.getField("conceptMethod")[0]), PROPS.isAbstract$6dnX);
+    SPropertyOperations.assign(((SNode) RemoveAbstractFromTheMethod_add_method_body_description_QuickFix.this.getField("conceptMethod")[0]), PROPS.isAbstract$6dnX, false);
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isAbstract$6dnX = MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d43480582L, "isAbstract");
   }
 }

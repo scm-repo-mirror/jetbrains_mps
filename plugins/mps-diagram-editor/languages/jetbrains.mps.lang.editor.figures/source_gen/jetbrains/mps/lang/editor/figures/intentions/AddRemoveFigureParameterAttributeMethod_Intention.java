@@ -12,7 +12,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -21,7 +20,10 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class AddRemoveFigureParameterAttributeMethod_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -41,15 +43,15 @@ public final class AddRemoveFigureParameterAttributeMethod_Intention extends Abs
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_k9tyyt.PublicVisibility_63d95354))) {
+    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.visibility$2GiC), CONCEPTS.PublicVisibility$qe))) {
       return false;
     }
-    SNode classifierType = SNodeOperations.as(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType")), AUX_k9tyyt.ClassifierType_42700403);
-    if (classifierType == null && SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == null) {
+    SNode classifierType = SNodeOperations.as(SLinkOperations.getTarget(node, LINKS.returnType$WIkw), CONCEPTS.ClassifierType$IZ);
+    if (classifierType == null && SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R) == null) {
       return false;
     }
 
-    Set<SNode> allExtendedClassifiers = Classifier__BehaviorDescriptor.getAllExtendedClassifiers_id2xreLMO8jma.invoke(SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
+    Set<SNode> allExtendedClassifiers = Classifier__BehaviorDescriptor.getAllExtendedClassifiers_id2xreLMO8jma.invoke(SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R));
     if (SetSequence.fromSet(allExtendedClassifiers).contains(SNodeOperations.getNode("67b3c41d-58b3-4756-b971-30bf8a9d63e6/java:jetbrains.jetpad.model.property(jetbrains.jetpad/)", "~Property"))) {
       return true;
     }
@@ -70,14 +72,14 @@ public final class AddRemoveFigureParameterAttributeMethod_Intention extends Abs
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_k9tyyt.FigureParameterAttributeMethod_5603dc57)) == null ? "Add figure parameter attribute" : "Remove figure parameter attribute");
+      return (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.FigureParameterAttributeMethod$RF)) == null ? "Add figure parameter attribute" : "Remove figure parameter attribute");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_k9tyyt.FigureParameterAttributeMethod_5603dc57)) != null) {
-        AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_k9tyyt.FigureParameterAttributeMethod_5603dc57), null);
+      if (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.FigureParameterAttributeMethod$RF)) != null) {
+        AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.FigureParameterAttributeMethod$RF), null);
       } else {
-        AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_k9tyyt.FigureParameterAttributeMethod_5603dc57), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x1ceea85e3fd59954L, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeMethod")));
+        AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.FigureParameterAttributeMethod$RF), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x1ceea85e3fd59954L, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeMethod")));
       }
     }
     @Override
@@ -86,9 +88,15 @@ public final class AddRemoveFigureParameterAttributeMethod_Intention extends Abs
     }
   }
 
-  private static final class AUX_k9tyyt {
-    /*package*/ static final SConcept PublicVisibility_63d95354 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept FigureParameterAttributeMethod_5603dc57 = MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x1ceea85e3fd59954L, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeMethod");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink returnType$WIkw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PublicVisibility$qe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept FigureParameterAttributeMethod$RF = MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x1ceea85e3fd59954L, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeMethod");
   }
 }

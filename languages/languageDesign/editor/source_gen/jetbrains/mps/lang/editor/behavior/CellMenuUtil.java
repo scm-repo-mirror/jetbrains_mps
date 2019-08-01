@@ -11,17 +11,17 @@ public class CellMenuUtil {
   private CellMenuUtil() {
   }
   public static SNode getEditedFeature(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_8ivahd.CellMenuPart_Abstract_1876678)) {
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.CellMenuPart_Abstract$vE)) {
       return getEditedFeature(SNodeOperations.getParent(node));
     }
-    if (SNodeOperations.isInstanceOf(node, AUX_8ivahd.CellMenuDescriptor_ff9b94f6)) {
-      return CellMenuDescriptor__BehaviorDescriptor.getEditedFeature_idhKy3mrJ.invoke(SNodeOperations.cast(node, AUX_8ivahd.CellMenuDescriptor_ff9b94f6));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.CellMenuDescriptor$$G)) {
+      return CellMenuDescriptor__BehaviorDescriptor.getEditedFeature_idhKy3mrJ.invoke(SNodeOperations.cast(node, CONCEPTS.CellMenuDescriptor$$G));
     }
     return null;
   }
 
-  private static final class AUX_8ivahd {
-    /*package*/ static final SConcept CellMenuPart_Abstract_1876678 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f34f8c0deL, "jetbrains.mps.lang.editor.structure.CellMenuPart_Abstract");
-    /*package*/ static final SConcept CellMenuDescriptor_ff9b94f6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f34f6aaacL, "jetbrains.mps.lang.editor.structure.CellMenuDescriptor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellMenuPart_Abstract$vE = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f34f8c0deL, "jetbrains.mps.lang.editor.structure.CellMenuPart_Abstract");
+    /*package*/ static final SConcept CellMenuDescriptor$$G = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f34f6aaacL, "jetbrains.mps.lang.editor.structure.CellMenuDescriptor");
   }
 }

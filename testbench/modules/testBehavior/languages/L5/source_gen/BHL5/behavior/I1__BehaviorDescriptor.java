@@ -4,27 +4,27 @@ package BHL5.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import UtilSolution.util.TestResults;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class I1__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_3pppv8.I1_d0205d97;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x355d469f0ba114cbL, "BHL5.structure.I1");
 
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x355d469f0ba114cbL, 0x355d469f0ba114e9L, "a"), TestResults.I1_DEFAULT_VALUE);
+    SPropertyOperations.assign(__thisNode__, PROPS.a$5ih$, TestResults.I1_DEFAULT_VALUE);
   }
 
 
@@ -72,7 +72,7 @@ public final class I1__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_3pppv8 {
-    /*package*/ static final SInterfaceConcept I1_d0205d97 = MetaAdapterFactory.getInterfaceConcept(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x355d469f0ba114cbL, "BHL5.structure.I1");
+  private static final class PROPS {
+    /*package*/ static final SProperty a$5ih$ = MetaAdapterFactory.getProperty(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x355d469f0ba114cbL, 0x355d469f0ba114e9L, "a");
   }
 }

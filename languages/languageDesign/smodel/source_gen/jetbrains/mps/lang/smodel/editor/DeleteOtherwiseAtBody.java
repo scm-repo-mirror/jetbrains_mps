@@ -8,14 +8,15 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class DeleteOtherwiseAtBody {
@@ -26,19 +27,19 @@ public class DeleteOtherwiseAtBody {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "otherwiseBody")))), AUX_9hq1a7.EnumSwitchCaseBody_81c8de4e)) {
+        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, LINKS.otherwiseBody$i6_e))), CONCEPTS.EnumSwitchCaseBody$Fk)) {
           if (DeletionApproverUtil.approve(editorContext, node, "OtherwiseClause")) {
             return;
           }
-          SNodeOperations.deleteNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "otherwiseBody")));
+          SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.otherwiseBody$i6_e));
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.LAST_EDITABLE_CELL, -1);
           return;
         }
-        if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "otherwiseBody")))) {
+        if (DeletionApproverUtil.approve(editorContext, SLinkOperations.getTarget(node, LINKS.otherwiseBody$i6_e))) {
           return;
         }
-        SNodeOperations.replaceWithAnother(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "otherwiseBody")), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody")));
-        SelectionUtil.selectCell(editorContext, SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "otherwiseBody")), SelectionManager.FIRST_CELL);
+        SNodeOperations.replaceWithAnother(SLinkOperations.getTarget(node, LINKS.otherwiseBody$i6_e), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody")));
+        SelectionUtil.selectCell(editorContext, SLinkOperations.getTarget(node, LINKS.otherwiseBody$i6_e), SelectionManager.FIRST_CELL);
       }
 
     };
@@ -79,7 +80,11 @@ public class DeleteOtherwiseAtBody {
     }
   }
 
-  private static final class AUX_9hq1a7 {
-    /*package*/ static final SConcept EnumSwitchCaseBody_81c8de4e = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink otherwiseBody$i6_e = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf8d9b4eL, "otherwiseBody");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumSwitchCaseBody$Fk = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdc60L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody");
   }
 }

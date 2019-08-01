@@ -23,12 +23,12 @@
       <node id="4930188782568043529" at="36,35,37,17" concept="6" />
       <node id="4930188782568043529" at="40,37,41,105" concept="2" />
       <node id="4930188782568043529" at="42,5,43,30" concept="6" />
-      <node id="4930188782568080599" at="50,160,51,39" concept="6" />
+      <node id="4930188782568080599" at="50,152,51,39" concept="6" />
       <node id="4930188782568095694" at="52,14,53,42" concept="6" />
-      <node id="4930188782568062856" at="58,160,59,214" concept="2" />
-      <node id="4930188782568069497" at="60,14,61,174" concept="2" />
+      <node id="4930188782568062856" at="58,152,59,198" concept="2" />
+      <node id="4930188782568069497" at="60,14,61,166" concept="2" />
       <node id="4930188782568043529" at="65,48,66,56" concept="6" />
-      <node id="4930188782568043529" at="71,0,72,0" concept="7" trace="TestSubstituteAttribute_RegularEditor_22bbee5b" />
+      <node id="4930188782568043529" at="71,0,72,0" concept="7" trace="TestSubstituteAttribute_RegularEditor$LB" />
       <node id="4930188782568043529" at="46,0,48,0" concept="1" trace="IntentionImplementation#()V" />
       <node id="4930188782568076094" at="52,12,54,7" concept="0" />
       <node id="4930188782568068619" at="60,12,62,7" concept="0" />
@@ -49,10 +49,10 @@
       <scope id="4930188782568043529" at="32,84,33,16" />
       <scope id="4930188782568043529" at="36,35,37,17" />
       <scope id="4930188782568043529" at="40,37,41,105" />
-      <scope id="4930188782568076086" at="50,160,51,39" />
+      <scope id="4930188782568076086" at="50,152,51,39" />
       <scope id="4930188782568076095" at="52,14,53,42" />
-      <scope id="4930188782568044105" at="58,160,59,214" />
-      <scope id="4930188782568068620" at="60,14,61,174" />
+      <scope id="4930188782568044105" at="58,152,59,198" />
+      <scope id="4930188782568068620" at="60,14,61,166" />
       <scope id="4930188782568043529" at="65,48,66,56" />
       <scope id="4930188782568043529" at="46,0,48,0" />
       <scope id="4930188782568043529" at="24,0,27,0" />
@@ -78,7 +78,7 @@
         <var name="editorContext" id="4930188782568043529" />
         <var name="node" id="4930188782568043529" />
       </scope>
-      <unit id="4930188782568043529" at="70,0,73,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveRegularAttribute_Intention$AUX_yb3rkq" />
+      <unit id="4930188782568043529" at="70,0,73,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveRegularAttribute_Intention$CONCEPTS" />
       <unit id="4930188782568043529" at="45,0,69,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveRegularAttribute_Intention$IntentionImplementation" />
       <unit id="4930188782568043529" at="22,0,74,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveRegularAttribute_Intention" />
     </file>
@@ -96,12 +96,12 @@
       <node id="4930188782568104180" at="36,35,37,17" concept="6" />
       <node id="4930188782568104180" at="40,37,41,105" concept="2" />
       <node id="4930188782568104180" at="42,5,43,30" concept="6" />
-      <node id="4930188782568104191" at="50,164,51,41" concept="6" />
+      <node id="4930188782568104191" at="50,156,51,41" concept="6" />
       <node id="4930188782568104195" at="52,14,53,44" concept="6" />
-      <node id="4930188782568104207" at="58,164,59,222" concept="2" />
-      <node id="4930188782568104216" at="60,14,61,178" concept="2" />
+      <node id="4930188782568104207" at="58,156,59,206" concept="2" />
+      <node id="4930188782568104216" at="60,14,61,170" concept="2" />
       <node id="4930188782568104180" at="65,48,66,58" concept="6" />
-      <node id="4930188782568104180" at="71,0,72,0" concept="7" trace="TestSubstituteAttribute_TransparentEditor_22bbee5a" />
+      <node id="4930188782568104180" at="71,0,72,0" concept="7" trace="TestSubstituteAttribute_TransparentEditor$L8" />
       <node id="4930188782568104180" at="46,0,48,0" concept="1" trace="IntentionImplementation#()V" />
       <node id="4930188782568104193" at="52,12,54,7" concept="0" />
       <node id="4930188782568104214" at="60,12,62,7" concept="0" />
@@ -122,10 +122,10 @@
       <scope id="4930188782568104180" at="32,84,33,16" />
       <scope id="4930188782568104180" at="36,35,37,17" />
       <scope id="4930188782568104180" at="40,37,41,105" />
-      <scope id="4930188782568104190" at="50,164,51,41" />
+      <scope id="4930188782568104190" at="50,156,51,41" />
       <scope id="4930188782568104194" at="52,14,53,44" />
-      <scope id="4930188782568104206" at="58,164,59,222" />
-      <scope id="4930188782568104215" at="60,14,61,178" />
+      <scope id="4930188782568104206" at="58,156,59,206" />
+      <scope id="4930188782568104215" at="60,14,61,170" />
       <scope id="4930188782568104180" at="65,48,66,58" />
       <scope id="4930188782568104180" at="46,0,48,0" />
       <scope id="4930188782568104180" at="24,0,27,0" />
@@ -151,7 +151,7 @@
         <var name="editorContext" id="4930188782568104180" />
         <var name="node" id="4930188782568104180" />
       </scope>
-      <unit id="4930188782568104180" at="70,0,73,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveTransientAttribute_Intention$AUX_hqpl6r" />
+      <unit id="4930188782568104180" at="70,0,73,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveTransientAttribute_Intention$CONCEPTS" />
       <unit id="4930188782568104180" at="45,0,69,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveTransientAttribute_Intention$IntentionImplementation" />
       <unit id="4930188782568104180" at="22,0,74,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveTransientAttribute_Intention" />
     </file>
@@ -169,12 +169,12 @@
       <node id="4930188782568120127" at="36,35,37,17" concept="6" />
       <node id="4930188782568120127" at="40,37,41,105" concept="2" />
       <node id="4930188782568120127" at="42,5,43,30" concept="6" />
-      <node id="4930188782568120138" at="50,160,51,41" concept="6" />
+      <node id="4930188782568120138" at="50,152,51,41" concept="6" />
       <node id="4930188782568120142" at="52,14,53,44" concept="6" />
-      <node id="4930188782568120154" at="58,160,59,214" concept="2" />
-      <node id="4930188782568120163" at="60,14,61,174" concept="2" />
+      <node id="4930188782568120154" at="58,152,59,198" concept="2" />
+      <node id="4930188782568120163" at="60,14,61,166" concept="2" />
       <node id="4930188782568120127" at="65,48,66,58" concept="6" />
-      <node id="4930188782568120127" at="71,0,72,0" concept="7" trace="TestSubstituteAttribute_WithReference_22bbee5c" />
+      <node id="4930188782568120127" at="71,0,72,0" concept="7" trace="TestSubstituteAttribute_WithReference$M6" />
       <node id="4930188782568120127" at="46,0,48,0" concept="1" trace="IntentionImplementation#()V" />
       <node id="4930188782568120140" at="52,12,54,7" concept="0" />
       <node id="4930188782568120161" at="60,12,62,7" concept="0" />
@@ -195,10 +195,10 @@
       <scope id="4930188782568120127" at="32,84,33,16" />
       <scope id="4930188782568120127" at="36,35,37,17" />
       <scope id="4930188782568120127" at="40,37,41,105" />
-      <scope id="4930188782568120137" at="50,160,51,41" />
+      <scope id="4930188782568120137" at="50,152,51,41" />
       <scope id="4930188782568120141" at="52,14,53,44" />
-      <scope id="4930188782568120153" at="58,160,59,214" />
-      <scope id="4930188782568120162" at="60,14,61,174" />
+      <scope id="4930188782568120153" at="58,152,59,198" />
+      <scope id="4930188782568120162" at="60,14,61,166" />
       <scope id="4930188782568120127" at="65,48,66,58" />
       <scope id="4930188782568120127" at="46,0,48,0" />
       <scope id="4930188782568120127" at="24,0,27,0" />
@@ -224,7 +224,7 @@
         <var name="editorContext" id="4930188782568120127" />
         <var name="node" id="4930188782568120127" />
       </scope>
-      <unit id="4930188782568120127" at="70,0,73,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveReferenceAttribute_Intention$AUX_k6x6qb" />
+      <unit id="4930188782568120127" at="70,0,73,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveReferenceAttribute_Intention$CONCEPTS" />
       <unit id="4930188782568120127" at="45,0,69,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveReferenceAttribute_Intention$IntentionImplementation" />
       <unit id="4930188782568120127" at="22,0,74,0" name="jetbrains.mps.lang.editor.menus.substitute.testLanguage.intentions.AddOrRemoveReferenceAttribute_Intention" />
     </file>

@@ -17,11 +17,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class SafeRemoveConstant_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -55,14 +57,14 @@ public final class SafeRemoveConstant_Intention extends AbstractIntentionDescrip
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      Iterable<SNode> allReferences = ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(node, AUX_r6ippt.Constants_532ce438, false, false), AUX_r6ippt.ConstantReference_a4b2cecc, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+      Iterable<SNode> allReferences = ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(node, CONCEPTS.Constants$8E, false, false), CONCEPTS.ConstantReference$Cm, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, 0x37600150f5294666L, "original")) == node;
+          return SLinkOperations.getTarget(it, LINKS.original$mmvb) == node;
         }
       });
       Sequence.fromIterable(allReferences).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SNodeOperations.replaceWithAnother(it, SNodeOperations.copyNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x14be6cdec1861419L, 0x1bc7b724b7dec5e1L, "initializer"))));
+          SNodeOperations.replaceWithAnother(it, SNodeOperations.copyNode(SLinkOperations.getTarget(node, LINKS.initializer$o06Y)));
         }
       });
       SNodeOperations.deleteNode(node);
@@ -73,8 +75,13 @@ public final class SafeRemoveConstant_Intention extends AbstractIntentionDescrip
     }
   }
 
-  private static final class AUX_r6ippt {
-    /*package*/ static final SConcept Constants_532ce438 = MetaAdapterFactory.getConcept(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x14be6cdec1861417L, "org.jetbrains.mps.samples.Constants.structure.Constants");
-    /*package*/ static final SConcept ConstantReference_a4b2cecc = MetaAdapterFactory.getConcept(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, "org.jetbrains.mps.samples.Constants.structure.ConstantReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Constants$8E = MetaAdapterFactory.getConcept(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x14be6cdec1861417L, "org.jetbrains.mps.samples.Constants.structure.Constants");
+    /*package*/ static final SConcept ConstantReference$Cm = MetaAdapterFactory.getConcept(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, "org.jetbrains.mps.samples.Constants.structure.ConstantReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink original$mmvb = MetaAdapterFactory.getReferenceLink(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, 0x37600150f5294666L, "original");
+    /*package*/ static final SContainmentLink initializer$o06Y = MetaAdapterFactory.getContainmentLink(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x14be6cdec1861419L, 0x1bc7b724b7dec5e1L, "initializer");
   }
 }

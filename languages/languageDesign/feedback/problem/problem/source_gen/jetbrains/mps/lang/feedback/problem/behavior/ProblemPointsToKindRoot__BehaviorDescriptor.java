@@ -4,6 +4,7 @@ package jetbrains.mps.lang.feedback.problem.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,14 +17,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ProblemPointsToKindRoot__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_v54iyi.ProblemPointsToKindRoot_59478e26;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, "jetbrains.mps.lang.feedback.problem.structure.ProblemPointsToKindRoot");
 
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
@@ -33,7 +34,7 @@ public final class ProblemPointsToKindRoot__BehaviorDescriptor extends BaseBHDes
   }
 
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    return ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind")), MetaAdapterFactory.getContainmentLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x56aefe6c1afdffL, 0x56aefe6c1b000dL, "context")), kind, child);
+    return ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.kind$Wl20), LINKS.context$sc53), kind, child);
   }
 
   /*package*/ ProblemPointsToKindRoot__BehaviorDescriptor() {
@@ -82,7 +83,8 @@ public final class ProblemPointsToKindRoot__BehaviorDescriptor extends BaseBHDes
     return CONCEPT;
   }
 
-  private static final class AUX_v54iyi {
-    /*package*/ static final SConcept ProblemPointsToKindRoot_59478e26 = MetaAdapterFactory.getConcept(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, "jetbrains.mps.lang.feedback.problem.structure.ProblemPointsToKindRoot");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink kind$Wl20 = MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind");
+    /*package*/ static final SContainmentLink context$sc53 = MetaAdapterFactory.getContainmentLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x56aefe6c1afdffL, 0x56aefe6c1b000dL, "context");
   }
 }

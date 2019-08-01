@@ -5,7 +5,6 @@ package jetbrains.mps.core.xml.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlWhitespace_Constraints extends BaseConstraintsDescriptor {
   public XmlWhitespace_Constraints() {
-    super(AUX_wcqhp1.XmlWhitespace_20008e56);
+    super(CONCEPTS.XmlWhitespace$Jc);
   }
 
   public static class Value_Property extends BasePropertyConstraintsDescriptor {
     public Value_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, 0x4890619bb3ff9b53L, "value"), container);
+      super(PROPS.value$xCh4, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class XmlWhitespace_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, 0x4890619bb3ff9b53L, "value"), new Value_Property(this));
+    properties.put(PROPS.value$xCh4, new Value_Property(this));
     return properties;
   }
 
-  private static final class AUX_wcqhp1 {
-    /*package*/ static final SConcept XmlWhitespace_20008e56 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, "jetbrains.mps.core.xml.structure.XmlWhitespace");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlWhitespace$Jc = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, "jetbrains.mps.core.xml.structure.XmlWhitespace");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$xCh4 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, 0x4890619bb3ff9b53L, "value");
   }
 }

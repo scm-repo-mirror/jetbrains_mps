@@ -4,6 +4,7 @@ package jetbrains.mps.execution.configurations.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,7 +15,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.annotations.Nullable;
@@ -22,10 +22,13 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class RunConfigurationExecutor__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_v0bebz.RunConfigurationExecutor_4368a6ef;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, "jetbrains.mps.execution.configurations.structure.RunConfigurationExecutor");
 
   public static final SMethod<Boolean> isDebuggable_idoym_8btfV8 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDebuggable").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("oym_8btfV8").build();
   public static final SMethod<Boolean> canBeSimple_id5pE1_aqYssM = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canBeSimple").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5pE1_aqYssM").build();
@@ -38,21 +41,21 @@ public final class RunConfigurationExecutor__BehaviorDescriptor extends BaseBHDe
   }
 
   /*package*/ static boolean isDebuggable_idoym_8btfV8(@NotNull SNode __thisNode__) {
-    return (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, 0x5d457621242d8208L, "debuggerConfiguration")) != null) || (((boolean) RunConfigurationExecutor__BehaviorDescriptor.isSimple_id5pE1_aqYZtD.invoke(__thisNode__)) && SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, 0x566a06529af9d7ddL, "canDebug")));
+    return (SLinkOperations.getTarget(__thisNode__, LINKS.debuggerConfiguration$VJZD) != null) || (((boolean) RunConfigurationExecutor__BehaviorDescriptor.isSimple_id5pE1_aqYZtD.invoke(__thisNode__)) && SPropertyOperations.getBoolean(__thisNode__, PROPS.canDebug$yms8));
   }
   /*package*/ static boolean canBeSimple_id5pE1_aqYssM(@NotNull SNode __thisNode__) {
-    return TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x6e425276ab38aea1L, "execute"))), _quotation_createNode_wnz9gp_b0a0a1());
+    return TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, LINKS.execute$7pEw)), _quotation_createNode_wnz9gp_b0a0a1());
   }
   /*package*/ static boolean isSimple_id5pE1_aqYZtD(@NotNull SNode __thisNode__) {
-    return ((boolean) RunConfigurationExecutor__BehaviorDescriptor.canBeSimple_id5pE1_aqYssM.invoke(__thisNode__)) && (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, 0x5d457621242d8208L, "debuggerConfiguration")) == null);
+    return ((boolean) RunConfigurationExecutor__BehaviorDescriptor.canBeSimple_id5pE1_aqYssM.invoke(__thisNode__)) && (SLinkOperations.getTarget(__thisNode__, LINKS.debuggerConfiguration$VJZD) == null);
   }
   @Nullable
   /*package*/ static SNode getCommand_id5pE1_aqZ2LK(@NotNull SNode __thisNode__) {
     {
-      SNode coercedNode_wnz9gp_a0d = TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x6e425276ab38aea1L, "execute"))), AUX_v0bebz.CommandProcessType_b1238c37);
+      SNode coercedNode_wnz9gp_a0d = TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, LINKS.execute$7pEw)), CONCEPTS.CommandProcessType$Cb);
       if (coercedNode_wnz9gp_a0d != null) {
-        if ((SLinkOperations.getTarget(coercedNode_wnz9gp_a0d, MetaAdapterFactory.getReferenceLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x87f99370d7e1ea3L, 0x87f99370d7e1ea4L, "commandDeclaration")) != null)) {
-          return SLinkOperations.getTarget(coercedNode_wnz9gp_a0d, MetaAdapterFactory.getReferenceLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x87f99370d7e1ea3L, 0x87f99370d7e1ea4L, "commandDeclaration"));
+        if ((SLinkOperations.getTarget(coercedNode_wnz9gp_a0d, LINKS.commandDeclaration$shaw) != null)) {
+          return SLinkOperations.getTarget(coercedNode_wnz9gp_a0d, LINKS.commandDeclaration$shaw);
         }
       } else {
       }
@@ -118,8 +121,17 @@ public final class RunConfigurationExecutor__BehaviorDescriptor extends BaseBHDe
     return quotedNode_1;
   }
 
-  private static final class AUX_v0bebz {
-    /*package*/ static final SConcept RunConfigurationExecutor_4368a6ef = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, "jetbrains.mps.execution.configurations.structure.RunConfigurationExecutor");
-    /*package*/ static final SConcept CommandProcessType_b1238c37 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x87f99370d7e1ea3L, "jetbrains.mps.execution.commands.structure.CommandProcessType");
+  private static final class PROPS {
+    /*package*/ static final SProperty canDebug$yms8 = MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, 0x566a06529af9d7ddL, "canDebug");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink debuggerConfiguration$VJZD = MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, 0x5d457621242d8208L, "debuggerConfiguration");
+    /*package*/ static final SContainmentLink execute$7pEw = MetaAdapterFactory.getContainmentLink(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x6e425276ab38aea1L, "execute");
+    /*package*/ static final SReferenceLink commandDeclaration$shaw = MetaAdapterFactory.getReferenceLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x87f99370d7e1ea3L, 0x87f99370d7e1ea4L, "commandDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommandProcessType$Cb = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x87f99370d7e1ea3L, "jetbrains.mps.execution.commands.structure.CommandProcessType");
   }
 }

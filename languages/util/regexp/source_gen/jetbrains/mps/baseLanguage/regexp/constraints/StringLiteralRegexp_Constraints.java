@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.regexp.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class StringLiteralRegexp_Constraints extends BaseConstraintsDescriptor {
   public StringLiteralRegexp_Constraints() {
-    super(AUX_5i6rbz.StringLiteralRegexp_491faa79);
+    super(CONCEPTS.StringLiteralRegexp$g9);
   }
 
   public static class Text_Property extends BasePropertyConstraintsDescriptor {
     public Text_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a0992dL, 0x11174a0b84fL, "text"), container);
+      super(PROPS.text$zn$r, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class StringLiteralRegexp_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a0992dL, 0x11174a0b84fL, "text"), new Text_Property(this));
+    properties.put(PROPS.text$zn$r, new Text_Property(this));
     return properties;
   }
 
-  private static final class AUX_5i6rbz {
-    /*package*/ static final SConcept StringLiteralRegexp_491faa79 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a0992dL, "jetbrains.mps.baseLanguage.regexp.structure.StringLiteralRegexp");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringLiteralRegexp$g9 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a0992dL, "jetbrains.mps.baseLanguage.regexp.structure.StringLiteralRegexp");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$zn$r = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a0992dL, 0x11174a0b84fL, "text");
   }
 }

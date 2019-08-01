@@ -14,15 +14,16 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class TestSubstituteSubChildSmartReference_SmartReference extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_4colu3_a(), AUX_4colu3.TestSubstituteSubChildSmartReference_WithMenu_ae4107f5));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_4colu3_a(), CONCEPTS.TestSubstituteSubChildSmartReference_WithMenu$od));
     return result;
   }
 
@@ -43,7 +44,7 @@ public class TestSubstituteSubChildSmartReference_SmartReference extends Substit
 
     public SMP_ReferenceScope_4colu3_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_4colu3.TestSubstituteSubChildSmartReference_WithMenu_ae4107f5, MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2aeL, 0x7ce1116e3aa66222L, "childToReference"));
+      super((SAbstractConcept) CONCEPTS.TestSubstituteSubChildSmartReference_WithMenu$od, LINKS.childToReference$80ER);
     }
     @NotNull
     @Override
@@ -59,7 +60,11 @@ public class TestSubstituteSubChildSmartReference_SmartReference extends Substit
 
   }
 
-  private static final class AUX_4colu3 {
-    /*package*/ static final SConcept TestSubstituteSubChildSmartReference_WithMenu_ae4107f5 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2aeL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSubChildSmartReference_WithMenu");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteSubChildSmartReference_WithMenu$od = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2aeL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSubChildSmartReference_WithMenu");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink childToReference$80ER = MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2aeL, 0x7ce1116e3aa66222L, "childToReference");
   }
 }

@@ -18,11 +18,12 @@ import javax.swing.Icon;
 import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 @MPSLaunch
 public class TestPackagedLanguage_Test extends EnvironmentAwareTestCase {
@@ -59,7 +60,7 @@ public class TestPackagedLanguage_Test extends EnvironmentAwareTestCase {
       public void run() {
         IconLoader.activate();
         GlobalIconManager iconManager = GlobalIconManager.getInstance();
-        Icon icon = iconManager.getIconFor(AUX_kc0qes.TestConcept_bc65bdfa);
+        Icon icon = iconManager.getIconFor(CONCEPTS.TestConcept$2C);
         Assert.assertNotNull(icon);
         Assert.assertEquals(icon.getIconWidth(), 16);
         Assert.assertEquals(icon.getIconHeight(), 16);
@@ -79,7 +80,7 @@ public class TestPackagedLanguage_Test extends EnvironmentAwareTestCase {
         }
         Assert.assertNotNull(libraryModel);
         Assert.assertEquals(ListSequence.fromList(SModelOperations.roots(libraryModel, null)).count(), 1);
-        Assert.assertEquals(SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(SModelOperations.roots(libraryModel, null)).first(), AUX_kc0qes.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "DummyLibraryClass");
+        Assert.assertEquals(SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(SModelOperations.roots(libraryModel, null)).first(), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1), "DummyLibraryClass");
       }
     });
   }
@@ -91,8 +92,12 @@ public class TestPackagedLanguage_Test extends EnvironmentAwareTestCase {
     return PersistenceFacade.getInstance().createModuleReference("2d9a25d3-02b8-4024-afe2-bb9457a02cbf(testPackagedLanguage)").resolve(projectRepository);
   }
 
-  private static final class AUX_kc0qes {
-    /*package*/ static final SConcept TestConcept_bc65bdfa = MetaAdapterFactory.getConcept(0x2d9a25d302b84024L, 0xafe2bb9457a02cbfL, 0x6005c4080114d50fL, "testPackagedLanguage.structure.TestConcept");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestConcept$2C = MetaAdapterFactory.getConcept(0x2d9a25d302b84024L, 0xafe2bb9457a02cbfL, 0x6005c4080114d50fL, "testPackagedLanguage.structure.TestConcept");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

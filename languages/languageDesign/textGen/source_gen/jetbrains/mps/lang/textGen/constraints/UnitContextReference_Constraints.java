@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -28,10 +27,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class UnitContextReference_Constraints extends BaseConstraintsDescriptor {
   public UnitContextReference_Constraints() {
-    super(AUX_oh7wor.UnitContextReference_be5eaaf8);
+    super(CONCEPTS.UnitContextReference$dE);
   }
 
   @Override
@@ -51,7 +51,7 @@ public class UnitContextReference_Constraints extends BaseConstraintsDescriptor 
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x377692d961ab5a81L, 0x377692d961ab5a82L, "context"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.context$PeF0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -66,7 +66,7 @@ public class UnitContextReference_Constraints extends BaseConstraintsDescriptor 
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forNamedElements(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_oh7wor.LanguageTextGenDeclaration_4366b437, false, false), MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x377692d961abfe2aL, "contextObjects")));
+            return ListScope.forNamedElements(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.LanguageTextGenDeclaration$8b, false, false), LINKS.contextObjects$CtmH));
           }
         };
       }
@@ -76,13 +76,18 @@ public class UnitContextReference_Constraints extends BaseConstraintsDescriptor 
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_oh7wor.LanguageTextGenDeclaration_4366b437, false, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.LanguageTextGenDeclaration$8b, false, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:472e3702-e789-4c3f-b300-132c65ad44f1(jetbrains.mps.lang.textGen.constraints)", "1227128029536563745");
   private static final SNodePointer breakingNode_oh7wor_a0a0a0a0a1a0a0a0d = new SNodePointer("r:472e3702-e789-4c3f-b300-132c65ad44f1(jetbrains.mps.lang.textGen.constraints)", "6836281137582805772");
 
-  private static final class AUX_oh7wor {
-    /*package*/ static final SConcept UnitContextReference_be5eaaf8 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x377692d961ab5a81L, "jetbrains.mps.lang.textGen.structure.UnitContextReference");
-    /*package*/ static final SConcept LanguageTextGenDeclaration_4366b437 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept UnitContextReference$dE = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x377692d961ab5a81L, "jetbrains.mps.lang.textGen.structure.UnitContextReference");
+    /*package*/ static final SConcept LanguageTextGenDeclaration$8b = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink context$PeF0 = MetaAdapterFactory.getReferenceLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x377692d961ab5a81L, 0x377692d961ab5a82L, "context");
+    /*package*/ static final SContainmentLink contextObjects$CtmH = MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x377692d961abfe2aL, "contextObjects");
   }
 }

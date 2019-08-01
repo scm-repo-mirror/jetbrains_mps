@@ -11,9 +11,10 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class superTypesOfMeet_SubtypingRule extends SubtypingRule_Runtime implements ISubtypingRule_Runtime {
@@ -21,13 +22,13 @@ public class superTypesOfMeet_SubtypingRule extends SubtypingRule_Runtime implem
   }
   public List<SNode> getSubOrSuperTypes(SNode meet, TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     List<SNode> result = new ArrayList<SNode>();
-    for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(meet, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114b68ad132L, 0x114b68b040bL, "argument")))) {
+    for (SNode arg : ListSequence.fromList(SLinkOperations.getChildren(meet, LINKS.argument$kHNt))) {
       ListSequence.fromList(result).addElement(SNodeOperations.copyNode(arg));
     }
     return result;
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2opy5k.MeetType_789ba16c;
+    return CONCEPTS.MeetType$HQ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +37,11 @@ public class superTypesOfMeet_SubtypingRule extends SubtypingRule_Runtime implem
     return false;
   }
 
-  private static final class AUX_2opy5k {
-    /*package*/ static final SConcept MeetType_789ba16c = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114b68ad132L, "jetbrains.mps.lang.typesystem.structure.MeetType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink argument$kHNt = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114b68ad132L, 0x114b68b040bL, "argument");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MeetType$HQ = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114b68ad132L, "jetbrains.mps.lang.typesystem.structure.MeetType");
   }
 }

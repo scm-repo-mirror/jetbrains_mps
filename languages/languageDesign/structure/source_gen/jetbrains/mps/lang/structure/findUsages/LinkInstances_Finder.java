@@ -13,7 +13,6 @@ import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
@@ -24,6 +23,9 @@ import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class LinkInstances_Finder extends GeneratedFinder {
   public LinkInstances_Finder() {
@@ -38,7 +40,7 @@ public class LinkInstances_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_eruqwg.LinkDeclaration_ce818bfc;
+    return CONCEPTS.LinkDeclaration$bA;
   }
 
   @Override
@@ -48,15 +50,15 @@ public class LinkInstances_Finder extends GeneratedFinder {
       Set<String> roles = SetSequence.fromSet(new HashSet<String>());
       SNode curNode = node;
       do {
-        SetSequence.fromSet(roles).addElement(SPropertyOperations.getString(curNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role")));
-        curNode = SLinkOperations.getTarget(curNode, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink"));
+        SetSequence.fromSet(roles).addElement(SPropertyOperations.getString(curNode, PROPS.role$r_O$));
+        curNode = SLinkOperations.getTarget(curNode, LINKS.specializedLink$3uH0);
       } while (curNode != null);
       // find concept 
-      SNode conceptDeclaration = SNodeOperations.getNodeAncestor(node, AUX_eruqwg.AbstractConceptDeclaration_ec74828f, false, false);
+      SNode conceptDeclaration = SNodeOperations.getNodeAncestor(node, CONCEPTS.AbstractConceptDeclaration$UN, false, false);
       if ((conceptDeclaration == null)) {
         return;
       }
-      boolean isChild = SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L);
+      boolean isChild = SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.metaClass$tHD7), 0xfc6f4e95b9L);
       // find instances and link examples 
       for (SNode instance : ListSequence.fromList(FindUtils.executeFinder("jetbrains.mps.lang.structure.findUsages.ConceptInstances_Finder", conceptDeclaration, scope, monitor))) {
         if (isChild) {
@@ -89,8 +91,17 @@ public class LinkInstances_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1201275992898");
   }
 
-  private static final class AUX_eruqwg {
-    /*package*/ static final SConcept LinkDeclaration_ce818bfc = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LinkDeclaration$bA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty role$r_O$ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role");
+    /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink specializedLink$3uH0 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink");
   }
 }

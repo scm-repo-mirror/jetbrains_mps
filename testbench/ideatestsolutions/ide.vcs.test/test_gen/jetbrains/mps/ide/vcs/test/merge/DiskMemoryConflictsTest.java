@@ -35,7 +35,6 @@ import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.util.Reference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -50,6 +49,8 @@ import com.intellij.openapi.vfs.newvfs.RefreshQueue;
 import jetbrains.mps.smodel.persistence.def.ModelPersistence;
 import java.io.IOException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * 
@@ -57,7 +58,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
  * @since 3/23/11
  */
 public class DiskMemoryConflictsTest implements EnvironmentAware {
-  private static Pattern FIELD_DECLARATION_CONCEPT_ENTRY_MATCHING_PATTERN = Pattern.compile("\\s*<concept id=\"" + ((SConceptAdapterById) AUX_67xc96.FieldDeclaration_e2711ac6).getId().getIdValue() + "\"([^\\/]+)/>");
+  private static Pattern FIELD_DECLARATION_CONCEPT_ENTRY_MATCHING_PATTERN = Pattern.compile("\\s*<concept id=\"" + ((SConceptAdapterById) CONCEPTS.FieldDeclaration$Ps).getId().getIdValue() + "\"([^\\/]+)/>");
   private static Pattern CONCEPT_INDEX_MATCHING_PATTERN = Pattern.compile(".*index=\"([^/]+)\".*");
   private static Pattern PROPERTY_VALUE_MATCHING_PATTERN = Pattern.compile(".*<property.*value=\"([^\"]+)\".*");
 
@@ -181,8 +182,8 @@ public class DiskMemoryConflictsTest implements EnvironmentAware {
   }
 
   private SNode getField() {
-    SNode node = SNodeOperations.cast(new SNodePointer("r:21cf9f47-5464-40f2-9509-d94ba20bfe82(simpleModel)", "6010389230754495463").resolve(myRepository), AUX_67xc96.ClassConcept_e2711824);
-    SNode theField = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(node, AUX_67xc96.ClassConcept_e2711824, SMethodTrimmedId.create("fields", AUX_67xc96.ClassConcept_e2711824, "4_LVZ3pC27C")))).first();
+    SNode node = SNodeOperations.cast(new SNodePointer("r:21cf9f47-5464-40f2-9509-d94ba20bfe82(simpleModel)", "6010389230754495463").resolve(myRepository), CONCEPTS.ClassConcept$IY);
+    SNode theField = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(node, CONCEPTS.ClassConcept$IY, SMethodTrimmedId.create("fields", CONCEPTS.ClassConcept$IY, "4_LVZ3pC27C")))).first();
     return theField;
   }
 
@@ -196,9 +197,9 @@ public class DiskMemoryConflictsTest implements EnvironmentAware {
           SNode theField = getField();
           Assert.assertNotNull(theField);
           if (nameToWrite == null) {
-            result[0] = SPropertyOperations.getString(theField, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+            result[0] = SPropertyOperations.getString(theField, PROPS.name$tAp1);
           } else {
-            SPropertyOperations.assign(theField, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), nameToWrite);
+            SPropertyOperations.assign(theField, PROPS.name$tAp1, nameToWrite);
           }
         } catch (Throwable t) {
           refThrowable.set(t);
@@ -403,8 +404,12 @@ public class DiskMemoryConflictsTest implements EnvironmentAware {
     }
   }
 
-  private static final class AUX_67xc96 {
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

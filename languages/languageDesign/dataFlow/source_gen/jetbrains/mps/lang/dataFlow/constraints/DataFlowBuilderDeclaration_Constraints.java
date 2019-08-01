@@ -10,7 +10,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -24,10 +23,13 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DataFlowBuilderDeclaration_Constraints extends BaseConstraintsDescriptor {
   public DataFlowBuilderDeclaration_Constraints() {
-    super(AUX_dc17qv.DataFlowBuilderDeclaration_7bad810d);
+    super(CONCEPTS.DataFlowBuilderDeclaration$ZP);
   }
 
   @Override
@@ -47,7 +49,7 @@ public class DataFlowBuilderDeclaration_Constraints extends BaseConstraintsDescr
   }
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -55,8 +57,8 @@ public class DataFlowBuilderDeclaration_Constraints extends BaseConstraintsDescr
     }
     @Override
     public Object getValue(SNode node) {
-      String name = SPropertyOperations.getString(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e58cd635L, 0x118e58d76a0L, "conceptDeclaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-      for (SNode mode : ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e58cd635L, 0x6e8db6877fd04efbL, "modes")))) {
+      String name = SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.conceptDeclaration$$jUt), PROPS.name$tAp1);
+      for (SNode mode : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.modes$JeKh))) {
         name += "_" + SNodeOperations.getConcept(mode).getName();
       }
       return name + "_DataFlow";
@@ -65,7 +67,7 @@ public class DataFlowBuilderDeclaration_Constraints extends BaseConstraintsDescr
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
     return properties;
   }
   private static boolean staticCanBeARoot(SModel model) {
@@ -73,7 +75,16 @@ public class DataFlowBuilderDeclaration_Constraints extends BaseConstraintsDescr
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590377(jetbrains.mps.lang.dataFlow.constraints)", "1227089120379");
 
-  private static final class AUX_dc17qv {
-    /*package*/ static final SConcept DataFlowBuilderDeclaration_7bad810d = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e58cd635L, "jetbrains.mps.lang.dataFlow.structure.DataFlowBuilderDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DataFlowBuilderDeclaration$ZP = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e58cd635L, "jetbrains.mps.lang.dataFlow.structure.DataFlowBuilderDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$$jUt = MetaAdapterFactory.getReferenceLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e58cd635L, 0x118e58d76a0L, "conceptDeclaration");
+    /*package*/ static final SContainmentLink modes$JeKh = MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e58cd635L, 0x6e8db6877fd04efbL, "modes");
   }
 }

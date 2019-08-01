@@ -16,9 +16,10 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ConstraintScopeFactory_NodeToConcept extends MigrationScriptBase {
   public String getCaption() {
@@ -46,13 +47,13 @@ public class ConstraintScopeFactory_NodeToConcept extends MigrationScriptBase {
           return scope_djohgv_b0e_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_djohgv.ConceptConstraints_2e5b5de5, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ConceptConstraints$St, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode node) {
-          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a727527f6L, "defaultScope")), MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10dead47852L, 0x10dead647b3L, "searchScopeFactory")), problems);
+          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(SLinkOperations.getTarget(node, LINKS.defaultScope$INPk), LINKS.searchScopeFactory$g0q0), problems);
 
-          ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a726c901bL, "referent"))).visitAll(new IVisitor<SNode>() {
+          ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.referent$4reg)).visitAll(new IVisitor<SNode>() {
             public void visit(SNode referent) {
-              ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(referent, MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b731752daL, 0x10b7319e797L, "searchScopeFactory")), problems);
+              ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(referent, LINKS.searchScopeFactory$Aavv), problems);
             }
           });
         }
@@ -64,7 +65,14 @@ public class ConstraintScopeFactory_NodeToConcept extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, "jetbrains.mps.lang.constraints"), 1);
   }
 
-  private static final class AUX_djohgv {
-    /*package*/ static final SConcept ConceptConstraints_2e5b5de5 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptConstraints$St = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink defaultScope$INPk = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a727527f6L, "defaultScope");
+    /*package*/ static final SContainmentLink searchScopeFactory$g0q0 = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10dead47852L, 0x10dead647b3L, "searchScopeFactory");
+    /*package*/ static final SContainmentLink referent$4reg = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a726c901bL, "referent");
+    /*package*/ static final SContainmentLink searchScopeFactory$Aavv = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b731752daL, 0x10b7319e797L, "searchScopeFactory");
   }
 }

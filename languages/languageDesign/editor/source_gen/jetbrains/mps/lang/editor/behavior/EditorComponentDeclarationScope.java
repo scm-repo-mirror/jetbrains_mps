@@ -16,14 +16,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import org.jetbrains.mps.openapi.module.SDependency;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class EditorComponentDeclarationScope extends FilteringScope {
   private SNode myConceptDeclaration;
   private EditorComponentDeclarationScope(final SModel model, SNode concept) {
-    super(new ModelsScope(getModels(model), false, AUX_old11h.EditorComponentDeclaration_2ddc41f7));
+    super(new ModelsScope(getModels(model), false, CONCEPTS.EditorComponentDeclaration$Lb));
     myConceptDeclaration = concept;
   }
   /*package*/ EditorComponentDeclarationScope(SNode editorComponent) {
@@ -44,11 +45,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
   @Override
   public boolean isExcluded(SNode node) {
-    SNode editorComponent = SNodeOperations.as(node, AUX_old11h.EditorComponentDeclaration_2ddc41f7);
-    return editorComponent == null || SLinkOperations.getTarget(editorComponent, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, 0x619d955714550434L, "overridenEditorComponent")) != null || !((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(myConceptDeclaration, AbstractComponent__BehaviorDescriptor.getConceptDeclaration_id67EYkym$wx3.invoke(editorComponent)));
+    SNode editorComponent = SNodeOperations.as(node, CONCEPTS.EditorComponentDeclaration$Lb);
+    return editorComponent == null || SLinkOperations.getTarget(editorComponent, LINKS.overridenEditorComponent$GNSC) != null || !((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(myConceptDeclaration, AbstractComponent__BehaviorDescriptor.getConceptDeclaration_id67EYkym$wx3.invoke(editorComponent)));
   }
 
-  private static final class AUX_old11h {
-    /*package*/ static final SConcept EditorComponentDeclaration_2ddc41f7 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorComponentDeclaration$Lb = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink overridenEditorComponent$GNSC = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, 0x619d955714550434L, "overridenEditorComponent");
   }
 }

@@ -6,7 +6,6 @@ import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ConstraintFunction;
 import jetbrains.mps.smodel.runtime.ConstraintContext_DefaultScopeProvider;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
@@ -29,13 +28,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
   public ConceptDeclaration_Constraints() {
-    super(AUX_8geshg.ConceptDeclaration_cb225da8);
+    super(CONCEPTS.ConceptDeclaration$qU);
   }
   public IconResource getInstanceIcon(SNode node) {
-    return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable")) ? IconContainer.RESOURCE_a0a0a : IconContainer.RESOURCE_a0a0a_0);
+    return (SPropertyOperations.getBoolean(node, PROPS.rootable$vg$g) ? IconContainer.RESOURCE_a0a0a : IconContainer.RESOURCE_a0a0a_0);
   }
 
   @Override
@@ -50,7 +51,7 @@ public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return Scopes.forConcepts(_context.getContextNode(), AUX_8geshg.ConceptDeclaration_cb225da8);
+            return Scopes.forConcepts(_context.getContextNode(), CONCEPTS.ConceptDeclaration$qU);
           }
         };
       }
@@ -73,7 +74,7 @@ public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.extends$LQV3, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -105,7 +106,15 @@ public class ConceptDeclaration_Constraints extends BaseConstraintsDescriptor {
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "1227087258260");
   private static final SNodePointer breakingNode_8geshg_a0a0a0a0a1a0a0a0f = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805245");
 
-  private static final class AUX_8geshg {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty rootable$vg$g = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
   }
 }

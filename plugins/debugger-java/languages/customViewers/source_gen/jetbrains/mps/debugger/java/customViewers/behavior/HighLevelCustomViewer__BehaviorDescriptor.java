@@ -4,6 +4,7 @@ package jetbrains.mps.debugger.java.customViewers.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,15 +16,15 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class HighLevelCustomViewer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_svlx43.HighLevelCustomViewer_d8153e93;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelCustomViewer");
 
   public static final SMethod<SNode> getValueTypeCopy_id2q5hg4fWIQ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getValueTypeCopy").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2q5hg4fWIQ").build();
   public static final SMethod<String> getClassName_id6$g4PBN66FS = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getClassName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6$g4PBN66FS").build();
@@ -35,10 +36,10 @@ public final class HighLevelCustomViewer__BehaviorDescriptor extends BaseBHDescr
   }
 
   /*package*/ static SNode getValueTypeCopy_id2q5hg4fWIQ(@NotNull SNode __thisNode__) {
-    return SNodeOperations.copyNode(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, 0x9a1514043fbc1aL, "valueType")));
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(__thisNode__, LINKS.valueType$Xd$1));
   }
   /*package*/ static String getClassName_id6$g4PBN66FS(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "_WrapperFactory";
+    return SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1) + "_WrapperFactory";
   }
   /*package*/ static String getClassFqName_id6$g4PBN67n2(@NotNull SNode __thisNode__) {
     return jetbrains.mps.util.SNodeOperations.getModelLongName(SNodeOperations.getModel(__thisNode__)) + "." + HighLevelCustomViewer__BehaviorDescriptor.getClassName_id6$g4PBN66FS.invoke(__thisNode__);
@@ -94,7 +95,11 @@ public final class HighLevelCustomViewer__BehaviorDescriptor extends BaseBHDescr
     return CONCEPT;
   }
 
-  private static final class AUX_svlx43 {
-    /*package*/ static final SConcept HighLevelCustomViewer_d8153e93 = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelCustomViewer");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink valueType$Xd$1 = MetaAdapterFactory.getContainmentLink(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, 0x9a1514043fbc1aL, "valueType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

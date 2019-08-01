@@ -25,7 +25,7 @@ public class ClassUsages_Finder extends GeneratedFinder {
   }
   @Override
   public boolean isUsedByDefault(SNode node) {
-    return SNodeOperations.isInstanceOf(node, AUX_ejm1ul.ClassConcept_e2711824);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.ClassConcept$IY);
   }
   @Override
   public String getDescription() {
@@ -37,7 +37,7 @@ public class ClassUsages_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_ejm1ul.ClassConcept_e2711824;
+    return CONCEPTS.ClassConcept$IY;
   }
 
   @Override
@@ -75,7 +75,7 @@ public class ClassUsages_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1237738696198");
   }
 
-  private static final class AUX_ejm1ul {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

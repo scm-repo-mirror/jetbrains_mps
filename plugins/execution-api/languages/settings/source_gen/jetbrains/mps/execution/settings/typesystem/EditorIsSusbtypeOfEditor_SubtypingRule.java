@@ -20,7 +20,7 @@ public class EditorIsSusbtypeOfEditor_SubtypingRule extends SubtypingRule_Runtim
     return createSettingsEditorType_naixql_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_naixql.SettingsEditorType_9ba052eb;
+    return CONCEPTS.SettingsEditorType$Bn;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,11 +33,11 @@ public class EditorIsSusbtypeOfEditor_SubtypingRule extends SubtypingRule_Runtim
   }
   private static SNode createSettingsEditorType_naixql_a0a1() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_naixql.SettingsEditorType_9ba052eb, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SettingsEditorType$Bn, null, null, false);
     return n1;
   }
 
-  private static final class AUX_naixql {
-    /*package*/ static final SConcept SettingsEditorType_9ba052eb = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013aL, "jetbrains.mps.execution.settings.structure.SettingsEditorType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SettingsEditorType$Bn = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013aL, "jetbrains.mps.execution.settings.structure.SettingsEditorType");
   }
 }

@@ -25,7 +25,7 @@ public class typeof_ReplaceRegexpOperation_InferenceRule extends AbstractInferen
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_yj3lw7.ReplaceRegexpOperation_b2e245d8;
+    return CONCEPTS.ReplaceRegexpOperation$ia;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ReplaceRegexpOperation_InferenceRule extends AbstractInferen
     return quotedNode_1;
   }
 
-  private static final class AUX_yj3lw7 {
-    /*package*/ static final SConcept ReplaceRegexpOperation_b2e245d8 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c1923d18aL, "jetbrains.mps.baseLanguage.regexp.structure.ReplaceRegexpOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReplaceRegexpOperation$ia = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c1923d18aL, "jetbrains.mps.baseLanguage.regexp.structure.ReplaceRegexpOperation");
   }
 }

@@ -12,11 +12,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class SwitchToDefaultPropertyImplementation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -36,7 +37,7 @@ public final class SwitchToDefaultPropertyImplementation_Intention extends Abstr
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, 0x117b75fb65aL, "propertyImplementation")), AUX_y61k6r.DefaultPropertyImplementation_63948c4f));
+    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.propertyImplementation$bCiM), CONCEPTS.DefaultPropertyImplementation$NN));
   }
   @Override
   public boolean isSurroundWith() {
@@ -57,7 +58,7 @@ public final class SwitchToDefaultPropertyImplementation_Intention extends Abstr
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNodeFactoryOperations.replaceWithNewChild(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, 0x117b75fb65aL, "propertyImplementation")), AUX_y61k6r.DefaultPropertyImplementation_63948c4f);
+      SNodeFactoryOperations.replaceWithNewChild(SLinkOperations.getTarget(node, LINKS.propertyImplementation$bCiM), CONCEPTS.DefaultPropertyImplementation$NN);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -65,7 +66,11 @@ public final class SwitchToDefaultPropertyImplementation_Intention extends Abstr
     }
   }
 
-  private static final class AUX_y61k6r {
-    /*package*/ static final SConcept DefaultPropertyImplementation_63948c4f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b7633177L, "jetbrains.mps.baseLanguage.structure.DefaultPropertyImplementation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink propertyImplementation$bCiM = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, 0x117b75fb65aL, "propertyImplementation");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DefaultPropertyImplementation$NN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b7633177L, "jetbrains.mps.baseLanguage.structure.DefaultPropertyImplementation");
   }
 }

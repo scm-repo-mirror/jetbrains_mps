@@ -15,11 +15,12 @@ import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class StraightDescendants_Finder extends GeneratedFinder {
   public StraightDescendants_Finder() {
@@ -41,7 +42,7 @@ public class StraightDescendants_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_fn61pg.AbstractConceptDeclaration_ec74828f;
+    return CONCEPTS.AbstractConceptDeclaration$UN;
   }
 
   @Override
@@ -56,8 +57,8 @@ public class StraightDescendants_Finder extends GeneratedFinder {
               if (monitor.isCanceled()) {
                 return;
               }
-              if (SNodeOperations.isInstanceOf(nodeUsage, AUX_fn61pg.ConceptDeclaration_cb225da8)) {
-                if (SLinkOperations.getTarget(SNodeOperations.cast(nodeUsage, AUX_fn61pg.ConceptDeclaration_cb225da8), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends")) == node) {
+              if (SNodeOperations.isInstanceOf(nodeUsage, CONCEPTS.ConceptDeclaration$qU)) {
+                if (SLinkOperations.getTarget(SNodeOperations.cast(nodeUsage, CONCEPTS.ConceptDeclaration$qU), LINKS.extends$LQV3) == node) {
                   callback.onUsageFound(createSingleResult(nodeUsage));
                 }
               }
@@ -77,8 +78,12 @@ public class StraightDescendants_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "8626018673654906907");
   }
 
-  private static final class AUX_fn61pg {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
   }
 }

@@ -20,7 +20,6 @@ import jetbrains.mps.lang.editor.menus.transformation.DefaultConceptMenusTransfo
 import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -44,6 +43,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ThisClassifierExpression_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -69,7 +70,7 @@ public class ThisClassifierExpression_TransformationMenu extends TransformationM
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_myg648.ThisClassifierExpression_b632a0cf)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.ThisClassifierExpression$xN)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -93,7 +94,7 @@ public class ThisClassifierExpression_TransformationMenu extends TransformationM
   public class TMP_Group_myg648_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, 0x11bc25d4bc3L, "classifier")) == null);
+      return (SLinkOperations.getTarget(_context.getNode(), LINKS.classifier$Xpfr) == null);
     }
 
     @NotNull
@@ -178,8 +179,8 @@ public class ThisClassifierExpression_TransformationMenu extends TransformationM
 
           @Override
           public void execute(@NotNull String pattern) {
-            SNode expr = SNodeFactoryOperations.createNewNode(AUX_myg648.ThisClassifierExpression_b632a0cf, null);
-            SLinkOperations.setTarget(expr, MetaAdapterFactory.getReferenceLink(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, 0x11bc25d4bc3L, "classifier"), myParameterObject);
+            SNode expr = SNodeFactoryOperations.createNewNode(CONCEPTS.ThisClassifierExpression$xN, null);
+            SLinkOperations.setTarget(expr, LINKS.classifier$Xpfr, myParameterObject);
             SNodeOperations.replaceWithAnother(_context.getNode(), expr);
             SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), expr, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
           }
@@ -206,7 +207,11 @@ public class ThisClassifierExpression_TransformationMenu extends TransformationM
     }
   }
 
-  private static final class AUX_myg648 {
-    /*package*/ static final SConcept ThisClassifierExpression_b632a0cf = MetaAdapterFactory.getConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, "jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisClassifierExpression$xN = MetaAdapterFactory.getConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, "jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$Xpfr = MetaAdapterFactory.getReferenceLink(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, 0x11bc25d4bc3L, "classifier");
   }
 }

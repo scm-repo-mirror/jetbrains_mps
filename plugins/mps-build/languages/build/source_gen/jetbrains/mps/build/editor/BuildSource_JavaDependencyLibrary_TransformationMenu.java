@@ -20,7 +20,6 @@ import jetbrains.mps.lang.editor.menus.transformation.DefaultConceptMenusTransfo
 import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -39,6 +38,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildSource_JavaDependencyLibrary_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -64,7 +65,7 @@ public class BuildSource_JavaDependencyLibrary_TransformationMenu extends Transf
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_d1076f.BuildSource_JavaDependencyLibrary_68e36fb1)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.BuildSource_JavaDependencyLibrary$nh)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -88,7 +89,7 @@ public class BuildSource_JavaDependencyLibrary_TransformationMenu extends Transf
   public class TMP_Group_d1076f_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !(SPropertyOperations.getBoolean(_context.getNode(), MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd9079dceL, 0x52fab202d8f26228L, "reexport")));
+      return !(SPropertyOperations.getBoolean(_context.getNode(), PROPS.reexport$qwse));
     }
 
     @NotNull
@@ -144,7 +145,7 @@ public class BuildSource_JavaDependencyLibrary_TransformationMenu extends Transf
 
         @Override
         public void execute(@NotNull String pattern) {
-          SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd9079dceL, 0x52fab202d8f26228L, "reexport"), true);
+          SPropertyOperations.assign(_context.getNode(), PROPS.reexport$qwse, true);
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -169,7 +170,11 @@ public class BuildSource_JavaDependencyLibrary_TransformationMenu extends Transf
     }
   }
 
-  private static final class AUX_d1076f {
-    /*package*/ static final SConcept BuildSource_JavaDependencyLibrary_68e36fb1 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd9079dceL, "jetbrains.mps.build.structure.BuildSource_JavaDependencyLibrary");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaDependencyLibrary$nh = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd9079dceL, "jetbrains.mps.build.structure.BuildSource_JavaDependencyLibrary");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty reexport$qwse = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd9079dceL, 0x52fab202d8f26228L, "reexport");
   }
 }

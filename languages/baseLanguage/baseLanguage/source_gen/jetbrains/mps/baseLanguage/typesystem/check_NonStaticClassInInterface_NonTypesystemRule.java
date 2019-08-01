@@ -20,7 +20,7 @@ public class check_NonStaticClassInInterface_NonTypesystemRule extends AbstractN
   public check_NonStaticClassInInterface_NonTypesystemRule() {
   }
   public void applyRule(final SNode innerClass, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(innerClass)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(innerClass), AUX_n97qqh.Interface_bca2069)) {
+    if (!((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(innerClass)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(innerClass), CONCEPTS.Interface$Kp)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(innerClass, "Interfaces can't have non-static inner classes", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3511256318310404938", null, errorTarget);
@@ -28,7 +28,7 @@ public class check_NonStaticClassInInterface_NonTypesystemRule extends AbstractN
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_n97qqh.ClassConcept_e2711824;
+    return CONCEPTS.ClassConcept$IY;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -37,8 +37,8 @@ public class check_NonStaticClassInInterface_NonTypesystemRule extends AbstractN
     return false;
   }
 
-  private static final class AUX_n97qqh {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

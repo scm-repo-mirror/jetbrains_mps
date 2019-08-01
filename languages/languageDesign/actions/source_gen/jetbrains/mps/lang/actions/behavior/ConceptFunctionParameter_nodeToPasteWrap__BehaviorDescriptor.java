@@ -4,6 +4,7 @@ package jetbrains.mps.lang.actions.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ConceptFunctionParameter_nodeToPasteWrap__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_a2s8md.ConceptFunctionParameter_nodeToPasteWrap_c75198b9;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51740034L, "jetbrains.mps.lang.actions.structure.ConceptFunctionParameter_nodeToPasteWrap");
 
   public static final SMethod<SNode> getWrapper_idhLhtllw = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getWrapper").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hLhtllw").build();
 
@@ -31,7 +31,7 @@ public final class ConceptFunctionParameter_nodeToPasteWrap__BehaviorDescriptor 
   }
 
   /*package*/ static SNode getWrapper_idhLhtllw(@NotNull SNode __thisNode__) {
-    return SNodeOperations.getNodeAncestor(__thisNode__, AUX_a2s8md.PasteWrapper_5ef22015, false, false);
+    return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.PasteWrapper$7H, false, false);
   }
 
   /*package*/ ConceptFunctionParameter_nodeToPasteWrap__BehaviorDescriptor() {
@@ -80,8 +80,7 @@ public final class ConceptFunctionParameter_nodeToPasteWrap__BehaviorDescriptor 
     return CONCEPT;
   }
 
-  private static final class AUX_a2s8md {
-    /*package*/ static final SConcept ConceptFunctionParameter_nodeToPasteWrap_c75198b9 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51740034L, "jetbrains.mps.lang.actions.structure.ConceptFunctionParameter_nodeToPasteWrap");
-    /*package*/ static final SConcept PasteWrapper_5ef22015 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51563250L, "jetbrains.mps.lang.actions.structure.PasteWrapper");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PasteWrapper$7H = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51563250L, "jetbrains.mps.lang.actions.structure.PasteWrapper");
   }
 }

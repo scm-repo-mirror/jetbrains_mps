@@ -4,6 +4,7 @@ package jetbrains.mps.lang.resources.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
@@ -16,7 +17,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.util.MacrosFactory;
@@ -36,10 +36,10 @@ import javax.swing.ImageIcon;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_wkvt6z.FileIcon_a9e20c14;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
 
   public static final SMethod<List<Tuples._2<IFile, byte[]>>> generate_id7Mb2akaesv8 = new SMethodBuilder<List<Tuples._2<IFile, byte[]>>>(new SJavaCompoundTypeImpl((Class<List<Tuples._2<IFile, byte[]>>>) ((Class) Object.class))).name("generate").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Mb2akaesv8").build(SMethodBuilder.createJavaParameter(IFile.class, ""));
   /*package*/ static final SMethod<Tuples._2<IFile, byte[]>> copyFile_id34SjXUxB1C6 = new SMethodBuilder<Tuples._2<IFile, byte[]>>(new SJavaCompoundTypeImpl((Class<Tuples._2<IFile, byte[]>>) ((Class) Object.class))).name("copyFile").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("34SjXUxB1C6").build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(IFile.class, ""), SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
@@ -53,14 +53,14 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static List<Tuples._2<IFile, byte[]>> generate_id7Mb2akaesv8(@NotNull SNode __thisNode__, IFile outputDir) {
-    if (isEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file")))) {
+    if (isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.file$xmj_))) {
       // todo compatibility code to be removed after 3.4 
       return null;
     }
 
     SModel model = SNodeOperations.getModel(__thisNode__);
 
-    String source = MacrosFactory.forModule(model.getModule()).expandPath(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file")));
+    String source = MacrosFactory.forModule(model.getModule()).expandPath(SPropertyOperations.getString(__thisNode__, PROPS.file$xmj_));
     final String name = FileUtil.getNameWithoutExtension(source);
     final String ext = FileUtil.getExtension(source);
 
@@ -113,7 +113,7 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
     if (macroHelper == null) {
       return false;
     }
-    String path = macroHelper.expandPath(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file")));
+    String path = macroHelper.expandPath(SPropertyOperations.getString(__thisNode__, PROPS.file$xmj_));
     if (path == null) {
       return false;
     }
@@ -137,10 +137,10 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
     return ((String) Icon__BehaviorDescriptor.getResourceId_id2p1v3tOadt0.invoke(__thisNode__));
   }
   /*package*/ static String getResourceId_id2p1v3tOadt0(@NotNull SNode __thisNode__) {
-    if (isEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file")))) {
+    if (isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.file$xmj_))) {
       return null;
     }
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file")).substring(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file")).lastIndexOf('/') + 1);
+    return SPropertyOperations.getString(__thisNode__, PROPS.file$xmj_).substring(SPropertyOperations.getString(__thisNode__, PROPS.file$xmj_).lastIndexOf('/') + 1);
   }
 
   /*package*/ FileIcon__BehaviorDescriptor() {
@@ -200,7 +200,7 @@ public final class FileIcon__BehaviorDescriptor extends BaseBHDescriptor {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_wkvt6z {
-    /*package*/ static final SConcept FileIcon_a9e20c14 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
+  private static final class PROPS {
+    /*package*/ static final SProperty file$xmj_ = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file");
   }
 }

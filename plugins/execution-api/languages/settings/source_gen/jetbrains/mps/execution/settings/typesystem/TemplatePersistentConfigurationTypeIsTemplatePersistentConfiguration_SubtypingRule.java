@@ -20,7 +20,7 @@ public class TemplatePersistentConfigurationTypeIsTemplatePersistentConfiguratio
     return createTemplatePersistentConfigurationType_n8elw8_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_n8elw8.TemplatePersistentConfigurationType_9ba04fa5;
+    return CONCEPTS.TemplatePersistentConfigurationType$ht;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,11 +33,11 @@ public class TemplatePersistentConfigurationTypeIsTemplatePersistentConfiguratio
   }
   private static SNode createTemplatePersistentConfigurationType_n8elw8_a0a1() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_n8elw8.TemplatePersistentConfigurationType_9ba04fa5, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TemplatePersistentConfigurationType$ht, null, null, false);
     return n1;
   }
 
-  private static final class AUX_n8elw8 {
-    /*package*/ static final SConcept TemplatePersistentConfigurationType_9ba04fa5 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplatePersistentConfigurationType$ht = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
   }
 }

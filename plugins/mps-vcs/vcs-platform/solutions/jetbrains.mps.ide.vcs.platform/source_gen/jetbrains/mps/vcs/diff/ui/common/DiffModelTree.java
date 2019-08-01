@@ -39,11 +39,12 @@ import javax.swing.Icon;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.icons.GlobalIconManager;
 import javax.swing.tree.DefaultMutableTreeNode;
 import com.intellij.ui.SimpleTextAttributes;
 import java.awt.Color;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public abstract class DiffModelTree extends SimpleTree implements DataProvider {
   public static DataKey<Ref<SNodeId>> NODE_ID_DATAKEY = DataKey.create("MPS_SNodeId");
@@ -263,7 +264,7 @@ public abstract class DiffModelTree extends SimpleTree implements DataProvider {
           }
 
           if (myVirtualPackage == null) {
-            myVirtualPackage = (SPropertyOperations.getString(root, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")) == null ? "" : SPropertyOperations.getString(root, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")));
+            myVirtualPackage = (SPropertyOperations.getString(root, PROPS.virtualPackage$j19t) == null ? "" : SPropertyOperations.getString(root, PROPS.virtualPackage$j19t));
           }
           if (icon == null) {
             icon = GlobalIconManager.getInstance().getIconFor(root);
@@ -366,5 +367,9 @@ public abstract class DiffModelTree extends SimpleTree implements DataProvider {
   }
   private static <T> T as_5x0uld_a0a0a2a9(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

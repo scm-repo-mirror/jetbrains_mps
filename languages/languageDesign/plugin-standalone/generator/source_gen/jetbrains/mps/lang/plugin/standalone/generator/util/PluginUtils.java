@@ -8,33 +8,34 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PluginUtils {
   public PluginUtils() {
   }
   public static boolean needAppPlugin(SModel model) {
-    return (ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.StandalonePluginDescriptor_d6947da7)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.IdeaInitializerDescriptor_cdb589cf)).isNotEmpty()) && (ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.ActionGroupDeclaration_3a039d1)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.ActionDeclaration_5aac4105)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.InterfaceGroup_e29d436b)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.KeymapChangesDeclaration_b179307c)).isNotEmpty()) || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.ApplicationPluginDeclaration_430ea7e8)).isNotEmpty();
+    return (ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.StandalonePluginDescriptor$qr)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.IdeaInitializerDescriptor$XN)).isNotEmpty()) && (ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.ActionGroupDeclaration$YL)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.ActionDeclaration$VX)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.InterfaceGroup$_n)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.KeymapChangesDeclaration$TA)).isNotEmpty()) || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.ApplicationPluginDeclaration$hU)).isNotEmpty();
   }
   public static boolean needProjectPlugin(SModel model) {
-    return (ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.StandalonePluginDescriptor_d6947da7)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.IdeaInitializerDescriptor_cdb589cf)).isNotEmpty()) && (ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.EditorTab_405dcfd1)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.BaseToolDeclaration_5c092e15)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.PreferencesComponentDeclaration_459393af)).isNotEmpty()) || ListSequence.fromList(SModelOperations.roots(model, AUX_l4wyvj.ProjectPluginDeclaration_430ea7cd)).isNotEmpty();
+    return (ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.StandalonePluginDescriptor$qr)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.IdeaInitializerDescriptor$XN)).isNotEmpty()) && (ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.EditorTab$AL)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.BaseToolDeclaration$fH)).isNotEmpty() || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.PreferencesComponentDeclaration$6j)).isNotEmpty()) || ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.ProjectPluginDeclaration$4P)).isNotEmpty();
   }
   public static void checkPluginModelName(TemplateQueryContext genContext, SNode node) {
     // likely, it's assumed there's plugin.xml that controls instantiation of corresponding app/project components. 
     // however, it's not always the case, as we might want to generate plugin.xml ourselves and copy it into proper location 
-    if (ListSequence.fromList(SModelOperations.roots(genContext.getInputModel(), AUX_l4wyvj.IdeaInitializerDescriptor_cdb589cf)).isNotEmpty()) {
+    if (ListSequence.fromList(SModelOperations.roots(genContext.getInputModel(), CONCEPTS.IdeaInitializerDescriptor$XN)).isNotEmpty()) {
       return;
     }
-    if (ListSequence.fromList(SModelOperations.roots(genContext.getInputModel(), AUX_l4wyvj.StandalonePluginDescriptor_d6947da7)).isEmpty()) {
+    if (ListSequence.fromList(SModelOperations.roots(genContext.getInputModel(), CONCEPTS.StandalonePluginDescriptor$qr)).isEmpty()) {
       return;
     }
 
     SModel model = genContext.getOriginalInputModel();
 
-    if (SPropertyOperations.getBoolean(SModelOperations.getModuleStub(genContext.getOriginalInputModel()), MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS")) && SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x685ef16bc1750e9cL, 0x5f3b7568ba8feb0fL, "needInitConfig"))) {
+    if (SPropertyOperations.getBoolean(SModelOperations.getModuleStub(genContext.getOriginalInputModel()), PROPS.compileInMPS$8r6V) && SPropertyOperations.getBoolean(node, PROPS.needInitConfig$z0Fk)) {
       // it's an MPS module that would get loaded with PluginLoaderRegistry and contribute 
       // its app/project component parts through ModulePluginContributor's mechanism, which respects startup.properties file. 
       // Unfortunately, have no other way but resort to originalModel to find out 'compileInMPS' setting - node.model is transient and bears no reasonable value 
@@ -49,17 +50,22 @@ public class PluginUtils {
     genContext.showErrorMessage(node, "To be able to use plugin, you should name plugin model as '<ModuleName>.plugin'. For this model, the name should be " + correctName);
   }
 
-  private static final class AUX_l4wyvj {
-    /*package*/ static final SConcept ApplicationPluginDeclaration_430ea7e8 = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2058L, "jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginDeclaration");
-    /*package*/ static final SConcept StandalonePluginDescriptor_d6947da7 = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x685ef16bc1750e9cL, "jetbrains.mps.lang.plugin.standalone.structure.StandalonePluginDescriptor");
-    /*package*/ static final SConcept IdeaInitializerDescriptor_cdb589cf = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x45b64b294c2b3514L, "jetbrains.mps.lang.plugin.structure.IdeaInitializerDescriptor");
-    /*package*/ static final SConcept ActionGroupDeclaration_3a039d1 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
-    /*package*/ static final SConcept ActionDeclaration_5aac4105 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
-    /*package*/ static final SConcept InterfaceGroup_e29d436b = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186ae0bf01L, "jetbrains.mps.lang.plugin.structure.InterfaceGroup");
-    /*package*/ static final SConcept KeymapChangesDeclaration_b179307c = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, "jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration");
-    /*package*/ static final SConcept EditorTab_405dcfd1 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, "jetbrains.mps.lang.plugin.structure.EditorTab");
-    /*package*/ static final SConcept BaseToolDeclaration_5c092e15 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5adc7622e710bddcL, "jetbrains.mps.lang.plugin.structure.BaseToolDeclaration");
-    /*package*/ static final SConcept PreferencesComponentDeclaration_459393af = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c44c226fL, "jetbrains.mps.lang.plugin.structure.PreferencesComponentDeclaration");
-    /*package*/ static final SConcept ProjectPluginDeclaration_430ea7cd = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2052L, "jetbrains.mps.lang.plugin.standalone.structure.ProjectPluginDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ApplicationPluginDeclaration$hU = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2058L, "jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginDeclaration");
+    /*package*/ static final SConcept StandalonePluginDescriptor$qr = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x685ef16bc1750e9cL, "jetbrains.mps.lang.plugin.standalone.structure.StandalonePluginDescriptor");
+    /*package*/ static final SConcept IdeaInitializerDescriptor$XN = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x45b64b294c2b3514L, "jetbrains.mps.lang.plugin.structure.IdeaInitializerDescriptor");
+    /*package*/ static final SConcept ActionGroupDeclaration$YL = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
+    /*package*/ static final SConcept ActionDeclaration$VX = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
+    /*package*/ static final SConcept InterfaceGroup$_n = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186ae0bf01L, "jetbrains.mps.lang.plugin.structure.InterfaceGroup");
+    /*package*/ static final SConcept KeymapChangesDeclaration$TA = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, "jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration");
+    /*package*/ static final SConcept EditorTab$AL = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, "jetbrains.mps.lang.plugin.structure.EditorTab");
+    /*package*/ static final SConcept BaseToolDeclaration$fH = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5adc7622e710bddcL, "jetbrains.mps.lang.plugin.structure.BaseToolDeclaration");
+    /*package*/ static final SConcept PreferencesComponentDeclaration$6j = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c44c226fL, "jetbrains.mps.lang.plugin.structure.PreferencesComponentDeclaration");
+    /*package*/ static final SConcept ProjectPluginDeclaration$4P = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2052L, "jetbrains.mps.lang.plugin.standalone.structure.ProjectPluginDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty needInitConfig$z0Fk = MetaAdapterFactory.getProperty(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x685ef16bc1750e9cL, 0x5f3b7568ba8feb0fL, "needInitConfig");
+    /*package*/ static final SProperty compileInMPS$8r6V = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS");
   }
 }

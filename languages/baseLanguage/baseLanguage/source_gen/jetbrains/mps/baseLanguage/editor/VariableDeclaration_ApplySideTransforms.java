@@ -77,7 +77,7 @@ public class VariableDeclaration_ApplySideTransforms extends TransformationMenuB
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_d6tgwl.VariableDeclaration_3c610994);
+      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.VariableDeclaration$xe);
     }
 
   }
@@ -100,7 +100,7 @@ public class VariableDeclaration_ApplySideTransforms extends TransformationMenuB
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_d6tgwl.VariableDeclaration_3c610994);
+      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.VariableDeclaration$xe);
     }
 
     @Nullable
@@ -110,7 +110,7 @@ public class VariableDeclaration_ApplySideTransforms extends TransformationMenuB
     }
   }
 
-  private static final class AUX_d6tgwl {
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
   }
 }

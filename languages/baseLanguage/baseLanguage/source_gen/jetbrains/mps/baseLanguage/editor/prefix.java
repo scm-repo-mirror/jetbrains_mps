@@ -29,7 +29,6 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.baseLanguage.actions.PrecedenceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class prefix extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -66,8 +67,8 @@ public class prefix extends TransformationMenuBase {
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_resfux_a0(), AUX_resfux.PrefixIncrementExpression_aa33aae6));
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_resfux_b0(), AUX_resfux.PrefixDecrementExpression_af717f9d));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_resfux_a0(), CONCEPTS.PrefixIncrementExpression$4W));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_resfux_b0(), CONCEPTS.PrefixDecrementExpression$d_));
     }
     return result;
   }
@@ -110,10 +111,10 @@ public class prefix extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(AUX_resfux.PrefixIncrementExpression_aa33aae6, null);
+        SNode result = SNodeFactoryOperations.createNewNode(CONCEPTS.PrefixIncrementExpression$4W, null);
         SNode targetExpression = PrecedenceUtil.getTargetForLeftTransform(_context.getNode(), result);
         SNodeOperations.replaceWithAnother(targetExpression, result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a4c1f269L, 0x120a4c433a6L, "expression"), targetExpression);
+        SLinkOperations.setTarget(result, LINKS.expression$7Rjy, targetExpression);
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_EDITABLE_CELL, 0);
         return;
       }
@@ -122,7 +123,7 @@ public class prefix extends TransformationMenuBase {
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_resfux.PrefixIncrementExpression_aa33aae6;
+        return CONCEPTS.PrefixIncrementExpression$4W;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -137,7 +138,7 @@ public class prefix extends TransformationMenuBase {
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_resfux.PrefixIncrementExpression_aa33aae6;
+        SAbstractConcept outputConcept = CONCEPTS.PrefixIncrementExpression$4W;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -184,10 +185,10 @@ public class prefix extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(AUX_resfux.PrefixDecrementExpression_af717f9d, null);
+        SNode result = SNodeFactoryOperations.createNewNode(CONCEPTS.PrefixDecrementExpression$d_, null);
         SNode targetExpression = PrecedenceUtil.getTargetForLeftTransform(_context.getNode(), result);
         SNodeOperations.replaceWithAnother(targetExpression, result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a4c1f269L, 0x120a4c433a6L, "expression"), targetExpression);
+        SLinkOperations.setTarget(result, LINKS.expression$7Rjy, targetExpression);
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_EDITABLE_CELL, 0);
         return;
       }
@@ -196,7 +197,7 @@ public class prefix extends TransformationMenuBase {
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_resfux.PrefixDecrementExpression_af717f9d;
+        return CONCEPTS.PrefixDecrementExpression$d_;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -211,7 +212,7 @@ public class prefix extends TransformationMenuBase {
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_resfux.PrefixDecrementExpression_af717f9d;
+        SAbstractConcept outputConcept = CONCEPTS.PrefixDecrementExpression$d_;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -221,8 +222,12 @@ public class prefix extends TransformationMenuBase {
 
   }
 
-  private static final class AUX_resfux {
-    /*package*/ static final SConcept PrefixIncrementExpression_aa33aae6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a46df580L, "jetbrains.mps.baseLanguage.structure.PrefixIncrementExpression");
-    /*package*/ static final SConcept PrefixDecrementExpression_af717f9d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a472f0e8L, "jetbrains.mps.baseLanguage.structure.PrefixDecrementExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrefixIncrementExpression$4W = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a46df580L, "jetbrains.mps.baseLanguage.structure.PrefixIncrementExpression");
+    /*package*/ static final SConcept PrefixDecrementExpression$d_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a472f0e8L, "jetbrains.mps.baseLanguage.structure.PrefixDecrementExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$7Rjy = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a4c1f269L, 0x120a4c433a6L, "expression");
   }
 }

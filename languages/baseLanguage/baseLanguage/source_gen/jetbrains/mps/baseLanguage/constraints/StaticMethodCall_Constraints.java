@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -29,15 +28,16 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class StaticMethodCall_Constraints extends BaseConstraintsDescriptor {
   public StaticMethodCall_Constraints() {
-    super(AUX_8qp2eq.StaticMethodCall_9cd8c444);
+    super(CONCEPTS.StaticMethodCall$eu);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.baseMethodDeclaration$$A7i, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -52,18 +52,18 @@ public class StaticMethodCall_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            if (!(SNodeOperations.isInstanceOf(_context.getContextNode(), AUX_8qp2eq.StaticMethodCall_9cd8c444))) {
+            if (!(SNodeOperations.isInstanceOf(_context.getContextNode(), CONCEPTS.StaticMethodCall$eu))) {
               return new EmptyScope();
             }
-            if ((SLinkOperations.getTarget(SNodeOperations.cast(_context.getContextNode(), AUX_8qp2eq.StaticMethodCall_9cd8c444), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept")) == null)) {
+            if ((SLinkOperations.getTarget(SNodeOperations.cast(_context.getContextNode(), CONCEPTS.StaticMethodCall$eu), LINKS.classConcept$BsUa) == null)) {
               return new EmptyScope();
             }
-            return new MethodsScope(Members.visibleStaticMethods(SLinkOperations.getTarget(SNodeOperations.cast(_context.getContextNode(), AUX_8qp2eq.StaticMethodCall_9cd8c444), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept")), _context.getContextNode()));
+            return new MethodsScope(Members.visibleStaticMethods(SLinkOperations.getTarget(SNodeOperations.cast(_context.getContextNode(), CONCEPTS.StaticMethodCall$eu), LINKS.classConcept$BsUa), _context.getContextNode()));
           }
         };
       }
     };
-    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept"), this) {
+    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(LINKS.classConcept$BsUa, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -78,7 +78,7 @@ public class StaticMethodCall_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            if (!(SNodeOperations.isInstanceOf(_context.getContextNode(), AUX_8qp2eq.StaticMethodCall_9cd8c444))) {
+            if (!(SNodeOperations.isInstanceOf(_context.getContextNode(), CONCEPTS.StaticMethodCall$eu))) {
               return new EmptyScope();
             }
             Scope visibleClassifiersScope = ClassifierScopes.getVisibleClassifiersScope(_context.getContextNode(), true);
@@ -88,7 +88,7 @@ public class StaticMethodCall_Constraints extends BaseConstraintsDescriptor {
 
                 @Override
                 public boolean isExcluded(SNode node) {
-                  return !(SNodeOperations.isInstanceOf(node, AUX_8qp2eq.ClassConcept_e2711824));
+                  return !(SNodeOperations.isInstanceOf(node, CONCEPTS.ClassConcept$IY));
                 }
               };
             } else {
@@ -106,8 +106,13 @@ public class StaticMethodCall_Constraints extends BaseConstraintsDescriptor {
   private static final SNodePointer breakingNode_8qp2eq_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582642962");
   private static final SNodePointer breakingNode_8qp2eq_a0a0a0a0a1a0a0b0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582642996");
 
-  private static final class AUX_8qp2eq {
-    /*package*/ static final SConcept StaticMethodCall_9cd8c444 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticMethodCall$eu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SReferenceLink classConcept$BsUa = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, 0x10a7588b546L, "classConcept");
   }
 }

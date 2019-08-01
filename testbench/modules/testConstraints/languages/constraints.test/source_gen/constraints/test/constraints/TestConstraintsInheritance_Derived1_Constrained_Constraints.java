@@ -13,14 +13,15 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TestConstraintsInheritance_Derived1_Constrained_Constraints extends BaseConstraintsDescriptor {
   public TestConstraintsInheritance_Derived1_Constrained_Constraints() {
-    super(AUX_5vhcpp.TestConstraintsInheritance_Derived1_Constrained_5455c41b);
+    super(CONCEPTS.TestConstraintsInheritance_Derived1_Constrained$UB);
   }
 
   @Override
@@ -39,12 +40,16 @@ public class TestConstraintsInheritance_Derived1_Constrained_Constraints extends
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return !(SPropertyOperations.getBoolean((SNodeOperations.cast(parentNode, AUX_5vhcpp.TestConstraintsInheritance_Container_5455c12f)), MetaAdapterFactory.getProperty(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed730f4L, 0x50b9acb92ed7312aL, "triggerD1")));
+    return !(SPropertyOperations.getBoolean((SNodeOperations.cast(parentNode, CONCEPTS.TestConstraintsInheritance_Container$gj)), PROPS.triggerD1$I1en));
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)", "5816870305080501534");
 
-  private static final class AUX_5vhcpp {
-    /*package*/ static final SInterfaceConcept TestConstraintsInheritance_Derived1_Constrained_5455c41b = MetaAdapterFactory.getInterfaceConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed73116L, "constraints.test.structure.TestConstraintsInheritance_Derived1_Constrained");
-    /*package*/ static final SConcept TestConstraintsInheritance_Container_5455c12f = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed730f4L, "constraints.test.structure.TestConstraintsInheritance_Container");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept TestConstraintsInheritance_Derived1_Constrained$UB = MetaAdapterFactory.getInterfaceConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed73116L, "constraints.test.structure.TestConstraintsInheritance_Derived1_Constrained");
+    /*package*/ static final SConcept TestConstraintsInheritance_Container$gj = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed730f4L, "constraints.test.structure.TestConstraintsInheritance_Container");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty triggerD1$I1en = MetaAdapterFactory.getProperty(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x50b9acb92ed730f4L, 0x50b9acb92ed7312aL, "triggerD1");
   }
 }

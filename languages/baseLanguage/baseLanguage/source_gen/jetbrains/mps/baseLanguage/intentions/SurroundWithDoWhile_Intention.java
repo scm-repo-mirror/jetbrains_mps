@@ -17,9 +17,10 @@ import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class SurroundWithDoWhile_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -53,13 +54,13 @@ public final class SurroundWithDoWhile_Intention extends AbstractIntentionDescri
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode whileStatement = SNodeFactoryOperations.createNewNode(AUX_mkvu7b.DoWhileStatement_50b6f79b, null);
+      SNode whileStatement = SNodeFactoryOperations.createNewNode(CONCEPTS.DoWhileStatement$GB, null);
       List<SNode> selectedNodes = editorContext.getSelectedNodes();
       SNodeOperations.insertNextSiblingChild(node, whileStatement);
       for (SNode selectedNode : ListSequence.fromList(selectedNodes)) {
-        ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(whileStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).addElement(SNodeOperations.getNodeAncestor(selectedNode, AUX_mkvu7b.Statement_9dbf9b0e, true, false));
+        ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(whileStatement, LINKS.body$OFes), LINKS.statement$WHn8)).addElement(SNodeOperations.getNodeAncestor(selectedNode, CONCEPTS.Statement$ok, true, false));
       }
-      editorContext.select(SLinkOperations.getTarget(whileStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, 0x11232679422L, "condition")));
+      editorContext.select(SLinkOperations.getTarget(whileStatement, LINKS.condition$h1yE));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -67,8 +68,14 @@ public final class SurroundWithDoWhile_Intention extends AbstractIntentionDescri
     }
   }
 
-  private static final class AUX_mkvu7b {
-    /*package*/ static final SConcept DoWhileStatement_50b6f79b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, "jetbrains.mps.baseLanguage.structure.DoWhileStatement");
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DoWhileStatement$GB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, "jetbrains.mps.baseLanguage.structure.DoWhileStatement");
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$OFes = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink condition$h1yE = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, 0x11232679422L, "condition");
   }
 }

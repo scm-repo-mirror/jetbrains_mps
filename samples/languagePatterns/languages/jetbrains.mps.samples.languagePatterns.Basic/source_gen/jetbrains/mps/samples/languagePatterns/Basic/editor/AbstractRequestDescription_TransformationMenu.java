@@ -76,11 +76,11 @@ public class AbstractRequestDescription_TransformationMenu extends Transformatio
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_20rdqk.AbstractRequestDescription_29d9163f;
+      return CONCEPTS.AbstractRequestDescription$43;
     }
   }
 
-  private static final class AUX_20rdqk {
-    /*package*/ static final SConcept AbstractRequestDescription_29d9163f = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2238aL, "jetbrains.mps.samples.languagePatterns.Basic.structure.AbstractRequestDescription");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractRequestDescription$43 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2238aL, "jetbrains.mps.samples.languagePatterns.Basic.structure.AbstractRequestDescription");
   }
 }

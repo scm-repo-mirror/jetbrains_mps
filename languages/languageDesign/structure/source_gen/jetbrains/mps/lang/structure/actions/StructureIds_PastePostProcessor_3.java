@@ -13,18 +13,18 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public final class StructureIds_PastePostProcessor_3 implements PastePostProcessor {
   @Override
   public SAbstractConcept getApplicableConcept() {
-    return AUX_kuurpy.LinkDeclaration_ce818bfc;
+    return CONCEPTS.LinkDeclaration$bA;
   }
   @Override
   public void postProcessNode(SNode pastedNode) {
-    SNode c = SNodeOperations.as(SNodeOperations.getContainingRoot(pastedNode), AUX_kuurpy.AbstractConceptDeclaration_ec74828f);
+    SNode c = SNodeOperations.as(SNodeOperations.getContainingRoot(pastedNode), CONCEPTS.AbstractConceptDeclaration$UN);
     if (c != null) {
       ConceptIdSetter.processLink(pastedNode, c, true);
     }
   }
 
-  private static final class AUX_kuurpy {
-    /*package*/ static final SConcept LinkDeclaration_ce818bfc = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LinkDeclaration$bA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

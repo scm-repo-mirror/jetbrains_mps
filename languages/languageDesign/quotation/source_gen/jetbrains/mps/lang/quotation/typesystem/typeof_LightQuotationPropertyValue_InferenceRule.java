@@ -8,18 +8,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.quotation.behavior.NodeBuilderInitProperty__BehaviorDescriptor;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.typesystem.RulesUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_LightQuotationPropertyValue_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_LightQuotationPropertyValue_InferenceRule() {
   }
   public void applyRule(final SNode val, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode dataType = SLinkOperations.getTarget(SLinkOperations.getTarget(val, MetaAdapterFactory.getReferenceLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20b0325L, 0x4bb51009d20b0326L, "property")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType"));
+    SNode dataType = SLinkOperations.getTarget(SLinkOperations.getTarget(val, LINKS.property$NCMw), LINKS.dataType$fLUl);
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
         SNode _nodeToCheck_1029348928467 = NodeBuilderInitProperty__BehaviorDescriptor.getInitValue_id1o$2SUuvKUZ.invoke(val);
@@ -29,7 +30,7 @@ public class typeof_LightQuotationPropertyValue_InferenceRule extends AbstractIn
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_e02hrr.NodeBuilderInitProperty_2aae7807;
+    return CONCEPTS.NodeBuilderInitProperty$wV;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -38,7 +39,12 @@ public class typeof_LightQuotationPropertyValue_InferenceRule extends AbstractIn
     return false;
   }
 
-  private static final class AUX_e02hrr {
-    /*package*/ static final SConcept NodeBuilderInitProperty_2aae7807 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20b0325L, "jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink property$NCMw = MetaAdapterFactory.getReferenceLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20b0325L, 0x4bb51009d20b0326L, "property");
+    /*package*/ static final SReferenceLink dataType$fLUl = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeBuilderInitProperty$wV = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20b0325L, "jetbrains.mps.lang.quotation.structure.NodeBuilderInitProperty");
   }
 }

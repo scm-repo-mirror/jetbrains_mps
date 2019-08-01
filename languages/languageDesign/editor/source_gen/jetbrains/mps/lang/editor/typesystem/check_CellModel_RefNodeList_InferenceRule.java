@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -16,14 +15,17 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.structure.behavior.LinkDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_CellModel_RefNodeList_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public check_CellModel_RefNodeList_InferenceRule() {
   }
   public void applyRule(final SNode refNodeList, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode lnk = SLinkOperations.getTarget(refNodeList, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration"));
-    if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(lnk, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L))) {
+    SNode lnk = SLinkOperations.getTarget(refNodeList, LINKS.relationDeclaration$wbRV);
+    if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(lnk, PROPS.metaClass$tHD7), 0xfc6f4e95b9L))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(refNodeList, "aggregation link expected", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "1180295464579", null, errorTarget);
     }
@@ -33,7 +35,7 @@ public class check_CellModel_RefNodeList_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ds60u5.CellModel_RefNodeList_ae335dd1;
+    return CONCEPTS.CellModel_RefNodeList$IL;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,7 +44,15 @@ public class check_CellModel_RefNodeList_InferenceRule extends AbstractInference
     return false;
   }
 
-  private static final class AUX_ds60u5 {
-    /*package*/ static final SConcept CellModel_RefNodeList_ae335dd1 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb0ad38eL, "jetbrains.mps.lang.editor.structure.CellModel_RefNodeList");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink relationDeclaration$wbRV = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_RefNodeList$IL = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb0ad38eL, "jetbrains.mps.lang.editor.structure.CellModel_RefNodeList");
   }
 }

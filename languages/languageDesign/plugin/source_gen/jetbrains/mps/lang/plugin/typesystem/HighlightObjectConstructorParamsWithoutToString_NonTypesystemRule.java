@@ -10,11 +10,12 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class HighlightObjectConstructorParamsWithoutToString_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -27,8 +28,8 @@ public class HighlightObjectConstructorParamsWithoutToString_NonTypesystemRule e
     return false;
   }
   public void applyRule(final SNode parameter, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(parameter, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), AUX_7x827x.PrimitiveType_53355efd))) {
-      if (SLinkOperations.getTarget(parameter, MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11daf6d2bdcL, 0x11db00a8280L, "toStringFunction")) == null) {
+    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(parameter, LINKS.type$pLrO), CONCEPTS.PrimitiveType$5))) {
+      if (SLinkOperations.getTarget(parameter, LINKS.toStringFunction$HYI3) == null) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(parameter, "toString should be specified for parameters of non-primitive type", "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "1227020617850", null, errorTarget);
@@ -37,7 +38,7 @@ public class HighlightObjectConstructorParamsWithoutToString_NonTypesystemRule e
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7x827x.ActionConstructionParameterDeclaration_f42883f2;
+    return CONCEPTS.ActionConstructionParameterDeclaration$AK;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,8 +47,13 @@ public class HighlightObjectConstructorParamsWithoutToString_NonTypesystemRule e
     return false;
   }
 
-  private static final class AUX_7x827x {
-    /*package*/ static final SConcept PrimitiveType_53355efd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
-    /*package*/ static final SConcept ActionConstructionParameterDeclaration_f42883f2 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11daf6d2bdcL, "jetbrains.mps.lang.plugin.structure.ActionConstructionParameterDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink toStringFunction$HYI3 = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11daf6d2bdcL, 0x11db00a8280L, "toStringFunction");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrimitiveType$5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
+    /*package*/ static final SConcept ActionConstructionParameterDeclaration$AK = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11daf6d2bdcL, "jetbrains.mps.lang.plugin.structure.ActionConstructionParameterDeclaration");
   }
 }

@@ -36,7 +36,7 @@ public class TestSubstituteExceptionSubconceptsChild_SubstituteMenu extends Subs
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
     result.add(new SMP_Subconcepts_t8rzxu_a());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_t8rzxu_b(), AUX_t8rzxu.TestSubstituteExceptionSubconceptsChild_98f79442));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_t8rzxu_b(), CONCEPTS.TestSubstituteExceptionSubconceptsChild$dw));
     return result;
   }
 
@@ -55,7 +55,7 @@ public class TestSubstituteExceptionSubconceptsChild_SubstituteMenu extends Subs
 
   public class SMP_Subconcepts_t8rzxu_a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_t8rzxu.TestSubstituteExceptionSubconceptsChild_98f79442).stream().filter(new Predicate<SAbstractConcept>() {
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.TestSubstituteExceptionSubconceptsChild$dw).stream().filter(new Predicate<SAbstractConcept>() {
         public boolean test(SAbstractConcept concept) {
           return filterConcept(_context, concept);
         }
@@ -109,7 +109,7 @@ public class TestSubstituteExceptionSubconceptsChild_SubstituteMenu extends Subs
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_t8rzxu.TestSubstituteExceptionSubconceptsChild_98f79442, context);
+        super(CONCEPTS.TestSubstituteExceptionSubconceptsChild$dw, context);
         _context = context;
       }
 
@@ -135,7 +135,7 @@ public class TestSubstituteExceptionSubconceptsChild_SubstituteMenu extends Subs
     }
   }
 
-  private static final class AUX_t8rzxu {
-    /*package*/ static final SConcept TestSubstituteExceptionSubconceptsChild_98f79442 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x4c7dc5cc7a893d21L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionSubconceptsChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteExceptionSubconceptsChild$dw = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x4c7dc5cc7a893d21L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionSubconceptsChild");
   }
 }

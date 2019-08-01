@@ -13,8 +13,9 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RemoveDefaultsPart extends SubstituteMenuBase {
   @NotNull
@@ -41,7 +42,7 @@ public class RemoveDefaultsPart extends SubstituteMenuBase {
   public class SMP_Group_vrn6z8_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return Objects.equals(_context.getLink(), MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc257b7aaaL, "removeDefaultsPart"));
+      return Objects.equals(_context.getLink(), LINKS.removeDefaultsPart$Qlv3);
     }
     @NotNull
     @Override
@@ -59,5 +60,9 @@ public class RemoveDefaultsPart extends SubstituteMenuBase {
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
       return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList();
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink removeDefaultsPart$Qlv3 = MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc257b7aaaL, "removeDefaultsPart");
   }
 }

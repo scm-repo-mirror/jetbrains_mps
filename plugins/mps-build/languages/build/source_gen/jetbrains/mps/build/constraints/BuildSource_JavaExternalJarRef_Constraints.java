@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,16 +25,18 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BuildSource_JavaExternalJarRef_Constraints extends BaseConstraintsDescriptor {
   public BuildSource_JavaExternalJarRef_Constraints() {
-    super(AUX_u5rckp.BuildSource_JavaExternalJarRef_e5427b75);
+    super(CONCEPTS.BuildSource_JavaExternalJarRef$ad);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.jar$jJDw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,7 +51,7 @@ public class BuildSource_JavaExternalJarRef_Constraints extends BaseConstraintsD
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_u5rckp.BuildProject_808bb057, true, false);
+            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BuildProject$BF, true, false);
             String target = null;
             if ((contextProject != null)) {
               Scope importedArtifactsScope = ScopeUtil.getVisibleJarsScope(contextProject);
@@ -59,7 +60,7 @@ public class BuildSource_JavaExternalJarRef_Constraints extends BaseConstraintsD
               }
             }
             if (target == null) {
-              target = (SNodeOperations.isInstanceOf(_context.getParameterNode(), AUX_u5rckp.BuildInputSingleFile_7fe8cc2b) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getParameterNode(), AUX_u5rckp.BuildInputSingleFile_7fe8cc2b), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, 0x48d5d03db922459aL, "path"))) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(_context.getParameterNode()));
+              target = (SNodeOperations.isInstanceOf(_context.getParameterNode(), CONCEPTS.BuildInputSingleFile$yn) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getParameterNode(), CONCEPTS.BuildInputSingleFile$yn), LINKS.path$6h5X)) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(_context.getParameterNode()));
             }
             return target;
           }
@@ -69,11 +70,11 @@ public class BuildSource_JavaExternalJarRef_Constraints extends BaseConstraintsD
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_u5rckp.BuildProject_808bb057, true, false);
+            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BuildProject$BF, true, false);
             if ((contextProject != null)) {
               return ScopeUtil.getVisibleJarsScope(contextProject);
             }
-            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, AUX_u5rckp.BuildSource_SingleFile_b22b859d);
+            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, CONCEPTS.BuildSource_SingleFile$P_);
           }
         };
       }
@@ -84,10 +85,15 @@ public class BuildSource_JavaExternalJarRef_Constraints extends BaseConstraintsD
   }
   private static final SNodePointer breakingNode_u5rckp_a0a2a0a0a1a0a0a0c = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "6836281137582840435");
 
-  private static final class AUX_u5rckp {
-    /*package*/ static final SConcept BuildSource_JavaExternalJarRef_e5427b75 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarRef");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildInputSingleFile_7fe8cc2b = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, "jetbrains.mps.build.structure.BuildInputSingleFile");
-    /*package*/ static final SInterfaceConcept BuildSource_SingleFile_b22b859d = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afa57ad2L, "jetbrains.mps.build.structure.BuildSource_SingleFile");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaExternalJarRef$ad = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarRef");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildInputSingleFile$yn = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, "jetbrains.mps.build.structure.BuildInputSingleFile");
+    /*package*/ static final SInterfaceConcept BuildSource_SingleFile$P_ = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afa57ad2L, "jetbrains.mps.build.structure.BuildSource_SingleFile");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink jar$jJDw = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar");
+    /*package*/ static final SContainmentLink path$6h5X = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, 0x48d5d03db922459aL, "path");
   }
 }

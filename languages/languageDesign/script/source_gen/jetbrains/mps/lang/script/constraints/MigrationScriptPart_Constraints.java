@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class MigrationScriptPart_Constraints extends BaseConstraintsDescriptor {
   public MigrationScriptPart_Constraints() {
-    super(AUX_xtb8qp.MigrationScriptPart_cf147892);
+    super(CONCEPTS.MigrationScriptPart$$g);
   }
 
-  private static final class AUX_xtb8qp {
-    /*package*/ static final SConcept MigrationScriptPart_cf147892 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x60bdd7da75343e05L, "jetbrains.mps.lang.script.structure.MigrationScriptPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MigrationScriptPart$$g = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x60bdd7da75343e05L, "jetbrains.mps.lang.script.structure.MigrationScriptPart");
   }
 }

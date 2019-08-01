@@ -15,13 +15,15 @@ import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescri
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ToggleMethodFinal_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -40,7 +42,7 @@ public final class ToggleMethodFinal_Intention extends AbstractIntentionDescript
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    if (SNodeOperations.isInstanceOf(node, AUX_j0i22v.ConstructorDeclaration_9dbf9ae8) || SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_j0i22v.Interface_bca2069)) {
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConstructorDeclaration$5U) || SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Interface$Kp)) {
       return false;
     }
     if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(node)) {
@@ -50,10 +52,10 @@ public final class ToggleMethodFinal_Intention extends AbstractIntentionDescript
     if (contextNode == null) {
       return true;
     }
-    List<SNode> includingStatementLists = SNodeOperations.getNodeAncestors(contextNode, AUX_j0i22v.StatementList_9dbf9acf, true);
+    List<SNode> includingStatementLists = SNodeOperations.getNodeAncestors(contextNode, CONCEPTS.StatementList$TN, true);
     Iterable<SNode> includingBodies = ListSequence.fromList(includingStatementLists).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.hasRole(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body"));
+        return SNodeOperations.hasRole(it, LINKS.body$WIlu);
       }
     });
     return Sequence.fromIterable(includingBodies).isEmpty();
@@ -73,12 +75,12 @@ public final class ToggleMethodFinal_Intention extends AbstractIntentionDescript
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      String methodName = SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-      return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal")) ? "Make '" + methodName + "' not final" : "Make '" + methodName + "' final");
+      String methodName = SPropertyOperations.getString(node, PROPS.name$tAp1);
+      return (SPropertyOperations.getBoolean(node, PROPS.isFinal$I$Qu) ? "Make '" + methodName + "' not final" : "Make '" + methodName + "' final");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal"))));
+      SPropertyOperations.assign(node, PROPS.isFinal$I$Qu, !(SPropertyOperations.getBoolean(node, PROPS.isFinal$I$Qu)));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -86,9 +88,18 @@ public final class ToggleMethodFinal_Intention extends AbstractIntentionDescript
     }
   }
 
-  private static final class AUX_j0i22v {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isFinal$I$Qu = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal");
   }
 }

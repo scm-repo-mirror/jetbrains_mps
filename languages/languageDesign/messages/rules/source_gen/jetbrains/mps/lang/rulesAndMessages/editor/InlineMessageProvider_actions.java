@@ -23,7 +23,7 @@ public class InlineMessageProvider_actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (!(DeletionApproverUtil.approve(editorContext, SNodeOperations.cast(SNodeOperations.getParent(node), AUX_qabpwu.RuleWithMessage_dc955b88)))) {
+        if (!(DeletionApproverUtil.approve(editorContext, SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.RuleWithMessage$jq)))) {
           SNodeOperations.deleteNode(SNodeOperations.getParent(node));
         }
       }
@@ -36,7 +36,7 @@ public class InlineMessageProvider_actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeFactoryOperations.insertNewNextSiblingChild(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_qabpwu.RuleWithMessage_dc955b88), AUX_qabpwu.RuleWithMessage_dc955b88);
+        SNodeFactoryOperations.insertNewNextSiblingChild(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.RuleWithMessage$jq), CONCEPTS.RuleWithMessage$jq);
       }
 
     };
@@ -47,7 +47,7 @@ public class InlineMessageProvider_actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeFactoryOperations.insertNewPrevSiblingChild(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_qabpwu.RuleWithMessage_dc955b88), AUX_qabpwu.RuleWithMessage_dc955b88);
+        SNodeFactoryOperations.insertNewPrevSiblingChild(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.RuleWithMessage$jq), CONCEPTS.RuleWithMessage$jq);
       }
 
     };
@@ -96,7 +96,7 @@ public class InlineMessageProvider_actions {
     }
   }
 
-  private static final class AUX_qabpwu {
-    /*package*/ static final SConcept RuleWithMessage_dc955b88 = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RuleWithMessage$jq = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage");
   }
 }

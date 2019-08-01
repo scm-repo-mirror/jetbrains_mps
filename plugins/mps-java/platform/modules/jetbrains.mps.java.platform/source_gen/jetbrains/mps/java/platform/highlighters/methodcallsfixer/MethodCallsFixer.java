@@ -26,8 +26,9 @@ import java.util.Map;
 import jetbrains.mps.ide.ThreadUtils;
 import org.jetbrains.mps.openapi.model.SNodeUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class MethodCallsFixer extends BaseEditorChecker {
   private static boolean DISABLED = true;
@@ -115,7 +116,7 @@ public class MethodCallsFixer extends BaseEditorChecker {
     }
 
     if (!(incremental)) {
-      for (SNode methodCall : SNodeOperations.getNodeDescendants(rootNode, AUX_2ncc3r.IMethodCall_ee2c776b, false, new SAbstractConcept[]{})) {
+      for (SNode methodCall : SNodeOperations.getNodeDescendants(rootNode, CONCEPTS.IMethodCall$ln, false, new SAbstractConcept[]{})) {
         myCurrentSession.checkMethodCall(methodCall);
       }
     }
@@ -129,7 +130,7 @@ public class MethodCallsFixer extends BaseEditorChecker {
               for (SNode methodCall : methodCallsToUpdate.keySet()) {
                 SNode referent = methodCallsToUpdate.get(methodCall);
                 if (referent != null && SNodeUtil.isAccessible(referent, repository)) {
-                  SLinkOperations.setTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), referent);
+                  SLinkOperations.setTarget(methodCall, LINKS.baseMethodDeclaration$$A7i, referent);
                 }
               }
             }
@@ -139,7 +140,11 @@ public class MethodCallsFixer extends BaseEditorChecker {
     }
   }
 
-  private static final class AUX_2ncc3r {
-    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
   }
 }

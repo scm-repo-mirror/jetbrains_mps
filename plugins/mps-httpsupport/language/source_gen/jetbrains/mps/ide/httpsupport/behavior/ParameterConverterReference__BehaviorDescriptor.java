@@ -4,6 +4,7 @@ package jetbrains.mps.ide.httpsupport.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,14 +16,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ParameterConverterReference__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_w10uui.ParameterConverterReference_68380210;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdb465L, "jetbrains.mps.ide.httpsupport.structure.ParameterConverterReference");
 
   public static final SMethod<SNode> getParameterType_id4rKp80ZJrgq = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getParameterType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4rKp80ZJrgq").build();
 
@@ -32,7 +33,7 @@ public final class ParameterConverterReference__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ static SNode getParameterType_id4rKp80ZJrgq(@NotNull SNode __thisNode__) {
-    return SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdb465L, 0x46f064803fbdb466L, "declaration")), MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x3d1bb14fe8385046L, 0x3d1bb14fe83869abL, "parameterType")));
+    return SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$ZWR0), LINKS.parameterType$vj6Q));
   }
 
   /*package*/ ParameterConverterReference__BehaviorDescriptor() {
@@ -81,7 +82,8 @@ public final class ParameterConverterReference__BehaviorDescriptor extends BaseB
     return CONCEPT;
   }
 
-  private static final class AUX_w10uui {
-    /*package*/ static final SConcept ParameterConverterReference_68380210 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdb465L, "jetbrains.mps.ide.httpsupport.structure.ParameterConverterReference");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$ZWR0 = MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x46f064803fbdb465L, 0x46f064803fbdb466L, "declaration");
+    /*package*/ static final SContainmentLink parameterType$vj6Q = MetaAdapterFactory.getContainmentLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x3d1bb14fe8385046L, 0x3d1bb14fe83869abL, "parameterType");
   }
 }

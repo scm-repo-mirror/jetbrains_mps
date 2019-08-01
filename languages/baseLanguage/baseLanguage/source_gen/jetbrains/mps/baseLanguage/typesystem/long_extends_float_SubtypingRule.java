@@ -20,7 +20,7 @@ public class long_extends_float_SubtypingRule extends SubtypingRule_Runtime impl
     return _quotation_createNode_gbknn_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_gbknn.LongType_d47683f7;
+    return CONCEPTS.LongType$Db;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +35,7 @@ public class long_extends_float_SubtypingRule extends SubtypingRule_Runtime impl
     return quotedNode_1;
   }
 
-  private static final class AUX_gbknn {
-    /*package*/ static final SConcept LongType_d47683f7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f3L, "jetbrains.mps.baseLanguage.structure.LongType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LongType$Db = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f3L, "jetbrains.mps.baseLanguage.structure.LongType");
   }
 }

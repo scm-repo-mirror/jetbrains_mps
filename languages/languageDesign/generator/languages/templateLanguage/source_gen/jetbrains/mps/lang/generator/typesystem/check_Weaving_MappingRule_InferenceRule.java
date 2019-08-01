@@ -9,36 +9,37 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.generator.behavior.TemplateDeclarationReference__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_Weaving_MappingRule_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public check_Weaving_MappingRule_InferenceRule() {
   }
   public void applyRule(final SNode rule, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(rule, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, 0x1104fd38a1cL, "ruleConsequence")), AUX_93ildw.TemplateDeclarationReference_4d5da335)) {
-      SNode template = TemplateDeclarationReference__BehaviorDescriptor.getTemplate_idQzR6ThtRo7.invoke(SNodeOperations.cast(SLinkOperations.getTarget(rule, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, 0x1104fd38a1cL, "ruleConsequence")), AUX_93ildw.TemplateDeclarationReference_4d5da335));
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(rule, LINKS.ruleConsequence$pweR), CONCEPTS.TemplateDeclarationReference$bd)) {
+      SNode template = TemplateDeclarationReference__BehaviorDescriptor.getTemplate_idQzR6ThtRo7.invoke(SNodeOperations.cast(SLinkOperations.getTarget(rule, LINKS.ruleConsequence$pweR), CONCEPTS.TemplateDeclarationReference$bd));
       boolean useRootTemplateFragment = false;
-      for (SNode child : SNodeOperations.getChildren(SLinkOperations.getTarget(template, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode")))) {
-        if (SNodeOperations.isInstanceOf(child, AUX_93ildw.TemplateFragment_1973fd34)) {
+      for (SNode child : SNodeOperations.getChildren(SLinkOperations.getTarget(template, LINKS.contentNode$UkrJ))) {
+        if (SNodeOperations.isInstanceOf(child, CONCEPTS.TemplateFragment$yI)) {
           useRootTemplateFragment = true;
         }
       }
       if (useRootTemplateFragment) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(rule, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, 0x1104fd38a1cL, "ruleConsequence")), "Weaving Template can't include Template Fragment as root", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "1241017586622", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(rule, LINKS.ruleConsequence$pweR), "Weaving Template can't include Template Fragment as root", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "1241017586622", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_93ildw.Weaving_MappingRule_34299823;
+    return CONCEPTS.Weaving_MappingRule$Iv;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -47,9 +48,14 @@ public class check_Weaving_MappingRule_InferenceRule extends AbstractInferenceRu
     return false;
   }
 
-  private static final class AUX_93ildw {
-    /*package*/ static final SConcept TemplateDeclarationReference_4d5da335 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11013906056L, "jetbrains.mps.lang.generator.structure.TemplateDeclarationReference");
-    /*package*/ static final SConcept TemplateFragment_1973fd34 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
-    /*package*/ static final SConcept Weaving_MappingRule_34299823 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, "jetbrains.mps.lang.generator.structure.Weaving_MappingRule");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ruleConsequence$pweR = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, 0x1104fd38a1cL, "ruleConsequence");
+    /*package*/ static final SContainmentLink contentNode$UkrJ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateDeclarationReference$bd = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11013906056L, "jetbrains.mps.lang.generator.structure.TemplateDeclarationReference");
+    /*package*/ static final SConcept TemplateFragment$yI = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
+    /*package*/ static final SConcept Weaving_MappingRule$Iv = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, "jetbrains.mps.lang.generator.structure.Weaving_MappingRule");
   }
 }

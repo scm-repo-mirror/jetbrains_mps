@@ -4,6 +4,7 @@ package jetbrains.mps.lang.migration.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IMigrationUnit__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_i0kkw5.IMigrationUnit_128da2b8;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x47bb811da2acc4d6L, "jetbrains.mps.lang.migration.structure.IMigrationUnit");
 
   public static final SMethod<Integer> fromVersion_id4uVwhQyFcnl = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("fromVersion").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uVwhQyFcnl").build();
   public static final SMethod<Boolean> isVersionSet_id4uVwhQyFpOe = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isVersionSet").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uVwhQyFpOe").build();
@@ -39,10 +39,10 @@ public final class IMigrationUnit__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String getVersionedName_id5T5Tgcp0u0A(@NotNull SNode __thisNode__) {
-    return String.format("%03d", ((int) IMigrationUnit__BehaviorDescriptor.fromVersion_id4uVwhQyFcnl.invoke(__thisNode__))) + "_" + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return String.format("%03d", ((int) IMigrationUnit__BehaviorDescriptor.fromVersion_id4uVwhQyFcnl.invoke(__thisNode__))) + "_" + SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
   }
   /*package*/ static String getClassName_id5Fumpqe4XH$(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
   }
 
   /*package*/ IMigrationUnit__BehaviorDescriptor() {
@@ -93,7 +93,7 @@ public final class IMigrationUnit__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_i0kkw5 {
-    /*package*/ static final SInterfaceConcept IMigrationUnit_128da2b8 = MetaAdapterFactory.getInterfaceConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x47bb811da2acc4d6L, "jetbrains.mps.lang.migration.structure.IMigrationUnit");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

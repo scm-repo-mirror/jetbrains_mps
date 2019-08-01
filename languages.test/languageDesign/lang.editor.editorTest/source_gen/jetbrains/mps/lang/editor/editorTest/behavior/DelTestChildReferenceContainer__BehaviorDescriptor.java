@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.editorTest.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,16 +19,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class DelTestChildReferenceContainer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_fzgrbv.DelTestChildReferenceContainer_fa48ee02;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x7a6a3ef59ad69da7L, "jetbrains.mps.lang.editor.editorTest.structure.DelTestChildReferenceContainer");
 
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
@@ -37,10 +38,10 @@ public final class DelTestChildReferenceContainer__BehaviorDescriptor extends Ba
   }
 
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), AUX_fzgrbv.DelTestNodeToReference_fa48ee1e)) {
-      return new NamedElementsScope(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x7a6a3ef59ad69da7L, 0x5a98420815d28284L, "childToReference")));
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), CONCEPTS.DelTestNodeToReference$k4)) {
+      return new NamedElementsScope(SLinkOperations.getTarget(__thisNode__, LINKS.childToReference$IyiZ));
     }
-    return ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, AUX_fzgrbv.ScopeProvider_545e361a, kind, child);
+    return ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$M8, kind, child);
   }
 
   /*package*/ DelTestChildReferenceContainer__BehaviorDescriptor() {
@@ -89,9 +90,12 @@ public final class DelTestChildReferenceContainer__BehaviorDescriptor extends Ba
     return CONCEPT;
   }
 
-  private static final class AUX_fzgrbv {
-    /*package*/ static final SConcept DelTestChildReferenceContainer_fa48ee02 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x7a6a3ef59ad69da7L, "jetbrains.mps.lang.editor.editorTest.structure.DelTestChildReferenceContainer");
-    /*package*/ static final SConcept DelTestNodeToReference_fa48ee1e = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x7a6a3ef59ad69daeL, "jetbrains.mps.lang.editor.editorTest.structure.DelTestNodeToReference");
-    /*package*/ static final SInterfaceConcept ScopeProvider_545e361a = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DelTestNodeToReference$k4 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x7a6a3ef59ad69daeL, "jetbrains.mps.lang.editor.editorTest.structure.DelTestNodeToReference");
+    /*package*/ static final SInterfaceConcept ScopeProvider$M8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink childToReference$IyiZ = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x7a6a3ef59ad69da7L, 0x5a98420815d28284L, "childToReference");
   }
 }

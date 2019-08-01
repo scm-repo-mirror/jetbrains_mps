@@ -13,12 +13,13 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ConvertElsifToNewIfStatement_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -37,9 +38,9 @@ public final class ConvertElsifToNewIfStatement_Intention extends AbstractIntent
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    SNode statement = SNodeOperations.getNodeAncestor(node, AUX_xu7j7s.IfStatement_9dbf9b10, false, false);
+    SNode statement = SNodeOperations.getNodeAncestor(node, CONCEPTS.IfStatement$pi, false, false);
     SNode statementParent = SNodeOperations.getParent(statement);
-    return (statementParent != null) && SNodeOperations.isInstanceOf(statementParent, AUX_xu7j7s.StatementList_9dbf9acf) && SNodeOperations.getIndexInParent(node) == SNodeOperations.getIndexInParent(ListSequence.fromList(SLinkOperations.getChildren(statement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).last()) && (SLinkOperations.getTarget(statement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")) == null);
+    return (statementParent != null) && SNodeOperations.isInstanceOf(statementParent, CONCEPTS.StatementList$TN) && SNodeOperations.getIndexInParent(node) == SNodeOperations.getIndexInParent(ListSequence.fromList(SLinkOperations.getChildren(statement, LINKS.elsifClauses$uXBQ)).last()) && (SLinkOperations.getTarget(statement, LINKS.ifFalseStatement$Xnu2) == null);
   }
   @Override
   public boolean isSurroundWith() {
@@ -60,10 +61,10 @@ public final class ConvertElsifToNewIfStatement_Intention extends AbstractIntent
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode ifStatement = SNodeFactoryOperations.createNewNode(AUX_xu7j7s.IfStatement_9dbf9b10, null);
-      SLinkOperations.setTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"), SNodeOperations.copyNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0983eL, "condition"))));
-      SLinkOperations.setTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue"), SNodeOperations.copyNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList"))));
-      SNode statement = SNodeOperations.getNodeAncestor(node, AUX_xu7j7s.Statement_9dbf9b0e, false, false);
+      SNode ifStatement = SNodeFactoryOperations.createNewNode(CONCEPTS.IfStatement$pi, null);
+      SLinkOperations.setTarget(ifStatement, LINKS.condition$WJ1b, SNodeOperations.copyNode(SLinkOperations.getTarget(node, LINKS.condition$3oC9)));
+      SLinkOperations.setTarget(ifStatement, LINKS.ifTrue$WJ1E, SNodeOperations.copyNode(SLinkOperations.getTarget(node, LINKS.statementList$TaC3)));
+      SNode statement = SNodeOperations.getNodeAncestor(node, CONCEPTS.Statement$ok, false, false);
       SNodeOperations.insertNextSiblingChild(statement, ifStatement);
       SNodeOperations.deleteNode(node);
     }
@@ -73,9 +74,18 @@ public final class ConvertElsifToNewIfStatement_Intention extends AbstractIntent
     }
   }
 
-  private static final class AUX_xu7j7s {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
+    /*package*/ static final SContainmentLink elsifClauses$uXBQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses");
+    /*package*/ static final SContainmentLink condition$WJ1b = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
+    /*package*/ static final SContainmentLink condition$3oC9 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0983eL, "condition");
+    /*package*/ static final SContainmentLink ifTrue$WJ1E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue");
+    /*package*/ static final SContainmentLink statementList$TaC3 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList");
   }
 }

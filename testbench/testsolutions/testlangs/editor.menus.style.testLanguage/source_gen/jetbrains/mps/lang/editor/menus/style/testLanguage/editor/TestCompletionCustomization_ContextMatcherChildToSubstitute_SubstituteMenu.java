@@ -22,14 +22,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TestCompletionCustomization_ContextMatcherChildToSubstitute_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_9w8282_a(), AUX_9w8282.TestCompletionCustomization_ContextMatcherChildToSubstitute_7f2ed109));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_9w8282_b(), AUX_9w8282.TestCompletionCustomization_ContextMatcherChildToSubstitute_7f2ed109));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_9w8282_a(), CONCEPTS.TestCompletionCustomization_ContextMatcherChildToSubstitute$XT));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_9w8282_b(), CONCEPTS.TestCompletionCustomization_ContextMatcherChildToSubstitute$XT));
     return result;
   }
 
@@ -74,7 +75,7 @@ public class TestCompletionCustomization_ContextMatcherChildToSubstitute_Substit
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_9w8282.TestCompletionCustomization_ContextMatcherChildToSubstitute_7f2ed109, context);
+        super(CONCEPTS.TestCompletionCustomization_ContextMatcherChildToSubstitute$XT, context);
         _context = context;
       }
 
@@ -86,7 +87,7 @@ public class TestCompletionCustomization_ContextMatcherChildToSubstitute_Substit
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80f0bc815L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ContextMatcherChildToSubstitute"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "with priority");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "with priority");
         return node;
       }
 
@@ -129,7 +130,7 @@ public class TestCompletionCustomization_ContextMatcherChildToSubstitute_Substit
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_9w8282.TestCompletionCustomization_ContextMatcherChildToSubstitute_7f2ed109, context);
+        super(CONCEPTS.TestCompletionCustomization_ContextMatcherChildToSubstitute$XT, context);
         _context = context;
       }
 
@@ -141,7 +142,7 @@ public class TestCompletionCustomization_ContextMatcherChildToSubstitute_Substit
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80f0bc815L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ContextMatcherChildToSubstitute"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "no priority");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "no priority");
         return node;
       }
 
@@ -157,7 +158,11 @@ public class TestCompletionCustomization_ContextMatcherChildToSubstitute_Substit
     }
   }
 
-  private static final class AUX_9w8282 {
-    /*package*/ static final SConcept TestCompletionCustomization_ContextMatcherChildToSubstitute_7f2ed109 = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80f0bc815L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ContextMatcherChildToSubstitute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestCompletionCustomization_ContextMatcherChildToSubstitute$XT = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80f0bc815L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ContextMatcherChildToSubstitute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

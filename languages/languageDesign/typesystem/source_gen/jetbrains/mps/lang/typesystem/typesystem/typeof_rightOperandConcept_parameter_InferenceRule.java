@@ -9,25 +9,27 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class typeof_rightOperandConcept_parameter_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_rightOperandConcept_parameter_InferenceRule() {
   }
   public void applyRule(final SNode concept_parameter, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode typeRule = SNodeOperations.getNodeAncestor(concept_parameter, AUX_enkrh2.OverloadedOperatorTypeRule_bda4e6ae, false, false);
+    SNode typeRule = SNodeOperations.getNodeAncestor(concept_parameter, CONCEPTS.OverloadedOperatorTypeRule$TO, false, false);
     if ((typeRule != null)) {
-      if (SPropertyOperations.getBoolean(typeRule, MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11ff554bf2bL, "rightIsExact"))) {
+      if (SPropertyOperations.getBoolean(typeRule, PROPS.rightIsExact$9esp)) {
         {
           SNode _nodeToCheck_1029348928467 = concept_parameter;
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8968381972988137807", 0, null);
-          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8968381972988137814", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(typeRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11fcc4b84c0L, "rightOperandType")), "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8968381972988137809", true), _info_12389875345);
+          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8968381972988137814", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(typeRule, LINKS.rightOperandType$AZya), "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8968381972988137809", true), _info_12389875345);
         }
       } else {
         {
@@ -46,7 +48,7 @@ public class typeof_rightOperandConcept_parameter_InferenceRule extends Abstract
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_enkrh2.RightOperandType_parameter_c111d9cd;
+    return CONCEPTS.RightOperandType_parameter$WP;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -67,8 +69,16 @@ public class typeof_rightOperandConcept_parameter_InferenceRule extends Abstract
     return quotedNode_1;
   }
 
-  private static final class AUX_enkrh2 {
-    /*package*/ static final SConcept OverloadedOperatorTypeRule_bda4e6ae = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, "jetbrains.mps.lang.typesystem.structure.OverloadedOperatorTypeRule");
-    /*package*/ static final SConcept RightOperandType_parameter_c111d9cd = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4d8edaL, "jetbrains.mps.lang.typesystem.structure.RightOperandType_parameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OverloadedOperatorTypeRule$TO = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, "jetbrains.mps.lang.typesystem.structure.OverloadedOperatorTypeRule");
+    /*package*/ static final SConcept RightOperandType_parameter$WP = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4d8edaL, "jetbrains.mps.lang.typesystem.structure.RightOperandType_parameter");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightOperandType$AZya = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11fcc4b84c0L, "rightOperandType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty rightIsExact$9esp = MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11ff554bf2bL, "rightIsExact");
   }
 }

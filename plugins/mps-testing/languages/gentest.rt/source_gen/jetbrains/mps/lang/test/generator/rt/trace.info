@@ -49,8 +49,8 @@
       <node id="6346338635721144983" at="96,32,97,33" concept="2" />
       <node id="3550237152251881034" at="103,48,104,90" concept="7" />
       <node id="3550237152251881043" at="104,90,105,69" concept="7" />
-      <node id="3550237152251881050" at="105,69,106,147" concept="7" />
-      <node id="3550237152251881070" at="106,147,107,77" concept="8" />
+      <node id="3550237152251881050" at="105,69,106,139" concept="7" />
+      <node id="3550237152251881070" at="106,139,107,77" concept="8" />
       <node id="3550237152253243361" at="112,53,113,112" concept="9" />
       <node id="7437836795856263049" at="113,112,114,151" concept="9" />
       <node id="3129274837229977464" at="114,151,115,88" concept="7" />
@@ -60,7 +60,7 @@
       <node id="7437836795857834747" at="121,121,122,13" concept="8" />
       <node id="8127774551176766659" at="127,51,128,19" concept="2" />
       <node id="8127774551176770570" at="129,5,130,31" concept="2" />
-      <node id="4153091185618203835" at="134,0,135,0" concept="11" trace="Plan_4c7f418c" />
+      <node id="4153091185618203835" at="134,0,135,0" concept="11" trace="Plan$Xm" />
       <node id="716743818716874910" at="52,0,55,0" concept="6" trace="getEnvironment#()Ljetbrains/mps/tool/environment/Environment;" />
       <node id="716743818717058960" at="56,0,59,0" concept="6" trace="setProject#(Lorg/jetbrains/mps/openapi/project/Project;)V" />
       <node id="125809422875828318" at="78,0,81,0" concept="6" trace="compute#()Ljava/util/List;" />
@@ -148,7 +148,7 @@
         <var name="m1" id="7985317431306654337" />
         <var name="m2" id="7985317431306654373" />
       </scope>
-      <unit id="4153091185618203835" at="133,0,136,0" name="jetbrains.mps.lang.test.generator.rt.BaseGeneratorTest$AUX_ee8dai" />
+      <unit id="4153091185618203835" at="133,0,136,0" name="jetbrains.mps.lang.test.generator.rt.BaseGeneratorTest$CONCEPTS" />
       <unit id="125809422875828318" at="77,103,81,5" name="jetbrains.mps.lang.test.generator.rt.BaseGeneratorTest$1" />
       <unit id="3550237152253220122" at="102,72,109,5" name="jetbrains.mps.lang.test.generator.rt.BaseGeneratorTest$2" />
       <unit id="4153091185618203835" at="37,0,137,0" name="jetbrains.mps.lang.test.generator.rt.BaseGeneratorTest" />

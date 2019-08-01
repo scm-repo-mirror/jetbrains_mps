@@ -13,11 +13,13 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class FontStyleQuery_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -47,7 +49,7 @@ public final class FontStyleQuery_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x11c47cb352dL, "query")) == null)) {
+      if ((SLinkOperations.getTarget(node, LINKS.query$7Yu1) == null)) {
         return "Add Query";
       } else {
         return "Remove Query";
@@ -55,17 +57,25 @@ public final class FontStyleQuery_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x11c47cb352dL, "query")) == null)) {
-        SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x1143b2ce41fL, "style"), 0x11c47b3e786L, "QUERY");
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x11c47cb352dL, "query"), null);
+      if ((SLinkOperations.getTarget(node, LINKS.query$7Yu1) == null)) {
+        SPropertyOperations.setEnum(node, PROPS.style$Ncgx, 0x11c47b3e786L, "QUERY");
+        SNodeFactoryOperations.setNewChild(node, LINKS.query$7Yu1, null);
       } else {
-        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x11c47cb352dL, "query")));
-        SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x1143b2ce41fL, "style"), 0x1082a1c2aa1L, "PLAIN");
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.query$7Yu1));
+        SPropertyOperations.setEnum(node, PROPS.style$Ncgx, 0x1082a1c2aa1L, "PLAIN");
       }
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return FontStyleQuery_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink query$7Yu1 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x11c47cb352dL, "query");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty style$Ncgx = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2c9756L, 0x1143b2ce41fL, "style");
   }
 }

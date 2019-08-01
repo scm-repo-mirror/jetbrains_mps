@@ -25,7 +25,7 @@ public class typeof_BooleanInstructionOperation_InferenceRule extends AbstractIn
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4foj38.BooleanInstructionOperation_4f2522de;
+    return CONCEPTS.BooleanInstructionOperation$x4;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_BooleanInstructionOperation_InferenceRule extends AbstractIn
     return quotedNode_1;
   }
 
-  private static final class AUX_4foj38 {
-    /*package*/ static final SConcept BooleanInstructionOperation_4f2522de = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x63a490c22d094d63L, "jetbrains.mps.lang.dataFlow.structure.BooleanInstructionOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BooleanInstructionOperation$x4 = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x63a490c22d094d63L, "jetbrains.mps.lang.dataFlow.structure.BooleanInstructionOperation");
   }
 }

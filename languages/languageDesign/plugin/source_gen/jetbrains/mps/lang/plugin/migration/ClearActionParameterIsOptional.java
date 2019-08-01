@@ -12,9 +12,10 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ClearActionParameterIsOptional extends MigrationScriptBase {
   public String getCaption() {
@@ -37,9 +38,9 @@ public class ClearActionParameterIsOptional extends MigrationScriptBase {
           return scope_5brk54_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_5brk54.ActionParameter_3c60e96, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ActionParameter$ec, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SPropertyOperations.remove(it, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b737a6b7cL, 0x11c71345faaL, "isOptional"));
+          SPropertyOperations.remove(it, PROPS.isOptional$Lw);
         }
       });
     }
@@ -48,7 +49,11 @@ public class ClearActionParameterIsOptional extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, "jetbrains.mps.lang.plugin"), 2);
   }
 
-  private static final class AUX_5brk54 {
-    /*package*/ static final SInterfaceConcept ActionParameter_3c60e96 = MetaAdapterFactory.getInterfaceConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b737a6b7cL, "jetbrains.mps.lang.plugin.structure.ActionParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ActionParameter$ec = MetaAdapterFactory.getInterfaceConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b737a6b7cL, "jetbrains.mps.lang.plugin.structure.ActionParameter");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isOptional$Lw = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b737a6b7cL, 0x11c71345faaL, "isOptional");
   }
 }

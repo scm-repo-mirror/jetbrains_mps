@@ -8,21 +8,22 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class supertypesOf_set_collection_SubtypingRule extends SubtypingRule_Runtime implements ISubtypingRule_Runtime {
   public supertypesOf_set_collection_SubtypingRule() {
   }
   public SNode getSubOrSuperType(SNode st, TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    return _quotation_createNode_6kyuqk_a0a1(SLinkOperations.getTarget(st, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType")));
+    return _quotation_createNode_6kyuqk_a0a1(SLinkOperations.getTarget(st, LINKS.elementType$ZAgX));
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6kyuqk.SetType_d8fa38cf;
+    return CONCEPTS.SetType$1N;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -37,12 +38,17 @@ public class supertypesOf_set_collection_SubtypingRule extends SubtypingRule_Run
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x62e1df06bd2172b2L, "CollectionType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$B4nw, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_6kyuqk {
-    /*package*/ static final SConcept SetType_d8fa38cf = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$ZAgX = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType");
+    /*package*/ static final SContainmentLink elementType$B4nw = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SetType$1N = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
   }
 }

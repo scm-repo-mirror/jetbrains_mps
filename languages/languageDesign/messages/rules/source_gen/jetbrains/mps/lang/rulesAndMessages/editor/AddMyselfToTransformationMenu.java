@@ -80,7 +80,7 @@ public class AddMyselfToTransformationMenu extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_re52r2.RuleWithMessage_dc955b88;
+      return CONCEPTS.RuleWithMessage$jq;
     }
   }
   public class TMP_IncludeSM_re52r2_b0 extends IncludeSubstituteMenuTransformationMenuPart {
@@ -105,12 +105,12 @@ public class AddMyselfToTransformationMenu extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_re52r2.DefForRule_93a8658c;
+      return CONCEPTS.DefForRule$Hm;
     }
   }
 
-  private static final class AUX_re52r2 {
-    /*package*/ static final SConcept RuleWithMessage_dc955b88 = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage");
-    /*package*/ static final SConcept DefForRule_93a8658c = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359366e9d5L, "jetbrains.mps.lang.constraints.rules.structure.DefForRule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RuleWithMessage$jq = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage");
+    /*package*/ static final SConcept DefForRule$Hm = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359366e9d5L, "jetbrains.mps.lang.constraints.rules.structure.DefForRule");
   }
 }

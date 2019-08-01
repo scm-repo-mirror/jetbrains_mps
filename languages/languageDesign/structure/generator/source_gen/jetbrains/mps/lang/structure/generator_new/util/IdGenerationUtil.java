@@ -5,18 +5,19 @@ package jetbrains.mps.lang.structure.generator_new.util;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodeId;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class IdGenerationUtil {
   public static long getConceptId(TemplateQueryContext genContext, SNode concept) {
     long id;
-    if (isEmptyString(SPropertyOperations.getString(concept, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")))) {
+    if (isEmptyString(SPropertyOperations.getString(concept, PROPS.conceptId$TMc5))) {
       genContext.showWarningMessage(concept, "Concept id not set (j.m.lang.structure->Set Ids migration not run?)");
       id = ((SNodeId.Regular) concept.getNodeId()).getId();
     } else {
       try {
-        id = Long.parseLong(SPropertyOperations.getString(concept, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")));
+        id = Long.parseLong(SPropertyOperations.getString(concept, PROPS.conceptId$TMc5));
       } catch (NumberFormatException e) {
         genContext.showErrorMessage(concept, "Concept id can't be converted to long");
         id = ((SNodeId.Regular) concept.getNodeId()).getId();
@@ -27,12 +28,12 @@ public class IdGenerationUtil {
 
   public static long getPropertyId(TemplateQueryContext genContext, SNode prop) {
     long id;
-    if (isEmptyString(SPropertyOperations.getString(prop, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId")))) {
+    if (isEmptyString(SPropertyOperations.getString(prop, PROPS.propertyId$cckp))) {
       genContext.showWarningMessage(prop, "Property id not set (j.m.lang.structure->Set Ids migration not run?)");
       id = ((SNodeId.Regular) prop.getNodeId()).getId();
     } else {
       try {
-        id = Long.parseLong(SPropertyOperations.getString(prop, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId")));
+        id = Long.parseLong(SPropertyOperations.getString(prop, PROPS.propertyId$cckp));
       } catch (NumberFormatException e) {
         genContext.showErrorMessage(prop, "Property id can't be converted to long");
         id = ((SNodeId.Regular) prop.getNodeId()).getId();
@@ -43,12 +44,12 @@ public class IdGenerationUtil {
 
   public static long getLinkId(TemplateQueryContext genContext, SNode link) {
     long id;
-    if (isEmptyString(SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")))) {
+    if (isEmptyString(SPropertyOperations.getString(link, PROPS.linkId$ccI3))) {
       genContext.showWarningMessage(link, "Link id not set (j.m.lang.structure->Set Ids migration not run?)");
       id = ((SNodeId.Regular) link.getNodeId()).getId();
     } else {
       try {
-        id = Long.parseLong(SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")));
+        id = Long.parseLong(SPropertyOperations.getString(link, PROPS.linkId$ccI3));
       } catch (NumberFormatException e) {
         genContext.showErrorMessage(link, "Link id can't be converted to long");
         id = ((SNodeId.Regular) link.getNodeId()).getId();
@@ -58,5 +59,11 @@ public class IdGenerationUtil {
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptId$TMc5 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId");
+    /*package*/ static final SProperty propertyId$cckp = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId");
+    /*package*/ static final SProperty linkId$ccI3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId");
   }
 }

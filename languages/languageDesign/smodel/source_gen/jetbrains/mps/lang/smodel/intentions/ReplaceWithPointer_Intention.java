@@ -15,9 +15,10 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.scripts.NodePointerMigrations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ReplaceWithPointer_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -52,7 +53,7 @@ public final class ReplaceWithPointer_Intention extends AbstractIntentionDescrip
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode nodeIdentity = NodePointerMigrations.toNodeIdentity(node);
-      SLinkOperations.setTarget(SNodeOperations.replaceWithNewChild(node, AUX_h80j5k.NodePointerExpression_bcefaa2a), MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fb0c9435L, 0x66b228a4fb0c9496L, "ref"), nodeIdentity);
+      SLinkOperations.setTarget(SNodeOperations.replaceWithNewChild(node, CONCEPTS.NodePointerExpression$DS), LINKS.ref$Xkjz, nodeIdentity);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -60,7 +61,11 @@ public final class ReplaceWithPointer_Intention extends AbstractIntentionDescrip
     }
   }
 
-  private static final class AUX_h80j5k {
-    /*package*/ static final SConcept NodePointerExpression_bcefaa2a = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fb0c9435L, "jetbrains.mps.lang.smodel.structure.NodePointerExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodePointerExpression$DS = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fb0c9435L, "jetbrains.mps.lang.smodel.structure.NodePointerExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ref$Xkjz = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fb0c9435L, 0x66b228a4fb0c9496L, "ref");
   }
 }

@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -17,25 +16,28 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_LinkRefExpression_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_LinkRefExpression_NonTypesystemRule() {
   }
   public void applyRule(final SNode expr, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode concept = SLinkOperations.getTarget(expr, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b27d16L, "conceptDeclaration"));
-    SNode link = SLinkOperations.getTarget(expr, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b43a97L, "linkDeclaration"));
+    SNode concept = SLinkOperations.getTarget(expr, LINKS.conceptDeclaration$AgS0);
+    SNode link = SLinkOperations.getTarget(expr, LINKS.linkDeclaration$_cVO);
     if (concept == null || link == null) {
       return;
     }
     List<SNode> declaredLinks = AbstractConceptDeclaration__BehaviorDescriptor.getLinkDeclarations_idhEwILKK.invoke(concept);
     if (!(ListSequence.fromList(declaredLinks).contains(link))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
-      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(expr, "link '" + SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role")) + "' is not expected here", "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1226360207686", null, errorTarget);
+      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(expr, "link '" + SPropertyOperations.getString(link, PROPS.role$r_O$) + "' is not expected here", "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1226360207686", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_q8y9xy.LinkRefExpression_eb7ccc12;
+    return CONCEPTS.LinkRefExpression$mg;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -44,7 +46,16 @@ public class check_LinkRefExpression_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_q8y9xy {
-    /*package*/ static final SConcept LinkRefExpression_eb7ccc12 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, "jetbrains.mps.lang.smodel.structure.LinkRefExpression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$AgS0 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b27d16L, "conceptDeclaration");
+    /*package*/ static final SReferenceLink linkDeclaration$_cVO = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b43a97L, "linkDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty role$r_O$ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LinkRefExpression$mg = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, "jetbrains.mps.lang.smodel.structure.LinkRefExpression");
   }
 }

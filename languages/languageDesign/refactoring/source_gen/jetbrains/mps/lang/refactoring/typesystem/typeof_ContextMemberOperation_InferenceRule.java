@@ -24,7 +24,7 @@ public class typeof_ContextMemberOperation_InferenceRule extends AbstractInferen
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6pg1bl.ContextMemberOperation_dc978643;
+    return CONCEPTS.ContextMemberOperation$5Z;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_ContextMemberOperation_InferenceRule extends AbstractInferen
     return false;
   }
 
-  private static final class AUX_6pg1bl {
-    /*package*/ static final SConcept ContextMemberOperation_dc978643 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x6e6245e06b61646dL, "jetbrains.mps.lang.refactoring.structure.ContextMemberOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ContextMemberOperation$5Z = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x6e6245e06b61646dL, "jetbrains.mps.lang.refactoring.structure.ContextMemberOperation");
   }
 }

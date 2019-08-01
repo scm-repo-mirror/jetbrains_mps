@@ -19,10 +19,12 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import junit.framework.Assert;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class NodeDataFlowCheckerUtil {
 
@@ -36,49 +38,55 @@ public class NodeDataFlowCheckerUtil {
     Set<Instruction> unreachable = program.getUnreachableInstructions();
     AnalysisResult<VarSet> initialized = program.analyze(new InitializedVariablesAnalyzer());
     AnalysisResult<VarSet> live = program.analyze(new LivenessAnalyzer());
-    for (SNode child : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_wcpc9q.BaseConcept_bc2351f, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+    for (SNode child : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.BaseConcept$Sz, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_wcpc9q.NodeOperationsContainer_e9631e6e)) != null);
+        return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO)) != null);
       }
     })) {
-      assert AttributeOperations.getAttribute(child, new IAttributeDescriptor.NodeAttribute(AUX_wcpc9q.NodeOperationsContainer_e9631e6e)) != null;
-      SNode container = AttributeOperations.getAttribute(child, new IAttributeDescriptor.NodeAttribute(AUX_wcpc9q.NodeOperationsContainer_e9631e6e));
-      for (SNode operation : SLinkOperations.getChildren(container, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, 0x11b07abae7cL, "nodeOperations"))) {
+      assert AttributeOperations.getAttribute(child, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO)) != null;
+      SNode container = AttributeOperations.getAttribute(child, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO));
+      for (SNode operation : SLinkOperations.getChildren(container, LINKS.nodeOperations$HdFm)) {
         if (ListSequence.fromList(instructions).isNotEmpty()) {
           instruction = program.getInstructionsFor(child).get(0);
         } else {
           continue;
         }
 
-        if (SNodeOperations.isInstanceOf(operation, AUX_wcpc9q.NodeReachable_89d83cf3)) {
+        if (SNodeOperations.isInstanceOf(operation, CONCEPTS.NodeReachable$3f)) {
           Assert.assertFalse("instruction <" + instruction + "> is unreachable", SetSequence.fromSet(unreachable).contains(instruction));
         }
 
-        if (SNodeOperations.isInstanceOf(operation, AUX_wcpc9q.NodeUnreachable_1c52d18f)) {
+        if (SNodeOperations.isInstanceOf(operation, CONCEPTS.NodeUnreachable$YN)) {
           Assert.assertTrue("instruction <" + instruction + "> is reachable", SetSequence.fromSet(unreachable).contains(instruction));
         }
 
-        if (SNodeOperations.isInstanceOf(operation, AUX_wcpc9q.VariableInitialized_7c511e80)) {
+        if (SNodeOperations.isInstanceOf(operation, CONCEPTS.VariableInitialized$3y)) {
           Set<Object> vars = (Set<Object>) initialized.get(instruction);
-          SNode var = SLinkOperations.getTarget(SNodeOperations.cast(operation, AUX_wcpc9q.VariableInitialized_7c511e80), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0843a235L, 0x11b0843f269L, "var"));
-          Assert.assertTrue("variable <" + var + "> is not initialized", SetSequence.fromSet(vars).contains(SLinkOperations.getTarget(var, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"))));
+          SNode var = SLinkOperations.getTarget(SNodeOperations.cast(operation, CONCEPTS.VariableInitialized$3y), LINKS.var$rEWh);
+          Assert.assertTrue("variable <" + var + "> is not initialized", SetSequence.fromSet(vars).contains(SLinkOperations.getTarget(var, LINKS.variableDeclaration$2ky6)));
         }
 
-        if (SNodeOperations.isInstanceOf(operation, AUX_wcpc9q.VariableAlive_f05a1e92)) {
+        if (SNodeOperations.isInstanceOf(operation, CONCEPTS.VariableAlive$cg)) {
           Set<Object> vars = (Set<Object>) live.get(instruction);
-          SNode var = SLinkOperations.getTarget(SNodeOperations.cast(operation, AUX_wcpc9q.VariableInitialized_7c511e80), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0843a235L, 0x11b0843f269L, "var"));
-          Assert.assertTrue("variable <" + var + "> is not alive", SetSequence.fromSet(vars).contains(SLinkOperations.getTarget(var, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"))));
+          SNode var = SLinkOperations.getTarget(SNodeOperations.cast(operation, CONCEPTS.VariableInitialized$3y), LINKS.var$rEWh);
+          Assert.assertTrue("variable <" + var + "> is not alive", SetSequence.fromSet(vars).contains(SLinkOperations.getTarget(var, LINKS.variableDeclaration$2ky6)));
         }
       }
     }
   }
 
-  private static final class AUX_wcpc9q {
-    /*package*/ static final SConcept NodeOperationsContainer_e9631e6e = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
-    /*package*/ static final SConcept NodeReachable_89d83cf3 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b02f9eeb8L, "jetbrains.mps.lang.test.structure.NodeReachable");
-    /*package*/ static final SConcept NodeUnreachable_1c52d18f = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b082d1cb9L, "jetbrains.mps.lang.test.structure.NodeUnreachable");
-    /*package*/ static final SConcept VariableInitialized_7c511e80 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0843a235L, "jetbrains.mps.lang.test.structure.VariableInitialized");
-    /*package*/ static final SConcept VariableAlive_f05a1e92 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b086b4872L, "jetbrains.mps.lang.test.structure.VariableAlive");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeOperationsContainer$UO = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
+    /*package*/ static final SConcept NodeReachable$3f = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b02f9eeb8L, "jetbrains.mps.lang.test.structure.NodeReachable");
+    /*package*/ static final SConcept NodeUnreachable$YN = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b082d1cb9L, "jetbrains.mps.lang.test.structure.NodeUnreachable");
+    /*package*/ static final SConcept VariableInitialized$3y = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0843a235L, "jetbrains.mps.lang.test.structure.VariableInitialized");
+    /*package*/ static final SConcept VariableAlive$cg = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b086b4872L, "jetbrains.mps.lang.test.structure.VariableAlive");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink nodeOperations$HdFm = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, 0x11b07abae7cL, "nodeOperations");
+    /*package*/ static final SContainmentLink var$rEWh = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0843a235L, 0x11b0843f269L, "var");
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 }

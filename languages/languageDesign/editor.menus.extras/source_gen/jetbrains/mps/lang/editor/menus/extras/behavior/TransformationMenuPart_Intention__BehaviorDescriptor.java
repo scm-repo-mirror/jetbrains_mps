@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.menus.extras.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -19,10 +20,9 @@ import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class TransformationMenuPart_Intention__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_5j9zpw.TransformationMenuPart_Intention_ad113a74;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xcffe907ed3de433fL, 0x89d657d9c449c0e2L, 0x289dadfa24b57a51L, "jetbrains.mps.lang.editor.menus.extras.structure.TransformationMenuPart_Intention");
 
   public static final SMethod<List<SConcept>> getAdditionalFeatureParameters_id6kJcyCQ_bk0 = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getAdditionalFeatureParameters").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6kJcyCQ_bk0").build();
 
@@ -32,7 +32,7 @@ public final class TransformationMenuPart_Intention__BehaviorDescriptor extends 
   }
 
   /*package*/ static List<SConcept> getAdditionalFeatureParameters_id6kJcyCQ_bk0(@NotNull SNode __thisNode__) {
-    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), AUX_5j9zpw.QueryFunctionParameter_IntentionExecutable_faca28f3);
+    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.QueryFunctionParameter_IntentionExecutable$jf);
   }
 
   /*package*/ TransformationMenuPart_Intention__BehaviorDescriptor() {
@@ -81,8 +81,7 @@ public final class TransformationMenuPart_Intention__BehaviorDescriptor extends 
     return CONCEPT;
   }
 
-  private static final class AUX_5j9zpw {
-    /*package*/ static final SConcept TransformationMenuPart_Intention_ad113a74 = MetaAdapterFactory.getConcept(0xcffe907ed3de433fL, 0x89d657d9c449c0e2L, 0x289dadfa24b57a51L, "jetbrains.mps.lang.editor.menus.extras.structure.TransformationMenuPart_Intention");
-    /*package*/ static final SConcept QueryFunctionParameter_IntentionExecutable_faca28f3 = MetaAdapterFactory.getConcept(0xcffe907ed3de433fL, 0x89d657d9c449c0e2L, 0x2241a13dab46cce9L, "jetbrains.mps.lang.editor.menus.extras.structure.QueryFunctionParameter_IntentionExecutable");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryFunctionParameter_IntentionExecutable$jf = MetaAdapterFactory.getConcept(0xcffe907ed3de433fL, 0x89d657d9c449c0e2L, 0x2241a13dab46cce9L, "jetbrains.mps.lang.editor.menus.extras.structure.QueryFunctionParameter_IntentionExecutable");
   }
 }

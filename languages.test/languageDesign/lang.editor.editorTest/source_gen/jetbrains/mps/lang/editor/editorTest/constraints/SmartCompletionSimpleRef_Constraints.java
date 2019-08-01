@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -19,15 +18,16 @@ import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SmartCompletionSimpleRef_Constraints extends BaseConstraintsDescriptor {
   public SmartCompletionSimpleRef_Constraints() {
-    super(AUX_plqm49.SmartCompletionSimpleRef_e58289b0);
+    super(CONCEPTS.SmartCompletionSimpleRef$IM);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x399c6e0ff7392edaL, 0x399c6e0ff7392edbL, "reference"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.reference$kc70, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -42,7 +42,7 @@ public class SmartCompletionSimpleRef_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_plqm49.SmartCompletionChildToRef_a831aa6e);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.SmartCompletionChildToRef$aO);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
@@ -54,8 +54,12 @@ public class SmartCompletionSimpleRef_Constraints extends BaseConstraintsDescrip
   }
   private static final SNodePointer breakingNode_plqm49_a0a0a0a0a1a0a0a0c = new SNodePointer("r:94b1feee-20bf-48e9-9677-814a5fdcaf90(jetbrains.mps.lang.editor.editorTest.constraints)", "4151313971380533700");
 
-  private static final class AUX_plqm49 {
-    /*package*/ static final SConcept SmartCompletionSimpleRef_e58289b0 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x399c6e0ff7392edaL, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionSimpleRef");
-    /*package*/ static final SConcept SmartCompletionChildToRef_a831aa6e = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x61249b1bf0876c8bL, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionChildToRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SmartCompletionSimpleRef$IM = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x399c6e0ff7392edaL, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionSimpleRef");
+    /*package*/ static final SConcept SmartCompletionChildToRef$aO = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x61249b1bf0876c8bL, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionChildToRef");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink reference$kc70 = MetaAdapterFactory.getReferenceLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x399c6e0ff7392edaL, 0x399c6e0ff7392edbL, "reference");
   }
 }

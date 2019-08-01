@@ -13,13 +13,13 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class AdditionalForLoopVariable_Constraints extends BaseConstraintsDescriptor {
   public AdditionalForLoopVariable_Constraints() {
-    super(AUX_rop7bw.AdditionalForLoopVariable_59723fe6);
+    super(CONCEPTS.AdditionalForLoopVariable$KW);
   }
 
   @Override
@@ -38,12 +38,16 @@ public class AdditionalForLoopVariable_Constraints extends BaseConstraintsDescri
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_rop7bw.ForStatement_1eab9ef9) && (SLinkOperations.getTarget(SNodeOperations.cast(parentNode, AUX_rop7bw.ForStatement_1eab9ef9), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a697996feL, 0x10a6979f36bL, "variable")) != null);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ForStatement$Y9) && (SLinkOperations.getTarget(SNodeOperations.cast(parentNode, CONCEPTS.ForStatement$Y9), LINKS.variable$H$_G) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1227128029536558482");
 
-  private static final class AUX_rop7bw {
-    /*package*/ static final SConcept AdditionalForLoopVariable_59723fe6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x19659b074928781eL, "jetbrains.mps.baseLanguage.structure.AdditionalForLoopVariable");
-    /*package*/ static final SConcept ForStatement_1eab9ef9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a698082feL, "jetbrains.mps.baseLanguage.structure.ForStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AdditionalForLoopVariable$KW = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x19659b074928781eL, "jetbrains.mps.baseLanguage.structure.AdditionalForLoopVariable");
+    /*package*/ static final SConcept ForStatement$Y9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a698082feL, "jetbrains.mps.baseLanguage.structure.ForStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink variable$H$_G = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a697996feL, 0x10a6979f36bL, "variable");
   }
 }

@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -34,10 +33,11 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.baseLanguage.constraints.ConstraintsUtil;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SuperInterfaceMethodCall_Constraints extends BaseConstraintsDescriptor {
   public SuperInterfaceMethodCall_Constraints() {
-    super(AUX_bs3nei.SuperInterfaceMethodCall_3072d526);
+    super(CONCEPTS.SuperInterfaceMethodCall$VW);
   }
 
   @Override
@@ -57,7 +57,7 @@ public class SuperInterfaceMethodCall_Constraints extends BaseConstraintsDescrip
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x17dbb10eeb72e5d9L, 0x17dbb10eeb7528deL, "classifier"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.classifier$xsNt, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -72,13 +72,13 @@ public class SuperInterfaceMethodCall_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_bs3nei.SuperInerfaceKind_5b85e0c2);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.SuperInerfaceKind$rw);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
       }
     };
-    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(LINKS.baseMethodDeclaration$$A7i, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -93,7 +93,7 @@ public class SuperInterfaceMethodCall_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode superClassifier = SLinkOperations.getTarget(_context.getReferenceNode(), MetaAdapterFactory.getReferenceLink(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x17dbb10eeb72e5d9L, 0x17dbb10eeb7528deL, "classifier"));
+            SNode superClassifier = SLinkOperations.getTarget(_context.getReferenceNode(), LINKS.classifier$xsNt);
             if (superClassifier == null) {
               return new EmptyScope();
             }
@@ -120,8 +120,13 @@ public class SuperInterfaceMethodCall_Constraints extends BaseConstraintsDescrip
   private static final SNodePointer breakingNode_bs3nei_a0a0a0a0a1a0a0a0d = new SNodePointer("r:cdd73e8d-6dad-4dc5-a775-85eb769628e7(jetbrains.mps.baseLanguage.jdk8.constraints)", "8287904403586986407");
   private static final SNodePointer breakingNode_bs3nei_a0a0a0a0a1a0a0b0d = new SNodePointer("r:cdd73e8d-6dad-4dc5-a775-85eb769628e7(jetbrains.mps.baseLanguage.jdk8.constraints)", "6836281137582776108");
 
-  private static final class AUX_bs3nei {
-    /*package*/ static final SConcept SuperInterfaceMethodCall_3072d526 = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x17dbb10eeb72e5d9L, "jetbrains.mps.baseLanguage.jdk8.structure.SuperInterfaceMethodCall");
-    /*package*/ static final SConcept SuperInerfaceKind_5b85e0c2 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x73048d24d425f35eL, "jetbrains.mps.baseLanguage.structure.SuperInerfaceKind");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuperInterfaceMethodCall$VW = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x17dbb10eeb72e5d9L, "jetbrains.mps.baseLanguage.jdk8.structure.SuperInterfaceMethodCall");
+    /*package*/ static final SConcept SuperInerfaceKind$rw = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x73048d24d425f35eL, "jetbrains.mps.baseLanguage.structure.SuperInerfaceKind");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$xsNt = MetaAdapterFactory.getReferenceLink(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x17dbb10eeb72e5d9L, 0x17dbb10eeb7528deL, "classifier");
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
   }
 }

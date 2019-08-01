@@ -13,11 +13,12 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ImplementingConcepts_Finder extends GeneratedFinder {
   public ImplementingConcepts_Finder() {
@@ -32,7 +33,7 @@ public class ImplementingConcepts_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_25k5q5.InterfaceConceptDeclaration_efdf2bc9;
+    return CONCEPTS.InterfaceConceptDeclaration$MT;
   }
 
   @Override
@@ -50,9 +51,9 @@ public class ImplementingConcepts_Finder extends GeneratedFinder {
                   new _FunctionTypes._void_P1_E0<SNode>() {
                     public void invoke(SNode interfaceNode) {
                       SNode conceptNode = SNodeOperations.getParent(interfaceNode);
-                      if (SNodeOperations.isInstanceOf(conceptNode, AUX_25k5q5.ConceptDeclaration_cb225da8)) {
+                      if (SNodeOperations.isInstanceOf(conceptNode, CONCEPTS.ConceptDeclaration$qU)) {
                         // concept implements interface case 
-                        if (SNodeOperations.hasRole(interfaceNode, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements"))) {
+                        if (SNodeOperations.hasRole(interfaceNode, LINKS.implements$oQDh)) {
                           callback.onUsageFound(createSingleResult(conceptNode));
                           FindUtils.searchForResults(monitor.subTask(1), new IFinder.FindCallback() {
                             public void onUsageFound(@NotNull SearchResult<?> searchResult) {
@@ -90,8 +91,12 @@ public class ImplementingConcepts_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1200310248824");
   }
 
-  private static final class AUX_25k5q5 {
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink implements$oQDh = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements");
   }
 }

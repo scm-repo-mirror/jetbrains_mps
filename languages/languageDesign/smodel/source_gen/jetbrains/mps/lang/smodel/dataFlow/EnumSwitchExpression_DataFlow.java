@@ -6,19 +6,26 @@ import jetbrains.mps.lang.dataFlow.DataFlowBuilder;
 import jetbrains.mps.lang.dataFlow.DataFlowBuilderContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class EnumSwitchExpression_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
-    _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf1d75e0L, "enumExpression")));
-    for (SNode switchCase : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf1fd3b7L, "cases")))) {
-      _context.getBuilder().emitIfJump(_context.getBuilder().before(SLinkOperations.getTarget(switchCase, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1fdc5aL, "body"))), "r:00000000-0000-4000-0000-011c895902fc(jetbrains.mps.lang.smodel.dataFlow)/2453008993629050017");
+    _context.getBuilder().build((SNode) SLinkOperations.getTarget(_context.getNode(), LINKS.enumExpression$4kEb));
+    for (SNode switchCase : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.cases$L5D5))) {
+      _context.getBuilder().emitIfJump(_context.getBuilder().before(SLinkOperations.getTarget(switchCase, LINKS.body$UK79)), "r:00000000-0000-4000-0000-011c895902fc(jetbrains.mps.lang.smodel.dataFlow)/2453008993629050017");
     }
-    for (SNode switchCase : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf1fd3b7L, "cases")))) {
-      _context.getBuilder().build((SNode) SLinkOperations.getTarget(switchCase, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1fdc5aL, "body")));
+    for (SNode switchCase : ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.cases$L5D5))) {
+      _context.getBuilder().build((SNode) SLinkOperations.getTarget(switchCase, LINKS.body$UK79));
       _context.getBuilder().emitJump(_context.getBuilder().label(_context.getNode(), "end"), "r:00000000-0000-4000-0000-011c895902fc(jetbrains.mps.lang.smodel.dataFlow)/2453008993629050861");
     }
     _context.getBuilder().emitLabel("end");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink enumExpression$4kEb = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf1d75e0L, "enumExpression");
+    /*package*/ static final SContainmentLink body$UK79 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1fdc5aL, "body");
+    /*package*/ static final SContainmentLink cases$L5D5 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75dfL, 0x220ad6aedf1fd3b7L, "cases");
   }
 }

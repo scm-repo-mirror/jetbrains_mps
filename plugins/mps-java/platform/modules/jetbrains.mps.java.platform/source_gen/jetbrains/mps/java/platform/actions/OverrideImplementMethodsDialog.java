@@ -53,8 +53,8 @@ public class OverrideImplementMethodsDialog extends GroupedNodesChooser {
 
   @Override
   protected String getText(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_sivw9t.Classifier_4b7e553)) {
-      return ((String) BHReflection.invoke0(SNodeOperations.cast(node, AUX_sivw9t.Classifier_4b7e553), AUX_sivw9t.INamedConcept_8cd7e247, SMethodTrimmedId.create("getFqName", null, "hEwIO9y")));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$hJ)) {
+      return ((String) BHReflection.invoke0(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), CONCEPTS.INamedConcept$nV, SMethodTrimmedId.create("getFqName", null, "hEwIO9y")));
     }
     return super.getText(node);
   }
@@ -116,7 +116,7 @@ public class OverrideImplementMethodsDialog extends GroupedNodesChooser {
   }
 
   public static Iterable<SNode> sortMethods(SNode baseClassifier, Iterable<SNode> methods) {
-    return sortMethods(((List<SNode>) BHReflection.invoke0(baseClassifier, AUX_sivw9t.Classifier_4b7e553, SMethodTrimmedId.create("getAllSuperClassifiers", AUX_sivw9t.Classifier_4b7e553, "59G_UM6ah0X"))), methods);
+    return sortMethods(((List<SNode>) BHReflection.invoke0(baseClassifier, CONCEPTS.Classifier$hJ, SMethodTrimmedId.create("getAllSuperClassifiers", CONCEPTS.Classifier$hJ, "59G_UM6ah0X"))), methods);
   }
 
   public static SNodeReference[] toNodePointers(Iterable<SNode> methods) {
@@ -127,8 +127,8 @@ public class OverrideImplementMethodsDialog extends GroupedNodesChooser {
     }).toGenericArray(SNodeReference.class);
   }
 
-  private static final class AUX_sivw9t {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

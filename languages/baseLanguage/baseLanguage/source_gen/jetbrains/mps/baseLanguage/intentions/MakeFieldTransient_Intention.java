@@ -13,8 +13,9 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class MakeFieldTransient_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -44,15 +45,19 @@ public final class MakeFieldTransient_Intention extends AbstractIntentionDescrip
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x776fe644792f90adL, "isTransient")) ? "Make Field Not Transient" : "Make Field Transient");
+      return (SPropertyOperations.getBoolean(node, PROPS.isTransient$cz2$) ? "Make Field Not Transient" : "Make Field Transient");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x776fe644792f90adL, "isTransient"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x776fe644792f90adL, "isTransient"))));
+      SPropertyOperations.assign(node, PROPS.isTransient$cz2$, !(SPropertyOperations.getBoolean(node, PROPS.isTransient$cz2$)));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return MakeFieldTransient_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isTransient$cz2$ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x776fe644792f90adL, "isTransient");
   }
 }

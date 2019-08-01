@@ -35,7 +35,7 @@ public class IdentityFinder_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_v0mv4w.BaseConcept_bc2351f;
+    return CONCEPTS.BaseConcept$Sz;
   }
 
   @Override
@@ -55,7 +55,7 @@ public class IdentityFinder_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "6148399791136592186");
   }
 
-  private static final class AUX_v0mv4w {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

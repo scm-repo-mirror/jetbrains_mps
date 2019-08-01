@@ -25,7 +25,7 @@ public class typeof_FloatingPointFloatConstant_InferenceRule extends AbstractInf
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_riamxp.FloatingPointFloatConstant_f651563;
+    return CONCEPTS.FloatingPointFloatConstant$pv;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_FloatingPointFloatConstant_InferenceRule extends AbstractInf
     return quotedNode_1;
   }
 
-  private static final class AUX_riamxp {
-    /*package*/ static final SConcept FloatingPointFloatConstant_f651563 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, "jetbrains.mps.baseLanguage.structure.FloatingPointFloatConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FloatingPointFloatConstant$pv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, "jetbrains.mps.baseLanguage.structure.FloatingPointFloatConstant");
   }
 }

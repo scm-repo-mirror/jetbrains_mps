@@ -44,7 +44,7 @@ public class remove_ReturnStatement extends SubstituteMenuBase {
     protected boolean isApplicable(SubstituteMenuContext _context) {
       // return statements must be allowed until we find a way to implement early returns 
       // http://www.javac.info 
-      return false && (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_jk3faa.ClosureLiteral_6eeca0d3, true, false) != null);
+      return false && (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ClosureLiteral$zJ, true, false) != null);
     }
     @NotNull
     @Override
@@ -64,7 +64,7 @@ public class remove_ReturnStatement extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_jk3faa {
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
   }
 }

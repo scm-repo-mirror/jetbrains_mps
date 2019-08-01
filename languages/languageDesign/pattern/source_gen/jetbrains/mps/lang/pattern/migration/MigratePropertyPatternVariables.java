@@ -16,14 +16,15 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.NotMigratedNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 import jetbrains.mps.lang.migration.runtime.base.UsageOfMigrateNodeNotMigratedProblem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MigratePropertyPatternVariables extends MigrationScriptBase {
   public String getCaption() {
@@ -51,9 +52,9 @@ public class MigratePropertyPatternVariables extends MigrationScriptBase {
         }
       };
       List<Problem> res = ListSequence.fromList(new ArrayList<Problem>());
-      ListSequence.fromList(res).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_mymgc3.PropertyPatternVariableDeclaration_b5cd3def, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(res).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.PropertyPatternVariableDeclaration$Xj, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return !(SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated")));
+          return !(SPropertyOperations.getBoolean(it, PROPS.stringValueMigrated$gFe8));
         }
       }).select(new ISelector<SNode, NotMigratedNode>() {
         public NotMigratedNode select(SNode it) {
@@ -65,9 +66,9 @@ public class MigratePropertyPatternVariables extends MigrationScriptBase {
           };
         }
       }));
-      ListSequence.fromList(res).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_mymgc3.PropertyPatternVariableDeclaration_b5cd3def, false)).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(res).addSequence(CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.PropertyPatternVariableDeclaration$Xj, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(SNodeOperations.getParent(PropertyAttribute__BehaviorDescriptor.getPropertyDeclaration_id121FNPYBLc9.invoke(it)), AUX_mymgc3.EnumPropertyMigrationInfo_a791f212);
+          return SNodeOperations.isInstanceOf(SNodeOperations.getParent(PropertyAttribute__BehaviorDescriptor.getPropertyDeclaration_id121FNPYBLc9.invoke(it)), CONCEPTS.EnumPropertyMigrationInfo$Yg);
         }
       }).select(new ISelector<SNode, UsageOfMigrateNodeNotMigratedProblem>() {
         public UsageOfMigrateNodeNotMigratedProblem select(SNode it) {
@@ -82,8 +83,12 @@ public class MigratePropertyPatternVariables extends MigrationScriptBase {
   }
 
 
-  private static final class AUX_mymgc3 {
-    /*package*/ static final SConcept PropertyPatternVariableDeclaration_b5cd3def = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4795L, "jetbrains.mps.lang.pattern.structure.PropertyPatternVariableDeclaration");
-    /*package*/ static final SConcept EnumPropertyMigrationInfo_a791f212 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f1035942a5abL, "jetbrains.mps.lang.structure.structure.EnumPropertyMigrationInfo");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyPatternVariableDeclaration$Xj = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4795L, "jetbrains.mps.lang.pattern.structure.PropertyPatternVariableDeclaration");
+    /*package*/ static final SConcept EnumPropertyMigrationInfo$Yg = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5a14f1035942a5abL, "jetbrains.mps.lang.structure.structure.EnumPropertyMigrationInfo");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty stringValueMigrated$gFe8 = MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x384b195d1ed21709L, 0x1e2950a3c41b89ecL, "stringValueMigrated");
   }
 }

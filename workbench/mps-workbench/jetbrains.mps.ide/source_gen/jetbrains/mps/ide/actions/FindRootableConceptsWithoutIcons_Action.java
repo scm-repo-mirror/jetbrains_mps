@@ -27,12 +27,14 @@ import jetbrains.mps.ide.findusages.model.scopes.ProjectScope;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import com.intellij.openapi.application.ApplicationManager;
 import jetbrains.mps.ide.platform.refactoring.RefactoringAccessEx;
 import jetbrains.mps.ide.platform.refactoring.RefactoringViewAction;
 import jetbrains.mps.ide.platform.refactoring.RefactoringViewItem;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class FindRootableConceptsWithoutIcons_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -83,7 +85,7 @@ public class FindRootableConceptsWithoutIcons_Action extends BaseAction {
             results.value = ListSequence.fromList(((List<SearchResult<SNode>>) concepts.value.getSearchResults())).where(new IWhereFilter<SearchResult<SNode>>() {
               public boolean accept(SearchResult<SNode> it) {
                 SNode node = (SNode) it.getObject();
-                return SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable")) && (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x57cf4eb14c4f9ef5L, "icon")) == null);
+                return SPropertyOperations.getBoolean(node, PROPS.rootable$vg$g) && (SLinkOperations.getTarget(node, LINKS.icon$2CxW) == null);
               }
             }).toListSequence();
           }
@@ -105,5 +107,13 @@ public class FindRootableConceptsWithoutIcons_Action extends BaseAction {
         });
       }
     });
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink icon$2CxW = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x57cf4eb14c4f9ef5L, "icon");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty rootable$vg$g = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable");
   }
 }

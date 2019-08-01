@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -29,10 +28,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ThisExpression_Constraints extends BaseConstraintsDescriptor {
   public ThisExpression_Constraints() {
-    super(AUX_cfy36u.ThisExpression_a046bcfc);
+    super(CONCEPTS.ThisExpression$7A);
   }
 
   @Override
@@ -52,7 +52,7 @@ public class ThisExpression_Constraints extends BaseConstraintsDescriptor {
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.classConcept$Hbij, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -67,10 +67,10 @@ public class ThisExpression_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            if (!(SNodeOperations.isInstanceOf(_context.getReferenceNode(), AUX_cfy36u.ThisExpression_a046bcfc))) {
+            if (!(SNodeOperations.isInstanceOf(_context.getReferenceNode(), CONCEPTS.ThisExpression$7A))) {
               return new EmptyScope();
             }
-            return new NamedElementsScope(ThisExpression__BehaviorDescriptor.getPossibleClassifiers_idhGcjiYt.invoke(SNodeOperations.cast(_context.getReferenceNode(), AUX_cfy36u.ThisExpression_a046bcfc))) {
+            return new NamedElementsScope(ThisExpression__BehaviorDescriptor.getPossibleClassifiers_idhGcjiYt.invoke(SNodeOperations.cast(_context.getReferenceNode(), CONCEPTS.ThisExpression$7A))) {
               @Nullable
               @Override
               public SNode resolve(SNode contextNode, @NotNull String refText) {
@@ -95,7 +95,11 @@ public class ThisExpression_Constraints extends BaseConstraintsDescriptor {
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1227128029536558554");
   private static final SNodePointer breakingNode_cfy36u_a0a0a0a0a1a0a0a0d = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582643767");
 
-  private static final class AUX_cfy36u {
-    /*package*/ static final SConcept ThisExpression_a046bcfc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisExpression$7A = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classConcept$Hbij = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept");
   }
 }

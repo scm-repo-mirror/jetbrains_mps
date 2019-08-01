@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import jetbrains.mps.build.behavior.BuildSource_JavaLibrary__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.build.behavior.BuildSourcePath__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -22,8 +21,12 @@ import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class JavaExternalLibraryHelper {
   private SNode library;
@@ -39,25 +42,25 @@ public class JavaExternalLibraryHelper {
     List<SNode> jarContainers = new ArrayList<SNode>();
 
     if ((boolean) BuildSource_JavaLibrary__BehaviorDescriptor.canExportByParts_id4RsV8qJGJnM.invoke(library)) {
-      for (SNode element : ListSequence.fromList(SLinkOperations.getChildren(library, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x540febaa6144b873L, 0x540febaa6144e311L, "elements")))) {
-        SNode jcp = SNodeOperations.as(element, AUX_g6ffke.BuildSource_JavaLibraryCP_d9672dec);
+      for (SNode element : ListSequence.fromList(SLinkOperations.getChildren(library, LINKS.elements$cwi3))) {
+        SNode jcp = SNodeOperations.as(element, CONCEPTS.BuildSource_JavaLibraryCP$VQ);
         if ((jcp == null)) {
           return null;
         }
-        SNode classpath = SLinkOperations.getTarget(jcp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, 0x3395e884b61d4cbdL, "classpath"));
-        if (SNodeOperations.isInstanceOf(classpath, AUX_g6ffke.BuildSource_JavaJar_67913517)) {
-          SNode jarArtifact = helper.getArtifact(SLinkOperations.getTarget(SNodeOperations.cast(classpath, AUX_g6ffke.BuildSource_JavaJar_67913517), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x11779a1dbcff551aL, 0x3395e884b61c23e2L, "path")));
+        SNode classpath = SLinkOperations.getTarget(jcp, LINKS.classpath$Tk_v);
+        if (SNodeOperations.isInstanceOf(classpath, CONCEPTS.BuildSource_JavaJar$OF)) {
+          SNode jarArtifact = helper.getArtifact(SLinkOperations.getTarget(SNodeOperations.cast(classpath, CONCEPTS.BuildSource_JavaJar$OF), LINKS.path$MMuL));
           if (jarArtifact != null) {
             ListSequence.fromList(artifacts).addElement(jarArtifact);
           } else {
-            genContext.showErrorMessage(library, "jar `" + BuildSourcePath__BehaviorDescriptor.getLastSegment_id5dwDdJ8yckN.invoke(SLinkOperations.getTarget(SNodeOperations.cast(classpath, AUX_g6ffke.BuildSource_JavaJar_67913517), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x11779a1dbcff551aL, 0x3395e884b61c23e2L, "path"))) + "' was not found in the layout");
+            genContext.showErrorMessage(library, "jar `" + BuildSourcePath__BehaviorDescriptor.getLastSegment_id5dwDdJ8yckN.invoke(SLinkOperations.getTarget(SNodeOperations.cast(classpath, CONCEPTS.BuildSource_JavaJar$OF), LINKS.path$MMuL)) + "' was not found in the layout");
             return Sequence.fromIterable(Collections.<SNode>emptyList());
           }
-        } else if (SNodeOperations.isInstanceOf(classpath, AUX_g6ffke.BuildSource_JavaLibraryExternalJar_e72e5822)) {
-          SNode file = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(classpath, AUX_g6ffke.BuildSource_JavaLibraryExternalJar_e72e5822), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb50da7L, 0x4ddcec86afb50da8L, "extJar")), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar"));
-          SNode artifact = SNodeOperations.as(file, AUX_g6ffke.BuildLayout_Node_b7bb997a);
-          if (artifact == null && SNodeOperations.isInstanceOf(file, AUX_g6ffke.BuildInputSingleFile_7fe8cc2b)) {
-            artifact = SNodeOperations.as(helper.getArtifact(SLinkOperations.getTarget(SNodeOperations.cast(file, AUX_g6ffke.BuildInputSingleFile_7fe8cc2b), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, 0x48d5d03db922459aL, "path"))), AUX_g6ffke.BuildLayout_Node_b7bb997a);
+        } else if (SNodeOperations.isInstanceOf(classpath, CONCEPTS.BuildSource_JavaLibraryExternalJar$I0)) {
+          SNode file = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(classpath, CONCEPTS.BuildSource_JavaLibraryExternalJar$I0), LINKS.extJar$MD00), LINKS.jar$jJDw);
+          SNode artifact = SNodeOperations.as(file, CONCEPTS.BuildLayout_Node$kC);
+          if (artifact == null && SNodeOperations.isInstanceOf(file, CONCEPTS.BuildInputSingleFile$yn)) {
+            artifact = SNodeOperations.as(helper.getArtifact(SLinkOperations.getTarget(SNodeOperations.cast(file, CONCEPTS.BuildInputSingleFile$yn), LINKS.path$6h5X)), CONCEPTS.BuildLayout_Node$kC);
           }
           if (artifact != null) {
             ListSequence.fromList(artifacts).addElement(artifact);
@@ -66,11 +69,11 @@ public class JavaExternalLibraryHelper {
             return Sequence.fromIterable(Collections.<SNode>emptyList());
           }
 
-        } else if (SNodeOperations.isInstanceOf(classpath, AUX_g6ffke.BuildSource_JavaLibraryExternalJarFolder_e8d2df04)) {
-          SNode folder = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(classpath, AUX_g6ffke.BuildSource_JavaLibraryExternalJarFolder_e8d2df04), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65af8L, 0x4ddcec86afb65afaL, "extFolder")), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, 0x4ddcec86afb65a40L, "folder"));
-          SNode artifact = SNodeOperations.as(folder, AUX_g6ffke.BuildLayout_AbstractContainer_b7906639);
-          if (artifact == null && SNodeOperations.isInstanceOf(folder, AUX_g6ffke.BuildInputSingleFolder_eab69018)) {
-            artifact = SNodeOperations.as(helper.getArtifact(SLinkOperations.getTarget(SNodeOperations.cast(folder, AUX_g6ffke.BuildInputSingleFolder_eab69018), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, 0x1ff930b22643b100L, "path"))), AUX_g6ffke.BuildLayout_AbstractContainer_b7906639);
+        } else if (SNodeOperations.isInstanceOf(classpath, CONCEPTS.BuildSource_JavaLibraryExternalJarFolder$3u)) {
+          SNode folder = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(classpath, CONCEPTS.BuildSource_JavaLibraryExternalJarFolder$3u), LINKS.extFolder$mQLv), LINKS.folder$mC20);
+          SNode artifact = SNodeOperations.as(folder, CONCEPTS.BuildLayout_AbstractContainer$19);
+          if (artifact == null && SNodeOperations.isInstanceOf(folder, CONCEPTS.BuildInputSingleFolder$9a)) {
+            artifact = SNodeOperations.as(helper.getArtifact(SLinkOperations.getTarget(SNodeOperations.cast(folder, CONCEPTS.BuildInputSingleFolder$9a), LINKS.path$OoV0)), CONCEPTS.BuildLayout_AbstractContainer$19);
           }
           if (artifact != null) {
             ListSequence.fromList(jarContainers).addElement(artifact);
@@ -91,11 +94,11 @@ public class JavaExternalLibraryHelper {
     if (ListSequence.fromList(artifacts).isEmpty() && ListSequence.fromList(jarContainers).isEmpty()) {
       SNode layoutNode = helper.getArtifact(library);
       if (layoutNode == null) {
-        genContext.showErrorMessage(library, "java library " + SPropertyOperations.getString(library, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " was not found in the layout");
+        genContext.showErrorMessage(library, "java library " + SPropertyOperations.getString(library, PROPS.name$tAp1) + " was not found in the layout");
         return Sequence.fromIterable(Collections.<SNode>emptyList());
       } else {
-        if (SNodeOperations.isInstanceOf(layoutNode, AUX_g6ffke.BuildLayout_ExportAsJavaLibrary_f0b9b9f1)) {
-          ListSequence.fromList(artifacts).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(layoutNode, AUX_g6ffke.BuildLayout_ExportAsJavaLibrary_f0b9b9f1), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children"))));
+        if (SNodeOperations.isInstanceOf(layoutNode, CONCEPTS.BuildLayout_ExportAsJavaLibrary$eh)) {
+          ListSequence.fromList(artifacts).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(layoutNode, CONCEPTS.BuildLayout_ExportAsJavaLibrary$eh), LINKS.children$aiMf)));
         } else {
           ListSequence.fromList(artifacts).addElement(layoutNode);
         }
@@ -109,8 +112,8 @@ public class JavaExternalLibraryHelper {
         genContext.showErrorMessage(pe, "no location for " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(pe) + " (unsupported layout element)");
         continue;
       }
-      SNode propertyNode = SModelOperations.createNewNode(genContext.getOutputModel(), null, AUX_g6ffke.GeneratorInternal_LibraryArtifacts_885cbda3);
-      ListSequence.fromList(SLinkOperations.getChildren(propertyNode, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x35951dfcf9e0ba02L, 0x35951dfcf9e0bd1fL, "attrs"))).addElement(_quotation_createNode_g6ffke_a0a3a9a4(val));
+      SNode propertyNode = SModelOperations.createNewNode(genContext.getOutputModel(), null, CONCEPTS.GeneratorInternal_LibraryArtifacts$ov);
+      ListSequence.fromList(SLinkOperations.getChildren(propertyNode, LINKS.attrs$D6TB)).addElement(_quotation_createNode_g6ffke_a0a3a9a4(val));
       ListSequence.fromList(result).addElement(propertyNode);
     }
     for (SNode pe : jarContainers) {
@@ -119,9 +122,9 @@ public class JavaExternalLibraryHelper {
         genContext.showErrorMessage(pe, "no content location for " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(pe) + " (unsupported layout element)");
         continue;
       }
-      SNode propertyNode = SModelOperations.createNewNode(genContext.getOutputModel(), null, AUX_g6ffke.GeneratorInternal_LibraryArtifacts_885cbda3);
-      ListSequence.fromList(SLinkOperations.getChildren(propertyNode, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x35951dfcf9e0ba02L, 0x35951dfcf9e0bd1fL, "attrs"))).addElement(_quotation_createNode_g6ffke_a0a3a01a4(val));
-      ListSequence.fromList(SLinkOperations.getChildren(propertyNode, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x35951dfcf9e0ba02L, 0x35951dfcf9e0bd1fL, "attrs"))).addElement(_quotation_createNode_g6ffke_a0a4a01a4());
+      SNode propertyNode = SModelOperations.createNewNode(genContext.getOutputModel(), null, CONCEPTS.GeneratorInternal_LibraryArtifacts$ov);
+      ListSequence.fromList(SLinkOperations.getChildren(propertyNode, LINKS.attrs$D6TB)).addElement(_quotation_createNode_g6ffke_a0a3a01a4(val));
+      ListSequence.fromList(SLinkOperations.getChildren(propertyNode, LINKS.attrs$D6TB)).addElement(_quotation_createNode_g6ffke_a0a4a01a4());
       ListSequence.fromList(result).addElement(propertyNode);
     }
     return result;
@@ -134,7 +137,7 @@ public class JavaExternalLibraryHelper {
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54b8df6L, "attrName"), "file");
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, "jetbrains.mps.core.xml"), 0x5c842a42c54cfd1fL, "XmlTextValue"), null, null, false);
     SNodeAccessUtil.setPropertyValue(quotedNode_3, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), (String) parameter_1);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value"), quotedNode_3);
+    quotedNode_2.addChild(LINKS.value$RZKQ, quotedNode_3);
     return quotedNode_2;
   }
   private static SNode _quotation_createNode_g6ffke_a0a3a01a4(Object parameter_1) {
@@ -145,7 +148,7 @@ public class JavaExternalLibraryHelper {
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54b8df6L, "attrName"), "dir");
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, "jetbrains.mps.core.xml"), 0x5c842a42c54cfd1fL, "XmlTextValue"), null, null, false);
     SNodeAccessUtil.setPropertyValue(quotedNode_3, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), (String) parameter_1);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value"), quotedNode_3);
+    quotedNode_2.addChild(LINKS.value$RZKQ, quotedNode_3);
     return quotedNode_2;
   }
   private static SNode _quotation_createNode_g6ffke_a0a4a01a4() {
@@ -156,20 +159,39 @@ public class JavaExternalLibraryHelper {
     quotedNode_1.setProperty(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54b8df6L, "attrName"), "includes");
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, "jetbrains.mps.core.xml"), 0x5c842a42c54cfd1fL, "XmlTextValue"), null, null, false);
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), "*.jar");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.value$RZKQ, quotedNode_2);
     return quotedNode_1;
   }
 
-  private static final class AUX_g6ffke {
-    /*package*/ static final SConcept BuildSource_JavaLibraryCP_d9672dec = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, "jetbrains.mps.build.structure.BuildSource_JavaLibraryCP");
-    /*package*/ static final SConcept BuildSource_JavaJar_67913517 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x11779a1dbcff551aL, "jetbrains.mps.build.structure.BuildSource_JavaJar");
-    /*package*/ static final SConcept BuildSource_JavaLibraryExternalJar_e72e5822 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb50da7L, "jetbrains.mps.build.structure.BuildSource_JavaLibraryExternalJar");
-    /*package*/ static final SConcept BuildLayout_Node_b7bb997a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
-    /*package*/ static final SConcept BuildInputSingleFile_7fe8cc2b = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, "jetbrains.mps.build.structure.BuildInputSingleFile");
-    /*package*/ static final SConcept BuildSource_JavaLibraryExternalJarFolder_e8d2df04 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65af8L, "jetbrains.mps.build.structure.BuildSource_JavaLibraryExternalJarFolder");
-    /*package*/ static final SConcept BuildLayout_AbstractContainer_b7906639 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafabcf0cL, "jetbrains.mps.build.structure.BuildLayout_AbstractContainer");
-    /*package*/ static final SConcept BuildInputSingleFolder_eab69018 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
-    /*package*/ static final SConcept BuildLayout_ExportAsJavaLibrary_f0b9b9f1 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x286d67dde534f69bL, "jetbrains.mps.build.structure.BuildLayout_ExportAsJavaLibrary");
-    /*package*/ static final SConcept GeneratorInternal_LibraryArtifacts_885cbda3 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x35951dfcf9e0ba02L, "jetbrains.mps.build.structure.GeneratorInternal_LibraryArtifacts");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaLibraryCP$VQ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, "jetbrains.mps.build.structure.BuildSource_JavaLibraryCP");
+    /*package*/ static final SConcept BuildSource_JavaJar$OF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x11779a1dbcff551aL, "jetbrains.mps.build.structure.BuildSource_JavaJar");
+    /*package*/ static final SConcept BuildSource_JavaLibraryExternalJar$I0 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb50da7L, "jetbrains.mps.build.structure.BuildSource_JavaLibraryExternalJar");
+    /*package*/ static final SConcept BuildLayout_Node$kC = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
+    /*package*/ static final SConcept BuildInputSingleFile$yn = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, "jetbrains.mps.build.structure.BuildInputSingleFile");
+    /*package*/ static final SConcept BuildSource_JavaLibraryExternalJarFolder$3u = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65af8L, "jetbrains.mps.build.structure.BuildSource_JavaLibraryExternalJarFolder");
+    /*package*/ static final SConcept BuildLayout_AbstractContainer$19 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafabcf0cL, "jetbrains.mps.build.structure.BuildLayout_AbstractContainer");
+    /*package*/ static final SConcept BuildInputSingleFolder$9a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
+    /*package*/ static final SConcept BuildLayout_ExportAsJavaLibrary$eh = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x286d67dde534f69bL, "jetbrains.mps.build.structure.BuildLayout_ExportAsJavaLibrary");
+    /*package*/ static final SConcept GeneratorInternal_LibraryArtifacts$ov = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x35951dfcf9e0ba02L, "jetbrains.mps.build.structure.GeneratorInternal_LibraryArtifacts");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classpath$Tk_v = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, 0x3395e884b61d4cbdL, "classpath");
+    /*package*/ static final SContainmentLink path$MMuL = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x11779a1dbcff551aL, 0x3395e884b61c23e2L, "path");
+    /*package*/ static final SContainmentLink extJar$MD00 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb50da7L, 0x4ddcec86afb50da8L, "extJar");
+    /*package*/ static final SReferenceLink jar$jJDw = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar");
+    /*package*/ static final SContainmentLink path$6h5X = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, 0x48d5d03db922459aL, "path");
+    /*package*/ static final SContainmentLink extFolder$mQLv = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65af8L, 0x4ddcec86afb65afaL, "extFolder");
+    /*package*/ static final SReferenceLink folder$mC20 = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, 0x4ddcec86afb65a40L, "folder");
+    /*package*/ static final SContainmentLink path$OoV0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, 0x1ff930b22643b100L, "path");
+    /*package*/ static final SContainmentLink elements$cwi3 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x540febaa6144b873L, 0x540febaa6144e311L, "elements");
+    /*package*/ static final SContainmentLink children$aiMf = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children");
+    /*package*/ static final SContainmentLink attrs$D6TB = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x35951dfcf9e0ba02L, 0x35951dfcf9e0bd1fL, "attrs");
+    /*package*/ static final SContainmentLink value$RZKQ = MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -12,28 +12,34 @@
   </root>
   <root nodeRef="r:88d422f8-169d-45a0-bc07-791cf8753838(jetbrains.mps.lang.behavior.actions)/1238617792577">
     <file name="ConceptMethod.java">
-      <node id="1238617792581" at="18,91,19,132" concept="3" />
-      <node id="1238617792588" at="19,132,20,215" concept="0" />
-      <node id="1238617792603" at="21,306,22,167" concept="0" />
-      <node id="1238617792610" at="22,167,23,166" concept="0" />
-      <node id="1238617792577" at="29,0,30,0" concept="4" trace="ConceptBehavior_68ebe6cd" />
-      <node id="1238617792577" at="30,0,31,0" concept="4" trace="PublicVisibility_63d95354" />
-      <node id="1238617792577" at="31,0,32,0" concept="4" trace="InterfaceConceptDeclaration_efdf2bc9" />
-      <node id="1238617792594" at="20,215,24,7" concept="1" />
-      <node id="1238617792578" at="18,0,26,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="1238617792602" at="21,306,23,166" />
-      <scope id="1238617792578" at="18,91,24,7">
+      <node id="1238617792581" at="21,91,22,124" concept="3" />
+      <node id="1238617792588" at="22,124,23,103" concept="0" />
+      <node id="1238617792603" at="24,196,25,70" concept="0" />
+      <node id="1238617792610" at="25,70,26,69" concept="0" />
+      <node id="1238617792577" at="32,0,33,0" concept="4" trace="ConceptBehavior$8P" />
+      <node id="1238617792577" at="33,0,34,0" concept="4" trace="PublicVisibility$qe" />
+      <node id="1238617792577" at="34,0,35,0" concept="4" trace="InterfaceConceptDeclaration$MT" />
+      <node id="1238617792577" at="38,0,39,0" concept="4" trace="visibility$2GiC" />
+      <node id="1238617792577" at="39,0,40,0" concept="4" trace="concept$v6ns" />
+      <node id="1238617792577" at="43,0,44,0" concept="4" trace="isAbstract$6dnX" />
+      <node id="1238617792577" at="44,0,45,0" concept="4" trace="isVirtual$6dmZ" />
+      <node id="1238617792594" at="23,103,27,7" concept="1" />
+      <node id="1238617792578" at="21,0,29,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="1238617792602" at="24,196,26,69" />
+      <scope id="1238617792578" at="21,91,27,7">
         <var name="behaviour" id="1238617792582" />
       </scope>
-      <scope id="1238617792578" at="18,0,26,0">
+      <scope id="1238617792578" at="21,0,29,0">
         <var name="enclosingNode" id="1238617792578" />
         <var name="model" id="1238617792578" />
         <var name="newNode" id="1238617792578" />
         <var name="sampleNode" id="1238617792578" />
       </scope>
-      <unit id="1238617792577" at="28,0,33,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod$AUX_nb0gx0" />
-      <unit id="1238617792578" at="17,0,27,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod$NodeFactory_1238617792578" />
-      <unit id="1238617792577" at="16,0,34,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod" />
+      <unit id="1238617792577" at="37,0,41,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod$LINKS" />
+      <unit id="1238617792577" at="42,0,46,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod$PROPS" />
+      <unit id="1238617792577" at="31,0,36,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod$CONCEPTS" />
+      <unit id="1238617792578" at="20,0,30,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod$NodeFactory_1238617792578" />
+      <unit id="1238617792577" at="19,0,47,0" name="jetbrains.mps.lang.behavior.actions.ConceptMethod" />
     </file>
   </root>
 </debug-info>

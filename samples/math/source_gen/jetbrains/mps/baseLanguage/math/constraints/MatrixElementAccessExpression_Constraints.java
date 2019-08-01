@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class MatrixElementAccessExpression_Constraints extends BaseConstraintsDescriptor {
   public MatrixElementAccessExpression_Constraints() {
-    super(AUX_qeaj5j.MatrixElementAccessExpression_65027ece);
+    super(CONCEPTS.MatrixElementAccessExpression$Dk);
   }
 
-  private static final class AUX_qeaj5j {
-    /*package*/ static final SConcept MatrixElementAccessExpression_65027ece = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x58aab8999c8f432aL, "jetbrains.mps.baseLanguage.math.structure.MatrixElementAccessExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixElementAccessExpression$Dk = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x58aab8999c8f432aL, "jetbrains.mps.baseLanguage.math.structure.MatrixElementAccessExpression");
   }
 }

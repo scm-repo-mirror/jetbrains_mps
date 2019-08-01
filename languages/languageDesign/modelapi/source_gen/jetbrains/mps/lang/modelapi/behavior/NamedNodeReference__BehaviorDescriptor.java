@@ -4,6 +4,7 @@ package jetbrains.mps.lang.modelapi.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,15 +17,15 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class NamedNodeReference__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_6f30go.NamedNodeReference_1b8b6fa;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, "jetbrains.mps.lang.modelapi.structure.NamedNodeReference");
 
   /*package*/ static final SMethod<SNode> findTarget_id4nxIQVLmGTU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findTarget").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("4nxIQVLmGTU").build();
   public static final SMethod<SNodeReference> toNodeReference_id4nxIQVLmsc4 = new SMethodBuilder<SNodeReference>(new SJavaCompoundTypeImpl(SNodeReference.class)).name("toNodeReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4nxIQVLmsc4").build();
@@ -37,10 +38,10 @@ public final class NamedNodeReference__BehaviorDescriptor extends BaseBHDescript
 
   /*package*/ static SNode findTarget_id4nxIQVLmGTU(@NotNull SNode __thisNode__) {
     SNode node = __thisNode__;
-    while ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402fbcL, "child")) != null)) {
-      node = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402fbcL, "child"));
+    while ((SLinkOperations.getTarget(node, LINKS.child$I6D2) != null)) {
+      node = SLinkOperations.getTarget(node, LINKS.child$I6D2);
     }
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402faaL, "target"));
+    return SLinkOperations.getTarget(node, LINKS.target$I6bY);
   }
   /*package*/ static SNodeReference toNodeReference_id4nxIQVLmsc4(@NotNull SNode __thisNode__) {
     return SNodeOperations.getPointer(NamedNodeReference__BehaviorDescriptor.findTarget_id4nxIQVLmGTU.invoke(__thisNode__));
@@ -99,7 +100,8 @@ public final class NamedNodeReference__BehaviorDescriptor extends BaseBHDescript
     return CONCEPT;
   }
 
-  private static final class AUX_6f30go {
-    /*package*/ static final SConcept NamedNodeReference_1b8b6fa = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, "jetbrains.mps.lang.modelapi.structure.NamedNodeReference");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink child$I6D2 = MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402fbcL, "child");
+    /*package*/ static final SReferenceLink target$I6bY = MetaAdapterFactory.getReferenceLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402faaL, "target");
   }
 }

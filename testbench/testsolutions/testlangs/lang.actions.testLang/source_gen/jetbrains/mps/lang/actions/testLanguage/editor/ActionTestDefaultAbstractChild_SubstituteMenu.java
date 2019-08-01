@@ -14,7 +14,6 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.util.Computable;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.substitute.IncludeSubstituteMenuSubstituteMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -27,6 +26,8 @@ import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ActionTestDefaultAbstractChild_SubstituteMenu extends SubstituteMenuBase {
@@ -60,17 +61,17 @@ public class ActionTestDefaultAbstractChild_SubstituteMenu extends SubstituteMen
       super.initialize(_context);
       condition = new Computable<Boolean>() {
         public Boolean compute() {
-          return Objects.equals(_context.getLink(), MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc257b7aaaL, "removeDefaultsPart"));
+          return Objects.equals(_context.getLink(), LINKS.removeDefaultsPart$Qlv3);
         }
       }.compute();
       condition1 = new Computable<Boolean>() {
         public Boolean compute() {
-          return Objects.equals(_context.getLink(), MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc2552e60aL, "removeByConditionPart"));
+          return Objects.equals(_context.getLink(), LINKS.removeByConditionPart$LVGa);
         }
       }.compute();
       condition2 = new Computable<Boolean>() {
         public Boolean compute() {
-          return Objects.equals(_context.getLink(), MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc25762f5fL, "removePart"));
+          return Objects.equals(_context.getLink(), LINKS.removePart$6NFL);
         }
       }.compute();
     }
@@ -111,7 +112,7 @@ public class ActionTestDefaultAbstractChild_SubstituteMenu extends SubstituteMen
         return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.actions.testLanguage.editor.RemoveDefaultsPart");
       }
       private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-        return AUX_c1nwm3.ActionTestDefaultAbstractChild_adfa7fa9;
+        return CONCEPTS.ActionTestDefaultAbstractChild$jp;
       }
     }
     public class SMP_Include_c1nwm3_b0 extends IncludeSubstituteMenuSubstituteMenuPart {
@@ -135,7 +136,7 @@ public class ActionTestDefaultAbstractChild_SubstituteMenu extends SubstituteMen
         return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.actions.testLanguage.editor.RemoveByConditionPart");
       }
       private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-        return AUX_c1nwm3.ActionTestDefaultAbstractChild_adfa7fa9;
+        return CONCEPTS.ActionTestDefaultAbstractChild$jp;
       }
     }
     public class SMP_Include_c1nwm3_c0 extends IncludeSubstituteMenuSubstituteMenuPart {
@@ -159,7 +160,7 @@ public class ActionTestDefaultAbstractChild_SubstituteMenu extends SubstituteMen
         return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.actions.testLanguage.editor.RemovePart");
       }
       private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-        return AUX_c1nwm3.ActionTestDefaultAbstractChild_adfa7fa9;
+        return CONCEPTS.ActionTestDefaultAbstractChild$jp;
       }
     }
     public class SMP_Group_c1nwm3_d0 extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
@@ -185,7 +186,7 @@ public class ActionTestDefaultAbstractChild_SubstituteMenu extends SubstituteMen
       }
       public class SMP_Subconcepts_c1nwm3_a3a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
         protected Collection getConcepts(final SubstituteMenuContext _context) {
-          return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_c1nwm3.ActionTestDefaultAbstractChild_adfa7fa9);
+          return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.ActionTestDefaultAbstractChild$jp);
         }
         @NotNull
         @Override
@@ -207,7 +208,13 @@ public class ActionTestDefaultAbstractChild_SubstituteMenu extends SubstituteMen
     }
   }
 
-  private static final class AUX_c1nwm3 {
-    /*package*/ static final SConcept ActionTestDefaultAbstractChild_adfa7fa9 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x73dfe0fc25514b8dL, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestDefaultAbstractChild");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink removeDefaultsPart$Qlv3 = MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc257b7aaaL, "removeDefaultsPart");
+    /*package*/ static final SContainmentLink removeByConditionPart$LVGa = MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc2552e60aL, "removeByConditionPart");
+    /*package*/ static final SContainmentLink removePart$6NFL = MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc25762f5fL, "removePart");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionTestDefaultAbstractChild$jp = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x73dfe0fc25514b8dL, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestDefaultAbstractChild");
   }
 }

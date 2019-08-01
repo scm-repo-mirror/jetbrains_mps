@@ -5,22 +5,22 @@ package jetbrains.mps.samples.customAspect.sampleLanguage.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DocumentedConcept_Constraints extends BaseConstraintsDescriptor {
   public DocumentedConcept_Constraints() {
-    super(AUX_ju0psy.DocumentedConcept_17f84357);
+    super(CONCEPTS.DocumentedConcept$rF);
   }
 
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -34,11 +34,15 @@ public class DocumentedConcept_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
     return properties;
   }
 
-  private static final class AUX_ju0psy {
-    /*package*/ static final SConcept DocumentedConcept_17f84357 = MetaAdapterFactory.getConcept(0x4ac0b19e3e884e61L, 0xbab3507ba2cceae8L, 0x28360eb22c3ac6f9L, "jetbrains.mps.samples.customAspect.sampleLanguage.structure.DocumentedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DocumentedConcept$rF = MetaAdapterFactory.getConcept(0x4ac0b19e3e884e61L, 0xbab3507ba2cceae8L, 0x28360eb22c3ac6f9L, "jetbrains.mps.samples.customAspect.sampleLanguage.structure.DocumentedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

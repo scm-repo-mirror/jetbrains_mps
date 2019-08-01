@@ -6,7 +6,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jdom.Element;
 import org.jdom.Document;
 import org.jdom.output.Format;
@@ -14,12 +13,15 @@ import org.jdom.output.XMLOutputter;
 import org.apache.log4j.LogManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public abstract class ElementCreator {
   public static void byElement(SNode node, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    SNode element = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b6L, 0x11d45f8a8b8L, "rootElement"));
+    SNode element = SLinkOperations.getTarget(node, LINKS.rootElement$_ZjZ);
     Element result = ElementCreator.createElement(element, ctx);
     Document document = new Document();
     document.setRootElement(result);
@@ -35,30 +37,42 @@ public abstract class ElementCreator {
   }
   protected static Element createElement(SNode element, final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    Element result = new Element(SPropertyOperations.getString(element, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
-    for (SNode attribute : SLinkOperations.getChildren(element, MetaAdapterFactory.getContainmentLink(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b9L, 0x11d45f8a8baL, "attribute"))) {
-      if (SPropertyOperations.getString(attribute, MetaAdapterFactory.getProperty(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8a1L, 0x11d45f8a8a3L, "value")) != null) {
-        result.setAttribute(SPropertyOperations.getString(attribute, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(attribute, MetaAdapterFactory.getProperty(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8a1L, 0x11d45f8a8a3L, "value")));
+    Element result = new Element(SPropertyOperations.getString(element, PROPS.name$tAp1));
+    for (SNode attribute : SLinkOperations.getChildren(element, LINKS.attribute$_Zl0)) {
+      if (SPropertyOperations.getString(attribute, PROPS.value$_YOv) != null) {
+        result.setAttribute(SPropertyOperations.getString(attribute, PROPS.name$tAp1), SPropertyOperations.getString(attribute, PROPS.value$_YOv));
       }
     }
     boolean first = true;
-    for (SNode part : SLinkOperations.getChildren(element, MetaAdapterFactory.getContainmentLink(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b9L, 0x11d45f8a8bbL, "content"))) {
-      if (SNodeOperations.isInstanceOf(part, AUX_pg95nc.Text_9d04c369)) {
+    for (SNode part : SLinkOperations.getChildren(element, LINKS.content$_Zlv)) {
+      if (SNodeOperations.isInstanceOf(part, CONCEPTS.Text$$p)) {
         if (!(first)) {
           result.addContent("\n");
         }
-        result.addContent(SPropertyOperations.getString(SNodeOperations.cast(part, AUX_pg95nc.Text_9d04c369), MetaAdapterFactory.getProperty(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8c1L, 0x11d45f8a8c2L, "text")));
+        result.addContent(SPropertyOperations.getString(SNodeOperations.cast(part, CONCEPTS.Text$$p), PROPS.text$_Zzw));
       }
-      if (SNodeOperations.isInstanceOf(part, AUX_pg95nc.Element_9d04c34c)) {
-        result.addContent(ElementCreator.createElement(SNodeOperations.cast(part, AUX_pg95nc.Element_9d04c34c), ctx));
+      if (SNodeOperations.isInstanceOf(part, CONCEPTS.Element$mm)) {
+        result.addContent(ElementCreator.createElement(SNodeOperations.cast(part, CONCEPTS.Element$mm), ctx));
       }
       first = false;
     }
     return result;
   }
 
-  private static final class AUX_pg95nc {
-    /*package*/ static final SConcept Text_9d04c369 = MetaAdapterFactory.getConcept(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8c1L, "jetbrains.mps.sampleXML.structure.Text");
-    /*package*/ static final SConcept Element_9d04c34c = MetaAdapterFactory.getConcept(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b9L, "jetbrains.mps.sampleXML.structure.Element");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rootElement$_ZjZ = MetaAdapterFactory.getContainmentLink(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b6L, 0x11d45f8a8b8L, "rootElement");
+    /*package*/ static final SContainmentLink attribute$_Zl0 = MetaAdapterFactory.getContainmentLink(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b9L, 0x11d45f8a8baL, "attribute");
+    /*package*/ static final SContainmentLink content$_Zlv = MetaAdapterFactory.getContainmentLink(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b9L, 0x11d45f8a8bbL, "content");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty value$_YOv = MetaAdapterFactory.getProperty(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8a1L, 0x11d45f8a8a3L, "value");
+    /*package*/ static final SProperty text$_Zzw = MetaAdapterFactory.getProperty(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8c1L, 0x11d45f8a8c2L, "text");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Text$$p = MetaAdapterFactory.getConcept(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8c1L, "jetbrains.mps.sampleXML.structure.Text");
+    /*package*/ static final SConcept Element$mm = MetaAdapterFactory.getConcept(0x772f6dcd8c0d48f7L, 0x869c908e036f7c8eL, 0x11d45f8a8b9L, "jetbrains.mps.sampleXML.structure.Element");
   }
 }

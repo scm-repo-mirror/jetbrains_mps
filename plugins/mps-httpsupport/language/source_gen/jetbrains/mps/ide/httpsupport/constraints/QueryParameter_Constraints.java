@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class QueryParameter_Constraints extends BaseConstraintsDescriptor {
   public QueryParameter_Constraints() {
-    super(AUX_2bkn6k.QueryParameter_1d6de979);
+    super(CONCEPTS.QueryParameter$k9);
   }
 
-  private static final class AUX_2bkn6k {
-    /*package*/ static final SConcept QueryParameter_1d6de979 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x205f4376c585b439L, "jetbrains.mps.ide.httpsupport.structure.QueryParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryParameter$k9 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x205f4376c585b439L, "jetbrains.mps.ide.httpsupport.structure.QueryParameter");
   }
 }

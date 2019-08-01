@@ -8,12 +8,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_BinaryOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,7 +22,7 @@ public class typeof_BinaryOperation_InferenceRule extends AbstractInferenceRule_
   }
   public void applyRule(final SNode op, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode lValue = RulesFunctions_Collections.getInput(typeCheckingContext, op);
-    SNode rValue = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11205199ac2L, 0x112051c6c86L, "rightExpression"));
+    SNode rValue = SLinkOperations.getTarget(op, LINKS.rightExpression$oODW);
     final SNode elementType_typevar_1184848397564 = typeCheckingContext.createNewRuntimeTypesVariable();
     final SNode sequenceType_typevar_1184848409899 = typeCheckingContext.createNewRuntimeTypesVariable();
     {
@@ -46,7 +47,7 @@ public class typeof_BinaryOperation_InferenceRule extends AbstractInferenceRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nog713.BinaryOperation_a99cd8bc;
+    return CONCEPTS.BinaryOperation$SA;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -61,12 +62,17 @@ public class typeof_BinaryOperation_InferenceRule extends AbstractInferenceRule_
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10c260e9444L, "SequenceType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, 0x10c260ee40eL, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$2gFy, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_nog713 {
-    /*package*/ static final SConcept BinaryOperation_a99cd8bc = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11205199ac2L, "jetbrains.mps.baseLanguage.collections.structure.BinaryOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightExpression$oODW = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11205199ac2L, 0x112051c6c86L, "rightExpression");
+    /*package*/ static final SContainmentLink elementType$2gFy = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, 0x10c260ee40eL, "elementType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperation$SA = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11205199ac2L, "jetbrains.mps.baseLanguage.collections.structure.BinaryOperation");
   }
 }

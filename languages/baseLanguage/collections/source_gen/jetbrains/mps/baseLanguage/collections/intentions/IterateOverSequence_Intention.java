@@ -16,11 +16,12 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class IterateOverSequence_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -40,7 +41,7 @@ public final class IterateOverSequence_Intention extends AbstractIntentionDescri
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
     // TODO replace with isSubtype() when MPS-10610 is fixed 
-    return SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(node), AUX_wo71su.SequenceType_dd24a0b9) || SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(node), AUX_wo71su.ListType_a33b8e3e) || SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(node), AUX_wo71su.SetType_d8fa38cf) || TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(node), _quotation_createNode_7wizo7_b0a0b0a());
+    return SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(node), CONCEPTS.SequenceType$n9) || SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(node), CONCEPTS.ListType$z$) || SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(node), CONCEPTS.SetType$1N) || TypecheckingFacade.getFromContext().isSubtype(TypecheckingFacade.getFromContext().getTypeOf(node), _quotation_createNode_7wizo7_b0a0b0a());
   }
   @Override
   public boolean isSurroundWith() {
@@ -61,15 +62,15 @@ public final class IterateOverSequence_Intention extends AbstractIntentionDescri
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode forStatement = SNodeFactoryOperations.createNewNode(AUX_wo71su.ForEachStatement_a2950921, null);
-      SNode outerStatement = SNodeOperations.getNodeAncestor(node, AUX_wo71su.Statement_9dbf9b0e, false, false);
-      boolean deleteStatement = SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_wo71su.ExpressionStatement_9dbf9b0c);
+      SNode forStatement = SNodeFactoryOperations.createNewNode(CONCEPTS.ForEachStatement$Dx, null);
+      SNode outerStatement = SNodeOperations.getNodeAncestor(node, CONCEPTS.Statement$ok, false, false);
+      boolean deleteStatement = SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.ExpressionStatement$nm);
       SNodeOperations.insertNextSiblingChild(outerStatement, forStatement);
-      SLinkOperations.setTarget(forStatement, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, 0x10cac72911aL, "inputSequence"), node);
+      SLinkOperations.setTarget(forStatement, LINKS.inputSequence$vBnC, node);
       if (deleteStatement) {
         SNodeOperations.deleteNode(outerStatement);
       }
-      editorContext.select(SLinkOperations.getTarget(forStatement, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, 0x10cac7231f1L, "variable")));
+      editorContext.select(SLinkOperations.getTarget(forStatement, LINKS.variable$QE64));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -82,16 +83,22 @@ public final class IterateOverSequence_Intention extends AbstractIntentionDescri
     SNode quotedNode_2 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10c25fb076aL, "ListType"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x110dae5f4a3L, "WildCardType"), null, null, false);
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.elementType$xJJW, quotedNode_2);
     return quotedNode_1;
   }
 
-  private static final class AUX_wo71su {
-    /*package*/ static final SConcept SequenceType_dd24a0b9 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, "jetbrains.mps.baseLanguage.collections.structure.SequenceType");
-    /*package*/ static final SConcept ListType_a33b8e3e = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, "jetbrains.mps.baseLanguage.collections.structure.ListType");
-    /*package*/ static final SConcept SetType_d8fa38cf = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
-    /*package*/ static final SConcept ForEachStatement_a2950921 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, "jetbrains.mps.baseLanguage.collections.structure.ForEachStatement");
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SequenceType$n9 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, "jetbrains.mps.baseLanguage.collections.structure.SequenceType");
+    /*package*/ static final SConcept ListType$z$ = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, "jetbrains.mps.baseLanguage.collections.structure.ListType");
+    /*package*/ static final SConcept SetType$1N = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
+    /*package*/ static final SConcept ForEachStatement$Dx = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, "jetbrains.mps.baseLanguage.collections.structure.ForEachStatement");
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink inputSequence$vBnC = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, 0x10cac72911aL, "inputSequence");
+    /*package*/ static final SContainmentLink variable$QE64 = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, 0x10cac7231f1L, "variable");
+    /*package*/ static final SContainmentLink elementType$xJJW = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType");
   }
 }

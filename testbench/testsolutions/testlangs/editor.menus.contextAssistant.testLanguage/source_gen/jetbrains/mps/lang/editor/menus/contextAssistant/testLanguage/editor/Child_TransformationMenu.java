@@ -20,7 +20,6 @@ import jetbrains.mps.lang.editor.menus.transformation.IncludeSubstituteMenuTrans
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -36,6 +35,8 @@ import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuLooku
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class Child_TransformationMenu extends TransformationMenuBase {
@@ -95,7 +96,7 @@ public class Child_TransformationMenu extends TransformationMenuBase {
   public class TMP_Group_qk1e79_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      if ("error".equals(SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) {
+      if ("error".equals(SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1))) {
         throw new RuntimeException("Intentional exception - ignore this");
       }
       return true;
@@ -339,7 +340,7 @@ public class Child_TransformationMenu extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode newNode = SNodeFactoryOperations.createNewNode(AUX_qk1e79.Child_2a5630ea, null);
+          SNode newNode = SNodeFactoryOperations.createNewNode(CONCEPTS.Child$IS, null);
           SNodeOperations.insertPrevSiblingChild(_context.getNode(), newNode);
           _context.getEditorContext().selectWRTFocusPolicy(newNode);
         }
@@ -359,7 +360,7 @@ public class Child_TransformationMenu extends TransformationMenuBase {
   public class TMP_Group_qk1e79_d1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return check_qk1e79_a0a0d1(SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+      return check_qk1e79_a0a0d1(SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1));
     }
 
     @NotNull
@@ -415,7 +416,7 @@ public class Child_TransformationMenu extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).replaceAll("a", ""));
+          SPropertyOperations.assign(_context.getNode(), PROPS.name$tAp1, SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1).replaceAll("a", ""));
         }
 
 
@@ -484,7 +485,7 @@ public class Child_TransformationMenu extends TransformationMenuBase {
   public class TMP_Group_qk1e79_e1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !(check_qk1e79_a0a0a4b(SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))));
+      return !(check_qk1e79_a0a0a4b(SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1)));
     }
 
     @NotNull
@@ -535,12 +536,12 @@ public class Child_TransformationMenu extends TransformationMenuBase {
         @Nullable
         @Override
         public String getLabelText(String pattern) {
-          return "ensure name ends with 'a' (" + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "a)";
+          return "ensure name ends with 'a' (" + SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1) + "a)";
         }
 
         @Override
         public void execute(@NotNull String pattern) {
-          SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "a");
+          SPropertyOperations.assign(_context.getNode(), PROPS.name$tAp1, SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1) + "a");
         }
 
 
@@ -574,7 +575,7 @@ public class Child_TransformationMenu extends TransformationMenuBase {
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_qk1e79.Child_2a5630ea, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.NamedMenu");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.Child$IS, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.NamedMenu");
     }
 
   }
@@ -642,7 +643,11 @@ public class Child_TransformationMenu extends TransformationMenuBase {
     return false;
   }
 
-  private static final class AUX_qk1e79 {
-    /*package*/ static final SConcept Child_2a5630ea = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x4d6a8b533e60aa32L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.Child");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Child$IS = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x4d6a8b533e60aa32L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.Child");
   }
 }

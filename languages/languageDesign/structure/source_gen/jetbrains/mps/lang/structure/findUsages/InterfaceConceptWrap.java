@@ -8,8 +8,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class InterfaceConceptWrap extends AbstractConceptWrap implements AbstractConceptLike.InterfaceConceptLike {
   private final SNode myPeer;
@@ -23,10 +25,15 @@ public final class InterfaceConceptWrap extends AbstractConceptWrap implements A
   @Override
   public List<AbstractConceptLike.InterfaceConceptLike> getSuperInterfaces() {
     List<AbstractConceptLike.InterfaceConceptLike> result = new ArrayList<AbstractConceptLike.InterfaceConceptLike>();
-    List<SNode> superInterfaces = SLinkOperations.getChildren(myPeer, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends"));
+    List<SNode> superInterfaces = SLinkOperations.getChildren(myPeer, LINKS.extends$3Y1p);
     for (SNode superInterfaceRef : ListSequence.fromList(superInterfaces)) {
-      result.add(new InterfaceConceptWrap(SLinkOperations.getTarget(superInterfaceRef, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc"))));
+      result.add(new InterfaceConceptWrap(SLinkOperations.getTarget(superInterfaceRef, LINKS.intfc$fO5)));
     }
     return result;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink extends$3Y1p = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends");
+    /*package*/ static final SReferenceLink intfc$fO5 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc");
   }
 }

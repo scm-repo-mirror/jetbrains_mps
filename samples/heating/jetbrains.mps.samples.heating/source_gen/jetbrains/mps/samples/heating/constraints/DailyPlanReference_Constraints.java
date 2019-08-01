@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,15 +25,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class DailyPlanReference_Constraints extends BaseConstraintsDescriptor {
   public DailyPlanReference_Constraints() {
-    super(AUX_y2k5og.DailyPlanReference_3ef981ae);
+    super(CONCEPTS.DailyPlanReference$dO);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, 0xcfa085c9af5e831L, "target"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.target$bW60, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -49,13 +51,13 @@ public class DailyPlanReference_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return new ListScope(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_y2k5og.HeatingPlan_81a2c5bd, false, false), MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aa3f2L, 0x4644aa4ce08aec4dL, "dailyPlans"))).where(new IWhereFilter<SNode>() {
+            return new ListScope(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.HeatingPlan$55, false, false), LINKS.dailyPlans$xQgd)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return !(Objects.equals(it, _context.getContextNode()));
               }
             })) {
               public String getName(SNode child) {
-                return SPropertyOperations.getString(SNodeOperations.cast(child, AUX_y2k5og.DailyPlan_82e65b88), MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x1dfff86fbfd92c74L, "displayName"));
+                return SPropertyOperations.getString(SNodeOperations.cast(child, CONCEPTS.DailyPlan$jq), PROPS.displayName$P8hc);
               }
             };
           }
@@ -68,9 +70,18 @@ public class DailyPlanReference_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_y2k5og_a0a0a0a0a1a0a0a0c = new SNodePointer("r:85427802-2815-4ede-beac-6d6b51b72018(jetbrains.mps.samples.heating.constraints)", "6836281137582847279");
 
-  private static final class AUX_y2k5og {
-    /*package*/ static final SConcept DailyPlanReference_3ef981ae = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, "jetbrains.mps.samples.heating.structure.DailyPlanReference");
-    /*package*/ static final SConcept DailyPlan_82e65b88 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
-    /*package*/ static final SConcept HeatingPlan_81a2c5bd = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aa3f2L, "jetbrains.mps.samples.heating.structure.HeatingPlan");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DailyPlanReference$dO = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, "jetbrains.mps.samples.heating.structure.DailyPlanReference");
+    /*package*/ static final SConcept DailyPlan$jq = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+    /*package*/ static final SConcept HeatingPlan$55 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aa3f2L, "jetbrains.mps.samples.heating.structure.HeatingPlan");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$bW60 = MetaAdapterFactory.getReferenceLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, 0xcfa085c9af5e831L, "target");
+    /*package*/ static final SContainmentLink dailyPlans$xQgd = MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aa3f2L, 0x4644aa4ce08aec4dL, "dailyPlans");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty displayName$P8hc = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x1dfff86fbfd92c74L, "displayName");
   }
 }

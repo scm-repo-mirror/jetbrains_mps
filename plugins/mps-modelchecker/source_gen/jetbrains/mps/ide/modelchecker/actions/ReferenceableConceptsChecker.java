@@ -14,7 +14,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -34,6 +33,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.runtime.ConceptDescriptor;
 import jetbrains.mps.smodel.adapter.structure.concept.SAbstractConceptAdapter;
 import jetbrains.mps.smodel.runtime.StaticScope;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ReferenceableConceptsChecker extends SpecificChecker {
   public ReferenceableConceptsChecker() {
@@ -55,17 +58,17 @@ public class ReferenceableConceptsChecker extends SpecificChecker {
     }
 
     if (SModuleOperations.isAspect(model, "structure")) {
-      for (SNode concept : ListSequence.fromList(SModelOperations.roots(model, AUX_bv1a2a.AbstractConceptDeclaration_ec74828f))) {
-        for (SNode ref : ListSequence.fromList(SLinkOperations.getChildren(concept, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration"))).where(new IWhereFilter<SNode>() {
+      for (SNode concept : ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.AbstractConceptDeclaration$UN))) {
+        for (SNode ref : ListSequence.fromList(SLinkOperations.getChildren(concept, LINKS.linkDeclaration$lL6$)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SEnumOperations.isMember(SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b8L);
+            return SEnumOperations.isMember(SPropertyOperations.getEnum(it, PROPS.metaClass$tHD7), 0xfc6f4e95b8L);
           }
         })) {
-          SNode target = SLinkOperations.getTarget(ref, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98055fef0L, "target"));
-          if (SNodeOperations.isInstanceOf(target, AUX_bv1a2a.ConceptDeclaration_cb225da8)) {
-            SNode decl = SNodeOperations.cast(target, AUX_bv1a2a.ConceptDeclaration_cb225da8);
-            if (SEnumOperations.isMember(SPropertyOperations.getEnum(decl, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x4b014033eedc8a48L, "staticScope")), 0x4b014033eedc8becL)) {
-              ListSequence.fromList(results).addElement(new NodeReportItemBase(MessageStatus.ERROR, SNodeOperations.getPointer(ref), "Reference to a non-referenceable concept found: " + SPropertyOperations.getString(target, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) {
+          SNode target = SLinkOperations.getTarget(ref, LINKS.target$egp8);
+          if (SNodeOperations.isInstanceOf(target, CONCEPTS.ConceptDeclaration$qU)) {
+            SNode decl = SNodeOperations.cast(target, CONCEPTS.ConceptDeclaration$qU);
+            if (SEnumOperations.isMember(SPropertyOperations.getEnum(decl, PROPS.staticScope$SzuZ), 0x4b014033eedc8becL)) {
+              ListSequence.fromList(results).addElement(new NodeReportItemBase(MessageStatus.ERROR, SNodeOperations.getPointer(ref), "Reference to a non-referenceable concept found: " + SPropertyOperations.getString(target, PROPS.name$tAp1)) {
                 @Override
                 public IssueKindReportItem.ItemKind getIssueKind() {
                   return ILLEGAL_REFERENCES.deriveItemKind("reference to a non-referenceable concept");
@@ -74,8 +77,8 @@ public class ReferenceableConceptsChecker extends SpecificChecker {
             }
           }
         }
-        if (SNodeOperations.isInstanceOf(concept, AUX_bv1a2a.ConceptDeclaration_cb225da8) && SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.cast(concept, AUX_bv1a2a.ConceptDeclaration_cb225da8), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x4b014033eedc8a48L, "staticScope")), 0x4b014033eedc8becL)) {
-          if (((boolean) (Boolean) BHReflection.invoke0(concept, AUX_bv1a2a.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("isSubconceptOf", AUX_bv1a2a.AbstractConceptDeclaration_ec74828f, "73yVtVlWOga"), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1169194658468")))) {
+        if (SNodeOperations.isInstanceOf(concept, CONCEPTS.ConceptDeclaration$qU) && SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.cast(concept, CONCEPTS.ConceptDeclaration$qU), PROPS.staticScope$SzuZ), 0x4b014033eedc8becL)) {
+          if (((boolean) (Boolean) BHReflection.invoke0(concept, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("isSubconceptOf", CONCEPTS.AbstractConceptDeclaration$UN, "73yVtVlWOga"), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1169194658468")))) {
             ListSequence.fromList(results).addElement(new NodeReportItemBase(MessageStatus.WARNING, SNodeOperations.getPointer(concept), "INamedConcept inheritors are usually referenceable") {
               @Override
               public IssueKindReportItem.ItemKind getIssueKind() {
@@ -93,7 +96,7 @@ public class ReferenceableConceptsChecker extends SpecificChecker {
       }
       // Check for unresolved references 
       for (SReference ref : ListSequence.fromList(SNodeOperations.getReferences(node))) {
-        if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_bv1a2a.ReferenceMacro_62f8c34e, ref.getLink())) != null)) {
+        if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, ref.getLink())) != null)) {
           continue;
         }
         SNode target = jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(ref);
@@ -140,7 +143,7 @@ public class ReferenceableConceptsChecker extends SpecificChecker {
       return;
     }
     if (isAncestor) {
-      if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(cncpt), AUX_bv1a2a.ScopeFacade_2fd16c9e) && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(refNode, null, true)).contains(node))) {
+      if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(cncpt), CONCEPTS.ScopeFacade$q4) && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(refNode, null, true)).contains(node))) {
         ListSequence.fromList(results).addElement(new NodeReportItemBase(MessageStatus.ERROR, SNodeOperations.getPointer(anchor), "Reference from outside to a node under ScopeFacade: facade=" + cncpt.getName()) {
           @Override
           public IssueKindReportItem.ItemKind getIssueKind() {
@@ -168,10 +171,21 @@ public class ReferenceableConceptsChecker extends SpecificChecker {
     }
   }
 
-  private static final class AUX_bv1a2a {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ReferenceMacro_62f8c34e = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
-    /*package*/ static final SInterfaceConcept ScopeFacade_2fd16c9e = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2ea65c0b397bd5beL, "jetbrains.mps.lang.core.structure.ScopeFacade");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$egp8 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98055fef0L, "target");
+    /*package*/ static final SContainmentLink linkDeclaration$lL6$ = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ReferenceMacro$nk = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+    /*package*/ static final SInterfaceConcept ScopeFacade$q4 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2ea65c0b397bd5beL, "jetbrains.mps.lang.core.structure.ScopeFacade");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty staticScope$SzuZ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x4b014033eedc8a48L, "staticScope");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
   }
 }

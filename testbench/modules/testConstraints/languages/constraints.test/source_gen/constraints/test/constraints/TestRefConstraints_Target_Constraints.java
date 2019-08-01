@@ -17,13 +17,14 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TestRefConstraints_Target_Constraints extends BaseConstraintsDescriptor {
   public TestRefConstraints_Target_Constraints() {
-    super(AUX_4c311l.TestRefConstraints_Target_f07b71ca);
+    super(CONCEPTS.TestRefConstraints_Target$ro);
   }
 
   @Override
@@ -38,7 +39,7 @@ public class TestRefConstraints_Target_Constraints extends BaseConstraintsDescri
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forNamedElements(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_4c311l.TestRefConstraints_Container_f07b75a7, true, false), MetaAdapterFactory.getContainmentLink(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641cdfL, 0x244a306605641ce3L, "targets")));
+            return ListScope.forNamedElements(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.TestRefConstraints_Container$Ur, true, false), LINKS.targets$r$3X));
           }
         };
       }
@@ -46,8 +47,12 @@ public class TestRefConstraints_Target_Constraints extends BaseConstraintsDescri
   }
   private static final SNodePointer breakingNode_4c311l_a0a0a0a0a0a0a0a2 = new SNodePointer("r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)", "2614955748380194141");
 
-  private static final class AUX_4c311l {
-    /*package*/ static final SConcept TestRefConstraints_Target_f07b71ca = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c74L, "constraints.test.structure.TestRefConstraints_Target");
-    /*package*/ static final SConcept TestRefConstraints_Container_f07b75a7 = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641cdfL, "constraints.test.structure.TestRefConstraints_Container");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestRefConstraints_Target$ro = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c74L, "constraints.test.structure.TestRefConstraints_Target");
+    /*package*/ static final SConcept TestRefConstraints_Container$Ur = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641cdfL, "constraints.test.structure.TestRefConstraints_Container");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink targets$r$3X = MetaAdapterFactory.getContainmentLink(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641cdfL, 0x244a306605641ce3L, "targets");
   }
 }

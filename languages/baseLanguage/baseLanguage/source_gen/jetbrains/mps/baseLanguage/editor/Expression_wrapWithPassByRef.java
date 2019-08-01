@@ -29,7 +29,6 @@ import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -39,6 +38,8 @@ import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Expression_wrapWithPassByRef extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -90,7 +91,7 @@ public class Expression_wrapWithPassByRef extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_ihu8i2.PassByRefExpression_243679e4;
+      return CONCEPTS.PassByRefExpression$7Y;
     }
 
 
@@ -102,7 +103,7 @@ public class Expression_wrapWithPassByRef extends TransformationMenuBase {
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
           SNodeOperations.replaceWithAnother(_context.getNode(), createdNode);
-          SLinkOperations.setTarget(createdNode, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, 0x5fc1cc47cb462337L, "expr"), _context.getNode());
+          SLinkOperations.setTarget(createdNode, LINKS.expr$NNix, _context.getNode());
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
 
         }
@@ -124,7 +125,11 @@ public class Expression_wrapWithPassByRef extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_ihu8i2 {
-    /*package*/ static final SConcept PassByRefExpression_243679e4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, "jetbrains.mps.baseLanguage.structure.PassByRefExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PassByRefExpression$7Y = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, "jetbrains.mps.baseLanguage.structure.PassByRefExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expr$NNix = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5fc1cc47cb4622eaL, 0x5fc1cc47cb462337L, "expr");
   }
 }

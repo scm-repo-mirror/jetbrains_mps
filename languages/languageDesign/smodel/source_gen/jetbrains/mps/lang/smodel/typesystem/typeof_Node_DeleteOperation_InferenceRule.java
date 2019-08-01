@@ -25,7 +25,7 @@ public class typeof_Node_DeleteOperation_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_yg83ep.Node_DeleteOperation_281fbd16;
+    return CONCEPTS.Node_DeleteOperation$kc;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_Node_DeleteOperation_InferenceRule extends AbstractInference
     return quotedNode_1;
   }
 
-  private static final class AUX_yg83ep {
-    /*package*/ static final SConcept Node_DeleteOperation_281fbd16 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1097542784fL, "jetbrains.mps.lang.smodel.structure.Node_DeleteOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_DeleteOperation$kc = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1097542784fL, "jetbrains.mps.lang.smodel.structure.Node_DeleteOperation");
   }
 }

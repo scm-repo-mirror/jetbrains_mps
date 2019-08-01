@@ -32,16 +32,17 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class EnumSwitchCaseBody_Expression_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_le0nmc_a(), AUX_le0nmc.EnumSwitchCaseBody_Expression_81c8e210));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_le0nmc_a(), CONCEPTS.EnumSwitchCaseBody_Expression$Xi));
     return result;
   }
 
@@ -81,7 +82,7 @@ public class EnumSwitchCaseBody_Expression_SubstituteMenu extends SubstituteMenu
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_le0nmc.EnumSwitchCaseBody_Expression_81c8e210;
+          return CONCEPTS.EnumSwitchCaseBody_Expression$Xi;
         }
         @Nullable
         @Override
@@ -114,20 +115,24 @@ public class EnumSwitchCaseBody_Expression_SubstituteMenu extends SubstituteMenu
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_le0nmc.Expression_4199e28d;
+      return CONCEPTS.Expression$TP;
     }
   }
   private static SNode createEnumSwitchCaseBody_Expression_le0nmc_a0a0a(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_le0nmc.EnumSwitchCaseBody_Expression_81c8e210, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.EnumSwitchCaseBody_Expression$Xi, null, null, false);
     if (node0 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L, 0x220ad6aedf1fdcc6L, "expression"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, AUX_le0nmc.Expression_4199e28d)));
+      n1.addChild(LINKS.expression$6WR0, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, CONCEPTS.Expression$TP)));
     }
     return n1;
   }
 
-  private static final class AUX_le0nmc {
-    /*package*/ static final SConcept EnumSwitchCaseBody_Expression_81c8e210 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody_Expression");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumSwitchCaseBody_Expression$Xi = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCaseBody_Expression");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$6WR0 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1fdcc5L, 0x220ad6aedf1fdcc6L, "expression");
   }
 }

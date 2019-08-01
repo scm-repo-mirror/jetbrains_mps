@@ -12,10 +12,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.baseLanguage.behavior.IfStatement__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class MakeOneLiner_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -34,7 +35,7 @@ public final class MakeOneLiner_Intention extends AbstractIntentionDescriptor im
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return !((boolean) IfStatement__BehaviorDescriptor.isGuardIf_idi0z$SHa.invoke(node)) && !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e370L, "forceOneLine")));
+    return !((boolean) IfStatement__BehaviorDescriptor.isGuardIf_idi0z$SHa.invoke(node)) && !(SPropertyOperations.getBoolean(node, PROPS.forceOneLine$LXXv));
   }
   @Override
   public boolean isSurroundWith() {
@@ -55,12 +56,17 @@ public final class MakeOneLiner_Intention extends AbstractIntentionDescriptor im
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e371L, "forceMultiLine"), false);
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e370L, "forceOneLine"), true);
+      SPropertyOperations.assign(node, PROPS.forceMultiLine$LXXY, false);
+      SPropertyOperations.assign(node, PROPS.forceOneLine$LXXv, true);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return MakeOneLiner_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty forceOneLine$LXXv = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e370L, "forceOneLine");
+    /*package*/ static final SProperty forceMultiLine$LXXY = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e371L, "forceMultiLine");
   }
 }

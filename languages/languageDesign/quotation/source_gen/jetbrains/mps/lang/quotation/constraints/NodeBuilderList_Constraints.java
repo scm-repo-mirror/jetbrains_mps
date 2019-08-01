@@ -16,15 +16,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.structure.behavior.LinkDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class NodeBuilderList_Constraints extends BaseConstraintsDescriptor {
   public NodeBuilderList_Constraints() {
-    super(AUX_unj05z.NodeBuilderList_bf9c9d19);
+    super(CONCEPTS.NodeBuilderList$lD);
   }
 
   @Override
@@ -58,18 +60,26 @@ public class NodeBuilderList_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_unj05z.NodeBuilderInitLink_50398def) && SEnumOperations.isMember(SPropertyOperations.getEnum(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, AUX_unj05z.NodeBuilderInitLink_50398def), MetaAdapterFactory.getReferenceLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20c8e1aL, 0x4bb51009d20c8e1cL, "link")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L) && !((boolean) LinkDeclaration__BehaviorDescriptor.isSingular_idhEwIfAt.invoke(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, AUX_unj05z.NodeBuilderInitLink_50398def), MetaAdapterFactory.getReferenceLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20c8e1aL, 0x4bb51009d20c8e1cL, "link"))));
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.NodeBuilderInitLink$Xj) && SEnumOperations.isMember(SPropertyOperations.getEnum(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, CONCEPTS.NodeBuilderInitLink$Xj), LINKS.link$ckAZ), PROPS.metaClass$tHD7), 0xfc6f4e95b9L) && !((boolean) LinkDeclaration__BehaviorDescriptor.isSingular_idhEwIfAt.invoke(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, CONCEPTS.NodeBuilderInitLink$Xj), LINKS.link$ckAZ)));
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_unj05z.NodeBuilderNode_29411b4f) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_unj05z.NodeBuilderExpression_bfb5f7b7);
+    return SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.NodeBuilderNode$RN) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.NodeBuilderExpression$Ub);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:abd7937b-2ad1-4cfc-8256-a7fa45a55f0f(jetbrains.mps.lang.quotation.constraints)", "1227128029536562858");
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:abd7937b-2ad1-4cfc-8256-a7fa45a55f0f(jetbrains.mps.lang.quotation.constraints)", "1227128029536562844");
 
-  private static final class AUX_unj05z {
-    /*package*/ static final SConcept NodeBuilderList_bf9c9d19 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x718e3f4cb7a2df32L, "jetbrains.mps.lang.quotation.structure.NodeBuilderList");
-    /*package*/ static final SConcept NodeBuilderInitLink_50398def = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20c8e1aL, "jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink");
-    /*package*/ static final SConcept NodeBuilderNode_29411b4f = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4aa0L, "jetbrains.mps.lang.quotation.structure.NodeBuilderNode");
-    /*package*/ static final SConcept NodeBuilderExpression_bfb5f7b7 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x718e3f4cb7a3132eL, "jetbrains.mps.lang.quotation.structure.NodeBuilderExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeBuilderList$lD = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x718e3f4cb7a2df32L, "jetbrains.mps.lang.quotation.structure.NodeBuilderList");
+    /*package*/ static final SConcept NodeBuilderInitLink$Xj = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20c8e1aL, "jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink");
+    /*package*/ static final SConcept NodeBuilderNode$RN = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4aa0L, "jetbrains.mps.lang.quotation.structure.NodeBuilderNode");
+    /*package*/ static final SConcept NodeBuilderExpression$Ub = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x718e3f4cb7a3132eL, "jetbrains.mps.lang.quotation.structure.NodeBuilderExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink link$ckAZ = MetaAdapterFactory.getReferenceLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20c8e1aL, 0x4bb51009d20c8e1cL, "link");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
   }
 }

@@ -6,6 +6,7 @@ import jetbrains.mps.smodel.action.IReferentPresentationProvider;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PresentationProviders {
@@ -13,7 +14,11 @@ public class PresentationProviders {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x1dfff86fbfd92c74L, "displayName"));
+      return SPropertyOperations.getString(targetNode, PROPS.displayName$P8hc);
     }
   };
+
+  private static final class PROPS {
+    /*package*/ static final SProperty displayName$P8hc = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x1dfff86fbfd92c74L, "displayName");
+  }
 }

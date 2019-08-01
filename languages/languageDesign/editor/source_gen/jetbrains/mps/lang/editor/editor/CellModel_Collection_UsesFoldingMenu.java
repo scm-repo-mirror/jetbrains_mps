@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.transformation.PropertyMenuTransformationMenuPart;
 import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
 import org.apache.log4j.Logger;
@@ -34,6 +33,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class CellModel_Collection_UsesFoldingMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
@@ -85,7 +86,7 @@ public class CellModel_Collection_UsesFoldingMenu extends TransformationMenuBase
 
     @Override
     protected SProperty getProperty(TransformationMenuContext context) {
-      return MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10e3893660fL, "usesFolding");
+      return PROPS.usesFolding$L3QX;
     }
   }
   private class TMP_Action_o10pqt_b0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
@@ -126,7 +127,7 @@ public class CellModel_Collection_UsesFoldingMenu extends TransformationMenuBase
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNodeFactoryOperations.setNewChild(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x78de9e36d994f770L, "usesFoldingCondition"), null);
+        SNodeFactoryOperations.setNewChild(_context.getNode(), LINKS.usesFoldingCondition$UESv, null);
       }
 
 
@@ -147,5 +148,13 @@ public class CellModel_Collection_UsesFoldingMenu extends TransformationMenuBase
       }
     }
 
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty usesFolding$L3QX = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10e3893660fL, "usesFolding");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink usesFoldingCondition$UESv = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x78de9e36d994f770L, "usesFoldingCondition");
   }
 }

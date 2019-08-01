@@ -25,7 +25,7 @@ public class typeof_SmartCompletionTypedChild_Integer_InferenceRule extends Abst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_unu4a7.SmartCompletionTypedChild_Integer_aa4a1814;
+    return CONCEPTS.SmartCompletionTypedChild_Integer$Be;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_SmartCompletionTypedChild_Integer_InferenceRule extends Abst
     return quotedNode_1;
   }
 
-  private static final class AUX_unu4a7 {
-    /*package*/ static final SConcept SmartCompletionTypedChild_Integer_aa4a1814 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x61249b1bf08a0d49L, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionTypedChild_Integer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SmartCompletionTypedChild_Integer$Be = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x61249b1bf08a0d49L, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionTypedChild_Integer");
   }
 }

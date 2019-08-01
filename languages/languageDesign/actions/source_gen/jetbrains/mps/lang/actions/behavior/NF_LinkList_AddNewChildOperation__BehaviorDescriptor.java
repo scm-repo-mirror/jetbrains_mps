@@ -4,6 +4,7 @@ package jetbrains.mps.lang.actions.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,11 +17,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class NF_LinkList_AddNewChildOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_qzouit.NF_LinkList_AddNewChildOperation_4d81d1de;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0xaa57300a39f8701L, "jetbrains.mps.lang.actions.structure.NF_LinkList_AddNewChildOperation");
 
   public static final SMethod<Boolean> applicableToLinkList_id1653mnvAgwe = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLinkList").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgwe").build();
 
@@ -77,9 +76,5 @@ public final class NF_LinkList_AddNewChildOperation__BehaviorDescriptor extends 
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class AUX_qzouit {
-    /*package*/ static final SConcept NF_LinkList_AddNewChildOperation_4d81d1de = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0xaa57300a39f8701L, "jetbrains.mps.lang.actions.structure.NF_LinkList_AddNewChildOperation");
   }
 }

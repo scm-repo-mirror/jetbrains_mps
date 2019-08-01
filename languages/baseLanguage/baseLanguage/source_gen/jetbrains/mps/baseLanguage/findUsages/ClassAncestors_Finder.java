@@ -6,7 +6,6 @@ import jetbrains.mps.ide.findusages.findalgorithm.finders.GeneratedFinder;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.model.scopes.ModelsScope;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.annotations.NotNull;
@@ -15,13 +14,16 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ClassAncestors_Finder extends GeneratedFinder {
   public ClassAncestors_Finder() {
   }
   public boolean isVisible(SNode node, SearchScope scope) {
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass")) != null;
+    return SLinkOperations.getTarget(node, LINKS.superclass$_pqe) != null;
   }
   @Override
   public boolean isVisible(SNode node) {
@@ -37,7 +39,7 @@ public class ClassAncestors_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_golwby.ClassConcept_e2711824;
+    return CONCEPTS.ClassConcept$IY;
   }
 
   @Override
@@ -45,10 +47,10 @@ public class ClassAncestors_Finder extends GeneratedFinder {
     try {
       monitor.start("Class Ancestors", 1);
       SNode current = node;
-      if (SNodeOperations.isInstanceOf(node, AUX_golwby.AnonymousClass_e4a73f97)) {
-        SNode classifier = SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_golwby.AnonymousClass_e4a73f97), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier"));
-        if (SNodeOperations.isInstanceOf(classifier, AUX_golwby.ClassConcept_e2711824)) {
-          current = SNodeOperations.cast(classifier, AUX_golwby.ClassConcept_e2711824);
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.AnonymousClass$aF)) {
+        SNode classifier = SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.AnonymousClass$aF), LINKS.classifier$1y5e);
+        if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.ClassConcept$IY)) {
+          current = SNodeOperations.cast(classifier, CONCEPTS.ClassConcept$IY);
           callback.onUsageFound(createSingleResult(current));
         }
       }
@@ -56,7 +58,7 @@ public class ClassAncestors_Finder extends GeneratedFinder {
         if (monitor.isCanceled()) {
           return;
         }
-        current = SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(current, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")), AUX_golwby.ClassConcept_e2711824);
+        current = SNodeOperations.cast(SLinkOperations.getTarget(SLinkOperations.getTarget(current, LINKS.superclass$_pqe), LINKS.classifier$pQ_R), CONCEPTS.ClassConcept$IY);
         if (current != null) {
           callback.onUsageFound(createSingleResult(current));
         }
@@ -78,8 +80,14 @@ public class ClassAncestors_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1200502085335");
   }
 
-  private static final class AUX_golwby {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink superclass$_pqe = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass");
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
   }
 }

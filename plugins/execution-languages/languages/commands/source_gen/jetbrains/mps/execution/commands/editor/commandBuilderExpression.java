@@ -22,19 +22,21 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class commandBuilderExpression extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_rk0f2c_a(), AUX_rk0f2c.CommandBuilderExpression_30caf073));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_rk0f2c_a(), CONCEPTS.CommandBuilderExpression$Pf));
     return result;
   }
 
@@ -71,7 +73,7 @@ public class commandBuilderExpression extends SubstituteMenuBase {
     @Nullable
     @Override
     protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-      return SModelOperations.nodesIncludingImported(_context.getModel(), AUX_rk0f2c.ExecuteCommandPart_c37ee4d);
+      return SModelOperations.nodesIncludingImported(_context.getModel(), CONCEPTS.ExecuteCommandPart$EP);
     }
     private class SMP_Action_rk0f2c_a0 extends SingleItemSubstituteMenuPart {
       private final SNode myParameterObject;
@@ -106,7 +108,7 @@ public class commandBuilderExpression extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_rk0f2c.CommandBuilderExpression_30caf073, context);
+          super(CONCEPTS.CommandBuilderExpression$Pf, context);
           _context = context;
         }
 
@@ -117,8 +119,8 @@ public class commandBuilderExpression extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode builder = SNodeFactoryOperations.createNewNode(AUX_rk0f2c.CommandBuilderExpression_30caf073, null);
-          SLinkOperations.setTarget(builder, MetaAdapterFactory.getReferenceLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bf4L, 0x550ea9458ea1ac11L, "commandPart"), myParameterObject);
+          SNode builder = SNodeFactoryOperations.createNewNode(CONCEPTS.CommandBuilderExpression$Pf, null);
+          SLinkOperations.setTarget(builder, LINKS.commandPart$vwzX, myParameterObject);
           return builder;
         }
 
@@ -128,7 +130,7 @@ public class commandBuilderExpression extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_rk0f2c.CommandBuilderExpression_30caf073, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.CommandBuilderExpression$Pf, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -141,7 +143,7 @@ public class commandBuilderExpression extends SubstituteMenuBase {
         @Nullable
         @Override
         public String getMatchingText(@NotNull String pattern) {
-          return SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          return SPropertyOperations.getString(myParameterObject, PROPS.name$tAp1);
         }
         @Nullable
         @Override
@@ -153,8 +155,16 @@ public class commandBuilderExpression extends SubstituteMenuBase {
 
   }
 
-  private static final class AUX_rk0f2c {
-    /*package*/ static final SConcept CommandBuilderExpression_30caf073 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bf4L, "jetbrains.mps.execution.commands.structure.CommandBuilderExpression");
-    /*package*/ static final SConcept ExecuteCommandPart_c37ee4d = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, "jetbrains.mps.execution.commands.structure.ExecuteCommandPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommandBuilderExpression$Pf = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bf4L, "jetbrains.mps.execution.commands.structure.CommandBuilderExpression");
+    /*package*/ static final SConcept ExecuteCommandPart$EP = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, "jetbrains.mps.execution.commands.structure.ExecuteCommandPart");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink commandPart$vwzX = MetaAdapterFactory.getReferenceLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2bf4L, 0x550ea9458ea1ac11L, "commandPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

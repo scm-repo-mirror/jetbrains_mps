@@ -25,7 +25,7 @@ public class typeof_ConceptAliasOperation_InferenceRule extends AbstractInferenc
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tkelj7.ConceptAliasOperation_2ac72139;
+    return CONCEPTS.ConceptAliasOperation$l9;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ConceptAliasOperation_InferenceRule extends AbstractInferenc
     return quotedNode_1;
   }
 
-  private static final class AUX_tkelj7 {
-    /*package*/ static final SConcept ConceptAliasOperation_2ac72139 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5f5952af8856be80L, "jetbrains.mps.lang.smodel.structure.ConceptAliasOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptAliasOperation$l9 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5f5952af8856be80L, "jetbrains.mps.lang.smodel.structure.ConceptAliasOperation");
   }
 }

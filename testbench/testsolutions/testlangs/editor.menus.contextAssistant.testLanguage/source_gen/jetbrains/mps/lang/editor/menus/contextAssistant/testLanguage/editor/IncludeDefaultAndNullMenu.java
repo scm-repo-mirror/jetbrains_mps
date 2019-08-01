@@ -90,12 +90,12 @@ public class IncludeDefaultAndNullMenu extends TransformationMenuBase {
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_cs2ck2.IncludeDefaultAndNullMenu_ddb3918e);
+      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.IncludeDefaultAndNullMenu$Yk);
     }
 
   }
 
-  private static final class AUX_cs2ck2 {
-    /*package*/ static final SConcept IncludeDefaultAndNullMenu_ddb3918e = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x41299cab94e578eeL, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.IncludeDefaultAndNullMenu");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IncludeDefaultAndNullMenu$Yk = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x41299cab94e578eeL, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.IncludeDefaultAndNullMenu");
   }
 }

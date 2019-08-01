@@ -6,18 +6,23 @@ import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DefaultNodeFactory {
   public static class NodeFactory_7716791493892398447 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SLinkOperations.setPointer(newNode, MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind"), new SNodePointer("r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)", "5724083730281438121"));
+      SLinkOperations.setPointer(newNode, LINKS.kind$Wl20, new SNodePointer("r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)", "5724083730281438121"));
     }
   }
   public static class NodeFactory_2554379189374330335 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SLinkOperations.setPointer(newNode, MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind"), new SNodePointer("r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)", "2554379189374330908"));
+      SLinkOperations.setPointer(newNode, LINKS.kind$Wl20, new SNodePointer("r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)", "2554379189374330908"));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink kind$Wl20 = MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind");
   }
 }

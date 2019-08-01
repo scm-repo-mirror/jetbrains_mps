@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,17 +17,18 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class TemplateCallMacro__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_x8rkl6.TemplateCallMacro_2b79ec44;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, "jetbrains.mps.lang.generator.structure.TemplateCallMacro");
 
   public static final SMethod<SNode> getInputNodeTypeInsideOfMacro_idhEwIosJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInputNodeTypeInsideOfMacro").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIosJ").build();
   public static final SMethod<SNode> getTemplate_idQzR6ThtTpS = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTemplate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("QzR6ThtTpS").build();
@@ -39,16 +41,16 @@ public final class TemplateCallMacro__BehaviorDescriptor extends BaseBHDescripto
   /*package*/ static SNode getInputNodeTypeInsideOfMacro_idhEwIosJ(@NotNull SNode __thisNode__) {
     {
       GeneratedMatchingPattern pattern_4ckpni_a0a = new Pattern_4ckpni_a0a0a0a(_quotation_createNode_4ckpni_a0a0a0a0a());
-      SNode coercedNode_4ckpni_a0a = TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, 0x14f7f8a311b93f35L, "sourceNodeQuery"))), pattern_4ckpni_a0a);
+      SNode coercedNode_4ckpni_a0a = TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(__thisNode__, LINKS.sourceNodeQuery$v2vo)), pattern_4ckpni_a0a);
       if (coercedNode_4ckpni_a0a != null) {
         return pattern_4ckpni_a0a.getMatchedNode("concept");
       } else {
       }
     }
-    return NodeMacro__BehaviorDescriptor.getInputNodeTypeInsideOfMacro_idhEwIosJ.invokeSuper(__thisNode__, AUX_x8rkl6.TemplateCallMacro_2b79ec44);
+    return NodeMacro__BehaviorDescriptor.getInputNodeTypeInsideOfMacro_idhEwIosJ.invokeSuper(__thisNode__, CONCEPTS.TemplateCallMacro$Iu);
   }
   /*package*/ static SNode getTemplate_idQzR6ThtTpS(@NotNull SNode __thisNode__) {
-    return SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template")), AUX_x8rkl6.TemplateDeclaration_6074fd22);
+    return SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.template$yiTA), CONCEPTS.TemplateDeclaration$q0);
   }
 
   /*package*/ TemplateCallMacro__BehaviorDescriptor() {
@@ -105,8 +107,13 @@ public final class TemplateCallMacro__BehaviorDescriptor extends BaseBHDescripto
     return quotedNode_1;
   }
 
-  private static final class AUX_x8rkl6 {
-    /*package*/ static final SConcept TemplateCallMacro_2b79ec44 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, "jetbrains.mps.lang.generator.structure.TemplateCallMacro");
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink sourceNodeQuery$v2vo = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, 0x14f7f8a311b93f35L, "sourceNodeQuery");
+    /*package*/ static final SReferenceLink template$yiTA = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateCallMacro$Iu = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, "jetbrains.mps.lang.generator.structure.TemplateCallMacro");
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
   }
 }

@@ -9,31 +9,34 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.behavior.IMigrationUnit__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_RequiredAnnotationDataDeclaration_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_RequiredAnnotationDataDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode requiredAnnotationDataDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    for (SNode dep : ListSequence.fromList(SLinkOperations.getChildren(requiredAnnotationDataDeclaration, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2ad9bc0L, 0x5e7aa366c2ad9bc1L, "dependencies")))) {
-      if (SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2b3ece9L, 0x5e7aa366c2b3eceaL, "script")) == null) {
+    for (SNode dep : ListSequence.fromList(SLinkOperations.getChildren(requiredAnnotationDataDeclaration, LINKS.dependencies$3n50))) {
+      if (SLinkOperations.getTarget(dep, LINKS.script$tCI0) == null) {
         continue;
       }
-      if (!((IMigrationUnit__BehaviorDescriptor.getProducedAnnotationData_id5TUCQr2CN0$.invoke(SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2b3ece9L, 0x5e7aa366c2b3eceaL, "script"))) != null))) {
+      if (!((IMigrationUnit__BehaviorDescriptor.getProducedAnnotationData_id5TUCQr2CN0$.invoke(SLinkOperations.getTarget(dep, LINKS.script$tCI0)) != null))) {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(dep, "Script " + SPropertyOperations.getString(SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2b3ece9L, 0x5e7aa366c2b3eceaL, "script")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " does not produce any data", "r:47a77104-3b09-4998-a2bd-ada4655c0c77(jetbrains.mps.lang.migration.typesystem)", "6807933448472413406", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(dep, "Script " + SPropertyOperations.getString(SLinkOperations.getTarget(dep, LINKS.script$tCI0), PROPS.name$tAp1) + " does not produce any data", "r:47a77104-3b09-4998-a2bd-ada4655c0c77(jetbrains.mps.lang.migration.typesystem)", "6807933448472413406", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_myak5r.RequiredAnnotationDataDeclaration_d5106f2c;
+    return CONCEPTS.RequiredAnnotationDataDeclaration$mQ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,7 +45,16 @@ public class check_RequiredAnnotationDataDeclaration_NonTypesystemRule extends A
     return false;
   }
 
-  private static final class AUX_myak5r {
-    /*package*/ static final SConcept RequiredAnnotationDataDeclaration_d5106f2c = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2ad9bc0L, "jetbrains.mps.lang.migration.structure.RequiredAnnotationDataDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink script$tCI0 = MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2b3ece9L, 0x5e7aa366c2b3eceaL, "script");
+    /*package*/ static final SContainmentLink dependencies$3n50 = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2ad9bc0L, 0x5e7aa366c2ad9bc1L, "dependencies");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RequiredAnnotationDataDeclaration$mQ = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2ad9bc0L, "jetbrains.mps.lang.migration.structure.RequiredAnnotationDataDeclaration");
   }
 }

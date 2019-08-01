@@ -29,15 +29,15 @@ public class DataFlow {
     for (Instruction i : unreachable) {
       if (!(DataFlow.mayBeUnreachable(i)) && i.getSource() != null) {
         SNode unreachableNode = (SNode) i.getSource();
-        if (SNodeOperations.isInstanceOf(unreachableNode, AUX_fbp630.Statement_9dbf9b0e)) {
+        if (SNodeOperations.isInstanceOf(unreachableNode, CONCEPTS.Statement$ok)) {
           unreachableNodes.add((SNode) i.getSource());
         } else {
-          if (SNodeOperations.isInstanceOf(unreachableNode, AUX_fbp630.StatementList_9dbf9acf)) {
-            if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(unreachableNode), AUX_fbp630.Statement_9dbf9b0e))) {
+          if (SNodeOperations.isInstanceOf(unreachableNode, CONCEPTS.StatementList$TN)) {
+            if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(unreachableNode), CONCEPTS.Statement$ok))) {
               unreachableNodes.add((SNode) i.getSource());
             }
           } else {
-            unreachableNodes.add(SNodeOperations.getNodeAncestor(unreachableNode, AUX_fbp630.Statement_9dbf9b0e, true, false));
+            unreachableNodes.add(SNodeOperations.getNodeAncestor(unreachableNode, CONCEPTS.Statement$ok, true, false));
           }
         }
       }
@@ -92,8 +92,8 @@ public class DataFlow {
     return unusedAssignments;
   }
 
-  private static final class AUX_fbp630 {
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
   }
 }

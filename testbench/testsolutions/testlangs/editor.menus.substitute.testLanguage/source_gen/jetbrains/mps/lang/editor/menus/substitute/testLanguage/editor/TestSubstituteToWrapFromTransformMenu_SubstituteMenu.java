@@ -22,13 +22,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TestSubstituteToWrapFromTransformMenu_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_l2x6t0_a(), AUX_l2x6t0.TestSubstituteToWrapFromTransformMenu_e76aead1));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_l2x6t0_a(), CONCEPTS.TestSubstituteToWrapFromTransformMenu$UL));
     return result;
   }
 
@@ -73,7 +74,7 @@ public class TestSubstituteToWrapFromTransformMenu_SubstituteMenu extends Substi
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_l2x6t0.TestSubstituteToWrapFromTransformMenu_e76aead1, context);
+        super(CONCEPTS.TestSubstituteToWrapFromTransformMenu$UL, context);
         _context = context;
       }
 
@@ -85,7 +86,7 @@ public class TestSubstituteToWrapFromTransformMenu_SubstituteMenu extends Substi
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7315fee8e56db2aeL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteToWrapFromTransformMenu"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "default menu to wrap from transform");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "default menu to wrap from transform");
         return node;
       }
 
@@ -101,7 +102,11 @@ public class TestSubstituteToWrapFromTransformMenu_SubstituteMenu extends Substi
     }
   }
 
-  private static final class AUX_l2x6t0 {
-    /*package*/ static final SConcept TestSubstituteToWrapFromTransformMenu_e76aead1 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7315fee8e56db2aeL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteToWrapFromTransformMenu");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteToWrapFromTransformMenu$UL = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7315fee8e56db2aeL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteToWrapFromTransformMenu");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

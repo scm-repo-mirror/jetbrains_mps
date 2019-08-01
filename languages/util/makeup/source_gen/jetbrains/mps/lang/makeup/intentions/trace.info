@@ -29,11 +29,11 @@
       <node id="1223283106985269863" at="42,35,43,17" concept="6" />
       <node id="1223283106985269863" at="46,37,47,105" concept="2" />
       <node id="1223283106985269863" at="48,5,49,30" concept="6" />
-      <node id="1223283106985322003" at="55,87,56,204" concept="6" />
-      <node id="1223283106985325468" at="60,134,61,148" concept="2" />
-      <node id="1223283106985332201" at="62,14,63,162" concept="2" />
+      <node id="1223283106985322003" at="55,87,56,196" concept="6" />
+      <node id="1223283106985325468" at="60,126,61,140" concept="2" />
+      <node id="1223283106985332201" at="62,14,63,146" concept="2" />
       <node id="1223283106985269863" at="67,48,68,43" concept="6" />
-      <node id="1223283106985269863" at="73,0,74,0" concept="7" trace="CopyOutcome_b441976c" />
+      <node id="1223283106985269863" at="73,0,74,0" concept="7" trace="CopyOutcome$lQ" />
       <node id="1223283106985269863" at="52,0,54,0" concept="1" trace="IntentionImplementation#()V" />
       <node id="1223283106985331925" at="62,12,64,7" concept="0" />
       <node id="1223283106985269863" at="24,0,27,0" concept="1" trace="SetCopyOutcome_Intention#()V" />
@@ -55,9 +55,9 @@
       <scope id="3475620648026247971" at="38,91,39,48" />
       <scope id="1223283106985269863" at="42,35,43,17" />
       <scope id="1223283106985269863" at="46,37,47,105" />
-      <scope id="1223283106985269865" at="55,87,56,204" />
-      <scope id="1223283106985324647" at="60,134,61,148" />
-      <scope id="1223283106985331926" at="62,14,63,162" />
+      <scope id="1223283106985269865" at="55,87,56,196" />
+      <scope id="1223283106985324647" at="60,126,61,140" />
+      <scope id="1223283106985331926" at="62,14,63,146" />
       <scope id="1223283106985269863" at="67,48,68,43" />
       <scope id="1223283106985269863" at="52,0,54,0" />
       <scope id="1223283106985269863" at="24,0,27,0" />
@@ -87,7 +87,7 @@
         <var name="editorContext" id="1223283106985269863" />
         <var name="node" id="1223283106985269863" />
       </scope>
-      <unit id="1223283106985269863" at="72,0,75,0" name="jetbrains.mps.lang.makeup.intentions.SetCopyOutcome_Intention$AUX_9ojlok" />
+      <unit id="1223283106985269863" at="72,0,75,0" name="jetbrains.mps.lang.makeup.intentions.SetCopyOutcome_Intention$CONCEPTS" />
       <unit id="1223283106985269863" at="51,0,71,0" name="jetbrains.mps.lang.makeup.intentions.SetCopyOutcome_Intention$IntentionImplementation" />
       <unit id="1223283106985269863" at="22,0,76,0" name="jetbrains.mps.lang.makeup.intentions.SetCopyOutcome_Intention" />
     </file>

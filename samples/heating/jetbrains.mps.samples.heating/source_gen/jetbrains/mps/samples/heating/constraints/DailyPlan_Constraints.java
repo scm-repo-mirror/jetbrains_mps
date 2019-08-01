@@ -5,7 +5,6 @@ package jetbrains.mps.samples.heating.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -14,15 +13,17 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DailyPlan_Constraints extends BaseConstraintsDescriptor {
   public DailyPlan_Constraints() {
-    super(AUX_uhddzg.DailyPlan_82e65b88);
+    super(CONCEPTS.DailyPlan$jq);
   }
 
   public static class DisplayName_Property extends BasePropertyConstraintsDescriptor {
     public DisplayName_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x1dfff86fbfd92c74L, "displayName"), container);
+      super(PROPS.displayName$P8hc, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -30,17 +31,25 @@ public class DailyPlan_Constraints extends BaseConstraintsDescriptor {
     }
     @Override
     public Object getValue(SNode node) {
-      return (String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x40bcae6c0e686ffeL, "applicability")));
+      return (String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(node, LINKS.applicability$hdHX));
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x1dfff86fbfd92c74L, "displayName"), new DisplayName_Property(this));
+    properties.put(PROPS.displayName$P8hc, new DisplayName_Property(this));
     return properties;
   }
 
-  private static final class AUX_uhddzg {
-    /*package*/ static final SConcept DailyPlan_82e65b88 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DailyPlan$jq = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty displayName$P8hc = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x1dfff86fbfd92c74L, "displayName");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink applicability$hdHX = MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x40bcae6c0e686ffeL, "applicability");
   }
 }

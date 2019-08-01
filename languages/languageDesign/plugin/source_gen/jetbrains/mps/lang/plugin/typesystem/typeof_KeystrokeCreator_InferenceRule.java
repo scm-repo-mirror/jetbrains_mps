@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_KeystrokeCreator_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,13 +21,13 @@ public class typeof_KeystrokeCreator_InferenceRule extends AbstractInferenceRule
   }
   public void applyRule(final SNode stmt, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(stmt, MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x70d8274412a8919cL, 0x70d8274412ab495dL, "stroke"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(stmt, LINKS.stroke$rPHw);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "8131292300541907325", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "8131292300541907082", true), (SNode) _quotation_createNode_d8k55o_a1a0c0a0b(), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_d8k55o.AddKeystrokeStatement_d6814608;
+    return CONCEPTS.AddKeystrokeStatement$Dq;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +42,11 @@ public class typeof_KeystrokeCreator_InferenceRule extends AbstractInferenceRule
     return quotedNode_1;
   }
 
-  private static final class AUX_d8k55o {
-    /*package*/ static final SConcept AddKeystrokeStatement_d6814608 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x70d8274412a8919cL, "jetbrains.mps.lang.plugin.structure.AddKeystrokeStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink stroke$rPHw = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x70d8274412a8919cL, 0x70d8274412ab495dL, "stroke");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AddKeystrokeStatement$Dq = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x70d8274412a8919cL, "jetbrains.mps.lang.plugin.structure.AddKeystrokeStatement");
   }
 }

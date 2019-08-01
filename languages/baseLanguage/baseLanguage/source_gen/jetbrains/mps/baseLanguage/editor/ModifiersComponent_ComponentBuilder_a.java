@@ -11,7 +11,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
@@ -27,6 +26,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class ModifiersComponent_ComponentBuilder_a extends AbstractEditorBuilder {
@@ -57,7 +57,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_3tjqio_a0a() {
-    return Sequence.fromIterable(AttributeOperations.getChildNodesAndAttributes(myNode, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).isNotEmpty();
+    return Sequence.fromIterable(AttributeOperations.getChildNodesAndAttributes(myNode, LINKS.modifiers$akE0)).isNotEmpty();
   }
   private EditorCell createRefNodeList_0() {
     AbstractCellListHandler handler = new modifiersListHandler_3tjqio_a0(myNode, getEditorContext());
@@ -67,7 +67,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     new KeywordStyleClass(getEditorContext(), getNode()).apply(style, editorCell);
     editorCell.getStyle().putAll(style);
     ModifiersInsertHandler.setCellActions(editorCell, myNode, getEditorContext());
-    editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), AUX_4de8bz.Modifier_b30bf498, "jetbrains.mps.baseLanguage.editor.ModifierTransformationMenuHelper_TOREMOVE"));
+    editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.Modifier$Ra, "jetbrains.mps.baseLanguage.editor.ModifierTransformationMenuHelper_TOREMOVE"));
     editorCell.setSRole(handler.getElementSRole());
     return editorCell;
   }
@@ -85,10 +85,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
+      return LINKS.modifiers$akE0;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_4de8bz.Modifier_b30bf498;
+      return CONCEPTS.Modifier$Ra;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -98,7 +98,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(modifiersListHandler_3tjqio_a0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(modifiersListHandler_3tjqio_a0.this.getNode(), LINKS.modifiers$akE0));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -123,7 +123,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_4de8bz {
-    /*package*/ static final SConcept Modifier_b30bf498 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x21592d9e7375c5a6L, "jetbrains.mps.baseLanguage.structure.Modifier");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modifiers$akE0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Modifier$Ra = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x21592d9e7375c5a6L, "jetbrains.mps.baseLanguage.structure.Modifier");
   }
 }

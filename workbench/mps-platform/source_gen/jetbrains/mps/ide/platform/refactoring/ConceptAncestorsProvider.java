@@ -8,8 +8,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ConceptAncestorsProvider implements IDescendantsProvider {
   public ConceptAncestorsProvider() {
@@ -17,27 +19,34 @@ public class ConceptAncestorsProvider implements IDescendantsProvider {
   @Override
   public Set<SNode> getDescendants(SNode node) {
     Set<SNode> result = new HashSet<SNode>();
-    if (SNodeOperations.isInstanceOf(node, AUX_uogic4.ConceptDeclaration_cb225da8)) {
-      SNode conceptDeclaration = SNodeOperations.cast(node, AUX_uogic4.ConceptDeclaration_cb225da8);
-      SNode parent = SLinkOperations.getTarget(conceptDeclaration, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends"));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConceptDeclaration$qU)) {
+      SNode conceptDeclaration = SNodeOperations.cast(node, CONCEPTS.ConceptDeclaration$qU);
+      SNode parent = SLinkOperations.getTarget(conceptDeclaration, LINKS.extends$LQV3);
       if ((parent != null)) {
         result.add(parent);
       }
-      for (SNode interfaceConceptReference : SLinkOperations.getChildren(conceptDeclaration, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements"))) {
-        result.add(SLinkOperations.getTarget(interfaceConceptReference, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc")));
+      for (SNode interfaceConceptReference : SLinkOperations.getChildren(conceptDeclaration, LINKS.implements$oQDh)) {
+        result.add(SLinkOperations.getTarget(interfaceConceptReference, LINKS.intfc$fO5));
       }
     }
-    if (SNodeOperations.isInstanceOf(node, AUX_uogic4.InterfaceConceptDeclaration_efdf2bc9)) {
-      SNode interfaceConceptDeclaration = SNodeOperations.cast(node, AUX_uogic4.InterfaceConceptDeclaration_efdf2bc9);
-      for (SNode interfaceConceptReference : SLinkOperations.getChildren(interfaceConceptDeclaration, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends"))) {
-        result.add(SLinkOperations.getTarget(interfaceConceptReference, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc")));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.InterfaceConceptDeclaration$MT)) {
+      SNode interfaceConceptDeclaration = SNodeOperations.cast(node, CONCEPTS.InterfaceConceptDeclaration$MT);
+      for (SNode interfaceConceptReference : SLinkOperations.getChildren(interfaceConceptDeclaration, LINKS.extends$3Y1p)) {
+        result.add(SLinkOperations.getTarget(interfaceConceptReference, LINKS.intfc$fO5));
       }
     }
     return result;
   }
 
-  private static final class AUX_uogic4 {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
+    /*package*/ static final SContainmentLink implements$oQDh = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements");
+    /*package*/ static final SReferenceLink intfc$fO5 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc");
+    /*package*/ static final SContainmentLink extends$3Y1p = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends");
   }
 }

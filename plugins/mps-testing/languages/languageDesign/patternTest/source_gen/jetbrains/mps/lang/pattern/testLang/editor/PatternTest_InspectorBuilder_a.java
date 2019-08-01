@@ -14,7 +14,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
@@ -35,6 +34,8 @@ import jetbrains.mps.smodel.SNodePointer;
 import java.util.stream.Collectors;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.IOperationContext;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class PatternTest_InspectorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -83,9 +84,9 @@ import jetbrains.mps.smodel.IOperationContext;
       }
       public void setText(String text) {
         if (text.equals("true")) {
-          SPropertyOperations.assign(myNode, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), false);
+          SPropertyOperations.assign(myNode, PROPS.canNotRunInProcess$QfFh, false);
         } else if (text.equals("false")) {
-          SPropertyOperations.assign(myNode, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), true);
+          SPropertyOperations.assign(myNode, PROPS.canNotRunInProcess$QfFh, true);
         }
       }
       public boolean isValidText(String text) {
@@ -122,7 +123,7 @@ import jetbrains.mps.smodel.IOperationContext;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), true);
+      SPropertyOperations.assign(node, PROPS.canNotRunInProcess$QfFh, true);
     }
     public String getMatchingText() {
       return "false";
@@ -150,10 +151,14 @@ import jetbrains.mps.smodel.IOperationContext;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), false);
+      SPropertyOperations.assign(node, PROPS.canNotRunInProcess$QfFh, false);
     }
     public String getMatchingText() {
       return "true";
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty canNotRunInProcess$QfFh = MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess");
   }
 }

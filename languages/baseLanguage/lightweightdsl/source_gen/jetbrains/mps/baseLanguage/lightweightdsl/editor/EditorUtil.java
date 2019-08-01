@@ -7,7 +7,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.lightweightdsl.behavior.DSLClassMember__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.baseLanguage.lightweightdsl.behavior.MemberInstance__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -17,27 +16,30 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.baseLanguage.lightweightdsl.behavior.PlaceholderModifier__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class EditorUtil {
   public static void substitutePlaceholder(SNode ph, SModel futureModel) {
-    SNodeOperations.replaceWithAnother(ph, DSLClassMember__BehaviorDescriptor.create_id7ay_HjIOVVe.invoke(SLinkOperations.getTarget(ph, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl")), futureModel));
+    SNodeOperations.replaceWithAnother(ph, DSLClassMember__BehaviorDescriptor.create_id7ay_HjIOVVe.invoke(SLinkOperations.getTarget(ph, LINKS.decl$l7bu), futureModel));
   }
   public static void restorePlaceholder(final SNode mi) {
     final Wrappers._T<SNode> decl = new Wrappers._T<SNode>(null);
-    if (SNodeOperations.isInstanceOf(mi, AUX_3m4h3r.MemberInstance_6694f05a)) {
-      decl.value = MemberInstance__BehaviorDescriptor.getDeclaration_id7T23sO8vZuR.invoke(SNodeOperations.cast(mi, AUX_3m4h3r.MemberInstance_6694f05a));
+    if (SNodeOperations.isInstanceOf(mi, CONCEPTS.MemberInstance$D8)) {
+      decl.value = MemberInstance__BehaviorDescriptor.getDeclaration_id7T23sO8vZuR.invoke(SNodeOperations.cast(mi, CONCEPTS.MemberInstance$D8));
     } else {
       // custom members 
-      decl.value = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(AttributeOperations.getAttribute(ListSequence.fromList(SNodeOperations.getNodeAncestors(mi, AUX_3m4h3r.ClassConcept_e2711824, false)).findFirst(new IWhereFilter<SNode>() {
+      decl.value = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SLinkOperations.getTarget(AttributeOperations.getAttribute(ListSequence.fromList(SNodeOperations.getNodeAncestors(mi, CONCEPTS.ClassConcept$IY, false)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_3m4h3r.DSLAnnotation_eee1a74)) != null);
+          return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DSLAnnotation$dI)) != null);
         }
-      }), new IAttributeDescriptor.NodeAttribute(AUX_3m4h3r.DSLAnnotation_eee1a74)), MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, 0x3190d3f9f1cac277L, "descriptor")), MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x72b255a0447fe4c8L, "classLikeMember")), AUX_3m4h3r.CustomMemberDescriptor_739898b0)).findFirst(new IWhereFilter<SNode>() {
+      }), new IAttributeDescriptor.NodeAttribute(CONCEPTS.DSLAnnotation$dI)), LINKS.descriptor$Zoot), LINKS.classLikeMember$UT6r), CONCEPTS.CustomMemberDescriptor$MM)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           // viva la interpretation! 
-          return SNodeOperations.getConcept(mi).equals(MetaAdapterByDeclaration.getConcept(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044805d9cL, 0x72b255a044805d9fL, "cncpt"))));
+          return SNodeOperations.getConcept(mi).equals(MetaAdapterByDeclaration.getConcept(SLinkOperations.getTarget(it, LINKS.cncpt$4E7Y)));
         }
       });
     }
@@ -45,7 +47,7 @@ public class EditorUtil {
       return;
     }
 
-    boolean lastInstance = (boolean) DSLClassMember__BehaviorDescriptor.isRequired_id2WSWNq1VhVM.invoke(decl.value) && Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(mi, AUX_3m4h3r.ClassConcept_e2711824, false, false), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member")), AUX_3m4h3r.MemberInstance_6694f05a)).where(new IWhereFilter<SNode>() {
+    boolean lastInstance = (boolean) DSLClassMember__BehaviorDescriptor.isRequired_id2WSWNq1VhVM.invoke(decl.value) && Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(mi, CONCEPTS.ClassConcept$IY, false, false), LINKS.member$oYX5), CONCEPTS.MemberInstance$D8)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return MemberInstance__BehaviorDescriptor.getDeclaration_id7T23sO8vZuR.invoke(it) == decl.value;
       }
@@ -61,10 +63,18 @@ public class EditorUtil {
     }
   }
 
-  private static final class AUX_3m4h3r {
-    /*package*/ static final SInterfaceConcept MemberInstance_6694f05a = MetaAdapterFactory.getInterfaceConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d9179L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MemberInstance");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept DSLAnnotation_eee1a74 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLAnnotation");
-    /*package*/ static final SConcept CustomMemberDescriptor_739898b0 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044805d9cL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.CustomMemberDescriptor");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink decl$l7bu = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl");
+    /*package*/ static final SReferenceLink descriptor$Zoot = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, 0x3190d3f9f1cac277L, "descriptor");
+    /*package*/ static final SContainmentLink classLikeMember$UT6r = MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x72b255a0447fe4c8L, "classLikeMember");
+    /*package*/ static final SReferenceLink cncpt$4E7Y = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044805d9cL, 0x72b255a044805d9fL, "cncpt");
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MemberInstance$D8 = MetaAdapterFactory.getInterfaceConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d9179L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MemberInstance");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept DSLAnnotation$dI = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLAnnotation");
+    /*package*/ static final SConcept CustomMemberDescriptor$MM = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044805d9cL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.CustomMemberDescriptor");
   }
 }

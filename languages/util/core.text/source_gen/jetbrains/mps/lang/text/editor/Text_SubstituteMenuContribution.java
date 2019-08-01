@@ -22,6 +22,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Text_SubstituteMenuContribution extends SubstituteMenuBase {
   public Text_SubstituteMenuContribution() {
@@ -31,7 +32,7 @@ public class Text_SubstituteMenuContribution extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_dmpu6l_a(), AUX_dmpu6l.IPlaceholderContent_2e80d875));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_dmpu6l_a(), CONCEPTS.IPlaceholderContent$md));
     return result;
   }
 
@@ -76,7 +77,7 @@ public class Text_SubstituteMenuContribution extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_dmpu6l.IPlaceholderContent_2e80d875, context);
+        super(CONCEPTS.IPlaceholderContent$md, context);
         _context = context;
       }
 
@@ -88,7 +89,7 @@ public class Text_SubstituteMenuContribution extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e5619f411L, "jetbrains.mps.lang.text.structure.Text"));
-        SLinkOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e5619f411L, 0x2331694e561a03b8L, "lines"), null);
+        SLinkOperations.addNewChild(node, LINKS.lines$$cru, null);
         return node;
       }
 
@@ -109,7 +110,11 @@ public class Text_SubstituteMenuContribution extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_dmpu6l {
-    /*package*/ static final SInterfaceConcept IPlaceholderContent_2e80d875 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x38518aff8a105fd6L, "jetbrains.mps.lang.core.structure.IPlaceholderContent");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IPlaceholderContent$md = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x38518aff8a105fd6L, "jetbrains.mps.lang.core.structure.IPlaceholderContent");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink lines$$cru = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e5619f411L, 0x2331694e561a03b8L, "lines");
   }
 }

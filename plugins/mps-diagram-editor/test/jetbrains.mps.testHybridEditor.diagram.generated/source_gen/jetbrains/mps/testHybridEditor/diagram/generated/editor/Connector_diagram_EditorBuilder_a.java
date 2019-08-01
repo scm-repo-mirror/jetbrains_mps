@@ -25,8 +25,9 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.ConnectorDecorator
 import jetbrains.jetpad.model.property.ReadableProperty;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class Connector_diagram_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -171,8 +172,8 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 
 
     public void synchronize() {
-      myInputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703018L, "inputPort"))));
-      myOutputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703014L, "outputPort"))));
+      myInputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), LINKS.inputPort$1943)));
+      myOutputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), LINKS.outputPort$1927)));
     }
     private PolyLineConnection createConnection() {
       PolyLineConnection connection = new PolyLineConnection();
@@ -186,5 +187,10 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
     }
 
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink inputPort$1943 = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703018L, "inputPort");
+    /*package*/ static final SReferenceLink outputPort$1927 = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703014L, "outputPort");
   }
 }

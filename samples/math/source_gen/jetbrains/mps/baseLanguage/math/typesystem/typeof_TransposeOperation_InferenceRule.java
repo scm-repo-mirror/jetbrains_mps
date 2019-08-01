@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
@@ -18,29 +17,32 @@ import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class typeof_TransposeOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_TransposeOperation_InferenceRule() {
   }
   public void applyRule(final SNode operation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      final SNode t = typeCheckingContext.typeOf(SLinkOperations.getTarget(operation, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr")), "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "7388416617632229121", true);
+      final SNode t = typeCheckingContext.typeOf(SLinkOperations.getTarget(operation, LINKS.expr$XA0Z), "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "7388416617632229121", true);
       typeCheckingContext.whenConcrete(t, new Runnable() {
         public void run() {
-          if (SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), AUX_odw3zd.MatrixType_c2d2403c)) {
+          if (SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), CONCEPTS.MatrixType$qA)) {
             SNode result = _quotation_createNode_odw3zd_a0a0a0a0a1a0b0a0b(MathTypeUtil.getElementType(typeCheckingContext.getExpandedNode(t)));
-            SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"), SPropertyOperations.getInteger(SNodeOperations.cast(typeCheckingContext.getExpandedNode(t), AUX_odw3zd.MatrixType_c2d2403c), MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows")));
-            SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"), SPropertyOperations.getInteger(SNodeOperations.cast(typeCheckingContext.getExpandedNode(t), AUX_odw3zd.MatrixType_c2d2403c), MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns")));
+            SPropertyOperations.assign(result, PROPS.columns$rd3m, SPropertyOperations.getInteger(SNodeOperations.cast(typeCheckingContext.getExpandedNode(t), CONCEPTS.MatrixType$qA), PROPS.rows$rd2R));
+            SPropertyOperations.assign(result, PROPS.rows$rd2R, SPropertyOperations.getInteger(SNodeOperations.cast(typeCheckingContext.getExpandedNode(t), CONCEPTS.MatrixType$qA), PROPS.columns$rd3m));
             {
               SNode _nodeToCheck_1029348928467 = operation;
               EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "7388416617632229140", 0, null);
               typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "7388416617632229137", true), (SNode) result, false, true, _info_12389875345);
             }
-          } else if (SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), AUX_odw3zd.VectorType_c2d2403b)) {
+          } else if (SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), CONCEPTS.VectorType$q7)) {
             SNode result = _quotation_createNode_odw3zd_a0a0a0a0a0b0a1a0a1(MathTypeUtil.getElementType(typeCheckingContext.getExpandedNode(t)));
-            SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"), SPropertyOperations.getInteger(SNodeOperations.cast(typeCheckingContext.getExpandedNode(t), AUX_odw3zd.VectorType_c2d2403b), MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height")));
-            SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"), 1);
+            SPropertyOperations.assign(result, PROPS.columns$rd3m, SPropertyOperations.getInteger(SNodeOperations.cast(typeCheckingContext.getExpandedNode(t), CONCEPTS.VectorType$q7), PROPS.height$Gzgy));
+            SPropertyOperations.assign(result, PROPS.rows$rd2R, 1);
             {
               SNode _nodeToCheck_1029348928467 = operation;
               EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "7388416617632229259", 0, null);
@@ -57,7 +59,7 @@ public class typeof_TransposeOperation_InferenceRule extends AbstractInferenceRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_odw3zd.TransposeOperation_7a0a4647;
+    return CONCEPTS.TransposeOperation$7V;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -72,7 +74,7 @@ public class typeof_TransposeOperation_InferenceRule extends AbstractInferenceRu
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, "jetbrains.mps.baseLanguage.math"), 0x42d5783a6267f776L, "MatrixType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$Gy$X, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -83,14 +85,25 @@ public class typeof_TransposeOperation_InferenceRule extends AbstractInferenceRu
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, "jetbrains.mps.baseLanguage.math"), 0x42d5783a6267f776L, "MatrixType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$Gy$X, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_odw3zd {
-    /*package*/ static final SConcept MatrixType_c2d2403c = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
-    /*package*/ static final SConcept VectorType_c2d2403b = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
-    /*package*/ static final SConcept TransposeOperation_7a0a4647 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x7418107bdc9576d4L, "jetbrains.mps.baseLanguage.math.structure.TransposeOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expr$XA0Z = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, 0x64b1e972e6443a22L, "expr");
+    /*package*/ static final SContainmentLink elementType$Gy$X = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixType$qA = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
+    /*package*/ static final SConcept VectorType$q7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
+    /*package*/ static final SConcept TransposeOperation$7V = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x7418107bdc9576d4L, "jetbrains.mps.baseLanguage.math.structure.TransposeOperation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty columns$rd3m = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns");
+    /*package*/ static final SProperty rows$rd2R = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows");
+    /*package*/ static final SProperty height$Gzgy = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height");
   }
 }

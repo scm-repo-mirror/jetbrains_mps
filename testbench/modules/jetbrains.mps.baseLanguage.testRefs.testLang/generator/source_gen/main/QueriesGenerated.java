@@ -7,7 +7,6 @@ import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodeContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.SourceNodeQuery;
 import java.util.HashMap;
@@ -16,6 +15,8 @@ import jetbrains.mps.generator.impl.query.QueryKey;
 import jetbrains.mps.generator.impl.query.QueryKeyImpl;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.generator.impl.GenerationFailureException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -23,13 +24,13 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static SNode sourceNodeQuery_1_0(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb654d0ef89814c92L, 0x8304246f1dfe4618L, 0x1885e519eacbfceeL, 0x745d0a037f5a099bL, "valueDeclReference"));
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.valueDeclReference$3jO_);
   }
   public static SNode sourceNodeQuery_1_1(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb654d0ef89814c92L, 0x8304246f1dfe4618L, 0x1885e519eacbfceeL, 0x745d0a037f5a099bL, "valueDeclReference"));
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.valueDeclReference$3jO_);
   }
   public static SNode sourceNodeQuery_1_2(final SourceSubstituteMacroNodeContext _context) {
-    return SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xb654d0ef89814c92L, 0x8304246f1dfe4618L, 0x1885e519eacbfceeL, 0x745d0a037f5a099dL, "referenceDeclReference"));
+    return SLinkOperations.getTarget(_context.getNode(), LINKS.referenceDeclReference$3jPz);
   }
   private final Map<String, SourceNodeQuery> snqMethods = new HashMap<String, SourceNodeQuery>();
   {
@@ -65,5 +66,10 @@ public class QueriesGenerated extends QueryProviderBase {
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink valueDeclReference$3jO_ = MetaAdapterFactory.getContainmentLink(0xb654d0ef89814c92L, 0x8304246f1dfe4618L, 0x1885e519eacbfceeL, 0x745d0a037f5a099bL, "valueDeclReference");
+    /*package*/ static final SContainmentLink referenceDeclReference$3jPz = MetaAdapterFactory.getContainmentLink(0xb654d0ef89814c92L, 0x8304246f1dfe4618L, 0x1885e519eacbfceeL, 0x745d0a037f5a099dL, "referenceDeclReference");
   }
 }

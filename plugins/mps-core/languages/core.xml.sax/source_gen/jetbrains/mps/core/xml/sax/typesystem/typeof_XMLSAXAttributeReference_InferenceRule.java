@@ -25,7 +25,7 @@ public class typeof_XMLSAXAttributeReference_InferenceRule extends AbstractInfer
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_b8goj7.XMLSAXAttributeReference_1c3fd37f;
+    return CONCEPTS.XMLSAXAttributeReference$J3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_XMLSAXAttributeReference_InferenceRule extends AbstractInfer
     return quotedNode_1;
   }
 
-  private static final class AUX_b8goj7 {
-    /*package*/ static final SConcept XMLSAXAttributeReference_1c3fd37f = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXAttributeReference$J3 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
   }
 }

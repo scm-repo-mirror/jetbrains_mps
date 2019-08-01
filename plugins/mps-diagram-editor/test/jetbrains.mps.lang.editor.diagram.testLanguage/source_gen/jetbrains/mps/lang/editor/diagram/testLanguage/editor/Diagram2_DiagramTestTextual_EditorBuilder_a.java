@@ -16,7 +16,6 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -24,6 +23,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class Diagram2_DiagramTestTextual_EditorBuilder_a extends AbstractEditorBuilder {
@@ -129,10 +129,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1dce2L, 0x7a0afda102e20209L, "mainNodes");
+      return LINKS.mainNodes$Vvrq;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_3czqfz.Node_60f23628;
+      return CONCEPTS.Node$SU;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -142,7 +142,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(mainNodesListHandler_b472j3_c2a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1dce2L, 0x7a0afda102e20209L, "mainNodes")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(mainNodesListHandler_b472j3_c2a.this.getNode(), LINKS.mainNodes$Vvrq));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -217,10 +217,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1dce2L, 0x4ce40ecaf414670eL, "nodeConnectors");
+      return LINKS.nodeConnectors$BXcm;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_3czqfz.OutputToInputPortConnector_4ddc965d;
+      return CONCEPTS.OutputToInputPortConnector$i_;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -230,7 +230,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(nodeConnectorsListHandler_b472j3_g2a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1dce2L, 0x4ce40ecaf414670eL, "nodeConnectors")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(nodeConnectorsListHandler_b472j3_g2a.this.getNode(), LINKS.nodeConnectors$BXcm));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -264,8 +264,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_3czqfz {
-    /*package*/ static final SConcept Node_60f23628 = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.Node");
-    /*package*/ static final SConcept OutputToInputPortConnector_4ddc965d = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x4ce40ecaf4106a9bL, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.OutputToInputPortConnector");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink mainNodes$Vvrq = MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1dce2L, 0x7a0afda102e20209L, "mainNodes");
+    /*package*/ static final SContainmentLink nodeConnectors$BXcm = MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1dce2L, 0x4ce40ecaf414670eL, "nodeConnectors");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node$SU = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.Node");
+    /*package*/ static final SConcept OutputToInputPortConnector$i_ = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x4ce40ecaf4106a9bL, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.OutputToInputPortConnector");
   }
 }

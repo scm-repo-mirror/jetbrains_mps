@@ -8,20 +8,22 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_MatrixConstructor_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_MatrixConstructor_InferenceRule() {
   }
   public void applyRule(final SNode mc, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    DimensionUtil.checkDim(typeCheckingContext, SLinkOperations.getChildren(mc, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x42d5783a626b0a8dL, "components")), 0, new ArrayList<SNode>(), !(SPropertyOperations.getBoolean(mc, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x308cb55abc73bd40L, "column"))), mc);
+    DimensionUtil.checkDim(typeCheckingContext, SLinkOperations.getChildren(mc, LINKS.components$A7_4), 0, new ArrayList<SNode>(), !(SPropertyOperations.getBoolean(mc, PROPS.column$5PEh)), mc);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_jxn5fk.MatrixConstructor_c63cc751;
+    return CONCEPTS.MatrixConstructor$8L;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -30,7 +32,15 @@ public class typeof_MatrixConstructor_InferenceRule extends AbstractInferenceRul
     return false;
   }
 
-  private static final class AUX_jxn5fk {
-    /*package*/ static final SConcept MatrixConstructor_c63cc751 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, "jetbrains.mps.baseLanguage.math.structure.MatrixConstructor");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink components$A7_4 = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x42d5783a626b0a8dL, "components");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty column$5PEh = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x308cb55abc73bd40L, "column");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixConstructor$8L = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, "jetbrains.mps.baseLanguage.math.structure.MatrixConstructor");
   }
 }

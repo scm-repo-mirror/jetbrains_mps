@@ -25,7 +25,7 @@ public class typeof_CustomStatementRef_InferenceRule extends AbstractInferenceRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_zf4e30.CustomStatementRef_e0ac4de7;
+    return CONCEPTS.CustomStatementRef$Tr;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_CustomStatementRef_InferenceRule extends AbstractInferenceRu
     return quotedNode_1;
   }
 
-  private static final class AUX_zf4e30 {
-    /*package*/ static final SConcept CustomStatementRef_e0ac4de7 = MetaAdapterFactory.getConcept(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1e076e8c8ce9211aL, "jetbrains.mps.transformation.test.outputLang.structure.CustomStatementRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CustomStatementRef$Tr = MetaAdapterFactory.getConcept(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1e076e8c8ce9211aL, "jetbrains.mps.transformation.test.outputLang.structure.CustomStatementRef");
   }
 }

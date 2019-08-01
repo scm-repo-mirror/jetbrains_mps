@@ -4,6 +4,7 @@ package jetbrains.mps.lang.migration.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,11 +18,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ProducedAnnotationDataDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_wp6n73.ProducedAnnotationDataDeclaration_a1ef0fcf;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2a0198dL, "jetbrains.mps.lang.migration.structure.ProducedAnnotationDataDeclaration");
 
   public static final SMethod<SNode> getDeclaration_id7T23sO8vZuR = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getDeclaration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7T23sO8vZuR").build();
 
@@ -78,9 +77,5 @@ public final class ProducedAnnotationDataDeclaration__BehaviorDescriptor extends
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class AUX_wp6n73 {
-    /*package*/ static final SConcept ProducedAnnotationDataDeclaration_a1ef0fcf = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2a0198dL, "jetbrains.mps.lang.migration.structure.ProducedAnnotationDataDeclaration");
   }
 }

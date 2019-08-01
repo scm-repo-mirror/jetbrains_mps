@@ -23,7 +23,6 @@ import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -32,6 +31,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class WithStatement_EditableMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
@@ -101,7 +102,7 @@ public class WithStatement_EditableMenu extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3ac2ae2c0bcf368bL, 0x2ad91d769e8495fL, "includeNonEditable"), false);
+        SPropertyOperations.assign(_context.getNode(), PROPS.includeNonEditable$XmkH, false);
       }
 
       @Override
@@ -165,7 +166,7 @@ public class WithStatement_EditableMenu extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3ac2ae2c0bcf368bL, 0x2ad91d769e8495fL, "includeNonEditable"), true);
+        SPropertyOperations.assign(_context.getNode(), PROPS.includeNonEditable$XmkH, true);
       }
 
       @Override
@@ -190,5 +191,9 @@ public class WithStatement_EditableMenu extends TransformationMenuBase {
       }
     }
 
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty includeNonEditable$XmkH = MetaAdapterFactory.getProperty(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3ac2ae2c0bcf368bL, 0x2ad91d769e8495fL, "includeNonEditable");
   }
 }

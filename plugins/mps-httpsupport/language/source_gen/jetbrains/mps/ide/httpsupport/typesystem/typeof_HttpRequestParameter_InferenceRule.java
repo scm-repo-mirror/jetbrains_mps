@@ -24,7 +24,7 @@ public class typeof_HttpRequestParameter_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3fk55f.HttpRequestParameter_d7d42b33;
+    return CONCEPTS.HttpRequestParameter$Ef;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_HttpRequestParameter_InferenceRule extends AbstractInference
     return false;
   }
 
-  private static final class AUX_3fk55f {
-    /*package*/ static final SConcept HttpRequestParameter_d7d42b33 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4d5ac72154f781d2L, "jetbrains.mps.ide.httpsupport.structure.HttpRequestParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept HttpRequestParameter$Ef = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4d5ac72154f781d2L, "jetbrains.mps.ide.httpsupport.structure.HttpRequestParameter");
   }
 }

@@ -12,10 +12,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AddModeToRule_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -34,7 +35,7 @@ public final class AddModeToRule_Intention extends AbstractIntentionDescriptor i
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, 0x6e8db6877fd04efbL, "modes"))).isEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.modes$s60F)).isEmpty();
   }
   @Override
   public boolean isSurroundWith() {
@@ -55,11 +56,15 @@ public final class AddModeToRule_Intention extends AbstractIntentionDescriptor i
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, 0x6e8db6877fd04efbL, "modes"), null);
+      SLinkOperations.addNewChild(node, LINKS.modes$s60F, null);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return AddModeToRule_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modes$s60F = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, 0x6e8db6877fd04efbL, "modes");
   }
 }

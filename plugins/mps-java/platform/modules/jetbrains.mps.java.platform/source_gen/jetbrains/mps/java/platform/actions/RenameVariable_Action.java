@@ -24,11 +24,13 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.ide.platform.refactoring.RenameDialog;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RenameVariable_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -57,7 +59,7 @@ public class RenameVariable_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_aruvq5.VariableReference_24d60dac))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.VariableReference$sQ))) {
         node = null;
       }
       MapSequence.fromMap(_params).put("node", node);
@@ -90,7 +92,7 @@ public class RenameVariable_Action extends BaseAction {
     ModelAccess modelAccess = ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess();
     final Tuples._2<SNode, String> result = new ModelAccessHelper(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getEditorContext().getRepository()).runReadAction(new Computable<Tuples._2<SNode, String>>() {
       public Tuples._2<SNode, String> compute() {
-        return MultiTuple.<SNode,String>from(SLinkOperations.getTarget(((SNode) MapSequence.fromMap(_params).get("node")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), SPropertyOperations.getString(SLinkOperations.getTarget(((SNode) MapSequence.fromMap(_params).get("node")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return MultiTuple.<SNode,String>from(SLinkOperations.getTarget(((SNode) MapSequence.fromMap(_params).get("node")), LINKS.variableDeclaration$2ky6), SPropertyOperations.getString(SLinkOperations.getTarget(((SNode) MapSequence.fromMap(_params).get("node")), LINKS.variableDeclaration$2ky6), PROPS.name$tAp1));
       }
     });
     final String newName = RenameDialog.getNewName(((MPSProject) MapSequence.fromMap(_params).get("project")).getProject(), result._1(), "Variable");
@@ -99,12 +101,20 @@ public class RenameVariable_Action extends BaseAction {
     }
     modelAccess.executeCommand(new EditorCommand(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getEditorContext()) {
       protected void doExecute() {
-        SPropertyOperations.assign(result._0(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), newName);
+        SPropertyOperations.assign(result._0(), PROPS.name$tAp1, newName);
       }
     });
   }
 
-  private static final class AUX_aruvq5 {
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

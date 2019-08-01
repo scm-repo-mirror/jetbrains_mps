@@ -9,22 +9,24 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SReference;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_ArrayLiteral_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_ArrayLiteral_InferenceRule() {
   }
   public void applyRule(final SNode arrayLiteral, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (ListSequence.fromList(SLinkOperations.getChildren(arrayLiteral, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, 0x114a770fdbfL, "item"))).isNotEmpty()) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(arrayLiteral, LINKS.item$zjRO)).isNotEmpty()) {
       final SNode elementType_typevar_1188221443596 = typeCheckingContext.createNewRuntimeTypesVariable();
-      for (SNode item : SLinkOperations.getChildren(arrayLiteral, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, 0x114a770fdbfL, "item"))) {
+      for (SNode item : SLinkOperations.getChildren(arrayLiteral, LINKS.item$zjRO)) {
         {
           SNode _nodeToCheck_1029348928467 = item;
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1188221461712", 0, null);
@@ -37,17 +39,17 @@ public class typeof_ArrayLiteral_InferenceRule extends AbstractInferenceRule_Run
         typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1188221454647", true), (SNode) _quotation_createNode_8lb61p_a1a0c0c0a0b(typeCheckingContext.getRepresentative(elementType_typevar_1188221443596)), _info_12389875345);
       }
     } else {
-      SNode creator = SNodeOperations.getNodeAncestor(arrayLiteral, AUX_8lb61p.ArrayCreatorWithInitializer_129ad3b8, false, false);
+      SNode creator = SNodeOperations.getNodeAncestor(arrayLiteral, CONCEPTS.ArrayCreatorWithInitializer$aE, false, false);
       if ((creator == null)) {
         return;
       }
-      SNode componentType = SLinkOperations.getTarget(creator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cd01b77ddL, 0x10cd01cf3c4L, "componentType"));
+      SNode componentType = SLinkOperations.getTarget(creator, LINKS.componentType$5JdX);
       SNode parent = arrayLiteral;
-      while (SNodeOperations.isInstanceOf(componentType, AUX_8lb61p.ArrayType_67000423) && SNodeOperations.isInstanceOf(parent, AUX_8lb61p.ArrayLiteral_a35f9232)) {
-        componentType = SLinkOperations.getTarget(SNodeOperations.cast(componentType, AUX_8lb61p.ArrayType_67000423), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType"));
-        parent = SNodeOperations.getParent(SNodeOperations.cast(parent, AUX_8lb61p.ArrayLiteral_a35f9232));
+      while (SNodeOperations.isInstanceOf(componentType, CONCEPTS.ArrayType$Yv) && SNodeOperations.isInstanceOf(parent, CONCEPTS.ArrayLiteral$dK)) {
+        componentType = SLinkOperations.getTarget(SNodeOperations.cast(componentType, CONCEPTS.ArrayType$Yv), LINKS.componentType$10w);
+        parent = SNodeOperations.getParent(SNodeOperations.cast(parent, CONCEPTS.ArrayLiteral$dK));
       }
-      if (SNodeOperations.isInstanceOf(parent, AUX_8lb61p.ArrayLiteral_a35f9232)) {
+      if (SNodeOperations.isInstanceOf(parent, CONCEPTS.ArrayLiteral$dK)) {
         // an array literal nested too deeply 
         {
           SNode _nodeToCheck_1029348928467 = arrayLiteral;
@@ -58,7 +60,7 @@ public class typeof_ArrayLiteral_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_8lb61p.ArrayLiteral_a35f9232;
+    return CONCEPTS.ArrayLiteral$dK;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -73,7 +75,7 @@ public class typeof_ArrayLiteral_InferenceRule extends AbstractInferenceRule_Run
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940d819f7L, "ArrayType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.componentType$10w, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -83,14 +85,21 @@ public class typeof_ArrayLiteral_InferenceRule extends AbstractInferenceRule_Run
     SNode quotedNode_2 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940d819f7L, "ArrayType"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"), null, null, false);
-    quotedNode_2.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_2, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType"), quotedNode_2);
+    quotedNode_2.setReference(LINKS.classifier$pQ_R, SReference.create(LINKS.classifier$pQ_R, quotedNode_2, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
+    quotedNode_1.addChild(LINKS.componentType$10w, quotedNode_2);
     return quotedNode_1;
   }
 
-  private static final class AUX_8lb61p {
-    /*package*/ static final SConcept ArrayCreatorWithInitializer_129ad3b8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cd01b77ddL, "jetbrains.mps.baseLanguage.structure.ArrayCreatorWithInitializer");
-    /*package*/ static final SConcept ArrayType_67000423 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, "jetbrains.mps.baseLanguage.structure.ArrayType");
-    /*package*/ static final SConcept ArrayLiteral_a35f9232 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, "jetbrains.mps.baseLanguage.structure.ArrayLiteral");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink item$zjRO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, 0x114a770fdbfL, "item");
+    /*package*/ static final SContainmentLink componentType$5JdX = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cd01b77ddL, 0x10cd01cf3c4L, "componentType");
+    /*package*/ static final SContainmentLink componentType$10w = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, 0xf940d819f8L, "componentType");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ArrayCreatorWithInitializer$aE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cd01b77ddL, "jetbrains.mps.baseLanguage.structure.ArrayCreatorWithInitializer");
+    /*package*/ static final SConcept ArrayType$Yv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d819f7L, "jetbrains.mps.baseLanguage.structure.ArrayType");
+    /*package*/ static final SConcept ArrayLiteral$dK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, "jetbrains.mps.baseLanguage.structure.ArrayLiteral");
   }
 }

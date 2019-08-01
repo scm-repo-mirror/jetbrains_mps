@@ -13,7 +13,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -26,59 +25,62 @@ import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescri
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_PropertyNameUniqueness_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_PropertyNameUniqueness_NonTypesystemRule() {
   }
   public void applyRule(final SNode property, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    Iterable<SNode> visibleMembers = Sequence.fromIterable(IClassifierType__BehaviorDescriptor.getVisibleMembers_id5laDzmpBPtZ.invoke(check_5f44vd_a0a0a0b(SNodeOperations.getNodeAncestor(property, AUX_5f44vd.Classifier_4b7e553, false, false)), property)).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> visibleMembers = Sequence.fromIterable(IClassifierType__BehaviorDescriptor.getVisibleMembers_id5laDzmpBPtZ.invoke(check_5f44vd_a0a0a0b(SNodeOperations.getNodeAncestor(property, CONCEPTS.Classifier$hJ, false, false)), property)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(Objects.equals(it, property));
       }
     });
 
-    SNode duplicate = Sequence.fromIterable(SNodeOperations.ofConcept(visibleMembers, AUX_5f44vd.Property_f9d70e64)).findFirst(new IWhereFilter<SNode>() {
+    SNode duplicate = Sequence.fromIterable(SNodeOperations.ofConcept(visibleMembers, CONCEPTS.Property$PY)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(property, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return Objects.equals(SPropertyOperations.getString(it, PROPS.name$tAp1), SPropertyOperations.getString(property, PROPS.name$tAp1));
       }
     });
     if ((duplicate != null)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(property, "Duplicate property name with " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.getNodeAncestor(duplicate, AUX_5f44vd.Classifier_4b7e553, false, false)) + "." + SPropertyOperations.getString(duplicate, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915365475", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(property, "Duplicate property name with " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.getNodeAncestor(duplicate, CONCEPTS.Classifier$hJ, false, false)) + "." + SPropertyOperations.getString(duplicate, PROPS.name$tAp1), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915365475", null, errorTarget);
       }
     }
 
 
-    Iterable<SNode> visibleMethods = SNodeOperations.ofConcept(visibleMembers, AUX_5f44vd.BaseMethodDeclaration_9dbf9acb);
+    Iterable<SNode> visibleMethods = SNodeOperations.ofConcept(visibleMembers, CONCEPTS.BaseMethodDeclaration$RR);
     SNode dupMethod = Sequence.fromIterable(visibleMethods).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode method) {
-        return Objects.equals(SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), Property__BehaviorDescriptor.getGetterMethodName_idhEwIJ02.invoke(property)) && ListSequence.fromList(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).isEmpty();
+        return Objects.equals(SPropertyOperations.getString(method, PROPS.name$tAp1), Property__BehaviorDescriptor.getGetterMethodName_idhEwIJ02.invoke(property)) && ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)).isEmpty();
       }
     });
     if ((dupMethod != null)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(property, "The property getter is hiding a method of the same name: " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.getNodeAncestor(dupMethod, AUX_5f44vd.Classifier_4b7e553, false, false)) + "." + SPropertyOperations.getString(dupMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "()", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915474315", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(property, "The property getter is hiding a method of the same name: " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.getNodeAncestor(dupMethod, CONCEPTS.Classifier$hJ, false, false)) + "." + SPropertyOperations.getString(dupMethod, PROPS.name$tAp1) + "()", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915474315", null, errorTarget);
       }
     }
 
     if ((boolean) Property__BehaviorDescriptor.hasSetter_idhEwIJ0S.invoke(property)) {
       dupMethod = Sequence.fromIterable(visibleMethods).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode method) {
-          return Objects.equals(SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), Property__BehaviorDescriptor.getSetterMethodName_idhEwIJ0b.invoke(property)) && ListSequence.fromList(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count() == 1 && (TypecheckingFacade.getFromContext().isSubtype(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).first(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), SLinkOperations.getTarget(property, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, 0x117b752a0b9L, "type"))) || TypecheckingFacade.getFromContext().isSubtype(SLinkOperations.getTarget(property, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, 0x117b752a0b9L, "type")), SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).first(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"))));
+          return Objects.equals(SPropertyOperations.getString(method, PROPS.name$tAp1), Property__BehaviorDescriptor.getSetterMethodName_idhEwIJ0b.invoke(property)) && ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)).count() == 1 && (TypecheckingFacade.getFromContext().isSubtype(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)).first(), LINKS.type$pLrO), SLinkOperations.getTarget(property, LINKS.type$bamM)) || TypecheckingFacade.getFromContext().isSubtype(SLinkOperations.getTarget(property, LINKS.type$bamM), SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)).first(), LINKS.type$pLrO)));
         }
       });
       if ((dupMethod != null)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(property, "The property setter is hiding a method of the same name: " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.getNodeAncestor(dupMethod, AUX_5f44vd.Classifier_4b7e553, false, false)) + "." + SPropertyOperations.getString(dupMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "(" + BaseMethodDeclaration__BehaviorDescriptor.getErasureSignature_id2t8d$bukubq.invoke(dupMethod) + ")", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915680442", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(property, "The property setter is hiding a method of the same name: " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.getNodeAncestor(dupMethod, CONCEPTS.Classifier$hJ, false, false)) + "." + SPropertyOperations.getString(dupMethod, PROPS.name$tAp1) + "(" + BaseMethodDeclaration__BehaviorDescriptor.getErasureSignature_id2t8d$bukubq.invoke(dupMethod) + ")", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1472285356915680442", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_5f44vd.Property_f9d70e64;
+    return CONCEPTS.Property$PY;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -93,9 +95,19 @@ public class check_PropertyNameUniqueness_NonTypesystemRule extends AbstractNonT
     return null;
   }
 
-  private static final class AUX_5f44vd {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept Property_f9d70e64 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, "jetbrains.mps.baseLanguage.structure.Property");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept Property$PY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, "jetbrains.mps.baseLanguage.structure.Property");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SContainmentLink type$bamM = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, 0x117b752a0b9L, "type");
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }

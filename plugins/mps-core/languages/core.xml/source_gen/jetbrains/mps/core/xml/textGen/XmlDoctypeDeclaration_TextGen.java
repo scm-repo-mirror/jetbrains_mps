@@ -9,30 +9,40 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.xml.behavior.XmlPart__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class XmlDoctypeDeclaration_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     SNode left = SNodeOperations.getPrevSibling(ctx.getPrimaryInput());
-    if (SNodeOperations.isInstanceOf(left, AUX_lr3cqp.XmlPart_2c43da1b) && (boolean) XmlPart__BehaviorDescriptor.hasNewLineAfter_id1Qs9WekVZ9E.invoke(SNodeOperations.cast(left, AUX_lr3cqp.XmlPart_2c43da1b))) {
+    if (SNodeOperations.isInstanceOf(left, CONCEPTS.XmlPart$yB) && (boolean) XmlPart__BehaviorDescriptor.hasNewLineAfter_id1Qs9WekVZ9E.invoke(SNodeOperations.cast(left, CONCEPTS.XmlPart$yB))) {
       tgs.newLine();
       tgs.indent();
     }
     tgs.append("<!DOCTYPE");
     tgs.append(" ");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f4069eL, "doctypeName")));
-    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f60340L, "externalId")) != null)) {
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.doctypeName$ETfD));
+    if ((SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.externalId$sRaL) != null)) {
       tgs.append(" ");
-      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f60340L, "externalId")));
+      tgs.appendNode(SLinkOperations.getTarget(ctx.getPrimaryInput(), LINKS.externalId$sRaL));
     }
     tgs.append(">");
   }
 
-  private static final class AUX_lr3cqp {
-    /*package*/ static final SInterfaceConcept XmlPart_2c43da1b = MetaAdapterFactory.getInterfaceConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394eff13eL, "jetbrains.mps.core.xml.structure.XmlPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept XmlPart$yB = MetaAdapterFactory.getInterfaceConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394eff13eL, "jetbrains.mps.core.xml.structure.XmlPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty doctypeName$ETfD = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f4069eL, "doctypeName");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink externalId$sRaL = MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f60340L, "externalId");
   }
 }

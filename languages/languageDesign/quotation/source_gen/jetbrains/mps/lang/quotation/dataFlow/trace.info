@@ -13,54 +13,61 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590348(jetbrains.mps.lang.quotation.dataFlow)/1006429225401308444">
     <file name="NodeBuilder_DataFlow.java">
-      <node id="8559588736124456632" at="13,60,14,206" concept="4" />
-      <node id="1006429225401308456" at="16,117,17,50" concept="0" />
-      <node id="1006429225401308447" at="15,29,18,7" concept="1" />
-      <node id="8559588736124459115" at="14,206,19,5" concept="2" />
-      <node id="1006429225401308444" at="13,0,21,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
-      <scope id="1006429225401308455" at="16,117,17,50" />
-      <scope id="1006429225401308447" at="15,29,18,7">
+      <node id="8559588736124456632" at="14,60,15,92" concept="4" />
+      <node id="1006429225401308456" at="17,117,18,50" concept="0" />
+      <node id="1006429225401308444" at="24,0,25,0" concept="5" trace="quotedNode$8Jaw" />
+      <node id="1006429225401308447" at="16,29,19,7" concept="1" />
+      <node id="8559588736124459115" at="15,92,20,5" concept="2" />
+      <node id="1006429225401308444" at="14,0,22,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="1006429225401308455" at="17,117,18,50" />
+      <scope id="1006429225401308447" at="16,29,19,7">
         <var name="expr" id="1006429225401308453" />
       </scope>
-      <scope id="8559588736124459117" at="15,29,18,7" />
-      <scope id="1006429225401308446" at="13,60,19,5">
+      <scope id="8559588736124459117" at="16,29,19,7" />
+      <scope id="1006429225401308446" at="14,60,20,5">
         <var name="quotedNode" id="8559588736124456633" />
       </scope>
-      <scope id="1006429225401308444" at="13,0,21,0">
+      <scope id="1006429225401308444" at="14,0,22,0">
         <var name="_context" id="1006429225401308444" />
       </scope>
-      <unit id="1006429225401308444" at="12,0,22,0" name="jetbrains.mps.lang.quotation.dataFlow.NodeBuilder_DataFlow" />
+      <unit id="1006429225401308444" at="23,0,26,0" name="jetbrains.mps.lang.quotation.dataFlow.NodeBuilder_DataFlow$LINKS" />
+      <unit id="1006429225401308444" at="13,0,27,0" name="jetbrains.mps.lang.quotation.dataFlow.NodeBuilder_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590348(jetbrains.mps.lang.quotation.dataFlow)/1207243664442">
     <file name="AbstractAntiquotation_DataFlow.java">
-      <node id="1207243732321" at="12,60,13,214" concept="0" />
-      <node id="1207243664442" at="12,0,15,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
-      <scope id="1207243664444" at="12,60,13,214" />
-      <scope id="1207243664442" at="12,0,15,0">
+      <node id="1207243732321" at="13,60,14,110" concept="0" />
+      <node id="1207243664442" at="18,0,19,0" concept="5" trace="expression$kIm0" />
+      <node id="1207243664442" at="13,0,16,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="1207243664444" at="13,60,14,110" />
+      <scope id="1207243664442" at="13,0,16,0">
         <var name="_context" id="1207243664442" />
       </scope>
-      <unit id="1207243664442" at="11,0,16,0" name="jetbrains.mps.lang.quotation.dataFlow.AbstractAntiquotation_DataFlow" />
+      <unit id="1207243664442" at="17,0,20,0" name="jetbrains.mps.lang.quotation.dataFlow.AbstractAntiquotation_DataFlow$LINKS" />
+      <unit id="1207243664442" at="12,0,21,0" name="jetbrains.mps.lang.quotation.dataFlow.AbstractAntiquotation_DataFlow" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590348(jetbrains.mps.lang.quotation.dataFlow)/1207243772639">
     <file name="Quotation_DataFlow.java">
-      <node id="1207243820006" at="16,164,17,57" concept="0" />
-      <node id="3180306201267192200" at="18,5,19,217" concept="0" />
-      <node id="3180306201267192259" at="19,217,20,215" concept="0" />
-      <node id="1207243772639" at="24,0,25,0" concept="5" trace="AbstractAntiquotation_25f29ace" />
-      <node id="1207243785969" at="15,60,18,5" concept="1" />
-      <node id="1207243772639" at="15,0,22,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
-      <scope id="1207243785973" at="16,164,17,57" />
-      <scope id="1207243785969" at="15,60,18,5">
+      <node id="1207243820006" at="17,156,18,57" concept="0" />
+      <node id="3180306201267192200" at="19,5,20,113" concept="0" />
+      <node id="3180306201267192259" at="20,113,21,106" concept="0" />
+      <node id="1207243772639" at="25,0,26,0" concept="5" trace="AbstractAntiquotation$Tk" />
+      <node id="1207243772639" at="29,0,30,0" concept="5" trace="modelToCreate$kInZ" />
+      <node id="1207243772639" at="30,0,31,0" concept="5" trace="nodeId$QEQA" />
+      <node id="1207243785969" at="16,60,19,5" concept="1" />
+      <node id="1207243772639" at="16,0,23,0" concept="3" trace="build#(Ljetbrains/mps/lang/dataFlow/DataFlowBuilderContext;)V" />
+      <scope id="1207243785973" at="17,156,18,57" />
+      <scope id="1207243785969" at="16,60,19,5">
         <var name="antiquotation" id="1207243785971" />
       </scope>
-      <scope id="1207243772641" at="15,60,20,215" />
-      <scope id="1207243772639" at="15,0,22,0">
+      <scope id="1207243772641" at="16,60,21,106" />
+      <scope id="1207243772639" at="16,0,23,0">
         <var name="_context" id="1207243772639" />
       </scope>
-      <unit id="1207243772639" at="23,0,26,0" name="jetbrains.mps.lang.quotation.dataFlow.Quotation_DataFlow$AUX_dd0i4l" />
-      <unit id="1207243772639" at="14,0,27,0" name="jetbrains.mps.lang.quotation.dataFlow.Quotation_DataFlow" />
+      <unit id="1207243772639" at="24,0,27,0" name="jetbrains.mps.lang.quotation.dataFlow.Quotation_DataFlow$CONCEPTS" />
+      <unit id="1207243772639" at="28,0,32,0" name="jetbrains.mps.lang.quotation.dataFlow.Quotation_DataFlow$LINKS" />
+      <unit id="1207243772639" at="15,0,33,0" name="jetbrains.mps.lang.quotation.dataFlow.Quotation_DataFlow" />
     </file>
   </root>
 </debug-info>

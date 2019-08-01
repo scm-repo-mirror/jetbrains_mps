@@ -22,6 +22,9 @@ import jetbrains.mps.editor.runtime.commands.EditorCommand;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ConsoleStreamImpl implements ConsoleStream {
@@ -55,7 +58,7 @@ public class ConsoleStreamImpl implements ConsoleStream {
 
   public void addNodeRef(SNode target) {
     SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bbb600cL, "jetbrains.mps.console.base.structure.NodeReferencePresentation"));
-    SLinkOperations.setTarget(node, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target"), target);
+    SLinkOperations.setTarget(node, LINKS.target$9y$J, target);
     addNode(node);
   }
 
@@ -63,14 +66,14 @@ public class ConsoleStreamImpl implements ConsoleStream {
     StringWriter writer = new StringWriter();
     t.printStackTrace(new PrintWriter(writer));
     SNode exceptionHolder = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5b02f032bc93b714L, "jetbrains.mps.console.base.structure.ExceptionHolder"));
-    SPropertyOperations.set(exceptionHolder, MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5b02f032bc93b714L, 0x5b02f032bc9cb8a9L, "stackTrace"), writer.toString());
-    SPropertyOperations.set(exceptionHolder, MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bb9f5b0L, 0x360b134fc047ce2aL, "text"), t.getClass().getName());
+    SPropertyOperations.set(exceptionHolder, PROPS.stackTrace$KI0v, writer.toString());
+    SPropertyOperations.set(exceptionHolder, PROPS.text$fNjX, t.getClass().getName());
     addNode(exceptionHolder);
   }
 
   public void addClosure(Runnable closure, String text) {
     SNode nodeWithClosure = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xf6d4d958ec2f2c6L, "jetbrains.mps.console.base.structure.NodeWithClosure"));
-    SPropertyOperations.assign(nodeWithClosure, MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bb9f5b0L, 0x360b134fc047ce2aL, "text"), text);
+    SPropertyOperations.assign(nodeWithClosure, PROPS.text$fNjX, text);
     ClosureHoldingNodeUtil.getInstance().register(nodeWithClosure, closure);
     addNode(nodeWithClosure);
   }
@@ -99,35 +102,47 @@ public class ConsoleStreamImpl implements ConsoleStream {
       public void doExecute() {
         for (SNode r : ListSequence.fromList(myResponse)) {
           myTab.addNodeImports(r);
-          ListSequence.fromList(SLinkOperations.getChildren(myTab.getLastReponse(), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171a5ba02L, 0x4e3b035171b356edL, "item"))).addElement(r);
+          ListSequence.fromList(SLinkOperations.getChildren(myTab.getLastReponse(), LINKS.item$zh_g)).addElement(r);
         }
       }
     });
   }
   private static SNode createTextResponseItem_kp3e3v_a0a0b0b0f(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_kp3e3v.TextResponseItem_8aa65ae3, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c38L, 0x4e3b035171b35d11L, "text"), MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c38L, 0x4e3b035171b35d11L, "text").getType().toString(p0));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TextResponseItem$3v, null, null, false);
+    n1.setProperty(PROPS.text$PmeJ, PROPS.text$PmeJ.getType().toString(p0));
     return n1;
   }
   private static SNode createNewLineResponseItem_kp3e3v_a0a0c0b0f() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_kp3e3v.NewLineResponseItem_8aa6b45e, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.NewLineResponseItem$r4, null, null, false);
     return n1;
   }
   private static SNode createNodeResponseItem_kp3e3v_a0a0j(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_kp3e3v.NodeResponseItem_8aa65a80, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.NodeResponseItem$jy, null, null, false);
     if (node0 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c14L, 0x4e3b035171b35c15L, "node"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, AUX_kp3e3v.BaseConcept_bc2351f)));
+      n1.addChild(LINKS.node$MHJ0, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, CONCEPTS.BaseConcept$Sz)));
     }
     return n1;
   }
 
-  private static final class AUX_kp3e3v {
-    /*package*/ static final SConcept TextResponseItem_8aa65ae3 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c38L, "jetbrains.mps.console.base.structure.TextResponseItem");
-    /*package*/ static final SConcept NewLineResponseItem_8aa6b45e = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35d30L, "jetbrains.mps.console.base.structure.NewLineResponseItem");
-    /*package*/ static final SConcept NodeResponseItem_8aa65a80 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c14L, "jetbrains.mps.console.base.structure.NodeResponseItem");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$9y$J = MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target");
+    /*package*/ static final SContainmentLink item$zh_g = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171a5ba02L, 0x4e3b035171b356edL, "item");
+    /*package*/ static final SContainmentLink node$MHJ0 = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c14L, 0x4e3b035171b35c15L, "node");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty stackTrace$KI0v = MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5b02f032bc93b714L, 0x5b02f032bc9cb8a9L, "stackTrace");
+    /*package*/ static final SProperty text$fNjX = MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bb9f5b0L, 0x360b134fc047ce2aL, "text");
+    /*package*/ static final SProperty text$PmeJ = MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c38L, 0x4e3b035171b35d11L, "text");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextResponseItem$3v = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c38L, "jetbrains.mps.console.base.structure.TextResponseItem");
+    /*package*/ static final SConcept NewLineResponseItem$r4 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35d30L, "jetbrains.mps.console.base.structure.NewLineResponseItem");
+    /*package*/ static final SConcept NodeResponseItem$jy = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171b35c14L, "jetbrains.mps.console.base.structure.NodeResponseItem");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

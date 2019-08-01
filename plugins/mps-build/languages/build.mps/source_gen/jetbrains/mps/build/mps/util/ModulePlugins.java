@@ -15,7 +15,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.build.mps.behavior.BuildMps_IdeaPluginContent__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -26,6 +25,9 @@ import jetbrains.mps.build.behavior.BuildLayout_PathElement__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ModulePlugins {
   private final TemplateQueryContext myContext;
@@ -45,9 +47,9 @@ public class ModulePlugins {
   public void collect(@NotNull Iterable<SNode> modules, @NotNull List<SNode> additionalPlugins) {
     List<SNode> initialPlugins = ListSequence.fromListWithValues(new ArrayList<SNode>(), additionalPlugins);
     for (final SNode module : Sequence.fromIterable(modules)) {
-      List<SNode> projectPlugins = SNodeOperations.getNodeDescendants(SNodeOperations.cast(SNodeOperations.getContainingRoot(module), AUX_ookyii.BuildProject_808bb057), AUX_ookyii.BuildMps_IdeaPlugin_d1bb7c62, false, new SAbstractConcept[]{});
+      List<SNode> projectPlugins = SNodeOperations.getNodeDescendants(SNodeOperations.cast(SNodeOperations.getContainingRoot(module), CONCEPTS.BuildProject$BF), CONCEPTS.BuildMps_IdeaPlugin$X0, false, new SAbstractConcept[]{});
       for (SNode plugin : ListSequence.fromList(projectPlugins)) {
-        if (ListSequence.fromList(SLinkOperations.getChildren(plugin, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbeaL, "content"))).any(new IWhereFilter<SNode>() {
+        if (ListSequence.fromList(SLinkOperations.getChildren(plugin, LINKS.content$uhXf)).any(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return (boolean) BuildMps_IdeaPluginContent__BehaviorDescriptor.exports_id5FtnUVJQES1.invoke(it, module);
           }
@@ -80,15 +82,15 @@ public class ModulePlugins {
       public Tuples._2<String, String> select(SNode it) {
         SNode layoutNode = helper.getArtifact(it);
         if ((layoutNode == null)) {
-          myContext.showWarningMessage(myInitialProject, "The plugin '" + SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' was not found in the layout of `" + SPropertyOperations.getString(myInitialProject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'");
+          myContext.showWarningMessage(myInitialProject, "The plugin '" + SPropertyOperations.getString(it, PROPS.name$tAp1) + "' was not found in the layout of `" + SPropertyOperations.getString(myInitialProject, PROPS.name$tAp1) + "'");
           return null;
         }
         String val = BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(layoutNode, helper, it);
         if (val == null) {
-          myContext.showWarningMessage(myInitialProject, "Found no location for plugin '" + SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'");
+          myContext.showWarningMessage(myInitialProject, "Found no location for plugin '" + SPropertyOperations.getString(it, PROPS.name$tAp1) + "'");
           return null;
         }
-        return MultiTuple.<String,String>from(val, SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bb6fL, "id")));
+        return MultiTuple.<String,String>from(val, SPropertyOperations.getString(it, PROPS.id$rLiV));
       }
     }).where(new NotNullWhereFilter<Tuples._2<String, String>>()).sort(new ISelector<Tuples._2<String, String>, String>() {
       public String select(Tuples._2<String, String> it) {
@@ -97,8 +99,17 @@ public class ModulePlugins {
     }, true).toListSequence();
   }
 
-  private static final class AUX_ookyii {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildMps_IdeaPlugin_d1bb7c62 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildMps_IdeaPlugin$X0 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink content$uhXf = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbeaL, "content");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty id$rLiV = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bb6fL, "id");
   }
 }

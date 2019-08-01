@@ -12,8 +12,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class EditorCellModel_KeyMap extends KeyMapImpl {
   public EditorCellModel_KeyMap() {
@@ -43,7 +44,7 @@ public class EditorCellModel_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_oqoe35.EditorCellModel_226b88d6))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.EditorCellModel$5c))) {
         return false;
       }
       return true;
@@ -53,10 +54,10 @@ public class EditorCellModel_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, 0x1074c7a5760L, "attractsFocus")), 0x107507a4fafL))) {
-        SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, 0x1074c7a5760L, "attractsFocus"), 0x107507a4fafL, "attractsFocus");
+      if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.attractsFocus$V6CQ), 0x107507a4fafL))) {
+        SPropertyOperations.setEnum(node, PROPS.attractsFocus$V6CQ, 0x107507a4fafL, "attractsFocus");
       } else {
-        SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, 0x1074c7a5760L, "attractsFocus"), 0x1075079c86cL, "noAttraction");
+        SPropertyOperations.setEnum(node, PROPS.attractsFocus$V6CQ, 0x1075079c86cL, "noAttraction");
       }
     }
     public String getKeyStroke() {
@@ -82,7 +83,7 @@ public class EditorCellModel_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_oqoe35.EditorCellModel_226b88d6))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.EditorCellModel$5c))) {
         return false;
       }
       return true;
@@ -92,10 +93,10 @@ public class EditorCellModel_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, 0x1074c7a5760L, "attractsFocus")), 0x107507a7b34L))) {
-        SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, 0x1074c7a5760L, "attractsFocus"), 0x107507a7b34L, "firstEditableCell");
+      if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.attractsFocus$V6CQ), 0x107507a7b34L))) {
+        SPropertyOperations.setEnum(node, PROPS.attractsFocus$V6CQ, 0x107507a7b34L, "firstEditableCell");
       } else {
-        SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, 0x1074c7a5760L, "attractsFocus"), 0x1075079c86cL, "noAttraction");
+        SPropertyOperations.setEnum(node, PROPS.attractsFocus$V6CQ, 0x1075079c86cL, "noAttraction");
       }
     }
     public String getKeyStroke() {
@@ -103,7 +104,11 @@ public class EditorCellModel_KeyMap extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_oqoe35 {
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty attractsFocus$V6CQ = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, 0x1074c7a5760L, "attractsFocus");
   }
 }

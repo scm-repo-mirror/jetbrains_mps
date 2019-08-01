@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,7 +16,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -23,10 +23,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IfStatement__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_uushhl.IfStatement_9dbf9b10;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
 
   public static final SMethod<Void> convertElseToElseIf_idhIdhuD7 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("convertElseToElseIf").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hIdhuD7").build();
   public static final SMethod<Boolean> isGuardIf_idi0z$SHa = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isGuardIf").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i0z$SHa").build();
@@ -41,68 +43,68 @@ public final class IfStatement__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static void convertElseToElseIf_idhIdhuD7(@NotNull SNode __thisNode__) {
     SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, "jetbrains.mps.baseLanguage.structure.ElsifClause"));
-    SNode ifFalseStatement = SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement"));
-    if (SNodeOperations.isInstanceOf(ifFalseStatement, AUX_uushhl.BlockStatement_8943d110)) {
-      SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList"), SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), AUX_uushhl.BlockStatement_8943d110), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"))));
+    SNode ifFalseStatement = SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2);
+    if (SNodeOperations.isInstanceOf(ifFalseStatement, CONCEPTS.BlockStatement$1i)) {
+      SLinkOperations.setTarget(result, LINKS.statementList$TaC3, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0)));
     } else {
-      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(result, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).addElement(SNodeOperations.copyNode(ifFalseStatement));
+      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(result, LINKS.statementList$TaC3), LINKS.statement$WHn8)).addElement(SNodeOperations.copyNode(ifFalseStatement));
     }
-    SNodeOperations.deleteNode(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")));
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).addElement(result);
+    SNodeOperations.deleteNode(SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2));
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elsifClauses$uXBQ)).addElement(result);
   }
   /*package*/ static boolean isGuardIf_idi0z$SHa(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")) != null) || ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).isNotEmpty()) {
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2) != null) || ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elsifClauses$uXBQ)).isNotEmpty()) {
       return false;
     }
-    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).count() != 1 || !((boolean) StatementList__BehaviorDescriptor.isOneLiner_idi0z3USV.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue"))))) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.ifTrue$WJ1E), LINKS.statement$WHn8)).count() != 1 || !((boolean) StatementList__BehaviorDescriptor.isOneLiner_idi0z3USV.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.ifTrue$WJ1E)))) {
       return false;
     }
 
-    if (SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e371L, "forceMultiLine"))) {
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.forceMultiLine$LXXY)) {
       return false;
     }
-    if (SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e370L, "forceOneLine"))) {
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.forceOneLine$LXXv)) {
       return true;
     }
 
-    SNode onlyStatement = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).first();
+    SNode onlyStatement = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(__thisNode__, LINKS.ifTrue$WJ1E), LINKS.statement$WHn8)).first();
     return (boolean) Statement__BehaviorDescriptor.isGuardClauseStatement_idi0z$q7V.invoke(onlyStatement);
   }
   /*package*/ static boolean isStatementListCompactable_idi0zvp2S(@NotNull SNode __thisNode__) {
     return ((boolean) IfStatement__BehaviorDescriptor.isGuardIf_idi0z$SHa.invoke(__thisNode__));
   }
   /*package*/ static void collectUncaughtMethodThrowables_id4Gt7ANIVH8f(@NotNull SNode __thisNode__, Set<SNode> throwables, boolean ignoreMayBeThrowables) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")) != null)) {
-      StatementList__BehaviorDescriptor.collectUncaughtThrowables_id4Gt7ANIVHca.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")), throwables, ((boolean) ignoreMayBeThrowables));
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.ifTrue$WJ1E) != null)) {
+      StatementList__BehaviorDescriptor.collectUncaughtThrowables_id4Gt7ANIVHca.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.ifTrue$WJ1E), throwables, ((boolean) ignoreMayBeThrowables));
     }
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")) != null)) {
-      Statement__BehaviorDescriptor.collectUncaughtMethodThrowables_id4Gt7ANIVH8f.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), throwables, ((boolean) ignoreMayBeThrowables));
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2) != null)) {
+      Statement__BehaviorDescriptor.collectUncaughtMethodThrowables_id4Gt7ANIVH8f.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2), throwables, ((boolean) ignoreMayBeThrowables));
     }
-    for (SNode elseIfClause : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses")))) {
-      StatementList__BehaviorDescriptor.collectUncaughtThrowables_id4Gt7ANIVHca.invoke(SLinkOperations.getTarget(elseIfClause, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList")), throwables, ((boolean) ignoreMayBeThrowables));
+    for (SNode elseIfClause : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elsifClauses$uXBQ))) {
+      StatementList__BehaviorDescriptor.collectUncaughtThrowables_id4Gt7ANIVHca.invoke(SLinkOperations.getTarget(elseIfClause, LINKS.statementList$TaC3), throwables, ((boolean) ignoreMayBeThrowables));
       if (!(ignoreMayBeThrowables)) {
-        Statement__BehaviorDescriptor.collectUncaughtMethodThrowables_id4Gt7ANIVBW7.invoke(SNodeOperations.asSConcept(AUX_uushhl.Statement_9dbf9b0e), throwables, SLinkOperations.getTarget(elseIfClause, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0983eL, "condition")));
+        Statement__BehaviorDescriptor.collectUncaughtMethodThrowables_id4Gt7ANIVBW7.invoke(SNodeOperations.asSConcept(CONCEPTS.Statement$ok), throwables, SLinkOperations.getTarget(elseIfClause, LINKS.condition$3oC9));
       }
     }
     if (!(ignoreMayBeThrowables)) {
-      Statement__BehaviorDescriptor.collectUncaughtMethodThrowables_id4Gt7ANIVBW7.invoke(SNodeOperations.asSConcept(AUX_uushhl.Statement_9dbf9b0e), throwables, SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition")));
+      Statement__BehaviorDescriptor.collectUncaughtMethodThrowables_id4Gt7ANIVBW7.invoke(SNodeOperations.asSConcept(CONCEPTS.Statement$ok), throwables, SLinkOperations.getTarget(__thisNode__, LINKS.condition$WJ1b));
     }
   }
   /*package*/ static NextProgramPoint getNextProgramPoint_id3F8BxGibk8h(@NotNull SNode __thisNode__, @NotNull SNode child, boolean value) {
-    if (child != SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"))) {
+    if (child != SLinkOperations.getTarget(__thisNode__, LINKS.condition$WJ1b)) {
       return null;
     }
     if (value) {
-      if (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")) != null) {
-        return NextProgramPoint.continueAt(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")), false);
+      if (SLinkOperations.getTarget(__thisNode__, LINKS.ifTrue$WJ1E) != null) {
+        return NextProgramPoint.continueAt(SLinkOperations.getTarget(__thisNode__, LINKS.ifTrue$WJ1E), false);
       } else {
         return NextProgramPoint.continueAfter(__thisNode__);
       }
     } else {
-      if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).isNotEmpty() && ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).first() != null) {
-        return NextProgramPoint.continueAt(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).first(), true);
-      } else if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")) != null)) {
-        return NextProgramPoint.continueAt(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), true);
+      if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elsifClauses$uXBQ)).isNotEmpty() && ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elsifClauses$uXBQ)).first() != null) {
+        return NextProgramPoint.continueAt(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.elsifClauses$uXBQ)).first(), true);
+      } else if ((SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2) != null)) {
+        return NextProgramPoint.continueAt(SLinkOperations.getTarget(__thisNode__, LINKS.ifFalseStatement$Xnu2), true);
       } else {
         return NextProgramPoint.continueAfter(__thisNode__);
       }
@@ -165,9 +167,24 @@ public final class IfStatement__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_uushhl {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept BlockStatement_8943d110 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, "jetbrains.mps.baseLanguage.structure.BlockStatement");
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
+    /*package*/ static final SContainmentLink statementList$TaC3 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList");
+    /*package*/ static final SContainmentLink statements$uqR0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink elsifClauses$uXBQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses");
+    /*package*/ static final SContainmentLink ifTrue$WJ1E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue");
+    /*package*/ static final SContainmentLink condition$3oC9 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0983eL, "condition");
+    /*package*/ static final SContainmentLink condition$WJ1b = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BlockStatement$1i = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, "jetbrains.mps.baseLanguage.structure.BlockStatement");
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty forceMultiLine$LXXY = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e371L, "forceMultiLine");
+    /*package*/ static final SProperty forceOneLine$LXXv = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x3dffcc410476e370L, "forceOneLine");
   }
 }

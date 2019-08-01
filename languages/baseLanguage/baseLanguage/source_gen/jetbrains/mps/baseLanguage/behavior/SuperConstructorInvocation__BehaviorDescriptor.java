@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,14 +17,14 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class SuperConstructorInvocation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_h48gc8.SuperConstructorInvocation_a3dc119a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d512e1eL, "jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation");
 
   public static final SMethod<Iterable<SNode>> getAvailableMethodDeclarations_id50EF2fWdwEN = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getAvailableMethodDeclarations").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("50EF2fWdwEN").build(SMethodBuilder.createJavaParameter(String.class, ""));
 
@@ -33,19 +34,19 @@ public final class SuperConstructorInvocation__BehaviorDescriptor extends BaseBH
   }
 
   /*package*/ static Iterable<SNode> getAvailableMethodDeclarations_id50EF2fWdwEN(@NotNull SNode __thisNode__, String methodName) {
-    SNode classConcept = SNodeOperations.getNodeAncestor(__thisNode__, AUX_h48gc8.ClassConcept_e2711824, false, false);
+    SNode classConcept = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ClassConcept$IY, false, false);
     SNode superclassType = ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(classConcept);
     if ((superclassType == null)) {
       return new ArrayList<SNode>();
     }
 
-    SNode superClassifier = SLinkOperations.getTarget(superclassType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+    SNode superClassifier = SLinkOperations.getTarget(superclassType, LINKS.classifier$pQ_R);
 
-    if ((superClassifier == null) || !(SNodeOperations.isInstanceOf(superClassifier, AUX_h48gc8.ClassConcept_e2711824))) {
+    if ((superClassifier == null) || !(SNodeOperations.isInstanceOf(superClassifier, CONCEPTS.ClassConcept$IY))) {
       return new ArrayList<SNode>();
     }
 
-    SNode superclass = SNodeOperations.cast(superClassifier, AUX_h48gc8.ClassConcept_e2711824);
+    SNode superclass = SNodeOperations.cast(superClassifier, CONCEPTS.ClassConcept$IY);
     return ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(superclass);
   }
 
@@ -95,8 +96,11 @@ public final class SuperConstructorInvocation__BehaviorDescriptor extends BaseBH
     return CONCEPT;
   }
 
-  private static final class AUX_h48gc8 {
-    /*package*/ static final SConcept SuperConstructorInvocation_a3dc119a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d512e1eL, "jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
   }
 }

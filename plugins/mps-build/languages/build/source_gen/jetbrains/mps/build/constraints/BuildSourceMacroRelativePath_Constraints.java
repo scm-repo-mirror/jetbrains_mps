@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -21,15 +20,17 @@ import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDescriptor {
   public BuildSourceMacroRelativePath_Constraints() {
-    super(AUX_6szw9x.BuildSourceMacroRelativePath_b98b24fe);
+    super(CONCEPTS.BuildSourceMacroRelativePath$C$);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.macro$p38a, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -44,7 +45,7 @@ public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDes
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return (!(_context.getSmartReference()) ? SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : "$" + SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+            return (!(_context.getSmartReference()) ? SPropertyOperations.getString(_context.getParameterNode(), PROPS.name$tAp1) : "$" + SPropertyOperations.getString(_context.getParameterNode(), PROPS.name$tAp1));
           }
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
@@ -52,7 +53,7 @@ public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDes
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_6szw9x.BuildMacro_808bb078);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.BuildMacro$RE);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
@@ -64,8 +65,16 @@ public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDes
   }
   private static final SNodePointer breakingNode_6szw9x_a0a2a0a0a1a0a0a0c = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "7389400916848182175");
 
-  private static final class AUX_6szw9x {
-    /*package*/ static final SConcept BuildSourceMacroRelativePath_b98b24fe = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, "jetbrains.mps.build.structure.BuildSourceMacroRelativePath");
-    /*package*/ static final SConcept BuildMacro_808bb078 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a1fL, "jetbrains.mps.build.structure.BuildMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSourceMacroRelativePath$C$ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, "jetbrains.mps.build.structure.BuildSourceMacroRelativePath");
+    /*package*/ static final SConcept BuildMacro$RE = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a1fL, "jetbrains.mps.build.structure.BuildMacro");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink macro$p38a = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,16 +25,18 @@ import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__Behavio
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class PropertyMessageTarget_Constraints extends BaseConstraintsDescriptor {
   public PropertyMessageTarget_Constraints() {
-    super(AUX_hhynfx.PropertyMessageTarget_2aba8385);
+    super(CONCEPTS.PropertyMessageTarget$LX);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, 0x11db4a6fbeeL, "propertyDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.propertyDeclaration$T4As, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,15 +51,15 @@ public class PropertyMessageTarget_Constraints extends BaseConstraintsDescriptor
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode messageStatement = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_hhynfx.MessageStatement_2fbb1f6d, true, false);
+            SNode messageStatement = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.MessageStatement$Ql, true, false);
             if (messageStatement == null) {
               return ListScope.forResolvableElements(Sequence.fromIterable(Collections.<SNode>emptyList()));
             }
-            SNode nodetype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(messageStatement, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, 0x11db4ab45e6L, "nodeToReport")));
+            SNode nodetype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(messageStatement, LINKS.nodeToReport$f1Ii));
             {
-              SNode coercedNode_hhynfx_d0b0a0a0b0a0a0a2 = TypecheckingFacade.getFromContext().coerceType(nodetype, AUX_hhynfx.SNodeType_dcb080ab);
+              SNode coercedNode_hhynfx_d0b0a0a0b0a0a0a2 = TypecheckingFacade.getFromContext().coerceType(nodetype, CONCEPTS.SNodeType$gn);
               if (coercedNode_hhynfx_d0b0a0a0b0a0a0a2 != null) {
-                return ListScope.forResolvableElements(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(SLinkOperations.getTarget(coercedNode_hhynfx_d0b0a0a0b0a0a0a2, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept"))));
+                return ListScope.forResolvableElements(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(SLinkOperations.getTarget(coercedNode_hhynfx_d0b0a0a0b0a0a0a2, LINKS.concept$HWFQ)));
               } else {
                 return ListScope.forResolvableElements(Sequence.fromIterable(Collections.<SNode>emptyList()));
               }
@@ -73,9 +74,15 @@ public class PropertyMessageTarget_Constraints extends BaseConstraintsDescriptor
   }
   private static final SNodePointer breakingNode_hhynfx_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)", "6836281137582807871");
 
-  private static final class AUX_hhynfx {
-    /*package*/ static final SConcept PropertyMessageTarget_2aba8385 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, "jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget");
-    /*package*/ static final SInterfaceConcept MessageStatement_2fbb1f6d = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
-    /*package*/ static final SConcept SNodeType_dcb080ab = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyMessageTarget$LX = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, "jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget");
+    /*package*/ static final SInterfaceConcept MessageStatement$Ql = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
+    /*package*/ static final SConcept SNodeType$gn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink propertyDeclaration$T4As = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4a6a000L, 0x11db4a6fbeeL, "propertyDeclaration");
+    /*package*/ static final SContainmentLink nodeToReport$f1Ii = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, 0x11db4ab45e6L, "nodeToReport");
+    /*package*/ static final SReferenceLink concept$HWFQ = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept");
   }
 }

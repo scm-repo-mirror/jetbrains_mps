@@ -10,7 +10,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.execution.configurations.behavior.ConfigurationFromExecutorReference__BehaviorDescriptor;
@@ -23,10 +22,11 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ConfigurationFromExecutorReference_Constraints extends BaseConstraintsDescriptor {
   public ConfigurationFromExecutorReference_Constraints() {
-    super(AUX_4yf5t3.ConfigurationFromExecutorReference_453b7fb0);
+    super(CONCEPTS.ConfigurationFromExecutorReference$mM);
   }
 
   @Override
@@ -46,7 +46,7 @@ public class ConfigurationFromExecutorReference_Constraints extends BaseConstrai
   }
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -54,22 +54,27 @@ public class ConfigurationFromExecutorReference_Constraints extends BaseConstrai
     }
     @Override
     public Object getValue(SNode node) {
-      return SPropertyOperations.getString(ConfigurationFromExecutorReference__BehaviorDescriptor.getExecutor_id6LlKjXrML19.invoke(node), MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x1acdeec3ca0ad49cL, "configurationName"));
+      return SPropertyOperations.getString(ConfigurationFromExecutorReference__BehaviorDescriptor.getExecutor_id6LlKjXrML19.invoke(node), PROPS.configurationName$vU1z);
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
     return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(parentNode), AUX_4yf5t3.AbstractRunConfigurationExecutor_fd0cc5b0);
+    return SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(parentNode), CONCEPTS.AbstractRunConfigurationExecutor$YM);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:d6e5159c-3299-41f5-8a8a-81b5b79d5073(jetbrains.mps.execution.configurations.constraints)", "1227128029536565993");
 
-  private static final class AUX_4yf5t3 {
-    /*package*/ static final SConcept ConfigurationFromExecutorReference_453b7fb0 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bcac62fL, "jetbrains.mps.execution.configurations.structure.ConfigurationFromExecutorReference");
-    /*package*/ static final SConcept AbstractRunConfigurationExecutor_fd0cc5b0 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConfigurationFromExecutorReference$mM = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bcac62fL, "jetbrains.mps.execution.configurations.structure.ConfigurationFromExecutorReference");
+    /*package*/ static final SConcept AbstractRunConfigurationExecutor$YM = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty configurationName$vU1z = MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x1acdeec3ca0ad49cL, "configurationName");
   }
 }

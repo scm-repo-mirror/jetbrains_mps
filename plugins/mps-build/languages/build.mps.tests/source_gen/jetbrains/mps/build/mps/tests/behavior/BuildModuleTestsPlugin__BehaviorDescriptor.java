@@ -4,6 +4,7 @@ package jetbrains.mps.build.mps.tests.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.build.behavior.BuildPlugin__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.util.DependenciesHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
@@ -29,9 +29,11 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.smodel.SReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class BuildModuleTestsPlugin__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_sytmp9.BuildModuleTestsPlugin_8109463b;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x37967cbe67d9eca4L, "jetbrains.mps.build.mps.tests.structure.BuildModuleTestsPlugin");
 
   public static final SMethod<Iterable<SNode>> getImportedLibraries_id3zFnP6MwWdL = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getImportedLibraries").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3zFnP6MwWdL").build();
   public static final SMethod<Void> fetchDependencies_id57YmpYyL8F1 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("fetchDependencies").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("57YmpYyL8F1").build(SMethodBuilder.createJavaParameter(VisibleArtifacts.class, ""), SMethodBuilder.createJavaParameter(RequiredDependenciesBuilder.class, ""));
@@ -42,20 +44,20 @@ public final class BuildModuleTestsPlugin__BehaviorDescriptor extends BaseBHDesc
   }
 
   /*package*/ static Iterable<SNode> getImportedLibraries_id3zFnP6MwWdL(@NotNull SNode __thisNode__) {
-    BuildPlugin__BehaviorDescriptor.getImportedLibraries_id3zFnP6MwWdL.invokeSuper(__thisNode__, AUX_sytmp9.BuildModuleTestsPlugin_8109463b);
-    return Sequence.<SNode>singleton(SLinkOperations.getTarget(createBwfTaskLibraryDependency_s7wj2j_a0a0b0a(), MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target")));
+    BuildPlugin__BehaviorDescriptor.getImportedLibraries_id3zFnP6MwWdL.invokeSuper(__thisNode__, CONCEPTS.BuildModuleTestsPlugin$27);
+    return Sequence.<SNode>singleton(SLinkOperations.getTarget(createBwfTaskLibraryDependency_s7wj2j_a0a0b0a(), LINKS.target$LSxw));
   }
   /*package*/ static void fetchDependencies_id57YmpYyL8F1(@NotNull SNode __thisNode__, VisibleArtifacts artifacts, RequiredDependenciesBuilder builder) {
     SNode project = artifacts.getProject();
 
     // find mps-test.jar 
     DependenciesHelper helper = new DependenciesHelper(builder.getGenContext(), project);
-    SNode mpsTestModule = SNodeOperations.as(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QFgX.invoke(project, AUX_sytmp9.BuildSource_JavaModule_b7f292bd, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts"), ((int) 0)).resolve(project, "mps-test"), AUX_sytmp9.BuildSource_JavaModule_b7f292bd);
+    SNode mpsTestModule = SNodeOperations.as(ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QFgX.invoke(project, CONCEPTS.BuildSource_JavaModule$h5, LINKS.parts$tgxg, ((int) 0)).resolve(project, "mps-test"), CONCEPTS.BuildSource_JavaModule$h5);
     if ((mpsTestModule != null)) {
-      SNode mpsTestJar = SNodeOperations.as(artifacts.findArtifact(mpsTestModule), AUX_sytmp9.BuildLayout_Node_b7bb997a);
+      SNode mpsTestJar = SNodeOperations.as(artifacts.findArtifact(mpsTestModule), CONCEPTS.BuildLayout_Node$kC);
       if ((mpsTestJar != null)) {
         // specify explicitly what we need maybe? 
-        helper.putArtifact("mps-test-folder", SNodeOperations.as(SNodeOperations.getParent(mpsTestJar), AUX_sytmp9.BuildLayout_Folder_b7bb9958));
+        helper.putArtifact("mps-test-folder", SNodeOperations.as(SNodeOperations.getParent(mpsTestJar), CONCEPTS.BuildLayout_Folder$4a));
         helper.putArtifact("mps-test", mpsTestJar);
         builder.add(mpsTestJar);
       }
@@ -112,16 +114,21 @@ public final class BuildModuleTestsPlugin__BehaviorDescriptor extends BaseBHDesc
   }
   private static SNode createBwfTaskLibraryDependency_s7wj2j_a0a0b0a() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_sytmp9.BwfTaskLibraryDependency_938e3fe5, null, null, false);
-    n1.setReference(MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target"), SReference.create(MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target"), n1, facade.createModelReference("r:e6234636-faf1-4112-be6c-55df7ec7314a(jetbrains.mps.build.mps.tests.accessories)"), facade.createNodeId("398731435597190701")));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.BwfTaskLibraryDependency$Kt, null, null, false);
+    n1.setReference(LINKS.target$LSxw, SReference.create(LINKS.target$LSxw, n1, facade.createModelReference("r:e6234636-faf1-4112-be6c-55df7ec7314a(jetbrains.mps.build.mps.tests.accessories)"), facade.createNodeId("398731435597190701")));
     return n1;
   }
 
-  private static final class AUX_sytmp9 {
-    /*package*/ static final SConcept BuildModuleTestsPlugin_8109463b = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x37967cbe67d9eca4L, "jetbrains.mps.build.mps.tests.structure.BuildModuleTestsPlugin");
-    /*package*/ static final SConcept BuildSource_JavaModule_b7f292bd = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafacdc38L, "jetbrains.mps.build.structure.BuildSource_JavaModule");
-    /*package*/ static final SConcept BuildLayout_Node_b7bb997a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
-    /*package*/ static final SConcept BuildLayout_Folder_b7bb9958 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c78L, "jetbrains.mps.build.structure.BuildLayout_Folder");
-    /*package*/ static final SConcept BwfTaskLibraryDependency_938e3fe5 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, "jetbrains.mps.build.workflow.structure.BwfTaskLibraryDependency");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildModuleTestsPlugin$27 = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x37967cbe67d9eca4L, "jetbrains.mps.build.mps.tests.structure.BuildModuleTestsPlugin");
+    /*package*/ static final SConcept BuildSource_JavaModule$h5 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafacdc38L, "jetbrains.mps.build.structure.BuildSource_JavaModule");
+    /*package*/ static final SConcept BuildLayout_Node$kC = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
+    /*package*/ static final SConcept BuildLayout_Folder$4a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c78L, "jetbrains.mps.build.structure.BuildLayout_Folder");
+    /*package*/ static final SConcept BwfTaskLibraryDependency$Kt = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, "jetbrains.mps.build.workflow.structure.BwfTaskLibraryDependency");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$LSxw = MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target");
+    /*package*/ static final SContainmentLink parts$tgxg = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
   }
 }

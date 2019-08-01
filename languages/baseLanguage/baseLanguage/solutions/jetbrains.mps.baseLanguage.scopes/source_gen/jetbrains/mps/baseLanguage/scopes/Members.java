@@ -17,25 +17,25 @@ public class Members {
     // todo: extension methods? 
   }
   public static Iterable<SNode> visibleInstanceFields(SNode classifierType, SNode contextNode) {
-    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(classifierType), AUX_lm0k8s.FieldDeclaration_e2711ac6), classifierType, contextNode);
+    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(classifierType), CONCEPTS.FieldDeclaration$Ps), classifierType, contextNode);
   }
   public static Iterable<SNode> visibleStaticFields(SNode classifier, SNode contextNode) {
     SNode cType = IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(classifier);
-    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(cType), AUX_lm0k8s.StaticFieldDeclaration_9649293d), cType, contextNode);
+    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(cType), CONCEPTS.StaticFieldDeclaration$R5), cType, contextNode);
   }
   public static Iterable<SNode> visibleInstanceMethods(SNode classifierType, SNode contextNode) {
-    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(classifierType), AUX_lm0k8s.InstanceMethodDeclaration_9dbf9b2b), classifierType, contextNode);
+    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(classifierType), CONCEPTS.InstanceMethodDeclaration$An), classifierType, contextNode);
   }
   public static Iterable<SNode> visibleStaticMethods(SNode classifier, SNode contextNode) {
     SNode cType = IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(classifier);
-    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(cType), AUX_lm0k8s.StaticMethodDeclaration_9cd8c445), cType, contextNode);
+    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(cType), CONCEPTS.StaticMethodDeclaration$eX), cType, contextNode);
   }
   public static Iterable<SNode> visibleClassifiers(SNode classifier, SNode contextNode) {
     SNode cType = IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(classifier);
-    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(cType), AUX_lm0k8s.Classifier_4b7e553), cType, contextNode);
+    return visible(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(cType), CONCEPTS.Classifier$hJ), cType, contextNode);
   }
   public static Iterable<SNode> visibleEnumConstants(SNode classifier) {
-    return SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(classifier)), AUX_lm0k8s.EnumConstantDeclaration_b06144d8);
+    return SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(classifier)), CONCEPTS.EnumConstantDeclaration$ma);
   }
 
   private static <AAA extends SNode> Iterable<AAA> visible(Iterable<AAA> seq, final SNode cType, final SNode contextNode) {
@@ -46,12 +46,12 @@ public class Members {
     });
   }
 
-  private static final class AUX_lm0k8s {
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
-    /*package*/ static final SConcept StaticFieldDeclaration_9649293d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept StaticMethodDeclaration_9cd8c445 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept EnumConstantDeclaration_b06144d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept StaticFieldDeclaration$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept StaticMethodDeclaration$eX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept EnumConstantDeclaration$ma = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
   }
 }

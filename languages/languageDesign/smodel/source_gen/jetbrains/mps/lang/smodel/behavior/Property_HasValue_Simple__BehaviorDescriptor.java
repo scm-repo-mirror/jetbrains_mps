@@ -4,6 +4,7 @@ package jetbrains.mps.lang.smodel.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class Property_HasValue_Simple__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_i3e0eg.Property_HasValue_Simple_3f6ddfed;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ae2053294L, "jetbrains.mps.lang.smodel.structure.Property_HasValue_Simple");
 
   public static final SMethod<Boolean> applicableToProperty_id45eRmv019Ae = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToProperty").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("45eRmv019Ae").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
@@ -31,7 +31,7 @@ public final class Property_HasValue_Simple__BehaviorDescriptor extends BaseBHDe
   }
 
   /*package*/ static boolean applicableToProperty_id45eRmv019Ae(@NotNull SAbstractConcept __thisConcept__, SNode datatype) {
-    return SNodeOperations.isInstanceOf(datatype, AUX_i3e0eg.PrimitiveDataTypeDeclaration_44a77975);
+    return SNodeOperations.isInstanceOf(datatype, CONCEPTS.PrimitiveDataTypeDeclaration$id);
   }
 
   /*package*/ Property_HasValue_Simple__BehaviorDescriptor() {
@@ -80,8 +80,7 @@ public final class Property_HasValue_Simple__BehaviorDescriptor extends BaseBHDe
     return CONCEPT;
   }
 
-  private static final class AUX_i3e0eg {
-    /*package*/ static final SConcept Property_HasValue_Simple_3f6ddfed = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ae2053294L, "jetbrains.mps.lang.smodel.structure.Property_HasValue_Simple");
-    /*package*/ static final SConcept PrimitiveDataTypeDeclaration_44a77975 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc3652de27L, "jetbrains.mps.lang.structure.structure.PrimitiveDataTypeDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrimitiveDataTypeDeclaration$id = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc3652de27L, "jetbrains.mps.lang.structure.structure.PrimitiveDataTypeDeclaration");
   }
 }

@@ -25,7 +25,7 @@ public class check_ContinueStatement_NonTypesystemRule extends AbstractNonTypesy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_cimhu.ContinueStatement_91fd0556;
+    return CONCEPTS.ContinueStatement$jc;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,7 +34,7 @@ public class check_ContinueStatement_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_cimhu {
-    /*package*/ static final SConcept ContinueStatement_91fd0556 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, "jetbrains.mps.baseLanguage.structure.ContinueStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ContinueStatement$jc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, "jetbrains.mps.baseLanguage.structure.ContinueStatement");
   }
 }

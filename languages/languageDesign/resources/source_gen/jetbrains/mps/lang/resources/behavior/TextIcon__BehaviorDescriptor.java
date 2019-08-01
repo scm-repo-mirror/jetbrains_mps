@@ -4,6 +4,7 @@ package jetbrains.mps.lang.resources.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,7 +17,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.util.IconCreationUtil;
 import org.jetbrains.mps.openapi.util.Consumer;
@@ -29,10 +29,11 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class TextIcon__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_u2ztv.TextIcon_d7600c94;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, "jetbrains.mps.lang.resources.structure.TextIcon");
 
   public static final SMethod<String> getResourceId_id2p1v3tOadt0 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getResourceId").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2p1v3tOadt0").build();
   public static final SMethod<List<Tuples._2<IFile, byte[]>>> generate_id7Mb2akaesv8 = new SMethodBuilder<List<Tuples._2<IFile, byte[]>>>(new SJavaCompoundTypeImpl((Class<List<Tuples._2<IFile, byte[]>>>) ((Class) Object.class))).name("generate").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Mb2akaesv8").build(SMethodBuilder.createJavaParameter(IFile.class, ""));
@@ -43,7 +44,7 @@ public final class TextIcon__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String getResourceId_id2p1v3tOadt0(@NotNull SNode __thisNode__) {
-    return "TextIcon_" + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x12dbb53bb6b60039L, "iconId")) + ".png";
+    return "TextIcon_" + SPropertyOperations.getString(__thisNode__, PROPS.iconId$Nwly) + ".png";
   }
   /*package*/ static List<Tuples._2<IFile, byte[]>> generate_id7Mb2akaesv8(@NotNull final SNode __thisNode__, IFile outputDir) {
 
@@ -60,9 +61,9 @@ public final class TextIcon__BehaviorDescriptor extends BaseBHDescriptor {
     byte[] iconData = IconCreationUtil.drawIcon(new Consumer<IconCreationUtil.DrawContext>() {
       public void consume(IconCreationUtil.DrawContext dc) {
         // todo copy layered icon into core 
-        LayeredIcon res = new LayeredIcon(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x26417c37742e0e66L, "layers"))).count());
-        for (SNode layer : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x26417c37742e0e66L, "layers")))) {
-          res.setIcon(new ImageIcon(IconLayerDescription__BehaviorDescriptor.getImageForGeneration_id2p1v3tObywX.invoke(layer)), ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x26417c37742e0e66L, "layers"))).indexOf(layer));
+        LayeredIcon res = new LayeredIcon(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.layers$30cD)).count());
+        for (SNode layer : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.layers$30cD))) {
+          res.setIcon(new ImageIcon(IconLayerDescription__BehaviorDescriptor.getImageForGeneration_id2p1v3tObywX.invoke(layer)), ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.layers$30cD)).indexOf(layer));
         }
         res.paintIcon(null, dc.g, 0, 0);
       }
@@ -118,7 +119,11 @@ public final class TextIcon__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_u2ztv {
-    /*package*/ static final SConcept TextIcon_d7600c94 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, "jetbrains.mps.lang.resources.structure.TextIcon");
+  private static final class PROPS {
+    /*package*/ static final SProperty iconId$Nwly = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x12dbb53bb6b60039L, "iconId");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink layers$30cD = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0d45L, 0x26417c37742e0e66L, "layers");
   }
 }

@@ -16,7 +16,6 @@ import jetbrains.mps.smodel.IOperationContext;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -26,10 +25,11 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   public DataTypeDeclaration_Constraints() {
-    super(AUX_gntvk6.DataTypeDeclaration_9e6b98ac);
+    super(CONCEPTS.DataTypeDeclaration$KQ);
   }
 
   @Override
@@ -44,7 +44,7 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return Scopes.forConcepts(_context.getContextNode(), AUX_gntvk6.DataTypeDeclaration_9e6b98ac);
+            return Scopes.forConcepts(_context.getContextNode(), CONCEPTS.DataTypeDeclaration$KQ);
           }
         };
       }
@@ -52,7 +52,7 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   }
   public static class DatatypeId_Property extends BasePropertyConstraintsDescriptor {
     public DatatypeId_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId"), container);
+      super(PROPS.datatypeId$Bvg3, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -81,7 +81,7 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   }
   public static class LanguageId_Property extends BasePropertyConstraintsDescriptor {
     public LanguageId_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044404L, "languageId"), container);
+      super(PROPS.languageId$Bvgy, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -111,13 +111,18 @@ public class DataTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId"), new DatatypeId_Property(this));
-    properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044404L, "languageId"), new LanguageId_Property(this));
+    properties.put(PROPS.datatypeId$Bvg3, new DatatypeId_Property(this));
+    properties.put(PROPS.languageId$Bvgy, new LanguageId_Property(this));
     return properties;
   }
   private static final SNodePointer breakingNode_gntvk6_a0a0a0a0a0a0a0a2 = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805350");
 
-  private static final class AUX_gntvk6 {
-    /*package*/ static final SConcept DataTypeDeclaration_9e6b98ac = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DataTypeDeclaration$KQ = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty datatypeId$Bvg3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId");
+    /*package*/ static final SProperty languageId$Bvgy = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044404L, "languageId");
   }
 }

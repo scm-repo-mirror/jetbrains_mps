@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PrimitiveTypeDescriptor_Constraints extends BaseConstraintsDescriptor {
   public PrimitiveTypeDescriptor_Constraints() {
-    super(AUX_c562zn.PrimitiveTypeDescriptor_26acd7f5);
+    super(CONCEPTS.PrimitiveTypeDescriptor$od);
   }
 
-  private static final class AUX_c562zn {
-    /*package*/ static final SConcept PrimitiveTypeDescriptor_26acd7f5 = MetaAdapterFactory.getConcept(0xed6d7656532c4bc2L, 0x81d1af945aeb8280L, 0x10de9cae1d1L, "jetbrains.mps.baseLanguage.blTypes.structure.PrimitiveTypeDescriptor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrimitiveTypeDescriptor$od = MetaAdapterFactory.getConcept(0xed6d7656532c4bc2L, 0x81d1af945aeb8280L, 0x10de9cae1d1L, "jetbrains.mps.baseLanguage.blTypes.structure.PrimitiveTypeDescriptor");
   }
 }

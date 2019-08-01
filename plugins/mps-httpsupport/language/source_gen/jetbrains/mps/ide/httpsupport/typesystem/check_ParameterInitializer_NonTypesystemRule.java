@@ -11,12 +11,13 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class check_ParameterInitializer_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ParameterInitializer_NonTypesystemRule() {
@@ -24,7 +25,7 @@ public class check_ParameterInitializer_NonTypesystemRule extends AbstractNonTyp
   public void applyRule(final SNode parameterInitializer, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!(ListSequence.fromList(SNodeOperations.getAllSiblings(parameterInitializer, false)).all(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(check_5fnl8h_a0a0a0a0a0b(SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_5fnl8h.ParameterInitializer_5a1ff165), MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5cf17L, 0x4027f9073ff5cf18L, "parameter")), parameterInitializer));
+        return !(check_5fnl8h_a0a0a0a0a0b(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ParameterInitializer$Et), LINKS.parameter$Zrxw), parameterInitializer));
       }
     }))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
@@ -32,7 +33,7 @@ public class check_ParameterInitializer_NonTypesystemRule extends AbstractNonTyp
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_5fnl8h.ParameterInitializer_5a1ff165;
+    return CONCEPTS.ParameterInitializer$Et;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,12 +43,16 @@ public class check_ParameterInitializer_NonTypesystemRule extends AbstractNonTyp
   }
   private static boolean check_5fnl8h_a0a0a0a0a0b(SNode checkedDotOperand, SNode parameterInitializer) {
     if (null != checkedDotOperand) {
-      return checkedDotOperand.equals(SLinkOperations.getTarget(parameterInitializer, MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5cf17L, 0x4027f9073ff5cf18L, "parameter")));
+      return checkedDotOperand.equals(SLinkOperations.getTarget(parameterInitializer, LINKS.parameter$Zrxw));
     }
     return false;
   }
 
-  private static final class AUX_5fnl8h {
-    /*package*/ static final SConcept ParameterInitializer_5a1ff165 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5cf17L, "jetbrains.mps.ide.httpsupport.structure.ParameterInitializer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParameterInitializer$Et = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5cf17L, "jetbrains.mps.ide.httpsupport.structure.ParameterInitializer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink parameter$Zrxw = MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5cf17L, 0x4027f9073ff5cf18L, "parameter");
   }
 }

@@ -16,10 +16,11 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.constraints.behavior.NodeReferentConstraint__BehaviorDescriptor;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class SpecifyMessageForNodeReferent_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -38,7 +39,7 @@ public final class SpecifyMessageForNodeReferent_Intention extends AbstractInten
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SNodeOperations.isInstanceOf(SModelOperations.getModuleStub(SNodeOperations.getModel(node)), AUX_wkokby.Language_33f90ea1);
+    return SNodeOperations.isInstanceOf(SModelOperations.getModuleStub(SNodeOperations.getModel(node)), CONCEPTS.Language$jx);
   }
   @Override
   public boolean isSurroundWith() {
@@ -59,8 +60,8 @@ public final class SpecifyMessageForNodeReferent_Intention extends AbstractInten
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode problem = SNodeFactoryOperations.createNewNode(AUX_wkokby.RefOutOfScopeProblem_93a36b5f, null);
-      SLinkOperations.setTarget(problem, MetaAdapterFactory.getReferenceLink(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, 0x161a25d49703b44eL, "ref"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b731752daL, 0x10b7317b98aL, "applicableLink")));
+      SNode problem = SNodeFactoryOperations.createNewNode(CONCEPTS.RefOutOfScopeProblem$Zz, null);
+      SLinkOperations.setTarget(problem, LINKS.ref$uT96, SLinkOperations.getTarget(node, LINKS.applicableLink$Hkrz));
       new MessageIntentionHelper(problem, NodeReferentConstraint__BehaviorDescriptor.getApplicableConcept_idhEwIMWq.invoke(node)).addProblemCustomization(node, editorContext);
     }
     @Override
@@ -69,8 +70,13 @@ public final class SpecifyMessageForNodeReferent_Intention extends AbstractInten
     }
   }
 
-  private static final class AUX_wkokby {
-    /*package*/ static final SConcept Language_33f90ea1 = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, "jetbrains.mps.lang.project.structure.Language");
-    /*package*/ static final SConcept RefOutOfScopeProblem_93a36b5f = MetaAdapterFactory.getConcept(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, "jetbrains.mps.lang.feedback.problem.scopes.structure.RefOutOfScopeProblem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Language$jx = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, "jetbrains.mps.lang.project.structure.Language");
+    /*package*/ static final SConcept RefOutOfScopeProblem$Zz = MetaAdapterFactory.getConcept(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, "jetbrains.mps.lang.feedback.problem.scopes.structure.RefOutOfScopeProblem");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink ref$uT96 = MetaAdapterFactory.getReferenceLink(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, 0x161a25d49703b44eL, "ref");
+    /*package*/ static final SReferenceLink applicableLink$Hkrz = MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b731752daL, 0x10b7317b98aL, "applicableLink");
   }
 }

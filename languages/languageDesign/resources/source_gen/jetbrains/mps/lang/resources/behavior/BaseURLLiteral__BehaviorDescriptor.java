@@ -4,6 +4,7 @@ package jetbrains.mps.lang.resources.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class BaseURLLiteral__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_kd2f09.BaseURLLiteral_709ed847;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x4197d5560e6a38b8L, "jetbrains.mps.lang.resources.structure.BaseURLLiteral");
 
   public static final SMethod<String> getGeneratedClassName_id46nPloe$m0J = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("46nPloe$m0J").build();
 
@@ -31,7 +31,7 @@ public final class BaseURLLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String getGeneratedClassName_id46nPloe$m0J(@NotNull SNode __thisNode__) {
-    return "URLLiteral_" + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "URLLiteral_" + SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
   }
 
   /*package*/ BaseURLLiteral__BehaviorDescriptor() {
@@ -80,7 +80,7 @@ public final class BaseURLLiteral__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_kd2f09 {
-    /*package*/ static final SConcept BaseURLLiteral_709ed847 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x4197d5560e6a38b8L, "jetbrains.mps.lang.resources.structure.BaseURLLiteral");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

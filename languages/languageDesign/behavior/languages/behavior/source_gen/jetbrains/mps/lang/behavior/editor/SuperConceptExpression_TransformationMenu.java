@@ -20,7 +20,6 @@ import jetbrains.mps.lang.editor.menus.transformation.DefaultConceptMenusTransfo
 import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class SuperConceptExpression_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -66,7 +67,7 @@ public class SuperConceptExpression_TransformationMenu extends TransformationMen
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_2w7hld.SuperConceptExpression_a6afd4b)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.SuperConceptExpression$HR)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -90,7 +91,7 @@ public class SuperConceptExpression_TransformationMenu extends TransformationMen
   public class TMP_Group_2w7hld_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, 0x69a9d7dcb057a7a8L, "superConcept")) == null);
+      return (SLinkOperations.getTarget(_context.getNode(), LINKS.superConcept$nNkw) == null);
     }
 
     @NotNull
@@ -148,9 +149,9 @@ public class SuperConceptExpression_TransformationMenu extends TransformationMen
         public void execute(@NotNull String pattern) {
           SNode result = SuperExpression__BehaviorDescriptor.getSuperConcept_id2k7p7sTvKkn.invoke(_context.getNode());
           if (result == null) {
-            SLinkOperations.setPointer(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, 0x69a9d7dcb057a7a8L, "superConcept"), new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"));
+            SLinkOperations.setPointer(_context.getNode(), LINKS.superConcept$nNkw, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"));
           } else {
-            SLinkOperations.setTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, 0x69a9d7dcb057a7a8L, "superConcept"), result);
+            SLinkOperations.setTarget(_context.getNode(), LINKS.superConcept$nNkw, result);
           }
           // I expect superConcept to be the only editable cell there, so didn't bother with custom cell id 
           SelectionUtil.selectCell(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_EDITABLE_CELL);
@@ -181,7 +182,11 @@ public class SuperConceptExpression_TransformationMenu extends TransformationMen
     }
   }
 
-  private static final class AUX_2w7hld {
-    /*package*/ static final SConcept SuperConceptExpression_a6afd4b = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, "jetbrains.mps.lang.behavior.structure.SuperConceptExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuperConceptExpression$HR = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, "jetbrains.mps.lang.behavior.structure.SuperConceptExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink superConcept$nNkw = MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, 0x69a9d7dcb057a7a8L, "superConcept");
   }
 }

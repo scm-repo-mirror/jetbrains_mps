@@ -19,7 +19,7 @@ public class typeof_AbstractTextGenParameter_InferenceRule extends AbstractInfer
   public typeof_AbstractTextGenParameter_InferenceRule() {
   }
   public void applyRule(final SNode parameter, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode textGen = SNodeOperations.getNodeAncestor(parameter, AUX_l0wvna.AbstractTextGenDeclaration_a362e3b0, false, false);
+    SNode textGen = SNodeOperations.getNodeAncestor(parameter, CONCEPTS.AbstractTextGenDeclaration$6M, false, false);
     if ((textGen == null)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
@@ -28,7 +28,7 @@ public class typeof_AbstractTextGenParameter_InferenceRule extends AbstractInfer
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_l0wvna.AbstractTextGenParameter_bbbdc359;
+    return CONCEPTS.AbstractTextGenParameter$sD;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -37,8 +37,8 @@ public class typeof_AbstractTextGenParameter_InferenceRule extends AbstractInfer
     return false;
   }
 
-  private static final class AUX_l0wvna {
-    /*package*/ static final SConcept AbstractTextGenDeclaration_a362e3b0 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f60f06a49L, "jetbrains.mps.lang.textGen.structure.AbstractTextGenDeclaration");
-    /*package*/ static final SConcept AbstractTextGenParameter_bbbdc359 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f84e1988dL, "jetbrains.mps.lang.textGen.structure.AbstractTextGenParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractTextGenDeclaration$6M = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f60f06a49L, "jetbrains.mps.lang.textGen.structure.AbstractTextGenDeclaration");
+    /*package*/ static final SConcept AbstractTextGenParameter$sD = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f84e1988dL, "jetbrains.mps.lang.textGen.structure.AbstractTextGenParameter");
   }
 }

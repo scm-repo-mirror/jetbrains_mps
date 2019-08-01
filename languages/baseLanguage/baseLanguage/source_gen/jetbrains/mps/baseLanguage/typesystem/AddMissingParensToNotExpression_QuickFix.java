@@ -7,9 +7,10 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AddMissingParensToNotExpression_QuickFix extends QuickFix_Runtime {
   public AddMissingParensToNotExpression_QuickFix() {
@@ -19,13 +20,18 @@ public class AddMissingParensToNotExpression_QuickFix extends QuickFix_Runtime {
     return "Add Missing Parens";
   }
   public void execute(SNode node) {
-    SNode parens = SNodeFactoryOperations.createNewNode(AUX_g2ojrm.ParenthesizedExpression_a4b89678, null);
-    SLinkOperations.setTarget(parens, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_g2ojrm.NotExpression_8a1c1248), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, 0xfbcf6c30a4L, "expression")));
-    SLinkOperations.setTarget(SNodeOperations.cast(node, AUX_g2ojrm.NotExpression_8a1c1248), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, 0xfbcf6c30a4L, "expression"), parens);
+    SNode parens = SNodeFactoryOperations.createNewNode(CONCEPTS.ParenthesizedExpression$vE, null);
+    SLinkOperations.setTarget(parens, LINKS.expression$4_F0, SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.NotExpression$oq), LINKS.expression$bUD_));
+    SLinkOperations.setTarget(SNodeOperations.cast(node, CONCEPTS.NotExpression$oq), LINKS.expression$bUD_, parens);
   }
 
-  private static final class AUX_g2ojrm {
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
-    /*package*/ static final SConcept NotExpression_8a1c1248 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+    /*package*/ static final SConcept NotExpression$oq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SContainmentLink expression$bUD_ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, 0xfbcf6c30a4L, "expression");
   }
 }

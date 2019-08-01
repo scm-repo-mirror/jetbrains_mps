@@ -10,20 +10,21 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_AbstractMethodsInClass_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_AbstractMethodsInClass_NonTypesystemRule() {
   }
   public void applyRule(final SNode method, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(method)) {
-      SNode classifier = SNodeOperations.getNodeAncestor(method, AUX_stcy1y.Classifier_4b7e553, false, false);
-      if (!(SNodeOperations.isInstanceOf(classifier, AUX_stcy1y.EnumClass_acf68fc0))) {
+      SNode classifier = SNodeOperations.getNodeAncestor(method, CONCEPTS.Classifier$hJ, false, false);
+      if (!(SNodeOperations.isInstanceOf(classifier, CONCEPTS.EnumClass$uy))) {
         {
           SNode matchedNode_qfxa59_a0b0a0 = classifier;
           {
@@ -31,11 +32,11 @@ public class check_AbstractMethodsInClass_NonTypesystemRule extends AbstractNonT
             {
               SNode matchingNode_qfxa59_a0a1a0a = classifier;
               if (matchingNode_qfxa59_a0a1a0a != null) {
-                matches_qfxa59_a0a1a0a = matchingNode_qfxa59_a0a1a0a.getConcept().isSubConceptOf(AUX_stcy1y.ClassConcept_e2711824);
+                matches_qfxa59_a0a1a0a = matchingNode_qfxa59_a0a1a0a.getConcept().isSubConceptOf(CONCEPTS.ClassConcept$IY);
               }
             }
             if (matches_qfxa59_a0a1a0a) {
-              if ((matchedNode_qfxa59_a0b0a0 != null) && !(SPropertyOperations.getBoolean(matchedNode_qfxa59_a0b0a0, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass")))) {
+              if ((matchedNode_qfxa59_a0b0a0 != null) && !(SPropertyOperations.getBoolean(matchedNode_qfxa59_a0b0a0, PROPS.abstractClass$gY5l))) {
                 {
                   final MessageTarget errorTarget = new NodeMessageTarget();
                   IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(method, "abstract method in a non-abstract class", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "840197573389262456", null, errorTarget);
@@ -45,7 +46,7 @@ public class check_AbstractMethodsInClass_NonTypesystemRule extends AbstractNonT
           }
         }
       } else {
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(method), AUX_stcy1y.EnumConstantDeclaration_b06144d8)) {
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(method), CONCEPTS.EnumConstantDeclaration$ma)) {
           {
             final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(method, "abstract methods not allowed in enum constants", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1962660292854020345", null, errorTarget);
@@ -55,7 +56,7 @@ public class check_AbstractMethodsInClass_NonTypesystemRule extends AbstractNonT
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_stcy1y.InstanceMethodDeclaration_9dbf9b2b;
+    return CONCEPTS.InstanceMethodDeclaration$An;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -64,11 +65,15 @@ public class check_AbstractMethodsInClass_NonTypesystemRule extends AbstractNonT
     return false;
   }
 
-  private static final class AUX_stcy1y {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept EnumConstantDeclaration_b06144d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept EnumConstantDeclaration$ma = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstractClass$gY5l = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
   }
 }

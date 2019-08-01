@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -18,17 +17,20 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_BuildSource_JavaOptions_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildSource_JavaOptions_NonTypesystemRule() {
   }
   public void applyRule(final SNode opts, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ("IntelliJ".equals(SPropertyOperations.getString(opts, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0x1c936d31d311af95L, "compiler")))) {
-      SNode project = SNodeOperations.getNodeAncestor(opts, AUX_yn20z5.BuildProject_808bb057, false, false);
+    if ("IntelliJ".equals(SPropertyOperations.getString(opts, PROPS.compiler$uU$I))) {
+      SNode project = SNodeOperations.getNodeAncestor(opts, CONCEPTS.BuildProject$BF, false, false);
       if ((project != null)) {
-        boolean hasIdeaHomeVar = ListSequence.fromList(SLinkOperations.getChildren(project, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros"))).any(new IWhereFilter<SNode>() {
+        boolean hasIdeaHomeVar = ListSequence.fromList(SLinkOperations.getChildren(project, LINKS.macros$tpFt)).any(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SNodeOperations.isInstanceOf(it, AUX_yn20z5.BuildFolderMacro_b970540e) && SPropertyOperations.getString(SNodeOperations.cast(it, AUX_yn20z5.BuildFolderMacro_b970540e), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals("idea_home");
+            return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildFolderMacro$Ok) && SPropertyOperations.getString(SNodeOperations.cast(it, CONCEPTS.BuildFolderMacro$Ok), PROPS.name$tAp1).equals("idea_home");
           }
         });
         if (!(hasIdeaHomeVar)) {
@@ -41,7 +43,7 @@ public class check_BuildSource_JavaOptions_NonTypesystemRule extends AbstractNon
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_yn20z5.BuildSource_JavaOptions_d1ea835c;
+    return CONCEPTS.BuildSource_JavaOptions$u6;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -50,9 +52,18 @@ public class check_BuildSource_JavaOptions_NonTypesystemRule extends AbstractNon
     return false;
   }
 
-  private static final class AUX_yn20z5 {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildFolderMacro_b970540e = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
-    /*package*/ static final SConcept BuildSource_JavaOptions_d1ea835c = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, "jetbrains.mps.build.structure.BuildSource_JavaOptions");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildFolderMacro$Ok = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
+    /*package*/ static final SConcept BuildSource_JavaOptions$u6 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, "jetbrains.mps.build.structure.BuildSource_JavaOptions");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink macros$tpFt = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty compiler$uU$I = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0x1c936d31d311af95L, "compiler");
   }
 }

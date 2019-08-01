@@ -14,10 +14,11 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.baseLanguage.behavior.IOperation__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ConvertLinkSetToAssignment_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -53,13 +54,13 @@ public final class ConvertLinkSetToAssignment_Intention extends AbstractIntentio
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode lValue = IOperation__BehaviorDescriptor.getOperand_idhEwIP$m.invoke(node);
-      SNode rValue = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1099887af60L, 0x1099887af61L, "linkTarget"));
-      SNodeOperations.deleteNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1099887af60L, 0x1099887af61L, "linkTarget")));
+      SNode rValue = SLinkOperations.getTarget(node, LINKS.linkTarget$RxOw);
+      SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.linkTarget$RxOw));
       SNode dotExpression = IOperation__BehaviorDescriptor.getDotExpression_idhO_4GYO.invoke(node);
-      SNodeOperations.deleteNode(SLinkOperations.getTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-      SNode assignment = SNodeFactoryOperations.createNewNode(AUX_suqfmt.AssignmentExpression_24d60daa, null);
-      SLinkOperations.setTarget(assignment, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue"), lValue);
-      SLinkOperations.setTarget(assignment, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue"), rValue);
+      SNodeOperations.deleteNode(SLinkOperations.getTarget(dotExpression, LINKS.operand$Lcrr));
+      SNode assignment = SNodeFactoryOperations.createNewNode(CONCEPTS.AssignmentExpression$rS, null);
+      SLinkOperations.setTarget(assignment, LINKS.lValue$J0D4, lValue);
+      SLinkOperations.setTarget(assignment, LINKS.rValue$J0E2, rValue);
       SNodeOperations.replaceWithAnother(dotExpression, assignment);
     }
     @Override
@@ -68,7 +69,14 @@ public final class ConvertLinkSetToAssignment_Intention extends AbstractIntentio
     }
   }
 
-  private static final class AUX_suqfmt {
-    /*package*/ static final SConcept AssignmentExpression_24d60daa = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink linkTarget$RxOw = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1099887af60L, 0x1099887af61L, "linkTarget");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SContainmentLink lValue$J0D4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue");
+    /*package*/ static final SContainmentLink rValue$J0E2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AssignmentExpression$rS = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
   }
 }

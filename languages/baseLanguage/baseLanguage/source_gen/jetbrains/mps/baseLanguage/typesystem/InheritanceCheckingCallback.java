@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.typesystem.dependencies.CheckingMethod;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -33,8 +32,12 @@ import jetbrains.mps.baseLanguage.scopes.GenericTypesUtil;
 import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.HashSet;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * callback which analyses the inheritance problems for the given classifier.
@@ -143,7 +146,7 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
   }
 
   private Iterable<SNode> getDirectSupers(SNode currentClassifier) {
-    return SLinkOperations.collect(Classifier__BehaviorDescriptor.getExtendedClassifierTypes_id1UeCwxlWKny.invoke(currentClassifier), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+    return SLinkOperations.collect(Classifier__BehaviorDescriptor.getExtendedClassifierTypes_id1UeCwxlWKny.invoke(currentClassifier), LINKS.classifier$pQ_R);
   }
 
   private void reportCyclicHierarchy() {
@@ -219,14 +222,14 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
     } else if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(baseMethod1)) {
       // replace abstract with impl 
       return baseMethod2;
-    } else if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(baseMethod2), AUX_xbgqro.ClassConcept_e2711824)) {
+    } else if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(baseMethod2), CONCEPTS.ClassConcept$IY)) {
       // classes implementations are better than default implementations in interfaces => rewrite 
       return baseMethod2;
-    } else if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(baseMethod1), AUX_xbgqro.ClassConcept_e2711824))) {
-      if (isDescendant(SNodeOperations.cast(SNodeOperations.getParent(baseMethod1), AUX_xbgqro.Classifier_4b7e553), SNodeOperations.cast(SNodeOperations.getParent(baseMethod2), AUX_xbgqro.Classifier_4b7e553))) {
+    } else if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(baseMethod1), CONCEPTS.ClassConcept$IY))) {
+      if (isDescendant(SNodeOperations.cast(SNodeOperations.getParent(baseMethod1), CONCEPTS.Classifier$hJ), SNodeOperations.cast(SNodeOperations.getParent(baseMethod2), CONCEPTS.Classifier$hJ))) {
         return baseMethod1;
       }
-      if (isDescendant(SNodeOperations.cast(SNodeOperations.getParent(baseMethod2), AUX_xbgqro.Classifier_4b7e553), SNodeOperations.cast(SNodeOperations.getParent(baseMethod1), AUX_xbgqro.Classifier_4b7e553))) {
+      if (isDescendant(SNodeOperations.cast(SNodeOperations.getParent(baseMethod2), CONCEPTS.Classifier$hJ), SNodeOperations.cast(SNodeOperations.getParent(baseMethod1), CONCEPTS.Classifier$hJ))) {
         return baseMethod2;
       }
       // two interface implementations came from unrelated supers => error 
@@ -242,7 +245,7 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
       public void report(final TypeCheckingContext typeCheckingContext) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, "The classifier '" + SPropertyOperations.getString(myClassifier, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' inherits unrelated defaults for '" + SPropertyOperations.getString(baseMethod1, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' from types '" + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(baseMethod1), AUX_xbgqro.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' and '" + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(baseMethod2), AUX_xbgqro.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7861981782408159407", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, "The classifier '" + SPropertyOperations.getString(myClassifier, PROPS.name$tAp1) + "' inherits unrelated defaults for '" + SPropertyOperations.getString(baseMethod1, PROPS.name$tAp1) + "' from types '" + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(baseMethod1), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1) + "' and '" + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(baseMethod2), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1) + "'", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7861981782408159407", null, errorTarget);
         }
       }
     };
@@ -272,13 +275,13 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
   }
 
   private Signature createSignature(SNode method) {
-    return Signature.create(SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), ListSequence.fromList(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count(), createParamErasedSignature(method));
+    return Signature.create(SPropertyOperations.getString(method, PROPS.name$tAp1), ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)).count(), createParamErasedSignature(method));
   }
 
   private String createParamErasedSignature(SNode method) {
     StringBuilder result = new StringBuilder();
-    for (SNode param : SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))) {
-      SNode type = SLinkOperations.getTarget(param, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
+    for (SNode param : SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)) {
+      SNode type = SLinkOperations.getTarget(param, LINKS.type$pLrO);
       type = GenericTypesUtil.getTypeWithResolvedTypeVars(type, myTypeByTypeVar);
       if (result.length() > 0) {
         result.append(',');
@@ -346,7 +349,7 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
   }
 
   private boolean trackMethod(SNode clMethod) {
-    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(clMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_xbgqro.PrivateVisibility_63f5dbd4));
+    return !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(clMethod, LINKS.visibility$2GiC), CONCEPTS.PrivateVisibility$Se));
   }
 
   @Override
@@ -360,10 +363,21 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
    */
   private final Set<SNode> insideVertex = SetSequence.fromSet(new HashSet<SNode>());
 
-  private static final class AUX_xbgqro {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept PrivateVisibility_63f5dbd4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SConcept PrivateVisibility$Se = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

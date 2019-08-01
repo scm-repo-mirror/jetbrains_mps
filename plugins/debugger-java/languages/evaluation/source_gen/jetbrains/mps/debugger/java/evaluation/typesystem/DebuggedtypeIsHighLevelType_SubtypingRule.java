@@ -8,18 +8,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class DebuggedtypeIsHighLevelType_SubtypingRule extends SubtypingRule_Runtime implements ISubtypingRule_Runtime {
   public DebuggedtypeIsHighLevelType_SubtypingRule() {
   }
   public SNode getSubOrSuperType(SNode debuggedType, TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    return SLinkOperations.getTarget(debuggedType, MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25edaL, "highType"));
+    return SLinkOperations.getTarget(debuggedType, LINKS.highType$UDHZ);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_mycrd8.DebuggedType_9357587d;
+    return CONCEPTS.DebuggedType$q5;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -28,7 +29,11 @@ public class DebuggedtypeIsHighLevelType_SubtypingRule extends SubtypingRule_Run
     return false;
   }
 
-  private static final class AUX_mycrd8 {
-    /*package*/ static final SConcept DebuggedType_9357587d = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, "jetbrains.mps.debugger.java.evaluation.structure.DebuggedType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink highType$UDHZ = MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25edaL, "highType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DebuggedType$q5 = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, "jetbrains.mps.debugger.java.evaluation.structure.DebuggedType");
   }
 }

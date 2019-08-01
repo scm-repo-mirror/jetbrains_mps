@@ -25,7 +25,7 @@ public class typeof_SimpleMathLongConstant_InferenceRule extends AbstractInferen
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_j74srz.SimpleMathLongConstant_c0fc5465;
+    return CONCEPTS.SimpleMathLongConstant$ut;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,12 +35,12 @@ public class typeof_SimpleMathLongConstant_InferenceRule extends AbstractInferen
   }
   private static SNode createSimpleMathLongType_j74srz_a1a0c0a0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_j74srz.SimpleMathLongType_bbf8afaa, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SimpleMathLongType$jS, null, null, false);
     return n1;
   }
 
-  private static final class AUX_j74srz {
-    /*package*/ static final SConcept SimpleMathLongConstant_c0fc5465 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b83bf7eaL, "jetbrains.mps.samples.Expressions.structure.SimpleMathLongConstant");
-    /*package*/ static final SConcept SimpleMathLongType_bbf8afaa = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b837a88aL, "jetbrains.mps.samples.Expressions.structure.SimpleMathLongType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleMathLongConstant$ut = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b83bf7eaL, "jetbrains.mps.samples.Expressions.structure.SimpleMathLongConstant");
+    /*package*/ static final SConcept SimpleMathLongType$jS = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b837a88aL, "jetbrains.mps.samples.Expressions.structure.SimpleMathLongType");
   }
 }

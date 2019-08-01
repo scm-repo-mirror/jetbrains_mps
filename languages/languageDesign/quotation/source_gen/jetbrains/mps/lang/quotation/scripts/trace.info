@@ -16,56 +16,59 @@
   </root>
   <root nodeRef="r:d6a9a174-4d02-4a9a-af5a-24f4aae65f24(jetbrains.mps.lang.quotation.scripts)/979583239732347490">
     <file name="MigrateEnumPropertyAttributes_Antiquotation_MigrationScript.java">
-      <node id="979583239732347490" at="20,72,21,59" concept="8" />
-      <node id="979583239732302834" at="24,31,25,78" concept="5" />
-      <node id="979583239732302834" at="28,41,29,78" concept="5" />
-      <node id="979583239732302834" at="32,54,33,66" concept="5" />
-      <node id="979583239732303104" at="36,59,37,448" concept="5" />
-      <node id="979583239732312553" at="40,52,41,186" concept="1" />
-      <node id="979583239732380460" at="41,186,42,0" concept="6" />
-      <node id="979583239732373816" at="42,0,43,94" concept="4" />
-      <node id="979583239732370676" at="44,215,45,195" concept="1" />
-      <node id="979583239732302834" at="49,42,50,20" concept="5" />
-      <node id="979583239732347490" at="57,41,58,162" concept="5" />
-      <node id="979583239732347490" at="62,0,63,0" concept="7" trace="StringToTypedValueMigrationInfo_ee0e9f0" />
-      <node id="979583239732347490" at="63,0,64,0" concept="7" trace="PropertyAttribute_d001db89" />
-      <node id="979583239732347490" at="64,0,65,0" concept="7" trace="EnumPropertyMigrationInfo_a791f212" />
-      <node id="979583239732374870" at="43,94,46,9" concept="2" />
-      <node id="979583239732302834" at="23,0,27,0" concept="3" trace="getName#()Ljava/lang/String;" />
-      <node id="979583239732302834" at="27,0,31,0" concept="3" trace="getAdditionalInfo#()Ljava/lang/String;" />
-      <node id="979583239732302834" at="31,0,35,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="979583239732302834" at="35,0,39,0" concept="3" trace="isApplicableInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="979583239732302834" at="48,0,52,0" concept="3" trace="isShowAsIntention#()Z" />
-      <node id="979583239732347490" at="55,0,60,0" concept="3" trace="getScriptNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="979583239732302834" at="39,0,48,0" concept="3" trace="doUpdateInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="979583239732302834" at="21,59,52,7" concept="1" />
-      <node id="979583239732347490" at="20,0,54,0" concept="0" trace="MigrateEnumPropertyAttributes_Antiquotation_MigrationScript#()V" />
-      <scope id="979583239732302834" at="24,31,25,78" />
-      <scope id="979583239732302834" at="28,41,29,78" />
-      <scope id="979583239732302834" at="32,54,33,66" />
-      <scope id="979583239732302852" at="36,59,37,448" />
-      <scope id="979583239732374872" at="44,215,45,195" />
-      <scope id="979583239732302834" at="49,42,50,20" />
-      <scope id="979583239732347490" at="57,41,58,162" />
-      <scope id="979583239732302834" at="23,0,27,0" />
-      <scope id="979583239732302834" at="27,0,31,0" />
-      <scope id="979583239732302834" at="31,0,35,0" />
-      <scope id="979583239732302834" at="35,0,39,0">
+      <node id="979583239732347490" at="21,72,22,59" concept="8" />
+      <node id="979583239732302834" at="25,31,26,78" concept="5" />
+      <node id="979583239732302834" at="29,41,30,78" concept="5" />
+      <node id="979583239732302834" at="33,54,34,59" concept="5" />
+      <node id="979583239732303104" at="37,59,38,325" concept="5" />
+      <node id="979583239732312553" at="41,52,42,79" concept="1" />
+      <node id="979583239732380460" at="42,79,43,0" concept="6" />
+      <node id="979583239732373816" at="43,0,44,86" concept="4" />
+      <node id="979583239732370676" at="45,207,46,88" concept="1" />
+      <node id="979583239732302834" at="50,42,51,20" concept="5" />
+      <node id="979583239732347490" at="58,41,59,162" concept="5" />
+      <node id="979583239732347490" at="63,0,64,0" concept="7" trace="StringToTypedValueMigrationInfo$dM" />
+      <node id="979583239732347490" at="64,0,65,0" concept="7" trace="PropertyAttribute$jT" />
+      <node id="979583239732347490" at="65,0,66,0" concept="7" trace="EnumPropertyMigrationInfo$Yg" />
+      <node id="979583239732347490" at="69,0,70,0" concept="7" trace="stringValueMigrated$gFe8" />
+      <node id="979583239732347490" at="70,0,71,0" concept="7" trace="enumUsageMigrated$lY$m" />
+      <node id="979583239732374870" at="44,86,47,9" concept="2" />
+      <node id="979583239732302834" at="24,0,28,0" concept="3" trace="getName#()Ljava/lang/String;" />
+      <node id="979583239732302834" at="28,0,32,0" concept="3" trace="getAdditionalInfo#()Ljava/lang/String;" />
+      <node id="979583239732302834" at="32,0,36,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="979583239732302834" at="36,0,40,0" concept="3" trace="isApplicableInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="979583239732302834" at="49,0,53,0" concept="3" trace="isShowAsIntention#()Z" />
+      <node id="979583239732347490" at="56,0,61,0" concept="3" trace="getScriptNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="979583239732302834" at="40,0,49,0" concept="3" trace="doUpdateInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="979583239732302834" at="22,59,53,7" concept="1" />
+      <node id="979583239732347490" at="21,0,55,0" concept="0" trace="MigrateEnumPropertyAttributes_Antiquotation_MigrationScript#()V" />
+      <scope id="979583239732302834" at="25,31,26,78" />
+      <scope id="979583239732302834" at="29,41,30,78" />
+      <scope id="979583239732302834" at="33,54,34,59" />
+      <scope id="979583239732302852" at="37,59,38,325" />
+      <scope id="979583239732374872" at="45,207,46,88" />
+      <scope id="979583239732302834" at="50,42,51,20" />
+      <scope id="979583239732347490" at="58,41,59,162" />
+      <scope id="979583239732302834" at="24,0,28,0" />
+      <scope id="979583239732302834" at="28,0,32,0" />
+      <scope id="979583239732302834" at="32,0,36,0" />
+      <scope id="979583239732302834" at="36,0,40,0">
         <var name="node" id="979583239732302834" />
       </scope>
-      <scope id="979583239732302834" at="48,0,52,0" />
-      <scope id="979583239732347490" at="55,0,60,0" />
-      <scope id="979583239732302838" at="40,52,46,9">
+      <scope id="979583239732302834" at="49,0,53,0" />
+      <scope id="979583239732347490" at="56,0,61,0" />
+      <scope id="979583239732302838" at="41,52,47,9">
         <var name="propAttribute" id="979583239732373817" />
       </scope>
-      <scope id="979583239732302834" at="39,0,48,0">
+      <scope id="979583239732302834" at="40,0,49,0">
         <var name="node" id="979583239732302834" />
       </scope>
-      <scope id="979583239732347490" at="20,72,52,7" />
-      <scope id="979583239732347490" at="20,0,54,0" />
-      <unit id="979583239732347490" at="61,0,66,0" name="jetbrains.mps.lang.quotation.scripts.MigrateEnumPropertyAttributes_Antiquotation_MigrationScript$AUX_d58rlq" />
-      <unit id="979583239732302834" at="22,28,52,5" name="jetbrains.mps.lang.quotation.scripts.MigrateEnumPropertyAttributes_Antiquotation_MigrationScript$1" />
-      <unit id="979583239732347490" at="19,0,67,0" name="jetbrains.mps.lang.quotation.scripts.MigrateEnumPropertyAttributes_Antiquotation_MigrationScript" />
+      <scope id="979583239732347490" at="21,72,53,7" />
+      <scope id="979583239732347490" at="21,0,55,0" />
+      <unit id="979583239732347490" at="68,0,72,0" name="jetbrains.mps.lang.quotation.scripts.MigrateEnumPropertyAttributes_Antiquotation_MigrationScript$PROPS" />
+      <unit id="979583239732347490" at="62,0,67,0" name="jetbrains.mps.lang.quotation.scripts.MigrateEnumPropertyAttributes_Antiquotation_MigrationScript$CONCEPTS" />
+      <unit id="979583239732302834" at="23,28,53,5" name="jetbrains.mps.lang.quotation.scripts.MigrateEnumPropertyAttributes_Antiquotation_MigrationScript$1" />
+      <unit id="979583239732347490" at="20,0,73,0" name="jetbrains.mps.lang.quotation.scripts.MigrateEnumPropertyAttributes_Antiquotation_MigrationScript" />
     </file>
     <file name="ScriptsDescriptor.java">
       <node id="979583239732347490" at="15,52,16,96" concept="1" />

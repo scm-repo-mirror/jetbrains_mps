@@ -4,6 +4,7 @@ package jetbrains.mps.execution.configurations.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,17 +15,17 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.execution.common.behavior.IGeneratedToClass__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AbstractRunConfigurationExecutor__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_qwiv3k.AbstractRunConfigurationExecutor_fd0cc5b0;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
 
   public static final SMethod<String> getCanExecuteMethodName_id6LlKjXrMerG = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getCanExecuteMethodName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6LlKjXrMerG").build();
   public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").build();
@@ -33,8 +34,8 @@ public final class AbstractRunConfigurationExecutor__BehaviorDescriptor extends 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getCanExecuteMethodName_id6LlKjXrMerG, getSuffix_idO$iR4JBsSb, getGeneratedClassName_idO$iR4JBsSg);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x523a1a6c9706408bL, "canRun"), true);
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x1acdeec3ca0ad49cL, "configurationName"), "myRunConfiguration");
+    SPropertyOperations.assign(__thisNode__, PROPS.canRun$P4_O, true);
+    SPropertyOperations.assign(__thisNode__, PROPS.configurationName$vU1z, "myRunConfiguration");
   }
 
   /*package*/ static String getCanExecuteMethodName_id6LlKjXrMerG(@NotNull SNode __thisNode__) {
@@ -42,10 +43,10 @@ public final class AbstractRunConfigurationExecutor__BehaviorDescriptor extends 
   }
   @NonNls
   /*package*/ static String getSuffix_idO$iR4JBsSb(@NotNull SNode __thisNode__) {
-    return IGeneratedToClass__BehaviorDescriptor.getSuffix_idO$iR4JBsSb.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration"))) + "_RunProfileState";
+    return IGeneratedToClass__BehaviorDescriptor.getSuffix_idO$iR4JBsSb.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.configuration$RmX0)) + "_RunProfileState";
   }
   /*package*/ static String getGeneratedClassName_idO$iR4JBsSg(@NotNull SNode __thisNode__) {
-    return ((String) IGeneratedToClass__BehaviorDescriptor.getGeneratedClassName_idO$iR4JBsSG.invoke(__thisNode__, SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))));
+    return ((String) IGeneratedToClass__BehaviorDescriptor.getGeneratedClassName_idO$iR4JBsSG.invoke(__thisNode__, SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.configuration$RmX0), PROPS.name$tAp1)));
   }
 
   /*package*/ AbstractRunConfigurationExecutor__BehaviorDescriptor() {
@@ -98,7 +99,13 @@ public final class AbstractRunConfigurationExecutor__BehaviorDescriptor extends 
     return CONCEPT;
   }
 
-  private static final class AUX_qwiv3k {
-    /*package*/ static final SConcept AbstractRunConfigurationExecutor_fd0cc5b0 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
+  private static final class PROPS {
+    /*package*/ static final SProperty canRun$P4_O = MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x523a1a6c9706408bL, "canRun");
+    /*package*/ static final SProperty configurationName$vU1z = MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, 0x1acdeec3ca0ad49cL, "configurationName");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink configuration$RmX0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration");
   }
 }

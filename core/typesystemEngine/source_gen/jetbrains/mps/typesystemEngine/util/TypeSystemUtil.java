@@ -9,10 +9,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TypeSystemUtil {
   public static boolean shouldApplyTypeSystemRules(SNode node) {
-    return !(SNodeOperations.isInstanceOf(node, AUX_k857tx.IDontApplyTypesystemRules_7e759e29));
+    return !(SNodeOperations.isInstanceOf(node, CONCEPTS.IDontApplyTypesystemRules$pp));
   }
 
-  private static final class AUX_k857tx {
-    /*package*/ static final SInterfaceConcept IDontApplyTypesystemRules_7e759e29 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x1ec383e5b4bdca56L, "jetbrains.mps.lang.core.structure.IDontApplyTypesystemRules");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IDontApplyTypesystemRules$pp = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x1ec383e5b4bdca56L, "jetbrains.mps.lang.core.structure.IDontApplyTypesystemRules");
   }
 }

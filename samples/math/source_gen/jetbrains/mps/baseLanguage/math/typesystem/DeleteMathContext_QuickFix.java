@@ -18,10 +18,10 @@ public class DeleteMathContext_QuickFix extends QuickFix_Runtime {
     return "Use default math context";
   }
   public void execute(SNode node) {
-    SNodeOperations.replaceWithAnother(node, MathUtil.convert1(SNodeOperations.cast(node, AUX_11mqvp.DecimalBinaryOperation_8f13e951)));
+    SNodeOperations.replaceWithAnother(node, MathUtil.convert1(SNodeOperations.cast(node, CONCEPTS.DecimalBinaryOperation$L)));
   }
 
-  private static final class AUX_11mqvp {
-    /*package*/ static final SConcept DecimalBinaryOperation_8f13e951 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120568d9c5bL, "jetbrains.mps.baseLanguage.math.structure.DecimalBinaryOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DecimalBinaryOperation$L = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120568d9c5bL, "jetbrains.mps.baseLanguage.math.structure.DecimalBinaryOperation");
   }
 }

@@ -64,34 +64,34 @@ public class FindUsagesDescriptor extends BaseFindUsagesDescriptor {
 
   @Override
   public void init(FinderRegistry reg) {
-    reg.add(AUX_o9tm2l.BaseMethodDeclaration_9dbf9acb, 0, "AllMethodUsages");
-    reg.add(AUX_o9tm2l.BaseMethodDeclaration_9dbf9acb, 1, "BaseMethod");
-    reg.add(AUX_o9tm2l.InstanceMethodDeclaration_9dbf9b2b, 2, "BaseMethodUsages");
-    reg.add(AUX_o9tm2l.ClassConcept_e2711824, 3, "ClassAncestors");
-    reg.add(AUX_o9tm2l.ClassConcept_e2711824, 4, "ClassUsages");
-    reg.add(AUX_o9tm2l.ConstructorDeclaration_9dbf9ae8, 5, "ConstructorUsages");
-    reg.add(AUX_o9tm2l.ClassConcept_e2711824, 6, "DerivedClasses");
-    reg.add(AUX_o9tm2l.Interface_bca2069, 7, "DerivedInterfaces");
-    reg.add(AUX_o9tm2l.InstanceMethodDeclaration_9dbf9b2b, 8, "DerivedMethods");
-    reg.add(AUX_o9tm2l.BaseMethodDeclaration_9dbf9acb, 9, "ExactMethodUsages");
-    reg.add(AUX_o9tm2l.VariableDeclaration_3c610994, 10, "FieldUsages");
-    reg.add(AUX_o9tm2l.ClassConcept_e2711824, 11, "ImplementedInterfaces");
-    reg.add(AUX_o9tm2l.Interface_bca2069, 12, "ImplementingClasses");
-    reg.add(AUX_o9tm2l.Interface_bca2069, 13, "InterfaceAncestors");
-    reg.add(AUX_o9tm2l.InstanceMethodDeclaration_9dbf9b2b, 14, "InterfaceMethodImplementations");
-    reg.add(AUX_o9tm2l.VariableDeclaration_3c610994, 15, "OverridingFields");
-    reg.add(AUX_o9tm2l.InstanceMethodDeclaration_9dbf9b2b, 16, "OverridingMethods");
-    reg.add(AUX_o9tm2l.ParameterDeclaration_24d60da8, 17, "ParameterUsages");
-    reg.add(AUX_o9tm2l.ClassConcept_e2711824, 18, "StraightDerivedClasses");
+    reg.add(CONCEPTS.BaseMethodDeclaration$RR, 0, "AllMethodUsages");
+    reg.add(CONCEPTS.BaseMethodDeclaration$RR, 1, "BaseMethod");
+    reg.add(CONCEPTS.InstanceMethodDeclaration$An, 2, "BaseMethodUsages");
+    reg.add(CONCEPTS.ClassConcept$IY, 3, "ClassAncestors");
+    reg.add(CONCEPTS.ClassConcept$IY, 4, "ClassUsages");
+    reg.add(CONCEPTS.ConstructorDeclaration$5U, 5, "ConstructorUsages");
+    reg.add(CONCEPTS.ClassConcept$IY, 6, "DerivedClasses");
+    reg.add(CONCEPTS.Interface$Kp, 7, "DerivedInterfaces");
+    reg.add(CONCEPTS.InstanceMethodDeclaration$An, 8, "DerivedMethods");
+    reg.add(CONCEPTS.BaseMethodDeclaration$RR, 9, "ExactMethodUsages");
+    reg.add(CONCEPTS.VariableDeclaration$xe, 10, "FieldUsages");
+    reg.add(CONCEPTS.ClassConcept$IY, 11, "ImplementedInterfaces");
+    reg.add(CONCEPTS.Interface$Kp, 12, "ImplementingClasses");
+    reg.add(CONCEPTS.Interface$Kp, 13, "InterfaceAncestors");
+    reg.add(CONCEPTS.InstanceMethodDeclaration$An, 14, "InterfaceMethodImplementations");
+    reg.add(CONCEPTS.VariableDeclaration$xe, 15, "OverridingFields");
+    reg.add(CONCEPTS.InstanceMethodDeclaration$An, 16, "OverridingMethods");
+    reg.add(CONCEPTS.ParameterDeclaration$qU, 17, "ParameterUsages");
+    reg.add(CONCEPTS.ClassConcept$IY, 18, "StraightDerivedClasses");
   }
 
-  private static final class AUX_o9tm2l {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
   }
 }

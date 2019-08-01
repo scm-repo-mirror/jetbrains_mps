@@ -4,6 +4,7 @@ package jetbrains.mps.lang.script.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AbstractMethodSpecification__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_luvoog.AbstractMethodSpecification_5475c373;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4243146ba1b46c9dL, "jetbrains.mps.lang.script.structure.AbstractMethodSpecification");
 
   public static final SMethod<SNode> getPullUpMethod_id1ZdZFkoOe3$ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPullUpMethod").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1ZdZFkoOe3$").build();
   public static final SMethod<String> getPresentation_id6SPCoQxKXmj = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6SPCoQxKXmj").build();
@@ -32,7 +32,7 @@ public final class AbstractMethodSpecification__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ static SNode getPullUpMethod_id1ZdZFkoOe3$(@NotNull SNode __thisNode__) {
-    return SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), AUX_luvoog.PullUpMethod_c0e8e74d);
+    return SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.PullUpMethod$6P);
   }
 
   /*package*/ AbstractMethodSpecification__BehaviorDescriptor() {
@@ -81,8 +81,7 @@ public final class AbstractMethodSpecification__BehaviorDescriptor extends BaseB
     return CONCEPT;
   }
 
-  private static final class AUX_luvoog {
-    /*package*/ static final SConcept AbstractMethodSpecification_5475c373 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4243146ba1b46c9dL, "jetbrains.mps.lang.script.structure.AbstractMethodSpecification");
-    /*package*/ static final SConcept PullUpMethod_c0e8e74d = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, "jetbrains.mps.lang.script.structure.PullUpMethod");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PullUpMethod$6P = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, "jetbrains.mps.lang.script.structure.PullUpMethod");
   }
 }

@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class SimpleMathVarReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_rxkll9_a(), AUX_rxkll9.SimpleMathVarReference_b6c191e1));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_rxkll9_a(), CONCEPTS.SimpleMathVarReference$Ax));
     result.add(new SMP_Subconcepts_rxkll9_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class SimpleMathVarReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_rxkll9_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_rxkll9.SimpleMathVarReference_b6c191e1, MetaAdapterFactory.getReferenceLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b832e4e1L, 0x1cc69153b832e4e2L, "declaration"));
+      super((SAbstractConcept) CONCEPTS.SimpleMathVarReference$Ax, LINKS.declaration$csvw);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class SimpleMathVarReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_rxkll9_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_rxkll9.SimpleMathVarReference_b6c191e1);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.SimpleMathVarReference$Ax);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class SimpleMathVarReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_rxkll9 {
-    /*package*/ static final SConcept SimpleMathVarReference_b6c191e1 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b832e4e1L, "jetbrains.mps.samples.Expressions.structure.SimpleMathVarReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleMathVarReference$Ax = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b832e4e1L, "jetbrains.mps.samples.Expressions.structure.SimpleMathVarReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$csvw = MetaAdapterFactory.getReferenceLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b832e4e1L, 0x1cc69153b832e4e2L, "declaration");
   }
 }

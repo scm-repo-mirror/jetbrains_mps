@@ -13,7 +13,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -22,8 +21,11 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AddRuntimeExceptionToMethodSignature_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -43,27 +45,27 @@ public final class AddRuntimeExceptionToMethodSignature_Intention extends Abstra
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
     // check that this is done in a method 
-    SNode methodDecl = SNodeOperations.getNodeAncestor(node, AUX_11l094.BaseMethodDeclaration_9dbf9acb, false, false);
+    SNode methodDecl = SNodeOperations.getNodeAncestor(node, CONCEPTS.BaseMethodDeclaration$RR, false, false);
     if (methodDecl == null) {
       return false;
     }
     // get exception type 
-    final SNode exceptionType = (TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, 0x10f3ee0cd6fL, "throwable"))), AUX_11l094.ClassifierType_42700403));
+    final SNode exceptionType = (TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(node, LINKS.throwable$o3ty)), CONCEPTS.ClassifierType$IZ));
     if (exceptionType == null) {
       return false;
     }
-    SNode exceptionJavaType = (SNode) SLinkOperations.getTarget(exceptionType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+    SNode exceptionJavaType = (SNode) SLinkOperations.getTarget(exceptionType, LINKS.classifier$pQ_R);
     if (exceptionJavaType == null) {
       return false;
     }
     // check it's instance of RuntimeException 
-    if (!((boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(exceptionJavaType, (SNode) SLinkOperations.getTarget(_quotation_createNode_7gg82q_a0a0a0j0a(), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))))) {
+    if (!((boolean) Classifier__BehaviorDescriptor.isDescendant_id6dL7A1DpKo1.invoke(exceptionJavaType, (SNode) SLinkOperations.getTarget(_quotation_createNode_7gg82q_a0a0a0j0a(), LINKS.classifier$pQ_R)))) {
       return false;
     }
     // check if it's not thrown by a method yet 
-    if (ListSequence.fromList(SLinkOperations.getChildren(methodDecl, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem"))).where(new IWhereFilter<SNode>() {
+    if (ListSequence.fromList(SLinkOperations.getChildren(methodDecl, LINKS.throwsItem$gr7e)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_11l094.ClassifierType_42700403) && SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_11l094.ClassifierType_42700403), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == SLinkOperations.getTarget(exceptionType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.ClassifierType$IZ) && SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.ClassifierType$IZ), LINKS.classifier$pQ_R) == SLinkOperations.getTarget(exceptionType, LINKS.classifier$pQ_R);
       }
     }).isNotEmpty()) {
       return false;
@@ -89,8 +91,8 @@ public final class AddRuntimeExceptionToMethodSignature_Intention extends Abstra
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode methodDecl = SNodeOperations.getNodeAncestor(node, AUX_11l094.BaseMethodDeclaration_9dbf9acb, false, false);
-      ListSequence.fromList(SLinkOperations.getChildren(methodDecl, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem"))).addElement(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, 0x10f3ee0cd6fL, "throwable"))), AUX_11l094.Type_4199e276));
+      SNode methodDecl = SNodeOperations.getNodeAncestor(node, CONCEPTS.BaseMethodDeclaration$RR, false, false);
+      ListSequence.fromList(SLinkOperations.getChildren(methodDecl, LINKS.throwsItem$gr7e)).addElement(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(node, LINKS.throwable$o3ty)), CONCEPTS.Type$IG));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -101,13 +103,19 @@ public final class AddRuntimeExceptionToMethodSignature_Intention extends Abstra
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"), null, null, false);
-    quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~RuntimeException")));
+    quotedNode_1.setReference(LINKS.classifier$pQ_R, SReference.create(LINKS.classifier$pQ_R, quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~RuntimeException")));
     return quotedNode_1;
   }
 
-  private static final class AUX_11l094 {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink throwable$o3ty = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, 0x10f3ee0cd6fL, "throwable");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink throwsItem$gr7e = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem");
   }
 }

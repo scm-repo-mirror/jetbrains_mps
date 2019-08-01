@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -18,27 +17,30 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RoutineUniqueness_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public RoutineUniqueness_NonTypesystemRule() {
   }
   public void applyRule(final SNode routineDefinition, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SPropertyOperations.getString(routineDefinition, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) == null) {
+    if (SPropertyOperations.getString(routineDefinition, PROPS.name$tAp1) == null) {
       return;
     }
     Iterable<SNode> defs;
-    SNode parentScript = SNodeOperations.getNodeAncestor(routineDefinition, AUX_8cz67z.Script_a5f03f85, false, false);
+    SNode parentScript = SNodeOperations.getNodeAncestor(routineDefinition, CONCEPTS.Script$1X, false, false);
     if (parentScript != null) {
-      defs = ListSequence.fromList(SNodeOperations.getNodeDescendants(parentScript, AUX_8cz67z.RoutineDefinition_6674bc6d, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+      defs = ListSequence.fromList(SNodeOperations.getNodeDescendants(parentScript, CONCEPTS.RoutineDefinition$2l, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SPropertyOperations.getString(routineDefinition, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          return SPropertyOperations.getString(routineDefinition, PROPS.name$tAp1).equals(SPropertyOperations.getString(it, PROPS.name$tAp1));
         }
       });
     } else {
-      defs = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(routineDefinition, AUX_8cz67z.Library_9cea916e, false, false), MetaAdapterFactory.getContainmentLink(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, 0x3cfcda239f19d317L, "definitions"))).where(new IWhereFilter<SNode>() {
+      defs = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(routineDefinition, CONCEPTS.Library$IO, false, false), LINKS.definitions$krA0)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SPropertyOperations.getString(routineDefinition, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          return SPropertyOperations.getString(routineDefinition, PROPS.name$tAp1).equals(SPropertyOperations.getString(it, PROPS.name$tAp1));
         }
       });
     }
@@ -50,7 +52,7 @@ public class RoutineUniqueness_NonTypesystemRule extends AbstractNonTypesystemRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_8cz67z.RoutineDefinition_6674bc6d;
+    return CONCEPTS.RoutineDefinition$2l;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -59,9 +61,17 @@ public class RoutineUniqueness_NonTypesystemRule extends AbstractNonTypesystemRu
     return false;
   }
 
-  private static final class AUX_8cz67z {
-    /*package*/ static final SConcept Script_a5f03f85 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45746L, "jetbrains.mps.samples.Kaja.structure.Script");
-    /*package*/ static final SConcept RoutineDefinition_6674bc6d = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ed6f79L, "jetbrains.mps.samples.Kaja.structure.RoutineDefinition");
-    /*package*/ static final SConcept Library_9cea916e = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, "jetbrains.mps.samples.Kaja.structure.Library");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Script$1X = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45746L, "jetbrains.mps.samples.Kaja.structure.Script");
+    /*package*/ static final SConcept RoutineDefinition$2l = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ed6f79L, "jetbrains.mps.samples.Kaja.structure.RoutineDefinition");
+    /*package*/ static final SConcept Library$IO = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, "jetbrains.mps.samples.Kaja.structure.Library");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink definitions$krA0 = MetaAdapterFactory.getContainmentLink(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, 0x3cfcda239f19d317L, "definitions");
   }
 }

@@ -20,7 +20,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -32,6 +31,7 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightParen
 import jetbrains.mps.nodeEditor.cells.EditorCell_Indent;
 import jetbrains.mps.lang.editor.cellProviders.SingleRoleCellProvider;
 import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_DeleteSmart;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class ExecuteCommandPart_EditorBuilder_a extends AbstractEditorBuilder {
@@ -119,10 +119,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107adL, "parameterDeclaration");
+      return LINKS.parameterDeclaration$Zllw;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_vn05st.ExplicitCommandParameterDeclaration_30caf037;
+      return CONCEPTS.ExplicitCommandParameterDeclaration$ob;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -132,7 +132,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(parameterDeclarationListHandler_6c2ht_c0a.this.getNode(), MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107adL, "parameterDeclaration")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(parameterDeclarationListHandler_6c2ht_c0a.this.getNode(), LINKS.parameterDeclaration$Zllw));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -177,7 +177,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private EditorCell createRefNode_0() {
-    SingleRoleCellProvider provider = new executeSingleRoleHandler_6c2ht_b1a(myNode, MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107aeL, "execute"), getEditorContext());
+    SingleRoleCellProvider provider = new executeSingleRoleHandler_6c2ht_b1a(myNode, LINKS.execute$ZllZ, getEditorContext());
     return provider.createCell();
   }
   private static class executeSingleRoleHandler_6c2ht_b1a extends SingleRoleCellProvider {
@@ -197,8 +197,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
     protected EditorCell createChildCell(SNode child) {
       EditorCell editorCell = getUpdateSession().updateChildNodeCell(child);
-      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107aeL, "execute"), child));
-      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107aeL, "execute"), child));
+      editorCell.setAction(CellActionType.DELETE, new CellAction_DeleteSmart(getNode(), LINKS.execute$ZllZ, child));
+      editorCell.setAction(CellActionType.BACKSPACE, new CellAction_DeleteSmart(getNode(), LINKS.execute$ZllZ, child));
       installCellInfo(child, editorCell, false);
       return editorCell;
     }
@@ -210,13 +210,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
         editorCell.setSubstituteInfo((isEmpty ? new SEmptyContainmentSubstituteInfo(editorCell) : new SChildSubstituteInfo(editorCell)));
       }
       if (editorCell.getSRole() == null) {
-        editorCell.setSRole(MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107aeL, "execute"));
+        editorCell.setSRole(LINKS.execute$ZllZ);
       }
     }
     @Override
     protected EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107aeL, "execute")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(getNode(), LINKS.execute$ZllZ));
       try {
         EditorCell editorCell = super.createEmptyCell();
         editorCell.setCellId("empty_execute");
@@ -232,7 +232,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_vn05st {
-    /*package*/ static final SConcept ExplicitCommandParameterDeclaration_30caf037 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2be2L, "jetbrains.mps.execution.commands.structure.ExplicitCommandParameterDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameterDeclaration$Zllw = MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107adL, "parameterDeclaration");
+    /*package*/ static final SContainmentLink execute$ZllZ = MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, 0x550ea9458ea107aeL, "execute");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExplicitCommandParameterDeclaration$ob = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2be2L, "jetbrains.mps.execution.commands.structure.ExplicitCommandParameterDeclaration");
   }
 }

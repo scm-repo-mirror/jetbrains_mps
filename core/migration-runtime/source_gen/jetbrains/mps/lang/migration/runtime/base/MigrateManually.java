@@ -15,10 +15,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class MigrateManually extends Problem<SNode> implements NodeReportItem {
   private String myMsg;
   public MigrateManually(SNode annotation) {
-    this(((String) BHReflection.invoke0(annotation, AUX_p91anz.MigrationAnnotation_old_10823922, SMethodTrimmedId.create("getResultsMessage", null, "29O0pTxWdnZ"))), SNodeOperations.getParent(annotation));
+    this(((String) BHReflection.invoke0(annotation, CONCEPTS.MigrationAnnotation_old$E0, SMethodTrimmedId.create("getResultsMessage", null, "29O0pTxWdnZ"))), SNodeOperations.getParent(annotation));
   }
   public static MigrateManually fromAnnotation(SNode annotation) {
-    return new MigrateManually(((String) BHReflection.invoke0(annotation, AUX_p91anz.MigrationAnnotation_old_10823922, SMethodTrimmedId.create("getResultsMessage", null, "29O0pTxWdnZ"))), SNodeOperations.getParent(annotation));
+    return new MigrateManually(((String) BHReflection.invoke0(annotation, CONCEPTS.MigrationAnnotation_old$E0, SMethodTrimmedId.create("getResultsMessage", null, "29O0pTxWdnZ"))), SNodeOperations.getParent(annotation));
   }
   public MigrateManually(String message, SNode node) {
     super(node);
@@ -37,7 +37,7 @@ public class MigrateManually extends Problem<SNode> implements NodeReportItem {
     return getReason().getReference();
   }
 
-  private static final class AUX_p91anz {
-    /*package*/ static final SInterfaceConcept MigrationAnnotation_old_10823922 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2274019e61f0c2c8L, "jetbrains.mps.lang.core.structure.MigrationAnnotation_old");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MigrationAnnotation_old$E0 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2274019e61f0c2c8L, "jetbrains.mps.lang.core.structure.MigrationAnnotation_old");
   }
 }

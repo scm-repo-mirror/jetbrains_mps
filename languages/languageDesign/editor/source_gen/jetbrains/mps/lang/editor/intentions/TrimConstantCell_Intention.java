@@ -11,10 +11,11 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class TrimConstantCell_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -33,7 +34,7 @@ public final class TrimConstantCell_Intention extends AbstractIntentionDescripto
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    String text = SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb01232eL, 0xf9eb01232fL, "text"));
+    String text = SPropertyOperations.getString(node, PROPS.text$ZxWw);
     if (text == null || text.length() == 0) {
       return false;
     }
@@ -61,11 +62,15 @@ public final class TrimConstantCell_Intention extends AbstractIntentionDescripto
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb01232eL, 0xf9eb01232fL, "text"), SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb01232eL, 0xf9eb01232fL, "text")).trim());
+      SPropertyOperations.set(node, PROPS.text$ZxWw, SPropertyOperations.getString(node, PROPS.text$ZxWw).trim());
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return TrimConstantCell_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$ZxWw = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb01232eL, 0xf9eb01232fL, "text");
   }
 }

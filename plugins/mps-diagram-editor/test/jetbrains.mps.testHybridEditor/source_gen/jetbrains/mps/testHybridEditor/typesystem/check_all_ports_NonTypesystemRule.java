@@ -9,13 +9,15 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_all_ports_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -23,17 +25,17 @@ public class check_all_ports_NonTypesystemRule extends AbstractNonTypesystemRule
   }
   public void applyRule(final SNode block, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     boolean result = true;
-    for (SNode port : ListSequence.fromList(SLinkOperations.getChildren(block, MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65702ffeL, "inputPorts")))) {
+    for (SNode port : ListSequence.fromList(SLinkOperations.getChildren(block, LINKS.inputPorts$18yY))) {
       boolean portResult = false;
-      for (SNode connector : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(block), AUX_p42nu0.Diagram_a04819fe), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, 0xa10615a65702fdaL, "connectors")))) {
-        portResult = portResult || Objects.equals(SLinkOperations.getTarget(connector, MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703018L, "inputPort")), port);
+      for (SNode connector : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(block), CONCEPTS.Diagram$k$), LINKS.connectors$124r))) {
+        portResult = portResult || Objects.equals(SLinkOperations.getTarget(connector, LINKS.inputPort$1943), port);
       }
       result = result && portResult;
     }
-    for (SNode port : ListSequence.fromList(SLinkOperations.getChildren(block, MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65703000L, "outputPorts")))) {
+    for (SNode port : ListSequence.fromList(SLinkOperations.getChildren(block, LINKS.outputPorts$18zW))) {
       boolean portResult = false;
-      for (SNode connector : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(block), AUX_p42nu0.Diagram_a04819fe), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, 0xa10615a65702fdaL, "connectors")))) {
-        portResult = portResult || Objects.equals(SLinkOperations.getTarget(connector, MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703014L, "outputPort")), port);
+      for (SNode connector : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(block), CONCEPTS.Diagram$k$), LINKS.connectors$124r))) {
+        portResult = portResult || Objects.equals(SLinkOperations.getTarget(connector, LINKS.outputPort$1927), port);
       }
       result = result && portResult;
     }
@@ -45,7 +47,7 @@ public class check_all_ports_NonTypesystemRule extends AbstractNonTypesystemRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_p42nu0.Block_a0482444;
+    return CONCEPTS.Block$eu;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,8 +56,16 @@ public class check_all_ports_NonTypesystemRule extends AbstractNonTypesystemRule
     return false;
   }
 
-  private static final class AUX_p42nu0 {
-    /*package*/ static final SConcept Diagram_a04819fe = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, "jetbrains.mps.testHybridEditor.structure.Diagram");
-    /*package*/ static final SConcept Block_a0482444 = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, "jetbrains.mps.testHybridEditor.structure.Block");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink inputPort$1943 = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703018L, "inputPort");
+    /*package*/ static final SContainmentLink connectors$124r = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, 0xa10615a65702fdaL, "connectors");
+    /*package*/ static final SContainmentLink inputPorts$18yY = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65702ffeL, "inputPorts");
+    /*package*/ static final SReferenceLink outputPort$1927 = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fa1L, 0xa10615a65703014L, "outputPort");
+    /*package*/ static final SContainmentLink outputPorts$18zW = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65703000L, "outputPorts");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Diagram$k$ = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, "jetbrains.mps.testHybridEditor.structure.Diagram");
+    /*package*/ static final SConcept Block$eu = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, "jetbrains.mps.testHybridEditor.structure.Block");
   }
 }

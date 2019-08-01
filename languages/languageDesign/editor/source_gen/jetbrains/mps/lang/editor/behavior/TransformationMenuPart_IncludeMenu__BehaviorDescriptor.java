@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,7 +16,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.structure.constraints.Scopes;
 import jetbrains.mps.scope.ModelPlusImportedScope;
@@ -25,9 +25,10 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class TransformationMenuPart_IncludeMenu__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dnthpu.TransformationMenuPart_IncludeMenu_87a3a359;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xae2d2fe1c9d6be2L, "jetbrains.mps.lang.editor.structure.TransformationMenuPart_IncludeMenu");
 
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> getTargetConcept_id5ZcqSl_NIg2 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTargetConcept").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZcqSl_NIg2").build();
@@ -38,24 +39,24 @@ public final class TransformationMenuPart_IncludeMenu__BehaviorDescriptor extend
   }
 
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    if (child == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xae2d2fe1c9d6be2L, 0x5d3b34577b3f7ee5L, "menuReference"))) {
+    if (child == SLinkOperations.getTarget(__thisNode__, LINKS.menuReference$5IwX)) {
       SAbstractConcept cncpt = kind;
       boolean noneMatched = true;
-      if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, AUX_dnthpu.AbstractConceptDeclaration_ec74828f)) {
+      if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.AbstractConceptDeclaration$UN)) {
         noneMatched = false;
         // Default scope of AbstractConceptDeclaration 
-        return Scopes.forConcepts(__thisNode__, AUX_dnthpu.AbstractConceptDeclaration_ec74828f);
+        return Scopes.forConcepts(__thisNode__, CONCEPTS.AbstractConceptDeclaration$UN);
       }
-      if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, AUX_dnthpu.TransformationMenu_Named_37b65df8)) {
+      if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.TransformationMenu_Named$1E)) {
         noneMatched = false;
         // Default scope of TransformationMenu_Named - more or less 
-        return new ModelPlusImportedScope(SNodeOperations.getModel(__thisNode__), true, AUX_dnthpu.TransformationMenu_Named_37b65df8);
+        return new ModelPlusImportedScope(SNodeOperations.getModel(__thisNode__), true, CONCEPTS.TransformationMenu_Named$1E);
       }
     }
     return ScopeUtils.lazyParentScope(__thisNode__, kind);
   }
   /*package*/ static SNode getTargetConcept_id5ZcqSl_NIg2(@NotNull SNode __thisNode__) {
-    return check_pjfxcn_a0a1(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xae2d2fe1c9d6be2L, 0x5d3b34577b3f7ee5L, "menuReference")));
+    return check_pjfxcn_a0a1(SLinkOperations.getTarget(__thisNode__, LINKS.menuReference$5IwX));
   }
 
   /*package*/ TransformationMenuPart_IncludeMenu__BehaviorDescriptor() {
@@ -112,9 +113,12 @@ public final class TransformationMenuPart_IncludeMenu__BehaviorDescriptor extend
     return null;
   }
 
-  private static final class AUX_dnthpu {
-    /*package*/ static final SConcept TransformationMenuPart_IncludeMenu_87a3a359 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xae2d2fe1c9d6be2L, "jetbrains.mps.lang.editor.structure.TransformationMenuPart_IncludeMenu");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept TransformationMenu_Named_37b65df8 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0ac4ee8L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Named");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept TransformationMenu_Named$1E = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0ac4ee8L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Named");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink menuReference$5IwX = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xae2d2fe1c9d6be2L, 0x5d3b34577b3f7ee5L, "menuReference");
   }
 }

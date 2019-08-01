@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CustomInstructionsContainerReference_Constraints extends BaseConstraintsDescriptor {
   public CustomInstructionsContainerReference_Constraints() {
-    super(AUX_6b6sln.CustomInstructionsContainerReference_7572b0c1);
+    super(CONCEPTS.CustomInstructionsContainerReference$r1);
   }
 
-  private static final class AUX_6b6sln {
-    /*package*/ static final SConcept CustomInstructionsContainerReference_7572b0c1 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c1738798L, "jetbrains.mps.lang.dataFlow.analyzers.structure.CustomInstructionsContainerReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CustomInstructionsContainerReference$r1 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c1738798L, "jetbrains.mps.lang.dataFlow.analyzers.structure.CustomInstructionsContainerReference");
   }
 }

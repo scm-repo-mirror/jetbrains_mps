@@ -9,19 +9,21 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.modelapi.behavior.NodeIdentity__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_NodePointerArg_Identity_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_NodePointerArg_Identity_InferenceRule() {
   }
   public void applyRule(final SNode nodePointerArg, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode target = NodeIdentity__BehaviorDescriptor.toNode_id46J8CTY3sAt.invoke(SLinkOperations.getTarget(nodePointerArg, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2e154e2e58d91ebdL, 0x2e154e2e58d91f06L, "ref")), SNodeOperations.getModel(nodePointerArg).getRepository());
+    SNode target = NodeIdentity__BehaviorDescriptor.toNode_id46J8CTY3sAt.invoke(SLinkOperations.getTarget(nodePointerArg, LINKS.ref$ryyU), SNodeOperations.getModel(nodePointerArg).getRepository());
     {
       SNode _nodeToCheck_1029348928467 = nodePointerArg;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "3320646261221719938", 0, null);
@@ -29,7 +31,7 @@ public class typeof_NodePointerArg_Identity_InferenceRule extends AbstractInfere
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_xw4dmd.NodePointerArg_Identity_bd4b719d;
+    return CONCEPTS.NodePointerArg_Identity$5_;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -39,13 +41,18 @@ public class typeof_NodePointerArg_Identity_InferenceRule extends AbstractInfere
   }
   private static SNode createSNodePointerType_xw4dmd_a1a0c0b0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_xw4dmd.SNodePointerType_1589fb65, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fad6b29eL, 0x66b228a4fad6b2adL, "concept"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SNodePointerType$2t, null, null, false);
+    n1.setReferenceTarget(LINKS.concept$fJMt, node0);
     return n1;
   }
 
-  private static final class AUX_xw4dmd {
-    /*package*/ static final SConcept NodePointerArg_Identity_bd4b719d = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2e154e2e58d91ebdL, "jetbrains.mps.lang.smodel.structure.NodePointerArg_Identity");
-    /*package*/ static final SConcept SNodePointerType_1589fb65 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fad6b29eL, "jetbrains.mps.lang.smodel.structure.SNodePointerType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ref$ryyU = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2e154e2e58d91ebdL, 0x2e154e2e58d91f06L, "ref");
+    /*package*/ static final SReferenceLink concept$fJMt = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fad6b29eL, 0x66b228a4fad6b2adL, "concept");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodePointerArg_Identity$5_ = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2e154e2e58d91ebdL, "jetbrains.mps.lang.smodel.structure.NodePointerArg_Identity");
+    /*package*/ static final SConcept SNodePointerType$2t = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x66b228a4fad6b29eL, "jetbrains.mps.lang.smodel.structure.SNodePointerType");
   }
 }

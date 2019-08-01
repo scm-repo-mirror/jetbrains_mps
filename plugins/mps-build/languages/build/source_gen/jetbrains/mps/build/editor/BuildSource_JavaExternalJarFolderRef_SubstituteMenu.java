@@ -69,12 +69,12 @@ public class BuildSource_JavaExternalJarFolderRef_SubstituteMenu extends Substit
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.build.editor.BuildSource_JavaExternalJarFolderRef_SmartReference");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_hzclj9.BuildSource_JavaExternalJarFolderRef_e8d2d7a6;
+      return CONCEPTS.BuildSource_JavaExternalJarFolderRef$LW;
     }
   }
   public class SMP_Subconcepts_hzclj9_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_hzclj9.BuildSource_JavaExternalJarFolderRef_e8d2d7a6);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildSource_JavaExternalJarFolderRef$LW);
     }
     @NotNull
     @Override
@@ -94,7 +94,7 @@ public class BuildSource_JavaExternalJarFolderRef_SubstituteMenu extends Substit
     }
   }
 
-  private static final class AUX_hzclj9 {
-    /*package*/ static final SConcept BuildSource_JavaExternalJarFolderRef_e8d2d7a6 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarFolderRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaExternalJarFolderRef$LW = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarFolderRef");
   }
 }

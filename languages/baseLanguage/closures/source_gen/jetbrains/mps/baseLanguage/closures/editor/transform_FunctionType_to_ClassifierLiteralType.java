@@ -31,7 +31,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -43,7 +42,9 @@ import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class transform_FunctionType_to_ClassifierLiteralType extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -77,7 +78,7 @@ public class transform_FunctionType_to_ClassifierLiteralType extends Transformat
   public class TMP_Group_f0n48v_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(_context.getNode())), AUX_f0n48v.FunctionType_27eadd12);
+      return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(_context.getNode())), CONCEPTS.FunctionType$ig);
     }
 
     @NotNull
@@ -93,7 +94,7 @@ public class transform_FunctionType_to_ClassifierLiteralType extends Transformat
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_f0n48v_a0.TMP_Action_f0n48v_a0a(), AUX_f0n48v.ClosureLiteralType_ed776bc1));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_f0n48v_a0.TMP_Action_f0n48v_a0a(), CONCEPTS.ClosureLiteralType$J1));
     }
     private class TMP_Action_f0n48v_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -134,14 +135,14 @@ public class transform_FunctionType_to_ClassifierLiteralType extends Transformat
         @Override
         public void execute(@NotNull String pattern) {
           SNode ft = _context.getNode();
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SNodeOperations.replaceWithAnother(_context.getNode(), _quotation_createNode_f0n48v_a0a0b0a0a0(SLinkOperations.getChildren(ft, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4e013cL, "parameterType")), SLinkOperations.getTarget(ft, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4d5371L, "resultType")), SLinkOperations.getChildren(ft, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x11ad99d9c36L, "throwsType")))), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SNodeOperations.replaceWithAnother(_context.getNode(), _quotation_createNode_f0n48v_a0a0b0a0a0(SLinkOperations.getChildren(ft, LINKS.parameterType$odu6), SLinkOperations.getTarget(ft, LINKS.resultType$ln42), SLinkOperations.getChildren(ft, LINKS.throwsType$Faa1))), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
 
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_f0n48v.ClosureLiteralType_ed776bc1;
+          return CONCEPTS.ClosureLiteralType$J1;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -156,7 +157,7 @@ public class transform_FunctionType_to_ClassifierLiteralType extends Transformat
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_f0n48v.ClosureLiteralType_ed776bc1;
+          SAbstractConcept outputConcept = CONCEPTS.ClosureLiteralType$J1;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -176,24 +177,30 @@ public class transform_FunctionType_to_ClassifierLiteralType extends Transformat
     {
       List<SNode> nodes = (List<SNode>) parameter_1;
       for (SNode child : nodes) {
-        quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4e013cL, "parameterType"), SNodeOperations.copyIfNecessary(child));
+        quotedNode_4.addChild(LINKS.parameterType$odu6, SNodeOperations.copyIfNecessary(child));
       }
     }
     quotedNode_6 = (SNode) parameter_2;
     if (quotedNode_6 != null) {
-      quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4d5371L, "resultType"), SNodeOperations.copyIfNecessary(quotedNode_6));
+      quotedNode_4.addChild(LINKS.resultType$ln42, SNodeOperations.copyIfNecessary(quotedNode_6));
     }
     {
       List<SNode> nodes = (List<SNode>) parameter_3;
       for (SNode child : nodes) {
-        quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x11ad99d9c36L, "throwsType"), SNodeOperations.copyIfNecessary(child));
+        quotedNode_4.addChild(LINKS.throwsType$Faa1, SNodeOperations.copyIfNecessary(child));
       }
     }
     return quotedNode_4;
   }
 
-  private static final class AUX_f0n48v {
-    /*package*/ static final SConcept FunctionType_27eadd12 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, "jetbrains.mps.baseLanguage.closures.structure.FunctionType");
-    /*package*/ static final SConcept ClosureLiteralType_ed776bc1 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0xe8770ba07b68051L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FunctionType$ig = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, "jetbrains.mps.baseLanguage.closures.structure.FunctionType");
+    /*package*/ static final SConcept ClosureLiteralType$J1 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0xe8770ba07b68051L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameterType$odu6 = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4e013cL, "parameterType");
+    /*package*/ static final SContainmentLink resultType$ln42 = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x1174a4d5371L, "resultType");
+    /*package*/ static final SContainmentLink throwsType$Faa1 = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, 0x11ad99d9c36L, "throwsType");
   }
 }

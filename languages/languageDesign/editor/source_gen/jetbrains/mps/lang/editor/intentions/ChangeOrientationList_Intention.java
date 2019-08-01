@@ -12,12 +12,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.editor.behavior.CellModel_ListWithRole__BehaviorDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ChangeOrientationList_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -37,7 +38,7 @@ public final class ChangeOrientationList_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e38e8L, "cellLayout")), AUX_3exy2d.CellLayout_Horizontal_21c61206) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e38e8L, "cellLayout")), AUX_3exy2d.CellLayout_Vertical_21ecb90d);
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.cellLayout$63td), CONCEPTS.CellLayout_Horizontal$Ss) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.cellLayout$63td), CONCEPTS.CellLayout_Vertical$vP);
   }
   @Override
   public boolean isSurroundWith() {
@@ -59,9 +60,9 @@ public final class ChangeOrientationList_Intention extends AbstractIntentionDesc
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       if ((boolean) CellModel_ListWithRole__BehaviorDescriptor.isVertical_idi2IdWzG.invoke(node)) {
-        SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e38e8L, "cellLayout"), SNodeFactoryOperations.createNewNode(AUX_3exy2d.CellLayout_Horizontal_21c61206, null));
+        SLinkOperations.setTarget(node, LINKS.cellLayout$63td, SNodeFactoryOperations.createNewNode(CONCEPTS.CellLayout_Horizontal$Ss, null));
       } else {
-        SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e38e8L, "cellLayout"), SNodeFactoryOperations.createNewNode(AUX_3exy2d.CellLayout_Vertical_21ecb90d, null));
+        SLinkOperations.setTarget(node, LINKS.cellLayout$63td, SNodeFactoryOperations.createNewNode(CONCEPTS.CellLayout_Vertical$vP, null));
       }
     }
     @Override
@@ -70,8 +71,12 @@ public final class ChangeOrientationList_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_3exy2d {
-    /*package*/ static final SConcept CellLayout_Horizontal_21c61206 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dcf685L, "jetbrains.mps.lang.editor.structure.CellLayout_Horizontal");
-    /*package*/ static final SConcept CellLayout_Vertical_21ecb90d = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dd4cbeL, "jetbrains.mps.lang.editor.structure.CellLayout_Vertical");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink cellLayout$63td = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e38e8L, "cellLayout");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellLayout_Horizontal$Ss = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dcf685L, "jetbrains.mps.lang.editor.structure.CellLayout_Horizontal");
+    /*package*/ static final SConcept CellLayout_Vertical$vP = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dd4cbeL, "jetbrains.mps.lang.editor.structure.CellLayout_Vertical");
   }
 }

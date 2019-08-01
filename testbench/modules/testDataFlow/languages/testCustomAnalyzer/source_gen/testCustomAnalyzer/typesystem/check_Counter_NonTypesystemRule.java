@@ -10,7 +10,6 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.analyzers.runtime.framework.CustomAnalyzerRunner;
 import testCustomAnalyzer.dataFlow.CounterAnalyzerWithConstructorAnalyzerRunner;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.dataFlow.framework.AnalysisResult;
 import java.util.List;
 import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
@@ -19,28 +18,30 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_Counter_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_Counter_NonTypesystemRule() {
   }
   public void applyRule(final SNode root, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    CustomAnalyzerRunner<Integer> runner = new CounterAnalyzerWithConstructorAnalyzerRunner(root, SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c742L, "initialCounter")) - 1);
+    CustomAnalyzerRunner<Integer> runner = new CounterAnalyzerWithConstructorAnalyzerRunner(root, SPropertyOperations.getInteger(root, PROPS.initialCounter$V4jy) - 1);
     AnalysisResult<Integer> result = runner.analyze();
     List<Instruction> instructions = runner.getProgram().getInstructions();
     for (Instruction instruction : ListSequence.fromList(instructions)) {
       Integer resultCounter = result.get(instruction);
       SNode source = ((SNode) instruction.getSource());
-      if (resultCounter > SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount")) && source != null) {
+      if (resultCounter > SPropertyOperations.getInteger(root, PROPS.maxChildCount$V46W) && source != null) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(source, "counter > " + SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount")), "r:6ac8df16-203b-470e-8af3-57784a2fb1f4(testCustomAnalyzer.typesystem)", "6628579460233872871", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(source, "counter > " + SPropertyOperations.getInteger(root, PROPS.maxChildCount$V46W), "r:6ac8df16-203b-470e-8af3-57784a2fb1f4(testCustomAnalyzer.typesystem)", "6628579460233872871", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_pxk01o.Root_b795c6fc;
+    return CONCEPTS.Root$vA;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -49,7 +50,12 @@ public class check_Counter_NonTypesystemRule extends AbstractNonTypesystemRule_R
     return false;
   }
 
-  private static final class AUX_pxk01o {
-    /*package*/ static final SConcept Root_b795c6fc = MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, "testCustomAnalyzer.structure.Root");
+  private static final class PROPS {
+    /*package*/ static final SProperty initialCounter$V4jy = MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c742L, "initialCounter");
+    /*package*/ static final SProperty maxChildCount$V46W = MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Root$vA = MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, "testCustomAnalyzer.structure.Root");
   }
 }

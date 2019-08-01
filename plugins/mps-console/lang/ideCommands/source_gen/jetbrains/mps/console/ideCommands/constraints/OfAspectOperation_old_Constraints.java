@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class OfAspectOperation_old_Constraints extends BaseConstraintsDescriptor {
   public OfAspectOperation_old_Constraints() {
-    super(AUX_z5oxnf.OfAspectOperation_old_19da5c6);
+    super(CONCEPTS.OfAspectOperation_old$9s);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x5252d9021b8b45a8L, 0x7cd422dbfa7b06f8L, "requestedAspect_old"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.requestedAspect_old$cPm6, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -53,7 +53,7 @@ public class OfAspectOperation_old_Constraints extends BaseConstraintsDescriptor
               public SModel select(SModule it) {
                 return SModuleOperations.getAspect(it, "plugin");
               }
-            }), true, MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x5252d9021b8b45a8L, 0x7cd422dbfa7b06f8L, "requestedAspect_old").getTargetConcept());
+            }), true, LINKS.requestedAspect_old$cPm6.getTargetConcept());
           }
         };
       }
@@ -64,7 +64,11 @@ public class OfAspectOperation_old_Constraints extends BaseConstraintsDescriptor
   }
   private static final SNodePointer breakingNode_z5oxnf_a0a0a0a0a1a0a0a0c = new SNodePointer("r:64807243-49b2-422a-a08f-a5df76bf508d(jetbrains.mps.console.ideCommands.constraints)", "6836281137582820753");
 
-  private static final class AUX_z5oxnf {
-    /*package*/ static final SConcept OfAspectOperation_old_19da5c6 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x5252d9021b8b45a8L, "jetbrains.mps.console.ideCommands.structure.OfAspectOperation_old");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OfAspectOperation_old$9s = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x5252d9021b8b45a8L, "jetbrains.mps.console.ideCommands.structure.OfAspectOperation_old");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink requestedAspect_old$cPm6 = MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x5252d9021b8b45a8L, 0x7cd422dbfa7b06f8L, "requestedAspect_old");
   }
 }

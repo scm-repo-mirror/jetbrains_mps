@@ -11,13 +11,15 @@ import jetbrains.mps.baseLanguage.util.OverridingMethodsCalculator;
 import java.util.Set;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ClassifierOverrideAnnotations_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -27,8 +29,8 @@ public class check_ClassifierOverrideAnnotations_NonTypesystemRule extends Abstr
     OverridingMethodsCalculator finder = new OverridingMethodsCalculator(classifier);
     Set<SNode> overridingMethods = finder.getOverridingMethods();
     for (SNode method : Classifier__BehaviorDescriptor.methods_id4_LVZ3pBKCn.invoke(classifier)) {
-      for (SNode annotationInstance : SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))) {
-        if (SLinkOperations.hasPointer(annotationInstance, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Override")) && !(SetSequence.fromSet(overridingMethods).contains(method))) {
+      for (SNode annotationInstance : SLinkOperations.getChildren(method, LINKS.annotation$oVP4)) {
+        if (SLinkOperations.hasPointer(annotationInstance, LINKS.annotation$zNxu, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)", "~Override")) && !(SetSequence.fromSet(overridingMethods).contains(method))) {
           {
             final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(annotationInstance, "Method does not override method from its superclass", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4540477783368646804", null, errorTarget);
@@ -39,7 +41,7 @@ public class check_ClassifierOverrideAnnotations_NonTypesystemRule extends Abstr
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_x9uxyh.Classifier_4b7e553;
+    return CONCEPTS.Classifier$hJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -48,7 +50,12 @@ public class check_ClassifierOverrideAnnotations_NonTypesystemRule extends Abstr
     return false;
   }
 
-  private static final class AUX_x9uxyh {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink annotation$oVP4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
+    /*package*/ static final SReferenceLink annotation$zNxu = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
   }
 }

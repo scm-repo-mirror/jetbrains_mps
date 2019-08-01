@@ -4,6 +4,7 @@ package BHL5.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class I3__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_77jp9x.I3_f318606a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x25076477397e4c6fL, "BHL5.structure.I3");
 
   public static final SMethod<Void> foo_id2k7p7sTv$MS = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("foo").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2k7p7sTv$MS").build();
 
@@ -31,7 +31,7 @@ public final class I3__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static void foo_id2k7p7sTv$MS(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x25076477397e4c6fL, 0x6c4ee9d44295ea26L, "c"), "set");
+    SPropertyOperations.assign(__thisNode__, PROPS.c$Ez5p, "set");
   }
 
   /*package*/ I3__BehaviorDescriptor() {
@@ -81,7 +81,7 @@ public final class I3__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_77jp9x {
-    /*package*/ static final SInterfaceConcept I3_f318606a = MetaAdapterFactory.getInterfaceConcept(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x25076477397e4c6fL, "BHL5.structure.I3");
+  private static final class PROPS {
+    /*package*/ static final SProperty c$Ez5p = MetaAdapterFactory.getProperty(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x25076477397e4c6fL, 0x6c4ee9d44295ea26L, "c");
   }
 }

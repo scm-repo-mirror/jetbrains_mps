@@ -23,7 +23,7 @@ public class check_Order_NonTypesystemRule extends AbstractNonTypesystemRule_Run
     if ((SNodeOperations.getParent(order) == null)) {
       return;
     }
-    if ((boolean) Order__BehaviorDescriptor.presents_id1jgMklchcXk.invoke(order, SNodeOperations.getNodeAncestor(order, AUX_msp139.OrderParticipant_c14fd45, false, false))) {
+    if ((boolean) Order__BehaviorDescriptor.presents_id1jgMklchcXk.invoke(order, SNodeOperations.getNodeAncestor(order, CONCEPTS.OrderParticipant$EX, false, false))) {
       return;
     }
     {
@@ -32,7 +32,7 @@ public class check_Order_NonTypesystemRule extends AbstractNonTypesystemRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_msp139.Order_8528aa40;
+    return CONCEPTS.Order$Oy;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,8 +41,8 @@ public class check_Order_NonTypesystemRule extends AbstractNonTypesystemRule_Run
     return false;
   }
 
-  private static final class AUX_msp139 {
-    /*package*/ static final SInterfaceConcept OrderParticipant_c14fd45 = MetaAdapterFactory.getInterfaceConcept(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x2085244dcb20c1dcL, "jetbrains.mps.lang.util.order.structure.OrderParticipant");
-    /*package*/ static final SInterfaceConcept Order_8528aa40 = MetaAdapterFactory.getInterfaceConcept(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78145L, "jetbrains.mps.lang.util.order.structure.Order");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept OrderParticipant$EX = MetaAdapterFactory.getInterfaceConcept(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x2085244dcb20c1dcL, "jetbrains.mps.lang.util.order.structure.OrderParticipant");
+    /*package*/ static final SInterfaceConcept Order$Oy = MetaAdapterFactory.getInterfaceConcept(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78145L, "jetbrains.mps.lang.util.order.structure.Order");
   }
 }

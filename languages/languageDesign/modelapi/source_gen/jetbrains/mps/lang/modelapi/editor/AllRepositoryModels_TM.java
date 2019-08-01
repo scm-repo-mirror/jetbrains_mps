@@ -76,11 +76,11 @@ public class AllRepositoryModels_TM extends TransformationMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.modelapi.editor.AllRepositoryModels_SM");
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_vzoe4h.ModelPointer_a7ab22d2;
+      return CONCEPTS.ModelPointer$rg;
     }
   }
 
-  private static final class AUX_vzoe4h {
-    /*package*/ static final SConcept ModelPointer_a7ab22d2 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModelPointer$rg = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
   }
 }

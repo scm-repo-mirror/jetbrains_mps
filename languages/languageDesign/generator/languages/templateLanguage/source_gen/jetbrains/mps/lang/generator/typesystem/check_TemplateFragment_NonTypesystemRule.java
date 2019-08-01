@@ -23,13 +23,13 @@ public class check_TemplateFragment_NonTypesystemRule extends AbstractNonTypesys
   }
   public void applyRule(final SNode tf, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode fragmentNode = SNodeOperations.getParent(tf);
-    if (Sequence.fromIterable(SNodeOperations.ofConcept(AttributeOperations.getAttributeList(fragmentNode, new IAttributeDescriptor.AllAttributes()), AUX_bsbqmy.TemplateFragment_1973fd34)).count() > 1) {
+    if (Sequence.fromIterable(SNodeOperations.ofConcept(AttributeOperations.getAttributeList(fragmentNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.TemplateFragment$yI)).count() > 1) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(tf, "More than one template fragment for a node. Are there node attributes with template macros?", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "3852116826972485480", null, errorTarget);
       }
     }
-    if (SNodeOperations.isAttribute(fragmentNode) && (AttributeOperations.getAttribute(SNodeOperations.getParent(fragmentNode), new IAttributeDescriptor.NodeAttribute(AUX_bsbqmy.TemplateFragment_1973fd34)) != null)) {
+    if (SNodeOperations.isAttribute(fragmentNode) && (AttributeOperations.getAttribute(SNodeOperations.getParent(fragmentNode), new IAttributeDescriptor.NodeAttribute(CONCEPTS.TemplateFragment$yI)) != null)) {
       // https://youtrack.jetbrains.com/issue/MPS-20691 
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
@@ -38,7 +38,7 @@ public class check_TemplateFragment_NonTypesystemRule extends AbstractNonTypesys
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_bsbqmy.TemplateFragment_1973fd34;
+    return CONCEPTS.TemplateFragment$yI;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -47,7 +47,7 @@ public class check_TemplateFragment_NonTypesystemRule extends AbstractNonTypesys
     return false;
   }
 
-  private static final class AUX_bsbqmy {
-    /*package*/ static final SConcept TemplateFragment_1973fd34 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateFragment$yI = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
   }
 }

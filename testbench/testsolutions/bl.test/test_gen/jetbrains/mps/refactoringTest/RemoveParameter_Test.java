@@ -22,6 +22,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.ArrayList;
 import junit.framework.Assert;
 import jetbrains.mps.lang.test.matcher.NodesMatcher;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @MPSLaunch
 public class RemoveParameter_Test extends BaseTransformationTest {
@@ -49,7 +50,7 @@ public class RemoveParameter_Test extends BaseTransformationTest {
       addNodeById("1230052944082");
       addNodeById("1230052944093");
       ChangeMethodSignatureParameters params = new ChangeMethodSignatureParameters(SNodeOperations.cast(getNodeById("1230052944084"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b21dL, "InstanceMethodDeclaration"))));
-      ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).clear();
+      ListSequence.fromList(SLinkOperations.getChildren(params.getDeclaration(), LINKS.parameter$WIkZ)).clear();
       ChangeMethodSignatureRefactoring ref = new ChangeMethodSignatureRefactoring(params, SNodeOperations.cast(getNodeById("1230052944084"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b21dL, "InstanceMethodDeclaration"))));
       ref.doRefactoring();
       {
@@ -60,5 +61,9 @@ public class RemoveParameter_Test extends BaseTransformationTest {
     }
 
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
   }
 }

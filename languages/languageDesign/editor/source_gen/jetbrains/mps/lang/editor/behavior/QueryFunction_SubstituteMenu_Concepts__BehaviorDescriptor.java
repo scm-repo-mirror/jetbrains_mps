@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -19,12 +20,13 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class QueryFunction_SubstituteMenu_Concepts__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_k9uop.QueryFunction_SubstituteMenu_Concepts_db294176;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x27a7ea2e015982b3L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenu_Concepts");
 
   public static final SMethod<SNode> getExpectedReturnType_idhEwIGRD = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExpectedReturnType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIGRD").build();
 
@@ -34,7 +36,7 @@ public final class QueryFunction_SubstituteMenu_Concepts__BehaviorDescriptor ext
   }
 
   /*package*/ static SNode getExpectedReturnType_idhEwIGRD(@NotNull SNode __thisNode__) {
-    SNode outputConcept = IMenuPartWithOutputConcept__BehaviorDescriptor.getOutputConcept_id3mnwiBI8ZE2.invoke(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), AUX_k9uop.SubstituteMenuPart_Concepts_81be9198));
+    SNode outputConcept = IMenuPartWithOutputConcept__BehaviorDescriptor.getOutputConcept_id3mnwiBI8ZE2.invoke(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.SubstituteMenuPart_Concepts$3a));
     if (outputConcept != null) {
       return _quotation_createNode_y9z6ov_a0a1a0(outputConcept);
     }
@@ -92,8 +94,8 @@ public final class QueryFunction_SubstituteMenu_Concepts__BehaviorDescriptor ext
     SNode quotedNode_3 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10c25fb076aL, "ListType"), null, null, false);
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x5cab42cd97571ceeL, "SConceptType"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_3, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5cab42cd97571ceeL, 0x5cab42cd97571cefL, "conceptDeclaraton"), (SNode) parameter_1);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"), quotedNode_3);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_3, LINKS.conceptDeclaraton$l1qw, (SNode) parameter_1);
+    quotedNode_2.addChild(LINKS.elementType$xJJW, quotedNode_3);
     return quotedNode_2;
   }
   private static SNode _quotation_createNode_y9z6ov_a2a0() {
@@ -102,12 +104,16 @@ public final class QueryFunction_SubstituteMenu_Concepts__BehaviorDescriptor ext
     SNode quotedNode_2 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10c25fb076aL, "ListType"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x5cab42cd97571ceeL, "SConceptType"), null, null, false);
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.elementType$xJJW, quotedNode_2);
     return quotedNode_1;
   }
 
-  private static final class AUX_k9uop {
-    /*package*/ static final SConcept QueryFunction_SubstituteMenu_Concepts_db294176 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x27a7ea2e015982b3L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenu_Concepts");
-    /*package*/ static final SConcept SubstituteMenuPart_Concepts_81be9198 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49f6d25f12102816L, "jetbrains.mps.lang.editor.structure.SubstituteMenuPart_Concepts");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstituteMenuPart_Concepts$3a = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49f6d25f12102816L, "jetbrains.mps.lang.editor.structure.SubstituteMenuPart_Concepts");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaraton$l1qw = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5cab42cd97571ceeL, 0x5cab42cd97571cefL, "conceptDeclaraton");
+    /*package*/ static final SContainmentLink elementType$xJJW = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType");
   }
 }

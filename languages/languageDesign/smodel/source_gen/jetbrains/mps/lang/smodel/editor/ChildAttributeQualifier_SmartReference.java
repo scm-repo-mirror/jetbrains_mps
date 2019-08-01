@@ -14,20 +14,20 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.lang.structure.behavior.AttributeDesignTimeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ChildAttributeQualifier_SmartReference extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_82wwvv_a(), AUX_82wwvv.ChildAttributeQualifier_9986a10f));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_82wwvv_a(), CONCEPTS.ChildAttributeQualifier$N));
     return result;
   }
 
@@ -48,7 +48,7 @@ public class ChildAttributeQualifier_SmartReference extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_82wwvv_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_82wwvv.ChildAttributeQualifier_9986a10f, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x9d98713f24a0e5bL, 0x9d98713f24a0e5dL, "attributeConcept"));
+      super((SAbstractConcept) CONCEPTS.ChildAttributeQualifier$N, LINKS.attributeConcept$OUQZ);
     }
     @NotNull
     @Override
@@ -94,7 +94,11 @@ public class ChildAttributeQualifier_SmartReference extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_82wwvv {
-    /*package*/ static final SConcept ChildAttributeQualifier_9986a10f = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x9d98713f24a0e5bL, "jetbrains.mps.lang.smodel.structure.ChildAttributeQualifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildAttributeQualifier$N = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x9d98713f24a0e5bL, "jetbrains.mps.lang.smodel.structure.ChildAttributeQualifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink attributeConcept$OUQZ = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x9d98713f24a0e5bL, 0x9d98713f24a0e5dL, "attributeConcept");
   }
 }

@@ -12,13 +12,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class SurroundWithParenthesis_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -37,11 +38,11 @@ public final class SurroundWithParenthesis_Intention extends AbstractIntentionDe
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    if (SNodeOperations.isInstanceOf(node, AUX_a237z3.AssignmentExpression_24d60daa)) {
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.AssignmentExpression$rS)) {
       return false;
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_a237z3.AssignmentExpression_24d60daa)) {
-      if (SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_a237z3.AssignmentExpression_24d60daa), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue")) == node) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.AssignmentExpression$rS)) {
+      if (SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.AssignmentExpression$rS), LINKS.lValue$J0D4) == node) {
         return false;
       }
     }
@@ -66,9 +67,9 @@ public final class SurroundWithParenthesis_Intention extends AbstractIntentionDe
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode p = SNodeFactoryOperations.createNewNode(AUX_a237z3.ParenthesizedExpression_a4b89678, null);
+      SNode p = SNodeFactoryOperations.createNewNode(CONCEPTS.ParenthesizedExpression$vE, null);
       SNode replacing = SNodeOperations.replaceWithAnother(node, p);
-      SLinkOperations.setTarget(p, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), node);
+      SLinkOperations.setTarget(p, LINKS.expression$4_F0, node);
       SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacing, "openParen", -1);
     }
     @Override
@@ -77,8 +78,13 @@ public final class SurroundWithParenthesis_Intention extends AbstractIntentionDe
     }
   }
 
-  private static final class AUX_a237z3 {
-    /*package*/ static final SConcept AssignmentExpression_24d60daa = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AssignmentExpression$rS = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink lValue$J0D4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue");
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
   }
 }

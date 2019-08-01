@@ -13,13 +13,14 @@ import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ModelReferenceCompletion extends AbstractCellMenuComponent {
   public ModelReferenceCompletion() {
@@ -36,8 +37,8 @@ public class ModelReferenceCompletion extends AbstractCellMenuComponent {
       this.handleAction_impl((SModel) parameterObject, node, model, operationContext, editorContext);
     }
     public void handleAction_impl(SModel parameterObject, SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7c3f2da20e92b62L, 0x7c3f2da20e92b66L, "name"), NameUtil.getModelLongName(parameterObject));
-      SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7c3f2da20e92b62L, 0x7c3f2da20e93b6fL, "stereotype"), SModelStereotype.getStereotype(parameterObject));
+      SPropertyOperations.set(node, PROPS.name$ArgX, NameUtil.getModelLongName(parameterObject));
+      SPropertyOperations.set(node, PROPS.stereotype$YBjg, SModelStereotype.getStereotype(parameterObject));
       SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, "FQName", -1);
     }
     public boolean isReferentPresentation() {
@@ -54,5 +55,10 @@ public class ModelReferenceCompletion extends AbstractCellMenuComponent {
     protected EditorMenuDescriptor getEditorMenuDescriptor(Object parameterObject) {
       return new EditorMenuDescriptorBase("generic group with parameter: " + ((parameterObject == null ? "null" : parameterObject.toString())), new SNodePointer("r:00000000-0000-4000-0000-011c895902fd(jetbrains.mps.lang.smodel.editor)", "559557797393041621"));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$ArgX = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7c3f2da20e92b62L, 0x7c3f2da20e92b66L, "name");
+    /*package*/ static final SProperty stereotype$YBjg = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7c3f2da20e92b62L, 0x7c3f2da20e93b6fL, "stereotype");
   }
 }

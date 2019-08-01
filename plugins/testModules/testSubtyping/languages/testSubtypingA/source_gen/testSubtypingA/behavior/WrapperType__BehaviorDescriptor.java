@@ -4,6 +4,7 @@ package testSubtypingA.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,14 +18,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class WrapperType__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_31pxz.WrapperType_40e4de6f;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x36a4d1c56ec1426fL, 0x81921875a7cc48deL, 0x1cd6df1ae5a17c9cL, "testSubtypingA.structure.WrapperType");
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
 
@@ -34,7 +34,7 @@ public final class WrapperType__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    return SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__)) + "<" + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x36a4d1c56ec1426fL, 0x81921875a7cc48deL, 0x1cd6df1ae5a17c9cL, 0x1cd6df1ae5a1e20fL, "wrapped"))) + ">";
+    return SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__)) + "<" + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.wrapped$moMx)) + ">";
   }
 
   /*package*/ WrapperType__BehaviorDescriptor() {
@@ -83,7 +83,7 @@ public final class WrapperType__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_31pxz {
-    /*package*/ static final SConcept WrapperType_40e4de6f = MetaAdapterFactory.getConcept(0x36a4d1c56ec1426fL, 0x81921875a7cc48deL, 0x1cd6df1ae5a17c9cL, "testSubtypingA.structure.WrapperType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink wrapped$moMx = MetaAdapterFactory.getContainmentLink(0x36a4d1c56ec1426fL, 0x81921875a7cc48deL, 0x1cd6df1ae5a17c9cL, 0x1cd6df1ae5a1e20fL, "wrapped");
   }
 }

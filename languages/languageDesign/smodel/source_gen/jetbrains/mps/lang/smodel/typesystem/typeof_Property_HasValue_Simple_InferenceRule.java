@@ -11,7 +11,6 @@ import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.behavior.SNodeOperation__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -19,7 +18,10 @@ import jetbrains.mps.lang.structure.behavior.DataTypeDeclaration__BehaviorDescri
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_Property_HasValue_Simple_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_Property_HasValue_Simple_InferenceRule() {
@@ -30,13 +32,13 @@ public class typeof_Property_HasValue_Simple_InferenceRule extends AbstractInfer
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1203710488662", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1203710488664", true), (SNode) _quotation_createNode_upj3yy_a1a0c0a0b(), _info_12389875345);
     }
-    SNode propertyAccessOp = SNodeOperations.cast(SNodeOperation__BehaviorDescriptor.getLeftExpressionOperation_idhEwJdHi.invoke(op), AUX_upj3yy.SPropertyAccess_5799f99);
-    SNode dataType = SLinkOperations.getTarget(SLinkOperations.getTarget(propertyAccessOp, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, 0x108f9727bcdL, "property")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType"));
+    SNode propertyAccessOp = SNodeOperations.cast(SNodeOperation__BehaviorDescriptor.getLeftExpressionOperation_idhEwJdHi.invoke(op), CONCEPTS.SPropertyAccess$bD);
+    SNode dataType = SLinkOperations.getTarget(SLinkOperations.getTarget(propertyAccessOp, LINKS.property$He2), LINKS.dataType$fLUl);
     if (!((dataType != null))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(op, "couldn't define accessed property datatype", "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1186059218089", null, errorTarget);
     }
-    SNode value = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ae2053294L, 0x10ae2053295L, "value"));
+    SNode value = SLinkOperations.getTarget(op, LINKS.value$IS_w);
     if ((value != null)) {
       if ((boolean) DataTypeDeclaration__BehaviorDescriptor.isSimpleString_idhKtFG6a.invoke(dataType)) {
         {
@@ -67,7 +69,7 @@ public class typeof_Property_HasValue_Simple_InferenceRule extends AbstractInfer
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_upj3yy.Property_HasValue_Simple_3f6ddfed;
+    return CONCEPTS.Property_HasValue_Simple$Ol;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -100,8 +102,14 @@ public class typeof_Property_HasValue_Simple_InferenceRule extends AbstractInfer
     return quotedNode_1;
   }
 
-  private static final class AUX_upj3yy {
-    /*package*/ static final SConcept SPropertyAccess_5799f99 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, "jetbrains.mps.lang.smodel.structure.SPropertyAccess");
-    /*package*/ static final SConcept Property_HasValue_Simple_3f6ddfed = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ae2053294L, "jetbrains.mps.lang.smodel.structure.Property_HasValue_Simple");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SPropertyAccess$bD = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, "jetbrains.mps.lang.smodel.structure.SPropertyAccess");
+    /*package*/ static final SConcept Property_HasValue_Simple$Ol = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ae2053294L, "jetbrains.mps.lang.smodel.structure.Property_HasValue_Simple");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink property$He2 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96cca6fL, 0x108f9727bcdL, "property");
+    /*package*/ static final SReferenceLink dataType$fLUl = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType");
+    /*package*/ static final SContainmentLink value$IS_w = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10ae2053294L, 0x10ae2053295L, "value");
   }
 }

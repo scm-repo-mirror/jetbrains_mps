@@ -5,7 +5,6 @@ package jetbrains.mps.samples.Shapes.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Map;
@@ -13,15 +12,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Circle_Constraints extends BaseConstraintsDescriptor {
   public Circle_Constraints() {
-    super(AUX_z10xib.Circle_1471155);
+    super(CONCEPTS.Circle$yH);
   }
 
   public static class Radius_Property extends BasePropertyConstraintsDescriptor {
     public Radius_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius"), container);
+      super(PROPS.radius$SrrV, container);
     }
     @Override
     public boolean hasOwnSetter() {
@@ -32,18 +32,22 @@ public class Circle_Constraints extends BaseConstraintsDescriptor {
       staticSetPropertyValue(node, SPropertyOperations.castInteger(propertyValue));
     }
     private static void staticSetPropertyValue(SNode node, int propertyValue) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius"), 11110);
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius"), propertyValue);
+      SPropertyOperations.assign(node, PROPS.radius$SrrV, 11110);
+      SPropertyOperations.assign(node, PROPS.radius$SrrV, propertyValue);
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius"), new Radius_Property(this));
+    properties.put(PROPS.radius$SrrV, new Radius_Property(this));
     return properties;
   }
 
-  private static final class AUX_z10xib {
-    /*package*/ static final SConcept Circle_1471155 = MetaAdapterFactory.getConcept(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, "jetbrains.mps.samples.Shapes.structure.Circle");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Circle$yH = MetaAdapterFactory.getConcept(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, "jetbrains.mps.samples.Shapes.structure.Circle");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty radius$SrrV = MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius");
   }
 }

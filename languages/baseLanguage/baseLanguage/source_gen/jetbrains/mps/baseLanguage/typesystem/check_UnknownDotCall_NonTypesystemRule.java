@@ -40,7 +40,7 @@ public class check_UnknownDotCall_NonTypesystemRule extends AbstractNonTypesyste
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3qktwz.UnknownDotCall_23cba1b1;
+    return CONCEPTS.UnknownDotCall$fh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -49,7 +49,7 @@ public class check_UnknownDotCall_NonTypesystemRule extends AbstractNonTypesyste
     return false;
   }
 
-  private static final class AUX_3qktwz {
-    /*package*/ static final SConcept UnknownDotCall_23cba1b1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x245faa02186fc7b5L, "jetbrains.mps.baseLanguage.structure.UnknownDotCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept UnknownDotCall$fh = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x245faa02186fc7b5L, "jetbrains.mps.baseLanguage.structure.UnknownDotCall");
   }
 }

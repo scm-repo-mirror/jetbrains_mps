@@ -39,7 +39,7 @@ public class PasteAsJavaStatements_Action extends BaseAction {
     if (ReadOnlyUtil.isSelectionReadOnlyInEditor(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")))) {
       return false;
     }
-    return (SNodeOperations.getNodeAncestor(((SNode) ((SNode) MapSequence.fromMap(_params).get("anchorNode"))), AUX_uk5x8l.StatementList_9dbf9acf, true, false) != null) && JavaPaster.areDataAvailableInClipboard();
+    return (SNodeOperations.getNodeAncestor(((SNode) ((SNode) MapSequence.fromMap(_params).get("anchorNode"))), CONCEPTS.StatementList$TN, true, false) != null) && JavaPaster.areDataAvailableInClipboard();
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -91,7 +91,7 @@ public class PasteAsJavaStatements_Action extends BaseAction {
     new JavaPaster().pasteJava(((SNode) MapSequence.fromMap(_params).get("anchorNode")), FeatureKind.STATEMENTS, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
   }
 
-  private static final class AUX_uk5x8l {
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
   }
 }

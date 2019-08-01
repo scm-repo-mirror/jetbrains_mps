@@ -25,7 +25,7 @@ public class typeof_InternalMode_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_hwn8gi.InternalMode_4695f281;
+    return CONCEPTS.InternalMode$O1;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_InternalMode_InferenceRule extends AbstractInferenceRule_Run
     return quotedNode_1;
   }
 
-  private static final class AUX_hwn8gi {
-    /*package*/ static final SConcept InternalMode_4695f281 = MetaAdapterFactory.getConcept(0x995a73947f764b8bL, 0xa929c53448708106L, 0x7a89354654722219L, "jetbrains.mps.console.internalCommands.structure.InternalMode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InternalMode$O1 = MetaAdapterFactory.getConcept(0x995a73947f764b8bL, 0xa929c53448708106L, 0x7a89354654722219L, "jetbrains.mps.console.internalCommands.structure.InternalMode");
   }
 }

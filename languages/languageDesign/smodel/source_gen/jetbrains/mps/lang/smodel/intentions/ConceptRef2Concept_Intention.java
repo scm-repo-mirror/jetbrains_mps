@@ -17,6 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ConceptRef2Concept_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -51,12 +52,17 @@ public final class ConceptRef2Concept_Intention extends AbstractIntentionDescrip
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode repl = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, "jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression"));
-      SLinkOperations.setTarget(repl, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, 0x24b2bf7ce180eb55L, "conceptDeclaration"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9eb64c6L, 0x110f9ec0c2aL, "conceptDeclaration")));
+      SLinkOperations.setTarget(repl, LINKS.conceptDeclaration$EQY0, SLinkOperations.getTarget(node, LINKS.conceptDeclaration$fBIf));
       SNodeOperations.replaceWithAnother(node, repl);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return ConceptRef2Concept_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$EQY0 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, 0x24b2bf7ce180eb55L, "conceptDeclaration");
+    /*package*/ static final SReferenceLink conceptDeclaration$fBIf = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9eb64c6L, 0x110f9ec0c2aL, "conceptDeclaration");
   }
 }

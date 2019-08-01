@@ -20,7 +20,6 @@ import jetbrains.mps.lang.editor.menus.transformation.DefaultConceptMenusTransfo
 import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.transformation.ConstraintsFilteringTransformationMenuPartDecorator;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
@@ -41,7 +40,9 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class IPropertyExpression_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -67,7 +68,7 @@ public class IPropertyExpression_TransformationMenu extends TransformationMenuBa
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_j2qvk8.IPropertyExpression_edaa7cdb)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.IPropertyExpression$RB)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -91,7 +92,7 @@ public class IPropertyExpression_TransformationMenu extends TransformationMenuBa
   public class TMP_Group_j2qvk8_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1e69fdb2a034c3f8L, 0x716499a90689fe76L, "resource")) == null);
+      return (SLinkOperations.getTarget(_context.getNode(), LINKS.resource$z8Am) == null);
     }
 
     @NotNull
@@ -107,7 +108,7 @@ public class IPropertyExpression_TransformationMenu extends TransformationMenuBa
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_j2qvk8_a1.TMP_Action_j2qvk8_a0b(), AUX_j2qvk8.ResourceSpecificPropertiesExpression_edaa7cd9));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_j2qvk8_a1.TMP_Action_j2qvk8_a0b(), CONCEPTS.ResourceSpecificPropertiesExpression$QD));
     }
     private class TMP_Action_j2qvk8_a0b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -147,7 +148,7 @@ public class IPropertyExpression_TransformationMenu extends TransformationMenuBa
 
         @Override
         public void execute(@NotNull String pattern) {
-          SLinkOperations.setNewChild(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1e69fdb2a034c3f8L, 0x716499a90689fe76L, "resource"), null);
+          SLinkOperations.setNewChild(_context.getNode(), LINKS.resource$z8Am, null);
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -155,7 +156,7 @@ public class IPropertyExpression_TransformationMenu extends TransformationMenuBa
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_j2qvk8.ResourceSpecificPropertiesExpression_edaa7cd9;
+          return CONCEPTS.ResourceSpecificPropertiesExpression$QD;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -170,7 +171,7 @@ public class IPropertyExpression_TransformationMenu extends TransformationMenuBa
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_j2qvk8.ResourceSpecificPropertiesExpression_edaa7cd9;
+          SAbstractConcept outputConcept = CONCEPTS.ResourceSpecificPropertiesExpression$QD;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -181,8 +182,12 @@ public class IPropertyExpression_TransformationMenu extends TransformationMenuBa
     }
   }
 
-  private static final class AUX_j2qvk8 {
-    /*package*/ static final SInterfaceConcept IPropertyExpression_edaa7cdb = MetaAdapterFactory.getInterfaceConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1e69fdb2a034c3f8L, "jetbrains.mps.make.facet.structure.IPropertyExpression");
-    /*package*/ static final SConcept ResourceSpecificPropertiesExpression_edaa7cd9 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1e69fdb2a034c3f6L, "jetbrains.mps.make.facet.structure.ResourceSpecificPropertiesExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IPropertyExpression$RB = MetaAdapterFactory.getInterfaceConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1e69fdb2a034c3f8L, "jetbrains.mps.make.facet.structure.IPropertyExpression");
+    /*package*/ static final SConcept ResourceSpecificPropertiesExpression$QD = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1e69fdb2a034c3f6L, "jetbrains.mps.make.facet.structure.ResourceSpecificPropertiesExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink resource$z8Am = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1e69fdb2a034c3f8L, 0x716499a90689fe76L, "resource");
   }
 }

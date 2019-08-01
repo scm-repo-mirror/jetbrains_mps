@@ -35,15 +35,15 @@ public final class OverrideConceptMethodsChecker extends BaseEventProcessingEdit
   @Override
   public UpdateResult update(EditorComponent component, boolean incremental, boolean applyQuickFixes, Cancellable cancellable) {
     SNode rootNode = component.getEditedNode();
-    if (!(SNodeOperations.isInstanceOf(rootNode, AUX_vnedan.ConceptBehavior_68ebe6cd))) {
+    if (!(SNodeOperations.isInstanceOf(rootNode, CONCEPTS.ConceptBehavior$8P))) {
       return new UpdateResult.Completed(false, emptyListEditorMessage());
     }
 
-    List<SNode> descendants = SNodeOperations.getNodeDescendants(rootNode, AUX_vnedan.ConceptMethodDeclaration_6c80ca4f, false, new SAbstractConcept[]{});
+    List<SNode> descendants = SNodeOperations.getNodeDescendants(rootNode, CONCEPTS.ConceptMethodDeclaration$VN, false, new SAbstractConcept[]{});
     if (ListSequence.fromList(descendants).isEmpty()) {
       return new UpdateResult.Completed(false, emptyListEditorMessage());
     }
-    List<EditorMessage> result = calculateEditorMessages(SNodeOperations.cast(rootNode, AUX_vnedan.ConceptBehavior_68ebe6cd), cancellable);
+    List<EditorMessage> result = calculateEditorMessages(SNodeOperations.cast(rootNode, CONCEPTS.ConceptBehavior$8P), cancellable);
     if (cancellable.isCancelled()) {
       return new UpdateResult.Cancelled();
     }
@@ -64,8 +64,8 @@ public final class OverrideConceptMethodsChecker extends BaseEventProcessingEdit
     return ListSequence.fromList(ancestors).union(ListSequence.fromList(descendants)).toListSequence();
   }
 
-  private static final class AUX_vnedan {
-    /*package*/ static final SConcept ConceptBehavior_68ebe6cd = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptBehavior$8P = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
   }
 }

@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NativeTypedNodeDef_Constraints extends BaseConstraintsDescriptor {
   public NativeTypedNodeDef_Constraints() {
-    super(AUX_tngewz.NativeTypedNodeDef_482674e1);
+    super(CONCEPTS.NativeTypedNodeDef$qx);
   }
 
-  private static final class AUX_tngewz {
-    /*package*/ static final SConcept NativeTypedNodeDef_482674e1 = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x46263286da99051L, "jetbrains.mps.lang.context.defs.structure.NativeTypedNodeDef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NativeTypedNodeDef$qx = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x46263286da99051L, "jetbrains.mps.lang.context.defs.structure.NativeTypedNodeDef");
   }
 }

@@ -25,7 +25,7 @@ public class typeof_ConsoleModelExpression_InferenceRule extends AbstractInferen
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6ekwmv.ConsoleModelExpression_d92c49b7;
+    return CONCEPTS.ConsoleModelExpression$Mb;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ConsoleModelExpression_InferenceRule extends AbstractInferen
     return quotedNode_1;
   }
 
-  private static final class AUX_6ekwmv {
-    /*package*/ static final SConcept ConsoleModelExpression_d92c49b7 = MetaAdapterFactory.getConcept(0x995a73947f764b8bL, 0xa929c53448708106L, 0x4d7759afcea851bdL, "jetbrains.mps.console.internalCommands.structure.ConsoleModelExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConsoleModelExpression$Mb = MetaAdapterFactory.getConcept(0x995a73947f764b8bL, 0xa929c53448708106L, 0x4d7759afcea851bdL, "jetbrains.mps.console.internalCommands.structure.ConsoleModelExpression");
   }
 }

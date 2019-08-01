@@ -30,7 +30,7 @@ public class typeof_IsEmptyOperation_InferenceRule extends AbstractInferenceRule
         {
           SNode matchingNode_sezqyh_a1a = parent;
           if (matchingNode_sezqyh_a1a != null) {
-            matches_sezqyh_a1a = matchingNode_sezqyh_a1a.getConcept().isSubConceptOf(AUX_23wedg.DotExpression_97ed08d8);
+            matches_sezqyh_a1a = matchingNode_sezqyh_a1a.getConcept().isSubConceptOf(CONCEPTS.DotExpression$6a);
           }
         }
         if (matches_sezqyh_a1a) {
@@ -49,7 +49,7 @@ public class typeof_IsEmptyOperation_InferenceRule extends AbstractInferenceRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_23wedg.IsEmptyOperation_c48c070c;
+    return CONCEPTS.IsEmptyOperation$Bm;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -64,8 +64,8 @@ public class typeof_IsEmptyOperation_InferenceRule extends AbstractInferenceRule
     return quotedNode_1;
   }
 
-  private static final class AUX_23wedg {
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept IsEmptyOperation_c48c070c = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10f5f053dc7L, "jetbrains.mps.baseLanguage.collections.structure.IsEmptyOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept IsEmptyOperation$Bm = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10f5f053dc7L, "jetbrains.mps.baseLanguage.collections.structure.IsEmptyOperation");
   }
 }

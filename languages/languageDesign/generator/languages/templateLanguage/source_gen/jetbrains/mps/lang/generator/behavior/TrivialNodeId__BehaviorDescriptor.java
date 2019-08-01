@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,7 +18,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SModelUtil_new;
 import jetbrains.mps.lang.smodel.behavior.ConceptIdentity__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -28,10 +28,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class TrivialNodeId__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_eavryr.TrivialNodeId_b6cbf460;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, "jetbrains.mps.lang.generator.structure.TrivialNodeId");
 
   public static final SMethod<SNode> instantiate_id39TODbGt9gR = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("instantiate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("39TODbGt9gR").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""));
   public static final SMethod<SNode> create_id7PoJpZpIp9n = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("create").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7PoJpZpIp9n").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
@@ -44,23 +46,23 @@ public final class TrivialNodeId__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode instantiate_id39TODbGt9gR(@NotNull SNode __thisNode__, SModel model) {
-    SNodeId identity = PersistenceFacade.getInstance().createNodeId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x7d58bd9fd9b64468L, "nodeId")));
+    SNodeId identity = PersistenceFacade.getInstance().createNodeId(SPropertyOperations.getString(__thisNode__, PROPS.nodeId$vxF7));
     // could use SModelOperations.createNewNode (which does Behavior.init() in addition to instantiation) 
     // want to be minimalistic, yet not adding new API (#createNode(SConcept) is way too tempting) 
-    return SModelUtil_new.instantiateConceptDeclaration(ConceptIdentity__BehaviorDescriptor.getConcept_id5ZE7FBYYOpv.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x76c27c67a4605f07L, "cncpt"))), model, identity, false);
+    return SModelUtil_new.instantiateConceptDeclaration(ConceptIdentity__BehaviorDescriptor.getConcept_id5ZE7FBYYOpv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.cncpt$r9nB)), model, identity, false);
   }
   /*package*/ static SNode create_id7PoJpZpIp9n(@NotNull SAbstractConcept __thisConcept__, SModel where, SNode n) {
-    SNode rv = SModelOperations.createNewNode(where, null, AUX_eavryr.TrivialNodeId_b6cbf460);
-    SLinkOperations.setTarget(rv, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x76c27c67a4605f07L, "cncpt"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId")));
-    ConceptId__BehaviorDescriptor.setConcept_id5ZE7FBYYR6j.invoke(SNodeOperations.cast(SLinkOperations.getTarget(rv, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x76c27c67a4605f07L, "cncpt")), AUX_eavryr.ConceptId_51d9f118), n.getConcept());
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x7d58bd9fd9b64468L, "nodeId"), n.getNodeId().toString());
+    SNode rv = SModelOperations.createNewNode(where, null, CONCEPTS.TrivialNodeId$s2);
+    SLinkOperations.setTarget(rv, LINKS.cncpt$r9nB, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId")));
+    ConceptId__BehaviorDescriptor.setConcept_id5ZE7FBYYR6j.invoke(SNodeOperations.cast(SLinkOperations.getTarget(rv, LINKS.cncpt$r9nB), CONCEPTS.ConceptId$5a), n.getConcept());
+    SPropertyOperations.assign(rv, PROPS.nodeId$vxF7, n.getNodeId().toString());
     return rv;
   }
   /*package*/ static SNodeId getNodeId_id39TODbGsIdf(@NotNull SNode __thisNode__) {
-    return PersistenceFacade.getInstance().createNodeId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x7d58bd9fd9b64468L, "nodeId")));
+    return PersistenceFacade.getInstance().createNodeId(SPropertyOperations.getString(__thisNode__, PROPS.nodeId$vxF7));
   }
   /*package*/ static boolean match_id1si_nSrb46O(@NotNull SNode __thisNode__, SNode n) {
-    return n.getConcept().equals(ConceptIdentity__BehaviorDescriptor.getConcept_id5ZE7FBYYOpv.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x76c27c67a4605f07L, "cncpt")))) && n.getNodeId().toString().equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x7d58bd9fd9b64468L, "nodeId")));
+    return n.getConcept().equals(ConceptIdentity__BehaviorDescriptor.getConcept_id5ZE7FBYYOpv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.cncpt$r9nB))) && n.getNodeId().toString().equals(SPropertyOperations.getString(__thisNode__, PROPS.nodeId$vxF7));
   }
 
   /*package*/ TrivialNodeId__BehaviorDescriptor() {
@@ -115,8 +117,16 @@ public final class TrivialNodeId__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_eavryr {
-    /*package*/ static final SConcept TrivialNodeId_b6cbf460 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, "jetbrains.mps.lang.generator.structure.TrivialNodeId");
-    /*package*/ static final SConcept ConceptId_51d9f118 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId");
+  private static final class PROPS {
+    /*package*/ static final SProperty nodeId$vxF7 = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x7d58bd9fd9b64468L, "nodeId");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink cncpt$r9nB = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, 0x76c27c67a4605f07L, "cncpt");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TrivialNodeId$s2 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b64463L, "jetbrains.mps.lang.generator.structure.TrivialNodeId");
+    /*package*/ static final SConcept ConceptId$5a = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId");
   }
 }

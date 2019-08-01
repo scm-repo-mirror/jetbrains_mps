@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -20,12 +19,14 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class check_QueryDuplicatedParameters_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_QueryDuplicatedParameters_NonTypesystemRule() {
   }
   public void applyRule(final SNode queryParameterList, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    final Iterable<SNode> parameters = SLinkOperations.getChildren(queryParameterList, MetaAdapterFactory.getContainmentLink(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217616ddf9L, 0x3bc6442176a262a6L, "parameter"));
+    final Iterable<SNode> parameters = SLinkOperations.getChildren(queryParameterList, LINKS.parameter$o_k7);
     Iterable<SConcept> parameterConcepts = Sequence.fromIterable(parameters).select(new ISelector<SNode, SConcept>() {
       public SConcept select(SNode it) {
         return SNodeOperations.getConcept(it);
@@ -53,7 +54,7 @@ public class check_QueryDuplicatedParameters_NonTypesystemRule extends AbstractN
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_s7v7ub.QueryParameterList_88e89151;
+    return CONCEPTS.QueryParameterList$wL;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -62,7 +63,11 @@ public class check_QueryDuplicatedParameters_NonTypesystemRule extends AbstractN
     return false;
   }
 
-  private static final class AUX_s7v7ub {
-    /*package*/ static final SConcept QueryParameterList_88e89151 = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217616ddf9L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterList");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$o_k7 = MetaAdapterFactory.getContainmentLink(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217616ddf9L, 0x3bc6442176a262a6L, "parameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryParameterList$wL = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217616ddf9L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterList");
   }
 }

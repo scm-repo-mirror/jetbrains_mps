@@ -7,23 +7,29 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BaseJumps {
   public static class NodeFactory_2557916264116455381 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
       {
         final SNode jump = sampleNode;
-        if (SNodeOperations.isInstanceOf(jump, AUX_1e2f2i.BaseEmitJumpStatement_1c3d8c94)) {
-          SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5bc8a99L, 0x118e5bcba84L, "jumpTo"), SLinkOperations.getTarget(jump, MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5bc8a99L, 0x118e5bcba84L, "jumpTo")));
-          SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5a42658L, 0x1160a375bea5106L, "position"), SLinkOperations.getTarget(jump, MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5a42658L, 0x1160a375bea5106L, "position")));
+        if (SNodeOperations.isInstanceOf(jump, CONCEPTS.BaseEmitJumpStatement$le)) {
+          SLinkOperations.setTarget(newNode, LINKS.jumpTo$wRsZ, SLinkOperations.getTarget(jump, LINKS.jumpTo$wRsZ));
+          SLinkOperations.setTarget(newNode, LINKS.position$tEnT, SLinkOperations.getTarget(jump, LINKS.position$tEnT));
         }
       }
     }
   }
 
-  private static final class AUX_1e2f2i {
-    /*package*/ static final SConcept BaseEmitJumpStatement_1c3d8c94 = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5bc8a99L, "jetbrains.mps.lang.dataFlow.structure.BaseEmitJumpStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseEmitJumpStatement$le = MetaAdapterFactory.getConcept(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5bc8a99L, "jetbrains.mps.lang.dataFlow.structure.BaseEmitJumpStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink jumpTo$wRsZ = MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5bc8a99L, 0x118e5bcba84L, "jumpTo");
+    /*package*/ static final SContainmentLink position$tEnT = MetaAdapterFactory.getContainmentLink(0x7fa12e9cb9494976L, 0xb4fa19accbc320b4L, 0x118e5a42658L, 0x1160a375bea5106L, "position");
   }
 }

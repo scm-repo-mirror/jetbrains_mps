@@ -10,7 +10,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -24,10 +23,11 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlDoctypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   public XmlDoctypeDeclaration_Constraints() {
-    super(AUX_53wesr.XmlDoctypeDeclaration_3005602b);
+    super(CONCEPTS.XmlDoctypeDeclaration$in);
   }
 
   @Override
@@ -47,7 +47,7 @@ public class XmlDoctypeDeclaration_Constraints extends BaseConstraintsDescriptor
   }
   public static class DoctypeName_Property extends BasePropertyConstraintsDescriptor {
     public DoctypeName_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f4069eL, "doctypeName"), container);
+      super(PROPS.doctypeName$ETfD, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -69,19 +69,23 @@ public class XmlDoctypeDeclaration_Constraints extends BaseConstraintsDescriptor
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f4069eL, "doctypeName"), new DoctypeName_Property(this));
+    properties.put(PROPS.doctypeName$ETfD, new DoctypeName_Property(this));
     return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     return ListSequence.fromList(SNodeOperations.getPrevSiblings(node, false)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_53wesr.XmlDoctypeDeclaration_3005602b);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.XmlDoctypeDeclaration$in);
       }
     }).isEmpty();
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:edc2e1a3-c4ab-4f36-a908-e29e4c77f1bb(jetbrains.mps.core.xml.constraints)", "1227128029536582485");
 
-  private static final class AUX_53wesr {
-    /*package*/ static final SConcept XmlDoctypeDeclaration_3005602b = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, "jetbrains.mps.core.xml.structure.XmlDoctypeDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlDoctypeDeclaration$in = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, "jetbrains.mps.core.xml.structure.XmlDoctypeDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty doctypeName$ETfD = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, 0x1d9c27c394f4069eL, "doctypeName");
   }
 }

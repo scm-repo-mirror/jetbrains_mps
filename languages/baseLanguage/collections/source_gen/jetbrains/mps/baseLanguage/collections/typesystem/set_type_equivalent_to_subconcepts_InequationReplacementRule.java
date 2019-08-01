@@ -14,10 +14,11 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.typesystem.runtime.HUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class set_type_equivalent_to_subconcepts_InequationReplacementRule extends AbstractInequationReplacementRule_Runtime {
@@ -33,7 +34,7 @@ public class set_type_equivalent_to_subconcepts_InequationReplacementRule extend
       SNode _nodeToCheck_1029348928467 = equationInfo.getNodeWithError();
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "1241473625701", 0, null);
       _info_12389875345.getOuterRulesIdFromInfo(equationInfo);
-      typeCheckingContext.createEquation((SNode) SLinkOperations.getTarget(subtype, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType")), (SNode) SLinkOperations.getTarget(supertype, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType")), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) SLinkOperations.getTarget(subtype, LINKS.elementType$ZAgX), (SNode) SLinkOperations.getTarget(supertype, LINKS.elementType$ZAgX), _info_12389875345);
     }
   }
   public boolean checkInequation(final SNode subtype, final SNode supertype, final EquationInfo equationInfo, IsApplicable2Status status, final boolean inequalityIsWeak, final boolean inequalityIsLessThan) {
@@ -41,7 +42,7 @@ public class set_type_equivalent_to_subconcepts_InequationReplacementRule extend
     if (!(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(subtype)), SNodeOperations.asSConcept(SNodeOperations.getConcept(supertype))))) {
       result_14532009 = false;
     }
-    result_14532009 = result_14532009 && MatchingUtil.matchNodes((SNode) SLinkOperations.getTarget(subtype, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType")), (SNode) SLinkOperations.getTarget(supertype, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType")));
+    result_14532009 = result_14532009 && MatchingUtil.matchNodes((SNode) SLinkOperations.getTarget(subtype, LINKS.elementType$ZAgX), (SNode) SLinkOperations.getTarget(supertype, LINKS.elementType$ZAgX));
     return result_14532009;
   }
   public boolean isWeak() {
@@ -55,13 +56,17 @@ public class set_type_equivalent_to_subconcepts_InequationReplacementRule extend
   }
 
   public SAbstractConcept getApplicableSubtypeConcept() {
-    return AUX_4jkguh.SetType_d8fa38cf;
+    return CONCEPTS.SetType$1N;
   }
   public SAbstractConcept getApplicableSupertypeConcept() {
-    return AUX_4jkguh.SetType_d8fa38cf;
+    return CONCEPTS.SetType$1N;
   }
 
-  private static final class AUX_4jkguh {
-    /*package*/ static final SConcept SetType_d8fa38cf = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$ZAgX = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SetType$1N = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
   }
 }

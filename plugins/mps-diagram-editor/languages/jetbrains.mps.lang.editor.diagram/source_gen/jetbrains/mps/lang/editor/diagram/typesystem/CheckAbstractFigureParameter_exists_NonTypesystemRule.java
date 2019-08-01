@@ -10,9 +10,10 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.editor.diagram.behavior.FigureParameterMapping__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class CheckAbstractFigureParameter_exists_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -21,13 +22,13 @@ public class CheckAbstractFigureParameter_exists_NonTypesystemRule extends Abstr
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (FigureParameterMapping__BehaviorDescriptor.getParameterDeclaration_id3$rM_t_1zAw.invoke(node) == null) {
       {
-        final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(node, "figure parameter with this name was not found in specified figure", "r:40b64a44-89c9-404d-9824-6c98cb8ca353(jetbrains.mps.lang.editor.diagram.typesystem)", "1491555030356827125", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_hp6mh5.FigureParameterMapping_e994a522;
+    return CONCEPTS.FigureParameterMapping$U0;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +37,11 @@ public class CheckAbstractFigureParameter_exists_NonTypesystemRule extends Abstr
     return false;
   }
 
-  private static final class AUX_hp6mh5 {
-    /*package*/ static final SConcept FigureParameterMapping_e994a522 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0xf301bf106a7d7c7L, "jetbrains.mps.lang.editor.diagram.structure.FigureParameterMapping");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FigureParameterMapping$U0 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0xf301bf106a7d7c7L, "jetbrains.mps.lang.editor.diagram.structure.FigureParameterMapping");
   }
 }

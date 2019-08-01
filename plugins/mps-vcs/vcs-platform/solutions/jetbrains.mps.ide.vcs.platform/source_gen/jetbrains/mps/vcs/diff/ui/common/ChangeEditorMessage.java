@@ -129,7 +129,7 @@ public class ChangeEditorMessage extends EditorMessageWithTarget {
         EditorCell cell = ChangeEditorMessage.super.getCell(editor);
         if (cell != null && cell.isBig() && !(isDirectCell(cell))) {
           SNode node = getNode();
-          if (SNodeOperations.isInstanceOf(node, AUX_myu41h.INamedConcept_8cd7e247)) {
+          if (SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$nV)) {
             cell = CellFinder.getCellForProperty(editor, node, NAME_PROPERTY);
           }
         }
@@ -447,7 +447,7 @@ __switch__:
     return null;
   }
 
-  private static final class AUX_myu41h {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

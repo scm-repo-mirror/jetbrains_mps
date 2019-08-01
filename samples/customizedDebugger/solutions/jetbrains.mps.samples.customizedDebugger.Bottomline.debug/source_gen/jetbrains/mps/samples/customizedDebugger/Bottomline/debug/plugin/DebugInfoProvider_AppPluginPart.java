@@ -49,7 +49,7 @@ public class DebugInfoProvider_AppPluginPart extends ApplicationPluginPart {
       BreakpointCreator creator = new BreakpointCreator(null, null);
       creator.canCreate(new _FunctionTypes._return_P2_E0<Boolean, SAbstractConcept, SNode>() {
         public Boolean invoke(SAbstractConcept concept, SNode debuggableNode) {
-          if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(concept), AUX_xj3d25.OutputMessage_4497ec5c)) {
+          if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(concept), CONCEPTS.OutputMessage$U6)) {
             return true;
           }
           return false;
@@ -89,7 +89,7 @@ public class DebugInfoProvider_AppPluginPart extends ApplicationPluginPart {
     SetSequence.fromSet(DebugInfoProvider_AppPluginPart.this.myCreators).clear();
   }
 
-  private static final class AUX_xj3d25 {
-    /*package*/ static final SConcept OutputMessage_4497ec5c = MetaAdapterFactory.getConcept(0x3f028972a2904cf2L, 0xa87e9b8f7e56076bL, 0x7df3f12f124a5e4L, "jetbrains.mps.samples.customizedDebugger.Bottomline.structure.OutputMessage");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OutputMessage$U6 = MetaAdapterFactory.getConcept(0x3f028972a2904cf2L, 0xa87e9b8f7e56076bL, 0x7df3f12f124a5e4L, "jetbrains.mps.samples.customizedDebugger.Bottomline.structure.OutputMessage");
   }
 }

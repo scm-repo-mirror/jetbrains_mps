@@ -20,7 +20,7 @@ public class PersistentConfigurationIsPersistentConfiguration_SubtypingRule exte
     return createPersistentConfigurationType_jh4ubp_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_jh4ubp.PersistentConfigurationType_9ba047e0;
+    return CONCEPTS.PersistentConfigurationType$e2;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,11 +33,11 @@ public class PersistentConfigurationIsPersistentConfiguration_SubtypingRule exte
   }
   private static SNode createPersistentConfigurationType_jh4ubp_a0a1() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_jh4ubp.PersistentConfigurationType_9ba047e0, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.PersistentConfigurationType$e2, null, null, false);
     return n1;
   }
 
-  private static final class AUX_jh4ubp {
-    /*package*/ static final SConcept PersistentConfigurationType_9ba047e0 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PersistentConfigurationType$e2 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType");
   }
 }

@@ -46,7 +46,7 @@ public class GoToUsageInMappingConfig_Action extends BaseAction {
     if ((SNodeOperations.getContainingRoot(event.getData(MPSCommonDataKeys.NODE)) == null)) {
       return false;
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(event.getData(MPSCommonDataKeys.NODE)), AUX_3szeus.MappingConfiguration_587b13db)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(event.getData(MPSCommonDataKeys.NODE)), CONCEPTS.MappingConfiguration$rB)) {
       return false;
     }
     return true;
@@ -87,7 +87,7 @@ public class GoToUsageInMappingConfig_Action extends BaseAction {
     UsagesViewTool.showUsages(event.getData(CommonDataKeys.PROJECT), FindUtils.makeProvider(finder), new SearchQuery(null), opt);
   }
 
-  private static final class AUX_3szeus {
-    /*package*/ static final SConcept MappingConfiguration_587b13db = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MappingConfiguration$rB = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
   }
 }

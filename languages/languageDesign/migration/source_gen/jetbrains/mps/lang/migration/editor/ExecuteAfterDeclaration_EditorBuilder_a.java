@@ -18,7 +18,6 @@ import jetbrains.mps.editor.runtime.style.FocusPolicy;
 import jetbrains.mps.baseLanguage.lightweightdsl.editor.RealObject2Placeholder;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -26,6 +25,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class ExecuteAfterDeclaration_EditorBuilder_a extends AbstractEditorBuilder {
@@ -102,10 +102,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x398343344f07b404L, 0x398343344f0998adL, "dependencies");
+      return LINKS.dependencies$PfDt;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_xmoqya.OrderDependency_19fdabb1;
+      return CONCEPTS.OrderDependency$Bh;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -115,7 +115,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(dependenciesListHandler_l3byek_c0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x398343344f07b404L, 0x398343344f0998adL, "dependencies")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(dependenciesListHandler_l3byek_c0.this.getNode(), LINKS.dependencies$PfDt));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -140,7 +140,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_xmoqya {
-    /*package*/ static final SConcept OrderDependency_19fdabb1 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x398343344f099b7aL, "jetbrains.mps.lang.migration.structure.OrderDependency");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink dependencies$PfDt = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x398343344f07b404L, 0x398343344f0998adL, "dependencies");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OrderDependency$Bh = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x398343344f099b7aL, "jetbrains.mps.lang.migration.structure.OrderDependency");
   }
 }

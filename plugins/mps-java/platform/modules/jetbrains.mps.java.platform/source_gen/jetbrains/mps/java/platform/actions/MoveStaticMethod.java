@@ -43,26 +43,26 @@ public class MoveStaticMethod implements MoveNodesAction {
     final Wrappers._boolean result = new Wrappers._boolean();
     project.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        result.value = ListSequence.fromList(nodes).count() == 1 && SNodeOperations.isInstanceOf(ListSequence.fromList(nodes).first(), AUX_blaz7k.StaticMethodDeclaration_9cd8c445);
+        result.value = ListSequence.fromList(nodes).count() == 1 && SNodeOperations.isInstanceOf(ListSequence.fromList(nodes).first(), CONCEPTS.StaticMethodDeclaration$eX);
       }
     });
     return result.value;
   }
 
   public void execute(MPSProject project, List<SNode> nodes) {
-    final SNode target = SNodeOperations.cast(ListSequence.fromList(nodes).first(), AUX_blaz7k.StaticMethodDeclaration_9cd8c445);
+    final SNode target = SNodeOperations.cast(ListSequence.fromList(nodes).first(), CONCEPTS.StaticMethodDeclaration$eX);
 
     final SNode whereToMove = MoveNodeDialog.getSelectedObject(project, target, new MoveNodeDialog.NodeFilter("Select classifier to move to: refactoring can't be applied to the selected node") {
       @Override
       public boolean check(SNode selectedObject, SNode nodeToMove, SModel modelOfSelectedNode) {
-        return SNodeOperations.isInstanceOf(selectedObject, AUX_blaz7k.Classifier_4b7e553) && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(nodeToMove, null, false)).contains(selectedObject));
+        return SNodeOperations.isInstanceOf(selectedObject, CONCEPTS.Classifier$hJ) && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(nodeToMove, null, false)).contains(selectedObject));
       }
     });
     if (whereToMove == null) {
       return;
     }
 
-    MoveNodesUtil.moveTo(project, getName(), MapSequence.<MoveNodesUtil.NodeProcessor, List<SNode>>fromMapAndKeysArray(new HashMap<MoveNodesUtil.NodeProcessor, List<SNode>>(), new MoveNodesUtil.NodeCreatingProcessor(new MoveStaticField.NodeLocationClassifierMember(SNodeOperations.cast(whereToMove, AUX_blaz7k.Classifier_4b7e553)), project) {
+    MoveNodesUtil.moveTo(project, getName(), MapSequence.<MoveNodesUtil.NodeProcessor, List<SNode>>fromMapAndKeysArray(new HashMap<MoveNodesUtil.NodeProcessor, List<SNode>>(), new MoveNodesUtil.NodeCreatingProcessor(new MoveStaticField.NodeLocationClassifierMember(SNodeOperations.cast(whereToMove, CONCEPTS.Classifier$hJ)), project) {
       @Override
       public List<SNode> getNodesToSearch(SNode nodeToMove) {
         return ListSequence.fromListAndArray(new ArrayList<SNode>(), nodeToMove);
@@ -74,11 +74,11 @@ public class MoveStaticMethod implements MoveNodesAction {
         copyMap.copyAndTrack(nodesRootsToMove);
         Map<SNode, SNode> oldMembersToClasses = MapSequence.fromMap(new HashMap<SNode, SNode>());
         for (SNode oldNode : ListSequence.fromList(nodesRootsToMove)) {
-          MapSequence.fromMap(oldMembersToClasses).put(oldNode, SNodeOperations.getNodeAncestor(oldNode, AUX_blaz7k.ClassConcept_e2711824, false, false));
+          MapSequence.fromMap(oldMembersToClasses).put(oldNode, SNodeOperations.getNodeAncestor(oldNode, CONCEPTS.ClassConcept$IY, false, false));
         }
         for (SNode oldNode : ListSequence.fromList(nodesRootsToMove)) {
           SNode newNode = MapSequence.fromMap(copyMap.getCopyMap()).get(oldNode);
-          if (!(SNodeOperations.isInstanceOf(newNode, AUX_blaz7k.StaticMethodDeclaration_9cd8c445))) {
+          if (!(SNodeOperations.isInstanceOf(newNode, CONCEPTS.StaticMethodDeclaration$eX))) {
             throw new IllegalStateException();
           }
           SNode originalClass = MapSequence.fromMap(oldMembersToClasses).get(oldNode);
@@ -93,9 +93,9 @@ public class MoveStaticMethod implements MoveNodesAction {
     }).withValues(ListSequence.fromListAndArray(new ArrayList<SNode>(), target)));
   }
 
-  private static final class AUX_blaz7k {
-    /*package*/ static final SConcept StaticMethodDeclaration_9cd8c445 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticMethodDeclaration$eX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

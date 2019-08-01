@@ -8,13 +8,14 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TypeVariableDeclaration_ActionMap {
 
@@ -24,9 +25,9 @@ public class TypeVariableDeclaration_ActionMap {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode parent = SNodeOperations.as(SNodeOperations.getParent(node), AUX_bhqvqd.GenericDeclaration_dfe3792c);
-        if (ListSequence.fromList(SLinkOperations.getChildren(parent, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration"))).isEmpty()) {
-          SelectionUtil.selectCell(editorContext, SNodeOperations.cast(parent, AUX_bhqvqd.GenericDeclaration_dfe3792c), "TYPE_VARIABLES_ANCHOR");
+        SNode parent = SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.GenericDeclaration$IQ);
+        if (ListSequence.fromList(SLinkOperations.getChildren(parent, LINKS.typeVariableDeclaration$ziZT)).isEmpty()) {
+          SelectionUtil.selectCell(editorContext, SNodeOperations.cast(parent, CONCEPTS.GenericDeclaration$IQ), "TYPE_VARIABLES_ANCHOR");
         }
       }
 
@@ -68,7 +69,11 @@ public class TypeVariableDeclaration_ActionMap {
     }
   }
 
-  private static final class AUX_bhqvqd {
-    /*package*/ static final SConcept GenericDeclaration_dfe3792c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, "jetbrains.mps.baseLanguage.structure.GenericDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericDeclaration$IQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, "jetbrains.mps.baseLanguage.structure.GenericDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink typeVariableDeclaration$ziZT = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration");
   }
 }

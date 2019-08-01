@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -33,15 +32,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BeanPropertyBuilder_Constraints extends BaseConstraintsDescriptor {
   public BeanPropertyBuilder_Constraints() {
-    super(AUX_uhv5x2.BeanPropertyBuilder_91c07849);
+    super(CONCEPTS.BeanPropertyBuilder$T);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, 0x252efd34f8a58ec8L, "setter"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.setter$3Djw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -56,7 +58,7 @@ public class BeanPropertyBuilder_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return (String) BeanPropertyBuilder__BehaviorDescriptor.getPropertyName_id2kIZjjSEvS7.invoke(SNodeOperations.asSConcept(AUX_uhv5x2.BeanPropertyBuilder_91c07849), SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+            return (String) BeanPropertyBuilder__BehaviorDescriptor.getPropertyName_id2kIZjjSEvS7.invoke(SNodeOperations.asSConcept(CONCEPTS.BeanPropertyBuilder$T), SPropertyOperations.getString(_context.getParameterNode(), PROPS.name$tAp1));
           }
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
@@ -65,14 +67,14 @@ public class BeanPropertyBuilder_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
-            SNode contextBuilder = Builder__BehaviorDescriptor.getContextBuilder_id67LR$5LPv$c.invoke(SNodeOperations.asSConcept(AUX_uhv5x2.Builder_8e7c44fe), enclosingNode);
-            SNode classifierType = TypecheckingFacade.getFromContext().strongCoerceType(Builder__BehaviorDescriptor.getResultType_id67LR$5LQPoF.invoke(contextBuilder), AUX_uhv5x2.ClassifierType_42700403);
+            SNode contextBuilder = Builder__BehaviorDescriptor.getContextBuilder_id67LR$5LPv$c.invoke(SNodeOperations.asSConcept(CONCEPTS.Builder$C$), enclosingNode);
+            SNode classifierType = TypecheckingFacade.getFromContext().strongCoerceType(Builder__BehaviorDescriptor.getResultType_id67LR$5LQPoF.invoke(contextBuilder), CONCEPTS.ClassifierType$IZ);
             if (classifierType == null) {
               return ListScope.forResolvableElements(Sequence.fromIterable(Collections.<SNode>emptyList()));
             }
             List<SNode> methods = new ArrayList<SNode>();
             for (SNode method : Members.visibleInstanceMethods(classifierType, enclosingNode)) {
-              if (ListSequence.fromList(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count() == 1 && BeanPropertyBuilder__BehaviorDescriptor.getPropertyName_id2kIZjjSEvS7.invoke(SNodeOperations.asSConcept(AUX_uhv5x2.BeanPropertyBuilder_91c07849), SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) != null) {
+              if (ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)).count() == 1 && BeanPropertyBuilder__BehaviorDescriptor.getPropertyName_id2kIZjjSEvS7.invoke(SNodeOperations.asSConcept(CONCEPTS.BeanPropertyBuilder$T), SPropertyOperations.getString(method, PROPS.name$tAp1)) != null) {
                 ListSequence.fromList(methods).addElement(method);
               }
             }
@@ -87,9 +89,18 @@ public class BeanPropertyBuilder_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_uhv5x2_a0a2a0a0a1a0a0a0c = new SNodePointer("r:971d5c35-6139-4f76-9019-ac96d9713d41(jetbrains.mps.baseLanguage.builders.constraints)", "6836281137582809819");
 
-  private static final class AUX_uhv5x2 {
-    /*package*/ static final SConcept BeanPropertyBuilder_91c07849 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, "jetbrains.mps.baseLanguage.builders.structure.BeanPropertyBuilder");
-    /*package*/ static final SConcept Builder_8e7c44fe = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x61f1de4171d2bf0bL, "jetbrains.mps.baseLanguage.builders.structure.Builder");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BeanPropertyBuilder$T = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, "jetbrains.mps.baseLanguage.builders.structure.BeanPropertyBuilder");
+    /*package*/ static final SConcept Builder$C$ = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x61f1de4171d2bf0bL, "jetbrains.mps.baseLanguage.builders.structure.Builder");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink setter$3Djw = MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, 0x252efd34f8a58ec8L, "setter");
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

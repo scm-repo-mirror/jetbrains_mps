@@ -14,7 +14,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
@@ -26,13 +25,14 @@ import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildMps_ModuleDependencyUseLanguage_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_lfbsba_a(), AUX_lfbsba.BuildMps_ModuleDependencyUseLanguage_432f3c6d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_lfbsba_a(), CONCEPTS.BuildMps_ModuleDependencyUseLanguage$2l));
     result.add(new SMP_Subconcepts_lfbsba_b());
     return result;
   }
@@ -54,7 +54,7 @@ public class BuildMps_ModuleDependencyUseLanguage_SubstituteMenu extends Substit
 
     public SMP_ReferenceScope_lfbsba_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_lfbsba.BuildMps_ModuleDependencyUseLanguage_432f3c6d, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language"));
+      super((SAbstractConcept) CONCEPTS.BuildMps_ModuleDependencyUseLanguage$2l, LINKS.language$TL_w);
     }
     @NotNull
     @Override
@@ -101,7 +101,7 @@ public class BuildMps_ModuleDependencyUseLanguage_SubstituteMenu extends Substit
   }
   public class SMP_Subconcepts_lfbsba_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_lfbsba.BuildMps_ModuleDependencyUseLanguage_432f3c6d);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildMps_ModuleDependencyUseLanguage$2l);
     }
     @NotNull
     @Override
@@ -121,7 +121,11 @@ public class BuildMps_ModuleDependencyUseLanguage_SubstituteMenu extends Substit
     }
   }
 
-  private static final class AUX_lfbsba {
-    /*package*/ static final SConcept BuildMps_ModuleDependencyUseLanguage_432f3c6d = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyUseLanguage");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_ModuleDependencyUseLanguage$2l = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyUseLanguage");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink language$TL_w = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language");
   }
 }

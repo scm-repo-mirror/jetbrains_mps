@@ -8,7 +8,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -16,6 +15,8 @@ import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RegexpSequenceByEnter {
 
@@ -28,10 +29,10 @@ public class RegexpSequenceByEnter {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode nt = SNodeFactoryOperations.createNewNode(AUX_qrtwh7.SeqRegexp_af8ff8d0, null);
+        SNode nt = SNodeFactoryOperations.createNewNode(CONCEPTS.SeqRegexp$2i, null);
         SNodeOperations.replaceWithAnother(node, nt);
-        SLinkOperations.setTarget(nt, MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174c56bf9L, 0x11174c5a26fL, "right"), node);
-        SelectionUtil.selectCell(editorContext, SLinkOperations.getTarget(nt, MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174c56bf9L, 0x11174c59241L, "left")), SelectionManager.FIRST_CELL);
+        SLinkOperations.setTarget(nt, LINKS.right$HLYL, node);
+        SelectionUtil.selectCell(editorContext, SLinkOperations.getTarget(nt, LINKS.left$j7nn), SelectionManager.FIRST_CELL);
       }
 
     };
@@ -45,10 +46,10 @@ public class RegexpSequenceByEnter {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode nt = SNodeFactoryOperations.createNewNode(AUX_qrtwh7.SeqRegexp_af8ff8d0, null);
+        SNode nt = SNodeFactoryOperations.createNewNode(CONCEPTS.SeqRegexp$2i, null);
         SNodeOperations.replaceWithAnother(node, nt);
-        SLinkOperations.setTarget(nt, MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174c56bf9L, 0x11174c59241L, "left"), node);
-        SelectionUtil.selectCell(editorContext, SLinkOperations.getTarget(nt, MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174c56bf9L, 0x11174c5a26fL, "right")), SelectionManager.FIRST_CELL);
+        SLinkOperations.setTarget(nt, LINKS.left$j7nn, node);
+        SelectionUtil.selectCell(editorContext, SLinkOperations.getTarget(nt, LINKS.right$HLYL), SelectionManager.FIRST_CELL);
       }
 
     };
@@ -93,7 +94,12 @@ public class RegexpSequenceByEnter {
     }
   }
 
-  private static final class AUX_qrtwh7 {
-    /*package*/ static final SConcept SeqRegexp_af8ff8d0 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174bc30e7L, "jetbrains.mps.baseLanguage.regexp.structure.SeqRegexp");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SeqRegexp$2i = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174bc30e7L, "jetbrains.mps.baseLanguage.regexp.structure.SeqRegexp");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink right$HLYL = MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174c56bf9L, 0x11174c5a26fL, "right");
+    /*package*/ static final SContainmentLink left$j7nn = MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174c56bf9L, 0x11174c59241L, "left");
   }
 }

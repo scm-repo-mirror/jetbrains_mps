@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.lang.editor.cellProviders.PropertyCellProvider;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
@@ -19,6 +18,7 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.lang.editor.test.generation.editor.TestTargetStyleSheet_StyleSheet.testParentStyleStyleClass;
 import jetbrains.mps.nodeEditor.EditorManager;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class TransactionalProperty_ICellStyle_ComponentBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -42,7 +42,7 @@ import jetbrains.mps.nodeEditor.EditorManager;
   private EditorCell createTransactionalProperty_0() {
     getCellFactory().pushCellContext();
     try {
-      SProperty property = MetaAdapterFactory.getProperty(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531aadcccL, 0xbde89531aae3a9L, "theProperty");
+      SProperty property = PROPS.theProperty$70A$;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       PropertyCellProvider provider = new PropertyCellProvider(myNode, property, getEditorContext());
       EditorCell_Property editorCell = null;
@@ -73,5 +73,9 @@ import jetbrains.mps.nodeEditor.EditorManager;
     } finally {
       getCellFactory().popCellContext();
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty theProperty$70A$ = MetaAdapterFactory.getProperty(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531aadcccL, 0xbde89531aae3a9L, "theProperty");
   }
 }

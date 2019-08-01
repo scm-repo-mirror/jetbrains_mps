@@ -19,7 +19,7 @@ public class check_NodeMacro_NonTypesystemRule extends AbstractNonTypesystemRule
   public check_NodeMacro_NonTypesystemRule() {
   }
   public void applyRule(final SNode macro, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isAttribute(macro) && SNodeOperations.getNodeAncestor(macro, AUX_z41c5v.TemplateDeclaration_6074fd22, false, false) != null) {
+    if (SNodeOperations.isAttribute(macro) && SNodeOperations.getNodeAncestor(macro, CONCEPTS.TemplateDeclaration$q0, false, false) != null) {
       if (QueriesUtil.getEnclosing_TemplateFragment(SNodeOperations.getParent(macro)) == null) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
@@ -29,7 +29,7 @@ public class check_NodeMacro_NonTypesystemRule extends AbstractNonTypesystemRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_z41c5v.NodeMacro_2cb20614;
+    return CONCEPTS.NodeMacro$Je;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -38,8 +38,8 @@ public class check_NodeMacro_NonTypesystemRule extends AbstractNonTypesystemRule
     return false;
   }
 
-  private static final class AUX_z41c5v {
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
-    /*package*/ static final SConcept NodeMacro_2cb20614 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+    /*package*/ static final SConcept NodeMacro$Je = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
   }
 }

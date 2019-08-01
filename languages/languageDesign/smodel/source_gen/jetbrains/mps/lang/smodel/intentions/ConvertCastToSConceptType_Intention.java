@@ -12,13 +12,16 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.behavior.SNodeTypeCastExpression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ConvertCastToSConceptType_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -37,7 +40,7 @@ public final class ConvertCastToSConceptType_Intention extends AbstractIntention
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (!((boolean) SNodeTypeCastExpression__BehaviorDescriptor.isSNodeCast_idi1Btg5H.invoke(node)) || !((boolean) SNodeTypeCastExpression__BehaviorDescriptor.hasValidType_id3$jHpAYjQYh.invoke(node))) && !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10975850da7L, 0x12067573bc7L, "asCast")));
+    return (!((boolean) SNodeTypeCastExpression__BehaviorDescriptor.isSNodeCast_idi1Btg5H.invoke(node)) || !((boolean) SNodeTypeCastExpression__BehaviorDescriptor.hasValidType_id3$jHpAYjQYh.invoke(node))) && !(SPropertyOperations.getBoolean(node, PROPS.asCast$W3Qz));
   }
   @Override
   public boolean isSurroundWith() {
@@ -59,13 +62,22 @@ public final class ConvertCastToSConceptType_Intention extends AbstractIntention
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode repl = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1871b2e3b0ef0078L, "jetbrains.mps.lang.smodel.structure.SConceptTypeCastExpression"));
-      SLinkOperations.setTarget(repl, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67ce04L, "concept"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67ce04L, "concept")));
-      SLinkOperations.setTarget(repl, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67cd19L, "leftExpression"), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67cd19L, "leftExpression")));
+      SLinkOperations.setTarget(repl, LINKS.concept$NIQI, SLinkOperations.getTarget(node, LINKS.concept$NIQI));
+      SLinkOperations.setTarget(repl, LINKS.leftExpression$NqCX, SLinkOperations.getTarget(node, LINKS.leftExpression$NqCX));
       SNodeOperations.replaceWithAnother(node, repl);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return ConvertCastToSConceptType_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty asCast$W3Qz = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10975850da7L, 0x12067573bc7L, "asCast");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink concept$NIQI = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67ce04L, "concept");
+    /*package*/ static final SContainmentLink leftExpression$NqCX = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x2143399c0554e687L, 0x5d71a86e0b67cd19L, "leftExpression");
   }
 }

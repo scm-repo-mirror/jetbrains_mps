@@ -31,7 +31,7 @@ public class typeof_PopOperation_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_pepcv1.PopOperation_912656a9;
+    return CONCEPTS.PopOperation$Rp;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_PopOperation_InferenceRule extends AbstractInferenceRule_Run
     return false;
   }
 
-  private static final class AUX_pepcv1 {
-    /*package*/ static final SConcept PopOperation_912656a9 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x2e9a0b9a88f42ff5L, "jetbrains.mps.baseLanguage.collections.structure.PopOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PopOperation$Rp = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x2e9a0b9a88f42ff5L, "jetbrains.mps.baseLanguage.collections.structure.PopOperation");
   }
 }

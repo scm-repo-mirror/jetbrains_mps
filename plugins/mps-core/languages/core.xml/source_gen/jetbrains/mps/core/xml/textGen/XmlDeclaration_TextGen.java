@@ -6,6 +6,7 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlDeclaration_TextGen extends TextGenDescriptorBase {
@@ -17,27 +18,33 @@ public class XmlDeclaration_TextGen extends TextGenDescriptorBase {
     tgs.append("version");
     tgs.append(" = ");
     tgs.append("\"");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x4c3596ee25a4a423L, "version")));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.version$at7V));
     tgs.append("\"");
-    if (isNotEmptyString(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x2ed40cf354295456L, "encoding")))) {
+    if (isNotEmptyString(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.encoding$bfia))) {
       tgs.append(" ");
       tgs.append("encoding");
       tgs.append(" = ");
       tgs.append("\"");
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x2ed40cf354295456L, "encoding")));
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.encoding$bfia));
       tgs.append("\"");
     }
-    if (isNotEmptyString(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x2ed40cf354295458L, "standalone")))) {
+    if (isNotEmptyString(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.standalone$bftj))) {
       tgs.append(" ");
       tgs.append("standalone");
       tgs.append(" = ");
       tgs.append("\"");
-      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x2ed40cf354295458L, "standalone")));
+      tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.standalone$bftj));
       tgs.append("\"");
     }
     tgs.append("?>");
   }
   private static boolean isNotEmptyString(String str) {
     return str != null && str.length() > 0;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty version$at7V = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x4c3596ee25a4a423L, "version");
+    /*package*/ static final SProperty encoding$bfia = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x2ed40cf354295456L, "encoding");
+    /*package*/ static final SProperty standalone$bftj = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x4890619bb401ef6eL, 0x2ed40cf354295458L, "standalone");
   }
 }

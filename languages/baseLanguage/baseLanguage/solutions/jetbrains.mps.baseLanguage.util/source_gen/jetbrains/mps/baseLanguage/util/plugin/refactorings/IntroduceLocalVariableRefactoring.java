@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.util.plugin.refactorings;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.List;
@@ -15,7 +14,10 @@ import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -27,12 +29,12 @@ public class IntroduceLocalVariableRefactoring extends IntroduceVariableRefactor
     this.findDuplicates();
     SNode var = _quotation_createNode_nngwe4_a0b0b(this.getName(), this.getExpressionType(), this.getExpression());
     if (myIsFinal) {
-      SPropertyOperations.assign(SLinkOperations.getTarget(var, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration")), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"), true);
+      SPropertyOperations.assign(SLinkOperations.getTarget(var, LINKS.localVariableDeclaration$O0D0), PROPS.isFinal$hIht, true);
     }
-    SNode varDeclaration = SLinkOperations.getTarget(var, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration"));
-    SNode parentStatement = SNodeOperations.getNodeAncestor(this.getExpression(), AUX_nngwe4.Statement_9dbf9b0e, false, false);
-    while (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(parentStatement), AUX_nngwe4.StatementList_9dbf9acf))) {
-      parentStatement = SNodeOperations.getNodeAncestor(parentStatement, AUX_nngwe4.Statement_9dbf9b0e, false, false);
+    SNode varDeclaration = SLinkOperations.getTarget(var, LINKS.localVariableDeclaration$O0D0);
+    SNode parentStatement = SNodeOperations.getNodeAncestor(this.getExpression(), CONCEPTS.Statement$ok, false, false);
+    while (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(parentStatement), CONCEPTS.StatementList$TN))) {
+      parentStatement = SNodeOperations.getNodeAncestor(parentStatement, CONCEPTS.Statement$ok, false, false);
     }
     SNodeOperations.insertPrevSiblingChild(parentStatement, var);
     replaceNode(getExpression(), varDeclaration);
@@ -47,10 +49,10 @@ public class IntroduceLocalVariableRefactoring extends IntroduceVariableRefactor
   @Override
   public SNode getRootToFindDuplicates(final SNode node) {
     List<SNode> ancestors = SNodeOperations.getNodeAncestors(node, null, false);
-    SNode statementListContainer = SNodeOperations.getNodeAncestor(node, AUX_nngwe4.IStatementListContainer_5e186851, false, false);
+    SNode statementListContainer = SNodeOperations.getNodeAncestor(node, CONCEPTS.IStatementListContainer$4L, false, false);
     SNode metaContainer = ListSequence.fromList(ancestors).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return ((int) (Integer) BHReflection.invoke0(it, AUX_nngwe4.BaseConcept_bc2351f, SMethodTrimmedId.create("getMetaLevel", null, "3t0v3yFOD1A"))) != ((int) (Integer) BHReflection.invoke0(node, AUX_nngwe4.BaseConcept_bc2351f, SMethodTrimmedId.create("getMetaLevel", null, "3t0v3yFOD1A")));
+        return ((int) (Integer) BHReflection.invoke0(it, CONCEPTS.BaseConcept$Sz, SMethodTrimmedId.create("getMetaLevel", null, "3t0v3yFOD1A"))) != ((int) (Integer) BHReflection.invoke0(node, CONCEPTS.BaseConcept$Sz, SMethodTrimmedId.create("getMetaLevel", null, "3t0v3yFOD1A")));
       }
     });
     int statementListContainerIndex = ListSequence.fromList(ancestors).indexOf(statementListContainer);
@@ -63,24 +65,24 @@ public class IntroduceLocalVariableRefactoring extends IntroduceVariableRefactor
       ancestors = ListSequence.fromList(ancestors).take(statementListContainerIndex).toListSequence();
     }
 
-    return Sequence.fromIterable(SNodeOperations.ofConcept(ancestors, AUX_nngwe4.StatementList_9dbf9acf)).last();
+    return Sequence.fromIterable(SNodeOperations.ofConcept(ancestors, CONCEPTS.StatementList$TN)).last();
   }
   @Override
   public void replaceNode(SNode node, SNode declaration) {
-    SNode reference = ((SNode) BHReflection.invoke0(declaration, AUX_nngwe4.VariableDeclaration_3c610994, SMethodTrimmedId.create("createReference", null, "hEwJfME")));
+    SNode reference = ((SNode) BHReflection.invoke0(declaration, CONCEPTS.VariableDeclaration$xe, SMethodTrimmedId.create("createReference", null, "hEwJfME")));
     SNodeOperations.replaceWithAnother(node, reference);
     this.moveDeclarationIfNeed(reference, SNodeOperations.getParent(declaration));
   }
   private void moveDeclarationIfNeed(SNode node, SNode declaration) {
     List<SNode> declAncestors = SNodeOperations.getNodeAncestors(declaration, null, false);
     ListSequence.fromList(declAncestors).addElement(declaration);
-    SNode commonList = SNodeOperations.getNodeAncestor(node, AUX_nngwe4.StatementList_9dbf9acf, false, false);
+    SNode commonList = SNodeOperations.getNodeAncestor(node, CONCEPTS.StatementList$TN, false, false);
     while ((commonList != null) && !(ListSequence.fromList(declAncestors).contains(commonList))) {
-      commonList = SNodeOperations.getNodeAncestor(commonList, AUX_nngwe4.StatementList_9dbf9acf, false, false);
+      commonList = SNodeOperations.getNodeAncestor(commonList, CONCEPTS.StatementList$TN, false, false);
     }
     if ((commonList != null)) {
       SNode firstAncestor = null;
-      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(commonList, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement")))) {
+      for (SNode statement : ListSequence.fromList(SLinkOperations.getChildren(commonList, LINKS.statement$WHn8))) {
         List<SNode> nodeAncestors = SNodeOperations.getNodeAncestors(node, null, false);
         if (ListSequence.fromList(declAncestors).contains(statement) || ListSequence.fromList(nodeAncestors).contains(statement)) {
           firstAncestor = statement;
@@ -93,9 +95,9 @@ public class IntroduceLocalVariableRefactoring extends IntroduceVariableRefactor
     }
   }
   public static boolean isApplicable(SNode expr) {
-    return SNodeOperations.isInstanceOf(expr, AUX_nngwe4.Expression_4199e28d) && ListSequence.fromList(SNodeOperations.getNodeAncestors(expr, AUX_nngwe4.Statement_9dbf9b0e, false)).where(new IWhereFilter<SNode>() {
+    return SNodeOperations.isInstanceOf(expr, CONCEPTS.Expression$TP) && ListSequence.fromList(SNodeOperations.getNodeAncestors(expr, CONCEPTS.Statement$ok, false)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.hasRole(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
+        return SNodeOperations.hasRole(it, LINKS.statement$WHn8);
       }
     }).isNotEmpty();
   }
@@ -110,22 +112,33 @@ public class IntroduceLocalVariableRefactoring extends IntroduceVariableRefactor
     SNodeAccessUtil.setPropertyValue(quotedNode_5, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_1);
     quotedNode_6 = (SNode) parameter_2;
     if (quotedNode_6 != null) {
-      quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), SNodeOperations.copyIfNecessary(quotedNode_6));
+      quotedNode_5.addChild(LINKS.type$pLrO, SNodeOperations.copyIfNecessary(quotedNode_6));
     }
     quotedNode_7 = (SNode) parameter_3;
     if (quotedNode_7 != null) {
-      quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"), SNodeOperations.copyIfNecessary(quotedNode_7));
+      quotedNode_5.addChild(LINKS.initializer$KgD, SNodeOperations.copyIfNecessary(quotedNode_7));
     }
-    quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration"), quotedNode_5);
+    quotedNode_4.addChild(LINKS.localVariableDeclaration$O0D0, quotedNode_5);
     return quotedNode_4;
   }
 
-  private static final class AUX_nngwe4 {
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
-    /*package*/ static final SInterfaceConcept IStatementListContainer_5e186851 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink localVariableDeclaration$O0D0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink initializer$KgD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$hIht = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+    /*package*/ static final SInterfaceConcept IStatementListContainer$4L = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
   }
 }

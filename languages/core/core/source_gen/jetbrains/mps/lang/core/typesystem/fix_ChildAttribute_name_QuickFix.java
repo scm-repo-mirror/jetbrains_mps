@@ -8,22 +8,27 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.core.behavior.ChildAttribute__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class fix_ChildAttribute_name_QuickFix extends QuickFix_Runtime {
   public fix_ChildAttribute_name_QuickFix() {
     super(new SNodePointer("r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "6063712545515840164"));
   }
   public String getDescription(SNode node) {
-    return "Change name to \"" + ChildAttribute__BehaviorDescriptor.getLink_idBpxLfMirzf.invoke(SNodeOperations.as(node, AUX_blhspf.ChildAttribute_96496d6c)).getName() + "\"";
+    return "Change name to \"" + ChildAttribute__BehaviorDescriptor.getLink_idBpxLfMirzf.invoke(SNodeOperations.as(node, CONCEPTS.ChildAttribute$XQ)).getName() + "\"";
   }
   public void execute(SNode node) {
-    SNode linkAttribute = SNodeOperations.as(node, AUX_blhspf.ChildAttribute_96496d6c);
-    SPropertyOperations.assign(linkAttribute, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, 0x9d98713f249b585L, "role_DebugInfo"), ChildAttribute__BehaviorDescriptor.getLink_idBpxLfMirzf.invoke(linkAttribute).getName());
+    SNode linkAttribute = SNodeOperations.as(node, CONCEPTS.ChildAttribute$XQ);
+    SPropertyOperations.assign(linkAttribute, PROPS.role_DebugInfo$TmIz, ChildAttribute__BehaviorDescriptor.getLink_idBpxLfMirzf.invoke(linkAttribute).getName());
   }
 
-  private static final class AUX_blhspf {
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty role_DebugInfo$TmIz = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, 0x9d98713f249b585L, "role_DebugInfo");
   }
 }

@@ -19,7 +19,7 @@ public class ChangeMethodSignature_Target implements IRefactoringTarget {
     return false;
   }
   public boolean isApplicableToEntityType(final Object entity) {
-    return SNodeOperations.isInstanceOf(((SNode) entity), AUX_r01slg.BaseMethodDeclaration_9dbf9acb);
+    return SNodeOperations.isInstanceOf(((SNode) entity), CONCEPTS.BaseMethodDeclaration$RR);
   }
   public boolean isApplicable(final Object entity) {
     if (!(this.isApplicableToEntityType(entity))) {
@@ -28,7 +28,7 @@ public class ChangeMethodSignature_Target implements IRefactoringTarget {
     return ChangeMethodSignatureRefactoring.isApplicable(((SNode) entity));
   }
 
-  private static final class AUX_r01slg {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
   }
 }

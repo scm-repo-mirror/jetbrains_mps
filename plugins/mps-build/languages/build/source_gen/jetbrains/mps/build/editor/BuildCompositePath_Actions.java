@@ -8,13 +8,14 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildCompositePath_Actions {
 
@@ -27,8 +28,8 @@ public class BuildCompositePath_Actions {
         if (DeletionApproverUtil.approve(editorContext, node, "*" + CellIdManager.createPropertyId("head"))) {
           return;
         }
-        SNode n = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"));
-        SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail")));
+        SNode n = SLinkOperations.getTarget(node, LINKS.tail$vKD0);
+        SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, LINKS.tail$vKD0));
         SelectionUtil.selectLabelCellAnSetCaret(editorContext, n, "*" + CellIdManager.createPropertyId("head"), 0);
       }
 
@@ -68,5 +69,9 @@ public class BuildCompositePath_Actions {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink tail$vKD0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail");
   }
 }

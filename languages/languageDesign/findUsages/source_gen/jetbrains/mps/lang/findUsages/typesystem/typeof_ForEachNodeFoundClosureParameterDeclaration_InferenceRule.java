@@ -28,7 +28,7 @@ public class typeof_ForEachNodeFoundClosureParameterDeclaration_InferenceRule ex
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_slgypr.ForEachNodeFoundClosureParameterDeclaration_484dc71;
+    return CONCEPTS.ForEachNodeFoundClosureParameterDeclaration$4h;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ForEachNodeFoundClosureParameterDeclaration_InferenceRule ex
     return quotedNode_1;
   }
 
-  private static final class AUX_slgypr {
-    /*package*/ static final SConcept ForEachNodeFoundClosureParameterDeclaration_484dc71 = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x112b337a16d39f72L, "jetbrains.mps.lang.findUsages.structure.ForEachNodeFoundClosureParameterDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ForEachNodeFoundClosureParameterDeclaration$4h = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x112b337a16d39f72L, "jetbrains.mps.lang.findUsages.structure.ForEachNodeFoundClosureParameterDeclaration");
   }
 }

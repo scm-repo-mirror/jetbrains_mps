@@ -15,11 +15,14 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ConvertInlineTemplateToTemplateFragment_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -38,8 +41,8 @@ public final class ConvertInlineTemplateToTemplateFragment_Intention extends Abs
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    SNode ruleNode = SNodeOperations.getNodeAncestor(node, AUX_9edj1o.BaseMappingRule_6fbb9a69, false, false);
-    if (!((SNodeOperations.isInstanceOf(ruleNode, AUX_9edj1o.Root_MappingRule_b12d6d81) || SNodeOperations.isInstanceOf(ruleNode, AUX_9edj1o.Weaving_MappingRule_34299823) || SNodeOperations.isInstanceOf(ruleNode, AUX_9edj1o.Reduction_MappingRule_97b385f1)))) {
+    SNode ruleNode = SNodeOperations.getNodeAncestor(node, CONCEPTS.BaseMappingRule$8p, false, false);
+    if (!((SNodeOperations.isInstanceOf(ruleNode, CONCEPTS.Root_MappingRule$81) || SNodeOperations.isInstanceOf(ruleNode, CONCEPTS.Weaving_MappingRule$Iv) || SNodeOperations.isInstanceOf(ruleNode, CONCEPTS.Reduction_MappingRule$uh)))) {
       return false;
     }
     return true;
@@ -63,15 +66,15 @@ public final class ConvertInlineTemplateToTemplateFragment_Intention extends Abs
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode templateNode = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(node), AUX_9edj1o.TemplateDeclaration_6074fd22, null);
-      SNode ruleNode = SNodeOperations.getNodeAncestor(node, AUX_9edj1o.BaseMappingRule_6fbb9a69, false, false);
-      SLinkOperations.setTarget(templateNode, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept"), SLinkOperations.getTarget(ruleNode, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b6e730L, "applicableConcept")));
-      SPropertyOperations.set(templateNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "template1");
-      SLinkOperations.setTarget(templateNode, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode"), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, 0x112103ebf76L, "templateNode")));
-      SPropertyOperations.set(templateNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"), SPropertyOperations.getString(SNodeOperations.getContainingRoot(node), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")));
+      SNode templateNode = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(node), CONCEPTS.TemplateDeclaration$q0, null);
+      SNode ruleNode = SNodeOperations.getNodeAncestor(node, CONCEPTS.BaseMappingRule$8p, false, false);
+      SLinkOperations.setTarget(templateNode, LINKS.applicableConcept$r_1F, SLinkOperations.getTarget(ruleNode, LINKS.applicableConcept$ljwo));
+      SPropertyOperations.set(templateNode, PROPS.name$tAp1, "template1");
+      SLinkOperations.setTarget(templateNode, LINKS.contentNode$UkrJ, SLinkOperations.getTarget(node, LINKS.templateNode$7wRg));
+      SPropertyOperations.set(templateNode, PROPS.virtualPackage$j19t, SPropertyOperations.getString(SNodeOperations.getContainingRoot(node), PROPS.virtualPackage$j19t));
 
-      SNode templateRefNode = SNodeFactoryOperations.replaceWithNewChild(node, AUX_9edj1o.TemplateDeclarationReference_4d5da335);
-      SLinkOperations.setTarget(templateRefNode, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template"), templateNode);
+      SNode templateRefNode = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.TemplateDeclarationReference$bd);
+      SLinkOperations.setTarget(templateRefNode, LINKS.template$yiTA, templateNode);
 
       SelectionUtil.selectNode(editorContext, templateNode);
     }
@@ -81,12 +84,25 @@ public final class ConvertInlineTemplateToTemplateFragment_Intention extends Abs
     }
   }
 
-  private static final class AUX_9edj1o {
-    /*package*/ static final SConcept BaseMappingRule_6fbb9a69 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, "jetbrains.mps.lang.generator.structure.BaseMappingRule");
-    /*package*/ static final SConcept Reduction_MappingRule_97b385f1 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fca296532L, "jetbrains.mps.lang.generator.structure.Reduction_MappingRule");
-    /*package*/ static final SConcept Root_MappingRule_b12d6d81 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, "jetbrains.mps.lang.generator.structure.Root_MappingRule");
-    /*package*/ static final SConcept Weaving_MappingRule_34299823 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, "jetbrains.mps.lang.generator.structure.Weaving_MappingRule");
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
-    /*package*/ static final SConcept TemplateDeclarationReference_4d5da335 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11013906056L, "jetbrains.mps.lang.generator.structure.TemplateDeclarationReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMappingRule$8p = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, "jetbrains.mps.lang.generator.structure.BaseMappingRule");
+    /*package*/ static final SConcept Reduction_MappingRule$uh = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fca296532L, "jetbrains.mps.lang.generator.structure.Reduction_MappingRule");
+    /*package*/ static final SConcept Root_MappingRule$81 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, "jetbrains.mps.lang.generator.structure.Root_MappingRule");
+    /*package*/ static final SConcept Weaving_MappingRule$Iv = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0d8c573L, "jetbrains.mps.lang.generator.structure.Weaving_MappingRule");
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+    /*package*/ static final SConcept TemplateDeclarationReference$bd = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11013906056L, "jetbrains.mps.lang.generator.structure.TemplateDeclarationReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink applicableConcept$r_1F = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept");
+    /*package*/ static final SReferenceLink applicableConcept$ljwo = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b6e730L, "applicableConcept");
+    /*package*/ static final SContainmentLink contentNode$UkrJ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode");
+    /*package*/ static final SContainmentLink templateNode$7wRg = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, 0x112103ebf76L, "templateNode");
+    /*package*/ static final SReferenceLink template$yiTA = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

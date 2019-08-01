@@ -18,7 +18,6 @@ import jetbrains.jetpad.model.property.WritableProperty;
 import jetbrains.jetpad.projectional.view.View;
 import java.util.Set;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.nodeEditor.cells.jetpad.JetpadUtils;
@@ -28,6 +27,9 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.ConnectorDecorator
 import jetbrains.jetpad.model.property.ReadableProperty;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 /*package*/ class ConnectorInstance_diagram_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -78,7 +80,7 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
               if (descendantMapper == null) {
                 return null;
               }
-              Set<Mapper<? super SNode, ?>> mappers = descendantMapper.getMappingContext().getMappers(descendantMapper, SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c0L, "source")), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bdL, "metaPort")));
+              Set<Mapper<? super SNode, ?>> mappers = descendantMapper.getMappingContext().getMappers(descendantMapper, SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), LINKS.source$CgLa), LINKS.metaPort$JUWK));
               if (mappers.size() > 0) {
                 return (View) mappers.iterator().next().getTarget();
               }
@@ -98,7 +100,7 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
               if (descendantMapper == null) {
                 return null;
               }
-              Set<Mapper<? super SNode, ?>> mappers = descendantMapper.getMappingContext().getMappers(descendantMapper, SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c6L, "target")), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bdL, "metaPort")));
+              Set<Mapper<? super SNode, ?>> mappers = descendantMapper.getMappingContext().getMappers(descendantMapper, SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), LINKS.target$ClT$), LINKS.metaPort$JUWK));
               if (mappers.size() > 0) {
                 return (View) mappers.iterator().next().getTarget();
               }
@@ -180,8 +182,8 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 
 
     public void synchronize() {
-      myInputPort.set(MultiTuple.<SNode,SNode>from(SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c0L, "source")), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bcL, "block")), SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c0L, "source")), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bdL, "metaPort"))));
-      myOutputPort.set(MultiTuple.<SNode,SNode>from(SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c6L, "target")), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bcL, "block")), SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c6L, "target")), MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bdL, "metaPort"))));
+      myInputPort.set(MultiTuple.<SNode,SNode>from(SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), LINKS.source$CgLa), LINKS.block$JUWh), SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), LINKS.source$CgLa), LINKS.metaPort$JUWK)));
+      myOutputPort.set(MultiTuple.<SNode,SNode>from(SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), LINKS.target$ClT$), LINKS.block$JUWh), SLinkOperations.getTarget(SLinkOperations.getTarget(getSNode(), LINKS.target$ClT$), LINKS.metaPort$JUWK)));
     }
     private PolyLineConnection createConnection() {
       PolyLineConnection connection = new PolyLineConnection();
@@ -195,5 +197,12 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
     }
 
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink source$CgLa = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c0L, "source");
+    /*package*/ static final SReferenceLink metaPort$JUWK = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bdL, "metaPort");
+    /*package*/ static final SContainmentLink target$ClT$ = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c6L, "target");
+    /*package*/ static final SReferenceLink block$JUWh = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bcL, "block");
   }
 }

@@ -52,7 +52,7 @@ public class check_ClassLikeMethod_NonTypesystemRule extends AbstractNonTypesyst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_p6nv7a.MethodInstance_799dc109;
+    return CONCEPTS.MethodInstance$XT;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -61,7 +61,7 @@ public class check_ClassLikeMethod_NonTypesystemRule extends AbstractNonTypesyst
     return false;
   }
 
-  private static final class AUX_p6nv7a {
-    /*package*/ static final SConcept MethodInstance_799dc109 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MethodInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MethodInstance$XT = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d154L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MethodInstance");
   }
 }

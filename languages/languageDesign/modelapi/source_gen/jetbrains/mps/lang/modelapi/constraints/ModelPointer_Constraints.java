@@ -5,7 +5,6 @@ package jetbrains.mps.lang.modelapi.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -16,15 +15,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ModelPointer_Constraints extends BaseConstraintsDescriptor {
   public ModelPointer_Constraints() {
-    super(AUX_m9pj8l.ModelPointer_a7ab22d2);
+    super(CONCEPTS.ModelPointer$rg);
   }
 
   public static class ModelId_Property extends BasePropertyConstraintsDescriptor {
     public ModelId_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, 0x19dc9460645c7f56L, "modelId"), container);
+      super(PROPS.modelId$bfR, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -53,11 +53,15 @@ public class ModelPointer_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, 0x19dc9460645c7f56L, "modelId"), new ModelId_Property(this));
+    properties.put(PROPS.modelId$bfR, new ModelId_Property(this));
     return properties;
   }
 
-  private static final class AUX_m9pj8l {
-    /*package*/ static final SConcept ModelPointer_a7ab22d2 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModelPointer$rg = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty modelId$bfR = MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, 0x19dc9460645c7f56L, "modelId");
   }
 }

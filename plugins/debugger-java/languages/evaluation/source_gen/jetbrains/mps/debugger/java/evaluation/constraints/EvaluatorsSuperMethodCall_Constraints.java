@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -34,10 +33,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class EvaluatorsSuperMethodCall_Constraints extends BaseConstraintsDescriptor {
   public EvaluatorsSuperMethodCall_Constraints() {
-    super(AUX_cyzmhi.EvaluatorsSuperMethodCall_5cdd8e50);
+    super(CONCEPTS.EvaluatorsSuperMethodCall$Gi);
   }
 
   @Override
@@ -57,7 +57,7 @@ public class EvaluatorsSuperMethodCall_Constraints extends BaseConstraintsDescri
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.baseMethodDeclaration$$A7i, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -72,13 +72,13 @@ public class EvaluatorsSuperMethodCall_Constraints extends BaseConstraintsDescri
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode thisNode = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_cyzmhi.EvaluatorConcept_59d4c760, false, false), MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, 0x3f11b1341fa23613L, "thisNode"));
-            SNode classifier = SLinkOperations.getTarget(DebuggedType__BehaviorDescriptor.getHighClassifierType_id3WhGjgvCHCA.invoke(SLinkOperations.getTarget(thisNode, MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3c2f40ee0bb3cbf5L, 0x3f11b1341fa2c39cL, "debuggedType"))), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
-            SNode enclosingClass = SNodeOperations.cast(classifier, AUX_cyzmhi.ClassConcept_e2711824);
+            SNode thisNode = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.EvaluatorConcept$g2, false, false), LINKS.thisNode$Gl5y);
+            SNode classifier = SLinkOperations.getTarget(DebuggedType__BehaviorDescriptor.getHighClassifierType_id3WhGjgvCHCA.invoke(SLinkOperations.getTarget(thisNode, LINKS.debuggedType$qJ$3)), LINKS.classifier$pQ_R);
+            SNode enclosingClass = SNodeOperations.cast(classifier, CONCEPTS.ClassConcept$IY);
 
             Iterable<SNode> methods = Sequence.fromIterable(Members.visibleInstanceMethods(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(enclosingClass), _context.getContextNode())).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
-                return !((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(it)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), AUX_cyzmhi.ClassConcept_e2711824);
+                return !((boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(it)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), CONCEPTS.ClassConcept$IY);
               }
             });
 
@@ -92,14 +92,21 @@ public class EvaluatorsSuperMethodCall_Constraints extends BaseConstraintsDescri
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(parentNode, AUX_cyzmhi.EvaluatorConcept_59d4c760, false, false), MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, 0x3f11b1341fa23613L, "thisNode")) != null) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(DebuggedType__BehaviorDescriptor.getHighClassifierType_id3WhGjgvCHCA.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(parentNode, AUX_cyzmhi.EvaluatorConcept_59d4c760, false, false), MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, 0x3f11b1341fa23613L, "thisNode")), MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3c2f40ee0bb3cbf5L, 0x3f11b1341fa2c39cL, "debuggedType"))), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")), AUX_cyzmhi.ClassConcept_e2711824);
+    return (SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.EvaluatorConcept$g2, false, false), LINKS.thisNode$Gl5y) != null) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(DebuggedType__BehaviorDescriptor.getHighClassifierType_id3WhGjgvCHCA.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.EvaluatorConcept$g2, false, false), LINKS.thisNode$Gl5y), LINKS.debuggedType$qJ$3)), LINKS.classifier$pQ_R), CONCEPTS.ClassConcept$IY);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:edfcb13b-e239-462c-8aae-e4b4a03e7c8b(jetbrains.mps.debugger.java.evaluation.constraints)", "1227128029536564879");
   private static final SNodePointer breakingNode_cyzmhi_a0a0a0a0a1a0a0a0d = new SNodePointer("r:edfcb13b-e239-462c-8aae-e4b4a03e7c8b(jetbrains.mps.debugger.java.evaluation.constraints)", "6836281137582821176");
 
-  private static final class AUX_cyzmhi {
-    /*package*/ static final SConcept EvaluatorsSuperMethodCall_5cdd8e50 = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b1ae1feL, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorsSuperMethodCall");
-    /*package*/ static final SConcept EvaluatorConcept_59d4c760 = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorConcept");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EvaluatorsSuperMethodCall$Gi = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b1ae1feL, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorsSuperMethodCall");
+    /*package*/ static final SConcept EvaluatorConcept$g2 = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorConcept");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink thisNode$Gl5y = MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, 0x3f11b1341fa23613L, "thisNode");
+    /*package*/ static final SContainmentLink debuggedType$qJ$3 = MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3c2f40ee0bb3cbf5L, 0x3f11b1341fa2c39cL, "debuggedType");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
   }
 }

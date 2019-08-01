@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.console.ideCommands.behavior.ActionCallParameter__BehaviorDescriptor;
@@ -20,13 +19,15 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_CallActionDuplicatedParameters_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_CallActionDuplicatedParameters_NonTypesystemRule() {
   }
   public void applyRule(final SNode callAction, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    final Iterable<SNode> parameters = SLinkOperations.getChildren(callAction, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, 0x4d7759afce9587afL, "parameter"));
+    final Iterable<SNode> parameters = SLinkOperations.getChildren(callAction, LINKS.parameter$QceZ);
     Iterable<SNode> parameterFields = Sequence.fromIterable(parameters).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
         return (SNode) ActionCallParameter__BehaviorDescriptor.getParameterDeclaration_id4PRmqZe_o$D.invoke(it);
@@ -54,7 +55,7 @@ public class check_CallActionDuplicatedParameters_NonTypesystemRule extends Abst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7ie7o0.CallActionExpression_48a6c9bf;
+    return CONCEPTS.CallActionExpression$Q3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -63,7 +64,11 @@ public class check_CallActionDuplicatedParameters_NonTypesystemRule extends Abst
     return false;
   }
 
-  private static final class AUX_7ie7o0 {
-    /*package*/ static final SConcept CallActionExpression_48a6c9bf = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, "jetbrains.mps.console.ideCommands.structure.CallActionExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$QceZ = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, 0x4d7759afce9587afL, "parameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CallActionExpression$Q3 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, "jetbrains.mps.console.ideCommands.structure.CallActionExpression");
   }
 }

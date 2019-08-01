@@ -12,9 +12,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildSimpleName_text extends KeyMapImpl {
   public BuildSimpleName_text() {
@@ -42,7 +43,7 @@ public class BuildSimpleName_text extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_4bhgsw.BuildTextStringPart_a64ab0ce))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.BuildTextStringPart$xk))) {
         return false;
       }
       return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
@@ -55,22 +56,22 @@ public class BuildSimpleName_text extends KeyMapImpl {
       if (!(editorContext.getSelectedCell() instanceof EditorCell_Label)) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(node, AUX_4bhgsw.BuildStringPart_a64ab0ca))) {
+      if (!(SNodeOperations.isInstanceOf(node, CONCEPTS.BuildStringPart$vo))) {
         return false;
       }
-      return isNotEmptyString(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text")));
+      return isNotEmptyString(SPropertyOperations.getString(node, PROPS.text$2p89));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
       int index = ((EditorCell_Label) editorContext.getSelectedCell()).getCaretPosition();
 
-      String currText = SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"));
+      String currText = SPropertyOperations.getString(node, PROPS.text$2p89);
       if (index < currText.length() && index > 0) {
-        SNode newText = SModelOperations.createNewNode(SNodeOperations.getModel(node), null, AUX_4bhgsw.BuildTextStringPart_a64ab0ce);
-        SPropertyOperations.assign(newText, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), currText.substring(index));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), currText.substring(0, index));
+        SNode newText = SModelOperations.createNewNode(SNodeOperations.getModel(node), null, CONCEPTS.BuildTextStringPart$xk);
+        SPropertyOperations.assign(newText, PROPS.text$2p89, currText.substring(index));
+        SPropertyOperations.assign(node, PROPS.text$2p89, currText.substring(0, index));
         SNodeOperations.insertNextSiblingChild(node, newText);
       }
-      SNode newRef = SModelOperations.createNewNode(SNodeOperations.getModel(node), null, AUX_4bhgsw.BuildVarRefStringPart_a64ab0cc);
+      SNode newRef = SModelOperations.createNewNode(SNodeOperations.getModel(node), null, CONCEPTS.BuildVarRefStringPart$wm);
       if (index != 0) {
         SNodeOperations.insertNextSiblingChild(node, newRef);
       } else {
@@ -86,9 +87,13 @@ public class BuildSimpleName_text extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_4bhgsw {
-    /*package*/ static final SConcept BuildTextStringPart_a64ab0ce = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
-    /*package*/ static final SConcept BuildStringPart_a64ab0ca = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7cffL, "jetbrains.mps.build.structure.BuildStringPart");
-    /*package*/ static final SConcept BuildVarRefStringPart_a64ab0cc = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, "jetbrains.mps.build.structure.BuildVarRefStringPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildTextStringPart$xk = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
+    /*package*/ static final SConcept BuildStringPart$vo = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7cffL, "jetbrains.mps.build.structure.BuildStringPart");
+    /*package*/ static final SConcept BuildVarRefStringPart$wm = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, "jetbrains.mps.build.structure.BuildVarRefStringPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$2p89 = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text");
   }
 }

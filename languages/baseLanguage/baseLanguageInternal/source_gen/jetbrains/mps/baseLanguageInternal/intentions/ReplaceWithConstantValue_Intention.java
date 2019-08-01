@@ -13,9 +13,10 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ReplaceWithConstantValue_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -50,9 +51,9 @@ public final class ReplaceWithConstantValue_Intention extends AbstractIntentionD
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode fieldDecl = SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"));
-      SNode constantValue = SNodeOperations.replaceWithNewChild(node, AUX_1199yo.ConstantValue_6b58857a);
-      SLinkOperations.setTarget(constantValue, MetaAdapterFactory.getReferenceLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x16007da97856bd8aL, 0x16007da97856bd8bL, "constant"), fieldDecl);
+      SNode fieldDecl = SLinkOperations.getTarget(node, LINKS.variableDeclaration$2ky6);
+      SNode constantValue = SNodeOperations.replaceWithNewChild(node, CONCEPTS.ConstantValue$$C);
+      SLinkOperations.setTarget(constantValue, LINKS.constant$43G0, fieldDecl);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -60,7 +61,12 @@ public final class ReplaceWithConstantValue_Intention extends AbstractIntentionD
     }
   }
 
-  private static final class AUX_1199yo {
-    /*package*/ static final SConcept ConstantValue_6b58857a = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x16007da97856bd8aL, "jetbrains.mps.baseLanguageInternal.structure.ConstantValue");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+    /*package*/ static final SReferenceLink constant$43G0 = MetaAdapterFactory.getReferenceLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x16007da97856bd8aL, 0x16007da97856bd8bL, "constant");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstantValue$$C = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x16007da97856bd8aL, "jetbrains.mps.baseLanguageInternal.structure.ConstantValue");
   }
 }

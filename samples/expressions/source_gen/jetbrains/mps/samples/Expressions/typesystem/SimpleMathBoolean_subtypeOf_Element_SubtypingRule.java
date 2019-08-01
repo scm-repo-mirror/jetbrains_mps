@@ -19,7 +19,7 @@ public class SimpleMathBoolean_subtypeOf_Element_SubtypingRule extends Subtyping
     return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b835454eL, "jetbrains.mps.samples.Expressions.structure.SimpleMathElementType"));
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_c8q2co.SimpleMathBooleanType_7cf3ce08;
+    return CONCEPTS.SimpleMathBooleanType$9q;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -28,7 +28,7 @@ public class SimpleMathBoolean_subtypeOf_Element_SubtypingRule extends Subtyping
     return false;
   }
 
-  private static final class AUX_c8q2co {
-    /*package*/ static final SConcept SimpleMathBooleanType_7cf3ce08 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81f9f68L, "jetbrains.mps.samples.Expressions.structure.SimpleMathBooleanType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleMathBooleanType$9q = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81f9f68L, "jetbrains.mps.samples.Expressions.structure.SimpleMathBooleanType");
   }
 }

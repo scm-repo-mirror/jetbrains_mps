@@ -13,13 +13,14 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.InternalFlag;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class UnwrapQueryExpression_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -43,12 +44,12 @@ public final class UnwrapQueryExpression_Intention extends AbstractIntentionDesc
     if (!(InternalFlag.isInternalMode())) {
       return false;
     }
-    List<SNode> statements = SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x380132d742e8ccb0L, 0x380132d742e94e82L, "query")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
+    List<SNode> statements = SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(node, LINKS.query$7zg9), LINKS.body$pTP2), LINKS.statement$WHn8);
     if (ListSequence.fromList(statements).count() != 1) {
       return false;
     }
     SNode stmt = ListSequence.fromList(statements).first();
-    return SNodeOperations.isInstanceOf(stmt, AUX_aa56px.ReturnStatement_d4768417) || SNodeOperations.isInstanceOf(stmt, AUX_aa56px.ExpressionStatement_9dbf9b0c);
+    return SNodeOperations.isInstanceOf(stmt, CONCEPTS.ReturnStatement$SF) || SNodeOperations.isInstanceOf(stmt, CONCEPTS.ExpressionStatement$nm);
   }
   @Override
   public boolean isSurroundWith() {
@@ -69,20 +70,20 @@ public final class UnwrapQueryExpression_Intention extends AbstractIntentionDesc
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode stmt = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x380132d742e8ccb0L, 0x380132d742e94e82L, "query")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).first();
+      SNode stmt = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(node, LINKS.query$7zg9), LINKS.body$pTP2), LINKS.statement$WHn8)).first();
       SNode expr = null;
-      if (SNodeOperations.isInstanceOf(stmt, AUX_aa56px.ReturnStatement_d4768417)) {
-        expr = SLinkOperations.getTarget(SNodeOperations.as(stmt, AUX_aa56px.ReturnStatement_d4768417), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression"));
-      } else if (SNodeOperations.isInstanceOf(stmt, AUX_aa56px.ExpressionStatement_9dbf9b0c)) {
-        expr = SLinkOperations.getTarget(SNodeOperations.as(stmt, AUX_aa56px.ExpressionStatement_9dbf9b0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression"));
+      if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.ReturnStatement$SF)) {
+        expr = SLinkOperations.getTarget(SNodeOperations.as(stmt, CONCEPTS.ReturnStatement$SF), LINKS.expression$EsbK);
+      } else if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.ExpressionStatement$nm)) {
+        expr = SLinkOperations.getTarget(SNodeOperations.as(stmt, CONCEPTS.ExpressionStatement$nm), LINKS.expression$WIP0);
       }
       if (expr == null) {
         return;
       }
       // use node id of the TemplateArgumentQuery node, to leave name of generated QG.templateArgument_xxx() method intact 
-      SNodeId taqNodeId = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x380132d742e8ccb0L, 0x380132d742e94e82L, "query")).getNodeId();
+      SNodeId taqNodeId = SLinkOperations.getTarget(node, LINKS.query$7zg9).getNodeId();
       // first, shall detach expr node, so that its id could get changed 
-      SNodeOperations.deleteNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x380132d742e8ccb0L, 0x380132d742e94e82L, "query")));
+      SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.query$7zg9));
       if (expr instanceof jetbrains.mps.smodel.SNode) {
         ((jetbrains.mps.smodel.SNode) expr).setId(taqNodeId);
       }
@@ -94,8 +95,16 @@ public final class UnwrapQueryExpression_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_aa56px {
-    /*package*/ static final SConcept ReturnStatement_d4768417 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink query$7zg9 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x380132d742e8ccb0L, 0x380132d742e94e82L, "query");
+    /*package*/ static final SContainmentLink body$pTP2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink expression$EsbK = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression");
+    /*package*/ static final SContainmentLink expression$WIP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReturnStatement$SF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
   }
 }

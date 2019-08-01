@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class EnumMemberReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_pzcnlg_a(), AUX_pzcnlg.EnumMemberReference_da2db09d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_pzcnlg_a(), CONCEPTS.EnumMemberReference$9_));
     result.add(new SMP_Subconcepts_pzcnlg_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class EnumMemberReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_pzcnlg_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_pzcnlg.EnumMemberReference_da2db09d, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0112b91L, 0x414edd67c0112b98L, "decl"));
+      super((SAbstractConcept) CONCEPTS.EnumMemberReference$9_, LINKS.decl$Hqa_);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class EnumMemberReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_pzcnlg_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_pzcnlg.EnumMemberReference_da2db09d);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.EnumMemberReference$9_);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class EnumMemberReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_pzcnlg {
-    /*package*/ static final SConcept EnumMemberReference_da2db09d = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0112b91L, "jetbrains.mps.lang.smodel.structure.EnumMemberReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumMemberReference$9_ = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0112b91L, "jetbrains.mps.lang.smodel.structure.EnumMemberReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink decl$Hqa_ = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0112b91L, 0x414edd67c0112b98L, "decl");
   }
 }

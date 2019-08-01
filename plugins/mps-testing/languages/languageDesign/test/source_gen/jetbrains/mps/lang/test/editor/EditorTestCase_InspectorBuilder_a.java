@@ -14,7 +14,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
@@ -48,6 +47,8 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class EditorTestCase_InspectorBuilder_a extends AbstractEditorBuilder {
@@ -99,9 +100,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
       public void setText(String text) {
         if (text.equals("true")) {
-          SPropertyOperations.assign(myNode, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), false);
+          SPropertyOperations.assign(myNode, PROPS.canNotRunInProcess$QfFh, false);
         } else if (text.equals("false")) {
-          SPropertyOperations.assign(myNode, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), true);
+          SPropertyOperations.assign(myNode, PROPS.canNotRunInProcess$QfFh, true);
         }
       }
       public boolean isValidText(String text) {
@@ -138,7 +139,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), true);
+      SPropertyOperations.assign(node, PROPS.canNotRunInProcess$QfFh, true);
     }
     public String getMatchingText() {
       return "false";
@@ -166,7 +167,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess"), false);
+      SPropertyOperations.assign(node, PROPS.canNotRunInProcess$QfFh, false);
     }
     public String getMatchingText() {
       return "true";
@@ -222,10 +223,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x486f8079df2fd868L, "logEvents");
+      return LINKS.logEvents$TX29;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_og73u3.LogEvent_d7dfad6a;
+      return CONCEPTS.LogEvent$WS;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -235,7 +236,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(logEventsListHandler_6iwt9a_b2a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x486f8079df2fd868L, "logEvents")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(logEventsListHandler_6iwt9a_b2a.this.getNode(), LINKS.logEvents$TX29));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -260,7 +261,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_og73u3 {
-    /*package*/ static final SConcept LogEvent_d7dfad6a = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x486f8079df2fd630L, "jetbrains.mps.lang.test.structure.LogEvent");
+  private static final class PROPS {
+    /*package*/ static final SProperty canNotRunInProcess$QfFh = MetaAdapterFactory.getProperty(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, 0x59337dc8dffe0d9dL, "canNotRunInProcess");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink logEvents$TX29 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x486f8079df2fd868L, "logEvents");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LogEvent$WS = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x486f8079df2fd630L, "jetbrains.mps.lang.test.structure.LogEvent");
   }
 }

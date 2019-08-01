@@ -25,8 +25,9 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.ConnectorDecorator
 import jetbrains.jetpad.model.property.ReadableProperty;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class Specializes_diagram_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -171,8 +172,8 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 
 
     public void synchronize() {
-      myInputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x517b79625769ba9eL, "source"))));
-      myOutputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x1198689ff14c5dfL, "target"))));
+      myInputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), LINKS.source$jsja)));
+      myOutputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), LINKS.target$$xE0)));
     }
     private PolyLineConnection createConnection() {
       PolyLineConnection connection = new PolyLineConnection();
@@ -186,5 +187,10 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
     }
 
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink source$jsja = MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x517b79625769ba9eL, "source");
+    /*package*/ static final SReferenceLink target$$xE0 = MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x1198689ff14c5dfL, "target");
   }
 }

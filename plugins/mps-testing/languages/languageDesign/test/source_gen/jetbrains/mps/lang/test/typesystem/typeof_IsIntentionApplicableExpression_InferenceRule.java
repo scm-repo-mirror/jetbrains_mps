@@ -24,7 +24,7 @@ public class typeof_IsIntentionApplicableExpression_InferenceRule extends Abstra
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_pislxs.IsIntentionApplicableExpression_3d8a0d2;
+    return CONCEPTS.IsIntentionApplicableExpression$zg;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_IsIntentionApplicableExpression_InferenceRule extends Abstra
     return false;
   }
 
-  private static final class AUX_pislxs {
-    /*package*/ static final SConcept IsIntentionApplicableExpression_3d8a0d2 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x83a4b2183e44b99L, "jetbrains.mps.lang.test.structure.IsIntentionApplicableExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IsIntentionApplicableExpression$zg = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x83a4b2183e44b99L, "jetbrains.mps.lang.test.structure.IsIntentionApplicableExpression");
   }
 }

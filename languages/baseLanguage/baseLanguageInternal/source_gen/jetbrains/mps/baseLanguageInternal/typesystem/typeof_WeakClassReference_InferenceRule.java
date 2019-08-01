@@ -25,7 +25,7 @@ public class typeof_WeakClassReference_InferenceRule extends AbstractInferenceRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ptbbvb.WeakClassReference_5f295b4b;
+    return CONCEPTS.WeakClassReference$PR;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_WeakClassReference_InferenceRule extends AbstractInferenceRu
     return quotedNode_1;
   }
 
-  private static final class AUX_ptbbvb {
-    /*package*/ static final SConcept WeakClassReference_5f295b4b = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x7a00a2a7a8b080daL, "jetbrains.mps.baseLanguageInternal.structure.WeakClassReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WeakClassReference$PR = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x7a00a2a7a8b080daL, "jetbrains.mps.baseLanguageInternal.structure.WeakClassReference");
   }
 }

@@ -23,9 +23,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.smodel.runtime.IconResource;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestSubstituteParentPropertyAndReference_ReferenceMenuPart extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
@@ -92,20 +93,20 @@ public class TestSubstituteParentPropertyAndReference_ReferenceMenuPart extends 
       @Override
       public String getLabelText(String pattern) {
         boolean val = _context.getEditorContext() != null && _context.getNode() != null && _context.getModel() != null && targetNode != null;
-        return SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return SPropertyOperations.getString(targetNode, PROPS.name$tAp1);
       }
 
       @Nullable
       @Override
       public String getVisibleText(String pattern) {
         boolean val = _context.getEditorContext() != null && _context.getNode() != null && _context.getModel() != null && targetNode != null;
-        return SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "()";
+        return SPropertyOperations.getString(targetNode, PROPS.name$tAp1) + "()";
       }
       @Nullable
       @Override
       public boolean canExecute(String pattern) {
         boolean val = _context.getEditorContext() != null && _context.getNode() != null && _context.getModel() != null && targetNode != null;
-        return Objects.equals(SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "nodeToReference1");
+        return Objects.equals(SPropertyOperations.getString(targetNode, PROPS.name$tAp1), "nodeToReference1");
       }
 
       public IconResource getIcon(String pattern) {
@@ -122,7 +123,15 @@ public class TestSubstituteParentPropertyAndReference_ReferenceMenuPart extends 
     }
     @Override
     protected SReferenceLink getReferenceLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x69b757bd7bd1801L, 0x70e6651a9408d373L, "referenceWithReferenceMenuPart");
+      return LINKS.referenceWithReferenceMenuPart$PCOI;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink referenceWithReferenceMenuPart$PCOI = MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x69b757bd7bd1801L, 0x70e6651a9408d373L, "referenceWithReferenceMenuPart");
   }
 }

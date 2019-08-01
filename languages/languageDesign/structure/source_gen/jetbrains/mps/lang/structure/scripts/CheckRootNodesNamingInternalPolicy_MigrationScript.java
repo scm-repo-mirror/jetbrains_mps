@@ -7,12 +7,13 @@ import jetbrains.mps.lang.script.runtime.AbstractMigrationRefactoring;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class CheckRootNodesNamingInternalPolicy_MigrationScript extends BaseMigrationScript {
   public CheckRootNodesNamingInternalPolicy_MigrationScript() {
@@ -28,24 +29,24 @@ public final class CheckRootNodesNamingInternalPolicy_MigrationScript extends Ba
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_rkab70.ConceptDeclaration_cb225da8;
+        return CONCEPTS.ConceptDeclaration$qU;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        if (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"))) {
+        if (SPropertyOperations.getBoolean(node, PROPS.abstract$moSU)) {
           return false;
         }
-        if (!(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable")))) {
+        if (!(SPropertyOperations.getBoolean(node, PROPS.rootable$vg$g))) {
           return false;
         }
-        if (isEmptyString(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias")))) {
+        if (isEmptyString(SPropertyOperations.getString(node, PROPS.conceptAlias$YIL2))) {
           return false;
         }
-        return !(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias")).equals(NameUtil.multiWordDecapitalize(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias")))));
+        return !(SPropertyOperations.getString(node, PROPS.conceptAlias$YIL2).equals(NameUtil.multiWordDecapitalize(SPropertyOperations.getString(node, PROPS.conceptAlias$YIL2))));
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias"), NameUtil.multiWordDecapitalize(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias"))));
+        SPropertyOperations.assign(node, PROPS.conceptAlias$YIL2, NameUtil.multiWordDecapitalize(SPropertyOperations.getString(node, PROPS.conceptAlias$YIL2)));
       }
       @Override
       public boolean isShowAsIntention() {
@@ -63,25 +64,25 @@ public final class CheckRootNodesNamingInternalPolicy_MigrationScript extends Ba
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_rkab70.ConceptDeclaration_cb225da8;
+        return CONCEPTS.ConceptDeclaration$qU;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        if (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"))) {
+        if (SPropertyOperations.getBoolean(node, PROPS.abstract$moSU)) {
           return false;
         }
-        if (!(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable")))) {
+        if (!(SPropertyOperations.getBoolean(node, PROPS.rootable$vg$g))) {
           return false;
         }
-        return isEmptyString(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias")));
+        return isEmptyString(SPropertyOperations.getString(node, PROPS.conceptAlias$YIL2));
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
         StringBuilder sb = new StringBuilder();
-        for (String word : NameUtil.splitByCamels(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) {
+        for (String word : NameUtil.splitByCamels(SPropertyOperations.getString(node, PROPS.name$tAp1))) {
           sb.append(NameUtil.decapitalize(word)).append(" ");
         }
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias"), sb.toString().trim());
+        SPropertyOperations.assign(node, PROPS.conceptAlias$YIL2, sb.toString().trim());
       }
       @Override
       public boolean isShowAsIntention() {
@@ -99,7 +100,14 @@ public final class CheckRootNodesNamingInternalPolicy_MigrationScript extends Ba
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_rkab70 {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstract$moSU = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract");
+    /*package*/ static final SProperty rootable$vg$g = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xff49c1d648L, "rootable");
+    /*package*/ static final SProperty conceptAlias$YIL2 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

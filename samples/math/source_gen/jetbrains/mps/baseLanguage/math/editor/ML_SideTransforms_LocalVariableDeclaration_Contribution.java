@@ -19,7 +19,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.transformation.ConstraintsFilteringTransformationMenuPartDecorator;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
@@ -42,8 +41,11 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ML_SideTransforms_LocalVariableDeclaration_Contribution extends TransformationMenuBase {
   public ML_SideTransforms_LocalVariableDeclaration_Contribution() {
@@ -80,7 +82,7 @@ public class ML_SideTransforms_LocalVariableDeclaration_Contribution extends Tra
   public class TMP_Group_8mvt7x_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), AUX_8mvt7x.MatrixOrVectorType_23ad3ce7);
+      return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.type$pLrO), CONCEPTS.MatrixOrVectorType$Xr);
     }
 
     @NotNull
@@ -96,7 +98,7 @@ public class ML_SideTransforms_LocalVariableDeclaration_Contribution extends Tra
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_8mvt7x_a0.TMP_Action_8mvt7x_a0a(), AUX_8mvt7x.LinearSolveOperation_9a430b9a));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_8mvt7x_a0.TMP_Action_8mvt7x_a0a(), CONCEPTS.LinearSolveOperation$s8));
     }
     private class TMP_Action_8mvt7x_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -136,43 +138,43 @@ public class ML_SideTransforms_LocalVariableDeclaration_Contribution extends Tra
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode lso = SNodeFactoryOperations.createNewNode(AUX_8mvt7x.LinearSolveOperation_9a430b9a, null);
+          SNode lso = SNodeFactoryOperations.createNewNode(CONCEPTS.LinearSolveOperation$s8, null);
           {
-            SNode matchedNode_8mvt7x_b0a0a0 = SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
+            SNode matchedNode_8mvt7x_b0a0a0 = SLinkOperations.getTarget(_context.getNode(), LINKS.type$pLrO);
             {
               boolean matches_8mvt7x_a1a0a0a = false;
               {
-                SNode matchingNode_8mvt7x_a1a0a0a = SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
+                SNode matchingNode_8mvt7x_a1a0a0a = SLinkOperations.getTarget(_context.getNode(), LINKS.type$pLrO);
                 if (matchingNode_8mvt7x_a1a0a0a != null) {
-                  matches_8mvt7x_a1a0a0a = matchingNode_8mvt7x_a1a0a0a.getConcept().isSubConceptOf(AUX_8mvt7x.MatrixType_c2d2403c);
+                  matches_8mvt7x_a1a0a0a = matchingNode_8mvt7x_a1a0a0a.getConcept().isSubConceptOf(CONCEPTS.MatrixType$qA);
                 }
               }
               if (matches_8mvt7x_a1a0a0a) {
-                SLinkOperations.setTarget(lso, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), AUX_8mvt7x.MatrixType_c2d2403c));
+                SLinkOperations.setTarget(lso, LINKS.type$pLrO, SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.type$pLrO), CONCEPTS.MatrixType$qA));
               } else {
                 boolean matches_8mvt7x_b1a0a0a = false;
                 {
-                  SNode matchingNode_8mvt7x_b1a0a0a = SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
+                  SNode matchingNode_8mvt7x_b1a0a0a = SLinkOperations.getTarget(_context.getNode(), LINKS.type$pLrO);
                   if (matchingNode_8mvt7x_b1a0a0a != null) {
-                    matches_8mvt7x_b1a0a0a = matchingNode_8mvt7x_b1a0a0a.getConcept().isSubConceptOf(AUX_8mvt7x.VectorType_c2d2403b);
+                    matches_8mvt7x_b1a0a0a = matchingNode_8mvt7x_b1a0a0a.getConcept().isSubConceptOf(CONCEPTS.VectorType$q7);
                   }
                 }
                 if (matches_8mvt7x_b1a0a0a) {
-                  SLinkOperations.setTarget(lso, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), AUX_8mvt7x.VectorType_c2d2403b));
+                  SLinkOperations.setTarget(lso, LINKS.type$pLrO, SNodeOperations.cast(SLinkOperations.getTarget(_context.getNode(), LINKS.type$pLrO), CONCEPTS.VectorType$q7));
                 }
               }
             }
           }
-          SPropertyOperations.assign(lso, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          SPropertyOperations.assign(lso, PROPS.name$tAp1, SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1));
           SNodeOperations.replaceWithAnother(_context.getNode(), lso);
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(lso, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x13afebc2af505abdL, 0x13afebc2af508f96L, "matrix")), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(lso, LINKS.matrix$qEHG), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
 
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_8mvt7x.LinearSolveOperation_9a430b9a;
+          return CONCEPTS.LinearSolveOperation$s8;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -187,7 +189,7 @@ public class ML_SideTransforms_LocalVariableDeclaration_Contribution extends Tra
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_8mvt7x.LinearSolveOperation_9a430b9a;
+          SAbstractConcept outputConcept = CONCEPTS.LinearSolveOperation$s8;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -198,10 +200,19 @@ public class ML_SideTransforms_LocalVariableDeclaration_Contribution extends Tra
     }
   }
 
-  private static final class AUX_8mvt7x {
-    /*package*/ static final SInterfaceConcept MatrixOrVectorType_23ad3ce7 = MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x513c04200c187a63L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorType");
-    /*package*/ static final SConcept LinearSolveOperation_9a430b9a = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x13afebc2af505abdL, "jetbrains.mps.baseLanguage.math.structure.LinearSolveOperation");
-    /*package*/ static final SConcept MatrixType_c2d2403c = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
-    /*package*/ static final SConcept VectorType_c2d2403b = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink matrix$qEHG = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x13afebc2af505abdL, 0x13afebc2af508f96L, "matrix");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MatrixOrVectorType$Xr = MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x513c04200c187a63L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorType");
+    /*package*/ static final SConcept LinearSolveOperation$s8 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x13afebc2af505abdL, "jetbrains.mps.baseLanguage.math.structure.LinearSolveOperation");
+    /*package*/ static final SConcept MatrixType$qA = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
+    /*package*/ static final SConcept VectorType$q7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

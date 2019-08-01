@@ -4,6 +4,7 @@ package jetbrains.mps.lang.resources.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,7 +19,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.FileSystem;
 import javax.swing.ImageIcon;
@@ -27,10 +27,10 @@ import org.jetbrains.mps.openapi.util.Consumer;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Image__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_iyy6q6.Image_fef1bf15;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, "jetbrains.mps.lang.resources.structure.Image");
 
   public static final SMethod<Boolean> isValid_idIb_Fk7zRKP = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isValid").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("Ib_Fk7zRKP").build();
   public static final SMethod<byte[]> getImageForGeneration_id2p1v3tObywX = new SMethodBuilder<byte[]>(new SJavaCompoundTypeImpl(byte[].class)).name("getImageForGeneration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2p1v3tObywX").build();
@@ -49,7 +49,7 @@ public final class Image__BehaviorDescriptor extends BaseBHDescriptor {
     if (macroHelper == null) {
       return false;
     }
-    String path = macroHelper.expandPath(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, 0xb8b96b5078f33bbL, "file")));
+    String path = macroHelper.expandPath(SPropertyOperations.getString(__thisNode__, PROPS.file$dXIq));
     if (path == null) {
       return false;
     }
@@ -67,7 +67,7 @@ public final class Image__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static byte[] getImageForGeneration_id2p1v3tObywX(@NotNull final SNode __thisNode__) {
     return IconCreationUtil.drawIcon(new Consumer<IconCreationUtil.DrawContext>() {
       public void consume(IconCreationUtil.DrawContext dc) {
-        new ImageIcon(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, 0xb8b96b5078f33bbL, "file"))).paintIcon(null, dc.g, 0, 0);
+        new ImageIcon(SPropertyOperations.getString(__thisNode__, PROPS.file$dXIq)).paintIcon(null, dc.g, 0, 0);
       }
     });
   }
@@ -120,7 +120,7 @@ public final class Image__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_iyy6q6 {
-    /*package*/ static final SConcept Image_fef1bf15 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, "jetbrains.mps.lang.resources.structure.Image");
+  private static final class PROPS {
+    /*package*/ static final SProperty file$dXIq = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, 0xb8b96b5078f33bbL, "file");
   }
 }

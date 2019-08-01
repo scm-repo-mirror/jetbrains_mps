@@ -16,13 +16,15 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import java.text.MessageFormat;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import jetbrains.mps.baseLanguage.search.VisibilityUtil;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ final class ClassifierMethodsHierarchyChecker {
   private final SNode myClassifier;
@@ -54,7 +56,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     if (!(abstractMethodsWithoutImplementationsAreAllowed())) {
       final SNode abstractMethod = myCallback.firstAbstractMethodWithoutImplementation();
       if (abstractMethod != null) {
-        if (SNodeOperations.isInstanceOf(myClassifier, AUX_i8dedk.AnonymousClass_e4a73f97)) {
+        if (SNodeOperations.isInstanceOf(myClassifier, CONCEPTS.AnonymousClass$aF)) {
           ListSequence.fromList(errors).addElement(new ErrorReportingItem() {
             @Override
             @CheckingMethod
@@ -62,7 +64,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
               String msg = "The anonymous class must implement abstract method ''{0}'' in ''{1}''";
               {
                 final MessageTarget errorTarget = new NodeMessageTarget();
-                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, MessageFormat.format(msg, SPropertyOperations.getString(abstractMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(abstractMethod), AUX_i8dedk.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "824450455578865184", null, errorTarget);
+                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, MessageFormat.format(msg, SPropertyOperations.getString(abstractMethod, PROPS.name$tAp1), SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(abstractMethod), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "824450455578865184", null, errorTarget);
               }
             }
           });
@@ -74,7 +76,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
               String msg = "The classifier ''{0}'' must be declared abstract or implement abstract method ''{1}'' in ''{2}''";
               {
                 final MessageTarget errorTarget = new NodeMessageTarget();
-                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, MessageFormat.format(msg, SPropertyOperations.getString(SNodeOperations.cast(myNodeToReport, AUX_i8dedk.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(abstractMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(abstractMethod), AUX_i8dedk.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7861981782410371482", null, errorTarget);
+                IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(myNodeToReport, MessageFormat.format(msg, SPropertyOperations.getString(SNodeOperations.cast(myNodeToReport, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1), SPropertyOperations.getString(abstractMethod, PROPS.name$tAp1), SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(abstractMethod), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7861981782410371482", null, errorTarget);
                 {
                   BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.MakeClassAbstract_QuickFix", false);
                   _reporter_2309309498.addIntentionProvider(intentionProvider);
@@ -124,24 +126,24 @@ import org.jetbrains.mps.openapi.language.SConcept;
         }
       }
     };
-    if (SPropertyOperations.getBoolean(baseMethod, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal"))) {
+    if (SPropertyOperations.getBoolean(baseMethod, PROPS.isFinal$I$Qu)) {
       return item;
     }
     return null;
   }
 
   private static String fullName(SNode method) {
-    return SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(method), AUX_i8dedk.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ":" + SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(method), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1) + ":" + SPropertyOperations.getString(method, PROPS.name$tAp1);
   }
 
   @Nullable
   private ErrorReportingItem checkVisibility(final SNode method, SNode baseMethod) {
-    final SNode visibility = SLinkOperations.getTarget(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"));
-    final SNode baseVisibility = SLinkOperations.getTarget(baseMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"));
-    if (SNodeOperations.isInstanceOf(visibility, AUX_i8dedk.PublicVisibility_63d95354)) {
+    final SNode visibility = SLinkOperations.getTarget(method, LINKS.visibility$2GiC);
+    final SNode baseVisibility = SLinkOperations.getTarget(baseMethod, LINKS.visibility$2GiC);
+    if (SNodeOperations.isInstanceOf(visibility, CONCEPTS.PublicVisibility$qe)) {
       return null;
     }
-    if (SNodeOperations.isInstanceOf(visibility, AUX_i8dedk.ProtectedVisibility_64112d59) && !(SNodeOperations.isInstanceOf(baseVisibility, AUX_i8dedk.PublicVisibility_63d95354))) {
+    if (SNodeOperations.isInstanceOf(visibility, CONCEPTS.ProtectedVisibility$OD) && !(SNodeOperations.isInstanceOf(baseVisibility, CONCEPTS.PublicVisibility$qe))) {
       // only public is stronger and must cause an error 
       return null;
     }
@@ -151,7 +153,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       public void report(final TypeCheckingContext typeCheckingContext) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(method, "Trying to assign weaker privileges for the method '" + SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3950519302595116711", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(method, "Trying to assign weaker privileges for the method '" + SPropertyOperations.getString(method, PROPS.name$tAp1) + "'", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3950519302595116711", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.MatchVisibility_QuickFix", false);
             intentionProvider.putArgument("visibility", baseVisibility);
@@ -160,14 +162,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
         }
       }
     };
-    if (SNodeOperations.isInstanceOf(baseVisibility, AUX_i8dedk.PublicVisibility_63d95354)) {
+    if (SNodeOperations.isInstanceOf(baseVisibility, CONCEPTS.PublicVisibility$qe)) {
       return item;
     }
-    if (SNodeOperations.isInstanceOf(baseVisibility, AUX_i8dedk.ProtectedVisibility_64112d59) && visibility == null) {
+    if (SNodeOperations.isInstanceOf(baseVisibility, CONCEPTS.ProtectedVisibility$OD) && visibility == null) {
       return item;
     }
     if (visibility == null && baseVisibility == null) {
-      if (!(ClassifierMethodsHierarchyChecker.packagesAreTheSame(SNodeOperations.cast(SNodeOperations.getParent(method), AUX_i8dedk.Classifier_4b7e553), SNodeOperations.cast(SNodeOperations.getParent(baseMethod), AUX_i8dedk.Classifier_4b7e553)))) {
+      if (!(ClassifierMethodsHierarchyChecker.packagesAreTheSame(SNodeOperations.cast(SNodeOperations.getParent(method), CONCEPTS.Classifier$hJ), SNodeOperations.cast(SNodeOperations.getParent(baseMethod), CONCEPTS.Classifier$hJ)))) {
         return item;
       }
     }
@@ -176,20 +178,31 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 
   private boolean abstractMethodsWithoutImplementationsAreAllowed() {
-    if (SNodeOperations.isInstanceOf(myClassifier, AUX_i8dedk.EnumClass_acf68fc0) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(myClassifier, AUX_i8dedk.EnumClass_acf68fc0), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant"))).isNotEmpty()) {
+    if (SNodeOperations.isInstanceOf(myClassifier, CONCEPTS.EnumClass$uy) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(myClassifier, CONCEPTS.EnumClass$uy), LINKS.enumConstant$urAQ)).isNotEmpty()) {
       return true;
     }
-    return (SNodeOperations.isInstanceOf(myClassifier, AUX_i8dedk.Interface_bca2069) || (SNodeOperations.isInstanceOf(myClassifier, AUX_i8dedk.ClassConcept_e2711824) && SPropertyOperations.getBoolean(SNodeOperations.cast(myClassifier, AUX_i8dedk.ClassConcept_e2711824), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass"))));
+    return (SNodeOperations.isInstanceOf(myClassifier, CONCEPTS.Interface$Kp) || (SNodeOperations.isInstanceOf(myClassifier, CONCEPTS.ClassConcept$IY) && SPropertyOperations.getBoolean(SNodeOperations.cast(myClassifier, CONCEPTS.ClassConcept$IY), PROPS.abstractClass$gY5l)));
   }
 
-  private static final class AUX_i8dedk {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
-    /*package*/ static final SConcept PublicVisibility_63d95354 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
-    /*package*/ static final SConcept ProtectedVisibility_64112d59 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af958b686L, "jetbrains.mps.baseLanguage.structure.ProtectedVisibility");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty isFinal$I$Qu = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal");
+    /*package*/ static final SProperty abstractClass$gY5l = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+    /*package*/ static final SConcept PublicVisibility$qe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
+    /*package*/ static final SConcept ProtectedVisibility$OD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af958b686L, "jetbrains.mps.baseLanguage.structure.ProtectedVisibility");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink enumConstant$urAQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant");
   }
 }

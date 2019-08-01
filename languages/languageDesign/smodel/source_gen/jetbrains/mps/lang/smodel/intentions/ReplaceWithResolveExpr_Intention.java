@@ -15,13 +15,16 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.behavior.ModuleIdentity__BehaviorDescriptor;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ReplaceWithResolveExpr_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -56,17 +59,17 @@ public final class ReplaceWithResolveExpr_Intention extends AbstractIntentionDes
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       PersistenceFacade pf = PersistenceFacade.getInstance();
-      SModuleId mid = pf.createModuleId(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af3L, "moduleId")));
-      SModuleReference moduleRef = pf.createModuleReference(mid, SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af2L, "name")));
-      SNode de = SNodeOperations.replaceWithNewChild(node, AUX_dbjcuy.DotExpression_97ed08d8);
-      SNode expr = SLinkOperations.setNewChild(de, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), AUX_dbjcuy.ModuleRefExpression_700cc42);
-      SNode mp = SLinkOperations.setNewChild(expr, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1749acf3d038bbe2L, 0x1749acf3d038bbe5L, "moduleId"), AUX_dbjcuy.ModulePointer_5af9ea20);
+      SModuleId mid = pf.createModuleId(SPropertyOperations.getString(node, PROPS.moduleId$IIeZ));
+      SModuleReference moduleRef = pf.createModuleReference(mid, SPropertyOperations.getString(node, PROPS.name$IIew));
+      SNode de = SNodeOperations.replaceWithNewChild(node, CONCEPTS.DotExpression$6a);
+      SNode expr = SLinkOperations.setNewChild(de, LINKS.operand$Lcrr, CONCEPTS.ModuleRefExpression$Hw);
+      SNode mp = SLinkOperations.setNewChild(expr, LINKS.moduleId$6hr9, CONCEPTS.ModulePointer$_2);
       ModuleIdentity__BehaviorDescriptor.setModuleReference_idnJmxU5cSTj.invoke(mp, moduleRef);
-      SNode imco = SLinkOperations.setNewChild(de, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), AUX_dbjcuy.InstanceMethodCallOperation_cd28f5b6);
+      SNode imco = SLinkOperations.setNewChild(de, LINKS.operation$X4R8, CONCEPTS.InstanceMethodCallOperation$1G);
       // FIXME need an operation to set link target using nodePointer 
-      SLinkOperations.setPointer(imco, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), new SNodePointer("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)", "~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)"));
+      SLinkOperations.setPointer(imco, LINKS.baseMethodDeclaration$$A7i, new SNodePointer("8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)", "~SModuleReference.resolve(org.jetbrains.mps.openapi.module.SRepository)"));
       // blank arg for SRepo 
-      SLinkOperations.addNewChild(imco, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), null);
+      SLinkOperations.addNewChild(imco, LINKS.actualArgument$$A7L, null);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -74,10 +77,23 @@ public final class ReplaceWithResolveExpr_Intention extends AbstractIntentionDes
     }
   }
 
-  private static final class AUX_dbjcuy {
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept ModuleRefExpression_700cc42 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1749acf3d038bbe2L, "jetbrains.mps.lang.smodel.structure.ModuleRefExpression");
-    /*package*/ static final SConcept ModulePointer_5af9ea20 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, "jetbrains.mps.lang.smodel.structure.ModulePointer");
-    /*package*/ static final SConcept InstanceMethodCallOperation_cd28f5b6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleId$IIeZ = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af3L, "moduleId");
+    /*package*/ static final SProperty name$IIew = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af2L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept ModuleRefExpression$Hw = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1749acf3d038bbe2L, "jetbrains.mps.lang.smodel.structure.ModuleRefExpression");
+    /*package*/ static final SConcept ModulePointer$_2 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, "jetbrains.mps.lang.smodel.structure.ModulePointer");
+    /*package*/ static final SConcept InstanceMethodCallOperation$1G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SContainmentLink moduleId$6hr9 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1749acf3d038bbe2L, 0x1749acf3d038bbe5L, "moduleId");
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
   }
 }

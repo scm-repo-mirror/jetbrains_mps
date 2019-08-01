@@ -21,7 +21,7 @@ public class ConcreteCellSelector_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeOperations.replaceWithNewChild(node, AUX_y5mtya.AbstractCellSelector_2ccdb5fd);
+        SNodeOperations.replaceWithNewChild(node, CONCEPTS.AbstractCellSelector$$5);
       }
 
     };
@@ -32,7 +32,7 @@ public class ConcreteCellSelector_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeOperations.replaceWithNewChild(node, AUX_y5mtya.AbstractCellSelector_2ccdb5fd);
+        SNodeOperations.replaceWithNewChild(node, CONCEPTS.AbstractCellSelector$$5);
       }
 
     };
@@ -77,7 +77,7 @@ public class ConcreteCellSelector_Actions {
     }
   }
 
-  private static final class AUX_y5mtya {
-    /*package*/ static final SConcept AbstractCellSelector_2ccdb5fd = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1b0a9b8c0eb8e726L, "jetbrains.mps.lang.editor.structure.AbstractCellSelector");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractCellSelector$$5 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1b0a9b8c0eb8e726L, "jetbrains.mps.lang.editor.structure.AbstractCellSelector");
   }
 }

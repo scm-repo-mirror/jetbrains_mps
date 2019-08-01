@@ -37,7 +37,7 @@ public class typeof_ReverseOperation_InferenceRule extends AbstractInferenceRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_x9ghl0.ReverseOperation_88a57443;
+    return CONCEPTS.ReverseOperation$dZ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,7 +46,7 @@ public class typeof_ReverseOperation_InferenceRule extends AbstractInferenceRule
     return false;
   }
 
-  private static final class AUX_x9ghl0 {
-    /*package*/ static final SConcept ReverseOperation_88a57443 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111c5da033eL, "jetbrains.mps.baseLanguage.collections.structure.ReverseOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReverseOperation$dZ = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111c5da033eL, "jetbrains.mps.baseLanguage.collections.structure.ReverseOperation");
   }
 }

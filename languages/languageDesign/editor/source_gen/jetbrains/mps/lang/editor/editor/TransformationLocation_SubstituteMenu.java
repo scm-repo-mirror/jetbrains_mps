@@ -14,7 +14,6 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.util.Computable;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
@@ -26,6 +25,8 @@ import jetbrains.mps.lang.editor.menus.substitute.SimpleConceptSubstituteMenuPar
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class TransformationLocation_SubstituteMenu extends SubstituteMenuBase {
@@ -57,7 +58,7 @@ public class TransformationLocation_SubstituteMenu extends SubstituteMenuBase {
       super.initialize(_context);
       condition = new Computable<Boolean>() {
         public Boolean compute() {
-          return Objects.equals(_context.getLink(), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, 0x6ec02d9918b4efbdL, "locations"));
+          return Objects.equals(_context.getLink(), LINKS.locations$aTw0);
         }
       }.compute();
     }
@@ -96,11 +97,11 @@ public class TransformationLocation_SubstituteMenu extends SubstituteMenuBase {
 
       @Override
       protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_fvfxl9_a.SMP_Group_fvfxl9_a0.SMP_Concepts_fvfxl9_a0a(), AUX_fvfxl9.TransformationLocation_13eeb66));
+        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_fvfxl9_a.SMP_Group_fvfxl9_a0.SMP_Concepts_fvfxl9_a0a(), CONCEPTS.TransformationLocation$2W));
       }
       public class SMP_Concepts_fvfxl9_a0a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
         protected Collection getConcepts(SubstituteMenuContext _context) {
-          return Sequence.fromIterable(TransformationMenuActionsUtil.getSubconceptsWithCurrentChildConceptsExcluded(AUX_fvfxl9.TransformationLocation_13eeb66, _context.getParentNode(), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, 0x6ec02d9918b4efbdL, "locations"), _context.getCurrentTargetNode())).toListSequence();
+          return Sequence.fromIterable(TransformationMenuActionsUtil.getSubconceptsWithCurrentChildConceptsExcluded(CONCEPTS.TransformationLocation$2W, _context.getParentNode(), LINKS.locations$aTw0, _context.getCurrentTargetNode())).toListSequence();
         }
 
         @NotNull
@@ -155,7 +156,7 @@ public class TransformationLocation_SubstituteMenu extends SubstituteMenuBase {
       }
       public class SMP_Subconcepts_fvfxl9_a1a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
         protected Collection getConcepts(final SubstituteMenuContext _context) {
-          return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_fvfxl9.TransformationLocation_13eeb66);
+          return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.TransformationLocation$2W);
         }
         @NotNull
         @Override
@@ -177,7 +178,11 @@ public class TransformationLocation_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_fvfxl9 {
-    /*package*/ static final SConcept TransformationLocation_13eeb66 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7c45559defb64aa6L, "jetbrains.mps.lang.editor.structure.TransformationLocation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink locations$aTw0 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, 0x6ec02d9918b4efbdL, "locations");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationLocation$2W = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7c45559defb64aa6L, "jetbrains.mps.lang.editor.structure.TransformationLocation");
   }
 }

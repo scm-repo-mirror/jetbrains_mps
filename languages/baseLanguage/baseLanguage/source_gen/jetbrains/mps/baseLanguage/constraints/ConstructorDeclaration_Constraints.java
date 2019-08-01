@@ -11,7 +11,6 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.ConstraintContext_CanBeParent;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -25,11 +24,12 @@ import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ConstructorDeclaration_Constraints extends BaseConstraintsDescriptor {
   public ConstructorDeclaration_Constraints() {
-    super(AUX_iwy3m3.ConstructorDeclaration_9dbf9ae8);
+    super(CONCEPTS.ConstructorDeclaration$5U);
   }
 
   @Override
@@ -64,7 +64,7 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
   }
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -72,12 +72,12 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
     }
     @Override
     public Object getValue(SNode node) {
-      return SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getParent(node), AUX_iwy3m3.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
     }
   }
   public static class NestedName_Property extends BasePropertyConstraintsDescriptor {
     public NestedName_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, 0x11a135d952bL, "nestedName"), container);
+      super(PROPS.nestedName$L3JJ, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -85,12 +85,12 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
     }
     @Override
     public Object getValue(SNode node) {
-      return SPropertyOperations.getString(SNodeOperations.getNodeAncestor(node, AUX_iwy3m3.Classifier_4b7e553, false, false), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x11a134c900dL, "nestedName"));
+      return SPropertyOperations.getString(SNodeOperations.getNodeAncestor(node, CONCEPTS.Classifier$hJ, false, false), PROPS.nestedName$XUlU);
     }
   }
   public static class ResolveInfo_Property extends BasePropertyConstraintsDescriptor {
     public ResolveInfo_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo"), container);
+      super(PROPS.resolveInfo$eeN8, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -98,25 +98,25 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
     }
     @Override
     public Object getValue(SNode node) {
-      return SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getParent(node), AUX_iwy3m3.IResolveInfo_1483d860), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo"));
+      return SPropertyOperations.getString(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.IResolveInfo$c2), PROPS.resolveInfo$eeN8);
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
-    properties.put(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, 0x11a135d952bL, "nestedName"), new NestedName_Property(this));
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo"), new ResolveInfo_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
+    properties.put(PROPS.nestedName$L3JJ, new NestedName_Property(this));
+    properties.put(PROPS.resolveInfo$eeN8, new ResolveInfo_Property(this));
     return properties;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_iwy3m3.INamedConcept_8cd7e247) && SNodeOperations.isInstanceOf(parentNode, AUX_iwy3m3.IResolveInfo_1483d860);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.INamedConcept$nV) && SNodeOperations.isInstanceOf(parentNode, CONCEPTS.IResolveInfo$c2);
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_iwy3m3.EnumClass_acf68fc0) && Objects.equals(link, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) && !(SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_iwy3m3.PrivateVisibility_63f5dbd4))) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.EnumClass$uy) && Objects.equals(link, LINKS.visibility$2GiC) && !(SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.PrivateVisibility$Se))) {
       return false;
     }
-    if (Objects.equals(link, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType")) && !(SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_iwy3m3.VoidType_d96d05c9))) {
+    if (Objects.equals(link, LINKS.returnType$WIkw) && !(SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.VoidType$aT))) {
       return false;
     }
     return true;
@@ -124,13 +124,25 @@ public class ConstructorDeclaration_Constraints extends BaseConstraintsDescripto
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1227128029536558700");
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1227128029536558678");
 
-  private static final class AUX_iwy3m3 {
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept IResolveInfo_1483d860 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, "jetbrains.mps.lang.core.structure.IResolveInfo");
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept PrivateVisibility_63f5dbd4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
-    /*package*/ static final SConcept VoidType_d96d05c9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept IResolveInfo$c2 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, "jetbrains.mps.lang.core.structure.IResolveInfo");
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept PrivateVisibility$Se = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+    /*package*/ static final SConcept VoidType$aT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty nestedName$L3JJ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, 0x11a135d952bL, "nestedName");
+    /*package*/ static final SProperty nestedName$XUlU = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x11a134c900dL, "nestedName");
+    /*package*/ static final SProperty resolveInfo$eeN8 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x116b17c6e46L, 0x116b17cd415L, "resolveInfo");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink returnType$WIkw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
   }
 }

@@ -27,7 +27,7 @@ public class menuForSubstitutingInIf extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_nw4afl.IfStatement_9dbf9b10) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.IfStatement$pi) {
 
       @NotNull
       @Override
@@ -40,7 +40,7 @@ public class menuForSubstitutingInIf extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_nw4afl.IfStatement_9dbf9b10));
+    }, CONCEPTS.IfStatement$pi));
     result.add(new SMP_Subconcepts_nw4afl_b());
     return result;
   }
@@ -60,7 +60,7 @@ public class menuForSubstitutingInIf extends SubstituteMenuBase {
 
   public class SMP_Subconcepts_nw4afl_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_nw4afl.IfStatement_9dbf9b10);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.IfStatement$pi);
     }
     @NotNull
     @Override
@@ -80,7 +80,7 @@ public class menuForSubstitutingInIf extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_nw4afl {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
   }
 }

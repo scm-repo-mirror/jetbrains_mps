@@ -30,7 +30,6 @@ import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -44,6 +43,8 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BuildCompositePath_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -69,7 +70,7 @@ public class BuildCompositePath_TransformationMenu extends TransformationMenuBas
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_a4cilw.BuildCompositePath_8d3bfbf4)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.BuildCompositePath$7I)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -95,10 +96,10 @@ public class BuildCompositePath_TransformationMenu extends TransformationMenuBas
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
       SNode curr = _context.getNode();
-      while (SNodeOperations.isInstanceOf(curr, AUX_a4cilw.BuildCompositePath_8d3bfbf4)) {
+      while (SNodeOperations.isInstanceOf(curr, CONCEPTS.BuildCompositePath$7I)) {
         curr = SNodeOperations.getParent(curr);
       }
-      return SNodeOperations.isInstanceOf(curr, AUX_a4cilw.BuildRelativePath_e8191f19);
+      return SNodeOperations.isInstanceOf(curr, CONCEPTS.BuildRelativePath$dD);
     }
 
     @NotNull
@@ -133,7 +134,7 @@ public class BuildCompositePath_TransformationMenu extends TransformationMenuBas
       @Override
       protected SNode getNode(TransformationMenuContext _context) {
         SNode curr = _context.getNode();
-        while (SNodeOperations.isInstanceOf(curr, AUX_a4cilw.BuildCompositePath_8d3bfbf4)) {
+        while (SNodeOperations.isInstanceOf(curr, CONCEPTS.BuildCompositePath$7I)) {
           curr = SNodeOperations.getParent(curr);
         }
         return curr;
@@ -179,8 +180,8 @@ public class BuildCompositePath_TransformationMenu extends TransformationMenuBas
 
       @Override
       public void execute(@NotNull String pattern) {
-        SLinkOperations.setTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"), createBuildCompositePath_a4cilw_a0a0a0b1(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"))));
-        SelectionUtil.selectCell(_context.getEditorContext(), SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail")), "*" + CellIdManager.createPropertyId("head"));
+        SLinkOperations.setTarget(_context.getNode(), LINKS.tail$vKD0, createBuildCompositePath_a4cilw_a0a0a0b1(SLinkOperations.getTarget(_context.getNode(), LINKS.tail$vKD0)));
+        SelectionUtil.selectCell(_context.getEditorContext(), SLinkOperations.getTarget(_context.getNode(), LINKS.tail$vKD0), "*" + CellIdManager.createPropertyId("head"));
       }
 
 
@@ -204,15 +205,19 @@ public class BuildCompositePath_TransformationMenu extends TransformationMenuBas
   }
   private static SNode createBuildCompositePath_a4cilw_a0a0a0b1(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_a4cilw.BuildCompositePath_8d3bfbf4, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.BuildCompositePath$7I, null, null, false);
     if (node0 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, AUX_a4cilw.BuildCompositePath_8d3bfbf4)));
+      n1.addChild(LINKS.tail$vKD0, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, CONCEPTS.BuildCompositePath$7I)));
     }
     return n1;
   }
 
-  private static final class AUX_a4cilw {
-    /*package*/ static final SConcept BuildCompositePath_8d3bfbf4 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, "jetbrains.mps.build.structure.BuildCompositePath");
-    /*package*/ static final SConcept BuildRelativePath_e8191f19 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, "jetbrains.mps.build.structure.BuildRelativePath");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildCompositePath$7I = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, "jetbrains.mps.build.structure.BuildCompositePath");
+    /*package*/ static final SConcept BuildRelativePath$dD = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, "jetbrains.mps.build.structure.BuildRelativePath");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink tail$vKD0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail");
   }
 }

@@ -10,8 +10,9 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class substitute_WrapperType_SubstituteTypeRule extends AbstractSubstituteType_Runtime implements SubstituteType_Runtime {
@@ -20,18 +21,22 @@ public class substitute_WrapperType_SubstituteTypeRule extends AbstractSubstitut
   public TypeSubstitution substitution(final SNode wrapperType, SNode originalType, final TypeCheckingContext typeCheckingContext, final IsApplicableStatus status) {
     return new TypeSubstitution(originalType, new _FunctionTypes._return_P0_E0<SNode>() {
       public SNode invoke() {
-        return SLinkOperations.getTarget(wrapperType, MetaAdapterFactory.getContainmentLink(0x9290638e635b4ec6L, 0xbcad945ecb88a928L, 0x116157dc0d8c52bcL, 0x116157dc0d8c52bdL, "wrapped"));
+        return SLinkOperations.getTarget(wrapperType, LINKS.wrapped$V3u0);
       }
     }.invoke(), "r:5e8bba55-70f5-4849-b486-7e33cf1b5bd1(testWrappedType.typesystem)", "7323318266641941989");
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_mkax1v.WrapperType_c907655e;
+    return CONCEPTS.WrapperType$n4;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
   }
 
-  private static final class AUX_mkax1v {
-    /*package*/ static final SConcept WrapperType_c907655e = MetaAdapterFactory.getConcept(0x9290638e635b4ec6L, 0xbcad945ecb88a928L, 0x116157dc0d8c52bcL, "testWrappedType.structure.WrapperType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink wrapped$V3u0 = MetaAdapterFactory.getContainmentLink(0x9290638e635b4ec6L, 0xbcad945ecb88a928L, 0x116157dc0d8c52bcL, 0x116157dc0d8c52bdL, "wrapped");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WrapperType$n4 = MetaAdapterFactory.getConcept(0x9290638e635b4ec6L, 0xbcad945ecb88a928L, 0x116157dc0d8c52bcL, "testWrappedType.structure.WrapperType");
   }
 }

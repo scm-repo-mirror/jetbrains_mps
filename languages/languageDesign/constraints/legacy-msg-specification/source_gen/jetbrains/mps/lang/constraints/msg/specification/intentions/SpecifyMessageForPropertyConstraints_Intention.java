@@ -16,10 +16,11 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.constraints.behavior.NodePropertyConstraint__BehaviorDescriptor;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class SpecifyMessageForPropertyConstraints_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -38,7 +39,7 @@ public final class SpecifyMessageForPropertyConstraints_Intention extends Abstra
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SNodeOperations.isInstanceOf(SModelOperations.getModuleStub(SNodeOperations.getModel(node)), AUX_v5hi2t.Language_33f90ea1);
+    return SNodeOperations.isInstanceOf(SModelOperations.getModuleStub(SNodeOperations.getModel(node)), CONCEPTS.Language$jx);
   }
   @Override
   public boolean isSurroundWith() {
@@ -59,8 +60,8 @@ public final class SpecifyMessageForPropertyConstraints_Intention extends Abstra
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode problem = SNodeFactoryOperations.createNewNode(AUX_v5hi2t.FailingPropertyConstraintsProblem_73fcf7f6, null);
-      SLinkOperations.setTarget(problem, MetaAdapterFactory.getReferenceLink(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, 0x56aefe6c18edb7L, "property"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty")));
+      SNode problem = SNodeFactoryOperations.createNewNode(CONCEPTS.FailingPropertyConstraintsProblem$oG, null);
+      SLinkOperations.setTarget(problem, LINKS.property$K$mE, SLinkOperations.getTarget(node, LINKS.applicableProperty$j$lM));
       new MessageIntentionHelper(problem, NodePropertyConstraint__BehaviorDescriptor.getApplicableConcept_idhEwIoOT.invoke(node)).addProblemCustomization(node, editorContext);
     }
     @Override
@@ -69,8 +70,13 @@ public final class SpecifyMessageForPropertyConstraints_Intention extends Abstra
     }
   }
 
-  private static final class AUX_v5hi2t {
-    /*package*/ static final SConcept Language_33f90ea1 = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, "jetbrains.mps.lang.project.structure.Language");
-    /*package*/ static final SConcept FailingPropertyConstraintsProblem_73fcf7f6 = MetaAdapterFactory.getConcept(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, "jetbrains.mps.lang.feedback.problem.childAndProp.structure.FailingPropertyConstraintsProblem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Language$jx = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, "jetbrains.mps.lang.project.structure.Language");
+    /*package*/ static final SConcept FailingPropertyConstraintsProblem$oG = MetaAdapterFactory.getConcept(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, "jetbrains.mps.lang.feedback.problem.childAndProp.structure.FailingPropertyConstraintsProblem");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink property$K$mE = MetaAdapterFactory.getReferenceLink(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, 0x56aefe6c18edb7L, "property");
+    /*package*/ static final SReferenceLink applicableProperty$j$lM = MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty");
   }
 }

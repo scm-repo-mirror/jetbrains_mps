@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,17 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TypesystemIntentionArgument_Constraints extends BaseConstraintsDescriptor {
   public TypesystemIntentionArgument_Constraints() {
-    super(AUX_8vu3gr.TypesystemIntentionArgument_22406bb7);
+    super(CONCEPTS.TypesystemIntentionArgument$Eb);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, 0x11b3650a4b4L, "quickFixArgument"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.quickFixArgument$pwQi, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -49,9 +50,9 @@ public class TypesystemIntentionArgument_Constraints extends BaseConstraintsDesc
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> nodes = new ArrayList<SNode>();
-            SNode helginsIntention = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_8vu3gr.TypesystemIntention_208c03b8, true, false);
+            SNode helginsIntention = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.TypesystemIntention$aE, true, false);
             if (helginsIntention != null) {
-              ListSequence.fromList(nodes).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(helginsIntention, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, 0x11b3667ec7bL, "quickFix")), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b36163865L, 0x11b361ae27eL, "quickFixArgument"))));
+              ListSequence.fromList(nodes).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(helginsIntention, LINKS.quickFix$FQGK), LINKS.quickFixArgument$XwdH)));
             }
             return ListScope.forResolvableElements(nodes);
           }
@@ -64,8 +65,14 @@ public class TypesystemIntentionArgument_Constraints extends BaseConstraintsDesc
   }
   private static final SNodePointer breakingNode_8vu3gr_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)", "6836281137582807611");
 
-  private static final class AUX_8vu3gr {
-    /*package*/ static final SConcept TypesystemIntentionArgument_22406bb7 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, "jetbrains.mps.lang.typesystem.structure.TypesystemIntentionArgument");
-    /*package*/ static final SConcept TypesystemIntention_208c03b8 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, "jetbrains.mps.lang.typesystem.structure.TypesystemIntention");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypesystemIntentionArgument$Eb = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, "jetbrains.mps.lang.typesystem.structure.TypesystemIntentionArgument");
+    /*package*/ static final SConcept TypesystemIntention$aE = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, "jetbrains.mps.lang.typesystem.structure.TypesystemIntention");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink quickFixArgument$pwQi = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, 0x11b3650a4b4L, "quickFixArgument");
+    /*package*/ static final SReferenceLink quickFix$FQGK = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85e030eL, 0x11b3667ec7bL, "quickFix");
+    /*package*/ static final SContainmentLink quickFixArgument$XwdH = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b36163865L, 0x11b361ae27eL, "quickFixArgument");
   }
 }

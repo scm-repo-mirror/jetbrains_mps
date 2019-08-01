@@ -17,10 +17,10 @@ public class ConvertToSimpleForeach_QuickFix extends QuickFix_Runtime {
     return "Convert to Simple Foreach Statement";
   }
   public void execute(SNode node) {
-    SNodeFactoryOperations.replaceWithNewChild(node, AUX_ooyrku.ForEachStatement_a2950921);
+    SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.ForEachStatement$Dx);
   }
 
-  private static final class AUX_ooyrku {
-    /*package*/ static final SConcept ForEachStatement_a2950921 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, "jetbrains.mps.baseLanguage.collections.structure.ForEachStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ForEachStatement$Dx = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac65f399L, "jetbrains.mps.baseLanguage.collections.structure.ForEachStatement");
   }
 }

@@ -12,20 +12,20 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1153952380246:jetbrains.mps.baseLanguage.structure.TryStatement" />
   <root>
     <file name="FindUsagesDescriptor.java">
-      <unit at="37,0,40,0" name="jetbrains.mps.lang.core.findUsages.FindUsagesDescriptor$AUX_o9tm2l" />
+      <unit at="37,0,40,0" name="jetbrains.mps.lang.core.findUsages.FindUsagesDescriptor$CONCEPTS" />
       <unit at="13,0,41,0" name="jetbrains.mps.lang.core.findUsages.FindUsagesDescriptor" />
     </file>
   </root>
   <root nodeRef="r:3d049421-2cf2-4818-944e-c4d825789632(jetbrains.mps.lang.core.findUsages)/1198430852441">
     <file name="FindUsagesDescriptor.java">
       <node id="1198430852441" at="24,13,25,53" concept="6" />
-      <node id="1198430852441" at="33,65,34,75" concept="1" />
+      <node id="1198430852441" at="33,58,34,68" concept="1" />
       <scope id="1198430852441" at="24,13,25,53" />
     </file>
     <file name="NodeAndDescendantsUsages_Finder.java">
       <node id="1198430852441" at="29,34,30,39" concept="6" />
       <node id="1198430852441" at="33,38,34,14" concept="6" />
-      <node id="1198430852441" at="37,41,38,42" concept="6" />
+      <node id="1198430852441" at="37,41,38,35" concept="6" />
       <node id="1198431665992" at="43,9,44,67" concept="5" />
       <node id="1198431671842" at="44,67,45,50" concept="1" />
       <node id="1206538197370" at="46,130,47,53" concept="1" />
@@ -37,7 +37,7 @@
       <node id="378834190312533771" at="63,85,64,53" concept="1" />
       <node id="1206463382498" at="67,45,68,37" concept="6" />
       <node id="1198430852441" at="73,46,74,83" concept="6" />
-      <node id="1198430852441" at="78,0,79,0" concept="8" trace="BaseConcept_bc2351f" />
+      <node id="1198430852441" at="78,0,79,0" concept="8" trace="BaseConcept$Sz" />
       <node id="1198430852441" at="26,0,28,0" concept="0" trace="NodeAndDescendantsUsages_Finder#()V" />
       <node id="1206538130614" at="45,50,48,7" concept="2" />
       <node id="1198432150344" at="52,58,55,9" concept="3" />
@@ -53,7 +53,7 @@
       <scope id="1198430852441" at="26,44,26,44" />
       <scope id="1198430852441" at="29,34,30,39" />
       <scope id="1198430852441" at="33,38,34,14" />
-      <scope id="1198430852441" at="37,41,38,42" />
+      <scope id="1198430852441" at="37,41,38,35" />
       <scope id="1206538130622" at="46,130,47,53" />
       <scope id="1198432150345" at="53,60,54,59" />
       <scope id="1198430852441" at="57,15,58,21" />
@@ -93,14 +93,14 @@
         <var name="node" id="1198430852441" />
         <var name="scope" id="1198430852441" />
       </scope>
-      <unit id="1198430852441" at="77,0,80,0" name="jetbrains.mps.lang.core.findUsages.NodeAndDescendantsUsages_Finder$AUX_5fp1qx" />
+      <unit id="1198430852441" at="77,0,80,0" name="jetbrains.mps.lang.core.findUsages.NodeAndDescendantsUsages_Finder$CONCEPTS" />
       <unit id="1198430852441" at="25,0,81,0" name="jetbrains.mps.lang.core.findUsages.NodeAndDescendantsUsages_Finder" />
     </file>
   </root>
   <root nodeRef="r:3d049421-2cf2-4818-944e-c4d825789632(jetbrains.mps.lang.core.findUsages)/6148399791136592186">
     <file name="FindUsagesDescriptor.java">
       <node id="6148399791136592186" at="22,13,23,43" concept="6" />
-      <node id="6148399791136592186" at="32,40,33,65" concept="1" />
+      <node id="6148399791136592186" at="32,40,33,58" concept="1" />
       <scope id="6148399791136592186" at="22,13,23,43" />
     </file>
     <file name="IdentityFinder_Finder.java">
@@ -108,12 +108,12 @@
       <node id="6148399791136592186" at="25,40,26,61" concept="6" />
       <node id="6148399791136592186" at="29,34,30,25" concept="6" />
       <node id="6148399791136592186" at="33,38,34,14" concept="6" />
-      <node id="6148399791136592186" at="37,41,38,42" concept="6" />
+      <node id="6148399791136592186" at="37,41,38,35" concept="6" />
       <node id="6148399791136592186" at="42,122,43,39" concept="1" />
       <node id="6148399791136592378" at="44,9,45,54" concept="1" />
       <node id="6148399791136592186" at="46,15,47,21" concept="1" />
       <node id="6148399791136592186" at="54,46,55,89" concept="6" />
-      <node id="6148399791136592186" at="59,0,60,0" concept="8" trace="BaseConcept_bc2351f" />
+      <node id="6148399791136592186" at="59,0,60,0" concept="8" trace="BaseConcept$Sz" />
       <node id="6148399791136592186" at="19,0,21,0" concept="0" trace="IdentityFinder_Finder#()V" />
       <node id="6148399791136592186" at="21,0,24,0" concept="4" trace="isVisible#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/module/SearchScope;)Z" />
       <node id="6148399791136592186" at="24,0,28,0" concept="4" trace="isVisible#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -128,7 +128,7 @@
       <scope id="6148399791136592186" at="25,40,26,61" />
       <scope id="6148399791136592186" at="29,34,30,25" />
       <scope id="6148399791136592186" at="33,38,34,14" />
-      <scope id="6148399791136592186" at="37,41,38,42" />
+      <scope id="6148399791136592186" at="37,41,38,35" />
       <scope id="6148399791136592188" at="44,9,45,54" />
       <scope id="6148399791136592186" at="46,15,47,21" />
       <scope id="6148399791136592186" at="54,46,55,89" />
@@ -151,7 +151,7 @@
         <var name="node" id="6148399791136592186" />
         <var name="scope" id="6148399791136592186" />
       </scope>
-      <unit id="6148399791136592186" at="58,0,61,0" name="jetbrains.mps.lang.core.findUsages.IdentityFinder_Finder$AUX_v0mv4w" />
+      <unit id="6148399791136592186" at="58,0,61,0" name="jetbrains.mps.lang.core.findUsages.IdentityFinder_Finder$CONCEPTS" />
       <unit id="6148399791136592186" at="18,0,62,0" name="jetbrains.mps.lang.core.findUsages.IdentityFinder_Finder" />
     </file>
   </root>

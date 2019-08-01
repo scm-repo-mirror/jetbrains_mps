@@ -7,20 +7,26 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Formula_node_factories {
   public static class NodeFactory_1162840292118 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_7epy1u.Operation_1224df63)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, 0x102db86e5b3L, "leftOperand"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_7epy1u.Operation_1224df63), MetaAdapterFactory.getContainmentLink(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, 0x102db86e5b3L, "leftOperand")));
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, 0x102db87696bL, "rightOperand"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_7epy1u.Operation_1224df63), MetaAdapterFactory.getContainmentLink(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, 0x102db87696bL, "rightOperand")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.Operation$Lv)) {
+        SLinkOperations.setTarget(newNode, LINKS.leftOperand$18cm, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.Operation$Lv), LINKS.leftOperand$18cm));
+        SLinkOperations.setTarget(newNode, LINKS.rightOperand$mAgL, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.Operation$Lv), LINKS.rightOperand$mAgL));
       }
     }
   }
 
-  private static final class AUX_7epy1u {
-    /*package*/ static final SConcept Operation_1224df63 = MetaAdapterFactory.getConcept(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, "jetbrains.mps.samples.formulaLanguage.structure.Operation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Operation$Lv = MetaAdapterFactory.getConcept(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, "jetbrains.mps.samples.formulaLanguage.structure.Operation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink leftOperand$18cm = MetaAdapterFactory.getContainmentLink(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, 0x102db86e5b3L, "leftOperand");
+    /*package*/ static final SContainmentLink rightOperand$mAgL = MetaAdapterFactory.getContainmentLink(0xb1a9bc478a264792L, 0x8b684660c531090aL, 0x102db8620dbL, 0x102db87696bL, "rightOperand");
   }
 }

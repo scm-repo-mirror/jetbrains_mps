@@ -8,16 +8,16 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SubstTestAbstractChild_WithDefaultConcreteConcept_Constraints extends BaseConstraintsDescriptor {
   public SubstTestAbstractChild_WithDefaultConcreteConcept_Constraints() {
-    super(AUX_bglmmj.SubstTestAbstractChild_WithDefaultConcreteConcept_8ee942e9);
+    super(CONCEPTS.SubstTestAbstractChild_WithDefaultConcreteConcept$Ap);
   }
 
   @Override
   public SConcept getDefaultConcreteConcept() {
-    return AUX_bglmmj.SubstTestChild_DefaultConcreteConcept_8ee9d194;
+    return CONCEPTS.SubstTestChild_DefaultConcreteConcept$1e;
   }
 
-  private static final class AUX_bglmmj {
-    /*package*/ static final SConcept SubstTestAbstractChild_WithDefaultConcreteConcept_8ee942e9 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x31877f5a4018caf5L, "jetbrains.mps.lang.editor.editorTest.structure.SubstTestAbstractChild_WithDefaultConcreteConcept");
-    /*package*/ static final SConcept SubstTestChild_DefaultConcreteConcept_8ee9d194 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x31877f5a4018d19eL, "jetbrains.mps.lang.editor.editorTest.structure.SubstTestChild_DefaultConcreteConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstTestAbstractChild_WithDefaultConcreteConcept$Ap = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x31877f5a4018caf5L, "jetbrains.mps.lang.editor.editorTest.structure.SubstTestAbstractChild_WithDefaultConcreteConcept");
+    /*package*/ static final SConcept SubstTestChild_DefaultConcreteConcept$1e = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x31877f5a4018d19eL, "jetbrains.mps.lang.editor.editorTest.structure.SubstTestChild_DefaultConcreteConcept");
   }
 }

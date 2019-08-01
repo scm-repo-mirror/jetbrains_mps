@@ -5,7 +5,6 @@ package jetbrains.mps.core.xml.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlEntityRef_Constraints extends BaseConstraintsDescriptor {
   public XmlEntityRef_Constraints() {
-    super(AUX_nws3l4.XmlEntityRef_6f6afd9a);
+    super(CONCEPTS.XmlEntityRef$k8);
   }
 
   public static class EntityName_Property extends BasePropertyConstraintsDescriptor {
     public EntityName_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9c6f4dL, 0x16838b3fce9c6f8fL, "entityName"), container);
+      super(PROPS.entityName$nUu1, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class XmlEntityRef_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9c6f4dL, 0x16838b3fce9c6f8fL, "entityName"), new EntityName_Property(this));
+    properties.put(PROPS.entityName$nUu1, new EntityName_Property(this));
     return properties;
   }
 
-  private static final class AUX_nws3l4 {
-    /*package*/ static final SConcept XmlEntityRef_6f6afd9a = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9c6f4dL, "jetbrains.mps.core.xml.structure.XmlEntityRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlEntityRef$k8 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9c6f4dL, "jetbrains.mps.core.xml.structure.XmlEntityRef");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty entityName$nUu1 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9c6f4dL, 0x16838b3fce9c6f8fL, "entityName");
   }
 }

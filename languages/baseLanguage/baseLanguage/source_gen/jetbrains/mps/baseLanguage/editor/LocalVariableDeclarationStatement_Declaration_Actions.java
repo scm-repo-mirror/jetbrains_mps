@@ -7,11 +7,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.impl.cellActions.CellAction_CommentOrUncommentNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class LocalVariableDeclarationStatement_Declaration_Actions {
 
@@ -28,7 +29,7 @@ public class LocalVariableDeclarationStatement_Declaration_Actions {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        if (editorContext.getSelectedNode() != SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration"))) {
+        if (editorContext.getSelectedNode() != SLinkOperations.getTarget(node, LINKS.localVariableDeclaration$O0D0)) {
           return false;
         }
         return new CellAction_CommentOrUncommentNode(node).canExecute(editorContext);
@@ -70,5 +71,9 @@ public class LocalVariableDeclarationStatement_Declaration_Actions {
     if (Objects.equals(actionType, CellActionType.COMMENT)) {
       editorCell.setAction(actionType, createAction_COMMENT(node));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink localVariableDeclaration$O0D0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration");
   }
 }

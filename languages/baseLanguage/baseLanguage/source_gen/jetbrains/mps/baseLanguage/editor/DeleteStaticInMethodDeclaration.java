@@ -7,7 +7,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
@@ -16,6 +15,9 @@ import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DeleteStaticInMethodDeclaration {
 
@@ -25,15 +27,15 @@ public class DeleteStaticInMethodDeclaration {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, AUX_zhoqwd.InstanceMethodDeclaration_9dbf9b2b);
+        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.InstanceMethodDeclaration$An);
         MemberDeclarationRefactoringUtil.rewireMethodReferences(node, replacing);
 
-        if (SPropertyOperations.getBoolean(replacing, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x3b576cda23612c7aL, "isSynchronized"))) {
+        if (SPropertyOperations.getBoolean(replacing, PROPS.isSynchronized$PMx)) {
           SelectionUtil.selectCell(editorContext, replacing, "synchronizedModifier");
-        } else if (SPropertyOperations.getBoolean(replacing, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, 0x73f30e3df95c0b73L, "isNative"))) {
+        } else if (SPropertyOperations.getBoolean(replacing, PROPS.isNative$LADB)) {
           SelectionUtil.selectCell(editorContext, replacing, "nativeModifier");
         } else {
-          SelectionUtil.selectLabelCellAnSetCaret(editorContext, SLinkOperations.getTarget(replacing, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType")), SelectionManager.FIRST_EDITABLE_CELL, 0);
+          SelectionUtil.selectLabelCellAnSetCaret(editorContext, SLinkOperations.getTarget(replacing, LINKS.returnType$WIkw), SelectionManager.FIRST_EDITABLE_CELL, 0);
         }
       }
 
@@ -45,10 +47,10 @@ public class DeleteStaticInMethodDeclaration {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, AUX_zhoqwd.InstanceMethodDeclaration_9dbf9b2b);
+        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.InstanceMethodDeclaration$An);
         MemberDeclarationRefactoringUtil.rewireMethodReferences(node, replacing);
 
-        if (SPropertyOperations.getBoolean(replacing, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal"))) {
+        if (SPropertyOperations.getBoolean(replacing, PROPS.isFinal$I$Qu)) {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacing, "finalModifier", -1);
         } else {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacing, SelectionManager.FIRST_EDITABLE_CELL, -1);
@@ -97,7 +99,17 @@ public class DeleteStaticInMethodDeclaration {
     }
   }
 
-  private static final class AUX_zhoqwd {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isNative$LADB = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, 0x73f30e3df95c0b73L, "isNative");
+    /*package*/ static final SProperty isSynchronized$PMx = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x3b576cda23612c7aL, "isSynchronized");
+    /*package*/ static final SProperty isFinal$I$Qu = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink returnType$WIkw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
   }
 }

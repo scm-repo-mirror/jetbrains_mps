@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_EditorExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,7 +22,7 @@ public class typeof_EditorExpression_InferenceRule extends AbstractInferenceRule
   public void applyRule(final SNode editorExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final SNode T_typevar_6981317760235477880 = typeCheckingContext.createNewRuntimeTypesVariable();
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(editorExpression, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91011cL, 0xd244b712f91011dL, "persistentPropertyDeclaration"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(editorExpression, LINKS.persistentPropertyDeclaration$2oKw);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477881", 0, null);
       typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477883", true), (SNode) createPersistentConfigurationType_a3jan8_a1a0c0b0b(typeCheckingContext.getRepresentative(T_typevar_6981317760235477880)), false, false, _info_12389875345);
     }
@@ -32,7 +33,7 @@ public class typeof_EditorExpression_InferenceRule extends AbstractInferenceRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_a3jan8.EditorExpression_9ba05003;
+    return CONCEPTS.EditorExpression$YZ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,20 +43,26 @@ public class typeof_EditorExpression_InferenceRule extends AbstractInferenceRule
   }
   private static SNode createPersistentConfigurationType_a3jan8_a1a0c0b0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_a3jan8.PersistentConfigurationType_9ba047e0, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.PersistentConfigurationType$e2, null, null, false);
+    n1.setReferenceTarget(LINKS.persistentConfiguration$28v0, node0);
     return n1;
   }
   private static SNode createSettingsEditorType_a3jan8_a1a0c0c0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_a3jan8.SettingsEditorType_9ba052eb, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013aL, 0xd244b712f91013bL, "configuration"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SettingsEditorType$Bn, null, null, false);
+    n1.setReferenceTarget(LINKS.configuration$2u$w, node0);
     return n1;
   }
 
-  private static final class AUX_a3jan8 {
-    /*package*/ static final SConcept EditorExpression_9ba05003 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91011cL, "jetbrains.mps.execution.settings.structure.EditorExpression");
-    /*package*/ static final SConcept PersistentConfigurationType_9ba047e0 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType");
-    /*package*/ static final SConcept SettingsEditorType_9ba052eb = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013aL, "jetbrains.mps.execution.settings.structure.SettingsEditorType");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink persistentPropertyDeclaration$2oKw = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91011cL, 0xd244b712f91011dL, "persistentPropertyDeclaration");
+    /*package*/ static final SReferenceLink persistentConfiguration$28v0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration");
+    /*package*/ static final SReferenceLink configuration$2u$w = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013aL, 0xd244b712f91013bL, "configuration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorExpression$YZ = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91011cL, "jetbrains.mps.execution.settings.structure.EditorExpression");
+    /*package*/ static final SConcept PersistentConfigurationType$e2 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType");
+    /*package*/ static final SConcept SettingsEditorType$Bn = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013aL, "jetbrains.mps.execution.settings.structure.SettingsEditorType");
   }
 }

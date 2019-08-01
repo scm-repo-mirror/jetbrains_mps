@@ -75,7 +75,7 @@ public class ConstructorDeclaration_ApplySideTransforms extends TransformationMe
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_n0yxxy.GenericDeclaration_dfe3792c, "jetbrains.mps.baseLanguage.editor.genericDeclaration_right");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.GenericDeclaration$IQ, "jetbrains.mps.baseLanguage.editor.genericDeclaration_right");
     }
 
   }
@@ -98,13 +98,13 @@ public class ConstructorDeclaration_ApplySideTransforms extends TransformationMe
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_n0yxxy.BaseMethodDeclaration_9dbf9acb, "jetbrains.mps.baseLanguage.editor.AddThrowsToMethods");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.BaseMethodDeclaration$RR, "jetbrains.mps.baseLanguage.editor.AddThrowsToMethods");
     }
 
   }
 
-  private static final class AUX_n0yxxy {
-    /*package*/ static final SConcept GenericDeclaration_dfe3792c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, "jetbrains.mps.baseLanguage.structure.GenericDeclaration");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericDeclaration$IQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, "jetbrains.mps.baseLanguage.structure.GenericDeclaration");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
   }
 }

@@ -110,7 +110,7 @@ public class TestSubstituteSpecialChild_TransformationMenu extends Transformatio
       @Nullable
       @Override
       public String getLabelText(String pattern) {
-        if ((AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(AUX_5hy664.TestSubstituteSpecialChildAttribute_3f0d2794)) != null)) {
+        if ((AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteSpecialChildAttribute$De)) != null)) {
           return "Remove Attribute ";
         } else {
           return "Add Attribute";
@@ -119,10 +119,10 @@ public class TestSubstituteSpecialChild_TransformationMenu extends Transformatio
 
       @Override
       public void execute(@NotNull String pattern) {
-        if ((AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(AUX_5hy664.TestSubstituteSpecialChildAttribute_3f0d2794)) != null)) {
-          SNodeOperations.deleteNode(AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(AUX_5hy664.TestSubstituteSpecialChildAttribute_3f0d2794)));
+        if ((AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteSpecialChildAttribute$De)) != null)) {
+          SNodeOperations.deleteNode(AttributeOperations.getAttribute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteSpecialChildAttribute$De)));
         } else {
-          AttributeOperations.createAndSetAttrbiute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(AUX_5hy664.TestSubstituteSpecialChildAttribute_3f0d2794), AUX_5hy664.TestSubstituteSpecialChildAttribute_3f0d2794);
+          AttributeOperations.createAndSetAttrbiute(_context.getNode(), new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteSpecialChildAttribute$De), CONCEPTS.TestSubstituteSpecialChildAttribute$De);
         }
       }
 
@@ -138,7 +138,7 @@ public class TestSubstituteSpecialChild_TransformationMenu extends Transformatio
 
   }
 
-  private static final class AUX_5hy664 {
-    /*package*/ static final SConcept TestSubstituteSpecialChildAttribute_3f0d2794 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x51ed57d5dc9c3b8L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSpecialChildAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteSpecialChildAttribute$De = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x51ed57d5dc9c3b8L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSpecialChildAttribute");
   }
 }

@@ -146,7 +146,7 @@ public class ConsoleTool extends BaseTabbedProjectTool implements PersistentStat
     final TabState tabState = new TabState();
     myProject.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        tabState.title = ((String) BHReflection.invoke0(command, AUX_xg3v07.BaseConcept_bc2351f, SMethodTrimmedId.create("getPresentation", null, "hEwIMiw")));
+        tabState.title = ((String) BHReflection.invoke0(command, CONCEPTS.BaseConcept$Sz, SMethodTrimmedId.create("getPresentation", null, "hEwIMiw")));
       }
     });
     tabState.isHistoryTab = true;
@@ -239,7 +239,7 @@ public class ConsoleTool extends BaseTabbedProjectTool implements PersistentStat
     return (type.isInstance(o) ? (T) o : null);
   }
 
-  private static final class AUX_xg3v07 {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

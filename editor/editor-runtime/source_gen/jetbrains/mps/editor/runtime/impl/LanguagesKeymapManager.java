@@ -89,14 +89,14 @@ public class LanguagesKeymapManager implements ApplicationComponent {
     if (editorModel == null) {
       return Collections.<KeyMap>emptyList();
     }
-    List<SNode> declarations = SModelOperations.roots(editorModel, AUX_k8zi8a.CellKeyMapDeclaration_61c54839);
+    List<SNode> declarations = SModelOperations.roots(editorModel, CONCEPTS.CellKeyMapDeclaration$T9);
     if (ListSequence.fromList(declarations).isEmpty()) {
       return Collections.<KeyMap>emptyList();
     }
     List<KeyMap> keyMaps = ListSequence.fromList(new ArrayList<KeyMap>());
     for (SNode keyMapDeclaration : ListSequence.fromList(declarations)) {
       try {
-        Class<KeyMap> keyMapClass = (Class<KeyMap>) languageRuntime.getClass().getClassLoader().loadClass(((String) BHReflection.invoke0(keyMapDeclaration, AUX_k8zi8a.INamedConcept_8cd7e247, SMethodTrimmedId.create("getFqName", null, "hEwIO9y"))));
+        Class<KeyMap> keyMapClass = (Class<KeyMap>) languageRuntime.getClass().getClassLoader().loadClass(((String) BHReflection.invoke0(keyMapDeclaration, CONCEPTS.INamedConcept$nV, SMethodTrimmedId.create("getFqName", null, "hEwIO9y"))));
         KeyMap keyMap = keyMapClass.newInstance();
         if (keyMap.isApplicableToEveryModel()) {
           ListSequence.fromList(keyMaps).addElement(keyMap);
@@ -140,8 +140,8 @@ public class LanguagesKeymapManager implements ApplicationComponent {
     }
   }
 
-  private static final class AUX_k8zi8a {
-    /*package*/ static final SConcept CellKeyMapDeclaration_61c54839 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfbc216b31bL, "jetbrains.mps.lang.editor.structure.CellKeyMapDeclaration");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellKeyMapDeclaration$T9 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfbc216b31bL, "jetbrains.mps.lang.editor.structure.CellKeyMapDeclaration");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

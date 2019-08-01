@@ -25,7 +25,7 @@ public class typeof_YFunctionParameter_InferenceRule extends AbstractInferenceRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_8sx0xa.YFunctionParameter_ac622327;
+    return CONCEPTS.YFunctionParameter$4r;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_YFunctionParameter_InferenceRule extends AbstractInferenceRu
     return quotedNode_1;
   }
 
-  private static final class AUX_8sx0xa {
-    /*package*/ static final SConcept YFunctionParameter_ac622327 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x76f1cb20ba7a0ed7L, "jetbrains.mps.lang.editor.diagram.structure.YFunctionParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept YFunctionParameter$4r = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x76f1cb20ba7a0ed7L, "jetbrains.mps.lang.editor.diagram.structure.YFunctionParameter");
   }
 }

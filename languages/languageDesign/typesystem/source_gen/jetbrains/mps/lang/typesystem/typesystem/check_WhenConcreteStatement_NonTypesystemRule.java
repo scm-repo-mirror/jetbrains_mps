@@ -24,7 +24,7 @@ public class check_WhenConcreteStatement_NonTypesystemRule extends AbstractNonTy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_e86oee.WhenConcreteStatement_76fb8bc3;
+    return CONCEPTS.WhenConcreteStatement$JZ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class check_WhenConcreteStatement_NonTypesystemRule extends AbstractNonTy
     return false;
   }
 
-  private static final class AUX_e86oee {
-    /*package*/ static final SConcept WhenConcreteStatement_76fb8bc3 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WhenConcreteStatement$JZ = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteStatement");
   }
 }

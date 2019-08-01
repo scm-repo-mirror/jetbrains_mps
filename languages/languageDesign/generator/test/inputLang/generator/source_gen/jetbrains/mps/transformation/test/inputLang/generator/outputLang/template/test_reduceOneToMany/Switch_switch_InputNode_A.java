@@ -41,7 +41,7 @@ public class Switch_switch_InputNode_A extends TemplateSwitchBase implements Tem
   }
   /*package*/ static final class ReductionRule0 extends ReductionRuleBase {
     public ReductionRule0() {
-      super(new SNodePointer("r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceOneToMany@generator)", "1892993302480310367"), AUX_3e5s6f.InputNode_A_1727f4c, false);
+      super(new SNodePointer("r:eca8e1c7-93fd-4ddf-9db6-91f9c2320691(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceOneToMany@generator)", "1892993302480310367"), CONCEPTS.InputNode_A$Am, false);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -51,7 +51,7 @@ public class Switch_switch_InputNode_A extends TemplateSwitchBase implements Tem
     }
   }
 
-  private static final class AUX_3e5s6f {
-    /*package*/ static final SConcept InputNode_A_1727f4c = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645be5a7aL, "jetbrains.mps.transformation.test.inputLang.structure.InputNode_A");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InputNode_A$Am = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645be5a7aL, "jetbrains.mps.transformation.test.inputLang.structure.InputNode_A");
   }
 }

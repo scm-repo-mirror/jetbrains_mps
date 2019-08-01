@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -19,10 +20,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class MappingScript_CodeBlock__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_oy13tp.MappingScript_CodeBlock_527657fc;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11659655aa8L, "jetbrains.mps.lang.generator.structure.MappingScript_CodeBlock");
 
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
 
@@ -32,9 +32,9 @@ public final class MappingScript_CodeBlock__BehaviorDescriptor extends BaseBHDes
   }
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
-    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, AUX_oy13tp.TemplateQueryBase_e1242b50);
-    ListSequence.fromList(result).addElement(AUX_oy13tp.TemplateFunctionParameter_generationContext_c78d9c30);
-    ListSequence.fromList(result).addElement(AUX_oy13tp.ConceptFunctionParameter_model_8efa7e9e);
+    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, CONCEPTS.TemplateQueryBase$Si);
+    ListSequence.fromList(result).addElement(CONCEPTS.TemplateFunctionParameter_generationContext$$M);
+    ListSequence.fromList(result).addElement(CONCEPTS.ConceptFunctionParameter_model$i4);
     return result;
   }
 
@@ -84,10 +84,9 @@ public final class MappingScript_CodeBlock__BehaviorDescriptor extends BaseBHDes
     return CONCEPT;
   }
 
-  private static final class AUX_oy13tp {
-    /*package*/ static final SConcept MappingScript_CodeBlock_527657fc = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11659655aa8L, "jetbrains.mps.lang.generator.structure.MappingScript_CodeBlock");
-    /*package*/ static final SConcept TemplateQueryBase_e1242b50 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11b4d0ca830L, "jetbrains.mps.lang.generator.structure.TemplateQueryBase");
-    /*package*/ static final SConcept TemplateFunctionParameter_generationContext_c78d9c30 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0e3L, "jetbrains.mps.lang.generator.generationContext.structure.TemplateFunctionParameter_generationContext");
-    /*package*/ static final SConcept ConceptFunctionParameter_model_8efa7e9e = MetaAdapterFactory.getConcept(0x13744753c81f424aL, 0x9c1bcf8943bf4e86L, 0x10e761b3745L, "jetbrains.mps.lang.sharedConcepts.structure.ConceptFunctionParameter_model");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateQueryBase$Si = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11b4d0ca830L, "jetbrains.mps.lang.generator.structure.TemplateQueryBase");
+    /*package*/ static final SConcept TemplateFunctionParameter_generationContext$$M = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0e3L, "jetbrains.mps.lang.generator.generationContext.structure.TemplateFunctionParameter_generationContext");
+    /*package*/ static final SConcept ConceptFunctionParameter_model$i4 = MetaAdapterFactory.getConcept(0x13744753c81f424aL, 0x9c1bcf8943bf4e86L, 0x10e761b3745L, "jetbrains.mps.lang.sharedConcepts.structure.ConceptFunctionParameter_model");
   }
 }

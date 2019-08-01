@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Analyzer_Constraints extends BaseConstraintsDescriptor {
   public Analyzer_Constraints() {
-    super(AUX_bodf66.Analyzer_a97ba59e);
+    super(CONCEPTS.Analyzer$Q4);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class Analyzer_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:73c9a355-2bf0-4466-8a7d-8b8d8a945cd4(jetbrains.mps.lang.dataFlow.analyzers.constraints)", "8337746954995823601");
 
-  private static final class AUX_bodf66 {
-    /*package*/ static final SConcept Analyzer_a97ba59e = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Analyzer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Analyzer$Q4 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Analyzer");
   }
 }

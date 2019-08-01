@@ -54,7 +54,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private boolean nodeCondition_h1yxkn_a0() {
-    return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(myNode)), AUX_zbdepj.TransformationLocation_13eeb66);
+    return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(myNode)), CONCEPTS.TransformationLocation$2W);
   }
   private EditorCell createError_0() {
     EditorCell_Error editorCell = new EditorCell_Error(getEditorContext(), myNode, "<choose location>");
@@ -69,7 +69,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
 
-  private static final class AUX_zbdepj {
-    /*package*/ static final SConcept TransformationLocation_13eeb66 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7c45559defb64aa6L, "jetbrains.mps.lang.editor.structure.TransformationLocation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationLocation$2W = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7c45559defb64aa6L, "jetbrains.mps.lang.editor.structure.TransformationLocation");
   }
 }

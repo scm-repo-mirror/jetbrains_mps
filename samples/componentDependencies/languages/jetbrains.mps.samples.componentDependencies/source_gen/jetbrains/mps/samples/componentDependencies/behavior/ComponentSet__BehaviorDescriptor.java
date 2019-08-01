@@ -4,6 +4,7 @@ package jetbrains.mps.samples.componentDependencies.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,15 +16,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ComponentSet__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_62bv7.ComponentSet_5d4b7564;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, "jetbrains.mps.samples.componentDependencies.structure.ComponentSet");
 
   public static final SMethod<Iterable<SNode>> retrieveDependencies_id7SUlOxgz$bp = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("retrieveDependencies").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7SUlOxgz$bp").build();
 
@@ -33,9 +33,9 @@ public final class ComponentSet__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static Iterable<SNode> retrieveDependencies_id7SUlOxgz$bp(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, 0x565e197638146fa8L, "component"))).translate(new ITranslator2<SNode, SNode>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.component$CfKz)).translate(new ITranslator2<SNode, SNode>() {
       public Iterable<SNode> translate(SNode it) {
-        return SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e19763814f147L, "dep"));
+        return SLinkOperations.getChildren(it, LINKS.dep$oYBD);
       }
     });
   }
@@ -86,7 +86,8 @@ public final class ComponentSet__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_62bv7 {
-    /*package*/ static final SConcept ComponentSet_5d4b7564 = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, "jetbrains.mps.samples.componentDependencies.structure.ComponentSet");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink component$CfKz = MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, 0x565e197638146fa8L, "component");
+    /*package*/ static final SContainmentLink dep$oYBD = MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e19763814f147L, "dep");
   }
 }

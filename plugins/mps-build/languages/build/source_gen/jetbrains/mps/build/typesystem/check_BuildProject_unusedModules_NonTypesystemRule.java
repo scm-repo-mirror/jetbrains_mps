@@ -11,7 +11,6 @@ import java.util.Set;
 import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -21,26 +20,29 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_BuildProject_unusedModules_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildProject_unusedModules_NonTypesystemRule() {
   }
   public void applyRule(final SNode buildProject, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     Set<SNode> modules = new HashSet<SNode>();
-    for (SNode jm : ListSequence.fromList(SLinkOperations.getChildren(buildProject, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts"))).where(new IWhereFilter<SNode>() {
+    for (SNode jm : ListSequence.fromList(SLinkOperations.getChildren(buildProject, LINKS.parts$tgxg)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_9m6r9v.BuildSource_JavaModule_b7f292bd);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildSource_JavaModule$h5);
       }
     }).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return SNodeOperations.cast(it, AUX_9m6r9v.BuildSource_JavaModule_b7f292bd);
+        return SNodeOperations.cast(it, CONCEPTS.BuildSource_JavaModule$h5);
       }
     })) {
       modules.add(jm);
     }
 
-    SNode layout = SLinkOperations.getTarget(buildProject, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout"));
+    SNode layout = SLinkOperations.getTarget(buildProject, LINKS.layout$tpCz);
     if (layout != null) {
       for (SNode node : SNodeUtil.getDescendants(layout, null, false)) {
         for (SReference ref : jetbrains.mps.util.SNodeOperations.getReferences(node)) {
@@ -51,13 +53,13 @@ public class check_BuildProject_unusedModules_NonTypesystemRule extends Abstract
     }
     for (SNode unused : modules) {
       {
-        final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(unused, "unused java module", "r:2349e4dd-6518-4a4c-9022-c7887bed8b52(jetbrains.mps.build.typesystem)", "7670275304420345434", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_9m6r9v.BuildProject_808bb057;
+    return CONCEPTS.BuildProject$BF;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -66,8 +68,17 @@ public class check_BuildProject_unusedModules_NonTypesystemRule extends Abstract
     return false;
   }
 
-  private static final class AUX_9m6r9v {
-    /*package*/ static final SConcept BuildSource_JavaModule_b7f292bd = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafacdc38L, "jetbrains.mps.build.structure.BuildSource_JavaModule");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parts$tgxg = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
+    /*package*/ static final SContainmentLink layout$tpCz = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaModule$h5 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafacdc38L, "jetbrains.mps.build.structure.BuildSource_JavaModule");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

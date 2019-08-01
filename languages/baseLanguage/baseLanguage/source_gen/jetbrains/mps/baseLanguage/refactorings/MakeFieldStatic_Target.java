@@ -6,8 +6,9 @@ import jetbrains.mps.refactoring.framework.IRefactoringTarget;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class MakeFieldStatic_Target implements IRefactoringTarget {
   public MakeFieldStatic_Target() {
@@ -25,12 +26,16 @@ public class MakeFieldStatic_Target implements IRefactoringTarget {
     if (!(this.isApplicableToEntityType(entity))) {
       return false;
     }
-    return SNodeOperations.isInstanceOf(((SNode) entity), AUX_9yaqt7.FieldDeclaration_e2711ac6) || SNodeOperations.isInstanceOf(((SNode) entity), AUX_9yaqt7.FieldReferenceOperation_fc8d5dda) || (SNodeOperations.isInstanceOf(((SNode) entity), AUX_9yaqt7.VariableReference_24d60dac) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(((SNode) entity), AUX_9yaqt7.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_9yaqt7.FieldDeclaration_e2711ac6));
+    return SNodeOperations.isInstanceOf(((SNode) entity), CONCEPTS.FieldDeclaration$Ps) || SNodeOperations.isInstanceOf(((SNode) entity), CONCEPTS.FieldReferenceOperation$N8) || (SNodeOperations.isInstanceOf(((SNode) entity), CONCEPTS.VariableReference$sQ) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(((SNode) entity), CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.FieldDeclaration$Ps));
   }
 
-  private static final class AUX_9yaqt7 {
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
-    /*package*/ static final SConcept FieldReferenceOperation_fc8d5dda = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 }

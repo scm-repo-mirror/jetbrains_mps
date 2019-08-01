@@ -13,7 +13,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -21,6 +20,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class CurrencyDefTable_EditorBuilder_a extends AbstractEditorBuilder {
@@ -78,10 +78,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, 0x3210b276d144359cL, "units");
+      return LINKS.units$LHqr;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_v3qy85.CurrencyUnit_bb863a53;
+      return CONCEPTS.CurrencyUnit$XJ;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -91,7 +91,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(unitsListHandler_6q11gp_b0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, 0x3210b276d144359cL, "units")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(unitsListHandler_6q11gp_b0.this.getNode(), LINKS.units$LHqr));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -116,7 +116,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_v3qy85 {
-    /*package*/ static final SConcept CurrencyUnit_bb863a53 = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443597L, "org.jetbrains.mps.samples.Money.structure.CurrencyUnit");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink units$LHqr = MetaAdapterFactory.getContainmentLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, 0x3210b276d144359cL, "units");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CurrencyUnit$XJ = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443597L, "org.jetbrains.mps.samples.Money.structure.CurrencyUnit");
   }
 }

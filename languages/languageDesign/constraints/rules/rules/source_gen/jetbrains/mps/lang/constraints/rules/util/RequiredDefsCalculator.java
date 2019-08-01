@@ -14,10 +14,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class RequiredDefsCalculator {
   private final Map<SNode, List<SNode>> myMemorized = MapSequence.fromMap(new HashMap<SNode, List<SNode>>());
@@ -35,18 +37,18 @@ public final class RequiredDefsCalculator {
       return MapSequence.fromMap(myMemorized).get(member);
     }
     MapSequence.fromMap(myMemorized).put(member, ListSequence.fromList(new ArrayList<SNode>()));
-    final List<SNode> usedDefs = SNodeOperations.getNodeDescendants(member, AUX_6k9d0n.TypedDefReference_5ea34bf3, false, new SAbstractConcept[]{});
-    Iterable<SNode> defsDeclWithApplicabilityOrCustomCell = Sequence.fromIterable(SNodeOperations.ofConcept(Sequence.fromIterable(SLinkOperations.collect(usedDefs, MetaAdapterFactory.getReferenceLink(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration"))).distinct(), AUX_6k9d0n.DefForRule_93a8658c)).where(new IWhereFilter<SNode>() {
+    final List<SNode> usedDefs = SNodeOperations.getNodeDescendants(member, CONCEPTS.TypedDefReference$7f, false, new SAbstractConcept[]{});
+    Iterable<SNode> defsDeclWithApplicabilityOrCustomCell = Sequence.fromIterable(SNodeOperations.ofConcept(Sequence.fromIterable(SLinkOperations.collect(usedDefs, LINKS.declaration$LqCB)).distinct(), CONCEPTS.DefForRule$Hm)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         List<SNode> calculate0 = calculate0(it);
-        return (SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3bd18bf4b10c3c4aL, 0x6e175e60d98b9c4cL, "condition")) != null) || ListSequence.fromList(calculate0).isNotEmpty();
+        return (SLinkOperations.getTarget(it, LINKS.condition$yA9K) != null) || ListSequence.fromList(calculate0).isNotEmpty();
       }
     });
     final List<SNode> requiredDefs = Sequence.fromIterable(defsDeclWithApplicabilityOrCustomCell).select(new ISelector<SNode, SNode>() {
       public SNode select(final SNode def) {
         return ListSequence.fromList(usedDefs).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode ref) {
-            return SLinkOperations.getTarget(ref, MetaAdapterFactory.getReferenceLink(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration")) == def;
+            return SLinkOperations.getTarget(ref, LINKS.declaration$LqCB) == def;
           }
         }).first();
       }
@@ -55,8 +57,13 @@ public final class RequiredDefsCalculator {
     return requiredDefs;
   }
 
-  private static final class AUX_6k9d0n {
-    /*package*/ static final SConcept TypedDefReference_5ea34bf3 = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, "jetbrains.mps.lang.context.defs.structure.TypedDefReference");
-    /*package*/ static final SConcept DefForRule_93a8658c = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359366e9d5L, "jetbrains.mps.lang.constraints.rules.structure.DefForRule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypedDefReference$7f = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, "jetbrains.mps.lang.context.defs.structure.TypedDefReference");
+    /*package*/ static final SConcept DefForRule$Hm = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x653030359366e9d5L, "jetbrains.mps.lang.constraints.rules.structure.DefForRule");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$LqCB = MetaAdapterFactory.getReferenceLink(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration");
+    /*package*/ static final SContainmentLink condition$yA9K = MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x3bd18bf4b10c3c4aL, 0x6e175e60d98b9c4cL, "condition");
   }
 }

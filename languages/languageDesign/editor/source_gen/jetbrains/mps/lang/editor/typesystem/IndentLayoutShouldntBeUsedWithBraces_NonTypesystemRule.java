@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
@@ -17,14 +16,17 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class IndentLayoutShouldntBeUsedWithBraces_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public IndentLayoutShouldntBeUsedWithBraces_NonTypesystemRule() {
   }
   public void applyRule(final SNode editorCellModel, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(editorCellModel, AUX_3gkor8.CellModel_Collection_26007059)) {
-      SNode collection = SNodeOperations.cast(editorCellModel, AUX_3gkor8.CellModel_Collection_26007059);
-      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(collection, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")), AUX_3gkor8.CellLayout_Indent_3a0f3674) && SPropertyOperations.getBoolean(collection, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x1094a893c4dL, "usesBraces"))) {
+    if (SNodeOperations.isInstanceOf(editorCellModel, CONCEPTS.CellModel_Collection$CD)) {
+      SNode collection = SNodeOperations.cast(editorCellModel, CONCEPTS.CellModel_Collection$CD);
+      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(collection, LINKS.cellLayout$usNp), CONCEPTS.CellLayout_Indent$tI) && SPropertyOperations.getBoolean(collection, PROPS.usesBraces$fGbf)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(editorCellModel, "Braces shouldn't be used with indent layout.", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "4575971948964608918", null, errorTarget);
@@ -36,9 +38,9 @@ public class IndentLayoutShouldntBeUsedWithBraces_NonTypesystemRule extends Abst
         }
       }
     }
-    if (SNodeOperations.isInstanceOf(editorCellModel, AUX_3gkor8.CellModel_ListWithRole_416b8e63)) {
-      SNode collection = SNodeOperations.cast(editorCellModel, AUX_3gkor8.CellModel_ListWithRole_416b8e63);
-      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(collection, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e38e8L, "cellLayout")), AUX_3gkor8.CellLayout_Indent_3a0f3674) && SPropertyOperations.getBoolean(collection, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e02fcL, "usesBraces"))) {
+    if (SNodeOperations.isInstanceOf(editorCellModel, CONCEPTS.CellModel_ListWithRole$Pv)) {
+      SNode collection = SNodeOperations.cast(editorCellModel, CONCEPTS.CellModel_ListWithRole$Pv);
+      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(collection, LINKS.cellLayout$63td), CONCEPTS.CellLayout_Indent$tI) && SPropertyOperations.getBoolean(collection, PROPS.usesBraces$aYpx)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(editorCellModel, "Braces shouldn't be used with indent layout.", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "4575971948964608943", null, errorTarget);
@@ -47,7 +49,7 @@ public class IndentLayoutShouldntBeUsedWithBraces_NonTypesystemRule extends Abst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3gkor8.EditorCellModel_226b88d6;
+    return CONCEPTS.EditorCellModel$5c;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -56,10 +58,20 @@ public class IndentLayoutShouldntBeUsedWithBraces_NonTypesystemRule extends Abst
     return false;
   }
 
-  private static final class AUX_3gkor8 {
-    /*package*/ static final SConcept CellModel_Collection_26007059 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, "jetbrains.mps.lang.editor.structure.CellModel_Collection");
-    /*package*/ static final SConcept CellLayout_Indent_3a0f3674 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120150bb441L, "jetbrains.mps.lang.editor.structure.CellLayout_Indent");
-    /*package*/ static final SConcept CellModel_ListWithRole_416b8e63 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, "jetbrains.mps.lang.editor.structure.CellModel_ListWithRole");
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_Collection$CD = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, "jetbrains.mps.lang.editor.structure.CellModel_Collection");
+    /*package*/ static final SConcept CellLayout_Indent$tI = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120150bb441L, "jetbrains.mps.lang.editor.structure.CellLayout_Indent");
+    /*package*/ static final SConcept CellModel_ListWithRole$Pv = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, "jetbrains.mps.lang.editor.structure.CellModel_ListWithRole");
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty usesBraces$fGbf = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x1094a893c4dL, "usesBraces");
+    /*package*/ static final SProperty usesBraces$aYpx = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e02fcL, "usesBraces");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink cellLayout$usNp = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout");
+    /*package*/ static final SContainmentLink cellLayout$63td = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1098c8cf48aL, 0x1098c8e38e8L, "cellLayout");
   }
 }

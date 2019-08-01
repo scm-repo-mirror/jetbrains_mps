@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
@@ -21,13 +20,16 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_Component_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_Component_NonTypesystemRule() {
   }
   public void applyRule(final SNode component, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    for (SNode usedComponent : Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(component, MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e19763814f147L, "dep")), MetaAdapterFactory.getReferenceLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e1976381b71a0L, 0x565e1976381b7654L, "to")))) {
+    for (SNode usedComponent : Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(component, LINKS.dep$oYBD), LINKS.to$V$vW))) {
       final Set<SNode> visitedComponents = SetSequence.fromSet(new HashSet<SNode>());
       Queue<SNode> queue = QueueSequence.fromQueue(new LinkedList<SNode>());
       QueueSequence.fromQueue(queue).addLastElement(usedComponent);
@@ -41,7 +43,7 @@ public class check_Component_NonTypesystemRule extends AbstractNonTypesystemRule
           }
           return;
         }
-        QueueSequence.fromQueue(queue).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(nextComponent, MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e19763814f147L, "dep")), MetaAdapterFactory.getReferenceLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e1976381b71a0L, 0x565e1976381b7654L, "to"))).where(new IWhereFilter<SNode>() {
+        QueueSequence.fromQueue(queue).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(nextComponent, LINKS.dep$oYBD), LINKS.to$V$vW)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return !(SetSequence.fromSet(visitedComponents).contains(it));
           }
@@ -50,7 +52,7 @@ public class check_Component_NonTypesystemRule extends AbstractNonTypesystemRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6hgygs.Component_5ebb22db;
+    return CONCEPTS.Component$vB;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -59,7 +61,12 @@ public class check_Component_NonTypesystemRule extends AbstractNonTypesystemRule
     return false;
   }
 
-  private static final class AUX_6hgygs {
-    /*package*/ static final SConcept Component_5ebb22db = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink dep$oYBD = MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e19763814f147L, "dep");
+    /*package*/ static final SReferenceLink to$V$vW = MetaAdapterFactory.getReferenceLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e1976381b71a0L, 0x565e1976381b7654L, "to");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Component$vB = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
   }
 }

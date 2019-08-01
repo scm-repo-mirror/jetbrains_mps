@@ -25,7 +25,7 @@ public class typeof_Property_RemoveOperation_InferenceRule extends AbstractInfer
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_oezbf2.Property_RemoveOperation_f9609df4;
+    return CONCEPTS.Property_RemoveOperation$ZI;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_Property_RemoveOperation_InferenceRule extends AbstractInfer
     return quotedNode_1;
   }
 
-  private static final class AUX_oezbf2 {
-    /*package*/ static final SConcept Property_RemoveOperation_f9609df4 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11aff7f2bb2L, "jetbrains.mps.lang.smodel.structure.Property_RemoveOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Property_RemoveOperation$ZI = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11aff7f2bb2L, "jetbrains.mps.lang.smodel.structure.Property_RemoveOperation");
   }
 }

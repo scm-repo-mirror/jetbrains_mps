@@ -50,7 +50,7 @@ public class BuildInputSingleFileAbsolutePath_SubstituteMenu extends SubstituteM
 
   public class SMP_Subconcepts_n2gsvi_a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_n2gsvi.BuildInputSingleFileAbsolutePath_5f952c60);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildInputSingleFileAbsolutePath$W2);
     }
     @NotNull
     @Override
@@ -88,7 +88,7 @@ public class BuildInputSingleFileAbsolutePath_SubstituteMenu extends SubstituteM
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_n2gsvi.BuildInputSingleFileAbsolutePath_5f952c60) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.BuildInputSingleFileAbsolutePath$W2) {
 
         @NotNull
         @Override
@@ -101,11 +101,11 @@ public class BuildInputSingleFileAbsolutePath_SubstituteMenu extends SubstituteM
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_n2gsvi.BuildInputSingleFileAbsolutePath_5f952c60));
+      }, CONCEPTS.BuildInputSingleFileAbsolutePath$W2));
     }
   }
 
-  private static final class AUX_n2gsvi {
-    /*package*/ static final SConcept BuildInputSingleFileAbsolutePath_5f952c60 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x72b7d8e699d63212L, "jetbrains.mps.build.structure.BuildInputSingleFileAbsolutePath");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildInputSingleFileAbsolutePath$W2 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x72b7d8e699d63212L, "jetbrains.mps.build.structure.BuildInputSingleFileAbsolutePath");
   }
 }

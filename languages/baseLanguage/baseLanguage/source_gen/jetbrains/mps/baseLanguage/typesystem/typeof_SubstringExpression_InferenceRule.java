@@ -9,10 +9,11 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_SubstringExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -24,23 +25,23 @@ public class typeof_SubstringExpression_InferenceRule extends AbstractInferenceR
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1225276872515", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1225276872517", true), (SNode) _quotation_createNode_o6tm3s_a1a0c0a0b(), _info_12389875345);
     }
-    if (SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, 0x11d47df21f5L, "startIndex")) != null) {
+    if (SLinkOperations.getTarget(expression, LINKS.startIndex$TrUv) != null) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, 0x11d47df21f5L, "startIndex"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, LINKS.startIndex$TrUv);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1225276872529", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1225276872534", true), (SNode) _quotation_createNode_o6tm3s_a1a0c0a0b0b(), false, true, _info_12389875345);
       }
     }
-    if (SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, 0x11d47df21f6L, "endIndex")) != null) {
+    if (SLinkOperations.getTarget(expression, LINKS.endIndex$TrUY) != null) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, 0x11d47df21f6L, "endIndex"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, LINKS.endIndex$TrUY);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1225276872545", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1225276872550", true), (SNode) _quotation_createNode_o6tm3s_a1a0c0a0c0b(), false, true, _info_12389875345);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_o6tm3s.SubstringExpression_925f3196;
+    return CONCEPTS.SubstringExpression$2c;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -67,7 +68,12 @@ public class typeof_SubstringExpression_InferenceRule extends AbstractInferenceR
     return quotedNode_1;
   }
 
-  private static final class AUX_o6tm3s {
-    /*package*/ static final SConcept SubstringExpression_925f3196 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, "jetbrains.mps.baseLanguage.structure.SubstringExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink startIndex$TrUv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, 0x11d47df21f5L, "startIndex");
+    /*package*/ static final SContainmentLink endIndex$TrUY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, 0x11d47df21f6L, "endIndex");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstringExpression$2c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47df21f3L, "jetbrains.mps.baseLanguage.structure.SubstringExpression");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.math.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -19,10 +20,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class MatrixExponentialOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_qjqu0y.MatrixExponentialOperation_6311e3b1;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e647ad7dL, "jetbrains.mps.baseLanguage.math.structure.MatrixExponentialOperation");
 
   public static final SMethod<List<SNode>> getAllowedSubstituends_id2D1PBM_bxH0 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getAllowedSubstituends").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2D1PBM_bxH0").build();
 
@@ -32,7 +32,7 @@ public final class MatrixExponentialOperation__BehaviorDescriptor extends BaseBH
   }
 
   /*package*/ static List<SNode> getAllowedSubstituends_id2D1PBM_bxH0(@NotNull SAbstractConcept __thisConcept__) {
-    List<SNode> result = ExponentialOperation__BehaviorDescriptor.getAllowedSubstituends_id2D1PBM_bxH0.invoke0(__thisConcept__, AUX_qjqu0y.ExponentialOperation_5f7fb6a3);
+    List<SNode> result = ExponentialOperation__BehaviorDescriptor.getAllowedSubstituends_id2D1PBM_bxH0.invoke0(__thisConcept__, CONCEPTS.ExponentialOperation$Ov);
     ListSequence.fromList(result).addElement(SNodeOperations.getNode("r:cb1a36c8-1ffb-415a-aba8-afb9dc042d1b(jetbrains.mps.baseLanguage.math.structure)", "7255837154369580413"));
     return result;
   }
@@ -83,8 +83,7 @@ public final class MatrixExponentialOperation__BehaviorDescriptor extends BaseBH
     return CONCEPT;
   }
 
-  private static final class AUX_qjqu0y {
-    /*package*/ static final SConcept MatrixExponentialOperation_6311e3b1 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e647ad7dL, "jetbrains.mps.baseLanguage.math.structure.MatrixExponentialOperation");
-    /*package*/ static final SConcept ExponentialOperation_5f7fb6a3 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, "jetbrains.mps.baseLanguage.math.structure.ExponentialOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExponentialOperation$Ov = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x64b1e972e6443a20L, "jetbrains.mps.baseLanguage.math.structure.ExponentialOperation");
   }
 }

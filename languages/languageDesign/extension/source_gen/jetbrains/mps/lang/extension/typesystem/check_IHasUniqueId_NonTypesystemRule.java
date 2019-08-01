@@ -16,25 +16,26 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class check_IHasUniqueId_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_IHasUniqueId_NonTypesystemRule() {
   }
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    for (SNode root : ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(node), AUX_er4b3n.IRootWithUniqueName_f02ff145))) {
+    for (SNode root : ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(node), CONCEPTS.IRootWithUniqueName$qX))) {
       if (root != node) {
         if (!(!(Objects.equals(IRootWithUniqueName__BehaviorDescriptor.getId_id3vRuGRRXlj.invoke(root), IRootWithUniqueName__BehaviorDescriptor.getId_id3vRuGRRXlj.invoke(node))))) {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(node, "Duplicated name: " + SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:4b1ddbe6-5067-4a27-8697-eb786b50451b(jetbrains.mps.lang.extension.typesystem)", "195736285282743922", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(node, "Duplicated name: " + SPropertyOperations.getString(node, PROPS.name$tAp1), "r:4b1ddbe6-5067-4a27-8697-eb786b50451b(jetbrains.mps.lang.extension.typesystem)", "195736285282743922", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_er4b3n.IRootWithUniqueName_f02ff145;
+    return CONCEPTS.IRootWithUniqueName$qX;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -43,7 +44,11 @@ public class check_IHasUniqueId_NonTypesystemRule extends AbstractNonTypesystemR
     return false;
   }
 
-  private static final class AUX_er4b3n {
-    /*package*/ static final SInterfaceConcept IRootWithUniqueName_f02ff145 = MetaAdapterFactory.getInterfaceConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x2b7651d49ee9d72L, "jetbrains.mps.lang.extension.structure.IRootWithUniqueName");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IRootWithUniqueName$qX = MetaAdapterFactory.getInterfaceConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x2b7651d49ee9d72L, "jetbrains.mps.lang.extension.structure.IRootWithUniqueName");
   }
 }

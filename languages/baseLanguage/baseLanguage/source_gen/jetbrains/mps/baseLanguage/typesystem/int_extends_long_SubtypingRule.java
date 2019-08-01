@@ -20,7 +20,7 @@ public class int_extends_long_SubtypingRule extends SubtypingRule_Runtime implem
     return _quotation_createNode_z16tdf_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_z16tdf.IntegerType_603aa60a;
+    return CONCEPTS.IntegerType$Eo;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +35,7 @@ public class int_extends_long_SubtypingRule extends SubtypingRule_Runtime implem
     return quotedNode_1;
   }
 
-  private static final class AUX_z16tdf {
-    /*package*/ static final SConcept IntegerType_603aa60a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IntegerType$Eo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
   }
 }

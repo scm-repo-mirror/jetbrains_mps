@@ -13,7 +13,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.build.behavior.BuildFolderMacro__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
@@ -21,7 +20,10 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.io.File;
 import java.io.IOException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PathConverter {
   private final RelativePathHelper workingDirectory;
@@ -41,7 +43,7 @@ public class PathConverter {
 
     final List<Tuples._2<String, SNode>> result = ListSequence.fromList(new ArrayList<Tuples._2<String, SNode>>());
     final List<SNode> withoutPath = ListSequence.fromList(new ArrayList<SNode>());
-    Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(project, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros")), AUX_jbtl65.BuildFolderMacro_b970540e)).visitAll(new IVisitor<SNode>() {
+    Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(project, LINKS.macros$tpFt), CONCEPTS.BuildFolderMacro$Ok)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         String path = normalizePath(BuildFolderMacro__BehaviorDescriptor.evaluate_id4jjtc7WZOzA.invoke(it, ctx), true);
         if (path != null && path.length() > 1) {
@@ -74,7 +76,7 @@ public class PathConverter {
     List<SNode> result = new ArrayList<SNode>();
     final boolean startsWithMacroPrefix = path.startsWith("$");
     for (Tuples._2<String, SNode> m : Sequence.fromIterable(macros)) {
-      String mdir = (startsWithMacroPrefix ? "${" + SPropertyOperations.getString(m._1(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "}/" : m._0());
+      String mdir = (startsWithMacroPrefix ? "${" + SPropertyOperations.getString(m._1(), PROPS.name$tAp1) + "}/" : m._0());
       // XXX what's the check path.length < mdir.length supposed to do? If the path is shorter 
       // than macro path, it would never match? 
       String currPath = (path.length() < mdir.length() ? withSlash : path);
@@ -93,7 +95,7 @@ public class PathConverter {
     }
     if (startsWithMacroPrefix) {
       for (SNode m : Sequence.fromIterable(macrosWithoutPath)) {
-        String mdir = "${" + SPropertyOperations.getString(m, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "}/";
+        String mdir = "${" + SPropertyOperations.getString(m, PROPS.name$tAp1) + "}/";
         String currPath = (path.length() < mdir.length() ? withSlash : path);
         if (currPath.startsWith(mdir)) {
           currPath = currPath.substring(mdir.length());
@@ -133,7 +135,15 @@ public class PathConverter {
 
 
 
-  private static final class AUX_jbtl65 {
-    /*package*/ static final SConcept BuildFolderMacro_b970540e = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink macros$tpFt = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildFolderMacro$Ok = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

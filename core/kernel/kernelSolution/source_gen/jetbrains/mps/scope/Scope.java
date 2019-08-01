@@ -12,8 +12,8 @@ import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public abstract class Scope {
@@ -67,8 +67,8 @@ public abstract class Scope {
     SNode curr = node;
     SNode prev = fromChild;
     while (curr != null) {
-      if (SNodeOperations.isInstanceOf(curr, AUX_nq90a.ScopeProvider_545e361a)) {
-        Scope scope = ((Scope) BHReflection.invoke0(SNodeOperations.cast(curr, AUX_nq90a.ScopeProvider_545e361a), AUX_nq90a.ScopeProvider_545e361a, SMethodTrimmedId.create("getScope", null, "52_Geb4QDV$"), kind, prev));
+      if (SNodeOperations.isInstanceOf(curr, CONCEPTS.ScopeProvider$M8)) {
+        Scope scope = ((Scope) BHReflection.invoke0(SNodeOperations.cast(curr, CONCEPTS.ScopeProvider$M8), CONCEPTS.ScopeProvider$M8, SMethodTrimmedId.create("getScope", null, "52_Geb4QDV$"), kind, prev));
         if (scope != null) {
           return scope;
         }
@@ -82,8 +82,8 @@ public abstract class Scope {
    * Get scope for smart reference, when node doesn't exist yet
    */
   public static Scope getScope(SNode node, SContainmentLink link, int index, SAbstractConcept kind) {
-    if (SNodeOperations.isInstanceOf(node, AUX_nq90a.ScopeProvider_545e361a)) {
-      Scope scope = ((Scope) BHReflection.invoke0(SNodeOperations.cast(node, AUX_nq90a.ScopeProvider_545e361a), AUX_nq90a.ScopeProvider_545e361a, SMethodTrimmedId.create("getScope", null, "52_Geb4QFgX"), kind, link, ((int) index)));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.ScopeProvider$M8)) {
+      Scope scope = ((Scope) BHReflection.invoke0(SNodeOperations.cast(node, CONCEPTS.ScopeProvider$M8), CONCEPTS.ScopeProvider$M8, SMethodTrimmedId.create("getScope", null, "52_Geb4QFgX"), kind, link, ((int) index)));
       if (scope != null) {
         return scope;
       }
@@ -96,10 +96,10 @@ public abstract class Scope {
    */
   public static SNode parent(SNode n) {
     if (SNodeOperations.isAttribute(n)) {
-      if (SNodeOperations.isInstanceOf(n, AUX_nq90a.NodeAttribute_d001db72)) {
+      if (SNodeOperations.isInstanceOf(n, CONCEPTS.NodeAttribute$8K)) {
         SNode next = SNodeOperations.getPrevSibling(n);
         while (next != null) {
-          if (SNodeOperations.isInstanceOf(next, AUX_nq90a.NodeAttribute_d001db72)) {
+          if (SNodeOperations.isInstanceOf(next, CONCEPTS.NodeAttribute$8K)) {
             return next;
           }
           next = SNodeOperations.getPrevSibling(next);
@@ -109,7 +109,7 @@ public abstract class Scope {
       }
       return SNodeOperations.getParent(n);
     }
-    SNode lastAttr = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.cast(n, AUX_nq90a.BaseConcept_bc2351f), MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute")), AUX_nq90a.NodeAttribute_d001db72)).last();
+    SNode lastAttr = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.cast(n, CONCEPTS.BaseConcept$Sz), LINKS.smodelAttribute$K8bJ), CONCEPTS.NodeAttribute$8K)).last();
     if ((lastAttr != null)) {
       return lastAttr;
     }
@@ -117,9 +117,13 @@ public abstract class Scope {
     return SNodeOperations.getParent(n);
   }
 
-  private static final class AUX_nq90a {
-    /*package*/ static final SInterfaceConcept ScopeProvider_545e361a = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
-    /*package*/ static final SConcept NodeAttribute_d001db72 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L, "jetbrains.mps.lang.core.structure.NodeAttribute");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ScopeProvider$M8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
+    /*package*/ static final SConcept NodeAttribute$8K = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L, "jetbrains.mps.lang.core.structure.NodeAttribute");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
   }
 }

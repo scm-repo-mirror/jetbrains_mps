@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_DoneWorkStatement_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,21 +22,21 @@ public class typeof_DoneWorkStatement_InferenceRule extends AbstractInferenceRul
   public void applyRule(final SNode dws, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(dws, MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, 0x29929a95c9f34d4L, "amount"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(dws, LINKS.amount$7P2_);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:b90ae0cf-6b91-458a-92d0-e5bf2ada7de4(jetbrains.mps.make.script.typesystem)", "187226666892740048", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:b90ae0cf-6b91-458a-92d0-e5bf2ada7de4(jetbrains.mps.make.script.typesystem)", "187226666892740040", true), (SNode) _quotation_createNode_e2h6xu_a1a0c0a0a0b(), true, true, _info_12389875345);
       }
     }
-    if ((SLinkOperations.getTarget(dws, MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, 0x1a7648d86181bc00L, "comment")) != null)) {
+    if ((SLinkOperations.getTarget(dws, LINKS.comment$q09q) != null)) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(dws, MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, 0x1a7648d86181bc00L, "comment"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(dws, LINKS.comment$q09q);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:b90ae0cf-6b91-458a-92d0-e5bf2ada7de4(jetbrains.mps.make.script.typesystem)", "1906791586424054403", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:b90ae0cf-6b91-458a-92d0-e5bf2ada7de4(jetbrains.mps.make.script.typesystem)", "1906791586424054395", true), (SNode) _quotation_createNode_e2h6xu_a1a0c0a0b0b(), false, true, _info_12389875345);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_e2h6xu.AdvanceWorkStatement_88d529a4;
+    return CONCEPTS.AdvanceWorkStatement$CY;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -56,7 +57,12 @@ public class typeof_DoneWorkStatement_InferenceRule extends AbstractInferenceRul
     return quotedNode_1;
   }
 
-  private static final class AUX_e2h6xu {
-    /*package*/ static final SConcept AdvanceWorkStatement_88d529a4 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, "jetbrains.mps.make.script.structure.AdvanceWorkStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink amount$7P2_ = MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, 0x29929a95c9f34d4L, "amount");
+    /*package*/ static final SContainmentLink comment$q09q = MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, 0x1a7648d86181bc00L, "comment");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AdvanceWorkStatement$CY = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, "jetbrains.mps.make.script.structure.AdvanceWorkStatement");
   }
 }

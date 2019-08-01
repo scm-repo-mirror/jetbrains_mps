@@ -10,22 +10,23 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_ParenthesisedExpressionSurroundedWithParentheses_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ParenthesisedExpressionSurroundedWithParentheses_NonTypesystemRule() {
   }
   public void applyRule(final SNode parenthesizedExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((boolean) Expression__BehaviorDescriptor.singleValue_id1o8Ht9sES3u.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(parenthesizedExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"))))) || (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(parenthesizedExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression")), AUX_1w5bsq.ParenthesizedExpression_a4b89678)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(parenthesizedExpression), AUX_1w5bsq.ParenthesizedExpression_a4b89678))) {
+    if ((boolean) Expression__BehaviorDescriptor.singleValue_id1o8Ht9sES3u.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(parenthesizedExpression, LINKS.expression$4_F0)))) || (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(parenthesizedExpression, LINKS.expression$4_F0), CONCEPTS.ParenthesizedExpression$vE)) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(parenthesizedExpression), CONCEPTS.ParenthesizedExpression$vE))) {
       SNode currentParent = parenthesizedExpression;
-      while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(currentParent), AUX_1w5bsq.ParenthesizedExpression_a4b89678)) {
-        currentParent = SNodeOperations.cast(SNodeOperations.getParent(currentParent), AUX_1w5bsq.ParenthesizedExpression_a4b89678);
+      while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(currentParent), CONCEPTS.ParenthesizedExpression$vE)) {
+        currentParent = SNodeOperations.cast(SNodeOperations.getParent(currentParent), CONCEPTS.ParenthesizedExpression$vE);
       }
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
@@ -39,7 +40,7 @@ public class check_ParenthesisedExpressionSurroundedWithParentheses_NonTypesyste
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_1w5bsq.ParenthesizedExpression_a4b89678;
+    return CONCEPTS.ParenthesizedExpression$vE;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -48,7 +49,11 @@ public class check_ParenthesisedExpressionSurroundedWithParentheses_NonTypesyste
     return false;
   }
 
-  private static final class AUX_1w5bsq {
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
   }
 }

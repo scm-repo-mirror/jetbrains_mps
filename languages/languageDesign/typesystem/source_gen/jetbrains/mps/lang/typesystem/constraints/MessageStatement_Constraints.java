@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class MessageStatement_Constraints extends BaseConstraintsDescriptor {
   public MessageStatement_Constraints() {
-    super(AUX_yz173.MessageStatement_2fbb1f6d);
+    super(CONCEPTS.MessageStatement$Ql);
   }
 
   @Override
@@ -41,7 +41,7 @@ public class MessageStatement_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)", "1227128029536563821");
 
-  private static final class AUX_yz173 {
-    /*package*/ static final SInterfaceConcept MessageStatement_2fbb1f6d = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MessageStatement$Ql = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
   }
 }

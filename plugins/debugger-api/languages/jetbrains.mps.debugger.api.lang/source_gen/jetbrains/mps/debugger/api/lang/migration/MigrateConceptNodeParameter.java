@@ -11,8 +11,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptMemberNotMigratedProblem;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.module.SearchScope;
 import jetbrains.mps.lang.smodel.query.runtime.CommandUtil;
 import jetbrains.mps.project.EditableFilteringScope;
@@ -22,7 +22,9 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MigrateConceptNodeParameter extends MigrationScriptBase {
   public String getCaption() {
@@ -47,7 +49,7 @@ public class MigrateConceptNodeParameter extends MigrationScriptBase {
   public Iterable<Problem> check(SModule m) {
     return Sequence.fromIterable(getNodesToMigrate(m)).select(new ISelector<SNode, Problem>() {
       public Problem select(SNode it) {
-        return DeprecatedConceptMemberNotMigratedProblem.deprecatedProperty(it, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d2ea8a339L, 0x11d2ea948a4L, "isDeprecated"));
+        return DeprecatedConceptMemberNotMigratedProblem.deprecatedProperty(it, PROPS.isDeprecated$K_Sf);
       }
     });
   }
@@ -66,9 +68,9 @@ public class MigrateConceptNodeParameter extends MigrationScriptBase {
           return scope_q4h85_b0i_0;
         }
       };
-      nodes = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_q4h85.ConceptFunctionParameter_Concept_3f40a577, false)).where(new IWhereFilter<SNode>() {
+      nodes = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ConceptFunctionParameter_Concept$zb, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return !((SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), AUX_q4h85.DotExpression_97ed08d8) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(it), AUX_q4h85.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")), AUX_q4h85.AsNodeOperation_d6928628)));
+          return !((SNodeOperations.isInstanceOf(SNodeOperations.getParent(it), CONCEPTS.DotExpression$6a) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(it), CONCEPTS.DotExpression$6a), LINKS.operation$X4R8), CONCEPTS.AsNodeOperation$SU)));
         }
       });
     }
@@ -85,16 +87,25 @@ public class MigrateConceptNodeParameter extends MigrationScriptBase {
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x116b46a08c4L, "DotExpression"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.operand$Lcrr, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x7b0da3c650be8558L, "AsNodeOperation"), null, null, false);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), quotedNode_4);
+    quotedNode_2.addChild(LINKS.operation$X4R8, quotedNode_4);
     return quotedNode_2;
   }
 
-  private static final class AUX_q4h85 {
-    /*package*/ static final SConcept ConceptFunctionParameter_Concept_3f40a577 = MetaAdapterFactory.getConcept(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x79747203892d4ccdL, "jetbrains.mps.debugger.api.lang.structure.ConceptFunctionParameter_Concept");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept AsNodeOperation_d6928628 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7b0da3c650be8558L, "jetbrains.mps.lang.smodel.structure.AsNodeOperation");
+  private static final class PROPS {
+    /*package*/ static final SProperty isDeprecated$K_Sf = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d2ea8a339L, 0x11d2ea948a4L, "isDeprecated");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptFunctionParameter_Concept$zb = MetaAdapterFactory.getConcept(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x79747203892d4ccdL, "jetbrains.mps.debugger.api.lang.structure.ConceptFunctionParameter_Concept");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept AsNodeOperation$SU = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x7b0da3c650be8558L, "jetbrains.mps.lang.smodel.structure.AsNodeOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
   }
 }

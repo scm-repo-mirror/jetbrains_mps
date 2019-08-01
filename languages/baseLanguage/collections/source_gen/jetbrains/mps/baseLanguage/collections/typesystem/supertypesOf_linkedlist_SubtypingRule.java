@@ -11,11 +11,12 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class supertypesOf_linkedlist_SubtypingRule extends SubtypingRule_Runtime implements ISubtypingRule_Runtime {
@@ -23,13 +24,13 @@ public class supertypesOf_linkedlist_SubtypingRule extends SubtypingRule_Runtime
   }
   public List<SNode> getSubOrSuperTypes(SNode llt, TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     List<SNode> res = new ArrayList<SNode>();
-    ListSequence.fromList(res).addElement(_quotation_createNode_vg4yju_a0a1a1(SLinkOperations.getTarget(llt, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"))));
-    ListSequence.fromList(res).addElement(_quotation_createNode_vg4yju_a0a2a1(SLinkOperations.getTarget(llt, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"))));
-    ListSequence.fromList(res).addElement(_quotation_createNode_vg4yju_a0a3a1(SLinkOperations.getTarget(llt, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"))));
+    ListSequence.fromList(res).addElement(_quotation_createNode_vg4yju_a0a1a1(SLinkOperations.getTarget(llt, LINKS.elementType$xJJW)));
+    ListSequence.fromList(res).addElement(_quotation_createNode_vg4yju_a0a2a1(SLinkOperations.getTarget(llt, LINKS.elementType$xJJW)));
+    ListSequence.fromList(res).addElement(_quotation_createNode_vg4yju_a0a3a1(SLinkOperations.getTarget(llt, LINKS.elementType$xJJW)));
     return res;
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_vg4yju.LinkedListType_c41ca126;
+    return CONCEPTS.LinkedListType$bW;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -44,7 +45,7 @@ public class supertypesOf_linkedlist_SubtypingRule extends SubtypingRule_Runtime
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10c25fb076aL, "ListType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$xJJW, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -55,7 +56,7 @@ public class supertypesOf_linkedlist_SubtypingRule extends SubtypingRule_Runtime
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x2e99e9ab97de7711L, "DequeType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$B4nw, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -66,12 +67,17 @@ public class supertypesOf_linkedlist_SubtypingRule extends SubtypingRule_Runtime
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x5e6446aa46ee5eecL, "StackType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$B4nw, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_vg4yju {
-    /*package*/ static final SConcept LinkedListType_c41ca126 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x2e9a0b9a890137e9L, "jetbrains.mps.baseLanguage.collections.structure.LinkedListType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$xJJW = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType");
+    /*package*/ static final SContainmentLink elementType$B4nw = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LinkedListType$bW = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x2e9a0b9a890137e9L, "jetbrains.mps.baseLanguage.collections.structure.LinkedListType");
   }
 }

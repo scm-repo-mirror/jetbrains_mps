@@ -51,6 +51,7 @@ import jetbrains.mps.project.ModuleId;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 @ToRemove(version = 3.5)
 public class NewModuleUtil {
@@ -228,9 +229,9 @@ public class NewModuleUtil {
     }
     if (!(alreadyOwnsTemplateModel)) {
       SModel templateModel = SModuleOperations.createModelWithAdjustments(new SModelName(null, "main", SModelStereotype.GENERATOR).getValue(), newGenerator.getModelRoots().iterator().next());
-      SNode mappingConfiguration = SModelOperations.createNewNode(templateModel, null, AUX_6f3x1z.MappingConfiguration_587b13db);
+      SNode mappingConfiguration = SModelOperations.createNewNode(templateModel, null, CONCEPTS.MappingConfiguration$rB);
       // both model and MC named 'main' is a bit confusing 
-      SPropertyOperations.assign(mappingConfiguration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "main");
+      SPropertyOperations.assign(mappingConfiguration, PROPS.name$tAp1, "main");
       SModelOperations.addRootNode(templateModel, mappingConfiguration);
       ((EditableSModel) templateModel).save();
     }
@@ -326,7 +327,11 @@ public class NewModuleUtil {
     throw new IllegalStateException("can't create model with " + modelName + " in module " + module.getModuleName());
   }
 
-  private static final class AUX_6f3x1z {
-    /*package*/ static final SConcept MappingConfiguration_587b13db = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MappingConfiguration$rB = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

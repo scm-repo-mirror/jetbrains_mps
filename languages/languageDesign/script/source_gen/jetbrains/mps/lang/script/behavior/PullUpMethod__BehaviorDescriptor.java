@@ -4,6 +4,7 @@ package jetbrains.mps.lang.script.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class PullUpMethod__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_h8luqp.PullUpMethod_c0e8e74d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, "jetbrains.mps.lang.script.structure.PullUpMethod");
 
   public static final SMethod<SNode> getMigration_id4uOLjaPRkIU = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getMigration").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uOLjaPRkIU").build();
 
@@ -31,7 +31,7 @@ public final class PullUpMethod__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode getMigration_id4uOLjaPRkIU(@NotNull SNode __thisNode__) {
-    return SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), AUX_h8luqp.ExtractInterfaceMigration_4551b965);
+    return SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.ExtractInterfaceMigration$at);
   }
 
   /*package*/ PullUpMethod__BehaviorDescriptor() {
@@ -80,8 +80,7 @@ public final class PullUpMethod__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_h8luqp {
-    /*package*/ static final SConcept PullUpMethod_c0e8e74d = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0xbc887f0950c99c4L, "jetbrains.mps.lang.script.structure.PullUpMethod");
-    /*package*/ static final SConcept ExtractInterfaceMigration_4551b965 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, "jetbrains.mps.lang.script.structure.ExtractInterfaceMigration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExtractInterfaceMigration$at = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, "jetbrains.mps.lang.script.structure.ExtractInterfaceMigration");
   }
 }

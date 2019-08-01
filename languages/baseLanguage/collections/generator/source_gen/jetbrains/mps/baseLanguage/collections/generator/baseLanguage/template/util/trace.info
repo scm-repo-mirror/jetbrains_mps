@@ -86,41 +86,44 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590330(jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util)/3446310095634935953">
     <file name="Helper.java">
-      <node id="3446310095635120207" at="13,86,14,90" concept="6" />
-      <node id="5577619521063250909" at="14,90,15,105" concept="8" />
-      <node id="5577619521063252206" at="15,105,16,104" concept="8" />
-      <node id="5577619521063293966" at="16,104,17,52" concept="8" />
-      <node id="3446310095635028235" at="17,52,18,478" concept="7" />
-      <node id="3446310095634978794" at="20,83,21,18" concept="7" />
-      <node id="3446310095634986528" at="23,99,24,18" concept="7" />
-      <node id="3446310095635001314" at="26,102,27,102" concept="6" />
-      <node id="3446310095635001866" at="27,102,28,462" concept="7" />
-      <node id="3446310095634994669" at="29,5,30,17" concept="7" />
-      <node id="3446310095634935953" at="34,0,35,0" concept="9" trace="DotExpression_97ed08d8" />
-      <node id="3446310095634935953" at="35,0,36,0" concept="9" trace="GetSizeOperation_4bb76350" />
-      <node id="3446310095634935953" at="36,0,37,0" concept="9" trace="SequenceOperation_8eeb983d" />
-      <node id="3446310095634935953" at="37,0,38,0" concept="9" trace="MapElement_26fd0ec6" />
-      <node id="3446310095634935953" at="38,0,39,0" concept="9" trace="ListElementAccessExpression_315ff9d" />
-      <node id="3446310095634935953" at="39,0,40,0" concept="9" trace="OperationAssignmentExpression_f95e9b54" />
-      <node id="3446310095634977655" at="19,5,22,5" concept="4" />
-      <node id="3446310095634979806" at="22,5,25,5" concept="4" />
-      <node id="3446310095634987342" at="25,5,29,5" concept="4" />
-      <node id="3446310095634974848" at="12,69,19,5" concept="4" />
-      <node id="3446310095634963860" at="12,0,32,0" concept="10" trace="isCollectionElementAccess#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <scope id="3446310095634977658" at="20,83,21,18" />
-      <scope id="3446310095634979809" at="23,99,24,18" />
-      <scope id="3446310095634987345" at="26,102,28,462">
+      <node id="3446310095635120207" at="14,78,15,82" concept="6" />
+      <node id="5577619521063250909" at="15,82,16,105" concept="8" />
+      <node id="5577619521063252206" at="16,105,17,104" concept="8" />
+      <node id="5577619521063293966" at="17,104,18,52" concept="8" />
+      <node id="3446310095635028235" at="18,52,19,254" concept="7" />
+      <node id="3446310095634978794" at="21,75,22,18" concept="7" />
+      <node id="3446310095634986528" at="24,92,25,18" concept="7" />
+      <node id="3446310095635001314" at="27,94,28,94" concept="6" />
+      <node id="3446310095635001866" at="28,94,29,241" concept="7" />
+      <node id="3446310095634994669" at="30,5,31,17" concept="7" />
+      <node id="3446310095634935953" at="35,0,36,0" concept="9" trace="DotExpression$6a" />
+      <node id="3446310095634935953" at="36,0,37,0" concept="9" trace="GetSizeOperation$oi" />
+      <node id="3446310095634935953" at="37,0,38,0" concept="9" trace="SequenceOperation$V5" />
+      <node id="3446310095634935953" at="38,0,39,0" concept="9" trace="MapElement$_s" />
+      <node id="3446310095634935953" at="39,0,40,0" concept="9" trace="ListElementAccessExpression$d_" />
+      <node id="3446310095634935953" at="40,0,41,0" concept="9" trace="OperationAssignmentExpression$Ue" />
+      <node id="3446310095634935953" at="44,0,45,0" concept="9" trace="operation$X4R8" />
+      <node id="3446310095634935953" at="45,0,46,0" concept="9" trace="lValue$J0D4" />
+      <node id="3446310095634977655" at="20,5,23,5" concept="4" />
+      <node id="3446310095634979806" at="23,5,26,5" concept="4" />
+      <node id="3446310095634987342" at="26,5,30,5" concept="4" />
+      <node id="3446310095634974848" at="13,69,20,5" concept="4" />
+      <node id="3446310095634963860" at="13,0,33,0" concept="10" trace="isCollectionElementAccess#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <scope id="3446310095634977658" at="21,75,22,18" />
+      <scope id="3446310095634979809" at="24,92,25,18" />
+      <scope id="3446310095634987345" at="27,94,29,241">
         <var name="oae" id="3446310095635001317" />
       </scope>
-      <scope id="3446310095634974849" at="13,86,18,478">
+      <scope id="3446310095634974849" at="14,78,19,254">
         <var name="dotExpr" id="3446310095635120210" />
       </scope>
-      <scope id="3446310095634963864" at="12,69,30,17" />
-      <scope id="3446310095634963860" at="12,0,32,0">
+      <scope id="3446310095634963864" at="13,69,31,17" />
+      <scope id="3446310095634963860" at="13,0,33,0">
         <var name="expression" id="3446310095634969577" />
       </scope>
-      <unit id="3446310095634935953" at="33,0,41,0" name="jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.Helper$AUX_hudo87" />
-      <unit id="3446310095634935953" at="11,0,42,0" name="jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.Helper" />
+      <unit id="3446310095634935953" at="43,0,47,0" name="jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.Helper$LINKS" />
+      <unit id="3446310095634935953" at="34,0,42,0" name="jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.Helper$CONCEPTS" />
+      <unit id="3446310095634935953" at="12,0,48,0" name="jetbrains.mps.baseLanguage.collections.generator.baseLanguage.template.util.Helper" />
     </file>
   </root>
 </debug-info>

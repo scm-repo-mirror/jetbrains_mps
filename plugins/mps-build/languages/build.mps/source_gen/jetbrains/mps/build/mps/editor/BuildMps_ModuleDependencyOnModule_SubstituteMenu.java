@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class BuildMps_ModuleDependencyOnModule_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_ss9cng_a(), AUX_ss9cng.BuildMps_ModuleDependencyOnModule_90dfc052));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_ss9cng_a(), CONCEPTS.BuildMps_ModuleDependencyOnModule$_g));
     result.add(new SMP_Subconcepts_ss9cng_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class BuildMps_ModuleDependencyOnModule_SubstituteMenu extends Substitute
 
     public SMP_ReferenceScope_ss9cng_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_ss9cng.BuildMps_ModuleDependencyOnModule_90dfc052, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module"));
+      super((SAbstractConcept) CONCEPTS.BuildMps_ModuleDependencyOnModule$_g, LINKS.module$gbmo);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class BuildMps_ModuleDependencyOnModule_SubstituteMenu extends Substitute
   }
   public class SMP_Subconcepts_ss9cng_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_ss9cng.BuildMps_ModuleDependencyOnModule_90dfc052);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildMps_ModuleDependencyOnModule$_g);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class BuildMps_ModuleDependencyOnModule_SubstituteMenu extends Substitute
     }
   }
 
-  private static final class AUX_ss9cng {
-    /*package*/ static final SConcept BuildMps_ModuleDependencyOnModule_90dfc052 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnModule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_ModuleDependencyOnModule$_g = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnModule");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink module$gbmo = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module");
   }
 }

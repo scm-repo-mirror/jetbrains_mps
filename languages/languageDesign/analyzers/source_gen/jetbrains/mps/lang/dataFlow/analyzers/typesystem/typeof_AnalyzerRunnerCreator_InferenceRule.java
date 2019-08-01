@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
@@ -18,8 +17,11 @@ import java.util.Iterator;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -29,18 +31,18 @@ public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenc
     {
       SNode _nodeToCheck_1029348928467 = analyzerRunnerCreator;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:139daa25-c5a7-4ac9-85a2-eb14d22e8f56(jetbrains.mps.lang.dataFlow.analyzers.typesystem)", "178770917832644953", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:139daa25-c5a7-4ac9-85a2-eb14d22e8f56(jetbrains.mps.lang.dataFlow.analyzers.typesystem)", "178770917832644950", true), (SNode) _quotation_createNode_tazfkf_a1a0c0a0b(SLinkOperations.getTarget(SLinkOperations.getTarget(analyzerRunnerCreator, MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x151c4f99e489a17L, "analyzer")), MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x7f5b799a00c51bbbL, "latticeElementType"))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:139daa25-c5a7-4ac9-85a2-eb14d22e8f56(jetbrains.mps.lang.dataFlow.analyzers.typesystem)", "178770917832644950", true), (SNode) _quotation_createNode_tazfkf_a1a0c0a0b(SLinkOperations.getTarget(SLinkOperations.getTarget(analyzerRunnerCreator, LINKS.analyzer$A9Bw), LINKS.latticeElementType$HN$b)), _info_12389875345);
     }
-    SNode analyzer = SLinkOperations.getTarget(analyzerRunnerCreator, MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x151c4f99e489a17L, "analyzer"));
-    if (ListSequence.fromList(SLinkOperations.getChildren(analyzerRunnerCreator, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x376a4d52f8d10dc6L, "parameters"))).count() != ListSequence.fromList(SLinkOperations.getChildren(analyzer, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x376a4d52f8c2e303L, "constructorParameters"))).count()) {
+    SNode analyzer = SLinkOperations.getTarget(analyzerRunnerCreator, LINKS.analyzer$A9Bw);
+    if (ListSequence.fromList(SLinkOperations.getChildren(analyzerRunnerCreator, LINKS.parameters$yEFx)).count() != ListSequence.fromList(SLinkOperations.getChildren(analyzer, LINKS.constructorParameters$gcHE)).count()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(analyzerRunnerCreator, "wrong number of parameters", "r:139daa25-c5a7-4ac9-85a2-eb14d22e8f56(jetbrains.mps.lang.dataFlow.analyzers.typesystem)", "3993089038374551275", null, errorTarget);
       }
     }
     {
-      Iterator<SNode> actualParameter_it = ListSequence.fromList(SLinkOperations.getChildren(analyzerRunnerCreator, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x376a4d52f8d10dc6L, "parameters"))).iterator();
-      Iterator<SNode> parameter_it = ListSequence.fromList(SLinkOperations.getChildren(analyzer, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x376a4d52f8c2e303L, "constructorParameters"))).iterator();
+      Iterator<SNode> actualParameter_it = ListSequence.fromList(SLinkOperations.getChildren(analyzerRunnerCreator, LINKS.parameters$yEFx)).iterator();
+      Iterator<SNode> parameter_it = ListSequence.fromList(SLinkOperations.getChildren(analyzer, LINKS.constructorParameters$gcHE)).iterator();
       SNode actualParameter_var;
       SNode parameter_var;
       while (actualParameter_it.hasNext() && parameter_it.hasNext()) {
@@ -57,7 +59,7 @@ public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenc
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tazfkf.AnalyzerRunnerCreator_32bcc871;
+    return CONCEPTS.AnalyzerRunnerCreator$kh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -70,15 +72,24 @@ public class typeof_AnalyzerRunnerCreator_InferenceRule extends AbstractInferenc
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"), null, null, false);
-    quotedNode_2.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_2, facade.createModelReference("r:fc94574f-a075-45e6-9927-48e7e87153e6(jetbrains.mps.analyzers.runtime.framework)"), facade.createNodeId("178770917832659559")));
+    quotedNode_2.setReference(LINKS.classifier$pQ_R, SReference.create(LINKS.classifier$pQ_R, quotedNode_2, facade.createModelReference("r:fc94574f-a075-45e6-9927-48e7e87153e6(jetbrains.mps.analyzers.runtime.framework)"), facade.createNodeId("178770917832659559")));
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.parameter$dQne, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_tazfkf {
-    /*package*/ static final SConcept AnalyzerRunnerCreator_32bcc871 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, "jetbrains.mps.lang.dataFlow.analyzers.structure.AnalyzerRunnerCreator");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink analyzer$A9Bw = MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x151c4f99e489a17L, "analyzer");
+    /*package*/ static final SContainmentLink latticeElementType$HN$b = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x7f5b799a00c51bbbL, "latticeElementType");
+    /*package*/ static final SContainmentLink constructorParameters$gcHE = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x376a4d52f8c2e303L, "constructorParameters");
+    /*package*/ static final SContainmentLink parameters$yEFx = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, 0x376a4d52f8d10dc6L, "parameters");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink parameter$dQne = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnalyzerRunnerCreator$kh = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x151c4f99e489a16L, "jetbrains.mps.lang.dataFlow.analyzers.structure.AnalyzerRunnerCreator");
   }
 }

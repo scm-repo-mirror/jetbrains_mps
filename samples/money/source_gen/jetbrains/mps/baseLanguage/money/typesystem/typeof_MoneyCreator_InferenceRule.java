@@ -25,7 +25,7 @@ public class typeof_MoneyCreator_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_n52308.MoneyCreator_163dfa97;
+    return CONCEPTS.MoneyCreator$uF;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_MoneyCreator_InferenceRule extends AbstractInferenceRule_Run
     return quotedNode_1;
   }
 
-  private static final class AUX_n52308 {
-    /*package*/ static final SConcept MoneyCreator_163dfa97 = MetaAdapterFactory.getConcept(0xf43135f9b8334685L, 0x8d26ffb6c8215f72L, 0x11472ff5968L, "jetbrains.mps.baseLanguage.money.structure.MoneyCreator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MoneyCreator$uF = MetaAdapterFactory.getConcept(0xf43135f9b8334685L, 0x8d26ffb6c8215f72L, 0x11472ff5968L, "jetbrains.mps.baseLanguage.money.structure.MoneyCreator");
   }
 }

@@ -9,12 +9,14 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_PrimNumConstant_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_PrimNumConstant_InferenceRule() {
@@ -23,11 +25,11 @@ public class typeof_PrimNumConstant_InferenceRule extends AbstractInferenceRule_
     {
       SNode _nodeToCheck_1029348928467 = primitiveConstant;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:d9c7d7eb-2b42-4829-a0ae-81b54923bc48(testAnnotatedType.typesystem)", "1470921783545367408", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d9c7d7eb-2b42-4829-a0ae-81b54923bc48(testAnnotatedType.typesystem)", "1470921783545367273", true), (SNode) _quotation_createNode_wml952_a1a0c0a0b(SPropertyOperations.getString(primitiveConstant, MetaAdapterFactory.getProperty(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09a5eefL, 0x1469c391a09a5ef0L, "isFloat"))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d9c7d7eb-2b42-4829-a0ae-81b54923bc48(testAnnotatedType.typesystem)", "1470921783545367273", true), (SNode) _quotation_createNode_wml952_a1a0c0a0b(SPropertyOperations.getString(primitiveConstant, PROPS.isFloat$zwK0)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_wml952.PrimNumConstant_ae9c7402;
+    return CONCEPTS.PrimNumConstant$Iw;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -45,14 +47,24 @@ public class typeof_PrimNumConstant_InferenceRule extends AbstractInferenceRule_
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782be61ecL, "SubstituteAnnotation"), null, null, false);
     quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1c7L, "PresenceCondition"), null, null, false);
     SNodeAccessUtil.setPropertyValue(quotedNode_4, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_1);
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1c4L, "condition"), quotedNode_4);
+    quotedNode_3.addChild(LINKS.condition$x8xZ, quotedNode_4);
     quotedNode_5 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, "testAnnotatedType"), 0x58e32a0782beb1bdL, "PrimFloatType"), null, null, false);
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1baL, "substitute"), quotedNode_5);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute"), quotedNode_3);
+    quotedNode_3.addChild(LINKS.substitute$x8iY, quotedNode_5);
+    quotedNode_2.addChild(LINKS.smodelAttribute$K8bJ, quotedNode_3);
     return quotedNode_2;
   }
 
-  private static final class AUX_wml952 {
-    /*package*/ static final SConcept PrimNumConstant_ae9c7402 = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09a5eefL, "testAnnotatedType.structure.PrimNumConstant");
+  private static final class PROPS {
+    /*package*/ static final SProperty isFloat$zwK0 = MetaAdapterFactory.getProperty(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09a5eefL, 0x1469c391a09a5ef0L, "isFloat");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrimNumConstant$Iw = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09a5eefL, "testAnnotatedType.structure.PrimNumConstant");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink condition$x8xZ = MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1c4L, "condition");
+    /*package*/ static final SContainmentLink substitute$x8iY = MetaAdapterFactory.getContainmentLink(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be61ecL, 0x58e32a0782beb1baL, "substitute");
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
   }
 }

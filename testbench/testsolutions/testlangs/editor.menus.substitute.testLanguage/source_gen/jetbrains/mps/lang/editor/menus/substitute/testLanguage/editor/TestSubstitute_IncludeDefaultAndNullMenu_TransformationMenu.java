@@ -76,11 +76,11 @@ public class TestSubstitute_IncludeDefaultAndNullMenu_TransformationMenu extends
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.IncludeDefaultAndNullMenu");
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_lzm9mz.TestSubstitute_IncludeDefaultAndNullMenu_a3cda61;
+      return CONCEPTS.TestSubstitute_IncludeDefaultAndNullMenu$4x;
     }
   }
 
-  private static final class AUX_lzm9mz {
-    /*package*/ static final SConcept TestSubstitute_IncludeDefaultAndNullMenu_a3cda61 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x41299cab94ed9982L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstitute_IncludeDefaultAndNullMenu");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstitute_IncludeDefaultAndNullMenu$4x = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x41299cab94ed9982L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstitute_IncludeDefaultAndNullMenu");
   }
 }

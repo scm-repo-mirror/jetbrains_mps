@@ -9,22 +9,24 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_EditorComponentDeclaration_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_EditorComponentDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode reference, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode editorComponent = SNodeOperations.as(SNodeOperations.getParent(reference), AUX_x3qusq.EditorComponentDeclaration_2ddc41f7);
-    if (editorComponent == null || SLinkOperations.getTarget(reference, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x619d95571435dfe8L, 0x619d95571435e249L, "editorComponent")) == null) {
+    SNode editorComponent = SNodeOperations.as(SNodeOperations.getParent(reference), CONCEPTS.EditorComponentDeclaration$Lb);
+    if (editorComponent == null || SLinkOperations.getTarget(reference, LINKS.editorComponent$okXt) == null) {
       return;
     }
-    if (SLinkOperations.getTarget(SLinkOperations.getTarget(reference, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x619d95571435dfe8L, 0x619d95571435e249L, "editorComponent")), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, 0x619d955714550434L, "overridenEditorComponent")) != null) {
+    if (SLinkOperations.getTarget(SLinkOperations.getTarget(reference, LINKS.editorComponent$okXt), LINKS.overridenEditorComponent$GNSC) != null) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(reference, "Overriden EditorComponent is overriding another editor component. It's possible to override only main editor component directly.", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "608335627140284576", null, errorTarget);
@@ -32,7 +34,7 @@ public class check_EditorComponentDeclaration_NonTypesystemRule extends Abstract
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_x3qusq.EditorComponentDeclarationReference_cd2af82f;
+    return CONCEPTS.EditorComponentDeclarationReference$Oj;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,8 +43,13 @@ public class check_EditorComponentDeclaration_NonTypesystemRule extends Abstract
     return false;
   }
 
-  private static final class AUX_x3qusq {
-    /*package*/ static final SConcept EditorComponentDeclaration_2ddc41f7 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
-    /*package*/ static final SConcept EditorComponentDeclarationReference_cd2af82f = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x619d95571435dfe8L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclarationReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorComponentDeclaration$Lb = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
+    /*package*/ static final SConcept EditorComponentDeclarationReference$Oj = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x619d95571435dfe8L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclarationReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink editorComponent$okXt = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x619d95571435dfe8L, 0x619d95571435e249L, "editorComponent");
+    /*package*/ static final SContainmentLink overridenEditorComponent$GNSC = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, 0x619d955714550434L, "overridenEditorComponent");
   }
 }

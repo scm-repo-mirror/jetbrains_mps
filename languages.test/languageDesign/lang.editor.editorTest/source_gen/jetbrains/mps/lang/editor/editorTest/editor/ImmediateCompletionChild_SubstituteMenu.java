@@ -22,19 +22,20 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_a(), AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_b(), AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_c(), AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_d(), AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_e(), AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_f(), AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_g(), AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_a(), CONCEPTS.ImmediateCompletionChild$9V));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_b(), CONCEPTS.ImmediateCompletionChild$9V));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_c(), CONCEPTS.ImmediateCompletionChild$9V));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_d(), CONCEPTS.ImmediateCompletionChild$9V));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_e(), CONCEPTS.ImmediateCompletionChild$9V));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_f(), CONCEPTS.ImmediateCompletionChild$9V));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rh3s5w_g(), CONCEPTS.ImmediateCompletionChild$9V));
     return result;
   }
 
@@ -79,7 +80,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7, context);
+        super(CONCEPTS.ImmediateCompletionChild$9V, context);
         _context = context;
       }
 
@@ -91,7 +92,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "camelCaseTextOnly");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "camelCaseTextOnly");
         return node;
       }
 
@@ -134,7 +135,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7, context);
+        super(CONCEPTS.ImmediateCompletionChild$9V, context);
         _context = context;
       }
 
@@ -146,7 +147,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "camelCaseAmbigous");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "camelCaseAmbigous");
         return node;
       }
 
@@ -189,7 +190,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7, context);
+        super(CONCEPTS.ImmediateCompletionChild$9V, context);
         _context = context;
       }
 
@@ -201,7 +202,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "camelCaseExtendedAmbigous");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "camelCaseExtendedAmbigous");
         return node;
       }
 
@@ -244,7 +245,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7, context);
+        super(CONCEPTS.ImmediateCompletionChild$9V, context);
         _context = context;
       }
 
@@ -256,7 +257,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "textsearchonly");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "textsearchonly");
         return node;
       }
 
@@ -299,7 +300,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7, context);
+        super(CONCEPTS.ImmediateCompletionChild$9V, context);
         _context = context;
       }
 
@@ -311,7 +312,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "textsearchambigous");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "textsearchambigous");
         return node;
       }
 
@@ -354,7 +355,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7, context);
+        super(CONCEPTS.ImmediateCompletionChild$9V, context);
         _context = context;
       }
 
@@ -366,7 +367,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "extendedtextsearchambigous");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "extendedtextsearchambigous");
         return node;
       }
 
@@ -409,7 +410,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rh3s5w.ImmediateCompletionChild_6b2de5c7, context);
+        super(CONCEPTS.ImmediateCompletionChild$9V, context);
         _context = context;
       }
 
@@ -421,7 +422,7 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild"));
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "stringcontainingcCCEA");
+        SPropertyOperations.assign(node, PROPS.name$tAp1, "stringcontainingcCCEA");
         return node;
       }
 
@@ -437,7 +438,11 @@ public class ImmediateCompletionChild_SubstituteMenu extends SubstituteMenuBase 
     }
   }
 
-  private static final class AUX_rh3s5w {
-    /*package*/ static final SConcept ImmediateCompletionChild_6b2de5c7 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ImmediateCompletionChild$9V = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5704ec6c43ce50dL, "jetbrains.mps.lang.editor.editorTest.structure.ImmediateCompletionChild");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

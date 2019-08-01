@@ -36,7 +36,7 @@ public class MigrationScriptVersions_NonTypesystemRule extends AbstractNonTypesy
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ukw4fn.IMigrationUnit_128da2b8;
+    return CONCEPTS.IMigrationUnit$eE;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -45,7 +45,7 @@ public class MigrationScriptVersions_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_ukw4fn {
-    /*package*/ static final SInterfaceConcept IMigrationUnit_128da2b8 = MetaAdapterFactory.getInterfaceConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x47bb811da2acc4d6L, "jetbrains.mps.lang.migration.structure.IMigrationUnit");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMigrationUnit$eE = MetaAdapterFactory.getInterfaceConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x47bb811da2acc4d6L, "jetbrains.mps.lang.migration.structure.IMigrationUnit");
   }
 }

@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.regexp.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Map;
@@ -13,15 +12,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PredefinedSymbolClassDeclaration_Constraints extends BaseConstraintsDescriptor {
   public PredefinedSymbolClassDeclaration_Constraints() {
-    super(AUX_yirsd7.PredefinedSymbolClassDeclaration_8e53856);
+    super(CONCEPTS.PredefinedSymbolClassDeclaration$7c);
   }
 
   public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
     public ShortDescription_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), container);
+      super(PROPS.shortDescription$w2Xj, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -29,17 +29,22 @@ public class PredefinedSymbolClassDeclaration_Constraints extends BaseConstraint
     }
     @Override
     public Object getValue(SNode node) {
-      return SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e59fd0L, 0x11178e7fa54L, "description"));
+      return SPropertyOperations.getString(node, PROPS.description$j6hO);
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), new ShortDescription_Property(this));
+    properties.put(PROPS.shortDescription$w2Xj, new ShortDescription_Property(this));
     return properties;
   }
 
-  private static final class AUX_yirsd7 {
-    /*package*/ static final SConcept PredefinedSymbolClassDeclaration_8e53856 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e59fd0L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PredefinedSymbolClassDeclaration$7c = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e59fd0L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty shortDescription$w2Xj = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
+    /*package*/ static final SProperty description$j6hO = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e59fd0L, 0x11178e7fa54L, "description");
   }
 }

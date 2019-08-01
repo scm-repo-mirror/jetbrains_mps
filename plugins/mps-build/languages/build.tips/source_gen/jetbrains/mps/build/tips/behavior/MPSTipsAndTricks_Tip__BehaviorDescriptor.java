@@ -4,31 +4,32 @@ package jetbrains.mps.build.tips.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class MPSTipsAndTricks_Tip__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dnr692.MPSTipsAndTricks_Tip_60cdb668;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf2fb910L, "jetbrains.mps.build.tips.structure.MPSTipsAndTricks_Tip");
 
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
 
   private static void ___init___(@NotNull SNode __thisNode__) {
     SNode tmp = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf32687cL, "jetbrains.mps.build.tips.structure.MPSTipsAndTricks_Text"));
-    SPropertyOperations.assign(tmp, MetaAdapterFactory.getProperty(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf32687cL, 0x5ea1926fdf40725aL, "language"), "en");
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf2fb910L, 0x5ea1926fdf32687eL, "text"))).addElement(tmp);
+    SPropertyOperations.assign(tmp, PROPS.language$5AFb, "en");
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.text$SKy8)).addElement(tmp);
   }
 
 
@@ -76,7 +77,11 @@ public final class MPSTipsAndTricks_Tip__BehaviorDescriptor extends BaseBHDescri
     return CONCEPT;
   }
 
-  private static final class AUX_dnr692 {
-    /*package*/ static final SConcept MPSTipsAndTricks_Tip_60cdb668 = MetaAdapterFactory.getConcept(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf2fb910L, "jetbrains.mps.build.tips.structure.MPSTipsAndTricks_Tip");
+  private static final class PROPS {
+    /*package*/ static final SProperty language$5AFb = MetaAdapterFactory.getProperty(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf32687cL, 0x5ea1926fdf40725aL, "language");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink text$SKy8 = MetaAdapterFactory.getContainmentLink(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x5ea1926fdf2fb910L, 0x5ea1926fdf32687eL, "text");
   }
 }

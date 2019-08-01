@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_PrintNodeReferenceExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,14 +22,14 @@ public class typeof_PrintNodeReferenceExpression_InferenceRule extends AbstractI
   public void applyRule(final SNode printNodeReferenceExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(printNodeReferenceExpression, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6c8954f469a7c420L, 0x7417cca3eb1ff761L, "object"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(printNodeReferenceExpression, LINKS.object$gmkA);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:ae7d1f20-2cfe-46ef-a88a-193353a8b62b(jetbrains.mps.console.base.typesystem)", "6852607286009512877", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:ae7d1f20-2cfe-46ef-a88a-193353a8b62b(jetbrains.mps.console.base.typesystem)", "6852607286009511978", true), (SNode) _quotation_createNode_t5gmh8_a1a0c0a0a0b(), true, false, _info_12389875345);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_t5gmh8.PrintNodeReferenceExpression_b5491646;
+    return CONCEPTS.PrintNodeReferenceExpression$7s;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -43,7 +44,11 @@ public class typeof_PrintNodeReferenceExpression_InferenceRule extends AbstractI
     return quotedNode_1;
   }
 
-  private static final class AUX_t5gmh8 {
-    /*package*/ static final SConcept PrintNodeReferenceExpression_b5491646 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f195a051bd9bddcL, "jetbrains.mps.console.base.structure.PrintNodeReferenceExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink object$gmkA = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6c8954f469a7c420L, 0x7417cca3eb1ff761L, "object");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrintNodeReferenceExpression$7s = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f195a051bd9bddcL, "jetbrains.mps.console.base.structure.PrintNodeReferenceExpression");
   }
 }

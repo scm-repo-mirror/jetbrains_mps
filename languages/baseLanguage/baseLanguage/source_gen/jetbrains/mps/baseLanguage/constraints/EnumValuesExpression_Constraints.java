@@ -5,22 +5,22 @@ package jetbrains.mps.baseLanguage.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class EnumValuesExpression_Constraints extends BaseConstraintsDescriptor {
   public EnumValuesExpression_Constraints() {
-    super(AUX_hy837d.EnumValuesExpression_cd1b188d);
+    super(CONCEPTS.EnumValuesExpression$xP);
   }
 
   public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
     public ShortDescription_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), container);
+      super(PROPS.shortDescription$w2Xj, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -34,11 +34,15 @@ public class EnumValuesExpression_Constraints extends BaseConstraintsDescriptor 
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), new ShortDescription_Property(this));
+    properties.put(PROPS.shortDescription$w2Xj, new ShortDescription_Property(this));
     return properties;
   }
 
-  private static final class AUX_hy837d {
-    /*package*/ static final SConcept EnumValuesExpression_cd1b188d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d1e4bce56L, "jetbrains.mps.baseLanguage.structure.EnumValuesExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumValuesExpression$xP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d1e4bce56L, "jetbrains.mps.baseLanguage.structure.EnumValuesExpression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty shortDescription$w2Xj = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
   }
 }

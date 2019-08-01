@@ -92,7 +92,7 @@ public class SwitchStatement_ApplySideTransforms extends TransformationMenuBase 
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_pfcz78.SwitchStatement_11e52181);
+      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.SwitchStatement$S1);
     }
 
     @Nullable
@@ -102,7 +102,7 @@ public class SwitchStatement_ApplySideTransforms extends TransformationMenuBase 
     }
   }
 
-  private static final class AUX_pfcz78 {
-    /*package*/ static final SConcept SwitchStatement_11e52181 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, "jetbrains.mps.baseLanguage.structure.SwitchStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SwitchStatement$S1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, "jetbrains.mps.baseLanguage.structure.SwitchStatement");
   }
 }

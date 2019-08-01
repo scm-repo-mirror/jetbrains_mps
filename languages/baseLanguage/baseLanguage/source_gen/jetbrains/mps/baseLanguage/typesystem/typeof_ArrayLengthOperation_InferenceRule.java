@@ -25,7 +25,7 @@ public class typeof_ArrayLengthOperation_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_8es312.ArrayLengthOperation_5eed6e5d;
+    return CONCEPTS.ArrayLengthOperation$M_;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ArrayLengthOperation_InferenceRule extends AbstractInference
     return quotedNode_1;
   }
 
-  private static final class AUX_8es312 {
-    /*package*/ static final SConcept ArrayLengthOperation_5eed6e5d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1197781411dL, "jetbrains.mps.baseLanguage.structure.ArrayLengthOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ArrayLengthOperation$M_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1197781411dL, "jetbrains.mps.baseLanguage.structure.ArrayLengthOperation");
   }
 }

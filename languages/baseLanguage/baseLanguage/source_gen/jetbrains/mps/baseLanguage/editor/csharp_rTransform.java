@@ -57,7 +57,7 @@ public class csharp_rTransform extends TransformationMenuBase {
   public class TMP_Group_xbr0jd_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_xbr0jd.AsExpression_7044074e);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.AsExpression$7k);
     }
 
     @NotNull
@@ -97,7 +97,7 @@ public class csharp_rTransform extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_xbr0jd {
-    /*package*/ static final SConcept AsExpression_7044074e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, "jetbrains.mps.baseLanguage.structure.AsExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AsExpression$7k = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d00538bdfL, "jetbrains.mps.baseLanguage.structure.AsExpression");
   }
 }

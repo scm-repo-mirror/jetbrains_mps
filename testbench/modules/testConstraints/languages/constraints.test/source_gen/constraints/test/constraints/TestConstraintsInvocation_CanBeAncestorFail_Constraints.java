@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestConstraintsInvocation_CanBeAncestorFail_Constraints extends BaseConstraintsDescriptor {
   public TestConstraintsInvocation_CanBeAncestorFail_Constraints() {
-    super(AUX_8hyed4.TestConstraintsInvocation_CanBeAncestorFail_99ac392);
+    super(CONCEPTS.TestConstraintsInvocation_CanBeAncestorFail$Sg);
   }
 
   @Override
@@ -36,12 +36,12 @@ public class TestConstraintsInvocation_CanBeAncestorFail_Constraints extends Bas
     };
   }
   private static boolean staticCanBeAnAncestor(SNode node, SNode childNode, SAbstractConcept childConcept, SNode parentNode, SContainmentLink link) {
-    return !(childConcept.equals(AUX_8hyed4.TestConstraintsInvocation_Child_8106fb23));
+    return !(childConcept.equals(CONCEPTS.TestConstraintsInvocation_Child$yv));
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:6789573d-c842-4805-bb3b-05fd4fbf786e(constraints.test.constraints)", "730305212589402676");
 
-  private static final class AUX_8hyed4 {
-    /*package*/ static final SConcept TestConstraintsInvocation_CanBeAncestorFail_99ac392 = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223ebL, "constraints.test.structure.TestConstraintsInvocation_CanBeAncestorFail");
-    /*package*/ static final SConcept TestConstraintsInvocation_Child_8106fb23 = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0xa2290b8b60493a1L, "constraints.test.structure.TestConstraintsInvocation_Child");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestConstraintsInvocation_CanBeAncestorFail$Sg = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x7438d976714223ebL, "constraints.test.structure.TestConstraintsInvocation_CanBeAncestorFail");
+    /*package*/ static final SConcept TestConstraintsInvocation_Child$yv = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0xa2290b8b60493a1L, "constraints.test.structure.TestConstraintsInvocation_Child");
   }
 }

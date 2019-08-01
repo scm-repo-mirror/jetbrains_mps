@@ -19,7 +19,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BwfJavaClassPath_Constraints extends BaseConstraintsDescriptor {
   public BwfJavaClassPath_Constraints() {
-    super(AUX_gi6tq8.BwfJavaClassPath_ebd3ee4d);
+    super(CONCEPTS.BwfJavaClassPath$EP);
   }
 
   @Override
@@ -38,14 +38,14 @@ public class BwfJavaClassPath_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_gi6tq8.XmlElement_6047438c) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_gi6tq8.BwfPathReference_1151d550) || SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), AUX_gi6tq8.NodeAttribute_d001db72);
+    return SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.XmlElement$Pm) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.BwfPathReference$gi) || SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.NodeAttribute$8K);
   }
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:8c3c79a2-2377-4680-a62f-78d39fdded56(jetbrains.mps.build.workflow.constraints)", "1227128029536580229");
 
-  private static final class AUX_gi6tq8 {
-    /*package*/ static final SConcept BwfJavaClassPath_ebd3ee4d = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, "jetbrains.mps.build.workflow.structure.BwfJavaClassPath");
-    /*package*/ static final SConcept NodeAttribute_d001db72 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L, "jetbrains.mps.lang.core.structure.NodeAttribute");
-    /*package*/ static final SConcept XmlElement_6047438c = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, "jetbrains.mps.core.xml.structure.XmlElement");
-    /*package*/ static final SConcept BwfPathReference_1151d550 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cef4c1fL, "jetbrains.mps.build.workflow.structure.BwfPathReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfJavaClassPath$EP = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, "jetbrains.mps.build.workflow.structure.BwfJavaClassPath");
+    /*package*/ static final SConcept NodeAttribute$8K = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L, "jetbrains.mps.lang.core.structure.NodeAttribute");
+    /*package*/ static final SConcept XmlElement$Pm = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, "jetbrains.mps.core.xml.structure.XmlElement");
+    /*package*/ static final SConcept BwfPathReference$gi = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cef4c1fL, "jetbrains.mps.build.workflow.structure.BwfPathReference");
   }
 }

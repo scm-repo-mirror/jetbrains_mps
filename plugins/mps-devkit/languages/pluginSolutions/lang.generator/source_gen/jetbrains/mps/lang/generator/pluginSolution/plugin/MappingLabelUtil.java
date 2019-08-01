@@ -8,21 +8,23 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MappingLabelUtil {
   public MappingLabelUtil() {
   }
   public static SNode findOrCreateMappingLabelForName(SNode templateNode, String labelName) {
     SNode mappingLabel = null;
-    List<SNode> mappingConfigurations = SModelOperations.rootsIncludingImported(SNodeOperations.getModel(templateNode), AUX_sm72f8.MappingConfiguration_587b13db);
+    List<SNode> mappingConfigurations = SModelOperations.rootsIncludingImported(SNodeOperations.getModel(templateNode), CONCEPTS.MappingConfiguration$rB);
     for (SNode mc : ListSequence.fromList(mappingConfigurations)) {
-      for (SNode ml : ListSequence.fromList(SLinkOperations.getChildren(mc, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x1179be725f9L, "mappingLabel")))) {
-        if (labelName.equals(SPropertyOperations.getString(ml, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) {
+      for (SNode ml : ListSequence.fromList(SLinkOperations.getChildren(mc, LINKS.mappingLabel$9pST))) {
+        if (labelName.equals(SPropertyOperations.getString(ml, PROPS.name$tAp1))) {
           mappingLabel = ml;
           break;
         }
@@ -31,30 +33,38 @@ public class MappingLabelUtil {
     // ---- 
     if (mappingLabel == null) {
       SNode mc;
-      List<SNode> localMCs = SModelOperations.roots(SNodeOperations.getModel(templateNode), AUX_sm72f8.MappingConfiguration_587b13db);
+      List<SNode> localMCs = SModelOperations.roots(SNodeOperations.getModel(templateNode), CONCEPTS.MappingConfiguration$rB);
       if (ListSequence.fromList(localMCs).isNotEmpty()) {
         mc = ListSequence.fromList(localMCs).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x1179be725f9L, "mappingLabel"))).isNotEmpty();
+            return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.mappingLabel$9pST)).isNotEmpty();
           }
         }).first();
         if (mc == null) {
           mc = ListSequence.fromList(localMCs).first();
         }
       } else {
-        mc = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(templateNode), AUX_sm72f8.MappingConfiguration_587b13db, null);
-        SPropertyOperations.assign(mc, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "MappingLabels");
+        mc = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(templateNode), CONCEPTS.MappingConfiguration$rB, null);
+        SPropertyOperations.assign(mc, PROPS.name$tAp1, "MappingLabels");
       }
       // new mapping label 
-      SNode newLabel = SNodeFactoryOperations.addNewChild(mc, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x1179be725f9L, "mappingLabel"), AUX_sm72f8.MappingLabelDeclaration_3fa7ebf3);
-      SPropertyOperations.assign(newLabel, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), labelName);
+      SNode newLabel = SNodeFactoryOperations.addNewChild(mc, LINKS.mappingLabel$9pST, CONCEPTS.MappingLabelDeclaration$7f);
+      SPropertyOperations.assign(newLabel, PROPS.name$tAp1, labelName);
       mappingLabel = newLabel;
     }
     return mappingLabel;
   }
 
-  private static final class AUX_sm72f8 {
-    /*package*/ static final SConcept MappingConfiguration_587b13db = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
-    /*package*/ static final SConcept MappingLabelDeclaration_3fa7ebf3 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1179be47606L, "jetbrains.mps.lang.generator.structure.MappingLabelDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MappingConfiguration$rB = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
+    /*package*/ static final SConcept MappingLabelDeclaration$7f = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1179be47606L, "jetbrains.mps.lang.generator.structure.MappingLabelDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink mappingLabel$9pST = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x1179be725f9L, "mappingLabel");
   }
 }

@@ -28,11 +28,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -44,6 +44,9 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class makeMoneyFromInteger_Contribution extends TransformationMenuBase {
   public makeMoneyFromInteger_Contribution() {
@@ -72,7 +75,7 @@ public class makeMoneyFromInteger_Contribution extends TransformationMenuBase {
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_h87bp2_a0(), AUX_h87bp2.MoneyLiteral_da19b76d));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_h87bp2_a0(), CONCEPTS.MoneyLiteral$ml));
     }
     return result;
   }
@@ -110,10 +113,10 @@ public class makeMoneyFromInteger_Contribution extends TransformationMenuBase {
       @Nullable
       @Override
       public String getLabelText(String pattern) {
-        Iterable<SNode> units = SLinkOperations.collectMany(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), AUX_h87bp2.CurrencyDefTable_bb863a52), MetaAdapterFactory.getContainmentLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, 0x3210b276d144359cL, "units"));
+        Iterable<SNode> units = SLinkOperations.collectMany(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), CONCEPTS.CurrencyDefTable$Xg), LINKS.units$LHqr);
         for (SNode u : Sequence.fromIterable(units)) {
-          if (SPropertyOperations.getString(u, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).startsWith(pattern)) {
-            return SPropertyOperations.getString(u, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          if (SPropertyOperations.getString(u, PROPS.name$tAp1).startsWith(pattern)) {
+            return SPropertyOperations.getString(u, PROPS.name$tAp1);
           }
         }
         return null;
@@ -121,16 +124,16 @@ public class makeMoneyFromInteger_Contribution extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull final String pattern) {
-        Iterable<SNode> units = SLinkOperations.collectMany(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), AUX_h87bp2.CurrencyDefTable_bb863a52), MetaAdapterFactory.getContainmentLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, 0x3210b276d144359cL, "units"));
+        Iterable<SNode> units = SLinkOperations.collectMany(SModelOperations.roots(SNodeOperations.getModel(_context.getNode()), CONCEPTS.CurrencyDefTable$Xg), LINKS.units$LHqr);
         SNode unit = Sequence.fromIterable(units).findFirst(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(pattern);
+            return SPropertyOperations.getString(it, PROPS.name$tAp1).equals(pattern);
           }
         });
         if (unit != null) {
           SNode ml = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x4b9a2fe559135132L, "org.jetbrains.mps.samples.Money.structure.MoneyLiteral"));
-          SLinkOperations.setTarget(ml, MetaAdapterFactory.getReferenceLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x4b9a2fe559135132L, 0x3210b276d14435a8L, "unit"), unit);
-          SPropertyOperations.assign(ml, MetaAdapterFactory.getProperty(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x4b9a2fe559135132L, 0x4b9a2fe559135183L, "amount"), SPropertyOperations.getInteger(SNodeOperations.cast(_context.getNode(), AUX_h87bp2.IntegerConstant_a127eb0a), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value")));
+          SLinkOperations.setTarget(ml, LINKS.unit$m_D0, unit);
+          SPropertyOperations.assign(ml, PROPS.amount$dIoX, SPropertyOperations.getInteger(SNodeOperations.cast(_context.getNode(), CONCEPTS.IntegerConstant$mo), PROPS.value$ZeO0));
           SNodeOperations.replaceWithAnother(_context.getNode(), ml);
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), ml, SelectionManager.LAST_CELL, -1);
           return;
@@ -142,7 +145,7 @@ public class makeMoneyFromInteger_Contribution extends TransformationMenuBase {
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_h87bp2.MoneyLiteral_da19b76d;
+        return CONCEPTS.MoneyLiteral$ml;
       }
 
 
@@ -153,7 +156,7 @@ public class makeMoneyFromInteger_Contribution extends TransformationMenuBase {
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_h87bp2.MoneyLiteral_da19b76d;
+        SAbstractConcept outputConcept = CONCEPTS.MoneyLiteral$ml;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -163,9 +166,20 @@ public class makeMoneyFromInteger_Contribution extends TransformationMenuBase {
 
   }
 
-  private static final class AUX_h87bp2 {
-    /*package*/ static final SConcept MoneyLiteral_da19b76d = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x4b9a2fe559135132L, "org.jetbrains.mps.samples.Money.structure.MoneyLiteral");
-    /*package*/ static final SConcept CurrencyDefTable_bb863a52 = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, "org.jetbrains.mps.samples.Money.structure.CurrencyDefTable");
-    /*package*/ static final SConcept IntegerConstant_a127eb0a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MoneyLiteral$ml = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x4b9a2fe559135132L, "org.jetbrains.mps.samples.Money.structure.MoneyLiteral");
+    /*package*/ static final SConcept CurrencyDefTable$Xg = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, "org.jetbrains.mps.samples.Money.structure.CurrencyDefTable");
+    /*package*/ static final SConcept IntegerConstant$mo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink units$LHqr = MetaAdapterFactory.getContainmentLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3210b276d1443596L, 0x3210b276d144359cL, "units");
+    /*package*/ static final SReferenceLink unit$m_D0 = MetaAdapterFactory.getReferenceLink(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x4b9a2fe559135132L, 0x3210b276d14435a8L, "unit");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty amount$dIoX = MetaAdapterFactory.getProperty(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x4b9a2fe559135132L, 0x4b9a2fe559135183L, "amount");
+    /*package*/ static final SProperty value$ZeO0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value");
   }
 }

@@ -9,7 +9,6 @@ import jetbrains.mps.lang.util.order.behavior.OrderDeclaration__BehaviorDescript
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.SourceNodesQuery;
 import java.util.HashMap;
@@ -20,8 +19,10 @@ import java.util.Collection;
 import jetbrains.mps.generator.impl.GenerationFailureException;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.generator.impl.query.PropertyValueQuery;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -32,7 +33,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return (String) OrderDeclaration__BehaviorDescriptor.getGeneratedClassName_id2CFL3ni7zCY.invoke(_context.getNode());
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78147L, 0x22035699bdd78149L, "seq"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.seq$5dgv);
   }
   private final Map<String, SourceNodesQuery> snsqMethods = new HashMap<String, SourceNodesQuery>();
   {
@@ -92,5 +93,9 @@ public class QueriesGenerated extends QueryProviderBase {
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink seq$5dgv = MetaAdapterFactory.getContainmentLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78147L, 0x22035699bdd78149L, "seq");
   }
 }

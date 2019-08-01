@@ -10,6 +10,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class SideTransformInfoUtil {
@@ -23,32 +24,38 @@ public class SideTransformInfoUtil {
 
   private static void addTransformInfo(@NotNull SNode node, @NotNull String cellId, boolean isRight) {
     SNode info = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, "jetbrains.mps.lang.core.structure.SideTransformInfo"));
-    SPropertyOperations.assign(info, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7af1b9bbL, "cellId"), cellId);
-    SPropertyOperations.assignEnum(info, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7aee2321L, "side"), SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL, "jetbrains.mps.lang.core.structure.SideTransformSide"), (isRight ? SEnumOperations.getMemberName0(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL, "jetbrains.mps.lang.core.structure.SideTransformSide"), 0xad0053c7aee25edL, "right")) : SEnumOperations.getMemberName0(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL, "jetbrains.mps.lang.core.structure.SideTransformSide"), 0xad0053c7aee2e4fL, "left")))));
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_q4j49e.SideTransformInfo_88337662), info);
+    SPropertyOperations.assign(info, PROPS.cellId$s7SZ, cellId);
+    SPropertyOperations.assignEnum(info, PROPS.side$g7J3, SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL, "jetbrains.mps.lang.core.structure.SideTransformSide"), (isRight ? SEnumOperations.getMemberName0(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL, "jetbrains.mps.lang.core.structure.SideTransformSide"), 0xad0053c7aee25edL, "right")) : SEnumOperations.getMemberName0(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7aee25ecL, "jetbrains.mps.lang.core.structure.SideTransformSide"), 0xad0053c7aee2e4fL, "left")))));
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SideTransformInfo$l0), info);
   }
 
   public static boolean hasRightTransformInfo(SNode node) {
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_q4j49e.SideTransformInfo_88337662)), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7aee2321L, "side")), 0xad0053c7aee25edL);
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SideTransformInfo$l0)), PROPS.side$g7J3), 0xad0053c7aee25edL);
   }
 
   public static boolean hasLeftTransformInfo(SNode node) {
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_q4j49e.SideTransformInfo_88337662)), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7aee2321L, "side")), 0xad0053c7aee2e4fL);
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SideTransformInfo$l0)), PROPS.side$g7J3), 0xad0053c7aee2e4fL);
   }
 
   public static void removeTransformInfo(SNode node) {
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_q4j49e.SideTransformInfo_88337662), null);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SideTransformInfo$l0), null);
   }
 
   public static String getCellIdFromTransformInfo(SNode node) {
-    return SPropertyOperations.getString(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_q4j49e.SideTransformInfo_88337662)), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7af1b9bbL, "cellId"));
+    return SPropertyOperations.getString(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SideTransformInfo$l0)), PROPS.cellId$s7SZ);
   }
 
   public static String getAnchorTagFromTransformInfo(SNode node) {
-    return SPropertyOperations.getString(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_q4j49e.SideTransformInfo_88337662)), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7af1bf58L, "anchorTag"));
+    return SPropertyOperations.getString(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SideTransformInfo$l0)), PROPS.anchorTag$w7nz);
   }
 
-  private static final class AUX_q4j49e {
-    /*package*/ static final SConcept SideTransformInfo_88337662 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, "jetbrains.mps.lang.core.structure.SideTransformInfo");
+  private static final class PROPS {
+    /*package*/ static final SProperty cellId$s7SZ = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7af1b9bbL, "cellId");
+    /*package*/ static final SProperty side$g7J3 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7aee2321L, "side");
+    /*package*/ static final SProperty anchorTag$w7nz = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, 0xad0053c7af1bf58L, "anchorTag");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SideTransformInfo$l0 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, "jetbrains.mps.lang.core.structure.SideTransformInfo");
   }
 }

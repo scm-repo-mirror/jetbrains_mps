@@ -23,7 +23,6 @@ import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -34,6 +33,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestSideTransform_NodeWithReference_CustomActions extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -105,7 +106,7 @@ public class TestSideTransform_NodeWithReference_CustomActions extends Transform
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.set(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "custom right action");
+        SPropertyOperations.set(_context.getNode(), PROPS.name$tAp1, "custom right action");
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), "*" + CellIdManager.createPropertyId("name"), -1);
       }
 
@@ -166,7 +167,7 @@ public class TestSideTransform_NodeWithReference_CustomActions extends Transform
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.set(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "custom left action");
+        SPropertyOperations.set(_context.getNode(), PROPS.name$tAp1, "custom left action");
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), "*" + CellIdManager.createPropertyId("name"), -1);
       }
 
@@ -188,5 +189,9 @@ public class TestSideTransform_NodeWithReference_CustomActions extends Transform
       }
     }
 
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

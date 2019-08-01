@@ -32,7 +32,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.make.script.IFeedback;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.smodel.resources.DResource;
@@ -40,6 +39,8 @@ import jetbrains.mps.make.script.IConfig;
 import java.util.Map;
 import jetbrains.mps.make.script.IPropertiesPool;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Makeup_Facet extends IFacet.Stub {
   private List<ITarget> targets = ListSequence.fromList(new ArrayList<ITarget>());
@@ -109,12 +110,12 @@ public class Makeup_Facet extends IFacet.Stub {
                   public void run() {
                     for (TextUnit tu : generatedTextUnits) {
                       SNode startNode = tu.getStartNode();
-                      SNode annotationCopy = AttributeOperations.getAttribute(startNode, new IAttributeDescriptor.NodeAttribute(AUX_laycg0.CopyOutcome_b441976c));
+                      SNode annotationCopy = AttributeOperations.getAttribute(startNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.CopyOutcome$lQ));
                       if ((annotationCopy == null)) {
                         continue;
                       }
                       // TODO process macro/property values in the location, but assume it's absolute path for now 
-                      String destination = SPropertyOperations.getString(annotationCopy, MetaAdapterFactory.getProperty(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, 0x10f9f9812b8fca94L, "location"));
+                      String destination = SPropertyOperations.getString(annotationCopy, PROPS.location$cB_0);
                       if ((destination == null || destination.length() == 0)) {
                         continue;
                       }
@@ -214,7 +215,11 @@ public class Makeup_Facet extends IFacet.Stub {
     }
   }
 
-  private static final class AUX_laycg0 {
-    /*package*/ static final SConcept CopyOutcome_b441976c = MetaAdapterFactory.getConcept(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, "jetbrains.mps.lang.makeup.structure.CopyOutcome");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CopyOutcome$lQ = MetaAdapterFactory.getConcept(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, "jetbrains.mps.lang.makeup.structure.CopyOutcome");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty location$cB_0 = MetaAdapterFactory.getProperty(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, 0x10f9f9812b8fca94L, "location");
   }
 }

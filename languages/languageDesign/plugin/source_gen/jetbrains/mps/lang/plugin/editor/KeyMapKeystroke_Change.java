@@ -6,13 +6,14 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class KeyMapKeystroke_Change {
 
@@ -22,7 +23,7 @@ public class KeyMapKeystroke_Change {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SPropertyOperations.assignEnum(node, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, 0x5e2b603c8f03ab4dL, "change"), SEnumOperations.getMemberForPresentation(MetaAdapterFactory.getEnumeration(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5e2b603c8f036668L, "jetbrains.mps.lang.plugin.structure.KeyMapChange"), null));
+        SPropertyOperations.assignEnum(node, PROPS.change$CymG, SEnumOperations.getMemberForPresentation(MetaAdapterFactory.getEnumeration(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5e2b603c8f036668L, "jetbrains.mps.lang.plugin.structure.KeyMapChange"), null));
         SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, "keyCode", -1);
       }
 
@@ -62,5 +63,9 @@ public class KeyMapKeystroke_Change {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty change$CymG = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, 0x5e2b603c8f03ab4dL, "change");
   }
 }

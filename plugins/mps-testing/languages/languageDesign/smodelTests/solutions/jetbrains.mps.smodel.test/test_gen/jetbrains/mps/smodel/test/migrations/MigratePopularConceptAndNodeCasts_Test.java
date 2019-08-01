@@ -17,10 +17,11 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
 import jetbrains.mps.lang.smodel.migration.MigratePopularConceptAndNodeCasts;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @MPSLaunch
 public class MigratePopularConceptAndNodeCasts_Test extends BaseTransformationTest {
@@ -47,11 +48,11 @@ public class MigratePopularConceptAndNodeCasts_Test extends BaseTransformationTe
 
     @Override
     public Collection<SNode> getInputNodes() {
-      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(SNodeOperations.cast(getRealNodeById("5476670926299714765"), AUX_rxyrj2.TestNode_e633d16), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck")));
+      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(SNodeOperations.cast(getRealNodeById("5476670926299714765"), CONCEPTS.TestNode$kc), LINKS.nodeToCheck$Pz43));
     }
     @Override
     public Collection<SNode> getOutputNodes() {
-      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(SNodeOperations.cast(getRealNodeById("4915396922269080662"), AUX_rxyrj2.TestNode_e633d16), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck")));
+      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(SNodeOperations.cast(getRealNodeById("4915396922269080662"), CONCEPTS.TestNode$kc), LINKS.nodeToCheck$Pz43));
     }
     @Override
     public MigrationScript[] getMigrationScript() {
@@ -59,7 +60,11 @@ public class MigratePopularConceptAndNodeCasts_Test extends BaseTransformationTe
     }
   }
 
-  private static final class AUX_rxyrj2 {
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink nodeToCheck$Pz43 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.build.tips.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -19,17 +20,16 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.FileSystems;
 import javax.swing.ImageIcon;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class MPSTipsAndTricks_Image__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_i938au.MPSTipsAndTricks_Image_dcc64ede;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x1377553280f03b1dL, "jetbrains.mps.build.tips.structure.MPSTipsAndTricks_Image");
 
   public static final SMethod<Boolean> isValid_idIb_Fk7zRKP = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isValid").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("Ib_Fk7zRKP").build();
 
@@ -45,7 +45,7 @@ public final class MPSTipsAndTricks_Image__BehaviorDescriptor extends BaseBHDesc
     }
 
     MacroHelper macroHelper = MacrosFactory.forModule(module);
-    String path = macroHelper.expandPath(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x1377553280f03b1dL, 0x1377553280f17f4bL, "file")));
+    String path = macroHelper.expandPath(SPropertyOperations.getString(__thisNode__, PROPS.file$s3gA));
     if (path == null) {
       return false;
     }
@@ -108,7 +108,7 @@ public final class MPSTipsAndTricks_Image__BehaviorDescriptor extends BaseBHDesc
     return CONCEPT;
   }
 
-  private static final class AUX_i938au {
-    /*package*/ static final SConcept MPSTipsAndTricks_Image_dcc64ede = MetaAdapterFactory.getConcept(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x1377553280f03b1dL, "jetbrains.mps.build.tips.structure.MPSTipsAndTricks_Image");
+  private static final class PROPS {
+    /*package*/ static final SProperty file$s3gA = MetaAdapterFactory.getProperty(0xfeee615f9f2b486fL, 0x804f8987b652fceaL, 0x1377553280f03b1dL, 0x1377553280f17f4bL, "file");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.builders.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class BuilderStatement__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_ihbb9m.BuilderStatement_8e7c4540;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x61f1de4171d2bf23L, "jetbrains.mps.baseLanguage.builders.structure.BuilderStatement");
 
   public static final SMethod<Boolean> isLeaf_idNLqHO$EE0f = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLeaf").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("NLqHO$EE0f").build();
 
@@ -31,7 +31,7 @@ public final class BuilderStatement__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   /*package*/ static boolean isLeaf_idNLqHO$EE0f(@NotNull SNode __thisNode__) {
-    return (boolean) Builder__BehaviorDescriptor.isLeaf_id67LR$5LQnln.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6c473c8a081aa9e4L, 0x429426276e2ee2f8L, "builder")));
+    return (boolean) Builder__BehaviorDescriptor.isLeaf_id67LR$5LQnln.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.builder$zDVT));
   }
 
   /*package*/ BuilderStatement__BehaviorDescriptor() {
@@ -80,7 +80,7 @@ public final class BuilderStatement__BehaviorDescriptor extends BaseBHDescriptor
     return CONCEPT;
   }
 
-  private static final class AUX_ihbb9m {
-    /*package*/ static final SConcept BuilderStatement_8e7c4540 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x61f1de4171d2bf23L, "jetbrains.mps.baseLanguage.builders.structure.BuilderStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink builder$zDVT = MetaAdapterFactory.getContainmentLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6c473c8a081aa9e4L, 0x429426276e2ee2f8L, "builder");
   }
 }

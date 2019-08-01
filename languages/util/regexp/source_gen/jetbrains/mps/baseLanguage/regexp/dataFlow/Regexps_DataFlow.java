@@ -6,12 +6,17 @@ import jetbrains.mps.lang.dataFlow.DataFlowBuilder;
 import jetbrains.mps.lang.dataFlow.DataFlowBuilderContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Regexps_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
-    for (SNode regexp : SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117f550b6dL, 0x1117f554ef2L, "regexp"))) {
+    for (SNode regexp : SLinkOperations.getChildren(_context.getNode(), LINKS.regexp$nu5N)) {
       _context.getBuilder().build((SNode) regexp);
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink regexp$nu5N = MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117f550b6dL, 0x1117f554ef2L, "regexp");
   }
 }

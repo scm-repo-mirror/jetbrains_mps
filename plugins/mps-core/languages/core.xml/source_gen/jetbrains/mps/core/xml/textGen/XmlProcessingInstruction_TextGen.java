@@ -9,26 +9,32 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.xml.behavior.XmlPart__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlProcessingInstruction_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     SNode left = SNodeOperations.getPrevSibling(ctx.getPrimaryInput());
-    if (SNodeOperations.isInstanceOf(left, AUX_npe3o.XmlPart_2c43da1b) && (boolean) XmlPart__BehaviorDescriptor.hasNewLineAfter_id1Qs9WekVZ9E.invoke(SNodeOperations.cast(left, AUX_npe3o.XmlPart_2c43da1b))) {
+    if (SNodeOperations.isInstanceOf(left, CONCEPTS.XmlPart$yB) && (boolean) XmlPart__BehaviorDescriptor.hasNewLineAfter_id1Qs9WekVZ9E.invoke(SNodeOperations.cast(left, CONCEPTS.XmlPart$yB))) {
       tgs.newLine();
       tgs.indent();
     }
     tgs.append("<?");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c5494875L, 0x5c842a42c5494876L, "target")));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.target$ZWw0));
     tgs.append(" ");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c5494875L, 0x5c842a42c5494877L, "rawData")));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.rawData$ZWwv));
     tgs.append("?>");
   }
 
-  private static final class AUX_npe3o {
-    /*package*/ static final SInterfaceConcept XmlPart_2c43da1b = MetaAdapterFactory.getInterfaceConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394eff13eL, "jetbrains.mps.core.xml.structure.XmlPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept XmlPart$yB = MetaAdapterFactory.getInterfaceConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394eff13eL, "jetbrains.mps.core.xml.structure.XmlPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty target$ZWw0 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c5494875L, 0x5c842a42c5494876L, "target");
+    /*package*/ static final SProperty rawData$ZWwv = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c5494875L, 0x5c842a42c5494877L, "rawData");
   }
 }

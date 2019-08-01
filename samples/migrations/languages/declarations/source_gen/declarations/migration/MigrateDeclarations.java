@@ -13,15 +13,17 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MigrateDeclarations extends MigrationScriptBase {
   public String getCaption() {
@@ -43,11 +45,11 @@ public class MigrateDeclarations extends MigrationScriptBase {
     });
     Sequence.fromIterable(models).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel m) {
-        return SModelOperations.nodes(m, AUX_9wc3oy.OldComponent_e96615ed);
+        return SModelOperations.nodes(m, CONCEPTS.OldComponent$sl);
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode oldNode) {
-        SNode newNode = _quotation_createNode_9wc3oy_a0a0a0a1a5(SLinkOperations.getChildren(oldNode, MetaAdapterFactory.getContainmentLink(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049316cdaL, 0x6aff2c104931bb27L, "member")), SPropertyOperations.getString(oldNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        SNode newNode = _quotation_createNode_9wc3oy_a0a0a0a1a5(SLinkOperations.getChildren(oldNode, LINKS.member$b5zN), SPropertyOperations.getString(oldNode, PROPS.name$tAp1));
         ((jetbrains.mps.smodel.SNode) newNode).setId(((jetbrains.mps.smodel.SNode) oldNode).getNodeId());
         SNodeOperations.replaceWithAnother(oldNode, newNode);
       }
@@ -66,13 +68,22 @@ public class MigrateDeclarations extends MigrationScriptBase {
     {
       List<SNode> nodes = (List<SNode>) parameter_1;
       for (SNode child : nodes) {
-        quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049329d71L, 0x6aff2c1049329d74L, "member"), SNodeOperations.copyIfNecessary(child));
+        quotedNode_3.addChild(LINKS.member$I_O9, SNodeOperations.copyIfNecessary(child));
       }
     }
     return quotedNode_3;
   }
 
-  private static final class AUX_9wc3oy {
-    /*package*/ static final SConcept OldComponent_e96615ed = MetaAdapterFactory.getConcept(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049316cdaL, "declarations.structure.OldComponent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OldComponent$sl = MetaAdapterFactory.getConcept(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049316cdaL, "declarations.structure.OldComponent");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink member$b5zN = MetaAdapterFactory.getContainmentLink(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049316cdaL, 0x6aff2c104931bb27L, "member");
+    /*package*/ static final SContainmentLink member$I_O9 = MetaAdapterFactory.getContainmentLink(0x1d2b03a474044a1eL, 0x939c9c1c316327e7L, 0x6aff2c1049329d71L, 0x6aff2c1049329d74L, "member");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

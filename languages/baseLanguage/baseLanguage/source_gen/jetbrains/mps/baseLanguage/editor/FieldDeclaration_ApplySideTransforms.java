@@ -92,7 +92,7 @@ public class FieldDeclaration_ApplySideTransforms extends TransformationMenuBase
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_po2l7a.FieldDeclaration_e2711ac6);
+      return new DefaultTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.FieldDeclaration$Ps);
     }
 
     @Nullable
@@ -102,7 +102,7 @@ public class FieldDeclaration_ApplySideTransforms extends TransformationMenuBase
     }
   }
 
-  private static final class AUX_po2l7a {
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
   }
 }

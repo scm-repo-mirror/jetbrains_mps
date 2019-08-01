@@ -17,7 +17,6 @@ import jetbrains.mps.lang.dataFlow.framework.AnalysisResult;
 import jetbrains.mps.lang.dataFlow.framework.Program;
 import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.lang.dataFlow.framework.instructions.IfJumpInstruction;
 import jetbrains.mps.baseLanguage.dataFlow.NullableUtil;
@@ -31,7 +30,10 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.baseLanguage.behavior.IMethodLike__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_NullableStates_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_NullableStates_NonTypesystemRule() {
@@ -50,8 +52,8 @@ public class check_NullableStates_NonTypesystemRule extends AbstractNonTypesyste
     for (Instruction instruction : program.getInstructions()) {
       SNode source = (SNode) instruction.getSource();
       SNode variable = source;
-      if (SNodeOperations.isInstanceOf(source, AUX_7kkp52.VariableReference_24d60dac)) {
-        variable = SLinkOperations.getTarget(SNodeOperations.cast(source, AUX_7kkp52.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"));
+      if (SNodeOperations.isInstanceOf(source, CONCEPTS.VariableReference$sQ)) {
+        variable = SLinkOperations.getTarget(SNodeOperations.cast(source, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6);
       }
       NullableState varState = result.get(instruction).get(variable);
       SNode parent = SNodeOperations.getParent(source);
@@ -112,25 +114,25 @@ public class check_NullableStates_NonTypesystemRule extends AbstractNonTypesyste
 
     }
     // Find Nullable returns of NotNull methods 
-    if (SNodeOperations.isInstanceOf(iMethodLike, AUX_7kkp52.BaseMethodDeclaration_9dbf9acb)) {
-      SNode method = SNodeOperations.cast(iMethodLike, AUX_7kkp52.BaseMethodDeclaration_9dbf9acb);
-      if (Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"))).any(new IWhereFilter<SNode>() {
+    if (SNodeOperations.isInstanceOf(iMethodLike, CONCEPTS.BaseMethodDeclaration$RR)) {
+      SNode method = SNodeOperations.cast(iMethodLike, CONCEPTS.BaseMethodDeclaration$RR);
+      if (Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(method, LINKS.annotation$oVP4), LINKS.annotation$zNxu)).any(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return SNodeOperations.is(it, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~NotNull"));
         }
       })) {
-        for (SNode returnStatement : RulesFunctions_BaseLanguage.collectReturnStatements(SLinkOperations.getTarget(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")))) {
-          RulesFunctions_BaseLanguage.checkReturningExpression(typeCheckingContext, SLinkOperations.getTarget(returnStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression")), returnStatement, program, result);
+        for (SNode returnStatement : RulesFunctions_BaseLanguage.collectReturnStatements(SLinkOperations.getTarget(method, LINKS.body$WIlu))) {
+          RulesFunctions_BaseLanguage.checkReturningExpression(typeCheckingContext, SLinkOperations.getTarget(returnStatement, LINKS.expression$EsbK), returnStatement, program, result);
         }
         SNode last = IMethodLike__BehaviorDescriptor.getLastStatement_idi2fhS7A.invoke(method);
-        if (SNodeOperations.isInstanceOf(last, AUX_7kkp52.ExpressionStatement_9dbf9b0c)) {
-          RulesFunctions_BaseLanguage.checkReturningExpression(typeCheckingContext, SLinkOperations.getTarget(SNodeOperations.cast(last, AUX_7kkp52.ExpressionStatement_9dbf9b0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression")), last, program, result);
+        if (SNodeOperations.isInstanceOf(last, CONCEPTS.ExpressionStatement$nm)) {
+          RulesFunctions_BaseLanguage.checkReturningExpression(typeCheckingContext, SLinkOperations.getTarget(SNodeOperations.cast(last, CONCEPTS.ExpressionStatement$nm), LINKS.expression$WIP0), last, program, result);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7kkp52.IMethodLike_583347ed;
+    return CONCEPTS.IMethodLike$kl;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -139,10 +141,19 @@ public class check_NullableStates_NonTypesystemRule extends AbstractNonTypesyste
     return false;
   }
 
-  private static final class AUX_7kkp52 {
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SInterfaceConcept IMethodLike_583347ed = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1208f458d37L, "jetbrains.mps.baseLanguage.structure.IMethodLike");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SInterfaceConcept IMethodLike$kl = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1208f458d37L, "jetbrains.mps.baseLanguage.structure.IMethodLike");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+    /*package*/ static final SContainmentLink expression$EsbK = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression");
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+    /*package*/ static final SContainmentLink expression$WIP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression");
+    /*package*/ static final SContainmentLink annotation$oVP4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
+    /*package*/ static final SReferenceLink annotation$zNxu = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation");
   }
 }

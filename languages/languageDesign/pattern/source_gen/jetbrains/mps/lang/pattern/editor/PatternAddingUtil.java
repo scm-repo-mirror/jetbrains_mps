@@ -24,23 +24,23 @@ public class PatternAddingUtil {
     if (node == null) {
       return false;
     }
-    return SNodeOperations.getNodeAncestor(node, AUX_7pxaax.PatternExpression_b5cd3dd6, true, false) != null;
+    return SNodeOperations.getNodeAncestor(node, CONCEPTS.PatternExpression$Lc, true, false) != null;
   }
   public static void addVariablePattern(EditorContext context) {
     EditorCell contextCell = context.getSelectedCell();
     SNode node = contextCell.getSNode();
     if (contextCell.isReferenceCell()) {
       SReferenceLink ref = (SReferenceLink) contextCell.getSRole();
-      AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.LinkAttribute(AUX_7pxaax.LinkPatternVariableDeclaration_352d241b, ref), AUX_7pxaax.LinkPatternVariableDeclaration_352d241b);
+      AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.LinkPatternVariableDeclaration$UB, ref), CONCEPTS.LinkPatternVariableDeclaration$UB);
     } else {
-      AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(AUX_7pxaax.Pattern_b5cd3dd4), AUX_7pxaax.PatternVariableDeclaration_b5cd3dd8);
+      AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.Pattern$Ke), CONCEPTS.PatternVariableDeclaration$Ma);
     }
   }
 
-  private static final class AUX_7pxaax {
-    /*package*/ static final SConcept PatternExpression_b5cd3dd6 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, "jetbrains.mps.lang.pattern.structure.PatternExpression");
-    /*package*/ static final SConcept LinkPatternVariableDeclaration_352d241b = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108d36d955aL, "jetbrains.mps.lang.pattern.structure.LinkPatternVariableDeclaration");
-    /*package*/ static final SConcept Pattern_b5cd3dd4 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478fL, "jetbrains.mps.lang.pattern.structure.Pattern");
-    /*package*/ static final SConcept PatternVariableDeclaration_b5cd3dd8 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PatternExpression$Lc = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, "jetbrains.mps.lang.pattern.structure.PatternExpression");
+    /*package*/ static final SConcept LinkPatternVariableDeclaration$UB = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108d36d955aL, "jetbrains.mps.lang.pattern.structure.LinkPatternVariableDeclaration");
+    /*package*/ static final SConcept Pattern$Ke = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478fL, "jetbrains.mps.lang.pattern.structure.Pattern");
+    /*package*/ static final SConcept PatternVariableDeclaration$Ma = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
   }
 }

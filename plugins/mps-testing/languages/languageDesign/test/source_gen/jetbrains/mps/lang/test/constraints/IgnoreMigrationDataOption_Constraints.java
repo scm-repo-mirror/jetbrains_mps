@@ -13,13 +13,13 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class IgnoreMigrationDataOption_Constraints extends BaseConstraintsDescriptor {
   public IgnoreMigrationDataOption_Constraints() {
-    super(AUX_vioijd.IgnoreMigrationDataOption_50e1dc16);
+    super(CONCEPTS.IgnoreMigrationDataOption$oc);
   }
 
   @Override
@@ -38,12 +38,16 @@ public class IgnoreMigrationDataOption_Constraints extends BaseConstraintsDescri
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_vioijd.MigrationTestCase_f9a226ab) && Objects.equals(link, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x54c97349dbb26f7fL, "option"));
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.MigrationTestCase$Sn) && Objects.equals(link, LINKS.option$gm$w);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590382(jetbrains.mps.lang.test.constraints)", "6109541130560494670");
 
-  private static final class AUX_vioijd {
-    /*package*/ static final SConcept IgnoreMigrationDataOption_50e1dc16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x54c97349dbb25c33L, "jetbrains.mps.lang.test.structure.IgnoreMigrationDataOption");
-    /*package*/ static final SConcept MigrationTestCase_f9a226ab = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, "jetbrains.mps.lang.test.structure.MigrationTestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IgnoreMigrationDataOption$oc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x54c97349dbb25c33L, "jetbrains.mps.lang.test.structure.IgnoreMigrationDataOption");
+    /*package*/ static final SConcept MigrationTestCase$Sn = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, "jetbrains.mps.lang.test.structure.MigrationTestCase");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink option$gm$w = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x54c97349dbb26f7fL, "option");
   }
 }

@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -30,10 +29,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildSolutionRunnerAspect_Constraints extends BaseConstraintsDescriptor {
   public BuildSolutionRunnerAspect_Constraints() {
-    super(AUX_bt7fcz.BuildSolutionRunnerAspect_117d9fe8);
+    super(CONCEPTS.BuildSolutionRunnerAspect$LU);
   }
 
   @Override
@@ -53,7 +53,7 @@ public class BuildSolutionRunnerAspect_Constraints extends BaseConstraintsDescri
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.solution$HMJF, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -68,7 +68,7 @@ public class BuildSolutionRunnerAspect_Constraints extends BaseConstraintsDescri
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_bt7fcz.BuildMps_Solution_41959b13);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.BuildMps_Solution$qJ);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
@@ -83,15 +83,20 @@ public class BuildSolutionRunnerAspect_Constraints extends BaseConstraintsDescri
       // anything in generator 
       return true;
     }
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.as(parentNode, AUX_bt7fcz.BuildProject_808bb057), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x5c3f3e2c1ce9ac70L, "plugins")), AUX_bt7fcz.BuildSolutionRunnerPlugin_fad81bb)).isNotEmpty();
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(SNodeOperations.as(parentNode, CONCEPTS.BuildProject$BF), LINKS.plugins$97JG), CONCEPTS.BuildSolutionRunnerPlugin$k7)).isNotEmpty();
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:f7dd6374-5397-49db-8c5c-70e362e3e80b(jetbrains.mps.build.mps.runner.constraints)", "1227128029536566447");
   private static final SNodePointer breakingNode_bt7fcz_a0a0a0a0a1a0a0a0d = new SNodePointer("r:f7dd6374-5397-49db-8c5c-70e362e3e80b(jetbrains.mps.build.mps.runner.constraints)", "1350734474210764500");
 
-  private static final class AUX_bt7fcz {
-    /*package*/ static final SConcept BuildSolutionRunnerAspect_117d9fe8 = MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerAspect");
-    /*package*/ static final SConcept BuildMps_Solution_41959b13 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildSolutionRunnerPlugin_fad81bb = MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cbeb5c6L, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerPlugin");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSolutionRunnerAspect$LU = MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerAspect");
+    /*package*/ static final SConcept BuildMps_Solution$qJ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildSolutionRunnerPlugin$k7 = MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cbeb5c6L, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerPlugin");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink solution$HMJF = MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution");
+    /*package*/ static final SContainmentLink plugins$97JG = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x5c3f3e2c1ce9ac70L, "plugins");
   }
 }

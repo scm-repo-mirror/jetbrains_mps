@@ -20,7 +20,6 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import javax.swing.AbstractAction;
@@ -29,6 +28,9 @@ import javax.swing.Icon;
 import java.awt.event.ActionEvent;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class GoToRulesHelper {
   private GoToRulesHelper() {
@@ -67,7 +69,7 @@ public final class GoToRulesHelper {
     }
 
     // todo: populate rules from other typesystem models! 
-    List<SNode> rules = ListSequence.fromList(SModelOperations.roots(typesystem, AUX_l17hf5.AbstractRule_3c273af)).where(new IWhereFilter<SNode>() {
+    List<SNode> rules = ListSequence.fromList(SModelOperations.roots(typesystem, CONCEPTS.AbstractRule$6j)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode node) {
         return isApplicable(node, concept, exactConcept);
       }
@@ -88,21 +90,21 @@ public final class GoToRulesHelper {
     if ((rule == null) || (concept == null)) {
       return false;
     }
-    SNode applicableConcept = getApplicableConcept(SLinkOperations.getTarget(rule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")));
+    SNode applicableConcept = getApplicableConcept(SLinkOperations.getTarget(rule, LINKS.applicableNode$lCke));
     if (applicableConcept == null) {
       return false;
     }
     if (exactConcept) {
       return concept == applicableConcept;
     }
-    return ((boolean) (Boolean) BHReflection.invoke0(concept, AUX_l17hf5.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("isSubconceptOf", AUX_l17hf5.AbstractConceptDeclaration_ec74828f, "73yVtVlWOga"), applicableConcept));
+    return ((boolean) (Boolean) BHReflection.invoke0(concept, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("isSubconceptOf", CONCEPTS.AbstractConceptDeclaration$UN, "73yVtVlWOga"), applicableConcept));
   }
   private static SNode getApplicableConcept(SNode applicableNode) {
-    if (SNodeOperations.isInstanceOf(applicableNode, AUX_l17hf5.ConceptReference_d2505614)) {
-      return SLinkOperations.getTarget(SNodeOperations.cast(applicableNode, AUX_l17hf5.ConceptReference_d2505614), MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, 0x1117e2ab6c9L, "concept"));
+    if (SNodeOperations.isInstanceOf(applicableNode, CONCEPTS.ConceptReference$Je)) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(applicableNode, CONCEPTS.ConceptReference$Je), LINKS.concept$Q1Nr);
     } else
-    if (SNodeOperations.isInstanceOf(applicableNode, AUX_l17hf5.PatternCondition_d545a8f0)) {
-      return ((SNode) BHReflection.invoke0(SNodeOperations.cast(applicableNode, AUX_l17hf5.PatternCondition_d545a8f0), AUX_l17hf5.ApplicableNodeCondition_d215b671, SMethodTrimmedId.create("getApplicableConcept", null, "hEwIszL")));
+    if (SNodeOperations.isInstanceOf(applicableNode, CONCEPTS.PatternCondition$hM)) {
+      return ((SNode) BHReflection.invoke0(SNodeOperations.cast(applicableNode, CONCEPTS.PatternCondition$hM), CONCEPTS.ApplicableNodeCondition$sh, SMethodTrimmedId.create("getApplicableConcept", null, "hEwIszL")));
     } else {
       return null;
     }
@@ -123,11 +125,16 @@ public final class GoToRulesHelper {
     }
   }
 
-  private static final class AUX_l17hf5 {
-    /*package*/ static final SConcept AbstractRule_3c273af = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept PatternCondition_d545a8f0 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, "jetbrains.mps.lang.typesystem.structure.PatternCondition");
-    /*package*/ static final SConcept ApplicableNodeCondition_d215b671 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e29d976L, "jetbrains.mps.lang.typesystem.structure.ApplicableNodeCondition");
-    /*package*/ static final SConcept ConceptReference_d2505614 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, "jetbrains.mps.lang.typesystem.structure.ConceptReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractRule$6j = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept PatternCondition$hM = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, "jetbrains.mps.lang.typesystem.structure.PatternCondition");
+    /*package*/ static final SConcept ApplicableNodeCondition$sh = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e29d976L, "jetbrains.mps.lang.typesystem.structure.ApplicableNodeCondition");
+    /*package*/ static final SConcept ConceptReference$Je = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, "jetbrains.mps.lang.typesystem.structure.ConceptReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink applicableNode$lCke = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode");
+    /*package*/ static final SReferenceLink concept$Q1Nr = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, 0x1117e2ab6c9L, "concept");
   }
 }

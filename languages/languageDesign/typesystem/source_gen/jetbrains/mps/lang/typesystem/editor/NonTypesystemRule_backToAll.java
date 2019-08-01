@@ -23,7 +23,6 @@ import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -42,7 +41,10 @@ import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class NonTypesystemRule_backToAll extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
@@ -112,7 +114,7 @@ public class NonTypesystemRule_backToAll extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x116484991d1L, "overrides"), true);
+        SPropertyOperations.assign(_context.getNode(), PROPS.overrides$fn$d, true);
       }
 
 
@@ -155,7 +157,7 @@ public class NonTypesystemRule_backToAll extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_bg4dqh.CheckingRuleReference_b0da7032;
+      return CONCEPTS.CheckingRuleReference$lK;
     }
 
 
@@ -166,7 +168,7 @@ public class NonTypesystemRule_backToAll extends TransformationMenuBase {
         @Override
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
-          ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164853e0faL, 0x2054bec22d32e328L, "overridenRules"))).addElement(createdNode);
+          ListSequence.fromList(SLinkOperations.getChildren(_context.getNode(), LINKS.overridenRules$1nMv)).addElement(createdNode);
         }
 
         @Override
@@ -186,7 +188,15 @@ public class NonTypesystemRule_backToAll extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_bg4dqh {
-    /*package*/ static final SConcept CheckingRuleReference_b0da7032 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2054bec22d01782eL, "jetbrains.mps.lang.typesystem.structure.CheckingRuleReference");
+  private static final class PROPS {
+    /*package*/ static final SProperty overrides$fn$d = MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x116484991d1L, "overrides");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CheckingRuleReference$lK = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2054bec22d01782eL, "jetbrains.mps.lang.typesystem.structure.CheckingRuleReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink overridenRules$1nMv = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164853e0faL, 0x2054bec22d32e328L, "overridenRules");
   }
 }

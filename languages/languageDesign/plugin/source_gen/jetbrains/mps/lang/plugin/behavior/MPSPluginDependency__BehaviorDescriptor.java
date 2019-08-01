@@ -4,6 +4,7 @@ package jetbrains.mps.lang.plugin.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class MPSPluginDependency__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_uou1x3.MPSPluginDependency_334c2d03;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x2d2ad2584076330L, "jetbrains.mps.lang.plugin.structure.MPSPluginDependency");
 
   public static final SMethod<String> getPluginId_id55z4ZnCkRVV = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPluginId").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("55z4ZnCkRVV").build();
 
@@ -32,7 +33,7 @@ public final class MPSPluginDependency__BehaviorDescriptor extends BaseBHDescrip
   }
 
   /*package*/ static String getPluginId_id55z4ZnCkRVV(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x2d2ad2584076330L, 0x2d2ad2584076331L, "plugin")), MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x45b64b294c2b3514L, 0x45b64b294c2b3516L, "id"));
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.plugin$xiKw), PROPS.id$GcmZ);
   }
 
   /*package*/ MPSPluginDependency__BehaviorDescriptor() {
@@ -81,7 +82,11 @@ public final class MPSPluginDependency__BehaviorDescriptor extends BaseBHDescrip
     return CONCEPT;
   }
 
-  private static final class AUX_uou1x3 {
-    /*package*/ static final SConcept MPSPluginDependency_334c2d03 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x2d2ad2584076330L, "jetbrains.mps.lang.plugin.structure.MPSPluginDependency");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink plugin$xiKw = MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x2d2ad2584076330L, 0x2d2ad2584076331L, "plugin");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty id$GcmZ = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x45b64b294c2b3514L, 0x45b64b294c2b3516L, "id");
   }
 }

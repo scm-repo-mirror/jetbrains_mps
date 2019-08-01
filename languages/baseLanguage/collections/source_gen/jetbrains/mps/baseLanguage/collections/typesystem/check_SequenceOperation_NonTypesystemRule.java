@@ -26,7 +26,7 @@ public class check_SequenceOperation_NonTypesystemRule extends AbstractNonTypesy
   }
   public void applyRule(final SNode so, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final SNode opType = TypecheckingFacade.getFromContext().getTypeOf(IOperation__BehaviorDescriptor.getOperand_idhEwIP$m.invoke(so));
-    if (SNodeOperations.isInstanceOf(so, AUX_sc67jl.IApplicableToNothing_ec2f3bee)) {
+    if (SNodeOperations.isInstanceOf(so, CONCEPTS.IApplicableToNothing$4O)) {
       // casting twice to avoid "not comparable" type error 
       SAbstractConcept conceptNode = SNodeOperations.getConcept(so);
       if (!(SetSequence.fromSet((IApplicableToNothing__BehaviorDescriptor.getAllApplicableTypes_id5cL0w3DYWgB.invoke(SNodeOperations.asSConcept((SAbstractConcept) conceptNode)))).any(new IWhereFilter<SNode>() {
@@ -39,14 +39,14 @@ public class check_SequenceOperation_NonTypesystemRule extends AbstractNonTypesy
       }
 
     } else {
-      if (!((TypecheckingFacade.getFromContext().strongCoerceType(opType, AUX_sc67jl.SequenceType_dd24a0b9) != null))) {
+      if (!((TypecheckingFacade.getFromContext().strongCoerceType(opType, CONCEPTS.SequenceType$n9) != null))) {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(so, "not available here", "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "4998595809122243464", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_sc67jl.SequenceOperation_8eeb983d;
+    return CONCEPTS.SequenceOperation$V5;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -55,9 +55,9 @@ public class check_SequenceOperation_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_sc67jl {
-    /*package*/ static final SInterfaceConcept IApplicableToNothing_ec2f3bee = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eaf6L, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToNothing");
-    /*package*/ static final SConcept SequenceType_dd24a0b9 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, "jetbrains.mps.baseLanguage.collections.structure.SequenceType");
-    /*package*/ static final SConcept SequenceOperation_8eeb983d = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c26c9a2d9L, "jetbrains.mps.baseLanguage.collections.structure.SequenceOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IApplicableToNothing$4O = MetaAdapterFactory.getInterfaceConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x53310200e8d9eaf6L, "jetbrains.mps.baseLanguage.collections.structure.IApplicableToNothing");
+    /*package*/ static final SConcept SequenceType$n9 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, "jetbrains.mps.baseLanguage.collections.structure.SequenceType");
+    /*package*/ static final SConcept SequenceOperation$V5 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c26c9a2d9L, "jetbrains.mps.baseLanguage.collections.structure.SequenceOperation");
   }
 }

@@ -28,7 +28,7 @@ public final class MigrationToUpdateAllConstants_MigrationScript extends BaseMig
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_483j2l.AllConstant_c1aedcb3;
+        return CONCEPTS.AllConstant$$f;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
@@ -41,7 +41,7 @@ public final class MigrationToUpdateAllConstants_MigrationScript extends BaseMig
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
-        SNodeOperations.replaceWithNewChild(node, AUX_483j2l.AllConstant_c1aedcb3);
+        SNodeOperations.replaceWithNewChild(node, CONCEPTS.AllConstant$$f);
       }
       @Override
       public boolean isShowAsIntention() {
@@ -56,7 +56,7 @@ public final class MigrationToUpdateAllConstants_MigrationScript extends BaseMig
     return PersistenceFacade.getInstance().createNodeReference("r:00000000-0000-4000-0000-011c8959032d(jetbrains.mps.baseLanguage.collections.scripts)/3600688056589376389");
   }
 
-  private static final class AUX_483j2l {
-    /*package*/ static final SConcept AllConstant_c1aedcb3 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x12031a066ecL, "jetbrains.mps.baseLanguage.collections.structure.AllConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AllConstant$$f = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x12031a066ecL, "jetbrains.mps.baseLanguage.collections.structure.AllConstant");
   }
 }

@@ -13,8 +13,9 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ChangeAbstract_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -44,15 +45,19 @@ public final class ChangeAbstract_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x34f5c07463deaa83L, "isAbstract")) ? "Make Non Abstract" : "Make Abstract");
+      return (SPropertyOperations.getBoolean(node, PROPS.isAbstract$2sTh) ? "Make Non Abstract" : "Make Abstract");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x34f5c07463deaa83L, "isAbstract"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x34f5c07463deaa83L, "isAbstract"))));
+      SPropertyOperations.assign(node, PROPS.isAbstract$2sTh, !(SPropertyOperations.getBoolean(node, PROPS.isAbstract$2sTh)));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return ChangeAbstract_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isAbstract$2sTh = MetaAdapterFactory.getProperty(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x34f5c07463deaa83L, "isAbstract");
   }
 }

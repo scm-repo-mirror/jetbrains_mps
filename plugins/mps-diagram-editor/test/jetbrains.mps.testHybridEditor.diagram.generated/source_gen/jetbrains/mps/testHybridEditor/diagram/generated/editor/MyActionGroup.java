@@ -31,10 +31,10 @@ public class MyActionGroup implements PaletteActionGroup {
     final List<PaletteElement> paletteElements = ListSequence.fromList(new ArrayList<PaletteElement>());
     for (SNode node : Sequence.fromIterable(myNodes).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_4k4jlq.MetaBlock_ac76321f);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.MetaBlock$4z);
       }
     })) {
-      ListSequence.fromList(paletteElements).addElement(new MyBlockCreationAction(myDiagramCell, SNodeOperations.cast(node, AUX_4k4jlq.MetaBlock_ac76321f)));
+      ListSequence.fromList(paletteElements).addElement(new MyBlockCreationAction(myDiagramCell, SNodeOperations.cast(node, CONCEPTS.MetaBlock$4z)));
     }
     return ListSequence.fromList(paletteElements).toGenericArray(PaletteElement.class);
   }
@@ -48,7 +48,7 @@ public class MyActionGroup implements PaletteActionGroup {
     return myText;
   }
 
-  private static final class AUX_4k4jlq {
-    /*package*/ static final SConcept MetaBlock_ac76321f = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec40c2c8L, "jetbrains.mps.testHybridEditor.structure.MetaBlock");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MetaBlock$4z = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec40c2c8L, "jetbrains.mps.testHybridEditor.structure.MetaBlock");
   }
 }

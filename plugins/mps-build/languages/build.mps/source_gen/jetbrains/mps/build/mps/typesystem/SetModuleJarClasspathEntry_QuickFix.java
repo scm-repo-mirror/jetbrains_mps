@@ -8,8 +8,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SetModuleJarClasspathEntry_QuickFix extends QuickFix_Runtime {
   public SetModuleJarClasspathEntry_QuickFix() {
@@ -19,11 +21,19 @@ public class SetModuleJarClasspathEntry_QuickFix extends QuickFix_Runtime {
     return "Add classpath entry that corresponds to jar root";
   }
   public void execute(SNode node) {
-    SNode moduleXml = SNodeOperations.as(node, AUX_rks6rm.BuildMpsLayout_ModuleXml_1ea572ac);
-    SPropertyOperations.assign(SLinkOperations.addNewChild(moduleXml, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, 0x75cd89729fd8ef2bL, "classpathEntries"), null), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path"), ".");
+    SNode moduleXml = SNodeOperations.as(node, CONCEPTS.BuildMpsLayout_ModuleXml$8Q);
+    SPropertyOperations.assign(SLinkOperations.addNewChild(moduleXml, LINKS.classpathEntries$4ReF, null), PROPS.path$LlSY, ".");
   }
 
-  private static final class AUX_rks6rm {
-    /*package*/ static final SConcept BuildMpsLayout_ModuleXml_1ea572ac = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleXml");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMpsLayout_ModuleXml$8Q = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleXml");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classpathEntries$4ReF = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, 0x75cd89729fd8ef2bL, "classpathEntries");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty path$LlSY = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path");
   }
 }

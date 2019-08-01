@@ -11,9 +11,11 @@ import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CellUtil {
   public CellUtil() {
@@ -28,10 +30,10 @@ public class CellUtil {
     if (isConceptDeprecated(node)) {
       return true;
     }
-    if (!(SNodeOperations.isInstanceOf(node, AUX_sgnqz6.IDeprecatable_90d7bbb8))) {
+    if (!(SNodeOperations.isInstanceOf(node, CONCEPTS.IDeprecatable$EE))) {
       return false;
     }
-    return ((boolean) (Boolean) BHReflection.invoke0(SNodeOperations.cast(node, AUX_sgnqz6.IDeprecatable_90d7bbb8), AUX_sgnqz6.IDeprecatable_90d7bbb8, SMethodTrimmedId.create("isDeprecated", null, "hOwoPtR")));
+    return ((boolean) (Boolean) BHReflection.invoke0(SNodeOperations.cast(node, CONCEPTS.IDeprecatable$EE), CONCEPTS.IDeprecatable$EE, SMethodTrimmedId.create("isDeprecated", null, "hOwoPtR")));
   }
   private static boolean isConceptDeprecated(SNode node) {
     ConceptPresentation cp = ConceptAspectsHelper.getPresentationAspect(node);
@@ -41,7 +43,7 @@ public class CellUtil {
     return cp.isDeprecated();
   }
   public static SNode getNodeToDelete(SNode node) {
-    while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_sgnqz6.IWrapper_114742e9)) {
+    while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.IWrapper$Ap)) {
       node = SNodeOperations.getParent(node);
     }
     return node;
@@ -50,14 +52,22 @@ public class CellUtil {
    * TODO: think of moving jetbrains.mps.lang.editor.generator.internal into MPS
    */
   public static SNode getLinkDeclarationTarget(SNode linkDeclaration) {
-    return SLinkOperations.getTarget(linkDeclaration, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98055fef0L, "target"));
+    return SLinkOperations.getTarget(linkDeclaration, LINKS.target$egp8);
   }
   public static String getLinkDeclarationRole(SNode linkDeclaration) {
-    return SPropertyOperations.getString(linkDeclaration, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role"));
+    return SPropertyOperations.getString(linkDeclaration, PROPS.role$r_O$);
   }
 
-  private static final class AUX_sgnqz6 {
-    /*package*/ static final SInterfaceConcept IDeprecatable_90d7bbb8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11d205fe38dL, "jetbrains.mps.lang.core.structure.IDeprecatable");
-    /*package*/ static final SInterfaceConcept IWrapper_114742e9 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11c6fd75034L, "jetbrains.mps.lang.core.structure.IWrapper");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IDeprecatable$EE = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11d205fe38dL, "jetbrains.mps.lang.core.structure.IDeprecatable");
+    /*package*/ static final SInterfaceConcept IWrapper$Ap = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11c6fd75034L, "jetbrains.mps.lang.core.structure.IWrapper");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$egp8 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98055fef0L, "target");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty role$r_O$ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role");
   }
 }

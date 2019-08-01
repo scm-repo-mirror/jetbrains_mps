@@ -9,8 +9,9 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_MapAsSequenceVarRef_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,11 +21,11 @@ public class typeof_MapAsSequenceVarRef_InferenceRule extends AbstractInferenceR
     {
       SNode _nodeToCheck_1029348928467 = mapAsSequenceVarRef;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "6481445890964433860", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "6481445890964433909", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(mapAsSequenceVarRef, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x59f2b8b299d62ef0L, 0x59f2b8b299d6e72bL, "original")), "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "6481445890964433981", true), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "6481445890964433909", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(mapAsSequenceVarRef, LINKS.original$FcSK), "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "6481445890964433981", true), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_lbkrox.MapAsSequenceVarRef_4b82739f;
+    return CONCEPTS.MapAsSequenceVarRef$Yz;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +34,11 @@ public class typeof_MapAsSequenceVarRef_InferenceRule extends AbstractInferenceR
     return false;
   }
 
-  private static final class AUX_lbkrox {
-    /*package*/ static final SConcept MapAsSequenceVarRef_4b82739f = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x59f2b8b299d62ef0L, "jetbrains.mps.baseLanguage.collections.structure.MapAsSequenceVarRef");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink original$FcSK = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x59f2b8b299d62ef0L, 0x59f2b8b299d6e72bL, "original");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MapAsSequenceVarRef$Yz = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x59f2b8b299d62ef0L, "jetbrains.mps.baseLanguage.collections.structure.MapAsSequenceVarRef");
   }
 }

@@ -10,11 +10,13 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_RelayQueryExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -24,11 +26,11 @@ public class typeof_RelayQueryExpression_InferenceRule extends AbstractInference
     {
       SNode _nodeToCheck_1029348928467 = rqe;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:b90ae0cf-6b91-458a-92d0-e5bf2ada7de4(jetbrains.mps.make.script.typesystem)", "1977954644795311540", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:b90ae0cf-6b91-458a-92d0-e5bf2ada7de4(jetbrains.mps.make.script.typesystem)", "1977954644795311552", true), (SNode) _quotation_createNode_7onn49_a1a0c0a0b(SNodeOperations.as(SLinkOperations.getTarget(SLinkOperations.getTarget(rqe, MetaAdapterFactory.getReferenceLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dbc59fL, 0x1b731b4510dbc5a2L, "query")), MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc49b2bL, 0x70276038dc4d7c4L, "expected")), AUX_7onn49.ExpectedOption_bdc41f58)), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:b90ae0cf-6b91-458a-92d0-e5bf2ada7de4(jetbrains.mps.make.script.typesystem)", "1977954644795311552", true), (SNode) _quotation_createNode_7onn49_a1a0c0a0b(SNodeOperations.as(SLinkOperations.getTarget(SLinkOperations.getTarget(rqe, LINKS.query$hcA9), LINKS.expected$qiXY), CONCEPTS.ExpectedOption$Ga)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7onn49.RelayQueryExpression_ea7a29d8;
+    return CONCEPTS.RelayQueryExpression$2a;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,12 +42,18 @@ public class typeof_RelayQueryExpression_InferenceRule extends AbstractInference
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x70276038dc4d7b5L, "OptionType"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7b5L, 0x70276038dc4d7bcL, "expectedOption"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.expectedOption$wR_5, (SNode) parameter_1);
     return quotedNode_2;
   }
 
-  private static final class AUX_7onn49 {
-    /*package*/ static final SConcept ExpectedOption_bdc41f58 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, "jetbrains.mps.make.script.structure.ExpectedOption");
-    /*package*/ static final SConcept RelayQueryExpression_ea7a29d8 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dbc59fL, "jetbrains.mps.make.script.structure.RelayQueryExpression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink query$hcA9 = MetaAdapterFactory.getReferenceLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dbc59fL, 0x1b731b4510dbc5a2L, "query");
+    /*package*/ static final SContainmentLink expected$qiXY = MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc49b2bL, 0x70276038dc4d7c4L, "expected");
+    /*package*/ static final SReferenceLink expectedOption$wR_5 = MetaAdapterFactory.getReferenceLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7b5L, 0x70276038dc4d7bcL, "expectedOption");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExpectedOption$Ga = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, "jetbrains.mps.make.script.structure.ExpectedOption");
+    /*package*/ static final SConcept RelayQueryExpression$2a = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dbc59fL, "jetbrains.mps.make.script.structure.RelayQueryExpression");
   }
 }

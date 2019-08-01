@@ -6,6 +6,7 @@ import jetbrains.mps.smodel.action.IReferentPresentationProvider;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PresentationProviders {
@@ -13,14 +14,18 @@ public class PresentationProviders {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6982L, 0x97a1ce11865e911L, "workName"));
+      return SPropertyOperations.getString(targetNode, PROPS.workName$ILmr);
     }
   };
   public static final IReferentPresentationProvider PRESENTATION_c3e6b4_a0a1a = new IReferentPresentationProvider() {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6982L, 0x97a1ce11865e911L, "workName"));
+      return SPropertyOperations.getString(targetNode, PROPS.workName$ILmr);
     }
   };
+
+  private static final class PROPS {
+    /*package*/ static final SProperty workName$ILmr = MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6982L, 0x97a1ce11865e911L, "workName");
+  }
 }

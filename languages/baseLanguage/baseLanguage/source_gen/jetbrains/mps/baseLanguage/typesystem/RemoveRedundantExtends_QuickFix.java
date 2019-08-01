@@ -17,10 +17,10 @@ public class RemoveRedundantExtends_QuickFix extends QuickFix_Runtime {
     return "Remove redundunt 'extends Object'";
   }
   public void execute(SNode node) {
-    SNodeOperations.replaceWithNewChild(node, AUX_j9mb8b.WildCardType_457cddf9);
+    SNodeOperations.replaceWithNewChild(node, CONCEPTS.WildCardType$29);
   }
 
-  private static final class AUX_j9mb8b {
-    /*package*/ static final SConcept WildCardType_457cddf9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x110dae5f4a3L, "jetbrains.mps.baseLanguage.structure.WildCardType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WildCardType$29 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x110dae5f4a3L, "jetbrains.mps.baseLanguage.structure.WildCardType");
   }
 }

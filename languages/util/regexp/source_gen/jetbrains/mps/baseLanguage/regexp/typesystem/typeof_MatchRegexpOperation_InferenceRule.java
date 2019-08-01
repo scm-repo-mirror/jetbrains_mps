@@ -25,7 +25,7 @@ public class typeof_MatchRegexpOperation_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_920rku.MatchRegexpOperation_18a17766;
+    return CONCEPTS.MatchRegexpOperation$iW;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_MatchRegexpOperation_InferenceRule extends AbstractInference
     return quotedNode_1;
   }
 
-  private static final class AUX_920rku {
-    /*package*/ static final SConcept MatchRegexpOperation_18a17766 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11c9466ae95L, "jetbrains.mps.baseLanguage.regexp.structure.MatchRegexpOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatchRegexpOperation$iW = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11c9466ae95L, "jetbrains.mps.baseLanguage.regexp.structure.MatchRegexpOperation");
   }
 }

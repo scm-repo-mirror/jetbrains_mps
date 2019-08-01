@@ -9,57 +9,59 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_InvokeIntentionStatement_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_InvokeIntentionStatement_InferenceRule() {
   }
   public void applyRule(final SNode statement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(statement, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x11d72afec1bL, "intention")), AUX_sce0xb.ParameterizedIntentionDeclaration_2ac6f11a)) {
-      if ((SLinkOperations.getTarget(statement, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x7bf9131d2468ca92L, "parameter")) == null)) {
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(statement, LINKS.intention$GjtA), CONCEPTS.ParameterizedIntentionDeclaration$68)) {
+      if ((SLinkOperations.getTarget(statement, LINKS.parameter$mJjU) == null)) {
         {
-          final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x7bf9131d2468ca92L, "parameter"));
+          final MessageTarget errorTarget = new ReferenceMessageTarget(LINKS.parameter$mJjU);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(statement, "Missing parameter value for parameterized intention", "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "4804472818036379967", null, errorTarget);
         }
         return;
       }
 
-      SNode decl = SNodeOperations.cast(SLinkOperations.getTarget(statement, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x11d72afec1bL, "intention")), AUX_sce0xb.ParameterizedIntentionDeclaration_2ac6f11a);
+      SNode decl = SNodeOperations.cast(SLinkOperations.getTarget(statement, LINKS.intention$GjtA), CONCEPTS.ParameterizedIntentionDeclaration$68);
 
-      if ((SLinkOperations.getTarget(decl, MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, 0x120cd55c89bL, "queryFunction")) == null)) {
+      if ((SLinkOperations.getTarget(decl, LINKS.queryFunction$NYf9) == null)) {
         return;
       }
 
-      SNode type = SLinkOperations.getTarget(SLinkOperations.getTarget(decl, MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, 0x120cd55c89bL, "queryFunction")), MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c89cc719L, 0x120cd3676eeL, "paramType"));
+      SNode type = SLinkOperations.getTarget(SLinkOperations.getTarget(decl, LINKS.queryFunction$NYf9), LINKS.paramType$tho0);
       if ((type == null)) {
         return;
       }
 
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(statement, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x7bf9131d2468ca92L, "parameter"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(statement, LINKS.parameter$mJjU);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "8933192351752336249", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "8933192351752331291", true), (SNode) type, false, true, _info_12389875345);
       }
     } else {
       // Not a parameterized intention - should not have a parameter 
-      if ((SLinkOperations.getTarget(statement, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x7bf9131d2468ca92L, "parameter")) != null)) {
+      if ((SLinkOperations.getTarget(statement, LINKS.parameter$mJjU) != null)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(statement, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x7bf9131d2468ca92L, "parameter")), "Parameter value specified for a non-parameterized intention", "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "4804472818036406369", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(statement, LINKS.parameter$mJjU), "Parameter value specified for a non-parameterized intention", "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "4804472818036406369", null, errorTarget);
         }
       }
     }
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_sce0xb.InvokeIntentionStatement_b4612d3b;
+    return CONCEPTS.InvokeIntentionStatement$A7;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -68,8 +70,15 @@ public class typeof_InvokeIntentionStatement_InferenceRule extends AbstractInfer
     return false;
   }
 
-  private static final class AUX_sce0xb {
-    /*package*/ static final SConcept ParameterizedIntentionDeclaration_2ac6f11a = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, "jetbrains.mps.lang.intentions.structure.ParameterizedIntentionDeclaration");
-    /*package*/ static final SConcept InvokeIntentionStatement_b4612d3b = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, "jetbrains.mps.lang.test.structure.InvokeIntentionStatement");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink intention$GjtA = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x11d72afec1bL, "intention");
+    /*package*/ static final SContainmentLink parameter$mJjU = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, 0x7bf9131d2468ca92L, "parameter");
+    /*package*/ static final SContainmentLink queryFunction$NYf9 = MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, 0x120cd55c89bL, "queryFunction");
+    /*package*/ static final SContainmentLink paramType$tho0 = MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c89cc719L, 0x120cd3676eeL, "paramType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParameterizedIntentionDeclaration$68 = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, "jetbrains.mps.lang.intentions.structure.ParameterizedIntentionDeclaration");
+    /*package*/ static final SConcept InvokeIntentionStatement$A7 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11d72af5892L, "jetbrains.mps.lang.test.structure.InvokeIntentionStatement");
   }
 }

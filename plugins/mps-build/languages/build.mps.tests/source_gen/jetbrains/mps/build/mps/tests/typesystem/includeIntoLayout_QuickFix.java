@@ -6,11 +6,14 @@ import jetbrains.mps.errors.QuickFix_Runtime;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class includeIntoLayout_QuickFix extends QuickFix_Runtime {
@@ -18,19 +21,29 @@ public class includeIntoLayout_QuickFix extends QuickFix_Runtime {
     super(new SNodePointer("r:f8814f89-9801-40d6-822f-e0e0a3a2c53d(jetbrains.mps.build.mps.tests.typesystem)", "2834134232276458561"));
   }
   public String getDescription(SNode node) {
-    return "Add " + SPropertyOperations.getString(((SNode) includeIntoLayout_QuickFix.this.getField("module")[0]), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " to the layout";
+    return "Add " + SPropertyOperations.getString(((SNode) includeIntoLayout_QuickFix.this.getField("module")[0]), PROPS.name$tAp1) + " to the layout";
   }
   public void execute(SNode node) {
-    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(((SNode) includeIntoLayout_QuickFix.this.getField("project")[0]), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout")), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children"))).addElement(createBuildMpsLayout_ModuleJars_f5l1y2_a0a0a2(((SNode) includeIntoLayout_QuickFix.this.getField("module")[0])));
+    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(((SNode) includeIntoLayout_QuickFix.this.getField("project")[0]), LINKS.layout$tpCz), LINKS.children$aiMf)).addElement(createBuildMpsLayout_ModuleJars_f5l1y2_a0a0a2(((SNode) includeIntoLayout_QuickFix.this.getField("module")[0])));
   }
   private static SNode createBuildMpsLayout_ModuleJars_f5l1y2_a0a0a2(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_f5l1y2.BuildMpsLayout_ModuleJars_c448bd1b, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.BuildMpsLayout_ModuleJars$mB, null, null, false);
+    n1.setReferenceTarget(LINKS.module$5MWZ, node0);
     return n1;
   }
 
-  private static final class AUX_f5l1y2 {
-    /*package*/ static final SConcept BuildMpsLayout_ModuleJars_c448bd1b = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink layout$tpCz = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout");
+    /*package*/ static final SContainmentLink children$aiMf = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children");
+    /*package*/ static final SReferenceLink module$5MWZ = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMpsLayout_ModuleJars$mB = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars");
   }
 }

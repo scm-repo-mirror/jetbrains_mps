@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TextElement_Constraints extends BaseConstraintsDescriptor {
   public TextElement_Constraints() {
-    super(AUX_y1xwtf.TextElement_f8e99b54);
+    super(CONCEPTS.TextElement$Ue);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class TextElement_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_y1xwtf.Line_c0b9df3f);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.Line$w3);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:cbe13337-6410-4c91-b1b0-2837bdd7e4a8(jetbrains.mps.lang.text.constraints)", "474718489010717749");
 
-  private static final class AUX_y1xwtf {
-    /*package*/ static final SConcept TextElement_f8e99b54 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35ee7L, "jetbrains.mps.lang.text.structure.TextElement");
-    /*package*/ static final SConcept Line_c0b9df3f = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextElement$Ue = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35ee7L, "jetbrains.mps.lang.text.structure.TextElement");
+    /*package*/ static final SConcept Line$w3 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, "jetbrains.mps.lang.text.structure.Line");
   }
 }

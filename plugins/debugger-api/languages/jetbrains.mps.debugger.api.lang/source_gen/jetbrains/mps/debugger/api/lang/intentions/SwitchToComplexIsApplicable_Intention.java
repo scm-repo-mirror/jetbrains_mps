@@ -13,9 +13,11 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class SwitchToComplexIsApplicable_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -45,24 +47,33 @@ public final class SwitchToComplexIsApplicable_Intention extends AbstractIntenti
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x79747203892d4cd6L, "isComplex"))) {
+      if (SPropertyOperations.getBoolean(node, PROPS.isComplex$PLMw)) {
         return "Use Concept List";
       }
       return "Use isApplicable Function";
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x79747203892d4cd6L, "isComplex"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x79747203892d4cd6L, "isComplex"))));
-      if (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x79747203892d4cd6L, "isComplex"))) {
-        SLinkOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x2b1681328a5d11f6L, "isApplicableBreakpoint"), null);
-        SLinkOperations.setNewChild(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x2b1681328a5d11f6L, "isApplicableBreakpoint")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body"), null);
+      SPropertyOperations.set(node, PROPS.isComplex$PLMw, !(SPropertyOperations.getBoolean(node, PROPS.isComplex$PLMw)));
+      if (SPropertyOperations.getBoolean(node, PROPS.isComplex$PLMw)) {
+        SLinkOperations.setNewChild(node, LINKS.isApplicableBreakpoint$lffU, null);
+        SLinkOperations.setNewChild(SLinkOperations.getTarget(node, LINKS.isApplicableBreakpoint$lffU), LINKS.body$pTP2, null);
       } else {
-        SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x2b1681328a5d11f6L, "isApplicableBreakpoint"), null);
+        SLinkOperations.setTarget(node, LINKS.isApplicableBreakpoint$lffU, null);
       }
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return SwitchToComplexIsApplicable_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isComplex$PLMw = MetaAdapterFactory.getProperty(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x79747203892d4cd6L, "isComplex");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink isApplicableBreakpoint$lffU = MetaAdapterFactory.getContainmentLink(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0x2bd07aa080dfb937L, 0x2b1681328a5d11f6L, "isApplicableBreakpoint");
+    /*package*/ static final SContainmentLink body$pTP2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body");
   }
 }

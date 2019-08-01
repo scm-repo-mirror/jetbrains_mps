@@ -4,6 +4,7 @@ package jetbrains.mps.lang.pattern.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -19,15 +20,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Set;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class PatternExpression__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nlfwk.PatternExpression_b5cd3dd6;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, "jetbrains.mps.lang.pattern.structure.PatternExpression");
 
   public static final SMethod<List<SNode>> getVariables_id4dzCQkRGUKX = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getVariables").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4dzCQkRGUKX").build();
   public static final SMethod<List<SNode>> getUniqueVariables_id4dzCQkRGULU = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getUniqueVariables").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4dzCQkRGULU").build();
@@ -43,9 +45,9 @@ public final class PatternExpression__BehaviorDescriptor extends BaseBHDescripto
 
   /*package*/ static List<SNode> getVariables_id4dzCQkRGUKX(@NotNull SNode __thisNode__) {
     List<SNode> variables = new ArrayList<SNode>();
-    ListSequence.fromList(variables).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, AUX_nlfwk.PatternVariableDeclaration_b5cd3dd8, false, new SAbstractConcept[]{})));
-    ListSequence.fromList(variables).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, AUX_nlfwk.LinkPatternVariableDeclaration_352d241b, false, new SAbstractConcept[]{})));
-    ListSequence.fromList(variables).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, AUX_nlfwk.PropertyPatternVariableDeclaration_b5cd3def, false, new SAbstractConcept[]{})));
+    ListSequence.fromList(variables).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, CONCEPTS.PatternVariableDeclaration$Ma, false, new SAbstractConcept[]{})));
+    ListSequence.fromList(variables).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, CONCEPTS.LinkPatternVariableDeclaration$UB, false, new SAbstractConcept[]{})));
+    ListSequence.fromList(variables).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, CONCEPTS.PropertyPatternVariableDeclaration$Xj, false, new SAbstractConcept[]{})));
     return variables;
   }
   /*package*/ static List<SNode> getUniqueVariables_id4dzCQkRGULU(@NotNull SNode __thisNode__) {
@@ -53,9 +55,9 @@ public final class PatternExpression__BehaviorDescriptor extends BaseBHDescripto
     List<SNode> result = new ArrayList<SNode>();
     Set<String> names = new HashSet<String>();
     for (SNode var : variables) {
-      if (!(names.contains(SPropertyOperations.getString(var, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))))) {
+      if (!(names.contains(SPropertyOperations.getString(var, PROPS.name$tAp1)))) {
         ListSequence.fromList(result).addElement(var);
-        names.add(SPropertyOperations.getString(var, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        names.add(SPropertyOperations.getString(var, PROPS.name$tAp1));
       }
     }
     return result;
@@ -64,7 +66,7 @@ public final class PatternExpression__BehaviorDescriptor extends BaseBHDescripto
     List<SNode> variables = PatternExpression__BehaviorDescriptor.getVariables_id4dzCQkRGUKX.invoke(__thisNode__);
     List<SNode> result = new ArrayList<SNode>();
     for (SNode var : variables) {
-      if (!((SNodeOperations.isInstanceOf(SNodeOperations.getParent(var), AUX_nlfwk.OrPattern_60bda891) && SNodeOperations.getParent(var) != __thisNode__))) {
+      if (!((SNodeOperations.isInstanceOf(SNodeOperations.getParent(var), CONCEPTS.OrPattern$zL) && SNodeOperations.getParent(var) != __thisNode__))) {
         ListSequence.fromList(result).addElement(var);
       }
     }
@@ -72,13 +74,13 @@ public final class PatternExpression__BehaviorDescriptor extends BaseBHDescripto
   }
   /*package*/ static SAbstractConcept getQuotedNodeConcept_id4vXWNHn1_L$(@NotNull SNode __thisNode__) {
     // concept of the quoteed (pattern) node 
-    return SNodeOperations.getConcept(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, 0x7d8b4408504314cdL, "pattern")), MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode")));
+    return SNodeOperations.getConcept(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.pattern$fJGl), LINKS.quotedNode$kInw));
   }
   /*package*/ static boolean hasVariable_id4dzCQkRGUNw(@NotNull SNode __thisNode__) {
     return false;
   }
   /*package*/ static boolean suppress_id2WmWrdnSpX7(@NotNull SNode __thisNode__, SNode child) {
-    return child == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, 0x7d8b4408504314cdL, "pattern"));
+    return child == SLinkOperations.getTarget(__thisNode__, LINKS.pattern$fJGl);
   }
 
   /*package*/ PatternExpression__BehaviorDescriptor() {
@@ -137,11 +139,19 @@ public final class PatternExpression__BehaviorDescriptor extends BaseBHDescripto
     return CONCEPT;
   }
 
-  private static final class AUX_nlfwk {
-    /*package*/ static final SConcept PatternExpression_b5cd3dd6 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, "jetbrains.mps.lang.pattern.structure.PatternExpression");
-    /*package*/ static final SConcept PatternVariableDeclaration_b5cd3dd8 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
-    /*package*/ static final SConcept LinkPatternVariableDeclaration_352d241b = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108d36d955aL, "jetbrains.mps.lang.pattern.structure.LinkPatternVariableDeclaration");
-    /*package*/ static final SConcept PropertyPatternVariableDeclaration_b5cd3def = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4795L, "jetbrains.mps.lang.pattern.structure.PropertyPatternVariableDeclaration");
-    /*package*/ static final SConcept OrPattern_60bda891 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, "jetbrains.mps.lang.pattern.structure.OrPattern");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PatternVariableDeclaration$Ma = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
+    /*package*/ static final SConcept LinkPatternVariableDeclaration$UB = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108d36d955aL, "jetbrains.mps.lang.pattern.structure.LinkPatternVariableDeclaration");
+    /*package*/ static final SConcept PropertyPatternVariableDeclaration$Xj = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4795L, "jetbrains.mps.lang.pattern.structure.PropertyPatternVariableDeclaration");
+    /*package*/ static final SConcept OrPattern$zL = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, "jetbrains.mps.lang.pattern.structure.OrPattern");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink pattern$fJGl = MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, 0x7d8b4408504314cdL, "pattern");
+    /*package*/ static final SContainmentLink quotedNode$kInw = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode");
   }
 }

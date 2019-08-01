@@ -30,7 +30,6 @@ import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsAction
 import jetbrains.mps.baseLanguage.actions.PrecedenceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class assignments extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -95,7 +96,7 @@ public class assignments extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_egrkpv.BaseAssignmentExpression_8ed0d6ee;
+      return CONCEPTS.BaseAssignmentExpression$oO;
     }
 
 
@@ -109,11 +110,11 @@ public class assignments extends TransformationMenuBase {
           SNode source = PrecedenceUtil.getTargetForLeftTransform(_context.getNode(), createdNode);
           // since BaseAssignmentExpressions are right-associative we should LT parent 
           // BaseAssignmentExpressions or it's lValue depenting on current position 
-          if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(source), AUX_egrkpv.BaseAssignmentExpression_8ed0d6ee) && Objects.equals(SNodeOperations.getContainingLink(source), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue"))) {
-            source = SNodeOperations.cast(SNodeOperations.getParent(source), AUX_egrkpv.BaseAssignmentExpression_8ed0d6ee);
+          if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(source), CONCEPTS.BaseAssignmentExpression$oO) && Objects.equals(SNodeOperations.getContainingLink(source), LINKS.lValue$J0D4)) {
+            source = SNodeOperations.cast(SNodeOperations.getParent(source), CONCEPTS.BaseAssignmentExpression$oO);
           }
           SNodeOperations.replaceWithAnother(source, createdNode);
-          SLinkOperations.setTarget(createdNode, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue"), source);
+          SLinkOperations.setTarget(createdNode, LINKS.rValue$J0E2, source);
           PrecedenceUtil.parenthesiseIfNecessary(createdNode);
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
@@ -155,7 +156,7 @@ public class assignments extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_egrkpv.BaseAssignmentExpression_8ed0d6ee;
+      return CONCEPTS.BaseAssignmentExpression$oO;
     }
 
 
@@ -167,7 +168,7 @@ public class assignments extends TransformationMenuBase {
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
           SNodeOperations.replaceWithAnother(_context.getNode(), createdNode);
-          SLinkOperations.setTarget(createdNode, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue"), _context.getNode());
+          SLinkOperations.setTarget(createdNode, LINKS.lValue$J0D4, _context.getNode());
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -188,7 +189,12 @@ public class assignments extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_egrkpv {
-    /*package*/ static final SConcept BaseAssignmentExpression_8ed0d6ee = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, "jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseAssignmentExpression$oO = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, "jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink lValue$J0D4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue");
+    /*package*/ static final SContainmentLink rValue$J0E2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue");
   }
 }

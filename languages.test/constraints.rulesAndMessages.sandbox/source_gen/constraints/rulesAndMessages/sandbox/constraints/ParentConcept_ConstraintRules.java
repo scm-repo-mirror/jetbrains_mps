@@ -4,6 +4,7 @@ package constraints.rulesAndMessages.sandbox.constraints;
 
 import jetbrains.mps.core.aspects.constraints.rules.BaseRulesConstraintsDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.constraints.rules.Rule;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext;
 import java.util.List;
@@ -18,11 +19,11 @@ import jetbrains.mps.core.aspects.constraints.rules.kinds.PredefinedRuleKinds;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ParentConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_hbbo8s.ParentConcept_1f97f157;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept");
 
   public static final Rule<ContainmentContext> check_id8878450512092601214 = new Rule_childConcept();
   public static final Rule<ContainmentContext> check_id8878450512092603199 = new Rule_propIsTrue();
@@ -45,7 +46,7 @@ public final class ParentConcept_ConstraintRules extends BaseRulesConstraintsDes
 
     @Override
     public boolean check(@NotNull ContainmentContext context) {
-      return SConceptOperations.isExactly(SNodeOperations.asSConcept(context.getChildConcept()), AUX_hbbo8s.ChildConcept_3eda7ad4);
+      return SConceptOperations.isExactly(SNodeOperations.asSConcept(context.getChildConcept()), CONCEPTS.ChildConcept$We);
     }
 
     @Override
@@ -64,7 +65,7 @@ public final class ParentConcept_ConstraintRules extends BaseRulesConstraintsDes
 
     @Override
     public boolean check(@NotNull ContainmentContext context) {
-      return SPropertyOperations.getBoolean(context.getParentNode(), MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, 0x6493b7a43ae22fbaL, "canHaveChildren"));
+      return SPropertyOperations.getBoolean(context.getParentNode(), PROPS.canHaveChildren$Q9rf);
     }
 
     @Override
@@ -77,8 +78,11 @@ public final class ParentConcept_ConstraintRules extends BaseRulesConstraintsDes
     super(CONCEPT);
   }
 
-  private static final class AUX_hbbo8s {
-    /*package*/ static final SConcept ParentConcept_1f97f157 = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, "constraints.rulesAndMessages.sandbox.structure.ParentConcept");
-    /*package*/ static final SConcept ChildConcept_3eda7ad4 = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildConcept$We = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty canHaveChildren$Q9rf = MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7af41afae28e1a15L, 0x6493b7a43ae22fbaL, "canHaveChildren");
   }
 }

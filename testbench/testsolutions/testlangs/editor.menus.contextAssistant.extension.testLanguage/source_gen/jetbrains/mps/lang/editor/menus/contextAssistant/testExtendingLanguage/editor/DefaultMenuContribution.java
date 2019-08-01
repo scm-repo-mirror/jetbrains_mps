@@ -24,8 +24,9 @@ import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.editor.contextActionsTool.lang.menus.runtime.SidebarActionItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.IconResource;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DefaultMenuContribution extends TransformationMenuBase {
   private static final Logger LOG = LogManager.getLogger(DefaultMenuContribution.class);
@@ -147,7 +148,7 @@ public class DefaultMenuContribution extends TransformationMenuBase {
       @Nullable
       @Override
       public String getLabelText(String pattern) {
-        return "sidebar-only action for " + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return "sidebar-only action for " + SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1);
       }
 
       @Override
@@ -175,5 +176,9 @@ public class DefaultMenuContribution extends TransformationMenuBase {
 
     }
 
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

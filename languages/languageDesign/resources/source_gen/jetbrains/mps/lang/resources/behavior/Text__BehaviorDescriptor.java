@@ -4,6 +4,7 @@ package jetbrains.mps.lang.resources.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,17 +19,17 @@ import org.jetbrains.mps.openapi.util.Consumer;
 import java.awt.Font;
 import java.awt.Color;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.awt.font.TextLayout;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.awt.geom.Rectangle2D;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_253g9j.Text_d76cc73e;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, "jetbrains.mps.lang.resources.structure.Text");
 
   public static final SMethod<byte[]> getImageForGeneration_id2p1v3tObywX = new SMethodBuilder<byte[]>(new SJavaCompoundTypeImpl(byte[].class)).name("getImageForGeneration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2p1v3tObywX").build();
 
@@ -42,10 +43,10 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
       public void consume(IconCreationUtil.DrawContext dc) {
         Font font = new Font(Font.DIALOG, Font.BOLD, 12);
 
-        dc.g.setColor(new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x19d079f4ec114c16L, "color")))));
+        dc.g.setColor(new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.color$izFK))));
         dc.g.setFont(font);
 
-        TextLayout text = new TextLayout(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x26417c37742e28beL, "text")), font, dc.g.getFontRenderContext());
+        TextLayout text = new TextLayout(SPropertyOperations.getString(__thisNode__, PROPS.text$A7q7), font, dc.g.getFontRenderContext());
         Rectangle2D rect = text.getBounds();
 
         text.draw(dc.g, ((float) (((float) dc.width) / 2 - rect.getCenterX())), ((float) (((float) dc.height) / 2 - rect.getCenterY())));
@@ -99,7 +100,11 @@ public final class Text__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_253g9j {
-    /*package*/ static final SConcept Text_d76cc73e = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, "jetbrains.mps.lang.resources.structure.Text");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink color$izFK = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x19d079f4ec114c16L, "color");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$A7q7 = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x26417c37742e28beL, "text");
   }
 }

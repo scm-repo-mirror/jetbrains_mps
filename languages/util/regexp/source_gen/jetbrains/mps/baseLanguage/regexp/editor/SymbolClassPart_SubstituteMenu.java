@@ -20,7 +20,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -29,13 +28,15 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import java.util.regex.Pattern;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SymbolClassPart_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_kfi2w2_a(), AUX_kfi2w2.CharacterSymbolClassPart_b012f59d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_kfi2w2_a(), CONCEPTS.CharacterSymbolClassPart$P_));
     result.add(new SMP_Subconcepts_kfi2w2_b());
     return result;
   }
@@ -81,7 +82,7 @@ public class SymbolClassPart_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_kfi2w2.CharacterSymbolClassPart_b012f59d, context);
+        super(CONCEPTS.CharacterSymbolClassPart$P_, context);
         _context = context;
       }
 
@@ -92,8 +93,8 @@ public class SymbolClassPart_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode literal = SNodeFactoryOperations.createNewNode(AUX_kfi2w2.CharacterSymbolClassPart_b012f59d, null);
-        SPropertyOperations.assign(literal, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, 0x111791b0b58L, "character"), (pattern.startsWith("\\") ? pattern.substring(1) : pattern));
+        SNode literal = SNodeFactoryOperations.createNewNode(CONCEPTS.CharacterSymbolClassPart$P_, null);
+        SPropertyOperations.assign(literal, PROPS.character$1gc9, (pattern.startsWith("\\") ? pattern.substring(1) : pattern));
         return literal;
       }
 
@@ -121,7 +122,7 @@ public class SymbolClassPart_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_kfi2w2_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_kfi2w2.SymbolClassPart_b001b03c);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.SymbolClassPart$qA);
     }
     @NotNull
     @Override
@@ -142,8 +143,12 @@ public class SymbolClassPart_SubstituteMenu extends SubstituteMenuBase {
   }
   private static final Pattern REGEXP_kfi2w2_a0a0a21c5 = Pattern.compile("(?:[^\\s\\\\\\[&'\\]\\-]|\\\\[\\-\\[&'\\]])", 0);
 
-  private static final class AUX_kfi2w2 {
-    /*package*/ static final SConcept CharacterSymbolClassPart_b012f59d = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, "jetbrains.mps.baseLanguage.regexp.structure.CharacterSymbolClassPart");
-    /*package*/ static final SConcept SymbolClassPart_b001b03c = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791aa602L, "jetbrains.mps.baseLanguage.regexp.structure.SymbolClassPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CharacterSymbolClassPart$P_ = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, "jetbrains.mps.baseLanguage.regexp.structure.CharacterSymbolClassPart");
+    /*package*/ static final SConcept SymbolClassPart$qA = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791aa602L, "jetbrains.mps.baseLanguage.regexp.structure.SymbolClassPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty character$1gc9 = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, 0x111791b0b58L, "character");
   }
 }

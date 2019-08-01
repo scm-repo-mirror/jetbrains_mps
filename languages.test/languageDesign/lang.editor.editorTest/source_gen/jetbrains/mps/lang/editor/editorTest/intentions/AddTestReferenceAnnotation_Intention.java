@@ -52,11 +52,11 @@ public final class AddTestReferenceAnnotation_Intention extends AbstractIntentio
     }
 
     SNode referentNode = EditingUtil.getEditedLinkReferentNode(cell);
-    if (referentNode == null || AttributeOperations.getAttribute(referentNode, new IAttributeDescriptor.LinkAttribute(AUX_uowuai.ReferenceAnnotataion_98952970, ref)) != null) {
+    if (referentNode == null || AttributeOperations.getAttribute(referentNode, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceAnnotataion$fM, ref)) != null) {
       return false;
     }
 
-    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(AUX_uowuai.NodesTestCase_fd5a0bf4), node);
+    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(CONCEPTS.NodesTestCase$7I), node);
   }
   @Override
   public boolean isSurroundWith() {
@@ -80,7 +80,7 @@ public final class AddTestReferenceAnnotation_Intention extends AbstractIntentio
       EditorCell cell = editorContext.getSelectedCell();
       SNode referentNode = EditingUtil.getEditedLinkReferentNode(cell);
       SReferenceLink ref = EditingUtil.getEditedLink(cell);
-      SNode result = SNodeFactoryOperations.setNewAttribute(referentNode, new IAttributeDescriptor.LinkAttribute(AUX_uowuai.ReferenceAnnotataion_98952970, ref), AUX_uowuai.ReferenceAnnotataion_98952970);
+      SNode result = SNodeFactoryOperations.setNewAttribute(referentNode, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceAnnotataion$fM, ref), CONCEPTS.ReferenceAnnotataion$fM);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -88,8 +88,8 @@ public final class AddTestReferenceAnnotation_Intention extends AbstractIntentio
     }
   }
 
-  private static final class AUX_uowuai {
-    /*package*/ static final SConcept ReferenceAnnotataion_98952970 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6a48144fa856f460L, "jetbrains.mps.lang.editor.editorTest.structure.ReferenceAnnotataion");
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReferenceAnnotataion$fM = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6a48144fa856f460L, "jetbrains.mps.lang.editor.editorTest.structure.ReferenceAnnotataion");
+    /*package*/ static final SConcept NodesTestCase$7I = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
   }
 }

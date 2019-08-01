@@ -5,7 +5,6 @@ package jetbrains.mps.lang.structure.behavior;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.behavior.AttributeAccess__BehaviorDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.lang.structure.constraints.Scopes;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -20,19 +19,23 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.Set;
 import java.util.LinkedHashSet;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class AttributeDesignTimeOperations {
   public static Iterable<SNode> getApplicableAttributes(SNode accessNode, final SNode attributeType) {
     // todo: should be node<ACD> 
-    final SNode nodeConcept = SLinkOperations.getTarget(AttributeAccess__BehaviorDescriptor.getAttributeContainerType_id62qhzb6UOqI.invoke(accessNode), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept"));
+    final SNode nodeConcept = SLinkOperations.getTarget(AttributeAccess__BehaviorDescriptor.getAttributeContainerType_id62qhzb6UOqI.invoke(accessNode), LINKS.concept$HWFQ);
     if ((nodeConcept == null)) {
       return null;
     }
-    Scope conceptsScope = Scopes.forConcepts(accessNode, AUX_ripaa1.ConceptDeclaration_cb225da8);
+    Scope conceptsScope = Scopes.forConcepts(accessNode, CONCEPTS.ConceptDeclaration$qU);
     return Sequence.fromIterable(conceptsScope.getAvailableElements(null)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return SNodeOperations.cast(it, AUX_ripaa1.ConceptDeclaration_cb225da8);
+        return SNodeOperations.cast(it, CONCEPTS.ConceptDeclaration$qU);
       }
     }).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -41,7 +44,7 @@ public class AttributeDesignTimeOperations {
     }).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         // todo: why not getAttributeRole? 
-        return isNotEmptyString(SPropertyOperations.getString(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_ripaa1.AttributeInfo_b702cd25)), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d1440b01c7L, "role"))) && Sequence.fromIterable(getApplicableConcepts(it)).any(new IWhereFilter<SNode>() {
+        return isNotEmptyString(SPropertyOperations.getString(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AttributeInfo$rt)), PROPS.role$VZ$z)) && Sequence.fromIterable(getApplicableConcepts(it)).any(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return (boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(nodeConcept, it);
           }
@@ -58,9 +61,9 @@ public class AttributeDesignTimeOperations {
     }
     return SPropertyOperations.getBoolean(SLinkOperations.getTarget(AttributeOperations.getAttribute(SetSequence.fromSet(getSuperConcepts(attributeDeclaration)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return (SLinkOperations.getTarget(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_ripaa1.AttributeInfo_b702cd25)), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d1440affeaL, "multiple")) != null);
+        return (SLinkOperations.getTarget(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AttributeInfo$rt)), LINKS.multiple$VrGB) != null);
       }
-    }), new IAttributeDescriptor.NodeAttribute(AUX_ripaa1.AttributeInfo_b702cd25)), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d1440affeaL, "multiple")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd034959f7dcL, 0x5405fd03495a2dceL, "value"));
+    }), new IAttributeDescriptor.NodeAttribute(CONCEPTS.AttributeInfo$rt)), LINKS.multiple$VrGB), PROPS.value$Wv6W);
   }
   @Nullable
   public static String getAttributeRole(SNode attributeDeclaration) {
@@ -69,9 +72,9 @@ public class AttributeDesignTimeOperations {
     }
     return SPropertyOperations.getString(AttributeOperations.getAttribute(SetSequence.fromSet(getSuperConcepts(attributeDeclaration)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return isNotEmptyString(SPropertyOperations.getString(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_ripaa1.AttributeInfo_b702cd25)), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d1440b01c7L, "role")));
+        return isNotEmptyString(SPropertyOperations.getString(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AttributeInfo$rt)), PROPS.role$VZ$z));
       }
-    }), new IAttributeDescriptor.NodeAttribute(AUX_ripaa1.AttributeInfo_b702cd25)), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d1440b01c7L, "role"));
+    }), new IAttributeDescriptor.NodeAttribute(CONCEPTS.AttributeInfo$rt)), PROPS.role$VZ$z);
   }
 
   @Nullable
@@ -84,7 +87,7 @@ public class AttributeDesignTimeOperations {
     } catch (Exception ex) {
       // ignore 
     }
-    return SPropertyOperations.getString(attributeDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(attributeDeclaration, PROPS.name$tAp1);
   }
 
   public static Iterable<SNode> getApplicableConcepts(SNode attributeDeclaration) {
@@ -93,7 +96,7 @@ public class AttributeDesignTimeOperations {
     }
     return SetSequence.fromSet(getSuperConcepts(attributeDeclaration)).translate(new ITranslator2<SNode, SNode>() {
       public Iterable<SNode> translate(SNode it) {
-        return SLinkOperations.collect(SLinkOperations.getChildren(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_ripaa1.AttributeInfo_b702cd25)), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d143972c0eL, "attributed")), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd03496acb49L, 0x5405fd03496acc99L, "concept"));
+        return SLinkOperations.collect(SLinkOperations.getChildren(AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AttributeInfo$rt)), LINKS.attributed$x3gI), LINKS.concept$Bg0h);
       }
     }).distinct().where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -106,7 +109,7 @@ public class AttributeDesignTimeOperations {
     Set<SNode> concepts = SetSequence.fromSet(new LinkedHashSet<SNode>());
     while ((conceptDeclaration != null) && !(SetSequence.fromSet(concepts).contains(conceptDeclaration))) {
       SetSequence.fromSet(concepts).addElement(conceptDeclaration);
-      conceptDeclaration = SLinkOperations.getTarget(conceptDeclaration, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends"));
+      conceptDeclaration = SLinkOperations.getTarget(conceptDeclaration, LINKS.extends$LQV3);
     }
     return concepts;
   }
@@ -114,8 +117,22 @@ public class AttributeDesignTimeOperations {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_ripaa1 {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept AttributeInfo_b702cd25 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, "jetbrains.mps.lang.structure.structure.AttributeInfo");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink concept$HWFQ = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept");
+    /*package*/ static final SContainmentLink multiple$VrGB = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d1440affeaL, "multiple");
+    /*package*/ static final SContainmentLink attributed$x3gI = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d143972c0eL, "attributed");
+    /*package*/ static final SReferenceLink concept$Bg0h = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd03496acb49L, 0x5405fd03496acc99L, "concept");
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept AttributeInfo$rt = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, "jetbrains.mps.lang.structure.structure.AttributeInfo");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty role$VZ$z = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x29889a701b928195L, 0x694f83d1440b01c7L, "role");
+    /*package*/ static final SProperty value$Wv6W = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd034959f7dcL, 0x5405fd03495a2dceL, "value");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

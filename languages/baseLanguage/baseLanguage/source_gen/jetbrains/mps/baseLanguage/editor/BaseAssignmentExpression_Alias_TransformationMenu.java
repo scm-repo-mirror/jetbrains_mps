@@ -76,11 +76,11 @@ public class BaseAssignmentExpression_Alias_TransformationMenu extends Transform
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.baseLanguage.editor.BaseAssignmentExpression_Alias_SubstituteMenu");
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_ayt46o.BaseAssignmentExpression_8ed0d6ee;
+      return CONCEPTS.BaseAssignmentExpression$oO;
     }
   }
 
-  private static final class AUX_ayt46o {
-    /*package*/ static final SConcept BaseAssignmentExpression_8ed0d6ee = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, "jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseAssignmentExpression$oO = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, "jetbrains.mps.baseLanguage.structure.BaseAssignmentExpression");
   }
 }

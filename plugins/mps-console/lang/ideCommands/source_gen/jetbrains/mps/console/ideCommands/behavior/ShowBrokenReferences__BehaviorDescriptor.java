@@ -4,6 +4,7 @@ package jetbrains.mps.console.ideCommands.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,7 +19,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -35,10 +35,10 @@ import jetbrains.mps.ide.findusages.view.treeholder.treeview.NodeRepresentatorBa
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ShowBrokenReferences__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_wnixnx.ShowBrokenReferences_c34881db;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0ac828cL, "jetbrains.mps.console.ideCommands.structure.ShowBrokenReferences");
 
   public static final SMethod<Void> doExecute_id2SpVAIqougW = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("doExecute").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2SpVAIqougW").build(SMethodBuilder.createJavaParameter(ConsoleContext.class, ""), SMethodBuilder.createJavaParameter(ConsoleStream.class, ""));
 
@@ -48,7 +48,7 @@ public final class ShowBrokenReferences__BehaviorDescriptor extends BaseBHDescri
   }
 
   /*package*/ static void doExecute_id2SpVAIqougW(@NotNull SNode __thisNode__, final ConsoleContext context, ConsoleStream console) {
-    final List<SReference> brokenReferences = Sequence.fromIterable(INodeSetReference__BehaviorDescriptor.getNodes_id4x3U0fq41hN.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0ac828cL, 0x1cf75b72b0ac828dL, "target")), context)).translate(new ITranslator2<SNode, SReference>() {
+    final List<SReference> brokenReferences = Sequence.fromIterable(INodeSetReference__BehaviorDescriptor.getNodes_id4x3U0fq41hN.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$3Wsw), context)).translate(new ITranslator2<SNode, SReference>() {
       public Iterable<SReference> translate(SNode it) {
         return SNodeOperations.getReferences(it);
       }
@@ -140,7 +140,7 @@ public final class ShowBrokenReferences__BehaviorDescriptor extends BaseBHDescri
     return null;
   }
 
-  private static final class AUX_wnixnx {
-    /*package*/ static final SConcept ShowBrokenReferences_c34881db = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0ac828cL, "jetbrains.mps.console.ideCommands.structure.ShowBrokenReferences");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink target$3Wsw = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0ac828cL, 0x1cf75b72b0ac828dL, "target");
   }
 }

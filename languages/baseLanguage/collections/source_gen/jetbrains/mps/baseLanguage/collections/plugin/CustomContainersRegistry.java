@@ -18,6 +18,7 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CustomContainersRegistry {
@@ -42,7 +43,7 @@ public class CustomContainersRegistry {
         }
       }).translate(new ITranslator2<SNode, SNode>() {
         public Iterable<SNode> translate(SNode cc) {
-          return SLinkOperations.getChildren(cc, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x54a5d587c1f3c84cL, 0x54a5d587c1f3c84eL, "containerDeclaration"));
+          return SLinkOperations.getChildren(cc, LINKS.containerDeclaration$zGYv);
         }
       }));
     }
@@ -62,5 +63,9 @@ public class CustomContainersRegistry {
         return prov.invoke(repo);
       }
     });
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink containerDeclaration$zGYv = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x54a5d587c1f3c84cL, 0x54a5d587c1f3c84eL, "containerDeclaration");
   }
 }

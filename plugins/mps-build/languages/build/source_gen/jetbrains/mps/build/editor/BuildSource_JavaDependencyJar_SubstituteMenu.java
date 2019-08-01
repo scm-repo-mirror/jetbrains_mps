@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -36,13 +35,15 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BuildSource_JavaDependencyJar_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_90rflc_a(), AUX_90rflc.BuildSource_JavaDependencyJar_d2f93558));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_90rflc_a(), CONCEPTS.BuildSource_JavaDependencyJar$ka));
     return result;
   }
 
@@ -82,14 +83,14 @@ public class BuildSource_JavaDependencyJar_SubstituteMenu extends SubstituteMenu
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_90rflc.BuildSource_JavaDependencyJar_d2f93558;
+          return CONCEPTS.BuildSource_JavaDependencyJar$ka;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
-          SNode n = SModelOperations.createNewNode(_context.getModel(), null, AUX_90rflc.BuildSource_JavaDependencyJar_d2f93558);
-          SLinkOperations.setTarget(n, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b6185c40L, 0x3395e884b6185c41L, "jar"), nodeToWrap);
+          SNode n = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.BuildSource_JavaDependencyJar$ka);
+          SLinkOperations.setTarget(n, LINKS.jar$9zr0, nodeToWrap);
           return n;
         }
 
@@ -116,12 +117,16 @@ public class BuildSource_JavaDependencyJar_SubstituteMenu extends SubstituteMenu
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_90rflc.BuildSource_JavaJar_67913517;
+      return CONCEPTS.BuildSource_JavaJar$OF;
     }
   }
 
-  private static final class AUX_90rflc {
-    /*package*/ static final SConcept BuildSource_JavaDependencyJar_d2f93558 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b6185c40L, "jetbrains.mps.build.structure.BuildSource_JavaDependencyJar");
-    /*package*/ static final SConcept BuildSource_JavaJar_67913517 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x11779a1dbcff551aL, "jetbrains.mps.build.structure.BuildSource_JavaJar");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaDependencyJar$ka = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b6185c40L, "jetbrains.mps.build.structure.BuildSource_JavaDependencyJar");
+    /*package*/ static final SConcept BuildSource_JavaJar$OF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x11779a1dbcff551aL, "jetbrains.mps.build.structure.BuildSource_JavaJar");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink jar$9zr0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b6185c40L, 0x3395e884b6185c41L, "jar");
   }
 }

@@ -36,7 +36,7 @@ public class MemberContainerStructureModel implements StructureViewModel {
 
   public MemberContainerStructureModel(MPSProject project, SNode memberContainer) {
     container = new Presentation(memberContainer);
-    members = ListSequence.fromList(((List<SNode>) BHReflection.invoke0(memberContainer, AUX_ev8qou.IMemberContainer_166f7222, SMethodTrimmedId.create("getMembers", null, "hEwJjl2")))).select(new ISelector<SNode, Presentation>() {
+    members = ListSequence.fromList(((List<SNode>) BHReflection.invoke0(memberContainer, CONCEPTS.IMemberContainer$60, SMethodTrimmedId.create("getMembers", null, "hEwJjl2")))).select(new ISelector<SNode, Presentation>() {
       public Presentation select(SNode it) {
         return new Presentation(it);
       }
@@ -113,9 +113,9 @@ public class MemberContainerStructureModel implements StructureViewModel {
 
     /*package*/ Presentation(SNode n) {
       super(n);
-      if (SNodeOperations.isInstanceOf(n, AUX_ev8qou.InstanceInitializer_4eff9fd3)) {
+      if (SNodeOperations.isInstanceOf(n, CONCEPTS.InstanceInitializer$BJ)) {
         alternativePresentation = "class initializer";
-      } else if (SNodeOperations.isInstanceOf(n, AUX_ev8qou.StaticInitializer_425a0e95)) {
+      } else if (SNodeOperations.isInstanceOf(n, CONCEPTS.StaticInitializer$dH)) {
         alternativePresentation = "static class initializer";
       }
     }
@@ -184,9 +184,9 @@ public class MemberContainerStructureModel implements StructureViewModel {
     }
   }
 
-  private static final class AUX_ev8qou {
-    /*package*/ static final SInterfaceConcept IMemberContainer_166f7222 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
-    /*package*/ static final SConcept InstanceInitializer_4eff9fd3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer");
-    /*package*/ static final SConcept StaticInitializer_425a0e95 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c7538039dL, "jetbrains.mps.baseLanguage.structure.StaticInitializer");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMemberContainer$60 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
+    /*package*/ static final SConcept InstanceInitializer$BJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer");
+    /*package*/ static final SConcept StaticInitializer$dH = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c7538039dL, "jetbrains.mps.baseLanguage.structure.StaticInitializer");
   }
 }

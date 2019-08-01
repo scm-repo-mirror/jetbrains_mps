@@ -9,8 +9,10 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_GenerationContextOp_ParameterRef_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,11 +22,11 @@ public class typeof_GenerationContextOp_ParameterRef_InferenceRule extends Abstr
     {
       SNode _nodeToCheck_1029348928467 = generationContextOp_ParameterRef;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "5190093307972834953", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "5190093307972834960", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(generationContextOp_ParameterRef, MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4806ea5d84d8a2caL, 0x4806ea5d84d8d50aL, "parameter")), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x190d31fe6a0962e6L, 0x190d31fe6a096acfL, "type")), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "5190093307972834960", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(generationContextOp_ParameterRef, LINKS.parameter$jdG7), LINKS.type$54u0), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_25i4mi.GenerationContextOp_ParameterRef_16537810;
+    return CONCEPTS.GenerationContextOp_ParameterRef$_i;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +35,12 @@ public class typeof_GenerationContextOp_ParameterRef_InferenceRule extends Abstr
     return false;
   }
 
-  private static final class AUX_25i4mi {
-    /*package*/ static final SConcept GenerationContextOp_ParameterRef_16537810 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4806ea5d84d8a2caL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ParameterRef");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink parameter$jdG7 = MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4806ea5d84d8a2caL, 0x4806ea5d84d8d50aL, "parameter");
+    /*package*/ static final SContainmentLink type$54u0 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x190d31fe6a0962e6L, 0x190d31fe6a096acfL, "type");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenerationContextOp_ParameterRef$_i = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4806ea5d84d8a2caL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ParameterRef");
   }
 }

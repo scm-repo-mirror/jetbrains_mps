@@ -22,13 +22,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TestSubstituteChildWithAttibute_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_suptfv_a(), AUX_suptfv.TestSubstituteChildWithAttibute_22bbee59));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_suptfv_a(), CONCEPTS.TestSubstituteChildWithAttibute$KD));
     return result;
   }
 
@@ -73,7 +74,7 @@ public class TestSubstituteChildWithAttibute_SubstituteMenu extends SubstituteMe
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_suptfv.TestSubstituteChildWithAttibute_22bbee59, context);
+        super(CONCEPTS.TestSubstituteChildWithAttibute$KD, context);
         _context = context;
       }
 
@@ -85,7 +86,7 @@ public class TestSubstituteChildWithAttibute_SubstituteMenu extends SubstituteMe
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x446b8c93949517d4L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildWithAttibute"));
-        SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "after");
+        SPropertyOperations.assign(result, PROPS.name$tAp1, "after");
         return result;
       }
 
@@ -96,7 +97,11 @@ public class TestSubstituteChildWithAttibute_SubstituteMenu extends SubstituteMe
     }
   }
 
-  private static final class AUX_suptfv {
-    /*package*/ static final SConcept TestSubstituteChildWithAttibute_22bbee59 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x446b8c93949517d4L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildWithAttibute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteChildWithAttibute$KD = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x446b8c93949517d4L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildWithAttibute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

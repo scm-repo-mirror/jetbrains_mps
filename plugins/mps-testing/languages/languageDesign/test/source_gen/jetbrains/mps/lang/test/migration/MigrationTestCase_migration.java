@@ -12,7 +12,6 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -20,9 +19,13 @@ import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.DeprecatedConceptMemberNotMigratedProblem;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MigrationTestCase_migration extends MigrationScriptBase {
   public String getCaption() {
@@ -45,15 +48,15 @@ public class MigrationTestCase_migration extends MigrationScriptBase {
           return scope_y0ige7_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_y0ige7.MigrationTestCase_f9a226ab, true)).where(new IWhereFilter<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MigrationTestCase$Sn, true)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be54a3L, "migration_old")) != null);
+          return (SLinkOperations.getTarget(it, LINKS.migration_old$otou) != null);
         }
       }).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration"))).addElement(createMigrationReference_y0ige7_a0a0a0a0a0a0d(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be54a3L, "migration_old"))));
-          SPropertyOperations.assign(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), SPropertyOperations.getString(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be54a3L, "migration_old")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "_Test");
-          SLinkOperations.setTarget(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be54a3L, "migration_old"), null);
+          ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.migration$wvkx)).addElement(createMigrationReference_y0ige7_a0a0a0a0a0a0d(SLinkOperations.getTarget(it, LINKS.migration_old$otou)));
+          SPropertyOperations.assign(it, PROPS.name$tAp1, SPropertyOperations.getString(SLinkOperations.getTarget(it, LINKS.migration_old$otou), PROPS.name$tAp1) + "_Test");
+          SLinkOperations.setTarget(it, LINKS.migration_old$otou, null);
         }
       });
     }
@@ -68,13 +71,13 @@ public class MigrationTestCase_migration extends MigrationScriptBase {
           return scope_y0ige7_a0e_0;
         }
       };
-      return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_y0ige7.MigrationTestCase_f9a226ab, true)).where(new IWhereFilter<SNode>() {
+      return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MigrationTestCase$Sn, true)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be54a3L, "migration_old")) != null);
+          return (SLinkOperations.getTarget(it, LINKS.migration_old$otou) != null);
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
-          return DeprecatedConceptMemberNotMigratedProblem.deprecatedReferenceLink(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be54a3L, "migration_old"));
+          return DeprecatedConceptMemberNotMigratedProblem.deprecatedReferenceLink(it, LINKS.migration_old$otou);
         }
       });
     }
@@ -86,13 +89,23 @@ public class MigrationTestCase_migration extends MigrationScriptBase {
 
   private static SNode createMigrationReference_y0ige7_a0a0a0a0a0a0d(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_y0ige7.MigrationReference_6f8f00db, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.MigrationReference$BB, null, null, false);
+    n1.setReferenceTarget(LINKS.migration$RUsw, node0);
     return n1;
   }
 
-  private static final class AUX_y0ige7 {
-    /*package*/ static final SConcept MigrationTestCase_f9a226ab = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, "jetbrains.mps.lang.test.structure.MigrationTestCase");
-    /*package*/ static final SConcept MigrationReference_6f8f00db = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, "jetbrains.mps.lang.test.structure.MigrationReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MigrationTestCase$Sn = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, "jetbrains.mps.lang.test.structure.MigrationTestCase");
+    /*package*/ static final SConcept MigrationReference$BB = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, "jetbrains.mps.lang.test.structure.MigrationReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink migration_old$otou = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be54a3L, "migration_old");
+    /*package*/ static final SContainmentLink migration$wvkx = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration");
+    /*package*/ static final SReferenceLink migration$RUsw = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

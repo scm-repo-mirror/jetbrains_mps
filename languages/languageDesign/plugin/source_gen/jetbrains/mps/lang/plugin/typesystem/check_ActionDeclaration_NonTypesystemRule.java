@@ -8,30 +8,31 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ActionDeclaration_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ActionDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode a, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (isEmptyString(SPropertyOperations.getString(a, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x11b1742d216L, "mnemonic")))) {
+    if (isEmptyString(SPropertyOperations.getString(a, PROPS.mnemonic$X3ep))) {
       return;
     }
-    String err = MnemonicChecker.check(SPropertyOperations.getString(a, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x1189e8d9a59L, "caption")), SPropertyOperations.getString(a, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x11b1742d216L, "mnemonic")));
+    String err = MnemonicChecker.check(SPropertyOperations.getString(a, PROPS.caption$_nKE), SPropertyOperations.getString(a, PROPS.mnemonic$X3ep));
     if (err != null) {
       {
-        final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x11b1742d216L, "mnemonic"));
+        final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.mnemonic$X3ep);
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(a, err, "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "5908642177599283073", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_deodao.ActionDeclaration_5aac4105;
+    return CONCEPTS.ActionDeclaration$VX;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -43,7 +44,12 @@ public class check_ActionDeclaration_NonTypesystemRule extends AbstractNonTypesy
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_deodao {
-    /*package*/ static final SConcept ActionDeclaration_5aac4105 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty mnemonic$X3ep = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x11b1742d216L, "mnemonic");
+    /*package*/ static final SProperty caption$_nKE = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x1189e8d9a59L, "caption");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionDeclaration$VX = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
   }
 }

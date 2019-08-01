@@ -4,6 +4,7 @@ package jetbrains.mps.lang.modelapi.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,7 +18,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodePointer;
@@ -28,9 +28,11 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class NodePointer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nh6dvy.NodePointer_a7ab22d1;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, "jetbrains.mps.lang.modelapi.structure.NodePointer");
 
   public static final SMethod<SNode> create_id4nxIQVL$eu9 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("create").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4nxIQVL$eu9").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SNodeReference.class, ""));
   public static final SMethod<SNodeReference> toNodeReference_id4nxIQVLmsc4 = new SMethodBuilder<SNodeReference>(new SJavaCompoundTypeImpl(SNodeReference.class)).name("toNodeReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4nxIQVLmsc4").build();
@@ -41,13 +43,13 @@ public final class NodePointer__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode create_id4nxIQVL$eu9(@NotNull SAbstractConcept __thisConcept__, SModel where, SNodeReference target) {
-    SNode rv = SModelOperations.createNewNode(where, null, AUX_nh6dvy.NodePointer_a7ab22d1);
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf88L, "nodeId"), check_c22mgr_a0b0a(target.getNodeId()));
-    SLinkOperations.setTarget(rv, MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf84L, "modelRef"), ModelPointer__BehaviorDescriptor.create_id_GDk1qZ2LQ.invoke(SNodeOperations.asSConcept(AUX_nh6dvy.ModelPointer_a7ab22d2), where, target.getModelReference()));
+    SNode rv = SModelOperations.createNewNode(where, null, CONCEPTS.NodePointer$qL);
+    SPropertyOperations.assign(rv, PROPS.nodeId$nNh1, check_c22mgr_a0b0a(target.getNodeId()));
+    SLinkOperations.setTarget(rv, LINKS.modelRef$nNf5, ModelPointer__BehaviorDescriptor.create_id_GDk1qZ2LQ.invoke(SNodeOperations.asSConcept(CONCEPTS.ModelPointer$rg), where, target.getModelReference()));
     return rv;
   }
   /*package*/ static SNodeReference toNodeReference_id4nxIQVLmsc4(@NotNull SNode __thisNode__) {
-    return new SNodePointer(ModelIdentity__BehaviorDescriptor.toModelReference_id1Bs_61$mvvu.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf84L, "modelRef"))), PersistenceFacade.getInstance().createNodeId(StringUtil.emptyIfNull(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf88L, "nodeId")))));
+    return new SNodePointer(ModelIdentity__BehaviorDescriptor.toModelReference_id1Bs_61$mvvu.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.modelRef$nNf5)), PersistenceFacade.getInstance().createNodeId(StringUtil.emptyIfNull(SPropertyOperations.getString(__thisNode__, PROPS.nodeId$nNh1))));
   }
 
   /*package*/ NodePointer__BehaviorDescriptor() {
@@ -104,8 +106,16 @@ public final class NodePointer__BehaviorDescriptor extends BaseBHDescriptor {
     return null;
   }
 
-  private static final class AUX_nh6dvy {
-    /*package*/ static final SConcept NodePointer_a7ab22d1 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, "jetbrains.mps.lang.modelapi.structure.NodePointer");
-    /*package*/ static final SConcept ModelPointer_a7ab22d2 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodePointer$qL = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, "jetbrains.mps.lang.modelapi.structure.NodePointer");
+    /*package*/ static final SConcept ModelPointer$rg = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty nodeId$nNh1 = MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf88L, "nodeId");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modelRef$nNf5 = MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e35fL, 0x45e1bb6ef159cf84L, "modelRef");
   }
 }

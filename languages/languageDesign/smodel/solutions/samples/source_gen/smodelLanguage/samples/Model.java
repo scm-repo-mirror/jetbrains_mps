@@ -13,47 +13,52 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Model {
   public void model_long_name(SModel model) {
     String name = SModelOperations.getModelName(model);
   }
   public void new_node_1(SModel model) {
-    SNode new_stmt = SModelOperations.createNewNode(model, null, AUX_m6kxw.IfStatement_9dbf9b10);
+    SNode new_stmt = SModelOperations.createNewNode(model, null, CONCEPTS.IfStatement$pi);
     SNode new_class = SModelOperations.createNewRootNode(model, MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept"));
     SModelOperations.addRootNode(model, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement")));
-    SModelOperations.addRootNode(model, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(AUX_m6kxw.Statement_9dbf9b0e)));
+    SModelOperations.addRootNode(model, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(CONCEPTS.Statement$ok)));
   }
   public void new_node_2(SModel model) {
-    SNode named = SModelOperations.createNewNode(model, null, AUX_m6kxw.ClassConcept_e2711824);
-    SPropertyOperations.assign(named, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "a");
+    SNode named = SModelOperations.createNewNode(model, null, CONCEPTS.ClassConcept$IY);
+    SPropertyOperations.assign(named, PROPS.name$tAp1, "a");
   }
   public void roots_access_1(SModel model) {
     List<SNode> roots1 = SModelOperations.roots(model, null);
     SModelOperations.rootsIncludingImported(model, null);
-    List<SNode> roots2 = SModelOperations.roots(model, AUX_m6kxw.ClassConcept_e2711824);
-    Iterable<SNode> roots3 = ListSequence.fromList(SModelOperations.roots(model, AUX_m6kxw.ClassConcept_e2711824)).where(new IWhereFilter<SNode>() {
+    List<SNode> roots2 = SModelOperations.roots(model, CONCEPTS.ClassConcept$IY);
+    Iterable<SNode> roots3 = ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.ClassConcept$IY)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode c) {
-        return SPropertyOperations.hasValue(c, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "Utils");
+        return SPropertyOperations.hasValue(c, PROPS.name$tAp1, "Utils");
       }
     });
   }
   public void roots_access_2(SModel model) {
-    SModelOperations.rootsIncludingImported(model, AUX_m6kxw.IfStatement_9dbf9b10);
+    SModelOperations.rootsIncludingImported(model, CONCEPTS.IfStatement$pi);
   }
   public void nodes_access_1(SModel model) {
     List<SNode> nodes1 = SModelOperations.nodes(model, null);
-    List<SNode> nodes2 = SModelOperations.nodes(model, AUX_m6kxw.ClassConcept_e2711824);
-    Iterable<SNode> nodes3 = ListSequence.fromList(SModelOperations.nodes(model, AUX_m6kxw.ClassConcept_e2711824)).where(new IWhereFilter<SNode>() {
+    List<SNode> nodes2 = SModelOperations.nodes(model, CONCEPTS.ClassConcept$IY);
+    Iterable<SNode> nodes3 = ListSequence.fromList(SModelOperations.nodes(model, CONCEPTS.ClassConcept$IY)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode c) {
-        return SPropertyOperations.hasValue(c, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "Utils");
+        return SPropertyOperations.hasValue(c, PROPS.name$tAp1, "Utils");
       }
     });
   }
 
-  private static final class AUX_m6kxw {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

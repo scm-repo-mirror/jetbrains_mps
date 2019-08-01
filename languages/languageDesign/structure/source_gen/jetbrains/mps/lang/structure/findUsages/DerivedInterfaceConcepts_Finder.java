@@ -16,11 +16,12 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DerivedInterfaceConcepts_Finder extends GeneratedFinder {
   public DerivedInterfaceConcepts_Finder() {
@@ -35,7 +36,7 @@ public class DerivedInterfaceConcepts_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_p0y3wv.InterfaceConceptDeclaration_efdf2bc9;
+    return CONCEPTS.InterfaceConceptDeclaration$MT;
   }
 
   @Override
@@ -51,8 +52,8 @@ public class DerivedInterfaceConcepts_Finder extends GeneratedFinder {
             SNode nodeParam = (SNode) searchResult.getObject();
             new _FunctionTypes._void_P1_E0<SNode>() {
               public void invoke(SNode nodeUsage) {
-                if (SNodeOperations.hasRole(nodeUsage, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends"))) {
-                  SNode foundIntfc = SNodeOperations.cast(SNodeOperations.getParent(nodeUsage), AUX_p0y3wv.InterfaceConceptDeclaration_efdf2bc9);
+                if (SNodeOperations.hasRole(nodeUsage, LINKS.extends$3Y1p)) {
+                  SNode foundIntfc = SNodeOperations.cast(SNodeOperations.getParent(nodeUsage), CONCEPTS.InterfaceConceptDeclaration$MT);
                   callback.onUsageFound(createSingleResult(foundIntfc));
                   QueueSequence.fromQueue(queue).addLastElement(foundIntfc);
                 }
@@ -77,7 +78,11 @@ public class DerivedInterfaceConcepts_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1200310287391");
   }
 
-  private static final class AUX_p0y3wv {
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink extends$3Y1p = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends");
   }
 }

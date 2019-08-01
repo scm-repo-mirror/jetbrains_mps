@@ -6,9 +6,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Map;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.baseLanguage.behavior.Type__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MethodSignature implements Signature {
   private final String singature;
@@ -33,10 +35,10 @@ public class MethodSignature implements Signature {
 
   public static String getStringSignature(SNode method, Map<SNode, SNode> typeByTypeVariable) {
     StringBuilder result = new StringBuilder();
-    result.append(SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    result.append(SPropertyOperations.getString(method, PROPS.name$tAp1));
     result.append('(');
-    for (SNode parm : SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))) {
-      SNode type = SLinkOperations.getTarget(parm, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"));
+    for (SNode parm : SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)) {
+      SNode type = SLinkOperations.getTarget(parm, LINKS.type$pLrO);
       type = GenericTypesUtil.getTypeWithResolvedTypeVars(type, typeByTypeVariable);
       if (result.length() > 0) {
         result.append(',');
@@ -49,5 +51,14 @@ public class MethodSignature implements Signature {
     }
     result.append(')');
     return result.toString();
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }

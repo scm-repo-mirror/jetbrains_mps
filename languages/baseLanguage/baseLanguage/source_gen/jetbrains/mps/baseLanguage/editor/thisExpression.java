@@ -27,11 +27,12 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class thisExpression extends SubstituteMenuBase {
   @NotNull
@@ -58,7 +59,7 @@ public class thisExpression extends SubstituteMenuBase {
   public class SMP_Group_bo5td7_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{AUX_bo5td7.ConstructorDeclaration_9dbf9ae8, AUX_bo5td7.InstanceMethodDeclaration_9dbf9b2b}, false, false) != null;
+      return SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{CONCEPTS.ConstructorDeclaration$5U, CONCEPTS.InstanceMethodDeclaration$An}, false, false) != null;
     }
     @NotNull
     @Override
@@ -74,7 +75,7 @@ public class thisExpression extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_bo5td7_a.SMP_Param_bo5td7_a0(), AUX_bo5td7.ThisExpression_a046bcfc));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_bo5td7_a.SMP_Param_bo5td7_a0(), CONCEPTS.ThisExpression$7A));
     }
     private class SMP_Param_bo5td7_a0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
       @NotNull
@@ -98,10 +99,10 @@ public class thisExpression extends SubstituteMenuBase {
       protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
         //  'qualified this' - only in inner classes 
         List<SNode> result = new ArrayList<SNode>();
-        SNode classifier = SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_bo5td7.Classifier_4b7e553, false, false);
+        SNode classifier = SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.Classifier$hJ, false, false);
         if (!((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(classifier))) {
-          for (SNode parentClassifier : SNodeOperations.getNodeAncestors(classifier, AUX_bo5td7.Classifier_4b7e553, false)) {
-            if (!(SNodeOperations.isInstanceOf(parentClassifier, AUX_bo5td7.AnonymousClass_e4a73f97))) {
+          for (SNode parentClassifier : SNodeOperations.getNodeAncestors(classifier, CONCEPTS.Classifier$hJ, false)) {
+            if (!(SNodeOperations.isInstanceOf(parentClassifier, CONCEPTS.AnonymousClass$aF))) {
               ListSequence.fromList(result).addElement(parentClassifier);
               if ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(parentClassifier)) {
                 break;
@@ -144,7 +145,7 @@ public class thisExpression extends SubstituteMenuBase {
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_bo5td7.ThisExpression_a046bcfc, context);
+            super(CONCEPTS.ThisExpression$7A, context);
             _context = context;
           }
 
@@ -155,8 +156,8 @@ public class thisExpression extends SubstituteMenuBase {
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode thisEx = SNodeFactoryOperations.createNewNode(AUX_bo5td7.ThisExpression_a046bcfc, null);
-            SLinkOperations.setTarget(thisEx, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept"), myParameterObject);
+            SNode thisEx = SNodeFactoryOperations.createNewNode(CONCEPTS.ThisExpression$7A, null);
+            SLinkOperations.setTarget(thisEx, LINKS.classConcept$Hbij, myParameterObject);
             return thisEx;
           }
 
@@ -166,7 +167,7 @@ public class thisExpression extends SubstituteMenuBase {
           }
           @NotNull
           protected CompletionItemInformation createInformation(String pattern) {
-            return new CompletionItemInformation(myParameterObject, AUX_bo5td7.ThisExpression_a046bcfc, getMatchingText(pattern), getDescriptionText(pattern));
+            return new CompletionItemInformation(myParameterObject, CONCEPTS.ThisExpression$7A, getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -192,11 +193,15 @@ public class thisExpression extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_bo5td7 {
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept ThisExpression_a046bcfc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept ThisExpression$7A = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classConcept$Hbij = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept");
   }
 }

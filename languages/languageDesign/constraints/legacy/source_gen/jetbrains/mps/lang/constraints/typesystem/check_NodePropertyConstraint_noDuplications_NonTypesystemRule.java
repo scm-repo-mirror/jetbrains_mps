@@ -10,7 +10,6 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Objects;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -19,24 +18,28 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_NodePropertyConstraint_noDuplications_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_NodePropertyConstraint_noDuplications_NonTypesystemRule() {
   }
   public void applyRule(final SNode nodePropertyConstraint, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    Iterable<SNode> siblings = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.as(SNodeOperations.getParent(nodePropertyConstraint), AUX_khfk4m.ConceptConstraints_2e5b5de5), MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a7246dc3dL, "property"))).subtract(Sequence.fromIterable(Sequence.<SNode>singleton(nodePropertyConstraint)));
+    Iterable<SNode> siblings = ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.as(SNodeOperations.getParent(nodePropertyConstraint), CONCEPTS.ConceptConstraints$St), LINKS.property$ChIN)).subtract(Sequence.fromIterable(Sequence.<SNode>singleton(nodePropertyConstraint)));
 
     for (SNode siblingConstraint : Sequence.fromIterable(siblings)) {
-      if (Objects.equals(SLinkOperations.getTarget(siblingConstraint, MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty")), SLinkOperations.getTarget(nodePropertyConstraint, MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty")))) {
+      if (Objects.equals(SLinkOperations.getTarget(siblingConstraint, LINKS.applicableProperty$j$lM), SLinkOperations.getTarget(nodePropertyConstraint, LINKS.applicableProperty$j$lM))) {
         {
-          final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty"));
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(nodePropertyConstraint, "Duplicate property constraint for '" + SPropertyOperations.getString(SLinkOperations.getTarget(nodePropertyConstraint, MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' property", "r:00000000-0000-4000-0000-011c89590309(jetbrains.mps.lang.constraints.typesystem)", "876880569411413691", null, errorTarget);
+          final MessageTarget errorTarget = new ReferenceMessageTarget(LINKS.applicableProperty$j$lM);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(nodePropertyConstraint, "Duplicate property constraint for '" + SPropertyOperations.getString(SLinkOperations.getTarget(nodePropertyConstraint, LINKS.applicableProperty$j$lM), PROPS.name$tAp1) + "' property", "r:00000000-0000-4000-0000-011c89590309(jetbrains.mps.lang.constraints.typesystem)", "876880569411413691", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_khfk4m.NodePropertyConstraint_95960da6;
+    return CONCEPTS.NodePropertyConstraint$pW;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -45,8 +48,17 @@ public class check_NodePropertyConstraint_noDuplications_NonTypesystemRule exten
     return false;
   }
 
-  private static final class AUX_khfk4m {
-    /*package*/ static final SConcept ConceptConstraints_2e5b5de5 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
-    /*package*/ static final SConcept NodePropertyConstraint_95960da6 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, "jetbrains.mps.lang.constraints.structure.NodePropertyConstraint");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptConstraints$St = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
+    /*package*/ static final SConcept NodePropertyConstraint$pW = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, "jetbrains.mps.lang.constraints.structure.NodePropertyConstraint");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink property$ChIN = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a7246dc3dL, "property");
+    /*package*/ static final SReferenceLink applicableProperty$j$lM = MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

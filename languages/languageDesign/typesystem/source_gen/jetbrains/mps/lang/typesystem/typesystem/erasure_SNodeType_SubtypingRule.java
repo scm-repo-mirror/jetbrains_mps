@@ -20,7 +20,7 @@ public class erasure_SNodeType_SubtypingRule extends SubtypingRule_Runtime imple
     return _quotation_createNode_ak4xkm_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ak4xkm.SNodeType_dcb080ab;
+    return CONCEPTS.SNodeType$gn;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -38,7 +38,7 @@ public class erasure_SNodeType_SubtypingRule extends SubtypingRule_Runtime imple
     return quotedNode_1;
   }
 
-  private static final class AUX_ak4xkm {
-    /*package*/ static final SConcept SNodeType_dcb080ab = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SNodeType$gn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
   }
 }

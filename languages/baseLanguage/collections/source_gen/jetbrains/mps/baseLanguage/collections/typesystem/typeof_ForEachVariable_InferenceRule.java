@@ -26,7 +26,7 @@ public class typeof_ForEachVariable_InferenceRule extends AbstractInferenceRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_fat4vb.ForEachVariable_d0a5f9e5;
+    return CONCEPTS.ForEachVariable$8t;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +35,7 @@ public class typeof_ForEachVariable_InferenceRule extends AbstractInferenceRule_
     return false;
   }
 
-  private static final class AUX_fat4vb {
-    /*package*/ static final SConcept ForEachVariable_d0a5f9e5 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac6f0962L, "jetbrains.mps.baseLanguage.collections.structure.ForEachVariable");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ForEachVariable$8t = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10cac6f0962L, "jetbrains.mps.baseLanguage.collections.structure.ForEachVariable");
   }
 }

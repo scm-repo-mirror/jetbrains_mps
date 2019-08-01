@@ -4,6 +4,7 @@ package jetbrains.mps.lang.core.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,16 +16,15 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.item.FlavouredItem;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class SuppressErrorsAnnotation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_7a0160.SuppressErrorsAnnotation_4912d93;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
 
   public static final SMethod<Boolean> suppress_id3612de_vrfV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("suppress").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3612de_vrfV").build(SMethodBuilder.createJavaParameter(NodeReportItem.class, ""));
 
@@ -34,11 +34,11 @@ public final class SuppressErrorsAnnotation__BehaviorDescriptor extends BaseBHDe
   }
 
   /*package*/ static boolean suppress_id3612de_vrfV(@NotNull SNode __thisNode__, NodeReportItem reportItem) {
-    if (isEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter")))) {
-      return ((boolean) ISuppressErrors__BehaviorDescriptor.suppress_id3612de_vrfV.invoke0(__thisNode__, AUX_7a0160.ISuppressErrors_96ee6c6d, reportItem));
+    if (isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.filter$UuSh))) {
+      return ((boolean) ISuppressErrors__BehaviorDescriptor.suppress_id3612de_vrfV.invoke0(__thisNode__, CONCEPTS.ISuppressErrors$2l, reportItem));
     }
     try {
-      return FlavouredItem.ReportItemPredicate.deserialize(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter"))).test(reportItem);
+      return FlavouredItem.ReportItemPredicate.deserialize(SPropertyOperations.getString(__thisNode__, PROPS.filter$UuSh)).test(reportItem);
     } catch (IllegalArgumentException e) {
       return false;
     }
@@ -93,8 +93,11 @@ public final class SuppressErrorsAnnotation__BehaviorDescriptor extends BaseBHDe
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_7a0160 {
-    /*package*/ static final SConcept SuppressErrorsAnnotation_4912d93 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
-    /*package*/ static final SInterfaceConcept ISuppressErrors_96ee6c6d = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L, "jetbrains.mps.lang.core.structure.ISuppressErrors");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ISuppressErrors$2l = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L, "jetbrains.mps.lang.core.structure.ISuppressErrors");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty filter$UuSh = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter");
   }
 }

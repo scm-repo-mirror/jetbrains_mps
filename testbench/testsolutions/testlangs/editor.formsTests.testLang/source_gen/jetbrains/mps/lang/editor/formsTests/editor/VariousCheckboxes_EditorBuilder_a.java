@@ -19,13 +19,14 @@ import jetbrains.mps.nodeEditor.MPSFonts;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.nodeEditor.MPSColors;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.EditorCell_Empty;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Image;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class VariousCheckboxes_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -92,7 +93,7 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
     return editorCell;
   }
   private boolean nodeCondition_3jyf1k_a0b0() {
-    return SPropertyOperations.getBoolean(myNode, MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x455f8dda63d636dL, 0x455f8dda63d636eL, "booleanProperty1"));
+    return SPropertyOperations.getBoolean(myNode, PROPS.booleanProperty1$tXXw);
   }
   private EditorCell createConstant_1() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "true");
@@ -136,7 +137,7 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
     return editorCell;
   }
   private boolean nodeCondition_3jyf1k_a0c0() {
-    return SPropertyOperations.getBoolean(myNode, MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x455f8dda63d636dL, 0x455f8dda63d636eL, "booleanProperty1"));
+    return SPropertyOperations.getBoolean(myNode, PROPS.booleanProperty1$tXXw);
   }
   private EditorCell createConstant_4() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "true");
@@ -190,7 +191,7 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
     return editorCell;
   }
   private boolean nodeCondition_3jyf1k_a0f0() {
-    return SPropertyOperations.getBoolean(myNode, MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x455f8dda63d636dL, 0x3bf28179462bcb27L, "booleanProperty2"));
+    return SPropertyOperations.getBoolean(myNode, PROPS.booleanProperty2$_LET);
   }
   private EditorCell createConstant_8() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "[x]");
@@ -234,7 +235,7 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
     return editorCell;
   }
   private boolean nodeCondition_3jyf1k_a0g0() {
-    return SPropertyOperations.getBoolean(myNode, MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x455f8dda63d636dL, 0x3bf28179462bcb27L, "booleanProperty2"));
+    return SPropertyOperations.getBoolean(myNode, PROPS.booleanProperty2$_LET);
   }
   private EditorCell createImage_0() {
     EditorCell_Image editorCell = fromImageCellProvider0();
@@ -261,5 +262,10 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
     editorCell.setCellId("Constant_3jyf1k_b6a");
     editorCell.setDefaultText("");
     return editorCell;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty booleanProperty1$tXXw = MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x455f8dda63d636dL, 0x455f8dda63d636eL, "booleanProperty1");
+    /*package*/ static final SProperty booleanProperty2$_LET = MetaAdapterFactory.getProperty(0xafb9a5fdbc5d4169L, 0xa22542d8823d623aL, 0x455f8dda63d636dL, 0x3bf28179462bcb27L, "booleanProperty2");
   }
 }

@@ -13,6 +13,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class SubstTestRoot_CustomSingleInsertAction {
 
@@ -23,15 +25,15 @@ public class SubstTestRoot_CustomSingleInsertAction {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
         SNode child = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0xd4944c0b03c352dL, "jetbrains.mps.lang.editor.editorTest.structure.SubstTestBooleanPropertyChild"));
-        SPropertyOperations.assign(child, MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0xd4944c0b03c352dL, 0xd4944c0b03c7179L, "myProperty"), true);
-        SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0xd4944c0b03c33b7L, 0x8958eefaab00098L, "singleChildWithCustomInsert"), child);
+        SPropertyOperations.assign(child, PROPS.myProperty$b9XD, true);
+        SLinkOperations.setTarget(node, LINKS.singleChildWithCustomInsert$tcWc, child);
       }
       @Override
       public boolean canExecute(EditorContext editorContext) {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0xd4944c0b03c33b7L, 0x8958eefaab00098L, "singleChildWithCustomInsert")) == null);
+        return (SLinkOperations.getTarget(node, LINKS.singleChildWithCustomInsert$tcWc) == null);
       }
 
     };
@@ -70,5 +72,13 @@ public class SubstTestRoot_CustomSingleInsertAction {
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty myProperty$b9XD = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0xd4944c0b03c352dL, 0xd4944c0b03c7179L, "myProperty");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink singleChildWithCustomInsert$tcWc = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0xd4944c0b03c33b7L, 0x8958eefaab00098L, "singleChildWithCustomInsert");
   }
 }

@@ -8,11 +8,13 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class BlockActionMap {
@@ -23,8 +25,8 @@ public class BlockActionMap {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        for (SNode connector : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_dpv54c.Diagram_a04819fe), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, 0x20a804e2ec4425e0L, "newConnectors")))) {
-          if (Objects.equals(check_dpv54c_a0a0a0a1a0a0a1(SLinkOperations.getTarget(connector, MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c0L, "source"))), node) || Objects.equals(check_dpv54c_a0a0a0a1a0a0a1_0(SLinkOperations.getTarget(connector, MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c6L, "target"))), node)) {
+        for (SNode connector : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.Diagram$k$), LINKS.newConnectors$N9e$))) {
+          if (Objects.equals(check_dpv54c_a0a0a0a1a0a0a1(SLinkOperations.getTarget(connector, LINKS.source$CgLa)), node) || Objects.equals(check_dpv54c_a0a0a0a1a0a0a1_0(SLinkOperations.getTarget(connector, LINKS.target$ClT$)), node)) {
             SNodeOperations.deleteNode(connector);
           }
         }
@@ -70,18 +72,25 @@ public class BlockActionMap {
   }
   private static SNode check_dpv54c_a0a0a0a1a0a0a1(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return SLinkOperations.getTarget(checkedDotOperand, MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bcL, "block"));
+      return SLinkOperations.getTarget(checkedDotOperand, LINKS.block$JUWh);
     }
     return null;
   }
   private static SNode check_dpv54c_a0a0a0a1a0a0a1_0(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return SLinkOperations.getTarget(checkedDotOperand, MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bcL, "block"));
+      return SLinkOperations.getTarget(checkedDotOperand, LINKS.block$JUWh);
     }
     return null;
   }
 
-  private static final class AUX_dpv54c {
-    /*package*/ static final SConcept Diagram_a04819fe = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, "jetbrains.mps.testHybridEditor.structure.Diagram");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink source$CgLa = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c0L, "source");
+    /*package*/ static final SContainmentLink target$ClT$ = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec441516L, 0x49664459198225c6L, "target");
+    /*package*/ static final SContainmentLink newConnectors$N9e$ = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, 0x20a804e2ec4425e0L, "newConnectors");
+    /*package*/ static final SReferenceLink block$JUWh = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x4966445919822461L, 0x49664459198225bcL, "block");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Diagram$k$ = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702ec1L, "jetbrains.mps.testHybridEditor.structure.Diagram");
   }
 }

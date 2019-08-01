@@ -17,7 +17,6 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -25,6 +24,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class MappingConfigRefSet_EditorBuilder_a extends AbstractEditorBuilder {
@@ -102,10 +102,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845957030bL, 0x25c3f2845957030cL, "refs");
+      return LINKS.refs$OuB0;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_unw7w8.MappingConfigRefBase_53bbc35e;
+      return CONCEPTS.MappingConfigRefBase$v4;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -115,7 +115,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(refsListHandler_3pyl5y_c0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845957030bL, 0x25c3f2845957030cL, "refs")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(refsListHandler_3pyl5y_c0.this.getNode(), LINKS.refs$OuB0));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -149,7 +149,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_unw7w8 {
-    /*package*/ static final SConcept MappingConfigRefBase_53bbc35e = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845954f70dL, "jetbrains.mps.lang.project.structure.MappingConfigRefBase");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink refs$OuB0 = MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845957030bL, 0x25c3f2845957030cL, "refs");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MappingConfigRefBase$v4 = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845954f70dL, "jetbrains.mps.lang.project.structure.MappingConfigRefBase");
   }
 }

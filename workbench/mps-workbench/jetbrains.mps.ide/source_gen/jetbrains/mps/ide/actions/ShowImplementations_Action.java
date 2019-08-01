@@ -10,7 +10,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -34,6 +33,8 @@ import com.intellij.openapi.ui.popup.JBPopup;
 import com.intellij.ui.awt.RelativePoint;
 import java.awt.Point;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ShowImplementations_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -49,7 +50,7 @@ public class ShowImplementations_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.Interface_bca2069) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.ClassConcept_e2711824) && SPropertyOperations.getBoolean(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.ClassConcept_e2711824), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass")) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.InstanceMethodDeclaration_9dbf9b2b) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(((SNode) MapSequence.fromMap(_params).get("node"))), AUX_1kl46g.Classifier_4b7e553);
+    return SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.Interface$Kp) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.ClassConcept$IY) && SPropertyOperations.getBoolean(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.ClassConcept$IY), PROPS.abstractClass$gY5l) || SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.InstanceMethodDeclaration$An) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(((SNode) MapSequence.fromMap(_params).get("node"))), CONCEPTS.Classifier$hJ);
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -106,13 +107,13 @@ public class ShowImplementations_Action extends BaseAction {
         ListSequence.fromList(nodes).addElement(((SNode) MapSequence.fromMap(_params).get("node")));
         SearchResults<SNode> results;
         SearchScope scope = new GlobalScope(((MPSProject) MapSequence.fromMap(_params).get("project")));
-        if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.Interface_bca2069)) {
+        if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.Interface$Kp)) {
           results = FindUtils.getSearchResults(new EmptyProgressMonitor(), ((SNode) MapSequence.fromMap(_params).get("node")), scope, "jetbrains.mps.baseLanguage.findUsages.ImplementingClasses_Finder");
-        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.ClassConcept_e2711824) && SPropertyOperations.getBoolean(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.ClassConcept_e2711824), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass"))) {
+        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.ClassConcept$IY) && SPropertyOperations.getBoolean(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.ClassConcept$IY), PROPS.abstractClass$gY5l)) {
           results = FindUtils.getSearchResults(new EmptyProgressMonitor(), ((SNode) MapSequence.fromMap(_params).get("node")), scope, "jetbrains.mps.baseLanguage.findUsages.DerivedClasses_Finder");
-        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.InstanceMethodDeclaration_9dbf9b2b) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(((SNode) MapSequence.fromMap(_params).get("node"))), AUX_1kl46g.Interface_bca2069)) {
+        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.InstanceMethodDeclaration$An) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(((SNode) MapSequence.fromMap(_params).get("node"))), CONCEPTS.Interface$Kp)) {
           results = FindUtils.getSearchResults(new EmptyProgressMonitor(), ((SNode) MapSequence.fromMap(_params).get("node")), scope, "jetbrains.mps.baseLanguage.findUsages.InterfaceMethodImplementations_Finder");
-        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), AUX_1kl46g.InstanceMethodDeclaration_9dbf9b2b) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(((SNode) MapSequence.fromMap(_params).get("node"))), AUX_1kl46g.Classifier_4b7e553)) {
+        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.InstanceMethodDeclaration$An) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(((SNode) MapSequence.fromMap(_params).get("node"))), CONCEPTS.Classifier$hJ)) {
           results = FindUtils.getSearchResults(new EmptyProgressMonitor(), ((SNode) MapSequence.fromMap(_params).get("node")), scope, "jetbrains.mps.baseLanguage.findUsages.DerivedMethods_Finder");
         } else {
           return;
@@ -142,10 +143,14 @@ public class ShowImplementations_Action extends BaseAction {
     component.value.setPopup(popup);
   }
 
-  private static final class AUX_1kl46g {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstractClass$gY5l = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
   }
 }

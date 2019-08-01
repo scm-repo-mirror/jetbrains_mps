@@ -14,28 +14,29 @@
   </root>
   <root nodeRef="r:af985d7a-c914-498c-96e5-c3fe0f4471b1(org.jetbrains.mps.samples.Constants.constraints)/2001769927721048297">
     <file name="Constant_Constraints.java">
-      <node id="2001769927721048297" at="10,33,11,40" concept="6" />
-      <node id="2001769927721048297" at="15,0,16,0" concept="5" trace="Constant_532ce43a" />
+      <node id="2001769927721048297" at="10,33,11,32" concept="6" />
+      <node id="2001769927721048297" at="15,0,16,0" concept="5" trace="Constant$9C" />
       <node id="2001769927721048297" at="10,0,13,0" concept="0" trace="Constant_Constraints#()V" />
-      <scope id="2001769927721048297" at="10,33,11,40" />
+      <scope id="2001769927721048297" at="10,33,11,32" />
       <scope id="2001769927721048297" at="10,0,13,0" />
-      <unit id="2001769927721048297" at="14,0,17,0" name="org.jetbrains.mps.samples.Constants.constraints.Constant_Constraints$AUX_qqec5p" />
+      <unit id="2001769927721048297" at="14,0,17,0" name="org.jetbrains.mps.samples.Constants.constraints.Constant_Constraints$CONCEPTS" />
       <unit id="2001769927721048297" at="9,0,18,0" name="org.jetbrains.mps.samples.Constants.constraints.Constant_Constraints" />
     </file>
   </root>
   <root nodeRef="r:af985d7a-c914-498c-96e5-c3fe0f4471b1(org.jetbrains.mps.samples.Constants.constraints)/3990190717072399938">
     <file name="ConstantReference_Constraints.java">
-      <node id="3990190717072399938" at="24,42,25,49" concept="6" />
+      <node id="3990190717072399938" at="24,42,25,41" concept="6" />
       <node id="3990190717072399939" at="32,44,33,20" concept="4" />
       <node id="3990190717072399939" at="40,63,41,57" concept="4" />
-      <node id="3990190717072399939" at="44,122,45,153" concept="3" />
-      <node id="3990190717072399939" at="45,153,46,62" concept="4" />
+      <node id="3990190717072399939" at="44,122,45,145" concept="3" />
+      <node id="3990190717072399939" at="45,145,46,62" concept="4" />
       <node id="3990190717072399938" at="50,6,51,131" concept="3" />
       <node id="3990190717072399939" at="51,131,52,42" concept="1" />
       <node id="3990190717072399938" at="52,42,53,22" concept="4" />
       <node id="3990190717072399938" at="55,0,56,0" concept="5" trace="breakingNode_nqxbkv_a0a0a0a0a1a0a0a0c" />
-      <node id="3990190717072399938" at="58,0,59,0" concept="5" trace="ConstantReference_a4b2cecc" />
-      <node id="3990190717072399938" at="59,0,60,0" concept="5" trace="Constant_532ce43a" />
+      <node id="3990190717072399938" at="58,0,59,0" concept="5" trace="ConstantReference$Cm" />
+      <node id="3990190717072399938" at="59,0,60,0" concept="5" trace="Constant$9C" />
+      <node id="3990190717072399938" at="63,0,64,0" concept="5" trace="original$mmvb" />
       <node id="3990190717072399938" at="24,0,27,0" concept="0" trace="ConstantReference_Constraints#()V" />
       <node id="3990190717072399939" at="31,0,35,0" concept="2" trace="hasOwnScopeProvider#()Z" />
       <node id="3990190717072399939" at="39,0,43,0" concept="2" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
@@ -44,7 +45,7 @@
       <node id="3990190717072399939" at="35,0,50,0" concept="2" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
       <node id="3990190717072399939" at="29,90,50,6" concept="3" />
       <node id="3990190717072399938" at="28,0,55,0" concept="2" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="3990190717072399938" at="24,42,25,49" />
+      <scope id="3990190717072399938" at="24,42,25,41" />
       <scope id="3990190717072399939" at="32,44,33,20" />
       <scope id="3990190717072399939" at="40,63,41,57" />
       <scope id="3990190717072399939" at="44,122,46,62">
@@ -64,10 +65,11 @@
         <var name="references" id="3990190717072399938" />
       </scope>
       <scope id="3990190717072399938" at="28,0,55,0" />
-      <unit id="3990190717072399938" at="57,0,61,0" name="org.jetbrains.mps.samples.Constants.constraints.ConstantReference_Constraints$AUX_nqxbkv" />
+      <unit id="3990190717072399938" at="62,0,65,0" name="org.jetbrains.mps.samples.Constants.constraints.ConstantReference_Constraints$LINKS" />
+      <unit id="3990190717072399938" at="57,0,61,0" name="org.jetbrains.mps.samples.Constants.constraints.ConstantReference_Constraints$CONCEPTS" />
       <unit id="3990190717072399939" at="38,19,48,9" name="org.jetbrains.mps.samples.Constants.constraints.ConstantReference_Constraints$1$1" />
       <unit id="3990190717072399939" at="30,48,50,5" name="org.jetbrains.mps.samples.Constants.constraints.ConstantReference_Constraints$1" />
-      <unit id="3990190717072399938" at="23,0,62,0" name="org.jetbrains.mps.samples.Constants.constraints.ConstantReference_Constraints" />
+      <unit id="3990190717072399938" at="23,0,66,0" name="org.jetbrains.mps.samples.Constants.constraints.ConstantReference_Constraints" />
     </file>
   </root>
 </debug-info>

@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
@@ -18,6 +17,8 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -25,7 +26,7 @@ public class check_DuplicateDataTypeDeclaration_NonTypesystemRule extends Abstra
   public check_DuplicateDataTypeDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode dataTypeDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    final String name = SPropertyOperations.getString(dataTypeDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    final String name = SPropertyOperations.getString(dataTypeDeclaration, PROPS.name$tAp1);
     if ((name == null || name.length() == 0)) {
       return;
     }
@@ -33,9 +34,9 @@ public class check_DuplicateDataTypeDeclaration_NonTypesystemRule extends Abstra
       return;
     }
 
-    if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(dataTypeDeclaration), AUX_c9zdt6.INamedConcept_8cd7e247)).any(new IWhereFilter<SNode>() {
+    if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(dataTypeDeclaration), CONCEPTS.INamedConcept$nV)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(Objects.equals(it, dataTypeDeclaration)) && name.equalsIgnoreCase(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return !(Objects.equals(it, dataTypeDeclaration)) && name.equalsIgnoreCase(SPropertyOperations.getString(it, PROPS.name$tAp1));
       }
     })) {
       {
@@ -45,7 +46,7 @@ public class check_DuplicateDataTypeDeclaration_NonTypesystemRule extends Abstra
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_c9zdt6.DataTypeDeclaration_9e6b98ac;
+    return CONCEPTS.DataTypeDeclaration$KQ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,8 +55,12 @@ public class check_DuplicateDataTypeDeclaration_NonTypesystemRule extends Abstra
     return false;
   }
 
-  private static final class AUX_c9zdt6 {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept DataTypeDeclaration_9e6b98ac = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SConcept DataTypeDeclaration$KQ = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration");
   }
 }

@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_ComplexExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,13 +21,13 @@ public class typeof_ComplexExpression_InferenceRule extends AbstractInferenceRul
   }
   public void applyRule(final SNode nodeToCheck, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(nodeToCheck, LINKS.complexExpression$MUES);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590424(jetbrains.mps.samples.complex.typesystem)", "1196268989250", 0, null);
       typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590424(jetbrains.mps.samples.complex.typesystem)", "1196268989252", true), (SNode) _quotation_createNode_l75no8_a1a0c0a0b(), false, false, _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_l75no8.SingleComplexExpression_fafc69ef;
+    return CONCEPTS.SingleComplexExpression$dj;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +42,11 @@ public class typeof_ComplexExpression_InferenceRule extends AbstractInferenceRul
     return quotedNode_1;
   }
 
-  private static final class AUX_l75no8 {
-    /*package*/ static final SConcept SingleComplexExpression_fafc69ef = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, "jetbrains.mps.samples.complex.structure.SingleComplexExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink complexExpression$MUES = MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SingleComplexExpression$dj = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, "jetbrains.mps.samples.complex.structure.SingleComplexExpression");
   }
 }

@@ -24,7 +24,7 @@ public class typeof_CustomMapCreator_InferenceRule extends AbstractInferenceRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_axso36.CustomMapCreator_57c81093;
+    return CONCEPTS.CustomMapCreator$4J;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_CustomMapCreator_InferenceRule extends AbstractInferenceRule
     return true;
   }
 
-  private static final class AUX_axso36 {
-    /*package*/ static final SConcept CustomMapCreator_57c81093 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x15e2150d4bff8a67L, "jetbrains.mps.baseLanguage.collections.structure.CustomMapCreator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CustomMapCreator$4J = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x15e2150d4bff8a67L, "jetbrains.mps.baseLanguage.collections.structure.CustomMapCreator");
   }
 }

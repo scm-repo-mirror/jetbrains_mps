@@ -20,7 +20,7 @@
       <node id="8783955359823292450" at="25,0,26,0" concept="6" trace="CONCEPT" />
       <node id="8783955359823292450" at="27,0,28,0" concept="6" trace="getUnitName_id4pl5GY7LKmR" />
       <node id="8783955359823292450" at="29,0,30,0" concept="6" trace="BH_METHODS" />
-      <node id="8783955359823324447" at="34,84,35,235" concept="5" />
+      <node id="8783955359823324447" at="34,84,35,138" concept="5" />
       <node id="8783955359823292450" at="42,114,43,21" concept="1" />
       <node id="8783955359823292450" at="47,114,48,49" concept="4" />
       <node id="8783955359823292450" at="49,26,50,56" concept="9" />
@@ -31,7 +31,7 @@
       <node id="8783955359823292450" at="67,14,68,58" concept="9" />
       <node id="8783955359823292450" at="74,48,75,22" concept="5" />
       <node id="8783955359823292450" at="80,40,81,19" concept="5" />
-      <node id="8783955359823292450" at="85,0,86,0" concept="6" trace="PropertiesFile_eac455e2" />
+      <node id="8783955359823292450" at="85,0,86,0" concept="6" trace="name$tAp1" />
       <node id="8783955359823292450" at="31,0,33,0" concept="7" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="8783955359823292450" at="38,0,40,0" concept="0" trace="PropertiesFile__BehaviorDescriptor#()V" />
       <node id="8783955359823292450" at="34,0,37,0" concept="7" trace="getUnitName_id4pl5GY7LKmR#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
@@ -46,7 +46,7 @@
       <node id="8783955359823292450" at="46,0,59,0" concept="3" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="8783955359823292450" at="31,63,31,63" />
       <scope id="8783955359823292450" at="38,52,38,52" />
-      <scope id="8783955359823292455" at="34,84,35,235" />
+      <scope id="8783955359823292455" at="34,84,35,138" />
       <scope id="8783955359823292450" at="42,114,43,21" />
       <scope id="8783955359823292450" at="49,26,50,56" />
       <scope id="8783955359823292450" at="53,13,54,62" />
@@ -85,7 +85,7 @@
         <var name="node" id="8783955359823292450" />
         <var name="parameters" id="8783955359823292450" />
       </scope>
-      <unit id="8783955359823292450" at="84,0,87,0" name="jetbrains.mps.core.properties.behavior.PropertiesFile__BehaviorDescriptor$AUX_4tlrjc" />
+      <unit id="8783955359823292450" at="84,0,87,0" name="jetbrains.mps.core.properties.behavior.PropertiesFile__BehaviorDescriptor$PROPS" />
       <unit id="8783955359823292450" at="24,0,88,0" name="jetbrains.mps.core.properties.behavior.PropertiesFile__BehaviorDescriptor" />
     </file>
   </root>

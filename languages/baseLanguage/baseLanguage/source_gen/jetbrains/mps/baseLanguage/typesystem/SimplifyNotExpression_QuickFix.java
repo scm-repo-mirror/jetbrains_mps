@@ -7,8 +7,9 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SimplifyNotExpression_QuickFix extends QuickFix_Runtime {
   public SimplifyNotExpression_QuickFix() {
@@ -18,11 +19,15 @@ public class SimplifyNotExpression_QuickFix extends QuickFix_Runtime {
     return "Simplify Not Expression";
   }
   public void execute(SNode node) {
-    SNode constant = SNodeFactoryOperations.replaceWithNewChild(node, AUX_hro3b6.BooleanConstant_9dbf9ad0);
-    SPropertyOperations.assign(constant, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), !(((Boolean) SimplifyNotExpression_QuickFix.this.getField("value")[0])));
+    SNode constant = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.BooleanConstant$Ui);
+    SPropertyOperations.assign(constant, PROPS.value$WIn0, !(((Boolean) SimplifyNotExpression_QuickFix.this.getField("value")[0])));
   }
 
-  private static final class AUX_hro3b6 {
-    /*package*/ static final SConcept BooleanConstant_9dbf9ad0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BooleanConstant$Ui = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$WIn0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value");
   }
 }

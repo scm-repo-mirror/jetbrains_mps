@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,16 @@ import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildLayout_Import_Constraints extends BaseConstraintsDescriptor {
   public BuildLayout_Import_Constraints() {
-    super(AUX_gjnfdd.BuildLayout_Import_d219edf1);
+    super(CONCEPTS.BuildLayout_Import$Yh);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, 0xbabdfbeee1350f4L, "target"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.target$fkBZ, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -48,7 +48,7 @@ public class BuildLayout_Import_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_gjnfdd.BuildProject_808bb057, true, false);
+            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BuildProject$BF, true, false);
             String target = null;
             if ((_context.getContextNode() != null) && contextProject != null) {
               Scope importedArtifactsScope = ScopeUtil.getVisibleArtifactsScope(contextProject, false);
@@ -67,7 +67,7 @@ public class BuildLayout_Import_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_gjnfdd.BuildProject_808bb057, true, false);
+            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BuildProject$BF, true, false);
             if ((contextProject != null)) {
               return ScopeUtil.getVisibleArtifactsScope(contextProject, false);
             }
@@ -82,8 +82,12 @@ public class BuildLayout_Import_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_gjnfdd_a0a2a0a0a1a0a0a0c = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "6836281137582840463");
 
-  private static final class AUX_gjnfdd {
-    /*package*/ static final SConcept BuildLayout_Import_d219edf1 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, "jetbrains.mps.build.structure.BuildLayout_Import");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_Import$Yh = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, "jetbrains.mps.build.structure.BuildLayout_Import");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$fkBZ = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, 0xbabdfbeee1350f4L, "target");
   }
 }

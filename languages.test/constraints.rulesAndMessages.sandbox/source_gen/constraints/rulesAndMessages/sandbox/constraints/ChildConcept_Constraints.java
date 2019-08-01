@@ -7,24 +7,28 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ChildConcept_Constraints extends BaseConstraintsDescriptor {
   public ChildConcept_Constraints() {
-    super(AUX_86cu8h.ChildConcept_3eda7ad4);
+    super(CONCEPTS.ChildConcept$We);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, 0x796cbb180da115eeL, "a"), this) {};
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.a$oC$H, this) {};
     Map<SReferenceLink, ReferenceConstraintsDescriptor> references = new HashMap<SReferenceLink, ReferenceConstraintsDescriptor>();
     references.put(d0.getReference(), d0);
     return references;
   }
 
-  private static final class AUX_86cu8h {
-    /*package*/ static final SConcept ChildConcept_3eda7ad4 = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildConcept$We = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink a$oC$H = MetaAdapterFactory.getReferenceLink(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, 0x796cbb180da115eeL, "a");
   }
 }

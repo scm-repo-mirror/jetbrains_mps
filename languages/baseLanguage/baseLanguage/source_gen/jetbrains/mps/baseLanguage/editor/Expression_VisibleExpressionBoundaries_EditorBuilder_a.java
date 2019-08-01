@@ -63,10 +63,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private boolean nodeCondition_nejlv4_a0a() {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(myNode), AUX_paj3ou.Expression_4199e28d) && (!((boolean) Expression__BehaviorDescriptor.singleValue_id1o8Ht9sES3u.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(myNode))))) && !(SNodeOperations.getConcept(myNode).isAbstract()) && !(SNodeOperations.isInstanceOf(myNode, AUX_paj3ou.ParenthesizedExpression_a4b89678));
+    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(myNode), CONCEPTS.Expression$TP) && (!((boolean) Expression__BehaviorDescriptor.singleValue_id1o8Ht9sES3u.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(myNode))))) && !(SNodeOperations.getConcept(myNode).isAbstract()) && !(SNodeOperations.isInstanceOf(myNode, CONCEPTS.ParenthesizedExpression$vE));
   }
   private boolean nodeCondition_nejlv4_a2a() {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(myNode), AUX_paj3ou.Expression_4199e28d) && (!((boolean) Expression__BehaviorDescriptor.singleValue_id1o8Ht9sES3u.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(myNode)))) && !(SNodeOperations.getConcept(myNode).isAbstract())) && !(SNodeOperations.isInstanceOf(myNode, AUX_paj3ou.ParenthesizedExpression_a4b89678));
+    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(myNode), CONCEPTS.Expression$TP) && (!((boolean) Expression__BehaviorDescriptor.singleValue_id1o8Ht9sES3u.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(myNode)))) && !(SNodeOperations.getConcept(myNode).isAbstract())) && !(SNodeOperations.isInstanceOf(myNode, CONCEPTS.ParenthesizedExpression$vE));
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "[");
@@ -91,7 +91,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     public ReplaceWith_Expression_cellMenu_nejlv4_a0b0() {
     }
     public SAbstractConcept getReplacementConcept() {
-      return AUX_paj3ou.Expression_4199e28d;
+      return CONCEPTS.Expression$TP;
     }
     @Override
     protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
@@ -111,8 +111,8 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
 
-  private static final class AUX_paj3ou {
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
   }
 }

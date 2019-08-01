@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -27,15 +26,16 @@ import jetbrains.mps.samples.languagePatterns.Basic.behavior.Component__Behavior
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ComponentUsage_Constraints extends BaseConstraintsDescriptor {
   public ComponentUsage_Constraints() {
-    super(AUX_4swebx.ComponentUsage_14d89022);
+    super(CONCEPTS.ComponentUsage$e0);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fb71L, 0x4ed97160b0a7fba5L, "usedComponent"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.usedComponent$4v6T, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,22 +50,22 @@ public class ComponentUsage_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Iterable<SNode> unusedComponents = ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(_context.getContextNode()), AUX_4swebx.Component_14d88485)).where(new IWhereFilter<SNode>() {
+            Iterable<SNode> unusedComponents = ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.Component$HX)).where(new IWhereFilter<SNode>() {
               public boolean accept(final SNode b) {
-                return ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(_context.getContextNode()), AUX_4swebx.ComponentUsage_14d89022)).where(new IWhereFilter<SNode>() {
+                return ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.ComponentUsage$e0)).where(new IWhereFilter<SNode>() {
                   public boolean accept(SNode u) {
                     return !(Objects.equals(u, _context.getContextNode()));
                   }
                 }).all(new IWhereFilter<SNode>() {
                   public boolean accept(SNode u) {
-                    return !(Objects.equals(SLinkOperations.getTarget(u, MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fb71L, 0x4ed97160b0a7fba5L, "usedComponent")), b));
+                    return !(Objects.equals(SLinkOperations.getTarget(u, LINKS.usedComponent$4v6T), b));
                   }
                 });
               }
             });
             return new ListScope(unusedComponents) {
               public String getName(SNode child) {
-                return (String) Component__BehaviorDescriptor.fullName_id4Vpsm2KEoLo.invoke(SNodeOperations.cast(child, AUX_4swebx.Component_14d88485));
+                return (String) Component__BehaviorDescriptor.fullName_id4Vpsm2KEoLo.invoke(SNodeOperations.cast(child, CONCEPTS.Component$HX));
               }
             };
           }
@@ -78,8 +78,12 @@ public class ComponentUsage_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_4swebx_a0a0a0a0a1a0a0a0c = new SNodePointer("r:7e1c7518-df7a-4f22-84b2-a5e68261264a(jetbrains.mps.samples.languagePatterns.Basic.constraints)", "6836281137582847690");
 
-  private static final class AUX_4swebx {
-    /*package*/ static final SConcept ComponentUsage_14d89022 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fb71L, "jetbrains.mps.samples.languagePatterns.Basic.structure.ComponentUsage");
-    /*package*/ static final SConcept Component_14d88485 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fa2aL, "jetbrains.mps.samples.languagePatterns.Basic.structure.Component");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ComponentUsage$e0 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fb71L, "jetbrains.mps.samples.languagePatterns.Basic.structure.ComponentUsage");
+    /*package*/ static final SConcept Component$HX = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fa2aL, "jetbrains.mps.samples.languagePatterns.Basic.structure.Component");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink usedComponent$4v6T = MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x4ed97160b0a7fb71L, 0x4ed97160b0a7fba5L, "usedComponent");
   }
 }

@@ -50,7 +50,7 @@ public final class AttachComment1_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      AttributeOperations.createAndAddAttribute(node, new IAttributeDescriptor.AllAttributes(), AUX_5mezm.CommentAttribute_ca13d656);
+      AttributeOperations.createAndAddAttribute(node, new IAttributeDescriptor.AllAttributes(), CONCEPTS.CommentAttribute$fc);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -58,7 +58,7 @@ public final class AttachComment1_Intention extends AbstractIntentionDescriptor 
     }
   }
 
-  private static final class AUX_5mezm {
-    /*package*/ static final SConcept CommentAttribute_ca13d656 = MetaAdapterFactory.getConcept(0xe8e38af60cf34cc1L, 0xbaa3ba261722e8f3L, 0x63feb1ccbe205151L, "jetbrains.mps.samples.attribute.structure.CommentAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommentAttribute$fc = MetaAdapterFactory.getConcept(0xe8e38af60cf34cc1L, 0xbaa3ba261722e8f3L, 0x63feb1ccbe205151L, "jetbrains.mps.samples.attribute.structure.CommentAttribute");
   }
 }

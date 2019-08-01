@@ -21,7 +21,7 @@ public class check_ReturnStatement_NonTypesystemRule extends AbstractNonTypesyst
   public void applyRule(final SNode returnStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     // returns must be allowed until we find a way to implement early returns 
     // http://www.javac.info 
-    if (false && (SNodeOperations.getNodeAncestor(returnStatement, AUX_bltgml.ClosureLiteral_6eeca0d3, false, false) != null)) {
+    if (false && (SNodeOperations.getNodeAncestor(returnStatement, CONCEPTS.ClosureLiteral$zJ, false, false) != null)) {
       if (!(false)) {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(returnStatement, "return is not allowed within closure literal", "r:00000000-0000-4000-0000-011c89590337(jetbrains.mps.baseLanguage.closures.typesystem)", "1200829870877", null, errorTarget);
@@ -29,7 +29,7 @@ public class check_ReturnStatement_NonTypesystemRule extends AbstractNonTypesyst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_bltgml.ReturnStatement_d4768417;
+    return CONCEPTS.ReturnStatement$SF;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -38,8 +38,8 @@ public class check_ReturnStatement_NonTypesystemRule extends AbstractNonTypesyst
     return false;
   }
 
-  private static final class AUX_bltgml {
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
-    /*package*/ static final SConcept ReturnStatement_d4768417 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+    /*package*/ static final SConcept ReturnStatement$SF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
   }
 }

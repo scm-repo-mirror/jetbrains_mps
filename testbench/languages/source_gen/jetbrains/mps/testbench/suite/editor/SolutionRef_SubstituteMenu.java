@@ -30,13 +30,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SolutionRef_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_omknhr_a(), AUX_omknhr.SolutionRef_3143dcdd));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_omknhr_a(), CONCEPTS.SolutionRef$S_));
     return result;
   }
 
@@ -113,7 +114,7 @@ public class SolutionRef_SubstituteMenu extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_omknhr.SolutionRef_3143dcdd, context);
+          super(CONCEPTS.SolutionRef$S_, context);
           _context = context;
         }
 
@@ -125,8 +126,8 @@ public class SolutionRef_SubstituteMenu extends SubstituteMenuBase {
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode solutionRef = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, "jetbrains.mps.testbench.suite.structure.SolutionRef"));
-          SPropertyOperations.assign(solutionRef, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbddL, "moduleFQName"), myParameterObject.getModuleName());
-          SPropertyOperations.assign(solutionRef, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbdeL, "moduleID"), myParameterObject.getModuleId().toString());
+          SPropertyOperations.assign(solutionRef, PROPS.moduleFQName$uMtw, myParameterObject.getModuleName());
+          SPropertyOperations.assign(solutionRef, PROPS.moduleID$uMCa, myParameterObject.getModuleId().toString());
           return solutionRef;
         }
 
@@ -136,7 +137,7 @@ public class SolutionRef_SubstituteMenu extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_omknhr.SolutionRef_3143dcdd, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.SolutionRef$S_, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -158,7 +159,12 @@ public class SolutionRef_SubstituteMenu extends SubstituteMenuBase {
 
   }
 
-  private static final class AUX_omknhr {
-    /*package*/ static final SConcept SolutionRef_3143dcdd = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, "jetbrains.mps.testbench.suite.structure.SolutionRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SolutionRef$S_ = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, "jetbrains.mps.testbench.suite.structure.SolutionRef");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleFQName$uMtw = MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbddL, "moduleFQName");
+    /*package*/ static final SProperty moduleID$uMCa = MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbdeL, "moduleID");
   }
 }

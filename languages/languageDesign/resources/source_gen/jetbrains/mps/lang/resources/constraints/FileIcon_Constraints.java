@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class FileIcon_Constraints extends BaseConstraintsDescriptor {
   public FileIcon_Constraints() {
-    super(AUX_slqg06.FileIcon_a9e20c14);
+    super(CONCEPTS.FileIcon$ne);
   }
 
-  private static final class AUX_slqg06 {
-    /*package*/ static final SConcept FileIcon_a9e20c14 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FileIcon$ne = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
   }
 }

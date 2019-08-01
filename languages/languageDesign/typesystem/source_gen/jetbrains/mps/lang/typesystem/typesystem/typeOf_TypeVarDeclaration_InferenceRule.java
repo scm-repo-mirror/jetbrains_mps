@@ -25,7 +25,7 @@ public class typeOf_TypeVarDeclaration_InferenceRule extends AbstractInferenceRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ld55fc.TypeVarDeclaration_3d2e42c5;
+    return CONCEPTS.TypeVarDeclaration$kX;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeOf_TypeVarDeclaration_InferenceRule extends AbstractInferenceRu
     return quotedNode_1;
   }
 
-  private static final class AUX_ld55fc {
-    /*package*/ static final SConcept TypeVarDeclaration_3d2e42c5 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f85df7bL, "jetbrains.mps.lang.typesystem.structure.TypeVarDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypeVarDeclaration$kX = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f85df7bL, "jetbrains.mps.lang.typesystem.structure.TypeVarDeclaration");
   }
 }

@@ -31,7 +31,6 @@ import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CharacterSymbolClassPart_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -66,7 +67,7 @@ public class CharacterSymbolClassPart_TransformationMenu extends TransformationM
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_cs2k8u.CharacterSymbolClassPart_b012f59d)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.CharacterSymbolClassPart$P_)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -111,7 +112,7 @@ public class CharacterSymbolClassPart_TransformationMenu extends TransformationM
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_cs2k8u.IntervalSymbolClassPart_dc0b35a2;
+      return CONCEPTS.IntervalSymbolClassPart$S0;
     }
 
 
@@ -122,8 +123,8 @@ public class CharacterSymbolClassPart_TransformationMenu extends TransformationM
         @Override
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
-          SNode node = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_cs2k8u.IntervalSymbolClassPart_dc0b35a2);
-          SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x11179219cfeL, "end"), SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, 0x111791b0b58L, "character")));
+          SNode node = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.IntervalSymbolClassPart$S0);
+          SPropertyOperations.set(node, PROPS.end$rU5C, SPropertyOperations.getString(_context.getNode(), PROPS.character$1gc9));
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), node, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -164,7 +165,7 @@ public class CharacterSymbolClassPart_TransformationMenu extends TransformationM
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_cs2k8u.IntervalSymbolClassPart_dc0b35a2;
+      return CONCEPTS.IntervalSymbolClassPart$S0;
     }
 
 
@@ -175,8 +176,8 @@ public class CharacterSymbolClassPart_TransformationMenu extends TransformationM
         @Override
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
-          SNode node = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_cs2k8u.IntervalSymbolClassPart_dc0b35a2);
-          SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x1117921931aL, "start"), SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, 0x111791b0b58L, "character")));
+          SNode node = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.IntervalSymbolClassPart$S0);
+          SPropertyOperations.set(node, PROPS.start$kd8P, SPropertyOperations.getString(_context.getNode(), PROPS.character$1gc9));
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), node, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -197,8 +198,14 @@ public class CharacterSymbolClassPart_TransformationMenu extends TransformationM
     }
   }
 
-  private static final class AUX_cs2k8u {
-    /*package*/ static final SConcept CharacterSymbolClassPart_b012f59d = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, "jetbrains.mps.baseLanguage.regexp.structure.CharacterSymbolClassPart");
-    /*package*/ static final SConcept IntervalSymbolClassPart_dc0b35a2 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, "jetbrains.mps.baseLanguage.regexp.structure.IntervalSymbolClassPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CharacterSymbolClassPart$P_ = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, "jetbrains.mps.baseLanguage.regexp.structure.CharacterSymbolClassPart");
+    /*package*/ static final SConcept IntervalSymbolClassPart$S0 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, "jetbrains.mps.baseLanguage.regexp.structure.IntervalSymbolClassPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty end$rU5C = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x11179219cfeL, "end");
+    /*package*/ static final SProperty character$1gc9 = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791ae82fL, 0x111791b0b58L, "character");
+    /*package*/ static final SProperty start$kd8P = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x1117921931aL, "start");
   }
 }

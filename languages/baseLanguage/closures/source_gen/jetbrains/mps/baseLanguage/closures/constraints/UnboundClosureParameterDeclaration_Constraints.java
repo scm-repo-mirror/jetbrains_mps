@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class UnboundClosureParameterDeclaration_Constraints extends BaseConstraintsDescriptor {
   public UnboundClosureParameterDeclaration_Constraints() {
-    super(AUX_p95si7.UnboundClosureParameterDeclaration_e016bb2f);
+    super(CONCEPTS.UnboundClosureParameterDeclaration$Cj);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class UnboundClosureParameterDeclaration_Constraints extends BaseConstrai
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_p95si7.ClosureLiteral_6eeca0d3);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ClosureLiteral$zJ);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590334(jetbrains.mps.baseLanguage.closures.constraints)", "1227128029536560036");
 
-  private static final class AUX_p95si7 {
-    /*package*/ static final SConcept UnboundClosureParameterDeclaration_e016bb2f = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x118276b7086L, "jetbrains.mps.baseLanguage.closures.structure.UnboundClosureParameterDeclaration");
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept UnboundClosureParameterDeclaration$Cj = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x118276b7086L, "jetbrains.mps.baseLanguage.closures.structure.UnboundClosureParameterDeclaration");
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
   }
 }

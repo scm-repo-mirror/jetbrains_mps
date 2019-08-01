@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PasteWrappers_Constraints extends BaseConstraintsDescriptor {
   public PasteWrappers_Constraints() {
-    super(AUX_uii7yt.PasteWrappers_5d745360);
+    super(CONCEPTS.PasteWrappers$w2);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class PasteWrappers_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902a4(jetbrains.mps.lang.actions.constraints)", "1227088800234");
 
-  private static final class AUX_uii7yt {
-    /*package*/ static final SConcept PasteWrappers_5d745360 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51553d4eL, "jetbrains.mps.lang.actions.structure.PasteWrappers");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PasteWrappers$w2 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51553d4eL, "jetbrains.mps.lang.actions.structure.PasteWrappers");
   }
 }

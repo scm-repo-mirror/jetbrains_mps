@@ -16,7 +16,6 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -25,6 +24,8 @@ import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ChangePropertyWithNonEmpty_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -43,7 +44,7 @@ public final class ChangePropertyWithNonEmpty_Intention extends AbstractIntentio
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), AUX_g8s1f0.CellModel_Property_297921b8);
+    return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), CONCEPTS.CellModel_Property$iE);
   }
   @Override
   public boolean isSurroundWith() {
@@ -64,9 +65,9 @@ public final class ChangePropertyWithNonEmpty_Intention extends AbstractIntentio
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode nonEmpty = SNodeFactoryOperations.createNewNode(AUX_g8s1f0.CellModel_NonEmptyProperty_e320d3dc, node);
-      SLinkOperations.setTarget(nonEmpty, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration")));
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration"), null);
+      SNode nonEmpty = SNodeFactoryOperations.createNewNode(CONCEPTS.CellModel_NonEmptyProperty$s6, node);
+      SLinkOperations.setTarget(nonEmpty, LINKS.relationDeclaration$wbRV, SLinkOperations.getTarget(node, LINKS.relationDeclaration$wbRV));
+      SLinkOperations.setTarget(node, LINKS.relationDeclaration$wbRV, null);
       for (SNode child : ListSequence.fromList(jetbrains.mps.util.SNodeOperations.getChildren(node))) {
         SContainmentLink role = child.getContainmentLink();
         node.removeChild(child);
@@ -86,8 +87,12 @@ public final class ChangePropertyWithNonEmpty_Intention extends AbstractIntentio
     }
   }
 
-  private static final class AUX_g8s1f0 {
-    /*package*/ static final SConcept CellModel_Property_297921b8 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb02612eL, "jetbrains.mps.lang.editor.structure.CellModel_Property");
-    /*package*/ static final SConcept CellModel_NonEmptyProperty_e320d3dc = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x113bef3a464L, "jetbrains.mps.lang.editor.structure.CellModel_NonEmptyProperty");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_Property$iE = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb02612eL, "jetbrains.mps.lang.editor.structure.CellModel_Property");
+    /*package*/ static final SConcept CellModel_NonEmptyProperty$s6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x113bef3a464L, "jetbrains.mps.lang.editor.structure.CellModel_NonEmptyProperty");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink relationDeclaration$wbRV = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration");
   }
 }

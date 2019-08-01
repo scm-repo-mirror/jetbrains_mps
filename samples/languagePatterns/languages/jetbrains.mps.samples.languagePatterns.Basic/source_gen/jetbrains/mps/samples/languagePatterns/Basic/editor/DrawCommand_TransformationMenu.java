@@ -27,7 +27,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Objects;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -37,6 +36,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DrawCommand_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -134,13 +135,13 @@ public class DrawCommand_TransformationMenu extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode style = (Objects.equals(myParameterObject, "solid") ? SNodeFactoryOperations.createNewNode(AUX_oy1rtc.SolidLine_8be2853d, null) : SNodeFactoryOperations.createNewNode(AUX_oy1rtc.DottedLine_8be2f505, null));
-          SLinkOperations.setTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x313e78bb265d1022L, 0x313e78bb26670129L, "lineStyle"), style);
+          SNode style = (Objects.equals(myParameterObject, "solid") ? SNodeFactoryOperations.createNewNode(CONCEPTS.SolidLine$75, null) : SNodeFactoryOperations.createNewNode(CONCEPTS.DottedLine$FX, null));
+          SLinkOperations.setTarget(_context.getNode(), LINKS.lineStyle$R$Bp, style);
         }
 
         @Override
         public boolean canExecute(@NotNull String pattern) {
-          return (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x313e78bb265d1022L, 0x313e78bb26670129L, "lineStyle")) == null);
+          return (SLinkOperations.getTarget(_context.getNode(), LINKS.lineStyle$R$Bp) == null);
         }
 
 
@@ -163,8 +164,12 @@ public class DrawCommand_TransformationMenu extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_oy1rtc {
-    /*package*/ static final SConcept SolidLine_8be2853d = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x313e78bb2666fc55L, "jetbrains.mps.samples.languagePatterns.Basic.structure.SolidLine");
-    /*package*/ static final SConcept DottedLine_8be2f505 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x313e78bb2666ff96L, "jetbrains.mps.samples.languagePatterns.Basic.structure.DottedLine");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SolidLine$75 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x313e78bb2666fc55L, "jetbrains.mps.samples.languagePatterns.Basic.structure.SolidLine");
+    /*package*/ static final SConcept DottedLine$FX = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x313e78bb2666ff96L, "jetbrains.mps.samples.languagePatterns.Basic.structure.DottedLine");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink lineStyle$R$Bp = MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x313e78bb265d1022L, 0x313e78bb26670129L, "lineStyle");
   }
 }

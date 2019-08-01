@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class CellActionMapImport_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_krpj2f_a(), AUX_krpj2f.CellActionMapImport_ba8274ce));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_krpj2f_a(), CONCEPTS.CellActionMapImport$hk));
     result.add(new SMP_Subconcepts_krpj2f_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class CellActionMapImport_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_krpj2f_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_krpj2f.CellActionMapImport_ba8274ce, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap"));
+      super((SAbstractConcept) CONCEPTS.CellActionMapImport$hk, LINKS.cellActionMap$jBrw);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class CellActionMapImport_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_krpj2f_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_krpj2f.CellActionMapImport_ba8274ce);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.CellActionMapImport$hk);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class CellActionMapImport_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_krpj2f {
-    /*package*/ static final SConcept CellActionMapImport_ba8274ce = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, "jetbrains.mps.lang.editor.structure.CellActionMapImport");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellActionMapImport$hk = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, "jetbrains.mps.lang.editor.structure.CellActionMapImport");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink cellActionMap$jBrw = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap");
   }
 }

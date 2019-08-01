@@ -92,7 +92,7 @@ public class StubModelsFastFindSupport implements ApplicationComponent, FindUsag
     });
     for (SNode node : SetSequence.fromSet(nodes)) {
       SNode snode = ((SNode) node);
-      if (!(SNodeOperations.isInstanceOf(snode, AUX_umo835.TypeVariableDeclaration_de3da816))) {
+      if (!(SNodeOperations.isInstanceOf(snode, CONCEPTS.TypeVariableDeclaration$Cc))) {
         continue;
       }
       candidates.putValue(SNodeOperations.getModel(snode), node);
@@ -219,7 +219,7 @@ public class StubModelsFastFindSupport implements ApplicationComponent, FindUsag
     return result;
   }
 
-  private static final class AUX_umo835 {
-    /*package*/ static final SConcept TypeVariableDeclaration_de3da816 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypeVariableDeclaration$Cc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
   }
 }

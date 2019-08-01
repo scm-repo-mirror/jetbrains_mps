@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -18,15 +19,20 @@ public class rebalanceCastExpression_QuickFix extends QuickFix_Runtime {
     return "Rebalance the cast expression";
   }
   public void execute(SNode node) {
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")), AUX_axwtdv.BinaryOperation_7c4c55f3)) {
-      SNode replacing = SNodeOperations.cast(SLinkOperations.getTarget(((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")), AUX_axwtdv.BinaryOperation_7c4c55f3);
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]), LINKS.expression$8QPv), CONCEPTS.BinaryOperation$vf)) {
+      SNode replacing = SNodeOperations.cast(SLinkOperations.getTarget(((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]), LINKS.expression$8QPv), CONCEPTS.BinaryOperation$vf);
       SNodeOperations.replaceWithAnother(((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]), replacing);
-      SLinkOperations.setTarget(((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression"), SLinkOperations.getTarget(replacing, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")));
-      SLinkOperations.setTarget(replacing, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), ((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]));
+      SLinkOperations.setTarget(((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]), LINKS.expression$8QPv, SLinkOperations.getTarget(replacing, LINKS.leftExpression$rxLZ));
+      SLinkOperations.setTarget(replacing, LINKS.leftExpression$rxLZ, ((SNode) rebalanceCastExpression_QuickFix.this.getField("castExpression")[0]));
     }
   }
 
-  private static final class AUX_axwtdv {
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$8QPv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
   }
 }

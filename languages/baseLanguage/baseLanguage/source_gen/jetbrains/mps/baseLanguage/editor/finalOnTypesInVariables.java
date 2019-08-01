@@ -19,7 +19,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.transformation.ConstraintsFilteringTransformationMenuPartDecorator;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class finalOnTypesInVariables extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -74,7 +75,7 @@ public class finalOnTypesInVariables extends TransformationMenuBase {
   public class TMP_Group_q2o0d3_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_q2o0d3.VariableDeclaration_3c610994) && !(SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_q2o0d3.VariableDeclaration_3c610994), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal")));
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.VariableDeclaration$xe) && !(SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.VariableDeclaration$xe), PROPS.isFinal$hIht));
     }
 
     @NotNull
@@ -90,7 +91,7 @@ public class finalOnTypesInVariables extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_q2o0d3_a0.TMP_Action_q2o0d3_a0a(), AUX_q2o0d3.VariableDeclaration_3c610994));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_q2o0d3_a0.TMP_Action_q2o0d3_a0a(), CONCEPTS.VariableDeclaration$xe));
     }
     private class TMP_Action_q2o0d3_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -130,9 +131,9 @@ public class finalOnTypesInVariables extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode variable = SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_q2o0d3.VariableDeclaration_3c610994);
-          SPropertyOperations.set(variable, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"), true);
-          if (SNodeOperations.isInstanceOf(variable, AUX_q2o0d3.LocalVariableDeclaration_d47683f3) || SNodeOperations.isInstanceOf(variable, AUX_q2o0d3.ParameterDeclaration_24d60da8) || SNodeOperations.isInstanceOf(variable, AUX_q2o0d3.FieldDeclaration_e2711ac6) || SNodeOperations.isInstanceOf(variable, AUX_q2o0d3.StaticFieldDeclaration_9649293d)) {
+          SNode variable = SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.VariableDeclaration$xe);
+          SPropertyOperations.set(variable, PROPS.isFinal$hIht, true);
+          if (SNodeOperations.isInstanceOf(variable, CONCEPTS.LocalVariableDeclaration$Bf) || SNodeOperations.isInstanceOf(variable, CONCEPTS.ParameterDeclaration$qU) || SNodeOperations.isInstanceOf(variable, CONCEPTS.FieldDeclaration$Ps) || SNodeOperations.isInstanceOf(variable, CONCEPTS.StaticFieldDeclaration$R5)) {
             SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), variable, "finalModifier", -1);
             return;
           }
@@ -143,7 +144,7 @@ public class finalOnTypesInVariables extends TransformationMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_q2o0d3.VariableDeclaration_3c610994;
+          return CONCEPTS.VariableDeclaration$xe;
         }
 
 
@@ -154,7 +155,7 @@ public class finalOnTypesInVariables extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_q2o0d3.VariableDeclaration_3c610994;
+          SAbstractConcept outputConcept = CONCEPTS.VariableDeclaration$xe;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -165,11 +166,15 @@ public class finalOnTypesInVariables extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_q2o0d3 {
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept StaticFieldDeclaration_9649293d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept StaticFieldDeclaration$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$hIht = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
   }
 }

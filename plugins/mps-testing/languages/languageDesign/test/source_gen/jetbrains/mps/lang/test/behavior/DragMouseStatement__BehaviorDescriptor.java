@@ -4,6 +4,7 @@ package jetbrains.mps.lang.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class DragMouseStatement__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_ifthfz.DragMouseStatement_897fb853;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c55ca0a3L, "jetbrains.mps.lang.test.structure.DragMouseStatement");
 
   public static final SMethod<SNode> getPressMouseStatement_id3CVcUJxN49_ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPressMouseStatement").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3CVcUJxN49_").build();
 
@@ -31,7 +31,7 @@ public final class DragMouseStatement__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static SNode getPressMouseStatement_id3CVcUJxN49_(@NotNull SNode __thisNode__) {
-    return SNodeOperations.getNodeAncestor(__thisNode__, AUX_ifthfz.PressMouseStatement_f18186f1, false, false);
+    return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.PressMouseStatement$qh, false, false);
   }
 
   /*package*/ DragMouseStatement__BehaviorDescriptor() {
@@ -80,8 +80,7 @@ public final class DragMouseStatement__BehaviorDescriptor extends BaseBHDescript
     return CONCEPT;
   }
 
-  private static final class AUX_ifthfz {
-    /*package*/ static final SConcept DragMouseStatement_897fb853 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c55ca0a3L, "jetbrains.mps.lang.test.structure.DragMouseStatement");
-    /*package*/ static final SConcept PressMouseStatement_f18186f1 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c5348f79L, "jetbrains.mps.lang.test.structure.PressMouseStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PressMouseStatement$qh = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c5348f79L, "jetbrains.mps.lang.test.structure.PressMouseStatement");
   }
 }

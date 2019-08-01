@@ -10,24 +10,25 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_WhenConcreteVariableDeclaration_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_WhenConcreteVariableDeclaration_InferenceRule() {
   }
   public void applyRule(final SNode nodeToCheck, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(nodeToCheck), AUX_3dn7cz.WhenConcreteStatement_76fb8bc3)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(nodeToCheck), CONCEPTS.WhenConcreteStatement$JZ)) {
       {
         SNode _nodeToCheck_1029348928467 = nodeToCheck;
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1239014818555", 0, null);
-        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1239014818557", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(nodeToCheck), AUX_3dn7cz.WhenConcreteStatement_76fb8bc3), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, 0x114177d39c2L, "argument")), "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1239014818560", false), _info_12389875345);
+        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1239014818557", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(nodeToCheck), CONCEPTS.WhenConcreteStatement$JZ), LINKS.argument$Usg_), "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1239014818560", false), _info_12389875345);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3dn7cz.WhenConcreteVariableDeclaration_156234b2;
+    return CONCEPTS.WhenConcreteVariableDeclaration$3K;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,8 +37,12 @@ public class typeof_WhenConcreteVariableDeclaration_InferenceRule extends Abstra
     return true;
   }
 
-  private static final class AUX_3dn7cz {
-    /*package*/ static final SConcept WhenConcreteStatement_76fb8bc3 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteStatement");
-    /*package*/ static final SConcept WhenConcreteVariableDeclaration_156234b2 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x118bd05a27aL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WhenConcreteStatement$JZ = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteStatement");
+    /*package*/ static final SConcept WhenConcreteVariableDeclaration$3K = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x118bd05a27aL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink argument$Usg_ = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, 0x114177d39c2L, "argument");
   }
 }

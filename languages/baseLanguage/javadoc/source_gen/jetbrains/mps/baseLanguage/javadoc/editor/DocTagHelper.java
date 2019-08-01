@@ -5,71 +5,76 @@ package jetbrains.mps.baseLanguage.javadoc.editor;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class DocTagHelper {
   public static void organizeTags(final SNode comment) {
-    Iterable<SNode> author = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> author = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.AuthorBlockDocTag_a2b7d5f8);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.AuthorBlockDocTag$xE);
       }
     });
-    Iterable<SNode> since = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> since = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.SinceBlockDocTag_7c82a6b8);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.SinceBlockDocTag$YE);
       }
     });
-    Iterable<SNode> version = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> version = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.VersionBlockDocTag_7c82a696);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.VersionBlockDocTag$Ic);
       }
     });
-    Iterable<SNode> see = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> see = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.SeeBlockDocTag_792ffc21);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.SeeBlockDocTag$tx);
       }
     });
-    Iterable<SNode> param = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> param = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.ParameterBlockDocTag_855e2781);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.ParameterBlockDocTag$w1);
       }
     });
-    Iterable<SNode> thr = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> thr = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.ThrowsBlockDocTag_61442f31);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.ThrowsBlockDocTag$ph);
       }
     });
-    Iterable<SNode> deprecated = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> deprecated = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.DeprecatedBlockDocTag_7c8f64d8);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.DeprecatedBlockDocTag$ma);
       }
     });
-    Iterable<SNode> returns = ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> returns = ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_uwmztk.ReturnBlockDocTag_643ca086);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.ReturnBlockDocTag$Ys);
       }
     });
-    ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).clear();
+    ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).clear();
     Sequence.fromIterable(author).concat(Sequence.fromIterable(since)).concat(Sequence.fromIterable(version)).concat(Sequence.fromIterable(see)).concat(Sequence.fromIterable(param)).concat(Sequence.fromIterable(thr)).concat(Sequence.fromIterable(deprecated)).concat(Sequence.fromIterable(returns)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
-        ListSequence.fromList(SLinkOperations.getChildren(comment, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"))).addElement(it);
+        ListSequence.fromList(SLinkOperations.getChildren(comment, LINKS.tags$LJD$)).addElement(it);
       }
     });
   }
 
-  private static final class AUX_uwmztk {
-    /*package*/ static final SConcept AuthorBlockDocTag_a2b7d5f8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faee13eL, "jetbrains.mps.baseLanguage.javadoc.structure.AuthorBlockDocTag");
-    /*package*/ static final SConcept SinceBlockDocTag_7c82a6b8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87ddadL, "jetbrains.mps.baseLanguage.javadoc.structure.SinceBlockDocTag");
-    /*package*/ static final SConcept VersionBlockDocTag_7c82a696 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87dda0L, "jetbrains.mps.baseLanguage.javadoc.structure.VersionBlockDocTag");
-    /*package*/ static final SConcept SeeBlockDocTag_792ffc21 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252ca3abL, "jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag");
-    /*package*/ static final SConcept ParameterBlockDocTag_855e2781 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c905f8aL, "jetbrains.mps.baseLanguage.javadoc.structure.ParameterBlockDocTag");
-    /*package*/ static final SConcept ThrowsBlockDocTag_61442f31 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f68704ec270L, "jetbrains.mps.baseLanguage.javadoc.structure.ThrowsBlockDocTag");
-    /*package*/ static final SConcept DeprecatedBlockDocTag_7c8f64d8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag");
-    /*package*/ static final SConcept ReturnBlockDocTag_643ca086 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f687050918eL, "jetbrains.mps.baseLanguage.javadoc.structure.ReturnBlockDocTag");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink tags$LJD$ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AuthorBlockDocTag$xE = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7faee13eL, "jetbrains.mps.baseLanguage.javadoc.structure.AuthorBlockDocTag");
+    /*package*/ static final SConcept SinceBlockDocTag$YE = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87ddadL, "jetbrains.mps.baseLanguage.javadoc.structure.SinceBlockDocTag");
+    /*package*/ static final SConcept VersionBlockDocTag$Ic = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87dda0L, "jetbrains.mps.baseLanguage.javadoc.structure.VersionBlockDocTag");
+    /*package*/ static final SConcept SeeBlockDocTag$tx = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252ca3abL, "jetbrains.mps.baseLanguage.javadoc.structure.SeeBlockDocTag");
+    /*package*/ static final SConcept ParameterBlockDocTag$w1 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c905f8aL, "jetbrains.mps.baseLanguage.javadoc.structure.ParameterBlockDocTag");
+    /*package*/ static final SConcept ThrowsBlockDocTag$ph = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f68704ec270L, "jetbrains.mps.baseLanguage.javadoc.structure.ThrowsBlockDocTag");
+    /*package*/ static final SConcept DeprecatedBlockDocTag$ma = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag");
+    /*package*/ static final SConcept ReturnBlockDocTag$Ys = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x514c0f687050918eL, "jetbrains.mps.baseLanguage.javadoc.structure.ReturnBlockDocTag");
   }
 }

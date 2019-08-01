@@ -32,11 +32,11 @@ public class SafeDeleteConceptMethod extends BaseRefactoring {
     return (List<SModel>) refactoringContext.getModelsFromUsages(refactoringContext.getSelectedModel());
   }
   public SearchResults getAffectedNodes(final RefactoringContext refactoringContext) {
-    SNode method = SNodeOperations.cast(refactoringContext.getSelectedNode(), AUX_4d9dmw.ConceptMethodDeclaration_6c80ca4f);
+    SNode method = SNodeOperations.cast(refactoringContext.getSelectedNode(), CONCEPTS.ConceptMethodDeclaration$VN);
     return FindUtils.getSearchResults(new EmptyProgressMonitor(), method, refactoringContext.getCurrentScope(), "jetbrains.mps.baseLanguage.findUsages.ExactMethodUsages_Finder", "jetbrains.mps.lang.behavior.findUsages.OverridingMethods_Finder");
   }
 
-  private static final class AUX_4d9dmw {
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
   }
 }

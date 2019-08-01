@@ -9,8 +9,9 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_InternalTypedStaticFieldReference_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,11 +21,11 @@ public class typeof_InternalTypedStaticFieldReference_InferenceRule extends Abst
     {
       SNode _nodeToCheck_1029348928467 = node;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895903ab(jetbrains.mps.baseLanguageInternal.typesystem)", "8228699960986559757", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895903ab(jetbrains.mps.baseLanguageInternal.typesystem)", "8228699960986559648", true), (SNode) SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x7232370459dfc310L, 0x7232370459dfd7b6L, "returnType")), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895903ab(jetbrains.mps.baseLanguageInternal.typesystem)", "8228699960986559648", true), (SNode) SLinkOperations.getTarget(node, LINKS.returnType$BplA), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_twoc3u.InternalTypedStaticFieldReference_3c2b1db;
+    return CONCEPTS.InternalTypedStaticFieldReference$zB;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +34,11 @@ public class typeof_InternalTypedStaticFieldReference_InferenceRule extends Abst
     return false;
   }
 
-  private static final class AUX_twoc3u {
-    /*package*/ static final SConcept InternalTypedStaticFieldReference_3c2b1db = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x7232370459dfc310L, "jetbrains.mps.baseLanguageInternal.structure.InternalTypedStaticFieldReference");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink returnType$BplA = MetaAdapterFactory.getContainmentLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x7232370459dfc310L, 0x7232370459dfd7b6L, "returnType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InternalTypedStaticFieldReference$zB = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x7232370459dfc310L, "jetbrains.mps.baseLanguageInternal.structure.InternalTypedStaticFieldReference");
   }
 }

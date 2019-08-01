@@ -66,7 +66,7 @@ public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
       super.initialize(_context);
       isChildNullOrExactlyBaseConcept = new Computable<Boolean>() {
         public Boolean compute() {
-          return (_context.getCurrentTargetNode() == null) || SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(_context.getCurrentTargetNode())), AUX_s3h0kg.BaseConcept_bc2351f);
+          return (_context.getCurrentTargetNode() == null) || SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(_context.getCurrentTargetNode())), CONCEPTS.BaseConcept$Sz);
         }
       }.compute();
     }
@@ -105,7 +105,7 @@ public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
 
       @Override
       protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_s3h0kg_a.SMP_Group_s3h0kg_a0.SMP_Param_s3h0kg_a0a(), AUX_s3h0kg.BaseConcept_bc2351f));
+        return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_s3h0kg_a.SMP_Group_s3h0kg_a0.SMP_Param_s3h0kg_a0a(), CONCEPTS.BaseConcept$Sz));
       }
       private class SMP_Param_s3h0kg_a0a extends ParameterizedMenuPart<SAbstractConcept, SubstituteMenuItem, SubstituteMenuContext> {
         @NotNull
@@ -127,7 +127,7 @@ public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         protected Iterable<? extends SAbstractConcept> getParameters(SubstituteMenuContext _context) {
-          return ((Iterable<SConcept>) SConceptOperations.getAllSubConcepts2(AUX_s3h0kg.BaseConcept_bc2351f, SNodeOperations.getModel(_context.getParentNode())));
+          return ((Iterable<SConcept>) SConceptOperations.getAllSubConcepts2(CONCEPTS.BaseConcept$Sz, SNodeOperations.getModel(_context.getParentNode())));
         }
         private class SMP_Action_s3h0kg_a0a0 extends SingleItemSubstituteMenuPart {
           private final SAbstractConcept myParameterObject;
@@ -162,7 +162,7 @@ public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
             private final SubstituteMenuContext _context;
             private EditorMenuTraceInfo myTraceInfo;
             public Item(SubstituteMenuContext context) {
-              super(AUX_s3h0kg.BaseConcept_bc2351f, context);
+              super(CONCEPTS.BaseConcept$Sz, context);
               _context = context;
             }
 
@@ -182,7 +182,7 @@ public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
             }
             @NotNull
             protected CompletionItemInformation createInformation(String pattern) {
-              return new CompletionItemInformation(myParameterObject, AUX_s3h0kg.BaseConcept_bc2351f, getMatchingText(pattern), getDescriptionText(pattern));
+              return new CompletionItemInformation(myParameterObject, CONCEPTS.BaseConcept$Sz, getMatchingText(pattern), getDescriptionText(pattern));
             }
             @Nullable
             @Override
@@ -252,7 +252,7 @@ public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_s3h0kg {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

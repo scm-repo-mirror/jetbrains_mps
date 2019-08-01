@@ -13,7 +13,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -21,6 +20,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class StateTransitions_ComponentBuilder_a extends AbstractEditorBuilder {
@@ -69,10 +69,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, 0x148d06483264e4afL, "transitions");
+      return LINKS.transitions$m8d3;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_7k1bd.Transition_404ac7b8;
+      return CONCEPTS.Transition$UE;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -82,7 +82,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(transitionsListHandler_hbe0cm_a0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, 0x148d06483264e4afL, "transitions")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(transitionsListHandler_hbe0cm_a0.this.getNode(), LINKS.transitions$m8d3));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -107,7 +107,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_7k1bd {
-    /*package*/ static final SConcept Transition_404ac7b8 = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, "jetbrains.mps.samples.StateChart.structure.Transition");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink transitions$m8d3 = MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, 0x148d06483264e4afL, "transitions");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Transition$UE = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, "jetbrains.mps.samples.StateChart.structure.Transition");
   }
 }

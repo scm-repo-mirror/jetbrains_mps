@@ -19,7 +19,7 @@ public final class TestsUtil {
   }
 
   public static String getProjectPath(SModel model) {
-    String projectPath = TestInfo__BehaviorDescriptor.getProjectPath_id4qWC2JVrBcn.invoke(SNodeOperations.asSConcept(AUX_6yh4up.TestInfo_c0c4a9c7), model);
+    String projectPath = TestInfo__BehaviorDescriptor.getProjectPath_id4qWC2JVrBcn.invoke(SNodeOperations.asSConcept(CONCEPTS.TestInfo$TV), model);
     if (projectPath != null) {
       return NameUtil.escapeString(projectPath);
     }
@@ -33,11 +33,11 @@ public final class TestsUtil {
    */
   @Deprecated
   public static String getTestBodyClassName(SNode testCase) {
-    return ITestCase__BehaviorDescriptor.getClassName_idhGBnqtL.invoke(testCase) + "$" + NodesTestCase__BehaviorDescriptor.getTestBodyName_idhOw0ICJ.invoke(SNodeOperations.asSConcept(AUX_6yh4up.NodesTestCase_fd5a0bf4));
+    return ITestCase__BehaviorDescriptor.getClassName_idhGBnqtL.invoke(testCase) + "$" + NodesTestCase__BehaviorDescriptor.getTestBodyName_idhOw0ICJ.invoke(SNodeOperations.asSConcept(CONCEPTS.NodesTestCase$7I));
   }
 
-  private static final class AUX_6yh4up {
-    /*package*/ static final SConcept TestInfo_c0c4a9c7 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x46bca02bfb6e730aL, "jetbrains.mps.lang.test.structure.TestInfo");
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestInfo$TV = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x46bca02bfb6e730aL, "jetbrains.mps.lang.test.structure.TestInfo");
+    /*package*/ static final SConcept NodesTestCase$7I = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
   }
 }

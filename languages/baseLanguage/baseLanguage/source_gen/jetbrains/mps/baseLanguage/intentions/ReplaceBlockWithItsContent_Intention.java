@@ -16,11 +16,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import java.util.List;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ReplaceBlockWithItsContent_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -42,8 +42,8 @@ public final class ReplaceBlockWithItsContent_Intention extends AbstractIntentio
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
     boolean applicable = false;
     SContainmentLink containmentLink = node.getContainmentLink();
-    if (containmentLink != null && SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(AUX_bzb826.Statement_9dbf9b0e), SNodeOperations.asSConcept((SAbstractConcept) containmentLink.getTargetConcept()))) {
-      int statementsCount = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).count();
+    if (containmentLink != null && SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(CONCEPTS.Statement$ok), SNodeOperations.asSConcept((SAbstractConcept) containmentLink.getTargetConcept()))) {
+      int statementsCount = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(node, LINKS.statements$uqR0), LINKS.statement$WHn8)).count();
       switch (statementsCount) {
         case 0:
           applicable = containmentLink.isOptional();
@@ -77,7 +77,7 @@ public final class ReplaceBlockWithItsContent_Intention extends AbstractIntentio
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      List<SNode> statements = SLinkOperations.getChildren(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
+      List<SNode> statements = SLinkOperations.getChildren(SLinkOperations.getTarget(node, LINKS.statements$uqR0), LINKS.statement$WHn8);
       for (SNode statement : ListSequence.fromList(statements)) {
         SNodeOperations.insertPrevSiblingChild(node, statement);
       }
@@ -89,7 +89,12 @@ public final class ReplaceBlockWithItsContent_Intention extends AbstractIntentio
     }
   }
 
-  private static final class AUX_bzb826 {
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink statements$uqR0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
   }
 }

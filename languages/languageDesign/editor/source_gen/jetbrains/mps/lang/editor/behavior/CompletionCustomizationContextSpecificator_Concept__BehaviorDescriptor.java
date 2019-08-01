@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -14,14 +15,13 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class CompletionCustomizationContextSpecificator_Concept__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_7cdszp.CompletionCustomizationContextSpecificator_Concept_2a16065c;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64a01fa8546d02faL, "jetbrains.mps.lang.editor.structure.CompletionCustomizationContextSpecificator_Concept");
 
   public static final SMethod<SNode> getConcept_id7U0pk79eiL7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7U0pk79eiL7").build();
 
@@ -31,7 +31,7 @@ public final class CompletionCustomizationContextSpecificator_Concept__BehaviorD
   }
 
   /*package*/ static SNode getConcept_id7U0pk79eiL7(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64a01fa8546d02faL, 0x7e806541c93930a5L, "conceptDeclaration"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.conceptDeclaration$UwJH);
   }
 
   /*package*/ CompletionCustomizationContextSpecificator_Concept__BehaviorDescriptor() {
@@ -80,7 +80,7 @@ public final class CompletionCustomizationContextSpecificator_Concept__BehaviorD
     return CONCEPT;
   }
 
-  private static final class AUX_7cdszp {
-    /*package*/ static final SConcept CompletionCustomizationContextSpecificator_Concept_2a16065c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64a01fa8546d02faL, "jetbrains.mps.lang.editor.structure.CompletionCustomizationContextSpecificator_Concept");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$UwJH = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64a01fa8546d02faL, 0x7e806541c93930a5L, "conceptDeclaration");
   }
 }

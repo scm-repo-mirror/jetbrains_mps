@@ -25,10 +25,11 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class java_module_content_XmlBaseElement_Contribution extends SubstituteMenuBase {
   public java_module_content_XmlBaseElement_Contribution() {
@@ -58,7 +59,7 @@ public class java_module_content_XmlBaseElement_Contribution extends SubstituteM
   public class SMP_Group_fc12n3_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_fc12n3.BwfJavaModule_2d8d648b) || SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_fc12n3.BwfFileSet_426f53f7) || SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_fc12n3.BwfJavaClassPath_ebd3ee4d);
+      return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BwfJavaModule$KR) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BwfFileSet$Db) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BwfJavaClassPath$EP);
     }
     @NotNull
     @Override
@@ -74,7 +75,7 @@ public class java_module_content_XmlBaseElement_Contribution extends SubstituteM
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_fc12n3_a.SMP_Param_fc12n3_a0(), AUX_fc12n3.XmlElement_6047438c));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_fc12n3_a.SMP_Param_fc12n3_a0(), CONCEPTS.XmlElement$Pm));
     }
     private class SMP_Param_fc12n3_a0 extends ParameterizedMenuPart<String, SubstituteMenuItem, SubstituteMenuContext> {
       @NotNull
@@ -131,7 +132,7 @@ public class java_module_content_XmlBaseElement_Contribution extends SubstituteM
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_fc12n3.XmlElement_6047438c, context);
+            super(CONCEPTS.XmlElement$Pm, context);
             _context = context;
           }
 
@@ -142,9 +143,9 @@ public class java_module_content_XmlBaseElement_Contribution extends SubstituteM
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode res = SModelOperations.createNewNode(_context.getModel(), null, AUX_fc12n3.XmlElement_6047438c);
-            SPropertyOperations.assign(res, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, 0x5c842a42c54b10b6L, "tagName"), myParameterObject);
-            SPropertyOperations.assign(res, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, 0x61218fae7b61b5d5L, "shortEmptyNotation"), true);
+            SNode res = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.XmlElement$Pm);
+            SPropertyOperations.assign(res, PROPS.tagName$U00C, myParameterObject);
+            SPropertyOperations.assign(res, PROPS.shortEmptyNotation$5AI0, true);
             return res;
           }
 
@@ -154,7 +155,7 @@ public class java_module_content_XmlBaseElement_Contribution extends SubstituteM
           }
           @NotNull
           protected CompletionItemInformation createInformation(String pattern) {
-            return new CompletionItemInformation(myParameterObject, AUX_fc12n3.XmlElement_6047438c, getMatchingText(pattern), getDescriptionText(pattern));
+            return new CompletionItemInformation(myParameterObject, CONCEPTS.XmlElement$Pm, getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -177,10 +178,15 @@ public class java_module_content_XmlBaseElement_Contribution extends SubstituteM
     }
   }
 
-  private static final class AUX_fc12n3 {
-    /*package*/ static final SConcept BwfJavaClassPath_ebd3ee4d = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, "jetbrains.mps.build.workflow.structure.BwfJavaClassPath");
-    /*package*/ static final SConcept BwfJavaModule_2d8d648b = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, "jetbrains.mps.build.workflow.structure.BwfJavaModule");
-    /*package*/ static final SConcept BwfFileSet_426f53f7 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6e014d63c07ebd1bL, "jetbrains.mps.build.workflow.structure.BwfFileSet");
-    /*package*/ static final SConcept XmlElement_6047438c = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, "jetbrains.mps.core.xml.structure.XmlElement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfJavaClassPath$EP = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, "jetbrains.mps.build.workflow.structure.BwfJavaClassPath");
+    /*package*/ static final SConcept BwfJavaModule$KR = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38bbL, "jetbrains.mps.build.workflow.structure.BwfJavaModule");
+    /*package*/ static final SConcept BwfFileSet$Db = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6e014d63c07ebd1bL, "jetbrains.mps.build.workflow.structure.BwfFileSet");
+    /*package*/ static final SConcept XmlElement$Pm = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, "jetbrains.mps.core.xml.structure.XmlElement");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty tagName$U00C = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, 0x5c842a42c54b10b6L, "tagName");
+    /*package*/ static final SProperty shortEmptyNotation$5AI0 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b2L, 0x61218fae7b61b5d5L, "shortEmptyNotation");
   }
 }

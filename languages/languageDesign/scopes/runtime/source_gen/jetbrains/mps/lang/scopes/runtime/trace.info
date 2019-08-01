@@ -385,11 +385,11 @@
       <node id="7567863696934695785" at="67,68,68,31" concept="9" />
       <node id="4143990013474874461" at="68,31,69,140" concept="8" />
       <node id="5910513706165665362" at="73,74,74,26" concept="8" />
-      <node id="2889239041433323171" at="78,165,79,19" concept="8" />
+      <node id="2889239041433323171" at="78,157,79,19" concept="8" />
       <node id="467175318509926267" at="81,31,82,18" concept="8" />
       <node id="467175318509926282" at="84,62,85,19" concept="8" />
       <node id="467175318509926286" at="86,5,87,38" concept="8" />
-      <node id="5815802410604953815" at="91,0,92,0" concept="11" trace="INamedConcept_8cd7e247" />
+      <node id="5815802410604953815" at="91,0,92,0" concept="11" trace="INamedConcept$nV" />
       <node id="5151813541030601300" at="39,57,42,7" concept="5" />
       <node id="4143990013474874081" at="50,0,53,0" concept="6" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="4143990013474874137" at="55,0,58,0" concept="6" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -410,7 +410,7 @@
       <scope id="4143990013474874138" at="55,39,56,89" />
       <scope id="4143990013474874196" at="59,39,60,154" />
       <scope id="5815802410604953958" at="73,74,74,26" />
-      <scope id="2889239041433323140" at="78,165,79,19" />
+      <scope id="2889239041433323140" at="78,157,79,19" />
       <scope id="467175318509926239" at="81,31,82,18" />
       <scope id="467175318509926272" at="84,62,85,19" />
       <scope id="5815802410604953944" at="67,68,69,140" />
@@ -454,7 +454,7 @@
       <scope id="5815802410604953879" at="46,0,65,0">
         <var name="prefix" id="5815802410604953882" />
       </scope>
-      <unit id="5815802410604953815" at="90,0,93,0" name="jetbrains.mps.lang.scopes.runtime.HidingByNameScope$AUX_4kygkp" />
+      <unit id="5815802410604953815" at="90,0,93,0" name="jetbrains.mps.lang.scopes.runtime.HidingByNameScope$CONCEPTS" />
       <unit id="4143990013474874081" at="49,114,53,5" name="jetbrains.mps.lang.scopes.runtime.HidingByNameScope$1" />
       <unit id="4143990013474874137" at="54,120,58,5" name="jetbrains.mps.lang.scopes.runtime.HidingByNameScope$2" />
       <unit id="4143990013474874195" at="58,17,62,5" name="jetbrains.mps.lang.scopes.runtime.HidingByNameScope$3" />

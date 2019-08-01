@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.baseLanguage.closures.constraints.ClassifierTypeUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_DowncastExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,11 +21,11 @@ public class typeof_DowncastExpression_InferenceRule extends AbstractInferenceRu
   }
   public void applyRule(final SNode expression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      final SNode expType = typeCheckingContext.typeOf(SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11df825e596L, 0x11df8269ecfL, "expression")), "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "1228231559409", true);
+      final SNode expType = typeCheckingContext.typeOf(SLinkOperations.getTarget(expression, LINKS.expression$WV$5), "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "1228231559409", true);
       typeCheckingContext.whenConcrete(expType, new Runnable() {
         public void run() {
           {
-            SNode coercedNode_y5vcz7_a0a0 = TypecheckingFacade.getFromContext().coerceType(typeCheckingContext.getExpandedNode(expType), AUX_2on3q6.Type_4199e276);
+            SNode coercedNode_y5vcz7_a0a0 = TypecheckingFacade.getFromContext().coerceType(typeCheckingContext.getExpandedNode(expType), CONCEPTS.Type$IG);
             if (coercedNode_y5vcz7_a0a0 != null) {
               {
                 SNode _nodeToCheck_1029348928467 = expression;
@@ -39,7 +40,7 @@ public class typeof_DowncastExpression_InferenceRule extends AbstractInferenceRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2on3q6.DowncastExpression_e245e26e;
+    return CONCEPTS.DowncastExpression$EO;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -48,8 +49,12 @@ public class typeof_DowncastExpression_InferenceRule extends AbstractInferenceRu
     return false;
   }
 
-  private static final class AUX_2on3q6 {
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
-    /*package*/ static final SConcept DowncastExpression_e245e26e = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11df825e596L, "jetbrains.mps.baseLanguage.collections.structure.DowncastExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$WV$5 = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11df825e596L, 0x11df8269ecfL, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept DowncastExpression$EO = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11df825e596L, "jetbrains.mps.baseLanguage.collections.structure.DowncastExpression");
   }
 }

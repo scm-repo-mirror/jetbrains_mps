@@ -39,7 +39,7 @@ public class check_UnknownConsCall_NonTypesystemRule extends AbstractNonTypesyst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_dp5be2.UnknownConsCall_d160d97f;
+    return CONCEPTS.UnknownConsCall$n3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -48,7 +48,7 @@ public class check_UnknownConsCall_NonTypesystemRule extends AbstractNonTypesyst
     return false;
   }
 
-  private static final class AUX_dp5be2 {
-    /*package*/ static final SConcept UnknownConsCall_d160d97f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x7e4a5cff51167b74L, "jetbrains.mps.baseLanguage.structure.UnknownConsCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept UnknownConsCall$n3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x7e4a5cff51167b74L, "jetbrains.mps.baseLanguage.structure.UnknownConsCall");
   }
 }

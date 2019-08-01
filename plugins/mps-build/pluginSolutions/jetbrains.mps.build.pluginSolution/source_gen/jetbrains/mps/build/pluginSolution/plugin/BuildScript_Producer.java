@@ -13,7 +13,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.plugins.runconfigs.MPSPsiElement;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.actions.ConfigurationContext;
@@ -21,6 +20,8 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class BuildScript_Producer {
 
@@ -51,16 +52,16 @@ public final class BuildScript_Producer {
 
     @Override
     protected boolean isApplicable(Object source) {
-      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), AUX_y9bby4.BaseConcept_bc2351f);
+      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), CONCEPTS.BaseConcept$Sz);
     }
 
     @Override
     protected BuildScript_Configuration doCreateConfiguration(final SNode source) {
       setSourceElement(MPSPsiElement.createFor(source, getMpsProject()));
       SNode containingRoot = SNodeOperations.getContainingRoot(source);
-      if (SNodeOperations.isInstanceOf(containingRoot, AUX_y9bby4.BuildProject_808bb057) && !(SNodeOperations.getModel(containingRoot).getModule().isPackaged())) {
-        SNode buildProject = SNodeOperations.cast(containingRoot, AUX_y9bby4.BuildProject_808bb057);
-        String name = SPropertyOperations.getString(buildProject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      if (SNodeOperations.isInstanceOf(containingRoot, CONCEPTS.BuildProject$BF) && !(SNodeOperations.getModel(containingRoot).getModule().isPackaged())) {
+        SNode buildProject = SNodeOperations.cast(containingRoot, CONCEPTS.BuildProject$BF);
+        String name = SPropertyOperations.getString(buildProject, PROPS.name$tAp1);
         if (name == null) {
           return null;
         }
@@ -106,8 +107,12 @@ public final class BuildScript_Producer {
     }
   }
 
-  private static final class AUX_y9bby4 {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

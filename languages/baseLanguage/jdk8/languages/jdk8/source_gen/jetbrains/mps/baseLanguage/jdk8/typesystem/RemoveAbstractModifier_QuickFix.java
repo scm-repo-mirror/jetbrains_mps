@@ -6,6 +6,7 @@ import jetbrains.mps.errors.QuickFix_Runtime;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RemoveAbstractModifier_QuickFix extends QuickFix_Runtime {
@@ -16,7 +17,11 @@ public class RemoveAbstractModifier_QuickFix extends QuickFix_Runtime {
     return "Remove the 'abstract' modifier";
   }
   public void execute(SNode node) {
-    assert SPropertyOperations.getBoolean(((SNode) RemoveAbstractModifier_QuickFix.this.getField("method")[0]), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, 0x1126a8d157dL, "isAbstract"));
-    SPropertyOperations.assign(((SNode) RemoveAbstractModifier_QuickFix.this.getField("method")[0]), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, 0x1126a8d157dL, "isAbstract"), false);
+    assert SPropertyOperations.getBoolean(((SNode) RemoveAbstractModifier_QuickFix.this.getField("method")[0]), PROPS.isAbstract$cU_H);
+    SPropertyOperations.assign(((SNode) RemoveAbstractModifier_QuickFix.this.getField("method")[0]), PROPS.isAbstract$cU_H, false);
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isAbstract$cU_H = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, 0x1126a8d157dL, "isAbstract");
   }
 }

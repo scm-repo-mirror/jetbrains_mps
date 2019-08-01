@@ -7,13 +7,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class InsertMemberAfterTitle {
 
@@ -23,7 +24,7 @@ public class InsertMemberAfterTitle {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x6530303593ae9cf2L, "feedbacks"))).insertElement(0, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x573ae5b8b8cc650eL, "jetbrains.mps.lang.feedback.skeleton.structure.FeedbackRootMember"))));
+        ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.feedbacks$nSHS)).insertElement(0, SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(MetaAdapterFactory.getInterfaceConcept(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x573ae5b8b8cc650eL, "jetbrains.mps.lang.feedback.skeleton.structure.FeedbackRootMember"))));
       }
 
     };
@@ -62,5 +63,9 @@ public class InsertMemberAfterTitle {
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink feedbacks$nSHS = MetaAdapterFactory.getContainmentLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x6530303593ae9cf2L, "feedbacks");
   }
 }

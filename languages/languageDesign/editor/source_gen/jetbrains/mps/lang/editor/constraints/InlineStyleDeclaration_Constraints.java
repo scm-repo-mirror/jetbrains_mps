@@ -11,17 +11,17 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.lang.editor.behavior.StyleClassItem__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.editor.behavior.LayoutContainer__BehaviorDescriptor;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class InlineStyleDeclaration_Constraints extends BaseConstraintsDescriptor {
   public InlineStyleDeclaration_Constraints() {
-    super(AUX_z81198.InlineStyleDeclaration_eb8385b2);
+    super(CONCEPTS.InlineStyleDeclaration$ZK);
   }
 
   @Override
@@ -40,17 +40,21 @@ public class InlineStyleDeclaration_Constraints extends BaseConstraintsDescripto
     };
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    if (MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11beb039542L, 0x11beb040d06L, "styleItem").equals(link)) {
+    if (LINKS.styleItem$$mEY.equals(link)) {
       SConcept styleClassItemConcept = (SConcept) childConcept;
-      return (boolean) StyleClassItem__BehaviorDescriptor.isApplicableToCellConcept_id2u3gVK1lsco.invoke(SNodeOperations.asSConcept(styleClassItemConcept), AUX_z81198.CellModel_Constant_27dff49b) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableForLayout_iditlittOTie.invoke(SNodeOperations.asSConcept(styleClassItemConcept), null) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableInLayout_iditlittOTkB.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(SNodeOperations.getParent(node), AUX_z81198.LayoutContainer_14ba1309))));
+      return (boolean) StyleClassItem__BehaviorDescriptor.isApplicableToCellConcept_id2u3gVK1lsco.invoke(SNodeOperations.asSConcept(styleClassItemConcept), CONCEPTS.CellModel_Constant$SB) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableForLayout_iditlittOTie.invoke(SNodeOperations.asSConcept(styleClassItemConcept), null) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableInLayout_iditlittOTkB.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.LayoutContainer$PT))));
     }
     return true;
   }
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "332515575062472884");
 
-  private static final class AUX_z81198 {
-    /*package*/ static final SConcept InlineStyleDeclaration_eb8385b2 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11f1d6594edL, "jetbrains.mps.lang.editor.structure.InlineStyleDeclaration");
-    /*package*/ static final SConcept CellModel_Constant_27dff49b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb01232eL, "jetbrains.mps.lang.editor.structure.CellModel_Constant");
-    /*package*/ static final SInterfaceConcept LayoutContainer_14ba1309 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49d55275de690fdL, "jetbrains.mps.lang.editor.structure.LayoutContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InlineStyleDeclaration$ZK = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11f1d6594edL, "jetbrains.mps.lang.editor.structure.InlineStyleDeclaration");
+    /*package*/ static final SConcept CellModel_Constant$SB = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb01232eL, "jetbrains.mps.lang.editor.structure.CellModel_Constant");
+    /*package*/ static final SInterfaceConcept LayoutContainer$PT = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49d55275de690fdL, "jetbrains.mps.lang.editor.structure.LayoutContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink styleItem$$mEY = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11beb039542L, 0x11beb040d06L, "styleItem");
   }
 }

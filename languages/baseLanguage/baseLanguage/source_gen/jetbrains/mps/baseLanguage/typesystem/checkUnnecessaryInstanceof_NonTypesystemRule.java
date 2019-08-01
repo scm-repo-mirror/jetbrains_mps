@@ -8,20 +8,21 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class checkUnnecessaryInstanceof_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public checkUnnecessaryInstanceof_NonTypesystemRule() {
   }
   public void applyRule(final SNode instanceOfExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode classifierType = SLinkOperations.getTarget(instanceOfExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06219L, "classType"));
-    SNode expressionType = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(instanceOfExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression")));
+    SNode classifierType = SLinkOperations.getTarget(instanceOfExpression, LINKS.classType$zxNQ);
+    SNode expressionType = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(instanceOfExpression, LINKS.leftExpression$zxNn));
     if (TypecheckingFacade.getFromContext().isSubtype(expressionType, classifierType)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
@@ -30,7 +31,7 @@ public class checkUnnecessaryInstanceof_NonTypesystemRule extends AbstractNonTyp
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_8xr1ty.InstanceOfExpression_70765a36;
+    return CONCEPTS.InstanceOfExpression$JG;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -39,7 +40,12 @@ public class checkUnnecessaryInstanceof_NonTypesystemRule extends AbstractNonTyp
     return false;
   }
 
-  private static final class AUX_8xr1ty {
-    /*package*/ static final SConcept InstanceOfExpression_70765a36 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, "jetbrains.mps.baseLanguage.structure.InstanceOfExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classType$zxNQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06219L, "classType");
+    /*package*/ static final SContainmentLink leftExpression$zxNn = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceOfExpression$JG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, "jetbrains.mps.baseLanguage.structure.InstanceOfExpression");
   }
 }

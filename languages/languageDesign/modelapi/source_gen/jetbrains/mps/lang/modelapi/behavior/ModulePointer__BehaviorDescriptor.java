@@ -4,6 +4,7 @@ package jetbrains.mps.lang.modelapi.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,15 +18,15 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ModulePointer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nnyiyh.ModulePointer_a7ab22d3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, "jetbrains.mps.lang.modelapi.structure.ModulePointer");
 
   public static final SMethod<SNode> create_id1Bs_61$mIAC = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("create").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Bs_61$mIAC").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SModuleReference.class, ""));
   public static final SMethod<SModuleReference> toModuleReference_id1Bs_61$mqDd = new SMethodBuilder<SModuleReference>(new SJavaCompoundTypeImpl(SModuleReference.class)).name("toModuleReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1Bs_61$mqDd").build();
@@ -36,14 +37,14 @@ public final class ModulePointer__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode create_id1Bs_61$mIAC(@NotNull SAbstractConcept __thisConcept__, SModel where, SModuleReference moduleRef) {
-    SNode rv = SModelOperations.createNewNode(where, null, AUX_nnyiyh.ModulePointer_a7ab22d3);
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, 0x19dc9460645c7f5cL, "moduleId"), PersistenceFacade.getInstance().asString(moduleRef.getModuleId()));
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, 0x19dc9460645ae969L, "moduleName"), moduleRef.getModuleName());
+    SNode rv = SModelOperations.createNewNode(where, null, CONCEPTS.ModulePointer$rJ);
+    SPropertyOperations.assign(rv, PROPS.moduleId$goi, PersistenceFacade.getInstance().asString(moduleRef.getModuleId()));
+    SPropertyOperations.assign(rv, PROPS.moduleName$ZUIo, moduleRef.getModuleName());
     return rv;
   }
   /*package*/ static SModuleReference toModuleReference_id1Bs_61$mqDd(@NotNull SNode __thisNode__) {
     PersistenceFacade pf = PersistenceFacade.getInstance();
-    return pf.createModuleReference(pf.createModuleId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, 0x19dc9460645c7f5cL, "moduleId"))), SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, 0x19dc9460645ae969L, "moduleName")));
+    return pf.createModuleReference(pf.createModuleId(SPropertyOperations.getString(__thisNode__, PROPS.moduleId$goi)), SPropertyOperations.getString(__thisNode__, PROPS.moduleName$ZUIo));
   }
 
   /*package*/ ModulePointer__BehaviorDescriptor() {
@@ -94,7 +95,12 @@ public final class ModulePointer__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_nnyiyh {
-    /*package*/ static final SConcept ModulePointer_a7ab22d3 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, "jetbrains.mps.lang.modelapi.structure.ModulePointer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModulePointer$rJ = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, "jetbrains.mps.lang.modelapi.structure.ModulePointer");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleId$goi = MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, 0x19dc9460645c7f5cL, "moduleId");
+    /*package*/ static final SProperty moduleName$ZUIo = MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e361L, 0x19dc9460645ae969L, "moduleName");
   }
 }

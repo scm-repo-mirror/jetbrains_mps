@@ -12,9 +12,9 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class EnumProperty_Customization implements EditorMenuItemCustomizer {
@@ -32,12 +32,12 @@ public class EnumProperty_Customization implements EditorMenuItemCustomizer {
 
   private static class EnumProperty_CustomizationSpecific implements EditorMenuItemCustomizer {
     public boolean matches(EditorMenuItemCustomizationContext context) {
-      return new EditorMenuItemModifyingConceptContextMatcher(AUX_nmish1.TestCompletionCustomization_ParentTestContextMatcher_5aa6e2a6) {
+      return new EditorMenuItemModifyingConceptContextMatcher(CONCEPTS.TestCompletionCustomization_ParentTestContextMatcher$5W) {
         protected boolean doMatchesContext(EditorMenuItemCustomizationContext context_) {
           return doMatchesContext_(getContextNode(context_), getContainmentLink(context_), getReference(context_), getProperty(context_)) && getCompletionItemInformation(context_) != null;
         }
         protected boolean doMatchesContext_(SNode contextNode, SContainmentLink containmentLink, SReferenceLink referenceLink, SProperty property) {
-          return Objects.equals(property, MetaAdapterFactory.getProperty(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x49b1109510b71ff1L, "enumProperty"));
+          return Objects.equals(property, PROPS.enumProperty$bBQ1);
         }
       }.matchesContext(context);
     }
@@ -73,7 +73,11 @@ public class EnumProperty_Customization implements EditorMenuItemCustomizer {
   }
 
 
-  private static final class AUX_nmish1 {
-    /*package*/ static final SConcept TestCompletionCustomization_ParentTestContextMatcher_5aa6e2a6 = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ParentTestContextMatcher");
+  private static final class PROPS {
+    /*package*/ static final SProperty enumProperty$bBQ1 = MetaAdapterFactory.getProperty(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x49b1109510b71ff1L, "enumProperty");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestCompletionCustomization_ParentTestContextMatcher$5W = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ParentTestContextMatcher");
   }
 }

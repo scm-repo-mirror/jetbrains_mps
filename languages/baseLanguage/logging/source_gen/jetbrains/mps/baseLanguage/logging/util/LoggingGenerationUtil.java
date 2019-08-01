@@ -12,12 +12,14 @@ import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class LoggingGenerationUtil {
   private LoggingGenerationUtil() {
@@ -35,12 +37,12 @@ public final class LoggingGenerationUtil {
   }
 
   public static String generateUniqueFieldName(SNode contextNode, final String baseName) {
-    for (SNode logStatement : ListSequence.fromList(SNodeOperations.getNodeDescendants(contextNode, AUX_gd2srw.IMessage_2c126b4b, false, new SAbstractConcept[]{}))) {
-      Scope scope = ScopeUtils.parentScope(logStatement, AUX_gd2srw.VariableDeclaration_3c610994);
+    for (SNode logStatement : ListSequence.fromList(SNodeOperations.getNodeDescendants(contextNode, CONCEPTS.IMessage$PR, false, new SAbstractConcept[]{}))) {
+      Scope scope = ScopeUtils.parentScope(logStatement, CONCEPTS.VariableDeclaration$xe);
 
       if (Sequence.fromIterable(scope.getAvailableElements(baseName)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return !(SNodeOperations.isInstanceOf(it, AUX_gd2srw.VariableDeclaration_3c610994)) || baseName.equals(SPropertyOperations.getString(SNodeOperations.cast(it, AUX_gd2srw.VariableDeclaration_3c610994), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          return !(SNodeOperations.isInstanceOf(it, CONCEPTS.VariableDeclaration$xe)) || baseName.equals(SPropertyOperations.getString(SNodeOperations.cast(it, CONCEPTS.VariableDeclaration$xe), PROPS.name$tAp1));
         }
       }).isNotEmpty()) {
         return baseName + "_" + Integer.toString(Math.abs(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(contextNode).hashCode()));
@@ -57,17 +59,26 @@ public final class LoggingGenerationUtil {
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7fbL, "PlusExpression"), null, null, false);
     quotedNode_4 = (SNode) parameter_1;
     if (quotedNode_4 != null) {
-      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), SNodeOperations.copyIfNecessary(quotedNode_4));
+      quotedNode_3.addChild(LINKS.rightExpression$rxBl, SNodeOperations.copyIfNecessary(quotedNode_4));
     }
     quotedNode_5 = (SNode) parameter_2;
     if (quotedNode_5 != null) {
-      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), SNodeOperations.copyIfNecessary(quotedNode_5));
+      quotedNode_3.addChild(LINKS.leftExpression$rxLZ, SNodeOperations.copyIfNecessary(quotedNode_5));
     }
     return quotedNode_3;
   }
 
-  private static final class AUX_gd2srw {
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SInterfaceConcept IMessage_2c126b4b = MetaAdapterFactory.getInterfaceConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5eeb6L, "jetbrains.mps.baseLanguage.logging.structure.IMessage");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SInterfaceConcept IMessage$PR = MetaAdapterFactory.getInterfaceConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5eeb6L, "jetbrains.mps.baseLanguage.logging.structure.IMessage");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
   }
 }

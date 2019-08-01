@@ -5,24 +5,25 @@ package jetbrains.mps.baseLanguage.money.generator.baseLanguage.template.util;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Util {
   public Util() {
   }
   public static boolean isPlusMinusExpressionMoneyExpression(SNode expr) {
-    SNode rtype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")));
-    SNode ltype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")));
+    SNode rtype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, LINKS.rightExpression$rxBl));
+    SNode ltype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, LINKS.leftExpression$rxLZ));
     if (TypecheckingFacade.getFromContext().isSubtype(ltype, _quotation_createNode_sd8x_b0a0c0b_0()) && TypecheckingFacade.getFromContext().isSubtype(rtype, _quotation_createNode_sd8x_b0a0c0b())) {
       return true;
     }
     return false;
   }
   public static boolean isMulDivExpressionMoneyExpression(SNode expr) {
-    SNode rtype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")));
-    SNode ltype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")));
+    SNode rtype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, LINKS.rightExpression$rxBl));
+    SNode ltype = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(expr, LINKS.leftExpression$rxLZ));
     if (TypecheckingFacade.getFromContext().isSubtype(ltype, _quotation_createNode_sd8x_b0a0c0c_0()) && TypecheckingFacade.getFromContext().isSubtype(rtype, _quotation_createNode_sd8x_b0a0c0c())) {
       return true;
     }
@@ -51,5 +52,10 @@ public class Util {
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf43135f9b8334685L, 0x8d26ffb6c8215f72L, "jetbrains.mps.baseLanguage.money"), 0x1144b05194dL, "MoneyType"), null, null, false);
     return quotedNode_1;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
   }
 }

@@ -10,9 +10,10 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_ConceptFunctionParameter_PreferencePage_component_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_ConceptFunctionParameter_PreferencePage_component_InferenceRule() {
@@ -21,11 +22,11 @@ public class typeof_ConceptFunctionParameter_PreferencePage_component_InferenceR
     {
       SNode _nodeToCheck_1029348928467 = component;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "1210690956261", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "1210690935802", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(component, AUX_2nx68z.PreferencePage_8dfc626f, false, false), MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119e269a79fL, 0x119e28f326fL, "component")), "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "1210690958118", true), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "1210690935802", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(component, CONCEPTS.PreferencePage$Fj, false, false), LINKS.component$YVW3), "r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)", "1210690958118", true), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2nx68z.ConceptFunctionParameter_PreferencePage_component_29277c31;
+    return CONCEPTS.ConceptFunctionParameter_PreferencePage_component$_h;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,8 +35,12 @@ public class typeof_ConceptFunctionParameter_PreferencePage_component_InferenceR
     return false;
   }
 
-  private static final class AUX_2nx68z {
-    /*package*/ static final SConcept PreferencePage_8dfc626f = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119e269a79fL, "jetbrains.mps.lang.plugin.structure.PreferencePage");
-    /*package*/ static final SConcept ConceptFunctionParameter_PreferencePage_component_29277c31 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119e2cb827fL, "jetbrains.mps.lang.plugin.structure.ConceptFunctionParameter_PreferencePage_component");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PreferencePage$Fj = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119e269a79fL, "jetbrains.mps.lang.plugin.structure.PreferencePage");
+    /*package*/ static final SConcept ConceptFunctionParameter_PreferencePage_component$_h = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119e2cb827fL, "jetbrains.mps.lang.plugin.structure.ConceptFunctionParameter_PreferencePage_component");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink component$YVW3 = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119e269a79fL, 0x119e28f326fL, "component");
   }
 }

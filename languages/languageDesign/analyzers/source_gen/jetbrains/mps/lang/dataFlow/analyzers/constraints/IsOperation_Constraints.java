@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -30,10 +29,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class IsOperation_Constraints extends BaseConstraintsDescriptor {
   public IsOperation_Constraints() {
-    super(AUX_ejw1sa.IsOperation_7efab1c2);
+    super(CONCEPTS.IsOperation$nw);
   }
 
   @Override
@@ -53,7 +53,7 @@ public class IsOperation_Constraints extends BaseConstraintsDescriptor {
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x6ed2c546d46ea462L, 0x6ed2c546d46ea463L, "instruction"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.instruction$lsg0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -68,8 +68,8 @@ public class IsOperation_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode analyzer = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_ejw1sa.Analyzer_a97ba59e, false, false);
-            return ListScope.forResolvableElements(ListSequence.fromList(SLinkOperations.getChildren(analyzer, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x2e25b6b7919ac138L, "instruction"))).concat(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.collect(SLinkOperations.getChildren(analyzer, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x73e1fea9c173f804L, "usedContainers")), MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c1738798L, 0x73e1fea9c1738799L, "containter")), MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c172b8b1L, 0x73e1fea9c172d0e9L, "instruction")))));
+            SNode analyzer = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.Analyzer$Q4, false, false);
+            return ListScope.forResolvableElements(ListSequence.fromList(SLinkOperations.getChildren(analyzer, LINKS.instruction$3MTk)).concat(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.collect(SLinkOperations.getChildren(analyzer, LINKS.usedContainers$rsJ_), LINKS.containter$lqfw), LINKS.instruction$EplU))));
           }
         };
       }
@@ -79,13 +79,21 @@ public class IsOperation_Constraints extends BaseConstraintsDescriptor {
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestor(parentNode, AUX_ejw1sa.Analyzer_a97ba59e, false, false) != null;
+    return SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.Analyzer$Q4, false, false) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:73c9a355-2bf0-4466-8a7d-8b8d8a945cd4(jetbrains.mps.lang.dataFlow.analyzers.constraints)", "1227128029536560848");
   private static final SNodePointer breakingNode_ejw1sa_a0a0a0a0a1a0a0a0d = new SNodePointer("r:73c9a355-2bf0-4466-8a7d-8b8d8a945cd4(jetbrains.mps.lang.dataFlow.analyzers.constraints)", "6836281137582779668");
 
-  private static final class AUX_ejw1sa {
-    /*package*/ static final SConcept IsOperation_7efab1c2 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x6ed2c546d46ea462L, "jetbrains.mps.lang.dataFlow.analyzers.structure.IsOperation");
-    /*package*/ static final SConcept Analyzer_a97ba59e = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Analyzer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IsOperation$nw = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x6ed2c546d46ea462L, "jetbrains.mps.lang.dataFlow.analyzers.structure.IsOperation");
+    /*package*/ static final SConcept Analyzer$Q4 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Analyzer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink instruction$lsg0 = MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x6ed2c546d46ea462L, 0x6ed2c546d46ea463L, "instruction");
+    /*package*/ static final SContainmentLink instruction$3MTk = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x2e25b6b7919ac138L, "instruction");
+    /*package*/ static final SContainmentLink usedContainers$rsJ_ = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x73e1fea9c173f804L, "usedContainers");
+    /*package*/ static final SReferenceLink containter$lqfw = MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c1738798L, 0x73e1fea9c1738799L, "containter");
+    /*package*/ static final SContainmentLink instruction$EplU = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c172b8b1L, 0x73e1fea9c172d0e9L, "instruction");
   }
 }

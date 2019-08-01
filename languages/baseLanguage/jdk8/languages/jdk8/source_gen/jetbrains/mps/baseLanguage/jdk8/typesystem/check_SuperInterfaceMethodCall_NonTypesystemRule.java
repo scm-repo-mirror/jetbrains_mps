@@ -39,7 +39,7 @@ public class check_SuperInterfaceMethodCall_NonTypesystemRule extends AbstractNo
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_et794z.SuperInterfaceMethodCall_3072d526;
+    return CONCEPTS.SuperInterfaceMethodCall$VW;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,7 +54,7 @@ public class check_SuperInterfaceMethodCall_NonTypesystemRule extends AbstractNo
     return null;
   }
 
-  private static final class AUX_et794z {
-    /*package*/ static final SConcept SuperInterfaceMethodCall_3072d526 = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x17dbb10eeb72e5d9L, "jetbrains.mps.baseLanguage.jdk8.structure.SuperInterfaceMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuperInterfaceMethodCall$VW = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x17dbb10eeb72e5d9L, "jetbrains.mps.baseLanguage.jdk8.structure.SuperInterfaceMethodCall");
   }
 }

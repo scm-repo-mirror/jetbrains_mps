@@ -15,7 +15,6 @@ import jetbrains.mps.lang.test.editor.transformationTest_StyleSheet.EditorOperat
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -27,6 +26,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.SemicolonStyleClass;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class PressKeyStatement_EditorBuilder_a extends AbstractEditorBuilder {
@@ -86,10 +86,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e223413eeL, 0x11e22346d26L, "keyStrokes");
+      return LINKS.keyStrokes$u_N8;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_xfo802.KeyMapKeystroke_e4ceb015;
+      return CONCEPTS.KeyMapKeystroke$7H;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -99,7 +99,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(keyStrokesListHandler_pkvqak_b0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e223413eeL, 0x11e22346d26L, "keyStrokes")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(keyStrokesListHandler_pkvqak_b0.this.getNode(), LINKS.keyStrokes$u_N8));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -146,7 +146,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_xfo802 {
-    /*package*/ static final SConcept KeyMapKeystroke_e4ceb015 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, "jetbrains.mps.lang.plugin.structure.KeyMapKeystroke");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink keyStrokes$u_N8 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e223413eeL, 0x11e22346d26L, "keyStrokes");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept KeyMapKeystroke$7H = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, "jetbrains.mps.lang.plugin.structure.KeyMapKeystroke");
   }
 }

@@ -145,9 +145,9 @@
       <node id="2718315470531188924" at="215,57,216,64" concept="11" />
       <node id="2718315470531188939" at="217,43,218,18" concept="12" />
       <node id="2718315470531188942" at="219,5,220,38" concept="12" />
-      <node id="2718315470531181956" at="228,48,229,157" concept="11" />
+      <node id="2718315470531181956" at="228,48,229,149" concept="11" />
       <node id="2718315470531181970" at="230,30,231,25" concept="12" />
-      <node id="2718315470531181972" at="232,5,233,263" concept="12" />
+      <node id="2718315470531181972" at="232,5,233,158" concept="12" />
       <node id="8410922863731703522" at="241,69,242,45" concept="5" />
       <node id="8441062577042956734" at="251,49,252,53" concept="5" />
       <node id="4334890858031558078" at="261,61,262,40" concept="11" />
@@ -162,8 +162,9 @@
       <node id="4970955388185535349" at="311,52,312,41" concept="12" />
       <node id="5576086663038365020" at="319,53,320,67" concept="13" />
       <node id="5848582975470011241" at="320,67,321,93" concept="12" />
-      <node id="2089287822043606602" at="325,0,326,0" concept="15" trace="IResolveInfo_1483d860" />
-      <node id="2089287822043606602" at="326,0,327,0" concept="15" trace="INamedConcept_8cd7e247" />
+      <node id="2089287822043606602" at="325,0,326,0" concept="15" trace="IResolveInfo$c2" />
+      <node id="2089287822043606602" at="326,0,327,0" concept="15" trace="INamedConcept$nV" />
+      <node id="2089287822043606602" at="330,0,331,0" concept="15" trace="name$tAp1" />
       <node id="2089287822043606816" at="31,0,33,0" concept="3" trace="SNodeOperations#()V" />
       <node id="5267619756758225543" at="164,14,166,9" concept="1" />
       <node id="3912018899959033081" at="171,14,173,9" concept="1" />
@@ -177,7 +178,7 @@
       <node id="2718315470531188892" at="191,41,194,7" concept="9" />
       <node id="1612392507789844247" at="204,64,207,5" concept="9" />
       <node id="2718315470531188935" at="216,64,219,5" concept="9" />
-      <node id="2718315470531181964" at="229,157,232,5" concept="9" />
+      <node id="2718315470531181964" at="229,149,232,5" concept="9" />
       <node id="8410922863731336857" at="240,65,243,5" concept="8" />
       <node id="1233806025863265290" at="250,66,253,5" concept="8" />
       <node id="4334890858031558292" at="266,15,269,7" concept="9" />
@@ -317,7 +318,7 @@
       <scope id="2718315470531188922" at="215,57,220,38">
         <var name="children" id="2718315470531188923" />
       </scope>
-      <scope id="6792623998776975958" at="228,48,233,263">
+      <scope id="6792623998776975958" at="228,48,233,158">
         <var name="resolveInfo" id="2718315470531181955" />
       </scope>
       <scope id="9160302885342508446" at="284,0,289,0">
@@ -406,8 +407,9 @@
       <scope id="9117569544655367277" at="150,0,184,0">
         <var name="node" id="9117569544655367908" />
       </scope>
-      <unit id="2089287822043606602" at="324,0,328,0" name="jetbrains.mps.util.SNodeOperations$AUX_kp8qxs" />
-      <unit id="2089287822043606602" at="30,0,329,0" name="jetbrains.mps.util.SNodeOperations" />
+      <unit id="2089287822043606602" at="329,0,332,0" name="jetbrains.mps.util.SNodeOperations$PROPS" />
+      <unit id="2089287822043606602" at="324,0,328,0" name="jetbrains.mps.util.SNodeOperations$CONCEPTS" />
+      <unit id="2089287822043606602" at="30,0,333,0" name="jetbrains.mps.util.SNodeOperations" />
     </file>
   </root>
   <root nodeRef="r:61e3d524-8c49-4491-b5e3-f6d6e9364527(jetbrains.mps.util)/4972886494893373483">

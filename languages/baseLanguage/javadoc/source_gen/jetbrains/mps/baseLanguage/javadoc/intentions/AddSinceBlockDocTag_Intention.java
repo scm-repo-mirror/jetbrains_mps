@@ -12,11 +12,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class AddSinceBlockDocTag_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -36,7 +37,7 @@ public final class AddSinceBlockDocTag_Intention extends AbstractIntentionDescri
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f962L, "since"))).isEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.since$UGOw)).isEmpty();
   }
   @Override
   public boolean isSurroundWith() {
@@ -57,7 +58,7 @@ public final class AddSinceBlockDocTag_Intention extends AbstractIntentionDescri
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode addedNode = SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags"), AUX_8b9qm9.SinceBlockDocTag_7c82a6b8);
+      SNode addedNode = SNodeFactoryOperations.addNewChild(node, LINKS.tags$LJD$, CONCEPTS.SinceBlockDocTag$YE);
       BlockDocTagHelper.setFocus(editorContext, addedNode);
 
     }
@@ -67,7 +68,12 @@ public final class AddSinceBlockDocTag_Intention extends AbstractIntentionDescri
     }
   }
 
-  private static final class AUX_8b9qm9 {
-    /*package*/ static final SConcept SinceBlockDocTag_7c82a6b8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87ddadL, "jetbrains.mps.baseLanguage.javadoc.structure.SinceBlockDocTag");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink since$UGOw = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x757ba20a4c87f962L, "since");
+    /*package*/ static final SContainmentLink tags$LJD$ = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, 0x4ab5c2019ddc99f3L, "tags");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SinceBlockDocTag$YE = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87ddadL, "jetbrains.mps.baseLanguage.javadoc.structure.SinceBlockDocTag");
   }
 }

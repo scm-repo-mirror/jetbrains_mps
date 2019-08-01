@@ -12,7 +12,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
@@ -21,7 +20,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.SingleLineComment__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class UpdateComment_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -40,7 +42,7 @@ public final class UpdateComment_Intention extends AbstractIntentionDescriptor i
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text"))).isEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.text$BOhB)).isEmpty();
   }
   @Override
   public boolean isSurroundWith() {
@@ -62,20 +64,20 @@ public final class UpdateComment_Intention extends AbstractIntentionDescriptor i
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
 
-      SNode l = SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text"), null);
-      ListSequence.fromList(SLinkOperations.getChildren(l, MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"))).clear();
-      ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x57d533a7af16ff73L, "commentPart"))).visitAll(new IVisitor<SNode>() {
+      SNode l = SNodeFactoryOperations.addNewChild(node, LINKS.text$BOhB, null);
+      ListSequence.fromList(SLinkOperations.getChildren(l, LINKS.elements$eRew)).clear();
+      ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.commentPart$_gGy)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode part) {
-          if (SNodeOperations.isInstanceOf(part, AUX_ddvh8h.TextCommentPart_36a4c8f7)) {
-            SingleLineComment__BehaviorDescriptor.parseAndAddWords_id45vN3dBFprj.invoke(node, SPropertyOperations.getString(SNodeOperations.cast(part, AUX_ddvh8h.TextCommentPart_36a4c8f7), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text")));
+          if (SNodeOperations.isInstanceOf(part, CONCEPTS.TextCommentPart$lb)) {
+            SingleLineComment__BehaviorDescriptor.parseAndAddWords_id45vN3dBFprj.invoke(node, SPropertyOperations.getString(SNodeOperations.cast(part, CONCEPTS.TextCommentPart$lb), PROPS.text$AaEw));
           }
         }
       });
-      if (ListSequence.fromList(SLinkOperations.getChildren(l, MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"))).isEmpty()) {
-        SNodeFactoryOperations.addNewChild(l, MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements"), AUX_ddvh8h.Word_f8e99bb0);
+      if (ListSequence.fromList(SLinkOperations.getChildren(l, LINKS.elements$eRew)).isEmpty()) {
+        SNodeFactoryOperations.addNewChild(l, LINKS.elements$eRew, CONCEPTS.Word$AM);
 
       }
-      ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x57d533a7af16ff73L, "commentPart"))).clear();
+      ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.commentPart$_gGy)).clear();
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -83,8 +85,18 @@ public final class UpdateComment_Intention extends AbstractIntentionDescriptor i
     }
   }
 
-  private static final class AUX_ddvh8h {
-    /*package*/ static final SConcept TextCommentPart_36a4c8f7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
-    /*package*/ static final SConcept Word_f8e99bb0 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink text$BOhB = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x12bc996bc5882f24L, "text");
+    /*package*/ static final SContainmentLink elements$eRew = MetaAdapterFactory.getContainmentLink(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2331694e561af166L, 0x2331694e561af167L, "elements");
+    /*package*/ static final SContainmentLink commentPart$_gGy = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, 0x57d533a7af16ff73L, "commentPart");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextCommentPart$lb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
+    /*package*/ static final SConcept Word$AM = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$AaEw = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text");
   }
 }

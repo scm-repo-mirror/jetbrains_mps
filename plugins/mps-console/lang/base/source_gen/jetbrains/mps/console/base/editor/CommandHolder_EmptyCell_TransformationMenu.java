@@ -76,7 +76,11 @@ public class CommandHolder_EmptyCell_TransformationMenu extends TransformationMe
     }
     @Override
     protected SContainmentLink getContainmentLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command");
+      return LINKS.command$pL9$;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink command$pL9$ = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command");
   }
 }

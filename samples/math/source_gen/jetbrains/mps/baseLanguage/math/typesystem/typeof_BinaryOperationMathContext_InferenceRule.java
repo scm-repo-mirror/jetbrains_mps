@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.errors.IRuleConflictWarningProducer;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
@@ -20,6 +19,8 @@ import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -31,12 +32,12 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
     final SNode rightExpressionType_typevar_8613885519962201007 = typeCheckingContext.createNewRuntimeTypesVariable();
     final SNode leftExpressionType_typevar_8613885519962201008 = typeCheckingContext.createNewRuntimeTypesVariable();
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(oper, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(oper, LINKS.rightExpression$rxBl);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "8613885519962201009", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(rightExpressionType_typevar_8613885519962201007), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "8613885519962201011", true), _info_12389875345);
     }
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(oper, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(oper, LINKS.leftExpression$rxLZ);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "8613885519962201017", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(leftExpressionType_typevar_8613885519962201008), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "8613885519962201019", true), _info_12389875345);
     }
@@ -56,7 +57,7 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
                     {
                       SNode matchingNode_pa16g7_a1a0a5a = oper;
                       if (matchingNode_pa16g7_a1a0a5a != null) {
-                        matches_pa16g7_a1a0a5a = matchingNode_pa16g7_a1a0a5a.getConcept().isSubConceptOf(AUX_3xwkcy.DecimalDivExpression_a06420f6);
+                        matches_pa16g7_a1a0a5a = matchingNode_pa16g7_a1a0a5a.getConcept().isSubConceptOf(CONCEPTS.DecimalDivExpression$OG);
                       }
                     }
                     if (matches_pa16g7_a1a0a5a) {
@@ -66,7 +67,7 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
                       {
                         SNode matchingNode_pa16g7_b1a0a5a = oper;
                         if (matchingNode_pa16g7_b1a0a5a != null) {
-                          matches_pa16g7_b1a0a5a = matchingNode_pa16g7_b1a0a5a.getConcept().isSubConceptOf(AUX_3xwkcy.DecimalMinusExpression_a20d114f);
+                          matches_pa16g7_b1a0a5a = matchingNode_pa16g7_b1a0a5a.getConcept().isSubConceptOf(CONCEPTS.DecimalMinusExpression$vN);
                         }
                       }
                       if (matches_pa16g7_b1a0a5a) {
@@ -76,7 +77,7 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
                         {
                           SNode matchingNode_pa16g7_c1a0a5a = oper;
                           if (matchingNode_pa16g7_c1a0a5a != null) {
-                            matches_pa16g7_c1a0a5a = matchingNode_pa16g7_c1a0a5a.getConcept().isSubConceptOf(AUX_3xwkcy.DecimalMulExpression_a1a741d1);
+                            matches_pa16g7_c1a0a5a = matchingNode_pa16g7_c1a0a5a.getConcept().isSubConceptOf(CONCEPTS.DecimalMulExpression$uL);
                           }
                         }
                         if (matches_pa16g7_c1a0a5a) {
@@ -86,7 +87,7 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
                           {
                             SNode matchingNode_pa16g7_d1a0a5a = oper;
                             if (matchingNode_pa16g7_d1a0a5a != null) {
-                              matches_pa16g7_d1a0a5a = matchingNode_pa16g7_d1a0a5a.getConcept().isSubConceptOf(AUX_3xwkcy.DecimalPlusExpression_a1c37431);
+                              matches_pa16g7_d1a0a5a = matchingNode_pa16g7_d1a0a5a.getConcept().isSubConceptOf(CONCEPTS.DecimalPlusExpression$5h);
                             }
                           }
                           if (matches_pa16g7_d1a0a5a) {
@@ -104,7 +105,7 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
 
                   }
                 });
-                if (!((SNodeOperations.isInstanceOf(opType, AUX_3xwkcy.BigComplexType_1d8a5dd4) || SNodeOperations.isInstanceOf(opType, AUX_3xwkcy.BigDecimalType_a605ef27) || (SNodeOperations.isInstanceOf(opType, AUX_3xwkcy.MatrixOrVectorType_23ad3ce7) && (SNodeOperations.isInstanceOf(MathUtil.getUnboxedElementType(opType), AUX_3xwkcy.BigComplexType_1d8a5dd4) || SNodeOperations.isInstanceOf(MathUtil.getUnboxedElementType(opType), AUX_3xwkcy.BigDecimalType_a605ef27)))))) {
+                if (!((SNodeOperations.isInstanceOf(opType, CONCEPTS.BigComplexType$Ke) || SNodeOperations.isInstanceOf(opType, CONCEPTS.BigDecimalType$kr) || (SNodeOperations.isInstanceOf(opType, CONCEPTS.MatrixOrVectorType$Xr) && (SNodeOperations.isInstanceOf(MathUtil.getUnboxedElementType(opType), CONCEPTS.BigComplexType$Ke) || SNodeOperations.isInstanceOf(MathUtil.getUnboxedElementType(opType), CONCEPTS.BigDecimalType$kr)))))) {
                   {
                     final MessageTarget errorTarget = new NodeMessageTarget();
                     IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(oper, S, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "8613885519962202373", null, errorTarget);
@@ -134,7 +135,7 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3xwkcy.DecimalBinaryOperation_8f13e951;
+    return CONCEPTS.DecimalBinaryOperation$L;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -150,10 +151,10 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xff2bbc13daL, "DivExpression"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.rightExpression$rxBl, quotedNode_2);
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_3.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_3);
+    quotedNode_1.addChild(LINKS.leftExpression$rxLZ, quotedNode_3);
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_3xwkcy_a0a0a0c0a2a1a1a0a0b0a1a0a0a0b0a1a5a1() {
@@ -164,10 +165,10 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7f5L, "MinusExpression"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.leftExpression$rxLZ, quotedNode_2);
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_3.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_3);
+    quotedNode_1.addChild(LINKS.rightExpression$rxBl, quotedNode_3);
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_3xwkcy_a0a0a0c0a2a0c0b0b0a0a1a0b0a0a0a1a0b0f0b() {
@@ -178,10 +179,10 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xfe476b758fL, "MulExpression"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.rightExpression$rxBl, quotedNode_2);
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_3.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_3);
+    quotedNode_1.addChild(LINKS.leftExpression$rxLZ, quotedNode_3);
     return quotedNode_1;
   }
   private static SNode _quotation_createNode_3xwkcy_a0a0a0c0a2a0c0a2a1a1a0a0b0a1a0a0a0b0a1a5a1() {
@@ -192,21 +193,26 @@ public class typeof_BinaryOperationMathContext_InferenceRule extends AbstractInf
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7fbL, "PlusExpression"), null, null, false);
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_2);
+    quotedNode_1.addChild(LINKS.leftExpression$rxLZ, quotedNode_2);
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
     quotedNode_3.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_3);
+    quotedNode_1.addChild(LINKS.rightExpression$rxBl, quotedNode_3);
     return quotedNode_1;
   }
 
-  private static final class AUX_3xwkcy {
-    /*package*/ static final SConcept DecimalDivExpression_a06420f6 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697107bL, "jetbrains.mps.baseLanguage.math.structure.DecimalDivExpression");
-    /*package*/ static final SConcept DecimalMinusExpression_a20d114f = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12076988136L, "jetbrains.mps.baseLanguage.math.structure.DecimalMinusExpression");
-    /*package*/ static final SConcept DecimalMulExpression_a1a741d1 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120769754c8L, "jetbrains.mps.baseLanguage.math.structure.DecimalMulExpression");
-    /*package*/ static final SConcept DecimalPlusExpression_a1c37431 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697a328L, "jetbrains.mps.baseLanguage.math.structure.DecimalPlusExpression");
-    /*package*/ static final SConcept BigComplexType_1d8a5dd4 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120096f8e4cL, "jetbrains.mps.baseLanguage.math.structure.BigComplexType");
-    /*package*/ static final SConcept BigDecimalType_a605ef27 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12009449465L, "jetbrains.mps.baseLanguage.math.structure.BigDecimalType");
-    /*package*/ static final SInterfaceConcept MatrixOrVectorType_23ad3ce7 = MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x513c04200c187a63L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorType");
-    /*package*/ static final SConcept DecimalBinaryOperation_8f13e951 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120568d9c5bL, "jetbrains.mps.baseLanguage.math.structure.DecimalBinaryOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DecimalDivExpression$OG = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697107bL, "jetbrains.mps.baseLanguage.math.structure.DecimalDivExpression");
+    /*package*/ static final SConcept DecimalMinusExpression$vN = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12076988136L, "jetbrains.mps.baseLanguage.math.structure.DecimalMinusExpression");
+    /*package*/ static final SConcept DecimalMulExpression$uL = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120769754c8L, "jetbrains.mps.baseLanguage.math.structure.DecimalMulExpression");
+    /*package*/ static final SConcept DecimalPlusExpression$5h = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697a328L, "jetbrains.mps.baseLanguage.math.structure.DecimalPlusExpression");
+    /*package*/ static final SConcept BigComplexType$Ke = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120096f8e4cL, "jetbrains.mps.baseLanguage.math.structure.BigComplexType");
+    /*package*/ static final SConcept BigDecimalType$kr = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12009449465L, "jetbrains.mps.baseLanguage.math.structure.BigDecimalType");
+    /*package*/ static final SInterfaceConcept MatrixOrVectorType$Xr = MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x513c04200c187a63L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorType");
+    /*package*/ static final SConcept DecimalBinaryOperation$L = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120568d9c5bL, "jetbrains.mps.baseLanguage.math.structure.DecimalBinaryOperation");
   }
 }

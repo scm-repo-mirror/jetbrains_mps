@@ -4,6 +4,7 @@ package jetbrains.mps.lang.pattern.testLang.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,7 +16,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -24,10 +24,11 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class PatternTest__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_alpcn5.PatternTest_cbf946cc;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x78d6da5e3799eb08L, "jetbrains.mps.lang.pattern.testLang.structure.PatternTest");
 
   public static final SMethod<String> getPatternTestName_idlS$o0er$H8 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPatternTestName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("lS$o0er$H8").build();
   public static final SMethod<List<SNode>> getTestSet_idhGB2z8L = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTestSet").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hGB2z8L").build();
@@ -44,7 +45,7 @@ public final class PatternTest__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String getPatternTestName_idlS$o0er$H8(@NotNull SNode __thisNode__) {
-    return NameUtil.toValidCamelIdentifier("Pattern" + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "_Test");
+    return NameUtil.toValidCamelIdentifier("Pattern" + SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1) + "_Test");
   }
   /*package*/ static List<SNode> getTestSet_idhGB2z8L(@NotNull SNode __thisNode__) {
     List<SNode> methods = new ArrayList<SNode>();
@@ -70,7 +71,7 @@ public final class PatternTest__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static boolean suppress_id2WmWrdnSpX7(@NotNull SNode __thisNode__, SNode child) {
     // any child under nodeToMatch is of no interest for us 
-    return (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x78d6da5e3799eb08L, 0x78d6da5e3799eb09L, "nodeToMatch")) != null) && ListSequence.fromList(SNodeOperations.getNodeAncestors(child, null, true)).contains(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x78d6da5e3799eb08L, 0x78d6da5e3799eb09L, "nodeToMatch")));
+    return (SLinkOperations.getTarget(__thisNode__, LINKS.nodeToMatch$a6l0) != null) && ListSequence.fromList(SNodeOperations.getNodeAncestors(child, null, true)).contains(SLinkOperations.getTarget(__thisNode__, LINKS.nodeToMatch$a6l0));
   }
 
   /*package*/ PatternTest__BehaviorDescriptor() {
@@ -133,7 +134,11 @@ public final class PatternTest__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_alpcn5 {
-    /*package*/ static final SConcept PatternTest_cbf946cc = MetaAdapterFactory.getConcept(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x78d6da5e3799eb08L, "jetbrains.mps.lang.pattern.testLang.structure.PatternTest");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink nodeToMatch$a6l0 = MetaAdapterFactory.getContainmentLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x78d6da5e3799eb08L, 0x78d6da5e3799eb09L, "nodeToMatch");
   }
 }

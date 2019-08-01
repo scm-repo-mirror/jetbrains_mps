@@ -24,6 +24,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class EditorCellId_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
@@ -66,7 +67,7 @@ public class EditorCellId_SubstituteMenu extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_3s2nlz_a.SMP_Action_3s2nlz_a0(), AUX_3s2nlz.EditorCellId_85ac106c));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_3s2nlz_a.SMP_Action_3s2nlz_a0(), CONCEPTS.EditorCellId$LQ));
     }
     private class SMP_Action_3s2nlz_a0 extends SingleItemSubstituteMenuPart {
 
@@ -96,7 +97,7 @@ public class EditorCellId_SubstituteMenu extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_3s2nlz.EditorCellId_85ac106c, context);
+          super(CONCEPTS.EditorCellId$LQ, context);
           _context = context;
         }
 
@@ -108,7 +109,7 @@ public class EditorCellId_SubstituteMenu extends SubstituteMenuBase {
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode cellId = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3c0028bb846a5817L, "jetbrains.mps.lang.editor.structure.EditorCellId"));
-          SPropertyOperations.assign(cellId, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), pattern);
+          SPropertyOperations.assign(cellId, PROPS.name$tAp1, pattern);
           return cellId;
         }
 
@@ -130,7 +131,11 @@ public class EditorCellId_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_3s2nlz {
-    /*package*/ static final SConcept EditorCellId_85ac106c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3c0028bb846a5817L, "jetbrains.mps.lang.editor.structure.EditorCellId");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorCellId$LQ = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3c0028bb846a5817L, "jetbrains.mps.lang.editor.structure.EditorCellId");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

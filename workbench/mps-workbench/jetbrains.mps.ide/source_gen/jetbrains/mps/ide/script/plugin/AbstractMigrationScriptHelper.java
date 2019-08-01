@@ -18,7 +18,6 @@ import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.lang.script.runtime.ScriptAspectDescriptor;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.project.Project;
 import java.util.Collections;
@@ -31,6 +30,8 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.ide.findusages.model.scopes.ModelsScope;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import jetbrains.mps.smodel.SModelStereotype;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * 
@@ -68,7 +69,7 @@ public abstract class AbstractMigrationScriptHelper {
     }
     // try name match if none matched by node reference 
     for (RefactoringScript rs : scriptAspect.getRefactoringScripts()) {
-      if (rs.getName().equals(SPropertyOperations.getString(scriptNode, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x11225f2354aL, "title")))) {
+      if (rs.getName().equals(SPropertyOperations.getString(scriptNode, PROPS.title$cHtL))) {
         return rs;
       }
     }
@@ -117,5 +118,9 @@ public abstract class AbstractMigrationScriptHelper {
       return false;
     }
     return true;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty title$cHtL = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x11225f2354aL, "title");
   }
 }

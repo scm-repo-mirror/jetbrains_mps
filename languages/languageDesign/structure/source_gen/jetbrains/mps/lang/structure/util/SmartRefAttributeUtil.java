@@ -6,7 +6,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.List;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
@@ -15,6 +14,9 @@ import jetbrains.mps.lang.structure.behavior.LinkDeclaration__BehaviorDescriptor
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class SmartRefAttributeUtil {
 
@@ -26,7 +28,7 @@ public final class SmartRefAttributeUtil {
     if (concept == null) {
       return null;
     }
-    SNode attr = AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(AUX_9k4hui.SmartReferenceAttribute_500a3d52));
+    SNode attr = AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SmartReferenceAttribute$Lg));
     if (attr != null) {
       return attr;
     }
@@ -44,7 +46,7 @@ public final class SmartRefAttributeUtil {
   }
 
   public static boolean isAttributedImplicitly(SNode concept) {
-    return (AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(AUX_9k4hui.SmartReferenceAttribute_500a3d52)) == null) && canBeAttributedImplicitly(concept);
+    return (AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SmartReferenceAttribute$Lg)) == null) && canBeAttributedImplicitly(concept);
   }
 
   public static boolean canBeAttributedImplicitly(SNode concept) {
@@ -55,8 +57,8 @@ public final class SmartRefAttributeUtil {
     if (concept == null) {
       return null;
     }
-    if ((AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(AUX_9k4hui.SmartReferenceAttribute_500a3d52)) != null)) {
-      return SLinkOperations.getTarget(AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(AUX_9k4hui.SmartReferenceAttribute_500a3d52)), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d6297edL, "charactersticReference"));
+    if ((AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SmartReferenceAttribute$Lg)) != null)) {
+      return SLinkOperations.getTarget(AttributeOperations.getAttribute(concept, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SmartReferenceAttribute$Lg)), LINKS.charactersticReference$hNpW);
     } else {
       return getImplicitCharacteristicLinkDeclaration(concept);
     }
@@ -66,7 +68,7 @@ public final class SmartRefAttributeUtil {
     if (concept == null) {
       return null;
     }
-    if (!(SPropertyOperations.getBoolean(concept, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"))) && isEmptyString(SPropertyOperations.getString(concept, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias")))) {
+    if (!(SPropertyOperations.getBoolean(concept, PROPS.abstract$moSU)) && isEmptyString(SPropertyOperations.getString(concept, PROPS.conceptAlias$YIL2))) {
       List<SNode> referenceLinks = AbstractConceptDeclaration__BehaviorDescriptor.getReferenceLinkDeclarations_idhEwILL0.invoke(concept);
       if (ListSequence.fromList(referenceLinks).count() == 1 && (boolean) LinkDeclaration__BehaviorDescriptor.isAtLeastOneCardinality_id2VYdUfnkjmB.invoke(ListSequence.fromList(referenceLinks).first())) {
         return ListSequence.fromList(referenceLinks).first();
@@ -76,15 +78,24 @@ public final class SmartRefAttributeUtil {
   }
   private static SNode createSmartReferenceAttribute_9k4hui_a0a5a4(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_9k4hui.SmartReferenceAttribute_500a3d52, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d6297edL, "charactersticReference"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SmartReferenceAttribute$Lg, null, null, false);
+    n1.setReferenceTarget(LINKS.charactersticReference$hNpW, node0);
     return n1;
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_9k4hui {
-    /*package*/ static final SConcept SmartReferenceAttribute_500a3d52 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, "jetbrains.mps.lang.structure.structure.SmartReferenceAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SmartReferenceAttribute$Lg = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, "jetbrains.mps.lang.structure.structure.SmartReferenceAttribute");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink charactersticReference$hNpW = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d6297edL, "charactersticReference");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptAlias$YIL2 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias");
+    /*package*/ static final SProperty abstract$moSU = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract");
   }
 }

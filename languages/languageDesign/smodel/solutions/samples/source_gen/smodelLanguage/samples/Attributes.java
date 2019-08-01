@@ -7,36 +7,38 @@ import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class Attributes {
   public void accessToNodeAttribute_1(SNode node) {
-    List<SNode> macros = AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(AUX_ju6mrf.NodeMacro_2cb20614));
-    SNode firstMacro = ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(AUX_ju6mrf.NodeMacro_2cb20614))).first();
+    List<SNode> macros = AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeMacro$Je));
+    SNode firstMacro = ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeMacro$Je))).first();
   }
   public void accessToPropertyAttribute_1(SNode node) {
-    SNode propertyMacro = AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_ju6mrf.PropertyMacro_2929d3e5, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
-    SAbstractConcept concept = SNodeOperations.getConcept(AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_ju6mrf.PropertyMacro_2929d3e5, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))));
-    SNode propertyMacro1 = AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_ju6mrf.PropertyMacro_2929d3e5, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    SNode propertyMacro = AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyMacro$wt, PROPS.name$tAp1));
+    SAbstractConcept concept = SNodeOperations.getConcept(AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyMacro$wt, PROPS.name$tAp1)));
+    SNode propertyMacro1 = AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyMacro$wt, PROPS.name$tAp1));
   }
   public void accessToPropertyAttribute_2(SNode node) {
     SNode propMacro = null;
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_ju6mrf.PropertyMacro_2929d3e5, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), propMacro);
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_ju6mrf.PropertyMacro_2929d3e5, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), propMacro);
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_ju6mrf.PropertyMacro_2929d3e5, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), propMacro);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyMacro$wt, PROPS.name$tAp1), propMacro);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyMacro$wt, PROPS.name$tAp1), propMacro);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyMacro$wt, PROPS.name$tAp1), propMacro);
   }
   public void accessToReferenceAttribute_1(SNode node) {
-    SNode referenceMacro = AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_ju6mrf.ReferenceMacro_62f8c34e, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")));
-    SNode referenceMacro1 = AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_ju6mrf.ReferenceMacro_62f8c34e, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")));
+    SNode referenceMacro = AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, LINKS.variableDeclaration$2ky6));
+    SNode referenceMacro1 = AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, LINKS.variableDeclaration$2ky6));
   }
   public void accessToReferenceAttribute_2(SNode node) {
     SNode refMacro = null;
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_ju6mrf.ReferenceMacro_62f8c34e, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), refMacro);
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_ju6mrf.ReferenceMacro_62f8c34e, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), refMacro);
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_ju6mrf.ReferenceMacro_62f8c34e, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), refMacro);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, LINKS.variableDeclaration$2ky6), refMacro);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, LINKS.variableDeclaration$2ky6), refMacro);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, LINKS.variableDeclaration$2ky6), refMacro);
   }
   public void other(SNode node) {
     SNodeOperations.isAttribute(node);
@@ -44,9 +46,17 @@ public class Attributes {
     SNode firstNode = ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.AllAttributes())).first();
   }
 
-  private static final class AUX_ju6mrf {
-    /*package*/ static final SConcept NodeMacro_2cb20614 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
-    /*package*/ static final SConcept PropertyMacro_2929d3e5 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47e9f6f0L, "jetbrains.mps.lang.generator.structure.PropertyMacro");
-    /*package*/ static final SConcept ReferenceMacro_62f8c34e = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeMacro$Je = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
+    /*package*/ static final SConcept PropertyMacro$wt = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47e9f6f0L, "jetbrains.mps.lang.generator.structure.PropertyMacro");
+    /*package*/ static final SConcept ReferenceMacro$nk = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 }

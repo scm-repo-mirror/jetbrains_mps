@@ -26,7 +26,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -38,8 +37,10 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends TransformationMenuBase {
   public AndOrTransforms_LogicalExpression_ext_2_Contribution() {
@@ -145,14 +146,14 @@ public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends Transf
         public void execute(@NotNull String pattern) {
           SNode conjuction;
           if (myParameterObject.equals("and")) {
-            conjuction = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_m0wxkr.And_689b965b);
+            conjuction = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.And$hB);
           } else if (myParameterObject.equals("or")) {
-            conjuction = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_m0wxkr.Or_689b9d9c);
+            conjuction = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.Or$l6);
           } else {
             throw new IllegalArgumentException("Cannot find a match for " + myParameterObject);
           }
-          SLinkOperations.setTarget(conjuction, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right"), _context.getNode());
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(conjuction, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left")), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          SLinkOperations.setTarget(conjuction, LINKS.right$sA67, _context.getNode());
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(conjuction, LINKS.left$sA5C), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
 
@@ -252,8 +253,8 @@ public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends Transf
             SNodeOperations.replaceWithAnother(_context.getNode(), orNode);
             conjuction = orNode;
           }
-          SLinkOperations.setTarget(conjuction, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left"), _context.getNode());
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(conjuction, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right")), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          SLinkOperations.setTarget(conjuction, LINKS.left$sA5C, _context.getNode());
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(conjuction, LINKS.right$sA67), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
 
@@ -277,8 +278,13 @@ public class AndOrTransforms_LogicalExpression_ext_2_Contribution extends Transf
     }
   }
 
-  private static final class AUX_m0wxkr {
-    /*package*/ static final SConcept And_689b965b = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a460aL, "jetbrains.mps.samples.KajaAndOr.structure.And");
-    /*package*/ static final SConcept Or_689b9d9c = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46bbL, "jetbrains.mps.samples.KajaAndOr.structure.Or");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept And$hB = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a460aL, "jetbrains.mps.samples.KajaAndOr.structure.And");
+    /*package*/ static final SConcept Or$l6 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46bbL, "jetbrains.mps.samples.KajaAndOr.structure.Or");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink right$sA67 = MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right");
+    /*package*/ static final SContainmentLink left$sA5C = MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left");
   }
 }

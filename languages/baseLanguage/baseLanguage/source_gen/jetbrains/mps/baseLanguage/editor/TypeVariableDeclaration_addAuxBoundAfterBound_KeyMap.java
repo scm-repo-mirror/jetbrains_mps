@@ -13,8 +13,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TypeVariableDeclaration_addAuxBoundAfterBound_KeyMap extends KeyMapImpl {
   public TypeVariableDeclaration_addAuxBoundAfterBound_KeyMap() {
@@ -53,7 +54,7 @@ public class TypeVariableDeclaration_addAuxBoundAfterBound_KeyMap extends KeyMap
 
       // Selected node should be within TypeVariableDeclaration 
       SNode selectedNode = ListSequence.fromList(selectedNodes).first();
-      SNode typeVarDeclaration = SNodeOperations.getNodeAncestor(selectedNode, AUX_o9a2fh.TypeVariableDeclaration_de3da816, true, false);
+      SNode typeVarDeclaration = SNodeOperations.getNodeAncestor(selectedNode, CONCEPTS.TypeVariableDeclaration$Cc, true, false);
       if (typeVarDeclaration == null) {
         return false;
       }
@@ -68,15 +69,19 @@ public class TypeVariableDeclaration_addAuxBoundAfterBound_KeyMap extends KeyMap
       return nextCellNode != null && nextCellNode != typeVarDeclaration;
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SNode typeVarDeclaration = SNodeOperations.getNodeAncestor(ListSequence.fromList(selectedNodes).first(), AUX_o9a2fh.TypeVariableDeclaration_de3da816, true, false);
-      SNodeFactoryOperations.addNewChild(typeVarDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, 0x11ae913a476L, "auxBounds"), null);
+      SNode typeVarDeclaration = SNodeOperations.getNodeAncestor(ListSequence.fromList(selectedNodes).first(), CONCEPTS.TypeVariableDeclaration$Cc, true, false);
+      SNodeFactoryOperations.addNewChild(typeVarDeclaration, LINKS.auxBounds$jS6R, null);
     }
     public String getKeyStroke() {
       return " &";
     }
   }
 
-  private static final class AUX_o9a2fh {
-    /*package*/ static final SConcept TypeVariableDeclaration_de3da816 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypeVariableDeclaration$Cc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink auxBounds$jS6R = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, 0x11ae913a476L, "auxBounds");
   }
 }

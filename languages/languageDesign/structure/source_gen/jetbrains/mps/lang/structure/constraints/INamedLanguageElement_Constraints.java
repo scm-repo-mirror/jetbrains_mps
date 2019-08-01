@@ -5,7 +5,6 @@ package jetbrains.mps.lang.structure.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -16,15 +15,16 @@ import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class INamedLanguageElement_Constraints extends BaseConstraintsDescriptor {
   public INamedLanguageElement_Constraints() {
-    super(AUX_v7wrhh.INamedLanguageElement_cf066e2c);
+    super(CONCEPTS.INamedLanguageElement$qQ);
   }
 
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -46,12 +46,16 @@ public class INamedLanguageElement_Constraints extends BaseConstraintsDescriptor
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
     return properties;
   }
   private static final Pattern REGEXP_v7wrhh_a0a0a4c = Pattern.compile("[a-zA-Z\\$_][a-zA-Z0-9\\$_]*", 0);
 
-  private static final class AUX_v7wrhh {
-    /*package*/ static final SInterfaceConcept INamedLanguageElement_cf066e2c = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db90a2b95L, "jetbrains.mps.lang.structure.structure.INamedLanguageElement");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedLanguageElement$qQ = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db90a2b95L, "jetbrains.mps.lang.structure.structure.INamedLanguageElement");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -10,20 +10,25 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RemoveGivenJavaImports_QuickFix extends QuickFix_Runtime {
   public RemoveGivenJavaImports_QuickFix() {
     super(new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2235632002330984372"));
   }
   public void execute(SNode node) {
-    ListSequence.fromList(SLinkOperations.getChildren(AttributeOperations.getAttribute(SNodeOperations.cast(node, AUX_462dbe.Classifier_4b7e553), new IAttributeDescriptor.NodeAttribute(AUX_462dbe.JavaImports_af71158f)), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, 0x64c0181e6020a7L, "entries"))).removeSequence(Sequence.fromIterable(((Iterable<SNode>) RemoveGivenJavaImports_QuickFix.this.getField("toRemove")[0])));
+    ListSequence.fromList(SLinkOperations.getChildren(AttributeOperations.getAttribute(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN)), LINKS.entries$9FEq)).removeSequence(Sequence.fromIterable(((Iterable<SNode>) RemoveGivenJavaImports_QuickFix.this.getField("toRemove")[0])));
   }
 
-  private static final class AUX_462dbe {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept JavaImports_af71158f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept JavaImports$IN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink entries$9FEq = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, 0x64c0181e6020a7L, "entries");
   }
 }

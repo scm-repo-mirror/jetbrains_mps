@@ -24,7 +24,7 @@ public class check_AbstractEquation_NonTypesystemRule extends AbstractNonTypesys
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ljyfsc.AbstractEquationStatement_37e39569;
+    return CONCEPTS.AbstractEquationStatement$sp;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class check_AbstractEquation_NonTypesystemRule extends AbstractNonTypesys
     return false;
   }
 
-  private static final class AUX_ljyfsc {
-    /*package*/ static final SConcept AbstractEquationStatement_37e39569 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, "jetbrains.mps.lang.typesystem.structure.AbstractEquationStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractEquationStatement$sp = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, "jetbrains.mps.lang.typesystem.structure.AbstractEquationStatement");
   }
 }

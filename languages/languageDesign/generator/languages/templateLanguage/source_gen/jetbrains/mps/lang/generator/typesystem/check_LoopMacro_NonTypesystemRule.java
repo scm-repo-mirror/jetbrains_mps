@@ -32,7 +32,7 @@ public class check_LoopMacro_NonTypesystemRule extends AbstractNonTypesystemRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_1qxsgy.LoopMacro_29e62875;
+    return CONCEPTS.LoopMacro$md;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +41,7 @@ public class check_LoopMacro_NonTypesystemRule extends AbstractNonTypesystemRule
     return false;
   }
 
-  private static final class AUX_1qxsgy {
-    /*package*/ static final SConcept LoopMacro_29e62875 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047ce009c3L, "jetbrains.mps.lang.generator.structure.LoopMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LoopMacro$md = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047ce009c3L, "jetbrains.mps.lang.generator.structure.LoopMacro");
   }
 }

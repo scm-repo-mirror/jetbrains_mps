@@ -24,7 +24,7 @@ public class check_Palette_NonTypesystemRule extends AbstractNonTypesystemRule_R
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_g1pzmj.Palette_a7123138;
+    return CONCEPTS.Palette$kE;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class check_Palette_NonTypesystemRule extends AbstractNonTypesystemRule_R
     return false;
   }
 
-  private static final class AUX_g1pzmj {
-    /*package*/ static final SConcept Palette_a7123138 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x74dc91e9e6c7d84L, "jetbrains.mps.lang.editor.diagram.structure.Palette");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Palette$kE = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x74dc91e9e6c7d84L, "jetbrains.mps.lang.editor.diagram.structure.Palette");
   }
 }

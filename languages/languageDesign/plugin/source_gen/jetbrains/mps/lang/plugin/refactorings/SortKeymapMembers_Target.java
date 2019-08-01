@@ -18,7 +18,7 @@ public class SortKeymapMembers_Target implements IRefactoringTarget {
     return false;
   }
   public boolean isApplicableToEntityType(final Object entity) {
-    return SNodeOperations.isInstanceOf(((SNode) entity), AUX_48nsqh.KeymapChangesDeclaration_b179307c);
+    return SNodeOperations.isInstanceOf(((SNode) entity), CONCEPTS.KeymapChangesDeclaration$TA);
   }
   public boolean isApplicable(final Object entity) {
     if (!(this.isApplicableToEntityType(entity))) {
@@ -27,7 +27,7 @@ public class SortKeymapMembers_Target implements IRefactoringTarget {
     return true;
   }
 
-  private static final class AUX_48nsqh {
-    /*package*/ static final SConcept KeymapChangesDeclaration_b179307c = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, "jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept KeymapChangesDeclaration$TA = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, "jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration");
   }
 }

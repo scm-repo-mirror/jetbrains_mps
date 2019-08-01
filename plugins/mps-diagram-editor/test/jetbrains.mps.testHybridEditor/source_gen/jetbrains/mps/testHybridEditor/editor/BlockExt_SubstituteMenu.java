@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class BlockExt_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_u1n2gi_a(), AUX_u1n2gi.BlockExt_55c1ac8b));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_u1n2gi_a(), CONCEPTS.BlockExt$gR));
     result.add(new SMP_Subconcepts_u1n2gi_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class BlockExt_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_u1n2gi_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_u1n2gi.BlockExt_55c1ac8b, MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x471a0145ea2e78cL, 0x471a0145ea2f5ffL, "mb"));
+      super((SAbstractConcept) CONCEPTS.BlockExt$gR, LINKS.mb$r1R9);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class BlockExt_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_u1n2gi_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_u1n2gi.BlockExt_55c1ac8b);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BlockExt$gR);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class BlockExt_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_u1n2gi {
-    /*package*/ static final SConcept BlockExt_55c1ac8b = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x471a0145ea2e78cL, "jetbrains.mps.testHybridEditor.structure.BlockExt");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BlockExt$gR = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x471a0145ea2e78cL, "jetbrains.mps.testHybridEditor.structure.BlockExt");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink mb$r1R9 = MetaAdapterFactory.getReferenceLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x471a0145ea2e78cL, 0x471a0145ea2f5ffL, "mb");
   }
 }

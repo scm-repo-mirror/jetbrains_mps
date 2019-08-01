@@ -7,15 +7,16 @@ import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.generator.behavior.IGeneratorParameter__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.PropertyValueQuery;
 import java.util.HashMap;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.impl.query.QueryKey;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.generator.impl.GenerationFailureException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -23,7 +24,7 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static Object propertyMacro_GetValue_0_0(final PropertyMacroContext _context) {
-    return (String) IGeneratorParameter__BehaviorDescriptor.getUniqueId_id$79JWCe2bn.invoke(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0x289fcc83654341e8L, 0xa5ca768235715ce4L, 0x2a86294b8491c07cL, 0x2a86294b8491c0c3L, "parameter")));
+    return (String) IGeneratorParameter__BehaviorDescriptor.getUniqueId_id$79JWCe2bn.invoke(SLinkOperations.getTarget(_context.getNode(), LINKS.parameter$QycW));
   }
   private final Map<String, PropertyValueQuery> pvqMethods = new HashMap<String, PropertyValueQuery>();
   {
@@ -54,5 +55,9 @@ public class QueriesGenerated extends QueryProviderBase {
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink parameter$QycW = MetaAdapterFactory.getReferenceLink(0x289fcc83654341e8L, 0xa5ca768235715ce4L, 0x2a86294b8491c07cL, 0x2a86294b8491c0c3L, "parameter");
   }
 }

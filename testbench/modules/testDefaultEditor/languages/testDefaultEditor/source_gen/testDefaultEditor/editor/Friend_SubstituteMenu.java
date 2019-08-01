@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class Friend_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_8e6ru5_a(), AUX_8e6ru5.Friend_db65b05e));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_8e6ru5_a(), CONCEPTS.Friend$F4));
     result.add(new SMP_Subconcepts_8e6ru5_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class Friend_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_8e6ru5_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_8e6ru5.Friend_db65b05e, MetaAdapterFactory.getReferenceLink(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf13be7aL, 0xd0768d7cf13be7bL, "friend"));
+      super((SAbstractConcept) CONCEPTS.Friend$F4, LINKS.friend$Hpu0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class Friend_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_8e6ru5_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_8e6ru5.Friend_db65b05e);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.Friend$F4);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class Friend_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_8e6ru5 {
-    /*package*/ static final SConcept Friend_db65b05e = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf13be7aL, "testDefaultEditor.structure.Friend");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Friend$F4 = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf13be7aL, "testDefaultEditor.structure.Friend");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink friend$Hpu0 = MetaAdapterFactory.getReferenceLink(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf13be7aL, 0xd0768d7cf13be7bL, "friend");
   }
 }

@@ -44,7 +44,7 @@ public class subs_AllConstant extends SubstituteMenuBase {
   public class SMP_Group_5lvod8_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_5lvod8.TakeOperation_1c3dd8c3);
+      return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.TakeOperation$VZ);
     }
     @NotNull
     @Override
@@ -60,7 +60,7 @@ public class subs_AllConstant extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_5lvod8.AllConstant_c1aedcb3) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.AllConstant$$f) {
 
         @NotNull
         @Override
@@ -73,12 +73,12 @@ public class subs_AllConstant extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_5lvod8.AllConstant_c1aedcb3));
+      }, CONCEPTS.AllConstant$$f));
     }
   }
 
-  private static final class AUX_5lvod8 {
-    /*package*/ static final SConcept TakeOperation_1c3dd8c3 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111083dd9b7L, "jetbrains.mps.baseLanguage.collections.structure.TakeOperation");
-    /*package*/ static final SConcept AllConstant_c1aedcb3 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x12031a066ecL, "jetbrains.mps.baseLanguage.collections.structure.AllConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TakeOperation$VZ = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111083dd9b7L, "jetbrains.mps.baseLanguage.collections.structure.TakeOperation");
+    /*package*/ static final SConcept AllConstant$$f = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x12031a066ecL, "jetbrains.mps.baseLanguage.collections.structure.AllConstant");
   }
 }

@@ -12,17 +12,19 @@ import jetbrains.mps.scope.ModelPlusImportedScope;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.build.behavior.BuildSourcePath__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PresentationProviders {
   public static final IReferentPresentationProvider PRESENTATION_4dmy40_a0a1a = new IReferentPresentationProvider() {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, AUX_nxpo3o.BuildProject_808bb057, true, false);
+      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, CONCEPTS.BuildProject$BF, true, false);
       String target = null;
       if ((sourceNode != null) && contextProject != null) {
         Scope importedArtifactsScope = ScopeUtil.getVisibleArtifactsScope(contextProject, false);
@@ -40,7 +42,7 @@ public class PresentationProviders {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, AUX_nxpo3o.BuildProject_808bb057, true, false);
+      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, CONCEPTS.BuildProject$BF, true, false);
       String target = null;
       if ((contextProject != null)) {
         Scope importedArtifactsScope = ScopeUtil.getVisibleArtifactsScope(contextProject, true);
@@ -58,7 +60,7 @@ public class PresentationProviders {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, AUX_nxpo3o.BuildProject_808bb057, true, false);
+      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, CONCEPTS.BuildProject$BF, true, false);
       String target = null;
       if ((contextProject != null)) {
         Scope importedArtifactsScope = ScopeUtil.getVisibleJarsScope(contextProject);
@@ -67,7 +69,7 @@ public class PresentationProviders {
         }
       }
       if (target == null) {
-        target = (SNodeOperations.isInstanceOf(targetNode, AUX_nxpo3o.BuildInputSingleFile_7fe8cc2b) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(targetNode, AUX_nxpo3o.BuildInputSingleFile_7fe8cc2b), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, 0x48d5d03db922459aL, "path"))) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(targetNode));
+        target = (SNodeOperations.isInstanceOf(targetNode, CONCEPTS.BuildInputSingleFile$yn) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(targetNode, CONCEPTS.BuildInputSingleFile$yn), LINKS.path$6h5X)) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(targetNode));
       }
       return target;
     }
@@ -76,7 +78,7 @@ public class PresentationProviders {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, AUX_nxpo3o.BuildProject_808bb057, true, false);
+      SNode contextProject = SNodeOperations.getNodeAncestor(sourceNode, CONCEPTS.BuildProject$BF, true, false);
       String target = null;
       if ((contextProject != null)) {
         Scope importedArtifactsScope = ScopeUtil.getVisibleJarFoldersScope(contextProject);
@@ -85,7 +87,7 @@ public class PresentationProviders {
         }
       }
       if (target == null) {
-        target = (SNodeOperations.isInstanceOf(targetNode, AUX_nxpo3o.BuildInputSingleFolder_eab69018) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(targetNode, AUX_nxpo3o.BuildInputSingleFolder_eab69018), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, 0x1ff930b22643b100L, "path"))) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(targetNode));
+        target = (SNodeOperations.isInstanceOf(targetNode, CONCEPTS.BuildInputSingleFolder$9a) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(targetNode, CONCEPTS.BuildInputSingleFolder$9a), LINKS.path$OoV0)) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(targetNode));
       }
       return target;
     }
@@ -94,23 +96,33 @@ public class PresentationProviders {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return ((isEmptyString(SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0xcdff0e1a96739c3L, "optionsName"))) ? "<default options>" : SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0xcdff0e1a96739c3L, "optionsName"))));
+      return ((isEmptyString(SPropertyOperations.getString(targetNode, PROPS.optionsName$jZt0)) ? "<default options>" : SPropertyOperations.getString(targetNode, PROPS.optionsName$jZt0)));
     }
   };
   public static final IReferentPresentationProvider PRESENTATION_1i5f76_a0a1a = new IReferentPresentationProvider() {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return SConceptOperations.conceptAlias(SNodeOperations.getConcept(targetNode)) + " " + SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return SConceptOperations.conceptAlias(SNodeOperations.getConcept(targetNode)) + " " + SPropertyOperations.getString(targetNode, PROPS.name$tAp1);
     }
   };
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_nxpo3o {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildInputSingleFile_7fe8cc2b = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, "jetbrains.mps.build.structure.BuildInputSingleFile");
-    /*package*/ static final SConcept BuildInputSingleFolder_eab69018 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildInputSingleFile$yn = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, "jetbrains.mps.build.structure.BuildInputSingleFile");
+    /*package*/ static final SConcept BuildInputSingleFolder$9a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink path$6h5X = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db9224596L, 0x48d5d03db922459aL, "path");
+    /*package*/ static final SContainmentLink path$OoV0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, 0x1ff930b22643b100L, "path");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty optionsName$jZt0 = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0xcdff0e1a96739c3L, "optionsName");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

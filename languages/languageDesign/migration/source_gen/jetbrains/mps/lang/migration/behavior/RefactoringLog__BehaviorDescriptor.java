@@ -4,6 +4,7 @@ package jetbrains.mps.lang.migration.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.lang.migration.runtime.base.RefactoringScriptReference;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,14 +17,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class RefactoringLog__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_1gq0f6.RefactoringLog_f0aa76d9;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d8fL, "jetbrains.mps.lang.migration.structure.RefactoringLog");
 
   public static final SMethod<RefactoringScriptReference> getDescriptor_id4uVwhQyPQ_Z = new SMethodBuilder<RefactoringScriptReference>(new SJavaCompoundTypeImpl(RefactoringScriptReference.class)).name("getDescriptor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uVwhQyPQ_Z").build();
 
@@ -33,7 +33,7 @@ public final class RefactoringLog__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static RefactoringScriptReference getDescriptor_id4uVwhQyPQ_Z(@NotNull SNode __thisNode__) {
-    return new RefactoringScriptReference(SNodeOperations.getModel(__thisNode__).getModule(), SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d8fL, 0x1bf9eb43276b6d91L, "fromVersion")));
+    return new RefactoringScriptReference(SNodeOperations.getModel(__thisNode__).getModule(), SPropertyOperations.getInteger(__thisNode__, PROPS.fromVersion$jArZ));
   }
 
   /*package*/ RefactoringLog__BehaviorDescriptor() {
@@ -82,7 +82,7 @@ public final class RefactoringLog__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_1gq0f6 {
-    /*package*/ static final SConcept RefactoringLog_f0aa76d9 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d8fL, "jetbrains.mps.lang.migration.structure.RefactoringLog");
+  private static final class PROPS {
+    /*package*/ static final SProperty fromVersion$jArZ = MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d8fL, 0x1bf9eb43276b6d91L, "fromVersion");
   }
 }

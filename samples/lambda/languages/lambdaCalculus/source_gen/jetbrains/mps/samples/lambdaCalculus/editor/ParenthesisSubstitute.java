@@ -27,7 +27,7 @@ public class ParenthesisSubstitute extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_smqx88_a(), AUX_smqx88.ParenthesisExpression_a3203df5));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_smqx88_a(), CONCEPTS.ParenthesisExpression$d));
     return result;
   }
 
@@ -72,7 +72,7 @@ public class ParenthesisSubstitute extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_smqx88.ParenthesisExpression_a3203df5, context);
+        super(CONCEPTS.ParenthesisExpression$d, context);
         _context = context;
       }
 
@@ -83,7 +83,7 @@ public class ParenthesisSubstitute extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(AUX_smqx88.ParenthesisExpression_a3203df5, null);
+        SNode result = SNodeFactoryOperations.createNewNode(CONCEPTS.ParenthesisExpression$d, null);
         return result;
       }
 
@@ -99,7 +99,7 @@ public class ParenthesisSubstitute extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_smqx88 {
-    /*package*/ static final SConcept ParenthesisExpression_a3203df5 = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x3735fdad52687b59L, "jetbrains.mps.samples.lambdaCalculus.structure.ParenthesisExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParenthesisExpression$d = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x3735fdad52687b59L, "jetbrains.mps.samples.lambdaCalculus.structure.ParenthesisExpression");
   }
 }

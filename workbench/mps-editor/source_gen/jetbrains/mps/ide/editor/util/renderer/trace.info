@@ -75,26 +75,26 @@
     <file name="DefaultMethodRenderer.java">
       <node id="3857025238371193243" at="14,65,15,22" concept="9" />
       <node id="1616056205644436472" at="19,66,20,44" concept="6" />
-      <node id="1616056205644436481" at="22,110,23,122" concept="7" />
+      <node id="1616056205644436481" at="22,102,23,122" concept="7" />
       <node id="3857025238371224640" at="25,5,26,70" concept="7" />
       <node id="1616056205644436521" at="30,57,31,64" concept="6" />
       <node id="1616056205644436546" at="31,64,32,43" concept="7" />
-      <node id="1616056205644436450" at="36,0,37,0" concept="8" trace="EnumClass_acf68fc0" />
-      <node id="1616056205644436450" at="37,0,38,0" concept="8" trace="EnumConstantDeclaration_b06144d8" />
+      <node id="1616056205644436450" at="36,0,37,0" concept="8" trace="EnumClass$uy" />
+      <node id="1616056205644436450" at="37,0,38,0" concept="8" trace="EnumConstantDeclaration$ma" />
       <node id="1616056205644436453" at="14,0,17,0" concept="1" trace="DefaultMethodRenderer#(Lorg/jetbrains/mps/openapi/module/SRepository;)V" />
-      <node id="1616056205644436479" at="21,95,24,7" concept="4" />
+      <node id="1616056205644436479" at="21,87,24,7" concept="4" />
       <node id="1616056205644436477" at="20,44,25,5" concept="4" />
       <node id="1616056205644436517" at="29,0,34,0" concept="5" trace="getLabelNode#(Ljetbrains/mps/ide/navigation/NodeNavigatable;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1616056205644436457" at="18,0,28,0" concept="5" trace="getElementText#(Ljetbrains/mps/ide/navigation/NodeNavigatable;)Ljava/lang/String;" />
       <scope id="1616056205644436455" at="14,65,15,22" />
-      <scope id="1616056205644436480" at="22,110,23,122" />
+      <scope id="1616056205644436480" at="22,102,23,122" />
       <scope id="1616056205644436520" at="30,57,32,43">
         <var name="node" id="1616056205644436522" />
       </scope>
       <scope id="1616056205644436453" at="14,0,17,0">
         <var name="repository" id="3857025238371185389" />
       </scope>
-      <scope id="1616056205644436478" at="21,95,24,7" />
+      <scope id="1616056205644436478" at="21,87,24,7" />
       <scope id="1616056205644436517" at="29,0,34,0">
         <var name="element" id="1616056205644436548" />
       </scope>
@@ -104,7 +104,7 @@
       <scope id="1616056205644436457" at="18,0,28,0">
         <var name="element" id="1616056205644436460" />
       </scope>
-      <unit id="1616056205644436450" at="35,0,39,0" name="jetbrains.mps.ide.editor.util.renderer.DefaultMethodRenderer$AUX_n5y6xu" />
+      <unit id="1616056205644436450" at="35,0,39,0" name="jetbrains.mps.ide.editor.util.renderer.DefaultMethodRenderer$CONCEPTS" />
       <unit id="1616056205644436450" at="13,0,40,0" name="jetbrains.mps.ide.editor.util.renderer.DefaultMethodRenderer" />
     </file>
   </root>

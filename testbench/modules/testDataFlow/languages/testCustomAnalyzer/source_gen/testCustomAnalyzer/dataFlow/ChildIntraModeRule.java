@@ -21,7 +21,7 @@ public class ChildIntraModeRule implements DataFlowConstructor {
     return concept.equals(applicableConcept) || concept.isSubConceptOf(applicableConcept);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_hhq61c.Child_b795c6fd;
+    return CONCEPTS.Child$w5;
   }
   public void performActions(Program o, SNode node) {
 
@@ -31,7 +31,7 @@ public class ChildIntraModeRule implements DataFlowConstructor {
     return Arrays.<IDataFlowModeId>asList(new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"));
   }
 
-  private static final class AUX_hhq61c {
-    /*package*/ static final SConcept Child_b795c6fd = MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed5L, "testCustomAnalyzer.structure.Child");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Child$w5 = MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed5L, "testCustomAnalyzer.structure.Child");
   }
 }

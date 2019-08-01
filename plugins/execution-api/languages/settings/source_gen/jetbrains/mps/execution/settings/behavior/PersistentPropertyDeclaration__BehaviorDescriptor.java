@@ -4,6 +4,7 @@ package jetbrains.mps.execution.settings.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,7 +16,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.execution.common.behavior.IGeneratedToClass__BehaviorDescriptor;
@@ -24,10 +24,13 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class PersistentPropertyDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_eem0jr.PersistentPropertyDeclaration_9ba05000;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910119L, "jetbrains.mps.execution.settings.structure.PersistentPropertyDeclaration");
 
   public static final SMethod<Boolean> isTemplate_idO$iR4J$g8G = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isTemplate").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8G").build();
   public static final SMethod<String> getAccessorName_idO$iR4J$g8R = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getAccessorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g8R").build();
@@ -45,10 +48,10 @@ public final class PersistentPropertyDeclaration__BehaviorDescriptor extends Bas
   }
 
   /*package*/ static boolean isTemplate_idO$iR4J$g8G(@NotNull SNode __thisNode__) {
-    return TypecheckingFacade.getFromContext().isSubtype(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), createTemplatePersistentConfigurationType_ex141d_b0a0a0());
+    return TypecheckingFacade.getFromContext().isSubtype(SLinkOperations.getTarget(__thisNode__, LINKS.type$pLrO), createTemplatePersistentConfigurationType_ex141d_b0a0a0());
   }
   /*package*/ static String getAccessorName_idO$iR4J$g8R(@NotNull SNode __thisNode__) {
-    String name = PersistentPropertyDeclaration__BehaviorDescriptor.removeMyPrefixInternal_idO$iR4J$g9N.invoke(SNodeOperations.asSConcept(AUX_eem0jr.PersistentPropertyDeclaration_9ba05000), SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    String name = PersistentPropertyDeclaration__BehaviorDescriptor.removeMyPrefixInternal_idO$iR4J$g9N.invoke(SNodeOperations.asSConcept(CONCEPTS.PersistentPropertyDeclaration$Xy), SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1));
     return name.substring(0, 1).toUpperCase() + name.substring(1);
   }
   /*package*/ static boolean isInitializable_idhEwJfMK(@NotNull SNode __thisNode__) {
@@ -64,7 +67,7 @@ public final class PersistentPropertyDeclaration__BehaviorDescriptor extends Bas
   }
   /*package*/ static SNode getTemplate_idO$iR4J$gak(@NotNull SNode __thisNode__) {
     assert ((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(__thisNode__));
-    return SLinkOperations.getTarget(TypecheckingFacade.getFromContext().coerceType(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), AUX_eem0jr.TemplatePersistentConfigurationType_9ba04fa5), MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration"));
+    return SLinkOperations.getTarget(TypecheckingFacade.getFromContext().coerceType(SLinkOperations.getTarget(__thisNode__, LINKS.type$pLrO), CONCEPTS.TemplatePersistentConfigurationType$ht), LINKS.persistentConfiguration$28v0);
   }
   /*package*/ static String addMyPrefix_id5uxO0H8rOhC(@NotNull SAbstractConcept __thisConcept__, String name) {
     String prefix = "my";
@@ -85,7 +88,7 @@ public final class PersistentPropertyDeclaration__BehaviorDescriptor extends Bas
     return name;
   }
   /*package*/ static String removeMyPrefix_idO$iR4J$g8k(@NotNull SAbstractConcept __thisConcept__, String name) {
-    name = PersistentPropertyDeclaration__BehaviorDescriptor.removeMyPrefixInternal_idO$iR4J$g9N.invoke(SNodeOperations.asSConcept(AUX_eem0jr.PersistentPropertyDeclaration_9ba05000), name);
+    name = PersistentPropertyDeclaration__BehaviorDescriptor.removeMyPrefixInternal_idO$iR4J$g9N.invoke(SNodeOperations.asSConcept(CONCEPTS.PersistentPropertyDeclaration$Xy), name);
     return name.substring(0, 1).toLowerCase() + name.substring(1);
   }
 
@@ -152,12 +155,21 @@ public final class PersistentPropertyDeclaration__BehaviorDescriptor extends Bas
   }
   private static SNode createTemplatePersistentConfigurationType_ex141d_b0a0a0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_eem0jr.TemplatePersistentConfigurationType_9ba04fa5, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TemplatePersistentConfigurationType$ht, null, null, false);
     return n1;
   }
 
-  private static final class AUX_eem0jr {
-    /*package*/ static final SConcept PersistentPropertyDeclaration_9ba05000 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910119L, "jetbrains.mps.execution.settings.structure.PersistentPropertyDeclaration");
-    /*package*/ static final SConcept TemplatePersistentConfigurationType_9ba04fa5 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SReferenceLink persistentConfiguration$28v0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PersistentPropertyDeclaration$Xy = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910119L, "jetbrains.mps.execution.settings.structure.PersistentPropertyDeclaration");
+    /*package*/ static final SConcept TemplatePersistentConfigurationType$ht = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.actions.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -15,16 +16,16 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class PasteWrappers__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_8o8ul6.PasteWrappers_5d745360;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51553d4eL, "jetbrains.mps.lang.actions.structure.PasteWrappers");
 
   public static final SMethod<List<SNode>> getBaseConceptCollection_id4$$3zrO3UBG = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getBaseConceptCollection").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4$$3zrO3UBG").build();
   public static final SMethod<Void> setBaseConcept_id5r_35Ihc58c = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setBaseConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5r_35Ihc58c").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
@@ -36,15 +37,15 @@ public final class PasteWrappers__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static List<SNode> getBaseConceptCollection_id4$$3zrO3UBG(@NotNull SNode __thisNode__) {
     List<SNode> result = new ArrayList<SNode>();
-    for (SNode nodeFactory : SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51553d4eL, 0x11c515647fcL, "wrapper"))) {
-      ListSequence.fromList(result).addElement(SLinkOperations.getTarget(nodeFactory, MetaAdapterFactory.getReferenceLink(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51563250L, 0x11c5159fc58L, "sourceConcept")));
+    for (SNode nodeFactory : SLinkOperations.getChildren(__thisNode__, LINKS.wrapper$g0zj)) {
+      ListSequence.fromList(result).addElement(SLinkOperations.getTarget(nodeFactory, LINKS.sourceConcept$vnzY));
     }
     return result;
   }
   /*package*/ static void setBaseConcept_id5r_35Ihc58c(@NotNull SNode __thisNode__, SNode baseConcept) {
     SNode pasteWrapper = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51563250L, "jetbrains.mps.lang.actions.structure.PasteWrapper"));
-    SLinkOperations.setTarget(pasteWrapper, MetaAdapterFactory.getReferenceLink(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51563250L, 0x11c5159fc58L, "sourceConcept"), baseConcept);
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51553d4eL, 0x11c515647fcL, "wrapper"))).addElement(pasteWrapper);
+    SLinkOperations.setTarget(pasteWrapper, LINKS.sourceConcept$vnzY, baseConcept);
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.wrapper$g0zj)).addElement(pasteWrapper);
   }
 
   /*package*/ PasteWrappers__BehaviorDescriptor() {
@@ -96,7 +97,8 @@ public final class PasteWrappers__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_8o8ul6 {
-    /*package*/ static final SConcept PasteWrappers_5d745360 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51553d4eL, "jetbrains.mps.lang.actions.structure.PasteWrappers");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink sourceConcept$vnzY = MetaAdapterFactory.getReferenceLink(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51563250L, 0x11c5159fc58L, "sourceConcept");
+    /*package*/ static final SContainmentLink wrapper$g0zj = MetaAdapterFactory.getContainmentLink(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x11c51553d4eL, 0x11c515647fcL, "wrapper");
   }
 }

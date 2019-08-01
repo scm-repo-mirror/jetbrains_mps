@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.regexp.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class PredefinedSymbolClassSymbolClassPart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_c6nv7x.PredefinedSymbolClassSymbolClassPart_e35dc63e;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117928d9f2L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassSymbolClassPart");
 
   public static final SMethod<String> getRepresentation_id75Jea4IEZbM = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getRepresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("75Jea4IEZbM").build();
 
@@ -32,7 +33,7 @@ public final class PredefinedSymbolClassSymbolClassPart__BehaviorDescriptor exte
   }
 
   /*package*/ static String getRepresentation_id75Jea4IEZbM(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117928d9f2L, 0x111792942ceL, "declaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$mupj), PROPS.name$tAp1);
   }
 
   /*package*/ PredefinedSymbolClassSymbolClassPart__BehaviorDescriptor() {
@@ -81,7 +82,11 @@ public final class PredefinedSymbolClassSymbolClassPart__BehaviorDescriptor exte
     return CONCEPT;
   }
 
-  private static final class AUX_c6nv7x {
-    /*package*/ static final SConcept PredefinedSymbolClassSymbolClassPart_e35dc63e = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117928d9f2L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassSymbolClassPart");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$mupj = MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117928d9f2L, 0x111792942ceL, "declaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

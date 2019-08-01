@@ -13,7 +13,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -21,6 +20,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class OperationsList_EditorBuilder_a extends AbstractEditorBuilder {
@@ -71,10 +71,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26ac1L, 0x5e8f0d038ab26ac2L, "operations");
+      return LINKS.operations$$0X0;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_bwd2ql.ChartOperation_42cc7d56;
+      return CONCEPTS.ChartOperation$Nc;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -84,7 +84,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(operationsListHandler_l61ys1_a0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26ac1L, 0x5e8f0d038ab26ac2L, "operations")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(operationsListHandler_l61ys1_a0.this.getNode(), LINKS.operations$$0X0));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -109,7 +109,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_bwd2ql {
-    /*package*/ static final SConcept ChartOperation_42cc7d56 = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26a37L, "jetbrains.mps.samples.StateChart.structure.ChartOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operations$$0X0 = MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26ac1L, 0x5e8f0d038ab26ac2L, "operations");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChartOperation$Nc = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x5e8f0d038ab26a37L, "jetbrains.mps.samples.StateChart.structure.ChartOperation");
   }
 }

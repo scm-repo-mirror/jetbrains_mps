@@ -4,6 +4,7 @@ package jetbrains.mps.console.ideCommands.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,7 +18,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.ui.dialogs.properties.MPSPropertiesConfigurable;
 import jetbrains.mps.ide.ui.dialogs.properties.ModulePropertiesConfigurable;
 import org.jetbrains.mps.openapi.ui.persistence.Tab;
@@ -31,10 +31,10 @@ import com.intellij.openapi.options.ex.SingleConfigurableEditor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ClickableGenerator__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_q42vex.ClickableGenerator_ce816c0e;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x360b134fc0467d73L, "jetbrains.mps.console.ideCommands.structure.ClickableGenerator");
 
   public static final SMethod<Runnable> execute_id7oNS25df64x = new SMethodBuilder<Runnable>(new SJavaCompoundTypeImpl(Runnable.class)).name("execute").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7oNS25df64x").build(SMethodBuilder.createJavaParameter(MPSProject.class, ""));
   public static final SMethod<Boolean> canExecute_id2QdC0h7dh1h = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canExecute").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2QdC0h7dh1h").build();
@@ -45,7 +45,7 @@ public final class ClickableGenerator__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static Runnable execute_id7oNS25df64x(@NotNull SNode __thisNode__, MPSProject project) {
-    final SModule module = project.getRepository().getModule(PersistenceFacade.getInstance().createModuleId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x360b134fc0467d73L, 0x360b134fc0525d7fL, "moduleId"))));
+    final SModule module = project.getRepository().getModule(PersistenceFacade.getInstance().createModuleId(SPropertyOperations.getString(__thisNode__, PROPS.moduleId$3xxZ)));
 
     final MPSPropertiesConfigurable configurable = new ModulePropertiesConfigurable(module, project);
     Iterable<Tab> tabs = Sequence.fromClosure(new ISequenceClosure<Tab>() {
@@ -115,7 +115,7 @@ __switch__:
     };
   }
   /*package*/ static boolean canExecute_id2QdC0h7dh1h(@NotNull SNode __thisNode__) {
-    return isNotEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x360b134fc0467d73L, 0x360b134fc0525d7fL, "moduleId")));
+    return isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.moduleId$3xxZ));
   }
 
   /*package*/ ClickableGenerator__BehaviorDescriptor() {
@@ -169,7 +169,7 @@ __switch__:
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_q42vex {
-    /*package*/ static final SConcept ClickableGenerator_ce816c0e = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x360b134fc0467d73L, "jetbrains.mps.console.ideCommands.structure.ClickableGenerator");
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleId$3xxZ = MetaAdapterFactory.getProperty(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x360b134fc0467d73L, 0x360b134fc0525d7fL, "moduleId");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.smodel.query.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -19,10 +20,9 @@ import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ModulesExpression__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_vlnjj4.ModulesExpression_1d1a93ed;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x5f41efb675cc2262L, "jetbrains.mps.lang.smodel.query.structure.ModulesExpression");
 
   public static final SMethod<Iterable<SConcept>> getSupportedParameters_id3J6h25QXCDW = new SMethodBuilder<Iterable<SConcept>>(new SJavaCompoundTypeImpl((Class<Iterable<SConcept>>) ((Class) Object.class))).name("getSupportedParameters").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3J6h25QXCDW").build();
 
@@ -32,7 +32,7 @@ public final class ModulesExpression__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ static Iterable<SConcept> getSupportedParameters_id3J6h25QXCDW(@NotNull SAbstractConcept __thisConcept__) {
-    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), AUX_vlnjj4.QueryParameterScope_old_8bfb6f38, AUX_vlnjj4.QueryParameterScope_e23e4568, AUX_vlnjj4.QueryParameterIncludeReadOnly_old_8bfb6829);
+    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.QueryParameterScope_old$sE, CONCEPTS.QueryParameterScope$rU, CONCEPTS.QueryParameterIncludeReadOnly_old$Lp);
   }
 
   /*package*/ ModulesExpression__BehaviorDescriptor() {
@@ -81,10 +81,9 @@ public final class ModulesExpression__BehaviorDescriptor extends BaseBHDescripto
     return CONCEPT;
   }
 
-  private static final class AUX_vlnjj4 {
-    /*package*/ static final SConcept ModulesExpression_1d1a93ed = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x5f41efb675cc2262L, "jetbrains.mps.lang.smodel.query.structure.ModulesExpression");
-    /*package*/ static final SConcept QueryParameterScope_old_8bfb6f38 = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217618ed2fL, "jetbrains.mps.lang.smodel.query.structure.QueryParameterScope_old");
-    /*package*/ static final SConcept QueryParameterScope_e23e4568 = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x20c897bb39bb07a3L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterScope");
-    /*package*/ static final SConcept QueryParameterIncludeReadOnly_old_8bfb6829 = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217618ec86L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterIncludeReadOnly_old");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryParameterScope_old$sE = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217618ed2fL, "jetbrains.mps.lang.smodel.query.structure.QueryParameterScope_old");
+    /*package*/ static final SConcept QueryParameterScope$rU = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x20c897bb39bb07a3L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterScope");
+    /*package*/ static final SConcept QueryParameterIncludeReadOnly_old$Lp = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x3bc644217618ec86L, "jetbrains.mps.lang.smodel.query.structure.QueryParameterIncludeReadOnly_old");
   }
 }

@@ -17,7 +17,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -25,6 +24,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class SimpleMathWrapper_EditorBuilder_a extends AbstractEditorBuilder {
@@ -88,10 +88,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8237002L, 0x1cc69153b8237177L, "expressions");
+      return LINKS.expressions$vq8n;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_58avkl.SimpleMathExpression_559914a2;
+      return CONCEPTS.SimpleMathExpression$W0;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -101,7 +101,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(expressionsListHandler_y4utgp_b0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8237002L, 0x1cc69153b8237177L, "expressions")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(expressionsListHandler_y4utgp_b0.this.getNode(), LINKS.expressions$vq8n));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -126,7 +126,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_58avkl {
-    /*package*/ static final SConcept SimpleMathExpression_559914a2 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c4c0bL, "jetbrains.mps.samples.Expressions.structure.SimpleMathExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expressions$vq8n = MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8237002L, 0x1cc69153b8237177L, "expressions");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleMathExpression$W0 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c4c0bL, "jetbrains.mps.samples.Expressions.structure.SimpleMathExpression");
   }
 }

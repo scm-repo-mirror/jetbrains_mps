@@ -9,12 +9,15 @@ import java.util.HashMap;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.GraphUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SubTaskOrderHelper {
   private final List<SNode> list;
@@ -33,16 +36,16 @@ public class SubTaskOrderHelper {
       subtasks[count++] = wrapper;
     }
     for (SubTask st : subtasks) {
-      for (SNode dep : SLinkOperations.getChildren(st.getTask(), MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x2670d5989d5b4a01L, "after"))) {
-        SubTask afterTask = map.get(SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5b49b8L, 0x2670d5989d5b49b9L, "target")));
+      for (SNode dep : SLinkOperations.getChildren(st.getTask(), LINKS.after$Gju$)) {
+        SubTask afterTask = map.get(SLinkOperations.getTarget(dep, LINKS.target$bdKw));
         if (afterTask == null) {
           genContext.showErrorMessage(dep, "dependency on non-existing subtask");
           continue;
         }
         st.targets.add(afterTask.getIndex());
       }
-      for (SNode dep : SLinkOperations.getChildren(st.getTask(), MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x36fb0dc9fd36bb1bL, "before"))) {
-        SubTask beforeTask = map.get(SLinkOperations.getTarget(dep, MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5b49b8L, 0x2670d5989d5b49b9L, "target")));
+      for (SNode dep : SLinkOperations.getChildren(st.getTask(), LINKS.before$hqay)) {
+        SubTask beforeTask = map.get(SLinkOperations.getTarget(dep, LINKS.target$bdKw));
         if (beforeTask == null) {
           genContext.showErrorMessage(dep, "dependency on non-existing subtask");
           continue;
@@ -65,7 +68,7 @@ public class SubTaskOrderHelper {
           if (i > 0) {
             sb.append(", ");
           }
-          sb.append(SPropertyOperations.getString(subtasks[cycle[i]].getTask(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          sb.append(SPropertyOperations.getString(subtasks[cycle[i]].getTask(), PROPS.name$tAp1));
         }
         if (cycle.length > 5) {
           sb.append(" ...");
@@ -106,5 +109,15 @@ public class SubTaskOrderHelper {
     public int getIndex() {
       return index;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink after$Gju$ = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x2670d5989d5b4a01L, "after");
+    /*package*/ static final SReferenceLink target$bdKw = MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5b49b8L, 0x2670d5989d5b49b9L, "target");
+    /*package*/ static final SContainmentLink before$hqay = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x36fb0dc9fd36bb1bL, "before");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

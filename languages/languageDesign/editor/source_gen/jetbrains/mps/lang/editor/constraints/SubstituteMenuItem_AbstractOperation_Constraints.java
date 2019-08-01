@@ -14,13 +14,13 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SubstituteMenuItem_AbstractOperation_Constraints extends BaseConstraintsDescriptor {
   public SubstituteMenuItem_AbstractOperation_Constraints() {
-    super(AUX_1lpj0k.SubstituteMenuItem_AbstractOperation_a4c64b49);
+    super(CONCEPTS.SubstituteMenuItem_AbstractOperation$OT);
   }
 
   @Override
@@ -40,16 +40,20 @@ public class SubstituteMenuItem_AbstractOperation_Constraints extends BaseConstr
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
     boolean result = false;
-    if (SNodeOperations.isInstanceOf(parentNode, AUX_1lpj0k.DotExpression_97ed08d8)) {
-      result = TypecheckingFacade.getFromContext().strongCoerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, AUX_1lpj0k.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"))), AUX_1lpj0k.SubstituteMenuItemType_b5bfc54) != null;
+    if (SNodeOperations.isInstanceOf(parentNode, CONCEPTS.DotExpression$6a)) {
+      result = TypecheckingFacade.getFromContext().strongCoerceType(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(parentNode, CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr)), CONCEPTS.SubstituteMenuItemType$Qe) != null;
     }
     return result;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "3622263992595042296");
 
-  private static final class AUX_1lpj0k {
-    /*package*/ static final SConcept SubstituteMenuItem_AbstractOperation_a4c64b49 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e150cff4L, "jetbrains.mps.lang.editor.structure.SubstituteMenuItem_AbstractOperation");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept SubstituteMenuItemType_b5bfc54 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1280eedL, "jetbrains.mps.lang.editor.structure.SubstituteMenuItemType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstituteMenuItem_AbstractOperation$OT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e150cff4L, "jetbrains.mps.lang.editor.structure.SubstituteMenuItem_AbstractOperation");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept SubstituteMenuItemType$Qe = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1280eedL, "jetbrains.mps.lang.editor.structure.SubstituteMenuItemType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
   }
 }

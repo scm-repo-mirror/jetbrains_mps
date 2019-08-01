@@ -8,19 +8,24 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class NF_Container {
   public static class NodeFactory_7789927720474697827 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_2w7mfh.Container_8e17a6f7)) {
-        ListSequence.fromList(SLinkOperations.getChildren(newNode, MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefeL, 0x6c1b61fd2cd1ef02L, "containers"))).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, AUX_2w7mfh.Container_8e17a6f7), MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefeL, 0x6c1b61fd2cd1ef02L, "containers"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.Container$tb)) {
+        ListSequence.fromList(SLinkOperations.getChildren(newNode, LINKS.containers$X6FX)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(sampleNode, CONCEPTS.Container$tb), LINKS.containers$X6FX)));
       }
     }
   }
 
-  private static final class AUX_2w7mfh {
-    /*package*/ static final SConcept Container_8e17a6f7 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefeL, "jetbrains.mps.lang.editor.editorTest.structure.Container");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink containers$X6FX = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefeL, 0x6c1b61fd2cd1ef02L, "containers");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Container$tb = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefeL, "jetbrains.mps.lang.editor.editorTest.structure.Container");
   }
 }

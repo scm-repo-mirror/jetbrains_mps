@@ -9,13 +9,14 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_ArithmSymbol_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -25,7 +26,7 @@ public class typeof_ArithmSymbol_InferenceRule extends AbstractInferenceRule_Run
     {
       SNode _nodeToCheck_1029348928467 = symbol;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042199446", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042199450", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(symbol, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0ca1899L, 0x11fe0cae874L, "expression")), "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042201546", true), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042199450", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(symbol, LINKS.expression$8M9C), "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042201546", true), _info_12389875345);
     }
     {
       final SNode t = typeCheckingContext.typeOf(symbol, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042132166", true);
@@ -39,13 +40,13 @@ public class typeof_ArithmSymbol_InferenceRule extends AbstractInferenceRule_Run
                 typeCheckingContext.createLessThanInequality((SNode) SNodeOperations.copyNode(MathTypeUtil.qInt), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1418611629042133323", true), true, true, _info_12389875345);
               }
             }
-          } else if (SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), AUX_4jhj26.MatrixType_c2d2403c) || SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), AUX_4jhj26.VectorType_c2d2403b)) {
+          } else if (SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), CONCEPTS.MatrixType$qA) || SNodeOperations.isInstanceOf(typeCheckingContext.getExpandedNode(t), CONCEPTS.VectorType$q7)) {
           } else {
             String s = "";
-            if (SNodeOperations.isInstanceOf(symbol, AUX_4jhj26.BigProdExpression_aee0a83f)) {
+            if (SNodeOperations.isInstanceOf(symbol, CONCEPTS.BigProdExpression$W3)) {
               s = "Multiplicand's ";
             }
-            if (SNodeOperations.isInstanceOf(symbol, AUX_4jhj26.BigSumExpression_4ba54e22)) {
+            if (SNodeOperations.isInstanceOf(symbol, CONCEPTS.BigSumExpression$m0)) {
               s = "Summand's ";
             }
             {
@@ -58,7 +59,7 @@ public class typeof_ArithmSymbol_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4jhj26.ArithmSymbol_b5dcddb2;
+    return CONCEPTS.ArithmSymbol$vK;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -67,11 +68,15 @@ public class typeof_ArithmSymbol_InferenceRule extends AbstractInferenceRule_Run
     return false;
   }
 
-  private static final class AUX_4jhj26 {
-    /*package*/ static final SConcept BigProdExpression_aee0a83f = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e12aa0L, "jetbrains.mps.baseLanguage.math.structure.BigProdExpression");
-    /*package*/ static final SConcept BigSumExpression_4ba54e22 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe188eafbL, "jetbrains.mps.baseLanguage.math.structure.BigSumExpression");
-    /*package*/ static final SConcept VectorType_c2d2403b = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
-    /*package*/ static final SConcept MatrixType_c2d2403c = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
-    /*package*/ static final SConcept ArithmSymbol_b5dcddb2 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e7ac42L, "jetbrains.mps.baseLanguage.math.structure.ArithmSymbol");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$8M9C = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0ca1899L, 0x11fe0cae874L, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BigProdExpression$W3 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e12aa0L, "jetbrains.mps.baseLanguage.math.structure.BigProdExpression");
+    /*package*/ static final SConcept BigSumExpression$m0 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe188eafbL, "jetbrains.mps.baseLanguage.math.structure.BigSumExpression");
+    /*package*/ static final SConcept VectorType$q7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
+    /*package*/ static final SConcept MatrixType$qA = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
+    /*package*/ static final SConcept ArithmSymbol$vK = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e7ac42L, "jetbrains.mps.baseLanguage.math.structure.ArithmSymbol");
   }
 }

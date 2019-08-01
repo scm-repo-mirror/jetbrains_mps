@@ -32,7 +32,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
   }
   /*package*/ static final class ReductionRule0 extends ReductionRuleBase {
     public ReductionRule0() {
-      super(new SNodePointer("r:68ff4d81-c742-4f6c-8cc1-cdf3e94f2c2e(jetbrains.mps.samples.KajaAndOr.generator.template.main@generator)", "1904811872814327601"), AUX_ief6mt.And_689b965b, false);
+      super(new SNodePointer("r:68ff4d81-c742-4f6c-8cc1-cdf3e94f2c2e(jetbrains.mps.samples.KajaAndOr.generator.template.main@generator)", "1904811872814327601"), CONCEPTS.And$hB, false);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -43,7 +43,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
   }
   /*package*/ static final class ReductionRule1 extends ReductionRuleBase {
     public ReductionRule1() {
-      super(new SNodePointer("r:68ff4d81-c742-4f6c-8cc1-cdf3e94f2c2e(jetbrains.mps.samples.KajaAndOr.generator.template.main@generator)", "1904811872814327663"), AUX_ief6mt.Or_689b9d9c, false);
+      super(new SNodePointer("r:68ff4d81-c742-4f6c-8cc1-cdf3e94f2c2e(jetbrains.mps.samples.KajaAndOr.generator.template.main@generator)", "1904811872814327663"), CONCEPTS.Or$l6, false);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -53,8 +53,8 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
     }
   }
 
-  private static final class AUX_ief6mt {
-    /*package*/ static final SConcept And_689b965b = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a460aL, "jetbrains.mps.samples.KajaAndOr.structure.And");
-    /*package*/ static final SConcept Or_689b9d9c = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46bbL, "jetbrains.mps.samples.KajaAndOr.structure.Or");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept And$hB = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a460aL, "jetbrains.mps.samples.KajaAndOr.structure.And");
+    /*package*/ static final SConcept Or$l6 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46bbL, "jetbrains.mps.samples.KajaAndOr.structure.Or");
   }
 }

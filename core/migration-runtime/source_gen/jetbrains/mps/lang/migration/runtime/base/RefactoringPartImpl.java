@@ -12,11 +12,13 @@ import jetbrains.mps.refactoring.participant.RefactoringUI;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RefactoringPartImpl {
   private RefactoringParticipant.PersistentRefactoringParticipant<?, ?, ?, ?> myParticipant;
@@ -32,17 +34,28 @@ public class RefactoringPartImpl {
   }
   public <IP, FP> void performDeserializingRefactoring(final SModule module, RefactoringParticipant.PersistentRefactoringParticipant<?, ?, IP, FP> participant, RefactoringSession refactoringSession, _FunctionTypes._void_P1_E0<? super Runnable> runner, _FunctionTypes._void_P4_E0<? super RefactoringUI, ? super RefactoringParticipant.PersistentRefactoringParticipant, ? super Iterable<SNode>, ? super Map<SNode, SNode>> refactoringProcessor) {
 
-    RefactoringUI ui = new EmptyRefactoringUI((mySelectedOptionsSerialized == null ? null : ListSequence.fromList(SLinkOperations.getChildren(mySelectedOptionsSerialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x31ee543051f23340L, 0x31ee543051f23346L, "options"))).select(new ISelector<SNode, RefactoringParticipant.Option>() {
+    RefactoringUI ui = new EmptyRefactoringUI((mySelectedOptionsSerialized == null ? null : ListSequence.fromList(SLinkOperations.getChildren(mySelectedOptionsSerialized, LINKS.options$o0MV)).select(new ISelector<SNode, RefactoringParticipant.Option>() {
       public RefactoringParticipant.Option select(SNode it) {
-        return new RefactoringParticipant.Option(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x31ee543051f23343L, 0x31ee543051f23344L, "optionId")), SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x31ee543051f23343L, 0x31ee543051f30774L, "description")));
+        return new RefactoringParticipant.Option(SPropertyOperations.getString(it, PROPS.optionId$o0M0), SPropertyOperations.getString(it, PROPS.description$akyD));
       }
     }).toListSequence()), runner);
 
     Map<SNode, SNode> initialToFinal = MapSequence.fromMap(new HashMap<SNode, SNode>());
     for (SNode part : ListSequence.fromList(myParts)) {
-      MapSequence.fromMap(initialToFinal).put(SLinkOperations.getTarget(part, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c163158L, 0x325b97b223b9e3acL, "initialState")), SLinkOperations.getTarget(part, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c163158L, 0x325b97b223b9e3aeL, "finalState")));
+      MapSequence.fromMap(initialToFinal).put(SLinkOperations.getTarget(part, LINKS.initialState$hcw4), SLinkOperations.getTarget(part, LINKS.finalState$hcx2));
     }
 
-    refactoringProcessor.invoke(ui, participant, SLinkOperations.collect(myParts, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c163158L, 0x325b97b223b9e3acL, "initialState")), initialToFinal);
+    refactoringProcessor.invoke(ui, participant, SLinkOperations.collect(myParts, LINKS.initialState$hcw4), initialToFinal);
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink options$o0MV = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x31ee543051f23340L, 0x31ee543051f23346L, "options");
+    /*package*/ static final SContainmentLink initialState$hcw4 = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c163158L, 0x325b97b223b9e3acL, "initialState");
+    /*package*/ static final SContainmentLink finalState$hcx2 = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2b3f57492c163158L, 0x325b97b223b9e3aeL, "finalState");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty optionId$o0M0 = MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x31ee543051f23343L, 0x31ee543051f23344L, "optionId");
+    /*package*/ static final SProperty description$akyD = MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x31ee543051f23343L, 0x31ee543051f30774L, "description");
   }
 }

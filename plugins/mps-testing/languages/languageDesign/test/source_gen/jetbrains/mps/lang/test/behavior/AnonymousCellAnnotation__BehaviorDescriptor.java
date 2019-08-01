@@ -4,6 +4,7 @@ package jetbrains.mps.lang.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -19,7 +20,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
@@ -27,10 +27,11 @@ import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AnonymousCellAnnotation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_vd7me7.AnonymousCellAnnotation_4623621a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
 
   public static final SMethod<Void> setupSelection_id5rZKa_fUiYP = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setupSelection").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5rZKa_fUiYP").build(SMethodBuilder.createJavaParameter(NodeEditorComponent.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Map<SNode, SNode>>) ((Class) Object.class), ""));
   public static final SMethod<EditorComponent> setupSelection_id5g7DxxpaP55 = new SMethodBuilder<EditorComponent>(new SJavaCompoundTypeImpl(EditorComponent.class)).name("setupSelection").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5g7DxxpaP55").build(SMethodBuilder.createJavaParameter(NodeEditorComponent.class, ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Map<SNode, SNode>>) ((Class) Object.class), ""));
@@ -50,36 +51,36 @@ public final class AnonymousCellAnnotation__BehaviorDescriptor extends BaseBHDes
   /*package*/ static EditorComponent setupSelection_id5g7DxxpaP55(@NotNull SNode __thisNode__, NodeEditorComponent nodeEditorComponent, SNode node, Map<SNode, SNode> map) {
     EditorComponent editorComponent = nodeEditorComponent;
     EditorCell cellWithId;
-    if (SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1b73330fb1241e01L, "isInInspector"))) {
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isInInspector$2bRd)) {
       editorComponent = AnonymousCellAnnotation__BehaviorDescriptor.setupInspector_id4VoD2D0CSEA.invoke(__thisNode__, node, nodeEditorComponent);
     }
-    cellWithId = editorComponent.findCellWithId(node, SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId")));
+    cellWithId = editorComponent.findCellWithId(node, SPropertyOperations.getString(__thisNode__, PROPS.cellId$qWW0));
     if (cellWithId == null) {
-      throw new RuntimeException(String.format("No cell with id %s found in %s", SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId")), SNodeOperations.getParent(__thisNode__)));
+      throw new RuntimeException(String.format("No cell with id %s found in %s", SPropertyOperations.getString(__thisNode__, PROPS.cellId$qWW0), SNodeOperations.getParent(__thisNode__)));
     }
     AnonymousCellAnnotation__BehaviorDescriptor.setupCaretAndSelection_id7TYU6fNl1yz.invoke(__thisNode__, cellWithId);
     editorComponent.changeSelection(cellWithId);
-    if (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart")) != null) {
-      SNode selectionStart = MapSequence.fromMap(map).get(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart")));
-      SNode selectionEnd = MapSequence.fromMap(map).get(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd")));
+    if (SLinkOperations.getTarget(__thisNode__, LINKS.nodeRangeSelectionStart$8c0q) != null) {
+      SNode selectionStart = MapSequence.fromMap(map).get(SLinkOperations.getTarget(__thisNode__, LINKS.nodeRangeSelectionStart$8c0q));
+      SNode selectionEnd = MapSequence.fromMap(map).get(SLinkOperations.getTarget(__thisNode__, LINKS.nodeRangeSelectionEnd$8c0T));
       SelectionManager selectionManager = editorComponent.getSelectionManager();
       selectionManager.pushSelection(selectionManager.createRangeSelection(selectionStart, selectionEnd));
     }
     return editorComponent;
   }
   /*package*/ static int getCaretPosition_id5rZKa_fUlry(@NotNull SNode __thisNode__, EditorCell_Label label) {
-    if (SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e3fde6f41L, "isLastPosition"))) {
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isLastPosition$8Xx5)) {
       return label.getText().length();
     } else {
-      return SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe14L, "caretPosition"));
+      return SPropertyOperations.getInteger(__thisNode__, PROPS.caretPosition$qWWv);
     }
   }
   /*package*/ static void setupCaretAndSelection_id7TYU6fNl1yz(@NotNull SNode __thisNode__, EditorCell cellWithId) {
     if (cellWithId instanceof EditorCell_Label) {
       EditorCell_Label label = (EditorCell_Label) cellWithId;
       label.setCaretPosition(((int) AnonymousCellAnnotation__BehaviorDescriptor.getCaretPosition_id5rZKa_fUlry.invoke(__thisNode__, label)));
-      label.setSelectionStart(SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc33L, "selectionStart")));
-      label.setSelectionEnd(SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc35L, "selectionEnd")));
+      label.setSelectionStart(SPropertyOperations.getInteger(__thisNode__, PROPS.selectionStart$nib_));
+      label.setSelectionEnd(SPropertyOperations.getInteger(__thisNode__, PROPS.selectionEnd$nicz));
     }
   }
   /*package*/ static EditorComponent setupInspector_id4VoD2D0CSEA(@NotNull SNode __thisNode__, SNode node, NodeEditorComponent nodeEditorComponent) {
@@ -147,7 +148,17 @@ public final class AnonymousCellAnnotation__BehaviorDescriptor extends BaseBHDes
     return CONCEPT;
   }
 
-  private static final class AUX_vd7me7 {
-    /*package*/ static final SConcept AnonymousCellAnnotation_4623621a = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
+  private static final class PROPS {
+    /*package*/ static final SProperty isInInspector$2bRd = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1b73330fb1241e01L, "isInInspector");
+    /*package*/ static final SProperty cellId$qWW0 = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId");
+    /*package*/ static final SProperty isLastPosition$8Xx5 = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e3fde6f41L, "isLastPosition");
+    /*package*/ static final SProperty caretPosition$qWWv = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe14L, "caretPosition");
+    /*package*/ static final SProperty selectionStart$nib_ = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc33L, "selectionStart");
+    /*package*/ static final SProperty selectionEnd$nicz = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc35L, "selectionEnd");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink nodeRangeSelectionStart$8c0q = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart");
+    /*package*/ static final SReferenceLink nodeRangeSelectionEnd$8c0T = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd");
   }
 }

@@ -21,7 +21,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.actions.PrecedenceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class assert_ extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -75,7 +76,7 @@ public class assert_ extends TransformationMenuBase {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
       SNode targetExppression = PrecedenceUtil.getTargetForRightTransform(_context.getNode());
-      return targetExppression != null && SNodeOperations.isInstanceOf(SNodeOperations.getParent(targetExppression), AUX_tor4do.AssertStatement_6f73e3bb) && SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(targetExppression), AUX_tor4do.AssertStatement_6f73e3bb), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10e50ecba3dL, 0x10e50ed92e0L, "message")) == null;
+      return targetExppression != null && SNodeOperations.isInstanceOf(SNodeOperations.getParent(targetExppression), CONCEPTS.AssertStatement$c7) && SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(targetExppression), CONCEPTS.AssertStatement$c7), LINKS.message$8EX$) == null;
     }
 
     @NotNull
@@ -132,9 +133,9 @@ public class assert_ extends TransformationMenuBase {
         @Override
         public void execute(@NotNull String pattern) {
           SNode targetExpression = PrecedenceUtil.getTargetForRightTransform(_context.getNode());
-          SNode assertion = SNodeOperations.cast(SNodeOperations.getParent(targetExpression), AUX_tor4do.AssertStatement_6f73e3bb);
-          SNodeFactoryOperations.setNewChild(assertion, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10e50ecba3dL, 0x10e50ed92e0L, "message"), null);
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(assertion, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10e50ecba3dL, 0x10e50ed92e0L, "message")), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          SNode assertion = SNodeOperations.cast(SNodeOperations.getParent(targetExpression), CONCEPTS.AssertStatement$c7);
+          SNodeFactoryOperations.setNewChild(assertion, LINKS.message$8EX$, null);
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(assertion, LINKS.message$8EX$), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
 
@@ -158,7 +159,11 @@ public class assert_ extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_tor4do {
-    /*package*/ static final SConcept AssertStatement_6f73e3bb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10e50ecba3dL, "jetbrains.mps.baseLanguage.structure.AssertStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AssertStatement$c7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10e50ecba3dL, "jetbrains.mps.baseLanguage.structure.AssertStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink message$8EX$ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10e50ecba3dL, 0x10e50ed92e0L, "message");
   }
 }

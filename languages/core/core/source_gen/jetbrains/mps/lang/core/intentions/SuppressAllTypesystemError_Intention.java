@@ -27,10 +27,11 @@ import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.item.FlavouredItem;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class SuppressAllTypesystemError_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -49,7 +50,7 @@ public final class SuppressAllTypesystemError_Intention extends AbstractIntentio
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    if (ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(AUX_pyub5s.SuppressErrorsAnnotation_4912d93))).isNotEmpty()) {
+    if (ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))).isNotEmpty()) {
       return false;
     }
     EditorComponent editorComponent = (EditorComponent) editorContext.getEditorComponent();
@@ -86,13 +87,13 @@ public final class SuppressAllTypesystemError_Intention extends AbstractIntentio
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if (ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(AUX_pyub5s.SuppressErrorsAnnotation_4912d93))).isEmpty()) {
-        SNode annotation = SNodeFactoryOperations.addNewAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_pyub5s.SuppressErrorsAnnotation_4912d93), AUX_pyub5s.SuppressErrorsAnnotation_4912d93);
+      if (ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))).isEmpty()) {
+        SNode annotation = SNodeFactoryOperations.addNewAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ), CONCEPTS.SuppressErrorsAnnotation$gJ);
         Map<String, String> flavours = MapSequence.<String, String>fromMapAndKeysArray(new HashMap<String, String>(), IssueKindReportItem.FLAVOUR_ISSUE_KIND.getId()).withValues(IssueKindReportItem.TYPESYSTEM.deriveItemKind().toString());
-        SPropertyOperations.assign(annotation, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter"), new FlavouredItem.ReportItemPredicate(flavours).serialize());
-        SPropertyOperations.assign(annotation, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message"), "all typesystem messages");
+        SPropertyOperations.assign(annotation, PROPS.filter$UuSh, new FlavouredItem.ReportItemPredicate(flavours).serialize());
+        SPropertyOperations.assign(annotation, PROPS.message$PX4b, "all typesystem messages");
       } else {
-        ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(AUX_pyub5s.SuppressErrorsAnnotation_4912d93))).clear();
+        ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))).clear();
       }
     }
     @Override
@@ -101,7 +102,12 @@ public final class SuppressAllTypesystemError_Intention extends AbstractIntentio
     }
   }
 
-  private static final class AUX_pyub5s {
-    /*package*/ static final SConcept SuppressErrorsAnnotation_4912d93 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuppressErrorsAnnotation$gJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty filter$UuSh = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter");
+    /*package*/ static final SProperty message$PX4b = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message");
   }
 }

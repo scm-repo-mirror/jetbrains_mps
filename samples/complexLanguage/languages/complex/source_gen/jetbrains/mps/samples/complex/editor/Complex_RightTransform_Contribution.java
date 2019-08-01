@@ -28,7 +28,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -40,6 +39,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Complex_RightTransform_Contribution extends TransformationMenuBase {
   public Complex_RightTransform_Contribution() {
@@ -68,12 +69,12 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_a0(), AUX_vmt1qg.ReExpression_f9560eac));
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_b0(), AUX_vmt1qg.ReExpression_f9560eac));
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_c0(), AUX_vmt1qg.ReExpression_f9560eac));
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_d0(), AUX_vmt1qg.ReExpression_f9560eac));
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_e0(), AUX_vmt1qg.ReExpression_f9560eac));
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_f0(), AUX_vmt1qg.ReExpression_f9560eac));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_a0(), CONCEPTS.ReExpression$oQ));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_b0(), CONCEPTS.ReExpression$oQ));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_c0(), CONCEPTS.ReExpression$oQ));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_d0(), CONCEPTS.ReExpression$oQ));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_e0(), CONCEPTS.ReExpression$oQ));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_vmt1qg_f0(), CONCEPTS.ReExpression$oQ));
     }
     return result;
   }
@@ -116,9 +117,9 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SModelOperations.createNewNode(_context.getModel(), null, AUX_vmt1qg.ReExpression_f9560eac);
+        SNode result = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.ReExpression$oQ);
         SNodeOperations.replaceWithAnother(_context.getNode(), result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression"), _context.getNode());
+        SLinkOperations.setTarget(result, LINKS.complexExpression$MUES, _context.getNode());
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -126,7 +127,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_vmt1qg.ReExpression_f9560eac;
+        return CONCEPTS.ReExpression$oQ;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -141,7 +142,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_vmt1qg.ReExpression_f9560eac;
+        SAbstractConcept outputConcept = CONCEPTS.ReExpression$oQ;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -188,9 +189,9 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SModelOperations.createNewNode(_context.getModel(), null, AUX_vmt1qg.ImExpression_3001fb69);
+        SNode result = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.ImExpression$4p);
         SNodeOperations.replaceWithAnother(_context.getNode(), result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression"), _context.getNode());
+        SLinkOperations.setTarget(result, LINKS.complexExpression$MUES, _context.getNode());
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -198,7 +199,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_vmt1qg.ReExpression_f9560eac;
+        return CONCEPTS.ReExpression$oQ;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -213,7 +214,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_vmt1qg.ReExpression_f9560eac;
+        SAbstractConcept outputConcept = CONCEPTS.ReExpression$oQ;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -260,9 +261,9 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SModelOperations.createNewNode(_context.getModel(), null, AUX_vmt1qg.AbsExpression_c0ef731c);
+        SNode result = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.AbsExpression$Z6);
         SNodeOperations.replaceWithAnother(_context.getNode(), result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression"), _context.getNode());
+        SLinkOperations.setTarget(result, LINKS.complexExpression$MUES, _context.getNode());
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -270,7 +271,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_vmt1qg.ReExpression_f9560eac;
+        return CONCEPTS.ReExpression$oQ;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -285,7 +286,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_vmt1qg.ReExpression_f9560eac;
+        SAbstractConcept outputConcept = CONCEPTS.ReExpression$oQ;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -332,9 +333,9 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SModelOperations.createNewNode(_context.getModel(), null, AUX_vmt1qg.ArgExpression_99bd9c2d);
+        SNode result = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.ArgExpression$zl);
         SNodeOperations.replaceWithAnother(_context.getNode(), result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression"), _context.getNode());
+        SLinkOperations.setTarget(result, LINKS.complexExpression$MUES, _context.getNode());
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -342,7 +343,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_vmt1qg.ReExpression_f9560eac;
+        return CONCEPTS.ReExpression$oQ;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -357,7 +358,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_vmt1qg.ReExpression_f9560eac;
+        SAbstractConcept outputConcept = CONCEPTS.ReExpression$oQ;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -404,9 +405,9 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SModelOperations.createNewNode(_context.getModel(), null, AUX_vmt1qg.ConjugateComplexExpression_c39746a5);
+        SNode result = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.ConjugateComplexExpression$Pt);
         SNodeOperations.replaceWithAnother(_context.getNode(), result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression"), _context.getNode());
+        SLinkOperations.setTarget(result, LINKS.complexExpression$MUES, _context.getNode());
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -414,7 +415,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_vmt1qg.ReExpression_f9560eac;
+        return CONCEPTS.ReExpression$oQ;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -429,7 +430,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_vmt1qg.ReExpression_f9560eac;
+        SAbstractConcept outputConcept = CONCEPTS.ReExpression$oQ;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -476,9 +477,9 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode result = SModelOperations.createNewNode(_context.getModel(), null, AUX_vmt1qg.DegreeComplexExpression_baba11d5);
+        SNode result = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.DegreeComplexExpression$wH);
         SNodeOperations.replaceWithAnother(_context.getNode(), result);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression"), _context.getNode());
+        SLinkOperations.setTarget(result, LINKS.complexExpression$MUES, _context.getNode());
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), result, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -486,7 +487,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_vmt1qg.ReExpression_f9560eac;
+        return CONCEPTS.ReExpression$oQ;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -501,7 +502,7 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_vmt1qg.ReExpression_f9560eac;
+        SAbstractConcept outputConcept = CONCEPTS.ReExpression$oQ;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -511,12 +512,16 @@ public class Complex_RightTransform_Contribution extends TransformationMenuBase 
 
   }
 
-  private static final class AUX_vmt1qg {
-    /*package*/ static final SConcept ReExpression_f9560eac = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b25791L, "jetbrains.mps.samples.complex.structure.ReExpression");
-    /*package*/ static final SConcept ImExpression_3001fb69 = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686c35f98L, "jetbrains.mps.samples.complex.structure.ImExpression");
-    /*package*/ static final SConcept AbsExpression_c0ef731c = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686e48f9fL, "jetbrains.mps.samples.complex.structure.AbsExpression");
-    /*package*/ static final SConcept ArgExpression_99bd9c2d = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686e1a51cL, "jetbrains.mps.samples.complex.structure.ArgExpression");
-    /*package*/ static final SConcept ConjugateComplexExpression_c39746a5 = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x116901f57f4L, "jetbrains.mps.samples.complex.structure.ConjugateComplexExpression");
-    /*package*/ static final SConcept DegreeComplexExpression_baba11d5 = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x116904e45f4L, "jetbrains.mps.samples.complex.structure.DegreeComplexExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReExpression$oQ = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b25791L, "jetbrains.mps.samples.complex.structure.ReExpression");
+    /*package*/ static final SConcept ImExpression$4p = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686c35f98L, "jetbrains.mps.samples.complex.structure.ImExpression");
+    /*package*/ static final SConcept AbsExpression$Z6 = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686e48f9fL, "jetbrains.mps.samples.complex.structure.AbsExpression");
+    /*package*/ static final SConcept ArgExpression$zl = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686e1a51cL, "jetbrains.mps.samples.complex.structure.ArgExpression");
+    /*package*/ static final SConcept ConjugateComplexExpression$Pt = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x116901f57f4L, "jetbrains.mps.samples.complex.structure.ConjugateComplexExpression");
+    /*package*/ static final SConcept DegreeComplexExpression$wH = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x116904e45f4L, "jetbrains.mps.samples.complex.structure.DegreeComplexExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink complexExpression$MUES = MetaAdapterFactory.getContainmentLink(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b3b49dL, 0x11686b4a081L, "complexExpression");
   }
 }

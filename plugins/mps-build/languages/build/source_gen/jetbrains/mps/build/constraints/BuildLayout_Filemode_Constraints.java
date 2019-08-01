@@ -21,7 +21,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class BuildLayout_Filemode_Constraints extends BaseConstraintsDescriptor {
   public BuildLayout_Filemode_Constraints() {
-    super(AUX_3athpq.BuildLayout_Filemode_38c5bd64);
+    super(CONCEPTS.BuildLayout_Filemode$TY);
   }
 
   @Override
@@ -40,13 +40,13 @@ public class BuildLayout_Filemode_Constraints extends BaseConstraintsDescriptor 
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    SNode archive = SNodeOperations.getNodeAncestor(parentNode, AUX_3athpq.BuildLayout_ContainerAcceptingFileSet_aa6891af, true, false);
+    SNode archive = SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.BuildLayout_ContainerAcceptingFileSet$ej, true, false);
     return archive != null && (boolean) BuildLayout_ContainerAcceptingFileSet__BehaviorDescriptor.hasFileModeAttribute_id5zIo$W4pFU5.invoke(archive) || (boolean) BaseConcept__BehaviorDescriptor.isInTemplates_idhEwIMij.invoke(parentNode);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "1227128029536580395");
 
-  private static final class AUX_3athpq {
-    /*package*/ static final SConcept BuildLayout_Filemode_38c5bd64 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x6c4335df4e838e40L, "jetbrains.mps.build.structure.BuildLayout_Filemode");
-    /*package*/ static final SInterfaceConcept BuildLayout_ContainerAcceptingFileSet_aa6891af = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db927f229L, "jetbrains.mps.build.structure.BuildLayout_ContainerAcceptingFileSet");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_Filemode$TY = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x6c4335df4e838e40L, "jetbrains.mps.build.structure.BuildLayout_Filemode");
+    /*package*/ static final SInterfaceConcept BuildLayout_ContainerAcceptingFileSet$ej = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db927f229L, "jetbrains.mps.build.structure.BuildLayout_ContainerAcceptingFileSet");
   }
 }

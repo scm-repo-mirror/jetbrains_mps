@@ -14,15 +14,16 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_TernaryOperatorExpression_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_TernaryOperatorExpression_NonTypesystemRule() {
   }
   public void applyRule(final SNode ternaryOperatorExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ternaryOperatorExpression), AUX_r4e9e1.BinaryOperation_7c4c55f3)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ternaryOperatorExpression), CONCEPTS.BinaryOperation$vf)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(ternaryOperatorExpression, "A ternary operator must be wrapped in parenthesis when being an operand of binary operations", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "818296778583740232", null, errorTarget);
@@ -32,7 +33,7 @@ public class check_TernaryOperatorExpression_NonTypesystemRule extends AbstractN
         }
       }
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ternaryOperatorExpression), AUX_r4e9e1.TernaryOperatorExpression_580beb3a) && Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ternaryOperatorExpression), AUX_r4e9e1.TernaryOperatorExpression_580beb3a), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition")), ternaryOperatorExpression)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ternaryOperatorExpression), CONCEPTS.TernaryOperatorExpression$HC) && Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(ternaryOperatorExpression), CONCEPTS.TernaryOperatorExpression$HC), LINKS.condition$CEb4), ternaryOperatorExpression)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(ternaryOperatorExpression, "A ternary operator must be wrapped in parenthesis when being a condition of a ternary operations", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "818296778607035886", null, errorTarget);
@@ -45,7 +46,7 @@ public class check_TernaryOperatorExpression_NonTypesystemRule extends AbstractN
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_r4e9e1.TernaryOperatorExpression_580beb3a;
+    return CONCEPTS.TernaryOperatorExpression$HC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,8 +55,12 @@ public class check_TernaryOperatorExpression_NonTypesystemRule extends AbstractN
     return false;
   }
 
-  private static final class AUX_r4e9e1 {
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
-    /*package*/ static final SConcept TernaryOperatorExpression_580beb3a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+    /*package*/ static final SConcept TernaryOperatorExpression$HC = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink condition$CEb4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition");
   }
 }

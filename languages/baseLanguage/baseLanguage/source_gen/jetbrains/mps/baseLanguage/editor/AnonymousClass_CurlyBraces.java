@@ -8,7 +8,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
@@ -19,6 +18,9 @@ import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AnonymousClass_CurlyBraces {
 
@@ -28,31 +30,31 @@ public class AnonymousClass_CurlyBraces {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_svnmx8.AnonymousClassCreator_f341761c)) {
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.AnonymousClassCreator$N6)) {
           if (DeletionApproverUtil.approve(editorContext, node, "class_body")) {
             return;
           }
-          SNode parent = SNodeOperations.as(SNodeOperations.getParent(node), AUX_svnmx8.AnonymousClassCreator_f341761c);
-          if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")) != null) && ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")), AUX_svnmx8.Classifier_4b7e553, false)).contains(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier")))) {
-            final SNode classCreator = SNodeFactoryOperations.replaceWithNewChild(parent, AUX_svnmx8.ClassCreator_aea83ba8);
-            SLinkOperations.setTarget(classCreator, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")));
-            ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter"))).visitAll(new IVisitor<SNode>() {
+          SNode parent = SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.AnonymousClassCreator$N6);
+          if ((SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i) != null) && ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i), CONCEPTS.Classifier$hJ, false)).contains(SLinkOperations.getTarget(node, LINKS.classifier$1y5e))) {
+            final SNode classCreator = SNodeFactoryOperations.replaceWithNewChild(parent, CONCEPTS.ClassCreator$yU);
+            SLinkOperations.setTarget(classCreator, LINKS.baseMethodDeclaration$$A7i, SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i));
+            ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeParameter$uY4E)).visitAll(new IVisitor<SNode>() {
               public void visit(SNode it) {
-                ListSequence.fromList(SLinkOperations.getChildren(classCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, 0x11a59c8ffe0L, "typeParameter"))).addElement(it);
+                ListSequence.fromList(SLinkOperations.getChildren(classCreator, LINKS.typeParameter$swNi)).addElement(it);
               }
             });
-            ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).visitAll(new IVisitor<SNode>() {
+            ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.actualArgument$$A7L)).visitAll(new IVisitor<SNode>() {
               public void visit(SNode it) {
-                ListSequence.fromList(SLinkOperations.getChildren(classCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).addElement(it);
+                ListSequence.fromList(SLinkOperations.getChildren(classCreator, LINKS.actualArgument$$A7L)).addElement(it);
               }
             });
             SelectionUtil.selectCell(editorContext, classCreator, SelectionManager.LAST_CELL);
           } else {
-            final SNode defaultClassCreator = SNodeFactoryOperations.replaceWithNewChild(parent, AUX_svnmx8.DefaultClassCreator_8d996dac);
-            SLinkOperations.setTarget(defaultClassCreator, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, 0x2724644c0ac833a6L, "classifier"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier")));
-            ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter"))).visitAll(new IVisitor<SNode>() {
+            final SNode defaultClassCreator = SNodeFactoryOperations.replaceWithNewChild(parent, CONCEPTS.DefaultClassCreator$sQ);
+            SLinkOperations.setTarget(defaultClassCreator, LINKS.classifier$bk50, SLinkOperations.getTarget(node, LINKS.classifier$1y5e));
+            ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeParameter$uY4E)).visitAll(new IVisitor<SNode>() {
               public void visit(SNode it) {
-                ListSequence.fromList(SLinkOperations.getChildren(defaultClassCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, 0x2724644c0accfdb3L, "typeParameter"))).addElement(it);
+                ListSequence.fromList(SLinkOperations.getChildren(defaultClassCreator, LINKS.typeParameter$PRff)).addElement(it);
               }
             });
             SelectionUtil.selectCell(editorContext, defaultClassCreator, SelectionManager.LAST_CELL);
@@ -108,10 +110,20 @@ public class AnonymousClass_CurlyBraces {
     }
   }
 
-  private static final class AUX_svnmx8 {
-    /*package*/ static final SConcept AnonymousClassCreator_f341761c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, "jetbrains.mps.baseLanguage.structure.AnonymousClassCreator");
-    /*package*/ static final SConcept ClassCreator_aea83ba8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, "jetbrains.mps.baseLanguage.structure.ClassCreator");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept DefaultClassCreator_8d996dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, "jetbrains.mps.baseLanguage.structure.DefaultClassCreator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnonymousClassCreator$N6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, "jetbrains.mps.baseLanguage.structure.AnonymousClassCreator");
+    /*package*/ static final SConcept ClassCreator$yU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, "jetbrains.mps.baseLanguage.structure.ClassCreator");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept DefaultClassCreator$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, "jetbrains.mps.baseLanguage.structure.DefaultClassCreator");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink typeParameter$uY4E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter");
+    /*package*/ static final SContainmentLink typeParameter$swNi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, 0x11a59c8ffe0L, "typeParameter");
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+    /*package*/ static final SReferenceLink classifier$bk50 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, 0x2724644c0ac833a6L, "classifier");
+    /*package*/ static final SContainmentLink typeParameter$PRff = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, 0x2724644c0accfdb3L, "typeParameter");
   }
 }

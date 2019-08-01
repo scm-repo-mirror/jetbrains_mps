@@ -20,6 +20,8 @@ import jetbrains.mps.lang.modelapi.behavior.ModelPointer__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.console.tool.ConsoleTool;
 import java.awt.event.InputEvent;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ShowGenerationPlan_Action extends BaseAction {
@@ -68,8 +70,8 @@ public class ShowGenerationPlan_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final boolean alternative = ShowGenerationPlan_Action.this.isIgnoreExternalPlan(event, event);
     SNode command = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, "jetbrains.mps.console.ideCommands.structure.ShowGenPlan"));
-    SPropertyOperations.assign(command, MetaAdapterFactory.getProperty(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x2c510b378f8ce5ddL, "ignoreExternalPlan"), alternative);
-    SLinkOperations.setTarget(command, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x70ee8fac615b4f33L, "targetModel"), ModelPointer__BehaviorDescriptor.create_id_GDk1qZ2JP.invoke(SNodeOperations.asSConcept(AUX_owzv57.ModelPointer_a7ab22d2), event.getData(MPSCommonDataKeys.MODEL), event.getData(MPSCommonDataKeys.MODEL)));
+    SPropertyOperations.assign(command, PROPS.ignoreExternalPlan$FyLA, alternative);
+    SLinkOperations.setTarget(command, LINKS.targetModel$v7Da, ModelPointer__BehaviorDescriptor.create_id_GDk1qZ2JP.invoke(SNodeOperations.asSConcept(CONCEPTS.ModelPointer$rg), event.getData(MPSCommonDataKeys.MODEL), event.getData(MPSCommonDataKeys.MODEL)));
     event.getData(MPSCommonDataKeys.MPS_PROJECT).getProject().getComponent(ConsoleTool.class).executeCommand(command);
   }
   /*package*/ boolean isIgnoreExternalPlan(AnActionEvent evt, final AnActionEvent event) {
@@ -79,7 +81,15 @@ public class ShowGenerationPlan_Action extends BaseAction {
     return (evt.getModifiers() & (InputEvent.ALT_DOWN_MASK | InputEvent.ALT_MASK)) != 0;
   }
 
-  private static final class AUX_owzv57 {
-    /*package*/ static final SConcept ModelPointer_a7ab22d2 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
+  private static final class PROPS {
+    /*package*/ static final SProperty ignoreExternalPlan$FyLA = MetaAdapterFactory.getProperty(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x2c510b378f8ce5ddL, "ignoreExternalPlan");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink targetModel$v7Da = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x61f2dd6de47f85e4L, 0x70ee8fac615b4f33L, "targetModel");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModelPointer$rg = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x502fe7548a0e360L, "jetbrains.mps.lang.modelapi.structure.ModelPointer");
   }
 }

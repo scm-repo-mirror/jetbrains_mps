@@ -21,11 +21,11 @@ public class typeof_ExtensionThis_InferenceRule extends AbstractInferenceRule_Ru
     {
       SNode _nodeToCheck_1029348928467 = extensionThis;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:d9557470-9267-4b7b-ab45-4dc4cc5d697c(jetbrains.mps.baseLanguage.extensionMethods.typesystem)", "3316739663069207740", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d9557470-9267-4b7b-ab45-4dc4cc5d697c(jetbrains.mps.baseLanguage.extensionMethods.typesystem)", "3316739663069207737", true), (SNode) ExtensionMethodDeclaration__BehaviorDescriptor.getThisType_id6XkcKt_eUWM.invoke(SNodeOperations.getNodeAncestor(extensionThis, AUX_gg5ete.ExtensionMethodDeclaration_9924fbf7, false, false)), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:d9557470-9267-4b7b-ab45-4dc4cc5d697c(jetbrains.mps.baseLanguage.extensionMethods.typesystem)", "3316739663069207737", true), (SNode) ExtensionMethodDeclaration__BehaviorDescriptor.getThisType_id6XkcKt_eUWM.invoke(SNodeOperations.getNodeAncestor(extensionThis, CONCEPTS.ExtensionMethodDeclaration$9b, false, false)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_gg5ete.ThisExtensionExpression_ac8e7f76;
+    return CONCEPTS.ThisExtensionExpression$UG;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,8 +34,8 @@ public class typeof_ExtensionThis_InferenceRule extends AbstractInferenceRule_Ru
     return false;
   }
 
-  private static final class AUX_gg5ete {
-    /*package*/ static final SConcept ExtensionMethodDeclaration_9924fbf7 = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ExtensionMethodDeclaration");
-    /*package*/ static final SConcept ThisExtensionExpression_ac8e7f76 = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x2e076d2695911333L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ThisExtensionExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExtensionMethodDeclaration$9b = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ExtensionMethodDeclaration");
+    /*package*/ static final SConcept ThisExtensionExpression$UG = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x2e076d2695911333L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ThisExtensionExpression");
   }
 }

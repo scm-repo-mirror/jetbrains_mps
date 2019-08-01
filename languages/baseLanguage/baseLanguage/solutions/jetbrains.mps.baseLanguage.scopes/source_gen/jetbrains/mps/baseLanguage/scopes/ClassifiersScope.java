@@ -61,7 +61,7 @@ public class ClassifiersScope extends FilteringScope {
       // However, with MPS, you never know. 
       return null;
     }
-    SNode contextClassifier = SNodeOperations.getNodeAncestor(contextNode, AUX_npo0wh.Classifier_4b7e553, true, false);
+    SNode contextClassifier = SNodeOperations.getNodeAncestor(contextNode, CONCEPTS.Classifier$hJ, true, false);
 
     // scopes were never advertised as capable of/demanding to multi-thread, hence regular map. 
     // Though we may cache resolved references at ReferenceScopeHelper level, it doesn't know proper 'caching scope', like use of ancestor Classifier here. 
@@ -110,7 +110,7 @@ public class ClassifiersScope extends FilteringScope {
 
   @Override
   public boolean contains(SNode node) {
-    if (!(SNodeOperations.isInstanceOf(node, AUX_npo0wh.Classifier_4b7e553))) {
+    if (!(SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$hJ))) {
       return false;
     }
     if (super.contains(node)) {
@@ -118,15 +118,15 @@ public class ClassifiersScope extends FilteringScope {
     }
 
     SNode root = Sequence.fromIterable(ClassifierResolveUtils.getPathToRoot(myClassifier)).last();
-    if ((root != null) && (AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(AUX_npo0wh.JavaImports_af71158f)) != null)) {
-      return ClassifierResolveUtils.isImportedBy(SNodeOperations.cast(node, AUX_npo0wh.Classifier_4b7e553), AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(AUX_npo0wh.JavaImports_af71158f)));
+    if ((root != null) && (AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN)) != null)) {
+      return ClassifierResolveUtils.isImportedBy(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN)));
     }
 
     return false;
   }
 
-  private static final class AUX_npo0wh {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept JavaImports_af71158f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept JavaImports$IN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
   }
 }

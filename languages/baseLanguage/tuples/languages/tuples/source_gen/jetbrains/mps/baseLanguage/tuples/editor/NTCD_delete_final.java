@@ -7,11 +7,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NTCD_delete_final {
 
@@ -24,7 +25,7 @@ public class NTCD_delete_final {
         if (DeletionApproverUtil.approve(editorContext, node, "finalKeyword")) {
           return;
         }
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12095b3e54fL, 0x120cda6c3beL, "final"), false);
+        SPropertyOperations.assign(node, PROPS.final$pCJq, false);
       }
 
     };
@@ -63,5 +64,9 @@ public class NTCD_delete_final {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty final$pCJq = MetaAdapterFactory.getProperty(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12095b3e54fL, 0x120cda6c3beL, "final");
   }
 }

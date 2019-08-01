@@ -6,17 +6,22 @@ import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ScopeParameterLiteral_factories {
   public static class NodeFactory_2362304834939062502 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x20c897bb39bb07a9L, 0x20c897bb39bb07aaL, "scope"), AUX_dmw8bl.GenericNewExpression_dee38023);
+      SNodeFactoryOperations.setNewChild(newNode, LINKS.scope$M3Kw, CONCEPTS.GenericNewExpression$ev);
     }
   }
 
-  private static final class AUX_dmw8bl {
-    /*package*/ static final SConcept GenericNewExpression_dee38023 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink scope$M3Kw = MetaAdapterFactory.getContainmentLink(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x20c897bb39bb07a9L, 0x20c897bb39bb07aaL, "scope");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericNewExpression$ev = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
   }
 }

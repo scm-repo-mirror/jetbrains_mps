@@ -16,7 +16,6 @@ import jetbrains.mps.nodeEditor.cells.jetpad.DiagramCell;
 import jetbrains.mps.nodeEditor.cellMenu.CompositeSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.BasicCellContext;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteInfoPartExt;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.jetpad.mapper.Mapper;
@@ -39,6 +38,9 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.jetpad.projectional.diagram.view.ConnectionRoutingView;
 import jetbrains.jetpad.projectional.diagram.layout.OrthogonalRouter;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /*package*/ class ComponentSet_diagram_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -88,22 +90,22 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private class DiagramCellImpl_amytw9_a0a extends DiagramCell {
     private DiagramCellImpl_amytw9_a0a(EditorContext editorContext, SNode node) {
       super(editorContext, node);
-      setSubstituteInfo(new CompositeSubstituteInfo(editorContext, new BasicCellContext(node), new SubstituteInfoPartExt[]{createNewDiagramNodeActions(getSNode(), AUX_hg8ied.Component_5ebb22db, MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, 0x565e197638146fa8L, "component"), new _FunctionTypes._void_P3_E0<SNode, Integer, Integer>() {
+      setSubstituteInfo(new CompositeSubstituteInfo(editorContext, new BasicCellContext(node), new SubstituteInfoPartExt[]{createNewDiagramNodeActions(getSNode(), CONCEPTS.Component$vB, LINKS.component$CfKz, new _FunctionTypes._void_P3_E0<SNode, Integer, Integer>() {
         public void invoke(SNode node, Integer x, Integer y) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "New component");
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381bdb4dL, "x"), x);
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381bdb4fL, "y"), y);
+          SPropertyOperations.assign(node, PROPS.name$tAp1, "New component");
+          SPropertyOperations.assign(node, PROPS.x$FXkA, x);
+          SPropertyOperations.assign(node, PROPS.y$FXl$, y);
         }
       })}));
       synchronize();
     }
 
     protected SubstituteInfoPartExt[] createPaletteBlockSubstituteInfoPartExts() {
-      return new SubstituteInfoPartExt[]{createNewDiagramNodeActions(getSNode(), AUX_hg8ied.Component_5ebb22db, MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, 0x565e197638146fa8L, "component"), new _FunctionTypes._void_P3_E0<SNode, Integer, Integer>() {
+      return new SubstituteInfoPartExt[]{createNewDiagramNodeActions(getSNode(), CONCEPTS.Component$vB, LINKS.component$CfKz, new _FunctionTypes._void_P3_E0<SNode, Integer, Integer>() {
         public void invoke(SNode node, Integer x, Integer y) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "New component");
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381bdb4dL, "x"), x);
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381bdb4fL, "y"), y);
+          SPropertyOperations.assign(node, PROPS.name$tAp1, "New component");
+          SPropertyOperations.assign(node, PROPS.x$FXkA, x);
+          SPropertyOperations.assign(node, PROPS.y$FXl$, y);
         }
       })};
     }
@@ -173,10 +175,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       ListIterator<SNode> blocksIterator = myBlocks.listIterator();
       Set<SNode> existingConnectors = new HashSet<SNode>(myConnectors);
       ListIterator<SNode> connectorsIterator = myConnectors.listIterator();
-      syncDiagramElements(SLinkOperations.getChildren(getSNode(), MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, 0x565e197638146fa8L, "component")), blocksIterator, existingBlocks, connectorsIterator, existingConnectors);
-      syncDiagramElements(ListSequence.fromList(SLinkOperations.getChildren(getSNode(), MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, 0x565e197638146fa8L, "component"))).translate(new ITranslator2<SNode, SNode>() {
+      syncDiagramElements(SLinkOperations.getChildren(getSNode(), LINKS.component$CfKz), blocksIterator, existingBlocks, connectorsIterator, existingConnectors);
+      syncDiagramElements(ListSequence.fromList(SLinkOperations.getChildren(getSNode(), LINKS.component$CfKz)).translate(new ITranslator2<SNode, SNode>() {
         public Iterable<SNode> translate(SNode it) {
-          return SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e19763814f147L, "dep"));
+          return SLinkOperations.getChildren(it, LINKS.dep$oYBD);
         }
       }), blocksIterator, existingBlocks, connectorsIterator, existingConnectors);
       purgeTailNodes(blocksIterator);
@@ -188,7 +190,18 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_hg8ied {
-    /*package*/ static final SConcept Component_5ebb22db = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Component$vB = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink component$CfKz = MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814242bL, 0x565e197638146fa8L, "component");
+    /*package*/ static final SContainmentLink dep$oYBD = MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e19763814f147L, "dep");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty x$FXkA = MetaAdapterFactory.getProperty(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381bdb4dL, "x");
+    /*package*/ static final SProperty y$FXl$ = MetaAdapterFactory.getProperty(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381bdb4fL, "y");
   }
 }

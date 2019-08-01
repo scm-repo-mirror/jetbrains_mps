@@ -12,13 +12,13 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.refactoring.participant.RefactoringSession;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class UpdateConceptReferencesParticipant extends UpdateReferencesParticipantBase.UpdateReferencesParticipant implements MoveNodeRefactoringParticipant<UpdateReferencesParticipantBase.NodeData<Void>, UpdateReferencesParticipantBase.NodeData<Void>>, RefactoringParticipant.PersistentRefactoringParticipant<UpdateReferencesParticipantBase.NodeData<Void>, UpdateReferencesParticipantBase.NodeData<Void>, SNode, SNode> {
@@ -38,7 +38,7 @@ public class UpdateConceptReferencesParticipant extends UpdateReferencesParticip
 
   @Override
   protected boolean shouldUpdateReference(List<RefactoringParticipant.Option> selectedOptions, SRepository repository, SNode containingNode, SReferenceLink role, SNode movingNode, RefactoringSession refactoringSession) {
-    return Objects.equals(role, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends")) || Objects.equals(role, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc"));
+    return Objects.equals(role, LINKS.extends$LQV3) || Objects.equals(role, LINKS.intfc$fO5);
   }
 
   @Override
@@ -66,7 +66,7 @@ public class UpdateConceptReferencesParticipant extends UpdateReferencesParticip
     final UpdateReferencesParticipantBase.MyMoveNodeRefactoringDataCollector dataCollector = new UpdateReferencesParticipantBase.MyMoveNodeRefactoringDataCollector();
     return new MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<UpdateReferencesParticipantBase.NodeData<Void>, UpdateReferencesParticipantBase.NodeData<Void>>() {
       public UpdateReferencesParticipantBase.NodeData<Void> beforeMove(SNode nodeToMove) {
-        if (!(SNodeOperations.isInstanceOf(nodeToMove, AUX_m5uax2.AbstractConceptDeclaration_ec74828f)) || !(check_m5uax2_a0a0a0a0a0b0k(nodeToMove.getModel()) instanceof Language)) {
+        if (!(SNodeOperations.isInstanceOf(nodeToMove, CONCEPTS.AbstractConceptDeclaration$UN)) || !(check_m5uax2_a0a0a0a0a0b0k(nodeToMove.getModel()) instanceof Language)) {
           return null;
         }
         return new NodeData<Void>(dataCollector.beforeMove(nodeToMove), ((Void) null));
@@ -102,7 +102,12 @@ public class UpdateConceptReferencesParticipant extends UpdateReferencesParticip
     return null;
   }
 
-  private static final class AUX_m5uax2 {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
+    /*package*/ static final SReferenceLink intfc$fO5 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

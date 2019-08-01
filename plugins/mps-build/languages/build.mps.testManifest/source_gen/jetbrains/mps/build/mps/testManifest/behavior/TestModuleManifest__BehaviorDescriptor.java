@@ -4,6 +4,7 @@ package jetbrains.mps.build.mps.testManifest.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
@@ -21,7 +22,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.smodel.adapter.ids.SLanguageId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -32,10 +32,11 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class TestModuleManifest__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_42kcjb.TestModuleManifest_5074ebe3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9f846aef4e4a4a84L, 0x828e7e83fe2697f2L, 0x2dc6844997876882L, "jetbrains.mps.build.mps.testManifest.structure.TestModuleManifest");
 
   public static final SMethod<List<Tuples._3<String, String, String>>> languagesToInclude_id2R6x4AnylYu = new SMethodBuilder<List<Tuples._3<String, String, String>>>(new SJavaCompoundTypeImpl((Class<List<Tuples._3<String, String, String>>>) ((Class) Object.class))).name("languagesToInclude").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2R6x4AnylYu").build(SMethodBuilder.createJavaParameter(Project.class, ""));
   public static final SMethod<List<Tuples._3<String, String, String>>> testModulesToInclude_id7vU6U5026IG = new SMethodBuilder<List<Tuples._3<String, String, String>>>(new SJavaCompoundTypeImpl((Class<List<Tuples._3<String, String, String>>>) ((Class) Object.class))).name("testModulesToInclude").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7vU6U5026IG").build(SMethodBuilder.createJavaParameter(Project.class, ""));
@@ -49,8 +50,8 @@ public final class TestModuleManifest__BehaviorDescriptor extends BaseBHDescript
     SLanguageHierarchy hierarchy = new SLanguageHierarchy(SModelOperations.getAllLanguageImports(SNodeOperations.getModel(__thisNode__)));
 
     List<Tuples._3<String, String, String>> result = ListSequence.fromList(new ArrayList<Tuples._3<String, String, String>>());
-    for (SNode ref : SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x9f846aef4e4a4a84L, 0x828e7e83fe2697f2L, 0x2dc6844997876882L, 0x7d031e6cb9be480L, "language"))) {
-      SLanguage sLanguage = MetaAdapterFactory.getLanguage(SLanguageId.deserialize(SPropertyOperations.getString(ref, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af3L, "moduleId"))), SPropertyOperations.getString(ref, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af2L, "name")));
+    for (SNode ref : SLinkOperations.getChildren(__thisNode__, LINKS.language$c5DN)) {
+      SLanguage sLanguage = MetaAdapterFactory.getLanguage(SLanguageId.deserialize(SPropertyOperations.getString(ref, PROPS.moduleId$IIeZ)), SPropertyOperations.getString(ref, PROPS.name$IIew));
 
       SModule sModule = sLanguage.getSourceModule();
       if (sModule != null && project.isProjectModule(sModule) && sModule instanceof AbstractModule) {
@@ -121,7 +122,12 @@ public final class TestModuleManifest__BehaviorDescriptor extends BaseBHDescript
     return CONCEPT;
   }
 
-  private static final class AUX_42kcjb {
-    /*package*/ static final SConcept TestModuleManifest_5074ebe3 = MetaAdapterFactory.getConcept(0x9f846aef4e4a4a84L, 0x828e7e83fe2697f2L, 0x2dc6844997876882L, "jetbrains.mps.build.mps.testManifest.structure.TestModuleManifest");
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleId$IIeZ = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af3L, "moduleId");
+    /*package*/ static final SProperty name$IIew = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af2L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink language$c5DN = MetaAdapterFactory.getContainmentLink(0x9f846aef4e4a4a84L, 0x828e7e83fe2697f2L, 0x2dc6844997876882L, 0x7d031e6cb9be480L, "language");
   }
 }

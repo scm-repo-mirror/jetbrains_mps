@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -39,13 +38,15 @@ import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BuildMps_ModuleSource_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_9gk0sa_a(), AUX_9gk0sa.BuildMps_ModuleJavaSource_90e12874));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_9gk0sa_a(), CONCEPTS.BuildMps_ModuleJavaSource$lI));
     result.add(new SMP_Subconcepts_9gk0sa_b());
     return result;
   }
@@ -86,14 +87,14 @@ public class BuildMps_ModuleSource_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_9gk0sa.BuildMps_ModuleJavaSource_90e12874;
+          return CONCEPTS.BuildMps_ModuleJavaSource$lI;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
-          SNode res = SModelOperations.createNewNode(_context.getModel(), null, AUX_9gk0sa.BuildMps_ModuleJavaSource_90e12874);
-          SLinkOperations.setTarget(res, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334bdeaL, 0x48e82d508334bdecL, "folder"), nodeToWrap);
+          SNode res = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.BuildMps_ModuleJavaSource$lI);
+          SLinkOperations.setTarget(res, LINKS.folder$99Dv, nodeToWrap);
           return res;
         }
 
@@ -120,12 +121,12 @@ public class BuildMps_ModuleSource_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_9gk0sa.BuildInputSingleFolder_eab69018;
+      return CONCEPTS.BuildInputSingleFolder$9a;
     }
   }
   public class SMP_Subconcepts_9gk0sa_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_9gk0sa.BuildMps_ModuleSource_90a851b8);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildMps_ModuleSource$iE);
     }
     @NotNull
     @Override
@@ -145,9 +146,13 @@ public class BuildMps_ModuleSource_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_9gk0sa {
-    /*package*/ static final SConcept BuildMps_ModuleJavaSource_90e12874 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334bdeaL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleJavaSource");
-    /*package*/ static final SConcept BuildInputSingleFolder_eab69018 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
-    /*package*/ static final SConcept BuildMps_ModuleSource_90a851b8 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d5083341d2fL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSource");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_ModuleJavaSource$lI = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334bdeaL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleJavaSource");
+    /*package*/ static final SConcept BuildInputSingleFolder$9a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
+    /*package*/ static final SConcept BuildMps_ModuleSource$iE = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d5083341d2fL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSource");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink folder$99Dv = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334bdeaL, 0x48e82d508334bdecL, "folder");
   }
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,17 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Developer_Constraints extends BaseConstraintsDescriptor {
   public Developer_Constraints() {
-    super(AUX_f3ukjk.Developer_db2e3378);
+    super(CONCEPTS.Developer$FE);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132953L, "bestFriend"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.bestFriend$Lwbt, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -59,12 +60,12 @@ public class Developer_Constraints extends BaseConstraintsDescriptor {
                 List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
 
                 SNode developer = _context.getReferenceNode();
-                if (SNodeOperations.isInstanceOf(developer, AUX_f3ukjk.Developer_db2e3378)) {
-                  SNode devnode = SNodeOperations.cast(developer, AUX_f3ukjk.Developer_db2e3378);
+                if (SNodeOperations.isInstanceOf(developer, CONCEPTS.Developer$FE)) {
+                  SNode devnode = SNodeOperations.cast(developer, CONCEPTS.Developer$FE);
                   SNode team = SNodeOperations.getParent(devnode);
-                  if (SNodeOperations.isInstanceOf(team, AUX_f3ukjk.Team_db1ec9fd)) {
-                    SNode teamNode = SNodeOperations.cast(team, AUX_f3ukjk.Team_db1ec9fd);
-                    ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(teamNode, MetaAdapterFactory.getContainmentLink(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf12f792L, 0xd0768d7cf132937L, "developer"))));
+                  if (SNodeOperations.isInstanceOf(team, CONCEPTS.Team$k5)) {
+                    SNode teamNode = SNodeOperations.cast(team, CONCEPTS.Team$k5);
+                    ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(teamNode, LINKS.developer$HD3C)));
                   } else {
                     ListSequence.fromList(result).addElement(devnode);
                   }
@@ -110,8 +111,13 @@ public class Developer_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_f3ukjk_a0a0a0a0a1a0a0a0c = new SNodePointer("r:4903a1be-5d28-4ffe-9f02-a773c7ca3a1a(testDefaultEditor.constraints)", "6836281137582852533");
 
-  private static final class AUX_f3ukjk {
-    /*package*/ static final SConcept Developer_db2e3378 = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, "testDefaultEditor.structure.Developer");
-    /*package*/ static final SConcept Team_db1ec9fd = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf12f792L, "testDefaultEditor.structure.Team");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Developer$FE = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, "testDefaultEditor.structure.Developer");
+    /*package*/ static final SConcept Team$k5 = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf12f792L, "testDefaultEditor.structure.Team");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink bestFriend$Lwbt = MetaAdapterFactory.getReferenceLink(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132953L, "bestFriend");
+    /*package*/ static final SContainmentLink developer$HD3C = MetaAdapterFactory.getContainmentLink(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf12f792L, 0xd0768d7cf132937L, "developer");
   }
 }

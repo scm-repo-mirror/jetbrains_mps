@@ -22,7 +22,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 public class SpecifyUtil {
   public static SNode getOperationsContainer(SNode node) {
-    return AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_7uztkh.NodeOperationsContainer_e9631e6e));
+    return AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO));
   }
 
   private static WeakReference<TestsErrorsChecker> ourLastCheck;
@@ -64,7 +64,7 @@ public class SpecifyUtil {
 
   public static void attachNewContainer(SNode node) {
     SNode container = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer"));
-    AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_7uztkh.NodeOperationsContainer_e9631e6e), container);
+    AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO), container);
   }
 
   private static void addModelImports(SNode container, SNode ruleNode) {
@@ -72,7 +72,7 @@ public class SpecifyUtil {
     new ModelImports(SNodeOperations.getModel(container)).addModelImport(ruleModelRef);
   }
 
-  private static final class AUX_7uztkh {
-    /*package*/ static final SConcept NodeOperationsContainer_e9631e6e = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeOperationsContainer$UO = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
   }
 }

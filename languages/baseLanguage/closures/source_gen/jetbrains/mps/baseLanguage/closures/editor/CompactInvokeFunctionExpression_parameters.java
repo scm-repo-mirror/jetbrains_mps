@@ -9,16 +9,17 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.style.StyledTextPrinter;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class CompactInvokeFunctionExpression_parameters implements ParametersInformation<SNode> {
   public CompactInvokeFunctionExpression_parameters() {
   }
   public Iterable<SNode> getMethods(SNode node, EditorContext editorContext) {
-    return Sequence.<SNode>singleton(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x11fb8425aa8L, 0x11fb842c1adL, "function"))), AUX_ek8wj3.FunctionType_27eadd12));
+    return Sequence.<SNode>singleton(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(node, LINKS.function$vcpr)), CONCEPTS.FunctionType$ig));
   }
   public void getStyledMethodPresentation(SNode node, EditorContext editorContext, SNode parameterObject, StyledTextPrinter styledText) {
     styledText.append(BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(parameterObject));
@@ -27,7 +28,11 @@ public class CompactInvokeFunctionExpression_parameters implements ParametersInf
     return true;
   }
 
-  private static final class AUX_ek8wj3 {
-    /*package*/ static final SConcept FunctionType_27eadd12 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, "jetbrains.mps.baseLanguage.closures.structure.FunctionType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink function$vcpr = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x11fb8425aa8L, 0x11fb842c1adL, "function");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FunctionType$ig = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, "jetbrains.mps.baseLanguage.closures.structure.FunctionType");
   }
 }

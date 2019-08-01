@@ -11,22 +11,25 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c8959043a(jetbrains.mps.samples.formulaLanguage.actions)/1162840269882">
     <file name="Formula_node_factories.java">
-      <node id="1162840491874" at="16,84,17,391" concept="0" />
-      <node id="1162840526375" at="17,391,18,393" concept="0" />
-      <node id="1162840269882" at="24,0,25,0" concept="3" trace="Operation_1224df63" />
-      <node id="1162840458040" at="15,91,19,7" concept="1" />
-      <node id="1162840292118" at="15,0,21,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="1162840458042" at="16,84,18,393" />
-      <scope id="1162840292118" at="15,91,19,7" />
-      <scope id="1162840292118" at="15,0,21,0">
+      <node id="1162840491874" at="17,76,18,175" concept="0" />
+      <node id="1162840526375" at="18,175,19,177" concept="0" />
+      <node id="1162840269882" at="25,0,26,0" concept="3" trace="Operation$Lv" />
+      <node id="1162840269882" at="29,0,30,0" concept="3" trace="leftOperand$18cm" />
+      <node id="1162840269882" at="30,0,31,0" concept="3" trace="rightOperand$mAgL" />
+      <node id="1162840458040" at="16,91,20,7" concept="1" />
+      <node id="1162840292118" at="16,0,22,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="1162840458042" at="17,76,19,177" />
+      <scope id="1162840292118" at="16,91,20,7" />
+      <scope id="1162840292118" at="16,0,22,0">
         <var name="enclosingNode" id="1162840292118" />
         <var name="model" id="1162840292118" />
         <var name="newNode" id="1162840292118" />
         <var name="sampleNode" id="1162840292118" />
       </scope>
-      <unit id="1162840269882" at="23,0,26,0" name="jetbrains.mps.samples.formulaLanguage.actions.Formula_node_factories$AUX_7epy1u" />
-      <unit id="1162840292118" at="14,0,22,0" name="jetbrains.mps.samples.formulaLanguage.actions.Formula_node_factories$NodeFactory_1162840292118" />
-      <unit id="1162840269882" at="13,0,27,0" name="jetbrains.mps.samples.formulaLanguage.actions.Formula_node_factories" />
+      <unit id="1162840269882" at="24,0,27,0" name="jetbrains.mps.samples.formulaLanguage.actions.Formula_node_factories$CONCEPTS" />
+      <unit id="1162840269882" at="28,0,32,0" name="jetbrains.mps.samples.formulaLanguage.actions.Formula_node_factories$LINKS" />
+      <unit id="1162840292118" at="15,0,23,0" name="jetbrains.mps.samples.formulaLanguage.actions.Formula_node_factories$NodeFactory_1162840292118" />
+      <unit id="1162840269882" at="14,0,33,0" name="jetbrains.mps.samples.formulaLanguage.actions.Formula_node_factories" />
     </file>
   </root>
 </debug-info>

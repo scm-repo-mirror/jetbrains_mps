@@ -31,7 +31,7 @@ public class typeof_RemoveFirstElementOperation_InferenceRule extends AbstractIn
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tz82f3.RemoveFirstElementOperation_4cae1cb8;
+    return CONCEPTS.RemoveFirstElementOperation$AE;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_RemoveFirstElementOperation_InferenceRule extends AbstractIn
     return false;
   }
 
-  private static final class AUX_tz82f3 {
-    /*package*/ static final SConcept RemoveFirstElementOperation_4cae1cb8 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11db0742a49L, "jetbrains.mps.baseLanguage.collections.structure.RemoveFirstElementOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RemoveFirstElementOperation$AE = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11db0742a49L, "jetbrains.mps.baseLanguage.collections.structure.RemoveFirstElementOperation");
   }
 }

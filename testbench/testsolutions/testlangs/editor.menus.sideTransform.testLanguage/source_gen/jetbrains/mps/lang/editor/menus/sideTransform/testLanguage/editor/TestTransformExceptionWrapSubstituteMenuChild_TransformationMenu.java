@@ -93,7 +93,7 @@ public class TestTransformExceptionWrapSubstituteMenuChild_TransformationMenu ex
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_u021up.TestSideTransform_SimpleNode_15783b91;
+      return CONCEPTS.TestSideTransform_SimpleNode$nL;
     }
 
     @Override
@@ -186,7 +186,7 @@ public class TestTransformExceptionWrapSubstituteMenuChild_TransformationMenu ex
 
   }
 
-  private static final class AUX_u021up {
-    /*package*/ static final SConcept TestSideTransform_SimpleNode_15783b91 = MetaAdapterFactory.getConcept(0x14a4b50159f64c39L, 0xb5de4a5d59477831L, 0x56074a6f055ddb27L, "jetbrains.mps.lang.editor.menus.sideTransform.testLanguage.structure.TestSideTransform_SimpleNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSideTransform_SimpleNode$nL = MetaAdapterFactory.getConcept(0x14a4b50159f64c39L, 0xb5de4a5d59477831L, 0x56074a6f055ddb27L, "jetbrains.mps.lang.editor.menus.sideTransform.testLanguage.structure.TestSideTransform_SimpleNode");
   }
 }

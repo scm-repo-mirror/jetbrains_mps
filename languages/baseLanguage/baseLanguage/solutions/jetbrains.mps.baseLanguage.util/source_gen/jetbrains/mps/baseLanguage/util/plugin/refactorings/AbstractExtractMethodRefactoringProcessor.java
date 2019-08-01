@@ -13,6 +13,7 @@ import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AbstractExtractMethodRefactoringProcessor implements IExtractMethodRefactoringProcessor {
   protected SNode myNode;
@@ -38,10 +39,10 @@ public class AbstractExtractMethodRefactoringProcessor implements IExtractMethod
   public SNode getContainerMethod() {
     SNode node = ListSequence.fromList(this.myNodesToRefactor).first();
     while (node != null) {
-      if (SNodeOperations.isInstanceOf(node, AUX_8jxmcp.BaseMethodDeclaration_9dbf9acb)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BaseMethodDeclaration$RR)) {
         return node;
       }
-      if (SNodeOperations.isInstanceOf(node, AUX_8jxmcp.ConceptFunction_e08795a5)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConceptFunction$Tt)) {
         return node;
       }
       node = SNodeOperations.getParent(node);
@@ -51,11 +52,11 @@ public class AbstractExtractMethodRefactoringProcessor implements IExtractMethod
   @Override
   public SNode getContainerReturnType() {
     SNode containerMethod = this.getContainerMethod();
-    if (SNodeOperations.isInstanceOf(containerMethod, AUX_8jxmcp.BaseMethodDeclaration_9dbf9acb)) {
-      return SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(containerMethod, AUX_8jxmcp.BaseMethodDeclaration_9dbf9acb), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType")));
+    if (SNodeOperations.isInstanceOf(containerMethod, CONCEPTS.BaseMethodDeclaration$RR)) {
+      return SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(containerMethod, CONCEPTS.BaseMethodDeclaration$RR), LINKS.returnType$WIkw));
     }
-    if (SNodeOperations.isInstanceOf(containerMethod, AUX_8jxmcp.ConceptFunction_e08795a5)) {
-      return TypecheckingFacade.getFromContext().coerceType(((SNode) BHReflection.invoke0(SNodeOperations.cast(containerMethod, AUX_8jxmcp.ConceptFunction_e08795a5), AUX_8jxmcp.ConceptFunction_e08795a5, SMethodTrimmedId.create("getExpectedReturnType", null, "hEwIGRD"))), AUX_8jxmcp.Type_4199e276);
+    if (SNodeOperations.isInstanceOf(containerMethod, CONCEPTS.ConceptFunction$Tt)) {
+      return TypecheckingFacade.getFromContext().coerceType(((SNode) BHReflection.invoke0(SNodeOperations.cast(containerMethod, CONCEPTS.ConceptFunction$Tt), CONCEPTS.ConceptFunction$Tt, SMethodTrimmedId.create("getExpectedReturnType", null, "hEwIGRD"))), CONCEPTS.Type$IG);
     }
     return null;
   }
@@ -66,9 +67,13 @@ public class AbstractExtractMethodRefactoringProcessor implements IExtractMethod
     MoveRefactoringUtils.addNodeAtLink(container, method);
   }
 
-  private static final class AUX_8jxmcp {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept ConceptFunction_e08795a5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept ConceptFunction$Tt = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink returnType$WIkw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
   }
 }

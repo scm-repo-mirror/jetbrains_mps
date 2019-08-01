@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class InequationReplacementRule_Constraints extends BaseConstraintsDescriptor {
   public InequationReplacementRule_Constraints() {
-    super(AUX_2dq1sq.InequationReplacementRule_536e0cf5);
+    super(CONCEPTS.InequationReplacementRule$4d);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class InequationReplacementRule_Constraints extends BaseConstraintsDescri
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)", "1227088585370");
 
-  private static final class AUX_2dq1sq {
-    /*package*/ static final SConcept InequationReplacementRule_536e0cf5 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InequationReplacementRule$4d = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
   }
 }

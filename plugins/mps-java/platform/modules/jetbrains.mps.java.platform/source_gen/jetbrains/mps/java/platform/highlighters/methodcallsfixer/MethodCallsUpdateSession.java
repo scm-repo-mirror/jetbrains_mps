@@ -8,7 +8,6 @@ import java.util.HashMap;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
@@ -19,8 +18,11 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * Maintains information for incremental updates.
@@ -34,10 +36,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
   }
 
   /*package*/ void checkMethodCall(@NotNull SNode methodCallNode) {
-    SNode baseMethodDeclaration = SLinkOperations.getTarget(methodCallNode, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+    SNode baseMethodDeclaration = SLinkOperations.getTarget(methodCallNode, LINKS.baseMethodDeclaration$$A7i);
     String methodName = getMethodName(methodCallNode);
 
-    Tuples._2<SNode, Boolean> resolveResult = ((Tuples._2<SNode, Boolean>) BHReflection.invoke0(methodCallNode, AUX_qzn9sc.IMethodCall_ee2c776b, SMethodTrimmedId.create("resolveMethod", AUX_qzn9sc.IMethodCall_ee2c776b, "28$D10lLyGj")));
+    Tuples._2<SNode, Boolean> resolveResult = ((Tuples._2<SNode, Boolean>) BHReflection.invoke0(methodCallNode, CONCEPTS.IMethodCall$ln, SMethodTrimmedId.create("resolveMethod", CONCEPTS.IMethodCall$ln, "28$D10lLyGj")));
     SNode newTarget = resolveResult._0();
     boolean good = (boolean) resolveResult._1();
 
@@ -61,15 +63,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     checkMethodCall(methodCall);
   }
   /*package*/ void nodeAdded(SNode child) {
-    for (SNode methodCall : SNodeOperations.getNodeDescendants(child, AUX_qzn9sc.IMethodCall_ee2c776b, true, new SAbstractConcept[]{})) {
+    for (SNode methodCall : SNodeOperations.getNodeDescendants(child, CONCEPTS.IMethodCall$ln, true, new SAbstractConcept[]{})) {
       checkMethodCall(methodCall);
     }
     SNode parent = SNodeOperations.getParent(child);
     if (myCache.wasChecked(parent)) {
-      SNode p = SNodeOperations.cast(parent, AUX_qzn9sc.IMethodCall_ee2c776b);
+      SNode p = SNodeOperations.cast(parent, CONCEPTS.IMethodCall$ln);
       checkMethodCall(p);
     }
-    SNode formalParam = SNodeOperations.getNodeAncestor(child, AUX_qzn9sc.ParameterDeclaration_24d60da8, true, false);
+    SNode formalParam = SNodeOperations.getNodeAncestor(child, CONCEPTS.ParameterDeclaration$qU, true, false);
     if ((SNodeOperations.getParent(formalParam) != null)) {
       methodDeclarationSignatureChanged(SNodeOperations.getParent(formalParam));
     }
@@ -77,13 +79,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   /*package*/ void nodeRemoved(SNode child, SNode formerParent, SModel m) {
     if (myCache.wasChecked(new SNodePointer(SModelOperations.getPointer(m), formerParent.getNodeId()))) {
-      SNode methodCallNode = SNodeOperations.cast(formerParent, AUX_qzn9sc.IMethodCall_ee2c776b);
+      SNode methodCallNode = SNodeOperations.cast(formerParent, CONCEPTS.IMethodCall$ln);
       checkMethodCall(methodCallNode);
     }
-    if (SNodeOperations.isInstanceOf(child, AUX_qzn9sc.ParameterDeclaration_24d60da8)) {
+    if (SNodeOperations.isInstanceOf(child, CONCEPTS.ParameterDeclaration$qU)) {
       methodDeclarationSignatureChanged(formerParent);
     } else {
-      SNode formalParam = SNodeOperations.getNodeAncestor(formerParent, AUX_qzn9sc.ParameterDeclaration_24d60da8, true, false);
+      SNode formalParam = SNodeOperations.getNodeAncestor(formerParent, CONCEPTS.ParameterDeclaration$qU, true, false);
       if ((SNodeOperations.getParent(formalParam) != null)) {
         methodDeclarationSignatureChanged(SNodeOperations.getParent(formalParam));
       }
@@ -97,15 +99,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
   /*package*/ String getMethodName(SNode methodCall) {
-    SNode baseMethodDeclaration = SLinkOperations.getTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+    SNode baseMethodDeclaration = SLinkOperations.getTarget(methodCall, LINKS.baseMethodDeclaration$$A7i);
     if (baseMethodDeclaration == null) {
-      if (SLinkOperations.getTarget(SNodeOperations.as(methodCall, AUX_qzn9sc.AnonymousClass_e4a73f97), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier")) != null) {
-        return SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.as(methodCall, AUX_qzn9sc.AnonymousClass_e4a73f97), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      if (SLinkOperations.getTarget(SNodeOperations.as(methodCall, CONCEPTS.AnonymousClass$aF), LINKS.classifier$1y5e) != null) {
+        return SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.as(methodCall, CONCEPTS.AnonymousClass$aF), LINKS.classifier$1y5e), PROPS.name$tAp1);
       } else {
-        return SLinkOperations.getResolveInfo(SNodeOperations.getReference(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")));
+        return SLinkOperations.getResolveInfo(SNodeOperations.getReference(methodCall, LINKS.baseMethodDeclaration$$A7i));
       }
     } else {
-      return SPropertyOperations.getString(baseMethodDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return SPropertyOperations.getString(baseMethodDeclaration, PROPS.name$tAp1);
     }
   }
 
@@ -130,9 +132,18 @@ import org.jetbrains.mps.openapi.language.SConcept;
     myMethodCallsToUpdate.clear();
   }
 
-  private static final class AUX_qzn9sc {
-    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

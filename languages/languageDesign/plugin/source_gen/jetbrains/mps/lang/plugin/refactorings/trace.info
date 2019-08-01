@@ -17,54 +17,59 @@
       <node id="6237653430913268254" at="16,41,17,48" concept="1" />
     </file>
     <file name="SortKeymapMembers.java">
-      <node id="6237653430913268254" at="22,52,23,42" concept="5" />
-      <node id="6237653430913268254" at="25,39,26,26" concept="5" />
-      <node id="6237653430913421403" at="28,69,29,54" concept="4" />
-      <node id="6237653430913421416" at="29,54,30,255" concept="4" />
-      <node id="6237653430913421368" at="30,255,31,210" concept="1" />
-      <node id="6237653430913464483" at="33,39,34,97" concept="5" />
-      <node id="6237653430913464565" at="37,38,38,321" concept="5" />
-      <node id="6237653430913268254" at="44,0,45,0" concept="6" trace="ParameterizedShortcutChange_2a12c07f" />
-      <node id="6237653430913268254" at="20,0,22,0" concept="0" trace="SortKeymapMembers#()V" />
-      <node id="6237653430913268254" at="22,0,25,0" concept="3" trace="getRefactoringTarget#()Ljetbrains/mps/refactoring/framework/IRefactoringTarget;" />
-      <node id="6237653430913268254" at="25,0,28,0" concept="3" trace="getUserFriendlyName#()Ljava/lang/String;" />
-      <node id="6237653430913463681" at="33,0,36,0" concept="3" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Boolean;" />
-      <node id="6237653430913464560" at="37,0,40,0" concept="3" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="6237653430913463662" at="31,210,40,14" concept="1" />
-      <node id="6237653430913268254" at="28,0,42,0" concept="3" trace="refactor#(Ljetbrains/mps/refactoring/framework/RefactoringContext;)V" />
-      <scope id="6237653430913268254" at="20,30,20,30" />
-      <scope id="6237653430913268254" at="22,52,23,42" />
-      <scope id="6237653430913268254" at="25,39,26,26" />
-      <scope id="6237653430913463682" at="33,39,34,97" />
-      <scope id="6237653430913464561" at="37,38,38,321" />
-      <scope id="6237653430913268254" at="20,0,22,0" />
-      <scope id="6237653430913268254" at="22,0,25,0" />
+      <node id="6237653430913268254" at="25,52,26,42" concept="5" />
+      <node id="6237653430913268254" at="28,39,29,26" concept="5" />
+      <node id="6237653430913421403" at="31,69,32,54" concept="4" />
+      <node id="6237653430913421416" at="32,54,33,141" concept="4" />
+      <node id="6237653430913421368" at="33,141,34,96" concept="1" />
+      <node id="6237653430913464483" at="36,39,37,89" concept="5" />
+      <node id="6237653430913464565" at="40,38,41,112" concept="5" />
+      <node id="6237653430913268254" at="47,0,48,0" concept="6" trace="shortcutChange$9pHv" />
+      <node id="6237653430913268254" at="48,0,49,0" concept="6" trace="action$f4CQ" />
+      <node id="6237653430913268254" at="52,0,53,0" concept="6" trace="ParameterizedShortcutChange$V3" />
+      <node id="6237653430913268254" at="56,0,57,0" concept="6" trace="name$tAp1" />
+      <node id="6237653430913268254" at="23,0,25,0" concept="0" trace="SortKeymapMembers#()V" />
+      <node id="6237653430913268254" at="25,0,28,0" concept="3" trace="getRefactoringTarget#()Ljetbrains/mps/refactoring/framework/IRefactoringTarget;" />
+      <node id="6237653430913268254" at="28,0,31,0" concept="3" trace="getUserFriendlyName#()Ljava/lang/String;" />
+      <node id="6237653430913463681" at="36,0,39,0" concept="3" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Boolean;" />
+      <node id="6237653430913464560" at="40,0,43,0" concept="3" trace="select#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
+      <node id="6237653430913463662" at="34,96,43,14" concept="1" />
+      <node id="6237653430913268254" at="31,0,45,0" concept="3" trace="refactor#(Ljetbrains/mps/refactoring/framework/RefactoringContext;)V" />
+      <scope id="6237653430913268254" at="23,30,23,30" />
+      <scope id="6237653430913268254" at="25,52,26,42" />
+      <scope id="6237653430913268254" at="28,39,29,26" />
+      <scope id="6237653430913463682" at="36,39,37,89" />
+      <scope id="6237653430913464561" at="40,38,41,112" />
+      <scope id="6237653430913268254" at="23,0,25,0" />
       <scope id="6237653430913268254" at="25,0,28,0" />
-      <scope id="6237653430913463681" at="33,0,36,0">
+      <scope id="6237653430913268254" at="28,0,31,0" />
+      <scope id="6237653430913463681" at="36,0,39,0">
         <var name="it" id="6237653430913463681" />
       </scope>
-      <scope id="6237653430913464560" at="37,0,40,0">
+      <scope id="6237653430913464560" at="40,0,43,0">
         <var name="it" id="6237653430913464560" />
       </scope>
-      <scope id="6237653430913268257" at="28,69,40,14">
+      <scope id="6237653430913268257" at="31,69,43,14">
         <var name="copy" id="6237653430913421417" />
         <var name="node" id="6237653430913421404" />
       </scope>
-      <scope id="6237653430913268254" at="28,0,42,0">
+      <scope id="6237653430913268254" at="31,0,45,0">
         <var name="refactoringContext" id="6237653430913268254" />
       </scope>
-      <unit id="6237653430913268254" at="43,0,46,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$AUX_ubplqn" />
-      <unit id="6237653430913463681" at="32,251,36,5" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$1" />
-      <unit id="6237653430913464560" at="36,26,40,5" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$2" />
-      <unit id="6237653430913268254" at="19,0,47,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers" />
+      <unit id="6237653430913268254" at="51,0,54,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$CONCEPTS" />
+      <unit id="6237653430913268254" at="55,0,58,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$PROPS" />
+      <unit id="6237653430913463681" at="35,137,39,5" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$1" />
+      <unit id="6237653430913464560" at="39,26,43,5" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$2" />
+      <unit id="6237653430913268254" at="46,0,50,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers$LINKS" />
+      <unit id="6237653430913268254" at="22,0,59,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers" />
     </file>
     <file name="SortKeymapMembers_Target.java">
       <node id="6237653430913268258" at="14,52,15,46" concept="5" />
       <node id="6237653430913268258" at="17,41,18,17" concept="5" />
-      <node id="6237653430913268258" at="20,64,21,104" concept="5" />
+      <node id="6237653430913268258" at="20,64,21,96" concept="5" />
       <node id="6237653430913268258" at="24,51,25,19" concept="5" />
       <node id="6237653430913268258" at="26,5,27,16" concept="5" />
-      <node id="6237653430913268258" at="31,0,32,0" concept="6" trace="KeymapChangesDeclaration_b179307c" />
+      <node id="6237653430913268258" at="31,0,32,0" concept="6" trace="KeymapChangesDeclaration$TA" />
       <node id="6237653430913268258" at="12,0,14,0" concept="0" trace="SortKeymapMembers_Target#()V" />
       <node id="6237653430913268258" at="14,0,17,0" concept="3" trace="getTarget#()Ljetbrains/mps/refactoring/framework/IRefactoringTarget/TargetType;" />
       <node id="6237653430913268258" at="17,0,20,0" concept="3" trace="allowMultipleTargets#()Z" />
@@ -74,7 +79,7 @@
       <scope id="6237653430913268258" at="12,37,12,37" />
       <scope id="6237653430913268258" at="14,52,15,46" />
       <scope id="6237653430913268258" at="17,41,18,17" />
-      <scope id="6237653430913268258" at="20,64,21,104" />
+      <scope id="6237653430913268258" at="20,64,21,96" />
       <scope id="6237653430913268258" at="24,51,25,19" />
       <scope id="6237653430913268258" at="12,0,14,0" />
       <scope id="6237653430913268258" at="14,0,17,0" />
@@ -86,7 +91,7 @@
       <scope id="6237653430913268258" at="23,0,29,0">
         <var name="entity" id="6237653430913268258" />
       </scope>
-      <unit id="6237653430913268258" at="30,0,33,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers_Target$AUX_48nsqh" />
+      <unit id="6237653430913268258" at="30,0,33,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers_Target$CONCEPTS" />
       <unit id="6237653430913268258" at="11,0,34,0" name="jetbrains.mps.lang.plugin.refactorings.SortKeymapMembers_Target" />
     </file>
   </root>

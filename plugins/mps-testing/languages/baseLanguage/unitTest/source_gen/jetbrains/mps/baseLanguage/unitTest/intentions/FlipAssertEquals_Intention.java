@@ -13,9 +13,10 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class FlipAssertEquals_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -49,14 +50,19 @@ public final class FlipAssertEquals_Intention extends AbstractIntentionDescripto
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode expected = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x74f562a3a993fd3dL, 0x74f562a3a993fd44L, "expected"));
-      SNode actual = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x74f562a3a993fd3dL, 0x74f562a3a993fd45L, "actual"));
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x74f562a3a993fd3dL, 0x74f562a3a993fd44L, "expected"), SNodeOperations.copyNode(actual));
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x74f562a3a993fd3dL, 0x74f562a3a993fd45L, "actual"), SNodeOperations.copyNode(expected));
+      SNode expected = SLinkOperations.getTarget(node, LINKS.expected$yNt5);
+      SNode actual = SLinkOperations.getTarget(node, LINKS.actual$yNt$);
+      SLinkOperations.setTarget(node, LINKS.expected$yNt5, SNodeOperations.copyNode(actual));
+      SLinkOperations.setTarget(node, LINKS.actual$yNt$, SNodeOperations.copyNode(expected));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return FlipAssertEquals_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expected$yNt5 = MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x74f562a3a993fd3dL, 0x74f562a3a993fd44L, "expected");
+    /*package*/ static final SContainmentLink actual$yNt$ = MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x74f562a3a993fd3dL, 0x74f562a3a993fd45L, "actual");
   }
 }

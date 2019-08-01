@@ -12,31 +12,36 @@
   </root>
   <root nodeRef="r:838e2cf6-ab53-4d74-b51a-1c68353cb80b(jetbrains.mps.baseLanguage.tuples.actions)/1239567468054">
     <file name="tupleLiteral_init.java">
-      <node id="2912004279740771390" at="20,53,21,176" concept="3" />
-      <node id="1239567537226" at="23,11,24,468" concept="0" />
-      <node id="1239567468054" at="30,0,31,0" concept="4" trace="NamedTupleComponentReference_1a22f6cc" />
-      <node id="2912004279740771246" at="20,0,23,0" concept="2" trace="translate#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
-      <node id="1239567501524" at="18,91,25,7" concept="1" />
-      <node id="1239567483800" at="18,0,27,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="2912004279740771247" at="20,53,21,176" />
-      <scope id="1239567501528" at="23,11,24,468" />
-      <scope id="2912004279740771246" at="20,0,23,0">
+      <node id="2912004279740771390" at="22,53,23,72" concept="3" />
+      <node id="1239567537226" at="25,11,26,254" concept="0" />
+      <node id="1239567468054" at="32,0,33,0" concept="4" trace="tupleDeclaration$GwJE" />
+      <node id="1239567468054" at="33,0,34,0" concept="4" trace="component$eWwg" />
+      <node id="1239567468054" at="34,0,35,0" concept="4" trace="componentRef$49s5" />
+      <node id="1239567468054" at="35,0,36,0" concept="4" trace="componentDeclaration$iLy0" />
+      <node id="1239567468054" at="39,0,40,0" concept="4" trace="NamedTupleComponentReference$8m" />
+      <node id="2912004279740771246" at="22,0,25,0" concept="2" trace="translate#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
+      <node id="1239567501524" at="20,91,27,7" concept="1" />
+      <node id="1239567483800" at="20,0,29,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="2912004279740771247" at="22,53,23,72" />
+      <scope id="1239567501528" at="25,11,26,254" />
+      <scope id="2912004279740771246" at="22,0,25,0">
         <var name="ntd" id="2912004279740771246" />
       </scope>
-      <scope id="1239567483800" at="18,91,25,7" />
-      <scope id="1239567501524" at="18,91,25,7">
+      <scope id="1239567483800" at="20,91,27,7" />
+      <scope id="1239567501524" at="20,91,27,7">
         <var name="cd" id="1239567501526" />
       </scope>
-      <scope id="1239567483800" at="18,0,27,0">
+      <scope id="1239567483800" at="20,0,29,0">
         <var name="enclosingNode" id="1239567483800" />
         <var name="model" id="1239567483800" />
         <var name="newNode" id="1239567483800" />
         <var name="sampleNode" id="1239567483800" />
       </scope>
-      <unit id="1239567468054" at="29,0,32,0" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init$AUX_x0c3lw" />
-      <unit id="2912004279740771246" at="19,315,23,7" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init$NodeFactory_1239567483800$1" />
-      <unit id="1239567483800" at="17,0,28,0" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init$NodeFactory_1239567483800" />
-      <unit id="1239567468054" at="16,0,33,0" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init" />
+      <unit id="1239567468054" at="38,0,41,0" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init$CONCEPTS" />
+      <unit id="2912004279740771246" at="21,213,25,7" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init$NodeFactory_1239567483800$1" />
+      <unit id="1239567468054" at="31,0,37,0" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init$LINKS" />
+      <unit id="1239567483800" at="19,0,30,0" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init$NodeFactory_1239567483800" />
+      <unit id="1239567468054" at="18,0,42,0" name="jetbrains.mps.baseLanguage.tuples.actions.tupleLiteral_init" />
     </file>
   </root>
 </debug-info>

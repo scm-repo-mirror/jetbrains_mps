@@ -20,14 +20,14 @@ public class check_AttributedNodeExpression_NonTypesystemRule extends AbstractNo
   public check_AttributedNodeExpression_NonTypesystemRule() {
   }
   public void applyRule(final SNode ane, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode absRule = SNodeOperations.getNodeAncestor(ane, AUX_dz3x4m.AbstractRule_3c273af, false, false);
+    SNode absRule = SNodeOperations.getNodeAncestor(ane, CONCEPTS.AbstractRule$6j, false, false);
     if (!((absRule != null) && (boolean) AbstractRule__BehaviorDescriptor.isAttributeRule_id6lCixFI9vx1.invoke(absRule))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(ane, "attributedNode is not available in this context", "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "7307171874934071490", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_dz3x4m.AttributedNodeExpression_899eb5c;
+    return CONCEPTS.AttributedNodeExpression$Y6;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,8 +36,8 @@ public class check_AttributedNodeExpression_NonTypesystemRule extends AbstractNo
     return false;
   }
 
-  private static final class AUX_dz3x4m {
-    /*package*/ static final SConcept AbstractRule_3c273af = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
-    /*package*/ static final SConcept AttributedNodeExpression_899eb5c = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2152354b0d500086L, "jetbrains.mps.lang.typesystem.structure.AttributedNodeExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractRule$6j = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
+    /*package*/ static final SConcept AttributedNodeExpression$Y6 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2152354b0d500086L, "jetbrains.mps.lang.typesystem.structure.AttributedNodeExpression");
   }
 }

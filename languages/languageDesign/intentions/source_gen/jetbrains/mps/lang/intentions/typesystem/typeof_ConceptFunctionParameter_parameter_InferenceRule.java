@@ -10,23 +10,24 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_ConceptFunctionParameter_parameter_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_ConceptFunctionParameter_parameter_InferenceRule() {
   }
   public void applyRule(final SNode parameter, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode intention = SNodeOperations.getNodeAncestor(parameter, AUX_3gxz23.ParameterizedIntentionDeclaration_2ac6f11a, false, false);
+    SNode intention = SNodeOperations.getNodeAncestor(parameter, CONCEPTS.ParameterizedIntentionDeclaration$68, false, false);
     {
       SNode _nodeToCheck_1029348928467 = parameter;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590351(jetbrains.mps.lang.intentions.typesystem)", "1240322726298", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590351(jetbrains.mps.lang.intentions.typesystem)", "1240322714855", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(intention, MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, 0x120cd55c89bL, "queryFunction")), MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c89cc719L, 0x120cd3676eeL, "paramType")), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590351(jetbrains.mps.lang.intentions.typesystem)", "1240322714855", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(intention, LINKS.queryFunction$NYf9), LINKS.paramType$tho0), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3gxz23.IntentionParameter_bb949e73;
+    return CONCEPTS.IntentionParameter$Xf;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,8 +36,13 @@ public class typeof_ConceptFunctionParameter_parameter_InferenceRule extends Abs
     return false;
   }
 
-  private static final class AUX_3gxz23 {
-    /*package*/ static final SConcept ParameterizedIntentionDeclaration_2ac6f11a = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, "jetbrains.mps.lang.intentions.structure.ParameterizedIntentionDeclaration");
-    /*package*/ static final SConcept IntentionParameter_bb949e73 = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c8fd57fbL, "jetbrains.mps.lang.intentions.structure.IntentionParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParameterizedIntentionDeclaration$68 = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, "jetbrains.mps.lang.intentions.structure.ParameterizedIntentionDeclaration");
+    /*package*/ static final SConcept IntentionParameter$Xf = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c8fd57fbL, "jetbrains.mps.lang.intentions.structure.IntentionParameter");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink queryFunction$NYf9 = MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, 0x120cd55c89bL, "queryFunction");
+    /*package*/ static final SContainmentLink paramType$tho0 = MetaAdapterFactory.getContainmentLink(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c89cc719L, 0x120cd3676eeL, "paramType");
   }
 }

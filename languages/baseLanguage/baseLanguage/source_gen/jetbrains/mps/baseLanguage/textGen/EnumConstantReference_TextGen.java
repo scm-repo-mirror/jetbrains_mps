@@ -6,6 +6,7 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -13,16 +14,21 @@ public class EnumConstantReference_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), AUX_85v6lx.SwitchCase_1508ec3c)) {
-      BaseLanguageTextGen.referenceToShortName(SNodeOperations.getReference(ctx.getPrimaryInput(), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc37588bc8L, 0xfc37588bcaL, "enumConstantDeclaration")), ctx);
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ctx.getPrimaryInput()), CONCEPTS.SwitchCase$EA)) {
+      BaseLanguageTextGen.referenceToShortName(SNodeOperations.getReference(ctx.getPrimaryInput(), LINKS.enumConstantDeclaration$fB6v), ctx);
     } else {
-      BaseLanguageTextGen.blClassifierRef(SNodeOperations.getReference(ctx.getPrimaryInput(), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc37588bc8L, 0x10a758428feL, "enumClass")), ctx);
+      BaseLanguageTextGen.blClassifierRef(SNodeOperations.getReference(ctx.getPrimaryInput(), LINKS.enumClass$9jPZ), ctx);
       tgs.append(".");
-      BaseLanguageTextGen.referenceToShortName(SNodeOperations.getReference(ctx.getPrimaryInput(), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc37588bc8L, 0xfc37588bcaL, "enumConstantDeclaration")), ctx);
+      BaseLanguageTextGen.referenceToShortName(SNodeOperations.getReference(ctx.getPrimaryInput(), LINKS.enumConstantDeclaration$fB6v), ctx);
     }
   }
 
-  private static final class AUX_85v6lx {
-    /*package*/ static final SConcept SwitchCase_1508ec3c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, "jetbrains.mps.baseLanguage.structure.SwitchCase");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink enumConstantDeclaration$fB6v = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc37588bc8L, 0xfc37588bcaL, "enumConstantDeclaration");
+    /*package*/ static final SReferenceLink enumClass$9jPZ = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc37588bc8L, 0x10a758428feL, "enumClass");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SwitchCase$EA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, "jetbrains.mps.baseLanguage.structure.SwitchCase");
   }
 }

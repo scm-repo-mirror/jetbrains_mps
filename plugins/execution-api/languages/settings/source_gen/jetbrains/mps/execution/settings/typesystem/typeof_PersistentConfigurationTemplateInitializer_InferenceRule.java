@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -18,6 +17,9 @@ import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_PersistentConfigurationTemplateInitializer_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -27,10 +29,10 @@ public class typeof_PersistentConfigurationTemplateInitializer_InferenceRule ext
     {
       SNode _nodeToCheck_1029348928467 = configurationTemplateInitializer;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477809", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477818", true), (SNode) createTemplatePersistentConfigurationType_xmb8fa_a1a0c0a0b(SLinkOperations.getTarget(configurationTemplateInitializer, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, 0xd244b712f910117L, "template"))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477818", true), (SNode) createTemplatePersistentConfigurationType_xmb8fa_a1a0c0a0b(SLinkOperations.getTarget(configurationTemplateInitializer, LINKS.template$2oHw)), _info_12389875345);
     }
-    List<SNode> parameters = SLinkOperations.getChildren(SLinkOperations.getTarget(configurationTemplateInitializer, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, 0xd244b712f910117L, "template")), MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, 0xd244b712f910115L, "templateParameter"));
-    for (int i = 0; i < ListSequence.fromList(SLinkOperations.getChildren(configurationTemplateInitializer, MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, 0xd244b712f910118L, "parameter"))).count(); i++) {
+    List<SNode> parameters = SLinkOperations.getChildren(SLinkOperations.getTarget(configurationTemplateInitializer, LINKS.template$2oHw), LINKS.templateParameter$2oGa);
+    for (int i = 0; i < ListSequence.fromList(SLinkOperations.getChildren(configurationTemplateInitializer, LINKS.parameter$2oHZ)).count(); i++) {
       if (i >= ListSequence.fromList(parameters).count()) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
@@ -39,14 +41,14 @@ public class typeof_PersistentConfigurationTemplateInitializer_InferenceRule ext
         return;
       }
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getChildren(configurationTemplateInitializer, MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, 0xd244b712f910118L, "parameter")).get(i);
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getChildren(configurationTemplateInitializer, LINKS.parameter$2oHZ).get(i);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477843", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477852", true), (SNode) typeCheckingContext.typeOf(ListSequence.fromList(parameters).getElement(i), "r:e115237b-80f4-4ca3-87d6-2ac891492994(jetbrains.mps.execution.settings.typesystem)", "6981317760235477846", true), false, false, _info_12389875345);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_xmb8fa.PersistentConfigurationTemplateInitializer_9ba04ffd;
+    return CONCEPTS.PersistentConfigurationTemplateInitializer$W5;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -56,13 +58,20 @@ public class typeof_PersistentConfigurationTemplateInitializer_InferenceRule ext
   }
   private static SNode createTemplatePersistentConfigurationType_xmb8fa_a1a0c0a0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_xmb8fa.TemplatePersistentConfigurationType_9ba04fa5, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TemplatePersistentConfigurationType$ht, null, null, false);
+    n1.setReferenceTarget(LINKS.persistentConfiguration$28v0, node0);
     return n1;
   }
 
-  private static final class AUX_xmb8fa {
-    /*package*/ static final SConcept PersistentConfigurationTemplateInitializer_9ba04ffd = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationTemplateInitializer");
-    /*package*/ static final SConcept TemplatePersistentConfigurationType_9ba04fa5 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink template$2oHw = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, 0xd244b712f910117L, "template");
+    /*package*/ static final SContainmentLink templateParameter$2oGa = MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, 0xd244b712f910115L, "templateParameter");
+    /*package*/ static final SContainmentLink parameter$2oHZ = MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, 0xd244b712f910118L, "parameter");
+    /*package*/ static final SReferenceLink persistentConfiguration$28v0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PersistentConfigurationTemplateInitializer$W5 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910116L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationTemplateInitializer");
+    /*package*/ static final SConcept TemplatePersistentConfigurationType$ht = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
   }
 }

@@ -49,6 +49,7 @@ import jetbrains.mps.util.SModuleNameComparator;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.loading.ModelLoadingState;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /**
  * There seems to be little value in stateful collection of nodes that describe repository modules - we have to keep them up to date on 
@@ -284,7 +285,7 @@ public class ProjectStructureModule extends AbstractModule implements CoreCompon
           // I'd like to have predictable order in project model iteration, as well as generated code, that's why I sort here, not in templates. 
           Collections.sort(generators, new SModuleNameComparator());
           for (Generator g : generators) {
-            ListSequence.fromList(SLinkOperations.getChildren(langNode, MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, 0x5869770da61dfe37L, "generator"))).addElement(new ProjectStructureBuilder(g, this).convertGenerator());
+            ListSequence.fromList(SLinkOperations.getChildren(langNode, LINKS.generator$8rqk)).addElement(new ProjectStructureBuilder(g, this).convertGenerator());
           }
           modelData.addRootNode(langNode);
         } else {
@@ -304,5 +305,9 @@ public class ProjectStructureModule extends AbstractModule implements CoreCompon
       // to read module file unless needed) 
       replace(new ModelLoadResult<jetbrains.mps.smodel.SModel>(null, ModelLoadingState.NOT_LOADED));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink generator$8rqk = MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, 0x5869770da61dfe37L, "generator");
   }
 }

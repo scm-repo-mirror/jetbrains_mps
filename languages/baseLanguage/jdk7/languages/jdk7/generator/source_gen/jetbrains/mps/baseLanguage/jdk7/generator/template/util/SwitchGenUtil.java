@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.jdk7.generator.template.util;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -13,15 +12,18 @@ import java.util.Map;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SwitchGenUtil {
   public SwitchGenUtil() {
   }
   public static Iterable<SNode> getNodes(SNode node) {
-    return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02edcafL, "case")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d67cfL, "expression"))).sort(new ISelector<SNode, String>() {
+    return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, LINKS.case$31$8), LINKS.expression$zuuG)).sort(new ISelector<SNode, String>() {
       public String select(SNode it) {
-        return SPropertyOperations.getString(SNodeOperations.cast(it, AUX_kgnf7j.StringLiteral_aa5a8cf6), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"));
+        return SPropertyOperations.getString(SNodeOperations.cast(it, CONCEPTS.StringLiteral$4G), PROPS.value$kiE0);
       }
     }, true);
   }
@@ -35,13 +37,22 @@ public class SwitchGenUtil {
     m = MapSequence.fromMap(new HashMap<String, Integer>());
     int index = 0;
     for (SNode e : nodes) {
-      MapSequence.fromMap(m).put(SPropertyOperations.getString(SNodeOperations.cast(e, AUX_kgnf7j.StringLiteral_aa5a8cf6), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")), index++);
+      MapSequence.fromMap(m).put(SPropertyOperations.getString(SNodeOperations.cast(e, CONCEPTS.StringLiteral$4G), PROPS.value$kiE0), index++);
     }
     genContext.putTransientObject("switch" + node.getNodeId().toString(), m);
     return m;
   }
 
-  private static final class AUX_kgnf7j {
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink case$31$8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02edcafL, "case");
+    /*package*/ static final SContainmentLink expression$zuuG = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d67cfL, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
   }
 }

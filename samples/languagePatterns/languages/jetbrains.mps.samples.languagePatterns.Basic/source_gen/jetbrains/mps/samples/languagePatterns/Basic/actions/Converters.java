@@ -7,24 +7,25 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Converters {
   public static class NodeFactory_6918512748467367934 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
       {
         final SNode original = sampleNode;
-        if (SNodeOperations.isInstanceOf(original, AUX_xdoi9l.StringDescription_29d919a8)) {
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223faL, "detail"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, 0x1a2a793c4db223d6L, "value")));
+        if (SNodeOperations.isInstanceOf(original, CONCEPTS.StringDescription$EU)) {
+          SPropertyOperations.assign(newNode, PROPS.detail$8GYA, SPropertyOperations.getString(original, PROPS.value$8G30));
         }
       }
       {
         final SNode original = sampleNode;
-        if (SNodeOperations.isInstanceOf(original, AUX_xdoi9l.FormDescription_29d91de2)) {
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223faL, "detail"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2246dL, "detail")));
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223f7L, "firstTimeApplicant"), SPropertyOperations.getBoolean(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db22464L, "firstTimeApplicant")));
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223f5L, "requestor"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2245fL, "requestor")));
+        if (SNodeOperations.isInstanceOf(original, CONCEPTS.FormDescription$R0)) {
+          SPropertyOperations.assign(newNode, PROPS.detail$8GYA, SPropertyOperations.getString(original, PROPS.detail$8TGi));
+          SPropertyOperations.assign(newNode, PROPS.firstTimeApplicant$8GX9, SPropertyOperations.getBoolean(original, PROPS.firstTimeApplicant$8TBV));
+          SPropertyOperations.assign(newNode, PROPS.requestor$8GM0, SPropertyOperations.getString(original, PROPS.requestor$8Ow0));
         }
       }
     }
@@ -33,16 +34,16 @@ public class Converters {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
       {
         final SNode original = sampleNode;
-        if (SNodeOperations.isInstanceOf(original, AUX_xdoi9l.StringDescription_29d919a8)) {
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2246dL, "detail"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, 0x1a2a793c4db223d6L, "value")));
+        if (SNodeOperations.isInstanceOf(original, CONCEPTS.StringDescription$EU)) {
+          SPropertyOperations.assign(newNode, PROPS.detail$8TGi, SPropertyOperations.getString(original, PROPS.value$8G30));
         }
       }
       {
         final SNode original = sampleNode;
-        if (SNodeOperations.isInstanceOf(original, AUX_xdoi9l.SimplifiedFormDescription_29d91a06)) {
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2246dL, "detail"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223faL, "detail")));
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db22464L, "firstTimeApplicant"), SPropertyOperations.getBoolean(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223f7L, "firstTimeApplicant")));
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2245fL, "requestor"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223f5L, "requestor")));
+        if (SNodeOperations.isInstanceOf(original, CONCEPTS.SimplifiedFormDescription$os)) {
+          SPropertyOperations.assign(newNode, PROPS.detail$8TGi, SPropertyOperations.getString(original, PROPS.detail$8GYA));
+          SPropertyOperations.assign(newNode, PROPS.firstTimeApplicant$8TBV, SPropertyOperations.getBoolean(original, PROPS.firstTimeApplicant$8GX9));
+          SPropertyOperations.assign(newNode, PROPS.requestor$8Ow0, SPropertyOperations.getString(original, PROPS.requestor$8GM0));
         }
       }
     }
@@ -51,22 +52,32 @@ public class Converters {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
       {
         final SNode original = sampleNode;
-        if (SNodeOperations.isInstanceOf(original, AUX_xdoi9l.SimplifiedFormDescription_29d91a06)) {
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, 0x1a2a793c4db223d6L, "value"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223faL, "detail")));
+        if (SNodeOperations.isInstanceOf(original, CONCEPTS.SimplifiedFormDescription$os)) {
+          SPropertyOperations.assign(newNode, PROPS.value$8G30, SPropertyOperations.getString(original, PROPS.detail$8GYA));
         }
       }
       {
         final SNode original = sampleNode;
-        if (SNodeOperations.isInstanceOf(original, AUX_xdoi9l.FormDescription_29d91de2)) {
-          SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, 0x1a2a793c4db223d6L, "value"), SPropertyOperations.getString(original, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2246dL, "detail")));
+        if (SNodeOperations.isInstanceOf(original, CONCEPTS.FormDescription$R0)) {
+          SPropertyOperations.assign(newNode, PROPS.value$8G30, SPropertyOperations.getString(original, PROPS.detail$8TGi));
         }
       }
     }
   }
 
-  private static final class AUX_xdoi9l {
-    /*package*/ static final SConcept StringDescription_29d919a8 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, "jetbrains.mps.samples.languagePatterns.Basic.structure.StringDescription");
-    /*package*/ static final SConcept FormDescription_29d91de2 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, "jetbrains.mps.samples.languagePatterns.Basic.structure.FormDescription");
-    /*package*/ static final SConcept SimplifiedFormDescription_29d91a06 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, "jetbrains.mps.samples.languagePatterns.Basic.structure.SimplifiedFormDescription");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringDescription$EU = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, "jetbrains.mps.samples.languagePatterns.Basic.structure.StringDescription");
+    /*package*/ static final SConcept FormDescription$R0 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, "jetbrains.mps.samples.languagePatterns.Basic.structure.FormDescription");
+    /*package*/ static final SConcept SimplifiedFormDescription$os = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, "jetbrains.mps.samples.languagePatterns.Basic.structure.SimplifiedFormDescription");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty detail$8GYA = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223faL, "detail");
+    /*package*/ static final SProperty value$8G30 = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, 0x1a2a793c4db223d6L, "value");
+    /*package*/ static final SProperty detail$8TGi = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2246dL, "detail");
+    /*package*/ static final SProperty firstTimeApplicant$8GX9 = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223f7L, "firstTimeApplicant");
+    /*package*/ static final SProperty firstTimeApplicant$8TBV = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db22464L, "firstTimeApplicant");
+    /*package*/ static final SProperty requestor$8GM0 = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223f4L, 0x1a2a793c4db223f5L, "requestor");
+    /*package*/ static final SProperty requestor$8Ow0 = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2245eL, 0x1a2a793c4db2245fL, "requestor");
   }
 }

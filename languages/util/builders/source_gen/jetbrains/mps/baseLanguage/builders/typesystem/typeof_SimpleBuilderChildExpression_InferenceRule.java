@@ -10,23 +10,25 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_SimpleBuilderChildExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_SimpleBuilderChildExpression_InferenceRule() {
   }
   public void applyRule(final SNode expression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode child = SNodeOperations.getNodeAncestor(expression, AUX_ts41dj.SimpleBuilderChild_56efbc29, true, false);
+    SNode child = SNodeOperations.getNodeAncestor(expression, CONCEPTS.SimpleBuilderChild$xp, true, false);
     {
       SNode _nodeToCheck_1029348928467 = expression;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:35ef73a5-9726-4c66-9d79-f51c95cc08d6(jetbrains.mps.baseLanguage.builders.typesystem)", "7288041816792806102", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:35ef73a5-9726-4c66-9d79-f51c95cc08d6(jetbrains.mps.baseLanguage.builders.typesystem)", "7288041816792806099", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(child, MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1d353aL, 0x6524536b2e1d353bL, "child")), MetaAdapterFactory.getContainmentLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x34f5c07463dbda0bL, "type")), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:35ef73a5-9726-4c66-9d79-f51c95cc08d6(jetbrains.mps.baseLanguage.builders.typesystem)", "7288041816792806099", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(child, LINKS.child$XL3w), LINKS.type$rcE9), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ts41dj.SimpleBuilderChildExpression_56efbc42;
+    return CONCEPTS.SimpleBuilderChildExpression$Hw;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,8 +37,13 @@ public class typeof_SimpleBuilderChildExpression_InferenceRule extends AbstractI
     return false;
   }
 
-  private static final class AUX_ts41dj {
-    /*package*/ static final SConcept SimpleBuilderChild_56efbc29 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1d353aL, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderChild");
-    /*package*/ static final SConcept SimpleBuilderChildExpression_56efbc42 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1d353eL, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderChildExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleBuilderChild$xp = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1d353aL, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderChild");
+    /*package*/ static final SConcept SimpleBuilderChildExpression$Hw = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1d353eL, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderChildExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink child$XL3w = MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1d353aL, 0x6524536b2e1d353bL, "child");
+    /*package*/ static final SContainmentLink type$rcE9 = MetaAdapterFactory.getContainmentLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x34f5c07463dbda0bL, "type");
   }
 }

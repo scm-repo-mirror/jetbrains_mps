@@ -34,10 +34,10 @@
     <file name="InapplicableRefactoring_Target.java">
       <node id="121597702824488217" at="14,52,15,46" concept="4" />
       <node id="121597702824488217" at="17,41,18,17" concept="4" />
-      <node id="121597702824488217" at="20,64,21,109" concept="4" />
+      <node id="121597702824488217" at="20,64,21,101" concept="4" />
       <node id="121597702824488217" at="24,51,25,19" concept="4" />
       <node id="121597702824488684" at="26,5,27,17" concept="4" />
-      <node id="121597702824488217" at="31,0,32,0" concept="5" trace="TransformationMenuTestConcept_d76b1c63" />
+      <node id="121597702824488217" at="31,0,32,0" concept="5" trace="TransformationMenuTestConcept$Xv" />
       <node id="121597702824488217" at="12,0,14,0" concept="0" trace="InapplicableRefactoring_Target#()V" />
       <node id="121597702824488217" at="14,0,17,0" concept="3" trace="getTarget#()Ljetbrains/mps/refactoring/framework/IRefactoringTarget/TargetType;" />
       <node id="121597702824488217" at="17,0,20,0" concept="3" trace="allowMultipleTargets#()Z" />
@@ -47,7 +47,7 @@
       <scope id="121597702824488217" at="12,43,12,43" />
       <scope id="121597702824488217" at="14,52,15,46" />
       <scope id="121597702824488217" at="17,41,18,17" />
-      <scope id="121597702824488217" at="20,64,21,109" />
+      <scope id="121597702824488217" at="20,64,21,101" />
       <scope id="121597702824488217" at="24,51,25,19" />
       <scope id="121597702824488217" at="12,0,14,0" />
       <scope id="121597702824488217" at="14,0,17,0" />
@@ -59,7 +59,7 @@
       <scope id="121597702824488217" at="23,0,29,0">
         <var name="entity" id="121597702824488217" />
       </scope>
-      <unit id="121597702824488217" at="30,0,33,0" name="jetbrains.mps.lang.editor.menus.extras.testLanguage.refactorings.InapplicableRefactoring_Target$AUX_8f4vq2" />
+      <unit id="121597702824488217" at="30,0,33,0" name="jetbrains.mps.lang.editor.menus.extras.testLanguage.refactorings.InapplicableRefactoring_Target$CONCEPTS" />
       <unit id="121597702824488217" at="11,0,34,0" name="jetbrains.mps.lang.editor.menus.extras.testLanguage.refactorings.InapplicableRefactoring_Target" />
     </file>
     <file name="RefactoringAspectDescriptor.java">
@@ -89,10 +89,10 @@
     <file name="ApplicableRefactoring_Target.java">
       <node id="6820996345401025746" at="14,52,15,46" concept="4" />
       <node id="6820996345401025746" at="17,41,18,17" concept="4" />
-      <node id="6820996345401025746" at="20,64,21,109" concept="4" />
+      <node id="6820996345401025746" at="20,64,21,101" concept="4" />
       <node id="6820996345401025746" at="24,51,25,19" concept="4" />
       <node id="6820996345401025746" at="26,5,27,16" concept="4" />
-      <node id="6820996345401025746" at="31,0,32,0" concept="5" trace="TransformationMenuTestConcept_d76b1c63" />
+      <node id="6820996345401025746" at="31,0,32,0" concept="5" trace="TransformationMenuTestConcept$Xv" />
       <node id="6820996345401025746" at="12,0,14,0" concept="0" trace="ApplicableRefactoring_Target#()V" />
       <node id="6820996345401025746" at="14,0,17,0" concept="3" trace="getTarget#()Ljetbrains/mps/refactoring/framework/IRefactoringTarget/TargetType;" />
       <node id="6820996345401025746" at="17,0,20,0" concept="3" trace="allowMultipleTargets#()Z" />
@@ -102,7 +102,7 @@
       <scope id="6820996345401025746" at="12,41,12,41" />
       <scope id="6820996345401025746" at="14,52,15,46" />
       <scope id="6820996345401025746" at="17,41,18,17" />
-      <scope id="6820996345401025746" at="20,64,21,109" />
+      <scope id="6820996345401025746" at="20,64,21,101" />
       <scope id="6820996345401025746" at="24,51,25,19" />
       <scope id="6820996345401025746" at="12,0,14,0" />
       <scope id="6820996345401025746" at="14,0,17,0" />
@@ -114,7 +114,7 @@
       <scope id="6820996345401025746" at="23,0,29,0">
         <var name="entity" id="6820996345401025746" />
       </scope>
-      <unit id="6820996345401025746" at="30,0,33,0" name="jetbrains.mps.lang.editor.menus.extras.testLanguage.refactorings.ApplicableRefactoring_Target$AUX_6sq2fb" />
+      <unit id="6820996345401025746" at="30,0,33,0" name="jetbrains.mps.lang.editor.menus.extras.testLanguage.refactorings.ApplicableRefactoring_Target$CONCEPTS" />
       <unit id="6820996345401025746" at="11,0,34,0" name="jetbrains.mps.lang.editor.menus.extras.testLanguage.refactorings.ApplicableRefactoring_Target" />
     </file>
     <file name="RefactoringAspectDescriptor.java">

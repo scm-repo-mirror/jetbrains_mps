@@ -15,7 +15,7 @@
   </root>
   <root nodeRef="r:a310da22-eca6-4f58-b266-8f97a737583f(jetbrains.mps.lang.editor.table.constraints)/6216065619544939788">
     <file name="CellModel_HierarchycalTable_Constraints.java">
-      <node id="6216065619544939788" at="31,52,32,59" concept="7" />
+      <node id="6216065619544939788" at="31,52,32,51" concept="7" />
       <node id="6216065619544939789" at="39,44,40,20" concept="5" />
       <node id="6216065619544939789" at="47,63,48,57" concept="5" />
       <node id="6836281137582842122" at="53,47,54,104" concept="5" />
@@ -24,7 +24,7 @@
       <node id="6836281137582842399" at="77,47,78,104" concept="5" />
       <node id="6216065619544944313" at="87,44,88,20" concept="5" />
       <node id="6216065619544944313" at="95,63,96,57" concept="5" />
-      <node id="6836281137582842410" at="100,226,101,26" concept="5" />
+      <node id="6836281137582842410" at="100,115,101,26" concept="5" />
       <node id="6836281137582842591" at="104,47,105,104" concept="5" />
       <node id="6216065619544939788" at="111,6,112,131" concept="4" />
       <node id="6216065619544939789" at="112,131,113,42" concept="1" />
@@ -34,7 +34,11 @@
       <node id="6216065619544939788" at="118,0,119,0" concept="6" trace="breakingNode_6tiwsq_a0a0a0a0a1a0a0a0c" />
       <node id="6216065619544939788" at="119,0,120,0" concept="6" trace="breakingNode_6tiwsq_a0a0a0a0a1a0a0b0c" />
       <node id="6216065619544939788" at="120,0,121,0" concept="6" trace="breakingNode_6tiwsq_a0a0a0a0a1a0a0c0c" />
-      <node id="6216065619544939788" at="123,0,124,0" concept="6" trace="CellModel_HierarchycalTable_9eed81e1" />
+      <node id="6216065619544939788" at="123,0,124,0" concept="6" trace="CellModel_HierarchycalTable$Ax" />
+      <node id="6216065619544939788" at="127,0,128,0" concept="6" trace="headerRowLinkDeclaration$_gzE" />
+      <node id="6216065619544939788" at="128,0,129,0" concept="6" trace="rowsLinkDeclaration$_g$9" />
+      <node id="6216065619544939788" at="129,0,130,0" concept="6" trace="cellsInRowLinkDeclaration$_g$C" />
+      <node id="6216065619544939788" at="130,0,131,0" concept="6" trace="target$egp8" />
       <node id="6216065619544939788" at="31,0,34,0" concept="0" trace="CellModel_HierarchycalTable_Constraints#()V" />
       <node id="6836281137582842118" at="53,0,56,0" concept="3" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="6836281137582842397" at="77,0,80,0" concept="3" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -62,7 +66,7 @@
       <node id="6216065619544941679" at="60,6,84,6" concept="4" />
       <node id="6216065619544944313" at="84,6,111,6" concept="4" />
       <node id="6216065619544939788" at="35,0,118,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="6216065619544939788" at="31,52,32,59" />
+      <scope id="6216065619544939788" at="31,52,32,51" />
       <scope id="6216065619544939789" at="39,44,40,20" />
       <scope id="6216065619544939789" at="47,63,48,57" />
       <scope id="6836281137582842121" at="53,47,54,104" />
@@ -71,7 +75,7 @@
       <scope id="6836281137582842398" at="77,47,78,104" />
       <scope id="6216065619544944313" at="87,44,88,20" />
       <scope id="6216065619544944313" at="95,63,96,57" />
-      <scope id="6836281137582842409" at="100,226,101,26" />
+      <scope id="6836281137582842409" at="100,115,101,26" />
       <scope id="6836281137582842590" at="104,47,105,104" />
       <scope id="6216065619544939788" at="31,0,34,0" />
       <scope id="6836281137582842118" at="53,0,56,0">
@@ -117,17 +121,18 @@
         <var name="references" id="6216065619544939788" />
       </scope>
       <scope id="6216065619544939788" at="35,0,118,0" />
-      <unit id="6216065619544939788" at="122,0,125,0" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$AUX_6tiwsq" />
+      <unit id="6216065619544939788" at="122,0,125,0" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$CONCEPTS" />
       <unit id="6836281137582842118" at="52,310,56,13" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$1$1$1" />
       <unit id="6836281137582842397" at="76,310,80,13" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$2$1$1" />
-      <unit id="6836281137582842589" at="103,524,107,13" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$3$1$1" />
+      <unit id="6836281137582842589" at="103,313,107,13" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$3$1$1" />
+      <unit id="6216065619544939788" at="126,0,132,0" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$LINKS" />
       <unit id="6216065619544939789" at="45,19,58,9" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$1$1" />
       <unit id="6216065619544941679" at="69,19,82,9" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$2$1" />
       <unit id="6216065619544944313" at="93,19,109,9" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$3$1" />
       <unit id="6216065619544939789" at="37,48,60,5" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$1" />
       <unit id="6216065619544941679" at="61,48,84,5" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$2" />
       <unit id="6216065619544944313" at="85,48,111,5" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints$3" />
-      <unit id="6216065619544939788" at="30,0,126,0" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints" />
+      <unit id="6216065619544939788" at="30,0,133,0" name="jetbrains.mps.lang.editor.table.constraints.CellModel_HierarchycalTable_Constraints" />
     </file>
   </root>
 </debug-info>

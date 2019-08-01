@@ -8,12 +8,13 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.StringUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.ArrayList;
 import jetbrains.mps.baseLanguage.behavior.IBinaryLike__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -29,20 +30,20 @@ public class MessageStatementUtil {
     }
     return convertToCamelCaseNameString(ListSequence.fromList(descendants).foldLeft("", new ILeftCombinator<SNode, String>() {
       public String combine(String s, SNode it) {
-        String value = SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"));
+        String value = SPropertyOperations.getString(it, PROPS.value$kiE0);
         return s + " " + ((value == null ? "" : StringUtil.unescapeJavaString(value)));
       }
     }));
   }
 
   private static Iterable<SNode> stringDescendants(SNode expr) {
-    if (SNodeOperations.isInstanceOf(expr, AUX_czrwz9.StringLiteral_aa5a8cf6)) {
-      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SNodeOperations.cast(expr, AUX_czrwz9.StringLiteral_aa5a8cf6));
+    if (SNodeOperations.isInstanceOf(expr, CONCEPTS.StringLiteral$4G)) {
+      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SNodeOperations.cast(expr, CONCEPTS.StringLiteral$4G));
     }
-    if (SNodeOperations.isInstanceOf(expr, AUX_czrwz9.IBinaryLike_686fe61a)) {
-      return Sequence.fromIterable(stringDescendants(IBinaryLike__BehaviorDescriptor.getSyntacticallyLeftSideExpression_id1wHCnsn590c.invoke(SNodeOperations.cast(expr, AUX_czrwz9.IBinaryLike_686fe61a)))).concat(Sequence.fromIterable(stringDescendants(IBinaryLike__BehaviorDescriptor.getSyntacticallyRightSideExpression_id1wHCnsn590i.invoke(SNodeOperations.cast(expr, AUX_czrwz9.IBinaryLike_686fe61a)))));
+    if (SNodeOperations.isInstanceOf(expr, CONCEPTS.IBinaryLike$M8)) {
+      return Sequence.fromIterable(stringDescendants(IBinaryLike__BehaviorDescriptor.getSyntacticallyLeftSideExpression_id1wHCnsn590c.invoke(SNodeOperations.cast(expr, CONCEPTS.IBinaryLike$M8)))).concat(Sequence.fromIterable(stringDescendants(IBinaryLike__BehaviorDescriptor.getSyntacticallyRightSideExpression_id1wHCnsn590i.invoke(SNodeOperations.cast(expr, CONCEPTS.IBinaryLike$M8)))));
     }
-    return SNodeOperations.getNodeDescendants(expr, AUX_czrwz9.StringLiteral_aa5a8cf6, true, new SAbstractConcept[]{});
+    return SNodeOperations.getNodeDescendants(expr, CONCEPTS.StringLiteral$4G, true, new SAbstractConcept[]{});
   }
 
   private static String convertToCamelCaseNameString(String nameString) {
@@ -76,8 +77,12 @@ public class MessageStatementUtil {
     return res;
   }
 
-  private static final class AUX_czrwz9 {
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
-    /*package*/ static final SInterfaceConcept IBinaryLike_686fe61a = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x182da1771714863eL, "jetbrains.mps.baseLanguage.structure.IBinaryLike");
+  private static final class PROPS {
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+    /*package*/ static final SInterfaceConcept IBinaryLike$M8 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x182da1771714863eL, "jetbrains.mps.baseLanguage.structure.IBinaryLike");
   }
 }

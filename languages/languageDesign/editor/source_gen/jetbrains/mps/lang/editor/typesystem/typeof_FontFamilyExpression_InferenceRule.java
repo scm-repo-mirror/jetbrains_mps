@@ -25,7 +25,7 @@ public class typeof_FontFamilyExpression_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nc5ktz.FontFamilyLiteral_50fd9d3;
+    return CONCEPTS.FontFamilyLiteral$ZJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_FontFamilyExpression_InferenceRule extends AbstractInference
     return quotedNode_1;
   }
 
-  private static final class AUX_nc5ktz {
-    /*package*/ static final SConcept FontFamilyLiteral_50fd9d3 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64508f613f1be026L, "jetbrains.mps.lang.editor.structure.FontFamilyLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FontFamilyLiteral$ZJ = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x64508f613f1be026L, "jetbrains.mps.lang.editor.structure.FontFamilyLiteral");
   }
 }

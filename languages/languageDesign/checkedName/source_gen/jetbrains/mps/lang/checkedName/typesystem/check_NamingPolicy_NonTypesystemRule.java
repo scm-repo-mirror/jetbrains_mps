@@ -10,7 +10,6 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.checkedName.behavior.ICheckedNamePolicy__BehaviorDescriptor;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -18,6 +17,8 @@ import jetbrains.mps.errors.BaseQuickFixProvider;
 import jetbrains.mps.checkedName.PropertyReference;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -26,7 +27,7 @@ public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemR
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     String warningMessage = "Naming policies violated: " + "all words except prepositions, articles and particles should be capitalized";
     for (SNode s : ICheckedNamePolicy__BehaviorDescriptor.getDescendantsToCheck_id4cWf37B8oXl.invoke(node)) {
-      if (!(NameUtil.satisfiesPartNamingPolicy(SPropertyOperations.getString(s, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"))))) {
+      if (!(NameUtil.satisfiesPartNamingPolicy(SPropertyOperations.getString(s, PROPS.value$kiE0)))) {
         String myWarning = warningMessage + ".";
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
@@ -70,7 +71,7 @@ public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemR
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_qpzidu.ICheckedNamePolicy_899d000c;
+    return CONCEPTS.ICheckedNamePolicy$3m;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -79,7 +80,11 @@ public class check_NamingPolicy_NonTypesystemRule extends AbstractNonTypesystemR
     return false;
   }
 
-  private static final class AUX_qpzidu {
-    /*package*/ static final SInterfaceConcept ICheckedNamePolicy_899d000c = MetaAdapterFactory.getInterfaceConcept(0xfe9d76d7580945c9L, 0xae28a40915b4d6ffL, 0x433c3c31e7218f38L, "jetbrains.mps.lang.checkedName.structure.ICheckedNamePolicy");
+  private static final class PROPS {
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ICheckedNamePolicy$3m = MetaAdapterFactory.getInterfaceConcept(0xfe9d76d7580945c9L, 0xae28a40915b4d6ffL, 0x433c3c31e7218f38L, "jetbrains.mps.lang.checkedName.structure.ICheckedNamePolicy");
   }
 }

@@ -7,7 +7,6 @@ import java.util.List;
 import com.intellij.execution.process.ProcessHandler;
 import com.intellij.execution.ExecutionException;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.execution.api.Java_Command;
 import jetbrains.mps.execution.api.commands.ListCommandPart;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -29,6 +28,8 @@ import jetbrains.mps.vfs.IFile;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.project.facets.JavaModuleFacet;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Ant_Command {
   private SNode myTarget_SNode;
@@ -71,7 +72,7 @@ public class Ant_Command {
 
   public ProcessHandler createProcess(SNode project) throws ExecutionException {
     SNode target = myTarget_SNode;
-    String targetName = SPropertyOperations.getString(target, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    String targetName = SPropertyOperations.getString(target, PROPS.name$tAp1);
     return new Ant_Command().setAntLocation_String(myAntLocation_String).setOptions_String(myOptions_String).setTargetName_String(targetName).createProcess(Ant_Command.getGeneratedFileName(project));
   }
   public ProcessHandler createProcess(String antFilePath) throws ExecutionException {
@@ -149,8 +150,11 @@ public class Ant_Command {
     SModel model = SNodeOperations.getModel(project);
     // XXX note, build scripts are copied/deployed to a different location with CopyGeneratedScripts, here we use origin, not the 'deployed' script location. 
     file = model.getModule().getFacet(JavaModuleFacet.class).getOutputLocation(model);
-    file = file.findChild(SPropertyOperations.getString(project, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ".xml");
+    file = file.findChild(SPropertyOperations.getString(project, PROPS.name$tAp1) + ".xml");
     return file.getPath();
   }
 
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
 }

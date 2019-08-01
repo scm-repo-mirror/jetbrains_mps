@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class XMLSAXFieldReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_cooydm_a(), AUX_cooydm.XMLSAXFieldReference_1c3fd3c0));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_cooydm_a(), CONCEPTS.XMLSAXFieldReference$ey));
     result.add(new SMP_Subconcepts_cooydm_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class XMLSAXFieldReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_cooydm_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_cooydm.XMLSAXFieldReference_1c3fd3c0, MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2e0L, 0x1f6c736337b5e2e1L, "declaration"));
+      super((SAbstractConcept) CONCEPTS.XMLSAXFieldReference$ey, LINKS.declaration$Ywf0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class XMLSAXFieldReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_cooydm_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_cooydm.XMLSAXFieldReference_1c3fd3c0);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.XMLSAXFieldReference$ey);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class XMLSAXFieldReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_cooydm {
-    /*package*/ static final SConcept XMLSAXFieldReference_1c3fd3c0 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2e0L, "jetbrains.mps.core.xml.sax.structure.XMLSAXFieldReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXFieldReference$ey = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2e0L, "jetbrains.mps.core.xml.sax.structure.XMLSAXFieldReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$Ywf0 = MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2e0L, 0x1f6c736337b5e2e1L, "declaration");
   }
 }

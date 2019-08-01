@@ -48,18 +48,18 @@ public final class AddDeprecatedAnnotation_Intention extends AbstractIntentionDe
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_88ftvc.DeprecatedNodeAnnotation_3819b71a)) == null)) {
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DeprecatedNodeAnnotation$I8)) == null)) {
         return "Add Deprecated Annotation";
       }
       return "Remove Deprecated Annotation";
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_88ftvc.DeprecatedNodeAnnotation_3819b71a)) == null)) {
-        SNode annotation = SNodeFactoryOperations.createNewNode(AUX_88ftvc.DeprecatedNodeAnnotation_3819b71a, null);
-        AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_88ftvc.DeprecatedNodeAnnotation_3819b71a), annotation);
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DeprecatedNodeAnnotation$I8)) == null)) {
+        SNode annotation = SNodeFactoryOperations.createNewNode(CONCEPTS.DeprecatedNodeAnnotation$I8, null);
+        AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DeprecatedNodeAnnotation$I8), annotation);
       } else {
-        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_88ftvc.DeprecatedNodeAnnotation_3819b71a)));
+        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DeprecatedNodeAnnotation$I8)));
       }
     }
     @Override
@@ -68,7 +68,7 @@ public final class AddDeprecatedAnnotation_Intention extends AbstractIntentionDe
     }
   }
 
-  private static final class AUX_88ftvc {
-    /*package*/ static final SConcept DeprecatedNodeAnnotation_3819b71a = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L, "jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DeprecatedNodeAnnotation$I8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L, "jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation");
   }
 }

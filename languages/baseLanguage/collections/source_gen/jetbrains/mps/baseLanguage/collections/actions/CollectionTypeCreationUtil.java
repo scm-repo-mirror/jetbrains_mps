@@ -4,73 +4,75 @@ package jetbrains.mps.baseLanguage.collections.actions;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class CollectionTypeCreationUtil {
   public static void extractSequenceElementType(SNode newNode, SNode sampleNode) {
     SNode maybeElementType = extractElementType(sampleNode);
     if ((maybeElementType != null)) {
-      SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, 0x10c260ee40eL, "elementType"), SNodeOperations.deleteNode(maybeElementType));
+      SLinkOperations.setTarget(newNode, LINKS.elementType$2gFy, SNodeOperations.deleteNode(maybeElementType));
     }
   }
   public static void extractAbstractContainerElementType(SNode newNode, SNode sampleNode) {
     SNode maybeElementType = extractElementType(sampleNode);
     if ((maybeElementType != null)) {
-      SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType"), SNodeOperations.deleteNode(maybeElementType));
+      SLinkOperations.setTarget(newNode, LINKS.elementType$B4nw, SNodeOperations.deleteNode(maybeElementType));
     }
   }
   public static void extractListElementType(SNode newNode, SNode sampleNode) {
     SNode maybeElementType = extractElementType(sampleNode);
     if ((maybeElementType != null)) {
-      SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType"), SNodeOperations.deleteNode(maybeElementType));
+      SLinkOperations.setTarget(newNode, LINKS.elementType$xJJW, SNodeOperations.deleteNode(maybeElementType));
     }
   }
   public static void extractSetElementType(SNode newNode, SNode sampleNode) {
     SNode maybeElementType = extractElementType(sampleNode);
     if ((maybeElementType != null)) {
-      SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType"), SNodeOperations.deleteNode(maybeElementType));
+      SLinkOperations.setTarget(newNode, LINKS.elementType$ZAgX, SNodeOperations.deleteNode(maybeElementType));
     }
   }
   private static SNode extractElementType(SNode sampleNode) {
-    SNode classifier = SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(SNodeOperations.as(sampleNode, AUX_ddgnrw.ExpressionStatement_9dbf9b0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression")), AUX_ddgnrw.AbstractClassifierReference_334d03e3), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, 0x6c6c91efa5ecbbb2L, "classifier"));
+    SNode classifier = SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(SNodeOperations.as(sampleNode, CONCEPTS.ExpressionStatement$nm), LINKS.expression$WIP0), CONCEPTS.AbstractClassifierReference$vv), LINKS.classifier$sgLW);
     if ((classifier != null)) {
       SNode t = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
-      SLinkOperations.setTarget(t, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), classifier);
+      SLinkOperations.setTarget(t, LINKS.classifier$pQ_R, classifier);
       return t;
     } else {
-      SNode sampleType = ListSequence.fromList(SNodeOperations.getNodeDescendants(sampleNode, AUX_ddgnrw.Type_4199e276, true, new SAbstractConcept[]{})).first();
-      if (ListSequence.fromList(SNodeOperations.getChildren(sampleType)).count() == 1 && SNodeOperations.isInstanceOf(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), AUX_ddgnrw.Type_4199e276)) {
+      SNode sampleType = ListSequence.fromList(SNodeOperations.getNodeDescendants(sampleNode, CONCEPTS.Type$IG, true, new SAbstractConcept[]{})).first();
+      if (ListSequence.fromList(SNodeOperations.getChildren(sampleType)).count() == 1 && SNodeOperations.isInstanceOf(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), CONCEPTS.Type$IG)) {
         {
-          SNode coercedNode_ddgnrw_a0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, AUX_ddgnrw.SequenceType_dd24a0b9);
+          SNode coercedNode_ddgnrw_a0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, CONCEPTS.SequenceType$n9);
           if (coercedNode_ddgnrw_a0b0a1a4 != null) {
-            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), AUX_ddgnrw.Type_4199e276);
+            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), CONCEPTS.Type$IG);
           } else {
           }
         }
         {
-          SNode coercedNode_ddgnrw_b0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, AUX_ddgnrw.ListType_a33b8e3e);
+          SNode coercedNode_ddgnrw_b0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, CONCEPTS.ListType$z$);
           if (coercedNode_ddgnrw_b0b0a1a4 != null) {
-            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), AUX_ddgnrw.Type_4199e276);
+            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), CONCEPTS.Type$IG);
           } else {
           }
         }
         {
-          SNode coercedNode_ddgnrw_c0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, AUX_ddgnrw.SetType_d8fa38cf);
+          SNode coercedNode_ddgnrw_c0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, CONCEPTS.SetType$1N);
           if (coercedNode_ddgnrw_c0b0a1a4 != null) {
-            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), AUX_ddgnrw.Type_4199e276);
+            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), CONCEPTS.Type$IG);
           } else {
           }
         }
         {
-          SNode coercedNode_ddgnrw_d0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, AUX_ddgnrw.AbstractContainerType_2c5ce5d1);
+          SNode coercedNode_ddgnrw_d0b0a1a4 = TypecheckingFacade.getFromContext().coerceType(sampleType, CONCEPTS.AbstractContainerType$eL);
           if (coercedNode_ddgnrw_d0b0a1a4 != null) {
-            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), AUX_ddgnrw.Type_4199e276);
+            return SNodeOperations.cast(ListSequence.fromList(SNodeOperations.getChildren(sampleType)).first(), CONCEPTS.Type$IG);
           } else {
           }
         }
@@ -79,13 +81,23 @@ public class CollectionTypeCreationUtil {
     }
   }
 
-  private static final class AUX_ddgnrw {
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SConcept AbstractClassifierReference_334d03e3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, "jetbrains.mps.baseLanguage.structure.AbstractClassifierReference");
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
-    /*package*/ static final SConcept SequenceType_dd24a0b9 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, "jetbrains.mps.baseLanguage.collections.structure.SequenceType");
-    /*package*/ static final SConcept ListType_a33b8e3e = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, "jetbrains.mps.baseLanguage.collections.structure.ListType");
-    /*package*/ static final SConcept SetType_d8fa38cf = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
-    /*package*/ static final SConcept AbstractContainerType_2c5ce5d1 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, "jetbrains.mps.baseLanguage.collections.structure.AbstractContainerType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$2gFy = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, 0x10c260ee40eL, "elementType");
+    /*package*/ static final SContainmentLink elementType$B4nw = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, 0x4eec26fcbaf8c39cL, "elementType");
+    /*package*/ static final SContainmentLink elementType$xJJW = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, 0x10c25fe95c5L, "elementType");
+    /*package*/ static final SContainmentLink elementType$ZAgX = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, 0x11d91cc51e3L, "elementType");
+    /*package*/ static final SContainmentLink expression$WIP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression");
+    /*package*/ static final SReferenceLink classifier$sgLW = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, 0x6c6c91efa5ecbbb2L, "classifier");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SConcept AbstractClassifierReference$vv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, "jetbrains.mps.baseLanguage.structure.AbstractClassifierReference");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept SequenceType$n9 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c260e9444L, "jetbrains.mps.baseLanguage.collections.structure.SequenceType");
+    /*package*/ static final SConcept ListType$z$ = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, "jetbrains.mps.baseLanguage.collections.structure.ListType");
+    /*package*/ static final SConcept SetType$1N = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
+    /*package*/ static final SConcept AbstractContainerType$eL = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x4eec26fcbaf8c39bL, "jetbrains.mps.baseLanguage.collections.structure.AbstractContainerType");
   }
 }

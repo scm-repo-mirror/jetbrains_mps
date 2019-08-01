@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -18,23 +17,24 @@ import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_TemplateDeclaration_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_TemplateDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode td, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(td, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode")) != null) && ListSequence.fromList(SNodeOperations.getNodeDescendants(td, AUX_jyzgi6.TemplateFragment_1973fd34, false, new SAbstractConcept[]{})).isEmpty() && ListSequence.fromList(SNodeOperations.getNodeDescendants(td, AUX_jyzgi6.IStubForAnotherConcept_e2a5283f, false, new SAbstractConcept[]{})).isEmpty()) {
+    if ((SLinkOperations.getTarget(td, LINKS.contentNode$UkrJ) != null) && ListSequence.fromList(SNodeOperations.getNodeDescendants(td, CONCEPTS.TemplateFragment$yI, false, new SAbstractConcept[]{})).isEmpty() && ListSequence.fromList(SNodeOperations.getNodeDescendants(td, CONCEPTS.IStubForAnotherConcept$W3, false, new SAbstractConcept[]{})).isEmpty()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(td, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode")), "No template fragments found", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "7952422520064723850", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(td, LINKS.contentNode$UkrJ), "No template fragments found", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "7952422520064723850", null, errorTarget);
       }
     }
     // FIXME copy-paste of identical code from InlineTemplateWithContext_RuleConsequence 
     // see TemplateContainer#checkAdjacentFragments 
     SNode commonParent = null;
     SContainmentLink commonAggregationLink = null;
-    for (SNode tf : SNodeOperations.getNodeDescendants(td, AUX_jyzgi6.TemplateFragment_1973fd34, false, new SAbstractConcept[]{})) {
+    for (SNode tf : SNodeOperations.getNodeDescendants(td, CONCEPTS.TemplateFragment$yI, false, new SAbstractConcept[]{})) {
       SNode fragmentParent = SNodeOperations.getParent(tf);
       SContainmentLink containmentLink = fragmentParent.getContainmentLink();
       if (commonParent == null) {
@@ -59,7 +59,7 @@ public class check_TemplateDeclaration_NonTypesystemRule extends AbstractNonType
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_jyzgi6.TemplateDeclaration_6074fd22;
+    return CONCEPTS.TemplateDeclaration$q0;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -68,9 +68,13 @@ public class check_TemplateDeclaration_NonTypesystemRule extends AbstractNonType
     return false;
   }
 
-  private static final class AUX_jyzgi6 {
-    /*package*/ static final SInterfaceConcept IStubForAnotherConcept_e2a5283f = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x226fb4c3ba26d45L, "jetbrains.mps.lang.core.structure.IStubForAnotherConcept");
-    /*package*/ static final SConcept TemplateFragment_1973fd34 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IStubForAnotherConcept$W3 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x226fb4c3ba26d45L, "jetbrains.mps.lang.core.structure.IStubForAnotherConcept");
+    /*package*/ static final SConcept TemplateFragment$yI = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink contentNode$UkrJ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode");
   }
 }

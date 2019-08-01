@@ -12,12 +12,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class MakeClassAbstractFromMethod_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -36,10 +37,10 @@ public final class MakeClassAbstractFromMethod_Intention extends AbstractIntenti
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    if ((SNodeOperations.getNodeAncestor(node, AUX_vh1n9u.ClassConcept_e2711824, false, false) == null)) {
+    if ((SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$IY, false, false) == null)) {
       return false;
     }
-    return SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, 0x1126a8d157dL, "isAbstract")) && Objects.equals(SNodeOperations.getConcept(SNodeOperations.getParent(node)), AUX_vh1n9u.ClassConcept_e2711824) && !(SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_vh1n9u.ClassConcept_e2711824), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass")));
+    return SPropertyOperations.getBoolean(node, PROPS.isAbstract$cU_H) && Objects.equals(SNodeOperations.getConcept(SNodeOperations.getParent(node)), CONCEPTS.ClassConcept$IY) && !(SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.ClassConcept$IY), PROPS.abstractClass$gY5l));
   }
   @Override
   public boolean isSurroundWith() {
@@ -60,7 +61,7 @@ public final class MakeClassAbstractFromMethod_Intention extends AbstractIntenti
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.set(SNodeOperations.getNodeAncestor(node, AUX_vh1n9u.ClassConcept_e2711824, false, false), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass"), true);
+      SPropertyOperations.set(SNodeOperations.getNodeAncestor(node, CONCEPTS.ClassConcept$IY, false, false), PROPS.abstractClass$gY5l, true);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -68,7 +69,12 @@ public final class MakeClassAbstractFromMethod_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_vh1n9u {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstractClass$gY5l = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
+    /*package*/ static final SProperty isAbstract$cU_H = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, 0x1126a8d157dL, "isAbstract");
   }
 }

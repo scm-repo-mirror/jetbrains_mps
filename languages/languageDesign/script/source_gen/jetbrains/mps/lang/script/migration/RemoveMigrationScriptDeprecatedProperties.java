@@ -12,9 +12,10 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RemoveMigrationScriptDeprecatedProperties extends MigrationScriptBase {
   public String getCaption() {
@@ -37,10 +38,10 @@ public class RemoveMigrationScriptDeprecatedProperties extends MigrationScriptBa
           return scope_z5cx65_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_z5cx65.MigrationScript_eaf59bfd, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MigrationScript$c5, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SPropertyOperations.remove(it, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x118d28c5944L, "migrationFromBuild"));
-          SPropertyOperations.remove(it, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x118d28cf5b3L, "category"));
+          SPropertyOperations.remove(it, PROPS.migrationFromBuild$ju4P);
+          SPropertyOperations.remove(it, PROPS.category$8lee);
         }
       });
     }
@@ -49,7 +50,12 @@ public class RemoveMigrationScriptDeprecatedProperties extends MigrationScriptBa
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, "jetbrains.mps.lang.script"), 0);
   }
 
-  private static final class AUX_z5cx65 {
-    /*package*/ static final SConcept MigrationScript_eaf59bfd = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, "jetbrains.mps.lang.script.structure.MigrationScript");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MigrationScript$c5 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, "jetbrains.mps.lang.script.structure.MigrationScript");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty migrationFromBuild$ju4P = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x118d28c5944L, "migrationFromBuild");
+    /*package*/ static final SProperty category$8lee = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x118d28cf5b3L, "category");
   }
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,16 +25,18 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BuildSource_JavaExternalJarFolderRef_Constraints extends BaseConstraintsDescriptor {
   public BuildSource_JavaExternalJarFolderRef_Constraints() {
-    super(AUX_aht4xu.BuildSource_JavaExternalJarFolderRef_e8d2d7a6);
+    super(CONCEPTS.BuildSource_JavaExternalJarFolderRef$LW);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, 0x4ddcec86afb65a40L, "folder"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.folder$mC20, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,7 +51,7 @@ public class BuildSource_JavaExternalJarFolderRef_Constraints extends BaseConstr
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_aht4xu.BuildProject_808bb057, true, false);
+            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BuildProject$BF, true, false);
             String target = null;
             if ((contextProject != null)) {
               Scope importedArtifactsScope = ScopeUtil.getVisibleJarFoldersScope(contextProject);
@@ -59,7 +60,7 @@ public class BuildSource_JavaExternalJarFolderRef_Constraints extends BaseConstr
               }
             }
             if (target == null) {
-              target = (SNodeOperations.isInstanceOf(_context.getParameterNode(), AUX_aht4xu.BuildInputSingleFolder_eab69018) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getParameterNode(), AUX_aht4xu.BuildInputSingleFolder_eab69018), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, 0x1ff930b22643b100L, "path"))) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(_context.getParameterNode()));
+              target = (SNodeOperations.isInstanceOf(_context.getParameterNode(), CONCEPTS.BuildInputSingleFolder$9a) ? BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getParameterNode(), CONCEPTS.BuildInputSingleFolder$9a), LINKS.path$OoV0)) : BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(_context.getParameterNode()));
             }
             return target;
           }
@@ -69,11 +70,11 @@ public class BuildSource_JavaExternalJarFolderRef_Constraints extends BaseConstr
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_aht4xu.BuildProject_808bb057, true, false);
+            SNode contextProject = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BuildProject$BF, true, false);
             if ((contextProject != null)) {
               return ScopeUtil.getVisibleJarFoldersScope(contextProject);
             }
-            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, AUX_aht4xu.BuildSource_SingleFolder_e8d2d3e1);
+            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, CONCEPTS.BuildSource_SingleFolder$ux);
           }
         };
       }
@@ -84,10 +85,15 @@ public class BuildSource_JavaExternalJarFolderRef_Constraints extends BaseConstr
   }
   private static final SNodePointer breakingNode_aht4xu_a0a2a0a0a1a0a0a0c = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "6836281137582840486");
 
-  private static final class AUX_aht4xu {
-    /*package*/ static final SConcept BuildSource_JavaExternalJarFolderRef_e8d2d7a6 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarFolderRef");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildInputSingleFolder_eab69018 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
-    /*package*/ static final SInterfaceConcept BuildSource_SingleFolder_e8d2d3e1 = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb659d7L, "jetbrains.mps.build.structure.BuildSource_SingleFolder");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaExternalJarFolderRef$LW = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarFolderRef");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildInputSingleFolder$9a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
+    /*package*/ static final SInterfaceConcept BuildSource_SingleFolder$ux = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb659d7L, "jetbrains.mps.build.structure.BuildSource_SingleFolder");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink folder$mC20 = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb65a3fL, 0x4ddcec86afb65a40L, "folder");
+    /*package*/ static final SContainmentLink path$OoV0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, 0x1ff930b22643b100L, "path");
   }
 }

@@ -7,19 +7,24 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DefaultNodeFactory {
   public static class NodeFactory_5258059200644005943 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_lz37j7.MacroMessageExpression_203c595)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, 0x25b197ac2c49e208L, "defRef"), SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_lz37j7.MacroMessageExpression_203c595), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, 0x25b197ac2c49e208L, "defRef"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.MacroMessageExpression$LH)) {
+        SLinkOperations.setTarget(newNode, LINKS.defRef$iNqL, SNodeOperations.copyNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.MacroMessageExpression$LH), LINKS.defRef$iNqL)));
       }
     }
   }
 
-  private static final class AUX_lz37j7 {
-    /*package*/ static final SConcept MacroMessageExpression_203c595 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MacroMessageExpression$LH = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink defRef$iNqL = MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, 0x25b197ac2c49e208L, "defRef");
   }
 }

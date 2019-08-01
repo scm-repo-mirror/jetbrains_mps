@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -24,15 +23,16 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.scope.ModelPlusImportedScope;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class FailingPropertyConstraintsProblem_Constraints extends BaseConstraintsDescriptor {
   public FailingPropertyConstraintsProblem_Constraints() {
-    super(AUX_nfg5l8.FailingPropertyConstraintsProblem_73fcf7f6);
+    super(CONCEPTS.FailingPropertyConstraintsProblem$oG);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.kind$Wl20, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -53,7 +53,7 @@ public class FailingPropertyConstraintsProblem_Constraints extends BaseConstrain
         };
       }
     };
-    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, 0x56aefe6c18edb7L, "property"), this) {
+    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(LINKS.property$K$mE, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -68,7 +68,7 @@ public class FailingPropertyConstraintsProblem_Constraints extends BaseConstrain
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, AUX_nfg5l8.PropertyDeclaration_ce818bfd);
+            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, CONCEPTS.PropertyDeclaration$c5);
           }
         };
       }
@@ -81,8 +81,13 @@ public class FailingPropertyConstraintsProblem_Constraints extends BaseConstrain
   private static final SNodePointer breakingNode_nfg5l8_a0a0a0a0a1a0a0a0c = new SNodePointer("r:5fb5395d-4f7b-4fac-941f-f4bc11c7dac5(jetbrains.mps.lang.feedback.problem.childAndProp.constraints)", "7716791493892404456");
   private static final SNodePointer breakingNode_nfg5l8_a0a0a0a0a1a0a0b0c = new SNodePointer("r:5fb5395d-4f7b-4fac-941f-f4bc11c7dac5(jetbrains.mps.lang.feedback.problem.childAndProp.constraints)", "24399255755754851");
 
-  private static final class AUX_nfg5l8 {
-    /*package*/ static final SConcept FailingPropertyConstraintsProblem_73fcf7f6 = MetaAdapterFactory.getConcept(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, "jetbrains.mps.lang.feedback.problem.childAndProp.structure.FailingPropertyConstraintsProblem");
-    /*package*/ static final SConcept PropertyDeclaration_ce818bfd = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FailingPropertyConstraintsProblem$oG = MetaAdapterFactory.getConcept(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, "jetbrains.mps.lang.feedback.problem.childAndProp.structure.FailingPropertyConstraintsProblem");
+    /*package*/ static final SConcept PropertyDeclaration$c5 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink kind$Wl20 = MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind");
+    /*package*/ static final SReferenceLink property$K$mE = MetaAdapterFactory.getReferenceLink(0xcddf55b3117e46ecL, 0x837cff50eb7b89b0L, 0x56aefe6c18a706L, 0x56aefe6c18edb7L, "property");
   }
 }

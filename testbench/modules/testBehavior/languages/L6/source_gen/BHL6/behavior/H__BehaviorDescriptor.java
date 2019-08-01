@@ -4,6 +4,7 @@ package BHL6.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,10 +18,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class H__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_v4n6c4.H_d9bae700;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x424c173aee734dc9L, 0xbc43d0051c9b1e8fL, 0x1206f7d464a22147L, "BHL6.structure.H");
 
   public static final SMethod<Object> foo6_id186XXh$CxOf = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("foo6").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("186XXh$CxOf").build();
 
@@ -30,7 +30,7 @@ public final class H__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static Object foo6_id186XXh$CxOf(@NotNull SNode __thisNode__) {
-    return ((Object) B__BehaviorDescriptor.foo6_id186XXh$CxOf.invokeSuper(__thisNode__, AUX_v4n6c4.H_d9bae700));
+    return ((Object) B__BehaviorDescriptor.foo6_id186XXh$CxOf.invokeSuper(__thisNode__, CONCEPTS.H$xy));
   }
 
   /*package*/ H__BehaviorDescriptor() {
@@ -79,7 +79,7 @@ public final class H__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_v4n6c4 {
-    /*package*/ static final SConcept H_d9bae700 = MetaAdapterFactory.getConcept(0x424c173aee734dc9L, 0xbc43d0051c9b1e8fL, 0x1206f7d464a22147L, "BHL6.structure.H");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept H$xy = MetaAdapterFactory.getConcept(0x424c173aee734dc9L, 0xbc43d0051c9b1e8fL, 0x1206f7d464a22147L, "BHL6.structure.H");
   }
 }

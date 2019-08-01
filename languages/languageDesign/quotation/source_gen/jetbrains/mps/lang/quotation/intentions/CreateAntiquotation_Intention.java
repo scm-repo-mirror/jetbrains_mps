@@ -56,14 +56,14 @@ public final class CreateAntiquotation_Intention extends AbstractIntentionDescri
       if (contextNode == null) {
         return;
       }
-      if (SNodeOperations.isInstanceOf(contextNode, AUX_lyr8ot.Antiquotation_25f29ad0)) {
-        AttributeOperations.setAttribute(SNodeOperations.getParent(contextNode), new IAttributeDescriptor.NodeAttribute(AUX_lyr8ot.Antiquotation_25f29ad0), null);
+      if (SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Antiquotation$Ui)) {
+        AttributeOperations.setAttribute(SNodeOperations.getParent(contextNode), new IAttributeDescriptor.NodeAttribute(CONCEPTS.Antiquotation$Ui), null);
         return;
       }
-      if (AttributeOperations.getAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(AUX_lyr8ot.Antiquotation_25f29ad0)) != null) {
-        AttributeOperations.setAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(AUX_lyr8ot.Antiquotation_25f29ad0), null);
+      if (AttributeOperations.getAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.Antiquotation$Ui)) != null) {
+        AttributeOperations.setAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.Antiquotation$Ui), null);
       } else {
-        SNode antiquotation = SNodeFactoryOperations.setNewAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(AUX_lyr8ot.Antiquotation_25f29ad0), AUX_lyr8ot.Antiquotation_25f29ad0);
+        SNode antiquotation = SNodeFactoryOperations.setNewAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.Antiquotation$Ui), CONCEPTS.Antiquotation$Ui);
         editorContext.selectWRTFocusPolicy(antiquotation);
       }
     }
@@ -73,7 +73,7 @@ public final class CreateAntiquotation_Intention extends AbstractIntentionDescri
     }
   }
 
-  private static final class AUX_lyr8ot {
-    /*package*/ static final SConcept Antiquotation_25f29ad0 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104658L, "jetbrains.mps.lang.quotation.structure.Antiquotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Antiquotation$Ui = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104658L, "jetbrains.mps.lang.quotation.structure.Antiquotation");
   }
 }

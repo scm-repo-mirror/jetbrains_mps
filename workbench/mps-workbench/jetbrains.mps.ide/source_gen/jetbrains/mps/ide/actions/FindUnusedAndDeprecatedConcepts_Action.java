@@ -138,10 +138,10 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
               public Object select(SearchResult<Object> it) {
                 return it.getObject();
               }
-            }).ofType(SNode.class), AUX_jik3lj.AbstractConceptDeclaration_ec74828f);
+            }).ofType(SNode.class), CONCEPTS.AbstractConceptDeclaration$UN);
             List<SNodeReference> rv = Sequence.fromIterable(allConcepts).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode concept) {
-                return ((boolean) (Boolean) BHReflection.invoke0(concept, AUX_jik3lj.IDeprecatable_90d7bbb8, SMethodTrimmedId.create("isDeprecated", null, "hOwoPtR"))) || !(conceptsInUse.contains(NameUtil.nodeFQName(concept)));
+                return ((boolean) (Boolean) BHReflection.invoke0(concept, CONCEPTS.IDeprecatable$EE, SMethodTrimmedId.create("isDeprecated", null, "hOwoPtR"))) || !(conceptsInUse.contains(NameUtil.nodeFQName(concept)));
               }
             }).select(new ISelector<SNode, SNodeReference>() {
               public SNodeReference select(SNode it) {
@@ -187,8 +187,8 @@ public class FindUnusedAndDeprecatedConcepts_Action extends BaseAction {
     UsagesViewTool.showUsages(((Project) MapSequence.fromMap(_params).get("ideaProject")), provider, new SearchQuery(GlobalScope.getInstance()), opt);
   }
 
-  private static final class AUX_jik3lj {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SInterfaceConcept IDeprecatable_90d7bbb8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11d205fe38dL, "jetbrains.mps.lang.core.structure.IDeprecatable");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SInterfaceConcept IDeprecatable$EE = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11d205fe38dL, "jetbrains.mps.lang.core.structure.IDeprecatable");
   }
 }

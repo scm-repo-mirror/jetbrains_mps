@@ -12,11 +12,11 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -35,12 +35,12 @@ public class ReferenceInlinePrimary_Customization implements EditorMenuItemCusto
 
   private static class ReferenceInlinePrimary_CustomizationSpecific implements EditorMenuItemCustomizer {
     public boolean matches(EditorMenuItemCustomizationContext context) {
-      return new EditorMenuItemModifyingConceptContextMatcher(AUX_7jrf5l.TestCompletionCustomization_ParentTestContextMatcher_5aa6e2a6) {
+      return new EditorMenuItemModifyingConceptContextMatcher(CONCEPTS.TestCompletionCustomization_ParentTestContextMatcher$5W) {
         protected boolean doMatchesContext(EditorMenuItemCustomizationContext context_) {
           return doMatchesContext_(getContextNode(context_), getContainmentLink(context_), getReference(context_), getProperty(context_)) && getCompletionItemInformation(context_) != null;
         }
         protected boolean doMatchesContext_(SNode contextNode, SContainmentLink containmentLink, SReferenceLink referenceLink, SProperty property) {
-          return Objects.equals(referenceLink, MetaAdapterFactory.getReferenceLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x399c6e0ff745479fL, "referenceInlinePrimary"));
+          return Objects.equals(referenceLink, LINKS.referenceInlinePrimary$gPLO);
         }
       }.matchesContext(context);
     }
@@ -68,7 +68,7 @@ public class ReferenceInlinePrimary_Customization implements EditorMenuItemCusto
     }
     private void customize_(SNode contextNode, EditorMenuItemStyle style, CompletionItemInformation itemInformation) {
       Object parameterObject = itemInformation.getParameterObject();
-      if (parameterObject instanceof SNode && SNodeOperations.isInstanceOf(((SNode) parameterObject), AUX_7jrf5l.INamedConcept_8cd7e247) && Objects.equals(SPropertyOperations.getString(((SNode) parameterObject), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "b")) {
+      if (parameterObject instanceof SNode && SNodeOperations.isInstanceOf(((SNode) parameterObject), CONCEPTS.INamedConcept$nV) && Objects.equals(SPropertyOperations.getString(((SNode) parameterObject), PROPS.name$tAp1), "b")) {
         style.setPriority(1.0);
         style.setBold();
       }
@@ -77,8 +77,16 @@ public class ReferenceInlinePrimary_Customization implements EditorMenuItemCusto
   }
 
 
-  private static final class AUX_7jrf5l {
-    /*package*/ static final SConcept TestCompletionCustomization_ParentTestContextMatcher_5aa6e2a6 = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ParentTestContextMatcher");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink referenceInlinePrimary$gPLO = MetaAdapterFactory.getReferenceLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x399c6e0ff745479fL, "referenceInlinePrimary");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestCompletionCustomization_ParentTestContextMatcher$5W = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ParentTestContextMatcher");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

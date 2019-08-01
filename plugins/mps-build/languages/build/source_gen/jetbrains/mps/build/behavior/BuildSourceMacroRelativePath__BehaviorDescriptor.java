@@ -4,6 +4,7 @@ package jetbrains.mps.build.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,15 +16,15 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class BuildSourceMacroRelativePath__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_zcjlii.BuildSourceMacroRelativePath_b98b24fe;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, "jetbrains.mps.build.structure.BuildSourceMacroRelativePath");
 
   public static final SMethod<String> getBasePath_id4jjtc7WZMYz = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBasePath").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4jjtc7WZMYz").build(SMethodBuilder.createJavaParameter(Context.class, ""));
   public static final SMethod<String> getRelativePath_id4Kip2_918YF = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getRelativePath").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Kip2_918YF").build();
@@ -34,11 +35,11 @@ public final class BuildSourceMacroRelativePath__BehaviorDescriptor extends Base
   }
 
   /*package*/ static String getBasePath_id4jjtc7WZMYz(@NotNull SNode __thisNode__, Context context) {
-    return (String) BuildFolderMacro__BehaviorDescriptor.evaluate_id4jjtc7WZOzA.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro")), context);
+    return (String) BuildFolderMacro__BehaviorDescriptor.evaluate_id4jjtc7WZOzA.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.macro$p38a), context);
   }
   /*package*/ static String getRelativePath_id4Kip2_918YF(@NotNull SNode __thisNode__) {
     String tail = BuildRelativePath__BehaviorDescriptor.getPathTail_id15RAxQX0M4T.invoke(__thisNode__);
-    return ((tail == null || tail.length() == 0) ? "${" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "}" : "${" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "}/" + tail);
+    return ((tail == null || tail.length() == 0) ? "${" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.macro$p38a), PROPS.name$tAp1) + "}" : "${" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.macro$p38a), PROPS.name$tAp1) + "}/" + tail);
   }
 
   /*package*/ BuildSourceMacroRelativePath__BehaviorDescriptor() {
@@ -89,7 +90,11 @@ public final class BuildSourceMacroRelativePath__BehaviorDescriptor extends Base
     return CONCEPT;
   }
 
-  private static final class AUX_zcjlii {
-    /*package*/ static final SConcept BuildSourceMacroRelativePath_b98b24fe = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, "jetbrains.mps.build.structure.BuildSourceMacroRelativePath");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink macro$p38a = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

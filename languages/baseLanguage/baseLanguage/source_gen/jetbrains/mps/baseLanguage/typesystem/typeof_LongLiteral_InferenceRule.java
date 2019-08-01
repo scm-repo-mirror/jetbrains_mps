@@ -25,7 +25,7 @@ public class typeof_LongLiteral_InferenceRule extends AbstractInferenceRule_Runt
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_one0gd.LongLiteral_59a69852;
+    return CONCEPTS.LongLiteral$5g;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_LongLiteral_InferenceRule extends AbstractInferenceRule_Runt
     return quotedNode_1;
   }
 
-  private static final class AUX_one0gd {
-    /*package*/ static final SConcept LongLiteral_59a69852 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, "jetbrains.mps.baseLanguage.structure.LongLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LongLiteral$5g = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, "jetbrains.mps.baseLanguage.structure.LongLiteral");
   }
 }

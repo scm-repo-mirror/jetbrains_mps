@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class FinderDeclaration_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_75v9oi_a(), AUX_75v9oi.FinderDeclaration_c4096cf8));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_75v9oi_a(), CONCEPTS.FinderDeclaration$5E));
     result.add(new SMP_Subconcepts_75v9oi_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class FinderDeclaration_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_75v9oi_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_75v9oi.FinderDeclaration_c4096cf8, MetaAdapterFactory.getReferenceLink(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x11bd0c17f12L, 0x11bd0c2f241L, "forConcept"));
+      super((SAbstractConcept) CONCEPTS.FinderDeclaration$5E, LINKS.forConcept$vx0W);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class FinderDeclaration_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_75v9oi_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_75v9oi.FinderDeclaration_c4096cf8);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.FinderDeclaration$5E);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class FinderDeclaration_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_75v9oi {
-    /*package*/ static final SConcept FinderDeclaration_c4096cf8 = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, "jetbrains.mps.lang.findUsages.structure.FinderDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FinderDeclaration$5E = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, "jetbrains.mps.lang.findUsages.structure.FinderDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink forConcept$vx0W = MetaAdapterFactory.getReferenceLink(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x11bd0c17f12L, 0x11bd0c2f241L, "forConcept");
   }
 }

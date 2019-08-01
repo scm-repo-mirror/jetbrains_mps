@@ -14,7 +14,6 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.ide.vcs.modelmetadata.editor.MyStyles_StyleSheet.keywordStyleClass;
 import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.SPropertyAccessor;
@@ -39,6 +38,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class Model_EditorBuilder_a extends AbstractEditorBuilder {
@@ -84,14 +84,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createProperty_0() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11e6L, "longname");
+      final SProperty property = PROPS.longname$pfsG;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no longname>");
       editorCell.setCellId("property_longname");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
-      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), AUX_3girlp.PropertyAttribute_d001db89);
+      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.PropertyAttribute$jT);
       Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Objects.equals(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(it), property);
@@ -163,7 +163,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createProperty_1() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11f4L, "donotgenerate");
+      final SProperty property = PROPS.donotgenerate$pfHD;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, true), myNode);
       editorCell.setDefaultText("<no donotgenerate>");
@@ -173,7 +173,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       editorCell.getStyle().putAll(style);
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
-      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), AUX_3girlp.PropertyAttribute_d001db89);
+      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.PropertyAttribute$jT);
       Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Objects.equals(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(it), property);
@@ -233,10 +233,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188636L, "language");
+      return LINKS.language$8rUz;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_3girlp.LanguageDependency_d1ade1c6;
+      return CONCEPTS.LanguageDependency$ps;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -246,7 +246,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(languageListHandler_pyq9q9_f3a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188636L, "language")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(languageListHandler_pyq9q9_f3a.this.getNode(), LINKS.language$8rUz));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -324,10 +324,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188638L, "languageEngagedOnGeneration");
+      return LINKS.languageEngagedOnGeneration$8rVx;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_3girlp.LanguageDependency_d1ade1c6;
+      return CONCEPTS.LanguageDependency$ps;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -337,7 +337,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(languageEngagedOnGenerationListHandler_pyq9q9_j3a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188638L, "languageEngagedOnGeneration")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(languageEngagedOnGenerationListHandler_pyq9q9_j3a.this.getNode(), LINKS.languageEngagedOnGeneration$8rVx));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -415,10 +415,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863bL, "devkit");
+      return LINKS.devkit$8rWY;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_3girlp.ModuleReference_95def83f;
+      return CONCEPTS.ModuleReference$W3;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -428,7 +428,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(devkitListHandler_pyq9q9_n3a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863bL, "devkit")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(devkitListHandler_pyq9q9_n3a.this.getNode(), LINKS.devkit$8rWY));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -506,10 +506,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863fL, "import");
+      return LINKS.import$8rYU;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_3girlp.ModelReference_95def83c;
+      return CONCEPTS.ModelReference$UA;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -519,7 +519,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(importListHandler_pyq9q9_r3a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863fL, "import")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(importListHandler_pyq9q9_r3a.this.getNode(), LINKS.import$8rYU));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -553,10 +553,22 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_3girlp {
-    /*package*/ static final SConcept PropertyAttribute_d001db89 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
-    /*package*/ static final SConcept LanguageDependency_d1ade1c6 = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x660570953ee5d6b9L, "jetbrains.mps.ide.vcs.modelmetadata.structure.LanguageDependency");
-    /*package*/ static final SConcept ModuleReference_95def83f = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafe1L, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModuleReference");
-    /*package*/ static final SConcept ModelReference_95def83c = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafdeL, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModelReference");
+  private static final class PROPS {
+    /*package*/ static final SProperty longname$pfsG = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11e6L, "longname");
+    /*package*/ static final SProperty donotgenerate$pfHD = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11f4L, "donotgenerate");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyAttribute$jT = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
+    /*package*/ static final SConcept LanguageDependency$ps = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x660570953ee5d6b9L, "jetbrains.mps.ide.vcs.modelmetadata.structure.LanguageDependency");
+    /*package*/ static final SConcept ModuleReference$W3 = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafe1L, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModuleReference");
+    /*package*/ static final SConcept ModelReference$UA = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafdeL, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModelReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink language$8rUz = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188636L, "language");
+    /*package*/ static final SContainmentLink languageEngagedOnGeneration$8rVx = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188638L, "languageEngagedOnGeneration");
+    /*package*/ static final SContainmentLink devkit$8rWY = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863bL, "devkit");
+    /*package*/ static final SContainmentLink import$8rYU = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863fL, "import");
   }
 }

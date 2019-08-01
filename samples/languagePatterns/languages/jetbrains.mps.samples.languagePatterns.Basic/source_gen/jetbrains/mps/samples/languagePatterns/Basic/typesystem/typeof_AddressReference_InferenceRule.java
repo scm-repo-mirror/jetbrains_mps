@@ -24,7 +24,7 @@ public class typeof_AddressReference_InferenceRule extends AbstractInferenceRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_qswn2l.AddressReference_8a0e3489;
+    return CONCEPTS.AddressReference$JT;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_AddressReference_InferenceRule extends AbstractInferenceRule
     return false;
   }
 
-  private static final class AUX_qswn2l {
-    /*package*/ static final SConcept AddressReference_8a0e3489 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x48a6ab8c26b53535L, "jetbrains.mps.samples.languagePatterns.Basic.structure.AddressReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AddressReference$JT = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x48a6ab8c26b53535L, "jetbrains.mps.samples.languagePatterns.Basic.structure.AddressReference");
   }
 }

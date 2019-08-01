@@ -24,7 +24,7 @@ public class check_OrderConstraints_NonTypesystemRule extends AbstractNonTypesys
     if ((SNodeOperations.getParent(c) == null)) {
       return;
     }
-    if ((boolean) OrderConstraints__BehaviorDescriptor.presents_id1jgMklchcXk.invoke(c, SNodeOperations.getNodeAncestor(c, AUX_n0ziw9.EditorTab_405dcfd1, false, false))) {
+    if ((boolean) OrderConstraints__BehaviorDescriptor.presents_id1jgMklchcXk.invoke(c, SNodeOperations.getNodeAncestor(c, CONCEPTS.EditorTab$AL, false, false))) {
       return;
     }
     {
@@ -33,7 +33,7 @@ public class check_OrderConstraints_NonTypesystemRule extends AbstractNonTypesys
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_n0ziw9.OrderConstraints_8528aa40;
+    return CONCEPTS.OrderConstraints$Oy;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,8 +42,8 @@ public class check_OrderConstraints_NonTypesystemRule extends AbstractNonTypesys
     return false;
   }
 
-  private static final class AUX_n0ziw9 {
-    /*package*/ static final SConcept EditorTab_405dcfd1 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, "jetbrains.mps.lang.plugin.structure.EditorTab");
-    /*package*/ static final SInterfaceConcept OrderConstraints_8528aa40 = MetaAdapterFactory.getInterfaceConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x22035699bdd78145L, "jetbrains.mps.lang.plugin.structure.OrderConstraints");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorTab$AL = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, "jetbrains.mps.lang.plugin.structure.EditorTab");
+    /*package*/ static final SInterfaceConcept OrderConstraints$Oy = MetaAdapterFactory.getInterfaceConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x22035699bdd78145L, "jetbrains.mps.lang.plugin.structure.OrderConstraints");
   }
 }

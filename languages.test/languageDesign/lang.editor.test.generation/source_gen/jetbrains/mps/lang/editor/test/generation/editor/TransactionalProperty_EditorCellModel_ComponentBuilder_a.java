@@ -13,7 +13,6 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.SPropertyAccessor;
@@ -53,6 +52,7 @@ import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_Propert
 import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_PropertyValues;
 import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_ReplaceNode_CustomNodeConcept;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class TransactionalProperty_EditorCellModel_ComponentBuilder_a extends AbstractEditorBuilder {
@@ -92,7 +92,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createProperty_0() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = MetaAdapterFactory.getProperty(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531aadcccL, 0xbde89531aae3a9L, "theProperty");
+      final SProperty property = PROPS.theProperty$70A$;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no theProperty>");
@@ -102,10 +102,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
       TestTargetActionMap.setCellActions(editorCell, myNode, getEditorContext());
       editorCell.addKeyMap(new TestTargetKeymap());
-      editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), AUX_284mcz.AbstractCellTest_7af30824, "jetbrains.mps.lang.editor.test.generation.editor.TestTargetTransformationMenu"));
+      editorCell.setTransformationMenuLookup(new NamedTransformationMenuLookup(LanguageRegistry.getInstance(getEditorContext().getRepository()), CONCEPTS.AbstractCellTest$IY, "jetbrains.mps.lang.editor.test.generation.editor.TestTargetTransformationMenu"));
       editorCell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new PropertyCellContext(myNode, property), new SubstituteInfoPartExt[]{new TransactionalProperty_generic_cellMenu_vfuuik_a0a0(), new TransactionalProperty_generic_cellMenu_vfuuik_b0a0(), new TransactionalProperty_customReplace_cellMenu_vfuuik_c0a0(), new TransactionalProperty_customReplace_cellMenu_vfuuik_d0a0(), new TransactionalProperty_component_cellMenu_vfuuik_e0a0(), new TransactionalProperty_generic_cellMenu_vfuuik_f0a0(), new TransactionalProperty_theProperty_postfixCellMenu_vfuuik_g0a0(), new TransactionalProperty_theProperty_cellMenu_vfuuik_h0a0(), new ReplaceWith_Constant_cellMenu_vfuuik_i0a0(), new SChildSubstituteInfoPartEx(editorCell)}));
       setCellContext(editorCell);
-      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), AUX_284mcz.PropertyAttribute_d001db89);
+      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.PropertyAttribute$jT);
       Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Objects.equals(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(it), property);
@@ -335,7 +335,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     public ReplaceWith_Constant_cellMenu_vfuuik_i0a0() {
     }
     public SAbstractConcept getReplacementConcept() {
-      return AUX_284mcz.Constant_10c4525a;
+      return CONCEPTS.Constant$x8;
     }
     @Override
     protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
@@ -343,9 +343,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_284mcz {
-    /*package*/ static final SConcept AbstractCellTest_7af30824 = MetaAdapterFactory.getConcept(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531a681a1L, "jetbrains.mps.lang.editor.test.generation.structure.AbstractCellTest");
-    /*package*/ static final SConcept PropertyAttribute_d001db89 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
-    /*package*/ static final SConcept Constant_10c4525a = MetaAdapterFactory.getConcept(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde8953186ee02L, "jetbrains.mps.lang.editor.test.generation.structure.Constant");
+  private static final class PROPS {
+    /*package*/ static final SProperty theProperty$70A$ = MetaAdapterFactory.getProperty(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531aadcccL, 0xbde89531aae3a9L, "theProperty");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractCellTest$IY = MetaAdapterFactory.getConcept(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531a681a1L, "jetbrains.mps.lang.editor.test.generation.structure.AbstractCellTest");
+    /*package*/ static final SConcept PropertyAttribute$jT = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
+    /*package*/ static final SConcept Constant$x8 = MetaAdapterFactory.getConcept(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde8953186ee02L, "jetbrains.mps.lang.editor.test.generation.structure.Constant");
   }
 }

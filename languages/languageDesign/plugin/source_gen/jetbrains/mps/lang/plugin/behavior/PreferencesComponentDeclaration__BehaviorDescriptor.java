@@ -4,6 +4,7 @@ package jetbrains.mps.lang.plugin.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,7 +15,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -23,10 +23,12 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class PreferencesComponentDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_7n934b.PreferencesComponentDeclaration_459393af;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c44c226fL, "jetbrains.mps.lang.plugin.structure.PreferencesComponentDeclaration");
 
   public static final SMethod<String> getClassName_idhEwIw5J = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getClassName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIw5J").build();
   public static final SMethod<String> getGeneratedClassFQName_id4gD2fissWfp = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedClassFQName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4gD2fissWfp").build();
@@ -39,19 +41,19 @@ public final class PreferencesComponentDeclaration__BehaviorDescriptor extends B
   }
 
   /*package*/ static String getClassName_idhEwIw5J(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "_PreferencesComponent";
+    return SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1) + "_PreferencesComponent";
   }
   /*package*/ static String getGeneratedClassFQName_id4gD2fissWfp(@NotNull SNode __thisNode__) {
     return SNodeOperations.getModelLongName(jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.getModel(__thisNode__)) + "." + PreferencesComponentDeclaration__BehaviorDescriptor.getClassName_idhEwIw5J.invoke(__thisNode__);
   }
   /*package*/ static SNode createType_idhEwJimy(@NotNull SNode __thisNode__) {
     SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c497fc64L, "jetbrains.mps.lang.plugin.structure.PreferencesComponentType"));
-    SLinkOperations.setTarget(type, MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c497fc64L, 0x119c4987dc8L, "componentDeclaration"), __thisNode__);
+    SLinkOperations.setTarget(type, LINKS.componentDeclaration$KpMu, __thisNode__);
     return type;
   }
   /*package*/ static List<SNode> getMembers_idhEwJioW(@NotNull SNode __thisNode__) {
     List<SNode> members = new ArrayList<SNode>();
-    ListSequence.fromList(members).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c44c226fL, 0x119c456be96L, "persistenPropertyDeclaration"))));
+    ListSequence.fromList(members).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.persistenPropertyDeclaration$kaoD)));
     return members;
   }
 
@@ -107,7 +109,12 @@ public final class PreferencesComponentDeclaration__BehaviorDescriptor extends B
     return CONCEPT;
   }
 
-  private static final class AUX_7n934b {
-    /*package*/ static final SConcept PreferencesComponentDeclaration_459393af = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c44c226fL, "jetbrains.mps.lang.plugin.structure.PreferencesComponentDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink componentDeclaration$KpMu = MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c497fc64L, 0x119c4987dc8L, "componentDeclaration");
+    /*package*/ static final SContainmentLink persistenPropertyDeclaration$kaoD = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119c44c226fL, 0x119c456be96L, "persistenPropertyDeclaration");
   }
 }

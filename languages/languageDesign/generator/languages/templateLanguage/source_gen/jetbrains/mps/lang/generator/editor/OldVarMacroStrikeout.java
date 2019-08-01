@@ -30,7 +30,7 @@ public class OldVarMacroStrikeout implements EditorMenuItemCustomizer {
   private static class OldVarMacroStrikeoutSpecific implements EditorMenuItemCustomizer {
 
     public boolean matches(EditorMenuItemCustomizationContext context) {
-      return new EditorMenuItemCreatingConceptContextMatcher(AUX_jd5e54.VarMacro_e790b770).matchesContext(context) && getCompletionItemInformation(context) != null;
+      return new EditorMenuItemCreatingConceptContextMatcher(CONCEPTS.VarMacro$nM).matchesContext(context) && getCompletionItemInformation(context) != null;
     }
 
 
@@ -58,7 +58,7 @@ public class OldVarMacroStrikeout implements EditorMenuItemCustomizer {
   }
 
 
-  private static final class AUX_jd5e54 {
-    /*package*/ static final SConcept VarMacro_e790b770 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x45991daad6a3d34eL, "jetbrains.mps.lang.generator.structure.VarMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VarMacro$nM = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x45991daad6a3d34eL, "jetbrains.mps.lang.generator.structure.VarMacro");
   }
 }

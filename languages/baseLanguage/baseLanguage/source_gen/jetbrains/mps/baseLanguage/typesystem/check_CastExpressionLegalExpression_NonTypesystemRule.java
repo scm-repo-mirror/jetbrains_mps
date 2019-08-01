@@ -12,9 +12,10 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_CastExpressionLegalExpression_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -23,10 +24,10 @@ public class check_CastExpressionLegalExpression_NonTypesystemRule extends Abstr
   public void applyRule(final SNode castExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!(!(PrecedenceUtil.needsParensInsideCastExpression(castExpression)))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
-      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(castExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")), "Cast expression applied to an operation of a lower priority. The expression should be wrapped in parentheses or re-balanced", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "481464699803970958", null, errorTarget);
+      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(castExpression, LINKS.expression$8QPv), "Cast expression applied to an operation of a lower priority. The expression should be wrapped in parentheses or re-balanced", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "481464699803970958", null, errorTarget);
       {
         BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.wrapCastExpressionInParentheses_QuickFix", false);
-        intentionProvider.putArgument("expression", SLinkOperations.getTarget(castExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")));
+        intentionProvider.putArgument("expression", SLinkOperations.getTarget(castExpression, LINKS.expression$8QPv));
         _reporter_2309309498.addIntentionProvider(intentionProvider);
       }
       {
@@ -37,7 +38,7 @@ public class check_CastExpressionLegalExpression_NonTypesystemRule extends Abstr
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7b84kb.CastExpression_6a411f0c;
+    return CONCEPTS.CastExpression$7m;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,7 +47,11 @@ public class check_CastExpressionLegalExpression_NonTypesystemRule extends Abstr
     return false;
   }
 
-  private static final class AUX_7b84kb {
-    /*package*/ static final SConcept CastExpression_6a411f0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$8QPv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CastExpression$7m = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
   }
 }

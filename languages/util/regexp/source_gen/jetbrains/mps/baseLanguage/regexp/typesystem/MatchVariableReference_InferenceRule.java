@@ -25,7 +25,7 @@ public class MatchVariableReference_InferenceRule extends AbstractInferenceRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_o15xxs.MatchVariableReference_a03a091a;
+    return CONCEPTS.MatchVariableReference$A8;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class MatchVariableReference_InferenceRule extends AbstractInferenceRule_
     return quotedNode_1;
   }
 
-  private static final class AUX_o15xxs {
-    /*package*/ static final SConcept MatchVariableReference_a03a091a = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117987ff5eL, "jetbrains.mps.baseLanguage.regexp.structure.MatchVariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatchVariableReference$A8 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117987ff5eL, "jetbrains.mps.baseLanguage.regexp.structure.MatchVariableReference");
   }
 }

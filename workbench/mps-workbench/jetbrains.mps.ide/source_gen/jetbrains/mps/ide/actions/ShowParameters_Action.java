@@ -27,7 +27,6 @@ import javax.swing.border.EmptyBorder;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import javax.swing.JTextPane;
 import java.awt.GridBagConstraints;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -37,6 +36,9 @@ import java.awt.Color;
 import com.intellij.ui.Gray;
 import jetbrains.mps.nodeEditor.EditorSettings;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ShowParameters_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -120,9 +122,9 @@ public class ShowParameters_Action extends BaseAction {
     panel.setBackground(ToolTip.BACKGROUND_COLOR);
     panel.setBorder(new EmptyBorder(0, 4, 0, 4));
 
-    if (SNodeOperations.isInstanceOf(node, AUX_7sxk5z.DefaultClassCreator_8d996dac)) {
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.DefaultClassCreator$sQ)) {
       StyledTextPrinterImpl printer = new StyledTextPrinterImpl();
-      printer.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_7sxk5z.DefaultClassCreator_8d996dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, 0x2724644c0ac833a6L, "classifier")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "()");
+      printer.append(SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.DefaultClassCreator$sQ), LINKS.classifier$bk50), PROPS.name$tAp1) + "()");
       JTextPane textPane = ShowParameters_Action.this.createTextPane(printer, _params);
       GridBagConstraints constraints = ShowParameters_Action.this.createConstraints(_params);
       panel.add(textPane, constraints);
@@ -170,7 +172,15 @@ public class ShowParameters_Action extends BaseAction {
     return constraints;
   }
 
-  private static final class AUX_7sxk5z {
-    /*package*/ static final SConcept DefaultClassCreator_8d996dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, "jetbrains.mps.baseLanguage.structure.DefaultClassCreator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DefaultClassCreator$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, "jetbrains.mps.baseLanguage.structure.DefaultClassCreator");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$bk50 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2724644c0ac833a5L, 0x2724644c0ac833a6L, "classifier");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

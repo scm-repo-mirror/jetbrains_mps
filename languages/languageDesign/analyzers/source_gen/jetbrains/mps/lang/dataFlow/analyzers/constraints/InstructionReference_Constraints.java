@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,15 +25,17 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class InstructionReference_Constraints extends BaseConstraintsDescriptor {
   public InstructionReference_Constraints() {
-    super(AUX_yymroq.InstructionReference_432f8094);
+    super(CONCEPTS.InstructionReference$5e);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x3a887e9da0b4cedcL, 0x3a887e9da0b4cee5L, "instruction"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.instruction$VU73, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,8 +51,8 @@ public class InstructionReference_Constraints extends BaseConstraintsDescriptor 
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> result = new ArrayList<SNode>();
-            SNode analyzer = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_yymroq.Rule_af60f527, false, false), MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, 0x3952cf7bd76e6440L, "analyzer"));
-            ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(analyzer, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x2e25b6b7919ac138L, "instruction"))).concat(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.collect(SLinkOperations.getChildren(analyzer, MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x73e1fea9c173f804L, "usedContainers")), MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c1738798L, 0x73e1fea9c1738799L, "containter")), MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c172b8b1L, 0x73e1fea9c172d0e9L, "instruction")))));
+            SNode analyzer = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.Rule$Wr, false, false), LINKS.analyzer$KED9);
+            ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(analyzer, LINKS.instruction$3MTk)).concat(Sequence.fromIterable(SLinkOperations.collectMany(SLinkOperations.collect(SLinkOperations.getChildren(analyzer, LINKS.usedContainers$rsJ_), LINKS.containter$lqfw), LINKS.instruction$EplU))));
             return ListScope.forResolvableElements(result);
           }
         };
@@ -63,8 +64,17 @@ public class InstructionReference_Constraints extends BaseConstraintsDescriptor 
   }
   private static final SNodePointer breakingNode_yymroq_a0a0a0a0a1a0a0a0c = new SNodePointer("r:73c9a355-2bf0-4466-8a7d-8b8d8a945cd4(jetbrains.mps.lang.dataFlow.analyzers.constraints)", "6836281137582779872");
 
-  private static final class AUX_yymroq {
-    /*package*/ static final SConcept InstructionReference_432f8094 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x3a887e9da0b4cedcL, "jetbrains.mps.lang.dataFlow.analyzers.structure.InstructionReference");
-    /*package*/ static final SConcept Rule_af60f527 = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Rule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstructionReference$5e = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x3a887e9da0b4cedcL, "jetbrains.mps.lang.dataFlow.analyzers.structure.InstructionReference");
+    /*package*/ static final SConcept Rule$Wr = MetaAdapterFactory.getConcept(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, "jetbrains.mps.lang.dataFlow.analyzers.structure.Rule");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink instruction$VU73 = MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x3a887e9da0b4cedcL, 0x3a887e9da0b4cee5L, "instruction");
+    /*package*/ static final SReferenceLink analyzer$KED9 = MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5faaa6bbd57b6c8L, 0x3952cf7bd76e6440L, "analyzer");
+    /*package*/ static final SContainmentLink instruction$3MTk = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x2e25b6b7919ac138L, "instruction");
+    /*package*/ static final SContainmentLink usedContainers$rsJ_ = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x5bd9e43c93f46789L, 0x73e1fea9c173f804L, "usedContainers");
+    /*package*/ static final SReferenceLink containter$lqfw = MetaAdapterFactory.getReferenceLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c1738798L, 0x73e1fea9c1738799L, "containter");
+    /*package*/ static final SContainmentLink instruction$EplU = MetaAdapterFactory.getContainmentLink(0x97a52717898f4598L, 0x8150573d9fd03868L, 0x73e1fea9c172b8b1L, 0x73e1fea9c172d0e9L, "instruction");
   }
 }

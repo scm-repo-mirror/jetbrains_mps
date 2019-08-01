@@ -5,7 +5,6 @@ package jetbrains.mps.lang.modelapi.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -16,15 +15,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ModelName_Constraints extends BaseConstraintsDescriptor {
   public ModelName_Constraints() {
-    super(AUX_2428xx.ModelName_561a0ce1);
+    super(CONCEPTS.ModelName$Ux);
   }
 
   public static class Value_Property extends BasePropertyConstraintsDescriptor {
     public Value_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"), container);
+      super(PROPS.value$givw, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -51,11 +51,15 @@ public class ModelName_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"), new Value_Property(this));
+    properties.put(PROPS.value$givw, new Value_Property(this));
     return properties;
   }
 
-  private static final class AUX_2428xx {
-    /*package*/ static final SConcept ModelName_561a0ce1 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, "jetbrains.mps.lang.modelapi.structure.ModelName");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModelName$Ux = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, "jetbrains.mps.lang.modelapi.structure.ModelName");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$givw = MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value");
   }
 }

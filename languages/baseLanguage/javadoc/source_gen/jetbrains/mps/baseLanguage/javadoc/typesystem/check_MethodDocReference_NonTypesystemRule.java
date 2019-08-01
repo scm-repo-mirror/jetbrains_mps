@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.scopes.VisibilityUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -16,6 +15,9 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -23,16 +25,16 @@ public class check_MethodDocReference_NonTypesystemRule extends AbstractNonTypes
   public check_MethodDocReference_NonTypesystemRule() {
   }
   public void applyRule(final SNode methodDocReference, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode methodDeclaration = SLinkOperations.getTarget(methodDocReference, MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, 0x1ec532ec2531d2d4L, "methodDeclaration"));
-    if (!(VisibilityUtil.isVisible(methodDocReference, SNodeOperations.as(methodDeclaration, AUX_btzlmn.IVisible_84badc76)))) {
+    SNode methodDeclaration = SLinkOperations.getTarget(methodDocReference, LINKS.methodDeclaration$Q6Bw);
+    if (!(VisibilityUtil.isVisible(methodDocReference, SNodeOperations.as(methodDeclaration, CONCEPTS.IVisible$6G)))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(methodDocReference, "Symbol " + SPropertyOperations.getString(methodDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " is inaccessible from here.", "r:65bec5f7-cc7d-4b90-b2b7-cc6bad1763aa(jetbrains.mps.baseLanguage.javadoc.typesystem)", "1370556966538823120", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(methodDocReference, "Symbol " + SPropertyOperations.getString(methodDeclaration, PROPS.name$tAp1) + " is inaccessible from here.", "r:65bec5f7-cc7d-4b90-b2b7-cc6bad1763aa(jetbrains.mps.baseLanguage.javadoc.typesystem)", "1370556966538823120", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_btzlmn.MethodDocReference_7faec6f1;
+    return CONCEPTS.MethodDocReference$qh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,8 +43,16 @@ public class check_MethodDocReference_NonTypesystemRule extends AbstractNonTypes
     return false;
   }
 
-  private static final class AUX_btzlmn {
-    /*package*/ static final SInterfaceConcept IVisible_84badc76 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
-    /*package*/ static final SConcept MethodDocReference_7faec6f1 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink methodDeclaration$Q6Bw = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, 0x1ec532ec2531d2d4L, "methodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IVisible$6G = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+    /*package*/ static final SConcept MethodDocReference$qh = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec2531d2d3L, "jetbrains.mps.baseLanguage.javadoc.structure.MethodDocReference");
   }
 }

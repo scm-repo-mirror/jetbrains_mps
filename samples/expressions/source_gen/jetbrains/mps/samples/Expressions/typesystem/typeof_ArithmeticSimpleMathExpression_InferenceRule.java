@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.IRuleConflictWarningProducer;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -18,6 +17,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_ArithmeticSimpleMathExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -30,22 +32,22 @@ public class typeof_ArithmeticSimpleMathExpression_InferenceRule extends Abstrac
       typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "2073504467210590370", true), (SNode) createSimpleMathNumberType_jrhb9c_a1a0c0a0b(), false, true, _info_12389875345);
     }
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c52ccL, 0x1cc69153b81d5476L, "left"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, LINKS.left$Nd26);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "2073504467209636577", 0, null);
       typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "2073504467209636583", true), (SNode) createSimpleMathNumberType_jrhb9c_a1a0c0b0b(), false, true, _info_12389875345);
     }
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c52ccL, 0x1cc69153b81d5478L, "right"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, LINKS.right$Nd34);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "2073504467209636988", 0, null);
       typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "2073504467209636994", true), (SNode) createSimpleMathNumberType_jrhb9c_a1a0c0c0b(), false, true, _info_12389875345);
     }
 
     {
-      final SNode leftType = typeCheckingContext.typeOf(SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c52ccL, 0x1cc69153b81d5476L, "left")), "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "1387988544209571129", true);
+      final SNode leftType = typeCheckingContext.typeOf(SLinkOperations.getTarget(expression, LINKS.left$Nd26), "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "1387988544209571129", true);
       typeCheckingContext.whenConcrete(leftType, new Runnable() {
         public void run() {
           {
-            final SNode rightType = typeCheckingContext.typeOf(SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c52ccL, 0x1cc69153b81d5478L, "right")), "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "1387988544209571123", true);
+            final SNode rightType = typeCheckingContext.typeOf(SLinkOperations.getTarget(expression, LINKS.right$Nd34), "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "1387988544209571123", true);
             typeCheckingContext.whenConcrete(rightType, new Runnable() {
               public void run() {
                 SNode opType = typeCheckingContext.getOverloadedOperationType(expression, typeCheckingContext.getExpandedNode(leftType), typeCheckingContext.getExpandedNode(rightType), new IRuleConflictWarningProducer() {
@@ -63,7 +65,7 @@ public class typeof_ArithmeticSimpleMathExpression_InferenceRule extends Abstrac
                 } else {
                   {
                     final MessageTarget errorTarget = new NodeMessageTarget();
-                    IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(expression, "Operator '" + SPropertyOperations.getString(expression, MetaAdapterFactory.getProperty(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8289497L, 0x1cc69153b82894eaL, "operator")) + "' cannot be applied to '" + typeCheckingContext.getExpandedNode(leftType) + "', '" + typeCheckingContext.getExpandedNode(rightType) + "'", "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "1387988544209571120", null, errorTarget);
+                    IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(expression, "Operator '" + SPropertyOperations.getString(expression, PROPS.operator$brpL) + "' cannot be applied to '" + typeCheckingContext.getExpandedNode(leftType) + "', '" + typeCheckingContext.getExpandedNode(rightType) + "'", "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "1387988544209571120", null, errorTarget);
                   }
                 }
               }
@@ -75,7 +77,7 @@ public class typeof_ArithmeticSimpleMathExpression_InferenceRule extends Abstrac
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_jrhb9c.ArithmeticSimpleMathExpression_8721704f;
+    return CONCEPTS.ArithmeticSimpleMathExpression$zN;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -85,22 +87,31 @@ public class typeof_ArithmeticSimpleMathExpression_InferenceRule extends Abstrac
   }
   private static SNode createSimpleMathNumberType_jrhb9c_a1a0c0a0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_jrhb9c.SimpleMathNumberType_b9f11ec3, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SimpleMathNumberType$zZ, null, null, false);
     return n1;
   }
   private static SNode createSimpleMathNumberType_jrhb9c_a1a0c0b0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_jrhb9c.SimpleMathNumberType_b9f11ec3, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SimpleMathNumberType$zZ, null, null, false);
     return n1;
   }
   private static SNode createSimpleMathNumberType_jrhb9c_a1a0c0c0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_jrhb9c.SimpleMathNumberType_b9f11ec3, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SimpleMathNumberType$zZ, null, null, false);
     return n1;
   }
 
-  private static final class AUX_jrhb9c {
-    /*package*/ static final SConcept ArithmeticSimpleMathExpression_8721704f = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8289497L, "jetbrains.mps.samples.Expressions.structure.ArithmeticSimpleMathExpression");
-    /*package*/ static final SConcept SimpleMathNumberType_b9f11ec3 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8354763L, "jetbrains.mps.samples.Expressions.structure.SimpleMathNumberType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink left$Nd26 = MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c52ccL, 0x1cc69153b81d5476L, "left");
+    /*package*/ static final SContainmentLink right$Nd34 = MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81c52ccL, 0x1cc69153b81d5478L, "right");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty operator$brpL = MetaAdapterFactory.getProperty(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8289497L, 0x1cc69153b82894eaL, "operator");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ArithmeticSimpleMathExpression$zN = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8289497L, "jetbrains.mps.samples.Expressions.structure.ArithmeticSimpleMathExpression");
+    /*package*/ static final SConcept SimpleMathNumberType$zZ = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8354763L, "jetbrains.mps.samples.Expressions.structure.SimpleMathNumberType");
   }
 }

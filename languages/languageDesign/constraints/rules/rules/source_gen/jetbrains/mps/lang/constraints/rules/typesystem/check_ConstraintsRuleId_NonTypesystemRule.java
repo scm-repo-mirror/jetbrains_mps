@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -20,6 +19,8 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.structure.util.ConceptIdHelper;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -27,7 +28,7 @@ public class check_ConstraintsRuleId_NonTypesystemRule extends AbstractNonTypesy
   public check_ConstraintsRuleId_NonTypesystemRule() {
   }
   public void applyRule(final SNode rule, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (isEmptyString(SPropertyOperations.getString(rule, MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId")))) {
+    if (isEmptyString(SPropertyOperations.getString(rule, PROPS.ruleId$nApu))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(rule, "Rule id is not defined", "r:61c80a02-cc27-4085-b38d-beaf0fede70a(jetbrains.mps.lang.constraints.rules.typesystem)", "1587916991969781666", null, errorTarget);
@@ -38,9 +39,9 @@ public class check_ConstraintsRuleId_NonTypesystemRule extends AbstractNonTypesy
         }
       }
     } else {
-      if (ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(rule), AUX_karv2c.Rule_5f090c4b)).any(new IWhereFilter<SNode>() {
+      if (ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(rule), CONCEPTS.Rule$LR)).any(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return it != rule && Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId")), SPropertyOperations.getString(rule, MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId")));
+          return it != rule && Objects.equals(SPropertyOperations.getString(it, PROPS.ruleId$nApu), SPropertyOperations.getString(rule, PROPS.ruleId$nApu));
         }
       })) {
         {
@@ -52,7 +53,7 @@ public class check_ConstraintsRuleId_NonTypesystemRule extends AbstractNonTypesy
             _reporter_2309309498.addIntentionProvider(intentionProvider);
           }
         }
-      } else if (!(Objects.equals(SPropertyOperations.getString(rule, MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId")), ConceptIdHelper.getNodeIdString(rule)))) {
+      } else if (!(Objects.equals(SPropertyOperations.getString(rule, PROPS.ruleId$nApu), ConceptIdHelper.getNodeIdString(rule)))) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(rule, "Node id and rule id differ", "r:61c80a02-cc27-4085-b38d-beaf0fede70a(jetbrains.mps.lang.constraints.rules.typesystem)", "2819660830273583910", null, errorTarget);
@@ -66,7 +67,7 @@ public class check_ConstraintsRuleId_NonTypesystemRule extends AbstractNonTypesy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_karv2c.RuleIdHolder_daebc5e8;
+    return CONCEPTS.RuleIdHolder$pU;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -78,8 +79,12 @@ public class check_ConstraintsRuleId_NonTypesystemRule extends AbstractNonTypesy
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_karv2c {
-    /*package*/ static final SConcept Rule_5f090c4b = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, "jetbrains.mps.lang.constraints.rules.structure.Rule");
-    /*package*/ static final SInterfaceConcept RuleIdHolder_daebc5e8 = MetaAdapterFactory.getInterfaceConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, "jetbrains.mps.lang.constraints.rules.structure.RuleIdHolder");
+  private static final class PROPS {
+    /*package*/ static final SProperty ruleId$nApu = MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Rule$LR = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6530303593586de2L, "jetbrains.mps.lang.constraints.rules.structure.Rule");
+    /*package*/ static final SInterfaceConcept RuleIdHolder$pU = MetaAdapterFactory.getInterfaceConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, "jetbrains.mps.lang.constraints.rules.structure.RuleIdHolder");
   }
 }

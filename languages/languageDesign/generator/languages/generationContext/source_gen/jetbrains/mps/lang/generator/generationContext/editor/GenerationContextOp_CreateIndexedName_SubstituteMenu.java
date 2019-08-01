@@ -20,16 +20,17 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class GenerationContextOp_CreateIndexedName_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_8ml84f_a(), AUX_8ml84f.GenerationContextOp_CreateIndexedName_9ebc07b2));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_8ml84f_b(), AUX_8ml84f.GenerationContextOp_CreateIndexedName_9ebc07b2));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_8ml84f_a(), CONCEPTS.GenerationContextOp_CreateIndexedName$RK));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_8ml84f_b(), CONCEPTS.GenerationContextOp_CreateIndexedName$RK));
     return result;
   }
 
@@ -74,7 +75,7 @@ public class GenerationContextOp_CreateIndexedName_SubstituteMenu extends Substi
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_8ml84f.GenerationContextOp_CreateIndexedName_9ebc07b2, context);
+        super(CONCEPTS.GenerationContextOp_CreateIndexedName$RK, context);
         _context = context;
       }
 
@@ -85,8 +86,8 @@ public class GenerationContextOp_CreateIndexedName_SubstituteMenu extends Substi
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode rv = SModelOperations.createNewNode(_context.getModel(), null, AUX_8ml84f.GenerationContextOp_CreateIndexedName_9ebc07b2);
-        SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x107ac9fcd24369dbL, 0x107ac9fcd2448676L, "skipFirstIndex"), false);
+        SNode rv = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.GenerationContextOp_CreateIndexedName$RK);
+        SPropertyOperations.assign(rv, PROPS.skipFirstIndex$B34V, false);
         return rv;
       }
 
@@ -134,7 +135,7 @@ public class GenerationContextOp_CreateIndexedName_SubstituteMenu extends Substi
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_8ml84f.GenerationContextOp_CreateIndexedName_9ebc07b2, context);
+        super(CONCEPTS.GenerationContextOp_CreateIndexedName$RK, context);
         _context = context;
       }
 
@@ -145,8 +146,8 @@ public class GenerationContextOp_CreateIndexedName_SubstituteMenu extends Substi
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode rv = SModelOperations.createNewNode(_context.getModel(), null, AUX_8ml84f.GenerationContextOp_CreateIndexedName_9ebc07b2);
-        SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x107ac9fcd24369dbL, 0x107ac9fcd2448676L, "skipFirstIndex"), true);
+        SNode rv = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.GenerationContextOp_CreateIndexedName$RK);
+        SPropertyOperations.assign(rv, PROPS.skipFirstIndex$B34V, true);
         return rv;
       }
 
@@ -167,7 +168,11 @@ public class GenerationContextOp_CreateIndexedName_SubstituteMenu extends Substi
     }
   }
 
-  private static final class AUX_8ml84f {
-    /*package*/ static final SConcept GenerationContextOp_CreateIndexedName_9ebc07b2 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x107ac9fcd24369dbL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_CreateIndexedName");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenerationContextOp_CreateIndexedName$RK = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x107ac9fcd24369dbL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_CreateIndexedName");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty skipFirstIndex$B34V = MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x107ac9fcd24369dbL, 0x107ac9fcd2448676L, "skipFirstIndex");
   }
 }

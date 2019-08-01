@@ -24,8 +24,9 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.ide.MPSCodeInsightBundle;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class GoToImplementationBehaviorMethod_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -55,7 +56,7 @@ public class GoToImplementationBehaviorMethod_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_7yapom.ConceptMethodDeclaration_6c80ca4f))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.ConceptMethodDeclaration$VN))) {
         node = null;
       }
       if (node == null) {
@@ -92,14 +93,18 @@ public class GoToImplementationBehaviorMethod_Action extends BaseAction {
       public String caption(final int usagesFound, final boolean finished) {
         return new ModelAccessHelper(mpsProject.getRepository()).runReadAction(new Computable<String>() {
           public String compute() {
-            return MPSCodeInsightBundle.message("goto.implementation.chooserTitle", SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), usagesFound, (finished ? "" : " so far"));
+            return MPSCodeInsightBundle.message("goto.implementation.chooserTitle", SPropertyOperations.getString(node, PROPS.name$tAp1), usagesFound, (finished ? "" : " so far"));
           }
         });
       }
     };
   }
 
-  private static final class AUX_7yapom {
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

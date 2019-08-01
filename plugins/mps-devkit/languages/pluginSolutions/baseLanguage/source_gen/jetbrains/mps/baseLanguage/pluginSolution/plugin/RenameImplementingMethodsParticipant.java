@@ -22,8 +22,9 @@ import java.util.HashSet;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.refactoring.participant.RefactoringSession;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RenameImplementingMethodsParticipant extends RefactoringParticipantBase<SNodeReference, String, SNode, String> implements RenameNodeRefactoringParticipant<SNodeReference, String> {
 
@@ -50,7 +51,7 @@ public class RenameImplementingMethodsParticipant extends RefactoringParticipant
   }
   public List<RefactoringParticipant.Option> getAvailableOptions(SNodeReference initialState, SRepository repository) {
     SNode renamingNode = initialState.resolve(repository);
-    if (SNodeOperations.isInstanceOf(renamingNode, AUX_t7hzu7.BaseMethodDeclaration_9dbf9acb)) {
+    if (SNodeOperations.isInstanceOf(renamingNode, CONCEPTS.BaseMethodDeclaration$RR)) {
       return ListSequence.fromListAndArray(new ArrayList<RefactoringParticipant.Option>(), OPTION);
     } else {
       return ListSequence.fromList(new ArrayList<RefactoringParticipant.Option>());
@@ -62,10 +63,10 @@ public class RenameImplementingMethodsParticipant extends RefactoringParticipant
       return ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, String>>());
     }
     SNode renamingNode = initialState.resolve(repository);
-    if (!(SNodeOperations.isInstanceOf(renamingNode, AUX_t7hzu7.BaseMethodDeclaration_9dbf9acb))) {
+    if (!(SNodeOperations.isInstanceOf(renamingNode, CONCEPTS.BaseMethodDeclaration$RR))) {
       return ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, String>>());
     }
-    SNode method = SNodeOperations.cast(renamingNode, AUX_t7hzu7.BaseMethodDeclaration_9dbf9acb);
+    SNode method = SNodeOperations.cast(renamingNode, CONCEPTS.BaseMethodDeclaration$RR);
     List<RefactoringParticipant.Change<SNodeReference, String>> result = ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, String>>());
     for (final SNode node : ListSequence.fromList(MethodRefactoringUtils.findOverridingMethods(searchScope, method, progressMonitor))) {
       final SearchResults searchResults = new SearchResults(SetSequence.fromSetAndArray(new HashSet<SNode>(), node), ListSequence.fromListAndArray(new ArrayList<SearchResult<SNode>>(), new SearchResult<SNode>(node, "overriding method")));
@@ -78,7 +79,7 @@ public class RenameImplementingMethodsParticipant extends RefactoringParticipant
         public void confirm(final String finalState, SRepository repository, RefactoringSession refactoringSession) {
           refactoringSession.registerChange(new Runnable() {
             public void run() {
-              SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), finalState);
+              SPropertyOperations.assign(node, PROPS.name$tAp1, finalState);
             }
           });
         }
@@ -87,7 +88,11 @@ public class RenameImplementingMethodsParticipant extends RefactoringParticipant
     return result;
   }
 
-  private static final class AUX_t7hzu7 {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

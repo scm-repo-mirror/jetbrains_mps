@@ -25,7 +25,7 @@ public class typeof_ToNodeFunctionParameter_InferenceRule extends AbstractInfere
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nrfnhq.ToNodeFunctionParameter_200f5301;
+    return CONCEPTS.ToNodeFunctionParameter$M1;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ToNodeFunctionParameter_InferenceRule extends AbstractInfere
     return quotedNode_1;
   }
 
-  private static final class AUX_nrfnhq {
-    /*package*/ static final SConcept ToNodeFunctionParameter_200f5301 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0xd0b2f9de3724d5eL, "jetbrains.mps.lang.editor.diagram.structure.ToNodeFunctionParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ToNodeFunctionParameter$M1 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0xd0b2f9de3724d5eL, "jetbrains.mps.lang.editor.diagram.structure.ToNodeFunctionParameter");
   }
 }

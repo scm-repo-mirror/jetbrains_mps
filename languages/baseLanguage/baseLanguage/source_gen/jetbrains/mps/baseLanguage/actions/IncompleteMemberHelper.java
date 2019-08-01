@@ -13,11 +13,13 @@ import jetbrains.mps.util.JavaNameUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.IncompleteMemberDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.baseLanguage.scopes.ClassifierScopes;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /**
  * Beatiful!
@@ -27,21 +29,21 @@ import java.util.Objects;
 public class IncompleteMemberHelper {
 
   public static boolean isJavaKeyWordNotApplicableAsModifier(SNode member, String pattern) {
-    List<SConcept> subConcepts = SConceptOperations.getAllSubConcepts2(AUX_fp5qrn.PrimitiveType_53355efd, SNodeOperations.getModel(member));
+    List<SConcept> subConcepts = SConceptOperations.getAllSubConcepts2(CONCEPTS.PrimitiveType$5, SNodeOperations.getModel(member));
     Iterable<String> aliases = ListSequence.fromList(subConcepts).select(new ISelector<SConcept, String>() {
       public String select(SConcept it) {
         return SConceptOperations.conceptAlias(it);
       }
     });
 
-    return JavaNameUtil.isJavaReserved(pattern) && !(Sequence.fromIterable(aliases).contains(pattern)) && !((pattern.equals("abstract") && (boolean) IncompleteMemberDeclaration__BehaviorDescriptor.canBeMadeAbstract_id5py1MO2Oyuj.invoke(member) || pattern.equals("transient") && !(SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x58197aef3e5e4dd7L, "transient"))) || pattern.equals("final") && !(SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf96L, "final"))) || pattern.equals("public") && (SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) == null) || pattern.equals("private") && (SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) == null) || pattern.equals("protected") && (SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) == null) || pattern.equals("synchronized") && !(SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdb595L, "synchronized"))) || pattern.equals("static") && !(SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf94L, "static")))));
+    return JavaNameUtil.isJavaReserved(pattern) && !(Sequence.fromIterable(aliases).contains(pattern)) && !((pattern.equals("abstract") && (boolean) IncompleteMemberDeclaration__BehaviorDescriptor.canBeMadeAbstract_id5py1MO2Oyuj.invoke(member) || pattern.equals("transient") && !(SPropertyOperations.getBoolean(member, PROPS.transient$JMJL)) || pattern.equals("final") && !(SPropertyOperations.getBoolean(member, PROPS.final$27z)) || pattern.equals("public") && (SLinkOperations.getTarget(member, LINKS.visibility$2GiC) == null) || pattern.equals("private") && (SLinkOperations.getTarget(member, LINKS.visibility$2GiC) == null) || pattern.equals("protected") && (SLinkOperations.getTarget(member, LINKS.visibility$2GiC) == null) || pattern.equals("synchronized") && !(SPropertyOperations.getBoolean(member, PROPS.synchronized$4dBM)) || pattern.equals("static") && !(SPropertyOperations.getBoolean(member, PROPS.static$1Wq))));
   }
 
   public static boolean isKnownTypeName(SNode member, final String pattern) {
     Iterable<SNode> availableElements = ClassifierScopes.getVisibleClassifiersScope(member, true).getAvailableElements(pattern);
     return pattern.equals("string") || pattern.equals("map") || pattern.equals("set") || pattern.equals("list") || pattern.equals("sorted_set") || pattern.equals("sorted_map") || Sequence.fromIterable(availableElements).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(SPropertyOperations.getString(SNodeOperations.cast(it, AUX_fp5qrn.Classifier_4b7e553), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), pattern);
+        return Objects.equals(SPropertyOperations.getString(SNodeOperations.cast(it, CONCEPTS.Classifier$hJ), PROPS.name$tAp1), pattern);
       }
     }).isNotEmpty();
   }
@@ -51,27 +53,27 @@ public class IncompleteMemberHelper {
   }
 
   public static boolean canBeField(SNode member) {
-    return !((SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf99L, "abstract")) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e8b632a8L, "type")), AUX_fp5qrn.VoidType_d96d05c9) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdb595L, "synchronized")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x73f30e3dfbaac721L, "native")) || ListSequence.fromList(SLinkOperations.getChildren(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).isNotEmpty()));
+    return !((SPropertyOperations.getBoolean(member, PROPS.abstract$290) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(member, LINKS.type$QNev), CONCEPTS.VoidType$aT) || SPropertyOperations.getBoolean(member, PROPS.synchronized$4dBM) || SPropertyOperations.getBoolean(member, PROPS.native$HhhY) || ListSequence.fromList(SLinkOperations.getChildren(member, LINKS.modifiers$akE0)).isNotEmpty()));
   }
 
   public static boolean canBeMethod(SNode member) {
-    return !((SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdbea6L, "volatile")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x58197aef3e5e4dd7L, "transient")) || (SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf99L, "abstract")) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(member), AUX_fp5qrn.Interface_bca2069))));
+    return !((SPropertyOperations.getBoolean(member, PROPS.volatile$dZ_X) || SPropertyOperations.getBoolean(member, PROPS.transient$JMJL) || (SPropertyOperations.getBoolean(member, PROPS.abstract$290) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(member), CONCEPTS.Interface$Kp))));
   }
 
   public static boolean canBeConstructor(SNode member) {
-    return !((member != null && (SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdbea6L, "volatile")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf96L, "final")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x58197aef3e5e4dd7L, "transient")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf99L, "abstract")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdb595L, "synchronized")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf94L, "static")) || (SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e8b632a8L, "type")) != null) || (SNodeOperations.isInstanceOf(SNodeOperations.getParent(member), AUX_fp5qrn.EnumClass_acf68fc0) && (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_fp5qrn.PublicVisibility_63d95354) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_fp5qrn.ProtectedVisibility_64112d59))))));
+    return !((member != null && (SPropertyOperations.getBoolean(member, PROPS.volatile$dZ_X) || SPropertyOperations.getBoolean(member, PROPS.final$27z) || SPropertyOperations.getBoolean(member, PROPS.transient$JMJL) || SPropertyOperations.getBoolean(member, PROPS.abstract$290) || SPropertyOperations.getBoolean(member, PROPS.synchronized$4dBM) || SPropertyOperations.getBoolean(member, PROPS.static$1Wq) || (SLinkOperations.getTarget(member, LINKS.type$QNev) != null) || (SNodeOperations.isInstanceOf(SNodeOperations.getParent(member), CONCEPTS.EnumClass$uy) && (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(member, LINKS.visibility$2GiC), CONCEPTS.PublicVisibility$qe) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(member, LINKS.visibility$2GiC), CONCEPTS.ProtectedVisibility$OD))))));
   }
 
   public static boolean canBeClass(SNode member) {
-    return !((SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdb595L, "synchronized")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x58197aef3e5e4dd7L, "transient")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdbea6L, "volatile")) || SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e8b632a8L, "type")) != null || ListSequence.fromList(SLinkOperations.getChildren(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).isNotEmpty()));
+    return !((SPropertyOperations.getBoolean(member, PROPS.synchronized$4dBM) || SPropertyOperations.getBoolean(member, PROPS.transient$JMJL) || SPropertyOperations.getBoolean(member, PROPS.volatile$dZ_X) || SLinkOperations.getTarget(member, LINKS.type$QNev) != null || ListSequence.fromList(SLinkOperations.getChildren(member, LINKS.modifiers$akE0)).isNotEmpty()));
   }
 
   public static boolean canBeEnum(SNode member) {
-    return !((SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf99L, "abstract")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdb595L, "synchronized")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf96L, "final")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdbea6L, "volatile")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x58197aef3e5e4dd7L, "transient")) || SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e8b632a8L, "type")) != null || ListSequence.fromList(SLinkOperations.getChildren(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).isNotEmpty()));
+    return !((SPropertyOperations.getBoolean(member, PROPS.abstract$290) || SPropertyOperations.getBoolean(member, PROPS.synchronized$4dBM) || SPropertyOperations.getBoolean(member, PROPS.final$27z) || SPropertyOperations.getBoolean(member, PROPS.volatile$dZ_X) || SPropertyOperations.getBoolean(member, PROPS.transient$JMJL) || SLinkOperations.getTarget(member, LINKS.type$QNev) != null || ListSequence.fromList(SLinkOperations.getChildren(member, LINKS.modifiers$akE0)).isNotEmpty()));
   }
 
   public static boolean canBeInterface(SNode member) {
-    return !((SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf99L, "abstract")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdb595L, "synchronized")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf96L, "final")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdbea6L, "volatile")) || SPropertyOperations.getBoolean(member, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x58197aef3e5e4dd7L, "transient")) || SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e8b632a8L, "type")) != null || ListSequence.fromList(SLinkOperations.getChildren(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).isNotEmpty()));
+    return !((SPropertyOperations.getBoolean(member, PROPS.abstract$290) || SPropertyOperations.getBoolean(member, PROPS.synchronized$4dBM) || SPropertyOperations.getBoolean(member, PROPS.final$27z) || SPropertyOperations.getBoolean(member, PROPS.volatile$dZ_X) || SPropertyOperations.getBoolean(member, PROPS.transient$JMJL) || SLinkOperations.getTarget(member, LINKS.type$QNev) != null || ListSequence.fromList(SLinkOperations.getChildren(member, LINKS.modifiers$akE0)).isNotEmpty()));
   }
 
   public static String buildFieldName(final String pattern) {
@@ -96,26 +98,43 @@ public class IncompleteMemberHelper {
   public static boolean isValidCandidateFieldName(SNode member, String memberName) {
     // Visible types and classifiers should not be offered as potential member names, 
     // if the type is still null (user convenience) 
-    return !(((SLinkOperations.getTarget(member, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e8b632a8L, "type")) == null) && IncompleteMemberHelper.isKnownTypeName(member, memberName)));
+    return !(((SLinkOperations.getTarget(member, LINKS.type$QNev) == null) && IncompleteMemberHelper.isKnownTypeName(member, memberName)));
   }
 
   public static String getNameOfConstructor(SNode member) {
-    SNode clNode = SNodeOperations.as(SNodeOperations.getParent(member), AUX_fp5qrn.Classifier_4b7e553);
-    return (clNode != null ? SPropertyOperations.getString(clNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : null);
+    SNode clNode = SNodeOperations.as(SNodeOperations.getParent(member), CONCEPTS.Classifier$hJ);
+    return (clNode != null ? SPropertyOperations.getString(clNode, PROPS.name$tAp1) : null);
   }
 
   public static boolean hasNameEqualToSurroundingClassifier(SNode member, String memberName) {
-    SNode clNode = SNodeOperations.as(SNodeOperations.getParent(member), AUX_fp5qrn.Classifier_4b7e553);
-    return clNode != null && SPropertyOperations.getString(clNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(memberName);
+    SNode clNode = SNodeOperations.as(SNodeOperations.getParent(member), CONCEPTS.Classifier$hJ);
+    return clNode != null && SPropertyOperations.getString(clNode, PROPS.name$tAp1).equals(memberName);
   }
 
-  private static final class AUX_fp5qrn {
-    /*package*/ static final SConcept PrimitiveType_53355efd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept VoidType_d96d05c9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ProtectedVisibility_64112d59 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af958b686L, "jetbrains.mps.baseLanguage.structure.ProtectedVisibility");
-    /*package*/ static final SConcept PublicVisibility_63d95354 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrimitiveType$5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept VoidType$aT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ProtectedVisibility$OD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af958b686L, "jetbrains.mps.baseLanguage.structure.ProtectedVisibility");
+    /*package*/ static final SConcept PublicVisibility$qe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty transient$JMJL = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x58197aef3e5e4dd7L, "transient");
+    /*package*/ static final SProperty final$27z = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf96L, "final");
+    /*package*/ static final SProperty synchronized$4dBM = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdb595L, "synchronized");
+    /*package*/ static final SProperty static$1Wq = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf94L, "static");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty abstract$290 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdaf99L, "abstract");
+    /*package*/ static final SProperty native$HhhY = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x73f30e3dfbaac721L, "native");
+    /*package*/ static final SProperty volatile$dZ_X = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e6fdbea6L, "volatile");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink modifiers$akE0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
+    /*package*/ static final SContainmentLink type$QNev = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, 0x32175ac2e8b632a8L, "type");
   }
 }

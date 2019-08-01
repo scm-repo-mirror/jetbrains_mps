@@ -15,15 +15,17 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.LinkedHashSet;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RequiredPlugins {
   private final Set<SNode> myDependencies = SetSequence.fromSet(new HashSet<SNode>());
   private final List<SNode> myPlugins = ListSequence.fromList(new ArrayList<SNode>());
 
   public RequiredPlugins(SNode project) {
-    ListSequence.fromList(myPlugins).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(project, AUX_vsfkhc.BuildMps_IdeaPlugin_d1bb7c62, false, new SAbstractConcept[]{})));
+    ListSequence.fromList(myPlugins).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(project, CONCEPTS.BuildMps_IdeaPlugin$X0, false, new SAbstractConcept[]{})));
   }
 
   public RequiredPlugins(Iterable<SNode> initialPlugins) {
@@ -60,8 +62,8 @@ public class RequiredPlugins {
 
   private void collectDependencies(SNode plugin, Set<SNode> visited) {
     SetSequence.fromSet(visited).addElement(plugin);
-    for (SNode dependency : ListSequence.fromList(SLinkOperations.getChildren(plugin, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbd4L, "dependencies")))) {
-      SNode dependencyPlugin = SLinkOperations.getTarget(dependency, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbd3L, 0x5b7be37b4de9bbfaL, "target"));
+    for (SNode dependency : ListSequence.fromList(SLinkOperations.getChildren(plugin, LINKS.dependencies$uhk4))) {
+      SNode dependencyPlugin = SLinkOperations.getTarget(dependency, LINKS.target$unp6);
       if (dependencyPlugin != null && !(SetSequence.fromSet(visited).contains(dependencyPlugin))) {
         collectDependencies(dependencyPlugin, visited);
       }
@@ -77,7 +79,12 @@ public class RequiredPlugins {
     return myPlugins;
   }
 
-  private static final class AUX_vsfkhc {
-    /*package*/ static final SConcept BuildMps_IdeaPlugin_d1bb7c62 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_IdeaPlugin$X0 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$unp6 = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbd3L, 0x5b7be37b4de9bbfaL, "target");
+    /*package*/ static final SContainmentLink dependencies$uhk4 = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, 0x5b7be37b4de9bbd4L, "dependencies");
   }
 }

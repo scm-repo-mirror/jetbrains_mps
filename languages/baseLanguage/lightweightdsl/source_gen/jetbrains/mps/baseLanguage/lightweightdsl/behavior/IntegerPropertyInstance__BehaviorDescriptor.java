@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.lightweightdsl.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -14,17 +15,16 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IntegerPropertyInstance__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_xiyiok.IntegerPropertyInstance_68a94341;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e84100ec5L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.IntegerPropertyInstance");
 
   public static final SMethod<SNode> getValueExpression_id3m06Jgserfw = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getValueExpression").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3m06Jgserfw").build();
 
@@ -34,7 +34,7 @@ public final class IntegerPropertyInstance__BehaviorDescriptor extends BaseBHDes
   }
 
   /*package*/ static SNode getValueExpression_id3m06Jgserfw(@NotNull SNode __thisNode__) {
-    return _quotation_createNode_6r0hdw_a0a0(SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e84100ec5L, 0x59e9926e84100ec6L, "value")));
+    return _quotation_createNode_6r0hdw_a0a0(SPropertyOperations.getInteger(__thisNode__, PROPS.value$9Zfw));
   }
 
   /*package*/ IntegerPropertyInstance__BehaviorDescriptor() {
@@ -90,7 +90,7 @@ public final class IntegerPropertyInstance__BehaviorDescriptor extends BaseBHDes
     return quotedNode_2;
   }
 
-  private static final class AUX_xiyiok {
-    /*package*/ static final SConcept IntegerPropertyInstance_68a94341 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e84100ec5L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.IntegerPropertyInstance");
+  private static final class PROPS {
+    /*package*/ static final SProperty value$9Zfw = MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e84100ec5L, 0x59e9926e84100ec6L, "value");
   }
 }

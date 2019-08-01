@@ -4,6 +4,7 @@ package jetbrains.mps.lang.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,7 +16,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -26,10 +26,11 @@ import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class MockScopeProvider__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_mkuvz2.MockScopeProvider_5b1a77b7;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf63919L, "jetbrains.mps.lang.test.structure.MockScopeProvider");
 
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
@@ -39,15 +40,15 @@ public final class MockScopeProvider__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, final SAbstractConcept kind, SNode child) {
-    if (!(ScopeUtils.comeFrom(MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf63919L, 0x1de1fbd5fbfc8785L, "node"), __thisNode__, child))) {
+    if (!(ScopeUtils.comeFrom(LINKS.node$EGim, __thisNode__, child))) {
       return ScopeUtils.lazyParentScope(__thisNode__, kind);
     }
 
-    Iterable<SNode> nodes = SLinkOperations.collect(SLinkOperations.getChildren(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf63919L, 0x1de1fbd5fbf67b13L, "entries"))).findFirst(new IWhereFilter<SNode>() {
+    Iterable<SNode> nodes = SLinkOperations.collect(SLinkOperations.getChildren(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.entries$pou7)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf67ae2L, 0x1de1fbd5fbf99684L, "kind")) == SNodeOperations.asNode(kind);
+        return SLinkOperations.getTarget(it, LINKS.kind$A3Ar) == SNodeOperations.asNode(kind);
       }
-    }), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf67ae2L, 0x1de1fbd5fbf67ae5L, "nodes")), MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf9c211L, 0x1de1fbd5fbf9c212L, "node"));
+    }), LINKS.nodes$tFru), LINKS.node$ROqF);
     return (Sequence.fromIterable(nodes).isEmpty() ? new EmptyScope() : new NamedElementsScope(nodes));
   }
 
@@ -97,7 +98,11 @@ public final class MockScopeProvider__BehaviorDescriptor extends BaseBHDescripto
     return CONCEPT;
   }
 
-  private static final class AUX_mkuvz2 {
-    /*package*/ static final SConcept MockScopeProvider_5b1a77b7 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf63919L, "jetbrains.mps.lang.test.structure.MockScopeProvider");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink node$EGim = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf63919L, 0x1de1fbd5fbfc8785L, "node");
+    /*package*/ static final SContainmentLink entries$pou7 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf63919L, 0x1de1fbd5fbf67b13L, "entries");
+    /*package*/ static final SReferenceLink kind$A3Ar = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf67ae2L, 0x1de1fbd5fbf99684L, "kind");
+    /*package*/ static final SContainmentLink nodes$tFru = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf67ae2L, 0x1de1fbd5fbf67ae5L, "nodes");
+    /*package*/ static final SReferenceLink node$ROqF = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1de1fbd5fbf9c211L, 0x1de1fbd5fbf9c212L, "node");
   }
 }

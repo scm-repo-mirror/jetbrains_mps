@@ -6,12 +6,13 @@ import jetbrains.mps.lang.script.runtime.BaseMigrationScript;
 import jetbrains.mps.lang.script.runtime.AbstractMigrationRefactoring;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class AddNativeFlagToAllMethods_MigrationScript extends BaseMigrationScript {
   public AddNativeFlagToAllMethods_MigrationScript() {
@@ -27,15 +28,15 @@ public final class AddNativeFlagToAllMethods_MigrationScript extends BaseMigrati
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_t6u4k5.MethodDeclaration_637cfcff;
+        return CONCEPTS.MethodDeclaration$93;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        return node.getProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, 0x73f30e3df95c0b73L, "isNative")) == null;
+        return node.getProperty(PROPS.isNative$LADB) == null;
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, 0x73f30e3df95c0b73L, "isNative"), false);
+        SPropertyOperations.assign(node, PROPS.isNative$LADB, false);
       }
       @Override
       public boolean isShowAsIntention() {
@@ -50,7 +51,11 @@ public final class AddNativeFlagToAllMethods_MigrationScript extends BaseMigrati
     return PersistenceFacade.getInstance().createNodeReference("r:00000000-0000-4000-0000-011c895902c9(jetbrains.mps.baseLanguage.scripts)/8355037393080348187");
   }
 
-  private static final class AUX_t6u4k5 {
-    /*package*/ static final SConcept MethodDeclaration_637cfcff = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, "jetbrains.mps.baseLanguage.structure.MethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MethodDeclaration$93 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, "jetbrains.mps.baseLanguage.structure.MethodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isNative$LADB = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, 0x73f30e3df95c0b73L, "isNative");
   }
 }

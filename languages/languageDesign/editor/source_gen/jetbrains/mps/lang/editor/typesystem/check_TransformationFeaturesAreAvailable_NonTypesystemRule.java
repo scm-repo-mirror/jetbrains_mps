@@ -11,7 +11,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.Collection;
 import jetbrains.mps.lang.editor.behavior.TransformationLocation__BehaviorDescriptor;
@@ -22,20 +21,22 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_TransformationFeaturesAreAvailable_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_TransformationFeaturesAreAvailable_NonTypesystemRule() {
   }
   public void applyRule(final SNode part, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode section = SNodeOperations.getNodeAncestor(part, AUX_nfgbbm.TransformationMenuSection_68a16062, true, false);
+    SNode section = SNodeOperations.getNodeAncestor(part, CONCEPTS.TransformationMenuSection$H0, true, false);
     if (section != null) {
-      final Iterable<SConcept> availableFeatures = ListSequence.fromList(SLinkOperations.getChildren(section, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, 0x6ec02d9918b4efbdL, "locations"))).translate(new ITranslator2<SNode, SConcept>() {
+      final Iterable<SConcept> availableFeatures = ListSequence.fromList(SLinkOperations.getChildren(section, LINKS.locations$aTw0)).translate(new ITranslator2<SNode, SConcept>() {
         public Iterable<SConcept> translate(SNode it) {
           return (Collection<SConcept>) TransformationLocation__BehaviorDescriptor.getAvailableFeatures_id1A4kJjlZ$rL.invoke(it);
         }
       });
-      ListSequence.fromList(SLinkOperations.getChildren(part, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, 0x7c45559defbb3517L, "features"))).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(SLinkOperations.getChildren(part, LINKS.features$645q)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return !(Sequence.fromIterable(availableFeatures).contains(SNodeOperations.getConcept(it)));
         }
@@ -50,7 +51,7 @@ public class check_TransformationFeaturesAreAvailable_NonTypesystemRule extends 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nfgbbm.IExtensibleTransformationMenuPart_c440c883;
+    return CONCEPTS.IExtensibleTransformationMenuPart$sZ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -59,8 +60,13 @@ public class check_TransformationFeaturesAreAvailable_NonTypesystemRule extends 
     return false;
   }
 
-  private static final class AUX_nfgbbm {
-    /*package*/ static final SConcept TransformationMenuSection_68a16062 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, "jetbrains.mps.lang.editor.structure.TransformationMenuSection");
-    /*package*/ static final SInterfaceConcept IExtensibleTransformationMenuPart_c440c883 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, "jetbrains.mps.lang.editor.structure.IExtensibleTransformationMenuPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenuSection$H0 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, "jetbrains.mps.lang.editor.structure.TransformationMenuSection");
+    /*package*/ static final SInterfaceConcept IExtensibleTransformationMenuPart$sZ = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, "jetbrains.mps.lang.editor.structure.IExtensibleTransformationMenuPart");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink locations$aTw0 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ec02d9918b4efbcL, 0x6ec02d9918b4efbdL, "locations");
+    /*package*/ static final SContainmentLink features$645q = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x652f322a364c9a28L, 0x7c45559defbb3517L, "features");
   }
 }

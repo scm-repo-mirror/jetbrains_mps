@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.behavior.BuildSourcePath__BehaviorDescriptor;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -22,23 +21,27 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule() {
   }
   public void applyRule(final SNode jarLoc, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     // if a CustomJarLocation points maps a file module has no dependency to, report a warning. Such a mapping would get ignored when generating module.xml 
-    SNode module = SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(jarLoc), AUX_cdvu75.BuildMpsLayout_ModuleJars_c448bd1b), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module"));
+    SNode module = SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(jarLoc), CONCEPTS.BuildMpsLayout_ModuleJars$mB), LINKS.module$5MWZ);
     if (module == null) {
-      module = SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(jarLoc), AUX_cdvu75.BuildMpsLayout_ModuleXml_1ea572ac), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, 0x6a3e160a3efe6275L, "module"));
+      module = SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(jarLoc), CONCEPTS.BuildMpsLayout_ModuleXml$8Q), LINKS.module$Fu50);
     }
-    if (!(SNodeOperations.isInstanceOf(module, AUX_cdvu75.BuildMps_Module_8d74323e))) {
+    if (!(SNodeOperations.isInstanceOf(module, CONCEPTS.BuildMps_Module$j$))) {
       return;
     }
-    final String expectedPath = BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(jarLoc, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3c765492deb1a384L, 0x3c765492deb1a385L, "path")));
+    final String expectedPath = BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(jarLoc, LINKS.path$TJ8w));
     // This logic is from BuildMpsLayout_ModuleXml template in main MC to create <library> elements 
-    List<SNode> moduleDeps = SLinkOperations.getChildren(SNodeOperations.as(module, AUX_cdvu75.BuildMps_Module_8d74323e), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"));
-    if (Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(moduleDeps, AUX_cdvu75.BuildMps_ExtractedModuleDependency_8c60c932), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, 0x64bd442e1cf7aaefL, "dependency"))).union(ListSequence.fromList(moduleDeps)), AUX_cdvu75.BuildMps_ModuleDependencyJar_f2f6bd24), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c197e19L, 0x3b60c4a45c197e1aL, "path"))).any(new IWhereFilter<SNode>() {
+    List<SNode> moduleDeps = SLinkOperations.getChildren(SNodeOperations.as(module, CONCEPTS.BuildMps_Module$j$), LINKS.dependencies$Pit_);
+    if (Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(moduleDeps, CONCEPTS.BuildMps_ExtractedModuleDependency$LK), LINKS.dependency$6b80)).union(ListSequence.fromList(moduleDeps)), CONCEPTS.BuildMps_ModuleDependencyJar$qY), LINKS.path$PN10)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(it), expectedPath);
       }
@@ -47,11 +50,11 @@ public class check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule 
     }
     {
       final MessageTarget errorTarget = new NodeMessageTarget();
-      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(jarLoc, String.format("Module %s doesn't depend on jar %s, mapping doesn't make sense.", SPropertyOperations.getString(module, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), expectedPath), "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "1241280061047101276", null, errorTarget);
+      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(jarLoc, String.format("Module %s doesn't depend on jar %s, mapping doesn't make sense.", SPropertyOperations.getString(module, PROPS.name$tAp1), expectedPath), "r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)", "1241280061047101276", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_cdvu75.BuildMpsLayout_ModuleXml_CustomJarLocation_17df3b33;
+    return CONCEPTS.BuildMpsLayout_ModuleXml_CustomJarLocation$Ef;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -60,12 +63,25 @@ public class check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule 
     return false;
   }
 
-  private static final class AUX_cdvu75 {
-    /*package*/ static final SConcept BuildMpsLayout_ModuleJars_c448bd1b = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars");
-    /*package*/ static final SConcept BuildMpsLayout_ModuleXml_1ea572ac = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleXml");
-    /*package*/ static final SConcept BuildMps_Module_8d74323e = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module");
-    /*package*/ static final SConcept BuildMps_ExtractedModuleDependency_8c60c932 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyJar_f2f6bd24 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c197e19L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyJar");
-    /*package*/ static final SConcept BuildMpsLayout_ModuleXml_CustomJarLocation_17df3b33 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3c765492deb1a384L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleXml_CustomJarLocation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMpsLayout_ModuleJars$mB = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars");
+    /*package*/ static final SConcept BuildMpsLayout_ModuleXml$8Q = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleXml");
+    /*package*/ static final SConcept BuildMps_Module$j$ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module");
+    /*package*/ static final SConcept BuildMps_ExtractedModuleDependency$LK = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyJar$qY = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c197e19L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyJar");
+    /*package*/ static final SConcept BuildMpsLayout_ModuleXml_CustomJarLocation$Ef = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3c765492deb1a384L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleXml_CustomJarLocation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink module$5MWZ = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module");
+    /*package*/ static final SReferenceLink module$Fu50 = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6a3e160a3efe6274L, 0x6a3e160a3efe6275L, "module");
+    /*package*/ static final SContainmentLink path$TJ8w = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3c765492deb1a384L, 0x3c765492deb1a385L, "path");
+    /*package*/ static final SContainmentLink dependencies$Pit_ = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies");
+    /*package*/ static final SContainmentLink dependency$6b80 = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, 0x64bd442e1cf7aaefL, "dependency");
+    /*package*/ static final SContainmentLink path$PN10 = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c197e19L, 0x3b60c4a45c197e1aL, "path");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

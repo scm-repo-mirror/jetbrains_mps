@@ -5,7 +5,6 @@ package jetbrains.mps.samples.heating.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ChangeEvent_Constraints extends BaseConstraintsDescriptor {
   public ChangeEvent_Constraints() {
-    super(AUX_tnheyo.ChangeEvent_82e65e50);
+    super(CONCEPTS.ChangeEvent$Gi);
   }
 
   public static class Temperature_Property extends BasePropertyConstraintsDescriptor {
     public Temperature_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, 0x4644aa4ce08aec70L, "temperature"), container);
+      super(PROPS.temperature$MPBu, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class ChangeEvent_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, 0x4644aa4ce08aec70L, "temperature"), new Temperature_Property(this));
+    properties.put(PROPS.temperature$MPBu, new Temperature_Property(this));
     return properties;
   }
 
-  private static final class AUX_tnheyo {
-    /*package*/ static final SConcept ChangeEvent_82e65e50 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, "jetbrains.mps.samples.heating.structure.ChangeEvent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChangeEvent$Gi = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, "jetbrains.mps.samples.heating.structure.ChangeEvent");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty temperature$MPBu = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec62L, 0x4644aa4ce08aec70L, "temperature");
   }
 }

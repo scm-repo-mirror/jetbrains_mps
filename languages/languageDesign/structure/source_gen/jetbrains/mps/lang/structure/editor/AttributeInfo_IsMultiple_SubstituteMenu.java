@@ -26,13 +26,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class AttributeInfo_IsMultiple_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_lk1ofo_a(), AUX_lk1ofo.AttributeInfo_IsMultiple_b0c87d02));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_lk1ofo_a(), CONCEPTS.AttributeInfo_IsMultiple$aw));
     return result;
   }
 
@@ -104,7 +105,7 @@ public class AttributeInfo_IsMultiple_SubstituteMenu extends SubstituteMenuBase 
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_lk1ofo.AttributeInfo_IsMultiple_b0c87d02, context);
+          super(CONCEPTS.AttributeInfo_IsMultiple$aw, context);
           _context = context;
         }
 
@@ -116,7 +117,7 @@ public class AttributeInfo_IsMultiple_SubstituteMenu extends SubstituteMenuBase 
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd034959f7dcL, "jetbrains.mps.lang.structure.structure.AttributeInfo_IsMultiple"));
-          SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd034959f7dcL, 0x5405fd03495a2dceL, "value"), myParameterObject.booleanValue());
+          SPropertyOperations.set(result, PROPS.value$Wv6W, myParameterObject.booleanValue());
           return result;
         }
 
@@ -126,7 +127,7 @@ public class AttributeInfo_IsMultiple_SubstituteMenu extends SubstituteMenuBase 
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_lk1ofo.AttributeInfo_IsMultiple_b0c87d02, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.AttributeInfo_IsMultiple$aw, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -148,7 +149,11 @@ public class AttributeInfo_IsMultiple_SubstituteMenu extends SubstituteMenuBase 
 
   }
 
-  private static final class AUX_lk1ofo {
-    /*package*/ static final SConcept AttributeInfo_IsMultiple_b0c87d02 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd034959f7dcL, "jetbrains.mps.lang.structure.structure.AttributeInfo_IsMultiple");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AttributeInfo_IsMultiple$aw = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd034959f7dcL, "jetbrains.mps.lang.structure.structure.AttributeInfo_IsMultiple");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$Wv6W = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x5405fd034959f7dcL, 0x5405fd03495a2dceL, "value");
   }
 }

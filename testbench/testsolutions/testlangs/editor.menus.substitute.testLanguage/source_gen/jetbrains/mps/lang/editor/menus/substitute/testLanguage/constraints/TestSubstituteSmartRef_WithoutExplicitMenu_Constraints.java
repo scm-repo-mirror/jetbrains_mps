@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestSubstituteSmartRef_WithoutExplicitMenu_Constraints extends BaseConstraintsDescriptor {
   public TestSubstituteSmartRef_WithoutExplicitMenu_Constraints() {
-    super(AUX_4l1ims.TestSubstituteSmartRef_WithoutExplicitMenu_42c74d8);
+    super(CONCEPTS.TestSubstituteSmartRef_WithoutExplicitMenu$ma);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x6723ebbaa490bde6L, 0x6723ebbaa490bde7L, "childToReference"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.childToReference$zyr0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -46,10 +46,10 @@ public class TestSubstituteSmartRef_WithoutExplicitMenu_Constraints extends Base
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return new FilteringScope(new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, AUX_4l1ims.TestSubstituteConceptChildToReference_ae4107f7)) {
+            return new FilteringScope(new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, CONCEPTS.TestSubstituteConceptChildToReference$pb)) {
               @Override
               public boolean isExcluded(SNode node) {
-                return !(SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), AUX_4l1ims.TestSubstituteConceptChildToReference_ae4107f7));
+                return !(SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), CONCEPTS.TestSubstituteConceptChildToReference$pb));
               }
             };
           }
@@ -62,8 +62,12 @@ public class TestSubstituteSmartRef_WithoutExplicitMenu_Constraints extends Base
   }
   private static final SNodePointer breakingNode_4l1ims_a0a0a0a0a1a0a0a0c = new SNodePointer("r:0cba60fc-aa17-42ba-b3ca-69b0d1a86fe9(jetbrains.mps.lang.editor.menus.substitute.testLanguage.constraints)", "7432042996949761868");
 
-  private static final class AUX_4l1ims {
-    /*package*/ static final SConcept TestSubstituteSmartRef_WithoutExplicitMenu_42c74d8 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x6723ebbaa490bde6L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSmartRef_WithoutExplicitMenu");
-    /*package*/ static final SConcept TestSubstituteConceptChildToReference_ae4107f7 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2b0L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteConceptChildToReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteSmartRef_WithoutExplicitMenu$ma = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x6723ebbaa490bde6L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteSmartRef_WithoutExplicitMenu");
+    /*package*/ static final SConcept TestSubstituteConceptChildToReference$pb = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6ff2b0L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteConceptChildToReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink childToReference$zyr0 = MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x6723ebbaa490bde6L, 0x6723ebbaa490bde7L, "childToReference");
   }
 }

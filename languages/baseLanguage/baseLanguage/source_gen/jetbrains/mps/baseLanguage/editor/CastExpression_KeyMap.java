@@ -11,9 +11,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.actions.ExpectedType_FactoryUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class CastExpression_KeyMap extends KeyMapImpl {
   public CastExpression_KeyMap() {
@@ -40,7 +41,7 @@ public class CastExpression_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_lml8w2.CastExpression_6a411f0c))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.CastExpression$7m))) {
         return false;
       }
       return true;
@@ -50,7 +51,7 @@ public class CastExpression_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")));
+      SNodeOperations.replaceWithAnother(node, SLinkOperations.getTarget(node, LINKS.expression$8QPv));
     }
     public String getKeyStroke() {
       return " DELETE";
@@ -75,7 +76,7 @@ public class CastExpression_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_lml8w2.CastExpression_6a411f0c))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.CastExpression$7m))) {
         return false;
       }
       return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
@@ -89,14 +90,19 @@ public class CastExpression_KeyMap extends KeyMapImpl {
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
       SNode type = ExpectedType_FactoryUtil.createExpectedType(node);
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4bL, "type"), type);
+      SLinkOperations.setTarget(node, LINKS.type$8QP0, type);
     }
     public String getKeyStroke() {
       return "ctrl shift SPACE";
     }
   }
 
-  private static final class AUX_lml8w2 {
-    /*package*/ static final SConcept CastExpression_6a411f0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CastExpression$7m = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$8QPv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression");
+    /*package*/ static final SContainmentLink type$8QP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4bL, "type");
   }
 }

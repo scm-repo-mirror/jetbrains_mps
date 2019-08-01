@@ -53,14 +53,14 @@ public final class SetCopyOutcome_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_9ojlok.CopyOutcome_b441976c)) != null) ? "Remove @CopyOutcome annotation" : "Add @CopyOutcome annotation");
+      return ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.CopyOutcome$lQ)) != null) ? "Remove @CopyOutcome annotation" : "Add @CopyOutcome annotation");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_9ojlok.CopyOutcome_b441976c)) != null)) {
-        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_9ojlok.CopyOutcome_b441976c)));
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.CopyOutcome$lQ)) != null)) {
+        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.CopyOutcome$lQ)));
       } else {
-        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(AUX_9ojlok.CopyOutcome_b441976c), AUX_9ojlok.CopyOutcome_b441976c);
+        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.CopyOutcome$lQ), CONCEPTS.CopyOutcome$lQ);
       }
     }
     @Override
@@ -69,7 +69,7 @@ public final class SetCopyOutcome_Intention extends AbstractIntentionDescriptor 
     }
   }
 
-  private static final class AUX_9ojlok {
-    /*package*/ static final SConcept CopyOutcome_b441976c = MetaAdapterFactory.getConcept(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, "jetbrains.mps.lang.makeup.structure.CopyOutcome");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CopyOutcome$lQ = MetaAdapterFactory.getConcept(0xedf22a442bc4e5dL, 0x954f06aaaf51df00L, 0x10f9f9812b8fca93L, "jetbrains.mps.lang.makeup.structure.CopyOutcome");
   }
 }

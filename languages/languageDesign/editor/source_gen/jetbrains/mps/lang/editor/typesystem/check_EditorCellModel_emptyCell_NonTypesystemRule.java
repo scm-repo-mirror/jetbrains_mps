@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -17,17 +16,19 @@ import jetbrains.mps.lang.editor.behavior.EditorCellModel__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_EditorCellModel_emptyCell_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_EditorCellModel_emptyCell_NonTypesystemRule() {
   }
   public void applyRule(final SNode cellModel_RefNode, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode emptyCellModel = SLinkOperations.getTarget(cellModel_RefNode, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb05cdc7L, 0x3a4d559b42e5cbL, "emptyCellModel"));
+    SNode emptyCellModel = SLinkOperations.getTarget(cellModel_RefNode, LINKS.emptyCellModel$GqNr);
     if (emptyCellModel == null) {
       return;
     }
-    ListSequence.fromList(SNodeOperations.getNodeDescendants(emptyCellModel, AUX_6407lv.EditorCellModel_226b88d6, true, new SAbstractConcept[]{})).visitAll(new IVisitor<SNode>() {
+    ListSequence.fromList(SNodeOperations.getNodeDescendants(emptyCellModel, CONCEPTS.EditorCellModel$5c, true, new SAbstractConcept[]{})).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         if (!((boolean) EditorCellModel__BehaviorDescriptor.canBeUsedAsEmptyCell_id6RO52Mcgrfa.invoke(it))) {
           {
@@ -39,7 +40,7 @@ public class check_EditorCellModel_emptyCell_NonTypesystemRule extends AbstractN
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6407lv.CellModel_RefNode_2d0a6e61;
+    return CONCEPTS.CellModel_RefNode$Ox;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -48,8 +49,12 @@ public class check_EditorCellModel_emptyCell_NonTypesystemRule extends AbstractN
     return false;
   }
 
-  private static final class AUX_6407lv {
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
-    /*package*/ static final SConcept CellModel_RefNode_2d0a6e61 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb05cdc7L, "jetbrains.mps.lang.editor.structure.CellModel_RefNode");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink emptyCellModel$GqNr = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb05cdc7L, 0x3a4d559b42e5cbL, "emptyCellModel");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+    /*package*/ static final SConcept CellModel_RefNode$Ox = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb05cdc7L, "jetbrains.mps.lang.editor.structure.CellModel_RefNode");
   }
 }

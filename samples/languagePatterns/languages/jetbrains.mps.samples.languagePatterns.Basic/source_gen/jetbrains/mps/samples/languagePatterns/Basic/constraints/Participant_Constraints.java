@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -28,15 +27,17 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Participant_Constraints extends BaseConstraintsDescriptor {
   public Participant_Constraints() {
-    super(AUX_wflc39.Participant_bff3eac1);
+    super(CONCEPTS.Participant$N1);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78e59fbL, 0x34c8853ae78e59fcL, "singer"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.singer$vefw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -51,18 +52,18 @@ public class Participant_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            final SNode concert = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_wflc39.Concert_bab5ff8e, false, false);
-            final SNode performance = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_wflc39.CombinedPerformance_bfca1f8b, true, false);
+            final SNode concert = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.Concert$6k, false, false);
+            final SNode performance = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.CombinedPerformance$4R, true, false);
 
-            final List<SNode> allSingers = SLinkOperations.getChildren(concert, MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, 0x34c8853ae7895c8bL, "performers"));
+            final List<SNode> allSingers = SLinkOperations.getChildren(concert, LINKS.performers$JYpX);
 
-            final Iterable<SNode> alreadyParticipatingSingersButMe = ListSequence.fromList(SLinkOperations.getChildren(performance, MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78de950L, 0x34c8853ae78de9acL, "participants"))).where(new IWhereFilter<SNode>() {
+            final Iterable<SNode> alreadyParticipatingSingersButMe = ListSequence.fromList(SLinkOperations.getChildren(performance, LINKS.participants$gZ1C)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return !(Objects.equals(it, _context.getReferenceNode()));
               }
             }).select(new ISelector<SNode, SNode>() {
               public SNode select(SNode participant) {
-                return SLinkOperations.getTarget(participant, MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78e59fbL, 0x34c8853ae78e59fcL, "singer"));
+                return SLinkOperations.getTarget(participant, LINKS.singer$vefw);
               }
             });
 
@@ -87,9 +88,15 @@ public class Participant_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_wflc39_a0a0a0a0a1a0a0a0c = new SNodePointer("r:7e1c7518-df7a-4f22-84b2-a5e68261264a(jetbrains.mps.samples.languagePatterns.Basic.constraints)", "6836281137582847570");
 
-  private static final class AUX_wflc39 {
-    /*package*/ static final SConcept Participant_bff3eac1 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78e59fbL, "jetbrains.mps.samples.languagePatterns.Basic.structure.Participant");
-    /*package*/ static final SConcept Concert_bab5ff8e = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Concert");
-    /*package*/ static final SConcept CombinedPerformance_bfca1f8b = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78de950L, "jetbrains.mps.samples.languagePatterns.Basic.structure.CombinedPerformance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Participant$N1 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78e59fbL, "jetbrains.mps.samples.languagePatterns.Basic.structure.Participant");
+    /*package*/ static final SConcept Concert$6k = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Concert");
+    /*package*/ static final SConcept CombinedPerformance$4R = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78de950L, "jetbrains.mps.samples.languagePatterns.Basic.structure.CombinedPerformance");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink singer$vefw = MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78e59fbL, 0x34c8853ae78e59fcL, "singer");
+    /*package*/ static final SContainmentLink performers$JYpX = MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, 0x34c8853ae7895c8bL, "performers");
+    /*package*/ static final SContainmentLink participants$gZ1C = MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae78de950L, 0x34c8853ae78de9acL, "participants");
   }
 }

@@ -19,7 +19,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BwfTaskLibrary_Constraints extends BaseConstraintsDescriptor {
   public BwfTaskLibrary_Constraints() {
-    super(AUX_cxhwn2.BwfTaskLibrary_91f5a8b5);
+    super(CONCEPTS.BwfTaskLibrary$Pd);
   }
 
   @Override
@@ -38,15 +38,15 @@ public class BwfTaskLibrary_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_cxhwn2.BwfTask_e8c55cab) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_cxhwn2.BwfTaskPart_e2560e73) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_cxhwn2.BwfMacro_1b704c33) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), AUX_cxhwn2.BwfTaskLibraryDependency_938e3fe5);
+    return SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.BwfTask$wn) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.BwfTaskPart$Xf) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.BwfMacro$Af) || SConceptOperations.isExactly(SNodeOperations.asSConcept(childConcept), CONCEPTS.BwfTaskLibraryDependency$Kt);
   }
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:8c3c79a2-2377-4680-a62f-78d39fdded56(jetbrains.mps.build.workflow.constraints)", "1227128029536580203");
 
-  private static final class AUX_cxhwn2 {
-    /*package*/ static final SConcept BwfTaskLibrary_91f5a8b5 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, "jetbrains.mps.build.workflow.structure.BwfTaskLibrary");
-    /*package*/ static final SConcept BwfTaskLibraryDependency_938e3fe5 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, "jetbrains.mps.build.workflow.structure.BwfTaskLibraryDependency");
-    /*package*/ static final SConcept BwfTask_e8c55cab = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6273L, "jetbrains.mps.build.workflow.structure.BwfTask");
-    /*package*/ static final SConcept BwfTaskPart_e2560e73 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x36fb0dc9fd32c1b8L, "jetbrains.mps.build.workflow.structure.BwfTaskPart");
-    /*package*/ static final SConcept BwfMacro_1b704c33 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5fb388b43aa25d48L, "jetbrains.mps.build.workflow.structure.BwfMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfTaskLibrary$Pd = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, "jetbrains.mps.build.workflow.structure.BwfTaskLibrary");
+    /*package*/ static final SConcept BwfTaskLibraryDependency$Kt = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, "jetbrains.mps.build.workflow.structure.BwfTaskLibraryDependency");
+    /*package*/ static final SConcept BwfTask$wn = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6273L, "jetbrains.mps.build.workflow.structure.BwfTask");
+    /*package*/ static final SConcept BwfTaskPart$Xf = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x36fb0dc9fd32c1b8L, "jetbrains.mps.build.workflow.structure.BwfTaskPart");
+    /*package*/ static final SConcept BwfMacro$Af = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5fb388b43aa25d48L, "jetbrains.mps.build.workflow.structure.BwfMacro");
   }
 }

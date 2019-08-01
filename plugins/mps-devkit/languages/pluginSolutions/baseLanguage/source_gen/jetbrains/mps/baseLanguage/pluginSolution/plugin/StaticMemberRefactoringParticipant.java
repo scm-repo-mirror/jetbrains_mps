@@ -11,12 +11,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.migration.util.NodeReferenceUtil;
 import jetbrains.mps.lang.migration.behavior.AbstractNodeReference__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public abstract class StaticMemberRefactoringParticipant extends UpdateReferencesParticipantBase<UpdateReferencesParticipantBase.NamedNodeReference> {
 
@@ -30,7 +32,7 @@ public abstract class StaticMemberRefactoringParticipant extends UpdateReference
 
       @Nullable
       public UpdateReferencesParticipantBase.NodeData<UpdateReferencesParticipantBase.NamedNodeReference> beforeMove(SNode nodeToMove) {
-        SNode classifier = SNodeOperations.getNodeAncestor(nodeToMove, AUX_io42ml.Classifier_4b7e553, false, false);
+        SNode classifier = SNodeOperations.getNodeAncestor(nodeToMove, CONCEPTS.Classifier$hJ, false, false);
         if (!(isApplicable(nodeToMove)) || classifier == null) {
           return null;
         }
@@ -38,7 +40,7 @@ public abstract class StaticMemberRefactoringParticipant extends UpdateReference
       }
       @Nullable
       public UpdateReferencesParticipantBase.NodeData<UpdateReferencesParticipantBase.NamedNodeReference> afterMove(SNode movedNode) {
-        SNode classifier = SNodeOperations.getNodeAncestor(movedNode, AUX_io42ml.Classifier_4b7e553, false, false);
+        SNode classifier = SNodeOperations.getNodeAncestor(movedNode, CONCEPTS.Classifier$hJ, false, false);
         UpdateReferencesParticipantBase.NamedNodeReference classifierData = (classifier == null ? null : classifierDataCollector.afterMove(classifier));
         return new NodeData<UpdateReferencesParticipantBase.NamedNodeReference>(fieldDataCollector.afterMove(movedNode), classifierData);
       }
@@ -52,40 +54,49 @@ public abstract class StaticMemberRefactoringParticipant extends UpdateReference
     return createClassifierMemberData_io42ml_a0a6(NodeReferenceUtil.makeReflection(finalState.baseData().reference(), finalState.baseData().name()), NodeReferenceUtil.makeReflection(finalState.other().reference(), finalState.other().name()));
   }
   public UpdateReferencesParticipantBase.NodeData<UpdateReferencesParticipantBase.NamedNodeReference> deserializeFinalState(SNode serialized) {
-    UpdateReferencesParticipantBase.NamedNodeReference classifierData = new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1eaL, "classifierData"))), BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1eaL, "classifierData"))));
-    return new NodeData<UpdateReferencesParticipantBase.NamedNodeReference>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1e8L, "nodeData"))), SPropertyOperations.getString(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1e8L, "nodeData")), MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, 0x27bf3263be23f299L, "nodeName"))), classifierData);
+    UpdateReferencesParticipantBase.NamedNodeReference classifierData = new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, LINKS.classifierData$gigD)), BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(serialized, LINKS.classifierData$gigD)));
+    return new NodeData<UpdateReferencesParticipantBase.NamedNodeReference>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, LINKS.nodeData$gifF)), SPropertyOperations.getString(SLinkOperations.getTarget(serialized, LINKS.nodeData$gifF), PROPS.nodeName$KMmO)), classifierData);
   }
   public UpdateReferencesParticipantBase.NodeData<UpdateReferencesParticipantBase.NamedNodeReference> deserializeInitialState(SNode serialized) {
-    UpdateReferencesParticipantBase.NamedNodeReference classifierData = new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1eaL, "classifierData"))), BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1eaL, "classifierData"))));
-    return new NodeData<UpdateReferencesParticipantBase.NamedNodeReference>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1e8L, "nodeData"))), SPropertyOperations.getString(SLinkOperations.getTarget(serialized, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1e8L, "nodeData")), MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, 0x27bf3263be23f299L, "nodeName"))), classifierData);
+    UpdateReferencesParticipantBase.NamedNodeReference classifierData = new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, LINKS.classifierData$gigD)), BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(serialized, LINKS.classifierData$gigD)));
+    return new NodeData<UpdateReferencesParticipantBase.NamedNodeReference>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(serialized, LINKS.nodeData$gifF)), SPropertyOperations.getString(SLinkOperations.getTarget(serialized, LINKS.nodeData$gifF), PROPS.nodeName$KMmO)), classifierData);
   }
 
   private static SNode createClassifierMemberData_io42ml_a0a5(SNode node0, SNode node1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_io42ml.ClassifierMemberData_817a0cad, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ClassifierMemberData$xl, null, null, false);
     if (node0 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1e8L, "nodeData"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, AUX_io42ml.ReflectionNodeReference_bcce0b54)));
+      n1.addChild(LINKS.nodeData$gifF, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, CONCEPTS.ReflectionNodeReference$Ue)));
     }
     if (node1 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1eaL, "classifierData"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node1, AUX_io42ml.ReflectionNodeReference_bcce0b54)));
+      n1.addChild(LINKS.classifierData$gigD, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node1, CONCEPTS.ReflectionNodeReference$Ue)));
     }
     return n1;
   }
   private static SNode createClassifierMemberData_io42ml_a0a6(SNode node0, SNode node1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_io42ml.ClassifierMemberData_817a0cad, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ClassifierMemberData$xl, null, null, false);
     if (node0 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1e8L, "nodeData"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, AUX_io42ml.ReflectionNodeReference_bcce0b54)));
+      n1.addChild(LINKS.nodeData$gifF, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, CONCEPTS.ReflectionNodeReference$Ue)));
     }
     if (node1 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1eaL, "classifierData"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node1, AUX_io42ml.ReflectionNodeReference_bcce0b54)));
+      n1.addChild(LINKS.classifierData$gigD, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node1, CONCEPTS.ReflectionNodeReference$Ue)));
     }
     return n1;
   }
 
-  private static final class AUX_io42ml {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept ClassifierMemberData_817a0cad = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, "jetbrains.mps.lang.migration.structure.ClassifierMemberData");
-    /*package*/ static final SConcept ReflectionNodeReference_bcce0b54 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, "jetbrains.mps.lang.migration.structure.ReflectionNodeReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept ClassifierMemberData$xl = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, "jetbrains.mps.lang.migration.structure.ClassifierMemberData");
+    /*package*/ static final SConcept ReflectionNodeReference$Ue = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, "jetbrains.mps.lang.migration.structure.ReflectionNodeReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classifierData$gigD = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1eaL, "classifierData");
+    /*package*/ static final SContainmentLink nodeData$gifF = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x7e209440ba59c1e7L, 0x7e209440ba59c1e8L, "nodeData");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty nodeName$KMmO = MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, 0x27bf3263be23f299L, "nodeName");
   }
 }

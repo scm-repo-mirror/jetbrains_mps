@@ -6,10 +6,10 @@ import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.PropertyValueQuery;
 import java.util.HashMap;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.impl.query.QueryKey;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -22,10 +22,10 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static Object propertyMacro_GetValue_0_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0x82fb751df7fb4b58L, 0xa16e303356f8e0afL, 0x37350ebbae8d1283L, 0x37350ebbae8d12f3L, "text"));
+    return SPropertyOperations.getString(_context.getNode(), PROPS.text$MFMZ);
   }
   public static Object propertyMacro_GetValue_0_1(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0x82fb751df7fb4b58L, 0xa16e303356f8e0afL, 0x37350ebbae8d186cL, 0x37350ebbae8d1876L, "text"));
+    return SPropertyOperations.getString(_context.getNode(), PROPS.text$QN3y);
   }
   private final Map<String, PropertyValueQuery> pvqMethods = new HashMap<String, PropertyValueQuery>();
   {
@@ -59,5 +59,10 @@ public class QueriesGenerated extends QueryProviderBase {
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$MFMZ = MetaAdapterFactory.getProperty(0x82fb751df7fb4b58L, 0xa16e303356f8e0afL, 0x37350ebbae8d1283L, 0x37350ebbae8d12f3L, "text");
+    /*package*/ static final SProperty text$QN3y = MetaAdapterFactory.getProperty(0x82fb751df7fb4b58L, 0xa16e303356f8e0afL, 0x37350ebbae8d186cL, 0x37350ebbae8d1876L, "text");
   }
 }

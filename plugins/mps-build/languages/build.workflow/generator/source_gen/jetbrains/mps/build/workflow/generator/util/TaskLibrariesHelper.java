@@ -7,7 +7,6 @@ import jetbrains.mps.generator.template.TemplateQueryContext;
 import java.util.Set;
 import java.util.LinkedHashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.workflow.behavior.BwfTaskLibrary__BehaviorDescriptor;
 import java.util.List;
 import java.util.ArrayList;
@@ -21,6 +20,10 @@ import java.util.HashMap;
 import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class TaskLibrariesHelper {
@@ -34,8 +37,8 @@ public class TaskLibrariesHelper {
 
   public void importLibs() {
     Set<SNode> libsSet = new LinkedHashSet<SNode>();
-    for (SNode tldep : SLinkOperations.getChildren(project, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6271L, 0x6565da114725c6b7L, "imports"))) {
-      libsSet.addAll(BwfTaskLibrary__BehaviorDescriptor.closureWithImported_id2U15YDCRefA.invoke(SLinkOperations.getTarget(tldep, MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target"))));
+    for (SNode tldep : SLinkOperations.getChildren(project, LINKS.imports$Nl7b)) {
+      libsSet.addAll(BwfTaskLibrary__BehaviorDescriptor.closureWithImported_id2U15YDCRefA.invoke(SLinkOperations.getTarget(tldep, LINKS.target$LSxw)));
     }
     List<SNode> libs = new ArrayList<SNode>(libsSet);
     for (SNode lib : libs) {
@@ -43,17 +46,17 @@ public class TaskLibrariesHelper {
         for (SReference ref : n.getReferences()) {
           SNode targetNode = SNodeOperations.getTargetNodeSilently(ref);
           if (targetNode == null) {
-            genContext.showErrorMessage(n, "cannot import library `" + SPropertyOperations.getString(lib, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "': unresolved reference");
+            genContext.showErrorMessage(n, "cannot import library `" + SPropertyOperations.getString(lib, PROPS.name$tAp1) + "': unresolved reference");
           } else if (!(libsSet.contains(targetNode.getContainingRoot()))) {
-            genContext.showErrorMessage(n, "cannot import library `" + SPropertyOperations.getString(lib, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "': broken reference, target is not imported");
+            genContext.showErrorMessage(n, "cannot import library `" + SPropertyOperations.getString(lib, PROPS.name$tAp1) + "': broken reference, target is not imported");
           }
         }
       }
     }
-    List<SNode> parts = Sequence.fromIterable(SLinkOperations.collectMany(libs, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, 0x6565da114724ce94L, "parts"))).toListSequence();
+    List<SNode> parts = Sequence.fromIterable(SLinkOperations.collectMany(libs, LINKS.parts$Ha9Z)).toListSequence();
     Map<SNode, SNode> map = new HashMap<SNode, SNode>();
     parts = (List<SNode>) CopyUtil.copy((List<SNode>) parts, map);
-    ListSequence.fromList(SLinkOperations.getChildren(project, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6271L, 0x6565da114725c6b7L, "imports"))).clear();
+    ListSequence.fromList(SLinkOperations.getChildren(project, LINKS.imports$Nl7b)).clear();
     for (SNode n : SNodeUtil.getDescendants(project)) {
       for (SReference ref : n.getReferences()) {
         SNode targetNode = SNodeOperations.getTargetNodeSilently(ref);
@@ -61,7 +64,7 @@ public class TaskLibrariesHelper {
           SNodeAccessUtil.setReferenceTarget(n, ref.getLink(), map.get(targetNode));
         } else {
           SNode containingRoot = targetNode.getContainingRoot();
-          if (jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.isInstanceOf(containingRoot, AUX_s6kfxd.BwfTaskLibrary_91f5a8b5)) {
+          if (jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations.isInstanceOf(containingRoot, CONCEPTS.BwfTaskLibrary$Pd)) {
             genContext.showErrorMessage(n, "task library is not imported");
           }
         }
@@ -69,11 +72,22 @@ public class TaskLibrariesHelper {
     }
     // we add everything in the beginning 
     for (int i = parts.size() - 1; i >= 0; i--) {
-      ListSequence.fromList(SLinkOperations.getChildren(project, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6271L, 0x2670d5989d5ace60L, "parts"))).insertElement(0, parts.get(i));
+      ListSequence.fromList(SLinkOperations.getChildren(project, LINKS.parts$F0hn)).insertElement(0, parts.get(i));
     }
   }
 
-  private static final class AUX_s6kfxd {
-    /*package*/ static final SConcept BwfTaskLibrary_91f5a8b5 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, "jetbrains.mps.build.workflow.structure.BwfTaskLibrary");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$LSxw = MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da1147260537L, 0x6565da1147260538L, "target");
+    /*package*/ static final SContainmentLink imports$Nl7b = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6271L, 0x6565da114725c6b7L, "imports");
+    /*package*/ static final SContainmentLink parts$Ha9Z = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, 0x6565da114724ce94L, "parts");
+    /*package*/ static final SContainmentLink parts$F0hn = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6271L, 0x2670d5989d5ace60L, "parts");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfTaskLibrary$Pd = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6565da114724ce92L, "jetbrains.mps.build.workflow.structure.BwfTaskLibrary");
   }
 }

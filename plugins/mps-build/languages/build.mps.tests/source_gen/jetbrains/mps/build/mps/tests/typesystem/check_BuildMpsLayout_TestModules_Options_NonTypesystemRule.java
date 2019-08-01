@@ -8,20 +8,21 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BuildMpsLayout_TestModules_Options_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildMpsLayout_TestModules_Options_NonTypesystemRule() {
   }
   public void applyRule(final SNode options, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(options, MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, 0x5b81705cdfb323cdL, "haltonfailure")) != null)) {
-      String approxPresentation = BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(options, MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, 0x5b81705cdfb323cdL, "haltonfailure")), null);
+    if ((SLinkOperations.getTarget(options, LINKS.haltonfailure$JTP8) != null)) {
+      String approxPresentation = BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(options, LINKS.haltonfailure$JTP8), null);
       if (approxPresentation.contains("${")) {
         return;
       } else if (approxPresentation.equals("true")) {
@@ -37,7 +38,7 @@ public class check_BuildMpsLayout_TestModules_Options_NonTypesystemRule extends 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ls7qyd.BuildMpsLayout_TestModules_Options_599c44a6;
+    return CONCEPTS.BuildMpsLayout_TestModules_Options$XW;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,7 +47,11 @@ public class check_BuildMpsLayout_TestModules_Options_NonTypesystemRule extends 
     return false;
   }
 
-  private static final class AUX_ls7qyd {
-    /*package*/ static final SConcept BuildMpsLayout_TestModules_Options_599c44a6 = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModules_Options");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink haltonfailure$JTP8 = MetaAdapterFactory.getContainmentLink(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, 0x5b81705cdfb323cdL, "haltonfailure");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMpsLayout_TestModules_Options$XW = MetaAdapterFactory.getConcept(0x3600cb0a44dd4a5bL, 0x996822924406419eL, 0x5b81705cdfb314e0L, "jetbrains.mps.build.mps.tests.structure.BuildMpsLayout_TestModules_Options");
   }
 }

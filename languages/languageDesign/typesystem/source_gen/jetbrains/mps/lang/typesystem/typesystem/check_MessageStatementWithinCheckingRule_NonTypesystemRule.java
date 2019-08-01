@@ -24,7 +24,7 @@ public class check_MessageStatementWithinCheckingRule_NonTypesystemRule extends 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_b6tlvt.MessageStatement_2fbb1f6d;
+    return CONCEPTS.MessageStatement$Ql;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class check_MessageStatementWithinCheckingRule_NonTypesystemRule extends 
     return false;
   }
 
-  private static final class AUX_b6tlvt {
-    /*package*/ static final SInterfaceConcept MessageStatement_2fbb1f6d = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MessageStatement$Ql = MetaAdapterFactory.getInterfaceConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11db4aad802L, "jetbrains.mps.lang.typesystem.structure.MessageStatement");
   }
 }

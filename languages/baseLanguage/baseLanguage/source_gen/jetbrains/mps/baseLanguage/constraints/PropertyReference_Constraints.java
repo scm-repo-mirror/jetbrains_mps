@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -35,10 +34,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PropertyReference_Constraints extends BaseConstraintsDescriptor {
   public PropertyReference_Constraints() {
-    super(AUX_57atcm.PropertyReference_61a01283);
+    super(CONCEPTS.PropertyReference$OZ);
   }
 
   @Override
@@ -58,7 +58,7 @@ public class PropertyReference_Constraints extends BaseConstraintsDescriptor {
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b821eaaeL, 0x117b823ed57L, "property"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.property$64$K, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -74,16 +74,16 @@ public class PropertyReference_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
-            if (!(SNodeOperations.isInstanceOf(enclosingNode, AUX_57atcm.DotExpression_97ed08d8))) {
+            if (!(SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.DotExpression$6a))) {
               return null;
             }
-            SNode instance = SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, AUX_57atcm.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"));
-            final SNode classifierType = TypecheckingFacade.getFromContext().strongCoerceType(TypecheckingFacade.getFromContext().getTypeOf(instance), AUX_57atcm.ClassifierType_42700403);
-            if ((SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == null)) {
+            SNode instance = SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr);
+            final SNode classifierType = TypecheckingFacade.getFromContext().strongCoerceType(TypecheckingFacade.getFromContext().getTypeOf(instance), CONCEPTS.ClassifierType$IZ);
+            if ((SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R) == null)) {
               return new EmptyScope();
             }
-            final SNode enclosingProperty = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_57atcm.Property_f9d70e64, false, false);
-            return new NamedElementsScope(Sequence.fromIterable(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(classifierType), AUX_57atcm.Property_f9d70e64)).where(new IWhereFilter<SNode>() {
+            final SNode enclosingProperty = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.Property$PY, false, false);
+            return new NamedElementsScope(Sequence.fromIterable(SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(classifierType), CONCEPTS.Property$PY)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return (boolean) IClassifierMember__BehaviorDescriptor.isVisible_id5laDzmpBPv8.invoke(it, classifierType, _context.getContextNode()) && (enclosingProperty == null || !(Objects.equals(it, enclosingProperty)));
               }
@@ -97,9 +97,9 @@ public class PropertyReference_Constraints extends BaseConstraintsDescriptor {
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    SNode ancestor = SNodeOperations.getNodeAncestor(parentNode, AUX_57atcm.Property_f9d70e64, false, false);
+    SNode ancestor = SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.Property$PY, false, false);
     if (ancestor != null) {
-      if (Objects.equals(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b821eaaeL, 0x117b823ed57L, "property")), ancestor)) {
+      if (Objects.equals(SLinkOperations.getTarget(node, LINKS.property$64$K), ancestor)) {
         return false;
       }
     }
@@ -108,10 +108,16 @@ public class PropertyReference_Constraints extends BaseConstraintsDescriptor {
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1227128029536558315");
   private static final SNodePointer breakingNode_57atcm_a0a0a0a0a1a0a0a0d = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582643512");
 
-  private static final class AUX_57atcm {
-    /*package*/ static final SConcept PropertyReference_61a01283 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b821eaaeL, "jetbrains.mps.baseLanguage.structure.PropertyReference");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept Property_f9d70e64 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, "jetbrains.mps.baseLanguage.structure.Property");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyReference$OZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b821eaaeL, "jetbrains.mps.baseLanguage.structure.PropertyReference");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept Property$PY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b744dafeL, "jetbrains.mps.baseLanguage.structure.Property");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink property$64$K = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b821eaaeL, 0x117b823ed57L, "property");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
   }
 }

@@ -166,6 +166,11 @@
       </concept>
     </language>
     <language id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal">
+      <concept id="4927083583736784422" name="jetbrains.mps.baseLanguageInternal.structure.ExtractToSingleConstantExpression" flags="ng" index="1BaE9c">
+        <property id="3566113306135792467" name="baseContainerName" index="1ouuDV" />
+        <property id="4927083583736815155" name="uniqueFieldName" index="1BaxDp" />
+        <child id="4927083583736819744" name="expression" index="1Bazha" />
+      </concept>
       <concept id="1174294166120" name="jetbrains.mps.baseLanguageInternal.structure.InternalPartialInstanceMethodCall" flags="nn" index="1DoJHT">
         <property id="1174294288199" name="methodName" index="1Dpdpm" />
         <child id="1174313653259" name="returnType" index="1Ez5kq" />
@@ -686,96 +691,100 @@
                 </node>
               </node>
             </node>
-            <node concept="2YIFZM" id="2W" role="37wK5m">
-              <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
-              <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getContainmentLink(long,long,long,long,java.lang.String)" resolve="getContainmentLink" />
-              <node concept="1adDum" id="36" role="37wK5m">
-                <property role="1adDun" value="0x443f4c36fcf54eb6L" />
-              </node>
-              <node concept="1adDum" id="37" role="37wK5m">
-                <property role="1adDun" value="0x95008d06ed259e3eL" />
-              </node>
-              <node concept="1adDum" id="38" role="37wK5m">
-                <property role="1adDun" value="0x118bd711e29L" />
-              </node>
-              <node concept="1adDum" id="39" role="37wK5m">
-                <property role="1adDun" value="0x118bd877799L" />
-              </node>
-              <node concept="Xl_RD" id="3a" role="37wK5m">
-                <property role="Xl_RC" value="actualArgument" />
+            <node concept="1BaE9c" id="2W" role="37wK5m">
+              <property role="1ouuDV" value="LINKS" />
+              <property role="1BaxDp" value="actualArgument$sDji" />
+              <node concept="2YIFZM" id="36" role="1Bazha">
+                <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getContainmentLink(long,long,long,long,java.lang.String)" resolve="getContainmentLink" />
+                <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
+                <node concept="1adDum" id="37" role="37wK5m">
+                  <property role="1adDun" value="0x443f4c36fcf54eb6L" />
+                </node>
+                <node concept="1adDum" id="38" role="37wK5m">
+                  <property role="1adDun" value="0x95008d06ed259e3eL" />
+                </node>
+                <node concept="1adDum" id="39" role="37wK5m">
+                  <property role="1adDun" value="0x118bd711e29L" />
+                </node>
+                <node concept="1adDum" id="3a" role="37wK5m">
+                  <property role="1adDun" value="0x118bd877799L" />
+                </node>
+                <node concept="Xl_RD" id="3b" role="37wK5m">
+                  <property role="Xl_RC" value="actualArgument" />
+                </node>
               </node>
             </node>
             <node concept="cd27G" id="2X" role="lGtFl">
-              <node concept="3u3nmq" id="3b" role="cd27D">
+              <node concept="3u3nmq" id="3c" role="cd27D">
                 <property role="3u3nmv" value="80" />
               </node>
             </node>
           </node>
           <node concept="cd27G" id="2o" role="lGtFl">
-            <node concept="3u3nmq" id="3c" role="cd27D">
+            <node concept="3u3nmq" id="3d" role="cd27D">
               <property role="3u3nmv" value="53" />
             </node>
           </node>
         </node>
         <node concept="cd27G" id="2k" role="lGtFl">
-          <node concept="3u3nmq" id="3d" role="cd27D">
+          <node concept="3u3nmq" id="3e" role="cd27D">
             <property role="3u3nmv" value="42" />
           </node>
         </node>
       </node>
       <node concept="cd27G" id="29" role="lGtFl">
-        <node concept="3u3nmq" id="3e" role="cd27D">
+        <node concept="3u3nmq" id="3f" role="cd27D">
           <property role="3u3nmv" value="33" />
         </node>
       </node>
     </node>
     <node concept="cd27G" id="20" role="lGtFl">
-      <node concept="3u3nmq" id="3f" role="cd27D">
+      <node concept="3u3nmq" id="3g" role="cd27D">
         <property role="3u3nmv" value="30" />
       </node>
     </node>
   </node>
-  <node concept="39dXUE" id="3g">
-    <node concept="39e2AJ" id="3h" role="39e2AI">
+  <node concept="39dXUE" id="3h">
+    <node concept="39e2AJ" id="3i" role="39e2AI">
       <property role="39e3Y2" value="switchField" />
-      <node concept="39e2AG" id="3j" role="39e3Y0">
-        <node concept="385nmt" id="3k" role="385vvn">
+      <node concept="39e2AG" id="3k" role="39e3Y0">
+        <node concept="385nmt" id="3l" role="385vvn">
           <property role="385vuF" value="concept switch" />
-          <node concept="2$VJBW" id="3m" role="385v07">
+          <node concept="2$VJBW" id="3n" role="385v07">
             <property role="2$VJBR" value="13" />
-            <node concept="2x4n5u" id="3n" role="3iCydw">
+            <node concept="2x4n5u" id="3o" role="3iCydw">
               <property role="2x4mPI" value="ConceptSwitchStatement" />
               <property role="2x4n5l" value="195uihc0nrdil" />
-              <node concept="2V$Bhx" id="3o" role="2x4n5j">
+              <node concept="2V$Bhx" id="3p" role="2x4n5j">
                 <property role="2V$B1T" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1" />
                 <property role="2V$B1Q" value="jetbrains.mps.lang.smodel" />
               </node>
             </node>
           </node>
         </node>
-        <node concept="39e2AT" id="3l" role="39e2AY">
+        <node concept="39e2AT" id="3m" role="39e2AY">
           <ref role="39e2AS" node="5" resolve="conceptIndex" />
         </node>
       </node>
     </node>
-    <node concept="39e2AJ" id="3i" role="39e2AI">
+    <node concept="39e2AJ" id="3j" role="39e2AI">
       <property role="39e3Y2" value="switchVar" />
-      <node concept="39e2AG" id="3p" role="39e3Y0">
-        <node concept="385nmt" id="3q" role="385vvn">
+      <node concept="39e2AG" id="3q" role="39e3Y0">
+        <node concept="385nmt" id="3r" role="385vvn">
           <property role="385vuF" value="concept switch" />
-          <node concept="2$VJBW" id="3s" role="385v07">
+          <node concept="2$VJBW" id="3t" role="385v07">
             <property role="2$VJBR" value="13" />
-            <node concept="2x4n5u" id="3t" role="3iCydw">
+            <node concept="2x4n5u" id="3u" role="3iCydw">
               <property role="2x4mPI" value="ConceptSwitchStatement" />
               <property role="2x4n5l" value="195uihc0nrdil" />
-              <node concept="2V$Bhx" id="3u" role="2x4n5j">
+              <node concept="2V$Bhx" id="3v" role="2x4n5j">
                 <property role="2V$B1T" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1" />
                 <property role="2V$B1Q" value="jetbrains.mps.lang.smodel" />
               </node>
             </node>
           </node>
         </node>
-        <node concept="39e2AT" id="3r" role="39e2AY">
+        <node concept="39e2AT" id="3s" role="39e2AY">
           <ref role="39e2AS" node="y" resolve="cncpt" />
         </node>
       </node>

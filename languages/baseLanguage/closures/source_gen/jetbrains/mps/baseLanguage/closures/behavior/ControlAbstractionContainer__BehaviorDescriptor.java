@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.closures.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -16,14 +17,14 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.baseLanguage.behavior.IMemberContainer__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ControlAbstractionContainer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_vt895o.ControlAbstractionContainer_9c38ceef;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11e49db3870L, "jetbrains.mps.baseLanguage.closures.structure.ControlAbstractionContainer");
 
   public static final SMethod<List<SNode>> getMembers_idhEwJjl2 = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getMembers").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJjl2").build();
   public static final SMethod<Boolean> hasStaticMemebers_idhFq8xqE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasStaticMemebers").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hFq8xqE").build();
@@ -34,8 +35,8 @@ public final class ControlAbstractionContainer__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ static List<SNode> getMembers_idhEwJjl2(@NotNull SNode __thisNode__) {
-    List<SNode> members = IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invokeSuper(__thisNode__, AUX_vt895o.ControlAbstractionContainer_9c38ceef);
-    ListSequence.fromList(members).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x11e49db3870L, 0x11e49eb4129L, "controlAbstraction"))));
+    List<SNode> members = IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invokeSuper(__thisNode__, CONCEPTS.ControlAbstractionContainer$Tj);
+    ListSequence.fromList(members).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.controlAbstraction$uT9b)));
     return members;
   }
   /*package*/ static boolean hasStaticMemebers_idhFq8xqE(@NotNull SNode __thisNode__) {
@@ -90,7 +91,11 @@ public final class ControlAbstractionContainer__BehaviorDescriptor extends BaseB
     return CONCEPT;
   }
 
-  private static final class AUX_vt895o {
-    /*package*/ static final SConcept ControlAbstractionContainer_9c38ceef = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11e49db3870L, "jetbrains.mps.baseLanguage.closures.structure.ControlAbstractionContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ControlAbstractionContainer$Tj = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11e49db3870L, "jetbrains.mps.baseLanguage.closures.structure.ControlAbstractionContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink controlAbstraction$uT9b = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x11e49db3870L, 0x11e49eb4129L, "controlAbstraction");
   }
 }

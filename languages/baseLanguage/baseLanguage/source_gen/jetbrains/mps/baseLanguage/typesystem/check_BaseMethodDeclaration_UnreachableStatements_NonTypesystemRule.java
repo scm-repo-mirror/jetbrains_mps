@@ -9,11 +9,12 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.behavior.IMethodLike__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -24,7 +25,7 @@ public class check_BaseMethodDeclaration_UnreachableStatements_NonTypesystemRule
     if (!((boolean) BaseMethodDeclaration__BehaviorDescriptor.isDataFlowChecked_idhRptrfk.invoke(nodeToCheck))) {
       return;
     }
-    if ((SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")) == null)) {
+    if ((SLinkOperations.getTarget(nodeToCheck, LINKS.body$WIlu) == null)) {
       return;
     }
 
@@ -33,18 +34,18 @@ public class check_BaseMethodDeclaration_UnreachableStatements_NonTypesystemRule
       checkReturns = false;
     } else if ((IMethodLike__BehaviorDescriptor.getExpectedRetType_idi2fhBNC.invoke(nodeToCheck) == null)) {
       checkReturns = false;
-    } else if (SNodeOperations.isInstanceOf(IMethodLike__BehaviorDescriptor.getExpectedRetType_idi2fhBNC.invoke(nodeToCheck), AUX_bnpebi.VoidType_d96d05c9)) {
+    } else if (SNodeOperations.isInstanceOf(IMethodLike__BehaviorDescriptor.getExpectedRetType_idi2fhBNC.invoke(nodeToCheck), CONCEPTS.VoidType$aT)) {
       checkReturns = false;
     } else if ((boolean) BaseMethodDeclaration__BehaviorDescriptor.isReturnsVoid_idhX_$1pM.invoke(nodeToCheck)) {
       checkReturns = false;
-    } else if (ListSequence.fromList(SNodeOperations.getNodeDescendants(nodeToCheck, AUX_bnpebi.ISkipsReturn_a3fc5044, false, new SAbstractConcept[]{})).isNotEmpty()) {
+    } else if (ListSequence.fromList(SNodeOperations.getNodeDescendants(nodeToCheck, CONCEPTS.ISkipsReturn$uu, false, new SAbstractConcept[]{})).isNotEmpty()) {
       checkReturns = false;
     }
 
-    DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), checkReturns);
+    DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(nodeToCheck, LINKS.body$WIlu), checkReturns);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_bnpebi.BaseMethodDeclaration_9dbf9acb;
+    return CONCEPTS.BaseMethodDeclaration$RR;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -53,9 +54,13 @@ public class check_BaseMethodDeclaration_UnreachableStatements_NonTypesystemRule
     return false;
   }
 
-  private static final class AUX_bnpebi {
-    /*package*/ static final SConcept VoidType_d96d05c9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
-    /*package*/ static final SInterfaceConcept ISkipsReturn_a3fc5044 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x74bdb321e1ee0043L, "jetbrains.mps.baseLanguage.structure.ISkipsReturn");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VoidType$aT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
+    /*package*/ static final SInterfaceConcept ISkipsReturn$uu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x74bdb321e1ee0043L, "jetbrains.mps.baseLanguage.structure.ISkipsReturn");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
   }
 }

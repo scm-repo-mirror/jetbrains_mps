@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.nodeEditor.EditorComponent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
@@ -29,7 +28,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class SuppressSpecificErrors_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   public SuppressSpecificErrors_Intention() {
@@ -60,7 +62,7 @@ public final class SuppressSpecificErrors_Intention extends AbstractIntentionDes
   private List<IssueKindReportItem> parameter(final SNode node, final EditorContext editorContext) {
     EditorComponent editorComponent = (EditorComponent) editorContext.getEditorComponent();
     List<IssueKindReportItem> reportItemsForCell = ListSequence.fromListWithValues(new ArrayList<IssueKindReportItem>(), editorComponent.getReportItemsForCell(editorComponent.getSelectedCell()));
-    if (SNodeOperations.hasRole(node, MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute"))) {
+    if (SNodeOperations.hasRole(node, LINKS.smodelAttribute$K8bJ)) {
       ListSequence.fromList(reportItemsForCell).addSequence(CollectionSequence.fromCollection(editorComponent.getReportItemsForCell(editorComponent.findNodeCell(SNodeOperations.getParent(node)))));
     }
     return ListSequence.fromListWithValues(new ArrayList<IssueKindReportItem>(), ListSequence.fromList(reportItemsForCell).where(new IWhereFilter<IssueKindReportItem>() {
@@ -80,9 +82,9 @@ public final class SuppressSpecificErrors_Intention extends AbstractIntentionDes
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode annotation = ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(AUX_dk487z.SuppressErrorsAnnotation_4912d93))).insertElement(0, SNodeFactoryOperations.createNewNode(AUX_dk487z.SuppressErrorsAnnotation_4912d93, null));
-      SPropertyOperations.assign(annotation, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter"), myParameter.toPredicate(myParameter.getIdFlavours()).serialize());
-      SPropertyOperations.assign(annotation, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message"), myParameter.getMessage());
+      SNode annotation = ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))).insertElement(0, SNodeFactoryOperations.createNewNode(CONCEPTS.SuppressErrorsAnnotation$gJ, null));
+      SPropertyOperations.assign(annotation, PROPS.filter$UuSh, myParameter.toPredicate(myParameter.getIdFlavours()).serialize());
+      SPropertyOperations.assign(annotation, PROPS.message$PX4b, myParameter.getMessage());
       editorContext.getEditorComponent().getUpdater().setInitialEditorHints(new String[]{"jetbrains.mps.lang.core.editor.SuppressedHints.ShowSuppressedErrors"});
     }
     @Override
@@ -94,7 +96,16 @@ public final class SuppressSpecificErrors_Intention extends AbstractIntentionDes
     }
   }
 
-  private static final class AUX_dk487z {
-    /*package*/ static final SConcept SuppressErrorsAnnotation_4912d93 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuppressErrorsAnnotation$gJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty filter$UuSh = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter");
+    /*package*/ static final SProperty message$PX4b = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message");
   }
 }

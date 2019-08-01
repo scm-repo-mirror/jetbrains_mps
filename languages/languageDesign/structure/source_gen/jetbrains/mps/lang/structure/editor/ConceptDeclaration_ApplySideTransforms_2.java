@@ -92,7 +92,7 @@ public class ConceptDeclaration_ApplySideTransforms_2 extends TransformationMenu
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_odunnd.AbstractConceptDeclaration_ec74828f, "jetbrains.mps.lang.structure.editor.CreateFirstDeclaration");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.AbstractConceptDeclaration$UN, "jetbrains.mps.lang.structure.editor.CreateFirstDeclaration");
     }
 
     @Nullable
@@ -102,7 +102,7 @@ public class ConceptDeclaration_ApplySideTransforms_2 extends TransformationMenu
     }
   }
 
-  private static final class AUX_odunnd {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

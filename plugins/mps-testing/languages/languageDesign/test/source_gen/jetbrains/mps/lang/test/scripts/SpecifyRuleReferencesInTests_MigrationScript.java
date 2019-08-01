@@ -26,7 +26,7 @@ public final class SpecifyRuleReferencesInTests_MigrationScript extends BaseMigr
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_hoze20.BaseConcept_bc2351f;
+        return CONCEPTS.BaseConcept$Sz;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
@@ -49,7 +49,7 @@ public final class SpecifyRuleReferencesInTests_MigrationScript extends BaseMigr
     return PersistenceFacade.getInstance().createNodeReference("r:00000000-0000-4000-0000-011c89590387(jetbrains.mps.lang.test.scripts)/4098794966557888877");
   }
 
-  private static final class AUX_hoze20 {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

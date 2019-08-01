@@ -20,11 +20,12 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.ParameterizedIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AddNodeMacroParam_switch_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   public AddNodeMacroParam_switch_Intention() {
@@ -62,7 +63,7 @@ public final class AddNodeMacroParam_switch_Intention extends AbstractIntentionD
     return list;
   }
   private List<SNode> parameter(final SNode node, final EditorContext editorContext) {
-    return SModelOperations.roots(SNodeOperations.getModel(node), AUX_62c7ry.TemplateSwitch_30830689);
+    return SModelOperations.roots(SNodeOperations.getModel(node), CONCEPTS.TemplateSwitch$BT);
   }
   /*package*/ final class IntentionImplementation extends AbstractIntentionExecutable implements ParameterizedIntentionExecutable {
     private SNode myParameter;
@@ -76,9 +77,9 @@ public final class AddNodeMacroParam_switch_Intention extends AbstractIntentionD
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode nodeMacro = EditingUtil.addNodeMacro(node);
-      SNode switchMacro = SNodeFactoryOperations.createNewNode(AUX_62c7ry.TemplateSwitchMacro_d0828da2, null);
+      SNode switchMacro = SNodeFactoryOperations.createNewNode(CONCEPTS.TemplateSwitchMacro$o0, null);
       SNodeOperations.replaceWithAnother(nodeMacro, switchMacro);
-      SLinkOperations.setTarget(switchMacro, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template"), myParameter);
+      SLinkOperations.setTarget(switchMacro, LINKS.template$yiTA, myParameter);
       // set caret 
       SelectionUtil.selectLabelCellAnSetCaret(editorContext, switchMacro, SelectionManager.FIRST_CELL, 1);
     }
@@ -91,8 +92,12 @@ public final class AddNodeMacroParam_switch_Intention extends AbstractIntentionD
     }
   }
 
-  private static final class AUX_62c7ry {
-    /*package*/ static final SConcept TemplateSwitch_30830689 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10313ed7688L, "jetbrains.mps.lang.generator.structure.TemplateSwitch");
-    /*package*/ static final SConcept TemplateSwitchMacro_d0828da2 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xda3dc6e51747593L, "jetbrains.mps.lang.generator.structure.TemplateSwitchMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateSwitch$BT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10313ed7688L, "jetbrains.mps.lang.generator.structure.TemplateSwitch");
+    /*package*/ static final SConcept TemplateSwitchMacro$o0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xda3dc6e51747593L, "jetbrains.mps.lang.generator.structure.TemplateSwitchMacro");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink template$yiTA = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template");
   }
 }

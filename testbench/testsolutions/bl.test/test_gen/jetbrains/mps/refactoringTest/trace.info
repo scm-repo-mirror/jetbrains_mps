@@ -15,58 +15,60 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052406553">
     <file name="ChangeMethodParametersForStatement_Test.java">
-      <node id="1230052406553" at="36,52,37,25" concept="12" />
-      <node id="1230052406639" at="41,74,42,65" concept="2" />
-      <node id="1230052406553" at="47,52,48,19" concept="12" />
-      <node id="1230052406554" at="51,76,52,35" concept="2" />
-      <node id="1230052406581" at="52,35,53,35" concept="2" />
-      <node id="1230052406644" at="54,7,55,201" concept="7" />
-      <node id="1230052406650" at="55,201,56,431" concept="2" />
-      <node id="1230052406661" at="56,431,57,394" concept="7" />
-      <node id="1230052406670" at="57,394,58,87" concept="2" />
-      <node id="1230052406680" at="58,87,59,89" concept="7" />
-      <node id="1230052406689" at="59,89,60,89" concept="7" />
-      <node id="1230052406698" at="60,89,61,72" concept="2" />
-      <node id="1230052406706" at="61,72,62,72" concept="2" />
-      <node id="1230052406714" at="62,72,63,25" concept="2" />
-      <node id="1230052406719" at="63,25,64,25" concept="2" />
-      <node id="1230052406724" at="64,25,65,30" concept="2" />
-      <node id="1230052406729" at="65,30,66,86" concept="7" />
-      <node id="1230052406734" at="66,86,67,25" concept="2" />
-      <node id="1230052406738" at="68,9,69,336" concept="7" />
-      <node id="1230052406738" at="69,336,70,335" concept="7" />
-      <node id="1230052406738" at="70,335,71,162" concept="2" />
-      <node id="1230052406553" at="31,0,33,0" concept="10" trace="ourParamCache" />
-      <node id="1230052406553" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052406553" at="36,0,39,0" concept="1" trace="ChangeMethodParametersForStatement_Test#()V" />
-      <node id="1230052406553" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052406639" at="40,0,44,0" concept="6" trace="test_changeMethodParametersForStatement#()V" />
-      <node id="1230052406738" at="67,25,72,9" concept="0" />
-      <node id="1230052406642" at="53,35,73,7" concept="0" />
-      <node id="1230052406639" at="51,0,75,0" concept="6" trace="test_changeMethodParametersForStatement#()V" />
-      <scope id="1230052406553" at="36,52,37,25" />
-      <scope id="1230052406639" at="41,74,42,65" />
-      <scope id="1230052406553" at="47,52,48,19" />
-      <scope id="1230052406553" at="36,0,39,0" />
-      <scope id="1230052406553" at="47,0,50,0">
+      <node id="1230052406553" at="37,52,38,25" concept="12" />
+      <node id="1230052406639" at="42,74,43,65" concept="2" />
+      <node id="1230052406553" at="48,52,49,19" concept="12" />
+      <node id="1230052406554" at="52,76,53,35" concept="2" />
+      <node id="1230052406581" at="53,35,54,35" concept="2" />
+      <node id="1230052406644" at="55,7,56,201" concept="7" />
+      <node id="1230052406650" at="56,201,57,331" concept="2" />
+      <node id="1230052406661" at="57,331,58,394" concept="7" />
+      <node id="1230052406670" at="58,394,59,87" concept="2" />
+      <node id="1230052406680" at="59,87,60,89" concept="7" />
+      <node id="1230052406689" at="60,89,61,89" concept="7" />
+      <node id="1230052406698" at="61,89,62,72" concept="2" />
+      <node id="1230052406706" at="62,72,63,72" concept="2" />
+      <node id="1230052406714" at="63,72,64,25" concept="2" />
+      <node id="1230052406719" at="64,25,65,25" concept="2" />
+      <node id="1230052406724" at="65,25,66,30" concept="2" />
+      <node id="1230052406729" at="66,30,67,86" concept="7" />
+      <node id="1230052406734" at="67,86,68,25" concept="2" />
+      <node id="1230052406738" at="69,9,70,336" concept="7" />
+      <node id="1230052406738" at="70,336,71,335" concept="7" />
+      <node id="1230052406738" at="71,335,72,162" concept="2" />
+      <node id="1230052406553" at="81,0,82,0" concept="10" trace="variableDeclaration$2ky6" />
+      <node id="1230052406553" at="32,0,34,0" concept="10" trace="ourParamCache" />
+      <node id="1230052406553" at="34,0,36,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052406553" at="37,0,40,0" concept="1" trace="ChangeMethodParametersForStatement_Test#()V" />
+      <node id="1230052406553" at="48,0,51,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052406639" at="41,0,45,0" concept="6" trace="test_changeMethodParametersForStatement#()V" />
+      <node id="1230052406738" at="68,25,73,9" concept="0" />
+      <node id="1230052406642" at="54,35,74,7" concept="0" />
+      <node id="1230052406639" at="52,0,76,0" concept="6" trace="test_changeMethodParametersForStatement#()V" />
+      <scope id="1230052406553" at="37,52,38,25" />
+      <scope id="1230052406639" at="42,74,43,65" />
+      <scope id="1230052406553" at="48,52,49,19" />
+      <scope id="1230052406553" at="37,0,40,0" />
+      <scope id="1230052406553" at="48,0,51,0">
         <var name="owner" id="1230052406553" />
       </scope>
-      <scope id="1230052406738" at="68,9,71,162">
+      <scope id="1230052406738" at="69,9,72,162">
         <var name="nodesAfter" id="1230052406738" />
         <var name="nodesBefore" id="1230052406738" />
       </scope>
-      <scope id="1230052406639" at="40,0,44,0" />
-      <scope id="1230052406643" at="54,7,72,9">
+      <scope id="1230052406639" at="41,0,45,0" />
+      <scope id="1230052406643" at="55,7,73,9">
         <var name="c_ref" id="1230052406645" />
         <var name="p1" id="1230052406690" />
         <var name="p2" id="1230052406681" />
         <var name="params" id="1230052406662" />
         <var name="ref" id="1230052406730" />
       </scope>
-      <scope id="1230052406639" at="51,76,73,7" />
-      <scope id="1230052406639" at="51,0,75,0" />
-      <unit id="1230052406553" at="45,0,78,0" name="jetbrains.mps.refactoringTest.ChangeMethodParametersForStatement_Test$TestBody" />
-      <unit id="1230052406553" at="29,0,79,0" name="jetbrains.mps.refactoringTest.ChangeMethodParametersForStatement_Test" />
+      <scope id="1230052406639" at="52,76,74,7" />
+      <scope id="1230052406639" at="52,0,76,0" />
+      <unit id="1230052406553" at="80,0,83,0" name="jetbrains.mps.refactoringTest.ChangeMethodParametersForStatement_Test$LINKS" />
+      <unit id="1230052406553" at="46,0,79,0" name="jetbrains.mps.refactoringTest.ChangeMethodParametersForStatement_Test$TestBody" />
+      <unit id="1230052406553" at="30,0,84,0" name="jetbrains.mps.refactoringTest.ChangeMethodParametersForStatement_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052406741">
@@ -845,578 +847,611 @@
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052684456">
     <file name="ExtractFromIntention_Test.java">
-      <node id="1230052684456" at="35,38,36,25" concept="12" />
-      <node id="1230052684457" at="40,57,41,48" concept="2" />
-      <node id="1230052684456" at="46,52,47,19" concept="12" />
-      <node id="1230052684510" at="50,59,51,35" concept="2" />
-      <node id="1230052684520" at="51,35,52,35" concept="2" />
-      <node id="1230052684528" at="52,35,53,35" concept="2" />
-      <node id="1230052684538" at="53,35,54,35" concept="2" />
-      <node id="1230052684460" at="54,35,55,654" concept="2" />
-      <node id="1230052684466" at="55,654,56,674" concept="2" />
-      <node id="1230052684472" at="56,674,57,390" concept="7" />
-      <node id="1230052684481" at="57,390,58,28" concept="2" />
-      <node id="1230052684486" at="58,28,59,56" concept="2" />
-      <node id="1230052684491" at="59,56,60,84" concept="7" />
-      <node id="1230052684496" at="60,84,61,275" concept="2" />
-      <node id="1230052684501" at="61,275,62,23" concept="2" />
-      <node id="1230052684505" at="63,7,64,592" concept="7" />
-      <node id="1230052684505" at="64,592,65,591" concept="7" />
-      <node id="1230052684505" at="65,591,66,160" concept="2" />
-      <node id="1230052684456" at="30,0,32,0" concept="10" trace="ourParamCache" />
-      <node id="1230052684456" at="32,0,34,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052684456" at="35,0,38,0" concept="1" trace="ExtractFromIntention_Test#()V" />
-      <node id="1230052684456" at="46,0,49,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052684457" at="39,0,43,0" concept="6" trace="test_extractExpression#()V" />
-      <node id="1230052684505" at="62,23,67,7" concept="0" />
-      <node id="1230052684457" at="50,0,69,0" concept="6" trace="test_extractExpression#()V" />
-      <scope id="1230052684456" at="35,38,36,25" />
-      <scope id="1230052684457" at="40,57,41,48" />
-      <scope id="1230052684456" at="46,52,47,19" />
-      <scope id="1230052684456" at="35,0,38,0" />
-      <scope id="1230052684456" at="46,0,49,0">
+      <node id="1230052684456" at="36,38,37,25" concept="12" />
+      <node id="1230052684457" at="41,57,42,48" concept="2" />
+      <node id="1230052684456" at="47,52,48,19" concept="12" />
+      <node id="1230052684510" at="51,59,52,35" concept="2" />
+      <node id="1230052684520" at="52,35,53,35" concept="2" />
+      <node id="1230052684528" at="53,35,54,35" concept="2" />
+      <node id="1230052684538" at="54,35,55,35" concept="2" />
+      <node id="1230052684460" at="55,35,56,553" concept="2" />
+      <node id="1230052684466" at="56,553,57,573" concept="2" />
+      <node id="1230052684472" at="57,573,58,390" concept="7" />
+      <node id="1230052684481" at="58,390,59,28" concept="2" />
+      <node id="1230052684486" at="59,28,60,56" concept="2" />
+      <node id="1230052684491" at="60,56,61,84" concept="7" />
+      <node id="1230052684496" at="61,84,62,275" concept="2" />
+      <node id="1230052684501" at="62,275,63,23" concept="2" />
+      <node id="1230052684505" at="64,7,65,592" concept="7" />
+      <node id="1230052684505" at="65,592,66,591" concept="7" />
+      <node id="1230052684505" at="66,591,67,160" concept="2" />
+      <node id="1230052684456" at="75,0,76,0" concept="10" trace="classConcept$BsUa" />
+      <node id="1230052684456" at="76,0,77,0" concept="10" trace="baseMethodDeclaration$$A7i" />
+      <node id="1230052684456" at="31,0,33,0" concept="10" trace="ourParamCache" />
+      <node id="1230052684456" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052684456" at="36,0,39,0" concept="1" trace="ExtractFromIntention_Test#()V" />
+      <node id="1230052684456" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052684457" at="40,0,44,0" concept="6" trace="test_extractExpression#()V" />
+      <node id="1230052684505" at="63,23,68,7" concept="0" />
+      <node id="1230052684457" at="51,0,70,0" concept="6" trace="test_extractExpression#()V" />
+      <scope id="1230052684456" at="36,38,37,25" />
+      <scope id="1230052684457" at="41,57,42,48" />
+      <scope id="1230052684456" at="47,52,48,19" />
+      <scope id="1230052684456" at="36,0,39,0" />
+      <scope id="1230052684456" at="47,0,50,0">
         <var name="owner" id="1230052684456" />
       </scope>
-      <scope id="1230052684505" at="63,7,66,160">
+      <scope id="1230052684505" at="64,7,67,160">
         <var name="nodesAfter" id="1230052684505" />
         <var name="nodesBefore" id="1230052684505" />
       </scope>
-      <scope id="1230052684457" at="39,0,43,0" />
-      <scope id="1230052684457" at="50,59,67,7">
+      <scope id="1230052684457" at="40,0,44,0" />
+      <scope id="1230052684457" at="51,59,68,7">
         <var name="params" id="1230052684473" />
         <var name="ref" id="1230052684492" />
       </scope>
-      <scope id="1230052684457" at="50,0,69,0" />
-      <unit id="1230052684456" at="44,0,72,0" name="jetbrains.mps.refactoringTest.ExtractFromIntention_Test$TestBody" />
-      <unit id="1230052684456" at="28,0,73,0" name="jetbrains.mps.refactoringTest.ExtractFromIntention_Test" />
+      <scope id="1230052684457" at="51,0,70,0" />
+      <unit id="1230052684456" at="74,0,78,0" name="jetbrains.mps.refactoringTest.ExtractFromIntention_Test$LINKS" />
+      <unit id="1230052684456" at="45,0,73,0" name="jetbrains.mps.refactoringTest.ExtractFromIntention_Test$TestBody" />
+      <unit id="1230052684456" at="29,0,79,0" name="jetbrains.mps.refactoringTest.ExtractFromIntention_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052684686">
     <file name="staticContainerClassTest_Test.java">
-      <node id="1230052684686" at="35,42,36,25" concept="12" />
-      <node id="1230052684722" at="40,64,41,55" concept="2" />
-      <node id="1230052684686" at="46,52,47,19" concept="12" />
-      <node id="1230052684687" at="50,66,51,35" concept="2" />
-      <node id="1230052684697" at="51,35,52,35" concept="2" />
-      <node id="1230052684705" at="52,35,53,35" concept="2" />
-      <node id="1230052684709" at="53,35,54,35" concept="2" />
-      <node id="1230052684725" at="54,35,55,197" concept="7" />
-      <node id="1230052684731" at="55,197,56,430" concept="2" />
-      <node id="1230052684737" at="56,430,57,410" concept="2" />
-      <node id="1230052684743" at="57,410,58,296" concept="2" />
-      <node id="1230052684748" at="58,296,59,669" concept="7" />
-      <node id="1230052684757" at="59,669,60,28" concept="2" />
-      <node id="1230052684762" at="60,28,61,84" concept="7" />
-      <node id="1230052684767" at="61,84,62,275" concept="2" />
-      <node id="1230052684772" at="62,275,63,23" concept="2" />
-      <node id="1230052684776" at="64,7,65,585" concept="7" />
-      <node id="1230052684776" at="65,585,66,584" concept="7" />
-      <node id="1230052684776" at="66,584,67,160" concept="2" />
-      <node id="1230052684686" at="30,0,32,0" concept="10" trace="ourParamCache" />
-      <node id="1230052684686" at="32,0,34,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052684686" at="35,0,38,0" concept="1" trace="staticContainerClassTest_Test#()V" />
-      <node id="1230052684686" at="46,0,49,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052684722" at="39,0,43,0" concept="6" trace="test_staticContainerClassTest#()V" />
-      <node id="1230052684776" at="63,23,68,7" concept="0" />
-      <node id="1230052684722" at="50,0,70,0" concept="6" trace="test_staticContainerClassTest#()V" />
-      <scope id="1230052684686" at="35,42,36,25" />
-      <scope id="1230052684722" at="40,64,41,55" />
-      <scope id="1230052684686" at="46,52,47,19" />
-      <scope id="1230052684686" at="35,0,38,0" />
-      <scope id="1230052684686" at="46,0,49,0">
+      <node id="1230052684686" at="36,42,37,25" concept="12" />
+      <node id="1230052684722" at="41,64,42,55" concept="2" />
+      <node id="1230052684686" at="47,52,48,19" concept="12" />
+      <node id="1230052684687" at="51,66,52,35" concept="2" />
+      <node id="1230052684697" at="52,35,53,35" concept="2" />
+      <node id="1230052684705" at="53,35,54,35" concept="2" />
+      <node id="1230052684709" at="54,35,55,35" concept="2" />
+      <node id="1230052684725" at="55,35,56,197" concept="7" />
+      <node id="1230052684731" at="56,197,57,329" concept="2" />
+      <node id="1230052684737" at="57,329,58,309" concept="2" />
+      <node id="1230052684743" at="58,309,59,296" concept="2" />
+      <node id="1230052684748" at="59,296,60,669" concept="7" />
+      <node id="1230052684757" at="60,669,61,28" concept="2" />
+      <node id="1230052684762" at="61,28,62,84" concept="7" />
+      <node id="1230052684767" at="62,84,63,275" concept="2" />
+      <node id="1230052684772" at="63,275,64,23" concept="2" />
+      <node id="1230052684776" at="65,7,66,585" concept="7" />
+      <node id="1230052684776" at="66,585,67,584" concept="7" />
+      <node id="1230052684776" at="67,584,68,160" concept="2" />
+      <node id="1230052684686" at="76,0,77,0" concept="10" trace="baseMethodDeclaration$$A7i" />
+      <node id="1230052684686" at="77,0,78,0" concept="10" trace="classConcept$BsUa" />
+      <node id="1230052684686" at="31,0,33,0" concept="10" trace="ourParamCache" />
+      <node id="1230052684686" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052684686" at="36,0,39,0" concept="1" trace="staticContainerClassTest_Test#()V" />
+      <node id="1230052684686" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052684722" at="40,0,44,0" concept="6" trace="test_staticContainerClassTest#()V" />
+      <node id="1230052684776" at="64,23,69,7" concept="0" />
+      <node id="1230052684722" at="51,0,71,0" concept="6" trace="test_staticContainerClassTest#()V" />
+      <scope id="1230052684686" at="36,42,37,25" />
+      <scope id="1230052684722" at="41,64,42,55" />
+      <scope id="1230052684686" at="47,52,48,19" />
+      <scope id="1230052684686" at="36,0,39,0" />
+      <scope id="1230052684686" at="47,0,50,0">
         <var name="owner" id="1230052684686" />
       </scope>
-      <scope id="1230052684776" at="64,7,67,160">
+      <scope id="1230052684776" at="65,7,68,160">
         <var name="nodesAfter" id="1230052684776" />
         <var name="nodesBefore" id="1230052684776" />
       </scope>
-      <scope id="1230052684722" at="39,0,43,0" />
-      <scope id="1230052684722" at="50,66,68,7">
+      <scope id="1230052684722" at="40,0,44,0" />
+      <scope id="1230052684722" at="51,66,69,7">
         <var name="call" id="1230052684726" />
         <var name="params" id="1230052684749" />
         <var name="ref" id="1230052684763" />
       </scope>
-      <scope id="1230052684722" at="50,0,70,0" />
-      <unit id="1230052684686" at="44,0,73,0" name="jetbrains.mps.refactoringTest.staticContainerClassTest_Test$TestBody" />
-      <unit id="1230052684686" at="28,0,74,0" name="jetbrains.mps.refactoringTest.staticContainerClassTest_Test" />
+      <scope id="1230052684722" at="51,0,71,0" />
+      <unit id="1230052684686" at="75,0,79,0" name="jetbrains.mps.refactoringTest.staticContainerClassTest_Test$LINKS" />
+      <unit id="1230052684686" at="45,0,74,0" name="jetbrains.mps.refactoringTest.staticContainerClassTest_Test$TestBody" />
+      <unit id="1230052684686" at="29,0,80,0" name="jetbrains.mps.refactoringTest.staticContainerClassTest_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052902925">
     <file name="AddThrowDeclaration_Test.java">
-      <node id="1230052902925" at="36,37,37,25" concept="12" />
-      <node id="1230052902944" at="41,59,42,50" concept="2" />
-      <node id="1230052902925" at="47,52,48,19" concept="12" />
-      <node id="1230052902926" at="51,61,52,35" concept="2" />
-      <node id="1230052902935" at="52,35,53,35" concept="2" />
-      <node id="1230052902947" at="53,35,54,342" concept="7" />
-      <node id="1230052902953" at="54,342,55,259" concept="2" />
-      <node id="1230052902963" at="55,259,56,349" concept="7" />
-      <node id="1230052902970" at="56,349,57,26" concept="2" />
-      <node id="1230052902974" at="58,7,59,334" concept="7" />
-      <node id="1230052902974" at="59,334,60,333" concept="7" />
-      <node id="1230052902974" at="60,333,61,160" concept="2" />
-      <node id="1230052902961" at="66,65,67,65" concept="7" />
-      <node id="1230052902961" at="67,65,68,32" concept="7" />
-      <node id="1230052902961" at="68,32,69,254" concept="2" />
-      <node id="1230052902961" at="69,254,70,451" concept="2" />
-      <node id="1230052902961" at="70,451,71,26" concept="8" />
-      <node id="1230052902925" at="31,0,33,0" concept="10" trace="ourParamCache" />
-      <node id="1230052902925" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052902925" at="36,0,39,0" concept="1" trace="AddThrowDeclaration_Test#()V" />
-      <node id="1230052902925" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052902944" at="40,0,44,0" concept="6" trace="test_AddThrowDeclaration#()V" />
-      <node id="1230052902974" at="57,26,62,7" concept="0" />
-      <node id="1230052902961" at="66,0,73,0" concept="11" trace="_quotation_createNode_njbq9a_a0a3a3h#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1230052902944" at="51,0,64,0" concept="6" trace="test_AddThrowDeclaration#()V" />
-      <scope id="1230052902925" at="36,37,37,25" />
-      <scope id="1230052902944" at="41,59,42,50" />
-      <scope id="1230052902925" at="47,52,48,19" />
-      <scope id="1230052902925" at="36,0,39,0" />
-      <scope id="1230052902925" at="47,0,50,0">
+      <node id="1230052902925" at="38,37,39,25" concept="12" />
+      <node id="1230052902944" at="43,59,44,50" concept="2" />
+      <node id="1230052902925" at="49,52,50,19" concept="12" />
+      <node id="1230052902926" at="53,61,54,35" concept="2" />
+      <node id="1230052902935" at="54,35,55,35" concept="2" />
+      <node id="1230052902947" at="55,35,56,342" concept="7" />
+      <node id="1230052902953" at="56,342,57,156" concept="2" />
+      <node id="1230052902963" at="57,156,58,349" concept="7" />
+      <node id="1230052902970" at="58,349,59,26" concept="2" />
+      <node id="1230052902974" at="60,7,61,334" concept="7" />
+      <node id="1230052902974" at="61,334,62,333" concept="7" />
+      <node id="1230052902974" at="62,333,63,160" concept="2" />
+      <node id="1230052902961" at="68,65,69,65" concept="7" />
+      <node id="1230052902961" at="69,65,70,32" concept="7" />
+      <node id="1230052902961" at="70,32,71,254" concept="2" />
+      <node id="1230052902961" at="71,254,72,247" concept="2" />
+      <node id="1230052902961" at="72,247,73,26" concept="8" />
+      <node id="1230052902925" at="78,0,79,0" concept="10" trace="throwsItem$gr7e" />
+      <node id="1230052902925" at="79,0,80,0" concept="10" trace="classifier$pQ_R" />
+      <node id="1230052902925" at="33,0,35,0" concept="10" trace="ourParamCache" />
+      <node id="1230052902925" at="35,0,37,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052902925" at="38,0,41,0" concept="1" trace="AddThrowDeclaration_Test#()V" />
+      <node id="1230052902925" at="49,0,52,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052902944" at="42,0,46,0" concept="6" trace="test_AddThrowDeclaration#()V" />
+      <node id="1230052902974" at="59,26,64,7" concept="0" />
+      <node id="1230052902961" at="68,0,75,0" concept="11" trace="_quotation_createNode_njbq9a_a0a3a3h#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1230052902944" at="53,0,66,0" concept="6" trace="test_AddThrowDeclaration#()V" />
+      <scope id="1230052902925" at="38,37,39,25" />
+      <scope id="1230052902944" at="43,59,44,50" />
+      <scope id="1230052902925" at="49,52,50,19" />
+      <scope id="1230052902925" at="38,0,41,0" />
+      <scope id="1230052902925" at="49,0,52,0">
         <var name="owner" id="1230052902925" />
       </scope>
-      <scope id="1230052902974" at="58,7,61,160">
+      <scope id="1230052902974" at="60,7,63,160">
         <var name="nodesAfter" id="1230052902974" />
         <var name="nodesBefore" id="1230052902974" />
       </scope>
-      <scope id="1230052902944" at="40,0,44,0" />
-      <scope id="1230052902961" at="66,65,71,26">
+      <scope id="1230052902944" at="42,0,46,0" />
+      <scope id="1230052902961" at="68,65,73,26">
         <var name="facade" id="1230052902961" />
         <var name="quotedNode_1" id="1230052902961" />
       </scope>
-      <scope id="1230052902961" at="66,0,73,0" />
-      <scope id="1230052902944" at="51,61,62,7">
+      <scope id="1230052902961" at="68,0,75,0" />
+      <scope id="1230052902944" at="53,61,64,7">
         <var name="params" id="1230052902948" />
         <var name="ref" id="1230052902964" />
       </scope>
-      <scope id="1230052902944" at="51,0,64,0" />
-      <unit id="1230052902925" at="45,0,74,0" name="jetbrains.mps.refactoringTest.AddThrowDeclaration_Test$TestBody" />
-      <unit id="1230052902925" at="29,0,75,0" name="jetbrains.mps.refactoringTest.AddThrowDeclaration_Test" />
+      <scope id="1230052902944" at="53,0,66,0" />
+      <unit id="1230052902925" at="77,0,81,0" name="jetbrains.mps.refactoringTest.AddThrowDeclaration_Test$LINKS" />
+      <unit id="1230052902925" at="47,0,76,0" name="jetbrains.mps.refactoringTest.AddThrowDeclaration_Test$TestBody" />
+      <unit id="1230052902925" at="31,0,82,0" name="jetbrains.mps.refactoringTest.AddThrowDeclaration_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052902977">
     <file name="ChangeMethodName_Test.java">
-      <node id="1230052902977" at="33,34,34,25" concept="12" />
-      <node id="1230052902995" at="38,56,39,47" concept="2" />
-      <node id="1230052902977" at="44,52,45,19" concept="12" />
-      <node id="1230052902978" at="48,58,49,35" concept="2" />
-      <node id="1230052902987" at="49,35,50,35" concept="2" />
-      <node id="1230052902998" at="50,35,51,342" concept="7" />
-      <node id="1230052903004" at="51,342,52,179" concept="2" />
-      <node id="1230052903012" at="52,179,53,349" concept="7" />
-      <node id="1230052903019" at="53,349,54,26" concept="2" />
-      <node id="1230052903023" at="55,7,56,334" concept="7" />
-      <node id="1230052903023" at="56,334,57,333" concept="7" />
-      <node id="1230052903023" at="57,333,58,160" concept="2" />
-      <node id="1230052902977" at="28,0,30,0" concept="10" trace="ourParamCache" />
-      <node id="1230052902977" at="30,0,32,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052902977" at="33,0,36,0" concept="1" trace="ChangeMethodName_Test#()V" />
-      <node id="1230052902977" at="44,0,47,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052902995" at="37,0,41,0" concept="6" trace="test_ChangeMethodName#()V" />
-      <node id="1230052903023" at="54,26,59,7" concept="0" />
-      <node id="1230052902995" at="48,0,61,0" concept="6" trace="test_ChangeMethodName#()V" />
-      <scope id="1230052902977" at="33,34,34,25" />
-      <scope id="1230052902995" at="38,56,39,47" />
-      <scope id="1230052902977" at="44,52,45,19" />
-      <scope id="1230052902977" at="33,0,36,0" />
-      <scope id="1230052902977" at="44,0,47,0">
+      <node id="1230052902977" at="34,34,35,25" concept="12" />
+      <node id="1230052902995" at="39,56,40,47" concept="2" />
+      <node id="1230052902977" at="45,52,46,19" concept="12" />
+      <node id="1230052902978" at="49,58,50,35" concept="2" />
+      <node id="1230052902987" at="50,35,51,35" concept="2" />
+      <node id="1230052902998" at="51,35,52,342" concept="7" />
+      <node id="1230052903004" at="52,342,53,82" concept="2" />
+      <node id="1230052903012" at="53,82,54,349" concept="7" />
+      <node id="1230052903019" at="54,349,55,26" concept="2" />
+      <node id="1230052903023" at="56,7,57,334" concept="7" />
+      <node id="1230052903023" at="57,334,58,333" concept="7" />
+      <node id="1230052903023" at="58,333,59,160" concept="2" />
+      <node id="1230052902977" at="67,0,68,0" concept="10" trace="name$tAp1" />
+      <node id="1230052902977" at="29,0,31,0" concept="10" trace="ourParamCache" />
+      <node id="1230052902977" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052902977" at="34,0,37,0" concept="1" trace="ChangeMethodName_Test#()V" />
+      <node id="1230052902977" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052902995" at="38,0,42,0" concept="6" trace="test_ChangeMethodName#()V" />
+      <node id="1230052903023" at="55,26,60,7" concept="0" />
+      <node id="1230052902995" at="49,0,62,0" concept="6" trace="test_ChangeMethodName#()V" />
+      <scope id="1230052902977" at="34,34,35,25" />
+      <scope id="1230052902995" at="39,56,40,47" />
+      <scope id="1230052902977" at="45,52,46,19" />
+      <scope id="1230052902977" at="34,0,37,0" />
+      <scope id="1230052902977" at="45,0,48,0">
         <var name="owner" id="1230052902977" />
       </scope>
-      <scope id="1230052903023" at="55,7,58,160">
+      <scope id="1230052903023" at="56,7,59,160">
         <var name="nodesAfter" id="1230052903023" />
         <var name="nodesBefore" id="1230052903023" />
       </scope>
-      <scope id="1230052902995" at="37,0,41,0" />
-      <scope id="1230052902995" at="48,58,59,7">
+      <scope id="1230052902995" at="38,0,42,0" />
+      <scope id="1230052902995" at="49,58,60,7">
         <var name="params" id="1230052902999" />
         <var name="ref" id="1230052903013" />
       </scope>
-      <scope id="1230052902995" at="48,0,61,0" />
-      <unit id="1230052902977" at="42,0,64,0" name="jetbrains.mps.refactoringTest.ChangeMethodName_Test$TestBody" />
-      <unit id="1230052902977" at="26,0,65,0" name="jetbrains.mps.refactoringTest.ChangeMethodName_Test" />
+      <scope id="1230052902995" at="49,0,62,0" />
+      <unit id="1230052902977" at="66,0,69,0" name="jetbrains.mps.refactoringTest.ChangeMethodName_Test$PROPS" />
+      <unit id="1230052902977" at="43,0,65,0" name="jetbrains.mps.refactoringTest.ChangeMethodName_Test$TestBody" />
+      <unit id="1230052902977" at="27,0,70,0" name="jetbrains.mps.refactoringTest.ChangeMethodName_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052903026">
     <file name="ChangeReturningType_Test.java">
-      <node id="1230052903026" at="33,37,34,25" concept="12" />
-      <node id="1230052903045" at="38,59,39,50" concept="2" />
-      <node id="1230052903026" at="44,52,45,19" concept="12" />
-      <node id="1230052903027" at="48,61,49,35" concept="2" />
-      <node id="1230052903036" at="49,35,50,35" concept="2" />
-      <node id="1230052903048" at="50,35,51,342" concept="7" />
-      <node id="1230052903054" at="51,342,52,459" concept="2" />
-      <node id="1230052903064" at="52,459,53,349" concept="7" />
-      <node id="1230052903071" at="53,349,54,26" concept="2" />
-      <node id="1230052903075" at="55,7,56,334" concept="7" />
-      <node id="1230052903075" at="56,334,57,333" concept="7" />
-      <node id="1230052903075" at="57,333,58,160" concept="2" />
-      <node id="1230052903026" at="28,0,30,0" concept="10" trace="ourParamCache" />
-      <node id="1230052903026" at="30,0,32,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052903026" at="33,0,36,0" concept="1" trace="ChangeReturningType_Test#()V" />
-      <node id="1230052903026" at="44,0,47,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052903045" at="37,0,41,0" concept="6" trace="test_ChangeReturningType#()V" />
-      <node id="1230052903075" at="54,26,59,7" concept="0" />
-      <node id="1230052903045" at="48,0,61,0" concept="6" trace="test_ChangeReturningType#()V" />
-      <scope id="1230052903026" at="33,37,34,25" />
-      <scope id="1230052903045" at="38,59,39,50" />
-      <scope id="1230052903026" at="44,52,45,19" />
-      <scope id="1230052903026" at="33,0,36,0" />
-      <scope id="1230052903026" at="44,0,47,0">
+      <node id="1230052903026" at="34,37,35,25" concept="12" />
+      <node id="1230052903045" at="39,59,40,50" concept="2" />
+      <node id="1230052903026" at="45,52,46,19" concept="12" />
+      <node id="1230052903027" at="49,61,50,35" concept="2" />
+      <node id="1230052903036" at="50,35,51,35" concept="2" />
+      <node id="1230052903048" at="51,35,52,342" concept="7" />
+      <node id="1230052903054" at="52,342,53,357" concept="2" />
+      <node id="1230052903064" at="53,357,54,349" concept="7" />
+      <node id="1230052903071" at="54,349,55,26" concept="2" />
+      <node id="1230052903075" at="56,7,57,334" concept="7" />
+      <node id="1230052903075" at="57,334,58,333" concept="7" />
+      <node id="1230052903075" at="58,333,59,160" concept="2" />
+      <node id="1230052903026" at="67,0,68,0" concept="10" trace="returnType$WIkw" />
+      <node id="1230052903026" at="29,0,31,0" concept="10" trace="ourParamCache" />
+      <node id="1230052903026" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052903026" at="34,0,37,0" concept="1" trace="ChangeReturningType_Test#()V" />
+      <node id="1230052903026" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052903045" at="38,0,42,0" concept="6" trace="test_ChangeReturningType#()V" />
+      <node id="1230052903075" at="55,26,60,7" concept="0" />
+      <node id="1230052903045" at="49,0,62,0" concept="6" trace="test_ChangeReturningType#()V" />
+      <scope id="1230052903026" at="34,37,35,25" />
+      <scope id="1230052903045" at="39,59,40,50" />
+      <scope id="1230052903026" at="45,52,46,19" />
+      <scope id="1230052903026" at="34,0,37,0" />
+      <scope id="1230052903026" at="45,0,48,0">
         <var name="owner" id="1230052903026" />
       </scope>
-      <scope id="1230052903075" at="55,7,58,160">
+      <scope id="1230052903075" at="56,7,59,160">
         <var name="nodesAfter" id="1230052903075" />
         <var name="nodesBefore" id="1230052903075" />
       </scope>
-      <scope id="1230052903045" at="37,0,41,0" />
-      <scope id="1230052903045" at="48,61,59,7">
+      <scope id="1230052903045" at="38,0,42,0" />
+      <scope id="1230052903045" at="49,61,60,7">
         <var name="params" id="1230052903049" />
         <var name="ref" id="1230052903065" />
       </scope>
-      <scope id="1230052903045" at="48,0,61,0" />
-      <unit id="1230052903026" at="42,0,64,0" name="jetbrains.mps.refactoringTest.ChangeReturningType_Test$TestBody" />
-      <unit id="1230052903026" at="26,0,65,0" name="jetbrains.mps.refactoringTest.ChangeReturningType_Test" />
+      <scope id="1230052903045" at="49,0,62,0" />
+      <unit id="1230052903026" at="66,0,69,0" name="jetbrains.mps.refactoringTest.ChangeReturningType_Test$LINKS" />
+      <unit id="1230052903026" at="43,0,65,0" name="jetbrains.mps.refactoringTest.ChangeReturningType_Test$TestBody" />
+      <unit id="1230052903026" at="27,0,70,0" name="jetbrains.mps.refactoringTest.ChangeReturningType_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052903078">
     <file name="ChangeSignatureOfStaticMethod_Test.java">
-      <node id="1230052903078" at="33,47,34,25" concept="12" />
-      <node id="1230052903138" at="38,69,39,60" concept="2" />
-      <node id="1230052903078" at="44,52,45,19" concept="12" />
-      <node id="1230052903079" at="48,71,49,35" concept="2" />
-      <node id="1230052903110" at="49,35,50,35" concept="2" />
-      <node id="1230052903141" at="50,35,51,340" concept="7" />
-      <node id="1230052903147" at="51,340,52,225" concept="7" />
-      <node id="1230052903158" at="52,225,53,231" concept="7" />
-      <node id="1230052903169" at="53,231,54,214" concept="2" />
-      <node id="1230052903177" at="54,214,55,221" concept="2" />
-      <node id="1230052903186" at="55,221,56,221" concept="2" />
-      <node id="1230052903195" at="56,221,57,347" concept="7" />
-      <node id="1230052903202" at="57,347,58,74" concept="7" />
-      <node id="1230052903209" at="58,74,59,303" concept="2" />
-      <node id="1230052903214" at="59,303,60,298" concept="2" />
-      <node id="1230052903219" at="60,298,61,29" concept="2" />
-      <node id="1230052903224" at="61,29,62,26" concept="2" />
-      <node id="1230052903228" at="63,7,64,334" concept="7" />
-      <node id="1230052903228" at="64,334,65,333" concept="7" />
-      <node id="1230052903228" at="65,333,66,160" concept="2" />
-      <node id="1230052903078" at="28,0,30,0" concept="10" trace="ourParamCache" />
-      <node id="1230052903078" at="30,0,32,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052903078" at="33,0,36,0" concept="1" trace="ChangeSignatureOfStaticMethod_Test#()V" />
-      <node id="1230052903078" at="44,0,47,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052903138" at="37,0,41,0" concept="6" trace="test_ChangeSignatureOfStaticMethod#()V" />
-      <node id="1230052903228" at="62,26,67,7" concept="0" />
-      <node id="1230052903138" at="48,0,69,0" concept="6" trace="test_ChangeSignatureOfStaticMethod#()V" />
-      <scope id="1230052903078" at="33,47,34,25" />
-      <scope id="1230052903138" at="38,69,39,60" />
-      <scope id="1230052903078" at="44,52,45,19" />
-      <scope id="1230052903078" at="33,0,36,0" />
-      <scope id="1230052903078" at="44,0,47,0">
+      <node id="1230052903078" at="34,47,35,25" concept="12" />
+      <node id="1230052903138" at="39,69,40,60" concept="2" />
+      <node id="1230052903078" at="45,52,46,19" concept="12" />
+      <node id="1230052903079" at="49,71,50,35" concept="2" />
+      <node id="1230052903110" at="50,35,51,35" concept="2" />
+      <node id="1230052903141" at="51,35,52,340" concept="7" />
+      <node id="1230052903147" at="52,340,53,123" concept="7" />
+      <node id="1230052903158" at="53,123,54,129" concept="7" />
+      <node id="1230052903169" at="54,129,55,112" concept="2" />
+      <node id="1230052903177" at="55,112,56,119" concept="2" />
+      <node id="1230052903186" at="56,119,57,119" concept="2" />
+      <node id="1230052903195" at="57,119,58,347" concept="7" />
+      <node id="1230052903202" at="58,347,59,74" concept="7" />
+      <node id="1230052903209" at="59,74,60,303" concept="2" />
+      <node id="1230052903214" at="60,303,61,298" concept="2" />
+      <node id="1230052903219" at="61,298,62,29" concept="2" />
+      <node id="1230052903224" at="62,29,63,26" concept="2" />
+      <node id="1230052903228" at="64,7,65,334" concept="7" />
+      <node id="1230052903228" at="65,334,66,333" concept="7" />
+      <node id="1230052903228" at="66,333,67,160" concept="2" />
+      <node id="1230052903078" at="75,0,76,0" concept="10" trace="parameter$WIkZ" />
+      <node id="1230052903078" at="29,0,31,0" concept="10" trace="ourParamCache" />
+      <node id="1230052903078" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052903078" at="34,0,37,0" concept="1" trace="ChangeSignatureOfStaticMethod_Test#()V" />
+      <node id="1230052903078" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052903138" at="38,0,42,0" concept="6" trace="test_ChangeSignatureOfStaticMethod#()V" />
+      <node id="1230052903228" at="63,26,68,7" concept="0" />
+      <node id="1230052903138" at="49,0,70,0" concept="6" trace="test_ChangeSignatureOfStaticMethod#()V" />
+      <scope id="1230052903078" at="34,47,35,25" />
+      <scope id="1230052903138" at="39,69,40,60" />
+      <scope id="1230052903078" at="45,52,46,19" />
+      <scope id="1230052903078" at="34,0,37,0" />
+      <scope id="1230052903078" at="45,0,48,0">
         <var name="owner" id="1230052903078" />
       </scope>
-      <scope id="1230052903228" at="63,7,66,160">
+      <scope id="1230052903228" at="64,7,67,160">
         <var name="nodesAfter" id="1230052903228" />
         <var name="nodesBefore" id="1230052903228" />
       </scope>
-      <scope id="1230052903138" at="37,0,41,0" />
-      <scope id="1230052903138" at="48,71,67,7">
+      <scope id="1230052903138" at="38,0,42,0" />
+      <scope id="1230052903138" at="49,71,68,7">
         <var name="p0" id="1230052903159" />
         <var name="p1" id="1230052903148" />
         <var name="params" id="1230052903142" />
         <var name="ref" id="1230052903196" />
         <var name="ussages" id="1230052903203" />
       </scope>
-      <scope id="1230052903138" at="48,0,69,0" />
-      <unit id="1230052903078" at="42,0,72,0" name="jetbrains.mps.refactoringTest.ChangeSignatureOfStaticMethod_Test$TestBody" />
-      <unit id="1230052903078" at="26,0,73,0" name="jetbrains.mps.refactoringTest.ChangeSignatureOfStaticMethod_Test" />
+      <scope id="1230052903138" at="49,0,70,0" />
+      <unit id="1230052903078" at="74,0,77,0" name="jetbrains.mps.refactoringTest.ChangeSignatureOfStaticMethod_Test$LINKS" />
+      <unit id="1230052903078" at="43,0,73,0" name="jetbrains.mps.refactoringTest.ChangeSignatureOfStaticMethod_Test$TestBody" />
+      <unit id="1230052903078" at="27,0,78,0" name="jetbrains.mps.refactoringTest.ChangeSignatureOfStaticMethod_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052943763">
     <file name="AddParameter_Test.java">
-      <node id="1230052943763" at="35,30,36,25" concept="12" />
-      <node id="1230052943783" at="40,52,41,43" concept="2" />
-      <node id="1230052943763" at="46,52,47,19" concept="12" />
-      <node id="1230052943764" at="50,54,51,35" concept="2" />
-      <node id="1230052943773" at="51,35,52,35" concept="2" />
-      <node id="1230052943786" at="52,35,53,342" concept="7" />
-      <node id="1230052943792" at="53,342,54,257" concept="2" />
-      <node id="1230052943803" at="54,257,55,349" concept="7" />
-      <node id="1230052943810" at="55,349,56,26" concept="2" />
-      <node id="1230052943814" at="57,7,58,334" concept="7" />
-      <node id="1230052943814" at="58,334,59,333" concept="7" />
-      <node id="1230052943814" at="59,333,60,160" concept="2" />
-      <node id="1230052943800" at="65,65,66,65" concept="7" />
-      <node id="1230052943800" at="66,65,67,32" concept="7" />
-      <node id="1230052943800" at="67,32,68,32" concept="7" />
-      <node id="1230052943800" at="68,32,69,259" concept="2" />
-      <node id="1230052943800" at="69,259,70,150" concept="2" />
-      <node id="1230052943800" at="70,150,71,247" concept="2" />
-      <node id="1230052943800" at="71,247,72,173" concept="2" />
-      <node id="1230052943800" at="72,173,73,26" concept="8" />
-      <node id="1230052943763" at="30,0,32,0" concept="10" trace="ourParamCache" />
-      <node id="1230052943763" at="32,0,34,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052943763" at="35,0,38,0" concept="1" trace="AddParameter_Test#()V" />
-      <node id="1230052943763" at="46,0,49,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052943783" at="39,0,43,0" concept="6" trace="test_AddParameter#()V" />
-      <node id="1230052943814" at="56,26,61,7" concept="0" />
-      <node id="1230052943800" at="65,0,75,0" concept="11" trace="_quotation_createNode_pqwgtw_a0a3a3h#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1230052943783" at="50,0,63,0" concept="6" trace="test_AddParameter#()V" />
-      <scope id="1230052943763" at="35,30,36,25" />
-      <scope id="1230052943783" at="40,52,41,43" />
-      <scope id="1230052943763" at="46,52,47,19" />
-      <scope id="1230052943763" at="35,0,38,0" />
-      <scope id="1230052943763" at="46,0,49,0">
+      <node id="1230052943763" at="36,30,37,25" concept="12" />
+      <node id="1230052943783" at="41,52,42,43" concept="2" />
+      <node id="1230052943763" at="47,52,48,19" concept="12" />
+      <node id="1230052943764" at="51,54,52,35" concept="2" />
+      <node id="1230052943773" at="52,35,53,35" concept="2" />
+      <node id="1230052943786" at="53,35,54,342" concept="7" />
+      <node id="1230052943792" at="54,342,55,155" concept="2" />
+      <node id="1230052943803" at="55,155,56,349" concept="7" />
+      <node id="1230052943810" at="56,349,57,26" concept="2" />
+      <node id="1230052943814" at="58,7,59,334" concept="7" />
+      <node id="1230052943814" at="59,334,60,333" concept="7" />
+      <node id="1230052943814" at="60,333,61,160" concept="2" />
+      <node id="1230052943800" at="66,65,67,65" concept="7" />
+      <node id="1230052943800" at="67,65,68,32" concept="7" />
+      <node id="1230052943800" at="68,32,69,32" concept="7" />
+      <node id="1230052943800" at="69,32,70,259" concept="2" />
+      <node id="1230052943800" at="70,259,71,150" concept="2" />
+      <node id="1230052943800" at="71,150,72,247" concept="2" />
+      <node id="1230052943800" at="72,247,73,59" concept="2" />
+      <node id="1230052943800" at="73,59,74,26" concept="8" />
+      <node id="1230052943763" at="79,0,80,0" concept="10" trace="parameter$WIkZ" />
+      <node id="1230052943763" at="80,0,81,0" concept="10" trace="type$pLrO" />
+      <node id="1230052943763" at="31,0,33,0" concept="10" trace="ourParamCache" />
+      <node id="1230052943763" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052943763" at="36,0,39,0" concept="1" trace="AddParameter_Test#()V" />
+      <node id="1230052943763" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052943783" at="40,0,44,0" concept="6" trace="test_AddParameter#()V" />
+      <node id="1230052943814" at="57,26,62,7" concept="0" />
+      <node id="1230052943800" at="66,0,76,0" concept="11" trace="_quotation_createNode_pqwgtw_a0a3a3h#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1230052943783" at="51,0,64,0" concept="6" trace="test_AddParameter#()V" />
+      <scope id="1230052943763" at="36,30,37,25" />
+      <scope id="1230052943783" at="41,52,42,43" />
+      <scope id="1230052943763" at="47,52,48,19" />
+      <scope id="1230052943763" at="36,0,39,0" />
+      <scope id="1230052943763" at="47,0,50,0">
         <var name="owner" id="1230052943763" />
       </scope>
-      <scope id="1230052943814" at="57,7,60,160">
+      <scope id="1230052943814" at="58,7,61,160">
         <var name="nodesAfter" id="1230052943814" />
         <var name="nodesBefore" id="1230052943814" />
       </scope>
-      <scope id="1230052943783" at="39,0,43,0" />
-      <scope id="1230052943800" at="65,65,73,26">
+      <scope id="1230052943783" at="40,0,44,0" />
+      <scope id="1230052943800" at="66,65,74,26">
         <var name="facade" id="1230052943800" />
         <var name="quotedNode_1" id="1230052943800" />
         <var name="quotedNode_2" id="1230052943800" />
       </scope>
-      <scope id="1230052943800" at="65,0,75,0" />
-      <scope id="1230052943783" at="50,54,61,7">
+      <scope id="1230052943800" at="66,0,76,0" />
+      <scope id="1230052943783" at="51,54,62,7">
         <var name="params" id="1230052943787" />
         <var name="ref" id="1230052943804" />
       </scope>
-      <scope id="1230052943783" at="50,0,63,0" />
-      <unit id="1230052943763" at="44,0,76,0" name="jetbrains.mps.refactoringTest.AddParameter_Test$TestBody" />
-      <unit id="1230052943763" at="28,0,77,0" name="jetbrains.mps.refactoringTest.AddParameter_Test" />
+      <scope id="1230052943783" at="51,0,64,0" />
+      <unit id="1230052943763" at="78,0,82,0" name="jetbrains.mps.refactoringTest.AddParameter_Test$LINKS" />
+      <unit id="1230052943763" at="45,0,77,0" name="jetbrains.mps.refactoringTest.AddParameter_Test$TestBody" />
+      <unit id="1230052943763" at="29,0,83,0" name="jetbrains.mps.refactoringTest.AddParameter_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052943817">
     <file name="ChangeParameterName_Test.java">
-      <node id="1230052943817" at="34,37,35,25" concept="12" />
-      <node id="1230052943847" at="39,59,40,50" concept="2" />
-      <node id="1230052943817" at="45,52,46,19" concept="12" />
-      <node id="1230052943818" at="49,61,50,35" concept="2" />
-      <node id="1230052943833" at="50,35,51,35" concept="2" />
-      <node id="1230052943850" at="51,35,52,342" concept="7" />
-      <node id="1230052943856" at="52,342,53,361" concept="2" />
-      <node id="1230052943869" at="53,361,54,349" concept="7" />
-      <node id="1230052943876" at="54,349,55,26" concept="2" />
-      <node id="1230052943880" at="56,7,57,334" concept="7" />
-      <node id="1230052943880" at="57,334,58,333" concept="7" />
-      <node id="1230052943880" at="58,333,59,160" concept="2" />
-      <node id="1230052943817" at="29,0,31,0" concept="10" trace="ourParamCache" />
-      <node id="1230052943817" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052943817" at="34,0,37,0" concept="1" trace="ChangeParameterName_Test#()V" />
-      <node id="1230052943817" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052943847" at="38,0,42,0" concept="6" trace="test_ChangeParameterName#()V" />
-      <node id="1230052943880" at="55,26,60,7" concept="0" />
-      <node id="1230052943847" at="49,0,62,0" concept="6" trace="test_ChangeParameterName#()V" />
-      <scope id="1230052943817" at="34,37,35,25" />
-      <scope id="1230052943847" at="39,59,40,50" />
-      <scope id="1230052943817" at="45,52,46,19" />
-      <scope id="1230052943817" at="34,0,37,0" />
-      <scope id="1230052943817" at="45,0,48,0">
+      <node id="1230052943817" at="36,37,37,25" concept="12" />
+      <node id="1230052943847" at="41,59,42,50" concept="2" />
+      <node id="1230052943817" at="47,52,48,19" concept="12" />
+      <node id="1230052943818" at="51,61,52,35" concept="2" />
+      <node id="1230052943833" at="52,35,53,35" concept="2" />
+      <node id="1230052943850" at="53,35,54,342" concept="7" />
+      <node id="1230052943856" at="54,342,55,162" concept="2" />
+      <node id="1230052943869" at="55,162,56,349" concept="7" />
+      <node id="1230052943876" at="56,349,57,26" concept="2" />
+      <node id="1230052943880" at="58,7,59,334" concept="7" />
+      <node id="1230052943880" at="59,334,60,333" concept="7" />
+      <node id="1230052943880" at="60,333,61,160" concept="2" />
+      <node id="1230052943817" at="69,0,70,0" concept="10" trace="parameter$WIkZ" />
+      <node id="1230052943817" at="73,0,74,0" concept="10" trace="name$tAp1" />
+      <node id="1230052943817" at="31,0,33,0" concept="10" trace="ourParamCache" />
+      <node id="1230052943817" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052943817" at="36,0,39,0" concept="1" trace="ChangeParameterName_Test#()V" />
+      <node id="1230052943817" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052943847" at="40,0,44,0" concept="6" trace="test_ChangeParameterName#()V" />
+      <node id="1230052943880" at="57,26,62,7" concept="0" />
+      <node id="1230052943847" at="51,0,64,0" concept="6" trace="test_ChangeParameterName#()V" />
+      <scope id="1230052943817" at="36,37,37,25" />
+      <scope id="1230052943847" at="41,59,42,50" />
+      <scope id="1230052943817" at="47,52,48,19" />
+      <scope id="1230052943817" at="36,0,39,0" />
+      <scope id="1230052943817" at="47,0,50,0">
         <var name="owner" id="1230052943817" />
       </scope>
-      <scope id="1230052943880" at="56,7,59,160">
+      <scope id="1230052943880" at="58,7,61,160">
         <var name="nodesAfter" id="1230052943880" />
         <var name="nodesBefore" id="1230052943880" />
       </scope>
-      <scope id="1230052943847" at="38,0,42,0" />
-      <scope id="1230052943847" at="49,61,60,7">
+      <scope id="1230052943847" at="40,0,44,0" />
+      <scope id="1230052943847" at="51,61,62,7">
         <var name="params" id="1230052943851" />
         <var name="ref" id="1230052943870" />
       </scope>
-      <scope id="1230052943847" at="49,0,62,0" />
-      <unit id="1230052943817" at="43,0,65,0" name="jetbrains.mps.refactoringTest.ChangeParameterName_Test$TestBody" />
-      <unit id="1230052943817" at="27,0,66,0" name="jetbrains.mps.refactoringTest.ChangeParameterName_Test" />
+      <scope id="1230052943847" at="51,0,64,0" />
+      <unit id="1230052943817" at="68,0,71,0" name="jetbrains.mps.refactoringTest.ChangeParameterName_Test$LINKS" />
+      <unit id="1230052943817" at="72,0,75,0" name="jetbrains.mps.refactoringTest.ChangeParameterName_Test$PROPS" />
+      <unit id="1230052943817" at="45,0,67,0" name="jetbrains.mps.refactoringTest.ChangeParameterName_Test$TestBody" />
+      <unit id="1230052943817" at="29,0,76,0" name="jetbrains.mps.refactoringTest.ChangeParameterName_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052943883">
     <file name="ChangeParameterType_Test.java">
-      <node id="1230052943883" at="35,37,36,25" concept="12" />
-      <node id="1230052943909" at="40,59,41,50" concept="2" />
-      <node id="1230052943883" at="46,52,47,19" concept="12" />
-      <node id="1230052943884" at="50,61,51,35" concept="2" />
-      <node id="1230052943897" at="51,35,52,35" concept="2" />
-      <node id="1230052943912" at="52,35,53,342" concept="7" />
-      <node id="1230052943918" at="53,342,54,411" concept="2" />
-      <node id="1230052943932" at="54,411,55,349" concept="7" />
-      <node id="1230052943939" at="55,349,56,26" concept="2" />
-      <node id="1230052943943" at="57,7,58,334" concept="7" />
-      <node id="1230052943943" at="58,334,59,333" concept="7" />
-      <node id="1230052943943" at="59,333,60,160" concept="2" />
-      <node id="1230052943920" at="65,64,66,65" concept="7" />
-      <node id="1230052943920" at="66,65,67,32" concept="7" />
-      <node id="1230052943920" at="67,32,68,250" concept="2" />
-      <node id="1230052943920" at="68,250,69,26" concept="8" />
-      <node id="1230052943883" at="30,0,32,0" concept="10" trace="ourParamCache" />
-      <node id="1230052943883" at="32,0,34,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052943883" at="35,0,38,0" concept="1" trace="ChangeParameterType_Test#()V" />
-      <node id="1230052943883" at="46,0,49,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052943909" at="39,0,43,0" concept="6" trace="test_ChangeParameterType#()V" />
-      <node id="1230052943943" at="56,26,61,7" concept="0" />
-      <node id="1230052943920" at="65,0,71,0" concept="11" trace="_quotation_createNode_69x5rj_a0d0d7#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1230052943909" at="50,0,63,0" concept="6" trace="test_ChangeParameterType#()V" />
-      <scope id="1230052943883" at="35,37,36,25" />
-      <scope id="1230052943909" at="40,59,41,50" />
-      <scope id="1230052943883" at="46,52,47,19" />
-      <scope id="1230052943883" at="35,0,38,0" />
-      <scope id="1230052943883" at="46,0,49,0">
+      <node id="1230052943883" at="36,37,37,25" concept="12" />
+      <node id="1230052943909" at="41,59,42,50" concept="2" />
+      <node id="1230052943883" at="47,52,48,19" concept="12" />
+      <node id="1230052943884" at="51,61,52,35" concept="2" />
+      <node id="1230052943897" at="52,35,53,35" concept="2" />
+      <node id="1230052943912" at="53,35,54,342" concept="7" />
+      <node id="1230052943918" at="54,342,55,195" concept="2" />
+      <node id="1230052943932" at="55,195,56,349" concept="7" />
+      <node id="1230052943939" at="56,349,57,26" concept="2" />
+      <node id="1230052943943" at="58,7,59,334" concept="7" />
+      <node id="1230052943943" at="59,334,60,333" concept="7" />
+      <node id="1230052943943" at="60,333,61,160" concept="2" />
+      <node id="1230052943920" at="66,64,67,65" concept="7" />
+      <node id="1230052943920" at="67,65,68,32" concept="7" />
+      <node id="1230052943920" at="68,32,69,250" concept="2" />
+      <node id="1230052943920" at="69,250,70,26" concept="8" />
+      <node id="1230052943883" at="75,0,76,0" concept="10" trace="parameter$WIkZ" />
+      <node id="1230052943883" at="76,0,77,0" concept="10" trace="type$pLrO" />
+      <node id="1230052943883" at="31,0,33,0" concept="10" trace="ourParamCache" />
+      <node id="1230052943883" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052943883" at="36,0,39,0" concept="1" trace="ChangeParameterType_Test#()V" />
+      <node id="1230052943883" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052943909" at="40,0,44,0" concept="6" trace="test_ChangeParameterType#()V" />
+      <node id="1230052943943" at="57,26,62,7" concept="0" />
+      <node id="1230052943920" at="66,0,72,0" concept="11" trace="_quotation_createNode_69x5rj_a0d0d7#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1230052943909" at="51,0,64,0" concept="6" trace="test_ChangeParameterType#()V" />
+      <scope id="1230052943883" at="36,37,37,25" />
+      <scope id="1230052943909" at="41,59,42,50" />
+      <scope id="1230052943883" at="47,52,48,19" />
+      <scope id="1230052943883" at="36,0,39,0" />
+      <scope id="1230052943883" at="47,0,50,0">
         <var name="owner" id="1230052943883" />
       </scope>
-      <scope id="1230052943943" at="57,7,60,160">
+      <scope id="1230052943943" at="58,7,61,160">
         <var name="nodesAfter" id="1230052943943" />
         <var name="nodesBefore" id="1230052943943" />
       </scope>
-      <scope id="1230052943909" at="39,0,43,0" />
-      <scope id="1230052943920" at="65,64,69,26">
+      <scope id="1230052943909" at="40,0,44,0" />
+      <scope id="1230052943920" at="66,64,70,26">
         <var name="facade" id="1230052943920" />
         <var name="quotedNode_1" id="1230052943920" />
       </scope>
-      <scope id="1230052943920" at="65,0,71,0" />
-      <scope id="1230052943909" at="50,61,61,7">
+      <scope id="1230052943920" at="66,0,72,0" />
+      <scope id="1230052943909" at="51,61,62,7">
         <var name="params" id="1230052943913" />
         <var name="ref" id="1230052943933" />
       </scope>
-      <scope id="1230052943909" at="50,0,63,0" />
-      <unit id="1230052943883" at="44,0,72,0" name="jetbrains.mps.refactoringTest.ChangeParameterType_Test$TestBody" />
-      <unit id="1230052943883" at="28,0,73,0" name="jetbrains.mps.refactoringTest.ChangeParameterType_Test" />
+      <scope id="1230052943909" at="51,0,64,0" />
+      <unit id="1230052943883" at="74,0,78,0" name="jetbrains.mps.refactoringTest.ChangeParameterType_Test$LINKS" />
+      <unit id="1230052943883" at="45,0,73,0" name="jetbrains.mps.refactoringTest.ChangeParameterType_Test$TestBody" />
+      <unit id="1230052943883" at="29,0,79,0" name="jetbrains.mps.refactoringTest.ChangeParameterType_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052943946">
     <file name="ChangeParametersOrder_Test.java">
-      <node id="1230052943946" at="33,39,34,25" concept="12" />
-      <node id="1230052943993" at="38,61,39,52" concept="2" />
-      <node id="1230052943946" at="44,52,45,19" concept="12" />
-      <node id="1230052943947" at="48,63,49,35" concept="2" />
-      <node id="1230052943971" at="49,35,50,35" concept="2" />
-      <node id="1230052943996" at="50,35,51,342" concept="7" />
-      <node id="1230052944002" at="51,342,52,225" concept="7" />
-      <node id="1230052944013" at="52,225,53,231" concept="7" />
-      <node id="1230052944024" at="53,231,54,214" concept="2" />
-      <node id="1230052944032" at="54,214,55,221" concept="2" />
-      <node id="1230052944041" at="55,221,56,221" concept="2" />
-      <node id="1230052944050" at="56,221,57,349" concept="7" />
-      <node id="1230052944057" at="57,349,58,74" concept="7" />
-      <node id="1230052944064" at="58,74,59,310" concept="2" />
-      <node id="1230052944069" at="59,310,60,29" concept="2" />
-      <node id="1230052944074" at="60,29,61,26" concept="2" />
-      <node id="1230052944078" at="62,7,63,334" concept="7" />
-      <node id="1230052944078" at="63,334,64,333" concept="7" />
-      <node id="1230052944078" at="64,333,65,160" concept="2" />
-      <node id="1230052943946" at="28,0,30,0" concept="10" trace="ourParamCache" />
-      <node id="1230052943946" at="30,0,32,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052943946" at="33,0,36,0" concept="1" trace="ChangeParametersOrder_Test#()V" />
-      <node id="1230052943946" at="44,0,47,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052943993" at="37,0,41,0" concept="6" trace="test_ChangeParametersOrder#()V" />
-      <node id="1230052944078" at="61,26,66,7" concept="0" />
-      <node id="1230052943993" at="48,0,68,0" concept="6" trace="test_ChangeParametersOrder#()V" />
-      <scope id="1230052943946" at="33,39,34,25" />
-      <scope id="1230052943993" at="38,61,39,52" />
-      <scope id="1230052943946" at="44,52,45,19" />
-      <scope id="1230052943946" at="33,0,36,0" />
-      <scope id="1230052943946" at="44,0,47,0">
+      <node id="1230052943946" at="34,39,35,25" concept="12" />
+      <node id="1230052943993" at="39,61,40,52" concept="2" />
+      <node id="1230052943946" at="45,52,46,19" concept="12" />
+      <node id="1230052943947" at="49,63,50,35" concept="2" />
+      <node id="1230052943971" at="50,35,51,35" concept="2" />
+      <node id="1230052943996" at="51,35,52,342" concept="7" />
+      <node id="1230052944002" at="52,342,53,123" concept="7" />
+      <node id="1230052944013" at="53,123,54,129" concept="7" />
+      <node id="1230052944024" at="54,129,55,112" concept="2" />
+      <node id="1230052944032" at="55,112,56,119" concept="2" />
+      <node id="1230052944041" at="56,119,57,119" concept="2" />
+      <node id="1230052944050" at="57,119,58,349" concept="7" />
+      <node id="1230052944057" at="58,349,59,74" concept="7" />
+      <node id="1230052944064" at="59,74,60,310" concept="2" />
+      <node id="1230052944069" at="60,310,61,29" concept="2" />
+      <node id="1230052944074" at="61,29,62,26" concept="2" />
+      <node id="1230052944078" at="63,7,64,334" concept="7" />
+      <node id="1230052944078" at="64,334,65,333" concept="7" />
+      <node id="1230052944078" at="65,333,66,160" concept="2" />
+      <node id="1230052943946" at="74,0,75,0" concept="10" trace="parameter$WIkZ" />
+      <node id="1230052943946" at="29,0,31,0" concept="10" trace="ourParamCache" />
+      <node id="1230052943946" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052943946" at="34,0,37,0" concept="1" trace="ChangeParametersOrder_Test#()V" />
+      <node id="1230052943946" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052943993" at="38,0,42,0" concept="6" trace="test_ChangeParametersOrder#()V" />
+      <node id="1230052944078" at="62,26,67,7" concept="0" />
+      <node id="1230052943993" at="49,0,69,0" concept="6" trace="test_ChangeParametersOrder#()V" />
+      <scope id="1230052943946" at="34,39,35,25" />
+      <scope id="1230052943993" at="39,61,40,52" />
+      <scope id="1230052943946" at="45,52,46,19" />
+      <scope id="1230052943946" at="34,0,37,0" />
+      <scope id="1230052943946" at="45,0,48,0">
         <var name="owner" id="1230052943946" />
       </scope>
-      <scope id="1230052944078" at="62,7,65,160">
+      <scope id="1230052944078" at="63,7,66,160">
         <var name="nodesAfter" id="1230052944078" />
         <var name="nodesBefore" id="1230052944078" />
       </scope>
-      <scope id="1230052943993" at="37,0,41,0" />
-      <scope id="1230052943993" at="48,63,66,7">
+      <scope id="1230052943993" at="38,0,42,0" />
+      <scope id="1230052943993" at="49,63,67,7">
         <var name="p0" id="1230052944014" />
         <var name="p1" id="1230052944003" />
         <var name="params" id="1230052943997" />
         <var name="ref" id="1230052944051" />
         <var name="ussages" id="1230052944058" />
       </scope>
-      <scope id="1230052943993" at="48,0,68,0" />
-      <unit id="1230052943946" at="42,0,71,0" name="jetbrains.mps.refactoringTest.ChangeParametersOrder_Test$TestBody" />
-      <unit id="1230052943946" at="26,0,72,0" name="jetbrains.mps.refactoringTest.ChangeParametersOrder_Test" />
+      <scope id="1230052943993" at="49,0,69,0" />
+      <unit id="1230052943946" at="73,0,76,0" name="jetbrains.mps.refactoringTest.ChangeParametersOrder_Test$LINKS" />
+      <unit id="1230052943946" at="43,0,72,0" name="jetbrains.mps.refactoringTest.ChangeParametersOrder_Test$TestBody" />
+      <unit id="1230052943946" at="27,0,77,0" name="jetbrains.mps.refactoringTest.ChangeParametersOrder_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052944081">
     <file name="RemoveParameter_Test.java">
-      <node id="1230052944081" at="33,33,34,25" concept="12" />
-      <node id="1230052944101" at="38,55,39,46" concept="2" />
-      <node id="1230052944081" at="44,52,45,19" concept="12" />
-      <node id="1230052944082" at="48,57,49,35" concept="2" />
-      <node id="1230052944093" at="49,35,50,35" concept="2" />
-      <node id="1230052944104" at="50,35,51,342" concept="7" />
-      <node id="1230052944110" at="51,342,52,214" concept="2" />
-      <node id="1230052944118" at="52,214,53,349" concept="7" />
-      <node id="1230052944125" at="53,349,54,26" concept="2" />
-      <node id="1230052944129" at="55,7,56,334" concept="7" />
-      <node id="1230052944129" at="56,334,57,333" concept="7" />
-      <node id="1230052944129" at="57,333,58,160" concept="2" />
-      <node id="1230052944081" at="28,0,30,0" concept="10" trace="ourParamCache" />
-      <node id="1230052944081" at="30,0,32,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052944081" at="33,0,36,0" concept="1" trace="RemoveParameter_Test#()V" />
-      <node id="1230052944081" at="44,0,47,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052944101" at="37,0,41,0" concept="6" trace="test_RemoveParameter#()V" />
-      <node id="1230052944129" at="54,26,59,7" concept="0" />
-      <node id="1230052944101" at="48,0,61,0" concept="6" trace="test_RemoveParameter#()V" />
-      <scope id="1230052944081" at="33,33,34,25" />
-      <scope id="1230052944101" at="38,55,39,46" />
-      <scope id="1230052944081" at="44,52,45,19" />
-      <scope id="1230052944081" at="33,0,36,0" />
-      <scope id="1230052944081" at="44,0,47,0">
+      <node id="1230052944081" at="34,33,35,25" concept="12" />
+      <node id="1230052944101" at="39,55,40,46" concept="2" />
+      <node id="1230052944081" at="45,52,46,19" concept="12" />
+      <node id="1230052944082" at="49,57,50,35" concept="2" />
+      <node id="1230052944093" at="50,35,51,35" concept="2" />
+      <node id="1230052944104" at="51,35,52,342" concept="7" />
+      <node id="1230052944110" at="52,342,53,112" concept="2" />
+      <node id="1230052944118" at="53,112,54,349" concept="7" />
+      <node id="1230052944125" at="54,349,55,26" concept="2" />
+      <node id="1230052944129" at="56,7,57,334" concept="7" />
+      <node id="1230052944129" at="57,334,58,333" concept="7" />
+      <node id="1230052944129" at="58,333,59,160" concept="2" />
+      <node id="1230052944081" at="67,0,68,0" concept="10" trace="parameter$WIkZ" />
+      <node id="1230052944081" at="29,0,31,0" concept="10" trace="ourParamCache" />
+      <node id="1230052944081" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052944081" at="34,0,37,0" concept="1" trace="RemoveParameter_Test#()V" />
+      <node id="1230052944081" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052944101" at="38,0,42,0" concept="6" trace="test_RemoveParameter#()V" />
+      <node id="1230052944129" at="55,26,60,7" concept="0" />
+      <node id="1230052944101" at="49,0,62,0" concept="6" trace="test_RemoveParameter#()V" />
+      <scope id="1230052944081" at="34,33,35,25" />
+      <scope id="1230052944101" at="39,55,40,46" />
+      <scope id="1230052944081" at="45,52,46,19" />
+      <scope id="1230052944081" at="34,0,37,0" />
+      <scope id="1230052944081" at="45,0,48,0">
         <var name="owner" id="1230052944081" />
       </scope>
-      <scope id="1230052944129" at="55,7,58,160">
+      <scope id="1230052944129" at="56,7,59,160">
         <var name="nodesAfter" id="1230052944129" />
         <var name="nodesBefore" id="1230052944129" />
       </scope>
-      <scope id="1230052944101" at="37,0,41,0" />
-      <scope id="1230052944101" at="48,57,59,7">
+      <scope id="1230052944101" at="38,0,42,0" />
+      <scope id="1230052944101" at="49,57,60,7">
         <var name="params" id="1230052944105" />
         <var name="ref" id="1230052944119" />
       </scope>
-      <scope id="1230052944101" at="48,0,61,0" />
-      <unit id="1230052944081" at="42,0,64,0" name="jetbrains.mps.refactoringTest.RemoveParameter_Test$TestBody" />
-      <unit id="1230052944081" at="26,0,65,0" name="jetbrains.mps.refactoringTest.RemoveParameter_Test" />
+      <scope id="1230052944101" at="49,0,62,0" />
+      <unit id="1230052944081" at="66,0,69,0" name="jetbrains.mps.refactoringTest.RemoveParameter_Test$LINKS" />
+      <unit id="1230052944081" at="43,0,65,0" name="jetbrains.mps.refactoringTest.RemoveParameter_Test$TestBody" />
+      <unit id="1230052944081" at="27,0,70,0" name="jetbrains.mps.refactoringTest.RemoveParameter_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052944132">
     <file name="TwoParametersWithSameType_Test.java">
-      <node id="1230052944132" at="34,43,35,25" concept="12" />
-      <node id="1230052944162" at="39,65,40,56" concept="2" />
-      <node id="1230052944132" at="45,52,46,19" concept="12" />
-      <node id="1230052944133" at="49,67,50,35" concept="2" />
-      <node id="1230052944148" at="50,35,51,35" concept="2" />
-      <node id="1230052944165" at="51,35,52,342" concept="7" />
-      <node id="1230052944171" at="52,342,53,364" concept="2" />
-      <node id="1230052944184" at="53,364,54,370" concept="2" />
-      <node id="1230052944197" at="54,370,55,349" concept="7" />
-      <node id="1230052944204" at="55,349,56,26" concept="2" />
-      <node id="1230052944208" at="57,7,58,334" concept="7" />
-      <node id="1230052944208" at="58,334,59,333" concept="7" />
-      <node id="1230052944208" at="59,333,60,160" concept="2" />
-      <node id="1230052944132" at="29,0,31,0" concept="10" trace="ourParamCache" />
-      <node id="1230052944132" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
-      <node id="1230052944132" at="34,0,37,0" concept="1" trace="TwoParametersWithSameType_Test#()V" />
-      <node id="1230052944132" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="1230052944162" at="38,0,42,0" concept="6" trace="test_TwoParametersWithSameType#()V" />
-      <node id="1230052944208" at="56,26,61,7" concept="0" />
-      <node id="1230052944162" at="49,0,63,0" concept="6" trace="test_TwoParametersWithSameType#()V" />
-      <scope id="1230052944132" at="34,43,35,25" />
-      <scope id="1230052944162" at="39,65,40,56" />
-      <scope id="1230052944132" at="45,52,46,19" />
-      <scope id="1230052944132" at="34,0,37,0" />
-      <scope id="1230052944132" at="45,0,48,0">
+      <node id="1230052944132" at="36,43,37,25" concept="12" />
+      <node id="1230052944162" at="41,65,42,56" concept="2" />
+      <node id="1230052944132" at="47,52,48,19" concept="12" />
+      <node id="1230052944133" at="51,67,52,35" concept="2" />
+      <node id="1230052944148" at="52,35,53,35" concept="2" />
+      <node id="1230052944165" at="53,35,54,342" concept="7" />
+      <node id="1230052944171" at="54,342,55,165" concept="2" />
+      <node id="1230052944184" at="55,165,56,171" concept="2" />
+      <node id="1230052944197" at="56,171,57,349" concept="7" />
+      <node id="1230052944204" at="57,349,58,26" concept="2" />
+      <node id="1230052944208" at="59,7,60,334" concept="7" />
+      <node id="1230052944208" at="60,334,61,333" concept="7" />
+      <node id="1230052944208" at="61,333,62,160" concept="2" />
+      <node id="1230052944132" at="70,0,71,0" concept="10" trace="parameter$WIkZ" />
+      <node id="1230052944132" at="74,0,75,0" concept="10" trace="name$tAp1" />
+      <node id="1230052944132" at="31,0,33,0" concept="10" trace="ourParamCache" />
+      <node id="1230052944132" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="1230052944132" at="36,0,39,0" concept="1" trace="TwoParametersWithSameType_Test#()V" />
+      <node id="1230052944132" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="1230052944162" at="40,0,44,0" concept="6" trace="test_TwoParametersWithSameType#()V" />
+      <node id="1230052944208" at="58,26,63,7" concept="0" />
+      <node id="1230052944162" at="51,0,65,0" concept="6" trace="test_TwoParametersWithSameType#()V" />
+      <scope id="1230052944132" at="36,43,37,25" />
+      <scope id="1230052944162" at="41,65,42,56" />
+      <scope id="1230052944132" at="47,52,48,19" />
+      <scope id="1230052944132" at="36,0,39,0" />
+      <scope id="1230052944132" at="47,0,50,0">
         <var name="owner" id="1230052944132" />
       </scope>
-      <scope id="1230052944208" at="57,7,60,160">
+      <scope id="1230052944208" at="59,7,62,160">
         <var name="nodesAfter" id="1230052944208" />
         <var name="nodesBefore" id="1230052944208" />
       </scope>
-      <scope id="1230052944162" at="38,0,42,0" />
-      <scope id="1230052944162" at="49,67,61,7">
+      <scope id="1230052944162" at="40,0,44,0" />
+      <scope id="1230052944162" at="51,67,63,7">
         <var name="params" id="1230052944166" />
         <var name="ref" id="1230052944198" />
       </scope>
-      <scope id="1230052944162" at="49,0,63,0" />
-      <unit id="1230052944132" at="43,0,66,0" name="jetbrains.mps.refactoringTest.TwoParametersWithSameType_Test$TestBody" />
-      <unit id="1230052944132" at="27,0,67,0" name="jetbrains.mps.refactoringTest.TwoParametersWithSameType_Test" />
+      <scope id="1230052944162" at="51,0,65,0" />
+      <unit id="1230052944132" at="69,0,72,0" name="jetbrains.mps.refactoringTest.TwoParametersWithSameType_Test$LINKS" />
+      <unit id="1230052944132" at="73,0,76,0" name="jetbrains.mps.refactoringTest.TwoParametersWithSameType_Test$PROPS" />
+      <unit id="1230052944132" at="45,0,68,0" name="jetbrains.mps.refactoringTest.TwoParametersWithSameType_Test$TestBody" />
+      <unit id="1230052944132" at="29,0,77,0" name="jetbrains.mps.refactoringTest.TwoParametersWithSameType_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/1230052989007">
@@ -3342,45 +3377,47 @@
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/3925159399320841060">
     <file name="ChangeSigantureOfInterface_Test.java">
-      <node id="3925159399320841060" at="33,44,34,25" concept="12" />
-      <node id="418758558327028827" at="38,66,39,57" concept="2" />
-      <node id="3925159399320841060" at="44,52,45,19" concept="12" />
-      <node id="418758558327012739" at="48,68,49,40" concept="2" />
-      <node id="418758558327019466" at="49,40,50,40" concept="2" />
-      <node id="418758558327028811" at="50,40,51,40" concept="2" />
-      <node id="418758558327028833" at="51,40,52,351" concept="7" />
-      <node id="418758558327028841" at="52,351,53,188" concept="2" />
-      <node id="418758558327047504" at="53,188,54,358" concept="7" />
-      <node id="418758558327166210" at="54,358,55,26" concept="2" />
-      <node id="418758558327166218" at="56,7,57,339" concept="7" />
-      <node id="418758558327166218" at="57,339,58,338" concept="7" />
-      <node id="418758558327166218" at="58,338,59,160" concept="2" />
-      <node id="3925159399320841060" at="28,0,30,0" concept="10" trace="ourParamCache" />
-      <node id="3925159399320841060" at="30,0,32,0" concept="3" trace="myWithCommandRule" />
-      <node id="3925159399320841060" at="33,0,36,0" concept="1" trace="ChangeSigantureOfInterface_Test#()V" />
-      <node id="3925159399320841060" at="44,0,47,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="418758558327028827" at="37,0,41,0" concept="6" trace="test_ChangeSigantureOfInterface#()V" />
-      <node id="418758558327166218" at="55,26,60,7" concept="0" />
-      <node id="418758558327028827" at="48,0,62,0" concept="6" trace="test_ChangeSigantureOfInterface#()V" />
-      <scope id="3925159399320841060" at="33,44,34,25" />
-      <scope id="418758558327028827" at="38,66,39,57" />
-      <scope id="3925159399320841060" at="44,52,45,19" />
-      <scope id="3925159399320841060" at="33,0,36,0" />
-      <scope id="3925159399320841060" at="44,0,47,0">
+      <node id="3925159399320841060" at="34,44,35,25" concept="12" />
+      <node id="418758558327028827" at="39,66,40,57" concept="2" />
+      <node id="3925159399320841060" at="45,52,46,19" concept="12" />
+      <node id="418758558327012739" at="49,68,50,40" concept="2" />
+      <node id="418758558327019466" at="50,40,51,40" concept="2" />
+      <node id="418758558327028811" at="51,40,52,40" concept="2" />
+      <node id="418758558327028833" at="52,40,53,351" concept="7" />
+      <node id="418758558327028841" at="53,351,54,91" concept="2" />
+      <node id="418758558327047504" at="54,91,55,358" concept="7" />
+      <node id="418758558327166210" at="55,358,56,26" concept="2" />
+      <node id="418758558327166218" at="57,7,58,339" concept="7" />
+      <node id="418758558327166218" at="58,339,59,338" concept="7" />
+      <node id="418758558327166218" at="59,338,60,160" concept="2" />
+      <node id="3925159399320841060" at="68,0,69,0" concept="10" trace="name$tAp1" />
+      <node id="3925159399320841060" at="29,0,31,0" concept="10" trace="ourParamCache" />
+      <node id="3925159399320841060" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
+      <node id="3925159399320841060" at="34,0,37,0" concept="1" trace="ChangeSigantureOfInterface_Test#()V" />
+      <node id="3925159399320841060" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="418758558327028827" at="38,0,42,0" concept="6" trace="test_ChangeSigantureOfInterface#()V" />
+      <node id="418758558327166218" at="56,26,61,7" concept="0" />
+      <node id="418758558327028827" at="49,0,63,0" concept="6" trace="test_ChangeSigantureOfInterface#()V" />
+      <scope id="3925159399320841060" at="34,44,35,25" />
+      <scope id="418758558327028827" at="39,66,40,57" />
+      <scope id="3925159399320841060" at="45,52,46,19" />
+      <scope id="3925159399320841060" at="34,0,37,0" />
+      <scope id="3925159399320841060" at="45,0,48,0">
         <var name="owner" id="3925159399320841060" />
       </scope>
-      <scope id="418758558327166218" at="56,7,59,160">
+      <scope id="418758558327166218" at="57,7,60,160">
         <var name="nodesAfter" id="418758558327166218" />
         <var name="nodesBefore" id="418758558327166218" />
       </scope>
-      <scope id="418758558327028827" at="37,0,41,0" />
-      <scope id="418758558327028827" at="48,68,60,7">
+      <scope id="418758558327028827" at="38,0,42,0" />
+      <scope id="418758558327028827" at="49,68,61,7">
         <var name="parameters" id="418758558327028834" />
         <var name="ref" id="418758558327047505" />
       </scope>
-      <scope id="418758558327028827" at="48,0,62,0" />
-      <unit id="3925159399320841060" at="42,0,65,0" name="jetbrains.mps.refactoringTest.ChangeSigantureOfInterface_Test$TestBody" />
-      <unit id="3925159399320841060" at="26,0,66,0" name="jetbrains.mps.refactoringTest.ChangeSigantureOfInterface_Test" />
+      <scope id="418758558327028827" at="49,0,63,0" />
+      <unit id="3925159399320841060" at="67,0,70,0" name="jetbrains.mps.refactoringTest.ChangeSigantureOfInterface_Test$PROPS" />
+      <unit id="3925159399320841060" at="43,0,66,0" name="jetbrains.mps.refactoringTest.ChangeSigantureOfInterface_Test$TestBody" />
+      <unit id="3925159399320841060" at="27,0,71,0" name="jetbrains.mps.refactoringTest.ChangeSigantureOfInterface_Test" />
     </file>
   </root>
   <root nodeRef="r:4dc6ffb5-4bbb-4773-b0b7-e52989ceb56f(jetbrains.mps.refactoringTest@tests)/4038232163186978773">
@@ -3601,14 +3638,14 @@
       <node id="5161277940733601064" at="53,675,54,28" concept="2" />
       <node id="5604183372188209867" at="54,28,55,87" concept="7" />
       <node id="5604183372188209884" at="55,87,56,87" concept="7" />
-      <node id="5604183372188209916" at="57,108,58,72" concept="2" />
+      <node id="5604183372188209916" at="57,100,58,72" concept="2" />
       <node id="5604183372188209934" at="58,72,59,72" concept="2" />
       <node id="5161277940733601069" at="60,7,61,84" concept="7" />
       <node id="5161277940733601074" at="61,84,62,23" concept="2" />
       <node id="5161277940733601078" at="63,7,64,340" concept="7" />
       <node id="5161277940733601078" at="64,340,65,339" concept="7" />
       <node id="5161277940733601078" at="65,339,66,160" concept="2" />
-      <node id="5161277940733600913" at="74,0,75,0" concept="10" trace="LocalVariableDeclaration_d47683f3" />
+      <node id="5161277940733600913" at="74,0,75,0" concept="10" trace="LocalVariableDeclaration$Bf" />
       <node id="5161277940733600913" at="30,0,32,0" concept="10" trace="ourParamCache" />
       <node id="5161277940733600913" at="32,0,34,0" concept="3" trace="myWithCommandRule" />
       <node id="5161277940733600913" at="35,0,38,0" concept="1" trace="ExtractMethodFromClosure_Test#()V" />
@@ -3620,7 +3657,7 @@
       <scope id="5161277940733600913" at="35,42,36,25" />
       <scope id="5161277940733601053" at="40,64,41,55" />
       <scope id="5161277940733600913" at="46,52,47,19" />
-      <scope id="5604183372188209900" at="57,108,59,72" />
+      <scope id="5604183372188209900" at="57,100,59,72" />
       <scope id="5161277940733600913" at="35,0,38,0" />
       <scope id="5161277940733600913" at="46,0,49,0">
         <var name="owner" id="5161277940733600913" />
@@ -3637,7 +3674,7 @@
         <var name="ref" id="5161277940733601070" />
       </scope>
       <scope id="5161277940733601053" at="50,0,69,0" />
-      <unit id="5161277940733600913" at="73,0,76,0" name="jetbrains.mps.refactoringTest.ExtractMethodFromClosure_Test$AUX_wnqj8h" />
+      <unit id="5161277940733600913" at="73,0,76,0" name="jetbrains.mps.refactoringTest.ExtractMethodFromClosure_Test$CONCEPTS" />
       <unit id="5161277940733600913" at="44,0,72,0" name="jetbrains.mps.refactoringTest.ExtractMethodFromClosure_Test$TestBody" />
       <unit id="5161277940733600913" at="28,0,77,0" name="jetbrains.mps.refactoringTest.ExtractMethodFromClosure_Test" />
     </file>

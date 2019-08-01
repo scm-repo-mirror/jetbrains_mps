@@ -24,10 +24,10 @@ public class TestScope extends Scope {
   }
   @Override
   public Iterable<SNode> getAvailableElements(@Nullable String prefix) {
-    Scopes.forVariables(AUX_6psuht.DotExpression_97ed08d8, this, null);
+    Scopes.forVariables(CONCEPTS.DotExpression$6a, this, null);
     return Sequence.fromIterable(((Iterable<SNode>) ListSequence.fromList(new ArrayList<SNode>()))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_6psuht.DotExpression_97ed08d8);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.DotExpression$6a);
       }
     });
   }
@@ -46,7 +46,7 @@ public class TestScope extends Scope {
     }.invoke();
   }
 
-  private static final class AUX_6psuht {
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
   }
 }

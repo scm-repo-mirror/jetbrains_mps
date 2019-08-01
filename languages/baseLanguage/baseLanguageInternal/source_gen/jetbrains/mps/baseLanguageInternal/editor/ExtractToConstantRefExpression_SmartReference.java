@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ExtractToConstantRefExpression_SmartReference extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_ultiz_a(), AUX.ExtractToConstantRefExpression_86e65ed));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_ultiz_a(), CONCEPTS.ExtractToConstantRefExpression$sl));
     return result;
   }
 
@@ -48,7 +49,7 @@ public class ExtractToConstantRefExpression_SmartReference extends SubstituteMen
 
     public SMP_ReferenceScope_ultiz_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX.ExtractToConstantRefExpression_86e65ed, MetaAdapterFactory.getReferenceLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, 0x162724dabcdc672L, "original"));
+      super((SAbstractConcept) CONCEPTS.ExtractToConstantRefExpression$sl, LINKS.original$N4_w);
     }
     @NotNull
     @Override
@@ -80,7 +81,7 @@ public class ExtractToConstantRefExpression_SmartReference extends SubstituteMen
       }
       @Override
       public String getMatchingText(String pattern) {
-        return SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x1204d897032L, 0x1204d89aadaL, "fieldName"));
+        return SPropertyOperations.getString(referencedNode, PROPS.fieldName$SVPF);
       }
       @Override
       public String getVisibleMatchingText(String pattern) {
@@ -94,7 +95,15 @@ public class ExtractToConstantRefExpression_SmartReference extends SubstituteMen
     }
   }
 
-  private static final class AUX {
-    /*package*/ static final SConcept ExtractToConstantRefExpression_86e65ed = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, "jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantRefExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExtractToConstantRefExpression$sl = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, "jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantRefExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink original$N4_w = MetaAdapterFactory.getReferenceLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, 0x162724dabcdc672L, "original");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty fieldName$SVPF = MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x1204d897032L, 0x1204d89aadaL, "fieldName");
   }
 }

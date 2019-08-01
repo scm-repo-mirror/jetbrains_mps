@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -21,16 +20,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ShortcutChange_Constraints extends BaseConstraintsDescriptor {
   public ShortcutChange_Constraints() {
-    super(AUX_mh2v7q.ShortcutChange_29f709d9);
+    super(CONCEPTS.ShortcutChange$2D);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e092278L, 0x55f30a5d1e096c76L, "action"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.action$f4CQ, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -45,7 +45,7 @@ public class ShortcutChange_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), AUX_mh2v7q.ActionDeclaration_5aac4105));
+            return ListScope.forResolvableElements(SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.ActionDeclaration$VX));
           }
         };
       }
@@ -56,8 +56,12 @@ public class ShortcutChange_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_mh2v7q_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590361(jetbrains.mps.lang.plugin.constraints)", "6836281137582796510");
 
-  private static final class AUX_mh2v7q {
-    /*package*/ static final SInterfaceConcept ShortcutChange_29f709d9 = MetaAdapterFactory.getInterfaceConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e092278L, "jetbrains.mps.lang.plugin.structure.ShortcutChange");
-    /*package*/ static final SConcept ActionDeclaration_5aac4105 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ShortcutChange$2D = MetaAdapterFactory.getInterfaceConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e092278L, "jetbrains.mps.lang.plugin.structure.ShortcutChange");
+    /*package*/ static final SConcept ActionDeclaration$VX = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, "jetbrains.mps.lang.plugin.structure.ActionDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink action$f4CQ = MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e092278L, 0x55f30a5d1e096c76L, "action");
   }
 }

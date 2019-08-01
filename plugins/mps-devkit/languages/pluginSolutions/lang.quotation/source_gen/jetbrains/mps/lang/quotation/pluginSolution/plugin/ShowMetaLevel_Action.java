@@ -45,7 +45,7 @@ public class ShowMetaLevel_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_faz4x5.BaseConcept_bc2351f))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.BaseConcept$Sz))) {
         node = null;
       }
       if (node == null) {
@@ -75,7 +75,7 @@ public class ShowMetaLevel_Action extends BaseAction {
     });
   }
 
-  private static final class AUX_faz4x5 {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

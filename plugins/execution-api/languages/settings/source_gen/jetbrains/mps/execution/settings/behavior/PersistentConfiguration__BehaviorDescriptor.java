@@ -4,6 +4,7 @@ package jetbrains.mps.execution.settings.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,7 +18,6 @@ import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.execution.common.behavior.IGeneratedToClass__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.baseLanguage.classifiers.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -28,11 +28,13 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class PersistentConfiguration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_hh0a8.PersistentConfiguration_9ba047e4;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910020L, "jetbrains.mps.execution.settings.structure.PersistentConfiguration");
 
   public static final SMethod<String> getSuffix_idO$iR4JBsSb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSuffix").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4JBsSb").build();
   public static final SMethod<String> getGeneratedEditorName_idO$iR4J$g2J = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedEditorName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("O$iR4J$g2J").build();
@@ -65,14 +67,14 @@ public final class PersistentConfiguration__BehaviorDescriptor extends BaseBHDes
     return createPersistentConfigurationType_4ves9l_a0a3(__thisNode__);
   }
   /*package*/ static List<SNode> getTemplateProperties_idO$iR4J$g3e(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"))).where(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.persistentProperty$2oY0)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return (boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it);
       }
     }).toListSequence();
   }
   /*package*/ static List<SNode> getNonTemplateProperties_idO$iR4J$g3y(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"))).where(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.persistentProperty$2oY0)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) PersistentPropertyDeclaration__BehaviorDescriptor.isTemplate_idO$iR4J$g8G.invoke(it));
       }
@@ -82,32 +84,32 @@ public final class PersistentConfiguration__BehaviorDescriptor extends BaseBHDes
     return "Editor";
   }
   /*package*/ static List<SNode> getMembers_idhEwJink(@NotNull SNode __thisNode__, SNode contextNode) {
-    List<SNode> allMemebers = IClassifier__BehaviorDescriptor.getMembers_idhEwJink.invoke0(__thisNode__, AUX_hh0a8.IClassifier_86b0ec37, contextNode);
-    if ((SNodeOperations.getNodeAncestor(contextNode, AUX_hh0a8.SettingsEditor_9ba05303, false, false) != null)) {
+    List<SNode> allMemebers = IClassifier__BehaviorDescriptor.getMembers_idhEwJink.invoke0(__thisNode__, CONCEPTS.IClassifier$Cb, contextNode);
+    if ((SNodeOperations.getNodeAncestor(contextNode, CONCEPTS.SettingsEditor$MZ, false, false) != null)) {
       return ListSequence.fromList(allMemebers).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return !(SNodeOperations.isInstanceOf(it, AUX_hh0a8.PersistentConfigurationMethod_9ba047df)) || !(SNodeOperations.isInstanceOf(IMember__BehaviorDescriptor.getVisiblity_idhEwIBC5.invoke(it), AUX_hh0a8.PrivateVisibility_63f5dbd4));
+          return !(SNodeOperations.isInstanceOf(it, CONCEPTS.PersistentConfigurationMethod$dz)) || !(SNodeOperations.isInstanceOf(IMember__BehaviorDescriptor.getVisiblity_idhEwIBC5.invoke(it), CONCEPTS.PrivateVisibility$Se));
         }
       }).toListSequence();
     }
     return allMemebers;
   }
   /*package*/ static SNode getContextPersistentConfiguration_idO$iR4J$g1l(@NotNull SAbstractConcept __thisConcept__, SNode node) {
-    SNode configuration = SNodeOperations.getNodeAncestor(node, AUX_hh0a8.PersistentConfiguration_9ba047e4, false, false);
+    SNode configuration = SNodeOperations.getNodeAncestor(node, CONCEPTS.PersistentConfiguration$fY, false, false);
     if (configuration == null) {
-      SNode executor = SNodeOperations.getNodeAncestor(node, AUX_hh0a8.PersistentConfigurationAssistent_aaa6ef1c, false, false);
+      SNode executor = SNodeOperations.getNodeAncestor(node, CONCEPTS.PersistentConfigurationAssistent$f6, false, false);
       if (executor != null) {
-        configuration = SLinkOperations.getTarget(executor, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration"));
+        configuration = SLinkOperations.getTarget(executor, LINKS.configuration$RmX0);
       }
     }
     return configuration;
   }
   /*package*/ static List<SNode> getContextPersistentProperties_idO$iR4J$g22(@NotNull SAbstractConcept __thisConcept__, SNode node) {
-    SNode configuration = PersistentConfiguration__BehaviorDescriptor.getContextPersistentConfiguration_idO$iR4J$g1l.invoke(SNodeOperations.asSConcept(AUX_hh0a8.PersistentConfiguration_9ba047e4), node);
+    SNode configuration = PersistentConfiguration__BehaviorDescriptor.getContextPersistentConfiguration_idO$iR4J$g1l.invoke(SNodeOperations.asSConcept(CONCEPTS.PersistentConfiguration$fY), node);
     if ((configuration == null)) {
       return new ArrayList<SNode>();
     }
-    return SLinkOperations.getChildren(configuration, MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty"));
+    return SLinkOperations.getChildren(configuration, LINKS.persistentProperty$2oY0);
   }
   /*package*/ static String getCheckMethodName_idO$iR4J$g2y(@NotNull SAbstractConcept __thisConcept__) {
     return "checkConfiguration";
@@ -180,18 +182,24 @@ public final class PersistentConfiguration__BehaviorDescriptor extends BaseBHDes
   }
   private static SNode createPersistentConfigurationType_4ves9l_a0a3(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_hh0a8.PersistentConfigurationType_9ba047e0, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.PersistentConfigurationType$e2, null, null, false);
+    n1.setReferenceTarget(LINKS.persistentConfiguration$28v0, node0);
     return n1;
   }
 
-  private static final class AUX_hh0a8 {
-    /*package*/ static final SConcept PersistentConfiguration_9ba047e4 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910020L, "jetbrains.mps.execution.settings.structure.PersistentConfiguration");
-    /*package*/ static final SInterfaceConcept IClassifier_86b0ec37 = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6b2af5L, "jetbrains.mps.baseLanguage.classifiers.structure.IClassifier");
-    /*package*/ static final SConcept PrivateVisibility_63f5dbd4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
-    /*package*/ static final SConcept PersistentConfigurationMethod_9ba047df = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001bL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationMethod");
-    /*package*/ static final SConcept SettingsEditor_9ba05303 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013dL, "jetbrains.mps.execution.settings.structure.SettingsEditor");
-    /*package*/ static final SInterfaceConcept PersistentConfigurationAssistent_aaa6ef1c = MetaAdapterFactory.getInterfaceConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationAssistent");
-    /*package*/ static final SConcept PersistentConfigurationType_9ba047e0 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink persistentProperty$2oY0 = MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910122L, 0xd244b712f910123L, "persistentProperty");
+    /*package*/ static final SReferenceLink configuration$RmX0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration");
+    /*package*/ static final SReferenceLink persistentConfiguration$28v0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IClassifier$Cb = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6b2af5L, "jetbrains.mps.baseLanguage.classifiers.structure.IClassifier");
+    /*package*/ static final SConcept PrivateVisibility$Se = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+    /*package*/ static final SConcept PersistentConfigurationMethod$dz = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001bL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationMethod");
+    /*package*/ static final SConcept SettingsEditor$MZ = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91013dL, "jetbrains.mps.execution.settings.structure.SettingsEditor");
+    /*package*/ static final SConcept PersistentConfiguration$fY = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910020L, "jetbrains.mps.execution.settings.structure.PersistentConfiguration");
+    /*package*/ static final SInterfaceConcept PersistentConfigurationAssistent$f6 = MetaAdapterFactory.getInterfaceConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationAssistent");
+    /*package*/ static final SConcept PersistentConfigurationType$e2 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, "jetbrains.mps.execution.settings.structure.PersistentConfigurationType");
   }
 }

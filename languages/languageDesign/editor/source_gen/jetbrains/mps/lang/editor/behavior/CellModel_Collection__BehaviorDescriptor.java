@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,18 +16,19 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class CellModel_Collection__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_5o6y17.CellModel_Collection_26007059;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, "jetbrains.mps.lang.editor.structure.CellModel_Collection");
 
   public static final SMethod<String> getOpeningText_idhKxU$w9 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getOpeningText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hKxU$w9").build();
   public static final SMethod<String> getClosingText_idhKxUEwj = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getClosingText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hKxUEwj").build();
@@ -67,19 +69,19 @@ public final class CellModel_Collection__BehaviorDescriptor extends BaseBHDescri
     }
   }
   /*package*/ static boolean isVertical_idi0pAV23(@NotNull SNode __thisNode__) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")), AUX_5o6y17.CellLayout_Vertical_21ecb90d);
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.cellLayout$usNp), CONCEPTS.CellLayout_Vertical$vP);
   }
   /*package*/ static boolean isVerticalGrid_idi2IbWq8(@NotNull SNode __thisNode__) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")), AUX_5o6y17.CellLayout_VerticalGrid_a49f5754);
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.cellLayout$usNp), CONCEPTS.CellLayout_VerticalGrid$ae);
   }
   /*package*/ static boolean isHorizontal_idi0pB4gH(@NotNull SNode __thisNode__) {
-    return (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")), AUX_5o6y17.CellLayout_Horizontal_21c61206);
+    return (SLinkOperations.getTarget(__thisNode__, LINKS.cellLayout$usNp) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.cellLayout$usNp), CONCEPTS.CellLayout_Horizontal$Ss);
   }
   /*package*/ static boolean isIndentLayout_idi0pB9jQ(@NotNull SNode __thisNode__) {
-    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")), AUX_5o6y17.CellLayout_Indent_3a0f3674);
+    return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.cellLayout$usNp), CONCEPTS.CellLayout_Indent$tI);
   }
   /*package*/ static boolean isFoldingEnabled_id1_9L3A4DrOF(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10e3893660fL, "usesFolding")) || (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x78de9e36d994f770L, "usesFoldingCondition")) != null);
+    return SPropertyOperations.getBoolean(__thisNode__, PROPS.usesFolding$L3QX) || (SLinkOperations.getTarget(__thisNode__, LINKS.usesFoldingCondition$UESv) != null);
   }
   /*package*/ static boolean isVerticalIndent_idi0tOX1j(@NotNull SNode __thisNode__) {
     if (!(((boolean) CellModel_Collection__BehaviorDescriptor.isIndentLayout_idi0pB9jQ.invoke(__thisNode__)))) {
@@ -88,41 +90,41 @@ public final class CellModel_Collection__BehaviorDescriptor extends BaseBHDescri
     if (((boolean) EditorCellModel__BehaviorDescriptor.isNewLineChildren_idi0pNGlC.invoke(__thisNode__))) {
       return true;
     }
-    for (SNode model : SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0xf9eaff2518L, "childCellModel"))) {
+    for (SNode model : SLinkOperations.getChildren(__thisNode__, LINKS.childCellModel$3prw)) {
       if ((boolean) EditorCellModel__BehaviorDescriptor.isNewLine_idi0pLPAc.invoke(model) || (boolean) EditorCellModel__BehaviorDescriptor.isNewLineChildren_idi0pNGlC.invoke(model) || (boolean) EditorCellModel__BehaviorDescriptor.isOnNewLine_idi0pUMOG.invoke(model)) {
         return true;
       }
-      if (SNodeOperations.isInstanceOf(model, AUX_5o6y17.CellModel_Collection_26007059) && (boolean) CellModel_Collection__BehaviorDescriptor.isVerticalIndent_idi0tOX1j.invoke(SNodeOperations.cast(model, AUX_5o6y17.CellModel_Collection_26007059))) {
+      if (SNodeOperations.isInstanceOf(model, CONCEPTS.CellModel_Collection$CD) && (boolean) CellModel_Collection__BehaviorDescriptor.isVerticalIndent_idi0tOX1j.invoke(SNodeOperations.cast(model, CONCEPTS.CellModel_Collection$CD))) {
         return true;
       }
     }
     return false;
   }
   /*package*/ static boolean shellBeSynchronized_id3TPTV99_TMT(@NotNull final SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0xf9eaff2518L, "childCellModel"))).any(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.childCellModel$3prw)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return ((boolean) CellModel_Collection__BehaviorDescriptor.shellBeSynchronized_id3TPTV99Aiv4.invoke(__thisNode__, it));
       }
-    }) || ((boolean) CellModel_Collection__BehaviorDescriptor.shellBeSynchronized_id3TPTV99Aiv4.invoke(__thisNode__, SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x6b2f47204d99c5f5L, "foldedCellModel"))));
+    }) || ((boolean) CellModel_Collection__BehaviorDescriptor.shellBeSynchronized_id3TPTV99Aiv4.invoke(__thisNode__, SLinkOperations.getTarget(__thisNode__, LINKS.foldedCellModel$YcIy)));
   }
   /*package*/ static boolean shellBeSynchronized_id3TPTV99Aiv4(@NotNull SNode __thisNode__, SNode childCell) {
-    return childCell != null && SNodeOperations.isInstanceOf(childCell, AUX_5o6y17.Synchronizeable_9087b8de) && (boolean) Synchronizeable__BehaviorDescriptor.shellBeSynchronized_id3TPTV99_TMT.invoke(SNodeOperations.cast(childCell, AUX_5o6y17.Synchronizeable_9087b8de));
+    return childCell != null && SNodeOperations.isInstanceOf(childCell, CONCEPTS.Synchronizeable$94) && (boolean) Synchronizeable__BehaviorDescriptor.shellBeSynchronized_id3TPTV99_TMT.invoke(SNodeOperations.cast(childCell, CONCEPTS.Synchronizeable$94));
   }
   /*package*/ static boolean canBeSynchronized_id3wXm3h1AYM7(@NotNull final SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0xf9eaff2518L, "childCellModel"))).all(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.childCellModel$3prw)).all(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return ((boolean) CellModel_Collection__BehaviorDescriptor.canBeSynchronized_id3wXm3h1BRps.invoke(__thisNode__, it));
       }
-    }) && ((boolean) CellModel_Collection__BehaviorDescriptor.canBeSynchronized_id3wXm3h1BRps.invoke(__thisNode__, SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x6b2f47204d99c5f5L, "foldedCellModel"))));
+    }) && ((boolean) CellModel_Collection__BehaviorDescriptor.canBeSynchronized_id3wXm3h1BRps.invoke(__thisNode__, SLinkOperations.getTarget(__thisNode__, LINKS.foldedCellModel$YcIy)));
   }
   /*package*/ static boolean canBeSynchronized_id3wXm3h1BRps(@NotNull SNode __thisNode__, SNode childCell) {
-    return childCell == null || (SNodeOperations.isInstanceOf(childCell, AUX_5o6y17.Synchronizeable_9087b8de) && (boolean) Synchronizeable__BehaviorDescriptor.canBeSynchronized_id3wXm3h1AYM7.invoke(SNodeOperations.cast(childCell, AUX_5o6y17.Synchronizeable_9087b8de)));
+    return childCell == null || (SNodeOperations.isInstanceOf(childCell, CONCEPTS.Synchronizeable$94) && (boolean) Synchronizeable__BehaviorDescriptor.canBeSynchronized_id3wXm3h1AYM7.invoke(SNodeOperations.cast(childCell, CONCEPTS.Synchronizeable$94)));
   }
   /*package*/ static boolean canBeUsedAsEmptyCell_id6RO52Mcgrfa(@NotNull SNode __thisNode__) {
     return true;
   }
   /*package*/ static SNode getLayout_iditlittTD4U(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.cellLayout$usNp);
   }
 
   /*package*/ CellModel_Collection__BehaviorDescriptor() {
@@ -197,12 +199,23 @@ public final class CellModel_Collection__BehaviorDescriptor extends BaseBHDescri
     return CONCEPT;
   }
 
-  private static final class AUX_5o6y17 {
-    /*package*/ static final SConcept CellModel_Collection_26007059 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, "jetbrains.mps.lang.editor.structure.CellModel_Collection");
-    /*package*/ static final SConcept CellLayout_Vertical_21ecb90d = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dd4cbeL, "jetbrains.mps.lang.editor.structure.CellLayout_Vertical");
-    /*package*/ static final SConcept CellLayout_VerticalGrid_a49f5754 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120aab61370L, "jetbrains.mps.lang.editor.structure.CellLayout_VerticalGrid");
-    /*package*/ static final SConcept CellLayout_Horizontal_21c61206 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dcf685L, "jetbrains.mps.lang.editor.structure.CellLayout_Horizontal");
-    /*package*/ static final SConcept CellLayout_Indent_3a0f3674 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120150bb441L, "jetbrains.mps.lang.editor.structure.CellLayout_Indent");
-    /*package*/ static final SInterfaceConcept Synchronizeable_9087b8de = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x79b75ced2c4a134dL, "jetbrains.mps.lang.editor.structure.Synchronizeable");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink cellLayout$usNp = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout");
+    /*package*/ static final SContainmentLink usesFoldingCondition$UESv = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x78de9e36d994f770L, "usesFoldingCondition");
+    /*package*/ static final SContainmentLink childCellModel$3prw = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0xf9eaff2518L, "childCellModel");
+    /*package*/ static final SContainmentLink foldedCellModel$YcIy = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x6b2f47204d99c5f5L, "foldedCellModel");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellLayout_Vertical$vP = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dd4cbeL, "jetbrains.mps.lang.editor.structure.CellLayout_Vertical");
+    /*package*/ static final SConcept CellLayout_VerticalGrid$ae = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120aab61370L, "jetbrains.mps.lang.editor.structure.CellLayout_VerticalGrid");
+    /*package*/ static final SConcept CellLayout_Horizontal$Ss = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dcf685L, "jetbrains.mps.lang.editor.structure.CellLayout_Horizontal");
+    /*package*/ static final SConcept CellLayout_Indent$tI = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120150bb441L, "jetbrains.mps.lang.editor.structure.CellLayout_Indent");
+    /*package*/ static final SConcept CellModel_Collection$CD = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, "jetbrains.mps.lang.editor.structure.CellModel_Collection");
+    /*package*/ static final SInterfaceConcept Synchronizeable$94 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x79b75ced2c4a134dL, "jetbrains.mps.lang.editor.structure.Synchronizeable");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty usesFolding$L3QX = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10e3893660fL, "usesFolding");
   }
 }

@@ -10,7 +10,6 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
@@ -19,23 +18,26 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class check_AnnotationDuplication_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_AnnotationDuplication_NonTypesystemRule() {
   }
   public void applyRule(final SNode annotationInstance, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(annotationInstance), AUX_qq1g71.HasAnnotation_800804c4))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(annotationInstance), CONCEPTS.HasAnnotation$cu))) {
       return;
     }
-    SNode parent = SNodeOperations.cast(SNodeOperations.getParent(annotationInstance), AUX_qq1g71.HasAnnotation_800804c4);
-    ListSequence.fromList(SLinkOperations.getChildren(parent, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))).where(new IWhereFilter<SNode>() {
+    SNode parent = SNodeOperations.cast(SNodeOperations.getParent(annotationInstance), CONCEPTS.HasAnnotation$cu);
+    ListSequence.fromList(SLinkOperations.getChildren(parent, LINKS.annotation$oVP4)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.getIndexInParent(it) > SNodeOperations.getIndexInParent(annotationInstance);
       }
     }).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation")), SLinkOperations.getTarget(annotationInstance, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation")));
+        return Objects.equals(SLinkOperations.getTarget(it, LINKS.annotation$zNxu), SLinkOperations.getTarget(annotationInstance, LINKS.annotation$zNxu));
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -47,7 +49,7 @@ public class check_AnnotationDuplication_NonTypesystemRule extends AbstractNonTy
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_qq1g71.AnnotationInstance_51bc59df;
+    return CONCEPTS.AnnotationInstance$5z;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -56,8 +58,13 @@ public class check_AnnotationDuplication_NonTypesystemRule extends AbstractNonTy
     return false;
   }
 
-  private static final class AUX_qq1g71 {
-    /*package*/ static final SInterfaceConcept HasAnnotation_800804c4 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, "jetbrains.mps.baseLanguage.structure.HasAnnotation");
-    /*package*/ static final SConcept AnnotationInstance_51bc59df = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept HasAnnotation$cu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, "jetbrains.mps.baseLanguage.structure.HasAnnotation");
+    /*package*/ static final SConcept AnnotationInstance$5z = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink annotation$oVP4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
+    /*package*/ static final SReferenceLink annotation$zNxu = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation");
   }
 }

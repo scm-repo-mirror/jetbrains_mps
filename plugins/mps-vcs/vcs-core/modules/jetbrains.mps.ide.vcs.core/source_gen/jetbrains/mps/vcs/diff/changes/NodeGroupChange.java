@@ -17,11 +17,11 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IterableUtils;
 import jetbrains.mps.util.NameUtil;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class NodeGroupChange extends ModelChange {
@@ -137,7 +137,7 @@ public class NodeGroupChange extends ModelChange {
     }
   }
   private SNode insertNodeBeforeAnchor(SNode parent, SNode newNode, SNode anchor) {
-    SContainmentLink link = (SNodeOperations.isInstanceOf(newNode, AUX_yjf6x2.ChildAttribute_96496d6c) ? MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute") : myRole);
+    SContainmentLink link = (SNodeOperations.isInstanceOf(newNode, CONCEPTS.ChildAttribute$XQ) ? LINKS.smodelAttribute$K8bJ : myRole);
     parent.insertChildBefore(link, newNode, anchor);
     return newNode;
   }
@@ -236,7 +236,11 @@ public class NodeGroupChange extends ModelChange {
 
   }
 
-  private static final class AUX_yjf6x2 {
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
   }
 }

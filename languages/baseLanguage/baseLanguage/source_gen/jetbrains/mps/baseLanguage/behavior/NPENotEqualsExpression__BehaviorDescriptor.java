@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class NPENotEqualsExpression__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_gsvof8.NPENotEqualsExpression_8e9f80a5;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47db1c91L, "jetbrains.mps.baseLanguage.structure.NPENotEqualsExpression");
 
   public static final SMethod<Integer> getPriority_id1653mnvAgo2 = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getPriority").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgo2").build();
   public static final SMethod<Object> calculateCompileTimeConstantValue_id1o8Ht9sN5Hn = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("calculateCompileTimeConstantValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1o8Ht9sN5Hn").build(SMethodBuilder.createJavaParameter(Object.class, ""), SMethodBuilder.createJavaParameter(Object.class, ""));
@@ -60,10 +61,10 @@ public final class NPENotEqualsExpression__BehaviorDescriptor extends BaseBHDesc
     return (leftValue != null && rightValue != null ? leftValue != rightValue : null);
   }
   /*package*/ static Object getCompileTimeConstantValue_idi1LP2xI(@NotNull SNode __thisNode__, SModule module) {
-    if (VariableReferenceUtil.referencesPointToSameVariableDeclaration(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")))) {
+    if (VariableReferenceUtil.referencesPointToSameVariableDeclaration(SLinkOperations.getTarget(__thisNode__, LINKS.leftExpression$rxLZ), SLinkOperations.getTarget(__thisNode__, LINKS.rightExpression$rxBl))) {
       return false;
     }
-    return ((Object) Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invokeSuper(__thisNode__, AUX_gsvof8.NPENotEqualsExpression_8e9f80a5, module));
+    return ((Object) Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invokeSuper(__thisNode__, CONCEPTS.NPENotEqualsExpression$dt, module));
   }
 
   /*package*/ NPENotEqualsExpression__BehaviorDescriptor() {
@@ -116,7 +117,12 @@ public final class NPENotEqualsExpression__BehaviorDescriptor extends BaseBHDesc
     return CONCEPT;
   }
 
-  private static final class AUX_gsvof8 {
-    /*package*/ static final SConcept NPENotEqualsExpression_8e9f80a5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47db1c91L, "jetbrains.mps.baseLanguage.structure.NPENotEqualsExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NPENotEqualsExpression$dt = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47db1c91L, "jetbrains.mps.baseLanguage.structure.NPENotEqualsExpression");
   }
 }

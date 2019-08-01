@@ -16,7 +16,6 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -24,6 +23,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class IdeaActionsDescriptor_EditorBuilder_a extends AbstractEditorBuilder {
@@ -112,10 +112,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71eL, 0x498be7ea73fa722L, "actionGroups");
+      return LINKS.actionGroups$6p3X;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_hz0yib.ActionGroupRef_6898d028;
+      return CONCEPTS.ActionGroupRef$gU;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -125,7 +125,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(actionGroupsListHandler_rofybv_b1a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71eL, 0x498be7ea73fa722L, "actionGroups")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(actionGroupsListHandler_rofybv_b1a.this.getNode(), LINKS.actionGroups$6p3X));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -193,10 +193,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71eL, 0x498be7ea73fa880L, "keymapsRef");
+      return LINKS.keymapsRef$98ME;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_hz0yib.KeymapRef_68992adc;
+      return CONCEPTS.KeymapRef$6;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -206,7 +206,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(keymapsRefListHandler_rofybv_e1a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71eL, 0x498be7ea73fa880L, "keymapsRef")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(keymapsRefListHandler_rofybv_e1a.this.getNode(), LINKS.keymapsRef$98ME));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -231,8 +231,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_hz0yib {
-    /*package*/ static final SConcept ActionGroupRef_6898d028 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71fL, "jetbrains.mps.lang.plugin.structure.ActionGroupRef");
-    /*package*/ static final SConcept KeymapRef_68992adc = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa87eL, "jetbrains.mps.lang.plugin.structure.KeymapRef");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink actionGroups$6p3X = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71eL, 0x498be7ea73fa722L, "actionGroups");
+    /*package*/ static final SContainmentLink keymapsRef$98ME = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71eL, 0x498be7ea73fa880L, "keymapsRef");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionGroupRef$gU = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa71fL, "jetbrains.mps.lang.plugin.structure.ActionGroupRef");
+    /*package*/ static final SConcept KeymapRef$6 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x498be7ea73fa87eL, "jetbrains.mps.lang.plugin.structure.KeymapRef");
   }
 }

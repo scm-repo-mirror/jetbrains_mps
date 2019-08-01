@@ -7,7 +7,6 @@ import javax.swing.Icon;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -15,6 +14,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class Executor_TabDescriptor extends RelationDescriptor {
   private static final Icon ICON = null;
@@ -31,13 +32,13 @@ public class Executor_TabDescriptor extends RelationDescriptor {
     throw new RuntimeException("NOT IMPLEMENTED");
   }
   public SNode getBaseNode(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_kgfl8c.AbstractRunConfigurationExecutor_fd0cc5b0)) {
-      return SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_kgfl8c.AbstractRunConfigurationExecutor_fd0cc5b0), MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration"));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractRunConfigurationExecutor$YM)) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.AbstractRunConfigurationExecutor$YM), LINKS.configuration$RmX0);
     }
     return null;
   }
   public boolean isApplicable(SNode node) {
-    return SNodeOperations.isInstanceOf(node, AUX_kgfl8c.RunConfiguration_fcc7b945);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.RunConfiguration$UX);
   }
   public List<SNode> getNodes(SNode node) {
     List<SNode> list = ListSequence.fromList(new ArrayList<SNode>());
@@ -53,25 +54,29 @@ public class Executor_TabDescriptor extends RelationDescriptor {
   }
   public SNode getNode(SNode node) {
     final SNode nodeFinal = node;
-    return ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(node), AUX_kgfl8c.AbstractRunConfigurationExecutor_fd0cc5b0)).findFirst(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(node), CONCEPTS.AbstractRunConfigurationExecutor$YM)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration")) == nodeFinal;
+        return SLinkOperations.getTarget(it, LINKS.configuration$RmX0) == nodeFinal;
       }
     });
   }
   public Iterable<SConcept> getAspectConcepts(final SNode node) {
-    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), AUX_kgfl8c.RunConfigurationExecutor_4368a6ef);
+    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.RunConfigurationExecutor$pj);
   }
   public SNode createAspect(final SNode node, final SConcept concept) {
     SNode executor = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, "jetbrains.mps.execution.configurations.structure.RunConfigurationExecutor"));
-    SLinkOperations.setTarget(executor, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration"), node);
+    SLinkOperations.setTarget(executor, LINKS.configuration$RmX0, node);
     SModelOperations.addRootNode(SNodeOperations.getModel(node), executor);
     return executor;
   }
 
-  private static final class AUX_kgfl8c {
-    /*package*/ static final SConcept AbstractRunConfigurationExecutor_fd0cc5b0 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
-    /*package*/ static final SConcept RunConfiguration_fcc7b945 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, "jetbrains.mps.execution.configurations.structure.RunConfiguration");
-    /*package*/ static final SConcept RunConfigurationExecutor_4368a6ef = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, "jetbrains.mps.execution.configurations.structure.RunConfigurationExecutor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractRunConfigurationExecutor$YM = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f52479L, "jetbrains.mps.execution.configurations.structure.AbstractRunConfigurationExecutor");
+    /*package*/ static final SConcept RunConfiguration$UX = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x2153d8f1c1f46e49L, "jetbrains.mps.execution.configurations.structure.RunConfiguration");
+    /*package*/ static final SConcept RunConfigurationExecutor$pj = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x6c55c13f5bc8e1ecL, "jetbrains.mps.execution.configurations.structure.RunConfigurationExecutor");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink configuration$RmX0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9dce91L, 0xd244b712f9dce92L, "configuration");
   }
 }

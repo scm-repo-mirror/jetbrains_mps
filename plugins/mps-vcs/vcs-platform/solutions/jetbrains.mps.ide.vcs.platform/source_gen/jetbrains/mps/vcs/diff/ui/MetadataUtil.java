@@ -26,6 +26,8 @@ import java.util.LinkedHashSet;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MetadataUtil {
   private final SModel myMetadataModel;
@@ -53,24 +55,24 @@ public class MetadataUtil {
   private void createModelRoot(SModel origin) {
     SModelBase modelBase = (SModelBase) origin;
     SNodeId nodeId = PersistenceFacade.getInstance().createNodeId("~root");
-    SNode root = SModelOperations.createNewNode(myMetadataModel, nodeId, AUX_ca1g54.Model_7ddad893);
-    SPropertyOperations.assign(root, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11e6L, "longname"), SModelOperations.getModelName(origin));
+    SNode root = SModelOperations.createNewNode(myMetadataModel, nodeId, CONCEPTS.Model$$J);
+    SPropertyOperations.assign(root, PROPS.longname$pfsG, SModelOperations.getModelName(origin));
     if (origin instanceof GeneratableSModel) {
-      SPropertyOperations.assign(root, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11f4L, "donotgenerate"), check_ca1g54_a0a0e0i(((GeneratableSModel) origin)));
+      SPropertyOperations.assign(root, PROPS.donotgenerate$pfHD, check_ca1g54_a0a0e0i(((GeneratableSModel) origin)));
     }
     for (SLanguage language : CollectionSequence.fromCollection(modelBase.importedLanguageIds())) {
-      ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188636L, "language"))).addElement(createLanguageNode(language));
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.language$8rUz)).addElement(createLanguageNode(language));
     }
     for (SLanguage genlanguage : CollectionSequence.fromCollection(modelBase.getLanguagesEngagedOnGeneration())) {
-      ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188638L, "languageEngagedOnGeneration"))).addElement(createLanguageNode(genlanguage));
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.languageEngagedOnGeneration$8rVx)).addElement(createLanguageNode(genlanguage));
     }
     for (SModuleReference devkit : ListSequence.fromList(modelBase.importedDevkits())) {
-      ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863bL, "devkit"))).addElement(createModuleRefNode(devkit));
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.devkit$8rWY)).addElement(createModuleRefNode(devkit));
     }
     for (SModelReference impmodel : ListSequence.fromList(jetbrains.mps.smodel.SModelOperations.getImportedModelUIDs(modelBase))) {
-      ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863fL, "import"))).addElement(createModelRefNode(impmodel));
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.import$8rYU)).addElement(createModelRefNode(impmodel));
     }
-    SPropertyOperations.assign(root, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "Model Properties");
+    SPropertyOperations.assign(root, PROPS.name$tAp1, "Model Properties");
     SModelOperations.addRootNode(myMetadataModel, root);
   }
 
@@ -82,16 +84,16 @@ public class MetadataUtil {
     final PersistenceFacade pf = PersistenceFacade.getInstance();
     final String langIdentity = pf.asString(lang);
     // IMPORTANT! model.new node set custom node id. See createModuleRefNode, below, for explanation why we need custom id 
-    SNode rv = SModelOperations.createNewNode(myMetadataModel, pf.createNodeId(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + langIdentity), AUX_ca1g54.LanguageDependency_d1ade1c6);
+    SNode rv = SModelOperations.createNewNode(myMetadataModel, pf.createNodeId(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + langIdentity), CONCEPTS.LanguageDependency$ps);
     // XXX it's bad to cast to implementation class, but it's MPS internal code and this is fastest approach 
     // (although the right way is to extract part of smodel language related to metadata handling, like LanguageIdentity 
     // into separate language and re-use it here). 
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x660570953ee5d6b9L, 0x660570953ee5dadfL, "value"), langIdentity);
+    SPropertyOperations.assign(rv, PROPS.value$M$5V, langIdentity);
     return rv;
   }
 
   private static SLanguage getLanguage(SNode node) {
-    return PersistenceFacade.getInstance().createLanguage(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x660570953ee5d6b9L, 0x660570953ee5dadfL, "value")));
+    return PersistenceFacade.getInstance().createLanguage(SPropertyOperations.getString(node, PROPS.value$M$5V));
   }
 
   private SNode createModuleRefNode(SModuleReference module) {
@@ -100,25 +102,25 @@ public class MetadataUtil {
     // The purpose of custom node id here is to have identical IDs for the same imports in different models 
     // That's why don't we rely on automatic node id. This doesn't help, however, in case of duplicated imports! 
     // SNodeId.Foreign.ID_PREFIX dependency is not mandatory, in fact. There's code, above, that uses hardcoded values anyway ("~root") 
-    SNode node = SModelOperations.createNewNode(myMetadataModel, pf.createNodeId(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + moduleIdentity), AUX_ca1g54.ModuleReference_95def83f);
-    SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafe1L, 0x39c8ca3b79aaafe2L, "stringValue"), moduleIdentity);
+    SNode node = SModelOperations.createNewNode(myMetadataModel, pf.createNodeId(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + moduleIdentity), CONCEPTS.ModuleReference$W3);
+    SPropertyOperations.assign(node, PROPS.stringValue$RDoF, moduleIdentity);
     return node;
   }
 
   private static SModuleReference getModuleReference(SNode node) {
-    return PersistenceFacade.getInstance().createModuleReference(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafe1L, 0x39c8ca3b79aaafe2L, "stringValue")));
+    return PersistenceFacade.getInstance().createModuleReference(SPropertyOperations.getString(node, PROPS.stringValue$RDoF));
   }
 
   private SNode createModelRefNode(SModelReference modelReference) {
     final PersistenceFacade pf = PersistenceFacade.getInstance();
     final String modelIdentity = pf.asString(modelReference);
-    SNode node = SModelOperations.createNewNode(myMetadataModel, pf.createNodeId(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + modelIdentity), AUX_ca1g54.ModelReference_95def83c);
-    SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafdeL, 0x39c8ca3b79aaafdfL, "stringValue"), modelIdentity);
+    SNode node = SModelOperations.createNewNode(myMetadataModel, pf.createNodeId(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + modelIdentity), CONCEPTS.ModelReference$UA);
+    SPropertyOperations.assign(node, PROPS.stringValue$RDd0, modelIdentity);
     return node;
   }
 
   private static SModelReference getModelReference(SNode node) {
-    return PersistenceFacade.getInstance().createModelReference(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafdeL, 0x39c8ca3b79aaafdfL, "stringValue")));
+    return PersistenceFacade.getInstance().createModelReference(SPropertyOperations.getString(node, PROPS.stringValue$RDd0));
   }
 
   public static void applyMetadataChanges(SModel model, SModel metadataModel) {
@@ -127,13 +129,13 @@ public class MetadataUtil {
     }
 
     final SModelBase modelBase = (SModelBase) model;
-    SNode root = ListSequence.fromList(SModelOperations.roots(metadataModel, AUX_ca1g54.Model_7ddad893)).first();
+    SNode root = ListSequence.fromList(SModelOperations.roots(metadataModel, CONCEPTS.Model$$J)).first();
     if (model instanceof GeneratableSModel) {
-      ((GeneratableSModel) model).setDoNotGenerate(SPropertyOperations.getBoolean(root, MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11f4L, "donotgenerate")));
+      ((GeneratableSModel) model).setDoNotGenerate(SPropertyOperations.getBoolean(root, PROPS.donotgenerate$pfHD));
     }
 
     Set<SLanguage> oldImpLang = SetSequence.fromSetWithValues(new LinkedHashSet<SLanguage>(), modelBase.importedLanguageIds());
-    Set<SLanguage> impLang = SetSequence.fromSetWithValues(new LinkedHashSet<SLanguage>(), ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188636L, "language"))).select(new ISelector<SNode, SLanguage>() {
+    Set<SLanguage> impLang = SetSequence.fromSetWithValues(new LinkedHashSet<SLanguage>(), ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.language$8rUz)).select(new ISelector<SNode, SLanguage>() {
       public SLanguage select(SNode it) {
         return getLanguage(it);
       }
@@ -150,7 +152,7 @@ public class MetadataUtil {
     });
 
     Set<SLanguage> oldGenLang = SetSequence.fromSetWithValues(new LinkedHashSet<SLanguage>(), modelBase.getLanguagesEngagedOnGeneration());
-    Set<SLanguage> genLang = SetSequence.fromSetWithValues(new LinkedHashSet<SLanguage>(), ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188638L, "languageEngagedOnGeneration"))).select(new ISelector<SNode, SLanguage>() {
+    Set<SLanguage> genLang = SetSequence.fromSetWithValues(new LinkedHashSet<SLanguage>(), ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.languageEngagedOnGeneration$8rVx)).select(new ISelector<SNode, SLanguage>() {
       public SLanguage select(SNode it) {
         return getLanguage(it);
       }
@@ -167,7 +169,7 @@ public class MetadataUtil {
     });
 
     Set<SModuleReference> oldDevkit = SetSequence.fromSetWithValues(new LinkedHashSet<SModuleReference>(), modelBase.importedDevkits());
-    Set<SModuleReference> devkit = SetSequence.fromSetWithValues(new LinkedHashSet<SModuleReference>(), ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863bL, "devkit"))).select(new ISelector<SNode, SModuleReference>() {
+    Set<SModuleReference> devkit = SetSequence.fromSetWithValues(new LinkedHashSet<SModuleReference>(), ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.devkit$8rWY)).select(new ISelector<SNode, SModuleReference>() {
       public SModuleReference select(SNode it) {
         return getModuleReference(it);
       }
@@ -184,7 +186,7 @@ public class MetadataUtil {
     });
 
     Set<SModelReference> oldImports = SetSequence.fromSetWithValues(new LinkedHashSet<SModelReference>(), jetbrains.mps.smodel.SModelOperations.getImportedModelUIDs(model));
-    Set<SModelReference> imports = SetSequence.fromSetWithValues(new LinkedHashSet<SModelReference>(), ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863fL, "import"))).select(new ISelector<SNode, SModelReference>() {
+    Set<SModelReference> imports = SetSequence.fromSetWithValues(new LinkedHashSet<SModelReference>(), ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.import$8rYU)).select(new ISelector<SNode, SModelReference>() {
       public SModelReference select(SNode it) {
         return getModelReference(it);
       }
@@ -209,10 +211,26 @@ public class MetadataUtil {
     return false;
   }
 
-  private static final class AUX_ca1g54 {
-    /*package*/ static final SConcept Model_7ddad893 = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, "jetbrains.mps.ide.vcs.modelmetadata.structure.Model");
-    /*package*/ static final SConcept LanguageDependency_d1ade1c6 = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x660570953ee5d6b9L, "jetbrains.mps.ide.vcs.modelmetadata.structure.LanguageDependency");
-    /*package*/ static final SConcept ModuleReference_95def83f = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafe1L, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModuleReference");
-    /*package*/ static final SConcept ModelReference_95def83c = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafdeL, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModelReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Model$$J = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, "jetbrains.mps.ide.vcs.modelmetadata.structure.Model");
+    /*package*/ static final SConcept LanguageDependency$ps = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x660570953ee5d6b9L, "jetbrains.mps.ide.vcs.modelmetadata.structure.LanguageDependency");
+    /*package*/ static final SConcept ModuleReference$W3 = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafe1L, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModuleReference");
+    /*package*/ static final SConcept ModelReference$UA = MetaAdapterFactory.getConcept(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafdeL, "jetbrains.mps.ide.vcs.modelmetadata.structure.ModelReference");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty longname$pfsG = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11e6L, "longname");
+    /*package*/ static final SProperty donotgenerate$pfHD = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x7439be589a4e11f4L, "donotgenerate");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty value$M$5V = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x660570953ee5d6b9L, 0x660570953ee5dadfL, "value");
+    /*package*/ static final SProperty stringValue$RDoF = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafe1L, 0x39c8ca3b79aaafe2L, "stringValue");
+    /*package*/ static final SProperty stringValue$RDd0 = MetaAdapterFactory.getProperty(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x39c8ca3b79aaafdeL, 0x39c8ca3b79aaafdfL, "stringValue");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink language$8rUz = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188636L, "language");
+    /*package*/ static final SContainmentLink languageEngagedOnGeneration$8rVx = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d80188638L, "languageEngagedOnGeneration");
+    /*package*/ static final SContainmentLink devkit$8rWY = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863bL, "devkit");
+    /*package*/ static final SContainmentLink import$8rYU = MetaAdapterFactory.getContainmentLink(0x6df0089f32884998L, 0x9d57e698e7c8e145L, 0x7439be589a4e116dL, 0x4104ff8d8018863fL, "import");
   }
 }

@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.generator.behavior.ContextVariableProvider__BehaviorDescriptor;
@@ -19,24 +18,28 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SReference;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class typeof_GenerationContextOp_ContextVarRef_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_GenerationContextOp_ContextVarRef_InferenceRule() {
   }
   public void applyRule(final SNode cvRef, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SPropertyOperations.getString(cvRef, MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName")) == null) {
+    if (SPropertyOperations.getString(cvRef, PROPS.contextVarName$SNbV) == null) {
       return;
     }
     SNode n = cvRef;
     SNode cvd = null;
     while (n != null && cvd == null) {
-      if (SNodeOperations.isInstanceOf(n, AUX_seatim.ContextVariableProvider_b3c6f7bb)) {
-        cvd = ListSequence.fromList(ContextVariableProvider__BehaviorDescriptor.contextVariables_id6suuiWX_oN7.invoke(SNodeOperations.cast(n, AUX_seatim.ContextVariableProvider_b3c6f7bb))).findFirst(new IWhereFilter<SNode>() {
+      if (SNodeOperations.isInstanceOf(n, CONCEPTS.ContextVariableProvider$W7)) {
+        cvd = ListSequence.fromList(ContextVariableProvider__BehaviorDescriptor.contextVariables_id6suuiWX_oN7.invoke(SNodeOperations.cast(n, CONCEPTS.ContextVariableProvider$W7))).findFirst(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SPropertyOperations.getString(cvRef, MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName")).equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+            return SPropertyOperations.getString(cvRef, PROPS.contextVarName$SNbV).equals(SPropertyOperations.getString(it, PROPS.name$tAp1));
           }
         });
       }
@@ -45,11 +48,11 @@ public class typeof_GenerationContextOp_ContextVarRef_InferenceRule extends Abst
     {
       SNode _nodeToCheck_1029348928467 = cvRef;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "7430509679014375422", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "7430509679014375233", true), (SNode) ((cvd == null || SLinkOperations.getTarget(cvd, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d94989fL, 0x671e792f3d9580f4L, "type")) == null ? _quotation_createNode_seatim_a0b0a2a4a1() : SLinkOperations.getTarget(cvd, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d94989fL, 0x671e792f3d9580f4L, "type")))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "7430509679014375233", true), (SNode) ((cvd == null || SLinkOperations.getTarget(cvd, LINKS.type$gQrm) == null ? _quotation_createNode_seatim_a0b0a2a4a1() : SLinkOperations.getTarget(cvd, LINKS.type$gQrm))), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_seatim.GenerationContextOp_ContextVarRef_4f0f126e;
+    return CONCEPTS.GenerationContextOp_ContextVarRef$EO;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -61,12 +64,22 @@ public class typeof_GenerationContextOp_ContextVarRef_InferenceRule extends Abst
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     quotedNode_1 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"), null, null, false);
-    quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
+    quotedNode_1.setReference(LINKS.classifier$pQ_R, SReference.create(LINKS.classifier$pQ_R, quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
     return quotedNode_1;
   }
 
-  private static final class AUX_seatim {
-    /*package*/ static final SInterfaceConcept ContextVariableProvider_b3c6f7bb = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d934cacL, "jetbrains.mps.lang.generator.structure.ContextVariableProvider");
-    /*package*/ static final SConcept GenerationContextOp_ContextVarRef_4f0f126e = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ContextVarRef");
+  private static final class PROPS {
+    /*package*/ static final SProperty contextVarName$SNbV = MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ContextVariableProvider$W7 = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d934cacL, "jetbrains.mps.lang.generator.structure.ContextVariableProvider");
+    /*package*/ static final SConcept GenerationContextOp_ContextVarRef$EO = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ContextVarRef");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$gQrm = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d94989fL, 0x671e792f3d9580f4L, "type");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
   }
 }

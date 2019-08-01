@@ -4,6 +4,7 @@ package testAnnotatedType.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,14 +16,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class PrimDoubleType__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_ty6zy1.PrimDoubleType_b07c7f81;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09c62e6L, "testAnnotatedType.structure.PrimDoubleType");
 
   public static final SMethod<SNode> substituteWith_id1hDKT6wB3pH = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("substituteWith").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1hDKT6wB3pH").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
@@ -32,10 +32,10 @@ public final class PrimDoubleType__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode substituteWith_id1hDKT6wB3pH(@NotNull SNode __thisNode__, SNode subs) {
-    if (SNodeOperations.isInstanceOf(subs, AUX_ty6zy1.PrimIntType_2397314a)) {
+    if (SNodeOperations.isInstanceOf(subs, CONCEPTS.PrimIntType$to)) {
       return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x786549534310b4f5L, "testAnnotatedType.structure.PrimLongType"));
     }
-    if (SNodeOperations.isInstanceOf(subs, AUX_ty6zy1.PrimFloatType_23bd5894)) {
+    if (SNodeOperations.isInstanceOf(subs, CONCEPTS.PrimFloatType$_e)) {
       return SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09c62e6L, "testAnnotatedType.structure.PrimDoubleType"));
     }
     return subs;
@@ -87,9 +87,8 @@ public final class PrimDoubleType__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_ty6zy1 {
-    /*package*/ static final SConcept PrimDoubleType_b07c7f81 = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x1469c391a09c62e6L, "testAnnotatedType.structure.PrimDoubleType");
-    /*package*/ static final SConcept PrimIntType_2397314a = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be609eL, "testAnnotatedType.structure.PrimIntType");
-    /*package*/ static final SConcept PrimFloatType_23bd5894 = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782beb1bdL, "testAnnotatedType.structure.PrimFloatType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrimIntType$to = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782be609eL, "testAnnotatedType.structure.PrimIntType");
+    /*package*/ static final SConcept PrimFloatType$_e = MetaAdapterFactory.getConcept(0x2f74e72e3e3d480eL, 0xbae1cc709d588366L, 0x58e32a0782beb1bdL, "testAnnotatedType.structure.PrimFloatType");
   }
 }

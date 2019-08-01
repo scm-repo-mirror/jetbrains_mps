@@ -18,7 +18,7 @@
       <node id="699163291708711021" at="30,27,31,25" concept="2" />
       <node id="699163291708768670" at="36,51,37,33" concept="8" />
       <node id="699163291708768679" at="40,50,41,134" concept="8" />
-      <node id="699163291708900118" at="44,62,45,192" concept="7" />
+      <node id="699163291708900118" at="44,62,45,184" concept="7" />
       <node id="699163291708907119" at="46,63,47,29" concept="7" />
       <node id="699163291708912685" at="48,75,49,70" concept="2" />
       <node id="699163291708913033" at="49,70,50,31" concept="2" />
@@ -28,7 +28,7 @@
       <node id="5462094956390036025" at="61,69,62,90" concept="7" />
       <node id="5462094956390036025" at="64,52,65,36" concept="8" />
       <node id="5462094956390045240" at="69,41,70,73" concept="8" />
-      <node id="699163291708709104" at="77,0,78,0" concept="9" trace="IOldCommentContainer_43d44ed8" />
+      <node id="699163291708709104" at="77,0,78,0" concept="9" trace="IOldCommentContainer$Ia" />
       <node id="699163291708768668" at="36,0,39,0" concept="6" trace="translate#(Lorg/jetbrains/mps/openapi/model/SModel;)Ljava/lang/Iterable;" />
       <node id="699163291708768677" at="40,0,43,0" concept="6" trace="translate#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
       <node id="699163291708923525" at="51,9,54,9" concept="4" />
@@ -39,7 +39,7 @@
       <node id="5462094956390036025" at="62,90,67,8" concept="7" />
       <node id="5462094956390036333" at="67,8,72,9" concept="8" />
       <node id="699163291708768656" at="34,25,43,7" concept="7" />
-      <node id="4672844534978797291" at="45,192,55,7" concept="5" />
+      <node id="4672844534978797291" at="45,184,55,7" concept="5" />
       <node id="699163291708773954" at="43,7,57,5" concept="4" />
       <node id="5462094956390036025" at="59,36,73,5" concept="0" />
       <node id="5462094956390028616" at="59,0,75,0" concept="6" trace="check#()Ljava/lang/Iterable;" />
@@ -91,7 +91,7 @@
         <var name="oldComments" id="699163291708768657" />
       </scope>
       <scope id="699163291708711473" at="34,0,59,0" />
-      <unit id="699163291708709104" at="76,0,79,0" name="jetbrains.mps.lang.core.util.OldCommentContainerMigration$AUX_7l65wi" />
+      <unit id="699163291708709104" at="76,0,79,0" name="jetbrains.mps.lang.core.util.OldCommentContainerMigration$CONCEPTS" />
       <unit id="699163291708768668" at="35,111,39,5" name="jetbrains.mps.lang.core.util.OldCommentContainerMigration$1" />
       <unit id="699163291708768677" at="39,21,43,5" name="jetbrains.mps.lang.core.util.OldCommentContainerMigration$2" />
       <unit id="5462094956390036025" at="63,42,67,7" name="jetbrains.mps.lang.core.util.OldCommentContainerMigration$3" />

@@ -11,10 +11,11 @@ import jetbrains.mps.baseLanguage.behavior.IOperation__BehaviorDescriptor;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.baseLanguage.collections.behavior.IApplicableToNothing__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_RemoveAtElementOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -29,7 +30,7 @@ public class typeof_RemoveAtElementOperation_InferenceRule extends AbstractInfer
     }
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11db038dd8cL, 0x11db03a0e95L, "index"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, LINKS.index$Bisc);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "1227022345453", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "1227022338592", true), (SNode) _quotation_createNode_y1ttf7_a1a0c0a0c0b(), true, true, _info_12389875345);
       }
@@ -41,7 +42,7 @@ public class typeof_RemoveAtElementOperation_InferenceRule extends AbstractInfer
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_y1ttf7.RemoveAtElementOperation_7ad9e8f6;
+    return CONCEPTS.RemoveAtElementOperation$kG;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -56,7 +57,11 @@ public class typeof_RemoveAtElementOperation_InferenceRule extends AbstractInfer
     return quotedNode_1;
   }
 
-  private static final class AUX_y1ttf7 {
-    /*package*/ static final SConcept RemoveAtElementOperation_7ad9e8f6 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11db038dd8cL, "jetbrains.mps.baseLanguage.collections.structure.RemoveAtElementOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink index$Bisc = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11db038dd8cL, 0x11db03a0e95L, "index");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RemoveAtElementOperation$kG = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11db038dd8cL, "jetbrains.mps.baseLanguage.collections.structure.RemoveAtElementOperation");
   }
 }

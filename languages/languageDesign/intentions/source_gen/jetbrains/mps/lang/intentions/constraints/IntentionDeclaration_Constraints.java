@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class IntentionDeclaration_Constraints extends BaseConstraintsDescriptor {
   public IntentionDeclaration_Constraints() {
-    super(AUX_yznqgi.IntentionDeclaration_18c3605b);
+    super(CONCEPTS.IntentionDeclaration$DB);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class IntentionDeclaration_Constraints extends BaseConstraintsDescriptor 
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959034f(jetbrains.mps.lang.intentions.constraints)", "1227089959348");
 
-  private static final class AUX_yznqgi {
-    /*package*/ static final SConcept IntentionDeclaration_18c3605b = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x115b81b652bL, "jetbrains.mps.lang.intentions.structure.IntentionDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IntentionDeclaration$DB = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x115b81b652bL, "jetbrains.mps.lang.intentions.structure.IntentionDeclaration");
   }
 }

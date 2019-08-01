@@ -11,8 +11,9 @@ import jetbrains.mps.baseLanguage.behavior.IOperation__BehaviorDescriptor;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.baseLanguage.collections.behavior.IApplicableToNothing__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_PushOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -27,7 +28,7 @@ public class typeof_PushOperation_InferenceRule extends AbstractInferenceRule_Ru
     }
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7818f71827244b5L, 0x7818f71827244b6L, "argument"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, LINKS.argument$I6hw);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "3358009230508993667", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "3358009230508993657", true), (SNode) typeCheckingContext.getRepresentative(ELEMENT_TYPE_typevar_3358009230508799532), true, true, _info_12389875345);
       }
@@ -39,7 +40,7 @@ public class typeof_PushOperation_InferenceRule extends AbstractInferenceRule_Ru
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_9ntnay.PushOperation_912661e7;
+    return CONCEPTS.PushOperation$Dr;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -48,7 +49,11 @@ public class typeof_PushOperation_InferenceRule extends AbstractInferenceRule_Ru
     return false;
   }
 
-  private static final class AUX_9ntnay {
-    /*package*/ static final SConcept PushOperation_912661e7 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x2e9a0b9a88f4311cL, "jetbrains.mps.baseLanguage.collections.structure.PushOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink argument$I6hw = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7818f71827244b5L, 0x7818f71827244b6L, "argument");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PushOperation$Dr = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x2e9a0b9a88f4311cL, "jetbrains.mps.baseLanguage.collections.structure.PushOperation");
   }
 }

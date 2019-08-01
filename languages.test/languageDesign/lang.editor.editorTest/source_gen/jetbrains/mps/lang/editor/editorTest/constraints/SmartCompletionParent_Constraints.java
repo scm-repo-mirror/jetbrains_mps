@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SmartCompletionParent_Constraints extends BaseConstraintsDescriptor {
   public SmartCompletionParent_Constraints() {
-    super(AUX_mgw2hv.SmartCompletionParent_a831aa69);
+    super(CONCEPTS.SmartCompletionParent$8p);
   }
 
-  private static final class AUX_mgw2hv {
-    /*package*/ static final SConcept SmartCompletionParent_a831aa69 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x61249b1bf0876c86L, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionParent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SmartCompletionParent$8p = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x61249b1bf0876c86L, "jetbrains.mps.lang.editor.editorTest.structure.SmartCompletionParent");
   }
 }

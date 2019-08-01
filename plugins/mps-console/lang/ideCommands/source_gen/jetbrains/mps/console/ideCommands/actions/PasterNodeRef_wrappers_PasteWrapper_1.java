@@ -10,25 +10,30 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class PasterNodeRef_wrappers_PasteWrapper_1 implements PasteWrapper {
   @Override
   public SAbstractConcept getSourceConcept() {
-    return AUX_t6x46a.PastedNodeReference_e7fee7da;
+    return CONCEPTS.PastedNodeReference$b8;
   }
   @Override
   public SAbstractConcept getTargetConcept() {
-    return AUX_t6x46a.INodeSetReference_3727be25;
+    return CONCEPTS.INodeSetReference$nt;
   }
   @Override
   public SNode wrap(SNode sourceNode) {
     SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0b3962bL, "jetbrains.mps.console.ideCommands.structure.SubtreeStatisticsTarget"));
-    SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0b3962bL, 0x1cf75b72b0b396c6L, "target"), sourceNode);
+    SLinkOperations.setTarget(result, LINKS.target$ueX0, sourceNode);
     return result;
   }
 
-  private static final class AUX_t6x46a {
-    /*package*/ static final SConcept PastedNodeReference_e7fee7da = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference");
-    /*package*/ static final SInterfaceConcept INodeSetReference_3727be25 = MetaAdapterFactory.getInterfaceConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4843e803da101441L, "jetbrains.mps.console.ideCommands.structure.INodeSetReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PastedNodeReference$b8 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference");
+    /*package*/ static final SInterfaceConcept INodeSetReference$nt = MetaAdapterFactory.getInterfaceConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4843e803da101441L, "jetbrains.mps.console.ideCommands.structure.INodeSetReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink target$ueX0 = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0b3962bL, 0x1cf75b72b0b396c6L, "target");
   }
 }

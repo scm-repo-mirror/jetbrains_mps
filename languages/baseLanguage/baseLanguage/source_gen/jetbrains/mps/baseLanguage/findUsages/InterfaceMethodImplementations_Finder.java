@@ -36,11 +36,11 @@ public class InterfaceMethodImplementations_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_wgbuzj.InstanceMethodDeclaration_9dbf9b2b;
+    return CONCEPTS.InstanceMethodDeclaration$An;
   }
   @Override
   public boolean isApplicable(SNode node) {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_wgbuzj.Interface_bca2069) && SNodeOperations.isInstanceOf(node, AUX_wgbuzj.InstanceMethodDeclaration_9dbf9b2b);
+    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Interface$Kp) && SNodeOperations.isInstanceOf(node, CONCEPTS.InstanceMethodDeclaration$An);
   }
 
   @Override
@@ -53,7 +53,7 @@ public class InterfaceMethodImplementations_Finder extends GeneratedFinder {
       }
       for (SNode classNode : ListSequence.fromList(implementorsAndAncestorsList).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SNodeOperations.cast(it, AUX_wgbuzj.ClassConcept_e2711824);
+          return SNodeOperations.cast(it, CONCEPTS.ClassConcept$IY);
         }
       })) {
         for (SNode sMethod : Sequence.fromIterable(Classifier__BehaviorDescriptor.methods_id4_LVZ3pBKCn.invoke(classNode))) {
@@ -78,9 +78,9 @@ public class InterfaceMethodImplementations_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1200425321273");
   }
 
-  private static final class AUX_wgbuzj {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

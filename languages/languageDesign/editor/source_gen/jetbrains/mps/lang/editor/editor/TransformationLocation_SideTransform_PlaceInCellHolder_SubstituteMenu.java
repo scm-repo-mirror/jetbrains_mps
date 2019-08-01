@@ -27,13 +27,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TransformationLocation_SideTransform_PlaceInCellHolder_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_nrkshw_a(), AUX_nrkshw.TransformationLocation_SideTransform_PlaceInCellHolder_ae4aeac));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_nrkshw_a(), CONCEPTS.TransformationLocation_SideTransform_PlaceInCellHolder$oQ));
     return result;
   }
 
@@ -105,7 +106,7 @@ public class TransformationLocation_SideTransform_PlaceInCellHolder_SubstituteMe
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_nrkshw.TransformationLocation_SideTransform_PlaceInCellHolder_ae4aeac, context);
+          super(CONCEPTS.TransformationLocation_SideTransform_PlaceInCellHolder$oQ, context);
           _context = context;
         }
 
@@ -117,7 +118,7 @@ public class TransformationLocation_SideTransform_PlaceInCellHolder_SubstituteMe
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x30335f3d1845bdccL, "jetbrains.mps.lang.editor.structure.TransformationLocation_SideTransform_PlaceInCellHolder"));
-          SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x30335f3d1845bdccL, 0x30335f3d1845bdcdL, "placeInCell"), SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x30335f3d1845bdafL, "jetbrains.mps.lang.editor.structure.TransformationLocation_SideTransform_PlaceInCell"), SEnumOperations.getMemberName0(myParameterObject)));
+          SPropertyOperations.setEnum(node, PROPS.placeInCell$_m50, SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x30335f3d1845bdafL, "jetbrains.mps.lang.editor.structure.TransformationLocation_SideTransform_PlaceInCell"), SEnumOperations.getMemberName0(myParameterObject)));
           return node;
         }
 
@@ -127,7 +128,7 @@ public class TransformationLocation_SideTransform_PlaceInCellHolder_SubstituteMe
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_nrkshw.TransformationLocation_SideTransform_PlaceInCellHolder_ae4aeac, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.TransformationLocation_SideTransform_PlaceInCellHolder$oQ, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -149,7 +150,11 @@ public class TransformationLocation_SideTransform_PlaceInCellHolder_SubstituteMe
 
   }
 
-  private static final class AUX_nrkshw {
-    /*package*/ static final SConcept TransformationLocation_SideTransform_PlaceInCellHolder_ae4aeac = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x30335f3d1845bdccL, "jetbrains.mps.lang.editor.structure.TransformationLocation_SideTransform_PlaceInCellHolder");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationLocation_SideTransform_PlaceInCellHolder$oQ = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x30335f3d1845bdccL, "jetbrains.mps.lang.editor.structure.TransformationLocation_SideTransform_PlaceInCellHolder");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty placeInCell$_m50 = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x30335f3d1845bdccL, 0x30335f3d1845bdcdL, "placeInCell");
   }
 }

@@ -33,10 +33,11 @@ import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestMethod__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class JUnitTests_Producer {
 
@@ -196,7 +197,7 @@ public final class JUnitTests_Producer {
 
     @Override
     protected boolean isApplicable(Object source) {
-      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), AUX_aarvwv.BaseConcept_bc2351f);
+      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), CONCEPTS.BaseConcept$Sz);
     }
 
     @Override
@@ -283,7 +284,7 @@ public final class JUnitTests_Producer {
 
     @Override
     protected boolean isApplicable(Object source) {
-      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), AUX_aarvwv.BaseConcept_bc2351f);
+      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), CONCEPTS.BaseConcept$Sz);
     }
 
     @Override
@@ -358,7 +359,7 @@ public final class JUnitTests_Producer {
         return false;
       }
       for (Object obj : (List) source) {
-        if (!((obj instanceof SNode && SNodeOperations.isInstanceOf(((SNode) obj), AUX_aarvwv.ITestCase_8c8c490a)))) {
+        if (!((obj instanceof SNode && SNodeOperations.isInstanceOf(((SNode) obj), CONCEPTS.ITestCase$uo)))) {
           return false;
         }
       }
@@ -382,7 +383,7 @@ public final class JUnitTests_Producer {
         return null;
       }
 
-      JUnitTests_Configuration configuration = ((JUnitTests_Configuration) getConfigurationFactory().createConfiguration("" + SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(source).first(), AUX_aarvwv.ITestCase_8c8c490a), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ",...", getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
+      JUnitTests_Configuration configuration = ((JUnitTests_Configuration) getConfigurationFactory().createConfiguration("" + SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(source).first(), CONCEPTS.ITestCase$uo), PROPS.name$tAp1) + ",...", getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getJUnitSettings().setJUnitRunType(JUnitRunTypes.NODE);
       configuration.getJUnitSettings().setTestCases(PointerUtils.nodesToCloneableList(source));
       configuration.getJUnitSettings().setInProcess(canRunInProcess);
@@ -406,7 +407,7 @@ public final class JUnitTests_Producer {
         return false;
       }
       for (Object obj : (List) source) {
-        if (!((obj instanceof SNode && SNodeOperations.isInstanceOf(((SNode) obj), AUX_aarvwv.ITestMethod_5cac84ad)))) {
+        if (!((obj instanceof SNode && SNodeOperations.isInstanceOf(((SNode) obj), CONCEPTS.ITestMethod$1l)))) {
           return false;
         }
       }
@@ -437,9 +438,13 @@ public final class JUnitTests_Producer {
     }
   }
 
-  private static final class AUX_aarvwv {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
-    /*package*/ static final SInterfaceConcept ITestMethod_5cac84ad = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b27438a3dL, "jetbrains.mps.baseLanguage.unitTest.structure.ITestMethod");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+    /*package*/ static final SInterfaceConcept ITestMethod$1l = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b27438a3dL, "jetbrains.mps.baseLanguage.unitTest.structure.ITestMethod");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

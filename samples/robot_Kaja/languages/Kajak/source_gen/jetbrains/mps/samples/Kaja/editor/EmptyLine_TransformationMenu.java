@@ -107,7 +107,7 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_supj5f.Step_a5f03fcb, null));
+        SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.Step$zR, null));
       }
 
 
@@ -159,7 +159,7 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_supj5f.LeftTurn_64fb688c, null));
+        SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.LeftTurn$xm, null));
       }
 
 
@@ -176,7 +176,7 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
   public class TMP_Group_supj5f_c0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return Objects.equals(SNodeOperations.getParent(SNodeOperations.getNodeAncestor(_context.getNode(), AUX_supj5f.CommandList_68ab082b, false, false)), SNodeOperations.getContainingRoot(_context.getNode()));
+      return Objects.equals(SNodeOperations.getParent(SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.CommandList$Mn, false, false)), SNodeOperations.getContainingRoot(_context.getNode()));
     }
 
     @NotNull
@@ -232,7 +232,7 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_supj5f.RoutineDefinition_6674bc6d, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.RoutineDefinition$2l, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
         }
 
@@ -315,7 +315,7 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_supj5f.Repeat_65145e2b, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.Repeat$qn, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
 
         }
@@ -369,7 +369,7 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_supj5f.While_65179009, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.While$1T, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
         }
 
@@ -422,7 +422,7 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_supj5f.IfStatement_64fb6928, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.IfStatement$GU, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
         }
 
@@ -486,20 +486,20 @@ public class EmptyLine_TransformationMenu extends TransformationMenuBase {
         final SNode node = _context.getNode();
         final EditorContext editorContext = _context.getEditorContext();
 
-        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_supj5f.EmptyLine_66ad0b30, "jetbrains.mps.samples.Kaja.editor.OtherCommands");
+        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.EmptyLine$CM, "jetbrains.mps.samples.Kaja.editor.OtherCommands");
       }
 
     }
   }
 
-  private static final class AUX_supj5f {
-    /*package*/ static final SConcept Step_a5f03fcb = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45762L, "jetbrains.mps.samples.Kaja.structure.Step");
-    /*package*/ static final SConcept LeftTurn_64fb688c = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ec9f8bL, "jetbrains.mps.samples.Kaja.structure.LeftTurn");
-    /*package*/ static final SConcept CommandList_68ab082b = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785f06a3fL, "jetbrains.mps.samples.Kaja.structure.CommandList");
-    /*package*/ static final SConcept RoutineDefinition_6674bc6d = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ed6f79L, "jetbrains.mps.samples.Kaja.structure.RoutineDefinition");
-    /*package*/ static final SConcept Repeat_65145e2b = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ecd14cL, "jetbrains.mps.samples.Kaja.structure.Repeat");
-    /*package*/ static final SConcept While_65179009 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ecece0L, "jetbrains.mps.samples.Kaja.structure.While");
-    /*package*/ static final SConcept IfStatement_64fb6928 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ec9fbeL, "jetbrains.mps.samples.Kaja.structure.IfStatement");
-    /*package*/ static final SConcept EmptyLine_66ad0b30 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ee0a16L, "jetbrains.mps.samples.Kaja.structure.EmptyLine");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Step$zR = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45762L, "jetbrains.mps.samples.Kaja.structure.Step");
+    /*package*/ static final SConcept LeftTurn$xm = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ec9f8bL, "jetbrains.mps.samples.Kaja.structure.LeftTurn");
+    /*package*/ static final SConcept CommandList$Mn = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785f06a3fL, "jetbrains.mps.samples.Kaja.structure.CommandList");
+    /*package*/ static final SConcept RoutineDefinition$2l = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ed6f79L, "jetbrains.mps.samples.Kaja.structure.RoutineDefinition");
+    /*package*/ static final SConcept Repeat$qn = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ecd14cL, "jetbrains.mps.samples.Kaja.structure.Repeat");
+    /*package*/ static final SConcept While$1T = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ecece0L, "jetbrains.mps.samples.Kaja.structure.While");
+    /*package*/ static final SConcept IfStatement$GU = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ec9fbeL, "jetbrains.mps.samples.Kaja.structure.IfStatement");
+    /*package*/ static final SConcept EmptyLine$CM = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ee0a16L, "jetbrains.mps.samples.Kaja.structure.EmptyLine");
   }
 }

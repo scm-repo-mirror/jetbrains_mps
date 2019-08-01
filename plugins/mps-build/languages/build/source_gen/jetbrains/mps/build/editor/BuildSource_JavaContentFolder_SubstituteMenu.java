@@ -27,13 +27,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildSource_JavaContentFolder_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_v1e5qc_a(), AUX_v1e5qc.BuildSource_JavaContentFolder_2917c5c9));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_v1e5qc_a(), CONCEPTS.BuildSource_JavaContentFolder$aT));
     return result;
   }
 
@@ -105,7 +106,7 @@ public class BuildSource_JavaContentFolder_SubstituteMenu extends SubstituteMenu
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_v1e5qc.BuildSource_JavaContentFolder_2917c5c9, context);
+          super(CONCEPTS.BuildSource_JavaContentFolder$aT, context);
           _context = context;
         }
 
@@ -116,8 +117,8 @@ public class BuildSource_JavaContentFolder_SubstituteMenu extends SubstituteMenu
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode node = SNodeFactoryOperations.createNewNode(AUX_v1e5qc.BuildSource_JavaContentFolder_2917c5c9, null);
-          SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263ae7d4319546c6L, 0x48d5d03db92974fbL, "kind"), SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db92974f7L, "jetbrains.mps.build.structure.BuildSource_JavaContentFolderKind"), myParameterObject));
+          SNode node = SNodeFactoryOperations.createNewNode(CONCEPTS.BuildSource_JavaContentFolder$aT, null);
+          SPropertyOperations.setEnum(node, PROPS.kind$Ai6n, SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db92974f7L, "jetbrains.mps.build.structure.BuildSource_JavaContentFolderKind"), myParameterObject));
           return node;
         }
 
@@ -127,7 +128,7 @@ public class BuildSource_JavaContentFolder_SubstituteMenu extends SubstituteMenu
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_v1e5qc.BuildSource_JavaContentFolder_2917c5c9, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.BuildSource_JavaContentFolder$aT, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -149,7 +150,11 @@ public class BuildSource_JavaContentFolder_SubstituteMenu extends SubstituteMenu
 
   }
 
-  private static final class AUX_v1e5qc {
-    /*package*/ static final SConcept BuildSource_JavaContentFolder_2917c5c9 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263ae7d4319546c6L, "jetbrains.mps.build.structure.BuildSource_JavaContentFolder");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaContentFolder$aT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263ae7d4319546c6L, "jetbrains.mps.build.structure.BuildSource_JavaContentFolder");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty kind$Ai6n = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263ae7d4319546c6L, 0x48d5d03db92974fbL, "kind");
   }
 }

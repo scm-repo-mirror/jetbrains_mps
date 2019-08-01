@@ -4,6 +4,7 @@ package BHL5.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class C6__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_70ugbe.C6_f83a5e1a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x23a893587ca1aaedL, "BHL5.structure.C6");
 
   public static final SMethod<Void> foo_id2eC$PxWCr8m = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("foo").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2eC$PxWCr8m").build();
   public static final SMethod<Void> bar_id2k7p7sTvyr6 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("bar").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2k7p7sTvyr6").build();
@@ -29,11 +29,11 @@ public final class C6__BehaviorDescriptor extends BaseBHDescriptor {
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(foo_id2eC$PxWCr8m, bar_id2k7p7sTvyr6);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x355d469f0ba114cbL, 0x355d469f0ba114e9L, "a"), "C6");
+    SPropertyOperations.assign(__thisNode__, PROPS.a$5ih$, "C6");
   }
 
   /*package*/ static void foo_id2eC$PxWCr8m(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x355d469f0ba114cbL, 0x355d469f0ba114e9L, "a"), "c6");
+    SPropertyOperations.assign(__thisNode__, PROPS.a$5ih$, "c6");
   }
   /*package*/ static void bar_id2k7p7sTvyr6(@NotNull SNode __thisNode__) {
   }
@@ -88,7 +88,7 @@ public final class C6__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_70ugbe {
-    /*package*/ static final SConcept C6_f83a5e1a = MetaAdapterFactory.getConcept(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x23a893587ca1aaedL, "BHL5.structure.C6");
+  private static final class PROPS {
+    /*package*/ static final SProperty a$5ih$ = MetaAdapterFactory.getProperty(0xb4fa1e36714a4c77L, 0x8e953eae9632decbL, 0x355d469f0ba114cbL, 0x355d469f0ba114e9L, "a");
   }
 }

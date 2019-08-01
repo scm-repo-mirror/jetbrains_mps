@@ -5,7 +5,6 @@ package jetbrains.mps.lang.smodel.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.smodel.behavior.ModuleReferenceExpression__BehaviorDescriptor;
@@ -14,15 +13,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ModuleReferenceExpression_Constraints extends BaseConstraintsDescriptor {
   public ModuleReferenceExpression_Constraints() {
-    super(AUX_stf113.ModuleReferenceExpression_9145dabf);
+    super(CONCEPTS.ModuleReferenceExpression$M3);
   }
 
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af2L, "name"), container);
+      super(PROPS.name$IIew, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -40,11 +40,15 @@ public class ModuleReferenceExpression_Constraints extends BaseConstraintsDescri
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af2L, "name"), new Name_Property(this));
+    properties.put(PROPS.name$IIew, new Name_Property(this));
     return properties;
   }
 
-  private static final class AUX_stf113 {
-    /*package*/ static final SConcept ModuleReferenceExpression_9145dabf = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, "jetbrains.mps.lang.smodel.structure.ModuleReferenceExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModuleReferenceExpression$M3 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, "jetbrains.mps.lang.smodel.structure.ModuleReferenceExpression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$IIew = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af2L, "name");
   }
 }

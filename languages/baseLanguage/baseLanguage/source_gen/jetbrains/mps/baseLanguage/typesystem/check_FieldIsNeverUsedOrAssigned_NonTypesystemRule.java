@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -16,6 +15,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -23,42 +25,42 @@ public class check_FieldIsNeverUsedOrAssigned_NonTypesystemRule extends Abstract
   public check_FieldIsNeverUsedOrAssigned_NonTypesystemRule() {
   }
   public void applyRule(final SNode field, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(field, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(field, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_3kjcps.PrivateVisibility_63f5dbd4)) {
-      if (SNodeOperations.isInstanceOf(field, AUX_3kjcps.IMember_abf50578)) {
-        final SNode member = SNodeOperations.cast(field, AUX_3kjcps.IMember_abf50578);
-        List<SNode> memberOperations = ((SLinkOperations.getTarget(field, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) != null) ? SNodeOperations.getNodeDescendants(SNodeOperations.getParent(field), AUX_3kjcps.IMemberOperation_7fb92977, false, new SAbstractConcept[]{}) : SModelOperations.nodes(SNodeOperations.getModel(field), AUX_3kjcps.IMemberOperation_7fb92977));
+    if ((SLinkOperations.getTarget(field, LINKS.visibility$2GiC) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(field, LINKS.visibility$2GiC), CONCEPTS.PrivateVisibility$Se)) {
+      if (SNodeOperations.isInstanceOf(field, CONCEPTS.IMember$zE)) {
+        final SNode member = SNodeOperations.cast(field, CONCEPTS.IMember$zE);
+        List<SNode> memberOperations = ((SLinkOperations.getTarget(field, LINKS.visibility$2GiC) != null) ? SNodeOperations.getNodeDescendants(SNodeOperations.getParent(field), CONCEPTS.IMemberOperation$jb, false, new SAbstractConcept[]{}) : SModelOperations.nodes(SNodeOperations.getModel(field), CONCEPTS.IMemberOperation$jb));
         Iterable<SNode> references = ListSequence.fromList(memberOperations).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bca97396L, 0x118bcb657ecL, "member")) == member;
+            return SLinkOperations.getTarget(it, LINKS.member$hrpI) == member;
           }
         });
         VariableReferenceUtil.checkField(typeCheckingContext, field, references);
       } else {
         SNode root = SNodeOperations.getContainingRoot(field);
-        List<SNode> localFieldRefs = ((SLinkOperations.getTarget(field, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) != null) ? ListSequence.fromList(SNodeOperations.getNodeDescendants(root, AUX_3kjcps.VariableReference_24d60dac, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+        List<SNode> localFieldRefs = ((SLinkOperations.getTarget(field, LINKS.visibility$2GiC) != null) ? ListSequence.fromList(SNodeOperations.getNodeDescendants(root, CONCEPTS.VariableReference$sQ, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_3kjcps.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_3kjcps.FieldDeclaration_e2711ac6);
+            return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.FieldDeclaration$Ps);
           }
-        }).toListSequence() : ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(root), AUX_3kjcps.VariableReference_24d60dac)).where(new IWhereFilter<SNode>() {
+        }).toListSequence() : ListSequence.fromList(SModelOperations.nodes(SNodeOperations.getModel(root), CONCEPTS.VariableReference$sQ)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_3kjcps.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_3kjcps.FieldDeclaration_e2711ac6);
+            return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.FieldDeclaration$Ps);
           }
         }).toListSequence());
 
-        List<SNode> fieldRefOperations = ((SLinkOperations.getTarget(field, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")) != null) ? SNodeOperations.getNodeDescendants(root, AUX_3kjcps.FieldReferenceOperation_fc8d5dda, false, new SAbstractConcept[]{}) : SModelOperations.nodes(SNodeOperations.getModel(root), AUX_3kjcps.FieldReferenceOperation_fc8d5dda));
+        List<SNode> fieldRefOperations = ((SLinkOperations.getTarget(field, LINKS.visibility$2GiC) != null) ? SNodeOperations.getNodeDescendants(root, CONCEPTS.FieldReferenceOperation$N8, false, new SAbstractConcept[]{}) : SModelOperations.nodes(SNodeOperations.getModel(root), CONCEPTS.FieldReferenceOperation$N8));
         Iterable<SNode> localFieldReferences = ListSequence.fromList(localFieldRefs).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")) == field;
+            return SLinkOperations.getTarget(it, LINKS.variableDeclaration$2ky6) == field;
           }
         });
         Iterable<SNode> fieldReferenceOperations = ListSequence.fromList(fieldRefOperations).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration")) == field;
+            return SLinkOperations.getTarget(it, LINKS.fieldDeclaration$mLBy) == field;
           }
         });
         Iterable<SNode> refs = Sequence.fromIterable(localFieldReferences).union(Sequence.fromIterable(fieldReferenceOperations)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return (SNodeOperations.getNodeAncestor(it, AUX_3kjcps.SingleLineComment_36a4c8f4, false, false) == null);
+            return (SNodeOperations.getNodeAncestor(it, CONCEPTS.SingleLineComment$jI, false, false) == null);
           }
         });
         VariableReferenceUtil.checkField(typeCheckingContext, field, refs);
@@ -66,7 +68,7 @@ public class check_FieldIsNeverUsedOrAssigned_NonTypesystemRule extends Abstract
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3kjcps.FieldDeclaration_e2711ac6;
+    return CONCEPTS.FieldDeclaration$Ps;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -75,13 +77,20 @@ public class check_FieldIsNeverUsedOrAssigned_NonTypesystemRule extends Abstract
     return false;
   }
 
-  private static final class AUX_3kjcps {
-    /*package*/ static final SConcept PrivateVisibility_63f5dbd4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
-    /*package*/ static final SInterfaceConcept IMember_abf50578 = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6becc0L, "jetbrains.mps.baseLanguage.classifiers.structure.IMember");
-    /*package*/ static final SInterfaceConcept IMemberOperation_7fb92977 = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bca97396L, "jetbrains.mps.baseLanguage.classifiers.structure.IMemberOperation");
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
-    /*package*/ static final SConcept FieldReferenceOperation_fc8d5dda = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
-    /*package*/ static final SConcept SingleLineComment_36a4c8f4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SReferenceLink member$hrpI = MetaAdapterFactory.getReferenceLink(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bca97396L, 0x118bcb657ecL, "member");
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+    /*package*/ static final SReferenceLink fieldDeclaration$mLBy = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrivateVisibility$Se = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+    /*package*/ static final SInterfaceConcept IMember$zE = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6becc0L, "jetbrains.mps.baseLanguage.classifiers.structure.IMember");
+    /*package*/ static final SInterfaceConcept IMemberOperation$jb = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bca97396L, "jetbrains.mps.baseLanguage.classifiers.structure.IMemberOperation");
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
+    /*package*/ static final SConcept SingleLineComment$jI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
   }
 }

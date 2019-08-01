@@ -60,7 +60,7 @@ public class ThisNodeExpression_SubstituteMenu extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_mpxvc0.ThisNodeExpression_70062b2e) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.ThisNodeExpression$BO) {
 
         @NotNull
         @Override
@@ -73,11 +73,11 @@ public class ThisNodeExpression_SubstituteMenu extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_mpxvc0.ThisNodeExpression_70062b2e));
+      }, CONCEPTS.ThisNodeExpression$BO));
     }
   }
 
-  private static final class AUX_mpxvc0 {
-    /*package*/ static final SConcept ThisNodeExpression_70062b2e = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d434b5be1L, "jetbrains.mps.lang.behavior.structure.ThisNodeExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisNodeExpression$BO = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d434b5be1L, "jetbrains.mps.lang.behavior.structure.ThisNodeExpression");
   }
 }

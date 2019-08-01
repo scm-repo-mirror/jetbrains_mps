@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class InstancesExpression_Constraints extends BaseConstraintsDescriptor {
   public InstancesExpression_Constraints() {
-    super(AUX_nohkdy.InstancesExpression_bee6738b);
+    super(CONCEPTS.InstancesExpression$OR);
   }
 
-  private static final class AUX_nohkdy {
-    /*package*/ static final SConcept InstancesExpression_bee6738b = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x6b643f33718aa10dL, "jetbrains.mps.lang.smodel.query.structure.InstancesExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstancesExpression$OR = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x6b643f33718aa10dL, "jetbrains.mps.lang.smodel.query.structure.InstancesExpression");
   }
 }

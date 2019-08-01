@@ -4,6 +4,7 @@ package jetbrains.mps.build.mps.runner.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,7 +19,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.build.mps.util.ModulePlugins;
@@ -30,10 +30,13 @@ import jetbrains.mps.build.util.DescendantsScope;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class BuildSolutionRunnerAspect__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_3kkeiw.BuildSolutionRunnerAspect_117d9fe8;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerAspect");
 
   public static final SMethod<String> getClassName_id1aYLt$9dW4N = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getClassName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1aYLt$9dW4N").build();
   public static final SMethod<String> getMethodName_id1aYLt$9dX0a = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getMethodName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1aYLt$9dX0a").build();
@@ -54,39 +57,39 @@ public final class BuildSolutionRunnerAspect__BehaviorDescriptor extends BaseBHD
     return "mpsMain";
   }
   /*package*/ static String getFQClassName_id1aYLt$9eyUg(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "." + BuildSolutionRunnerAspect__BehaviorDescriptor.getClassName_id1aYLt$9dW4N.invoke(__thisNode__);
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.solution$HMJF), PROPS.name$tAp1) + "." + BuildSolutionRunnerAspect__BehaviorDescriptor.getClassName_id1aYLt$9dW4N.invoke(__thisNode__);
   }
   /*package*/ static void fetchDependencies_id57YmpYyL8F1(@NotNull SNode __thisNode__, VisibleArtifacts artifacts, RequiredDependenciesBuilder builder) {
     SNode project = artifacts.getProject();
     TemplateQueryContext genContext = builder.getGenContext();
 
-    Iterable<SNode> originalModules = Sequence.<SNode>singleton(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution")));
+    Iterable<SNode> originalModules = Sequence.<SNode>singleton(SLinkOperations.getTarget(__thisNode__, LINKS.solution$HMJF));
     ModulePlugins plugins = new ModulePlugins(project, genContext);
     MPSModulesClosure runtimeClosure = new MPSModulesClosure(originalModules, new MPSModulesClosure.ModuleDependenciesOptions().setTrackDevkits().setIncludeInitial()).designtimeClosure();
-    List<SNode> additionalPlugins = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x3283ab1237cb7bddL, "requiredPlugin"))).select(new ISelector<SNode, SNode>() {
+    List<SNode> additionalPlugins = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.requiredPlugin$DNIY)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x5b81705cdf7bc318L, 0x5b81705cdf7bc319L, "plugin"));
+        return SLinkOperations.getTarget(it, LINKS.plugin$MEr0);
       }
     }).toListSequence();
     plugins.collect(runtimeClosure.getAllModules(), additionalPlugins);
     for (SNode plugin : Sequence.fromIterable(plugins.getDependency())) {
-      SNode pluginArtifact = SNodeOperations.as(artifacts.findArtifact(plugin), AUX_3kkeiw.BuildLayout_Node_b7bb997a);
+      SNode pluginArtifact = SNodeOperations.as(artifacts.findArtifact(plugin), CONCEPTS.BuildLayout_Node$kC);
       if (pluginArtifact != null) {
         builder.add(pluginArtifact);
       }
     }
     for (SNode module : Sequence.fromIterable(runtimeClosure.getAllModules())) {
-      SNode artifact = SNodeOperations.as(artifacts.findArtifact(module), AUX_3kkeiw.BuildLayout_Node_b7bb997a);
+      SNode artifact = SNodeOperations.as(artifacts.findArtifact(module), CONCEPTS.BuildLayout_Node$kC);
       if (artifact != null) {
         builder.add(artifact);
       }
     }
   }
   /*package*/ static SNode getProject_id3SWSDDmdpG6(@NotNull SNode __thisNode__) {
-    return SNodeOperations.getNodeAncestor(__thisNode__, AUX_3kkeiw.BuildProject_808bb057, false, false);
+    return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.BuildProject$BF, false, false);
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    return DescendantsScope.forNamedElements(BuildSolutionRunnerAspect__BehaviorDescriptor.getProject_id3SWSDDmdpG6.invoke(__thisNode__), MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts"), kind);
+    return DescendantsScope.forNamedElements(BuildSolutionRunnerAspect__BehaviorDescriptor.getProject_id3SWSDDmdpG6.invoke(__thisNode__), LINKS.parts$tgxg, kind);
   }
 
   /*package*/ BuildSolutionRunnerAspect__BehaviorDescriptor() {
@@ -146,9 +149,19 @@ public final class BuildSolutionRunnerAspect__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_3kkeiw {
-    /*package*/ static final SConcept BuildSolutionRunnerAspect_117d9fe8 = MetaAdapterFactory.getConcept(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, "jetbrains.mps.build.mps.runner.structure.BuildSolutionRunnerAspect");
-    /*package*/ static final SConcept BuildLayout_Node_b7bb997a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink solution$HMJF = MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x54b085b5945c6691L, "solution");
+    /*package*/ static final SContainmentLink requiredPlugin$DNIY = MetaAdapterFactory.getContainmentLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x39ea87a41cc0827eL, 0x3283ab1237cb7bddL, "requiredPlugin");
+    /*package*/ static final SReferenceLink plugin$MEr0 = MetaAdapterFactory.getReferenceLink(0x427a473d5177432cL, 0x9905bcbceb71b996L, 0x5b81705cdf7bc318L, 0x5b81705cdf7bc319L, "plugin");
+    /*package*/ static final SContainmentLink parts$tgxg = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_Node$kC = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
   }
 }

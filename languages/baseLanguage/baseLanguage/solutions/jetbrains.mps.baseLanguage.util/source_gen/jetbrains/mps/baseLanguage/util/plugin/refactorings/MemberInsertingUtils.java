@@ -8,36 +8,41 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MemberInsertingUtils {
-  private static List<SAbstractConcept> MEMBERS_ORDER = ListSequence.fromListAndArray(new ArrayList<SAbstractConcept>(), AUX_howdxd.StaticFieldDeclaration_9649293d, AUX_howdxd.FieldDeclaration_e2711ac6, AUX_howdxd.StaticInitializer_425a0e95, AUX_howdxd.InstanceInitializer_4eff9fd3, AUX_howdxd.ConstructorDeclaration_9dbf9ae8, AUX_howdxd.InstanceMethodDeclaration_9dbf9b2b, AUX_howdxd.StaticMethodDeclaration_9cd8c445);
+  private static List<SAbstractConcept> MEMBERS_ORDER = ListSequence.fromListAndArray(new ArrayList<SAbstractConcept>(), CONCEPTS.StaticFieldDeclaration$R5, CONCEPTS.FieldDeclaration$Ps, CONCEPTS.StaticInitializer$dH, CONCEPTS.InstanceInitializer$BJ, CONCEPTS.ConstructorDeclaration$5U, CONCEPTS.InstanceMethodDeclaration$An, CONCEPTS.StaticMethodDeclaration$eX);
   private MemberInsertingUtils() {
   }
   public static void insertClassifierMemberInBestPlace(SNode container, SNode memberToInsert) {
     int memberRank = getMemberRank(memberToInsert);
     int indexToInsert = 0;
-    for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(container, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member")))) {
+    for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(container, LINKS.member$oYX5))) {
       if (getMemberRank(member) > memberRank) {
         break;
       }
       indexToInsert++;
     }
-    ListSequence.fromList(SLinkOperations.getChildren(container, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).insertElement(indexToInsert, memberToInsert);
+    ListSequence.fromList(SLinkOperations.getChildren(container, LINKS.member$oYX5)).insertElement(indexToInsert, memberToInsert);
   }
   private static int getMemberRank(SNode member) {
     int memberRank = ListSequence.fromList(MEMBERS_ORDER).indexOf(member.getConcept());
     return (memberRank != -1 ? memberRank : ListSequence.fromList(MEMBERS_ORDER).count());
   }
 
-  private static final class AUX_howdxd {
-    /*package*/ static final SConcept StaticFieldDeclaration_9649293d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
-    /*package*/ static final SConcept StaticInitializer_425a0e95 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c7538039dL, "jetbrains.mps.baseLanguage.structure.StaticInitializer");
-    /*package*/ static final SConcept InstanceInitializer_4eff9fd3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer");
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept StaticMethodDeclaration_9cd8c445 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticFieldDeclaration$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept StaticInitializer$dH = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c7538039dL, "jetbrains.mps.baseLanguage.structure.StaticInitializer");
+    /*package*/ static final SConcept InstanceInitializer$BJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118f0b909f7L, "jetbrains.mps.baseLanguage.structure.InstanceInitializer");
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept StaticMethodDeclaration$eX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,15 +16,16 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class NodeWarningCheckOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_5vk0rx.NodeWarningCheckOperation_4fae8115;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0224b421L, "jetbrains.mps.lang.test.structure.NodeWarningCheckOperation");
 
   public static final SMethod<Boolean> canAttachReference_id2wBFdLy7HtS = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canAttachReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2wBFdLy7HtS").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Void> attachReference_id2wBFdLy8qmn = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("attachReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2wBFdLy8qmn").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
@@ -35,15 +37,15 @@ public final class NodeWarningCheckOperation__BehaviorDescriptor extends BaseBHD
   }
 
   /*package*/ static boolean canAttachReference_id2wBFdLy7HtS(@NotNull SNode __thisNode__, SNode reference) {
-    return SNodeOperations.isInstanceOf(reference, AUX_5vk0rx.WarningStatement_2dd866bd);
+    return SNodeOperations.isInstanceOf(reference, CONCEPTS.WarningStatement$15);
   }
   /*package*/ static void attachReference_id2wBFdLy8qmn(@NotNull SNode __thisNode__, SNode reference) {
     assert ((boolean) IReferenceAttachable__BehaviorDescriptor.canAttachReference_id2wBFdLy7HtS.invoke(__thisNode__, reference));
-    SLinkOperations.setTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0224b421L, 0x75cf259aa047ff8bL, "warningRef"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x3ee2cbee8b386d76L, "jetbrains.mps.lang.test.structure.WarningStatementReference")));
-    SLinkOperations.setTarget(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0224b421L, 0x75cf259aa047ff8bL, "warningRef")), MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6abc06f5f4afab9dL, 0x73a7cdcfba51f755L, "declaration"), SNodeOperations.cast(reference, AUX_5vk0rx.WarningStatement_2dd866bd));
+    SLinkOperations.setTarget(__thisNode__, LINKS.warningRef$tsRa, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x3ee2cbee8b386d76L, "jetbrains.mps.lang.test.structure.WarningStatementReference")));
+    SLinkOperations.setTarget(SLinkOperations.getTarget(__thisNode__, LINKS.warningRef$tsRa), LINKS.declaration$tW8o, SNodeOperations.cast(reference, CONCEPTS.WarningStatement$15));
   }
   /*package*/ static SNode getReference_id7eBNsYUkslm(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0224b421L, 0x75cf259aa047ff8bL, "warningRef"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.warningRef$tsRa);
   }
 
   /*package*/ NodeWarningCheckOperation__BehaviorDescriptor() {
@@ -97,8 +99,12 @@ public final class NodeWarningCheckOperation__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_5vk0rx {
-    /*package*/ static final SConcept NodeWarningCheckOperation_4fae8115 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0224b421L, "jetbrains.mps.lang.test.structure.NodeWarningCheckOperation");
-    /*package*/ static final SConcept WarningStatement_2dd866bd = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1190a1db131L, "jetbrains.mps.lang.typesystem.structure.WarningStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WarningStatement$15 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1190a1db131L, "jetbrains.mps.lang.typesystem.structure.WarningStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink warningRef$tsRa = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0224b421L, 0x75cf259aa047ff8bL, "warningRef");
+    /*package*/ static final SReferenceLink declaration$tW8o = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6abc06f5f4afab9dL, 0x73a7cdcfba51f755L, "declaration");
   }
 }

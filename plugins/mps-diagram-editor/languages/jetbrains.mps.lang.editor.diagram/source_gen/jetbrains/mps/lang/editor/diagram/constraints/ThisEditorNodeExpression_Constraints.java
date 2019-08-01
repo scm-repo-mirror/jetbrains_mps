@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ThisEditorNodeExpression_Constraints extends BaseConstraintsDescriptor {
   public ThisEditorNodeExpression_Constraints() {
-    super(AUX_9xmi8u.ThisEditorNodeExpression_442e0e2);
+    super(CONCEPTS.ThisEditorNodeExpression$F0);
   }
 
   @Override
@@ -37,13 +37,13 @@ public class ThisEditorNodeExpression_Constraints extends BaseConstraintsDescrip
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestorsWhereConceptInList(parentNode, new SAbstractConcept[]{AUX_9xmi8u.BLQueryArgument_448e911d, AUX_9xmi8u.ConnectionEndBLQuery_27681390}, true) != null;
+    return SNodeOperations.getNodeAncestorsWhereConceptInList(parentNode, new SAbstractConcept[]{CONCEPTS.BLQueryArgument$7_, CONCEPTS.ConnectionEndBLQuery$Ri}, true) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:1af2ba06-e725-4940-9c06-d6b80c641b75(jetbrains.mps.lang.editor.diagram.constraints)", "1227128029536565003");
 
-  private static final class AUX_9xmi8u {
-    /*package*/ static final SConcept ThisEditorNodeExpression_442e0e2 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x2cd0b06754b27e2fL, "jetbrains.mps.lang.editor.diagram.structure.ThisEditorNodeExpression");
-    /*package*/ static final SConcept BLQueryArgument_448e911d = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x3f6e840fd86f8f7L, "jetbrains.mps.lang.editor.diagram.structure.BLQueryArgument");
-    /*package*/ static final SConcept ConnectionEndBLQuery_27681390 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x10efa534a508176dL, "jetbrains.mps.lang.editor.diagram.structure.ConnectionEndBLQuery");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisEditorNodeExpression$F0 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x2cd0b06754b27e2fL, "jetbrains.mps.lang.editor.diagram.structure.ThisEditorNodeExpression");
+    /*package*/ static final SConcept BLQueryArgument$7_ = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x3f6e840fd86f8f7L, "jetbrains.mps.lang.editor.diagram.structure.BLQueryArgument");
+    /*package*/ static final SConcept ConnectionEndBLQuery$Ri = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x10efa534a508176dL, "jetbrains.mps.lang.editor.diagram.structure.ConnectionEndBLQuery");
   }
 }

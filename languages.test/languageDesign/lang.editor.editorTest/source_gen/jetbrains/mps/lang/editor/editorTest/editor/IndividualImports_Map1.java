@@ -6,11 +6,12 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class IndividualImports_Map1 {
 
@@ -20,7 +21,7 @@ public class IndividualImports_Map1 {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x1454bfe1d0c7b8f5L, 0x1454bfe1d0c7b8f6L, "result"), "DELETE-1");
+        SPropertyOperations.assign(node, PROPS.result$5DNw, "DELETE-1");
       }
 
     };
@@ -31,7 +32,7 @@ public class IndividualImports_Map1 {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x1454bfe1d0c7b8f5L, 0x1454bfe1d0c7b8f6L, "result"), "INSERT-1");
+        SPropertyOperations.assign(node, PROPS.result$5DNw, "INSERT-1");
       }
 
     };
@@ -74,5 +75,9 @@ public class IndividualImports_Map1 {
     if (Objects.equals(actionType, CellActionType.INSERT)) {
       editorCell.setAction(actionType, createAction_INSERT(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty result$5DNw = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x1454bfe1d0c7b8f5L, 0x1454bfe1d0c7b8f6L, "result");
   }
 }

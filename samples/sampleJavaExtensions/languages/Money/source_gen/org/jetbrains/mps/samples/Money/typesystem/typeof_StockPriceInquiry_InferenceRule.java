@@ -25,7 +25,7 @@ public class typeof_StockPriceInquiry_InferenceRule extends AbstractInferenceRul
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nq1gda.CurrentStockPrice_5a5c898;
+    return CONCEPTS.CurrentStockPrice$Ba;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_StockPriceInquiry_InferenceRule extends AbstractInferenceRul
     return quotedNode_1;
   }
 
-  private static final class AUX_nq1gda {
-    /*package*/ static final SConcept CurrentStockPrice_5a5c898 = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3786e3f4808999c3L, "org.jetbrains.mps.samples.Money.structure.CurrentStockPrice");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CurrentStockPrice$Ba = MetaAdapterFactory.getConcept(0x662a9f2b58024d16L, 0x955872c65c7a681eL, 0x3786e3f4808999c3L, "org.jetbrains.mps.samples.Money.structure.CurrentStockPrice");
   }
 }

@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -36,14 +35,16 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ShowMessage_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_t9syd3_a(), AUX_t9syd3.ShowMessage_c8c13c70));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_t9syd3_a(), CONCEPTS.ShowMessage$3M));
     return result;
   }
 
@@ -83,14 +84,14 @@ public class ShowMessage_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_t9syd3.ShowMessage_c8c13c70;
+          return CONCEPTS.ShowMessage$3M;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
-          SNode showMsg = SNodeFactoryOperations.createNewNode(AUX_t9syd3.ShowMessage_c8c13c70, null);
-          SLinkOperations.setTarget(showMsg, MetaAdapterFactory.getContainmentLink(0xcd17a113ca4e472fL, 0xa8dec49008f9eea8L, 0x573ae5b8b8ccc349L, 0x573ae5b8b8ccc34cL, "problem"), nodeToWrap);
+          SNode showMsg = SNodeFactoryOperations.createNewNode(CONCEPTS.ShowMessage$3M, null);
+          SLinkOperations.setTarget(showMsg, LINKS.problem$7FCD, nodeToWrap);
           return showMsg;
         }
 
@@ -105,7 +106,7 @@ public class ShowMessage_SubstituteMenu extends SubstituteMenuBase {
         }
         @Override
         public void select(@NotNull SNode createdNode, @NotNull String pattern) {
-          SelectionUtil.selectCell(_context.getEditorContext(), SLinkOperations.getTarget(createdNode, MetaAdapterFactory.getContainmentLink(0x16e76fe395344defL, 0xafb7925a169a7c0bL, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message")), SelectionManager.FIRST_EDITABLE_CELL);
+          SelectionUtil.selectCell(_context.getEditorContext(), SLinkOperations.getTarget(createdNode, LINKS.message$mGgm), SelectionManager.FIRST_EDITABLE_CELL);
         }
       };
     }
@@ -117,12 +118,17 @@ public class ShowMessage_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_t9syd3.Problem_93726dfc;
+      return CONCEPTS.Problem$3A;
     }
   }
 
-  private static final class AUX_t9syd3 {
-    /*package*/ static final SConcept ShowMessage_c8c13c70 = MetaAdapterFactory.getConcept(0x16e76fe395344defL, 0xafb7925a169a7c0bL, 0x6530303593ae1651L, "jetbrains.mps.lang.feedback.messages.structure.ShowMessage");
-    /*package*/ static final SInterfaceConcept Problem_93726dfc = MetaAdapterFactory.getInterfaceConcept(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x573ae5b8b8caf72cL, "jetbrains.mps.lang.feedback.problem.structure.Problem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ShowMessage$3M = MetaAdapterFactory.getConcept(0x16e76fe395344defL, 0xafb7925a169a7c0bL, 0x6530303593ae1651L, "jetbrains.mps.lang.feedback.messages.structure.ShowMessage");
+    /*package*/ static final SInterfaceConcept Problem$3A = MetaAdapterFactory.getInterfaceConcept(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x573ae5b8b8caf72cL, "jetbrains.mps.lang.feedback.problem.structure.Problem");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink problem$7FCD = MetaAdapterFactory.getContainmentLink(0xcd17a113ca4e472fL, 0xa8dec49008f9eea8L, 0x573ae5b8b8ccc349L, 0x573ae5b8b8ccc34cL, "problem");
+    /*package*/ static final SContainmentLink message$mGgm = MetaAdapterFactory.getContainmentLink(0x16e76fe395344defL, 0xafb7925a169a7c0bL, 0x6530303593ae1651L, 0x48f860fc0e362dc8L, "message");
   }
 }

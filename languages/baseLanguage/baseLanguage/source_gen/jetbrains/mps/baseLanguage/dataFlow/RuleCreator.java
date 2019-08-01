@@ -18,7 +18,7 @@ public class RuleCreator implements DataFlowConstructor {
     return concept.equals(applicableConcept) || concept.isSubConceptOf(applicableConcept);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_hrk988.AbstractCreator_dccd09a4;
+    return CONCEPTS.AbstractCreator$CY;
   }
   public void performActions(Program o, SNode node) {
     {
@@ -34,7 +34,7 @@ public class RuleCreator implements DataFlowConstructor {
     }
   }
 
-  private static final class AUX_hrk988 {
-    /*package*/ static final SConcept AbstractCreator_dccd09a4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab844af9bL, "jetbrains.mps.baseLanguage.structure.AbstractCreator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractCreator$CY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab844af9bL, "jetbrains.mps.baseLanguage.structure.AbstractCreator");
   }
 }

@@ -57,7 +57,7 @@ public class instanceOfIntoTernary extends TransformationMenuBase {
   public class TMP_Group_v9arav_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_v9arav.InstanceOfExpression_70765a36);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.InstanceOfExpression$JG);
     }
 
     @NotNull
@@ -97,7 +97,7 @@ public class instanceOfIntoTernary extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_v9arav {
-    /*package*/ static final SConcept InstanceOfExpression_70765a36 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, "jetbrains.mps.baseLanguage.structure.InstanceOfExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceOfExpression$JG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, "jetbrains.mps.baseLanguage.structure.InstanceOfExpression");
   }
 }

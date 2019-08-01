@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class LinkPatternVariableReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_kemif3_a(), AUX_kemif3.LinkPatternVariableReference_a0df6d05));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_kemif3_a(), CONCEPTS.LinkPatternVariableReference$bX));
     result.add(new SMP_Subconcepts_kemif3_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class LinkPatternVariableReference_SubstituteMenu extends SubstituteMenuB
 
     public SMP_ReferenceScope_kemif3_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_kemif3.LinkPatternVariableReference_a0df6d05, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d92ad3L, 0x11192da25efL, "patternVarDecl"));
+      super((SAbstractConcept) CONCEPTS.LinkPatternVariableReference$bX, LINKS.patternVarDecl$oq_1);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class LinkPatternVariableReference_SubstituteMenu extends SubstituteMenuB
   }
   public class SMP_Subconcepts_kemif3_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_kemif3.LinkPatternVariableReference_a0df6d05);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.LinkPatternVariableReference$bX);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class LinkPatternVariableReference_SubstituteMenu extends SubstituteMenuB
     }
   }
 
-  private static final class AUX_kemif3 {
-    /*package*/ static final SConcept LinkPatternVariableReference_a0df6d05 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d92ad3L, "jetbrains.mps.lang.typesystem.structure.LinkPatternVariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LinkPatternVariableReference$bX = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d92ad3L, "jetbrains.mps.lang.typesystem.structure.LinkPatternVariableReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink patternVarDecl$oq_1 = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d92ad3L, 0x11192da25efL, "patternVarDecl");
   }
 }

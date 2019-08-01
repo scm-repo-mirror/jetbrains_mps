@@ -19,11 +19,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.openapi.editor.cells.EditorCellContext;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class CreatePropertyAntiquotation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -46,7 +46,7 @@ public final class CreatePropertyAntiquotation_Intention extends AbstractIntenti
     if (check_vcwk4z_a0b0e(check_vcwk4z_a0a1a4(check_vcwk4z_a0a0b0e(selectedCell))) == null) {
       return false;
     }
-    SNode contextNode = SNodeOperations.cast(selectedCell.getSNode(), AUX_vcwk4z.BaseConcept_bc2351f);
+    SNode contextNode = SNodeOperations.cast(selectedCell.getSNode(), CONCEPTS.BaseConcept$Sz);
     if (contextNode == null) {
       return false;
     }
@@ -75,23 +75,23 @@ public final class CreatePropertyAntiquotation_Intention extends AbstractIntenti
         return;
       }
       EditorCell selectedCell = editorContext.getSelectedCell();
-      SNode contextNode = SNodeOperations.cast(selectedCell.getSNode(), AUX_vcwk4z.BaseConcept_bc2351f);
+      SNode contextNode = SNodeOperations.cast(selectedCell.getSNode(), CONCEPTS.BaseConcept$Sz);
       if (contextNode == null) {
         return;
       }
       SProperty p = selectedCell.getCellContext().getPropertyInfo().getProperty();
-      if (SNodeOperations.isInstanceOf(contextNode, AUX_vcwk4z.PropertyAntiquotation_a7bfd3a3)) {
-        SNode attributedNode = SNodeOperations.cast(SNodeOperations.getParent(contextNode), AUX_vcwk4z.BaseConcept_bc2351f);
+      if (SNodeOperations.isInstanceOf(contextNode, CONCEPTS.PropertyAntiquotation$v)) {
+        SNode attributedNode = SNodeOperations.cast(SNodeOperations.getParent(contextNode), CONCEPTS.BaseConcept$Sz);
         assert attributedNode != null;
-        AttributeOperations.setAttribute(attributedNode, new IAttributeDescriptor.PropertyAttribute(AUX_vcwk4z.PropertyAntiquotation_a7bfd3a3, p), null);
+        AttributeOperations.setAttribute(attributedNode, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyAntiquotation$v, p), null);
         return;
       }
-      if (AttributeOperations.getAttribute(contextNode, new IAttributeDescriptor.PropertyAttribute(AUX_vcwk4z.PropertyAntiquotation_a7bfd3a3, p)) != null) {
-        AttributeOperations.setAttribute(contextNode, new IAttributeDescriptor.PropertyAttribute(AUX_vcwk4z.PropertyAntiquotation_a7bfd3a3, p), null);
+      if (AttributeOperations.getAttribute(contextNode, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyAntiquotation$v, p)) != null) {
+        AttributeOperations.setAttribute(contextNode, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyAntiquotation$v, p), null);
       } else {
-        SNode propertyAntiquotation = SNodeFactoryOperations.setNewAttribute(contextNode, new IAttributeDescriptor.PropertyAttribute(AUX_vcwk4z.PropertyAntiquotation_a7bfd3a3, p), AUX_vcwk4z.PropertyAntiquotation_a7bfd3a3);
+        SNode propertyAntiquotation = SNodeFactoryOperations.setNewAttribute(contextNode, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.PropertyAntiquotation$v, p), CONCEPTS.PropertyAntiquotation$v);
         if (selectedCell.isSingleNodeCell()) {
-          SPropertyOperations.set(propertyAntiquotation, MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104656L, 0x5a0ec74a8bd5aeb2L, "label"), SNodeOperations.getConcept(contextNode).getName());
+          SPropertyOperations.set(propertyAntiquotation, PROPS.label$KuXz, SNodeOperations.getConcept(contextNode).getName());
         }
         editorContext.selectWRTFocusPolicy(propertyAntiquotation);
       }
@@ -120,8 +120,12 @@ public final class CreatePropertyAntiquotation_Intention extends AbstractIntenti
     return null;
   }
 
-  private static final class AUX_vcwk4z {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept PropertyAntiquotation_a7bfd3a3 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, "jetbrains.mps.lang.quotation.structure.PropertyAntiquotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept PropertyAntiquotation$v = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x116aac96587L, "jetbrains.mps.lang.quotation.structure.PropertyAntiquotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty label$KuXz = MetaAdapterFactory.getProperty(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104656L, 0x5a0ec74a8bd5aeb2L, "label");
   }
 }

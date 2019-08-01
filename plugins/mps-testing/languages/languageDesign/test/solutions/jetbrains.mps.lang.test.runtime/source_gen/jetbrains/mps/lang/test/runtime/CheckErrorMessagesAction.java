@@ -16,9 +16,10 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.test.behavior.NodeCheckOperation__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class CheckErrorMessagesAction implements Runnable {
   private final SNode myNode;
@@ -70,11 +71,11 @@ public class CheckErrorMessagesAction implements Runnable {
   }
 
   private static boolean hasErrorOrWarningCheckOperationTag(SNode node, NodeReportItem reportItem, SRepository repository) {
-    if (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_cv6z4x.NodeOperationsContainer_e9631e6e)) == null) {
+    if (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO)) == null) {
       return false;
     }
-    SNode container = AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_cv6z4x.NodeOperationsContainer_e9631e6e));
-    for (SNode property : SLinkOperations.getChildren(container, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, 0x11b07abae7cL, "nodeOperations"))) {
+    SNode container = AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO));
+    for (SNode property : SLinkOperations.getChildren(container, LINKS.nodeOperations$HdFm)) {
       if ((boolean) NodeCheckOperation__BehaviorDescriptor.expectsErrorsInside_id77$odk0vlBj.invoke(property, reportItem, repository)) {
         return true;
       }
@@ -101,7 +102,11 @@ public class CheckErrorMessagesAction implements Runnable {
     return reporter.getMessage() + ". Node '" + NodeCheckerUtil.nodeWithIdToString(node) + "'";
   }
 
-  private static final class AUX_cv6z4x {
-    /*package*/ static final SConcept NodeOperationsContainer_e9631e6e = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeOperationsContainer$UO = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink nodeOperations$HdFm = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, 0x11b07abae7cL, "nodeOperations");
   }
 }

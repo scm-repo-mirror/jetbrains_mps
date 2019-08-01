@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ToolInstanceExpression_Constraints extends BaseConstraintsDescriptor {
   public ToolInstanceExpression_Constraints() {
-    super(AUX_5vr7q6.ToolInstanceExpression_9c8e35a3);
+    super(CONCEPTS.ToolInstanceExpression$Sv);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class ToolInstanceExpression_Constraints extends BaseConstraintsDescripto
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestor(parentNode, AUX_5vr7q6.BaseToolDeclaration_5c092e15, false, false) != null;
+    return SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.BaseToolDeclaration$fH, false, false) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590361(jetbrains.mps.lang.plugin.constraints)", "1227128029536562262");
 
-  private static final class AUX_5vr7q6 {
-    /*package*/ static final SConcept ToolInstanceExpression_9c8e35a3 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11870178843L, "jetbrains.mps.lang.plugin.structure.ToolInstanceExpression");
-    /*package*/ static final SConcept BaseToolDeclaration_5c092e15 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5adc7622e710bddcL, "jetbrains.mps.lang.plugin.structure.BaseToolDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ToolInstanceExpression$Sv = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11870178843L, "jetbrains.mps.lang.plugin.structure.ToolInstanceExpression");
+    /*package*/ static final SConcept BaseToolDeclaration$fH = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x5adc7622e710bddcL, "jetbrains.mps.lang.plugin.structure.BaseToolDeclaration");
   }
 }

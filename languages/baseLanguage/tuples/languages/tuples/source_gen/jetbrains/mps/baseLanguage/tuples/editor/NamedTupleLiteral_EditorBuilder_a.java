@@ -23,7 +23,6 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
@@ -33,6 +32,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.RightBracketStyleClass;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class NamedTupleLiteral_EditorBuilder_a extends AbstractEditorBuilder {
@@ -105,10 +105,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209b88731cL, 0x1209b9676f1L, "componentRef");
+      return LINKS.componentRef$49s5;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_stap2w.NamedTupleComponentReference_1a22f6cc;
+      return CONCEPTS.NamedTupleComponentReference$8m;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -118,7 +118,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(componentRefListHandler_ulpguu_b0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209b88731cL, 0x1209b9676f1L, "componentRef")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(componentRefListHandler_ulpguu_b0.this.getNode(), LINKS.componentRef$49s5));
       try {
         EditorCell emptyCell = null;
         emptyCell = createConstant_0();
@@ -182,7 +182,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_stap2w {
-    /*package*/ static final SConcept NamedTupleComponentReference_1a22f6cc = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209b917141L, "jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentReference");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink componentRef$49s5 = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209b88731cL, 0x1209b9676f1L, "componentRef");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NamedTupleComponentReference$8m = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209b917141L, "jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentReference");
   }
 }

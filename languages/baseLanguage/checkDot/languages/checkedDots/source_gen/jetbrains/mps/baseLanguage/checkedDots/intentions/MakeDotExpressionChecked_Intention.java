@@ -15,9 +15,10 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class MakeDotExpressionChecked_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -47,19 +48,19 @@ public final class MakeDotExpressionChecked_Intention extends AbstractIntentionD
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (SNodeOperations.isInstanceOf(node, AUX_hmmec0.CheckedDotExpression_1b3f34db) ? "Make Dot Expression Not Checked" : "Make Dot Expression Checked");
+      return (SNodeOperations.isInstanceOf(node, CONCEPTS.CheckedDotExpression$nB) ? "Make Dot Expression Not Checked" : "Make Dot Expression Checked");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if (SNodeOperations.isInstanceOf(node, AUX_hmmec0.CheckedDotExpression_1b3f34db)) {
-        SNode dotExpression = SNodeFactoryOperations.createNewNode(AUX_hmmec0.DotExpression_97ed08d8, null);
-        SLinkOperations.setTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-        SLinkOperations.setTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")));
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.CheckedDotExpression$nB)) {
+        SNode dotExpression = SNodeFactoryOperations.createNewNode(CONCEPTS.DotExpression$6a, null);
+        SLinkOperations.setTarget(dotExpression, LINKS.operand$Lcrr, SLinkOperations.getTarget(node, LINKS.operand$Lcrr));
+        SLinkOperations.setTarget(dotExpression, LINKS.operation$X4R8, SLinkOperations.getTarget(node, LINKS.operation$X4R8));
         SNodeOperations.replaceWithAnother(node, dotExpression);
       } else {
-        SNode checkedDot = SNodeFactoryOperations.createNewNode(AUX_hmmec0.CheckedDotExpression_1b3f34db, null);
-        SLinkOperations.setTarget(checkedDot, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-        SLinkOperations.setTarget(checkedDot, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")));
+        SNode checkedDot = SNodeFactoryOperations.createNewNode(CONCEPTS.CheckedDotExpression$nB, null);
+        SLinkOperations.setTarget(checkedDot, LINKS.operand$Lcrr, SLinkOperations.getTarget(node, LINKS.operand$Lcrr));
+        SLinkOperations.setTarget(checkedDot, LINKS.operation$X4R8, SLinkOperations.getTarget(node, LINKS.operation$X4R8));
         SNodeOperations.replaceWithAnother(node, checkedDot);
       }
     }
@@ -69,8 +70,13 @@ public final class MakeDotExpressionChecked_Intention extends AbstractIntentionD
     }
   }
 
-  private static final class AUX_hmmec0 {
-    /*package*/ static final SConcept CheckedDotExpression_1b3f34db = MetaAdapterFactory.getConcept(0x774bf8a062e541e1L, 0xaf63f4812e60e48bL, 0x389ce13592c3023bL, "jetbrains.mps.baseLanguage.checkedDots.structure.CheckedDotExpression");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CheckedDotExpression$nB = MetaAdapterFactory.getConcept(0x774bf8a062e541e1L, 0xaf63f4812e60e48bL, 0x389ce13592c3023bL, "jetbrains.mps.baseLanguage.checkedDots.structure.CheckedDotExpression");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
   }
 }

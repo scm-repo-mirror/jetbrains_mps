@@ -25,9 +25,9 @@ public class CommentMultipleNodesAction extends AbstractCellAction {
       myCanExecute = false;
       return;
     }
-    myNeedToCommentOut = !(SNodeOperations.isInstanceOf(Sequence.fromIterable(myNodes).first(), AUX_ssrw6k.BaseCommentAttribute_f7206635));
+    myNeedToCommentOut = !(SNodeOperations.isInstanceOf(Sequence.fromIterable(myNodes).first(), CONCEPTS.BaseCommentAttribute$Zd));
     for (SNode node : Sequence.fromIterable(myNodes)) {
-      if (SNodeOperations.isInstanceOf(node, AUX_ssrw6k.BaseCommentAttribute_f7206635) && myNeedToCommentOut || !(SNodeOperations.isInstanceOf(node, AUX_ssrw6k.BaseCommentAttribute_f7206635)) && !(myNeedToCommentOut)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BaseCommentAttribute$Zd) && myNeedToCommentOut || !(SNodeOperations.isInstanceOf(node, CONCEPTS.BaseCommentAttribute$Zd)) && !(myNeedToCommentOut)) {
         myCanExecute = false;
         return;
       }
@@ -54,8 +54,8 @@ public class CommentMultipleNodesAction extends AbstractCellAction {
           lastNodeToSelect = commentedNode;
         }
       } else {
-        assert SNodeOperations.isInstanceOf(node, AUX_ssrw6k.BaseCommentAttribute_f7206635);
-        SNode uncommentedNode = CommentUtil.uncomment(SNodeOperations.cast(node, AUX_ssrw6k.BaseCommentAttribute_f7206635));
+        assert SNodeOperations.isInstanceOf(node, CONCEPTS.BaseCommentAttribute$Zd);
+        SNode uncommentedNode = CommentUtil.uncomment(SNodeOperations.cast(node, CONCEPTS.BaseCommentAttribute$Zd));
         if (counter == 0) {
           firstNodeToSelect = uncommentedNode;
         }
@@ -72,7 +72,7 @@ public class CommentMultipleNodesAction extends AbstractCellAction {
     context.getSelectionManager().setSelection(new NodeRangeSelection(context.getEditorComponent(), firstNodeToSelect, lastNodeToSelect));
   }
 
-  private static final class AUX_ssrw6k {
-    /*package*/ static final SConcept BaseCommentAttribute_f7206635 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseCommentAttribute$Zd = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
   }
 }

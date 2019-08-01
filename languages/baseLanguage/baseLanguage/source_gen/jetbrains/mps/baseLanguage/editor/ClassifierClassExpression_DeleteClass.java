@@ -6,7 +6,6 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
@@ -14,6 +13,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ClassifierClassExpression_DeleteClass {
@@ -24,9 +25,9 @@ public class ClassifierClassExpression_DeleteClass {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode classifier = SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x103fb730c14L, 0x103fb73a43eL, "classifier"));
-        SNode ref = SNodeFactoryOperations.replaceWithNewChild(node, AUX_b5pm6.AbstractClassifierReference_334d03e3);
-        SLinkOperations.setTarget(ref, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, 0x6c6c91efa5ecbbb2L, "classifier"), classifier);
+        SNode classifier = SLinkOperations.getTarget(node, LINKS.classifier$V09);
+        SNode ref = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.AbstractClassifierReference$vv);
+        SLinkOperations.setTarget(ref, LINKS.classifier$sgLW, classifier);
         SelectionUtil.selectLabelCellAnSetCaret(editorContext, ref, SelectionManager.LAST_CELL, -1);
       }
 
@@ -68,7 +69,12 @@ public class ClassifierClassExpression_DeleteClass {
     }
   }
 
-  private static final class AUX_b5pm6 {
-    /*package*/ static final SConcept AbstractClassifierReference_334d03e3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, "jetbrains.mps.baseLanguage.structure.AbstractClassifierReference");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$V09 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x103fb730c14L, 0x103fb73a43eL, "classifier");
+    /*package*/ static final SReferenceLink classifier$sgLW = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, 0x6c6c91efa5ecbbb2L, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractClassifierReference$vv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6c91efa5ec8cd7L, "jetbrains.mps.baseLanguage.structure.AbstractClassifierReference");
   }
 }

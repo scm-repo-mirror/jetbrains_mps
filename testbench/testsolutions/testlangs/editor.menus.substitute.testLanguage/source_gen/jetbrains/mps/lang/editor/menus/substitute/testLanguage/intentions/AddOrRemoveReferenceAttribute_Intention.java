@@ -47,7 +47,7 @@ public final class AddOrRemoveReferenceAttribute_Intention extends AbstractInten
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_k6x6qb.TestSubstituteAttribute_WithReference_22bbee5c)) == null)) {
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_WithReference$M6)) == null)) {
         return "Add Reference Attribute";
       } else {
         return "Remove Reference Attribute";
@@ -55,10 +55,10 @@ public final class AddOrRemoveReferenceAttribute_Intention extends AbstractInten
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_k6x6qb.TestSubstituteAttribute_WithReference_22bbee5c)) == null)) {
-        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(AUX_k6x6qb.TestSubstituteAttribute_WithReference_22bbee5c), AUX_k6x6qb.TestSubstituteAttribute_WithReference_22bbee5c);
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_WithReference$M6)) == null)) {
+        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_WithReference$M6), CONCEPTS.TestSubstituteAttribute_WithReference$M6);
       } else {
-        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_k6x6qb.TestSubstituteAttribute_WithReference_22bbee5c)));
+        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_WithReference$M6)));
       }
     }
     @Override
@@ -67,7 +67,7 @@ public final class AddOrRemoveReferenceAttribute_Intention extends AbstractInten
     }
   }
 
-  private static final class AUX_k6x6qb {
-    /*package*/ static final SConcept TestSubstituteAttribute_WithReference_22bbee5c = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x446b8c93949517d7L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteAttribute_WithReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteAttribute_WithReference$M6 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x446b8c93949517d7L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteAttribute_WithReference");
   }
 }

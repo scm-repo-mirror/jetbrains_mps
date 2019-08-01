@@ -103,7 +103,7 @@ public class BaseGeneratorTest implements EnvironmentAware {
       public InterpretedPlanProvider compute() {
         LanguageRegistry lreg = myEnv.getPlatform().findComponent(LanguageRegistry.class);
         LogHandler mh = new LogHandler(Logger.getLogger(getClass()));
-        SNodeReference planNode = SNodeOperations.getPointer(ListSequence.fromList(SModelOperations.roots(gpm, AUX_ee8dai.Plan_4c7f418c)).first());
+        SNodeReference planNode = SNodeOperations.getPointer(ListSequence.fromList(SModelOperations.roots(gpm, CONCEPTS.Plan$Xm)).first());
         return new InterpretedPlanProvider(lreg, mh, planNode, myRepository);
       }
     });
@@ -130,7 +130,7 @@ public class BaseGeneratorTest implements EnvironmentAware {
     myTransformHelpers.clear();
   }
 
-  private static final class AUX_ee8dai {
-    /*package*/ static final SConcept Plan_4c7f418c = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, "jetbrains.mps.lang.generator.plan.structure.Plan");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Plan$Xm = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, "jetbrains.mps.lang.generator.plan.structure.Plan");
   }
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -27,15 +26,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RefOutOfScopeProblem_Constraints extends BaseConstraintsDescriptor {
   public RefOutOfScopeProblem_Constraints() {
-    super(AUX_cqx8be.RefOutOfScopeProblem_93a36b5f);
+    super(CONCEPTS.RefOutOfScopeProblem$Zz);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.kind$Wl20, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -56,7 +57,7 @@ public class RefOutOfScopeProblem_Constraints extends BaseConstraintsDescriptor 
         };
       }
     };
-    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, 0x161a25d49703b44eL, "ref"), this) {
+    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(LINKS.ref$uT96, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -71,11 +72,11 @@ public class RefOutOfScopeProblem_Constraints extends BaseConstraintsDescriptor 
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            ModelPlusImportedScope scope = new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, AUX_cqx8be.LinkDeclaration_ce818bfc);
+            ModelPlusImportedScope scope = new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, CONCEPTS.LinkDeclaration$bA);
             return new FilteringScope(scope) {
               @Override
               public boolean isExcluded(SNode node) {
-                return !(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.as(node, AUX_cqx8be.LinkDeclaration_ce818bfc), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b8L));
+                return !(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.as(node, CONCEPTS.LinkDeclaration$bA), PROPS.metaClass$tHD7), 0xfc6f4e95b8L));
               }
             };
           }
@@ -90,8 +91,17 @@ public class RefOutOfScopeProblem_Constraints extends BaseConstraintsDescriptor 
   private static final SNodePointer breakingNode_cqx8be_a0a0a0a0a1a0a0a0c = new SNodePointer("r:bb0a30e0-9916-4d29-97fa-68ace0b06403(jetbrains.mps.lang.feedback.problem.scopes.constraints)", "7716791493892404456");
   private static final SNodePointer breakingNode_cqx8be_a0a0a0a0a1a0a0b0c = new SNodePointer("r:bb0a30e0-9916-4d29-97fa-68ace0b06403(jetbrains.mps.lang.feedback.problem.scopes.constraints)", "24399255755754851");
 
-  private static final class AUX_cqx8be {
-    /*package*/ static final SConcept RefOutOfScopeProblem_93a36b5f = MetaAdapterFactory.getConcept(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, "jetbrains.mps.lang.feedback.problem.scopes.structure.RefOutOfScopeProblem");
-    /*package*/ static final SConcept LinkDeclaration_ce818bfc = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RefOutOfScopeProblem$Zz = MetaAdapterFactory.getConcept(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, "jetbrains.mps.lang.feedback.problem.scopes.structure.RefOutOfScopeProblem");
+    /*package*/ static final SConcept LinkDeclaration$bA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink kind$Wl20 = MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind");
+    /*package*/ static final SReferenceLink ref$uT96 = MetaAdapterFactory.getReferenceLink(0xfeec32f9bc8f4da8L, 0x8efd7f3f9dd4101bL, 0x161a25d49703afdbL, 0x161a25d49703b44eL, "ref");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -19,10 +20,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class MapSrcMacro_PostMapperFunction__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_hcmt4q.MapSrcMacro_PostMapperFunction_5be8555;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11d455674bfL, "jetbrains.mps.lang.generator.structure.MapSrcMacro_PostMapperFunction");
 
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
 
@@ -32,10 +32,10 @@ public final class MapSrcMacro_PostMapperFunction__BehaviorDescriptor extends Ba
   }
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
-    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, AUX_hcmt4q.TemplateQueryBase_e1242b50);
-    ListSequence.fromList(result).addElement(AUX_hcmt4q.TemplateFunctionParameter_outputNode_ff66c8d7);
-    ListSequence.fromList(result).addElement(AUX_hcmt4q.TemplateFunctionParameter_generationContext_c78d9c30);
-    ListSequence.fromList(result).addElement(AUX_hcmt4q.TemplateFunctionParameter_sourceNode_6cc2a91a);
+    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, CONCEPTS.TemplateQueryBase$Si);
+    ListSequence.fromList(result).addElement(CONCEPTS.TemplateFunctionParameter_outputNode$5F);
+    ListSequence.fromList(result).addElement(CONCEPTS.TemplateFunctionParameter_generationContext$$M);
+    ListSequence.fromList(result).addElement(CONCEPTS.TemplateFunctionParameter_sourceNode$A8);
     return result;
   }
 
@@ -85,11 +85,10 @@ public final class MapSrcMacro_PostMapperFunction__BehaviorDescriptor extends Ba
     return CONCEPT;
   }
 
-  private static final class AUX_hcmt4q {
-    /*package*/ static final SConcept MapSrcMacro_PostMapperFunction_5be8555 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11d455674bfL, "jetbrains.mps.lang.generator.structure.MapSrcMacro_PostMapperFunction");
-    /*package*/ static final SConcept TemplateQueryBase_e1242b50 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11b4d0ca830L, "jetbrains.mps.lang.generator.structure.TemplateQueryBase");
-    /*package*/ static final SConcept TemplateFunctionParameter_outputNode_ff66c8d7 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x113d50d6be6L, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_outputNode");
-    /*package*/ static final SConcept TemplateFunctionParameter_generationContext_c78d9c30 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0e3L, "jetbrains.mps.lang.generator.generationContext.structure.TemplateFunctionParameter_generationContext");
-    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode_6cc2a91a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateQueryBase$Si = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11b4d0ca830L, "jetbrains.mps.lang.generator.structure.TemplateQueryBase");
+    /*package*/ static final SConcept TemplateFunctionParameter_outputNode$5F = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x113d50d6be6L, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_outputNode");
+    /*package*/ static final SConcept TemplateFunctionParameter_generationContext$$M = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0e3L, "jetbrains.mps.lang.generator.generationContext.structure.TemplateFunctionParameter_generationContext");
+    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode$A8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
   }
 }

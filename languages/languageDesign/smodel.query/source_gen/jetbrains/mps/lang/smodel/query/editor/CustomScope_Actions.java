@@ -21,7 +21,7 @@ public class CustomScope_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeOperations.replaceWithNewChild(node, AUX_560dm8.ScopeParameter_e23e4567);
+        SNodeOperations.replaceWithNewChild(node, CONCEPTS.ScopeParameter$rr);
       }
 
     };
@@ -62,7 +62,7 @@ public class CustomScope_Actions {
     }
   }
 
-  private static final class AUX_560dm8 {
-    /*package*/ static final SConcept ScopeParameter_e23e4567 = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x20c897bb39bb07a2L, "jetbrains.mps.lang.smodel.query.structure.ScopeParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ScopeParameter$rr = MetaAdapterFactory.getConcept(0x1a8554c4eb8443baL, 0x8c346f0d90c6e75aL, 0x20c897bb39bb07a2L, "jetbrains.mps.lang.smodel.query.structure.ScopeParameter");
   }
 }

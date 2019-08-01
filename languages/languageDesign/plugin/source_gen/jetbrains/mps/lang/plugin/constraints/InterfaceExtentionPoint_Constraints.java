@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class InterfaceExtentionPoint_Constraints extends BaseConstraintsDescriptor {
   public InterfaceExtentionPoint_Constraints() {
-    super(AUX_9dfi41.InterfaceExtentionPoint_175eb6cc);
+    super(CONCEPTS.InterfaceExtentionPoint$8m);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class InterfaceExtentionPoint_Constraints extends BaseConstraintsDescript
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestor(parentNode, AUX_9dfi41.InterfaceGroup_e29d436b, false, false) != null;
+    return SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.InterfaceGroup$_n, false, false) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590361(jetbrains.mps.lang.plugin.constraints)", "1227128029536562310");
 
-  private static final class AUX_9dfi41 {
-    /*package*/ static final SConcept InterfaceExtentionPoint_175eb6cc = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186bb08443L, "jetbrains.mps.lang.plugin.structure.InterfaceExtentionPoint");
-    /*package*/ static final SConcept InterfaceGroup_e29d436b = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186ae0bf01L, "jetbrains.mps.lang.plugin.structure.InterfaceGroup");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InterfaceExtentionPoint$8m = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186bb08443L, "jetbrains.mps.lang.plugin.structure.InterfaceExtentionPoint");
+    /*package*/ static final SConcept InterfaceGroup$_n = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186ae0bf01L, "jetbrains.mps.lang.plugin.structure.InterfaceGroup");
   }
 }

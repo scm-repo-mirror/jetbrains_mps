@@ -15,9 +15,10 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.behavior.ParameterDeclaration__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_OverrideNullAnnotations_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -41,9 +42,9 @@ public class check_OverrideNullAnnotations_NonTypesystemRule extends AbstractNon
         }
       }
     }
-    for (int i = 0; i < ListSequence.fromList(SLinkOperations.getChildren(superMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).count(); i++) {
-      if ((boolean) ParameterDeclaration__BehaviorDescriptor.hasAnnotation_id3WDGf12Eb7o.invoke(ListSequence.fromList(SLinkOperations.getChildren(superMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).getElement(i), new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~Nullable"))) {
-        SNode param = ListSequence.fromList(SLinkOperations.getChildren(method, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).getElement(i);
+    for (int i = 0; i < ListSequence.fromList(SLinkOperations.getChildren(superMethod, LINKS.parameter$WIkZ)).count(); i++) {
+      if ((boolean) ParameterDeclaration__BehaviorDescriptor.hasAnnotation_id3WDGf12Eb7o.invoke(ListSequence.fromList(SLinkOperations.getChildren(superMethod, LINKS.parameter$WIkZ)).getElement(i), new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~Nullable"))) {
+        SNode param = ListSequence.fromList(SLinkOperations.getChildren(method, LINKS.parameter$WIkZ)).getElement(i);
         if (param != null && !((boolean) ParameterDeclaration__BehaviorDescriptor.hasAnnotation_id3WDGf12Eb7o.invoke(param, new SNodePointer("3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)", "~Nullable")))) {
           {
             final MessageTarget errorTarget = new NodeMessageTarget();
@@ -59,7 +60,7 @@ public class check_OverrideNullAnnotations_NonTypesystemRule extends AbstractNon
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_bukwhi.BaseMethodDeclaration_9dbf9acb;
+    return CONCEPTS.BaseMethodDeclaration$RR;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -68,7 +69,11 @@ public class check_OverrideNullAnnotations_NonTypesystemRule extends AbstractNon
     return false;
   }
 
-  private static final class AUX_bukwhi {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
   }
 }

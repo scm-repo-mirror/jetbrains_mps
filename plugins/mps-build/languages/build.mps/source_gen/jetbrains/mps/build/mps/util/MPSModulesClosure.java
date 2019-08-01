@@ -10,7 +10,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -25,6 +24,10 @@ import java.util.ArrayList;
 import jetbrains.mps.build.mps.behavior.BuildMps_Generator__BehaviorDescriptor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MPSModulesClosure {
   /**
@@ -47,27 +50,27 @@ public class MPSModulesClosure {
   }
 
   public MPSModulesClosure(Iterable<SNode> initialModules, ModuleDependenciesOptions options) {
-    myInitialModules = SNodeOperations.ofConcept(initialModules, AUX_3n55v6.BuildMps_Module_8d74323e);
+    myInitialModules = SNodeOperations.ofConcept(initialModules, CONCEPTS.BuildMps_Module$j$);
     myOptions = options;
   }
 
   private Iterable<SNode> dependencies(SNode module) {
-    return ListSequence.fromList(SLinkOperations.getChildren(module, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"))).select(new ISelector<SNode, SNode>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$Pit_)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return (SNodeOperations.isInstanceOf(it, AUX_3n55v6.BuildMps_ExtractedModuleDependency_8c60c932) ? SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_3n55v6.BuildMps_ExtractedModuleDependency_8c60c932), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, 0x64bd442e1cf7aaefL, "dependency")) : it);
+        return (SNodeOperations.isInstanceOf(it, CONCEPTS.BuildMps_ExtractedModuleDependency$LK) ? SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.BuildMps_ExtractedModuleDependency$LK), LINKS.dependency$6b80) : it);
       }
     });
   }
 
   private Iterable<SNode> getDependencies(SNode module, final boolean reexportOnly) {
-    Iterable<SNode> dependencies = SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(dependencies(module), AUX_3n55v6.BuildMps_ModuleDependencyOnModule_90dfc052)).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> dependencies = SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(dependencies(module), CONCEPTS.BuildMps_ModuleDependencyOnModule$_g)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return (!(reexportOnly) || SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cc1L, "reexport")));
+        return (!(reexportOnly) || SPropertyOperations.getBoolean(it, PROPS.reexport$gb$r));
       }
-    }), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module"));
+    }), LINKS.module$gbmo);
 
     // add extended langs 
-    dependencies = Sequence.fromIterable(dependencies).concat(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(module), AUX_3n55v6.BuildMps_ModuleDependencyExtendLanguage_f1a3b5fe), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, 0x3b60c4a45c190330L, "language"))));
+    dependencies = Sequence.fromIterable(dependencies).concat(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(module), CONCEPTS.BuildMps_ModuleDependencyExtendLanguage$$$), LINKS.language$t$Iv)));
 
     if (reexportOnly) {
       return Sequence.fromIterable(dependencies).where(new NotNullWhereFilter<SNode>());
@@ -79,7 +82,7 @@ public class MPSModulesClosure {
     }
     Iterable<SNode> solutionsFromDevkits = Sequence.fromIterable(usedDevkits).translate(new ITranslator2<SNode, SNode>() {
       public Iterable<SNode> translate(SNode it) {
-        return SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, 0x4780308f5d29d82L, "exports")), AUX_3n55v6.BuildMps_DevKitExportSolution_ebbc1fd9), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d7aL, 0x4780308f5d29d7bL, "solution"));
+        return SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(it, LINKS.exports$90Bp), CONCEPTS.BuildMps_DevKitExportSolution$ED), LINKS.solution$wSrw);
       }
     });
     // "core" language is added in loadModules pre-script 
@@ -99,7 +102,7 @@ public class MPSModulesClosure {
     }
     Iterable<SNode> languagesFromDevkits = Sequence.fromIterable(usedDevkits).translate(new ITranslator2<SNode, SNode>() {
       public Iterable<SNode> translate(SNode it) {
-        return SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, 0x4780308f5d29d82L, "exports")), AUX_3n55v6.BuildMps_DevKitExportLanguage_ebbc1f9f), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, 0x4780308f5d29d73L, "language"));
+        return SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.getChildren(it, LINKS.exports$90Bp), CONCEPTS.BuildMps_DevKitExportLanguage$ez), LINKS.language$wScz);
       }
     });
 
@@ -108,18 +111,18 @@ public class MPSModulesClosure {
   }
 
   private Iterable<SNode> dependencies_usedLanguages(SNode module) {
-    return SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(module), AUX_3n55v6.BuildMps_ModuleDependencyUseLanguage_432f3c6d), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language"));
+    return SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(module), CONCEPTS.BuildMps_ModuleDependencyUseLanguage$2l), LINKS.language$TL_w);
   }
 
   private Iterable<SNode> dependencies_usedDevkits(SNode module) {
-    return SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(module), AUX_3n55v6.BuildMps_ModuleDependencyOnDevKit_12fdc91e), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, 0x4780308f5d5bc4aL, "devkit"));
+    return SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(module), CONCEPTS.BuildMps_ModuleDependencyOnDevKit$C4), LINKS.devkit$Ib8b);
   }
 
   private static Iterable<SNode> includingExtended(Iterable<SNode> devkits) {
     return new RecursiveIterator<SNode>(devkits, false) {
       @Override
       protected Iterator<SNode> children(SNode node) {
-        return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, 0x4780308f5d23142L, "extends")), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2313aL, 0x4780308f5d2313bL, "devkit"))).iterator();
+        return Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, LINKS.extends$b9fB), LINKS.devkit$oKOw)).iterator();
       }
     };
   }
@@ -128,7 +131,7 @@ public class MPSModulesClosure {
     return new RecursiveIterator<SNode>(langs, false) {
       @Override
       protected Iterator<SNode> children(SNode node) {
-        return Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(node), AUX_3n55v6.BuildMps_ModuleDependencyExtendLanguage_f1a3b5fe), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, 0x3b60c4a45c190330L, "language"))).iterator();
+        return Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(node), CONCEPTS.BuildMps_ModuleDependencyExtendLanguage$$$), LINKS.language$t$Iv)).iterator();
       }
     };
   }
@@ -136,7 +139,7 @@ public class MPSModulesClosure {
   private Iterable<SNode> usedGenerators(Iterable<SNode> generators) {
     return new RecursiveIterator<SNode>(generators, false) {
       protected Iterator<SNode> children(SNode generator) {
-        return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(generator), AUX_3n55v6.BuildMps_ModuleDependencyOnModule_90dfc052), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module")), AUX_3n55v6.BuildMps_Generator_bcabe904)).iterator();
+        return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(generator), CONCEPTS.BuildMps_ModuleDependencyOnModule$_g), LINKS.module$gbmo), CONCEPTS.BuildMps_Generator$ru)).iterator();
       }
     };
   }
@@ -198,18 +201,18 @@ public class MPSModulesClosure {
       SetSequence.fromSet(visitedLanguages).addElement(nextLang);
 
       // MPS-25255, modules of language's accessory models, if not hosted by language itself 
-      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(nextLang, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6e2dd2f4c4c3e91dL, "accessory")), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6e2dd2f4c4c3e91aL, 0x6e2dd2f4c4c3e91bL, "module"))));
+      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(nextLang, LINKS.accessory$ZQu5), LINKS.module$j35w)));
 
-      SNode g = SLinkOperations.getTarget(nextLang, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x7fae147806433827L, "generator"));
+      SNode g = SLinkOperations.getTarget(nextLang, LINKS.generator$zMtG);
       if (g == null) {
         continue;
       }
-      Iterable<SNode> deps = SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(g), AUX_3n55v6.BuildMps_ModuleDependencyOnModule_90dfc052), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module"));
-      Iterable<SNode> usedLangs = SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(g), AUX_3n55v6.BuildMps_ModuleDependencyUseLanguage_432f3c6d), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language"));
+      Iterable<SNode> deps = SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(g), CONCEPTS.BuildMps_ModuleDependencyOnModule$_g), LINKS.module$gbmo);
+      Iterable<SNode> usedLangs = SLinkOperations.collect(SNodeOperations.ofConcept(dependencies(g), CONCEPTS.BuildMps_ModuleDependencyUseLanguage$2l), LINKS.language$TL_w);
 
       // I'm not quite sure it's possible to depend directly from generator module. 
       // Instead introduce a dependency from generator's source language 
-      ListSequence.fromList(queue).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, AUX_3n55v6.BuildMps_Generator_bcabe904)).select(new ISelector<SNode, SNode>() {
+      ListSequence.fromList(queue).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, CONCEPTS.BuildMps_Generator$ru)).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
           return (SNode) BuildMps_Generator__BehaviorDescriptor.getSourceLanguage_id7YI57w6ZMdZ.invoke(it);
         }
@@ -218,8 +221,8 @@ public class MPSModulesClosure {
       // If a generator depends on any language module, it doesn't mean it's 'used language', it's merely a module dependency, therefore we don't pit it into queue and do not process 
       // any further but as a regular module dependency. In fact, it seems reasonable just to have addAll(deps) here, without filtering languages and solutions (just need to make clear 
       // what could possibly dependencies to devkit and generator modules mean) 
-      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, AUX_3n55v6.BuildMps_Language_41959b14)));
-      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, AUX_3n55v6.BuildMps_Solution_41959b13)));
+      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, CONCEPTS.BuildMps_Language$re)));
+      SetSequence.fromSet(extraModules).addSequence(Sequence.fromIterable(SNodeOperations.ofConcept(deps, CONCEPTS.BuildMps_Solution$qJ)));
     }
     SetSequence.fromSet(visitedLanguages).removeSequence(SetSequence.fromSet(myModules));
     SetSequence.fromSet(myModules).addSequence(SetSequence.fromSet(visitedLanguages));
@@ -357,12 +360,12 @@ public class MPSModulesClosure {
     SetSequence.fromSet(usedLanguages).addSequence(ListSequence.fromList(ul));
     for (SNode language : ul) {
       boolean hasRuntime = false;
-      for (SNode rdep : SLinkOperations.getChildren(language, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime"))) {
-        if (!(SNodeOperations.isInstanceOf(rdep, AUX_3n55v6.BuildMps_ModuleSolutionRuntime_43833e55))) {
+      for (SNode rdep : SLinkOperations.getChildren(language, LINKS.runtime$RrxF)) {
+        if (!(SNodeOperations.isInstanceOf(rdep, CONCEPTS.BuildMps_ModuleSolutionRuntime$IH))) {
           hasRuntime = true;
           continue;
         }
-        SNode runtimeSolution = SLinkOperations.getTarget(SNodeOperations.cast(rdep, AUX_3n55v6.BuildMps_ModuleSolutionRuntime_43833e55), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution"));
+        SNode runtimeSolution = SLinkOperations.getTarget(SNodeOperations.cast(rdep, CONCEPTS.BuildMps_ModuleSolutionRuntime$IH), LINKS.solution$pPpw);
         if (runtimeSolution != null) {
           SetSequence.fromSet(runtimeSolutions).addElement(runtimeSolution);
         }
@@ -374,17 +377,17 @@ public class MPSModulesClosure {
   }
 
   public RequiredJavaModules getRequiredJava() {
-    Iterable<SNode> reexportedFromModuleDependencies = SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collectMany(Sequence.fromIterable(getModules()).concat(Sequence.fromIterable(myInitialModules)), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies")), AUX_3n55v6.BuildMps_ModuleDependencyOnJavaModule_4331eb0a)).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> reexportedFromModuleDependencies = SLinkOperations.collect(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.collectMany(Sequence.fromIterable(getModules()).concat(Sequence.fromIterable(myInitialModules)), LINKS.dependencies$Pit_), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$mo)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, 0x2c4467914643e8fcL, "reexport"));
+        return SPropertyOperations.getBoolean(it, PROPS.reexport$feO0);
       }
-    }), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, 0x2c4467914643e8fdL, "module"));
+    }), LINKS.module$feOv);
     Set<SNode> reexportMods = SetSequence.fromSet(new HashSet<SNode>());
     for (SNode mod : reexportedFromModuleDependencies) {
       SetSequence.fromSet(reexportMods).addElement(mod);
     }
 
-    Iterable<SNode> directDeps = SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.collectMany(myInitialModules, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies")), AUX_3n55v6.BuildMps_ModuleDependencyOnJavaModule_4331eb0a), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, 0x2c4467914643e8fdL, "module"));
+    Iterable<SNode> directDeps = SLinkOperations.collect(SNodeOperations.ofConcept(SLinkOperations.collectMany(myInitialModules, LINKS.dependencies$Pit_), CONCEPTS.BuildMps_ModuleDependencyOnJavaModule$mo), LINKS.module$feOv);
     return new RequiredJavaModules(Sequence.fromIterable(reexportedFromModuleDependencies).concat(Sequence.fromIterable(directDeps)), reexportMods);
   }
 
@@ -469,19 +472,44 @@ public class MPSModulesClosure {
     }
   }
 
-  private static final class AUX_3n55v6 {
-    /*package*/ static final SConcept BuildMps_Module_8d74323e = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module");
-    /*package*/ static final SConcept BuildMps_ExtractedModuleDependency_8c60c932 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyOnModule_90dfc052 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnModule");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyExtendLanguage_f1a3b5fe = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyExtendLanguage");
-    /*package*/ static final SConcept BuildMps_DevKitExportSolution_ebbc1fd9 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d7aL, "jetbrains.mps.build.mps.structure.BuildMps_DevKitExportSolution");
-    /*package*/ static final SConcept BuildMps_DevKitExportLanguage_ebbc1f9f = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, "jetbrains.mps.build.mps.structure.BuildMps_DevKitExportLanguage");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyUseLanguage_432f3c6d = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyUseLanguage");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyOnDevKit_12fdc91e = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnDevKit");
-    /*package*/ static final SConcept BuildMps_Generator_bcabe904 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator");
-    /*package*/ static final SConcept BuildMps_Language_41959b14 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, "jetbrains.mps.build.mps.structure.BuildMps_Language");
-    /*package*/ static final SConcept BuildMps_Solution_41959b13 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution");
-    /*package*/ static final SConcept BuildMps_ModuleSolutionRuntime_43833e55 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSolutionRuntime");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyOnJavaModule_4331eb0a = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnJavaModule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_Module$j$ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, "jetbrains.mps.build.mps.structure.BuildMps_Module");
+    /*package*/ static final SConcept BuildMps_ExtractedModuleDependency$LK = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, "jetbrains.mps.build.mps.structure.BuildMps_ExtractedModuleDependency");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyOnModule$_g = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnModule");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyExtendLanguage$$$ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyExtendLanguage");
+    /*package*/ static final SConcept BuildMps_DevKitExportSolution$ED = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d7aL, "jetbrains.mps.build.mps.structure.BuildMps_DevKitExportSolution");
+    /*package*/ static final SConcept BuildMps_DevKitExportLanguage$ez = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, "jetbrains.mps.build.mps.structure.BuildMps_DevKitExportLanguage");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyUseLanguage$2l = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyUseLanguage");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyOnDevKit$C4 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnDevKit");
+    /*package*/ static final SConcept BuildMps_Generator$ru = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator");
+    /*package*/ static final SConcept BuildMps_Language$re = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, "jetbrains.mps.build.mps.structure.BuildMps_Language");
+    /*package*/ static final SConcept BuildMps_Solution$qJ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution");
+    /*package*/ static final SConcept BuildMps_ModuleSolutionRuntime$IH = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSolutionRuntime");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyOnJavaModule$mo = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnJavaModule");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink dependencies$Pit_ = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies");
+    /*package*/ static final SContainmentLink dependency$6b80 = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x64bd442e1cf7aaeeL, 0x64bd442e1cf7aaefL, "dependency");
+    /*package*/ static final SReferenceLink module$gbmo = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module");
+    /*package*/ static final SReferenceLink language$t$Iv = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, 0x3b60c4a45c190330L, "language");
+    /*package*/ static final SContainmentLink exports$90Bp = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, 0x4780308f5d29d82L, "exports");
+    /*package*/ static final SReferenceLink solution$wSrw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d7aL, 0x4780308f5d29d7bL, "solution");
+    /*package*/ static final SReferenceLink language$wScz = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, 0x4780308f5d29d73L, "language");
+    /*package*/ static final SReferenceLink language$TL_w = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language");
+    /*package*/ static final SReferenceLink devkit$Ib8b = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, 0x4780308f5d5bc4aL, "devkit");
+    /*package*/ static final SContainmentLink extends$b9fB = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, 0x4780308f5d23142L, "extends");
+    /*package*/ static final SReferenceLink devkit$oKOw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2313aL, 0x4780308f5d2313bL, "devkit");
+    /*package*/ static final SContainmentLink accessory$ZQu5 = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6e2dd2f4c4c3e91dL, "accessory");
+    /*package*/ static final SReferenceLink module$j35w = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6e2dd2f4c4c3e91aL, 0x6e2dd2f4c4c3e91bL, "module");
+    /*package*/ static final SContainmentLink generator$zMtG = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x7fae147806433827L, "generator");
+    /*package*/ static final SReferenceLink solution$pPpw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution");
+    /*package*/ static final SContainmentLink runtime$RrxF = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime");
+    /*package*/ static final SReferenceLink module$feOv = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, 0x2c4467914643e8fdL, "module");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty reexport$gb$r = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cc1L, "reexport");
+    /*package*/ static final SProperty reexport$feO0 = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643e8fbL, 0x2c4467914643e8fcL, "reexport");
   }
 }

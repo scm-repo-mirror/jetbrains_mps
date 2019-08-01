@@ -28,7 +28,7 @@ public class NodeByConceptChooser extends NodeChooser {
   private final SearchScope myScope;
 
   public NodeByConceptChooser() {
-    this(AUX_a07biu.BaseConcept_bc2351f, null);
+    this(CONCEPTS.BaseConcept$Sz, null);
   }
 
   public NodeByConceptChooser(SAbstractConcept conceptFqName, @Nullable _FunctionTypes._return_P1_E0<? extends Boolean, ? super SNode> acceptor) {
@@ -69,7 +69,7 @@ public class NodeByConceptChooser extends NodeChooser {
     }
   }
 
-  private static final class AUX_a07biu {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

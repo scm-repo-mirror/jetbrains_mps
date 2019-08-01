@@ -19,7 +19,6 @@ import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.MatchingSt
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -27,6 +26,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class PredefinedSymbolClasses_EditorBuilder_a extends AbstractEditorBuilder {
@@ -102,10 +102,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e5efc7L, 0x11178e61ee7L, "symbolClass");
+      return LINKS.symbolClass$Zufp;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_yu7gh8.PredefinedSymbolClassDeclaration_8e53856;
+      return CONCEPTS.PredefinedSymbolClassDeclaration$7c;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -115,7 +115,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(symbolClassListHandler_ry768y_c0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e5efc7L, 0x11178e61ee7L, "symbolClass")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(symbolClassListHandler_ry768y_c0.this.getNode(), LINKS.symbolClass$Zufp));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -150,7 +150,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_yu7gh8 {
-    /*package*/ static final SConcept PredefinedSymbolClassDeclaration_8e53856 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e59fd0L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink symbolClass$Zufp = MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e5efc7L, 0x11178e61ee7L, "symbolClass");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PredefinedSymbolClassDeclaration$7c = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11178e59fd0L, "jetbrains.mps.baseLanguage.regexp.structure.PredefinedSymbolClassDeclaration");
   }
 }

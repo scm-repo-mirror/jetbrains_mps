@@ -13,12 +13,14 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class check_ClassifierMethodsHierarchy_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ClassifierMethodsHierarchy_NonTypesystemRule() {
@@ -27,12 +29,12 @@ public class check_ClassifierMethodsHierarchy_NonTypesystemRule extends Abstract
     // [node to check + node to report to] -- hack to work with enum constant declarations 
     // I think that it must be solved if we pull up all the traversing code to IMemberContainer (or smth like this) 
     List<Pair<SNode, SNode>> toCheck = ListSequence.fromList(new ArrayList<Pair<SNode, SNode>>());
-    if (SNodeOperations.isInstanceOf(classifier, AUX_iqmm0n.EnumClass_acf68fc0) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classifier, AUX_iqmm0n.EnumClass_acf68fc0), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant"))).isNotEmpty()) {
-      ListSequence.fromList(toCheck).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classifier, AUX_iqmm0n.EnumClass_acf68fc0), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant"))).select(new ISelector<SNode, Pair<SNode, SNode>>() {
+    if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.EnumClass$uy) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classifier, CONCEPTS.EnumClass$uy), LINKS.enumConstant$urAQ)).isNotEmpty()) {
+      ListSequence.fromList(toCheck).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classifier, CONCEPTS.EnumClass$uy), LINKS.enumConstant$urAQ)).select(new ISelector<SNode, Pair<SNode, SNode>>() {
         public Pair<SNode, SNode> select(SNode it) {
           SNode dummyAnonymous = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass"));
-          SLinkOperations.setTarget(dummyAnonymous, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier"), classifier);
-          ListSequence.fromList(SLinkOperations.getChildren(dummyAnonymous, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addSequence(ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"))).select(new ISelector<SNode, SNode>() {
+          SLinkOperations.setTarget(dummyAnonymous, LINKS.classifier$1y5e, classifier);
+          ListSequence.fromList(SLinkOperations.getChildren(dummyAnonymous, LINKS.member$oYX5)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.method$3$mN)).select(new ISelector<SNode, SNode>() {
             public SNode select(SNode it) {
               return SNodeOperations.copyNode(it);
             }
@@ -57,7 +59,7 @@ public class check_ClassifierMethodsHierarchy_NonTypesystemRule extends Abstract
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_iqmm0n.Classifier_4b7e553;
+    return CONCEPTS.Classifier$hJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -66,8 +68,15 @@ public class check_ClassifierMethodsHierarchy_NonTypesystemRule extends Abstract
     return false;
   }
 
-  private static final class AUX_iqmm0n {
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink enumConstant$urAQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant");
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
+    /*package*/ static final SContainmentLink method$3$mN = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method");
   }
 }

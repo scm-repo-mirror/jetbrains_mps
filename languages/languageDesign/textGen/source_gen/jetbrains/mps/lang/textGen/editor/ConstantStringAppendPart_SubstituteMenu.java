@@ -21,7 +21,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
@@ -30,15 +29,17 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConstantStringAppendPart_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_q0hc0b_a(), AUX_q0hc0b.ConstantStringAppendPart_a217ccb8));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_q0hc0b_a(), CONCEPTS.ConstantStringAppendPart$AE));
     result.add(new SMP_Subconcepts_q0hc0b_b());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_q0hc0b.ConstantStringAppendPart_a217ccb8) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.ConstantStringAppendPart$AE) {
 
       @NotNull
       @Override
@@ -51,7 +52,7 @@ public class ConstantStringAppendPart_SubstituteMenu extends SubstituteMenuBase 
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_q0hc0b.ConstantStringAppendPart_a217ccb8));
+    }, CONCEPTS.ConstantStringAppendPart$AE));
     return result;
   }
 
@@ -96,7 +97,7 @@ public class ConstantStringAppendPart_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_q0hc0b.ConstantStringAppendPart_a217ccb8, context);
+        super(CONCEPTS.ConstantStringAppendPart$AE, context);
         _context = context;
       }
 
@@ -107,8 +108,8 @@ public class ConstantStringAppendPart_SubstituteMenu extends SubstituteMenuBase 
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_q0hc0b.ConstantStringAppendPart_a217ccb8, _context.getCurrentTargetNode());
-        SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, 0x1201528caacL, "value"), NameUtil.stripQuotes(pattern, "\"", "\""));
+        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.ConstantStringAppendPart$AE, _context.getCurrentTargetNode());
+        SPropertyOperations.set(result, PROPS.value$kAH0, NameUtil.stripQuotes(pattern, "\"", "\""));
         return result;
       }
 
@@ -136,7 +137,7 @@ public class ConstantStringAppendPart_SubstituteMenu extends SubstituteMenuBase 
   }
   public class SMP_Subconcepts_q0hc0b_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_q0hc0b.ConstantStringAppendPart_a217ccb8);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.ConstantStringAppendPart$AE);
     }
     @NotNull
     @Override
@@ -156,7 +157,11 @@ public class ConstantStringAppendPart_SubstituteMenu extends SubstituteMenuBase 
     }
   }
 
-  private static final class AUX_q0hc0b {
-    /*package*/ static final SConcept ConstantStringAppendPart_a217ccb8 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, "jetbrains.mps.lang.textGen.structure.ConstantStringAppendPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstantStringAppendPart$AE = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, "jetbrains.mps.lang.textGen.structure.ConstantStringAppendPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$kAH0 = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x12015288286L, 0x1201528caacL, "value");
   }
 }

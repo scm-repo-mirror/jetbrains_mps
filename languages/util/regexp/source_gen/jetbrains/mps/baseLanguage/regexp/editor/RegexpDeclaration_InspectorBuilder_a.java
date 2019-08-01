@@ -18,10 +18,11 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import jetbrains.mps.baseLanguage.regexp.behavior.Regexp__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class RegexpDeclaration_InspectorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -69,7 +70,7 @@ import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
   private EditorCell createReadOnlyModelAccessor_0() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor() {
       public String getText() {
-        return ((boolean) Regexp__BehaviorDescriptor.isValid_id48bMILtL4il.invoke(SLinkOperations.getTarget(myNode, MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, 0x11174a66599L, "regexp"))) ? "/" + Regexp__BehaviorDescriptor.toString_idhEwIUjb.invoke(SLinkOperations.getTarget(myNode, MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, 0x11174a66599L, "regexp"))) + "/" : "<invalid>");
+        return ((boolean) Regexp__BehaviorDescriptor.isValid_id48bMILtL4il.invoke(SLinkOperations.getTarget(myNode, LINKS.regexp$xFnJ)) ? "/" + Regexp__BehaviorDescriptor.toString_idhEwIUjb.invoke(SLinkOperations.getTarget(myNode, LINKS.regexp$xFnJ)) + "/" : "<invalid>");
       }
       public void setText(String s) {
       }
@@ -84,5 +85,9 @@ import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
     return editorCell;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink regexp$xFnJ = MetaAdapterFactory.getContainmentLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, 0x11174a66599L, "regexp");
   }
 }

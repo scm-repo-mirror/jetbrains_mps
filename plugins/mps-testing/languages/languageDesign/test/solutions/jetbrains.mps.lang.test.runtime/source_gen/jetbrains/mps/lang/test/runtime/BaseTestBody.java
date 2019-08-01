@@ -34,7 +34,7 @@ public class BaseTestBody {
       public void run() {
         SNode node = getRealNodeById(id);
         SNode copy = CopyUtil.copy(node, myMap, true);
-        for (SNode a : ListSequence.fromList(SNodeOperations.getNodeDescendants(copy, AUX_dl0gc2.AbstractTestNodeAnnotation_2d7c3bf0, false, new SAbstractConcept[]{}))) {
+        for (SNode a : ListSequence.fromList(SNodeOperations.getNodeDescendants(copy, CONCEPTS.AbstractTestNodeAnnotation$5M, false, new SAbstractConcept[]{}))) {
           SNodeOperations.deleteNode(a);
         }
         myModel.addRootNode(copy);
@@ -57,7 +57,7 @@ public class BaseTestBody {
     return myModel.getNode(SNodeId.fromString(id));
   }
 
-  private static final class AUX_dl0gc2 {
-    /*package*/ static final SConcept AbstractTestNodeAnnotation_2d7c3bf0 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractTestNodeAnnotation$5M = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
   }
 }

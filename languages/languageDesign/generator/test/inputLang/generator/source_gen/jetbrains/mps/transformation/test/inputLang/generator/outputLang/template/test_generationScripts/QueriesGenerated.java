@@ -8,7 +8,6 @@ import jetbrains.mps.transformation.test.inputLang.generator.outputLang.template
 import jetbrains.mps.generator.template.BaseMappingRuleContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -16,7 +15,10 @@ import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.generator.template.MappingScriptContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @Generated
 public class QueriesGenerated {
@@ -24,28 +26,28 @@ public class QueriesGenerated {
     return QueriesUtil.isTest1(_context.getInputModel());
   }
   public static boolean rule_Condition_0_0(final BaseMappingRuleContext _context) {
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645be5a7aL, 0x11645bf6873L, "option")), 0x11645a42e23L);
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.option$d15b), 0x11645a42e23L);
   }
   public static boolean rule_Condition_0_1(final BaseMappingRuleContext _context) {
-    if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getNodeAncestor(_context.getNode(), null, false, true), AUX_x583g4.InputRoot_10fdbd0b), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest")), 0x117eb3f7612L))) {
+    if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.as(SNodeOperations.getNodeAncestor(_context.getNode(), null, false, true), CONCEPTS.InputRoot$eR), PROPS.useInTest$QJWm), 0x117eb3f7612L))) {
       return false;
     }
-    return !(SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645be5a7aL, 0x11645bf6873L, "option")), 0x1180b5173daL));
+    return !(SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.option$d15b), 0x1180b5173daL));
   }
   public static boolean rule_Condition_0_2(final BaseMappingRuleContext _context) {
-    if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.cast(SNodeOperations.getNodeAncestor(_context.getNode(), null, false, true), AUX_x583g4.InputRoot_10fdbd0b), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest")), 0x117eb3f7612L))) {
+    if (!(SEnumOperations.isMember(SPropertyOperations.getEnum(SNodeOperations.cast(SNodeOperations.getNodeAncestor(_context.getNode(), null, false, true), CONCEPTS.InputRoot$eR), PROPS.useInTest$QJWm), 0x117eb3f7612L))) {
       return false;
     }
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645be5a7aL, 0x11645bf6873L, "option")), 0x1180b5173daL);
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.option$d15b), 0x1180b5173daL);
   }
   public static boolean rule_Condition_0_3(final BaseMappingRuleContext _context) {
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest")), 0x117eb3f7612L);
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(_context.getNode(), PROPS.useInTest$QJWm), 0x117eb3f7612L);
   }
   public static Object propertyMacro_GetValue_2_0(final PropertyMacroContext _context) {
-    return "OutputRoot by MappingRule from input name: " + SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return "OutputRoot by MappingRule from input name: " + SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1);
   }
   public static Iterable<SNode> sourceNodesQuery_2_0(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x11645abf534L, "inputChild"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.inputChild$lNls);
   }
   public static void mappingScript_CodeBlock_3(final MappingScriptContext _context) {
     // test1 only 
@@ -55,8 +57,8 @@ public class QueriesGenerated {
     _context.putStepObject("run post-processing", new Object());
     System.out.println("!!!test pre-mapping. model=" + jetbrains.mps.util.SNodeOperations.getModelLongName(_context.getModel()));
     SNode inputRoot = SModelOperations.createNewRootNode(_context.getModel(), MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, "jetbrains.mps.transformation.test.inputLang.structure.InputRoot"));
-    SPropertyOperations.set(inputRoot, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "Input Root created by pre-process script");
-    SPropertyOperations.setEnum(inputRoot, MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest"), 0x117eb3f7612L, "test1");
+    SPropertyOperations.set(inputRoot, PROPS.name$tAp1, "Input Root created by pre-process script");
+    SPropertyOperations.setEnum(inputRoot, PROPS.useInTest$QJWm, 0x117eb3f7612L, "test1");
   }
   public static void mappingScript_CodeBlock_4(final MappingScriptContext _context) {
     // test1 only 
@@ -66,10 +68,20 @@ public class QueriesGenerated {
     }
     System.out.println("!!!test post-mapping. model=" + jetbrains.mps.util.SNodeOperations.getModelLongName(_context.getModel()));
     SNode outputRoot = SModelOperations.createNewRootNode(_context.getModel(), MetaAdapterFactory.getConcept(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x116455d922fL, "jetbrains.mps.transformation.test.outputLang.structure.OutputRoot"));
-    SPropertyOperations.set(outputRoot, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "created by post-processing script");
+    SPropertyOperations.set(outputRoot, PROPS.name$tAp1, "created by post-processing script");
   }
 
-  private static final class AUX_x583g4 {
-    /*package*/ static final SConcept InputRoot_10fdbd0b = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, "jetbrains.mps.transformation.test.inputLang.structure.InputRoot");
+  private static final class PROPS {
+    /*package*/ static final SProperty option$d15b = MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645be5a7aL, 0x11645bf6873L, "option");
+    /*package*/ static final SProperty useInTest$QJWm = MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InputRoot$eR = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, "jetbrains.mps.transformation.test.inputLang.structure.InputRoot");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink inputChild$lNls = MetaAdapterFactory.getContainmentLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x11645abf534L, "inputChild");
   }
 }

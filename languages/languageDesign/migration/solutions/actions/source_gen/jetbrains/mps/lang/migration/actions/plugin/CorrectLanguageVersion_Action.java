@@ -46,7 +46,7 @@ public class CorrectLanguageVersion_Action extends BaseAction {
       return false;
     }
 
-    List<SNode> migrations = SModelOperations.roots(mig, AUX_vsqebj.IMigrationUnit_128da2b8);
+    List<SNode> migrations = SModelOperations.roots(mig, CONCEPTS.IMigrationUnit$eE);
     if (ListSequence.fromList(migrations).isEmpty()) {
       return false;
     }
@@ -74,7 +74,7 @@ public class CorrectLanguageVersion_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     Language lang = (Language) ((SModule) MapSequence.fromMap(_params).get("module"));
-    List<SNode> migrarions = SModelOperations.roots(SModuleOperations.getAspect(lang, "migration"), AUX_vsqebj.IMigrationUnit_128da2b8);
+    List<SNode> migrarions = SModelOperations.roots(SModuleOperations.getAspect(lang, "migration"), CONCEPTS.IMigrationUnit$eE);
     lang.setLanguageVersion(CorrectLanguageVersion_Action.this.getLastScriptVersion(migrarions, _params) + 1);
   }
   private int getLastScriptVersion(List<SNode> migrations, final Map<String, Object> _params) {
@@ -85,7 +85,7 @@ public class CorrectLanguageVersion_Action extends BaseAction {
     }, false).first());
   }
 
-  private static final class AUX_vsqebj {
-    /*package*/ static final SInterfaceConcept IMigrationUnit_128da2b8 = MetaAdapterFactory.getInterfaceConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x47bb811da2acc4d6L, "jetbrains.mps.lang.migration.structure.IMigrationUnit");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMigrationUnit$eE = MetaAdapterFactory.getInterfaceConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x47bb811da2acc4d6L, "jetbrains.mps.lang.migration.structure.IMigrationUnit");
   }
 }

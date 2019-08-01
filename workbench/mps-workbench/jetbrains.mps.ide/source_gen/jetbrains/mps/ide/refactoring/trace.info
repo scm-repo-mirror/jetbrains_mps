@@ -474,13 +474,13 @@
       <node id="4946201340714972334" at="39,40,40,56" concept="9" />
       <node id="4946201340714972357" at="41,76,42,151" concept="4" />
       <node id="4946201340714972405" at="42,151,43,13" concept="10" />
-      <node id="2939130724184968684" at="46,30,47,173" concept="10" />
+      <node id="2939130724184968684" at="46,30,47,165" concept="10" />
       <node id="5918389564640884753" at="49,7,50,32" concept="4" />
       <node id="5101259057297946162" at="54,44,55,67" concept="10" />
       <node id="5101259057297948661" at="57,94,58,70" concept="9" />
       <node id="5101259057297948681" at="58,70,59,18" concept="4" />
       <node id="5101259057297948690" at="59,18,60,28" concept="10" />
-      <node id="5101259057297944877" at="64,0,65,0" concept="13" trace="AbstractConceptDeclaration_ec74828f" />
+      <node id="5101259057297944877" at="64,0,65,0" concept="13" trace="AbstractConceptDeclaration$UN" />
       <node id="2939130724184964428" at="46,0,49,0" concept="8" trace="compute#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="5278386773476806924" at="40,56,44,5" concept="7" />
       <node id="2939130724184871492" at="44,5,49,7" concept="4" />
@@ -488,7 +488,7 @@
       <node id="5101259057297948655" at="57,0,62,0" concept="14" trace="getConcept#(Ljetbrains/mps/project/MPSProject;Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="5101259057297944879" at="29,0,38,0" concept="2" trace="MoveUpDialog#(Ljetbrains/mps/project/MPSProject;Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)V" />
       <node id="5101259057297946124" at="38,0,52,0" concept="8" trace="doRefactoringAction#()V" />
-      <scope id="2939130724184964432" at="46,30,47,173" />
+      <scope id="2939130724184964432" at="46,30,47,165" />
       <scope id="5101259057297946132" at="54,44,55,67" />
       <scope id="5278386773476806925" at="41,76,43,13" />
       <scope id="2939130724184964428" at="46,0,49,0" />
@@ -511,7 +511,7 @@
         <var name="treeNode" id="4946201340714972335" />
       </scope>
       <scope id="5101259057297946124" at="38,0,52,0" />
-      <unit id="5101259057297944877" at="63,0,66,0" name="jetbrains.mps.ide.refactoring.MoveUpDialog$AUX_2wjqlm" />
+      <unit id="5101259057297944877" at="63,0,66,0" name="jetbrains.mps.ide.refactoring.MoveUpDialog$CONCEPTS" />
       <unit id="2939130724184964426" at="45,84,49,5" name="jetbrains.mps.ide.refactoring.MoveUpDialog$1" />
       <unit id="5101259057297944877" at="20,0,67,0" name="jetbrains.mps.ide.refactoring.MoveUpDialog" />
     </file>
@@ -652,7 +652,7 @@
       <node id="6188135140808769526" at="22,0,23,0" concept="5" trace="myTree" />
       <node id="2939130724184861233" at="24,72,25,65" concept="11" />
       <node id="6188135140808769445" at="25,65,26,66" concept="4" />
-      <node id="2034046503361595365" at="28,25,29,159" concept="4" />
+      <node id="2034046503361595365" at="28,25,29,151" concept="4" />
       <node id="6188135140808769453" at="31,7,32,38" concept="4" />
       <node id="6188135140808769464" at="34,25,35,54" concept="4" />
       <node id="2303821416583659893" at="40,37,41,46" concept="9" />
@@ -666,7 +666,7 @@
       <node id="6188135140809479921" at="64,43,65,18" concept="10" />
       <node id="6188135140809514233" at="68,69,69,34" concept="10" />
       <node id="6188135140809514231" at="72,37,73,23" concept="10" />
-      <node id="6188135140808769438" at="78,0,79,0" concept="13" trace="AbstractConceptDeclaration_ec74828f" />
+      <node id="6188135140808769438" at="78,0,79,0" concept="13" trace="AbstractConceptDeclaration$UN" />
       <node id="2034046503361595363" at="28,0,31,0" concept="8" trace="run#()V" />
       <node id="6188135140808769462" at="34,0,37,0" concept="8" trace="run#()V" />
       <node id="2303821416583659904" at="41,46,44,5" concept="7" />
@@ -681,7 +681,7 @@
       <node id="6188135140808769473" at="40,0,47,0" concept="8" trace="getSelectedObject#()Ljava/lang/Object;" />
       <node id="6188135140809479895" at="53,0,63,0" concept="8" trace="getDescendants#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/util/Set;)Ljava/util/Set;" />
       <node id="6188135140808769440" at="24,0,39,0" concept="2" trace="NodeHierarchyChooser#(Ljetbrains/mps/project/MPSProject;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <scope id="2034046503361595364" at="28,25,29,159" />
+      <scope id="2034046503361595364" at="28,25,29,151" />
       <scope id="6188135140808769463" at="34,25,35,54" />
       <scope id="2303821416583659905" at="42,23,43,18" />
       <scope id="6188135140809447970" at="50,46,51,18" />
@@ -721,7 +721,7 @@
         <var name="mpsProject" id="2939130724184607773" />
         <var name="node" id="8416108457267542652" />
       </scope>
-      <unit id="6188135140808769438" at="77,0,80,0" name="jetbrains.mps.ide.refactoring.NodeHierarchyChooser$AUX_k3lo04" />
+      <unit id="6188135140808769438" at="77,0,80,0" name="jetbrains.mps.ide.refactoring.NodeHierarchyChooser$CONCEPTS" />
       <unit id="2034046503361595363" at="27,50,31,5" name="jetbrains.mps.ide.refactoring.NodeHierarchyChooser$1" />
       <unit id="6188135140808769462" at="33,40,37,5" name="jetbrains.mps.ide.refactoring.NodeHierarchyChooser$2" />
       <unit id="2556458257919161526" at="57,108,61,7" name="jetbrains.mps.ide.refactoring.NodeHierarchyChooser$MyHierarchyTree$1" />

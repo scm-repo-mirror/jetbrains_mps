@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CheckCancelledStatusStatement_Constraints extends BaseConstraintsDescriptor {
   public CheckCancelledStatusStatement_Constraints() {
-    super(AUX_9nkdrp.CheckCancelledStatusStatement_8bbfefc0);
+    super(CONCEPTS.CheckCancelledStatusStatement$uy);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class CheckCancelledStatusStatement_Constraints extends BaseConstraintsDe
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestor(parentNode, AUX_9nkdrp.FindBlock_c4096cf3, false, false) != null;
+    return SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.FindBlock$3f, false, false) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590358(jetbrains.mps.lang.findUsages.constraints)", "1227128029536561736");
 
-  private static final class AUX_9nkdrp {
-    /*package*/ static final SConcept CheckCancelledStatusStatement_8bbfefc0 = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x1190f427b83L, "jetbrains.mps.lang.findUsages.structure.CheckCancelledStatusStatement");
-    /*package*/ static final SConcept FindBlock_c4096cf3 = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a88L, "jetbrains.mps.lang.findUsages.structure.FindBlock");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CheckCancelledStatusStatement$uy = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x1190f427b83L, "jetbrains.mps.lang.findUsages.structure.CheckCancelledStatusStatement");
+    /*package*/ static final SConcept FindBlock$3f = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a88L, "jetbrains.mps.lang.findUsages.structure.FindBlock");
   }
 }

@@ -20,9 +20,10 @@ import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class HintDefsCustomEditorCell extends AbstractCellProvider {
   private final SNode myMember;
@@ -55,15 +56,19 @@ public class HintDefsCustomEditorCell extends AbstractCellProvider {
   }
   private static SNode createEditorListOfDefs_igmisa_a0d0e(Iterable<? extends SNode> seq0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_igmisa.EditorListOfDefs_307524ba, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.EditorListOfDefs$7C, null, null, false);
     for (SNode n : seq0) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6090f0354fe61d2cL, 0x6090f0354fe61d30L, "defs"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(n, AUX_igmisa.TypedDefReference_5ea34bf3)));
+      n1.addChild(LINKS.defs$D2dt, SNodeOperations.copyIfNecessary(SNodeOperations.cast(n, CONCEPTS.TypedDefReference$7f)));
     }
     return n1;
   }
 
-  private static final class AUX_igmisa {
-    /*package*/ static final SConcept EditorListOfDefs_307524ba = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6090f0354fe61d2cL, "jetbrains.mps.lang.constraints.rules.structure.EditorListOfDefs");
-    /*package*/ static final SConcept TypedDefReference_5ea34bf3 = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, "jetbrains.mps.lang.context.defs.structure.TypedDefReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorListOfDefs$7C = MetaAdapterFactory.getConcept(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6090f0354fe61d2cL, "jetbrains.mps.lang.constraints.rules.structure.EditorListOfDefs");
+    /*package*/ static final SConcept TypedDefReference$7f = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, "jetbrains.mps.lang.context.defs.structure.TypedDefReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink defs$D2dt = MetaAdapterFactory.getContainmentLink(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x6090f0354fe61d2cL, 0x6090f0354fe61d30L, "defs");
   }
 }

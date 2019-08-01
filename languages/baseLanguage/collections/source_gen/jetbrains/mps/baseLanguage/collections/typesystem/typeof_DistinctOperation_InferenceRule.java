@@ -18,7 +18,7 @@ public class typeof_DistinctOperation_InferenceRule extends AbstractInferenceRul
     RulesFunctions_Collections.setInputSequenceType(typeCheckingContext, op, op);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_qwhj1l.DistinctOperation_3ccf2e4c;
+    return CONCEPTS.DistinctOperation$Em;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -27,7 +27,7 @@ public class typeof_DistinctOperation_InferenceRule extends AbstractInferenceRul
     return false;
   }
 
-  private static final class AUX_qwhj1l {
-    /*package*/ static final SConcept DistinctOperation_3ccf2e4c = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1127b99dbbcL, "jetbrains.mps.baseLanguage.collections.structure.DistinctOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DistinctOperation$Em = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1127b99dbbcL, "jetbrains.mps.baseLanguage.collections.structure.DistinctOperation");
   }
 }

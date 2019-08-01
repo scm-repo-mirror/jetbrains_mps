@@ -55,7 +55,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     public ReplaceWith_EnumOperation_cellMenu_7teinv_a0a() {
     }
     public SAbstractConcept getReplacementConcept() {
-      return AUX_ncns2c.EnumOperation_8ef846b2;
+      return CONCEPTS.EnumOperation$VK;
     }
     @Override
     protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
@@ -63,7 +63,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     }
   }
 
-  private static final class AUX_ncns2c {
-    /*package*/ static final SInterfaceConcept EnumOperation_8ef846b2 = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012cf5L, "jetbrains.mps.lang.smodel.structure.EnumOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept EnumOperation$VK = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012cf5L, "jetbrains.mps.lang.smodel.structure.EnumOperation");
   }
 }

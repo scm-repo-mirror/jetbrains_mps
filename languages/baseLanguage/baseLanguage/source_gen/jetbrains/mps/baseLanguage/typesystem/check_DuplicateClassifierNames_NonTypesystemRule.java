@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import java.util.Objects;
@@ -22,73 +21,75 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_DuplicateClassifierNames_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_DuplicateClassifierNames_NonTypesystemRule() {
   }
   public void applyRule(final SNode classifier, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    final String name = SPropertyOperations.getString(classifier, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    if ((name == null || name.length() == 0) || SNodeOperations.isInstanceOf(classifier, AUX_orvnxv.AnonymousClass_e4a73f97)) {
+    final String name = SPropertyOperations.getString(classifier, PROPS.name$tAp1);
+    if ((name == null || name.length() == 0) || SNodeOperations.isInstanceOf(classifier, CONCEPTS.AnonymousClass$aF)) {
       return;
     }
     Iterable<SNode> siblingClassifiers;
-    SNode parentClassifier = SNodeOperations.getNodeAncestor(classifier, AUX_orvnxv.Classifier_4b7e553, false, false);
+    SNode parentClassifier = SNodeOperations.getNodeAncestor(classifier, CONCEPTS.Classifier$hJ, false, false);
     if ((parentClassifier == null)) {
-      siblingClassifiers = SModelOperations.roots(SNodeOperations.getModel(classifier), AUX_orvnxv.Classifier_4b7e553);
+      siblingClassifiers = SModelOperations.roots(SNodeOperations.getModel(classifier), CONCEPTS.Classifier$hJ);
     } else {
-      if (Objects.equals(SPropertyOperations.getString(parentClassifier, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(classifier, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) {
+      if (Objects.equals(SPropertyOperations.getString(parentClassifier, PROPS.name$tAp1), SPropertyOperations.getString(classifier, PROPS.name$tAp1))) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(classifier, "The nested type '" + SPropertyOperations.getString(classifier, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' cannot hide an enclosing type", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2654404125184154445", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(classifier, "The nested type '" + SPropertyOperations.getString(classifier, PROPS.name$tAp1) + "' cannot hide an enclosing type", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2654404125184154445", null, errorTarget);
         }
       }
       siblingClassifiers = ListSequence.fromList(IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invoke(parentClassifier)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, AUX_orvnxv.Classifier_4b7e553);
+          return SNodeOperations.isInstanceOf(it, CONCEPTS.Classifier$hJ);
         }
       }).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SNodeOperations.cast(it, AUX_orvnxv.Classifier_4b7e553);
+          return SNodeOperations.cast(it, CONCEPTS.Classifier$hJ);
         }
       });
     }
     if (Sequence.fromIterable(siblingClassifiers).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return it != classifier && SPropertyOperations.hasValue(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), name);
+        return it != classifier && SPropertyOperations.hasValue(it, PROPS.name$tAp1, name);
       }
     })) {
       if ((parentClassifier == null)) {
         {
-          final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(classifier, "Duplicated name of classifier '" + name + "' in model", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "7469468981580406086", null, errorTarget);
         }
       } else {
         {
-          final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(classifier, "Duplicated name of nested classifier '" + name, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2654404125185755179", null, errorTarget);
         }
       }
     } else if (Sequence.fromIterable(siblingClassifiers).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return it != classifier && name.equalsIgnoreCase(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return it != classifier && name.equalsIgnoreCase(SPropertyOperations.getString(it, PROPS.name$tAp1));
       }
     })) {
       if ((parentClassifier == null)) {
         {
-          final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(classifier, "Duplicated case-insensitive name of classifier '" + name + "' in model", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1005490780644144570", null, errorTarget);
         }
       } else {
         {
-          final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(classifier, "Duplicated case-insensitive name of nested classifier '" + name, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1005490780655218249", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_orvnxv.Classifier_4b7e553;
+    return CONCEPTS.Classifier$hJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -97,8 +98,12 @@ public class check_DuplicateClassifierNames_NonTypesystemRule extends AbstractNo
     return false;
   }
 
-  private static final class AUX_orvnxv {
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
   }
 }

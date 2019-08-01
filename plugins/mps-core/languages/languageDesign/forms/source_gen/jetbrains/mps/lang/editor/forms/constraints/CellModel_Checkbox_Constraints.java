@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -27,15 +26,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CellModel_Checkbox_Constraints extends BaseConstraintsDescriptor {
   public CellModel_Checkbox_Constraints() {
-    super(AUX_glszdl.CellModel_Checkbox_3bebc2bd);
+    super(CONCEPTS.CellModel_Checkbox$h5);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x455f8dda63d6378L, 0x334adf8cb15f3fdfL, "propertyDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.propertyDeclaration$LPBV, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,11 +50,11 @@ public class CellModel_Checkbox_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode editorComponent = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_glszdl.BaseEditorComponent_8ae20940, true, false);
+            SNode editorComponent = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BaseEditorComponent$Sy, true, false);
             SNode editedConcept = AbstractComponent__BehaviorDescriptor.getConceptDeclaration_id67EYkym$wx3.invoke(editorComponent);
             return ListScope.forResolvableElements(ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(editedConcept)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
-                return (boolean) DataTypeDeclaration__BehaviorDescriptor.isSimpleBoolean_idhKtGpIQ.invoke(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType")));
+                return (boolean) DataTypeDeclaration__BehaviorDescriptor.isSimpleBoolean_idhKtGpIQ.invoke(SLinkOperations.getTarget(it, LINKS.dataType$fLUl));
               }
             }));
           }
@@ -67,8 +67,13 @@ public class CellModel_Checkbox_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_glszdl_a0a0a0a0a1a0a0a0c = new SNodePointer("r:de912216-b4aa-4118-a243-c861c965b4d9(jetbrains.mps.lang.editor.forms.constraints)", "6836281137582841207");
 
-  private static final class AUX_glszdl {
-    /*package*/ static final SConcept CellModel_Checkbox_3bebc2bd = MetaAdapterFactory.getConcept(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x455f8dda63d6378L, "jetbrains.mps.lang.editor.forms.structure.CellModel_Checkbox");
-    /*package*/ static final SConcept BaseEditorComponent_8ae20940 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, "jetbrains.mps.lang.editor.structure.BaseEditorComponent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_Checkbox$h5 = MetaAdapterFactory.getConcept(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x455f8dda63d6378L, "jetbrains.mps.lang.editor.forms.structure.CellModel_Checkbox");
+    /*package*/ static final SConcept BaseEditorComponent$Sy = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, "jetbrains.mps.lang.editor.structure.BaseEditorComponent");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink propertyDeclaration$LPBV = MetaAdapterFactory.getReferenceLink(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x455f8dda63d6378L, 0x334adf8cb15f3fdfL, "propertyDeclaration");
+    /*package*/ static final SReferenceLink dataType$fLUl = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType");
   }
 }

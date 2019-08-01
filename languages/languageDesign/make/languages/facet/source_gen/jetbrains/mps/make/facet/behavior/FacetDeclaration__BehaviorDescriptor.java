@@ -4,6 +4,7 @@ package jetbrains.mps.make.facet.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -21,7 +22,6 @@ import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -32,10 +32,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class FacetDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_glgo82.FacetDeclaration_ec040a6d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, "jetbrains.mps.make.facet.structure.FacetDeclaration");
 
   public static final SMethod<Iterable<SNode>> allExtends_id6O0kUTrsU9c = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("allExtends").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6O0kUTrsU9c").build();
   public static final SMethod<Iterable<SNode>> allRelated_id7fB872uckWE = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("allRelated").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7fB872uckWE").build();
@@ -54,9 +56,9 @@ public final class FacetDeclaration__BehaviorDescriptor extends BaseBHDescriptor
       SNode fd = QueueSequence.fromQueue(queue).removeFirstElement();
       if (!(SetSequence.fromSet(result).contains(fd))) {
         SetSequence.fromSet(result).addElement(fd);
-        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b2feL, "extended"))).select(new ISelector<SNode, SNode>() {
+        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.extended$LsRK)).select(new ISelector<SNode, SNode>() {
           public SNode select(SNode it) {
-            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet"));
+            return SLinkOperations.getTarget(it, LINKS.facet$M0dw);
           }
         }));
       }
@@ -70,14 +72,14 @@ public final class FacetDeclaration__BehaviorDescriptor extends BaseBHDescriptor
       SNode fd = QueueSequence.fromQueue(queue).removeFirstElement();
       if (!(SetSequence.fromSet(result).contains(fd))) {
         SetSequence.fromSet(result).addElement(fd);
-        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b300L, "required"))).select(new ISelector<SNode, SNode>() {
+        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.required$LsSI)).select(new ISelector<SNode, SNode>() {
           public SNode select(SNode it) {
-            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet"));
+            return SLinkOperations.getTarget(it, LINKS.facet$M0dw);
           }
         }));
-        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b301L, "optional"))).select(new ISelector<SNode, SNode>() {
+        QueueSequence.fromQueue(queue).addSequence(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.optional$LsTd)).select(new ISelector<SNode, SNode>() {
           public SNode select(SNode it) {
-            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet"));
+            return SLinkOperations.getTarget(it, LINKS.facet$M0dw);
           }
         }));
       }
@@ -85,10 +87,10 @@ public final class FacetDeclaration__BehaviorDescriptor extends BaseBHDescriptor
     return result;
   }
   /*package*/ static String classifierName_id3ZSHU3pg$b_(@NotNull SNode __thisNode__) {
-    return NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) + "_" + SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__));
+    return NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1)) + "_" + SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__));
   }
   /*package*/ static String getFacetFqName_id1ExXGqkc_QX(@NotNull SNode __thisNode__) {
-    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SModelOperations.getModuleStub(SNodeOperations.getModel(__thisNode__))) + "." + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SModelOperations.getModuleStub(SNodeOperations.getModel(__thisNode__))) + "." + SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
   }
 
   /*package*/ FacetDeclaration__BehaviorDescriptor() {
@@ -143,7 +145,14 @@ public final class FacetDeclaration__BehaviorDescriptor extends BaseBHDescriptor
     return CONCEPT;
   }
 
-  private static final class AUX_glgo82 {
-    /*package*/ static final SConcept FacetDeclaration_ec040a6d = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, "jetbrains.mps.make.facet.structure.FacetDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink extended$LsRK = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b2feL, "extended");
+    /*package*/ static final SReferenceLink facet$M0dw = MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet");
+    /*package*/ static final SContainmentLink required$LsSI = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b300L, "required");
+    /*package*/ static final SContainmentLink optional$LsTd = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b301L, "optional");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

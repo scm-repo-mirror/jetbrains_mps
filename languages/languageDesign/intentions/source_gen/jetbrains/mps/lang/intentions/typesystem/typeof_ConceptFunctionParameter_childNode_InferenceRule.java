@@ -25,7 +25,7 @@ public class typeof_ConceptFunctionParameter_childNode_InferenceRule extends Abs
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ll5bfq.ConceptFunctionParameter_childNode_1c9cbaae;
+    return CONCEPTS.ConceptFunctionParameter_childNode$DO;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ConceptFunctionParameter_childNode_InferenceRule extends Abs
     return quotedNode_1;
   }
 
-  private static final class AUX_ll5bfq {
-    /*package*/ static final SConcept ConceptFunctionParameter_childNode_1c9cbaae = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x323731f511d1c750L, "jetbrains.mps.lang.intentions.structure.ConceptFunctionParameter_childNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptFunctionParameter_childNode$DO = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x323731f511d1c750L, "jetbrains.mps.lang.intentions.structure.ConceptFunctionParameter_childNode");
   }
 }

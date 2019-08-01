@@ -40,9 +40,9 @@ public final class CleanUnmatchedParentheses_Intention extends AbstractIntention
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (SNodeOperations.getParent(node) == null || !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_xubfia.Expression_4199e28d))) && ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_xubfia.Expression_4199e28d, false, new SAbstractConcept[]{})).any(new IWhereFilter<SNode>() {
+    return (SNodeOperations.getParent(node) == null || !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Expression$TP))) && ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.Expression$TP, false, new SAbstractConcept[]{})).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_xubfia.IncompleteLeftParen_1befc46d)) != null) || (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_xubfia.IncompleteRightParen_e00c988)) != null);
+        return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteLeftParen$yl)) != null) || (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteRightParen$rq)) != null);
       }
     });
   }
@@ -65,14 +65,14 @@ public final class CleanUnmatchedParentheses_Intention extends AbstractIntention
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_xubfia.Expression_4199e28d, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+      ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.Expression$TP, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_xubfia.IncompleteLeftParen_1befc46d)) != null) || (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_xubfia.IncompleteRightParen_e00c988)) != null);
+          return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteLeftParen$yl)) != null) || (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteRightParen$rq)) != null);
         }
       }).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          AttributeOperations.setAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_xubfia.IncompleteLeftParen_1befc46d), null);
-          AttributeOperations.setAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_xubfia.IncompleteRightParen_e00c988), null);
+          AttributeOperations.setAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteLeftParen$yl), null);
+          AttributeOperations.setAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteRightParen$rq), null);
         }
       });
     }
@@ -82,9 +82,9 @@ public final class CleanUnmatchedParentheses_Intention extends AbstractIntention
     }
   }
 
-  private static final class AUX_xubfia {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept IncompleteRightParen_e00c988 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2052c4520af308e1L, "jetbrains.mps.baseLanguage.structure.IncompleteRightParen");
-    /*package*/ static final SConcept IncompleteLeftParen_1befc46d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64a1ef64cd9b42ceL, "jetbrains.mps.baseLanguage.structure.IncompleteLeftParen");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept IncompleteRightParen$rq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2052c4520af308e1L, "jetbrains.mps.baseLanguage.structure.IncompleteRightParen");
+    /*package*/ static final SConcept IncompleteLeftParen$yl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64a1ef64cd9b42ceL, "jetbrains.mps.baseLanguage.structure.IncompleteLeftParen");
   }
 }

@@ -13,34 +13,39 @@
   </root>
   <root nodeRef="r:2c1c1ba9-9925-4968-a941-24e7e454e210(jetbrains.mps.console.scripts.actions)/2799321329875582952">
     <file name="closure_operations.java">
-      <node id="7973341469126608118" at="18,100,19,427" concept="1" />
-      <node id="1225118885948" at="20,14,21,179" concept="4" />
-      <node id="1225118893832" at="22,28,23,220" concept="1" />
-      <node id="1225118980127" at="24,9,25,297" concept="4" />
-      <node id="1225118982824" at="25,297,26,158" concept="1" />
-      <node id="2799321329875582952" at="32,0,33,0" concept="5" trace="InternalSequenceOperation_2ca93cb3" />
-      <node id="2799321329875582952" at="33,0,34,0" concept="5" trace="ClosureLiteral_6eeca0d3" />
-      <node id="2799321329875582952" at="34,0,35,0" concept="5" trace="SmartClosureParameterDeclaration_38f24421" />
-      <node id="1225118888423" at="21,179,24,9" concept="2" />
-      <node id="7973341469126608114" at="20,12,27,7" concept="0" />
-      <node id="7973341469126606996" at="17,91,27,7" concept="2" />
-      <node id="1225118817881" at="17,0,29,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="7973341469126606997" at="18,100,19,427" />
-      <scope id="1225118888424" at="22,28,23,220" />
-      <scope id="7973341469126608115" at="20,14,26,158">
+      <node id="7973341469126608118" at="20,92,21,211" concept="1" />
+      <node id="1225118885948" at="22,14,23,75" concept="4" />
+      <node id="1225118893832" at="24,28,25,108" concept="1" />
+      <node id="1225118980127" at="26,9,27,177" concept="4" />
+      <node id="1225118982824" at="27,177,28,61" concept="1" />
+      <node id="2799321329875582952" at="34,0,35,0" concept="5" trace="closure$aJtr" />
+      <node id="2799321329875582952" at="35,0,36,0" concept="5" trace="parameter$WRt7" />
+      <node id="2799321329875582952" at="39,0,40,0" concept="5" trace="InternalSequenceOperation$$f" />
+      <node id="2799321329875582952" at="40,0,41,0" concept="5" trace="ClosureLiteral$zJ" />
+      <node id="2799321329875582952" at="41,0,42,0" concept="5" trace="SmartClosureParameterDeclaration$Xx" />
+      <node id="2799321329875582952" at="45,0,46,0" concept="5" trace="name$tAp1" />
+      <node id="1225118888423" at="23,75,26,9" concept="2" />
+      <node id="7973341469126608114" at="22,12,29,7" concept="0" />
+      <node id="7973341469126606996" at="19,91,29,7" concept="2" />
+      <node id="1225118817881" at="19,0,31,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="7973341469126606997" at="20,92,21,211" />
+      <scope id="1225118888424" at="24,28,25,108" />
+      <scope id="7973341469126608115" at="22,14,28,61">
         <var name="pd" id="1225118980128" />
         <var name="sel" id="1225118885949" />
       </scope>
-      <scope id="1225118817881" at="17,91,27,7" />
-      <scope id="1225118817881" at="17,0,29,0">
+      <scope id="1225118817881" at="19,91,29,7" />
+      <scope id="1225118817881" at="19,0,31,0">
         <var name="enclosingNode" id="1225118817881" />
         <var name="model" id="1225118817881" />
         <var name="newNode" id="1225118817881" />
         <var name="sampleNode" id="1225118817881" />
       </scope>
-      <unit id="2799321329875582952" at="31,0,36,0" name="jetbrains.mps.console.scripts.actions.closure_operations$AUX_xonwhk" />
-      <unit id="1225118817881" at="16,0,30,0" name="jetbrains.mps.console.scripts.actions.closure_operations$NodeFactory_1225118817881" />
-      <unit id="2799321329875582952" at="15,0,37,0" name="jetbrains.mps.console.scripts.actions.closure_operations" />
+      <unit id="2799321329875582952" at="44,0,47,0" name="jetbrains.mps.console.scripts.actions.closure_operations$PROPS" />
+      <unit id="2799321329875582952" at="33,0,37,0" name="jetbrains.mps.console.scripts.actions.closure_operations$LINKS" />
+      <unit id="2799321329875582952" at="38,0,43,0" name="jetbrains.mps.console.scripts.actions.closure_operations$CONCEPTS" />
+      <unit id="1225118817881" at="18,0,32,0" name="jetbrains.mps.console.scripts.actions.closure_operations$NodeFactory_1225118817881" />
+      <unit id="2799321329875582952" at="17,0,48,0" name="jetbrains.mps.console.scripts.actions.closure_operations" />
     </file>
   </root>
 </debug-info>

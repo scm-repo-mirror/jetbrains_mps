@@ -9,7 +9,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.constraints.rules.skeleton.behavior.RuleBlockMember__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
@@ -23,6 +22,8 @@ import jetbrains.mps.generator.impl.GenerationFailureException;
 import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -30,30 +31,30 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static boolean rule_Condition_2_0(final BaseMappingRuleContext _context) {
-    if (SNodeOperations.isInstanceOf(_context.getNode(), AUX_x583g4.FailingRuleProblem_9554ad4f)) {
-      SNodeReference pointer = SNodeOperations.getPointer(RuleBlockMember__BehaviorDescriptor.getRuleKind_id1BFxp3HHhyj.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), AUX_x583g4.FailingRuleProblem_9554ad4f), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule"))));
+    if (SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.FailingRuleProblem$JN)) {
+      SNodeReference pointer = SNodeOperations.getPointer(RuleBlockMember__BehaviorDescriptor.getRuleKind_id1BFxp3HHhyj.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), CONCEPTS.FailingRuleProblem$JN), LINKS.rule$Gl8r)));
       return Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "8018723092206382583")) || Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "8018723092206382590"));
     }
     return false;
   }
   public static boolean rule_Condition_2_1(final BaseMappingRuleContext _context) {
-    if (SNodeOperations.isInstanceOf(_context.getNode(), AUX_x583g4.FailingRuleProblem_9554ad4f)) {
-      SNodeReference pointer = SNodeOperations.getPointer(RuleBlockMember__BehaviorDescriptor.getRuleKind_id1BFxp3HHhyj.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), AUX_x583g4.FailingRuleProblem_9554ad4f), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule"))));
+    if (SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.FailingRuleProblem$JN)) {
+      SNodeReference pointer = SNodeOperations.getPointer(RuleBlockMember__BehaviorDescriptor.getRuleKind_id1BFxp3HHhyj.invoke(SLinkOperations.getTarget(SNodeOperations.cast(_context.getNode(), CONCEPTS.FailingRuleProblem$JN), LINKS.rule$Gl8r)));
       return Objects.equals(pointer, new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "8018723092206373487"));
     }
     return false;
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
-    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule")), "ruleID");
+    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), LINKS.rule$Gl8r), "ruleID");
   }
   public static Object referenceMacro_GetReferent_0_1(final ReferenceMacroContext _context) {
-    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule")), "ruleClass");
+    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), LINKS.rule$Gl8r), "ruleClass");
   }
   public static Object referenceMacro_GetReferent_1_0(final ReferenceMacroContext _context) {
-    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule")), "ruleID");
+    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), LINKS.rule$Gl8r), "ruleID");
   }
   public static Object referenceMacro_GetReferent_1_1(final ReferenceMacroContext _context) {
-    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule")), "ruleClass");
+    return _context.getOutputNodeByInputNodeAndMappingLabel(SLinkOperations.getTarget(_context.getNode(), LINKS.rule$Gl8r), "ruleClass");
   }
   private final Map<String, ReductionRuleCondition> rrcMethods = new HashMap<String, ReductionRuleCondition>();
   {
@@ -126,7 +127,11 @@ public class QueriesGenerated extends QueryProviderBase {
     }
   }
 
-  private static final class AUX_x583g4 {
-    /*package*/ static final SConcept FailingRuleProblem_9554ad4f = MetaAdapterFactory.getConcept(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, "jetbrains.mps.lang.feedback.problem.failingRule.structure.FailingRuleProblem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FailingRuleProblem$JN = MetaAdapterFactory.getConcept(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, "jetbrains.mps.lang.feedback.problem.failingRule.structure.FailingRuleProblem");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink rule$Gl8r = MetaAdapterFactory.getReferenceLink(0xdb2a46c2ebec4b6cL, 0xb6c2f9b55b9b6f8aL, 0x573ae5b8b8cd0cf7L, 0x573ae5b8b8cd1498L, "rule");
   }
 }

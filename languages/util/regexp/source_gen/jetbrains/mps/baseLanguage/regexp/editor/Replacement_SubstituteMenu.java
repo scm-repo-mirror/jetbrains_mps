@@ -20,7 +20,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -29,13 +28,15 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import java.util.regex.Pattern;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Replacement_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_h3zx5f_a(), AUX_h3zx5f.LiteralReplacement_bb250788));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_h3zx5f_a(), CONCEPTS.LiteralReplacement$zq));
     result.add(new SMP_Subconcepts_h3zx5f_b());
     return result;
   }
@@ -81,7 +82,7 @@ public class Replacement_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_h3zx5f.LiteralReplacement_bb250788, context);
+        super(CONCEPTS.LiteralReplacement$zq, context);
         _context = context;
       }
 
@@ -92,8 +93,8 @@ public class Replacement_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode literal = SNodeFactoryOperations.createNewNode(AUX_h3zx5f.LiteralReplacement_bb250788, null);
-        SPropertyOperations.assign(literal, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94cL, 0x34ae970c192b203bL, "text"), pattern);
+        SNode literal = SNodeFactoryOperations.createNewNode(CONCEPTS.LiteralReplacement$zq, null);
+        SPropertyOperations.assign(literal, PROPS.text$$vcr, pattern);
         return literal;
       }
 
@@ -126,7 +127,7 @@ public class Replacement_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_h3zx5f_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_h3zx5f.Replacement_bb25078e);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.Replacement$Ak);
     }
     @NotNull
     @Override
@@ -147,8 +148,12 @@ public class Replacement_SubstituteMenu extends SubstituteMenuBase {
   }
   private static final Pattern REGEXP_h3zx5f_a0a0a31c5 = Pattern.compile("[^\\\\]+", 0);
 
-  private static final class AUX_h3zx5f {
-    /*package*/ static final SConcept LiteralReplacement_bb250788 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94cL, "jetbrains.mps.baseLanguage.regexp.structure.LiteralReplacement");
-    /*package*/ static final SConcept Replacement_bb25078e = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab952L, "jetbrains.mps.baseLanguage.regexp.structure.Replacement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LiteralReplacement$zq = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94cL, "jetbrains.mps.baseLanguage.regexp.structure.LiteralReplacement");
+    /*package*/ static final SConcept Replacement$Ak = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab952L, "jetbrains.mps.baseLanguage.regexp.structure.Replacement");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$$vcr = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94cL, 0x34ae970c192b203bL, "text");
   }
 }

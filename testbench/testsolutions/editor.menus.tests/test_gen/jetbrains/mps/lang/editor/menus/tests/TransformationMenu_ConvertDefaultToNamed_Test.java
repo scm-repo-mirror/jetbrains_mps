@@ -35,11 +35,11 @@ public class TransformationMenu_ConvertDefaultToNamed_Test extends BaseTransform
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("5339489019635994813", "5339489019635994825");
-      invokeParameterizedIntention("jetbrains.mps.lang.editor.intentions.ConvertTransformationMenu_Intention", AUX_e2n9ak.TransformationMenu_Named_37b65df8, myStart.getNode());
+      invokeParameterizedIntention("jetbrains.mps.lang.editor.intentions.ConvertTransformationMenu_Intention", CONCEPTS.TransformationMenu_Named$1E, myStart.getNode());
     }
   }
 
-  private static final class AUX_e2n9ak {
-    /*package*/ static final SConcept TransformationMenu_Named_37b65df8 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0ac4ee8L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Named");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenu_Named$1E = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0ac4ee8L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Named");
   }
 }

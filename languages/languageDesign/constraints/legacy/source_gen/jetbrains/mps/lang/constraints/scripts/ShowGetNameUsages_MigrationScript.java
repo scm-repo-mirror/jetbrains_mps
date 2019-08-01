@@ -9,11 +9,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ShowGetNameUsages_MigrationScript extends BaseMigrationScript {
   public ShowGetNameUsages_MigrationScript() {
@@ -29,11 +31,11 @@ public final class ShowGetNameUsages_MigrationScript extends BaseMigrationScript
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_th6w08.NodePropertyConstraint_95960da6;
+        return CONCEPTS.NodePropertyConstraint$pW;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        return Objects.equals(SPropertyOperations.getString(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "name");
+        return Objects.equals(SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.applicableProperty$j$lM), PROPS.name$tAp1), "name");
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
@@ -51,7 +53,15 @@ public final class ShowGetNameUsages_MigrationScript extends BaseMigrationScript
     return PersistenceFacade.getInstance().createNodeReference("r:06347ba9-55db-4390-a23e-cfba36a9507f(jetbrains.mps.lang.constraints.scripts)/6243486444683604044");
   }
 
-  private static final class AUX_th6w08 {
-    /*package*/ static final SConcept NodePropertyConstraint_95960da6 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, "jetbrains.mps.lang.constraints.structure.NodePropertyConstraint");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodePropertyConstraint$pW = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, "jetbrains.mps.lang.constraints.structure.NodePropertyConstraint");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink applicableProperty$j$lM = MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, 0x10b2a61697bL, "applicableProperty");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

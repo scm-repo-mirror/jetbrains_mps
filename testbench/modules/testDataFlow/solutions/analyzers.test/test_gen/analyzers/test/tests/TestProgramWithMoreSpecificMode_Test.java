@@ -24,6 +24,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.Arrays;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @MPSLaunch
 public class TestProgramWithMoreSpecificMode_Test extends BaseTransformationTest {
@@ -55,15 +56,20 @@ public class TestProgramWithMoreSpecificMode_Test extends BaseTransformationTest
       addNodeById("7078910619969225966");
       MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Collections.singletonList(new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
       Program program = builder.buildProgram(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))));
-      Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))), MetaAdapterFactory.getContainmentLink(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x623d57b40400d6baL, 0x623d57b40400d6bdL, "child"))).count() + 1);
+      Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))), LINKS.child$Nivu)).count() + 1);
     }
     public void test_testMoreSpecificMode() throws Exception {
       addNodeById("7078910619969225966");
       MPSProgramBuilder builder = new MPSProgramBuilder(null, new InstructionBuilder(), new ProgramBuilderContextImpl(Arrays.asList(new ConceptDataFlowModeId("jetbrains.mps.testCustomDataFlow.structure.IntraProceduralSpecific_BuilderMode"), new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
       Program program = builder.buildProgram(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))));
-      Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))), MetaAdapterFactory.getContainmentLink(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x623d57b40400d6baL, 0x623d57b40400d6bdL, "child"))).count() + Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))), MetaAdapterFactory.getContainmentLink(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x623d57b40400d6baL, 0x623d57b40400d6bdL, "child")), MetaAdapterFactory.getContainmentLink(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x623d57b40400d6bbL, 0x623d57b40400d6faL, "child"))).count() + 1);
+      Assert.assertTrue(program.getInstructions().size() == ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))), LINKS.child$Nivu)).count() + Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.cast(getNodeById("7078910619969226058"), SNodeOperations.asSConcept(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, "testCustomAnalyzer"), 0x623d57b40400d6baL, "OtherRoot"))), LINKS.child$Nivu), LINKS.child$NoPp)).count() + 1);
     }
 
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink child$Nivu = MetaAdapterFactory.getContainmentLink(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x623d57b40400d6baL, 0x623d57b40400d6bdL, "child");
+    /*package*/ static final SContainmentLink child$NoPp = MetaAdapterFactory.getContainmentLink(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x623d57b40400d6bbL, 0x623d57b40400d6faL, "child");
   }
 }

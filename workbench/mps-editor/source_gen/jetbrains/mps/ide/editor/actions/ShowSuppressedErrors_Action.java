@@ -25,7 +25,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import java.util.HashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.item.FlavouredItem;
 import jetbrains.mps.errors.item.RuleIdFlavouredItem;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
@@ -48,7 +47,9 @@ import jetbrains.mps.ide.editor.util.CustomizedNavigatableRenderer;
 import java.util.Comparator;
 import com.intellij.util.Function;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ShowSuppressedErrors_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -99,18 +100,18 @@ public class ShowSuppressedErrors_Action extends BaseAction {
       public void run() {
         List<SNode> suppressed = ListSequence.fromList(new ArrayList<SNode>());
         SNode parent;
-        if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), AUX_9whqfg.ICanSuppressErrors_96ee6c6c)) {
-          parent = SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), AUX_9whqfg.ICanSuppressErrors_96ee6c6c);
-          ListSequence.fromList(suppressed).addSequence(ListSequence.fromList(AttributeOperations.getAttributeList(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), AUX_9whqfg.ICanSuppressErrors_96ee6c6c), new IAttributeDescriptor.NodeAttribute(AUX_9whqfg.SuppressErrorsAnnotation_4912d93))));
-        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), AUX_9whqfg.SuppressErrorsAnnotation_4912d93)) {
-          parent = SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), AUX_9whqfg.SuppressErrorsAnnotation_4912d93)), AUX_9whqfg.ICanSuppressErrors_96ee6c6c);
-          ListSequence.fromList(suppressed).addElement(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), AUX_9whqfg.SuppressErrorsAnnotation_4912d93));
+        if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q)) {
+          parent = SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q);
+          ListSequence.fromList(suppressed).addSequence(ListSequence.fromList(AttributeOperations.getAttributeList(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q), new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))));
+        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ)) {
+          parent = SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ)), CONCEPTS.ICanSuppressErrors$1Q);
+          ListSequence.fromList(suppressed).addElement(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ));
         } else {
           throw new IllegalStateException();
         }
         for (final SNode suppress : ListSequence.fromList(suppressed)) {
           Map<String, String> predicateFlavours = new HashMap<String, String>();
-          final String errorSpecialization = SPropertyOperations.getString(suppress, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter"));
+          final String errorSpecialization = SPropertyOperations.getString(suppress, PROPS.filter$UuSh);
           try {
             if ((errorSpecialization != null && errorSpecialization.length() > 0)) {
               predicateFlavours = FlavouredItem.ReportItemPredicate.deserialize(errorSpecialization).getFlavours();
@@ -118,7 +119,7 @@ public class ShowSuppressedErrors_Action extends BaseAction {
           } catch (RuntimeException exception) {
           }
           List<RuleIdFlavouredItem.TypesystemRuleId> rules = ListSequence.fromList(new ArrayList<RuleIdFlavouredItem.TypesystemRuleId>());
-          String message = SPropertyOperations.getString(suppress, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message"));
+          String message = SPropertyOperations.getString(suppress, PROPS.message$PX4b);
           DefaultActionGroup actionGroup = new DefaultActionGroup();
           actionGroup.add(new AnAction("Stop Suppressing", "Do not suppress error", MPSIcons.Actions.SuppressedError) {
             public void actionPerformed(@NotNull AnActionEvent event) {
@@ -166,7 +167,7 @@ public class ShowSuppressedErrors_Action extends BaseAction {
           };
           ListSequence.fromList(navigatables).addElement(navigatable);
         }
-        title.value = "Errors suppressed for " + ((String) BHReflection.invoke0(parent, AUX_9whqfg.ICanSuppressErrors_96ee6c6c, SMethodTrimmedId.create("nodeDescription", null, "4oS1ku9jIXr")));
+        title.value = "Errors suppressed for " + ((String) BHReflection.invoke0(parent, CONCEPTS.ICanSuppressErrors$1Q, SMethodTrimmedId.create("nodeDescription", null, "4oS1ku9jIXr")));
       }
     });
     GoToContextMenuHelperBase<CustomizedNavigatable> helper = new GoToContextMenuHelperBase<CustomizedNavigatable>(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), new CaptionFunction() {
@@ -186,8 +187,13 @@ public class ShowSuppressedErrors_Action extends BaseAction {
     helper.showMenu(navigatables, relativePoint);
   }
 
-  private static final class AUX_9whqfg {
-    /*package*/ static final SInterfaceConcept ICanSuppressErrors_96ee6c6c = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f42L, "jetbrains.mps.lang.core.structure.ICanSuppressErrors");
-    /*package*/ static final SConcept SuppressErrorsAnnotation_4912d93 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ICanSuppressErrors$1Q = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f42L, "jetbrains.mps.lang.core.structure.ICanSuppressErrors");
+    /*package*/ static final SConcept SuppressErrorsAnnotation$gJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty filter$UuSh = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter");
+    /*package*/ static final SProperty message$PX4b = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message");
   }
 }

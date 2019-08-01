@@ -42,7 +42,7 @@ public final class ConvertClassConceptToExtract_Intention extends AbstractIntent
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), AUX_eoyofc.ClassConcept_e2711824);
+    return SConceptOperations.isExactly(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), CONCEPTS.ClassConcept$IY);
   }
   @Override
   public boolean isSurroundWith() {
@@ -63,7 +63,7 @@ public final class ConvertClassConceptToExtract_Intention extends AbstractIntent
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode newNode = SNodeFactoryOperations.createNewNode(AUX_eoyofc.ExtractStaticInnerClassConcept_70c84def, null);
+      SNode newNode = SNodeFactoryOperations.createNewNode(CONCEPTS.ExtractStaticInnerClassConcept$Xj, null);
       for (SNode child : SNodeOperations.getChildren(newNode)) {
         SNodeOperations.deleteNode(child);
       }
@@ -88,8 +88,8 @@ public final class ConvertClassConceptToExtract_Intention extends AbstractIntent
     }
   }
 
-  private static final class AUX_eoyofc {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept ExtractStaticInnerClassConcept_70c84def = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0xd01bb6e8b1cd97aL, "jetbrains.mps.baseLanguageInternal.structure.ExtractStaticInnerClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept ExtractStaticInnerClassConcept$Xj = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0xd01bb6e8b1cd97aL, "jetbrains.mps.baseLanguageInternal.structure.ExtractStaticInnerClassConcept");
   }
 }

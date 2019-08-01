@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -31,10 +30,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SuperConceptExpression_Constraints extends BaseConstraintsDescriptor {
   public SuperConceptExpression_Constraints() {
-    super(AUX_elg54e.SuperConceptExpression_a6afd4b);
+    super(CONCEPTS.SuperConceptExpression$HR);
   }
 
   @Override
@@ -54,7 +54,7 @@ public class SuperConceptExpression_Constraints extends BaseConstraintsDescripto
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, 0x69a9d7dcb057a7a8L, "superConcept"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.superConcept$nNkw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -70,21 +70,21 @@ public class SuperConceptExpression_Constraints extends BaseConstraintsDescripto
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> result = new ArrayList<SNode>();
-            SNode abstractConceptDeclaration = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), AUX_elg54e.ConceptBehavior_68ebe6cd, false, false), MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept"));
-            if (SNodeOperations.isInstanceOf(abstractConceptDeclaration, AUX_elg54e.ConceptDeclaration_cb225da8)) {
+            SNode abstractConceptDeclaration = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getReferenceNode(), CONCEPTS.ConceptBehavior$8P, false, false), LINKS.concept$v6ns);
+            if (SNodeOperations.isInstanceOf(abstractConceptDeclaration, CONCEPTS.ConceptDeclaration$qU)) {
               SNode cd = (SNode) abstractConceptDeclaration;
-              SNode extendsNode = SLinkOperations.getTarget(cd, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends"));
+              SNode extendsNode = SLinkOperations.getTarget(cd, LINKS.extends$LQV3);
               if (extendsNode != null) {
                 ListSequence.fromList(result).addElement(extendsNode);
               }
-              for (SNode itfcRef : SLinkOperations.getChildren(cd, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements"))) {
-                ListSequence.fromList(result).addElement(SLinkOperations.getTarget(itfcRef, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc")));
+              for (SNode itfcRef : SLinkOperations.getChildren(cd, LINKS.implements$oQDh)) {
+                ListSequence.fromList(result).addElement(SLinkOperations.getTarget(itfcRef, LINKS.intfc$fO5));
               }
             }
-            if (SNodeOperations.isInstanceOf(abstractConceptDeclaration, AUX_elg54e.InterfaceConceptDeclaration_efdf2bc9)) {
+            if (SNodeOperations.isInstanceOf(abstractConceptDeclaration, CONCEPTS.InterfaceConceptDeclaration$MT)) {
               SNode itfc = (SNode) abstractConceptDeclaration;
-              for (SNode itfcRef : SLinkOperations.getChildren(itfc, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends"))) {
-                ListSequence.fromList(result).addElement(SLinkOperations.getTarget(itfcRef, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc")));
+              for (SNode itfcRef : SLinkOperations.getChildren(itfc, LINKS.extends$3Y1p)) {
+                ListSequence.fromList(result).addElement(SLinkOperations.getTarget(itfcRef, LINKS.intfc$fO5));
               }
             }
             return ListScope.forResolvableElements(result);
@@ -102,10 +102,19 @@ public class SuperConceptExpression_Constraints extends BaseConstraintsDescripto
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:6786d6ee-e5cc-4a77-9efd-65a8dca8b187(jetbrains.mps.lang.behavior.constraints)", "1227128029536560969");
   private static final SNodePointer breakingNode_elg54e_a0a0a0a0a1a0a0a0d = new SNodePointer("r:6786d6ee-e5cc-4a77-9efd-65a8dca8b187(jetbrains.mps.lang.behavior.constraints)", "6836281137582780620");
 
-  private static final class AUX_elg54e {
-    /*package*/ static final SConcept SuperConceptExpression_a6afd4b = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, "jetbrains.mps.lang.behavior.structure.SuperConceptExpression");
-    /*package*/ static final SConcept ConceptBehavior_68ebe6cd = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuperConceptExpression$HR = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, "jetbrains.mps.lang.behavior.structure.SuperConceptExpression");
+    /*package*/ static final SConcept ConceptBehavior$8P = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink superConcept$nNkw = MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x69a9d7dcb057a7a7L, 0x69a9d7dcb057a7a8L, "superConcept");
+    /*package*/ static final SReferenceLink concept$v6ns = MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept");
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
+    /*package*/ static final SReferenceLink intfc$fO5 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L, 0x110356fe029L, "intfc");
+    /*package*/ static final SContainmentLink implements$oQDh = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements");
+    /*package*/ static final SContainmentLink extends$3Y1p = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, 0x110356e9df4L, "extends");
   }
 }

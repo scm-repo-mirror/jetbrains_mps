@@ -57,17 +57,17 @@ public final class CreateListAntiquotation_Intention extends AbstractIntentionDe
       if (contextNode == null) {
         return;
       }
-      if (SNodeOperations.isInstanceOf(contextNode, AUX_3busu6.ListAntiquotation_25f29ad6)) {
+      if (SNodeOperations.isInstanceOf(contextNode, CONCEPTS.ListAntiquotation$Xc)) {
         SNode attributedNode = SNodeOperations.getParent(contextNode);
         assert attributedNode != null;
-        AttributeOperations.setAttribute(attributedNode, new IAttributeDescriptor.NodeAttribute(AUX_3busu6.ListAntiquotation_25f29ad6), null);
+        AttributeOperations.setAttribute(attributedNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ListAntiquotation$Xc), null);
         return;
       }
       SModel model = SNodeOperations.getModel(contextNode);
-      if ((AttributeOperations.getAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(AUX_3busu6.ListAntiquotation_25f29ad6)) != null)) {
-        AttributeOperations.setAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(AUX_3busu6.ListAntiquotation_25f29ad6), null);
+      if ((AttributeOperations.getAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ListAntiquotation$Xc)) != null)) {
+        AttributeOperations.setAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ListAntiquotation$Xc), null);
       } else {
-        SNode listAntiquotation = SNodeFactoryOperations.setNewAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(AUX_3busu6.ListAntiquotation_25f29ad6), AUX_3busu6.ListAntiquotation_25f29ad6);
+        SNode listAntiquotation = SNodeFactoryOperations.setNewAttribute(contextNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ListAntiquotation$Xc), CONCEPTS.ListAntiquotation$Xc);
         editorContext.selectWRTFocusPolicy(listAntiquotation);
       }
     }
@@ -77,7 +77,7 @@ public final class CreateListAntiquotation_Intention extends AbstractIntentionDe
     }
   }
 
-  private static final class AUX_3busu6 {
-    /*package*/ static final SConcept ListAntiquotation_25f29ad6 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c10465eL, "jetbrains.mps.lang.quotation.structure.ListAntiquotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ListAntiquotation$Xc = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c10465eL, "jetbrains.mps.lang.quotation.structure.ListAntiquotation");
   }
 }

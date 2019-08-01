@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,16 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class MatchVariableReferenceRegexp_Constraints extends BaseConstraintsDescriptor {
   public MatchVariableReferenceRegexp_Constraints() {
-    super(AUX_15u81x.MatchVariableReferenceRegexp_56011be0);
+    super(CONCEPTS.MatchVariableReferenceRegexp$Y2);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1118e0a1c55L, 0x1118e0a5335L, "match"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.match$3_90, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,12 +50,12 @@ public class MatchVariableReferenceRegexp_Constraints extends BaseConstraintsDes
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> matches = new ArrayList<SNode>();
             SNode top = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
-            while (SNodeOperations.getParent(top) != null && SNodeOperations.isInstanceOf(SNodeOperations.getParent(top), AUX_15u81x.Regexp_491174f0)) {
+            while (SNodeOperations.getParent(top) != null && SNodeOperations.isInstanceOf(SNodeOperations.getParent(top), CONCEPTS.Regexp$xM)) {
               top = SNodeOperations.getParent(top);
             }
-            ListSequence.fromList(matches).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(top, AUX_15u81x.MatchParensRegexp_6b89f08c, true, new SAbstractConcept[]{})));
-            if (SNodeOperations.isInstanceOf(top, AUX_15u81x.MatchParensRegexp_6b89f08c)) {
-              ListSequence.fromList(matches).addElement(SNodeOperations.cast(top, AUX_15u81x.MatchParensRegexp_6b89f08c));
+            ListSequence.fromList(matches).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(top, CONCEPTS.MatchParensRegexp$1m, true, new SAbstractConcept[]{})));
+            if (SNodeOperations.isInstanceOf(top, CONCEPTS.MatchParensRegexp$1m)) {
+              ListSequence.fromList(matches).addElement(SNodeOperations.cast(top, CONCEPTS.MatchParensRegexp$1m));
             }
             return ListScope.forResolvableElements(matches);
           }
@@ -68,9 +68,13 @@ public class MatchVariableReferenceRegexp_Constraints extends BaseConstraintsDes
   }
   private static final SNodePointer breakingNode_15u81x_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590515(jetbrains.mps.baseLanguage.regexp.constraints)", "6836281137582820376");
 
-  private static final class AUX_15u81x {
-    /*package*/ static final SConcept MatchVariableReferenceRegexp_56011be0 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1118e0a1c55L, "jetbrains.mps.baseLanguage.regexp.structure.MatchVariableReferenceRegexp");
-    /*package*/ static final SConcept Regexp_491174f0 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a06efdL, "jetbrains.mps.baseLanguage.regexp.structure.Regexp");
-    /*package*/ static final SConcept MatchParensRegexp_6b89f08c = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111797946c7L, "jetbrains.mps.baseLanguage.regexp.structure.MatchParensRegexp");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatchVariableReferenceRegexp$Y2 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1118e0a1c55L, "jetbrains.mps.baseLanguage.regexp.structure.MatchVariableReferenceRegexp");
+    /*package*/ static final SConcept Regexp$xM = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a06efdL, "jetbrains.mps.baseLanguage.regexp.structure.Regexp");
+    /*package*/ static final SConcept MatchParensRegexp$1m = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111797946c7L, "jetbrains.mps.baseLanguage.regexp.structure.MatchParensRegexp");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink match$3_90 = MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1118e0a1c55L, 0x1118e0a5335L, "match");
   }
 }

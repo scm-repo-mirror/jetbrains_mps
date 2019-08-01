@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -39,13 +38,15 @@ import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BuildVariableMacroInitValue_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_8kfjf0_a(), AUX_8kfjf0.BuildVariableMacroInitValue_31bb6195));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_8kfjf0_a(), CONCEPTS.BuildVariableMacroInitValue$1H));
     result.add(new SMP_Subconcepts_8kfjf0_b());
     return result;
   }
@@ -86,14 +87,14 @@ public class BuildVariableMacroInitValue_SubstituteMenu extends SubstituteMenuBa
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_8kfjf0.BuildVariableMacroInitValue_31bb6195;
+          return CONCEPTS.BuildVariableMacroInitValue$1H;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
-          SNode init = SModelOperations.createNewNode(_context.getModel(), null, AUX_8kfjf0.BuildVariableMacroInitWithString_31e70515);
-          SLinkOperations.setTarget(init, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd26287L, 0x263c91972cd2628dL, "value"), nodeToWrap);
+          SNode init = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.BuildVariableMacroInitWithString$NH);
+          SLinkOperations.setTarget(init, LINKS.value$S2VV, nodeToWrap);
           return init;
         }
 
@@ -120,12 +121,12 @@ public class BuildVariableMacroInitValue_SubstituteMenu extends SubstituteMenuBa
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_8kfjf0.BuildString_bd6afb30;
+      return CONCEPTS.BuildString$CM;
     }
   }
   public class SMP_Subconcepts_8kfjf0_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_8kfjf0.BuildVariableMacroInitValue_31bb6195);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildVariableMacroInitValue$1H);
     }
     @NotNull
     @Override
@@ -145,9 +146,13 @@ public class BuildVariableMacroInitValue_SubstituteMenu extends SubstituteMenuBa
     }
   }
 
-  private static final class AUX_8kfjf0 {
-    /*package*/ static final SConcept BuildVariableMacroInitValue_31bb6195 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd1e1aaL, "jetbrains.mps.build.structure.BuildVariableMacroInitValue");
-    /*package*/ static final SConcept BuildVariableMacroInitWithString_31e70515 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd26287L, "jetbrains.mps.build.structure.BuildVariableMacroInitWithString");
-    /*package*/ static final SConcept BuildString_bd6afb30 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, "jetbrains.mps.build.structure.BuildString");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildVariableMacroInitValue$1H = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd1e1aaL, "jetbrains.mps.build.structure.BuildVariableMacroInitValue");
+    /*package*/ static final SConcept BuildVariableMacroInitWithString$NH = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd26287L, "jetbrains.mps.build.structure.BuildVariableMacroInitWithString");
+    /*package*/ static final SConcept BuildString$CM = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, "jetbrains.mps.build.structure.BuildString");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink value$S2VV = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd26287L, 0x263c91972cd2628dL, "value");
   }
 }

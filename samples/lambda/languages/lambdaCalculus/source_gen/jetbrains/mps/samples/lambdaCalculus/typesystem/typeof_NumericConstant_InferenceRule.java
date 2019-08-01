@@ -25,7 +25,7 @@ public class typeof_NumericConstant_InferenceRule extends AbstractInferenceRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4r4vxo.NumericConstant_e7f1798a;
+    return CONCEPTS.NumericConstant$so;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_NumericConstant_InferenceRule extends AbstractInferenceRule_
     return quotedNode_1;
   }
 
-  private static final class AUX_4r4vxo {
-    /*package*/ static final SConcept NumericConstant_e7f1798a = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dd5L, "jetbrains.mps.samples.lambdaCalculus.structure.NumericConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NumericConstant$so = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dd5L, "jetbrains.mps.samples.lambdaCalculus.structure.NumericConstant");
   }
 }

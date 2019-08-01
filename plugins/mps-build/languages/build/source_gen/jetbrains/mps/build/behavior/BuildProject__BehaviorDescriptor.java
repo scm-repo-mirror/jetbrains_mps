@@ -4,6 +4,7 @@ package jetbrains.mps.build.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -21,7 +22,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.build.util.RelativePathHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -43,11 +43,13 @@ import java.util.ArrayList;
 import jetbrains.mps.scope.CompositeScope;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_671s9y.BuildProject_808bb057;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
 
   public static final SMethod<String> getBasePath_id4jjtc7WZOyG = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBasePath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4jjtc7WZOyG").build(SMethodBuilder.createJavaParameter(Context.class, ""));
   public static final SMethod<String> getScriptsPath_id4ahc858UcHk = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getScriptsPath").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4ahc858UcHk").build(SMethodBuilder.createJavaParameter(Context.class, ""));
@@ -73,9 +75,9 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
       // model is packaged, i.e. no base path for it 
       return null;
     }
-    if (isNotEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x48387ebae1a07a23L, "internalBaseDirectory")))) {
+    if (isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.internalBaseDirectory$E778))) {
       try {
-        return relativePathHelper.makeAbsolute(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x48387ebae1a07a23L, "internalBaseDirectory")));
+        return relativePathHelper.makeAbsolute(SPropertyOperations.getString(__thisNode__, PROPS.internalBaseDirectory$E778));
       } catch (RelativePathHelper.PathException ex) {
         // no idea - use default path 
       }
@@ -84,13 +86,13 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
   }
   @Nullable
   /*package*/ static String getScriptsPath_id4ahc858UcHk(@NotNull SNode __thisNode__, Context context) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4291308148e8c6beL, "scriptsDir")) != null)) {
-      return BuildSourcePath__BehaviorDescriptor.getLocalPath_id4Kip2_918Y$.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4291308148e8c6beL, "scriptsDir")), context);
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.scriptsDir$57XF) != null)) {
+      return BuildSourcePath__BehaviorDescriptor.getLocalPath_id4Kip2_918Y$.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.scriptsDir$57XF), context);
     }
     return BuildProject__BehaviorDescriptor.getBasePath_id4jjtc7WZOyG.invoke(__thisNode__, context);
   }
   /*package*/ static String getOutputFileName_id4gSHdTptyu0(@NotNull SNode __thisNode__) {
-    return (isEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4438b4de59410ebcL, "fileName"))) ? "build.xml" : SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4438b4de59410ebcL, "fileName")));
+    return (isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.fileName$L1hm)) ? "build.xml" : SPropertyOperations.getString(__thisNode__, PROPS.fileName$L1hm));
   }
   /*package*/ static String getBasePathRelativeToScriptsPath_id4vrYmjR0nBP(@NotNull SNode __thisNode__, Context context) {
     String scriptsPath = BuildProject__BehaviorDescriptor.getScriptsPath_id4ahc858UcHk.invoke(__thisNode__, context);
@@ -106,33 +108,33 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
     }
   }
   /*package*/ static Scope getScope_id13YBgBBRT49(@NotNull SNode __thisNode__, SAbstractConcept kind, SContainmentLink link) {
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), AUX_671s9y.BuildExternalLayout_3db8da22)) {
+    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.BuildExternalLayout$A0)) {
       return new ModelPlusImportedScope(SNodeOperations.getModel(__thisNode__), true, kind);
     }
 
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), AUX_671s9y.BuildProject_808bb057)) {
+    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.BuildProject$BF)) {
       final SNode _this = __thisNode__;
       return ScopeUtil.where(new ModelPlusImportedScope(SNodeOperations.getModel(__thisNode__), true, kind), new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
         public Boolean invoke(SNode n) {
-          return n != _this && !(Sequence.fromIterable(BuildProject__BehaviorDescriptor.getVisibleProjects_id13YBgBBRSOL.invoke(SNodeOperations.cast(n, AUX_671s9y.BuildProject_808bb057), ((boolean) false))).contains(_this));
+          return n != _this && !(Sequence.fromIterable(BuildProject__BehaviorDescriptor.getVisibleProjects_id13YBgBBRSOL.invoke(SNodeOperations.cast(n, CONCEPTS.BuildProject$BF), ((boolean) false))).contains(_this));
         }
       });
     }
 
     // NOTE: references in project structure and layout should be unordered, thus 
     //       we do not need index/child parameters here 
-    if (MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout").equals(link)) {
-      if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), AUX_671s9y.BuildSource_FilesetProjectPart_5a5070f5)) {
-        return DescendantsScope.forNamedElements(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts"), kind);
+    if (LINKS.layout$tpCz.equals(link)) {
+      if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.BuildSource_FilesetProjectPart$Od)) {
+        return DescendantsScope.forNamedElements(__thisNode__, LINKS.parts$tgxg, kind);
       }
-      for (SNode plugin : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x5c3f3e2c1ce9ac70L, "plugins")))) {
+      for (SNode plugin : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.plugins$97JG))) {
         Scope layoutScope = BuildPlugin__BehaviorDescriptor.getLayoutScope_id13YBgBBRSOA.invoke(plugin, kind);
         if (layoutScope != null) {
           return layoutScope;
         }
       }
-    } else if (MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts").equals(link)) {
-      for (SNode plugin : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x5c3f3e2c1ce9ac70L, "plugins")))) {
+    } else if (LINKS.parts$tgxg.equals(link)) {
+      for (SNode plugin : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.plugins$97JG))) {
         Scope projectScope = BuildPlugin__BehaviorDescriptor.getProjectStructureScope_id3fifI_xCJOQ.invoke(plugin, kind);
         if (projectScope != null) {
           return projectScope;
@@ -142,7 +144,7 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
     return new EmptyScope();
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, final SNode child) {
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), AUX_671s9y.BuildMacro_808bb078)) {
+    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.BuildMacro$RE)) {
       return BuildProject__BehaviorDescriptor.getBuildMacroScope_id3h9a8EwPwcy.invoke(__thisNode__, child, SetSequence.fromSet(new HashSet<SNode>()));
     }
 
@@ -156,13 +158,13 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static Iterable<SNode> getVisibleProjects_id13YBgBBRSOL(@NotNull final SNode __thisNode__, boolean directDependenciesOnly) {
     if (directDependenciesOnly) {
-      return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a25L, "dependencies"))).where(new IWhereFilter<SNode>() {
+      return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.dependencies$tpR5)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, AUX_671s9y.BuildProjectDependency_6a704312) && SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_671s9y.BuildProjectDependency_6a704312), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, 0x4df58c6f18f84a24L, "script")) != __thisNode__;
+          return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildProjectDependency$Ug) && SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.BuildProjectDependency$Ug), LINKS.script$mz1x) != __thisNode__;
         }
       }).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_671s9y.BuildProjectDependency_6a704312), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, 0x4df58c6f18f84a24L, "script"));
+          return SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.BuildProjectDependency$Ug), LINKS.script$mz1x);
         }
       });
     } else {
@@ -176,11 +178,11 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
     if (!(result.add(current))) {
       return;
     }
-    for (SNode dep : ListSequence.fromList(SLinkOperations.getChildren(current, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a25L, "dependencies")))) {
-      if (!(SNodeOperations.isInstanceOf(dep, AUX_671s9y.BuildProjectDependency_6a704312))) {
+    for (SNode dep : ListSequence.fromList(SLinkOperations.getChildren(current, LINKS.dependencies$tpR5))) {
+      if (!(SNodeOperations.isInstanceOf(dep, CONCEPTS.BuildProjectDependency$Ug))) {
         continue;
       }
-      BuildProject__BehaviorDescriptor.collectVisibleProjects_id13YBgBBRSXj.invoke(__thisNode__, result, SLinkOperations.getTarget(SNodeOperations.cast(dep, AUX_671s9y.BuildProjectDependency_6a704312), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, 0x4df58c6f18f84a24L, "script")));
+      BuildProject__BehaviorDescriptor.collectVisibleProjects_id13YBgBBRSXj.invoke(__thisNode__, result, SLinkOperations.getTarget(SNodeOperations.cast(dep, CONCEPTS.BuildProjectDependency$Ug), LINKS.script$mz1x));
     }
   }
   /*package*/ static Scope getBuildMacroScope_id3h9a8EwPwcy(@NotNull SNode __thisNode__, final SNode child, final Set<SNode> visited) {
@@ -188,22 +190,22 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
       return new EmptyScope();
     }
     SetSequence.fromSet(visited).addElement(__thisNode__);
-    Scope rootScope = ScopeUtil.simpleRoleScope(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros"));
-    SNode containingProject = SNodeOperations.getNodeAncestor(child, AUX_671s9y.BuildProject_808bb057, false, false);
+    Scope rootScope = ScopeUtil.simpleRoleScope(__thisNode__, LINKS.macros$tpFt);
+    SNode containingProject = SNodeOperations.getNodeAncestor(child, CONCEPTS.BuildProject$BF, false, false);
     if (!(Objects.equals(containingProject, __thisNode__))) {
       // we are imported => give away only public macro 
       rootScope = ScopeUtil.where(rootScope, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
         public Boolean invoke(SNode node) {
-          return (boolean) BuildMacro__BehaviorDescriptor.isPublic_id5FtnUVJQZyL.invoke(SNodeOperations.cast(node, AUX_671s9y.BuildMacro_808bb078));
+          return (boolean) BuildMacro__BehaviorDescriptor.isPublic_id5FtnUVJQZyL.invoke(SNodeOperations.cast(node, CONCEPTS.BuildMacro$RE));
         }
       });
     }
     if ((containingProject != null)) {
       final Wrappers._T<SNode> definedMacro = new Wrappers._T<SNode>();
-      if (ListSequence.fromList(SLinkOperations.getChildren(containingProject, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros"))).contains(child)) {
-        definedMacro.value = SNodeOperations.cast(child, AUX_671s9y.BuildMacro_808bb078);
+      if (ListSequence.fromList(SLinkOperations.getChildren(containingProject, LINKS.macros$tpFt)).contains(child)) {
+        definedMacro.value = SNodeOperations.cast(child, CONCEPTS.BuildMacro$RE);
       } else {
-        definedMacro.value = ListSequence.fromList(SLinkOperations.getChildren(containingProject, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros"))).findFirst(new IWhereFilter<SNode>() {
+        definedMacro.value = ListSequence.fromList(SLinkOperations.getChildren(containingProject, LINKS.macros$tpFt)).findFirst(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return ListSequence.fromList(SNodeOperations.getNodeDescendants(it, null, false, new SAbstractConcept[]{})).contains(child);
           }
@@ -221,20 +223,20 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
 
     List<Scope> scopes = ListSequence.fromList(new ArrayList<Scope>());
     ListSequence.fromList(scopes).addElement(rootScope);
-    ListSequence.fromList(scopes).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a25L, "dependencies"))).where(new IWhereFilter<SNode>() {
+    ListSequence.fromList(scopes).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.dependencies$tpR5)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_671s9y.BuildProjectDependency_6a704312);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildProjectDependency$Ug);
       }
     }).select(new ISelector<SNode, Scope>() {
       public Scope select(SNode it) {
-        return (Scope) BuildProject__BehaviorDescriptor.getBuildMacroScope_id3h9a8EwPwcy.invoke(SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_671s9y.BuildProjectDependency_6a704312), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, 0x4df58c6f18f84a24L, "script")), child, visited);
+        return (Scope) BuildProject__BehaviorDescriptor.getBuildMacroScope_id3h9a8EwPwcy.invoke(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.BuildProjectDependency$Ug), LINKS.script$mz1x), child, visited);
       }
     }));
-    ListSequence.fromList(scopes).addSequence(Sequence.fromIterable(ScopeUtil.imported(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a25L, "dependencies"))).where(new IWhereFilter<SNode>() {
+    ListSequence.fromList(scopes).addSequence(Sequence.fromIterable(ScopeUtil.imported(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.dependencies$tpR5)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(SNodeOperations.isInstanceOf(it, AUX_671s9y.BuildProjectDependency_6a704312));
+        return !(SNodeOperations.isInstanceOf(it, CONCEPTS.BuildProjectDependency$Ug));
       }
-    }), AUX_671s9y.BuildMacro_808bb078, child)));
+    }), CONCEPTS.BuildMacro$RE, child)));
 
     return new CompositeScope(ListSequence.fromList(scopes).toGenericArray(Scope.class)) {
       @Override
@@ -320,11 +322,26 @@ public final class BuildProject__BehaviorDescriptor extends BaseBHDescriptor {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_671s9y {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildExternalLayout_3db8da22 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d0bfc9L, "jetbrains.mps.build.structure.BuildExternalLayout");
-    /*package*/ static final SInterfaceConcept BuildSource_FilesetProjectPart_5a5070f5 = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x6b9a2011083f9402L, "jetbrains.mps.build.structure.BuildSource_FilesetProjectPart");
-    /*package*/ static final SConcept BuildMacro_808bb078 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a1fL, "jetbrains.mps.build.structure.BuildMacro");
-    /*package*/ static final SConcept BuildProjectDependency_6a704312 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, "jetbrains.mps.build.structure.BuildProjectDependency");
+  private static final class PROPS {
+    /*package*/ static final SProperty internalBaseDirectory$E778 = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x48387ebae1a07a23L, "internalBaseDirectory");
+    /*package*/ static final SProperty fileName$L1hm = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4438b4de59410ebcL, "fileName");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink scriptsDir$57XF = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4291308148e8c6beL, "scriptsDir");
+    /*package*/ static final SContainmentLink parts$tgxg = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
+    /*package*/ static final SContainmentLink plugins$97JG = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x5c3f3e2c1ce9ac70L, "plugins");
+    /*package*/ static final SContainmentLink layout$tpCz = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a1cL, "layout");
+    /*package*/ static final SContainmentLink dependencies$tpR5 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a25L, "dependencies");
+    /*package*/ static final SReferenceLink script$mz1x = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, 0x4df58c6f18f84a24L, "script");
+    /*package*/ static final SContainmentLink macros$tpFt = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildExternalLayout$A0 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d0bfc9L, "jetbrains.mps.build.structure.BuildExternalLayout");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SInterfaceConcept BuildSource_FilesetProjectPart$Od = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x6b9a2011083f9402L, "jetbrains.mps.build.structure.BuildSource_FilesetProjectPart");
+    /*package*/ static final SConcept BuildMacro$RE = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a1fL, "jetbrains.mps.build.structure.BuildMacro");
+    /*package*/ static final SConcept BuildProjectDependency$Ug = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, "jetbrains.mps.build.structure.BuildProjectDependency");
   }
 }

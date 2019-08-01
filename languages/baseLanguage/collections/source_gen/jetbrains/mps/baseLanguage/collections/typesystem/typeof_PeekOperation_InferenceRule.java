@@ -31,7 +31,7 @@ public class typeof_PeekOperation_InferenceRule extends AbstractInferenceRule_Ru
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_v9wxvu.PeekOperation_5d0ecf1b;
+    return CONCEPTS.PeekOperation$eB;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_PeekOperation_InferenceRule extends AbstractInferenceRule_Ru
     return false;
   }
 
-  private static final class AUX_v9wxvu {
-    /*package*/ static final SConcept PeekOperation_5d0ecf1b = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x50486375c8941225L, "jetbrains.mps.baseLanguage.collections.structure.PeekOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PeekOperation$eB = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x50486375c8941225L, "jetbrains.mps.baseLanguage.collections.structure.PeekOperation");
   }
 }

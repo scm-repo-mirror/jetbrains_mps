@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -42,13 +41,15 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BwfJavaDependency_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_qn58zx_a(), AUX_qn58zx.BwfJavaClassPath_ebd3ee4d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_qn58zx_a(), CONCEPTS.BwfJavaClassPath$EP));
     result.add(new SMP_Subconcepts_qn58zx_b());
     return result;
   }
@@ -89,14 +90,14 @@ public class BwfJavaDependency_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_qn58zx.BwfJavaClassPath_ebd3ee4d;
+          return CONCEPTS.BwfJavaClassPath$EP;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
-          SNode cp = SModelOperations.createNewNode(_context.getModel(), null, AUX_qn58zx.BwfJavaClassPath_ebd3ee4d);
-          SLinkOperations.setTarget(cp, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, 0x6e014d63c0847621L, "classpath"), nodeToWrap);
+          SNode cp = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.BwfJavaClassPath$EP);
+          SLinkOperations.setTarget(cp, LINKS.classpath$owiw, nodeToWrap);
           return cp;
         }
 
@@ -123,19 +124,19 @@ public class BwfJavaDependency_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_qn58zx.XmlBaseElement_5d5001c5;
+      return CONCEPTS.XmlBaseElement$oX;
     }
   }
   public class SMP_Subconcepts_qn58zx_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_qn58zx.BwfJavaDependency_ebd3ee44).stream().filter(new Predicate<SAbstractConcept>() {
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BwfJavaDependency$Au).stream().filter(new Predicate<SAbstractConcept>() {
         public boolean test(SAbstractConcept concept) {
           return filterConcept(_context, concept);
         }
       }).collect(Collectors.toList());
     }
     private boolean filterConcept(SubstituteMenuContext _context, SAbstractConcept concept) {
-      return !(Objects.equals(concept, AUX_qn58zx.BwfJavaDependency_ebd3ee44));
+      return !(Objects.equals(concept, CONCEPTS.BwfJavaDependency$Au));
     }
     @NotNull
     @Override
@@ -155,9 +156,13 @@ public class BwfJavaDependency_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_qn58zx {
-    /*package*/ static final SConcept BwfJavaClassPath_ebd3ee4d = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, "jetbrains.mps.build.workflow.structure.BwfJavaClassPath");
-    /*package*/ static final SConcept XmlBaseElement_5d5001c5 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486dL, "jetbrains.mps.core.xml.structure.XmlBaseElement");
-    /*package*/ static final SConcept BwfJavaDependency_ebd3ee44 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede06eL, "jetbrains.mps.build.workflow.structure.BwfJavaDependency");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfJavaClassPath$EP = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, "jetbrains.mps.build.workflow.structure.BwfJavaClassPath");
+    /*package*/ static final SConcept XmlBaseElement$oX = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486dL, "jetbrains.mps.core.xml.structure.XmlBaseElement");
+    /*package*/ static final SConcept BwfJavaDependency$Au = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede06eL, "jetbrains.mps.build.workflow.structure.BwfJavaDependency");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classpath$owiw = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x5c3f3e2c1cede077L, 0x6e014d63c0847621L, "classpath");
   }
 }

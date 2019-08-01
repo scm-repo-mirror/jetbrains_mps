@@ -32,8 +32,9 @@ import jetbrains.mps.vcs.diff.ChangeSet;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * These tests check that incremental changes building works well with VCS (commit, reset, rollback) 
@@ -147,8 +148,8 @@ public class IncrementalChangeUpdateTest_Model extends ChangesTestBase {
   }
   private static SNode createClassConcept_2jv4hj_a0a1a5() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_2jv4hj.ClassConcept_e2711824, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "NewRoot");
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ClassConcept$IY, null, null, false);
+    n1.setProperty(PROPS.name$tAp1, "NewRoot");
     return n1;
   }
   private static List<ModelChange> check_2jv4hj_a0a8a5(ChangeSet checkedDotOperand) {
@@ -164,7 +165,11 @@ public class IncrementalChangeUpdateTest_Model extends ChangesTestBase {
     return null;
   }
 
-  private static final class AUX_2jv4hj {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

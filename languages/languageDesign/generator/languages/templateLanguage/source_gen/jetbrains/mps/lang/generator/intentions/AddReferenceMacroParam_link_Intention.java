@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.ParameterizedIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
@@ -26,7 +25,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class AddReferenceMacroParam_link_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   public AddReferenceMacroParam_link_Intention() {
@@ -74,7 +77,7 @@ public final class AddReferenceMacroParam_link_Intention extends AbstractIntenti
     }
     List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
     for (SNode child : AbstractConceptDeclaration__BehaviorDescriptor.getLinkDeclarations_idhEwILKK.invoke(sourceNode)) {
-      if (SEnumOperations.isMember(SPropertyOperations.getEnum(child, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality")), 0xfc6f3944c3L) || SEnumOperations.isMember(SPropertyOperations.getEnum(child, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality")), 0xfc6f3944c4L)) {
+      if (SEnumOperations.isMember(SPropertyOperations.getEnum(child, PROPS.sourceCardinality$$E8z), 0xfc6f3944c3L) || SEnumOperations.isMember(SPropertyOperations.getEnum(child, PROPS.sourceCardinality$$E8z), 0xfc6f3944c4L)) {
         ListSequence.fromList(result).addElement(child);
       }
     }
@@ -92,16 +95,16 @@ public final class AddReferenceMacroParam_link_Intention extends AbstractIntenti
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode referenceMacro = EditingUtil.addReferenceMacro(node, editorContext.getSelectedCell());
-      SNode referentValue = SNodeFactoryOperations.createNewNode(AUX_9x496l.ReferenceMacro_GetReferent_71c07fee, null);
-      SNode dotExpression = SNodeFactoryOperations.createNewNode(AUX_9x496l.DotExpression_97ed08d8, null);
-      SNode linkAccess = SNodeFactoryOperations.createNewNode(AUX_9x496l.SLinkAccess_74b182e, null);
-      SLinkOperations.setTarget(linkAccess, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96ea2caL, 0x108f974549cL, "link"), myParameter);
-      SLinkOperations.setTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), linkAccess);
-      SLinkOperations.setTarget(dotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), SNodeFactoryOperations.createNewNode(AUX_9x496l.TemplateFunctionParameter_sourceNode_6cc2a91a, null));
-      SNode expressionStatement = SNodeFactoryOperations.createNewNode(AUX_9x496l.ExpressionStatement_9dbf9b0c, null);
-      SLinkOperations.setTarget(expressionStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression"), dotExpression);
-      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(referentValue, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).addElement(expressionStatement);
-      SLinkOperations.setTarget(referenceMacro, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, 0x10fe489d9feL, "referentFunction"), referentValue);
+      SNode referentValue = SNodeFactoryOperations.createNewNode(CONCEPTS.ReferenceMacro_GetReferent$OO, null);
+      SNode dotExpression = SNodeFactoryOperations.createNewNode(CONCEPTS.DotExpression$6a, null);
+      SNode linkAccess = SNodeFactoryOperations.createNewNode(CONCEPTS.SLinkAccess$NO, null);
+      SLinkOperations.setTarget(linkAccess, LINKS.link$22g7, myParameter);
+      SLinkOperations.setTarget(dotExpression, LINKS.operation$X4R8, linkAccess);
+      SLinkOperations.setTarget(dotExpression, LINKS.operand$Lcrr, SNodeFactoryOperations.createNewNode(CONCEPTS.TemplateFunctionParameter_sourceNode$A8, null));
+      SNode expressionStatement = SNodeFactoryOperations.createNewNode(CONCEPTS.ExpressionStatement$nm, null);
+      SLinkOperations.setTarget(expressionStatement, LINKS.expression$WIP0, dotExpression);
+      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(referentValue, LINKS.body$pTP2), LINKS.statement$WHn8)).addElement(expressionStatement);
+      SLinkOperations.setTarget(referenceMacro, LINKS.referentFunction$ABIo, referentValue);
       // set caret 
       SelectionUtil.selectLabelCellAnSetCaret(editorContext, referenceMacro, SelectionManager.FIRST_CELL, 2);
     }
@@ -114,11 +117,25 @@ public final class AddReferenceMacroParam_link_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_9x496l {
-    /*package*/ static final SConcept ReferenceMacro_GetReferent_71c07fee = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fe485cc9bL, "jetbrains.mps.lang.generator.structure.ReferenceMacro_GetReferent");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept SLinkAccess_74b182e = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96ea2caL, "jetbrains.mps.lang.smodel.structure.SLinkAccess");
-    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode_6cc2a91a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+  private static final class PROPS {
+    /*package*/ static final SProperty sourceCardinality$$E8z = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReferenceMacro_GetReferent$OO = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fe485cc9bL, "jetbrains.mps.lang.generator.structure.ReferenceMacro_GetReferent");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept SLinkAccess$NO = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96ea2caL, "jetbrains.mps.lang.smodel.structure.SLinkAccess");
+    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode$A8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink link$22g7 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f96ea2caL, 0x108f974549cL, "link");
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SContainmentLink expression$WIP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression");
+    /*package*/ static final SContainmentLink body$pTP2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink referentFunction$ABIo = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, 0x10fe489d9feL, "referentFunction");
   }
 }

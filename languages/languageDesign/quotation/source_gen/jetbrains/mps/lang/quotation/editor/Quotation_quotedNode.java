@@ -19,11 +19,12 @@ import jetbrains.mps.smodel.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Quotation_quotedNode extends AbstractCellMenuComponent {
   public Quotation_quotedNode() {
@@ -49,8 +50,8 @@ public class Quotation_quotedNode extends AbstractCellMenuComponent {
       this.handleAction_impl((SAbstractConcept) parameterObject, node, model, operationContext, editorContext);
     }
     public void handleAction_impl(SAbstractConcept parameterObject, SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SNode oldInstance = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode"));
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode"), SNodeFactoryOperations.createNewNode(parameterObject, null));
+      SNode oldInstance = SLinkOperations.getTarget(node, LINKS.quotedNode$kInw);
+      SLinkOperations.setTarget(node, LINKS.quotedNode$kInw, SNodeFactoryOperations.createNewNode(parameterObject, null));
       if (oldInstance != null) {
         SNodeOperations.deleteNode(oldInstance);
       }
@@ -63,5 +64,9 @@ public class Quotation_quotedNode extends AbstractCellMenuComponent {
     protected EditorMenuDescriptor getEditorMenuDescriptor(Object parameterObject) {
       return new EditorMenuDescriptorBase("generic group with parameter: " + ((parameterObject == null ? "null" : parameterObject.toString())), new SNodePointer("r:00000000-0000-4000-0000-011c89590349(jetbrains.mps.lang.quotation.editor)", "8802842484753224591"));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink quotedNode$kInw = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode");
   }
 }

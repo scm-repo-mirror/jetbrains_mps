@@ -12,6 +12,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.refactoring.participant.RefactoringSession;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RenameRefactoringBody implements RefactoringProcessor.RefactoringBody<SNode, String> {
@@ -38,7 +39,7 @@ public class RenameRefactoringBody implements RefactoringProcessor.RefactoringBo
     // do nothing 
   }
   public void doRefactor(Iterable<RefactoringParticipant.ParticipantApplied<?, ?, SNode, String, SNode, String>> participantStates, RefactoringSession refactoringSession) {
-    SPropertyOperations.assign(myNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), myNewNodeName);
+    SPropertyOperations.assign(myNode, PROPS.name$tAp1, myNewNodeName);
   }
   @Override
   public String getFinalStateFor(SNode initialState) {
@@ -53,4 +54,7 @@ public class RenameRefactoringBody implements RefactoringProcessor.RefactoringBo
   }
 
 
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
 }

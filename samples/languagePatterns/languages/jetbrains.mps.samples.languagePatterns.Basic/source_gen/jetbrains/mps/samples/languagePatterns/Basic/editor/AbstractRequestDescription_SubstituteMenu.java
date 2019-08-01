@@ -26,8 +26,9 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class AbstractRequestDescription_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
@@ -35,7 +36,7 @@ public class AbstractRequestDescription_SubstituteMenu extends SubstituteMenuBas
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
     result.add(new SMP_Subconcepts_dcepxw_a());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_dcepxw_b(), AUX_dcepxw.AbstractRequestDescription_29d9163f));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_dcepxw_b(), CONCEPTS.AbstractRequestDescription$43));
     return result;
   }
 
@@ -54,7 +55,7 @@ public class AbstractRequestDescription_SubstituteMenu extends SubstituteMenuBas
 
   public class SMP_Subconcepts_dcepxw_a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_dcepxw.AbstractRequestDescription_29d9163f);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.AbstractRequestDescription$43);
     }
     @NotNull
     @Override
@@ -101,7 +102,7 @@ public class AbstractRequestDescription_SubstituteMenu extends SubstituteMenuBas
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_dcepxw.AbstractRequestDescription_29d9163f, context);
+        super(CONCEPTS.AbstractRequestDescription$43, context);
         _context = context;
       }
 
@@ -112,8 +113,8 @@ public class AbstractRequestDescription_SubstituteMenu extends SubstituteMenuBas
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode desc = SNodeFactoryOperations.createNewNode(AUX_dcepxw.StringDescription_29d919a8, null);
-        SPropertyOperations.assign(desc, MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, 0x1a2a793c4db223d6L, "value"), pattern);
+        SNode desc = SNodeFactoryOperations.createNewNode(CONCEPTS.StringDescription$EU, null);
+        SPropertyOperations.assign(desc, PROPS.value$8G30, pattern);
         return desc;
       }
 
@@ -145,8 +146,12 @@ public class AbstractRequestDescription_SubstituteMenu extends SubstituteMenuBas
     }
   }
 
-  private static final class AUX_dcepxw {
-    /*package*/ static final SConcept AbstractRequestDescription_29d9163f = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2238aL, "jetbrains.mps.samples.languagePatterns.Basic.structure.AbstractRequestDescription");
-    /*package*/ static final SConcept StringDescription_29d919a8 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, "jetbrains.mps.samples.languagePatterns.Basic.structure.StringDescription");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractRequestDescription$43 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db2238aL, "jetbrains.mps.samples.languagePatterns.Basic.structure.AbstractRequestDescription");
+    /*package*/ static final SConcept StringDescription$EU = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, "jetbrains.mps.samples.languagePatterns.Basic.structure.StringDescription");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$8G30 = MetaAdapterFactory.getProperty(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x1a2a793c4db223d5L, 0x1a2a793c4db223d6L, "value");
   }
 }

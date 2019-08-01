@@ -9,24 +9,26 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.editor.behavior.CellActionMapDeclaration__BehaviorDescriptor;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_CellActionMapDeclarationBackspaceWillBeAdded_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_CellActionMapDeclarationBackspaceWillBeAdded_NonTypesystemRule() {
   }
   public void applyRule(final SNode cellActionMapDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode deleteItem = ListSequence.fromList(SLinkOperations.getChildren(cellActionMapDeclaration, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d01L, "item"))).where(new IWhereFilter<SNode>() {
+    SNode deleteItem = ListSequence.fromList(SLinkOperations.getChildren(cellActionMapDeclaration, LINKS.item$VI8u)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SEnumOperations.isMember(SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x109519879e9L, 0x1095198c0daL, "actionId")), 0x109519a19b4L);
+        return SEnumOperations.isMember(SPropertyOperations.getEnum(it, PROPS.actionId$TiJc), 0x109519a19b4L);
       }
     }).first();
     if ((deleteItem != null) && !((boolean) CellActionMapDeclaration__BehaviorDescriptor.containsItemOfType_id2pg2GNQgnKJ.invoke(cellActionMapDeclaration, SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951993667L, "jetbrains.mps.lang.editor.structure.CellActionId"), 0x7d41f11ce69df74aL, "backspace_action_id")))) {
@@ -37,7 +39,7 @@ public class check_CellActionMapDeclarationBackspaceWillBeAdded_NonTypesystemRul
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_vwn9xi.CellActionMapDeclaration_ddcf7ab1;
+    return CONCEPTS.CellActionMapDeclaration$Fh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,7 +48,15 @@ public class check_CellActionMapDeclarationBackspaceWillBeAdded_NonTypesystemRul
     return false;
   }
 
-  private static final class AUX_vwn9xi {
-    /*package*/ static final SConcept CellActionMapDeclaration_ddcf7ab1 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, "jetbrains.mps.lang.editor.structure.CellActionMapDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink item$VI8u = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d01L, "item");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty actionId$TiJc = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x109519879e9L, 0x1095198c0daL, "actionId");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellActionMapDeclaration$Fh = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, "jetbrains.mps.lang.editor.structure.CellActionMapDeclaration");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.samples.secretCompartmentLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class StateMachineTest__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_fuw1jo.StateMachineTest_5e8195f5;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116c17a1865L, "jetbrains.mps.samples.secretCompartmentLanguage.structure.StateMachineTest");
 
   public static final SMethod<String> getStateMachineName_idhr1J3q0 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getStateMachineName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hr1J3q0").build();
 
@@ -32,7 +33,7 @@ public final class StateMachineTest__BehaviorDescriptor extends BaseBHDescriptor
   }
 
   /*package*/ static String getStateMachineName_idhr1J3q0(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116c17a1865L, 0x116c1878903L, "stateMachine")), MetaAdapterFactory.getProperty(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116bbacae3cL, 0x116bcaff7e0L, "stateMachineName"));
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.stateMachine$YJgr), PROPS.stateMachineName$OEbJ);
   }
 
   /*package*/ StateMachineTest__BehaviorDescriptor() {
@@ -81,7 +82,11 @@ public final class StateMachineTest__BehaviorDescriptor extends BaseBHDescriptor
     return CONCEPT;
   }
 
-  private static final class AUX_fuw1jo {
-    /*package*/ static final SConcept StateMachineTest_5e8195f5 = MetaAdapterFactory.getConcept(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116c17a1865L, "jetbrains.mps.samples.secretCompartmentLanguage.structure.StateMachineTest");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink stateMachine$YJgr = MetaAdapterFactory.getReferenceLink(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116c17a1865L, 0x116c1878903L, "stateMachine");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty stateMachineName$OEbJ = MetaAdapterFactory.getProperty(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116bbacae3cL, 0x116bcaff7e0L, "stateMachineName");
   }
 }

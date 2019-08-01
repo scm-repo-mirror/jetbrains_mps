@@ -54,7 +54,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
   }
   /*package*/ static final class RootMappingRule0 extends MapRootRuleBase implements TemplateRootMappingRule {
     public RootMappingRule0() {
-      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008486853"), AUX_ief6mt.RootConcept_c190c3c0, false, true);
+      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008486853"), CONCEPTS.RootConcept$ey, false, true);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -66,12 +66,12 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
   }
   /*package*/ static final class DropRootRule0 extends DropRootRuleBase implements TemplateDropRootRule {
     public DropRootRule0() {
-      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008531363"), AUX_ief6mt.RootConcept_c190c3c0);
+      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008531363"), CONCEPTS.RootConcept$ey);
     }
   }
   /*package*/ static final class WeavingRule0 extends WeaveRuleBase implements TemplateWeavingRule {
     public WeavingRule0() {
-      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008490337"), AUX_ief6mt.ChildConceptWeave_c19f3c3e, false);
+      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008490337"), CONCEPTS.ChildConceptWeave$F$, false);
     }
     @NotNull
     @Override
@@ -98,7 +98,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
   }
   /*package*/ static final class WeavingRule1 extends WeaveRuleBase implements TemplateWeavingRule {
     public WeavingRule1() {
-      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008522527"), AUX_ief6mt.RootConcept_c190c3c0, false);
+      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008522527"), CONCEPTS.RootConcept$ey, false);
     }
     @NotNull
     @Override
@@ -125,7 +125,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
   }
   /*package*/ static final class WeavingRule2 extends WeaveRuleBase implements TemplateWeavingRule {
     public WeavingRule2() {
-      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008533375"), AUX_ief6mt.ChildConceptWeaveMany_c5145284, false);
+      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008533375"), CONCEPTS.ChildConceptWeaveMany$Pu, false);
     }
     @NotNull
     @Override
@@ -152,7 +152,7 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
   }
   /*package*/ static final class WeavingRule3 extends WeaveRuleBase implements TemplateWeavingRule {
     public WeavingRule3() {
-      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008533360"), AUX_ief6mt.RootConcept_c190c3c0, false);
+      super(new SNodePointer("r:592e27b6-d258-4bf2-9e32-25019862e1f1(jetbrains.mps.traceInfo.testWeavingGenerated.data.generator.template.main@generator)", "6186432342008533360"), CONCEPTS.RootConcept$ey, false);
     }
     @NotNull
     @Override
@@ -178,9 +178,9 @@ public class Mapping_main extends MapConfigBase implements TemplateMappingConfig
     }
   }
 
-  private static final class AUX_ief6mt {
-    /*package*/ static final SConcept RootConcept_c190c3c0 = MetaAdapterFactory.getConcept(0xce517356fc9a4e78L, 0x86066e7a36ff0671L, 0x55da9f701c64caccL, "jetbrains.mps.traceInfo.testWeavingGenerated.data.structure.RootConcept");
-    /*package*/ static final SConcept ChildConceptWeave_c19f3c3e = MetaAdapterFactory.getConcept(0xce517356fc9a4e78L, 0x86066e7a36ff0671L, 0x55da9f701c64f39cL, "jetbrains.mps.traceInfo.testWeavingGenerated.data.structure.ChildConceptWeave");
-    /*package*/ static final SConcept ChildConceptWeaveMany_c5145284 = MetaAdapterFactory.getConcept(0xce517356fc9a4e78L, 0x86066e7a36ff0671L, 0x55da9f701c681159L, "jetbrains.mps.traceInfo.testWeavingGenerated.data.structure.ChildConceptWeaveMany");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RootConcept$ey = MetaAdapterFactory.getConcept(0xce517356fc9a4e78L, 0x86066e7a36ff0671L, 0x55da9f701c64caccL, "jetbrains.mps.traceInfo.testWeavingGenerated.data.structure.RootConcept");
+    /*package*/ static final SConcept ChildConceptWeave$F$ = MetaAdapterFactory.getConcept(0xce517356fc9a4e78L, 0x86066e7a36ff0671L, 0x55da9f701c64f39cL, "jetbrains.mps.traceInfo.testWeavingGenerated.data.structure.ChildConceptWeave");
+    /*package*/ static final SConcept ChildConceptWeaveMany$Pu = MetaAdapterFactory.getConcept(0xce517356fc9a4e78L, 0x86066e7a36ff0671L, 0x55da9f701c681159L, "jetbrains.mps.traceInfo.testWeavingGenerated.data.structure.ChildConceptWeaveMany");
   }
 }

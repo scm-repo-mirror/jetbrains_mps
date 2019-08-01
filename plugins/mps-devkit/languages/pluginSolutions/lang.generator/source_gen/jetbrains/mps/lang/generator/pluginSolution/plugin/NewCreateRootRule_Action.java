@@ -11,7 +11,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -25,7 +24,11 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.navigation.NavigationSupport;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class NewCreateRootRule_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -41,22 +44,22 @@ public class NewCreateRootRule_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(final AnActionEvent event, final Map<String, Object> _params) {
-    SNode annotation = AttributeOperations.getAttribute(event.getData(MPSCommonDataKeys.NODE), new IAttributeDescriptor.NodeAttribute(AUX_rozxh9.RootTemplateAnnotation_423b5b1a));
+    SNode annotation = AttributeOperations.getAttribute(event.getData(MPSCommonDataKeys.NODE), new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8));
     if (annotation == null) {
       return false;
     }
-    if (SLinkOperations.getTarget(annotation, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, 0x11017255ccfL, "applicableConcept")) != null) {
+    if (SLinkOperations.getTarget(annotation, LINKS.applicableConcept$jo4f) != null) {
       return false;
     }
-    List<SNode> configs = SModelOperations.roots(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)), AUX_rozxh9.MappingConfiguration_587b13db);
+    List<SNode> configs = SModelOperations.roots(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)), CONCEPTS.MappingConfiguration$rB);
     if (ListSequence.fromList(configs).isEmpty()) {
       return false;
     }
     SNode usage = ListSequence.fromList(configs).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x10fbbe00519L, "createRootRule"))).findFirst(new IWhereFilter<SNode>() {
+        return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.createRootRule$gnQA)).findFirst(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fbbd5854aL, 0x10fbbd5854dL, "templateNode")) == event.getData(MPSCommonDataKeys.NODE);
+            return SLinkOperations.getTarget(it, LINKS.templateNode$RXGY) == event.getData(MPSCommonDataKeys.NODE);
           }
         }) != null;
       }
@@ -75,7 +78,7 @@ public class NewCreateRootRule_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_rozxh9.INamedConcept_8cd7e247))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$nV))) {
         node = null;
       }
       if (node == null) {
@@ -92,11 +95,11 @@ public class NewCreateRootRule_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    List<SNode> configs = SModelOperations.roots(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)), AUX_rozxh9.MappingConfiguration_587b13db);
+    List<SNode> configs = SModelOperations.roots(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)), CONCEPTS.MappingConfiguration$rB);
     if (ListSequence.fromList(configs).count() > 1) {
       Iterable<SNode> sameVPackConfigs = ListSequence.fromList(configs).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return EqualUtil.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")), SPropertyOperations.getString(event.getData(MPSCommonDataKeys.NODE), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")));
+          return EqualUtil.equals(SPropertyOperations.getString(it, PROPS.virtualPackage$j19t), SPropertyOperations.getString(event.getData(MPSCommonDataKeys.NODE), PROPS.virtualPackage$j19t));
         }
       });
       if (Sequence.fromIterable(sameVPackConfigs).isNotEmpty()) {
@@ -107,15 +110,25 @@ public class NewCreateRootRule_Action extends BaseAction {
       // TODO: let user to choose mapping config? 
     }
     //  add new rule 
-    SNode rule = SNodeFactoryOperations.addNewChild(ListSequence.fromList(configs).first(), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x10fbbe00519L, "createRootRule"), null);
-    SLinkOperations.setTarget(rule, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fbbd5854aL, 0x10fbbd5854dL, "templateNode"), event.getData(MPSCommonDataKeys.NODE));
+    SNode rule = SNodeFactoryOperations.addNewChild(ListSequence.fromList(configs).first(), LINKS.createRootRule$gnQA, null);
+    SLinkOperations.setTarget(rule, LINKS.templateNode$RXGY, event.getData(MPSCommonDataKeys.NODE));
     //  open in editor 
     NavigationSupport.getInstance().openNode(event.getData(MPSCommonDataKeys.MPS_PROJECT), rule, true, true);
   }
 
-  private static final class AUX_rozxh9 {
-    /*package*/ static final SConcept RootTemplateAnnotation_423b5b1a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
-    /*package*/ static final SConcept MappingConfiguration_587b13db = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RootTemplateAnnotation$u8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
+    /*package*/ static final SConcept MappingConfiguration$rB = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink applicableConcept$jo4f = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, 0x11017255ccfL, "applicableConcept");
+    /*package*/ static final SContainmentLink createRootRule$gnQA = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x10fbbe00519L, "createRootRule");
+    /*package*/ static final SReferenceLink templateNode$RXGY = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fbbd5854aL, 0x10fbbd5854dL, "templateNode");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

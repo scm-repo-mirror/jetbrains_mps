@@ -18,7 +18,6 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.openapi.editor.selection.Selection;
 import jetbrains.mps.nodeEditor.EditorComponent;
@@ -29,6 +28,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class AddCellAnnotation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -47,7 +49,7 @@ public final class AddCellAnnotation_Intention extends AbstractIntentionDescript
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getNodeAncestor(node, AUX_sqiezz.TestNode_e633d16, false, false)), AUX_sqiezz.EditorTestCase_77c60a8e);
+    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getNodeAncestor(node, CONCEPTS.TestNode$kc, false, false)), CONCEPTS.EditorTestCase$qk);
   }
   @Override
   public boolean isSurroundWith() {
@@ -69,39 +71,39 @@ public final class AddCellAnnotation_Intention extends AbstractIntentionDescript
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode ancessor = node;
-      while (ancessor != null && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ancessor), AUX_sqiezz.EditorTestCase_77c60a8e))) {
+      while (ancessor != null && !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(ancessor), CONCEPTS.EditorTestCase$qk))) {
         ancessor = SNodeOperations.getParent(ancessor);
       }
-      for (SNode oldAnnotation : SNodeOperations.getNodeDescendants(ancessor, AUX_sqiezz.AnonymousCellAnnotation_4623621a, false, new SAbstractConcept[]{})) {
+      for (SNode oldAnnotation : SNodeOperations.getNodeDescendants(ancessor, CONCEPTS.AnonymousCellAnnotation$28, false, new SAbstractConcept[]{})) {
         SNodeOperations.deleteNode(oldAnnotation);
       }
-      SNode newAnnotation = SNodeFactoryOperations.createNewNode(AUX_sqiezz.AnonymousCellAnnotation_4623621a, null);
+      SNode newAnnotation = SNodeFactoryOperations.createNewNode(CONCEPTS.AnonymousCellAnnotation$28, null);
       EditorCell contextCell = editorContext.getContextCell();
       if (editorContext.getEditorComponent() instanceof InspectorEditorComponent) {
-        SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1b73330fb1241e01L, "isInInspector"), true);
+        SPropertyOperations.assign(newAnnotation, PROPS.isInInspector$2bRd, true);
       }
       if (contextCell instanceof EditorCell_Label) {
         EditorCell_Label label = (EditorCell_Label) contextCell;
         int caretPosition = label.getCaretPosition();
         if (caretPosition == label.getText().length()) {
-          SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e3fde6f41L, "isLastPosition"), true);
+          SPropertyOperations.assign(newAnnotation, PROPS.isLastPosition$8Xx5, true);
         } else {
-          SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe14L, "caretPosition"), caretPosition);
+          SPropertyOperations.assign(newAnnotation, PROPS.caretPosition$qWWv, caretPosition);
         }
-        SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e251146L, "useLabelSelection"), true);
-        SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc33L, "selectionStart"), label.getSelectionStart());
-        SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc35L, "selectionEnd"), label.getSelectionEnd());
+        SPropertyOperations.assign(newAnnotation, PROPS.useLabelSelection$X5Dm, true);
+        SPropertyOperations.assign(newAnnotation, PROPS.selectionStart$nib_, label.getSelectionStart());
+        SPropertyOperations.assign(newAnnotation, PROPS.selectionEnd$nicz, label.getSelectionEnd());
       } else {
-        SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe14L, "caretPosition"), 0);
+        SPropertyOperations.assign(newAnnotation, PROPS.caretPosition$qWWv, 0);
       }
-      SPropertyOperations.assign(newAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId"), contextCell.getCellId());
+      SPropertyOperations.assign(newAnnotation, PROPS.cellId$qWW0, contextCell.getCellId());
       Selection selection = ((EditorComponent) editorContext.getEditorComponent()).getSelectionManager().getSelection();
       if (selection instanceof NodeRangeSelection) {
         NodeRangeSelection nodeRangeSelection = (NodeRangeSelection) selection;
-        SLinkOperations.setTarget(newAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart"), nodeRangeSelection.getFirstNode());
-        SLinkOperations.setTarget(newAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd"), nodeRangeSelection.getLastNode());
+        SLinkOperations.setTarget(newAnnotation, LINKS.nodeRangeSelectionStart$8c0q, nodeRangeSelection.getFirstNode());
+        SLinkOperations.setTarget(newAnnotation, LINKS.nodeRangeSelectionEnd$8c0T, nodeRangeSelection.getLastNode());
       }
-      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_sqiezz.AbstractTestNodeAnnotation_2d7c3bf0), newAnnotation);
+      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AbstractTestNodeAnnotation$5M), newAnnotation);
       SelectionUtil.selectNode(editorContext, newAnnotation);
     }
     @Override
@@ -110,10 +112,25 @@ public final class AddCellAnnotation_Intention extends AbstractIntentionDescript
     }
   }
 
-  private static final class AUX_sqiezz {
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
-    /*package*/ static final SConcept EditorTestCase_77c60a8e = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, "jetbrains.mps.lang.test.structure.EditorTestCase");
-    /*package*/ static final SConcept AnonymousCellAnnotation_4623621a = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
-    /*package*/ static final SConcept AbstractTestNodeAnnotation_2d7c3bf0 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+    /*package*/ static final SConcept EditorTestCase$qk = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, "jetbrains.mps.lang.test.structure.EditorTestCase");
+    /*package*/ static final SConcept AnonymousCellAnnotation$28 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
+    /*package*/ static final SConcept AbstractTestNodeAnnotation$5M = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isInInspector$2bRd = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1b73330fb1241e01L, "isInInspector");
+    /*package*/ static final SProperty isLastPosition$8Xx5 = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e3fde6f41L, "isLastPosition");
+    /*package*/ static final SProperty caretPosition$qWWv = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe14L, "caretPosition");
+    /*package*/ static final SProperty useLabelSelection$X5Dm = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e251146L, "useLabelSelection");
+    /*package*/ static final SProperty selectionStart$nib_ = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc33L, "selectionStart");
+    /*package*/ static final SProperty selectionEnd$nicz = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc35L, "selectionEnd");
+    /*package*/ static final SProperty cellId$qWW0 = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink nodeRangeSelectionStart$8c0q = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart");
+    /*package*/ static final SReferenceLink nodeRangeSelectionEnd$8c0T = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd");
   }
 }

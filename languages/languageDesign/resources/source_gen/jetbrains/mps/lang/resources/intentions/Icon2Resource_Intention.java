@@ -13,9 +13,10 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class Icon2Resource_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -50,8 +51,8 @@ public final class Icon2Resource_Intention extends AbstractIntentionDescriptor i
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode icon = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, 0x7c8b08a50a39c6c5L, "icon"));
-      SLinkOperations.setTarget(SNodeOperations.replaceWithNewChild(node, AUX_sxde4a.IconResourceExpression_56519e13), MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x52fb86deea79455eL, 0x52fb86deea79b940L, "icon"), icon);
+      SNode icon = SLinkOperations.getTarget(node, LINKS.icon$gh7Z);
+      SLinkOperations.setTarget(SNodeOperations.replaceWithNewChild(node, CONCEPTS.IconResourceExpression$eJ), LINKS.icon$hI2G, icon);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -59,7 +60,12 @@ public final class Icon2Resource_Intention extends AbstractIntentionDescriptor i
     }
   }
 
-  private static final class AUX_sxde4a {
-    /*package*/ static final SConcept IconResourceExpression_56519e13 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x52fb86deea79455eL, "jetbrains.mps.lang.resources.structure.IconResourceExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink icon$gh7Z = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6c3L, 0x7c8b08a50a39c6c5L, "icon");
+    /*package*/ static final SContainmentLink icon$hI2G = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x52fb86deea79455eL, 0x52fb86deea79b940L, "icon");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IconResourceExpression$eJ = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x52fb86deea79455eL, "jetbrains.mps.lang.resources.structure.IconResourceExpression");
   }
 }

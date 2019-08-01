@@ -6,7 +6,6 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -21,6 +20,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ModifiersInsertHandler {
 
@@ -33,7 +34,7 @@ public class ModifiersInsertHandler {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode newModifier = SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"), null);
+        SNode newModifier = SNodeFactoryOperations.addNewChild(node, LINKS.modifiers$akE0, null);
         SelectionUtil.selectNode(editorContext, newModifier);
       }
       @Override
@@ -43,7 +44,7 @@ public class ModifiersInsertHandler {
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
         EditorCell contextCell = editorContext.getSelectedCell();
         SNode contextNode = contextCell.getSNode();
-        if (SNodeOperations.isInstanceOf(contextNode, AUX_urjr8q.Modifier_b30bf498) && Objects.equals(ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).first(), contextNode)) {
+        if (SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Modifier$Ra) && Objects.equals(ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.modifiers$akE0)).first(), contextNode)) {
           return false;
         }
         return true;
@@ -60,7 +61,7 @@ public class ModifiersInsertHandler {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode newModifier = SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"), null);
+        SNode newModifier = SNodeFactoryOperations.addNewChild(node, LINKS.modifiers$akE0, null);
         SelectionUtil.selectNode(editorContext, newModifier);
       }
       @Override
@@ -70,22 +71,22 @@ public class ModifiersInsertHandler {
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
         EditorCell contextCell = editorContext.getSelectedCell();
         SNode contextNode = contextCell.getSNode();
-        if (SNodeOperations.isInstanceOf(contextNode, AUX_urjr8q.Modifier_b30bf498)) {
-          if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).count() <= 1) {
+        if (SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Modifier$Ra)) {
+          if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.modifiers$akE0)).count() <= 1) {
             // here I calculate whether there are some modifier concepts to insert at all. 
             // if yes then we allow to add a child into node.modifiers collection 
             SModel model = SNodeOperations.getModel(node);
-            List<SNode> modifiers = SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"));
+            List<SNode> modifiers = SLinkOperations.getChildren(node, LINKS.modifiers$akE0);
             return !(ListSequence.fromList(modifiers).select(new ISelector<SNode, SConcept>() {
               public SConcept select(SNode it) {
                 return SNodeOperations.getConcept(it);
               }
-            }).containsSequence(ListSequence.fromList(SConceptOperations.getAllSubConcepts2(AUX_urjr8q.Modifier_b30bf498, model)).where(new IWhereFilter<SConcept>() {
+            }).containsSequence(ListSequence.fromList(SConceptOperations.getAllSubConcepts2(CONCEPTS.Modifier$Ra, model)).where(new IWhereFilter<SConcept>() {
               public boolean accept(SConcept it) {
                 return !(it.isAbstract());
               }
             })));
-          } else if (Objects.equals(ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).last(), contextNode)) {
+          } else if (Objects.equals(ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.modifiers$akE0)).last(), contextNode)) {
             return false;
           }
         }
@@ -134,7 +135,11 @@ public class ModifiersInsertHandler {
     }
   }
 
-  private static final class AUX_urjr8q {
-    /*package*/ static final SConcept Modifier_b30bf498 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x21592d9e7375c5a6L, "jetbrains.mps.baseLanguage.structure.Modifier");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modifiers$akE0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Modifier$Ra = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x21592d9e7375c5a6L, "jetbrains.mps.baseLanguage.structure.Modifier");
   }
 }

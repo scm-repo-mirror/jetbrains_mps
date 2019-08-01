@@ -69,12 +69,12 @@ public class BuildMps_IdeaPluginModule_SubstituteMenu extends SubstituteMenuBase
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.build.mps.editor.BuildMps_IdeaPluginModule_SmartReference");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_kkwqoi.BuildMps_IdeaPluginModule_d1bbcefc;
+      return CONCEPTS.BuildMps_IdeaPluginModule$ZA;
     }
   }
   public class SMP_Subconcepts_kkwqoi_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_kkwqoi.BuildMps_IdeaPluginModule_d1bbcefc);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildMps_IdeaPluginModule$ZA);
     }
     @NotNull
     @Override
@@ -94,7 +94,7 @@ public class BuildMps_IdeaPluginModule_SubstituteMenu extends SubstituteMenuBase
     }
   }
 
-  private static final class AUX_kkwqoi {
-    /*package*/ static final SConcept BuildMps_IdeaPluginModule_d1bbcefc = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginModule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_IdeaPluginModule$ZA = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bbdcL, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPluginModule");
   }
 }

@@ -45,7 +45,7 @@ public class ComplexParameters_Contribution extends SubstituteMenuBase {
   public class SMP_Group_axe0gq_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_axe0gq.ActionParameterDeclaration_59cee56e, true, false) != null;
+      return SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ActionParameterDeclaration$uO, true, false) != null;
     }
     @NotNull
     @Override
@@ -65,7 +65,7 @@ public class ComplexParameters_Contribution extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_axe0gq {
-    /*package*/ static final SConcept ActionParameterDeclaration_59cee56e = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x118b812427fL, "jetbrains.mps.lang.plugin.structure.ActionParameterDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionParameterDeclaration$uO = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x118b812427fL, "jetbrains.mps.lang.plugin.structure.ActionParameterDeclaration");
   }
 }

@@ -9,18 +9,19 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.typesystem.DataFlowUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ComparisonRule_ExpectedReturns_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ComparisonRule_ExpectedReturns_NonTypesystemRule() {
   }
   public void applyRule(final SNode comparisonRule, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    DataFlowUtil.checkReturns(typeCheckingContext, SLinkOperations.getTarget(comparisonRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1119c40dfb0L, 0x1119c41b754L, "body")));
+    DataFlowUtil.checkReturns(typeCheckingContext, SLinkOperations.getTarget(comparisonRule, LINKS.body$tq5r));
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_z46vb1.ComparisonRule_ed69e3b9;
+    return CONCEPTS.ComparisonRule$b9;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -29,7 +30,11 @@ public class check_ComparisonRule_ExpectedReturns_NonTypesystemRule extends Abst
     return false;
   }
 
-  private static final class AUX_z46vb1 {
-    /*package*/ static final SConcept ComparisonRule_ed69e3b9 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114caade477L, "jetbrains.mps.lang.typesystem.structure.ComparisonRule");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$tq5r = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1119c40dfb0L, 0x1119c41b754L, "body");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ComparisonRule$b9 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114caade477L, "jetbrains.mps.lang.typesystem.structure.ComparisonRule");
   }
 }

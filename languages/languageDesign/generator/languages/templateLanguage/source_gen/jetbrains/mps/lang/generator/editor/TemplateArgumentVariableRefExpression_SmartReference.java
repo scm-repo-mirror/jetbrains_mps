@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TemplateArgumentVariableRefExpression_SmartReference extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_5gt0as_a(), AUX_5gt0as.TemplateArgumentVariableRefExpression_7d8acc12));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_5gt0as_a(), CONCEPTS.TemplateArgumentVariableRefExpression$mg));
     return result;
   }
 
@@ -48,7 +49,7 @@ public class TemplateArgumentVariableRefExpression_SmartReference extends Substi
 
     public SMP_ReferenceScope_5gt0as_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_5gt0as.TemplateArgumentVariableRefExpression_7d8acc12, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3d6f2506d88aa028L, 0x25c655ce6e80fddaL, "varmacro"));
+      super((SAbstractConcept) CONCEPTS.TemplateArgumentVariableRefExpression$mg, LINKS.varmacro$CKSt);
     }
     @NotNull
     @Override
@@ -80,7 +81,7 @@ public class TemplateArgumentVariableRefExpression_SmartReference extends Substi
       }
       @Override
       public String getMatchingText(String pattern) {
-        return SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return SPropertyOperations.getString(referencedNode, PROPS.name$tAp1);
       }
       @Override
       public String getVisibleMatchingText(String pattern) {
@@ -94,7 +95,15 @@ public class TemplateArgumentVariableRefExpression_SmartReference extends Substi
     }
   }
 
-  private static final class AUX_5gt0as {
-    /*package*/ static final SConcept TemplateArgumentVariableRefExpression_7d8acc12 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3d6f2506d88aa028L, "jetbrains.mps.lang.generator.structure.TemplateArgumentVariableRefExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateArgumentVariableRefExpression$mg = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3d6f2506d88aa028L, "jetbrains.mps.lang.generator.structure.TemplateArgumentVariableRefExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink varmacro$CKSt = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3d6f2506d88aa028L, 0x25c655ce6e80fddaL, "varmacro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

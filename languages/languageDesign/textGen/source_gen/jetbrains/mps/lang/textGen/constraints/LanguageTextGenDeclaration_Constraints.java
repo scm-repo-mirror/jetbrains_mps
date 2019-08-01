@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class LanguageTextGenDeclaration_Constraints extends BaseConstraintsDescriptor {
   public LanguageTextGenDeclaration_Constraints() {
-    super(AUX_elqscj.LanguageTextGenDeclaration_4366b437);
+    super(CONCEPTS.LanguageTextGenDeclaration$8b);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class LanguageTextGenDeclaration_Constraints extends BaseConstraintsDescr
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:472e3702-e789-4c3f-b300-132c65ad44f1(jetbrains.mps.lang.textGen.constraints)", "1233929745439");
 
-  private static final class AUX_elqscj {
-    /*package*/ static final SConcept LanguageTextGenDeclaration_4366b437 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LanguageTextGenDeclaration$8b = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
   }
 }

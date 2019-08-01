@@ -11,10 +11,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.event.SReferenceChangeEvent;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.event.SNodeAddEvent;
 import org.jetbrains.mps.openapi.event.SNodeRemoveEvent;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ConceptHierarchyListener {
@@ -43,9 +44,9 @@ public final class ConceptHierarchyListener {
   private static final class MyStructureNodesListener extends SRepositoryContentAdapter {
     @Override
     public void referenceChanged(@NotNull SReferenceChangeEvent event) {
-      if (event.getNode().isInstanceOfConcept(AUX_htedsg.ConceptDeclaration_cb225da8)) {
+      if (event.getNode().isInstanceOfConcept(CONCEPTS.ConceptDeclaration$qU)) {
         SReferenceLink link = event.getAssociationLink();
-        if (Objects.equals(link, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends")) || Objects.equals(link, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements"))) {
+        if (Objects.equals(link, LINKS.extends$LQV3) || Objects.equals(link, LINKS.implements$oQDh)) {
         }
       }
     }
@@ -106,7 +107,12 @@ public final class ConceptHierarchyListener {
     }
   }
 
-  private static final class AUX_htedsg {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink implements$oQDh = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x110358d693eL, "implements");
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
   }
 }

@@ -22,7 +22,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.io.File;
 import jetbrains.mps.build.behavior.BuildProject__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.ModelDependencyUpdate;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.make.MakeSession;
@@ -44,6 +43,8 @@ import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.smodel.tempmodel.NaiveJavaModuleFacet;
 import jetbrains.mps.vfs.IFile;
 import java.util.Collections;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DeployScript {
   private static final Logger LOG = LogManager.getLogger(DeployScript.class);
@@ -68,7 +69,7 @@ public class DeployScript {
     SNode deployScriptNode = DeployScriptCreator.createDeployScript(myProject, plugins, myModule.getBaseDirectory());
     model.addRootNode(deployScriptNode);
     myDeployScriptPath = new File(myModule.getBaseDirectory(), BuildProject__BehaviorDescriptor.getOutputFileName_id4gSHdTptyu0.invoke(deployScriptNode)).getAbsolutePath();
-    myArtifactsPath = new File(new File(new File(myModule.getBaseDirectory(), "build"), "artifacts"), SPropertyOperations.getString(deployScriptNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))).getAbsolutePath();
+    myArtifactsPath = new File(new File(new File(myModule.getBaseDirectory(), "build"), "artifacts"), SPropertyOperations.getString(deployScriptNode, PROPS.name$tAp1)).getAbsolutePath();
 
     new ModelDependencyUpdate(model).updateUsedLanguages().updateImportedModels(projectRepo).updateModuleDependencies(projectRepo);
   }
@@ -143,5 +144,9 @@ public class DeployScript {
       // don't ask 
       return false;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

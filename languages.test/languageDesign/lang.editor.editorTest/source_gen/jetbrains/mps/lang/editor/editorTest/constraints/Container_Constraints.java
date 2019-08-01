@@ -8,16 +8,16 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Container_Constraints extends BaseConstraintsDescriptor {
   public Container_Constraints() {
-    super(AUX_24ye1o.Container_8e17a6f7);
+    super(CONCEPTS.Container$tb);
   }
 
   @Override
   public SConcept getDefaultConcreteConcept() {
-    return AUX_24ye1o.SelectableContainer_8e17a6e1;
+    return CONCEPTS.SelectableContainer$ix;
   }
 
-  private static final class AUX_24ye1o {
-    /*package*/ static final SConcept Container_8e17a6f7 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefeL, "jetbrains.mps.lang.editor.editorTest.structure.Container");
-    /*package*/ static final SConcept SelectableContainer_8e17a6e1 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefdL, "jetbrains.mps.lang.editor.editorTest.structure.SelectableContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Container$tb = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefeL, "jetbrains.mps.lang.editor.editorTest.structure.Container");
+    /*package*/ static final SConcept SelectableContainer$ix = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x6c1b61fd2cd1eefdL, "jetbrains.mps.lang.editor.editorTest.structure.SelectableContainer");
   }
 }

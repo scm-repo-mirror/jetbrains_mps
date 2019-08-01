@@ -25,7 +25,7 @@ public class typeof_ProcessBuilderCommandPart_InferenceRule extends AbstractInfe
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_a37qgd.ProcessBuilderCommandPart_3b012cff;
+    return CONCEPTS.ProcessBuilderCommandPart$93;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,12 +35,12 @@ public class typeof_ProcessBuilderCommandPart_InferenceRule extends AbstractInfe
   }
   private static SNode createProcessBuilderCommandPartType_a37qgd_a1a0c0a0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_a37qgd.ProcessBuilderCommandPartType_3c60f1b4, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ProcessBuilderCommandPartType$gI, null, null, false);
     return n1;
   }
 
-  private static final class AUX_a37qgd {
-    /*package*/ static final SConcept ProcessBuilderCommandPart_3b012cff = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xc58d43a818a1f80L, "jetbrains.mps.execution.commands.structure.ProcessBuilderCommandPart");
-    /*package*/ static final SConcept ProcessBuilderCommandPartType_3c60f1b4 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xc58d43a818ab5faL, "jetbrains.mps.execution.commands.structure.ProcessBuilderCommandPartType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ProcessBuilderCommandPart$93 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xc58d43a818a1f80L, "jetbrains.mps.execution.commands.structure.ProcessBuilderCommandPart");
+    /*package*/ static final SConcept ProcessBuilderCommandPartType$gI = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xc58d43a818ab5faL, "jetbrains.mps.execution.commands.structure.ProcessBuilderCommandPartType");
   }
 }

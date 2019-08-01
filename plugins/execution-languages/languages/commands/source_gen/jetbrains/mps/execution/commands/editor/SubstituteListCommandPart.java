@@ -22,14 +22,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class SubstituteListCommandPart extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_5b7y1v_a(), AUX_5b7y1v.ListCommandPart_f390b413));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_5b7y1v_b(), AUX_5b7y1v.ListCommandPart_f390b413));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_5b7y1v_a(), CONCEPTS.ListCommandPart$QJ));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_5b7y1v_b(), CONCEPTS.ListCommandPart$QJ));
     return result;
   }
 
@@ -74,7 +75,7 @@ public class SubstituteListCommandPart extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_5b7y1v.ListCommandPart_f390b413, context);
+        super(CONCEPTS.ListCommandPart$QJ, context);
         _context = context;
       }
 
@@ -86,7 +87,7 @@ public class SubstituteListCommandPart extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, "jetbrains.mps.execution.commands.structure.ListCommandPart"));
-        SLinkOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x5f50ed14026999cbL, "list"), null);
+        SLinkOperations.setNewChild(node, LINKS.list$5wSZ, null);
         return node;
       }
 
@@ -134,7 +135,7 @@ public class SubstituteListCommandPart extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_5b7y1v.ListCommandPart_f390b413, context);
+        super(CONCEPTS.ListCommandPart$QJ, context);
         _context = context;
       }
 
@@ -146,7 +147,7 @@ public class SubstituteListCommandPart extends SubstituteMenuBase {
       @Override
       public SNode createNode(@NotNull String pattern) {
         SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, "jetbrains.mps.execution.commands.structure.ListCommandPart"));
-        SLinkOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x1e16a75f45341377L, "items"), null);
+        SLinkOperations.addNewChild(node, LINKS.items$pENx, null);
         return node;
       }
 
@@ -167,7 +168,12 @@ public class SubstituteListCommandPart extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_5b7y1v {
-    /*package*/ static final SConcept ListCommandPart_f390b413 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, "jetbrains.mps.execution.commands.structure.ListCommandPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ListCommandPart$QJ = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, "jetbrains.mps.execution.commands.structure.ListCommandPart");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink list$5wSZ = MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x5f50ed14026999cbL, "list");
+    /*package*/ static final SContainmentLink items$pENx = MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x1e16a75f45341377L, "items");
   }
 }

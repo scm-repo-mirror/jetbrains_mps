@@ -12,12 +12,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_TypeVariableDeclarationDuplicateName_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_TypeVariableDeclarationDuplicateName_NonTypesystemRule() {
@@ -25,16 +26,16 @@ public class check_TypeVariableDeclarationDuplicateName_NonTypesystemRule extend
   public void applyRule(final SNode typeVariableDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     boolean duplicateName = ListSequence.fromList(SNodeOperations.getAllSiblings(typeVariableDeclaration, false)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_fdzrny.TypeVariableDeclaration_de3da816) && SNodeOperations.getIndexInParent(it) < SNodeOperations.getIndexInParent(typeVariableDeclaration);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.TypeVariableDeclaration$Cc) && SNodeOperations.getIndexInParent(it) < SNodeOperations.getIndexInParent(typeVariableDeclaration);
       }
     }).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(SPropertyOperations.getString(SNodeOperations.cast(it, AUX_fdzrny.TypeVariableDeclaration_de3da816), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(typeVariableDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return Objects.equals(SPropertyOperations.getString(SNodeOperations.cast(it, CONCEPTS.TypeVariableDeclaration$Cc), PROPS.name$tAp1), SPropertyOperations.getString(typeVariableDeclaration, PROPS.name$tAp1));
       }
     });
 
     if (duplicateName) {
-      String msg = "Duplicate type parameter " + SPropertyOperations.getString(typeVariableDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      String msg = "Duplicate type parameter " + SPropertyOperations.getString(typeVariableDeclaration, PROPS.name$tAp1);
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(typeVariableDeclaration, msg, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2970924421776837790", null, errorTarget);
@@ -42,7 +43,7 @@ public class check_TypeVariableDeclarationDuplicateName_NonTypesystemRule extend
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_fdzrny.TypeVariableDeclaration_de3da816;
+    return CONCEPTS.TypeVariableDeclaration$Cc;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -51,7 +52,11 @@ public class check_TypeVariableDeclarationDuplicateName_NonTypesystemRule extend
     return false;
   }
 
-  private static final class AUX_fdzrny {
-    /*package*/ static final SConcept TypeVariableDeclaration_de3da816 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypeVariableDeclaration$Cc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

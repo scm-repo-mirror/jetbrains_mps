@@ -12,6 +12,7 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class CustomFontContainer_EditorBuilder_a extends AbstractEditorBuilder {
@@ -47,9 +48,14 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private String _StyleParameter_QueryFunction_vguxxx_a0a() {
-    return SPropertyOperations.getString(getNode(), MetaAdapterFactory.getProperty(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x7697714d0d49e230L, 0x7697714d0d4a3399L, "fontFamily"));
+    return SPropertyOperations.getString(getNode(), PROPS.fontFamily$yHn_);
   }
   private int _StyleParameter_QueryFunction_vguxxx_a1a() {
-    return (SPropertyOperations.getInteger(getNode(), MetaAdapterFactory.getProperty(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x7697714d0d49e230L, 0x7697714d0d4e935bL, "fontSize")) != 0 ? SPropertyOperations.getInteger(getNode(), MetaAdapterFactory.getProperty(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x7697714d0d49e230L, 0x7697714d0d4e935bL, "fontSize")) : 12);
+    return (SPropertyOperations.getInteger(getNode(), PROPS.fontSize$dgUi) != 0 ? SPropertyOperations.getInteger(getNode(), PROPS.fontSize$dgUi) : 12);
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty fontFamily$yHn_ = MetaAdapterFactory.getProperty(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x7697714d0d49e230L, 0x7697714d0d4a3399L, "fontFamily");
+    /*package*/ static final SProperty fontSize$dgUi = MetaAdapterFactory.getProperty(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x7697714d0d49e230L, 0x7697714d0d4e935bL, "fontSize");
   }
 }

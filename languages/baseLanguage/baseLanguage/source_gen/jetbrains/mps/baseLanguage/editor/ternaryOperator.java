@@ -28,7 +28,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
@@ -41,6 +40,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ternaryOperator extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -66,7 +67,7 @@ public class ternaryOperator extends TransformationMenuBase {
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_imvmmn_a0(), AUX_imvmmn.TernaryOperatorExpression_580beb3a));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Action_imvmmn_a0(), CONCEPTS.TernaryOperatorExpression$HC));
     }
     return result;
   }
@@ -109,19 +110,19 @@ public class ternaryOperator extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SNode to = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_imvmmn.TernaryOperatorExpression_580beb3a, null);
+        SNode to = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.TernaryOperatorExpression$HC, null);
         SNode current = _context.getNode();
-        while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), AUX_imvmmn.BinaryOperation_7c4c55f3) && SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(current), AUX_imvmmn.BinaryOperation_7c4c55f3), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")) == current) {
-          current = SNodeOperations.cast(SNodeOperations.getParent(current), AUX_imvmmn.BinaryOperation_7c4c55f3);
+        while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), CONCEPTS.BinaryOperation$vf) && SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(current), CONCEPTS.BinaryOperation$vf), LINKS.rightExpression$rxBl) == current) {
+          current = SNodeOperations.cast(SNodeOperations.getParent(current), CONCEPTS.BinaryOperation$vf);
         }
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), AUX_imvmmn.BinaryOperation_7c4c55f3) || (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), AUX_imvmmn.TernaryOperatorExpression_580beb3a) && Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(current), AUX_imvmmn.TernaryOperatorExpression_580beb3a), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition")), current))) {
-          SNode parens = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_imvmmn.ParenthesizedExpression_a4b89678, null);
-          SLinkOperations.setTarget(parens, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), to);
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), CONCEPTS.BinaryOperation$vf) || (SNodeOperations.isInstanceOf(SNodeOperations.getParent(current), CONCEPTS.TernaryOperatorExpression$HC) && Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(current), CONCEPTS.TernaryOperatorExpression$HC), LINKS.condition$CEb4), current))) {
+          SNode parens = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.ParenthesizedExpression$vE, null);
+          SLinkOperations.setTarget(parens, LINKS.expression$4_F0, to);
           SNodeOperations.replaceWithAnother(current, parens);
         } else {
           SNodeOperations.replaceWithAnother(current, to);
         }
-        SLinkOperations.setTarget(to, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition"), current);
+        SLinkOperations.setTarget(to, LINKS.condition$CEb4, current);
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), to, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
@@ -129,7 +130,7 @@ public class ternaryOperator extends TransformationMenuBase {
       @Nullable
       @Override
       public SAbstractConcept getOutputConcept() {
-        return AUX_imvmmn.TernaryOperatorExpression_580beb3a;
+        return CONCEPTS.TernaryOperatorExpression$HC;
       }
       @Override
       public String getShortDescriptionText(@NotNull String pattern) {
@@ -144,7 +145,7 @@ public class ternaryOperator extends TransformationMenuBase {
 
       public void customize(String pattern, EditorMenuItemStyle style) {
         EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-        SAbstractConcept outputConcept = AUX_imvmmn.TernaryOperatorExpression_580beb3a;
+        SAbstractConcept outputConcept = CONCEPTS.TernaryOperatorExpression$HC;
         EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
         for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
           customizer.customize(style, compositeContext);
@@ -154,9 +155,15 @@ public class ternaryOperator extends TransformationMenuBase {
 
   }
 
-  private static final class AUX_imvmmn {
-    /*package*/ static final SConcept TernaryOperatorExpression_580beb3a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TernaryOperatorExpression$HC = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SContainmentLink condition$CEb4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition");
   }
 }

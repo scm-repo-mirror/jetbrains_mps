@@ -7,12 +7,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TwoStepDeleteCustomChildContainer_CellWithStringId_Delete {
 
@@ -25,7 +26,7 @@ public class TwoStepDeleteCustomChildContainer_CellWithStringId_Delete {
         if (DeletionApproverUtil.approve(editorContext, node, "stringId")) {
           return;
         }
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x29e25dc0d0251d67L, 0x1139cad76e33da9eL, "showCellWithStringId"), false);
+        SPropertyOperations.assign(node, PROPS.showCellWithStringId$YE7x, false);
         SelectionUtil.selectCell(editorContext, node, "customId");
       }
 
@@ -65,5 +66,9 @@ public class TwoStepDeleteCustomChildContainer_CellWithStringId_Delete {
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty showCellWithStringId$YE7x = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x29e25dc0d0251d67L, 0x1139cad76e33da9eL, "showCellWithStringId");
   }
 }

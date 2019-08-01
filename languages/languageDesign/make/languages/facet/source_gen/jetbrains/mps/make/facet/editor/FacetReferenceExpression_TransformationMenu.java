@@ -26,7 +26,6 @@ import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.apache.log4j.Logger;
 import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
@@ -45,6 +44,10 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class FacetReferenceExpression_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -70,7 +73,7 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_bw4iz1.FacetReferenceExpression_e8398170)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.FacetReferenceExpression$JM)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -94,7 +97,7 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
   public class TMP_Group_bw4iz1_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_bw4iz1.TargetReferenceExpression_13797f56));
+      return !(SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.TargetReferenceExpression$Fc));
     }
 
     @NotNull
@@ -110,7 +113,7 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_bw4iz1_a1.TMP_Param_bw4iz1_a0b(), AUX_bw4iz1.TargetReferenceExpression_13797f56));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_bw4iz1_a1.TMP_Param_bw4iz1_a0b(), CONCEPTS.TargetReferenceExpression$Fc));
     }
     private class TMP_Param_bw4iz1_a0b extends ParameterizedMenuPart<SNode, TransformationMenuItem, TransformationMenuContext> {
 
@@ -123,7 +126,7 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
       @Nullable
       @Override
       protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
-        return SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x639ef64ff4850bb0L, 0x639ef64ff4850bb2L, "reference")), MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet")), MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration"));
+        return SLinkOperations.getChildren(SLinkOperations.getTarget(SLinkOperations.getTarget(_context.getNode(), LINKS.reference$bVBv), LINKS.facet$M0dw), LINKS.targetDeclaration$DCGr);
       }
       @NotNull
       @Override
@@ -174,14 +177,14 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
           @Nullable
           @Override
           public String getLabelText(String pattern) {
-            return ":" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+            return ":" + SPropertyOperations.getString(myParameterObject, PROPS.name$tAp1);
           }
 
           @Override
           public void execute(@NotNull String pattern) {
-            SNode tre = SNodeOperations.replaceWithNewChild(_context.getNode(), AUX_bw4iz1.TargetReferenceExpression_13797f56);
-            SLinkOperations.setTarget(tre, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x78c916bd7aecaff7L, 0x78c916bd7aecc3aeL, "facetRef"), _context.getNode());
-            SLinkOperations.setTarget(tre, MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x78c916bd7aecaff7L, 0x78c916bd7aecc3bcL, "target"), myParameterObject);
+            SNode tre = SNodeOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.TargetReferenceExpression$Fc);
+            SLinkOperations.setTarget(tre, LINKS.facetRef$BzES, _context.getNode());
+            SLinkOperations.setTarget(tre, LINKS.target$BzVP, myParameterObject);
             SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), tre, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
           }
 
@@ -189,7 +192,7 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
           @Nullable
           @Override
           public SAbstractConcept getOutputConcept() {
-            return AUX_bw4iz1.TargetReferenceExpression_13797f56;
+            return CONCEPTS.TargetReferenceExpression$Fc;
           }
 
 
@@ -200,7 +203,7 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
 
           public void customize(String pattern, EditorMenuItemStyle style) {
             EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-            SAbstractConcept outputConcept = AUX_bw4iz1.TargetReferenceExpression_13797f56;
+            SAbstractConcept outputConcept = CONCEPTS.TargetReferenceExpression$Fc;
             EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(myParameterObject, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
             for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
               customizer.customize(style, compositeContext);
@@ -212,8 +215,20 @@ public class FacetReferenceExpression_TransformationMenu extends TransformationM
     }
   }
 
-  private static final class AUX_bw4iz1 {
-    /*package*/ static final SConcept FacetReferenceExpression_e8398170 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x639ef64ff4850bb0L, "jetbrains.mps.make.facet.structure.FacetReferenceExpression");
-    /*package*/ static final SConcept TargetReferenceExpression_13797f56 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x78c916bd7aecaff7L, "jetbrains.mps.make.facet.structure.TargetReferenceExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FacetReferenceExpression$JM = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x639ef64ff4850bb0L, "jetbrains.mps.make.facet.structure.FacetReferenceExpression");
+    /*package*/ static final SConcept TargetReferenceExpression$Fc = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x78c916bd7aecaff7L, "jetbrains.mps.make.facet.structure.TargetReferenceExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink reference$bVBv = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x639ef64ff4850bb0L, 0x639ef64ff4850bb2L, "reference");
+    /*package*/ static final SReferenceLink facet$M0dw = MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet");
+    /*package*/ static final SContainmentLink targetDeclaration$DCGr = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration");
+    /*package*/ static final SContainmentLink facetRef$BzES = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x78c916bd7aecaff7L, 0x78c916bd7aecc3aeL, "facetRef");
+    /*package*/ static final SReferenceLink target$BzVP = MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x78c916bd7aecaff7L, 0x78c916bd7aecc3bcL, "target");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

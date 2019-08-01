@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.tuples.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,7 +17,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -24,11 +24,11 @@ import jetbrains.mps.baseLanguage.behavior.IGenericType__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class IndexedTupleType__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_qvh9g9.IndexedTupleType_dd9476bd;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType");
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
   public static final SMethod<List<String>> getVariableSuffixes_idhEwIzNo = new SMethodBuilder<List<String>>(new SJavaCompoundTypeImpl((Class<List<String>>) ((Class) Object.class))).name("getVariableSuffixes").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIzNo").build();
@@ -45,7 +45,7 @@ public final class IndexedTupleType__BehaviorDescriptor extends BaseBHDescriptor
     StringBuilder sb = new StringBuilder();
     sb.append(IndexedTupleType__BehaviorDescriptor.getLeftBracket_id1653mnvAgpU.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(__thisNode__))));
     String sep = "";
-    for (SNode mt : SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"))) {
+    for (SNode mt : SLinkOperations.getChildren(__thisNode__, LINKS.componentType$62ij)) {
       sb.append(sep).append(BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(mt));
       sep = ", ";
     }
@@ -54,7 +54,7 @@ public final class IndexedTupleType__BehaviorDescriptor extends BaseBHDescriptor
   }
   /*package*/ static List<String> getVariableSuffixes_idhEwIzNo(@NotNull SNode __thisNode__) {
     List<String> suffixes = ListSequence.fromList(new ArrayList<String>());
-    switch (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"))).count()) {
+    switch (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.componentType$62ij)).count()) {
       case 0:
         ListSequence.fromList(suffixes).addElement("unit");
         break;
@@ -71,14 +71,14 @@ public final class IndexedTupleType__BehaviorDescriptor extends BaseBHDescriptor
         ListSequence.fromList(suffixes).addElement("quadruple");
         break;
       default:
-        ListSequence.fromList(suffixes).addElement("_" + Integer.valueOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"))).count()) + "tuple");
+        ListSequence.fromList(suffixes).addElement("_" + Integer.valueOf(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.componentType$62ij)).count()) + "tuple");
     }
     return suffixes;
   }
   /*package*/ static void collectGenericSubstitutions_id3zZky3wF74h(@NotNull SNode __thisNode__, Map<SNode, SNode> substitutions) {
-    for (SNode ct : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType")))) {
-      if (SNodeOperations.isInstanceOf(ct, AUX_qvh9g9.IGenericType_d5d80471)) {
-        IGenericType__BehaviorDescriptor.collectGenericSubstitutions_id3zZky3wF74h.invoke(SNodeOperations.cast(ct, AUX_qvh9g9.IGenericType_d5d80471), substitutions);
+    for (SNode ct : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.componentType$62ij))) {
+      if (SNodeOperations.isInstanceOf(ct, CONCEPTS.IGenericType$$h)) {
+        IGenericType__BehaviorDescriptor.collectGenericSubstitutions_id3zZky3wF74h.invoke(SNodeOperations.cast(ct, CONCEPTS.IGenericType$$h), substitutions);
       }
     }
   }
@@ -144,8 +144,11 @@ public final class IndexedTupleType__BehaviorDescriptor extends BaseBHDescriptor
     return CONCEPT;
   }
 
-  private static final class AUX_qvh9g9 {
-    /*package*/ static final SConcept IndexedTupleType_dd9476bd = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType");
-    /*package*/ static final SInterfaceConcept IGenericType_d5d80471 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x38ff5220e0ac710dL, "jetbrains.mps.baseLanguage.structure.IGenericType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink componentType$62ij = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IGenericType$$h = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x38ff5220e0ac710dL, "jetbrains.mps.baseLanguage.structure.IGenericType");
   }
 }

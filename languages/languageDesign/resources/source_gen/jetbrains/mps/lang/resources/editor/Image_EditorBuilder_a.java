@@ -10,7 +10,6 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
@@ -24,6 +23,8 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Component;
 import javax.swing.JComponent;
 import jetbrains.mps.editor.runtime.EditorUtil;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class Image_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -65,7 +66,7 @@ import jetbrains.mps.editor.runtime.EditorUtil;
     return editorCell;
   }
   private boolean nodeCondition_w2956w_a0a() {
-    return isEmptyString(SPropertyOperations.getString(myNode, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, 0xb8b96b5078f33bbL, "file")));
+    return isEmptyString(SPropertyOperations.getString(myNode, PROPS.file$dXIq));
   }
   private EditorCell createConstant_0() {
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "<no icon>");
@@ -108,7 +109,7 @@ import jetbrains.mps.editor.runtime.EditorUtil;
   private EditorCell_Image fromImageCellProvider0() {
     String imagePath = (new _FunctionTypes._return_P0_E0<String>() {
       public String invoke() {
-        return SPropertyOperations.getString(myNode, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, 0xb8b96b5078f33bbL, "file"));
+        return SPropertyOperations.getString(myNode, PROPS.file$dXIq);
       }
     }).invoke();
     return EditorCell_Image.createImageCell(getEditorContext(), myNode, imagePath);
@@ -128,9 +129,13 @@ import jetbrains.mps.editor.runtime.EditorUtil;
     return editorCell;
   }
   private JComponent _QueryFunction_JComponent_w2956w_a1a() {
-    return EditorUtil.createSelectImageButton(myNode, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, 0xb8b96b5078f33bbL, "file"), getEditorContext());
+    return EditorUtil.createSelectImageButton(myNode, PROPS.file$dXIq, getEditorContext());
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty file$dXIq = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0xb8b96b5078f3367L, 0xb8b96b5078f33bbL, "file");
   }
 }

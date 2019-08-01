@@ -7,80 +7,83 @@ import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.Iterator;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ListMigrationUtil {
   public ListMigrationUtil() {
   }
   public static boolean isApplicableForLists(SNode node, String name, List<ParameterType> params) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a))) {
       return false;
     }
-    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-    if (!((SNodeOperations.isInstanceOf(type, AUX_gtz9m1.ListType_a33b8e3e) || SNodeOperations.isInstanceOf(type, AUX_gtz9m1.SNodeListType_1387e8b4)))) {
+    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr));
+    if (!((SNodeOperations.isInstanceOf(type, CONCEPTS.ListType$z$) || SNodeOperations.isInstanceOf(type, CONCEPTS.SNodeListType$OI)))) {
       return false;
     }
     return ListMigrationUtil.isApplicableMethod(node, name, params);
   }
   public static boolean isApplicableForSet(SNode node, String name, List<ParameterType> params) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a))) {
       return false;
     }
-    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-    if (!(SNodeOperations.isInstanceOf(type, AUX_gtz9m1.SetType_d8fa38cf))) {
+    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr));
+    if (!(SNodeOperations.isInstanceOf(type, CONCEPTS.SetType$1N))) {
       return false;
     }
     return ListMigrationUtil.isApplicableMethod(node, name, params);
   }
   public static boolean isApplicableForIterator(SNode node, String name, List<ParameterType> params) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a))) {
       return false;
     }
-    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-    if (!(SNodeOperations.isInstanceOf(type, AUX_gtz9m1.IteratorType_1292130b))) {
+    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr));
+    if (!(SNodeOperations.isInstanceOf(type, CONCEPTS.IteratorType$QR))) {
       return false;
     }
     return ListMigrationUtil.isApplicableMethod(node, name, params);
   }
   public static boolean isApplicableForAll(SNode node, String name, List<ParameterType> params) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a))) {
       return false;
     }
-    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-    if (!((SNodeOperations.isInstanceOf(type, AUX_gtz9m1.ListType_a33b8e3e) || SNodeOperations.isInstanceOf(type, AUX_gtz9m1.SNodeListType_1387e8b4) || SNodeOperations.isInstanceOf(type, AUX_gtz9m1.SetType_d8fa38cf)))) {
+    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr));
+    if (!((SNodeOperations.isInstanceOf(type, CONCEPTS.ListType$z$) || SNodeOperations.isInstanceOf(type, CONCEPTS.SNodeListType$OI) || SNodeOperations.isInstanceOf(type, CONCEPTS.SetType$1N)))) {
       return false;
     }
     return ListMigrationUtil.isApplicableMethod(node, name, params);
   }
   public static boolean isApplicableForMap(SNode node, String name, List<ParameterType> params) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a))) {
       return false;
     }
-    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_gtz9m1.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
-    if (!(SNodeOperations.isInstanceOf(type, AUX_gtz9m1.MapType_a7cf7955))) {
+    SNode type = TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr));
+    if (!(SNodeOperations.isInstanceOf(type, CONCEPTS.MapType$2H))) {
       return false;
     }
     return ListMigrationUtil.isApplicableMethod(node, name, params);
   }
   private static boolean isApplicableMethod(SNode node, String name, List<ParameterType> params) {
-    SNode declaration = SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
-    if (!(Objects.equals(SPropertyOperations.getString(declaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), name))) {
+    SNode declaration = SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i);
+    if (!(Objects.equals(SPropertyOperations.getString(declaration, PROPS.name$tAp1), name))) {
       return false;
     }
     if (!((Objects.equals(SModelOperations.getModelName(SNodeOperations.getModel(declaration)), "java.util")))) {
       return false;
     }
-    if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).count() != ListSequence.fromList(params).count()) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.actualArgument$$A7L)).count() != ListSequence.fromList(params).count()) {
       return false;
     }
     {
-      Iterator<SNode> argument_it = ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).iterator();
+      Iterator<SNode> argument_it = ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.actualArgument$$A7L)).iterator();
       Iterator<ParameterType> param_it = ListSequence.fromList(params).iterator();
       SNode argument_var;
       ParameterType param_var;
@@ -88,12 +91,12 @@ public class ListMigrationUtil {
         argument_var = argument_it.next();
         param_var = param_it.next();
         if (param_var == ParameterType.INT) {
-          if (!(SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(argument_var), AUX_gtz9m1.IntegerType_603aa60a))) {
+          if (!(SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(argument_var), CONCEPTS.IntegerType$Eo))) {
             return false;
           }
         }
         if (param_var == ParameterType.NOT_INT) {
-          if (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(argument_var), AUX_gtz9m1.IntegerType_603aa60a)) {
+          if (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(argument_var), CONCEPTS.IntegerType$Eo)) {
             return false;
           }
         }
@@ -102,38 +105,50 @@ public class ListMigrationUtil {
     return true;
   }
   public static boolean isApplicableForType(SNode node, int params, List<SNode> classifiers) {
-    if (!(ListSequence.fromList(classifiers).contains(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))))) {
+    if (!(ListSequence.fromList(classifiers).contains(SLinkOperations.getTarget(node, LINKS.classifier$pQ_R)))) {
       return false;
     }
-    if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"))).count() != params) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.parameter$dQne)).count() != params) {
       return false;
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.VariableDeclaration_3c610994)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.VariableDeclaration$xe)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.BaseMethodDeclaration_9dbf9acb)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.BaseMethodDeclaration$RR)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.CastExpression_6a411f0c)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.CastExpression$7m)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_gtz9m1.Type_4199e276)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Type$IG)) {
       return true;
     }
     return false;
   }
 
-  private static final class AUX_gtz9m1 {
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept ListType_a33b8e3e = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, "jetbrains.mps.baseLanguage.collections.structure.ListType");
-    /*package*/ static final SConcept SNodeListType_1387e8b4 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10aae26be32L, "jetbrains.mps.lang.smodel.structure.SNodeListType");
-    /*package*/ static final SConcept SetType_d8fa38cf = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
-    /*package*/ static final SConcept IteratorType_1292130b = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1201ed2b158L, "jetbrains.mps.baseLanguage.collections.structure.IteratorType");
-    /*package*/ static final SConcept MapType_a7cf7955 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116db7e6bcbL, "jetbrains.mps.baseLanguage.collections.structure.MapType");
-    /*package*/ static final SConcept IntegerType_603aa60a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept CastExpression_6a411f0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept ListType$z$ = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x10c25fb076aL, "jetbrains.mps.baseLanguage.collections.structure.ListType");
+    /*package*/ static final SConcept SNodeListType$OI = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10aae26be32L, "jetbrains.mps.lang.smodel.structure.SNodeListType");
+    /*package*/ static final SConcept SetType$1N = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d91cbbcd0L, "jetbrains.mps.baseLanguage.collections.structure.SetType");
+    /*package*/ static final SConcept IteratorType$QR = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1201ed2b158L, "jetbrains.mps.baseLanguage.collections.structure.IteratorType");
+    /*package*/ static final SConcept MapType$2H = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x116db7e6bcbL, "jetbrains.mps.baseLanguage.collections.structure.MapType");
+    /*package*/ static final SConcept IntegerType$Eo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept CastExpression$7m = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink parameter$dQne = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

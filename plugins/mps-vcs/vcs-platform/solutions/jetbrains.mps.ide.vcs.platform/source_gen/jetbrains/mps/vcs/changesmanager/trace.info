@@ -1121,8 +1121,8 @@
       <node id="3285276019551792508" at="515,57,516,39" concept="9" />
       <node id="3285276019551792601" at="517,38,518,15" concept="10" />
       <node id="1887089739065517497" at="519,7,520,37" concept="9" />
-      <node id="3285276019551792526" at="520,37,521,375" concept="9" />
-      <node id="3285276019551792883" at="521,375,522,0" concept="12" />
+      <node id="3285276019551792526" at="520,37,521,343" concept="9" />
+      <node id="3285276019551792883" at="521,343,522,0" concept="12" />
       <node id="3285276019551792887" at="522,0,523,77" concept="11" />
       <node id="3285276019551792688" at="523,77,524,94" concept="9" />
       <node id="3285276019551792731" at="525,38,526,81" concept="4" />
@@ -1170,7 +1170,7 @@
       <node id="2722862962576140792" at="679,5,680,16" concept="10" />
       <node id="6062488108962523585" at="683,36,684,43" concept="10" />
       <node id="6062488108962523585" at="685,5,686,16" concept="10" />
-      <node id="3161776655522682154" at="690,0,691,0" concept="13" trace="ChildAttribute_96496d6c" />
+      <node id="3161776655522682154" at="690,0,691,0" concept="13" trace="ChildAttribute$XQ" />
       <node id="6372684221198399696" at="138,10,140,5" concept="1" />
       <node id="6402272430681912666" at="202,10,204,5" concept="1" />
       <node id="6372684221198399754" at="292,10,294,5" concept="1" />
@@ -1764,7 +1764,7 @@
       <scope id="3161776655522687026" at="160,0,236,0">
         <var name="force" id="4043676313147810216" />
       </scope>
-      <unit id="3161776655522682154" at="689,0,692,0" name="jetbrains.mps.vcs.changesmanager.ChangesTracking$AUX_5iuzi5" />
+      <unit id="3161776655522682154" at="689,0,692,0" name="jetbrains.mps.vcs.changesmanager.ChangesTracking$CONCEPTS" />
       <unit id="3619977242337237508" at="125,28,129,9" name="jetbrains.mps.vcs.changesmanager.ChangesTracking$1" />
       <unit id="537188054564893243" at="208,105,212,5" name="jetbrains.mps.vcs.changesmanager.ChangesTracking$3" />
       <unit id="3557624462335358445" at="301,72,305,5" name="jetbrains.mps.vcs.changesmanager.ChangesTracking$5" />

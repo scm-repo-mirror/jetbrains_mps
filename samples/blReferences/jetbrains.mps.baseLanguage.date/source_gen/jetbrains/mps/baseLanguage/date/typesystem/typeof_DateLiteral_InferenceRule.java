@@ -25,7 +25,7 @@ public class typeof_DateLiteral_InferenceRule extends AbstractInferenceRule_Runt
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_gobu8k.DateLiteral_b3c787cd;
+    return CONCEPTS.DateLiteral$4P;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,12 +35,12 @@ public class typeof_DateLiteral_InferenceRule extends AbstractInferenceRule_Runt
   }
   private static SNode createDateType_gobu8k_a1a0c0a0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_gobu8k.DateType_b3b6ab2a, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.DateType$_S, null, null, false);
     return n1;
   }
 
-  private static final class AUX_gobu8k {
-    /*package*/ static final SConcept DateLiteral_b3c787cd = MetaAdapterFactory.getConcept(0x4b7c56eb93474ed1L, 0xa5d9938a850b9e1dL, 0x3515a7f64b702262L, "jetbrains.mps.baseLanguage.date.structure.DateLiteral");
-    /*package*/ static final SConcept DateType_b3b6ab2a = MetaAdapterFactory.getConcept(0x4b7c56eb93474ed1L, 0xa5d9938a850b9e1dL, 0x3515a7f64b6fe2d2L, "jetbrains.mps.baseLanguage.date.structure.DateType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DateLiteral$4P = MetaAdapterFactory.getConcept(0x4b7c56eb93474ed1L, 0xa5d9938a850b9e1dL, 0x3515a7f64b702262L, "jetbrains.mps.baseLanguage.date.structure.DateLiteral");
+    /*package*/ static final SConcept DateType$_S = MetaAdapterFactory.getConcept(0x4b7c56eb93474ed1L, 0xa5d9938a850b9e1dL, 0x3515a7f64b6fe2d2L, "jetbrains.mps.baseLanguage.date.structure.DateType");
   }
 }

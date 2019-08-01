@@ -47,7 +47,7 @@ public final class AddOrRemoveRegularAttribute_Intention extends AbstractIntenti
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_yb3rkq.TestSubstituteAttribute_RegularEditor_22bbee5b)) == null)) {
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_RegularEditor$LB)) == null)) {
         return "Add Regular Attribute";
       } else {
         return "Remove Regular Attribute";
@@ -55,10 +55,10 @@ public final class AddOrRemoveRegularAttribute_Intention extends AbstractIntenti
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_yb3rkq.TestSubstituteAttribute_RegularEditor_22bbee5b)) == null)) {
-        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(AUX_yb3rkq.TestSubstituteAttribute_RegularEditor_22bbee5b), AUX_yb3rkq.TestSubstituteAttribute_RegularEditor_22bbee5b);
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_RegularEditor$LB)) == null)) {
+        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_RegularEditor$LB), CONCEPTS.TestSubstituteAttribute_RegularEditor$LB);
       } else {
-        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_yb3rkq.TestSubstituteAttribute_RegularEditor_22bbee5b)));
+        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TestSubstituteAttribute_RegularEditor$LB)));
       }
     }
     @Override
@@ -67,7 +67,7 @@ public final class AddOrRemoveRegularAttribute_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_yb3rkq {
-    /*package*/ static final SConcept TestSubstituteAttribute_RegularEditor_22bbee5b = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x446b8c93949517d6L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteAttribute_RegularEditor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteAttribute_RegularEditor$LB = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x446b8c93949517d6L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteAttribute_RegularEditor");
   }
 }

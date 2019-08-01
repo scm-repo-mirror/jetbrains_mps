@@ -25,7 +25,7 @@ public class typeof_MoneyLiteral_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_1il3t.MoneyLiteral_262710da;
+    return CONCEPTS.MoneyLiteral$B8;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_MoneyLiteral_InferenceRule extends AbstractInferenceRule_Run
     return quotedNode_1;
   }
 
-  private static final class AUX_1il3t {
-    /*package*/ static final SConcept MoneyLiteral_262710da = MetaAdapterFactory.getConcept(0xf43135f9b8334685L, 0x8d26ffb6c8215f72L, 0x1144ae7606aL, "jetbrains.mps.baseLanguage.money.structure.MoneyLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MoneyLiteral$B8 = MetaAdapterFactory.getConcept(0xf43135f9b8334685L, 0x8d26ffb6c8215f72L, 0x1144ae7606aL, "jetbrains.mps.baseLanguage.money.structure.MoneyLiteral");
   }
 }

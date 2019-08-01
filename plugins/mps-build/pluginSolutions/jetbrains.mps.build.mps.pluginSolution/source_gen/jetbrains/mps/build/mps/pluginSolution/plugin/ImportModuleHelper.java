@@ -17,6 +17,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.build.mps.util.ModuleLoader;
 import jetbrains.mps.build.mps.util.ModuleChecker;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /*package*/ class ImportModuleHelper {
   private static final Logger LOG = LogManager.getLogger(ImportModuleHelper.class);
@@ -50,19 +52,30 @@ import jetbrains.mps.build.mps.util.ModuleChecker;
       created = null;
     }
     if ((created != null)) {
-      ListSequence.fromList(SLinkOperations.getChildren(project, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts"))).addElement(created);
+      ListSequence.fromList(SLinkOperations.getChildren(project, LINKS.parts$tgxg)).addElement(created);
     }
   }
   private void initModule(SNode module) {
-    SPropertyOperations.assign(module, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x742675d05378e98dL, "compact"), true);
-    SPropertyOperations.assign(module, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), moduleDescriptor.getModuleReference().getModuleName());
-    SPropertyOperations.assign(module, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d3868bL, "uuid"), moduleDescriptor.getModuleReference().getModuleId().toString());
-    SLinkOperations.setTarget(module, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d47f25L, "path"), moduleFile);
+    SPropertyOperations.assign(module, PROPS.compact$1aZR, true);
+    SPropertyOperations.assign(module, PROPS.name$tAp1, moduleDescriptor.getModuleReference().getModuleName());
+    SPropertyOperations.assign(module, PROPS.uuid$XKnR, moduleDescriptor.getModuleReference().getModuleId().toString());
+    SLinkOperations.setTarget(module, LINKS.path$g7Oh, moduleFile);
   }
   public void update(ModuleLoader ml) {
     if ((created == null)) {
       return;
     }
     ml.createModuleChecker(created).check(ModuleChecker.CheckType.LOAD_IMPORTANT_PART);
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parts$tgxg = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
+    /*package*/ static final SContainmentLink path$g7Oh = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d47f25L, "path");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty compact$1aZR = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x742675d05378e98dL, "compact");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty uuid$XKnR = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d3868bL, "uuid");
   }
 }

@@ -20,7 +20,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.editor.runtime.commands.EditorCommandAdapter;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
@@ -32,6 +31,7 @@ import jetbrains.mps.openapi.editor.cells.CellTraversalUtil;
 import org.jetbrains.mps.openapi.language.SAbstractLink;
 import java.util.Objects;
 import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class IntelligentNodeMover {
@@ -182,9 +182,9 @@ public class IntelligentNodeMover {
     SNode nextAnchor = place.myAnchor;
     for (SNode node : myNodesToMove) {
       getNodesCommonParent().removeChild(node);
-      SContainmentLink link = (SNodeOperations.isInstanceOf(node, AUX_9l6nqc.ChildAttribute_96496d6c) ? MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute") : place.myLink);
-      if (SNodeOperations.isInstanceOf(node, AUX_9l6nqc.ChildAttribute_96496d6c)) {
-        BHReflection.invoke0(SNodeOperations.cast(node, AUX_9l6nqc.ChildAttribute_96496d6c), AUX_9l6nqc.ChildAttribute_96496d6c, SMethodTrimmedId.create("setLink", AUX_9l6nqc.ChildAttribute_96496d6c, "BpxLfMirzM"), place.myLink);
+      SContainmentLink link = (SNodeOperations.isInstanceOf(node, CONCEPTS.ChildAttribute$XQ) ? LINKS.smodelAttribute$K8bJ : place.myLink);
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.ChildAttribute$XQ)) {
+        BHReflection.invoke0(SNodeOperations.cast(node, CONCEPTS.ChildAttribute$XQ), CONCEPTS.ChildAttribute$XQ, SMethodTrimmedId.create("setLink", CONCEPTS.ChildAttribute$XQ, "BpxLfMirzM"), place.myLink);
       }
       if (place.myIsAfter) {
         place.myParent.insertChildAfter(link, node, nextAnchor);
@@ -330,13 +330,17 @@ public class IntelligentNodeMover {
     return findNode.runRead(editorContext.getRepository().getModelAccess());
   }
   private static SContainmentLink getNodesContainmentLink(@NotNull SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_9l6nqc.ChildAttribute_96496d6c)) {
-      return ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(node, AUX_9l6nqc.ChildAttribute_96496d6c), AUX_9l6nqc.ChildAttribute_96496d6c, SMethodTrimmedId.create("getLink", AUX_9l6nqc.ChildAttribute_96496d6c, "BpxLfMirzf")));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.ChildAttribute$XQ)) {
+      return ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(node, CONCEPTS.ChildAttribute$XQ), CONCEPTS.ChildAttribute$XQ, SMethodTrimmedId.create("getLink", CONCEPTS.ChildAttribute$XQ, "BpxLfMirzf")));
     }
     return node.getContainmentLink();
   }
 
-  private static final class AUX_9l6nqc {
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
   }
 }

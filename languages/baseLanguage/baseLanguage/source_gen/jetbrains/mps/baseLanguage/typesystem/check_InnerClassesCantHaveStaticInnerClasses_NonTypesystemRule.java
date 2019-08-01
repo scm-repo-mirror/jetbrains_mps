@@ -21,8 +21,8 @@ public class check_InnerClassesCantHaveStaticInnerClasses_NonTypesystemRule exte
   public check_InnerClassesCantHaveStaticInnerClasses_NonTypesystemRule() {
   }
   public void applyRule(final SNode classConcept, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(classConcept) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(classConcept), AUX_aur4s2.Classifier_4b7e553)) {
-      SNode classifier = SNodeOperations.cast(SNodeOperations.getParent(classConcept), AUX_aur4s2.Classifier_4b7e553);
+    if ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(classConcept) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(classConcept), CONCEPTS.Classifier$hJ)) {
+      SNode classifier = SNodeOperations.cast(SNodeOperations.getParent(classConcept), CONCEPTS.Classifier$hJ);
       if ((boolean) Classifier__BehaviorDescriptor.isInner_idsWroEc0xXl.invoke(classifier) && !((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(classifier))) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
@@ -32,7 +32,7 @@ public class check_InnerClassesCantHaveStaticInnerClasses_NonTypesystemRule exte
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_aur4s2.ClassConcept_e2711824;
+    return CONCEPTS.ClassConcept$IY;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,8 +41,8 @@ public class check_InnerClassesCantHaveStaticInnerClasses_NonTypesystemRule exte
     return false;
   }
 
-  private static final class AUX_aur4s2 {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

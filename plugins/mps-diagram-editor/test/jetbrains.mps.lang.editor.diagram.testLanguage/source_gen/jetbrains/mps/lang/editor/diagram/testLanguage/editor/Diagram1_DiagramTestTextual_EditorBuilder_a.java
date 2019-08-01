@@ -16,7 +16,6 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -24,6 +23,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class Diagram1_DiagramTestTextual_EditorBuilder_a extends AbstractEditorBuilder {
@@ -125,10 +125,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x71771b7f74c017aL, 0x71771b7f74c01b6L, "rectangles");
+      return LINKS.rectangles$ABW7;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_mqyws0.RectangleNode_a534da14;
+      return CONCEPTS.RectangleNode$ve;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -138,7 +138,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(rectanglesListHandler_35xpgu_c2a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x71771b7f74c017aL, 0x71771b7f74c01b6L, "rectangles")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(rectanglesListHandler_35xpgu_c2a.this.getNode(), LINKS.rectangles$ABW7));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -172,7 +172,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_mqyws0 {
-    /*package*/ static final SConcept RectangleNode_a534da14 = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x71771b7f74c01b3L, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.RectangleNode");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rectangles$ABW7 = MetaAdapterFactory.getContainmentLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x71771b7f74c017aL, 0x71771b7f74c01b6L, "rectangles");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RectangleNode$ve = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x71771b7f74c01b3L, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.RectangleNode");
   }
 }

@@ -9,24 +9,25 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.constraints.behavior.NodePropertyConstraint__BehaviorDescriptor;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class typeof_ConstraintsFunctionParameter_node_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_ConstraintsFunctionParameter_node_InferenceRule() {
   }
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode applicableConcept;
-    if ((SNodeOperations.getNodeAncestor(node, AUX_5j2flj.ConstraintFunction_GetAlternativeIcon_2e62c646, false, false) != null) || (SNodeOperations.getNodeAncestor(node, AUX_5j2flj.ConstraintFunction_GetInstanceIcon_62aca58, false, false) != null) || (SNodeOperations.getNodeAncestor(node, AUX_5j2flj.ConstraintFunction_CanBeAChild_1644c7a7, false, false) != null) || (SNodeOperations.getNodeAncestor(node, AUX_5j2flj.ConstraintFunction_CanBeAParent_17ceed24, false, false) != null) || (SNodeOperations.getNodeAncestor(node, AUX_5j2flj.ConstraintFunction_CanBeAnAncestor_17d0c987, false, false) != null)) {
-      applicableConcept = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(node, AUX_5j2flj.ConceptConstraints_2e5b5de5, false, false), MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a720969b6L, "concept"));
+    if ((SNodeOperations.getNodeAncestor(node, CONCEPTS.ConstraintFunction_GetAlternativeIcon$7s, false, false) != null) || (SNodeOperations.getNodeAncestor(node, CONCEPTS.ConstraintFunction_GetInstanceIcon$a, false, false) != null) || (SNodeOperations.getNodeAncestor(node, CONCEPTS.ConstraintFunction_CanBeAChild$Mr, false, false) != null) || (SNodeOperations.getNodeAncestor(node, CONCEPTS.ConstraintFunction_CanBeAParent$qY, false, false) != null) || (SNodeOperations.getNodeAncestor(node, CONCEPTS.ConstraintFunction_CanBeAnAncestor$qV, false, false) != null)) {
+      applicableConcept = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(node, CONCEPTS.ConceptConstraints$St, false, false), LINKS.concept$rRWx);
     } else {
-      applicableConcept = NodePropertyConstraint__BehaviorDescriptor.getApplicableConcept_idhEwIoOT.invoke(SNodeOperations.getNodeAncestor(node, AUX_5j2flj.NodePropertyConstraint_95960da6, false, false));
+      applicableConcept = NodePropertyConstraint__BehaviorDescriptor.getApplicableConcept_idhEwIoOT.invoke(SNodeOperations.getNodeAncestor(node, CONCEPTS.NodePropertyConstraint$pW, false, false));
     }
     if ((applicableConcept == null)) {
       {
@@ -43,7 +44,7 @@ public class typeof_ConstraintsFunctionParameter_node_InferenceRule extends Abst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_5j2flj.ConstraintsFunctionParameter_node_ce2c6ef0;
+    return CONCEPTS.ConstraintsFunctionParameter_node$TM;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -61,18 +62,23 @@ public class typeof_ConstraintsFunctionParameter_node_InferenceRule extends Abst
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x108f968b3caL, "SNodeType"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.concept$HWFQ, (SNode) parameter_1);
     return quotedNode_2;
   }
 
-  private static final class AUX_5j2flj {
-    /*package*/ static final SConcept ConceptConstraints_2e5b5de5 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
-    /*package*/ static final SConcept ConstraintFunction_CanBeAParent_17ceed24 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x5d05239254e630abL, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAParent");
-    /*package*/ static final SConcept ConstraintFunction_GetAlternativeIcon_2e62c646 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x341b038f9307e5cfL, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_GetAlternativeIcon");
-    /*package*/ static final SConcept ConstraintFunction_GetInstanceIcon_62aca58 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x13cd31e62ef65a72L, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_GetInstanceIcon");
-    /*package*/ static final SConcept ConstraintFunction_CanBeAChild_1644c7a7 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x5d05239254e52247L, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAChild");
-    /*package*/ static final SConcept ConstraintFunction_CanBeAnAncestor_17d0c987 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x5d05239254e6415aL, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAnAncestor");
-    /*package*/ static final SConcept NodePropertyConstraint_95960da6 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, "jetbrains.mps.lang.constraints.structure.NodePropertyConstraint");
-    /*package*/ static final SConcept ConstraintsFunctionParameter_node_ce2c6ef0 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a71bcdcL, "jetbrains.mps.lang.constraints.structure.ConstraintsFunctionParameter_node");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptConstraints$St = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
+    /*package*/ static final SConcept ConstraintFunction_CanBeAParent$qY = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x5d05239254e630abL, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAParent");
+    /*package*/ static final SConcept ConstraintFunction_GetAlternativeIcon$7s = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x341b038f9307e5cfL, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_GetAlternativeIcon");
+    /*package*/ static final SConcept ConstraintFunction_GetInstanceIcon$a = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x13cd31e62ef65a72L, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_GetInstanceIcon");
+    /*package*/ static final SConcept ConstraintFunction_CanBeAChild$Mr = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x5d05239254e52247L, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAChild");
+    /*package*/ static final SConcept ConstraintFunction_CanBeAnAncestor$qV = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x5d05239254e6415aL, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAnAncestor");
+    /*package*/ static final SConcept NodePropertyConstraint$pW = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a5eaa48L, "jetbrains.mps.lang.constraints.structure.NodePropertyConstraint");
+    /*package*/ static final SConcept ConstraintsFunctionParameter_node$TM = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x10b2a71bcdcL, "jetbrains.mps.lang.constraints.structure.ConstraintsFunctionParameter_node");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink concept$rRWx = MetaAdapterFactory.getReferenceLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x11a720969b6L, "concept");
+    /*package*/ static final SReferenceLink concept$HWFQ = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept");
   }
 }

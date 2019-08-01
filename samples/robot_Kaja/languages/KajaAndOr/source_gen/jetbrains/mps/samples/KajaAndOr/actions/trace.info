@@ -12,25 +12,28 @@
   </root>
   <root nodeRef="r:7300eb0d-e71e-4ce8-9bcb-0e6de0a42f4e(jetbrains.mps.samples.KajaAndOr.actions)/642541832606605337">
     <file name="LogicalOperatorFactory.java">
-      <node id="642541832606622085" at="16,90,17,94" concept="3" />
-      <node id="642541832606605868" at="17,94,18,341" concept="0" />
-      <node id="642541832606629377" at="18,341,19,343" concept="0" />
-      <node id="642541832606605337" at="25,0,26,0" concept="4" trace="LogicalOperator_689b9df9" />
-      <node id="642541832606618019" at="15,91,20,7" concept="1" />
-      <node id="642541832606605338" at="15,0,22,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="642541832606618021" at="16,90,19,343">
+      <node id="642541832606622085" at="17,82,18,86" concept="3" />
+      <node id="642541832606605868" at="18,86,19,113" concept="0" />
+      <node id="642541832606629377" at="19,113,20,115" concept="0" />
+      <node id="642541832606605337" at="26,0,27,0" concept="4" trace="LogicalOperator$29" />
+      <node id="642541832606605337" at="30,0,31,0" concept="4" trace="left$sA5C" />
+      <node id="642541832606605337" at="31,0,32,0" concept="4" trace="right$sA67" />
+      <node id="642541832606618019" at="16,91,21,7" concept="1" />
+      <node id="642541832606605338" at="16,0,23,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="642541832606618021" at="17,82,20,115">
         <var name="oldNode" id="642541832606622086" />
       </scope>
-      <scope id="642541832606605338" at="15,91,20,7" />
-      <scope id="642541832606605338" at="15,0,22,0">
+      <scope id="642541832606605338" at="16,91,21,7" />
+      <scope id="642541832606605338" at="16,0,23,0">
         <var name="enclosingNode" id="642541832606605338" />
         <var name="model" id="642541832606605338" />
         <var name="newNode" id="642541832606605338" />
         <var name="sampleNode" id="642541832606605338" />
       </scope>
-      <unit id="642541832606605337" at="24,0,27,0" name="jetbrains.mps.samples.KajaAndOr.actions.LogicalOperatorFactory$AUX_jop8b2" />
-      <unit id="642541832606605338" at="14,0,23,0" name="jetbrains.mps.samples.KajaAndOr.actions.LogicalOperatorFactory$NodeFactory_642541832606605338" />
-      <unit id="642541832606605337" at="13,0,28,0" name="jetbrains.mps.samples.KajaAndOr.actions.LogicalOperatorFactory" />
+      <unit id="642541832606605337" at="25,0,28,0" name="jetbrains.mps.samples.KajaAndOr.actions.LogicalOperatorFactory$CONCEPTS" />
+      <unit id="642541832606605337" at="29,0,33,0" name="jetbrains.mps.samples.KajaAndOr.actions.LogicalOperatorFactory$LINKS" />
+      <unit id="642541832606605338" at="15,0,24,0" name="jetbrains.mps.samples.KajaAndOr.actions.LogicalOperatorFactory$NodeFactory_642541832606605338" />
+      <unit id="642541832606605337" at="14,0,34,0" name="jetbrains.mps.samples.KajaAndOr.actions.LogicalOperatorFactory" />
     </file>
   </root>
 </debug-info>

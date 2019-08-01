@@ -27,21 +27,22 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class staticAccess extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_6orr95_a(), AUX_6orr95.StaticFieldReference_31c8669a));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_6orr95_a(), CONCEPTS.StaticFieldReference$K8));
     return result;
   }
 
@@ -78,16 +79,16 @@ public class staticAccess extends SubstituteMenuBase {
     @Nullable
     @Override
     protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-      FilteringScope visibleClassifiers = new FilteringScope(new ClassifiersScope(_context.getModel(), SNodeOperations.as(_context.getParentNode(), AUX_6orr95.Classifier_4b7e553), AUX_6orr95.Classifier_4b7e553, true)) {
+      FilteringScope visibleClassifiers = new FilteringScope(new ClassifiersScope(_context.getModel(), SNodeOperations.as(_context.getParentNode(), CONCEPTS.Classifier$hJ), CONCEPTS.Classifier$hJ, true)) {
         @Override
         public boolean isExcluded(SNode node) {
-          return super.isExcluded(node) || !(VisibilityUtil.isVisible(_context.getParentNode(), SNodeOperations.as(node, AUX_6orr95.IVisible_84badc76)));
+          return super.isExcluded(node) || !(VisibilityUtil.isVisible(_context.getParentNode(), SNodeOperations.as(node, CONCEPTS.IVisible$6G)));
         }
       };
       Iterable<SNode> availableElements = visibleClassifiers.getAvailableElements("");
       Iterable<SNode> seq = Sequence.fromIterable(availableElements).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SNodeOperations.cast(it, AUX_6orr95.Classifier_4b7e553);
+          return SNodeOperations.cast(it, CONCEPTS.Classifier$hJ);
         }
       });
       return seq;
@@ -125,7 +126,7 @@ public class staticAccess extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_6orr95.StaticFieldReference_31c8669a, context);
+          super(CONCEPTS.StaticFieldReference$K8, context);
           _context = context;
         }
 
@@ -136,8 +137,8 @@ public class staticAccess extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_6orr95.StaticFieldReference_31c8669a, null);
-          SLinkOperations.setTarget(result, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, 0x10a75869f9bL, "classifier"), myParameterObject);
+          SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.StaticFieldReference$K8, null);
+          SLinkOperations.setTarget(result, LINKS.classifier$ZTjE, myParameterObject);
           return result;
         }
 
@@ -147,7 +148,7 @@ public class staticAccess extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_6orr95.StaticFieldReference_31c8669a, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.StaticFieldReference$K8, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -172,9 +173,13 @@ public class staticAccess extends SubstituteMenuBase {
 
   }
 
-  private static final class AUX_6orr95 {
-    /*package*/ static final SConcept StaticFieldReference_31c8669a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept IVisible_84badc76 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticFieldReference$K8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept IVisible$6G = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$ZTjE = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, 0x10a75869f9bL, "classifier");
   }
 }

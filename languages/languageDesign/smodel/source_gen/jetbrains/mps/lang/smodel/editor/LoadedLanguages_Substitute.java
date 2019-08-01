@@ -35,7 +35,7 @@ public class LoadedLanguages_Substitute extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_210zo1_a(), AUX_210zo1.LanguageId_f5e2e6b));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_210zo1_a(), CONCEPTS.LanguageId$Tn));
     return result;
   }
 
@@ -108,7 +108,7 @@ public class LoadedLanguages_Substitute extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_210zo1.LanguageId_f5e2e6b, context);
+          super(CONCEPTS.LanguageId$Tn, context);
           _context = context;
         }
 
@@ -119,7 +119,7 @@ public class LoadedLanguages_Substitute extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode lid = SModelOperations.createNewNode(_context.getModel(), null, AUX_210zo1.LanguageId_f5e2e6b);
+          SNode lid = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.LanguageId$Tn);
           LanguageIdentity__BehaviorDescriptor.setLanguage_id34EJa6aIcyw.invoke(lid, myParameterObject);
           return lid;
         }
@@ -130,7 +130,7 @@ public class LoadedLanguages_Substitute extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_210zo1.LanguageId_f5e2e6b, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.LanguageId$Tn, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -169,7 +169,7 @@ public class LoadedLanguages_Substitute extends SubstituteMenuBase {
 
   }
 
-  private static final class AUX_210zo1 {
-    /*package*/ static final SConcept LanguageId_f5e2e6b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LanguageId$Tn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
   }
 }

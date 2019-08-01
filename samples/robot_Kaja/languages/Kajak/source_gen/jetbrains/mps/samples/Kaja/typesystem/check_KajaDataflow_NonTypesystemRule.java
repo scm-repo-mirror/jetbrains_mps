@@ -40,10 +40,10 @@ public class check_KajaDataflow_NonTypesystemRule extends AbstractNonTypesystemR
 
       for (Instruction n : unreachableInstructions) {
         SNode source = (SNode) n.getSource();
-        if (source == null || SNodeOperations.isInstanceOf(source, AUX_cnowav.EmptyLine_66ad0b30) || SNodeOperations.isInstanceOf(source, AUX_cnowav.CommentLine_890f5f62)) {
+        if (source == null || SNodeOperations.isInstanceOf(source, CONCEPTS.EmptyLine$CM) || SNodeOperations.isInstanceOf(source, CONCEPTS.CommentLine$L0)) {
           continue;
         }
-        if (SNodeOperations.isInstanceOf(source, AUX_cnowav.AbstractCommand_a5f03f89)) {
+        if (SNodeOperations.isInstanceOf(source, CONCEPTS.AbstractCommand$3T)) {
           {
             final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(source, "Unreachable command", "r:af5f8eb9-49c0-4279-87d3-3c80b1a56988(jetbrains.mps.samples.Kaja.typesystem)", "1223640538234", null, errorTarget);
@@ -61,7 +61,7 @@ public class check_KajaDataflow_NonTypesystemRule extends AbstractNonTypesystemR
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_cnowav.CommandList_68ab082b;
+    return CONCEPTS.CommandList$Mn;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -70,10 +70,10 @@ public class check_KajaDataflow_NonTypesystemRule extends AbstractNonTypesystemR
     return false;
   }
 
-  private static final class AUX_cnowav {
-    /*package*/ static final SConcept CommentLine_890f5f62 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x58e59ea713fa2b43L, "jetbrains.mps.samples.Kaja.structure.CommentLine");
-    /*package*/ static final SConcept EmptyLine_66ad0b30 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ee0a16L, "jetbrains.mps.samples.Kaja.structure.EmptyLine");
-    /*package*/ static final SConcept AbstractCommand_a5f03f89 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc4574aL, "jetbrains.mps.samples.Kaja.structure.AbstractCommand");
-    /*package*/ static final SConcept CommandList_68ab082b = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785f06a3fL, "jetbrains.mps.samples.Kaja.structure.CommandList");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommentLine$L0 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x58e59ea713fa2b43L, "jetbrains.mps.samples.Kaja.structure.CommentLine");
+    /*package*/ static final SConcept EmptyLine$CM = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ee0a16L, "jetbrains.mps.samples.Kaja.structure.EmptyLine");
+    /*package*/ static final SConcept AbstractCommand$3T = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc4574aL, "jetbrains.mps.samples.Kaja.structure.AbstractCommand");
+    /*package*/ static final SConcept CommandList$Mn = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785f06a3fL, "jetbrains.mps.samples.Kaja.structure.CommandList");
   }
 }

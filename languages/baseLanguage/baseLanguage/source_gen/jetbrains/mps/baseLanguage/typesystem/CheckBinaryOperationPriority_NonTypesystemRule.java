@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.behavior.ParenthesisUtil;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
@@ -17,17 +16,19 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class CheckBinaryOperationPriority_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public CheckBinaryOperationPriority_NonTypesystemRule() {
   }
   public void applyRule(final SNode binaryOperation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.getParent(binaryOperation) != null && SNodeOperations.isInstanceOf(SNodeOperations.getParent(binaryOperation), AUX_6qi2fu.BinaryOperation_7c4c55f3)) {
-      SNode parent = SNodeOperations.cast(SNodeOperations.getParent(binaryOperation), AUX_6qi2fu.BinaryOperation_7c4c55f3);
+    if (SNodeOperations.getParent(binaryOperation) != null && SNodeOperations.isInstanceOf(SNodeOperations.getParent(binaryOperation), CONCEPTS.BinaryOperation$vf)) {
+      SNode parent = SNodeOperations.cast(SNodeOperations.getParent(binaryOperation), CONCEPTS.BinaryOperation$vf);
       boolean isRigth = false;
-      if (SLinkOperations.getTarget(parent, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")) == binaryOperation) {
+      if (SLinkOperations.getTarget(parent, LINKS.rightExpression$rxBl) == binaryOperation) {
         isRigth = true;
-      } else if (SLinkOperations.getTarget(parent, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")) == binaryOperation) {
+      } else if (SLinkOperations.getTarget(parent, LINKS.leftExpression$rxLZ) == binaryOperation) {
         isRigth = false;
       }
       if (ParenthesisUtil.isBadPriority(binaryOperation, parent, isRigth)) {
@@ -45,7 +46,7 @@ public class CheckBinaryOperationPriority_NonTypesystemRule extends AbstractNonT
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6qi2fu.BinaryOperation_7c4c55f3;
+    return CONCEPTS.BinaryOperation$vf;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,7 +55,12 @@ public class CheckBinaryOperationPriority_NonTypesystemRule extends AbstractNonT
     return false;
   }
 
-  private static final class AUX_6qi2fu {
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
   }
 }

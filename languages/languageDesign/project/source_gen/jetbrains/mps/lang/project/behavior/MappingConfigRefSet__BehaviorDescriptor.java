@@ -4,6 +4,7 @@ package jetbrains.mps.lang.project.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class MappingConfigRefSet__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_hb4bao.MappingConfigRefSet_55a692f0;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845957030bL, "jetbrains.mps.lang.project.structure.MappingConfigRefSet");
 
   public static final SMethod<Boolean> isComplete_id2n3WChplftH = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isComplete").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2n3WChplftH").build();
 
@@ -32,7 +32,7 @@ public final class MappingConfigRefSet__BehaviorDescriptor extends BaseBHDescrip
   }
 
   /*package*/ static boolean isComplete_id2n3WChplftH(@NotNull SNode __thisNode__) {
-    for (SNode r : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845957030bL, 0x25c3f2845957030cL, "refs")))) {
+    for (SNode r : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.refs$OuB0))) {
       if (!((boolean) MappingConfigRefBase__BehaviorDescriptor.isComplete_id2n3WChplftH.invoke(r))) {
         return false;
       }
@@ -86,7 +86,7 @@ public final class MappingConfigRefSet__BehaviorDescriptor extends BaseBHDescrip
     return CONCEPT;
   }
 
-  private static final class AUX_hb4bao {
-    /*package*/ static final SConcept MappingConfigRefSet_55a692f0 = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845957030bL, "jetbrains.mps.lang.project.structure.MappingConfigRefSet");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink refs$OuB0 = MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x25c3f2845957030bL, 0x25c3f2845957030cL, "refs");
   }
 }

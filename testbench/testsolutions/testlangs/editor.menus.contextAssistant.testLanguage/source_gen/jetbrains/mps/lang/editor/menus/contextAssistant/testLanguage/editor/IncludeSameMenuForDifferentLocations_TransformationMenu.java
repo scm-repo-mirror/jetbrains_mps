@@ -75,7 +75,7 @@ public class IncludeSameMenuForDifferentLocations_TransformationMenu extends Tra
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_4zygkz.IncludeSameMenuForDifferentLocations_6d29b76, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuWithDifferentLocations");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.IncludeSameMenuForDifferentLocations$aG, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuWithDifferentLocations");
     }
 
   }
@@ -98,7 +98,7 @@ public class IncludeSameMenuForDifferentLocations_TransformationMenu extends Tra
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_4zygkz.IncludeSameMenuForDifferentLocations_6d29b76, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuWithDifferentLocations");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.IncludeSameMenuForDifferentLocations$aG, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuWithDifferentLocations");
     }
 
     @Nullable
@@ -108,7 +108,7 @@ public class IncludeSameMenuForDifferentLocations_TransformationMenu extends Tra
     }
   }
 
-  private static final class AUX_4zygkz {
-    /*package*/ static final SConcept IncludeSameMenuForDifferentLocations_6d29b76 = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x41299cab94ea85efL, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.IncludeSameMenuForDifferentLocations");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IncludeSameMenuForDifferentLocations$aG = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x41299cab94ea85efL, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.IncludeSameMenuForDifferentLocations");
   }
 }

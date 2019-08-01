@@ -4,6 +4,7 @@ package jetbrains.mps.build.startup.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -27,10 +27,13 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_9sggks.MpsStartupScript_53ec61f1;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, "jetbrains.mps.build.startup.structure.MpsStartupScript");
 
   /*package*/ static final SMethod<String> getDefaultVmoptions_id54lRqzvuHDj = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDefaultVmoptions").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("54lRqzvuHDj").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
   /*package*/ static final SMethod<String> getCommentedVmoptions_id31jVCtHh$86 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getCommentedVmoptions").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("31jVCtHh$86").build(SMethodBuilder.createJavaParameter(Boolean.TYPE, ""));
@@ -50,34 +53,34 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
   /*package*/ static String getDefaultVmoptions_id54lRqzvuHDj(@NotNull SNode __thisNode__, boolean is64bit) {
     return trim_9sggks_a0a0q(Sequence.fromIterable(MpsStartupScript__BehaviorDescriptor.getVmOptions_id2lwFGYOX$qJ.invoke(__thisNode__, ((boolean) is64bit))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, 0x5115dda8df7dfca2L, "commented")));
+        return !(SPropertyOperations.getBoolean(it, PROPS.commented$3DbA));
       }
     }).foldLeft("", new ILeftCombinator<SNode, String>() {
       public String combine(String s, SNode it) {
-        return s + " " + SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, 0x35ebd6e5b343774dL, "options"));
+        return s + " " + SPropertyOperations.getString(it, PROPS.options$zDbw);
       }
     }));
   }
   /*package*/ static String getCommentedVmoptions_id31jVCtHh$86(@NotNull SNode __thisNode__, boolean is64bit) {
     return trim_9sggks_a0a0r(Sequence.fromIterable(MpsStartupScript__BehaviorDescriptor.getCommentedOptions_id54lRqzvvwVL.invoke(__thisNode__, ((boolean) is64bit))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, 0x5115dda8df7dfca2L, "commented"));
+        return SPropertyOperations.getBoolean(it, PROPS.commented$3DbA);
       }
     }).foldLeft("", new ILeftCombinator<SNode, String>() {
       public String combine(String s, SNode it) {
-        return s + " #" + SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, 0x35ebd6e5b343774dL, "options"));
+        return s + " #" + SPropertyOperations.getString(it, PROPS.options$zDbw);
       }
     }));
   }
   /*package*/ static Iterable<SNode> getCommentedOptions_id54lRqzvvwVL(@NotNull SNode __thisNode__, boolean is64bit) {
     return Sequence.fromIterable(MpsStartupScript__BehaviorDescriptor.getVmOptions_id2lwFGYOX$qJ.invoke(__thisNode__, ((boolean) is64bit))).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, 0x5115dda8df7dfca2L, "commented"));
+        return SPropertyOperations.getBoolean(it, PROPS.commented$3DbA);
       }
     });
   }
   /*package*/ static Iterable<SNode> getVmOptions_id2lwFGYOX$qJ(@NotNull SNode __thisNode__, boolean is64bit) {
-    return SNodeOperations.ofConcept(((is64bit ? SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x2560aecfb4da3f5bL, "vmOptions64")) : SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x35ebd6e5b3442664L, "vmOptions")))), AUX_9sggks.SimpleVmOptions_53ec7839);
+    return SNodeOperations.ofConcept(((is64bit ? SLinkOperations.getChildren(__thisNode__, LINKS.vmOptions64$cKiZ) : SLinkOperations.getChildren(__thisNode__, LINKS.vmOptions$vjz5))), CONCEPTS.SimpleVmOptions$T9);
   }
   /*package*/ static Iterable<SNode> getDefaultVmOptionsLines_id2lwFGYOXBOk(@NotNull SNode __thisNode__, boolean is64bit) {
     return Sequence.fromIterable(Sequence.fromArray(MpsStartupScript__BehaviorDescriptor.getDefaultVmoptions_id54lRqzvuHDj.invoke(__thisNode__, ((boolean) is64bit)).split("\\s"))).where(new IWhereFilter<String>() {
@@ -102,20 +105,20 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
     });
   }
   /*package*/ static String getVmOptionsFileName_id2lwFGYOYlNP(@NotNull SNode __thisNode__, boolean is64bit) {
-    return BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x30a61e6d55f6abc9L, "branding")), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0xccf01929cb3b53bL, "script")), null) + ((is64bit ? "64" : "")) + "." + MpsStartupScript__BehaviorDescriptor.getVmOptionsExtension_id54lRqzvvwXR.invoke(__thisNode__);
+    return BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(__thisNode__, LINKS.branding$leLf), LINKS.script$K6vZ), null) + ((is64bit ? "64" : "")) + "." + MpsStartupScript__BehaviorDescriptor.getVmOptionsExtension_id54lRqzvvwXR.invoke(__thisNode__);
   }
   /*package*/ static String getVmOptionsExtension_id54lRqzvvwXR(@NotNull SNode __thisNode__) {
     return "vmoptions";
   }
   /*package*/ static String getIdeaPathSelector_idBsOHnja5fe(@NotNull SNode __thisNode__) {
-    SNode branding = SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x30a61e6d55f6abc9L, "branding"));
+    SNode branding = SLinkOperations.getTarget(__thisNode__, LINKS.branding$leLf);
 
     if ((branding == null)) {
       return "MPS";
     }
 
     // Assume that brandig.codename always consists from instances of BuildTextStringPart so we don't need MacroHelper 
-    return BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(branding, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x54c4eb89feb230afL, "product")), null) + SPropertyOperations.getInteger(branding, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e44L, "major")) + "." + SPropertyOperations.getInteger(branding, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e45L, "minor"));
+    return BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(branding, LINKS.product$6Y2U), null) + SPropertyOperations.getInteger(branding, PROPS.major$wNoh) + "." + SPropertyOperations.getInteger(branding, PROPS.minor$wNoK);
   }
 
   /*package*/ MpsStartupScript__BehaviorDescriptor() {
@@ -181,14 +184,14 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
   }
   private static SNode createTextLine_p7akvg_a0a0a0a0e(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_9sggks.TextLine_3b17d3d4, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text").getType().toString(p0));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TextLine$oe, null, null, false);
+    n1.setProperty(PROPS.text$$xW, PROPS.text$$xW.getType().toString(p0));
     return n1;
   }
   private static SNode createTextLine_p7akvg_a0a0a0a0f(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_9sggks.TextLine_3b17d3d4, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text"), MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text").getType().toString(p0));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TextLine$oe, null, null, false);
+    n1.setProperty(PROPS.text$$xW, PROPS.text$$xW.getType().toString(p0));
     return n1;
   }
   public static String trim_9sggks_a0a0q(String str) {
@@ -198,9 +201,24 @@ public final class MpsStartupScript__BehaviorDescriptor extends BaseBHDescriptor
     return (str == null ? null : str.trim());
   }
 
-  private static final class AUX_9sggks {
-    /*package*/ static final SConcept MpsStartupScript_53ec61f1 = MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, "jetbrains.mps.build.startup.structure.MpsStartupScript");
-    /*package*/ static final SConcept SimpleVmOptions_53ec7839 = MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, "jetbrains.mps.build.startup.structure.SimpleVmOptions");
-    /*package*/ static final SConcept TextLine_3b17d3d4 = MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, "jetbrains.mps.build.startup.structure.TextLine");
+  private static final class PROPS {
+    /*package*/ static final SProperty commented$3DbA = MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, 0x5115dda8df7dfca2L, "commented");
+    /*package*/ static final SProperty options$zDbw = MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, 0x35ebd6e5b343774dL, "options");
+    /*package*/ static final SProperty minor$wNoK = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e45L, "minor");
+    /*package*/ static final SProperty major$wNoh = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x308857b584c74e44L, "major");
+    /*package*/ static final SProperty text$$xW = MetaAdapterFactory.getProperty(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, 0x180805c7b1df77d9L, "text");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink vmOptions64$cKiZ = MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x2560aecfb4da3f5bL, "vmOptions64");
+    /*package*/ static final SContainmentLink vmOptions$vjz5 = MetaAdapterFactory.getContainmentLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x35ebd6e5b3442664L, "vmOptions");
+    /*package*/ static final SReferenceLink branding$leLf = MetaAdapterFactory.getReferenceLink(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b3437508L, 0x30a61e6d55f6abc9L, "branding");
+    /*package*/ static final SContainmentLink script$K6vZ = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0xccf01929cb3b53bL, "script");
+    /*package*/ static final SContainmentLink product$6Y2U = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6b9a2011083b778dL, 0x54c4eb89feb230afL, "product");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleVmOptions$T9 = MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x35ebd6e5b343774cL, "jetbrains.mps.build.startup.structure.SimpleVmOptions");
+    /*package*/ static final SConcept TextLine$oe = MetaAdapterFactory.getConcept(0xd5033ceef63244b6L, 0xb30889d4fbde34ffL, 0x180805c7b1d668a2L, "jetbrains.mps.build.startup.structure.TextLine");
   }
 }

@@ -26,7 +26,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
@@ -34,6 +33,7 @@ import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class CodeInlineDocTag_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -75,7 +75,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     public ReplaceWith_BaseInlineDocTag_cellMenu_xp1rdu_a0a0() {
     }
     public SAbstractConcept getReplacementConcept() {
-      return AUX_9isxws.BaseInlineDocTag_87a9992c;
+      return CONCEPTS.BaseInlineDocTag$IQ;
     }
     @Override
     protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
@@ -106,10 +106,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L, 0x2b1cb7939650a121L, "line");
+      return LINKS.line$2sPU;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_9isxws.CommentLine_7c8f6780;
+      return CONCEPTS.CommentLine$vy;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -119,7 +119,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(lineListHandler_xp1rdu_b0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L, 0x2b1cb7939650a121L, "line")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(lineListHandler_xp1rdu_b0.this.getNode(), LINKS.line$2sPU));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -144,8 +144,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_9isxws {
-    /*package*/ static final SConcept BaseInlineDocTag_87a9992c = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e838L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseInlineDocTag");
-    /*package*/ static final SConcept CommentLine_7c8f6780 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, "jetbrains.mps.baseLanguage.javadoc.structure.CommentLine");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseInlineDocTag$IQ = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e838L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseInlineDocTag");
+    /*package*/ static final SConcept CommentLine$vy = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f96cL, "jetbrains.mps.baseLanguage.javadoc.structure.CommentLine");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink line$2sPU = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x1ec532ec252a7b73L, 0x2b1cb7939650a121L, "line");
   }
 }

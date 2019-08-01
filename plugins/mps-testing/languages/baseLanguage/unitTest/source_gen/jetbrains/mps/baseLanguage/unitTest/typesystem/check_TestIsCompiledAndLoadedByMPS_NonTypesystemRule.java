@@ -31,7 +31,7 @@ public class check_TestIsCompiledAndLoadedByMPS_NonTypesystemRule extends Abstra
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_5ghzfe.ITestCase_8c8c490a;
+    return CONCEPTS.ITestCase$uo;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,7 +46,7 @@ public class check_TestIsCompiledAndLoadedByMPS_NonTypesystemRule extends Abstra
     return null;
   }
 
-  private static final class AUX_5ghzfe {
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
   }
 }

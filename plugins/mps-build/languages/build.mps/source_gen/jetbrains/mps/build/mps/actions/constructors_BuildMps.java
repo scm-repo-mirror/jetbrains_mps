@@ -6,28 +6,40 @@ import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class constructors_BuildMps {
   public static class NodeFactory_8369506495128727676 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x742675d05378e98dL, "compact"), true);
-      SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d47f25L, "path"), null);
+      SPropertyOperations.assign(newNode, PROPS.compact$1aZR, true);
+      SNodeFactoryOperations.setNewChild(newNode, LINKS.path$g7Oh, null);
     }
   }
   public static class NodeFactory_2105528055260692130 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jlg4is.BuildMpsLayout_ModuleSources_6bdf3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x177c2feaf3463711L, "module"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jlg4is.BuildMpsLayout_ModuleSources_6bdf3), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x177c2feaf3463711L, "module")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.BuildMpsLayout_ModuleSources$Zf)) {
+        SLinkOperations.setTarget(newNode, LINKS.module$POCw, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.BuildMpsLayout_ModuleSources$Zf), LINKS.module$POCw));
       }
     }
   }
 
-  private static final class AUX_jlg4is {
-    /*package*/ static final SConcept BuildMpsLayout_ModuleSources_6bdf3 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleSources");
+  private static final class PROPS {
+    /*package*/ static final SProperty compact$1aZR = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x742675d05378e98dL, "compact");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink path$g7Oh = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, 0x4780308f5d47f25L, "path");
+    /*package*/ static final SReferenceLink module$POCw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x177c2feaf3463711L, "module");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMpsLayout_ModuleSources$Zf = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleSources");
   }
 }

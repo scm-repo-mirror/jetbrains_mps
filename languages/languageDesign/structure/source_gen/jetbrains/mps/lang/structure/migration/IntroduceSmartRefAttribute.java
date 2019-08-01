@@ -14,18 +14,21 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.regex.Matcher;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.regex.Pattern;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class IntroduceSmartRefAttribute extends MigrationScriptBase {
   public String getCaption() {
@@ -48,21 +51,21 @@ public class IntroduceSmartRefAttribute extends MigrationScriptBase {
           return scope_nopsft_a0d_0;
         }
       };
-      Collection<SNode> conceptNodes = CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_nopsft.ConceptDeclaration_cb225da8, false);
+      Collection<SNode> conceptNodes = CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ConceptDeclaration$qU, false);
 
       for (SNode conceptNode : CollectionSequence.fromCollection(conceptNodes)) {
 
-        if ((AttributeOperations.getAttribute(conceptNode, new IAttributeDescriptor.NodeAttribute(AUX_nopsft.SmartReferenceAttribute_500a3d52)) != null)) {
+        if ((AttributeOperations.getAttribute(conceptNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SmartReferenceAttribute$Lg)) != null)) {
           continue;
         }
-        if (SPropertyOperations.getBoolean(conceptNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"))) {
+        if (SPropertyOperations.getBoolean(conceptNode, PROPS.abstract$moSU)) {
           continue;
         }
-        if (isEmptyString(SPropertyOperations.getString(conceptNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias")))) {
+        if (isEmptyString(SPropertyOperations.getString(conceptNode, PROPS.conceptAlias$YIL2))) {
           continue;
         }
 
-        Matcher smartAliasMatcher = getSmartAliasMatcher(SPropertyOperations.getString(conceptNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias")));
+        Matcher smartAliasMatcher = getSmartAliasMatcher(SPropertyOperations.getString(conceptNode, PROPS.conceptAlias$YIL2));
 
         if (smartAliasMatcher.matches()) {
           final String role = smartAliasMatcher.group(2);
@@ -76,11 +79,11 @@ public class IntroduceSmartRefAttribute extends MigrationScriptBase {
             String prefix = smartAliasMatcher.group(1);
             String suffix = smartAliasMatcher.group(3);
 
-            SPropertyOperations.remove(conceptNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias"));
+            SPropertyOperations.remove(conceptNode, PROPS.conceptAlias$YIL2);
 
-            AttributeOperations.setAttribute(conceptNode, new IAttributeDescriptor.NodeAttribute(AUX_nopsft.SmartReferenceAttribute_500a3d52), createSmartReferenceAttribute_nopsft_a0f0d0h0c0a0g(characteristicLink));
+            AttributeOperations.setAttribute(conceptNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SmartReferenceAttribute$Lg), createSmartReferenceAttribute_nopsft_a0f0d0h0c0a0g(characteristicLink));
             if ((prefix != null && prefix.length() > 0) || (suffix != null && suffix.length() > 0)) {
-              SLinkOperations.setTarget(AttributeOperations.getAttribute(conceptNode, new IAttributeDescriptor.NodeAttribute(AUX_nopsft.SmartReferenceAttribute_500a3d52)), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d66ac37L, "refPresentationTemplate"), createRefPresentationTemplate_nopsft_a0a0g0d0h0c0a0g(prefix, suffix));
+              SLinkOperations.setTarget(AttributeOperations.getAttribute(conceptNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.SmartReferenceAttribute$Lg)), LINKS.refPresentationTemplate$RgQc, createRefPresentationTemplate_nopsft_a0a0g0d0h0c0a0g(prefix, suffix));
             }
           }
         }
@@ -99,34 +102,48 @@ public class IntroduceSmartRefAttribute extends MigrationScriptBase {
   }
 
   private boolean hasRole(SNode link, String role) {
-    if (Objects.equals(SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role")), role)) {
+    if (Objects.equals(SPropertyOperations.getString(link, PROPS.role$r_O$), role)) {
       return true;
     }
-    if ((SLinkOperations.getTarget(link, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink")) != null)) {
-      return hasRole(SLinkOperations.getTarget(link, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink")), role);
+    if ((SLinkOperations.getTarget(link, LINKS.specializedLink$3uH0) != null)) {
+      return hasRole(SLinkOperations.getTarget(link, LINKS.specializedLink$3uH0), role);
     }
     return false;
   }
   private static SNode createSmartReferenceAttribute_nopsft_a0f0d0h0c0a0g(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_nopsft.SmartReferenceAttribute_500a3d52, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d6297edL, "charactersticReference"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SmartReferenceAttribute$Lg, null, null, false);
+    n1.setReferenceTarget(LINKS.charactersticReference$hNpW, node0);
     return n1;
   }
   private static SNode createRefPresentationTemplate_nopsft_a0a0g0d0h0c0a0g(Object p0, Object p1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_nopsft.RefPresentationTemplate_53c72d7b, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, 0x3bc83bac475c4b59L, "prefix"), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, 0x3bc83bac475c4b59L, "prefix").getType().toString(p0));
-    n1.setProperty(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, 0x3bc83bac475c4b5cL, "suffix"), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, 0x3bc83bac475c4b5cL, "suffix").getType().toString(p1));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.RefPresentationTemplate$57, null, null, false);
+    n1.setProperty(PROPS.prefix$CMHd, PROPS.prefix$CMHd.getType().toString(p0));
+    n1.setProperty(PROPS.suffix$CMSP, PROPS.suffix$CMSP.getType().toString(p1));
     return n1;
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_nopsft {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept SmartReferenceAttribute_500a3d52 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, "jetbrains.mps.lang.structure.structure.SmartReferenceAttribute");
-    /*package*/ static final SConcept RefPresentationTemplate_53c72d7b = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, "jetbrains.mps.lang.structure.structure.RefPresentationTemplate");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept SmartReferenceAttribute$Lg = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, "jetbrains.mps.lang.structure.structure.SmartReferenceAttribute");
+    /*package*/ static final SConcept RefPresentationTemplate$57 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, "jetbrains.mps.lang.structure.structure.RefPresentationTemplate");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstract$moSU = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract");
+    /*package*/ static final SProperty conceptAlias$YIL2 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias");
+    /*package*/ static final SProperty role$r_O$ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role");
+    /*package*/ static final SProperty prefix$CMHd = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, 0x3bc83bac475c4b59L, "prefix");
+    /*package*/ static final SProperty suffix$CMSP = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d66855eL, 0x3bc83bac475c4b5cL, "suffix");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink refPresentationTemplate$RgQc = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d66ac37L, "refPresentationTemplate");
+    /*package*/ static final SReferenceLink specializedLink$3uH0 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink");
+    /*package*/ static final SReferenceLink charactersticReference$hNpW = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d6297edL, "charactersticReference");
   }
 }

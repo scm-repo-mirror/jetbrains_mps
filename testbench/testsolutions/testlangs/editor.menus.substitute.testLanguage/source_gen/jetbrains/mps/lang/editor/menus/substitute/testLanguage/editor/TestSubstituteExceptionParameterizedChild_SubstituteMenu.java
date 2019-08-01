@@ -30,8 +30,8 @@ public class TestSubstituteExceptionParameterizedChild_SubstituteMenu extends Su
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_iilufd_a(), AUX_iilufd.TestSubstituteExceptionParameterizedChild_5428155a));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_iilufd_b(), AUX_iilufd.TestSubstituteExceptionParameterizedChild_5428155a));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_iilufd_a(), CONCEPTS.TestSubstituteExceptionParameterizedChild$l8));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_iilufd_b(), CONCEPTS.TestSubstituteExceptionParameterizedChild$l8));
     return result;
   }
 
@@ -103,7 +103,7 @@ public class TestSubstituteExceptionParameterizedChild_SubstituteMenu extends Su
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_iilufd.TestSubstituteExceptionParameterizedChild_5428155a, context);
+          super(CONCEPTS.TestSubstituteExceptionParameterizedChild$l8, context);
           _context = context;
         }
 
@@ -123,7 +123,7 @@ public class TestSubstituteExceptionParameterizedChild_SubstituteMenu extends Su
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_iilufd.TestSubstituteExceptionParameterizedChild_5428155a, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.TestSubstituteExceptionParameterizedChild$l8, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -172,7 +172,7 @@ public class TestSubstituteExceptionParameterizedChild_SubstituteMenu extends Su
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_iilufd.TestSubstituteExceptionParameterizedChild_5428155a, context);
+        super(CONCEPTS.TestSubstituteExceptionParameterizedChild$l8, context);
         _context = context;
       }
 
@@ -198,7 +198,7 @@ public class TestSubstituteExceptionParameterizedChild_SubstituteMenu extends Su
     }
   }
 
-  private static final class AUX_iilufd {
-    /*package*/ static final SConcept TestSubstituteExceptionParameterizedChild_5428155a = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb58283b9L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionParameterizedChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteExceptionParameterizedChild$l8 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb58283b9L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionParameterizedChild");
   }
 }

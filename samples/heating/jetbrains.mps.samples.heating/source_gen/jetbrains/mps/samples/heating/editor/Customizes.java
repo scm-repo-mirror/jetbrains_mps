@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -39,6 +38,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class Customizes extends TransformationMenuBase {
@@ -76,7 +77,7 @@ public class Customizes extends TransformationMenuBase {
   public class TMP_Group_3ero0o_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return (SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes")) == null);
+      return (SLinkOperations.getTarget(_context.getNode(), LINKS.customizes$a6Ia) == null);
     }
 
     @NotNull
@@ -132,8 +133,8 @@ public class Customizes extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode ref = SNodeFactoryOperations.createNewNode(AUX_3ero0o.DailyPlanReference_3ef981ae, null);
-          SLinkOperations.setTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes"), ref);
+          SNode ref = SNodeFactoryOperations.createNewNode(CONCEPTS.DailyPlanReference$dO, null);
+          SLinkOperations.setTarget(_context.getNode(), LINKS.customizes$a6Ia, ref);
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), ref, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -158,7 +159,11 @@ public class Customizes extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_3ero0o {
-    /*package*/ static final SConcept DailyPlanReference_3ef981ae = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, "jetbrains.mps.samples.heating.structure.DailyPlanReference");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink customizes$a6Ia = MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DailyPlanReference$dO = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, "jetbrains.mps.samples.heating.structure.DailyPlanReference");
   }
 }

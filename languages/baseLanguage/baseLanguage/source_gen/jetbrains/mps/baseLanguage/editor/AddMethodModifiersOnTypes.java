@@ -62,7 +62,7 @@ public class AddMethodModifiersOnTypes extends TransformationMenuBase {
   public class TMP_Group_svkn68_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_svkn68.MethodDeclaration_637cfcff);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.MethodDeclaration$93);
     }
 
     @NotNull
@@ -99,12 +99,12 @@ public class AddMethodModifiersOnTypes extends TransformationMenuBase {
         final SNode node = _context.getNode();
         final EditorContext editorContext = _context.getEditorContext();
 
-        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_svkn68.MethodDeclaration_637cfcff, "jetbrains.mps.baseLanguage.editor.MethodDeclaration_final_native_sync_all_mods");
+        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.MethodDeclaration$93, "jetbrains.mps.baseLanguage.editor.MethodDeclaration_final_native_sync_all_mods");
       }
       @Nullable
       @Override
       protected SNode getNode(TransformationMenuContext _context) {
-        return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_svkn68.MethodDeclaration_637cfcff);
+        return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.MethodDeclaration$93);
       }
 
     }
@@ -112,7 +112,7 @@ public class AddMethodModifiersOnTypes extends TransformationMenuBase {
   public class TMP_Group_svkn68_b0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_svkn68.InstanceMethodDeclaration_9dbf9b2b);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.InstanceMethodDeclaration$An);
     }
 
     @NotNull
@@ -149,19 +149,19 @@ public class AddMethodModifiersOnTypes extends TransformationMenuBase {
         final SNode node = _context.getNode();
         final EditorContext editorContext = _context.getEditorContext();
 
-        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_svkn68.InstanceMethodDeclaration_9dbf9b2b, "jetbrains.mps.baseLanguage.editor.InstanceMethodDeclaration_static_abstract");
+        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.InstanceMethodDeclaration$An, "jetbrains.mps.baseLanguage.editor.InstanceMethodDeclaration_static_abstract");
       }
       @Nullable
       @Override
       protected SNode getNode(TransformationMenuContext _context) {
-        return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_svkn68.InstanceMethodDeclaration_9dbf9b2b);
+        return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.InstanceMethodDeclaration$An);
       }
 
     }
   }
 
-  private static final class AUX_svkn68 {
-    /*package*/ static final SConcept MethodDeclaration_637cfcff = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, "jetbrains.mps.baseLanguage.structure.MethodDeclaration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MethodDeclaration$93 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6c6b6a1e379f9408L, "jetbrains.mps.baseLanguage.structure.MethodDeclaration");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
   }
 }

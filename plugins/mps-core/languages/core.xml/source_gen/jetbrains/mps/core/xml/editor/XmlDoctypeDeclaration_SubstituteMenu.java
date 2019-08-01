@@ -47,9 +47,9 @@ public class XmlDoctypeDeclaration_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_Group_bnzz5o_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      List<SNode> descendants = SNodeOperations.getNodeDescendants(_context.getParentNode(), AUX_bnzz5o.XmlDoctypeDeclaration_3005602b, false, new SAbstractConcept[]{});
-      if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), AUX_bnzz5o.XmlDoctypeDeclaration_3005602b)) {
-        ListSequence.fromList(descendants).removeElement(SNodeOperations.cast(_context.getCurrentTargetNode(), AUX_bnzz5o.XmlDoctypeDeclaration_3005602b));
+      List<SNode> descendants = SNodeOperations.getNodeDescendants(_context.getParentNode(), CONCEPTS.XmlDoctypeDeclaration$in, false, new SAbstractConcept[]{});
+      if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.XmlDoctypeDeclaration$in)) {
+        ListSequence.fromList(descendants).removeElement(SNodeOperations.cast(_context.getCurrentTargetNode(), CONCEPTS.XmlDoctypeDeclaration$in));
       }
       return ListSequence.fromList(descendants).isEmpty();
     }
@@ -67,7 +67,7 @@ public class XmlDoctypeDeclaration_SubstituteMenu extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_bnzz5o.XmlDoctypeDeclaration_3005602b) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.XmlDoctypeDeclaration$in) {
 
         @NotNull
         @Override
@@ -80,11 +80,11 @@ public class XmlDoctypeDeclaration_SubstituteMenu extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_bnzz5o.XmlDoctypeDeclaration_3005602b));
+      }, CONCEPTS.XmlDoctypeDeclaration$in));
     }
   }
 
-  private static final class AUX_bnzz5o {
-    /*package*/ static final SConcept XmlDoctypeDeclaration_3005602b = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, "jetbrains.mps.core.xml.structure.XmlDoctypeDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlDoctypeDeclaration$in = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f4069bL, "jetbrains.mps.core.xml.structure.XmlDoctypeDeclaration");
   }
 }

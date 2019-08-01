@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -22,15 +21,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class SimpleBuilderParameterReference_Constraints extends BaseConstraintsDescriptor {
   public SimpleBuilderParameterReference_Constraints() {
-    super(AUX_seakpt.SimpleBuilderParameterReference_9a8ce224);
+    super(CONCEPTS.SimpleBuilderParameterReference$6Y);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4b4c01fdd9029ce4L, 0x4b4c01fdd9029ce5L, "parameter"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.parameter$AX10, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -45,7 +46,7 @@ public class SimpleBuilderParameterReference_Constraints extends BaseConstraints
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(SLinkOperations.getChildren(BaseSimpleBuilderDeclaration__BehaviorDescriptor.getContextDeclaration_id5rdgdYBzN9n.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_seakpt.BaseSimpleBuilderDeclaration_c6b4a6bc, true, false)), MetaAdapterFactory.getContainmentLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x4b4c01fdd9010b91L, "parameter")));
+            return ListScope.forResolvableElements(SLinkOperations.getChildren(BaseSimpleBuilderDeclaration__BehaviorDescriptor.getContextDeclaration_id5rdgdYBzN9n.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BaseSimpleBuilderDeclaration$A, true, false)), LINKS.parameter$zrwh));
           }
         };
       }
@@ -56,8 +57,13 @@ public class SimpleBuilderParameterReference_Constraints extends BaseConstraints
   }
   private static final SNodePointer breakingNode_seakpt_a0a0a0a0a1a0a0a0c = new SNodePointer("r:971d5c35-6139-4f76-9019-ac96d9713d41(jetbrains.mps.baseLanguage.builders.constraints)", "6836281137582809692");
 
-  private static final class AUX_seakpt {
-    /*package*/ static final SConcept SimpleBuilderParameterReference_9a8ce224 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4b4c01fdd9029ce4L, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderParameterReference");
-    /*package*/ static final SConcept BaseSimpleBuilderDeclaration_c6b4a6bc = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x56cd40dfa78d35b1L, "jetbrains.mps.baseLanguage.builders.structure.BaseSimpleBuilderDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleBuilderParameterReference$6Y = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4b4c01fdd9029ce4L, "jetbrains.mps.baseLanguage.builders.structure.SimpleBuilderParameterReference");
+    /*package*/ static final SConcept BaseSimpleBuilderDeclaration$A = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x56cd40dfa78d35b1L, "jetbrains.mps.baseLanguage.builders.structure.BaseSimpleBuilderDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink parameter$AX10 = MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x4b4c01fdd9029ce4L, 0x4b4c01fdd9029ce5L, "parameter");
+    /*package*/ static final SContainmentLink parameter$zrwh = MetaAdapterFactory.getContainmentLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x6524536b2e1a1e38L, 0x4b4c01fdd9010b91L, "parameter");
   }
 }

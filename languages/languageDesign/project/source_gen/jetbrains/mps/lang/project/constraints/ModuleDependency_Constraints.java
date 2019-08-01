@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ModuleDependency_Constraints extends BaseConstraintsDescriptor {
   public ModuleDependency_Constraints() {
-    super(AUX_pk6icn.ModuleDependency_33f9114a);
+    super(CONCEPTS.ModuleDependency$to);
   }
 
-  private static final class AUX_pk6icn {
-    /*package*/ static final SConcept ModuleDependency_33f9114a = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe28L, "jetbrains.mps.lang.project.structure.ModuleDependency");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModuleDependency$to = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe28L, "jetbrains.mps.lang.project.structure.ModuleDependency");
   }
 }

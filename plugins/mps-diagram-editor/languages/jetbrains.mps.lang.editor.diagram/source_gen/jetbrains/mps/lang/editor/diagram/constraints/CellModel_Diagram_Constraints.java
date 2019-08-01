@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CellModel_Diagram_Constraints extends BaseConstraintsDescriptor {
   public CellModel_Diagram_Constraints() {
-    super(AUX_q03vd5.CellModel_Diagram_91f2c5fc);
+    super(CONCEPTS.CellModel_Diagram$zA);
   }
 
-  private static final class AUX_q03vd5 {
-    /*package*/ static final SConcept CellModel_Diagram_91f2c5fc = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x57869048dc89fbf7L, "jetbrains.mps.lang.editor.diagram.structure.CellModel_Diagram");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_Diagram$zA = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x57869048dc89fbf7L, "jetbrains.mps.lang.editor.diagram.structure.CellModel_Diagram");
   }
 }

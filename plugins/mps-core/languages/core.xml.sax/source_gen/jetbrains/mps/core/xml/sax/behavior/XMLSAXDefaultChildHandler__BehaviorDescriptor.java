@@ -4,6 +4,7 @@ package jetbrains.mps.core.xml.sax.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -19,10 +20,9 @@ import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class XMLSAXDefaultChildHandler__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nijq26.XMLSAXDefaultChildHandler_f9075698;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x3afd693759ffee07L, "jetbrains.mps.core.xml.sax.structure.XMLSAXDefaultChildHandler");
 
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
 
@@ -33,7 +33,7 @@ public final class XMLSAXDefaultChildHandler__BehaviorDescriptor extends BaseBHD
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
     List<SConcept> result = ListSequence.fromList(new ArrayList<SConcept>());
-    ListSequence.fromList(result).addElement(AUX_nijq26.XMLSAXDefaultChildHandler_tagName_26ee8fb9);
+    ListSequence.fromList(result).addElement(CONCEPTS.XMLSAXDefaultChildHandler_tagName$r9);
     return result;
   }
 
@@ -83,8 +83,7 @@ public final class XMLSAXDefaultChildHandler__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_nijq26 {
-    /*package*/ static final SConcept XMLSAXDefaultChildHandler_f9075698 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x3afd693759ffee07L, "jetbrains.mps.core.xml.sax.structure.XMLSAXDefaultChildHandler");
-    /*package*/ static final SConcept XMLSAXDefaultChildHandler_tagName_26ee8fb9 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x3afd69375a089554L, "jetbrains.mps.core.xml.sax.structure.XMLSAXDefaultChildHandler_tagName");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXDefaultChildHandler_tagName$r9 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x3afd69375a089554L, "jetbrains.mps.core.xml.sax.structure.XMLSAXDefaultChildHandler_tagName");
   }
 }

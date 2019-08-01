@@ -24,7 +24,6 @@ import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -35,6 +34,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class addExtendedClass_StyleClass extends TransformationMenuBase {
@@ -104,7 +105,7 @@ public class addExtendedClass_StyleClass extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.setTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a126f24L, 0x2ef3b3796a130bd8L, "dominates"), SNodeFactoryOperations.createNewNode(AUX_hwcor8.DominatesRecord_40f78d67, null)), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+        SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.setTarget(_context.getNode(), LINKS.dominates$fqs2, SNodeFactoryOperations.createNewNode(CONCEPTS.DominatesRecord$Vr, null)), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
       }
 
 
@@ -127,7 +128,11 @@ public class addExtendedClass_StyleClass extends TransformationMenuBase {
 
   }
 
-  private static final class AUX_hwcor8 {
-    /*package*/ static final SConcept DominatesRecord_40f78d67 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x22926e62b7d495a0L, "jetbrains.mps.lang.editor.structure.DominatesRecord");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink dominates$fqs2 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a126f24L, 0x2ef3b3796a130bd8L, "dominates");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DominatesRecord$Vr = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x22926e62b7d495a0L, "jetbrains.mps.lang.editor.structure.DominatesRecord");
   }
 }

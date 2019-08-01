@@ -25,8 +25,9 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.ConnectorDecorator
 import jetbrains.jetpad.model.property.ReadableProperty;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class OutputToInputPortConnector_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -171,8 +172,8 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 
 
     public void synchronize() {
-      myInputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x4ce40ecaf4106a9bL, 0x4ce40ecaf4106e5cL, "src"))));
-      myOutputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x4ce40ecaf4106a9bL, 0x4ce40ecaf4106e6bL, "dst"))));
+      myInputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), LINKS.src$C148)));
+      myOutputPort.set(MultiTuple.<SNode>from(SLinkOperations.getTarget(getSNode(), LINKS.dst$C6gT)));
     }
     private PolyLineConnection createConnection() {
       PolyLineConnection connection = new PolyLineConnection();
@@ -186,5 +187,10 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
     }
 
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink src$C148 = MetaAdapterFactory.getReferenceLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x4ce40ecaf4106a9bL, 0x4ce40ecaf4106e5cL, "src");
+    /*package*/ static final SReferenceLink dst$C6gT = MetaAdapterFactory.getReferenceLink(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x4ce40ecaf4106a9bL, 0x4ce40ecaf4106e6bL, "dst");
   }
 }

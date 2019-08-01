@@ -20,7 +20,7 @@ public class subtype_ComplexType_SubtypingRule extends SubtypingRule_Runtime imp
     return _quotation_createNode_roewzw_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_roewzw.DoubleType_635118d4;
+    return CONCEPTS.DoubleType$4e;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +35,7 @@ public class subtype_ComplexType_SubtypingRule extends SubtypingRule_Runtime imp
     return quotedNode_1;
   }
 
-  private static final class AUX_roewzw {
-    /*package*/ static final SConcept DoubleType_635118d4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d451a6L, "jetbrains.mps.baseLanguage.structure.DoubleType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DoubleType$4e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d451a6L, "jetbrains.mps.baseLanguage.structure.DoubleType");
   }
 }

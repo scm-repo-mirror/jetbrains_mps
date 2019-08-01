@@ -27,7 +27,6 @@ import jetbrains.mps.openapi.editor.menus.transformation.ActionItemBase;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -37,6 +36,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class LiteralMessageAllowsMacros extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
@@ -78,7 +79,7 @@ public class LiteralMessageAllowsMacros extends TransformationMenuBase {
     @Nullable
     @Override
     protected Iterable<? extends SNode> getParameters(TransformationMenuContext _context) {
-      return SNodeOperations.ofConcept(Scope.getScope(_context.getNode(), _context.getNode(), AUX_bp93v8.TypedDef_953dd8f0).getAvailableElements(null), AUX_bp93v8.TypedDef_953dd8f0);
+      return SNodeOperations.ofConcept(Scope.getScope(_context.getNode(), _context.getNode(), CONCEPTS.TypedDef$hM).getAvailableElements(null), CONCEPTS.TypedDef$hM);
     }
     @NotNull
     @Override
@@ -129,7 +130,7 @@ public class LiteralMessageAllowsMacros extends TransformationMenuBase {
         @Nullable
         @Override
         public String getLabelText(String pattern) {
-          return pattern + " %" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "%";
+          return pattern + " %" + SPropertyOperations.getString(myParameterObject, PROPS.name$tAp1) + "%";
         }
 
         @Override
@@ -162,7 +163,11 @@ public class LiteralMessageAllowsMacros extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_bp93v8 {
-    /*package*/ static final SInterfaceConcept TypedDef_953dd8f0 = MetaAdapterFactory.getInterfaceConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x653030359368062cL, "jetbrains.mps.lang.context.defs.structure.TypedDef");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept TypedDef$hM = MetaAdapterFactory.getInterfaceConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x653030359368062cL, "jetbrains.mps.lang.context.defs.structure.TypedDef");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

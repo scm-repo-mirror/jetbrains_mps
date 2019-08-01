@@ -12,9 +12,11 @@ import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class ImportsContext {
   private final String myPackageName;
@@ -35,10 +37,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
     // init package simple names (i.e. name of classes from the same package) 
     // indeed, there could be other models that generate into this package, and we could have a conflict with a 'java.lang' class then if the name matches. 
     myPackageSimpleNames = new HashSet<String>();
-    for (SNode classifier : SModelOperations.roots(SNodeOperations.getModel(rootNode), AUX_4jek3k.Classifier_4b7e553)) {
+    for (SNode classifier : SModelOperations.roots(SNodeOperations.getModel(rootNode), CONCEPTS.Classifier$hJ)) {
       String fqName = INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(classifier);
       if (myPackageName.equals(JavaNameUtil.packageName(fqName))) {
-        myPackageSimpleNames.add(SPropertyOperations.getString(classifier, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        myPackageSimpleNames.add(SPropertyOperations.getString(classifier, PROPS.name$tAp1));
       }
     }
   }
@@ -60,7 +62,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         while (n != null && SNodeOperations.getParent(n) != myRootNode) {
           n = SNodeOperations.getParent(n);
         }
-        if (n != null && SNodeOperations.hasRole(n, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))) {
+        if (n != null && SNodeOperations.hasRole(n, LINKS.member$oYX5)) {
           assert nestedPart.startsWith(".");
           return new ImportEntry(nestedPart.substring(1));
         }
@@ -114,7 +116,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return new ImportEntry((shouldBeImported ? fqName : null), className);
   }
 
-  private static final class AUX_4jek3k {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
   }
 }

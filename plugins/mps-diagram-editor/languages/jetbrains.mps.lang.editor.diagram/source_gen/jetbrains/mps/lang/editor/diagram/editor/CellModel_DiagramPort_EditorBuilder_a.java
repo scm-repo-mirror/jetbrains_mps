@@ -17,7 +17,6 @@ import jetbrains.mps.nodeEditor.cellMenu.BasicCellContext;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteInfoPartExt;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfoPartEx;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.generator.internal.AbstractCellMenuPart_Generic_Item;
 import java.util.List;
 import jetbrains.mps.openapi.editor.cells.SubstituteAction;
@@ -35,6 +34,8 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.openapi.editor.style.StyleRegistry;
 import jetbrains.mps.nodeEditor.MPSColors;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class CellModel_DiagramPort_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -80,7 +81,7 @@ import jetbrains.mps.nodeEditor.MPSColors;
     return editorCell;
   }
   private boolean nodeCondition_inwiug_a0a() {
-    return SPropertyOperations.getBoolean(myNode, MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x3f6e840fd120282L, 0x3f6e840fd12753fL, "input"));
+    return SPropertyOperations.getBoolean(myNode, PROPS.input$Aaiu);
   }
   public static class CellModel_DiagramPort_generic_cellMenu_inwiug_a0a0 extends AbstractCellMenuPart_Generic_Item {
     public CellModel_DiagramPort_generic_cellMenu_inwiug_a0a0() {
@@ -104,7 +105,7 @@ import jetbrains.mps.nodeEditor.MPSColors;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x3f6e840fd120282L, 0x3f6e840fd12753fL, "input"), true);
+      SPropertyOperations.assign(node, PROPS.input$Aaiu, true);
     }
     public String getMatchingText() {
       return "input";
@@ -132,7 +133,7 @@ import jetbrains.mps.nodeEditor.MPSColors;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x3f6e840fd120282L, 0x3f6e840fd12753fL, "input"), false);
+      SPropertyOperations.assign(node, PROPS.input$Aaiu, false);
     }
     public String getMatchingText() {
       return "output";
@@ -158,5 +159,9 @@ import jetbrains.mps.nodeEditor.MPSColors;
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty input$Aaiu = MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x3f6e840fd120282L, 0x3f6e840fd12753fL, "input");
   }
 }

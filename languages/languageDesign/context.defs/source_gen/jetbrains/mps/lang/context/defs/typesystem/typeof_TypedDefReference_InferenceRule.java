@@ -10,8 +10,9 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.context.defs.behavior.TypedDef__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_TypedDefReference_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,11 +22,11 @@ public class typeof_TypedDefReference_InferenceRule extends AbstractInferenceRul
     {
       SNode _nodeToCheck_1029348928467 = defRef;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:81761937-d5e4-4286-86d9-adeda96624b1(jetbrains.mps.lang.context.defs.typesystem)", "4622342125580425637", 0, null);
-      typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:81761937-d5e4-4286-86d9-adeda96624b1(jetbrains.mps.lang.context.defs.typesystem)", "4622342125580425642", true), (SNode) TypedDef__BehaviorDescriptor.getErasedType_id4JP_D2W1aPH.invoke(SLinkOperations.getTarget(defRef, MetaAdapterFactory.getReferenceLink(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration"))), false, true, _info_12389875345);
+      typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:81761937-d5e4-4286-86d9-adeda96624b1(jetbrains.mps.lang.context.defs.typesystem)", "4622342125580425642", true), (SNode) TypedDef__BehaviorDescriptor.getErasedType_id4JP_D2W1aPH.invoke(SLinkOperations.getTarget(defRef, LINKS.declaration$LqCB)), false, true, _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_otd0uk.TypedDefReference_5ea34bf3;
+    return CONCEPTS.TypedDefReference$7f;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,7 +35,11 @@ public class typeof_TypedDefReference_InferenceRule extends AbstractInferenceRul
     return false;
   }
 
-  private static final class AUX_otd0uk {
-    /*package*/ static final SConcept TypedDefReference_5ea34bf3 = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, "jetbrains.mps.lang.context.defs.structure.TypedDefReference");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$LqCB = MetaAdapterFactory.getReferenceLink(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, 0x6530303593578e5eL, "declaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypedDefReference$7f = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x6530303593574311L, "jetbrains.mps.lang.context.defs.structure.TypedDefReference");
   }
 }

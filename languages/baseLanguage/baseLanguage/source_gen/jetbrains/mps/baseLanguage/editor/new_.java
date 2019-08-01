@@ -24,7 +24,6 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
@@ -32,13 +31,15 @@ import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class new_ extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_1076n_a(), AUX_1076n.GenericNewExpression_dee38023));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_1076n_a(), CONCEPTS.GenericNewExpression$ev));
     return result;
   }
 
@@ -77,11 +78,11 @@ public class new_ extends SubstituteMenuBase {
     protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
       SNode sampleNode = _context.getCurrentTargetNode();
       //  copied from BL_nodeFactories 
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_1076n.Expression_4199e28d)) {
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.Expression$TP)) {
         // Looking for the original node is required because sampleNode is just a copy 
-        SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(sampleNode, AUX_1076n.Expression_4199e28d));
+        SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(sampleNode, CONCEPTS.Expression$TP));
         if ((originalExpression != null)) {
-          SNode expectedType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(originalExpression, AUX_1076n.Expression_4199e28d));
+          SNode expectedType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(originalExpression, CONCEPTS.Expression$TP));
           if ((expectedType != null)) {
             return Type__BehaviorDescriptor.getAbstractCreators_id6A07P3f4z36.invoke(expectedType, _context.getModel());
           }
@@ -122,7 +123,7 @@ public class new_ extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_1076n.GenericNewExpression_dee38023, context);
+          super(CONCEPTS.GenericNewExpression$ev, context);
           _context = context;
         }
 
@@ -133,8 +134,8 @@ public class new_ extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode gne = SNodeFactoryOperations.createNewNode(AUX_1076n.GenericNewExpression_dee38023, null);
-          SLinkOperations.setTarget(gne, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator"), myParameterObject);
+          SNode gne = SNodeFactoryOperations.createNewNode(CONCEPTS.GenericNewExpression$ev, null);
+          SLinkOperations.setTarget(gne, LINKS.creator$itDQ, myParameterObject);
           return gne;
         }
 
@@ -144,7 +145,7 @@ public class new_ extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_1076n.GenericNewExpression_dee38023, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.GenericNewExpression$ev, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -173,8 +174,12 @@ public class new_ extends SubstituteMenuBase {
 
   }
 
-  private static final class AUX_1076n {
-    /*package*/ static final SConcept GenericNewExpression_dee38023 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericNewExpression$ev = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink creator$itDQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator");
   }
 }

@@ -6,7 +6,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.errors.item.NodeReportItem;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -26,10 +25,11 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.errors.item.FlavouredItem;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class UsedLanguagesChecker extends AbstractNodeCheckerInEditor implements IChecker<SNode, NodeReportItem> {
-  private final SConcept C = AUX_bqsn7v.SideTransformInfo_88337662;
-  private final SContainmentLink L = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+  private final SConcept C = CONCEPTS.SideTransformInfo$l0;
+  private final SContainmentLink L = LINKS.smodelAttribute$K8bJ;
 
   @Override
   public IssueKindReportItem.CheckerCategory getCategory() {
@@ -109,7 +109,11 @@ public class UsedLanguagesChecker extends AbstractNodeCheckerInEditor implements
     }
   }
 
-  private static final class AUX_bqsn7v {
-    /*package*/ static final SConcept SideTransformInfo_88337662 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, "jetbrains.mps.lang.core.structure.SideTransformInfo");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SideTransformInfo$l0 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xad0053c7ae9194dL, "jetbrains.mps.lang.core.structure.SideTransformInfo");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
   }
 }

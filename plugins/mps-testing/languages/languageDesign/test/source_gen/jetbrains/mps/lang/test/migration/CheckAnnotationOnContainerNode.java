@@ -43,7 +43,7 @@ public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
         }
       };
       final MoveCheckToContainedNode intention = new MoveCheckToContainedNode();
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_kl3vza.NodeOperationsContainer_e9631e6e, true)).where(new IWhereFilter<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.NodeOperationsContainer$UO, true)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return intention.isApplicable(it, null);
         }
@@ -64,9 +64,9 @@ public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
           return scope_kl3vza_a0e_0;
         }
       };
-      return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_kl3vza.AbstractTestNodeAnnotation_2d7c3bf0, false)).where(new IWhereFilter<SNode>() {
+      return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AbstractTestNodeAnnotation$5M, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SNodeOperations.getNodeAncestor(SNodeOperations.getParent(it), AUX_kl3vza.TestNode_e633d16, false, false) == null);
+          return (SNodeOperations.getNodeAncestor(SNodeOperations.getParent(it), CONCEPTS.TestNode$kc, false, false) == null);
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
@@ -85,9 +85,9 @@ public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, "jetbrains.mps.lang.test"), 4);
   }
 
-  private static final class AUX_kl3vza {
-    /*package*/ static final SConcept NodeOperationsContainer_e9631e6e = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
-    /*package*/ static final SConcept AbstractTestNodeAnnotation_2d7c3bf0 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeOperationsContainer$UO = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
+    /*package*/ static final SConcept AbstractTestNodeAnnotation$5M = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
   }
 }

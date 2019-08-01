@@ -21,17 +21,17 @@ public class RuleNotEqualsExpression implements DataFlowConstructor {
     return concept.equals(applicableConcept) || concept.isSubConceptOf(applicableConcept);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_mhzyev.NotEqualsExpression_8a487ab7;
+    return CONCEPTS.NotEqualsExpression$Ib;
   }
   public void performActions(Program o, SNode node) {
     SNode otherThanNull = NullableUtil.getOtherThanNull(node);
     if (otherThanNull == null) {
       return;
     }
-    if (!((SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_mhzyev.IConditional_d904c968)))) {
+    if (!((SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.IConditional$bU)))) {
       return;
     }
-    NextProgramPoint point = IConditional__BehaviorDescriptor.getNextProgramPoint_id3F8BxGibk8h.invoke(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_mhzyev.IConditional_d904c968), node, ((boolean) true));
+    NextProgramPoint point = IConditional__BehaviorDescriptor.getNextProgramPoint_id3F8BxGibk8h.invoke(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.IConditional$bU), node, ((boolean) true));
     if (point != null) {
       if (point.willJump()) {
         {
@@ -60,7 +60,7 @@ public class RuleNotEqualsExpression implements DataFlowConstructor {
         }
       }
     }
-    point = IConditional__BehaviorDescriptor.getNextProgramPoint_id3F8BxGibk8h.invoke(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_mhzyev.IConditional_d904c968), node, ((boolean) false));
+    point = IConditional__BehaviorDescriptor.getNextProgramPoint_id3F8BxGibk8h.invoke(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.IConditional$bU), node, ((boolean) false));
     if (point != null) {
       if (point.willJump()) {
         {
@@ -91,8 +91,8 @@ public class RuleNotEqualsExpression implements DataFlowConstructor {
     }
   }
 
-  private static final class AUX_mhzyev {
-    /*package*/ static final SConcept NotEqualsExpression_8a487ab7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf9e20e303fL, "jetbrains.mps.baseLanguage.structure.NotEqualsExpression");
-    /*package*/ static final SInterfaceConcept IConditional_d904c968 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3ac89e1b122cd5c2L, "jetbrains.mps.baseLanguage.structure.IConditional");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NotEqualsExpression$Ib = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf9e20e303fL, "jetbrains.mps.baseLanguage.structure.NotEqualsExpression");
+    /*package*/ static final SInterfaceConcept IConditional$bU = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3ac89e1b122cd5c2L, "jetbrains.mps.baseLanguage.structure.IConditional");
   }
 }

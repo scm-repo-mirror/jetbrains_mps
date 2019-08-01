@@ -224,9 +224,9 @@ public class MigrationCheckerImpl implements MigrationChecker {
               return scope_9mxawj_j0a0a8_0;
             }
           };
-          for (SNode ann : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_9mxawj.MigrationAnnotation_old_10823922, false)).where(new IWhereFilter<SNode>() {
+          for (SNode ann : CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.MigrationAnnotation_old$E0, false)).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return ((boolean) (Boolean) BHReflection.invoke0(it, AUX_9mxawj.MigrationAnnotation_old_10823922, SMethodTrimmedId.create("showInResults", null, "29O0pTxWdmG")));
+              return ((boolean) (Boolean) BHReflection.invoke0(it, CONCEPTS.MigrationAnnotation_old$E0, SMethodTrimmedId.create("showInResults", null, "29O0pTxWdmG")));
             }
           })) {
             if (!(processor.process(MigrateManually.fromAnnotation(ann)))) {
@@ -251,7 +251,7 @@ public class MigrationCheckerImpl implements MigrationChecker {
     });
   }
 
-  private static final class AUX_9mxawj {
-    /*package*/ static final SInterfaceConcept MigrationAnnotation_old_10823922 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2274019e61f0c2c8L, "jetbrains.mps.lang.core.structure.MigrationAnnotation_old");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MigrationAnnotation_old$E0 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2274019e61f0c2c8L, "jetbrains.mps.lang.core.structure.MigrationAnnotation_old");
   }
 }

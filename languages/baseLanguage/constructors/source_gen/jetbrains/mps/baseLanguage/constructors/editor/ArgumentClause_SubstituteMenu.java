@@ -70,7 +70,7 @@ public class ArgumentClause_SubstituteMenu extends SubstituteMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.baseLanguage.constructors.editor.CustomArgumentClauseSubstitute");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_5erpue.ArgumentClause_6b8a6eff;
+      return CONCEPTS.ArgumentClause$13;
     }
   }
   public class SMP_Include_5erpue_b extends IncludeSubstituteMenuSubstituteMenuPart {
@@ -94,12 +94,12 @@ public class ArgumentClause_SubstituteMenu extends SubstituteMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.baseLanguage.constructors.editor.ListArgumentClauseSubstitute");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_5erpue.ArgumentClause_6b8a6eff;
+      return CONCEPTS.ArgumentClause$13;
     }
   }
   public class SMP_Subconcepts_5erpue_c extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_5erpue.ArgumentClause_6b8a6eff);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.ArgumentClause$13);
     }
     @NotNull
     @Override
@@ -119,7 +119,7 @@ public class ArgumentClause_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_5erpue {
-    /*package*/ static final SConcept ArgumentClause_6b8a6eff = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6b7L, "jetbrains.mps.baseLanguage.constructors.structure.ArgumentClause");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ArgumentClause$13 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6b7L, "jetbrains.mps.baseLanguage.constructors.structure.ArgumentClause");
   }
 }

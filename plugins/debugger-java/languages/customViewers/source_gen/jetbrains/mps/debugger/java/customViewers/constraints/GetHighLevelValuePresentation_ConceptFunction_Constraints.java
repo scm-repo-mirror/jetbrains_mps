@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class GetHighLevelValuePresentation_ConceptFunction_Constraints extends BaseConstraintsDescriptor {
   public GetHighLevelValuePresentation_ConceptFunction_Constraints() {
-    super(AUX_a1jl8b.GetHighLevelValuePresentation_ConceptFunction_602f12de);
+    super(CONCEPTS.GetHighLevelValuePresentation_ConceptFunction$x4);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class GetHighLevelValuePresentation_ConceptFunction_Constraints extends B
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_a1jl8b.HighLevelCustomViewer_d8153e93);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.HighLevelCustomViewer$cJ);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:90c5d87d-81cd-4991-8860-6ac3ba3269c4(jetbrains.mps.debugger.java.customViewers.constraints)", "1227128029536564819");
 
-  private static final class AUX_a1jl8b {
-    /*package*/ static final SConcept GetHighLevelValuePresentation_ConceptFunction_602f12de = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514043ecbd2L, "jetbrains.mps.debugger.java.customViewers.structure.GetHighLevelValuePresentation_ConceptFunction");
-    /*package*/ static final SConcept HighLevelCustomViewer_d8153e93 = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelCustomViewer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GetHighLevelValuePresentation_ConceptFunction$x4 = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514043ecbd2L, "jetbrains.mps.debugger.java.customViewers.structure.GetHighLevelValuePresentation_ConceptFunction");
+    /*package*/ static final SConcept HighLevelCustomViewer$cJ = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelCustomViewer");
   }
 }

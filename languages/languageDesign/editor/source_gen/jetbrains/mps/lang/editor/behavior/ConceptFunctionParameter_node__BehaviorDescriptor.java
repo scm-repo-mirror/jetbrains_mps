@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,12 +19,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ConceptFunctionParameter_node__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_db70i4.ConceptFunctionParameter_node_c804e037;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10a195cc7c5L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameter_node");
 
   public static final SMethod<Boolean> useGenericAccessor_id6E2BWlDjAuB = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("useGenericAccessor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6E2BWlDjAuB").build();
 
@@ -35,7 +34,7 @@ public final class ConceptFunctionParameter_node__BehaviorDescriptor extends Bas
   /*package*/ static boolean useGenericAccessor_id6E2BWlDjAuB(@NotNull SNode __thisNode__) {
     SNode conceptFunction = ConceptFunctionParameter__BehaviorDescriptor.findConceptFunction_idhEwJh7Q.invoke(__thisNode__);
     // TODO: remove conceptFunction != null check. It is here only for the compatibility with mbeddr generator 
-    return conceptFunction != null && (boolean) IContextNodeAccessQualifier__BehaviorDescriptor.useNodeGetter_id6E2BWlDjMQu.invoke(SNodeOperations.as(conceptFunction, AUX_db70i4.IContextNodeAccessQualifier_a2733030));
+    return conceptFunction != null && (boolean) IContextNodeAccessQualifier__BehaviorDescriptor.useNodeGetter_id6E2BWlDjMQu.invoke(SNodeOperations.as(conceptFunction, CONCEPTS.IContextNodeAccessQualifier$kM));
   }
 
   /*package*/ ConceptFunctionParameter_node__BehaviorDescriptor() {
@@ -84,8 +83,7 @@ public final class ConceptFunctionParameter_node__BehaviorDescriptor extends Bas
     return CONCEPT;
   }
 
-  private static final class AUX_db70i4 {
-    /*package*/ static final SConcept ConceptFunctionParameter_node_c804e037 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10a195cc7c5L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameter_node");
-    /*package*/ static final SInterfaceConcept IContextNodeAccessQualifier_a2733030 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6a829fc5694f1ebcL, "jetbrains.mps.lang.editor.structure.IContextNodeAccessQualifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IContextNodeAccessQualifier$kM = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6a829fc5694f1ebcL, "jetbrains.mps.lang.editor.structure.IContextNodeAccessQualifier");
   }
 }

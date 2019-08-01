@@ -15,7 +15,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -45,6 +44,7 @@ import jetbrains.mps.openapi.editor.update.AttributeKind;
 import jetbrains.mps.nodeEditor.MPSFonts;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Indent;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class OrderDeclaration_EditorBuilder_a extends AbstractEditorBuilder {
@@ -120,10 +120,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78147L, 0x22035699bdd78149L, "seq");
+      return LINKS.seq$5dgv;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_gx323y.OrderParticipantReference_8528aa46;
+      return CONCEPTS.OrderParticipantReference$Rs;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -133,7 +133,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(seqListHandler_9yq480_b0a.this.getNode(), MetaAdapterFactory.getContainmentLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78147L, 0x22035699bdd78149L, "seq")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(seqListHandler_9yq480_b0a.this.getNode(), LINKS.seq$5dgv));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -232,14 +232,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createProperty_0() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+      final SProperty property = PROPS.name$tAp1;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no name>");
       editorCell.setCellId("property_name");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
-      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), AUX_gx323y.PropertyAttribute_d001db89);
+      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.PropertyAttribute$jT);
       Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Objects.equals(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(it), property);
@@ -300,10 +300,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78147L, 0x22035699bdd78149L, "seq");
+      return LINKS.seq$5dgv;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_gx323y.OrderParticipantReference_8528aa46;
+      return CONCEPTS.OrderParticipantReference$Rs;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -313,7 +313,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(seqListHandler_9yq480_b1a0a.this.getNode(), MetaAdapterFactory.getContainmentLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78147L, 0x22035699bdd78149L, "seq")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(seqListHandler_9yq480_b1a0a.this.getNode(), LINKS.seq$5dgv));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -362,8 +362,16 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_gx323y {
-    /*package*/ static final SConcept OrderParticipantReference_8528aa46 = MetaAdapterFactory.getConcept(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd7814bL, "jetbrains.mps.lang.util.order.structure.OrderParticipantReference");
-    /*package*/ static final SConcept PropertyAttribute_d001db89 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink seq$5dgv = MetaAdapterFactory.getContainmentLink(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd78147L, 0x22035699bdd78149L, "seq");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OrderParticipantReference$Rs = MetaAdapterFactory.getConcept(0xc9d137c4325944f8L, 0x80ff33ab2b506ee4L, 0x22035699bdd7814bL, "jetbrains.mps.lang.util.order.structure.OrderParticipantReference");
+    /*package*/ static final SConcept PropertyAttribute$jT = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

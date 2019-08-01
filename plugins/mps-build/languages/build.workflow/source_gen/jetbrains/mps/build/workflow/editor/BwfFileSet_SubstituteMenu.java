@@ -21,7 +21,6 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -37,13 +36,15 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class BwfFileSet_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_bkb34x_a(), AUX_bkb34x.BwfFileSet_426f53f7));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_bkb34x_a(), CONCEPTS.BwfFileSet$Db));
     return result;
   }
 
@@ -83,14 +84,14 @@ public class BwfFileSet_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_bkb34x.BwfFileSet_426f53f7;
+          return CONCEPTS.BwfFileSet$Db;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
-          SNode cp = SModelOperations.createNewNode(_context.getModel(), null, AUX_bkb34x.BwfFileSet_426f53f7);
-          ListSequence.fromList(SLinkOperations.getChildren(cp, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6e014d63c07ebd1bL, 0x6e014d63c07ebd1cL, "elements"))).addElement(nodeToWrap);
+          SNode cp = SModelOperations.createNewNode(_context.getModel(), null, CONCEPTS.BwfFileSet$Db);
+          ListSequence.fromList(SLinkOperations.getChildren(cp, LINKS.elements$UwEw)).addElement(nodeToWrap);
           return cp;
         }
 
@@ -117,12 +118,16 @@ public class BwfFileSet_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_bkb34x.XmlBaseElement_5d5001c5;
+      return CONCEPTS.XmlBaseElement$oX;
     }
   }
 
-  private static final class AUX_bkb34x {
-    /*package*/ static final SConcept BwfFileSet_426f53f7 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6e014d63c07ebd1bL, "jetbrains.mps.build.workflow.structure.BwfFileSet");
-    /*package*/ static final SConcept XmlBaseElement_5d5001c5 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486dL, "jetbrains.mps.core.xml.structure.XmlBaseElement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfFileSet$Db = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6e014d63c07ebd1bL, "jetbrains.mps.build.workflow.structure.BwfFileSet");
+    /*package*/ static final SConcept XmlBaseElement$oX = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486dL, "jetbrains.mps.core.xml.structure.XmlBaseElement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elements$UwEw = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x6e014d63c07ebd1bL, 0x6e014d63c07ebd1cL, "elements");
   }
 }

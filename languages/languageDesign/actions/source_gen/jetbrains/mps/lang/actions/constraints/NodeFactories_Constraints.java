@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NodeFactories_Constraints extends BaseConstraintsDescriptor {
   public NodeFactories_Constraints() {
-    super(AUX_t5tef2.NodeFactories_2cd1df4);
+    super(CONCEPTS.NodeFactories$ZI);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class NodeFactories_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902a4(jetbrains.mps.lang.actions.constraints)", "1227088774549");
 
-  private static final class AUX_t5tef2 {
-    /*package*/ static final SConcept NodeFactories_2cd1df4 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x10dc7f106b2L, "jetbrains.mps.lang.actions.structure.NodeFactories");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeFactories$ZI = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x10dc7f106b2L, "jetbrains.mps.lang.actions.structure.NodeFactories");
   }
 }

@@ -5,14 +5,16 @@ package jetbrains.mps.baseLanguage.util.plugin.refactorings;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class InlineFieldReferenceOperationRefactoring extends InlineFieldRefactoring {
   private SNode myReference;
 
   public InlineFieldReferenceOperationRefactoring(SNode node) {
-    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration")), AUX_7oli1d.VariableDeclaration_3c610994))) {
+    if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.fieldDeclaration$mLBy), CONCEPTS.VariableDeclaration$xe))) {
       throw new IllegalArgumentException();
     }
 
@@ -21,16 +23,21 @@ public class InlineFieldReferenceOperationRefactoring extends InlineFieldRefacto
 
   @Override
   public SNode doRefactoring() {
-    SNode variable = SLinkOperations.getTarget(this.myReference, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration"));
-    SNode nodeToSelect = SNodeOperations.copyNode(SLinkOperations.getTarget(variable, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer")));
-    SNodeOperations.replaceWithAnother(SNodeOperations.getNodeAncestor(this.myReference, AUX_7oli1d.DotExpression_97ed08d8, false, false), nodeToSelect);
+    SNode variable = SLinkOperations.getTarget(this.myReference, LINKS.fieldDeclaration$mLBy);
+    SNode nodeToSelect = SNodeOperations.copyNode(SLinkOperations.getTarget(variable, LINKS.initializer$KgD));
+    SNodeOperations.replaceWithAnother(SNodeOperations.getNodeAncestor(this.myReference, CONCEPTS.DotExpression$6a, false, false), nodeToSelect);
     InlinePrecedenceUtil.parenthesiseIfNecessary(nodeToSelect);
     this.optimizeDeclaration(variable);
     return nodeToSelect;
   }
 
-  private static final class AUX_7oli1d {
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink fieldDeclaration$mLBy = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration");
+    /*package*/ static final SContainmentLink initializer$KgD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
   }
 }

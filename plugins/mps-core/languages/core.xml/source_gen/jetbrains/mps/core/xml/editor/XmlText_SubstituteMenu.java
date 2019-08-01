@@ -20,16 +20,17 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.xml.constraints.XmlNameUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlText_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_cbaruy_a(), AUX_cbaruy.XmlText_49cf0e78));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_cbaruy_a(), CONCEPTS.XmlText$ZE));
     return result;
   }
 
@@ -74,7 +75,7 @@ public class XmlText_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_cbaruy.XmlText_49cf0e78, context);
+        super(CONCEPTS.XmlText$ZE, context);
         _context = context;
       }
 
@@ -85,8 +86,8 @@ public class XmlText_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode val = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_cbaruy.XmlText_49cf0e78, null);
-        SPropertyOperations.assign(val, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9aa513L, 0x16838b3fce9aaa68L, "value"), pattern);
+        SNode val = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.XmlText$ZE, null);
+        SPropertyOperations.assign(val, PROPS.value$Wjv0, pattern);
         return val;
       }
 
@@ -108,7 +109,11 @@ public class XmlText_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_cbaruy {
-    /*package*/ static final SConcept XmlText_49cf0e78 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9aa513L, "jetbrains.mps.core.xml.structure.XmlText");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlText$ZE = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9aa513L, "jetbrains.mps.core.xml.structure.XmlText");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$Wjv0 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x16838b3fce9aa513L, 0x16838b3fce9aaa68L, "value");
   }
 }

@@ -17,7 +17,7 @@ public class typeof_ThisConstructorInvocation_NonTypesystemRule extends Abstract
   public void applyRule(final SNode thisConstructorInvocation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_yb192w.ThisConstructorInvocation_47ecdf0;
+    return CONCEPTS.ThisConstructorInvocation$XM;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -26,7 +26,7 @@ public class typeof_ThisConstructorInvocation_NonTypesystemRule extends Abstract
     return false;
   }
 
-  private static final class AUX_yb192w {
-    /*package*/ static final SConcept ThisConstructorInvocation_47ecdf0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1127b878882L, "jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisConstructorInvocation$XM = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1127b878882L, "jetbrains.mps.baseLanguage.structure.ThisConstructorInvocation");
   }
 }

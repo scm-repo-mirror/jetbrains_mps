@@ -5,7 +5,6 @@ package jetbrains.mps.samples.heating.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -20,15 +19,17 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Slot_Constraints extends BaseConstraintsDescriptor {
   public Slot_Constraints() {
-    super(AUX_wqhmm2.Slot_ae41f8e3);
+    super(CONCEPTS.Slot$bv);
   }
 
   public static class Start_Property extends BasePropertyConstraintsDescriptor {
     public Start_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start"), container);
+      super(PROPS.start$fZpo, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -44,9 +45,9 @@ public class Slot_Constraints extends BaseConstraintsDescriptor {
       return result;
     }
     private static boolean staticValidateProperty(final SNode node, final int propertyValue) {
-      return propertyValue >= 0 && propertyValue <= 24 && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.as(SNodeOperations.getParent(node), AUX_wqhmm2.DailyPlan_82e65b88), MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x4644aa4ce08aec57L, "items"))).all(new IWhereFilter<SNode>() {
+      return propertyValue >= 0 && propertyValue <= 24 && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.DailyPlan$jq), LINKS.items$MJQp)).all(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return Objects.equals(it, node) || SPropertyOperations.getInteger(it, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start")) != propertyValue;
+          return Objects.equals(it, node) || SPropertyOperations.getInteger(it, PROPS.start$fZpo) != propertyValue;
         }
       });
     }
@@ -54,12 +55,20 @@ public class Slot_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start"), new Start_Property(this));
+    properties.put(PROPS.start$fZpo, new Start_Property(this));
     return properties;
   }
 
-  private static final class AUX_wqhmm2 {
-    /*package*/ static final SConcept Slot_ae41f8e3 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
-    /*package*/ static final SConcept DailyPlan_82e65b88 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Slot$bv = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
+    /*package*/ static final SConcept DailyPlan$jq = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty start$fZpo = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink items$MJQp = MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x4644aa4ce08aec57L, "items");
   }
 }

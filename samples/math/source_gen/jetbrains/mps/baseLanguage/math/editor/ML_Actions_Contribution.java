@@ -20,8 +20,9 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ML_Actions_Contribution extends SubstituteMenuBase {
   public ML_Actions_Contribution() {
@@ -31,7 +32,7 @@ public class ML_Actions_Contribution extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_6cdm61_a(), AUX_6cdm61.MatrixConstructor_c63cc751));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_6cdm61_a(), CONCEPTS.MatrixConstructor$8L));
     return result;
   }
 
@@ -76,7 +77,7 @@ public class ML_Actions_Contribution extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_6cdm61.MatrixConstructor_c63cc751, context);
+        super(CONCEPTS.MatrixConstructor$8L, context);
         _context = context;
       }
 
@@ -87,8 +88,8 @@ public class ML_Actions_Contribution extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode n = SNodeFactoryOperations.createNewNode(AUX_6cdm61.MatrixConstructor_c63cc751, null);
-        SPropertyOperations.assign(n, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x308cb55abc73bd40L, "column"), true);
+        SNode n = SNodeFactoryOperations.createNewNode(CONCEPTS.MatrixConstructor$8L, null);
+        SPropertyOperations.assign(n, PROPS.column$5PEh, true);
         return n;
       }
 
@@ -109,7 +110,11 @@ public class ML_Actions_Contribution extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_6cdm61 {
-    /*package*/ static final SConcept MatrixConstructor_c63cc751 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, "jetbrains.mps.baseLanguage.math.structure.MatrixConstructor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixConstructor$8L = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, "jetbrains.mps.baseLanguage.math.structure.MatrixConstructor");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty column$5PEh = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x308cb55abc73bd40L, "column");
   }
 }

@@ -18,7 +18,7 @@ public class ApplicableRefactoring_Target implements IRefactoringTarget {
     return false;
   }
   public boolean isApplicableToEntityType(final Object entity) {
-    return SNodeOperations.isInstanceOf(((SNode) entity), AUX_6sq2fb.TransformationMenuTestConcept_d76b1c63);
+    return SNodeOperations.isInstanceOf(((SNode) entity), CONCEPTS.TransformationMenuTestConcept$Xv);
   }
   public boolean isApplicable(final Object entity) {
     if (!(this.isApplicableToEntityType(entity))) {
@@ -27,7 +27,7 @@ public class ApplicableRefactoring_Target implements IRefactoringTarget {
     return true;
   }
 
-  private static final class AUX_6sq2fb {
-    /*package*/ static final SConcept TransformationMenuTestConcept_d76b1c63 = MetaAdapterFactory.getConcept(0x4eb772b04df3414aL, 0xb89463abeb912f56L, 0x208970783ba43296L, "jetbrains.mps.lang.editor.menus.testLanguage.structure.TransformationMenuTestConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenuTestConcept$Xv = MetaAdapterFactory.getConcept(0x4eb772b04df3414aL, 0xb89463abeb912f56L, 0x208970783ba43296L, "jetbrains.mps.lang.editor.menus.testLanguage.structure.TransformationMenuTestConcept");
   }
 }

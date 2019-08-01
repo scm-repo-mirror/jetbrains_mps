@@ -44,7 +44,7 @@ public class Find_Usages_TabDescriptor extends RelationDescriptor {
     return ConceptEditorOpenHelper.getBaseNode(node);
   }
   public boolean isApplicable(SNode node) {
-    return SNodeOperations.isInstanceOf(node, AUX_h9zgqm.AbstractConceptDeclaration_ec74828f);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractConceptDeclaration$UN);
   }
   @Nullable
   public Icon getIcon() {
@@ -61,7 +61,7 @@ public class Find_Usages_TabDescriptor extends RelationDescriptor {
       return new ArrayList<SNode>();
     }
 
-    return Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(node, AUX_h9zgqm.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("findConceptAspects", AUX_h9zgqm.AbstractConceptDeclaration_ec74828f, "4G9PD8$NvPM"), aspectModel))).toListSequence();
+    return Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(node, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("findConceptAspects", CONCEPTS.AbstractConceptDeclaration$UN, "4G9PD8$NvPM"), aspectModel))).toListSequence();
   }
   public boolean isSingle() {
     return false;
@@ -73,7 +73,7 @@ public class Find_Usages_TabDescriptor extends RelationDescriptor {
     return ConceptAspectsHelper.attachNewConceptAspect(LanguageAspect.FIND_USAGES, node, SNodeFactoryOperations.createNewNode(((SAbstractConcept) concept), null));
   }
 
-  private static final class AUX_h9zgqm {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

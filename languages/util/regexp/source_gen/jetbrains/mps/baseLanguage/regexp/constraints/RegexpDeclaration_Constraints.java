@@ -5,7 +5,6 @@ package jetbrains.mps.baseLanguage.regexp.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Map;
@@ -13,15 +12,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RegexpDeclaration_Constraints extends BaseConstraintsDescriptor {
   public RegexpDeclaration_Constraints() {
-    super(AUX_5k14k.RegexpDeclaration_739f698d);
+    super(CONCEPTS.RegexpDeclaration$tP);
   }
 
   public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
     public ShortDescription_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), container);
+      super(PROPS.shortDescription$w2Xj, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -29,7 +29,7 @@ public class RegexpDeclaration_Constraints extends BaseConstraintsDescriptor {
     }
     @Override
     public Object getValue(SNode node) {
-      return (isNotEmptyString(SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, 0x1117f5e9a48L, "description"))) ? SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, 0x1117f5e9a48L, "description")) : "regular expression");
+      return (isNotEmptyString(SPropertyOperations.getString(node, PROPS.description$Y0wz)) ? SPropertyOperations.getString(node, PROPS.description$Y0wz) : "regular expression");
     }
     private static boolean isNotEmptyString(String str) {
       return str != null && str.length() > 0;
@@ -38,11 +38,16 @@ public class RegexpDeclaration_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), new ShortDescription_Property(this));
+    properties.put(PROPS.shortDescription$w2Xj, new ShortDescription_Property(this));
     return properties;
   }
 
-  private static final class AUX_5k14k {
-    /*package*/ static final SConcept RegexpDeclaration_739f698d = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, "jetbrains.mps.baseLanguage.regexp.structure.RegexpDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RegexpDeclaration$tP = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, "jetbrains.mps.baseLanguage.regexp.structure.RegexpDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty shortDescription$w2Xj = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
+    /*package*/ static final SProperty description$Y0wz = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a6454dL, 0x1117f5e9a48L, "description");
   }
 }

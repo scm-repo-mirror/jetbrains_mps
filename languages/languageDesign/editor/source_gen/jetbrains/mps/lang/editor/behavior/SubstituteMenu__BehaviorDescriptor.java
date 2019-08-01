@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,12 +17,10 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class SubstituteMenu__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dgiebx.SubstituteMenu_38dd535e;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1bc2c2df999a0078L, "jetbrains.mps.lang.editor.structure.SubstituteMenu");
 
   public static final SMethod<SNode> getApplicableConcept_id1quYWAD18xk = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getApplicableConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1quYWAD18xk").build();
 
@@ -31,7 +30,7 @@ public final class SubstituteMenu__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode getApplicableConcept_id1quYWAD18xk(@NotNull SNode __thisNode__) {
-    return ((SNode) IMenu__BehaviorDescriptor.getApplicableConcept_id1quYWAD18xk.invoke0(__thisNode__, AUX_dgiebx.IMenu_Concept_aecb2524));
+    return ((SNode) IMenu__BehaviorDescriptor.getApplicableConcept_id1quYWAD18xk.invoke0(__thisNode__, CONCEPTS.IMenu_Concept$UY));
   }
 
   /*package*/ SubstituteMenu__BehaviorDescriptor() {
@@ -80,8 +79,7 @@ public final class SubstituteMenu__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_dgiebx {
-    /*package*/ static final SConcept SubstituteMenu_38dd535e = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1bc2c2df999a0078L, "jetbrains.mps.lang.editor.structure.SubstituteMenu");
-    /*package*/ static final SInterfaceConcept IMenu_Concept_aecb2524 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9048c53L, "jetbrains.mps.lang.editor.structure.IMenu_Concept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMenu_Concept$UY = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9048c53L, "jetbrains.mps.lang.editor.structure.IMenu_Concept");
   }
 }

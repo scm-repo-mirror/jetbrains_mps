@@ -4,8 +4,10 @@ package jetbrains.mps.baseLanguage.util.plugin.refactorings;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MethodParameterModel {
   private SNode myDeclaration;
@@ -20,8 +22,8 @@ public class MethodParameterModel {
   public MethodParameterModel(SNode param, int i) {
     this.myDeclaration = param;
     this.myOrder = i;
-    this.setTypeName(SLinkOperations.getTarget(param, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")).getPresentation());
-    this.setName(SPropertyOperations.getString(param, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    this.setTypeName(SLinkOperations.getTarget(param, LINKS.type$pLrO).getPresentation());
+    this.setName(SPropertyOperations.getString(param, PROPS.name$tAp1));
   }
   public String getName() {
     return this.myName;
@@ -40,5 +42,13 @@ public class MethodParameterModel {
   }
   public SNode getDeclaration() {
     return this.myDeclaration;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

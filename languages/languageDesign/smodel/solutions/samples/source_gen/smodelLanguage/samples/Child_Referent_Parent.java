@@ -4,85 +4,97 @@ package smodelLanguage.samples;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.List;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Child_Referent_Parent {
   public void accessToChildNode_1(SNode ifStatement) {
-    SNode condition = SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"));
+    SNode condition = SLinkOperations.getTarget(ifStatement, LINKS.condition$WJ1b);
     SNodeOperations.deleteNode(condition);
-    SNodeOperations.deleteNode(SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition")));
+    SNodeOperations.deleteNode(SLinkOperations.getTarget(ifStatement, LINKS.condition$WJ1b));
   }
   public void accessToChildNode_2(SNode ifStatement, SNode newCondition) {
-    SLinkOperations.setTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"), newCondition);
-    SNode condition = SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"));
+    SLinkOperations.setTarget(ifStatement, LINKS.condition$WJ1b, newCondition);
+    SNode condition = SLinkOperations.getTarget(ifStatement, LINKS.condition$WJ1b);
     SNodeOperations.replaceWithAnother(condition, newCondition);
   }
   public void accessToChildNode_3(SNode ifStatement1, SNode ifStatement2) {
-    SLinkOperations.setTarget(ifStatement1, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"), SNodeOperations.copyNode(SLinkOperations.getTarget(ifStatement2, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"))));
-    SNode condition = SLinkOperations.getTarget(ifStatement1, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"));
-    SNodeOperations.replaceWithAnother(condition, SNodeOperations.copyNode(SLinkOperations.getTarget(ifStatement2, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"))));
+    SLinkOperations.setTarget(ifStatement1, LINKS.condition$WJ1b, SNodeOperations.copyNode(SLinkOperations.getTarget(ifStatement2, LINKS.condition$WJ1b)));
+    SNode condition = SLinkOperations.getTarget(ifStatement1, LINKS.condition$WJ1b);
+    SNodeOperations.replaceWithAnother(condition, SNodeOperations.copyNode(SLinkOperations.getTarget(ifStatement2, LINKS.condition$WJ1b)));
   }
   public void accessToChildNode_4(SNode ifStatement) {
-    SNode newCondition1 = SLinkOperations.setNewChild(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"), null);
-    SNode newCondition2 = SLinkOperations.setNewChild(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"), AUX_hyvkrh.EqualsExpression_9dbf9b09);
-    SNode newCondition3 = SNodeOperations.replaceWithNewChild(newCondition1, AUX_hyvkrh.NotExpression_8a1c1248);
+    SNode newCondition1 = SLinkOperations.setNewChild(ifStatement, LINKS.condition$WJ1b, null);
+    SNode newCondition2 = SLinkOperations.setNewChild(ifStatement, LINKS.condition$WJ1b, CONCEPTS.EqualsExpression$lT);
+    SNode newCondition3 = SNodeOperations.replaceWithNewChild(newCondition1, CONCEPTS.NotExpression$oq);
   }
   public void accessToChildNode_5(SNode ifStatement) {
-    SLinkOperations.setTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression")));
-    SNode detachedExpression = SNodeOperations.deleteNode(SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition")));
+    SLinkOperations.setTarget(ifStatement, LINKS.condition$WJ1b, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression")));
+    SNode detachedExpression = SNodeOperations.deleteNode(SLinkOperations.getTarget(ifStatement, LINKS.condition$WJ1b));
     SNodeOperations.deleteNode(ifStatement);
   }
   public void accessToReferentNode_1(SNode methodCall, SNode method) {
-    SNode oldMethod = SLinkOperations.getTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
-    String oldMethopdName = SPropertyOperations.getString(oldMethod, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    oldMethopdName = SPropertyOperations.getString(SLinkOperations.getTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    SLinkOperations.setTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), method);
+    SNode oldMethod = SLinkOperations.getTarget(methodCall, LINKS.baseMethodDeclaration$$A7i);
+    String oldMethopdName = SPropertyOperations.getString(oldMethod, PROPS.name$tAp1);
+    oldMethopdName = SPropertyOperations.getString(SLinkOperations.getTarget(methodCall, LINKS.baseMethodDeclaration$$A7i), PROPS.name$tAp1);
+    SLinkOperations.setTarget(methodCall, LINKS.baseMethodDeclaration$$A7i, method);
   }
   public void accessToReferentNode_2(SNode methodCall, SNode method) {
-    SLinkOperations.setTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), method);
+    SLinkOperations.setTarget(methodCall, LINKS.baseMethodDeclaration$$A7i, method);
   }
   public void accessToParentNode_1(SNode expression) {
     SNode parent_IfStatement = null;
     SNode mayBe_IfStatement = SNodeOperations.getParent(expression);
     while (mayBe_IfStatement != null) {
-      if (SNodeOperations.isInstanceOf(mayBe_IfStatement, AUX_hyvkrh.IfStatement_9dbf9b10)) {
-        parent_IfStatement = SNodeOperations.cast(mayBe_IfStatement, AUX_hyvkrh.IfStatement_9dbf9b10);
+      if (SNodeOperations.isInstanceOf(mayBe_IfStatement, CONCEPTS.IfStatement$pi)) {
+        parent_IfStatement = SNodeOperations.cast(mayBe_IfStatement, CONCEPTS.IfStatement$pi);
         break;
       }
       mayBe_IfStatement = SNodeOperations.getParent(mayBe_IfStatement);
     }
   }
   public void accessToParentNode_2(SNode methodCall) {
-    SNode declaringClass = SNodeOperations.cast(SNodeOperations.getParent(SLinkOperations.getTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"))), AUX_hyvkrh.ClassConcept_e2711824);
+    SNode declaringClass = SNodeOperations.cast(SNodeOperations.getParent(SLinkOperations.getTarget(methodCall, LINKS.baseMethodDeclaration$$A7i)), CONCEPTS.ClassConcept$IY);
   }
   public void accessToParentNode_3(SNode node) {
     SNode root = SNodeOperations.getContainingRoot(node);
   }
   public void accessToAncestorNode_1(SNode expression) {
-    SNode parent_IfStatement = SNodeOperations.getNodeAncestor(expression, AUX_hyvkrh.IfStatement_9dbf9b10, false, false);
+    SNode parent_IfStatement = SNodeOperations.getNodeAncestor(expression, CONCEPTS.IfStatement$pi, false, false);
   }
   public void accessToAncestorNode_2(SNode expression) {
-    SNode parent_If_or_WhileStatement = SNodeOperations.getNodeAncestorWhereConceptInList(expression, new SAbstractConcept[]{AUX_hyvkrh.IfStatement_9dbf9b10, AUX_hyvkrh.WhileStatement_1f5f4332}, false, false);
+    SNode parent_If_or_WhileStatement = SNodeOperations.getNodeAncestorWhereConceptInList(expression, new SAbstractConcept[]{CONCEPTS.IfStatement$pi, CONCEPTS.WhileStatement$9K}, false, false);
   }
   public void accessToAncestorNodes_1(SNode expression) {
-    List<SNode> allAncestorStatements = SNodeOperations.getNodeAncestors(expression, AUX_hyvkrh.Statement_9dbf9b0e, true);
+    List<SNode> allAncestorStatements = SNodeOperations.getNodeAncestors(expression, CONCEPTS.Statement$ok, true);
   }
   public void accessToAncestorNodes_2(SNode expression) {
-    List<SNode> allAncestor_If_or_WhileStatements = SNodeOperations.getNodeAncestorsWhereConceptInList(expression, new SAbstractConcept[]{AUX_hyvkrh.IfStatement_9dbf9b10, AUX_hyvkrh.WhileStatement_1f5f4332}, true);
+    List<SNode> allAncestor_If_or_WhileStatements = SNodeOperations.getNodeAncestorsWhereConceptInList(expression, new SAbstractConcept[]{CONCEPTS.IfStatement$pi, CONCEPTS.WhileStatement$9K}, true);
   }
 
-  private static final class AUX_hyvkrh {
-    /*package*/ static final SConcept EqualsExpression_9dbf9b09 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b210L, "jetbrains.mps.baseLanguage.structure.EqualsExpression");
-    /*package*/ static final SConcept NotExpression_8a1c1248 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept WhileStatement_1f5f4332 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink condition$WJ1b = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EqualsExpression$lT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b210L, "jetbrains.mps.baseLanguage.structure.EqualsExpression");
+    /*package*/ static final SConcept NotExpression$oq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept WhileStatement$9K = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

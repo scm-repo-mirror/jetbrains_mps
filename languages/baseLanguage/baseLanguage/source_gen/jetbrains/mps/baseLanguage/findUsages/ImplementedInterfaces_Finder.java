@@ -13,13 +13,15 @@ import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ImplementedInterfaces_Finder extends GeneratedFinder {
   public ImplementedInterfaces_Finder() {
@@ -34,7 +36,7 @@ public class ImplementedInterfaces_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_8ekbd0.ClassConcept_e2711824;
+    return CONCEPTS.ClassConcept$IY;
   }
 
   @Override
@@ -42,18 +44,18 @@ public class ImplementedInterfaces_Finder extends GeneratedFinder {
     try {
       monitor.start("", 2);
       List<SNode> result = new ArrayList<SNode>();
-      if (SNodeOperations.isInstanceOf(node, AUX_8ekbd0.AnonymousClass_e4a73f97)) {
-        SNode classifier = SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_8ekbd0.AnonymousClass_e4a73f97), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier"));
-        if (SNodeOperations.isInstanceOf(classifier, AUX_8ekbd0.Interface_bca2069)) {
-          ListSequence.fromList(result).addElement(SNodeOperations.cast(classifier, AUX_8ekbd0.Interface_bca2069));
-          ListSequence.fromList(result).addSequence(ListSequence.fromList((List<SNode>) FindUtils.executeFinder("jetbrains.mps.baseLanguage.findUsages.InterfaceAncestors_Finder", SNodeOperations.cast(classifier, AUX_8ekbd0.Interface_bca2069), scope, new EmptyProgressMonitor())));
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.AnonymousClass$aF)) {
+        SNode classifier = SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.AnonymousClass$aF), LINKS.classifier$1y5e);
+        if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.Interface$Kp)) {
+          ListSequence.fromList(result).addElement(SNodeOperations.cast(classifier, CONCEPTS.Interface$Kp));
+          ListSequence.fromList(result).addSequence(ListSequence.fromList((List<SNode>) FindUtils.executeFinder("jetbrains.mps.baseLanguage.findUsages.InterfaceAncestors_Finder", SNodeOperations.cast(classifier, CONCEPTS.Interface$Kp), scope, new EmptyProgressMonitor())));
         }
       } else {
         List<SNode> classNodes = FindUtils.executeFinder("jetbrains.mps.baseLanguage.findUsages.ClassAncestors_Finder", node, scope, monitor.subTask(1));
         ListSequence.fromList(classNodes).addElement(node);
         for (SNode classNode : ListSequence.fromList(classNodes)) {
-          for (SNode implementedInterface : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classNode, AUX_8ekbd0.ClassConcept_e2711824), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface")))) {
-            SNode interfaceNode = (SNode) SLinkOperations.getTarget(implementedInterface, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"));
+          for (SNode implementedInterface : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classNode, CONCEPTS.ClassConcept$IY), LINKS.implementedInterface$mdc6))) {
+            SNode interfaceNode = (SNode) SLinkOperations.getTarget(implementedInterface, LINKS.classifier$pQ_R);
             if ((interfaceNode != null)) {
               ListSequence.fromList(result).addElement(interfaceNode);
               ListSequence.fromList(result).addSequence(ListSequence.fromList((List<SNode>) FindUtils.executeFinder("jetbrains.mps.baseLanguage.findUsages.InterfaceAncestors_Finder", interfaceNode, scope, new EmptyProgressMonitor())));
@@ -81,9 +83,15 @@ public class ImplementedInterfaces_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1216392046439");
   }
 
-  private static final class AUX_8ekbd0 {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink implementedInterface$mdc6 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface");
   }
 }

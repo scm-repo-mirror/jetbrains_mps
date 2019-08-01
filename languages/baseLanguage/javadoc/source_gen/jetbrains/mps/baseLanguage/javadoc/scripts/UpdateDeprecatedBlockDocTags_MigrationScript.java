@@ -7,12 +7,13 @@ import jetbrains.mps.lang.script.runtime.AbstractMigrationRefactoring;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class UpdateDeprecatedBlockDocTags_MigrationScript extends BaseMigrationScript {
   public UpdateDeprecatedBlockDocTags_MigrationScript() {
@@ -28,15 +29,15 @@ public final class UpdateDeprecatedBlockDocTags_MigrationScript extends BaseMigr
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_7i4dsd.DeprecatedBlockDocTag_7c8f64d8;
+        return CONCEPTS.DeprecatedBlockDocTag$ma;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        return (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text")) == null);
+        return (SLinkOperations.getTarget(node, LINKS.text$e7yL) == null);
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text"), null);
+        SNodeFactoryOperations.setNewChild(node, LINKS.text$e7yL, null);
       }
       @Override
       public boolean isShowAsIntention() {
@@ -51,7 +52,11 @@ public final class UpdateDeprecatedBlockDocTags_MigrationScript extends BaseMigr
     return PersistenceFacade.getInstance().createNodeReference("r:5cc40f3f-8490-4eff-97dc-454147d36c2e(jetbrains.mps.baseLanguage.javadoc.scripts)/992603585967257187");
   }
 
-  private static final class AUX_7i4dsd {
-    /*package*/ static final SConcept DeprecatedBlockDocTag_7c8f64d8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DeprecatedBlockDocTag$ma = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, "jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink text$e7yL = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x757ba20a4c87f964L, 0x250631c6c859e113L, "text");
   }
 }

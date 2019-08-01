@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.logging.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -14,16 +15,16 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class MsgStatement__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_9ejw6v.MsgStatement_2c00a533;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, "jetbrains.mps.baseLanguage.logging.structure.MsgStatement");
 
   public static final SMethod<SNode> getMessage_id5vyNLjQPuX5 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getMessage").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vyNLjQPuX5").build();
   public static final SMethod<String> getSeverity_id5vyNLjQPuVr = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSeverity").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5vyNLjQPuVr").build();
@@ -35,13 +36,13 @@ public final class MsgStatement__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode getMessage_id5vyNLjQPuX5(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, 0x4f67298c4630c25eL, "message"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.message$75e4);
   }
   /*package*/ static String getSeverity_id5vyNLjQPuVr(@NotNull SNode __thisNode__) {
-    return SEnumOperations.getMemberName0(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, 0x57e2cf14f6d5d81fL, "severity")));
+    return SEnumOperations.getMemberName0(SPropertyOperations.getEnum(__thisNode__, PROPS.severity$TT76));
   }
   /*package*/ static SNode getThrowable_id5vyNLjQPuWe(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, 0x4f67298c4630c25fL, "throwable"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.throwable$75ez);
   }
 
   /*package*/ MsgStatement__BehaviorDescriptor() {
@@ -94,7 +95,12 @@ public final class MsgStatement__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_9ejw6v {
-    /*package*/ static final SConcept MsgStatement_2c00a533 = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, "jetbrains.mps.baseLanguage.logging.structure.MsgStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink message$75e4 = MetaAdapterFactory.getContainmentLink(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, 0x4f67298c4630c25eL, "message");
+    /*package*/ static final SContainmentLink throwable$75ez = MetaAdapterFactory.getContainmentLink(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, 0x4f67298c4630c25fL, "throwable");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty severity$TT76 = MetaAdapterFactory.getProperty(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, 0x57e2cf14f6d5d81fL, "severity");
   }
 }

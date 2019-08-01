@@ -30,14 +30,14 @@ public class DefaultBLClassComparator implements Comparator<SNodeReference> {
 
   private String getText(SNodeReference ptr) {
     SNode node = SPointerOperations.resolveNode(ptr, myRepo);
-    if (SNodeOperations.isInstanceOf(node, AUX_tjdrhd.Classifier_4b7e553)) {
-      return NameUtil.shortNameFromLongName(((String) BHReflection.invoke0(SNodeOperations.cast(node, AUX_tjdrhd.Classifier_4b7e553), AUX_tjdrhd.INamedConcept_8cd7e247, SMethodTrimmedId.create("getFqName", null, "hEwIO9y"))));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.Classifier$hJ)) {
+      return NameUtil.shortNameFromLongName(((String) BHReflection.invoke0(SNodeOperations.cast(node, CONCEPTS.Classifier$hJ), CONCEPTS.INamedConcept$nV, SMethodTrimmedId.create("getFqName", null, "hEwIO9y"))));
     }
     return ptr + "";
   }
 
-  private static final class AUX_tjdrhd {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

@@ -35,7 +35,7 @@ public class LogicalOperator_SubstituteMenu extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_vciz2d_a(), AUX_vciz2d.LogicalOperator_689b9df9));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_vciz2d_a(), CONCEPTS.LogicalOperator$29));
     return result;
   }
 
@@ -72,7 +72,7 @@ public class LogicalOperator_SubstituteMenu extends SubstituteMenuBase {
     @Nullable
     @Override
     protected Iterable<? extends SConcept> getParameters(SubstituteMenuContext _context) {
-      return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(AUX_vciz2d.LogicalOperator_689b9df9, _context.getModel())).where(new IWhereFilter<SConcept>() {
+      return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(CONCEPTS.LogicalOperator$29, _context.getModel())).where(new IWhereFilter<SConcept>() {
         public boolean accept(SConcept it) {
           return !(it.isAbstract());
         }
@@ -111,7 +111,7 @@ public class LogicalOperator_SubstituteMenu extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_vciz2d.LogicalOperator_689b9df9, context);
+          super(CONCEPTS.LogicalOperator$29, context);
           _context = context;
         }
 
@@ -132,7 +132,7 @@ public class LogicalOperator_SubstituteMenu extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_vciz2d.LogicalOperator_689b9df9, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.LogicalOperator$29, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -157,7 +157,7 @@ public class LogicalOperator_SubstituteMenu extends SubstituteMenuBase {
 
   }
 
-  private static final class AUX_vciz2d {
-    /*package*/ static final SConcept LogicalOperator_689b9df9 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, "jetbrains.mps.samples.KajaAndOr.structure.LogicalOperator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LogicalOperator$29 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, "jetbrains.mps.samples.KajaAndOr.structure.LogicalOperator");
   }
 }

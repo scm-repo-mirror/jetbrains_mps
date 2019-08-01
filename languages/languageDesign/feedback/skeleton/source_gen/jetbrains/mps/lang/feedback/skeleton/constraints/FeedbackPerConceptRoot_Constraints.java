@@ -5,7 +5,6 @@ package jetbrains.mps.lang.feedback.skeleton.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -37,15 +36,16 @@ import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescriptor {
   public FeedbackPerConceptRoot_Constraints() {
-    super(AUX_pwu0qc.FeedbackPerConceptRoot_c8c13b93);
+    super(CONCEPTS.FeedbackPerConceptRoot$oJ);
   }
 
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -54,8 +54,8 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
     @Override
     public Object getValue(SNode node) {
       String conceptName;
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x63c2f3669ce56d5dL, "concept")) != null)) {
-        conceptName = SPropertyOperations.getString(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x63c2f3669ce56d5dL, "concept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      if ((SLinkOperations.getTarget(node, LINKS.concept$KXj8) != null)) {
+        conceptName = SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.concept$KXj8), PROPS.name$tAp1);
       } else {
         conceptName = "???";
       }
@@ -70,12 +70,12 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
     return properties;
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x63c2f3669ce56d5dL, "concept"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.concept$KXj8, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -99,7 +99,7 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
               return new EmptyScope();
             }
 
-            return new NamedElementsScope(SModelOperations.roots(structure, AUX_pwu0qc.AbstractConceptDeclaration_ec74828f));
+            return new NamedElementsScope(SModelOperations.roots(structure, CONCEPTS.AbstractConceptDeclaration$UN));
           }
         };
       }
@@ -116,8 +116,16 @@ public class FeedbackPerConceptRoot_Constraints extends BaseConstraintsDescripto
   }
   private static final SNodePointer breakingNode_pwu0qc_a0a0a0a0a1a0a0a0e = new SNodePointer("r:99749b65-b7fc-4566-b6a7-ca55328bd881(jetbrains.mps.lang.feedback.skeleton.constraints)", "6836281137582781546");
 
-  private static final class AUX_pwu0qc {
-    /*package*/ static final SConcept FeedbackPerConceptRoot_c8c13b93 = MetaAdapterFactory.getConcept(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, "jetbrains.mps.lang.feedback.skeleton.structure.FeedbackPerConceptRoot");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FeedbackPerConceptRoot$oJ = MetaAdapterFactory.getConcept(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, "jetbrains.mps.lang.feedback.skeleton.structure.FeedbackPerConceptRoot");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink concept$KXj8 = MetaAdapterFactory.getReferenceLink(0x517077fde44f4338L, 0xa4751d29781dfdb8L, 0x6530303593ae1607L, 0x63c2f3669ce56d5dL, "concept");
   }
 }

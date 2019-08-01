@@ -37,13 +37,14 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class EnumSwitchCase_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_g3royh_a(), AUX_g3royh.EnumSwitchCase_7e988dfb));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_g3royh_a(), CONCEPTS.EnumSwitchCase$37));
     return result;
   }
 
@@ -83,15 +84,15 @@ public class EnumSwitchCase_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_g3royh.EnumSwitchCase_7e988dfb;
+          return CONCEPTS.EnumSwitchCase$37;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
           SNode switchCase = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCase"));
-          ListSequence.fromList(SLinkOperations.getChildren(switchCase, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1d75e4L, "members"))).addElement(nodeToWrap);
-          SNodeFactoryOperations.setNewChild(switchCase, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1fdc5aL, "body"), null);
+          ListSequence.fromList(SLinkOperations.getChildren(switchCase, LINKS.members$4kGw)).addElement(nodeToWrap);
+          SNodeFactoryOperations.setNewChild(switchCase, LINKS.body$UK79, null);
           return switchCase;
         }
 
@@ -106,7 +107,7 @@ public class EnumSwitchCase_SubstituteMenu extends SubstituteMenuBase {
         }
         @Override
         public void select(@NotNull SNode createdNode, @NotNull String pattern) {
-          SelectionUtil.selectNode(_context.getEditorContext(), SLinkOperations.getTarget(createdNode, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1fdc5aL, "body")));
+          SelectionUtil.selectNode(_context.getEditorContext(), SLinkOperations.getTarget(createdNode, LINKS.body$UK79));
         }
       };
     }
@@ -118,12 +119,17 @@ public class EnumSwitchCase_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_g3royh.EnumMemberReference_da2db09d;
+      return CONCEPTS.EnumMemberReference$9_;
     }
   }
 
-  private static final class AUX_g3royh {
-    /*package*/ static final SConcept EnumSwitchCase_7e988dfb = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCase");
-    /*package*/ static final SConcept EnumMemberReference_da2db09d = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0112b91L, "jetbrains.mps.lang.smodel.structure.EnumMemberReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumSwitchCase$37 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, "jetbrains.mps.lang.smodel.structure.EnumSwitchCase");
+    /*package*/ static final SConcept EnumMemberReference$9_ = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x414edd67c0112b91L, "jetbrains.mps.lang.smodel.structure.EnumMemberReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink members$4kGw = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1d75e4L, "members");
+    /*package*/ static final SContainmentLink body$UK79 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x220ad6aedf1d75e3L, 0x220ad6aedf1fdc5aL, "body");
   }
 }

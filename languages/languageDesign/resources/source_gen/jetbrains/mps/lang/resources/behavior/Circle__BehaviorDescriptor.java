@@ -4,6 +4,7 @@ package jetbrains.mps.lang.resources.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,16 +18,16 @@ import jetbrains.mps.util.IconCreationUtil;
 import org.jetbrains.mps.openapi.util.Consumer;
 import jetbrains.mps.lang.resources.enumMigration.Size_MigrationUtils;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.awt.Color;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class Circle__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nth99k.Circle_d7606671;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e60L, "jetbrains.mps.lang.resources.structure.Circle");
 
   public static final SMethod<byte[]> getImageForGeneration_id2p1v3tObywX = new SMethodBuilder<byte[]>(new SJavaCompoundTypeImpl(byte[].class)).name("getImageForGeneration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2p1v3tObywX").build();
 
@@ -38,17 +39,17 @@ public final class Circle__BehaviorDescriptor extends BaseBHDescriptor {
   /*package*/ static byte[] getImageForGeneration_id2p1v3tObywX(@NotNull final SNode __thisNode__) {
     return IconCreationUtil.drawIcon(new Consumer<IconCreationUtil.DrawContext>() {
       public void consume(IconCreationUtil.DrawContext dc) {
-        int x = (int) (((float) dc.width) / 2 - Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e60L, 0x26417c37742e28c1L, "r"))));
-        int y = (int) (((float) dc.height) / 2 - Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e60L, 0x26417c37742e28c1L, "r"))));
-        int d = Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e60L, 0x26417c37742e28c1L, "r"))) * 2;
+        int x = (int) (((float) dc.width) / 2 - Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$z1on)));
+        int y = (int) (((float) dc.height) / 2 - Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$z1on)));
+        int d = Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$z1on)) * 2;
 
-        Color fillColor = new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c11L, "fillColor"))));
-        if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c13L, "borderColor")) == null)) {
+        Color fillColor = new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.fillColor$izv2)));
+        if ((SLinkOperations.getTarget(__thisNode__, LINKS.borderColor$izEb) == null)) {
           dc.g.setColor(fillColor);
           dc.g.fillOval(x, y, d, d);
         } else {
           // outer 
-          dc.g.setColor(new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c13L, "borderColor")))));
+          dc.g.setColor(new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.borderColor$izEb))));
           dc.g.fillOval(x, y, d, d);
 
           // inner 
@@ -106,7 +107,12 @@ public final class Circle__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_nth99k {
-    /*package*/ static final SConcept Circle_d7606671 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e60L, "jetbrains.mps.lang.resources.structure.Circle");
+  private static final class PROPS {
+    /*package*/ static final SProperty r$z1on = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e60L, 0x26417c37742e28c1L, "r");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink fillColor$izv2 = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c11L, "fillColor");
+    /*package*/ static final SContainmentLink borderColor$izEb = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c13L, "borderColor");
   }
 }

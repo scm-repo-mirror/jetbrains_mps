@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,16 @@ import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__Behavio
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CellMenuComponentFeature_Link_Constraints extends BaseConstraintsDescriptor {
   public CellMenuComponentFeature_Link_Constraints() {
-    super(AUX_1eovyz.CellMenuComponentFeature_Link_a1dd3f59);
+    super(CONCEPTS.CellMenuComponentFeature_Link$GD);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d762adcL, 0x10f7e408e08L, "relationDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.relationDeclaration$y4$D, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,7 +47,7 @@ public class CellMenuComponentFeature_Link_Constraints extends BaseConstraintsDe
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             // links declared in edited concept' hierarchy and not overridden 
-            SNode editorComponent = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_1eovyz.CellMenuComponent_409bb26e, true, false);
+            SNode editorComponent = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.CellMenuComponent$EO, true, false);
             SNode editedConcept = AbstractComponent__BehaviorDescriptor.getConceptDeclaration_id67EYkym$wx3.invoke(editorComponent);
             return ListScope.forResolvableElements(AbstractConceptDeclaration__BehaviorDescriptor.getLinkDeclarations_idhEwILKK.invoke(editedConcept));
           }
@@ -60,8 +60,12 @@ public class CellMenuComponentFeature_Link_Constraints extends BaseConstraintsDe
   }
   private static final SNodePointer breakingNode_1eovyz_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "6836281137582784789");
 
-  private static final class AUX_1eovyz {
-    /*package*/ static final SConcept CellMenuComponentFeature_Link_a1dd3f59 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d86ed9bL, "jetbrains.mps.lang.editor.structure.CellMenuComponentFeature_Link");
-    /*package*/ static final SConcept CellMenuComponent_409bb26e = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, "jetbrains.mps.lang.editor.structure.CellMenuComponent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellMenuComponentFeature_Link$GD = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d86ed9bL, "jetbrains.mps.lang.editor.structure.CellMenuComponentFeature_Link");
+    /*package*/ static final SConcept CellMenuComponent$EO = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, "jetbrains.mps.lang.editor.structure.CellMenuComponent");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink relationDeclaration$y4$D = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d762adcL, 0x10f7e408e08L, "relationDeclaration");
   }
 }

@@ -8,7 +8,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MakeConceptAbstract_QuickFix extends QuickFix_Runtime {
   public MakeConceptAbstract_QuickFix() {
@@ -18,7 +20,15 @@ public class MakeConceptAbstract_QuickFix extends QuickFix_Runtime {
     return "Make concept '" + SNodeOperations.getConcept(node).getName() + "' abstract";
   }
   public void execute(SNode node) {
-    assert !(SPropertyOperations.getBoolean(SLinkOperations.getTarget(((SNode) MakeConceptAbstract_QuickFix.this.getField("conceptBehavior")[0]), MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract")));
-    SPropertyOperations.set(SLinkOperations.getTarget(((SNode) MakeConceptAbstract_QuickFix.this.getField("conceptBehavior")[0]), MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"), true);
+    assert !(SPropertyOperations.getBoolean(SLinkOperations.getTarget(((SNode) MakeConceptAbstract_QuickFix.this.getField("conceptBehavior")[0]), LINKS.concept$v6ns), PROPS.abstract$moSU));
+    SPropertyOperations.set(SLinkOperations.getTarget(((SNode) MakeConceptAbstract_QuickFix.this.getField("conceptBehavior")[0]), LINKS.concept$v6ns), PROPS.abstract$moSU, true);
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink concept$v6ns = MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, 0x11d43447b1fL, "concept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstract$moSU = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract");
   }
 }

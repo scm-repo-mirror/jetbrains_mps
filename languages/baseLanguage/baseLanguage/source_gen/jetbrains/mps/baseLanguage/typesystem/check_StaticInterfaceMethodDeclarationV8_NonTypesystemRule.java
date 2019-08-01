@@ -43,7 +43,7 @@ public class check_StaticInterfaceMethodDeclarationV8_NonTypesystemRule extends 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_9qsk8d.Interface_bca2069;
+    return CONCEPTS.Interface$Kp;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -58,7 +58,7 @@ public class check_StaticInterfaceMethodDeclarationV8_NonTypesystemRule extends 
     return null;
   }
 
-  private static final class AUX_9qsk8d {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
   }
 }

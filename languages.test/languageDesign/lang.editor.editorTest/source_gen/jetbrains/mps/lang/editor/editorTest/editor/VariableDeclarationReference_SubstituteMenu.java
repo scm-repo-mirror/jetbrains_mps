@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class VariableDeclarationReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_uxpf5x_a(), AUX_uxpf5x.VariableDeclarationReference_f530b4bc));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_uxpf5x_a(), CONCEPTS.VariableDeclarationReference$8A));
     result.add(new SMP_Subconcepts_uxpf5x_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class VariableDeclarationReference_SubstituteMenu extends SubstituteMenuB
 
     public SMP_ReferenceScope_uxpf5x_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_uxpf5x.VariableDeclarationReference_f530b4bc, MetaAdapterFactory.getReferenceLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x2444dad137fa9b5cL, 0x2444dad137fa9b5dL, "var"));
+      super((SAbstractConcept) CONCEPTS.VariableDeclarationReference$8A, LINKS.var$5yd0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class VariableDeclarationReference_SubstituteMenu extends SubstituteMenuB
   }
   public class SMP_Subconcepts_uxpf5x_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_uxpf5x.VariableDeclarationReference_f530b4bc);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.VariableDeclarationReference$8A);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class VariableDeclarationReference_SubstituteMenu extends SubstituteMenuB
     }
   }
 
-  private static final class AUX_uxpf5x {
-    /*package*/ static final SConcept VariableDeclarationReference_f530b4bc = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x2444dad137fa9b5cL, "jetbrains.mps.lang.editor.editorTest.structure.VariableDeclarationReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclarationReference$8A = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x2444dad137fa9b5cL, "jetbrains.mps.lang.editor.editorTest.structure.VariableDeclarationReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink var$5yd0 = MetaAdapterFactory.getReferenceLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x2444dad137fa9b5cL, 0x2444dad137fa9b5dL, "var");
   }
 }

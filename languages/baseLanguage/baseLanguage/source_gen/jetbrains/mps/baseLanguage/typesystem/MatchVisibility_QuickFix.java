@@ -7,8 +7,9 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MatchVisibility_QuickFix extends QuickFix_Runtime {
   public MatchVisibility_QuickFix() {
@@ -18,10 +19,14 @@ public class MatchVisibility_QuickFix extends QuickFix_Runtime {
     return "Set visibility to " + (((((SNode) MatchVisibility_QuickFix.this.getField("visibility")[0]) == null) ? "Package-local" : ((SNode) MatchVisibility_QuickFix.this.getField("visibility")[0])));
   }
   public void execute(SNode node) {
-    SLinkOperations.setTarget(SNodeOperations.cast(node, AUX_tz8n2w.InstanceMethodDeclaration_9dbf9b2b), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), SNodeOperations.copyNode(((SNode) MatchVisibility_QuickFix.this.getField("visibility")[0])));
+    SLinkOperations.setTarget(SNodeOperations.cast(node, CONCEPTS.InstanceMethodDeclaration$An), LINKS.visibility$2GiC, SNodeOperations.copyNode(((SNode) MatchVisibility_QuickFix.this.getField("visibility")[0])));
   }
 
-  private static final class AUX_tz8n2w {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
   }
 }

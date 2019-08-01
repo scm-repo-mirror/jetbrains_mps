@@ -24,7 +24,7 @@ public class DeleteClassifierMember {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
         if (SNodeOperations.getParent(node) != null) {
-          if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_v5m32b.BaseCommentAttribute_f7206635)) {
+          if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.BaseCommentAttribute$Zd)) {
             if (DeletionApproverUtil.approve(editorContext, SNodeOperations.getParent(node))) {
               return;
             }
@@ -33,7 +33,7 @@ public class DeleteClassifierMember {
             if (DeletionApproverUtil.approve(editorContext, node)) {
               return;
             }
-            if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_v5m32b.Classifier_4b7e553)) {
+            if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Classifier$hJ)) {
               SNodeOperations.replaceWithAnother(node, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1458378889e6d166L, "jetbrains.mps.baseLanguage.structure.PlaceholderMember")));
             } else {
               SNodeOperations.deleteNode(node);
@@ -80,8 +80,8 @@ public class DeleteClassifierMember {
     }
   }
 
-  private static final class AUX_v5m32b {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept BaseCommentAttribute_f7206635 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept BaseCommentAttribute$Zd = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
   }
 }

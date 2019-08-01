@@ -5,7 +5,6 @@ package jetbrains.mps.core.xml.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlCharRef_Constraints extends BaseConstraintsDescriptor {
   public XmlCharRef_Constraints() {
-    super(AUX_t0crj2.XmlCharRef_d2fb0a18);
+    super(CONCEPTS.XmlCharRef$xa);
   }
 
   public static class CharCode_Property extends BasePropertyConstraintsDescriptor {
     public CharCode_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x2abf08504ffe9886L, 0x2abf08504ffe9887L, "charCode"), container);
+      super(PROPS.charCode$ocV0, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class XmlCharRef_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x2abf08504ffe9886L, 0x2abf08504ffe9887L, "charCode"), new CharCode_Property(this));
+    properties.put(PROPS.charCode$ocV0, new CharCode_Property(this));
     return properties;
   }
 
-  private static final class AUX_t0crj2 {
-    /*package*/ static final SConcept XmlCharRef_d2fb0a18 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x2abf08504ffe9886L, "jetbrains.mps.core.xml.structure.XmlCharRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlCharRef$xa = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x2abf08504ffe9886L, "jetbrains.mps.core.xml.structure.XmlCharRef");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty charCode$ocV0 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x2abf08504ffe9886L, 0x2abf08504ffe9887L, "charCode");
   }
 }

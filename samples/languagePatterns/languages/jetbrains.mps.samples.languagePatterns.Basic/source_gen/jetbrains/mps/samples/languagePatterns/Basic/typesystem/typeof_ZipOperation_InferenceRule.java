@@ -25,7 +25,7 @@ public class typeof_ZipOperation_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ohj01h.ZipOperation_b177f554;
+    return CONCEPTS.ZipOperation$ie;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ZipOperation_InferenceRule extends AbstractInferenceRule_Run
     return quotedNode_1;
   }
 
-  private static final class AUX_ohj01h {
-    /*package*/ static final SConcept ZipOperation_b177f554 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x48a6ab8c26b8b81dL, "jetbrains.mps.samples.languagePatterns.Basic.structure.ZipOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ZipOperation$ie = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x48a6ab8c26b8b81dL, "jetbrains.mps.samples.languagePatterns.Basic.structure.ZipOperation");
   }
 }

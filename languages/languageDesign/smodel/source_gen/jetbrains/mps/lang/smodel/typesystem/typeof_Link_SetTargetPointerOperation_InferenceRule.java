@@ -9,10 +9,11 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_Link_SetTargetPointerOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -26,7 +27,7 @@ public class typeof_Link_SetTargetPointerOperation_InferenceRule extends Abstrac
     }
 
     // checking 
-    SNode parameter = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0xd13da596bcfef4eL, 0xd13da596bcfef4fL, "linkTarget"));
+    SNode parameter = SLinkOperations.getTarget(op, LINKS.linkTarget$ezbw);
     if ((parameter != null)) {
       final SNode ExpectedType_typevar_942336824646366871 = typeCheckingContext.createNewRuntimeTypesVariable();
       RulesUtil.equate_inputNodePtrType(typeCheckingContext, op, typeCheckingContext.getRepresentative(ExpectedType_typevar_942336824646366871));
@@ -39,7 +40,7 @@ public class typeof_Link_SetTargetPointerOperation_InferenceRule extends Abstrac
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tji19q.Link_SetTargetPointerOperation_aec1d539;
+    return CONCEPTS.Link_SetTargetPointerOperation$59;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,7 +55,11 @@ public class typeof_Link_SetTargetPointerOperation_InferenceRule extends Abstrac
     return quotedNode_1;
   }
 
-  private static final class AUX_tji19q {
-    /*package*/ static final SConcept Link_SetTargetPointerOperation_aec1d539 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0xd13da596bcfef4eL, "jetbrains.mps.lang.smodel.structure.Link_SetTargetPointerOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink linkTarget$ezbw = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0xd13da596bcfef4eL, 0xd13da596bcfef4fL, "linkTarget");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Link_SetTargetPointerOperation$59 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0xd13da596bcfef4eL, "jetbrains.mps.lang.smodel.structure.Link_SetTargetPointerOperation");
   }
 }

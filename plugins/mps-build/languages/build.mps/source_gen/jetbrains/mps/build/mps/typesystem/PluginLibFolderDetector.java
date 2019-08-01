@@ -10,12 +10,14 @@ import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 import jetbrains.mps.build.behavior.BuildSource_SingleFolder__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /**
  * Primitive logic though I do not aim to predict all the cases when user is about to make a mistake in packaging.
@@ -39,9 +41,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
     while (QueueSequence.fromQueue(libLikeContainers).isNotEmpty()) {
       SNode top = QueueSequence.fromQueue(libLikeContainers).removeFirstElement();
       ListSequence.fromList(result).addElement(top);
-      for (SNode child : ListSequence.fromList(SLinkOperations.getChildren(top, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children")))) {
-        if (SNodeOperations.isInstanceOf(child, AUX_t678gj.BuildLayout_ImportContent_ab833f7d)) {
-          QueueSequence.fromQueue(libLikeContainers).addLastElement(SLinkOperations.getTarget(SNodeOperations.cast(child, AUX_t678gj.BuildLayout_ImportContent_ab833f7d), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86af9fdb53L, 0x4ddcec86af9fdb55L, "target")));
+      for (SNode child : ListSequence.fromList(SLinkOperations.getChildren(top, LINKS.children$aiMf))) {
+        if (SNodeOperations.isInstanceOf(child, CONCEPTS.BuildLayout_ImportContent$Y5)) {
+          QueueSequence.fromQueue(libLikeContainers).addLastElement(SLinkOperations.getTarget(SNodeOperations.cast(child, CONCEPTS.BuildLayout_ImportContent$Y5), LINKS.target$pRHZ));
         }
       }
     }
@@ -51,9 +53,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   private static List<SNode> getLibLikeContainers(SNode container) {
     List<SNode> libLikeContainers = ListSequence.fromList(new ArrayList<SNode>());
-    for (SNode child : ListSequence.fromList(SLinkOperations.getChildren(container, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children")))) {
-      if (SNodeOperations.isInstanceOf(child, AUX_t678gj.BuildLayout_ImportContent_ab833f7d)) {
-        ListSequence.fromList(libLikeContainers).addSequence(ListSequence.fromList(getLibLikeContainers(SLinkOperations.getTarget(SNodeOperations.cast(child, AUX_t678gj.BuildLayout_ImportContent_ab833f7d), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86af9fdb53L, 0x4ddcec86af9fdb55L, "target")))));
+    for (SNode child : ListSequence.fromList(SLinkOperations.getChildren(container, LINKS.children$aiMf))) {
+      if (SNodeOperations.isInstanceOf(child, CONCEPTS.BuildLayout_ImportContent$Y5)) {
+        ListSequence.fromList(libLikeContainers).addSequence(ListSequence.fromList(getLibLikeContainers(SLinkOperations.getTarget(SNodeOperations.cast(child, CONCEPTS.BuildLayout_ImportContent$Y5), LINKS.target$pRHZ))));
       } else {
         SNode libContainerIfItIsOne = getLibContainerIfItIsOne(child);
         if ((libContainerIfItIsOne != null)) {
@@ -66,17 +68,23 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   @Nullable
   private static SNode getLibContainerIfItIsOne(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_t678gj.BuildLayout_NamedContainer_b7d4ec15) && Objects.equals(BuildSource_SingleFolder__BehaviorDescriptor.getApproximateName_id4RsV8qJH_Br.invoke(SNodeOperations.cast(node, AUX_t678gj.BuildLayout_NamedContainer_b7d4ec15)), LIB_FOLDER_NAME)) {
-      return SNodeOperations.cast(node, AUX_t678gj.BuildLayout_NamedContainer_b7d4ec15);
-    } else if (SNodeOperations.isInstanceOf(node, AUX_t678gj.BuildLayout_Import_d219edf1)) {
-      return getLibContainerIfItIsOne(SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_t678gj.BuildLayout_Import_d219edf1), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, 0xbabdfbeee1350f4L, "target")));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildLayout_NamedContainer$nH) && Objects.equals(BuildSource_SingleFolder__BehaviorDescriptor.getApproximateName_id4RsV8qJH_Br.invoke(SNodeOperations.cast(node, CONCEPTS.BuildLayout_NamedContainer$nH)), LIB_FOLDER_NAME)) {
+      return SNodeOperations.cast(node, CONCEPTS.BuildLayout_NamedContainer$nH);
+    } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildLayout_Import$Yh)) {
+      return getLibContainerIfItIsOne(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.BuildLayout_Import$Yh), LINKS.target$fkBZ));
     }
     return null;
   }
 
-  private static final class AUX_t678gj {
-    /*package*/ static final SConcept BuildLayout_ImportContent_ab833f7d = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86af9fdb53L, "jetbrains.mps.build.structure.BuildLayout_ImportContent");
-    /*package*/ static final SConcept BuildLayout_NamedContainer_b7d4ec15 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, "jetbrains.mps.build.structure.BuildLayout_NamedContainer");
-    /*package*/ static final SConcept BuildLayout_Import_d219edf1 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, "jetbrains.mps.build.structure.BuildLayout_Import");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_ImportContent$Y5 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86af9fdb53L, "jetbrains.mps.build.structure.BuildLayout_ImportContent");
+    /*package*/ static final SConcept BuildLayout_NamedContainer$nH = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, "jetbrains.mps.build.structure.BuildLayout_NamedContainer");
+    /*package*/ static final SConcept BuildLayout_Import$Yh = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, "jetbrains.mps.build.structure.BuildLayout_Import");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$pRHZ = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86af9fdb53L, 0x4ddcec86af9fdb55L, "target");
+    /*package*/ static final SContainmentLink children$aiMf = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, 0x668c6cfbafac4c8eL, "children");
+    /*package*/ static final SReferenceLink target$fkBZ = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee1350f2L, 0xbabdfbeee1350f4L, "target");
   }
 }

@@ -29,7 +29,6 @@ import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
@@ -37,6 +36,8 @@ import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TestSubstituteParent_WrapDefaultSubstituteMenuWithFunction extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
@@ -89,7 +90,7 @@ public class TestSubstituteParent_WrapDefaultSubstituteMenuWithFunction extends 
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
       boolean b = _context.getEditorContext() != null && _context.getNode() != null & _context.getModel() != null;
-      return AUX_3k8mv6.TestSubstituteToWrapFromTransformMenu_e76aead1;
+      return CONCEPTS.TestSubstituteToWrapFromTransformMenu$UL;
     }
 
     @Override
@@ -106,7 +107,7 @@ public class TestSubstituteParent_WrapDefaultSubstituteMenuWithFunction extends 
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
           boolean b = _context.getEditorContext() != null && _context.getNode() != null & _context.getModel() != null && createdNode != null && targetNode != null;
-          ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(targetNode, AUX_3k8mv6.TestSubstituteParent_ae263a0e), MetaAdapterFactory.getContainmentLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6fb0bdL, 0x692a1b3ce80ba8f3L, "wrapDefaultSubstituteMenuWithFunctionFromTransform"))).addElement(SNodeOperations.cast(createdNode, AUX_3k8mv6.TestSubstituteToWrapFromTransformMenu_e76aead1));
+          ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(targetNode, CONCEPTS.TestSubstituteParent$sk), LINKS.wrapDefaultSubstituteMenuWithFunctionFromTransform$ha0X)).addElement(SNodeOperations.cast(createdNode, CONCEPTS.TestSubstituteToWrapFromTransformMenu$UL));
         }
 
         @Override
@@ -126,8 +127,12 @@ public class TestSubstituteParent_WrapDefaultSubstituteMenuWithFunction extends 
     }
   }
 
-  private static final class AUX_3k8mv6 {
-    /*package*/ static final SConcept TestSubstituteToWrapFromTransformMenu_e76aead1 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7315fee8e56db2aeL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteToWrapFromTransformMenu");
-    /*package*/ static final SConcept TestSubstituteParent_ae263a0e = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6fb0bdL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteParent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteToWrapFromTransformMenu$UL = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7315fee8e56db2aeL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteToWrapFromTransformMenu");
+    /*package*/ static final SConcept TestSubstituteParent$sk = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6fb0bdL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteParent");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink wrapDefaultSubstituteMenuWithFunctionFromTransform$ha0X = MetaAdapterFactory.getContainmentLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x7ce1116e3a6fb0bdL, 0x692a1b3ce80ba8f3L, "wrapDefaultSubstituteMenuWithFunctionFromTransform");
   }
 }

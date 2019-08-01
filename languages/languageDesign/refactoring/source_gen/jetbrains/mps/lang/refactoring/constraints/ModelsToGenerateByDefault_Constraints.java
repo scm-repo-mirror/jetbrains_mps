@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ModelsToGenerateByDefault_Constraints extends BaseConstraintsDescriptor {
   public ModelsToGenerateByDefault_Constraints() {
-    super(AUX_pj687n.ModelsToGenerateByDefault_95985873);
+    super(CONCEPTS.ModelsToGenerateByDefault$lf);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class ModelsToGenerateByDefault_Constraints extends BaseConstraintsDescri
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_pj687n.ModelsToGenerateClause_e2d6af3a, true, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.ModelsToGenerateClause$tC, true, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590313(jetbrains.mps.lang.refactoring.constraints)", "1227128029536563278");
 
-  private static final class AUX_pj687n {
-    /*package*/ static final SConcept ModelsToGenerateByDefault_95985873 = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x3c55f2dab56d441dL, "jetbrains.mps.lang.refactoring.structure.ModelsToGenerateByDefault");
-    /*package*/ static final SConcept ModelsToGenerateClause_e2d6af3a = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x175aa0f4225aa61fL, "jetbrains.mps.lang.refactoring.structure.ModelsToGenerateClause");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModelsToGenerateByDefault$lf = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x3c55f2dab56d441dL, "jetbrains.mps.lang.refactoring.structure.ModelsToGenerateByDefault");
+    /*package*/ static final SConcept ModelsToGenerateClause$tC = MetaAdapterFactory.getConcept(0x3ecd7c84cde345deL, 0x886c135ecc69b742L, 0x175aa0f4225aa61fL, "jetbrains.mps.lang.refactoring.structure.ModelsToGenerateClause");
   }
 }

@@ -12,7 +12,6 @@ import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -23,8 +22,10 @@ import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /*package*/ class XmlProlog_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -74,18 +75,18 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c5494871L, 0x6988ccb84e3bd0e6L, "elements");
+      return LINKS.elements$6UDg;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_iovffj.XmlPrologElement_1e69ae59;
+      return CONCEPTS.XmlPrologElement$KD;
     }
     public SNode createNodeToInsert(EditorContext editorContext) {
       return nodeFactory();
     }
 
     public SNode nodeFactory() {
-      SNode n = SNodeFactoryOperations.createNewNode(AUX_iovffj.XmlWhitespace_20008e56, null);
-      SPropertyOperations.assign(n, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, 0x4890619bb3ff9b53L, "value"), "");
+      SNode n = SNodeFactoryOperations.createNewNode(CONCEPTS.XmlWhitespace$Jc, null);
+      SPropertyOperations.assign(n, PROPS.value$xCh4, "");
       return n;
     }
     public EditorCell createNodeCell(SNode elementNode) {
@@ -95,7 +96,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(elementsListHandler_ul5idr_a0.this.getNode(), MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c5494871L, 0x6988ccb84e3bd0e6L, "elements")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(elementsListHandler_ul5idr_a0.this.getNode(), LINKS.elements$6UDg));
       try {
         EditorCell emptyCell = null;
         emptyCell = createConstant_0();
@@ -126,8 +127,16 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_iovffj {
-    /*package*/ static final SInterfaceConcept XmlPrologElement_1e69ae59 = MetaAdapterFactory.getInterfaceConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3bd0e5L, "jetbrains.mps.core.xml.structure.XmlPrologElement");
-    /*package*/ static final SConcept XmlWhitespace_20008e56 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, "jetbrains.mps.core.xml.structure.XmlWhitespace");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elements$6UDg = MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c5494871L, 0x6988ccb84e3bd0e6L, "elements");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept XmlPrologElement$KD = MetaAdapterFactory.getInterfaceConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3bd0e5L, "jetbrains.mps.core.xml.structure.XmlPrologElement");
+    /*package*/ static final SConcept XmlWhitespace$Jc = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, "jetbrains.mps.core.xml.structure.XmlWhitespace");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$xCh4 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x6988ccb84e3cfaa8L, 0x4890619bb3ff9b53L, "value");
   }
 }

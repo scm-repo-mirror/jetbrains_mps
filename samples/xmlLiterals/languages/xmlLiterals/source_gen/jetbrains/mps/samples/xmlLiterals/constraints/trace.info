@@ -17,25 +17,25 @@
   </root>
   <root nodeRef="r:522aace3-e88f-4df7-82be-4ab3d6ccd8bc(jetbrains.mps.samples.xmlLiterals.constraints)/9152904044274469613">
     <file name="TextMacro_Constraints.java">
-      <node id="9152904044274469613" at="20,34,21,41" concept="9" />
+      <node id="9152904044274469613" at="20,34,21,33" concept="9" />
       <node id="9152904044274469613" at="28,127,29,128" concept="4" />
       <node id="9152904044274469613" at="29,128,30,0" concept="6" />
       <node id="9152904044274469613" at="31,55,32,71" concept="1" />
       <node id="9152904044274469613" at="33,9,34,0" concept="6" />
       <node id="9152904044274469613" at="34,0,35,22" concept="5" />
-      <node id="1227128029536583056" at="39,128,40,110" concept="5" />
+      <node id="1227128029536583056" at="39,128,40,102" concept="5" />
       <node id="9152904044274469613" at="42,0,43,0" concept="7" trace="canBeChildBreakingPoint" />
-      <node id="9152904044274469613" at="45,0,46,0" concept="7" trace="TextMacro_aa9279e8" />
-      <node id="9152904044274469613" at="46,0,47,0" concept="7" trace="XmlLiteral_a8a4c085" />
+      <node id="9152904044274469613" at="45,0,46,0" concept="7" trace="TextMacro$9U" />
+      <node id="9152904044274469613" at="46,0,47,0" concept="7" trace="XmlLiteral$XX" />
       <node id="9152904044274469613" at="20,0,23,0" concept="0" trace="TextMacro_Constraints#()V" />
       <node id="9152904044274469613" at="30,0,33,9" concept="2" />
       <node id="9152904044274469613" at="39,0,42,0" concept="8" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
       <node id="9152904044274469613" at="27,0,37,0" concept="3" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
       <node id="9152904044274469613" at="25,103,37,6" concept="5" />
       <node id="9152904044274469613" at="24,0,39,0" concept="3" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
-      <scope id="9152904044274469613" at="20,34,21,41" />
+      <scope id="9152904044274469613" at="20,34,21,33" />
       <scope id="9152904044274469613" at="31,55,32,71" />
-      <scope id="1227128029536583055" at="39,128,40,110" />
+      <scope id="1227128029536583055" at="39,128,40,102" />
       <scope id="9152904044274469613" at="20,0,23,0" />
       <scope id="9152904044274469613" at="39,0,42,0">
         <var name="childConcept" id="9152904044274469613" />
@@ -52,32 +52,32 @@
       </scope>
       <scope id="9152904044274469613" at="25,103,37,6" />
       <scope id="9152904044274469613" at="24,0,39,0" />
-      <unit id="9152904044274469613" at="44,0,48,0" name="jetbrains.mps.samples.xmlLiterals.constraints.TextMacro_Constraints$AUX_c9cld7" />
+      <unit id="9152904044274469613" at="44,0,48,0" name="jetbrains.mps.samples.xmlLiterals.constraints.TextMacro_Constraints$CONCEPTS" />
       <unit id="9152904044274469613" at="26,15,37,5" name="jetbrains.mps.samples.xmlLiterals.constraints.TextMacro_Constraints$1" />
       <unit id="9152904044274469613" at="19,0,49,0" name="jetbrains.mps.samples.xmlLiterals.constraints.TextMacro_Constraints" />
     </file>
   </root>
   <root nodeRef="r:522aace3-e88f-4df7-82be-4ab3d6ccd8bc(jetbrains.mps.samples.xmlLiterals.constraints)/9152904044274518160">
     <file name="ElementMacro_Constraints.java">
-      <node id="9152904044274518160" at="20,37,21,44" concept="9" />
+      <node id="9152904044274518160" at="20,37,21,36" concept="9" />
       <node id="9152904044274518160" at="28,127,29,128" concept="4" />
       <node id="9152904044274518160" at="29,128,30,0" concept="6" />
       <node id="9152904044274518160" at="31,55,32,71" concept="1" />
       <node id="9152904044274518160" at="33,9,34,0" concept="6" />
       <node id="9152904044274518160" at="34,0,35,22" concept="5" />
-      <node id="1227128029536583067" at="39,128,40,110" concept="5" />
+      <node id="1227128029536583067" at="39,128,40,102" concept="5" />
       <node id="9152904044274518160" at="42,0,43,0" concept="7" trace="canBeChildBreakingPoint" />
-      <node id="9152904044274518160" at="45,0,46,0" concept="7" trace="ElementMacro_ac00561d" />
-      <node id="9152904044274518160" at="46,0,47,0" concept="7" trace="XmlLiteral_a8a4c085" />
+      <node id="9152904044274518160" at="45,0,46,0" concept="7" trace="ElementMacro$N_" />
+      <node id="9152904044274518160" at="46,0,47,0" concept="7" trace="XmlLiteral$XX" />
       <node id="9152904044274518160" at="20,0,23,0" concept="0" trace="ElementMacro_Constraints#()V" />
       <node id="9152904044274518160" at="30,0,33,9" concept="2" />
       <node id="9152904044274518160" at="39,0,42,0" concept="8" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
       <node id="9152904044274518160" at="27,0,37,0" concept="3" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
       <node id="9152904044274518160" at="25,103,37,6" concept="5" />
       <node id="9152904044274518160" at="24,0,39,0" concept="3" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
-      <scope id="9152904044274518160" at="20,37,21,44" />
+      <scope id="9152904044274518160" at="20,37,21,36" />
       <scope id="9152904044274518160" at="31,55,32,71" />
-      <scope id="1227128029536583066" at="39,128,40,110" />
+      <scope id="1227128029536583066" at="39,128,40,102" />
       <scope id="9152904044274518160" at="20,0,23,0" />
       <scope id="9152904044274518160" at="39,0,42,0">
         <var name="childConcept" id="9152904044274518160" />
@@ -94,7 +94,7 @@
       </scope>
       <scope id="9152904044274518160" at="25,103,37,6" />
       <scope id="9152904044274518160" at="24,0,39,0" />
-      <unit id="9152904044274518160" at="44,0,48,0" name="jetbrains.mps.samples.xmlLiterals.constraints.ElementMacro_Constraints$AUX_tski8j" />
+      <unit id="9152904044274518160" at="44,0,48,0" name="jetbrains.mps.samples.xmlLiterals.constraints.ElementMacro_Constraints$CONCEPTS" />
       <unit id="9152904044274518160" at="26,15,37,5" name="jetbrains.mps.samples.xmlLiterals.constraints.ElementMacro_Constraints$1" />
       <unit id="9152904044274518160" at="19,0,49,0" name="jetbrains.mps.samples.xmlLiterals.constraints.ElementMacro_Constraints" />
     </file>

@@ -10,7 +10,6 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.jetpad.BlockCell;
 import jetbrains.mps.nodeEditor.cells.jetpad.PropertyMapperCell;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
@@ -31,6 +30,8 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.NodeDecoratorView;
 import jetbrains.jetpad.model.property.Properties;
 import jetbrains.jetpad.geometry.Vector;
 import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.ResizableContentView;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class NodeWithSize_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -68,40 +69,40 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.ResizableContentVi
       super(editorContext, node);
       myPropertyCell_3q5o1_a0a = new PropertyMapperCell<Integer>(editorContext, node) {
         protected Integer getModelPropertyValueImpl() {
-          return SPropertyOperations.getInteger(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, 0x7a0afda102e2029cL, "x"));
+          return SPropertyOperations.getInteger(node, PROPS.x$VCz6);
         }
         protected void setModelPropertyValueImpl(Integer value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, 0x7a0afda102e2029cL, "x"), value);
+          SPropertyOperations.assign(node, PROPS.x$VCz6, value);
         }
       };
       addEditorCell(myPropertyCell_3q5o1_a0a);
       myPropertyCell_3q5o1_a0a.getEditorComponent().getUpdater().getCurrentUpdateSession().registerCleanDependency(myPropertyCell_3q5o1_a0a, new Pair<SNodeReference, String>(new SNodePointer(node), "x"));
       myPropertyCell_3q5o1_a1a = new PropertyMapperCell<Integer>(editorContext, node) {
         protected Integer getModelPropertyValueImpl() {
-          return SPropertyOperations.getInteger(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, 0x7a0afda102e2029eL, "y"));
+          return SPropertyOperations.getInteger(node, PROPS.y$VC$4);
         }
         protected void setModelPropertyValueImpl(Integer value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, 0x7a0afda102e2029eL, "y"), value);
+          SPropertyOperations.assign(node, PROPS.y$VC$4, value);
         }
       };
       addEditorCell(myPropertyCell_3q5o1_a1a);
       myPropertyCell_3q5o1_a1a.getEditorComponent().getUpdater().getCurrentUpdateSession().registerCleanDependency(myPropertyCell_3q5o1_a1a, new Pair<SNodeReference, String>(new SNodePointer(node), "y"));
       myPropertyCell_3q5o1_a2a = new PropertyMapperCell<Integer>(editorContext, node) {
         protected Integer getModelPropertyValueImpl() {
-          return SPropertyOperations.getInteger(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, 0x7a0afda10316dc02L, "width"));
+          return SPropertyOperations.getInteger(node, PROPS.width$wqjJ);
         }
         protected void setModelPropertyValueImpl(Integer value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, 0x7a0afda10316dc02L, "width"), value);
+          SPropertyOperations.assign(node, PROPS.width$wqjJ, value);
         }
       };
       addEditorCell(myPropertyCell_3q5o1_a2a);
       myPropertyCell_3q5o1_a2a.getEditorComponent().getUpdater().getCurrentUpdateSession().registerCleanDependency(myPropertyCell_3q5o1_a2a, new Pair<SNodeReference, String>(new SNodePointer(node), "width"));
       myPropertyCell_3q5o1_a3a = new PropertyMapperCell<Integer>(editorContext, node) {
         protected Integer getModelPropertyValueImpl() {
-          return SPropertyOperations.getInteger(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, 0x7a0afda10316dc04L, "height"));
+          return SPropertyOperations.getInteger(node, PROPS.height$wvqd);
         }
         protected void setModelPropertyValueImpl(Integer value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, 0x7a0afda10316dc04L, "height"), value);
+          SPropertyOperations.assign(node, PROPS.height$wvqd, value);
         }
       };
       addEditorCell(myPropertyCell_3q5o1_a3a);
@@ -221,5 +222,12 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.ResizableContentVi
         }
       };
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty x$VCz6 = MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, 0x7a0afda102e2029cL, "x");
+    /*package*/ static final SProperty y$VC$4 = MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e1de05L, 0x7a0afda102e2029eL, "y");
+    /*package*/ static final SProperty width$wqjJ = MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, 0x7a0afda10316dc02L, "width");
+    /*package*/ static final SProperty height$wvqd = MetaAdapterFactory.getProperty(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, 0x7a0afda10316dc04L, "height");
   }
 }

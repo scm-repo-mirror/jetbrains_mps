@@ -24,7 +24,7 @@ public class NodeUsages_Finder extends GeneratedFinder {
   }
   @Override
   public boolean isUsedByDefault(SNode node) {
-    return !(SNodeOperations.isInstanceOf(node, AUX_85eba0.AbstractConceptDeclaration_ec74828f));
+    return !(SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractConceptDeclaration$UN));
   }
   @Override
   public String getDescription() {
@@ -36,7 +36,7 @@ public class NodeUsages_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_85eba0.BaseConcept_bc2351f;
+    return CONCEPTS.BaseConcept$Sz;
   }
 
   @Override
@@ -64,8 +64,8 @@ public class NodeUsages_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1197636141662");
   }
 
-  private static final class AUX_85eba0 {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

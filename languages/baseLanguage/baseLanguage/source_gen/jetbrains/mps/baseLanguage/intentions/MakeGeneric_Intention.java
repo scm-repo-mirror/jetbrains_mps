@@ -12,12 +12,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class MakeGeneric_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -38,7 +39,7 @@ public final class MakeGeneric_Intention extends AbstractIntentionDescriptor imp
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
     // todo: maybe not "everything except" but "just something"? 
-    return ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration"))).isEmpty() && !(SNodeOperations.isInstanceOf(node, AUX_c5sakb.ConceptMethodDeclaration_6c80ca4f));
+    return ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeVariableDeclaration$ziZT)).isEmpty() && !(SNodeOperations.isInstanceOf(node, CONCEPTS.ConceptMethodDeclaration$VN));
   }
   @Override
   public boolean isSurroundWith() {
@@ -59,7 +60,7 @@ public final class MakeGeneric_Intention extends AbstractIntentionDescriptor imp
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration"), AUX_c5sakb.TypeVariableDeclaration_de3da816);
+      SNodeFactoryOperations.addNewChild(node, LINKS.typeVariableDeclaration$ziZT, CONCEPTS.TypeVariableDeclaration$Cc);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -67,8 +68,12 @@ public final class MakeGeneric_Intention extends AbstractIntentionDescriptor imp
     }
   }
 
-  private static final class AUX_c5sakb {
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
-    /*package*/ static final SConcept TypeVariableDeclaration_de3da816 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink typeVariableDeclaration$ziZT = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+    /*package*/ static final SConcept TypeVariableDeclaration$Cc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1024639ed74L, "jetbrains.mps.baseLanguage.structure.TypeVariableDeclaration");
   }
 }

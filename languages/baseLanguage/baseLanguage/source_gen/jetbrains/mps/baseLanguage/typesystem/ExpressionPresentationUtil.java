@@ -6,7 +6,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
@@ -14,7 +13,11 @@ import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ExpressionPresentationUtil {
   public static String getExpressionPresentation(@Nullable SNode expression) {
@@ -22,34 +25,34 @@ public class ExpressionPresentationUtil {
       return "????";
     }
 
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.ParenthesizedExpression_a4b89678)) {
-      return "(" + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.ParenthesizedExpression_a4b89678), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"))) + ")";
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.ParenthesizedExpression$vE)) {
+      return "(" + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.ParenthesizedExpression$vE), LINKS.expression$4_F0)) + ")";
     }
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.UnaryMinus_b7e0120a)) {
-      return "-" + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.UnaryMinus_b7e0120a), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a4c1f269L, 0x120a4c433a6L, "expression")));
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.UnaryMinus$Uo)) {
+      return "-" + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.UnaryMinus$Uo), LINKS.expression$7Rjy));
     }
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.NotExpression_8a1c1248)) {
-      return "!(" + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.NotExpression_8a1c1248), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, 0xfbcf6c30a4L, "expression"))) + ")";
-    }
-
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.INamedConcept_8cd7e247)) {
-      return SPropertyOperations.getString(SNodeOperations.cast(expression, AUX_y7khhm.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.NotExpression$oq)) {
+      return "!(" + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.NotExpression$oq), LINKS.expression$bUD_)) + ")";
     }
 
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.DotExpression_97ed08d8)) {
-      return getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"))) + "." + getOperationPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")));
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.INamedConcept$nV)) {
+      return SPropertyOperations.getString(SNodeOperations.cast(expression, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
     }
 
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.BinaryOperation_7c4c55f3)) {
-      return getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.BinaryOperation_7c4c55f3), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"))) + SConceptOperations.conceptAlias(SNodeOperations.getConcept(SNodeOperations.cast(expression, AUX_y7khhm.BinaryOperation_7c4c55f3))) + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.BinaryOperation_7c4c55f3), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")));
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.DotExpression$6a)) {
+      return getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr)) + "." + getOperationPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.DotExpression$6a), LINKS.operation$X4R8));
     }
 
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.StringLiteral_aa5a8cf6)) {
-      return "\"" + SPropertyOperations.getString(SNodeOperations.cast(expression, AUX_y7khhm.StringLiteral_aa5a8cf6), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")) + "\"";
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.BinaryOperation$vf)) {
+      return getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.BinaryOperation$vf), LINKS.leftExpression$rxLZ)) + SConceptOperations.conceptAlias(SNodeOperations.getConcept(SNodeOperations.cast(expression, CONCEPTS.BinaryOperation$vf))) + getExpressionPresentation(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.BinaryOperation$vf), LINKS.rightExpression$rxBl));
     }
 
-    if (SNodeOperations.isInstanceOf(expression, AUX_y7khhm.GenericNewExpression_dee38023)) {
-      return "new " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(SNodeOperations.cast(expression, AUX_y7khhm.GenericNewExpression_dee38023), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator")));
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.StringLiteral$4G)) {
+      return "\"" + SPropertyOperations.getString(SNodeOperations.cast(expression, CONCEPTS.StringLiteral$4G), PROPS.value$kiE0) + "\"";
+    }
+
+    if (SNodeOperations.isInstanceOf(expression, CONCEPTS.GenericNewExpression$ev)) {
+      return "new " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(SNodeOperations.cast(expression, CONCEPTS.GenericNewExpression$ev), LINKS.creator$itDQ));
     }
 
     if ((boolean) Expression__BehaviorDescriptor.constant_id1653mnvAgr2.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(expression)))) {
@@ -65,8 +68,8 @@ public class ExpressionPresentationUtil {
     if (isNotEmptyString(SConceptOperations.conceptAlias(SNodeOperations.getConcept(operation)))) {
       return SConceptOperations.conceptAlias(SNodeOperations.getConcept(operation));
     }
-    if (SNodeOperations.isInstanceOf(operation, AUX_y7khhm.IMethodCall_ee2c776b)) {
-      return SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(operation, AUX_y7khhm.IMethodCall_ee2c776b), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "(" + ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(operation, AUX_y7khhm.IMethodCall_ee2c776b), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).foldLeft("", new ILeftCombinator<SNode, String>() {
+    if (SNodeOperations.isInstanceOf(operation, CONCEPTS.IMethodCall$ln)) {
+      return SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(operation, CONCEPTS.IMethodCall$ln), LINKS.baseMethodDeclaration$$A7i), PROPS.name$tAp1) + "(" + ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(operation, CONCEPTS.IMethodCall$ln), LINKS.actualArgument$$A7L)).foldLeft("", new ILeftCombinator<SNode, String>() {
         public String combine(String s, SNode it) {
           return (((s == null || s.length() == 0) ? "" : s + ",")) + getExpressionPresentation(it);
         }
@@ -79,15 +82,33 @@ public class ExpressionPresentationUtil {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_y7khhm {
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
-    /*package*/ static final SConcept UnaryMinus_b7e0120a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6fea7de6103549b1L, "jetbrains.mps.baseLanguage.structure.UnaryMinus");
-    /*package*/ static final SConcept NotExpression_8a1c1248 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
-    /*package*/ static final SConcept GenericNewExpression_dee38023 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
-    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+    /*package*/ static final SConcept UnaryMinus$Uo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x6fea7de6103549b1L, "jetbrains.mps.baseLanguage.structure.UnaryMinus");
+    /*package*/ static final SConcept NotExpression$oq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+    /*package*/ static final SConcept GenericNewExpression$ev = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
+    /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SContainmentLink expression$7Rjy = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a4c1f269L, 0x120a4c433a6L, "expression");
+    /*package*/ static final SContainmentLink expression$bUD_ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, 0xfbcf6c30a4L, "expression");
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+    /*package*/ static final SContainmentLink creator$itDQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator");
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
   }
 }

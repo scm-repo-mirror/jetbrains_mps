@@ -18,10 +18,11 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DerivedMethods_Finder extends GeneratedFinder {
   public DerivedMethods_Finder() {
@@ -36,11 +37,11 @@ public class DerivedMethods_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_u9ij54.InstanceMethodDeclaration_9dbf9b2b;
+    return CONCEPTS.InstanceMethodDeclaration$An;
   }
   @Override
   public boolean isApplicable(SNode node) {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_u9ij54.Classifier_4b7e553);
+    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Classifier$hJ);
   }
 
   @Override
@@ -62,9 +63,9 @@ public class DerivedMethods_Finder extends GeneratedFinder {
             callback.onUsageFound(createSingleResult(it));
           }
         });
-        if (SNodeOperations.isInstanceOf(derivedClassifier, AUX_u9ij54.EnumClass_acf68fc0)) {
-          for (SNode enumConstant : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(derivedClassifier, AUX_u9ij54.EnumClass_acf68fc0), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant")))) {
-            ListSequence.fromList(SLinkOperations.getChildren(enumConstant, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"))).where(new IWhereFilter<SNode>() {
+        if (SNodeOperations.isInstanceOf(derivedClassifier, CONCEPTS.EnumClass$uy)) {
+          for (SNode enumConstant : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(derivedClassifier, CONCEPTS.EnumClass$uy), LINKS.enumConstant$urAQ))) {
+            ListSequence.fromList(SLinkOperations.getChildren(enumConstant, LINKS.method$3$mN)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return (boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameSignature_idhEwIB0z.invoke(instanceMethod, it);
               }
@@ -76,9 +77,9 @@ public class DerivedMethods_Finder extends GeneratedFinder {
           }
         }
       }
-      if (SNodeOperations.isInstanceOf(classifier, AUX_u9ij54.EnumClass_acf68fc0)) {
-        for (SNode enumConstant : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classifier, AUX_u9ij54.EnumClass_acf68fc0), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant")))) {
-          ListSequence.fromList(SLinkOperations.getChildren(enumConstant, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"))).where(new IWhereFilter<SNode>() {
+      if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.EnumClass$uy)) {
+        for (SNode enumConstant : ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(classifier, CONCEPTS.EnumClass$uy), LINKS.enumConstant$urAQ))) {
+          ListSequence.fromList(SLinkOperations.getChildren(enumConstant, LINKS.method$3$mN)).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
               return (boolean) BaseMethodDeclaration__BehaviorDescriptor.hasSameSignature_idhEwIB0z.invoke(instanceMethod, it);
             }
@@ -101,9 +102,14 @@ public class DerivedMethods_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "4151347580001021181");
   }
 
-  private static final class AUX_u9ij54 {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink method$3$mN = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method");
+    /*package*/ static final SContainmentLink enumConstant$urAQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, 0xfc367503acL, "enumConstant");
   }
 }

@@ -6,6 +6,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class NameHelper {
@@ -24,7 +25,7 @@ public final class NameHelper {
 
   @NotNull
   public String getGeneratedName() {
-    if (SPropertyOperations.getString(myRuleDecl, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) == null) {
+    if (SPropertyOperations.getString(myRuleDecl, PROPS.name$tAp1) == null) {
       myGenContext.showInformationMessage(myRuleDecl, "Name of the rule is null, creating a unique name");
     }
     return "check";
@@ -32,9 +33,14 @@ public final class NameHelper {
 
   @NotNull
   public String getGeneratedId() {
-    if (SPropertyOperations.getString(myRuleDecl, MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId")) == null) {
+    if (SPropertyOperations.getString(myRuleDecl, PROPS.ruleId$nApu) == null) {
       myGenContext.showErrorMessage(myRuleDecl, "Id of the rule cannot be null");
     }
-    return SPropertyOperations.getString(myRuleDecl, MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId"));
+    return SPropertyOperations.getString(myRuleDecl, PROPS.ruleId$nApu);
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty ruleId$nApu = MetaAdapterFactory.getProperty(0x47257bf378d3470bL, 0x89d98c3261a61d15L, 0x46263286dbf54aaL, 0x5d2e6079771f8cc0L, "ruleId");
   }
 }

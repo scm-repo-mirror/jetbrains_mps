@@ -8,26 +8,27 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.behavior.ConceptFunction__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_ConceptFunction_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ConceptFunction_NonTypesystemRule() {
   }
   public void applyRule(final SNode nodeToCheck, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body")) != null) {
+    if (SLinkOperations.getTarget(nodeToCheck, LINKS.body$pTP2) != null) {
       boolean checkReturns = false;
-      if (ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(nodeToCheck) != null && !(SNodeOperations.isInstanceOf(ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(nodeToCheck), AUX_dd19im.VoidType_d96d05c9))) {
+      if (ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(nodeToCheck) != null && !(SNodeOperations.isInstanceOf(ConceptFunction__BehaviorDescriptor.getExpectedReturnType_idhEwIGRD.invoke(nodeToCheck), CONCEPTS.VoidType$aT))) {
         checkReturns = true;
       }
-      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(nodeToCheck, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body")), checkReturns);
+      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(nodeToCheck, LINKS.body$pTP2), checkReturns);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_dd19im.ConceptFunction_e08795a5;
+    return CONCEPTS.ConceptFunction$Tt;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,8 +37,12 @@ public class check_ConceptFunction_NonTypesystemRule extends AbstractNonTypesyst
     return false;
   }
 
-  private static final class AUX_dd19im {
-    /*package*/ static final SConcept VoidType_d96d05c9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
-    /*package*/ static final SConcept ConceptFunction_e08795a5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VoidType$aT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
+    /*package*/ static final SConcept ConceptFunction$Tt = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$pTP2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body");
   }
 }

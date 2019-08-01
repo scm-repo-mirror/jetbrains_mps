@@ -28,7 +28,7 @@ public class OfAspectOperation_SubstituteMenu extends SubstituteMenuBase {
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
     result.add(new SMP_Subconcepts_xdr5c_a());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_xdr5c.OfAspectOperation_19da5c6) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.OfAspectOperation$9s) {
 
       @NotNull
       @Override
@@ -41,7 +41,7 @@ public class OfAspectOperation_SubstituteMenu extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_xdr5c.OfAspectOperation_19da5c6));
+    }, CONCEPTS.OfAspectOperation$9s));
     return result;
   }
 
@@ -60,7 +60,7 @@ public class OfAspectOperation_SubstituteMenu extends SubstituteMenuBase {
 
   public class SMP_Subconcepts_xdr5c_a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_xdr5c.OfAspectOperation_19da5c6);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.OfAspectOperation$9s);
     }
     @NotNull
     @Override
@@ -80,7 +80,7 @@ public class OfAspectOperation_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_xdr5c {
-    /*package*/ static final SConcept OfAspectOperation_19da5c6 = MetaAdapterFactory.getConcept(0x69b8a9939b874d96L, 0xbf0c3559f4bb0c63L, 0x5252d9021b8b45a8L, "jetbrains.mps.lang.slanguage.structure.OfAspectOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OfAspectOperation$9s = MetaAdapterFactory.getConcept(0x69b8a9939b874d96L, 0xbf0c3559f4bb0c63L, 0x5252d9021b8b45a8L, "jetbrains.mps.lang.slanguage.structure.OfAspectOperation");
   }
 }

@@ -12,9 +12,10 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class RemarkStatement_KeyMap extends KeyMapImpl {
   public RemarkStatement_KeyMap() {
@@ -40,7 +41,7 @@ public class RemarkStatement_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_3zvjiu.RemarkStatement_3e86530f))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.RemarkStatement$SN))) {
         return false;
       }
       return true;
@@ -52,10 +53,10 @@ public class RemarkStatement_KeyMap extends KeyMapImpl {
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
       EditorCell_Label label = (EditorCell_Label) editorContext.getContextCell();
       int caretPostion = label.getCaretPosition();
-      String text = SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1101757c8faL, 0x110175cdb2bL, "value"));
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1101757c8faL, 0x110175cdb2bL, "value"), text.substring(0, caretPostion));
-      SNode newRemark = SNodeFactoryOperations.createNewNode(AUX_3zvjiu.RemarkStatement_3e86530f, null);
-      SPropertyOperations.assign(newRemark, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1101757c8faL, 0x110175cdb2bL, "value"), text.substring(caretPostion));
+      String text = SPropertyOperations.getString(node, PROPS.value$ATQL);
+      SPropertyOperations.assign(node, PROPS.value$ATQL, text.substring(0, caretPostion));
+      SNode newRemark = SNodeFactoryOperations.createNewNode(CONCEPTS.RemarkStatement$SN, null);
+      SPropertyOperations.assign(newRemark, PROPS.value$ATQL, text.substring(caretPostion));
       SNodeOperations.insertNextSiblingChild(node, newRemark);
     }
     public String getKeyStroke() {
@@ -63,7 +64,11 @@ public class RemarkStatement_KeyMap extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_3zvjiu {
-    /*package*/ static final SConcept RemarkStatement_3e86530f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1101757c8faL, "jetbrains.mps.baseLanguage.structure.RemarkStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RemarkStatement$SN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1101757c8faL, "jetbrains.mps.baseLanguage.structure.RemarkStatement");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$ATQL = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1101757c8faL, 0x110175cdb2bL, "value");
   }
 }

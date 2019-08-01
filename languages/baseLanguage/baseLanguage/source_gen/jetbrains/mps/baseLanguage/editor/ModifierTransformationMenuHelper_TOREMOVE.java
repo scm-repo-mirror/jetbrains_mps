@@ -31,7 +31,6 @@ import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
@@ -42,7 +41,9 @@ import jetbrains.mps.lang.editor.menus.transformation.IncludeTransformationMenuT
 import jetbrains.mps.openapi.editor.menus.transformation.TransformationMenuLookup;
 import jetbrains.mps.lang.editor.menus.transformation.NamedTransformationMenuLookup;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ModifierTransformationMenuHelper_TOREMOVE extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -76,7 +77,7 @@ public class ModifierTransformationMenuHelper_TOREMOVE extends TransformationMen
   public class TMP_Group_r0u7vs_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_r0u7vs.IHasModifiers_8f114dd7);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.IHasModifiers$LF);
     }
 
     @NotNull
@@ -115,12 +116,12 @@ public class ModifierTransformationMenuHelper_TOREMOVE extends TransformationMen
         return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
       }
       private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-        return AUX_r0u7vs.Modifier_b30bf498;
+        return CONCEPTS.Modifier$Ra;
       }
 
       @Override
       protected SNode getTargetNode(TransformationMenuContext _context) {
-        return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_r0u7vs.IHasModifiers_8f114dd7);
+        return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.IHasModifiers$LF);
       }
 
       @Override
@@ -130,7 +131,7 @@ public class ModifierTransformationMenuHelper_TOREMOVE extends TransformationMen
           @Override
           public void execute(@NotNull String pattern) {
             SNode createdNode = item.createNode(pattern);
-            ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(targetNode, AUX_r0u7vs.IHasModifiers_8f114dd7), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).addElement(createdNode);
+            ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(targetNode, CONCEPTS.IHasModifiers$LF), LINKS.modifiers$akE0)).addElement(createdNode);
           }
 
           @Override
@@ -168,14 +169,18 @@ public class ModifierTransformationMenuHelper_TOREMOVE extends TransformationMen
         final SNode node = _context.getNode();
         final EditorContext editorContext = _context.getEditorContext();
 
-        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_r0u7vs.Modifier_b30bf498, "jetbrains.mps.baseLanguage.editor.addTypeAfterModifier");
+        return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.Modifier$Ra, "jetbrains.mps.baseLanguage.editor.addTypeAfterModifier");
       }
 
     }
   }
 
-  private static final class AUX_r0u7vs {
-    /*package*/ static final SInterfaceConcept IHasModifiers_8f114dd7 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, "jetbrains.mps.baseLanguage.structure.IHasModifiers");
-    /*package*/ static final SConcept Modifier_b30bf498 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x21592d9e7375c5a6L, "jetbrains.mps.baseLanguage.structure.Modifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IHasModifiers$LF = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, "jetbrains.mps.baseLanguage.structure.IHasModifiers");
+    /*package*/ static final SConcept Modifier$Ra = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x21592d9e7375c5a6L, "jetbrains.mps.baseLanguage.structure.Modifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modifiers$akE0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
   }
 }

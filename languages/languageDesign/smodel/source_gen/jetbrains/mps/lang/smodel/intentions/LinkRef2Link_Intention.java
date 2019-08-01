@@ -17,6 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class LinkRef2Link_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -51,13 +52,20 @@ public final class LinkRef2Link_Intention extends AbstractIntentionDescriptor im
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode repl = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce1957615L, "jetbrains.mps.lang.smodel.structure.LinkIdRefExpression"));
-      SLinkOperations.setTarget(repl, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce1957615L, 0x24b2bf7ce1957616L, "conceptDeclaration"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b27d16L, "conceptDeclaration")));
-      SLinkOperations.setTarget(repl, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce1957615L, 0x24b2bf7ce1957617L, "linkDeclaration"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b43a97L, "linkDeclaration")));
+      SLinkOperations.setTarget(repl, LINKS.conceptDeclaration$Si60, SLinkOperations.getTarget(node, LINKS.conceptDeclaration$AgS0));
+      SLinkOperations.setTarget(repl, LINKS.linkDeclaration$Si6v, SLinkOperations.getTarget(node, LINKS.linkDeclaration$_cVO));
       SNodeOperations.replaceWithAnother(node, repl);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return LinkRef2Link_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$Si60 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce1957615L, 0x24b2bf7ce1957616L, "conceptDeclaration");
+    /*package*/ static final SReferenceLink conceptDeclaration$AgS0 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b27d16L, "conceptDeclaration");
+    /*package*/ static final SReferenceLink linkDeclaration$Si6v = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce1957615L, 0x24b2bf7ce1957617L, "linkDeclaration");
+    /*package*/ static final SReferenceLink linkDeclaration$_cVO = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11d88b27d15L, 0x11d88b43a97L, "linkDeclaration");
   }
 }

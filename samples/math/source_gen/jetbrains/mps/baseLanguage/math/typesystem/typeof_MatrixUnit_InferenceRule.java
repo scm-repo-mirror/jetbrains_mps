@@ -23,7 +23,7 @@ public class typeof_MatrixUnit_InferenceRule extends AbstractInferenceRule_Runti
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tk3h44.MatrixUnit_60229a9d;
+    return CONCEPTS.MatrixUnit$x_;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -32,7 +32,7 @@ public class typeof_MatrixUnit_InferenceRule extends AbstractInferenceRule_Runti
     return false;
   }
 
-  private static final class AUX_tk3h44 {
-    /*package*/ static final SConcept MatrixUnit_60229a9d = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x13afebc2af3c3bdfL, "jetbrains.mps.baseLanguage.math.structure.MatrixUnit");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixUnit$x_ = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x13afebc2af3c3bdfL, "jetbrains.mps.baseLanguage.math.structure.MatrixUnit");
   }
 }

@@ -54,11 +54,11 @@ public class ErrorReportUtil {
       public Iterable<SNode> translate(SNode ancestor) {
         Iterable<SNode> possibleSuppressors = ListSequence.fromList(AttributeOperations.getAttributeList(ancestor, new IAttributeDescriptor.AllAttributes())).union(Sequence.fromIterable(Sequence.<SNode>singleton(ancestor)));
 
-        Iterable<SNode> activeSuppressors = Sequence.fromIterable(SNodeOperations.ofConcept(possibleSuppressors, AUX_k4hfov.ISuppressErrors_96ee6c6d)).where(new IWhereFilter<SNode>() {
+        Iterable<SNode> activeSuppressors = Sequence.fromIterable(SNodeOperations.ofConcept(possibleSuppressors, CONCEPTS.ISuppressErrors$2l)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode attr) {
             boolean res = false;
             try {
-              res = ((boolean) (Boolean) BHReflection.invoke0(attr, AUX_k4hfov.ISuppressErrors_96ee6c6d, SMethodTrimmedId.create("suppress", null, "3612de_vrfV"), reportItem));
+              res = ((boolean) (Boolean) BHReflection.invoke0(attr, CONCEPTS.ISuppressErrors$2l, SMethodTrimmedId.create("suppress", null, "3612de_vrfV"), reportItem));
             } catch (Throwable t) {
               if (LOG.isEnabledFor(Level.ERROR)) {
                 LOG.error("Exception while invoking suppress() on node " + node, t);
@@ -72,7 +72,7 @@ public class ErrorReportUtil {
     });
   }
 
-  private static final class AUX_k4hfov {
-    /*package*/ static final SInterfaceConcept ISuppressErrors_96ee6c6d = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L, "jetbrains.mps.lang.core.structure.ISuppressErrors");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ISuppressErrors$2l = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L, "jetbrains.mps.lang.core.structure.ISuppressErrors");
   }
 }

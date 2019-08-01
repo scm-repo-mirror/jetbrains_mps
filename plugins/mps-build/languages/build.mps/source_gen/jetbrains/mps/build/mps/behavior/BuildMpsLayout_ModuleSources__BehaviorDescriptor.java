@@ -4,6 +4,7 @@ package jetbrains.mps.build.mps.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class BuildMpsLayout_ModuleSources__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_xvzpul.BuildMpsLayout_ModuleSources_6bdf3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleSources");
 
   public static final SMethod<Boolean> reexportsFromJar_id5bqm540K$Gb = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("reexportsFromJar").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5bqm540K$Gb").build(SMethodBuilder.createJavaParameter(Object.class, ""));
 
@@ -31,7 +31,7 @@ public final class BuildMpsLayout_ModuleSources__BehaviorDescriptor extends Base
   }
 
   /*package*/ static boolean reexportsFromJar_id5bqm540K$Gb(@NotNull SNode __thisNode__, Object o) {
-    return o == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x177c2feaf3463711L, "module"));
+    return o == SLinkOperations.getTarget(__thisNode__, LINKS.module$POCw);
   }
 
   /*package*/ BuildMpsLayout_ModuleSources__BehaviorDescriptor() {
@@ -80,7 +80,7 @@ public final class BuildMpsLayout_ModuleSources__BehaviorDescriptor extends Base
     return CONCEPT;
   }
 
-  private static final class AUX_xvzpul {
-    /*package*/ static final SConcept BuildMpsLayout_ModuleSources_6bdf3 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleSources");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink module$POCw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x177c2feaf3463711L, "module");
   }
 }

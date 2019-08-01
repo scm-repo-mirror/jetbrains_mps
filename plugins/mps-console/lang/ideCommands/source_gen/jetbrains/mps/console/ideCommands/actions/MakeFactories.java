@@ -7,19 +7,24 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class MakeFactories {
   public static class NodeFactory_5308946314782063424 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_f2h17h.AbsractMake_f0e1eb35)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x276b371e77c0a29aL, 0x276b371e77c0a2f0L, "argument"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_f2h17h.AbsractMake_f0e1eb35), MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x276b371e77c0a29aL, 0x276b371e77c0a2f0L, "argument")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.AbsractMake$Fd)) {
+        SLinkOperations.setTarget(newNode, LINKS.argument$fm9z, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.AbsractMake$Fd), LINKS.argument$fm9z));
       }
     }
   }
 
-  private static final class AUX_f2h17h {
-    /*package*/ static final SConcept AbsractMake_f0e1eb35 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x276b371e77c0a29aL, "jetbrains.mps.console.ideCommands.structure.AbsractMake");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink argument$fm9z = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x276b371e77c0a29aL, 0x276b371e77c0a2f0L, "argument");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbsractMake$Fd = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x276b371e77c0a29aL, "jetbrains.mps.console.ideCommands.structure.AbsractMake");
   }
 }

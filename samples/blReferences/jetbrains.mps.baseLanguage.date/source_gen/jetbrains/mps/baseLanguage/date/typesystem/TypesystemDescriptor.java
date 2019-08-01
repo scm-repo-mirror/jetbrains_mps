@@ -24,8 +24,8 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       SubtypingRule_Runtime subtypingRule = new supertypesOf_DateType_Object_SubtypingRule();
       this.mySubtypingRules.add(subtypingRule);
     }
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(AUX_3ist9o.PlusAssignmentExpression_eccb3616));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(AUX_3ist9o.PlusExpression_d4768414));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(CONCEPTS.PlusAssignmentExpression$Kc));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(CONCEPTS.PlusExpression$Re));
   }
   public static class CustomOverloadedOperationsTypesProvider_a extends OverloadedOperationsTypesProvider {
     public CustomOverloadedOperationsTypesProvider_a(SAbstractConcept concept) {
@@ -48,25 +48,25 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     }
     private static SNode createDateType_3ist9o_a0a0a1() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
-      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_3ist9o.DateType_b3b6ab2a, null, null, false);
+      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.DateType$_S, null, null, false);
       return n1;
     }
     private static SNode createIntegerType_3ist9o_a0b0a1() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
-      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_3ist9o.IntegerType_603aa60a, null, null, false);
+      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.IntegerType$Eo, null, null, false);
       return n1;
     }
     private static SNode createDateType_3ist9o_a0a1b() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
-      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_3ist9o.DateType_b3b6ab2a, null, null, false);
+      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.DateType$_S, null, null, false);
       return n1;
     }
   }
 
-  private static final class AUX_3ist9o {
-    /*package*/ static final SConcept PlusAssignmentExpression_eccb3616 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d1476d2L, "jetbrains.mps.baseLanguage.structure.PlusAssignmentExpression");
-    /*package*/ static final SConcept PlusExpression_d4768414 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
-    /*package*/ static final SConcept DateType_b3b6ab2a = MetaAdapterFactory.getConcept(0x4b7c56eb93474ed1L, 0xa5d9938a850b9e1dL, 0x3515a7f64b6fe2d2L, "jetbrains.mps.baseLanguage.date.structure.DateType");
-    /*package*/ static final SConcept IntegerType_603aa60a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PlusAssignmentExpression$Kc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d1476d2L, "jetbrains.mps.baseLanguage.structure.PlusAssignmentExpression");
+    /*package*/ static final SConcept PlusExpression$Re = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
+    /*package*/ static final SConcept DateType$_S = MetaAdapterFactory.getConcept(0x4b7c56eb93474ed1L, 0xa5d9938a850b9e1dL, 0x3515a7f64b6fe2d2L, "jetbrains.mps.baseLanguage.date.structure.DateType");
+    /*package*/ static final SConcept IntegerType$Eo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
   }
 }

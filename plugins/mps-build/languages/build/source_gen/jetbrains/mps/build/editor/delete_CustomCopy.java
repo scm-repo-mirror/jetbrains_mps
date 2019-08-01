@@ -25,7 +25,7 @@ public class delete_CustomCopy {
         if (DeletionApproverUtil.approve(editorContext, node, "handlers")) {
           return;
         }
-        SNodeFactoryOperations.replaceWithNewChild(node, AUX_yxmtp9.BuildLayout_Copy_8166911d);
+        SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.BuildLayout_Copy$7_);
       }
 
     };
@@ -66,7 +66,7 @@ public class delete_CustomCopy {
     }
   }
 
-  private static final class AUX_yxmtp9 {
-    /*package*/ static final SConcept BuildLayout_Copy_8166911d = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db92339b9L, "jetbrains.mps.build.structure.BuildLayout_Copy");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_Copy$7_ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x48d5d03db92339b9L, "jetbrains.mps.build.structure.BuildLayout_Copy");
   }
 }

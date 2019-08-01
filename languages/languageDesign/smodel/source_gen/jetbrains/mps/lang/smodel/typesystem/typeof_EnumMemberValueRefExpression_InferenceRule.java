@@ -25,7 +25,7 @@ public class typeof_EnumMemberValueRefExpression_InferenceRule extends AbstractI
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_xbwy0c.EnumMemberValueRefExpression_70f57cd6;
+    return CONCEPTS.EnumMemberValueRefExpression$Pc;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_EnumMemberValueRefExpression_InferenceRule extends AbstractI
     return quotedNode_1;
   }
 
-  private static final class AUX_xbwy0c {
-    /*package*/ static final SConcept EnumMemberValueRefExpression_70f57cd6 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, "jetbrains.mps.lang.smodel.structure.EnumMemberValueRefExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumMemberValueRefExpression$Pc = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, "jetbrains.mps.lang.smodel.structure.EnumMemberValueRefExpression");
   }
 }

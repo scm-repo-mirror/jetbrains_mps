@@ -19,13 +19,13 @@ public class check_LocalPropertyReferenceNotUsedInUnaryNumericOperations_NonType
   public check_LocalPropertyReferenceNotUsedInUnaryNumericOperations_NonTypesystemRule() {
   }
   public void applyRule(final SNode localPropertyReference, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!((SNodeOperations.getNodeAncestorWhereConceptInList(localPropertyReference, new SAbstractConcept[]{AUX_6jjntk.PrefixDecrementExpression_af717f9d, AUX_6jjntk.PrefixIncrementExpression_aa33aae6, AUX_6jjntk.PostfixDecrementExpression_228f2e16, AUX_6jjntk.PostfixIncrementExpression_2075721d}, false, false) == null))) {
+    if (!((SNodeOperations.getNodeAncestorWhereConceptInList(localPropertyReference, new SAbstractConcept[]{CONCEPTS.PrefixDecrementExpression$d_, CONCEPTS.PrefixIncrementExpression$4W, CONCEPTS.PostfixDecrementExpression$gc, CONCEPTS.PostfixIncrementExpression$3_}, false, false) == null))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(localPropertyReference, "variable expected", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "6880273274252479801", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6jjntk.LocalPropertyReference_b19e2092;
+    return CONCEPTS.LocalPropertyReference$4g;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,11 +34,11 @@ public class check_LocalPropertyReferenceNotUsedInUnaryNumericOperations_NonType
     return false;
   }
 
-  private static final class AUX_6jjntk {
-    /*package*/ static final SConcept PrefixDecrementExpression_af717f9d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a472f0e8L, "jetbrains.mps.baseLanguage.structure.PrefixDecrementExpression");
-    /*package*/ static final SConcept PrefixIncrementExpression_aa33aae6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a46df580L, "jetbrains.mps.baseLanguage.structure.PrefixIncrementExpression");
-    /*package*/ static final SConcept PostfixDecrementExpression_228f2e16 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11aded05fe6L, "jetbrains.mps.baseLanguage.structure.PostfixDecrementExpression");
-    /*package*/ static final SConcept PostfixIncrementExpression_2075721d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11adecdb4f0L, "jetbrains.mps.baseLanguage.structure.PostfixIncrementExpression");
-    /*package*/ static final SConcept LocalPropertyReference_b19e2092 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x515d7a8d927e9fb3L, "jetbrains.mps.baseLanguage.structure.LocalPropertyReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrefixDecrementExpression$d_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a472f0e8L, "jetbrains.mps.baseLanguage.structure.PrefixDecrementExpression");
+    /*package*/ static final SConcept PrefixIncrementExpression$4W = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x120a46df580L, "jetbrains.mps.baseLanguage.structure.PrefixIncrementExpression");
+    /*package*/ static final SConcept PostfixDecrementExpression$gc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11aded05fe6L, "jetbrains.mps.baseLanguage.structure.PostfixDecrementExpression");
+    /*package*/ static final SConcept PostfixIncrementExpression$3_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11adecdb4f0L, "jetbrains.mps.baseLanguage.structure.PostfixIncrementExpression");
+    /*package*/ static final SConcept LocalPropertyReference$4g = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x515d7a8d927e9fb3L, "jetbrains.mps.baseLanguage.structure.LocalPropertyReference");
   }
 }

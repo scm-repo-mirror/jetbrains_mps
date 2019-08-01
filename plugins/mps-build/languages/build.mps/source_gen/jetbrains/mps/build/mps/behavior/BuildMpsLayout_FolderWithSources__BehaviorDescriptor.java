@@ -4,6 +4,7 @@ package jetbrains.mps.build.mps.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,17 +16,16 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.behavior.BuildLayout_Container__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class BuildMpsLayout_FolderWithSources__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dyhip5.BuildMpsLayout_FolderWithSources_81f4462a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x1d38569c566c8c91L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_FolderWithSources");
 
   public static final SMethod<Boolean> reexportsFromJar_id5bqm540K$Gb = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("reexportsFromJar").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5bqm540K$Gb").build(SMethodBuilder.createJavaParameter(Object.class, ""));
   public static final SMethod<String> getChildrenOutputDir_WithMacro_id450ejGzh8bb = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getChildrenOutputDir_WithMacro").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("450ejGzh8bb").build(SMethodBuilder.createJavaParameter(Context.class, ""));
@@ -38,10 +38,10 @@ public final class BuildMpsLayout_FolderWithSources__BehaviorDescriptor extends 
   }
 
   /*package*/ static boolean reexportsFromJar_id5bqm540K$Gb(@NotNull SNode __thisNode__, Object o) {
-    return o == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x177c2feaf3463711L, "module"));
+    return o == SLinkOperations.getTarget(__thisNode__, LINKS.module$POCw);
   }
   /*package*/ static String getChildrenOutputDir_WithMacro_id450ejGzh8bb(@NotNull SNode __thisNode__, Context context) {
-    return (String) BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), AUX_dyhip5.BuildLayout_Container_6a682ce6), context);
+    return (String) BuildLayout_Container__BehaviorDescriptor.getChildrenOutputDir_WithMacro_id450ejGzh8bb.invoke(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.BuildLayout_Container$WW), context);
   }
   /*package*/ static String getPrepareSubTaskId_id450ejGzh8bD(@NotNull SNode __thisNode__) {
     return null;
@@ -102,8 +102,11 @@ public final class BuildMpsLayout_FolderWithSources__BehaviorDescriptor extends 
     return CONCEPT;
   }
 
-  private static final class AUX_dyhip5 {
-    /*package*/ static final SConcept BuildMpsLayout_FolderWithSources_81f4462a = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x1d38569c566c8c91L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_FolderWithSources");
-    /*package*/ static final SInterfaceConcept BuildLayout_Container_6a682ce6 = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, "jetbrains.mps.build.structure.BuildLayout_Container");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink module$POCw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x177c2feaf3463710L, 0x177c2feaf3463711L, "module");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept BuildLayout_Container$WW = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, "jetbrains.mps.build.structure.BuildLayout_Container");
   }
 }

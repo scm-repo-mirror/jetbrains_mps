@@ -24,7 +24,6 @@ import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.editor.runtime.menus.EditorMenuItemModifyingCustomizationContext;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -33,6 +32,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class togglingEnabledByDefaultProp extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.SUBSTITUTE);
@@ -106,7 +107,7 @@ public class togglingEnabledByDefaultProp extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x5ae6ebde781f1fd8L, 0x799bdb1024549bf4L, "disabledByDefault"), false);
+        SPropertyOperations.assign(_context.getNode(), PROPS.disabledByDefault$bDZP, false);
       }
 
 
@@ -166,7 +167,7 @@ public class togglingEnabledByDefaultProp extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x5ae6ebde781f1fd8L, 0x799bdb1024549bf4L, "disabledByDefault"), true);
+        SPropertyOperations.assign(_context.getNode(), PROPS.disabledByDefault$bDZP, true);
       }
 
 
@@ -187,5 +188,9 @@ public class togglingEnabledByDefaultProp extends TransformationMenuBase {
       }
     }
 
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty disabledByDefault$bDZP = MetaAdapterFactory.getProperty(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x5ae6ebde781f1fd8L, 0x799bdb1024549bf4L, "disabledByDefault");
   }
 }

@@ -74,7 +74,7 @@ public class ConstraintsUtilConcepts {
       }
     }).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return SNodeOperations.cast(it, AUX_rcd0dt.INamedConcept_8cd7e247);
+        return SNodeOperations.cast(it, CONCEPTS.INamedConcept$nV);
       }
     });
   }
@@ -117,7 +117,7 @@ public class ConstraintsUtilConcepts {
       }
     }).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return SNodeOperations.cast(it, AUX_rcd0dt.INamedConcept_8cd7e247);
+        return SNodeOperations.cast(it, CONCEPTS.INamedConcept$nV);
       }
     });
   }
@@ -140,7 +140,7 @@ public class ConstraintsUtilConcepts {
       }
     }).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return SNodeOperations.cast(it, AUX_rcd0dt.INamedConcept_8cd7e247);
+        return SNodeOperations.cast(it, CONCEPTS.INamedConcept$nV);
       }
     });
   }
@@ -154,7 +154,7 @@ public class ConstraintsUtilConcepts {
     return (type.isInstance(o) ? (T) o : null);
   }
 
-  private static final class AUX_rcd0dt {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

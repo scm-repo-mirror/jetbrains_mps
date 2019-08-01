@@ -29,6 +29,9 @@ import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ExtractComponent_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -57,7 +60,7 @@ public class ExtractComponent_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_h35wz0.EditorCellModel_226b88d6))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.EditorCellModel$5c))) {
         node = null;
       }
       MapSequence.fromMap(_params).put("node", node);
@@ -103,21 +106,32 @@ public class ExtractComponent_Action extends BaseAction {
       protected void doExecute() {
         SModel model = SNodeOperations.getModel(ecm);
         SNode component = SModelOperations.createNewRootNode(model, MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration"));
-        SPropertyOperations.set(component, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), componentName);
-        SNode container = SNodeOperations.getNodeAncestor(ecm, AUX_h35wz0.BaseEditorComponent_8ae20940, false, false);
-        SPropertyOperations.assign(component, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"), SPropertyOperations.getString(container, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")));
-        SLinkOperations.setTarget(component, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration"), ((SNode) BHReflection.invoke0(container, AUX_h35wz0.AbstractComponent_15de0cd2, SMethodTrimmedId.create("getConceptDeclaration", null, "67EYkym$wx3"))));
-        SLinkOperations.setTarget(component, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel"), SNodeOperations.copyNode(ecm));
+        SPropertyOperations.set(component, PROPS.name$tAp1, componentName);
+        SNode container = SNodeOperations.getNodeAncestor(ecm, CONCEPTS.BaseEditorComponent$Sy, false, false);
+        SPropertyOperations.assign(component, PROPS.virtualPackage$j19t, SPropertyOperations.getString(container, PROPS.virtualPackage$j19t));
+        SLinkOperations.setTarget(component, LINKS.conceptDeclaration$sbgS, ((SNode) BHReflection.invoke0(container, CONCEPTS.AbstractComponent$Ng, SMethodTrimmedId.create("getConceptDeclaration", null, "67EYkym$wx3"))));
+        SLinkOperations.setTarget(component, LINKS.cellModel$3wIV, SNodeOperations.copyNode(ecm));
         SNode toReplace = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, "jetbrains.mps.lang.editor.structure.CellModel_Component"));
-        SLinkOperations.setTarget(toReplace, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent"), component);
+        SLinkOperations.setTarget(toReplace, LINKS.editorComponent$AnLw, component);
         SNodeOperations.replaceWithAnother(ecm, toReplace);
       }
     });
   }
 
-  private static final class AUX_h35wz0 {
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
-    /*package*/ static final SConcept BaseEditorComponent_8ae20940 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, "jetbrains.mps.lang.editor.structure.BaseEditorComponent");
-    /*package*/ static final SConcept AbstractComponent_15de0cd2 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, "jetbrains.mps.lang.editor.structure.AbstractComponent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+    /*package*/ static final SConcept BaseEditorComponent$Sy = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, "jetbrains.mps.lang.editor.structure.BaseEditorComponent");
+    /*package*/ static final SConcept AbstractComponent$Ng = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, "jetbrains.mps.lang.editor.structure.AbstractComponent");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$sbgS = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration");
+    /*package*/ static final SContainmentLink cellModel$3wIV = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel");
+    /*package*/ static final SReferenceLink editorComponent$AnLw = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent");
   }
 }

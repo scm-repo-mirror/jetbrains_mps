@@ -7,19 +7,20 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class PropertiesUtil {
   private PropertiesUtil() {
   }
 
   public static SNodeReference getCastMethod(SNode datatype) {
-    if (SNodeOperations.isInstanceOf(datatype, AUX_528fei.EnumerationDeclartaion_dd035f36)) {
+    if (SNodeOperations.isInstanceOf(datatype, CONCEPTS.EnumerationDeclartaion$rG)) {
       return new SNodePointer("r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)", "8673913621388576377");
     }
-    if (SNodeOperations.isInstanceOf(datatype, AUX_528fei.EnumerationDataTypeDeclaration_Old_9e6b98ad)) {
-      SNode memberDataType = SLinkOperations.getTarget(SNodeOperations.cast(datatype, AUX_528fei.EnumerationDataTypeDeclaration_Old_9e6b98ad), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc3210ef05L, "memberDataType"));
+    if (SNodeOperations.isInstanceOf(datatype, CONCEPTS.EnumerationDataTypeDeclaration_Old$Ll)) {
+      SNode memberDataType = SLinkOperations.getTarget(SNodeOperations.cast(datatype, CONCEPTS.EnumerationDataTypeDeclaration_Old$Ll), LINKS.memberDataType$IU7B);
       if (SNodeOperations.is(memberDataType, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1082983657063"))) {
         return new SNodePointer("r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)", "8673913621388640936");
       }
@@ -37,8 +38,12 @@ public final class PropertiesUtil {
     return new SNodePointer("r:c3548bac-30eb-4a2a-937c-0111d5697309(jetbrains.mps.lang.smodel.generator.smodelAdapter)", "8673913621388445142");
   }
 
-  private static final class AUX_528fei {
-    /*package*/ static final SConcept EnumerationDeclartaion_dd035f36 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
-    /*package*/ static final SConcept EnumerationDataTypeDeclaration_Old_9e6b98ad = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumerationDeclartaion$rG = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
+    /*package*/ static final SConcept EnumerationDataTypeDeclaration_Old$Ll = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink memberDataType$IU7B = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc3210ef05L, "memberDataType");
   }
 }

@@ -24,7 +24,7 @@ public class deleteExpressionFromRuleOrDef {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
         // I do not know how to do without this hack 
-        SNode highestRuleMember = RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(SNodeOperations.getNodeAncestor(node, AUX_hpvmoc.RuleBlockMember_c70a5095, false, false));
+        SNode highestRuleMember = RuleBlockMember__BehaviorDescriptor.getHighestMember_id2mL_UKGkn8G.invoke(SNodeOperations.getNodeAncestor(node, CONCEPTS.RuleBlockMember$5H, false, false));
         if (!(DeletionApproverUtil.approve(editorContext, highestRuleMember))) {
           SNodeOperations.deleteNode(highestRuleMember);
         }
@@ -68,7 +68,7 @@ public class deleteExpressionFromRuleOrDef {
     }
   }
 
-  private static final class AUX_hpvmoc {
-    /*package*/ static final SInterfaceConcept RuleBlockMember_c70a5095 = MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept RuleBlockMember$5H = MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember");
   }
 }

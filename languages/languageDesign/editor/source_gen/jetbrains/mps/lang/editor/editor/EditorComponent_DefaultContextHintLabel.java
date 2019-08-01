@@ -11,8 +11,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class EditorComponent_DefaultContextHintLabel extends KeyMapImpl {
   public EditorComponent_DefaultContextHintLabel() {
@@ -37,7 +38,7 @@ public class EditorComponent_DefaultContextHintLabel extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_n89l5k.EditorComponentDeclaration_2ddc41f7))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.EditorComponentDeclaration$Lb))) {
         return false;
       }
       return true;
@@ -47,14 +48,18 @@ public class EditorComponent_DefaultContextHintLabel extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, 0x65fc2f4f98189976L, "contextHints"), null);
+      SNodeFactoryOperations.addNewChild(node, LINKS.contextHints$gwQx, null);
     }
     public String getKeyStroke() {
       return " letter or digit";
     }
   }
 
-  private static final class AUX_n89l5k {
-    /*package*/ static final SConcept EditorComponentDeclaration_2ddc41f7 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorComponentDeclaration$Lb = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink contextHints$gwQx = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, 0x65fc2f4f98189976L, "contextHints");
   }
 }

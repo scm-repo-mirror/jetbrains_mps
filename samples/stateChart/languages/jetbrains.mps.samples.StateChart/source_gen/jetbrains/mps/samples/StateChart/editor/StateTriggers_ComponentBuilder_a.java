@@ -13,7 +13,6 @@ import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -21,6 +20,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class StateTriggers_ComponentBuilder_a extends AbstractEditorBuilder {
@@ -69,10 +69,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x2dff568bfe7dd8b5L, 0x148d06483264e4b1L, "availableTriggers");
+      return LINKS.availableTriggers$AtTV;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_sotmhl.Event_404ac79d;
+      return CONCEPTS.Event$H_;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -82,7 +82,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(availableTriggersListHandler_rxmtnq_a0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x2dff568bfe7dd8b5L, 0x148d06483264e4b1L, "availableTriggers")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(availableTriggersListHandler_rxmtnq_a0.this.getNode(), LINKS.availableTriggers$AtTV));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -107,7 +107,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
   }
 
-  private static final class AUX_sotmhl {
-    /*package*/ static final SConcept Event_404ac79d = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a3L, "jetbrains.mps.samples.StateChart.structure.Event");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink availableTriggers$AtTV = MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x2dff568bfe7dd8b5L, 0x148d06483264e4b1L, "availableTriggers");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Event$H_ = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a3L, "jetbrains.mps.samples.StateChart.structure.Event");
   }
 }

@@ -11,15 +11,15 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ActionAsPattern_Constraints extends BaseConstraintsDescriptor {
   public ActionAsPattern_Constraints() {
-    super(AUX_n89y33.ActionAsPattern_df11b28d);
+    super(CONCEPTS.ActionAsPattern$TP);
   }
 
   @Override
@@ -38,19 +38,24 @@ public class ActionAsPattern_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    if (link == MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, 0x3d3ef1fc1814cb59L, "action")) {
-      return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), AUX_n89y33.ActionStatement_e09bd46a);
+    if (link == LINKS.action$dtRs) {
+      return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.ActionStatement$wS);
     }
-    if (link == MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, 0x7cc3195fc1d254beL, "position")) {
-      return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), AUX_n89y33.InsertPosition_8755ace1);
+    if (link == LINKS.position$2Q2_) {
+      return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.InsertPosition$Ux);
     }
     return false;
   }
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590340(jetbrains.mps.lang.pattern.constraints)", "1227128029536562022");
 
-  private static final class AUX_n89y33 {
-    /*package*/ static final SConcept ActionAsPattern_df11b28d = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, "jetbrains.mps.lang.pattern.structure.ActionAsPattern");
-    /*package*/ static final SConcept ActionStatement_e09bd46a = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1815d960L, "jetbrains.mps.lang.pattern.structure.ActionStatement");
-    /*package*/ static final SConcept InsertPosition_8755ace1 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x16e4c142caf2bd3cL, "jetbrains.mps.lang.pattern.structure.InsertPosition");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionAsPattern$TP = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, "jetbrains.mps.lang.pattern.structure.ActionAsPattern");
+    /*package*/ static final SConcept ActionStatement$wS = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1815d960L, "jetbrains.mps.lang.pattern.structure.ActionStatement");
+    /*package*/ static final SConcept InsertPosition$Ux = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x16e4c142caf2bd3cL, "jetbrains.mps.lang.pattern.structure.InsertPosition");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink action$dtRs = MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, 0x3d3ef1fc1814cb59L, "action");
+    /*package*/ static final SContainmentLink position$2Q2_ = MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, 0x7cc3195fc1d254beL, "position");
   }
 }

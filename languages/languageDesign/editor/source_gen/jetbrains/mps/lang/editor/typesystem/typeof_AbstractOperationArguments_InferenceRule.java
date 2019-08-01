@@ -12,13 +12,14 @@ import jetbrains.mps.lang.editor.behavior.AbstractStyledTextOperation__BehaviorD
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import java.util.Iterator;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_AbstractOperationArguments_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -26,14 +27,14 @@ public class typeof_AbstractOperationArguments_InferenceRule extends AbstractInf
   }
   public void applyRule(final SNode operation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     List<SNode> argumentTypes = AbstractStyledTextOperation__BehaviorDescriptor.getOperationArgumentType_id5GZRL5t2d36.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(operation)));
-    if (ListSequence.fromList(SLinkOperations.getChildren(operation, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, 0x3ee423fc2ad10ed0L, "actualArgument"))).count() != ListSequence.fromList(argumentTypes).count()) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(operation, LINKS.actualArgument$fjTE)).count() != ListSequence.fromList(argumentTypes).count()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(operation, "Wrong number of arguments", "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "6050628152418938611", null, errorTarget);
       }
     } else {
       {
-        Iterator<SNode> argument_it = ListSequence.fromList(SLinkOperations.getChildren(operation, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, 0x3ee423fc2ad10ed0L, "actualArgument"))).iterator();
+        Iterator<SNode> argument_it = ListSequence.fromList(SLinkOperations.getChildren(operation, LINKS.actualArgument$fjTE)).iterator();
         Iterator<SNode> type_it = ListSequence.fromList(argumentTypes).iterator();
         SNode argument_var;
         SNode type_var;
@@ -50,7 +51,7 @@ public class typeof_AbstractOperationArguments_InferenceRule extends AbstractInf
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_rom8tm.AbstractStyledTextOperation_67d1ed80;
+    return CONCEPTS.AbstractStyledTextOperation$7y;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -59,7 +60,11 @@ public class typeof_AbstractOperationArguments_InferenceRule extends AbstractInf
     return false;
   }
 
-  private static final class AUX_rom8tm {
-    /*package*/ static final SConcept AbstractStyledTextOperation_67d1ed80 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, "jetbrains.mps.lang.editor.structure.AbstractStyledTextOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink actualArgument$fjTE = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, 0x3ee423fc2ad10ed0L, "actualArgument");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractStyledTextOperation$7y = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3ee423fc2ad10eceL, "jetbrains.mps.lang.editor.structure.AbstractStyledTextOperation");
   }
 }

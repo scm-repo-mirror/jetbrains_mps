@@ -35,13 +35,14 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TestCompletionCustomization_ChildWrapSubstituteMenu_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_m1sle1_a(), AUX_m1sle1.TestCompletionCustomization_ChildWrapSubstituteMenu_c4564faf));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_m1sle1_a(), CONCEPTS.TestCompletionCustomization_ChildWrapSubstituteMenu$mj));
     return result;
   }
 
@@ -81,7 +82,7 @@ public class TestCompletionCustomization_ChildWrapSubstituteMenu_SubstituteMenu 
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_m1sle1.TestCompletionCustomization_ChildWrapSubstituteMenu_c4564faf;
+          return CONCEPTS.TestCompletionCustomization_ChildWrapSubstituteMenu$mj;
         }
         @Nullable
         @Override
@@ -89,7 +90,7 @@ public class TestCompletionCustomization_ChildWrapSubstituteMenu_SubstituteMenu 
           SNode nodeToWrap = super.createNode(pattern);
           myCreatedNode = nodeToWrap;
           SNode node = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b5eddcL, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ContextMatcherBaseChild"));
-          SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b5c8a8L, 0x49b1109510b5c8dfL, "wrapped"), nodeToWrap);
+          SLinkOperations.setTarget(node, LINKS.wrapped$Mpjx, nodeToWrap);
           return node;
         }
         @Override
@@ -116,12 +117,16 @@ public class TestCompletionCustomization_ChildWrapSubstituteMenu_SubstituteMenu 
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_m1sle1.TestCompletionCustomization_ConceptToWrap_c456504c;
+      return CONCEPTS.TestCompletionCustomization_ConceptToWrap$ym;
     }
   }
 
-  private static final class AUX_m1sle1 {
-    /*package*/ static final SInterfaceConcept TestCompletionCustomization_ChildWrapSubstituteMenu_c4564faf = MetaAdapterFactory.getInterfaceConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b5c8a8L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildWrapSubstituteMenu");
-    /*package*/ static final SConcept TestCompletionCustomization_ConceptToWrap_c456504c = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b5c8dcL, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ConceptToWrap");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept TestCompletionCustomization_ChildWrapSubstituteMenu$mj = MetaAdapterFactory.getInterfaceConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b5c8a8L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildWrapSubstituteMenu");
+    /*package*/ static final SConcept TestCompletionCustomization_ConceptToWrap$ym = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b5c8dcL, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ConceptToWrap");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink wrapped$Mpjx = MetaAdapterFactory.getContainmentLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b5c8a8L, 0x49b1109510b5c8dfL, "wrapped");
   }
 }

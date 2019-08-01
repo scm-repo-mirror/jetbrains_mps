@@ -11,11 +11,12 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class AddDominance_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -35,7 +36,7 @@ public final class AddDominance_Intention extends AbstractIntentionDescriptor im
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a126f24L, 0x2ef3b3796a130bd8L, "dominates")) == null;
+    return SLinkOperations.getTarget(node, LINKS.dominates$fqs2) == null;
   }
   @Override
   public boolean isSurroundWith() {
@@ -56,7 +57,7 @@ public final class AddDominance_Intention extends AbstractIntentionDescriptor im
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a126f24L, 0x2ef3b3796a130bd8L, "dominates"), SNodeFactoryOperations.createNewNode(AUX_wjnme9.DominatesRecord_40f78d67, null));
+      SLinkOperations.setTarget(node, LINKS.dominates$fqs2, SNodeFactoryOperations.createNewNode(CONCEPTS.DominatesRecord$Vr, null));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -64,7 +65,11 @@ public final class AddDominance_Intention extends AbstractIntentionDescriptor im
     }
   }
 
-  private static final class AUX_wjnme9 {
-    /*package*/ static final SConcept DominatesRecord_40f78d67 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x22926e62b7d495a0L, "jetbrains.mps.lang.editor.structure.DominatesRecord");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink dominates$fqs2 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a126f24L, 0x2ef3b3796a130bd8L, "dominates");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DominatesRecord$Vr = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x22926e62b7d495a0L, "jetbrains.mps.lang.editor.structure.DominatesRecord");
   }
 }

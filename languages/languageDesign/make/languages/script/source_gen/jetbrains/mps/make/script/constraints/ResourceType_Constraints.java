@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ResourceType_Constraints extends BaseConstraintsDescriptor {
   public ResourceType_Constraints() {
-    super(AUX_fwcodr.ResourceType_af589c24);
+    super(CONCEPTS.ResourceType$uY);
   }
 
-  private static final class AUX_fwcodr {
-    /*package*/ static final SConcept ResourceType_af589c24 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a947282L, "jetbrains.mps.make.script.structure.ResourceType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ResourceType$uY = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a947282L, "jetbrains.mps.make.script.structure.ResourceType");
   }
 }

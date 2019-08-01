@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,15 +18,15 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ElementaryNodeId__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_m97g4l.ElementaryNodeId_193936e1;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3279d292ec74a708L, "jetbrains.mps.lang.generator.structure.ElementaryNodeId");
 
   public static final SMethod<SNode> create_id39TODbGtcWK = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("create").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("39TODbGtcWK").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<SNode> create_id6UZRahyzeh3 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("create").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6UZRahyzeh3").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SNodeId.class, ""));
@@ -41,12 +42,12 @@ public final class ElementaryNodeId__BehaviorDescriptor extends BaseBHDescriptor
     return ElementaryNodeId__BehaviorDescriptor.create_id6UZRahyzeh3.invoke(__thisConcept__, where, n.getNodeId());
   }
   /*package*/ static SNode create_id6UZRahyzeh3(@NotNull SAbstractConcept __thisConcept__, SModel where, SNodeId nid) {
-    SNode rv = SModelOperations.createNewNode(where, null, AUX_m97g4l.ElementaryNodeId_193936e1);
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3279d292ec74a708L, 0x3279d292ec74a70dL, "nodeId"), nid.toString());
+    SNode rv = SModelOperations.createNewNode(where, null, CONCEPTS.ElementaryNodeId$ix);
+    SPropertyOperations.assign(rv, PROPS.nodeId$9Axs, nid.toString());
     return rv;
   }
   /*package*/ static SNodeId getNodeId_id39TODbGsIdf(@NotNull SNode __thisNode__) {
-    return PersistenceFacade.getInstance().createNodeId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3279d292ec74a708L, 0x3279d292ec74a70dL, "nodeId")));
+    return PersistenceFacade.getInstance().createNodeId(SPropertyOperations.getString(__thisNode__, PROPS.nodeId$9Axs));
   }
   /*package*/ static boolean match_id1si_nSrb46O(@NotNull SNode __thisNode__, SNode n) {
     return n.getNodeId().equals(NodeIdentity__BehaviorDescriptor.getNodeId_id39TODbGsIdf.invoke(__thisNode__));
@@ -104,7 +105,11 @@ public final class ElementaryNodeId__BehaviorDescriptor extends BaseBHDescriptor
     return CONCEPT;
   }
 
-  private static final class AUX_m97g4l {
-    /*package*/ static final SConcept ElementaryNodeId_193936e1 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3279d292ec74a708L, "jetbrains.mps.lang.generator.structure.ElementaryNodeId");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ElementaryNodeId$ix = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3279d292ec74a708L, "jetbrains.mps.lang.generator.structure.ElementaryNodeId");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty nodeId$9Axs = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x3279d292ec74a708L, 0x3279d292ec74a70dL, "nodeId");
   }
 }

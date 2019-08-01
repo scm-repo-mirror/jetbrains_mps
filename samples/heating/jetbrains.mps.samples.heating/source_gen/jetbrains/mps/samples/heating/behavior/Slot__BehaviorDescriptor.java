@@ -4,6 +4,7 @@ package jetbrains.mps.samples.heating.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -24,9 +24,12 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Slot__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dbvuin.Slot_ae41f8e3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
 
   public static final SMethod<SNode> getCustomizedSlot_idNU25Mr18Am = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getCustomizedSlot").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("NU25Mr18Am").build();
   public static final SMethod<Boolean> isCustomizing_idNU25Mr1t4q = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isCustomizing").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("NU25Mr1t4q").build();
@@ -37,22 +40,22 @@ public final class Slot__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode getCustomizedSlot_idNU25Mr18Am(@NotNull final SNode __thisNode__) {
-    SNode dailyPlan = SNodeOperations.as(SNodeOperations.getParent(__thisNode__), AUX_dbvuin.DailyPlan_82e65b88);
+    SNode dailyPlan = SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.DailyPlan$jq);
     if (dailyPlan == null) {
       return null;
     }
 
     SNode found = null;
     List<SNode> visitedPlans = new ArrayList<SNode>();
-    while (found == null && (SLinkOperations.getTarget(dailyPlan, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes")) != null)) {
+    while (found == null && (SLinkOperations.getTarget(dailyPlan, LINKS.customizes$a6Ia) != null)) {
       ListSequence.fromList(visitedPlans).addElement(dailyPlan);
-      dailyPlan = SLinkOperations.getTarget(SLinkOperations.getTarget(dailyPlan, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes")), MetaAdapterFactory.getReferenceLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, 0xcfa085c9af5e831L, "target"));
+      dailyPlan = SLinkOperations.getTarget(SLinkOperations.getTarget(dailyPlan, LINKS.customizes$a6Ia), LINKS.target$bW60);
       if (ListSequence.fromList(visitedPlans).contains(dailyPlan)) {
         return null;
       }
-      found = ListSequence.fromList(SLinkOperations.getChildren(dailyPlan, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x4644aa4ce08aec57L, "items"))).findFirst(new IWhereFilter<SNode>() {
+      found = ListSequence.fromList(SLinkOperations.getChildren(dailyPlan, LINKS.items$MJQp)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SPropertyOperations.getInteger(it, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start")) == SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start"));
+          return SPropertyOperations.getInteger(it, PROPS.start$fZpo) == SPropertyOperations.getInteger(__thisNode__, PROPS.start$fZpo);
         }
       });
     }
@@ -110,8 +113,17 @@ public final class Slot__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_dbvuin {
-    /*package*/ static final SConcept Slot_ae41f8e3 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
-    /*package*/ static final SConcept DailyPlan_82e65b88 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DailyPlan$jq = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink customizes$a6Ia = MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes");
+    /*package*/ static final SReferenceLink target$bW60 = MetaAdapterFactory.getReferenceLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, 0xcfa085c9af5e831L, "target");
+    /*package*/ static final SContainmentLink items$MJQp = MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0x4644aa4ce08aec57L, "items");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty start$fZpo = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start");
   }
 }

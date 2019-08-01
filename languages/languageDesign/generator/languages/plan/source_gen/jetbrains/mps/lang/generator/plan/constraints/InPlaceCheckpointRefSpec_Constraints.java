@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class InPlaceCheckpointRefSpec_Constraints extends BaseConstraintsDescriptor {
   public InPlaceCheckpointRefSpec_Constraints() {
-    super(AUX_we7ldp.InPlaceCheckpointRefSpec_e4d640e7);
+    super(CONCEPTS.InPlaceCheckpointRefSpec$Hr);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb32cL, 0x340cd07aed7cb32fL, "checkpoint"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.checkpoint$LUHD, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,12 +48,12 @@ public class InPlaceCheckpointRefSpec_Constraints extends BaseConstraintsDescrip
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             // reference checkpoint steps with in-place cp declaration only 
-            return new FilteringScope(new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, AUX_we7ldp.Checkpoint_4c7f4192)) {
+            return new FilteringScope(new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, CONCEPTS.Checkpoint$g)) {
               @Override
               public boolean isExcluded(SNode node) {
                 // node == contextNode is neccessary to avoid cycle when there's already a cp step with in-place declaration, 
                 // and we ask for replacement - do not suggest itself as possible replacement, wrapped into InPlaceCheckpointRefSpec 
-                return node == _context.getContextNode() || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.as(node, AUX_we7ldp.Checkpoint_4c7f4192), MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071801L, 0x340cd07aed7cb2d2L, "cpSpec")), AUX_we7ldp.InPlaceCheckpointSpec_e4cad03b));
+                return node == _context.getContextNode() || !(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.as(node, CONCEPTS.Checkpoint$g), LINKS.cpSpec$s3ye), CONCEPTS.InPlaceCheckpointSpec$q7));
               }
             };
           }
@@ -65,9 +66,14 @@ public class InPlaceCheckpointRefSpec_Constraints extends BaseConstraintsDescrip
   }
   private static final SNodePointer breakingNode_we7ldp_a0a0a0a0a1a0a0a0c = new SNodePointer("r:e831e054-7bbb-4c7b-aebf-31582c0dfa61(jetbrains.mps.lang.generator.plan.constraints)", "3750601816081741688");
 
-  private static final class AUX_we7ldp {
-    /*package*/ static final SConcept InPlaceCheckpointRefSpec_e4d640e7 = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb32cL, "jetbrains.mps.lang.generator.plan.structure.InPlaceCheckpointRefSpec");
-    /*package*/ static final SConcept Checkpoint_4c7f4192 = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071801L, "jetbrains.mps.lang.generator.plan.structure.Checkpoint");
-    /*package*/ static final SConcept InPlaceCheckpointSpec_e4cad03b = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7ca161L, "jetbrains.mps.lang.generator.plan.structure.InPlaceCheckpointSpec");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InPlaceCheckpointRefSpec$Hr = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb32cL, "jetbrains.mps.lang.generator.plan.structure.InPlaceCheckpointRefSpec");
+    /*package*/ static final SConcept Checkpoint$g = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071801L, "jetbrains.mps.lang.generator.plan.structure.Checkpoint");
+    /*package*/ static final SConcept InPlaceCheckpointSpec$q7 = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7ca161L, "jetbrains.mps.lang.generator.plan.structure.InPlaceCheckpointSpec");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink checkpoint$LUHD = MetaAdapterFactory.getReferenceLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x340cd07aed7cb32cL, 0x340cd07aed7cb32fL, "checkpoint");
+    /*package*/ static final SContainmentLink cpSpec$s3ye = MetaAdapterFactory.getContainmentLink(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a2071801L, 0x340cd07aed7cb2d2L, "cpSpec");
   }
 }

@@ -25,7 +25,7 @@ public class typeof_SubstituteMenuItem_DescriptionText_Operation_InferenceRule e
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4b587l.SubstituteMenuItem_DescriptionText_Operation_a4a93af3;
+    return CONCEPTS.SubstituteMenuItem_DescriptionText_Operation$bf;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_SubstituteMenuItem_DescriptionText_Operation_InferenceRule e
     return quotedNode_1;
   }
 
-  private static final class AUX_4b587l {
-    /*package*/ static final SConcept SubstituteMenuItem_DescriptionText_Operation_a4a93af3 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1507ac9L, "jetbrains.mps.lang.editor.structure.SubstituteMenuItem_DescriptionText_Operation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstituteMenuItem_DescriptionText_Operation$bf = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1507ac9L, "jetbrains.mps.lang.editor.structure.SubstituteMenuItem_DescriptionText_Operation");
   }
 }

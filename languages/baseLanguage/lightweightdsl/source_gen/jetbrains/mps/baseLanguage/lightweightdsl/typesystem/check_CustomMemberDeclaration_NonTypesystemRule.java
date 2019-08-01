@@ -20,7 +20,7 @@ public class check_CustomMemberDeclaration_NonTypesystemRule extends AbstractNon
     CheckUtil.checkCustomMemberConcept(typeCheckingContext, md, SNodeOperations.getNode("c7d5b9dd-a05f-4be2-bc73-f2e16994cc67/r:7cc2086d-c7d0-49c7-811c-ebbaf40d9195(jetbrains.mps.lang.classLike/jetbrains.mps.baseLanguage.lightweightdsl.structure)", "6478870542308708729"));
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_e60o6d.CustomMemberDescriptor_739898b0;
+    return CONCEPTS.CustomMemberDescriptor$MM;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -29,7 +29,7 @@ public class check_CustomMemberDeclaration_NonTypesystemRule extends AbstractNon
     return false;
   }
 
-  private static final class AUX_e60o6d {
-    /*package*/ static final SConcept CustomMemberDescriptor_739898b0 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044805d9cL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.CustomMemberDescriptor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CustomMemberDescriptor$MM = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044805d9cL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.CustomMemberDescriptor");
   }
 }

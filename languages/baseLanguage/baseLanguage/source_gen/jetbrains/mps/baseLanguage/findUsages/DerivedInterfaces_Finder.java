@@ -16,11 +16,12 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DerivedInterfaces_Finder extends GeneratedFinder {
   public DerivedInterfaces_Finder() {
@@ -35,7 +36,7 @@ public class DerivedInterfaces_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_6acckn.Interface_bca2069;
+    return CONCEPTS.Interface$Kp;
   }
 
   @Override
@@ -51,8 +52,8 @@ public class DerivedInterfaces_Finder extends GeneratedFinder {
             SNode nodeParam = (SNode) searchResult.getObject();
             new _FunctionTypes._void_P1_E0<SNode>() {
               public void invoke(SNode nodeUsage) {
-                if (SNodeOperations.hasRole(nodeUsage, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, 0x101eddadad7L, "extendedInterface"))) {
-                  SNode foundIntfc = SNodeOperations.cast(SNodeOperations.getParent(nodeUsage), AUX_6acckn.Interface_bca2069);
+                if (SNodeOperations.hasRole(nodeUsage, LINKS.extendedInterface$rbvY)) {
+                  SNode foundIntfc = SNodeOperations.cast(SNodeOperations.getParent(nodeUsage), CONCEPTS.Interface$Kp);
                   callback.onUsageFound(createSingleResult(foundIntfc));
                   QueueSequence.fromQueue(queue).addLastElement(foundIntfc);
                 }
@@ -77,7 +78,11 @@ public class DerivedInterfaces_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1200310287391");
   }
 
-  private static final class AUX_6acckn {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink extendedInterface$rbvY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, 0x101eddadad7L, "extendedInterface");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -16,18 +17,19 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.unitTest.behavior.ITestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class NodesTestCase__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_jdiy4a.NodesTestCase_fd5a0bf4;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
 
   public static final SMethod<List<SNode>> getTestSet_idhGB2z8L = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getTestSet").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hGB2z8L").build();
   public static final SMethod<Boolean> isMpsStartRequired_id2RMg39tmiFh = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isMpsStartRequired").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2RMg39tmiFh").build();
@@ -43,10 +45,10 @@ public final class NodesTestCase__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static List<SNode> getTestSet_idhGB2z8L(@NotNull SNode __thisNode__) {
     List<SNode> result = new ArrayList<SNode>();
-    for (SNode method : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, 0x11b78c499b5L, "testMethods")))) {
+    for (SNode method : ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.testMethods$jorf))) {
       ListSequence.fromList(result).addElement(method);
     }
-    for (SNode operation : ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, AUX_jdiy4a.INodesTestMethod_40438e0e, false, new SAbstractConcept[]{}))) {
+    for (SNode operation : ListSequence.fromList(SNodeOperations.getNodeDescendants(__thisNode__, CONCEPTS.INodesTestMethod$ck, false, new SAbstractConcept[]{}))) {
       ListSequence.fromList(result).addElement(operation);
     }
     return result;
@@ -58,13 +60,13 @@ public final class NodesTestCase__BehaviorDescriptor extends BaseBHDescriptor {
     return ITestCase__BehaviorDescriptor.getTestSet_idhGB2z8L.invoke(__thisNode__);
   }
   /*package*/ static boolean isIntentionApplicable_idhHDM9no(@NotNull SAbstractConcept __thisConcept__, SNode node) {
-    return (SNodeOperations.getNodeAncestor(node, AUX_jdiy4a.TestNode_e633d16, false, false) != null);
+    return (SNodeOperations.getNodeAncestor(node, CONCEPTS.TestNode$kc, false, false) != null);
   }
   /*package*/ static String getTestBodyName_idhOw0ICJ(@NotNull SAbstractConcept __thisConcept__) {
     return "TestBody";
   }
   /*package*/ static boolean needsWriteAction_id5vTxdEzuQjU(@NotNull SNode __thisNode__) {
-    return !(SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, 0x57f984daa37add4aL, "needsNoWriteAction")));
+    return !(SPropertyOperations.getBoolean(__thisNode__, PROPS.needsNoWriteAction$$Gzc));
   }
 
   /*package*/ NodesTestCase__BehaviorDescriptor() {
@@ -123,9 +125,16 @@ public final class NodesTestCase__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_jdiy4a {
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
-    /*package*/ static final SInterfaceConcept INodesTestMethod_40438e0e = MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1510445f8a2c272dL, "jetbrains.mps.lang.test.structure.INodesTestMethod");
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink testMethods$jorf = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, 0x11b78c499b5L, "testMethods");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INodesTestMethod$ck = MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x1510445f8a2c272dL, "jetbrains.mps.lang.test.structure.INodesTestMethod");
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty needsNoWriteAction$$Gzc = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, 0x57f984daa37add4aL, "needsNoWriteAction");
   }
 }

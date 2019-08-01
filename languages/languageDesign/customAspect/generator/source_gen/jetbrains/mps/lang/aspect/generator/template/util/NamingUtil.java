@@ -5,20 +5,25 @@ package jetbrains.mps.lang.aspect.generator.template.util;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class NamingUtil {
   public static String getDescriptorName(SNode aspect) {
-    return NameUtil.capitalize(SPropertyOperations.getString(aspect, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) + "Descriptor";
+    return NameUtil.capitalize(SPropertyOperations.getString(aspect, PROPS.name$tAp1)) + "Descriptor";
   }
 
   public static SNode getAspectDescriptor(SNode generator) {
-    return SNodeOperations.getNodeAncestor(generator, AUX_afbd5x.SimpleLanguageAspectDescriptor_fcfbfa89, false, false);
+    return SNodeOperations.getNodeAncestor(generator, CONCEPTS.SimpleLanguageAspectDescriptor$nT, false, false);
   }
 
-  private static final class AUX_afbd5x {
-    /*package*/ static final SConcept SimpleLanguageAspectDescriptor_fcfbfa89 = MetaAdapterFactory.getConcept(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x2fa4a8cdf0c9b076L, "jetbrains.mps.lang.aspect.structure.SimpleLanguageAspectDescriptor");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleLanguageAspectDescriptor$nT = MetaAdapterFactory.getConcept(0xf159adf43c9340f9L, 0x9c5a1f245a8697afL, 0x2fa4a8cdf0c9b076L, "jetbrains.mps.lang.aspect.structure.SimpleLanguageAspectDescriptor");
   }
 }

@@ -17,19 +17,20 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class OverridingMethods_Finder extends GeneratedFinder {
   public OverridingMethods_Finder() {
   }
   public boolean isVisible(SNode node, SearchScope scope) {
     if ((boolean) ConceptMethodDeclaration__BehaviorDescriptor.isVirtual_id6WSEafdhbZX.invoke(node) || (boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(node)) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_q3vu7y.ConceptBehavior_68ebe6cd);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.ConceptBehavior$8P);
     }
     return false;
   }
@@ -47,12 +48,12 @@ public class OverridingMethods_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_q3vu7y.ConceptMethodDeclaration_6c80ca4f;
+    return CONCEPTS.ConceptMethodDeclaration$VN;
   }
   @Override
   public boolean isApplicable(SNode node) {
     if ((boolean) ConceptMethodDeclaration__BehaviorDescriptor.isVirtual_id6WSEafdhbZX.invoke(node) || (boolean) BaseMethodDeclaration__BehaviorDescriptor.isAnAbstractMethod_id28P2dHxCoRl.invoke(node)) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_q3vu7y.ConceptBehavior_68ebe6cd);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.ConceptBehavior$8P);
     }
     return false;
   }
@@ -66,7 +67,7 @@ public class OverridingMethods_Finder extends GeneratedFinder {
           SNode nodeParam = (SNode) searchResult.getObject();
           new _FunctionTypes._void_P1_E0<SNode>() {
             public void invoke(SNode candidate) {
-              if (SNodeOperations.isInstanceOf(candidate, AUX_q3vu7y.ConceptMethodDeclaration_6c80ca4f) && SLinkOperations.getTarget(SNodeOperations.cast(candidate, AUX_q3vu7y.ConceptMethodDeclaration_6c80ca4f), MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d4348057fL, "overriddenMethod")) == ConceptMethodDeclaration__BehaviorDescriptor.getOverridenMethod_idhP3pnNO.invoke(node)) {
+              if (SNodeOperations.isInstanceOf(candidate, CONCEPTS.ConceptMethodDeclaration$VN) && SLinkOperations.getTarget(SNodeOperations.cast(candidate, CONCEPTS.ConceptMethodDeclaration$VN), LINKS.overriddenMethod$6dmw) == ConceptMethodDeclaration__BehaviorDescriptor.getOverridenMethod_idhP3pnNO.invoke(node)) {
 
                 callback.onUsageFound(createSingleResult(candidate));
                 FindUtils.searchForResults(new EmptyProgressMonitor(), new IFinder.FindCallback() {
@@ -99,8 +100,12 @@ public class OverridingMethods_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1227530810320");
   }
 
-  private static final class AUX_q3vu7y {
-    /*package*/ static final SConcept ConceptBehavior_68ebe6cd = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptBehavior$8P = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink overriddenMethod$6dmw = MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d4348057fL, "overriddenMethod");
   }
 }

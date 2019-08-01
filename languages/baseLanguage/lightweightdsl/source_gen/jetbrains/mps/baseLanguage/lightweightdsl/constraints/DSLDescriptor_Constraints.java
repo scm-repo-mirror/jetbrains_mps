@@ -20,7 +20,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.scope.FilteringScope;
 import jetbrains.mps.lang.structure.constraints.Scopes;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -28,10 +27,11 @@ import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__Behavio
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class DSLDescriptor_Constraints extends BaseConstraintsDescriptor {
   public DSLDescriptor_Constraints() {
-    super(AUX_664l29.DSLDescriptor_799dc12a);
+    super(CONCEPTS.DSLDescriptor$dS);
   }
 
   @Override
@@ -46,7 +46,7 @@ public class DSLDescriptor_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), true, AUX_664l29.DSLDescriptor_799dc12a);
+            return new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), true, CONCEPTS.DSLDescriptor$dS);
           }
         };
       }
@@ -54,7 +54,7 @@ public class DSLDescriptor_Constraints extends BaseConstraintsDescriptor {
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.preferredConcept$ybbQ, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -69,13 +69,13 @@ public class DSLDescriptor_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return new FilteringScope(Scopes.forConcepts(_context.getContextNode(), AUX_664l29.AbstractConceptDeclaration_ec74828f)) {
+            return new FilteringScope(Scopes.forConcepts(_context.getContextNode(), CONCEPTS.AbstractConceptDeclaration$UN)) {
               @Override
               public boolean isExcluded(SNode node) {
-                if (!(SNodeOperations.isInstanceOf(node, AUX_664l29.AbstractConceptDeclaration_ec74828f))) {
+                if (!(SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractConceptDeclaration$UN))) {
                   return false;
                 }
-                return !(((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SNodeOperations.cast(node, AUX_664l29.AbstractConceptDeclaration_ec74828f), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)", "1068390468198"))));
+                return !(((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SNodeOperations.cast(node, CONCEPTS.AbstractConceptDeclaration$UN), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)", "1068390468198"))));
               }
             };
           }
@@ -89,8 +89,12 @@ public class DSLDescriptor_Constraints extends BaseConstraintsDescriptor {
   private static final SNodePointer breakingNode_664l29_a0a0a0a0a0a0a0a2 = new SNodePointer("c7d5b9dd-a05f-4be2-bc73-f2e16994cc67/r:686da497-9d31-49eb-a30e-63814e3d3c62(jetbrains.mps.lang.classLike/jetbrains.mps.baseLanguage.lightweightdsl.constraints)", "6836281137582776196");
   private static final SNodePointer breakingNode_664l29_a0a0a0a0a1a0a0a0d = new SNodePointer("c7d5b9dd-a05f-4be2-bc73-f2e16994cc67/r:686da497-9d31-49eb-a30e-63814e3d3c62(jetbrains.mps.lang.classLike/jetbrains.mps.baseLanguage.lightweightdsl.constraints)", "6836281137582776207");
 
-  private static final class AUX_664l29 {
-    /*package*/ static final SConcept DSLDescriptor_799dc12a = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLDescriptor");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DSLDescriptor$dS = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLDescriptor");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink preferredConcept$ybbQ = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept");
   }
 }

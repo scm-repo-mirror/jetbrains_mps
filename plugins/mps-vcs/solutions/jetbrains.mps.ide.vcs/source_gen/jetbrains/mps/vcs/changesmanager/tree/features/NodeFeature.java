@@ -8,9 +8,10 @@ import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NodeFeature extends AbstractNodeFeature {
   public NodeFeature(SNodeReference nodePointer) {
@@ -22,7 +23,7 @@ public class NodeFeature extends AbstractNodeFeature {
     SNode node = getNodePointer().resolve(repo);
     SNode parentNode = SNodeOperations.getParent(node);
     if (parentNode == null) {
-      String virtualPackage = SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"));
+      String virtualPackage = SPropertyOperations.getString(node, PROPS.virtualPackage$j19t);
       if ((virtualPackage == null || virtualPackage.length() == 0)) {
         return null;
       } else {
@@ -35,5 +36,9 @@ public class NodeFeature extends AbstractNodeFeature {
   @NotNull
   public String toString() {
     return "Node {" + getNodePointerString() + "}";
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

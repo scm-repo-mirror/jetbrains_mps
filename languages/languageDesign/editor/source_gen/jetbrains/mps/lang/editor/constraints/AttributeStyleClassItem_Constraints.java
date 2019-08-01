@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -32,15 +31,16 @@ import jetbrains.mps.scope.ModelsScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class AttributeStyleClassItem_Constraints extends BaseConstraintsDescriptor {
   public AttributeStyleClassItem_Constraints() {
-    super(AUX_ydnl2u.AttributeStyleClassItem_5587c35d);
+    super(CONCEPTS.AttributeStyleClassItem$u_);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9eae0a402L, 0x3744c0f9eae0b8d3L, "attribute"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.attribute$g2fs, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -76,7 +76,7 @@ public class AttributeStyleClassItem_Constraints extends BaseConstraintsDescript
                 ListSequence.fromList(models).addElement(editorAspectModel);
               }
             }
-            return new ModelsScope(models, false, AUX_ydnl2u.StyleAttributeDeclaration_1da87a6a);
+            return new ModelsScope(models, false, CONCEPTS.StyleAttributeDeclaration$8S);
           }
         };
       }
@@ -87,8 +87,12 @@ public class AttributeStyleClassItem_Constraints extends BaseConstraintsDescript
   }
   private static final SNodePointer breakingNode_ydnl2u_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "6836281137582785604");
 
-  private static final class AUX_ydnl2u {
-    /*package*/ static final SConcept AttributeStyleClassItem_5587c35d = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9eae0a402L, "jetbrains.mps.lang.editor.structure.AttributeStyleClassItem");
-    /*package*/ static final SConcept StyleAttributeDeclaration_1da87a6a = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9ea5367ebL, "jetbrains.mps.lang.editor.structure.StyleAttributeDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AttributeStyleClassItem$u_ = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9eae0a402L, "jetbrains.mps.lang.editor.structure.AttributeStyleClassItem");
+    /*package*/ static final SConcept StyleAttributeDeclaration$8S = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9ea5367ebL, "jetbrains.mps.lang.editor.structure.StyleAttributeDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink attribute$g2fs = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3744c0f9eae0a402L, 0x3744c0f9eae0b8d3L, "attribute");
   }
 }

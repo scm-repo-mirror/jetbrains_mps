@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -21,15 +20,17 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_UnusedPrivateClassifier_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_UnusedPrivateClassifier_NonTypesystemRule() {
   }
   public void applyRule(final SNode classifier, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(classifier, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_kryfz9.PrivateVisibility_63f5dbd4)) {
-      if (!(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(classifier), AUX_kryfz9.BaseConcept_bc2351f, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(classifier, LINKS.visibility$2GiC), CONCEPTS.PrivateVisibility$Se)) {
+      if (!(ListSequence.fromList(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(classifier), CONCEPTS.BaseConcept$Sz, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SNodeOperations.getNodeAncestors(it, AUX_kryfz9.SingleLineComment_36a4c8f4, false)).isEmpty();
+          return ListSequence.fromList(SNodeOperations.getNodeAncestors(it, CONCEPTS.SingleLineComment$jI, false)).isEmpty();
         }
       }).translate(new ITranslator2<SNode, SReference>() {
         public Iterable<SReference> translate(SNode it) {
@@ -37,7 +38,7 @@ public class check_UnusedPrivateClassifier_NonTypesystemRule extends AbstractNon
         }
       }).any(new IWhereFilter<SReference>() {
         public boolean accept(SReference it) {
-          return Objects.equals(SLinkOperations.getTargetNode(it), classifier) || ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTargetNode(it), AUX_kryfz9.Classifier_4b7e553, false)).any(new IWhereFilter<SNode>() {
+          return Objects.equals(SLinkOperations.getTargetNode(it), classifier) || ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTargetNode(it), CONCEPTS.Classifier$hJ, false)).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
               return Objects.equals(it, classifier);
             }
@@ -45,11 +46,11 @@ public class check_UnusedPrivateClassifier_NonTypesystemRule extends AbstractNon
         }
       }))) {
         String msg;
-        if (SNodeOperations.isInstanceOf(classifier, AUX_kryfz9.EnumClass_acf68fc0)) {
+        if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.EnumClass$uy)) {
           msg = "Enum";
-        } else if (SNodeOperations.isInstanceOf(classifier, AUX_kryfz9.ClassConcept_e2711824)) {
+        } else if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.ClassConcept$IY)) {
           msg = "Class";
-        } else if (SNodeOperations.isInstanceOf(classifier, AUX_kryfz9.Interface_bca2069)) {
+        } else if (SNodeOperations.isInstanceOf(classifier, CONCEPTS.Interface$Kp)) {
           msg = "Interface";
         } else {
           msg = "Classifier";
@@ -68,7 +69,7 @@ public class check_UnusedPrivateClassifier_NonTypesystemRule extends AbstractNon
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_kryfz9.Classifier_4b7e553;
+    return CONCEPTS.Classifier$hJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -77,13 +78,17 @@ public class check_UnusedPrivateClassifier_NonTypesystemRule extends AbstractNon
     return false;
   }
 
-  private static final class AUX_kryfz9 {
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept SingleLineComment_36a4c8f4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept PrivateVisibility_63f5dbd4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept SingleLineComment$jI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3aL, "jetbrains.mps.baseLanguage.structure.SingleLineComment");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept PrivateVisibility$Se = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
   }
 }

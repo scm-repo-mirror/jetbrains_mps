@@ -14,9 +14,10 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Option_makeDefault_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -46,12 +47,12 @@ public final class Option_makeDefault_Intention extends AbstractIntentionDescrip
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (SNodeOperations.getIndexInParent(node) != SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getParent(node), AUX_wrcx2j.ExpectedOption_bdc41f58), MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, 0x3318e2a89ff0296cL, "defaultOption")) ? "Make default" : "Make not default");
+      return (SNodeOperations.getIndexInParent(node) != SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.ExpectedOption$Ga), PROPS.defaultOption$57Ad) ? "Make default" : "Make not default");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      boolean makeDefault = SNodeOperations.getIndexInParent(node) != SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getParent(node), AUX_wrcx2j.ExpectedOption_bdc41f58), MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, 0x3318e2a89ff0296cL, "defaultOption"));
-      SPropertyOperations.assign(SNodeOperations.as(SNodeOperations.getParent(node), AUX_wrcx2j.ExpectedOption_bdc41f58), MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, 0x3318e2a89ff0296cL, "defaultOption"), (makeDefault ? SNodeOperations.getIndexInParent(node) : -1));
+      boolean makeDefault = SNodeOperations.getIndexInParent(node) != SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.ExpectedOption$Ga), PROPS.defaultOption$57Ad);
+      SPropertyOperations.assign(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.ExpectedOption$Ga), PROPS.defaultOption$57Ad, (makeDefault ? SNodeOperations.getIndexInParent(node) : -1));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -59,7 +60,11 @@ public final class Option_makeDefault_Intention extends AbstractIntentionDescrip
     }
   }
 
-  private static final class AUX_wrcx2j {
-    /*package*/ static final SConcept ExpectedOption_bdc41f58 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, "jetbrains.mps.make.script.structure.ExpectedOption");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExpectedOption$Ga = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, "jetbrains.mps.make.script.structure.ExpectedOption");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty defaultOption$57Ad = MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, 0x3318e2a89ff0296cL, "defaultOption");
   }
 }

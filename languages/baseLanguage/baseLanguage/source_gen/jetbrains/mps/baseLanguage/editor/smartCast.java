@@ -23,21 +23,24 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.baseLanguage.actions.ExpectedType_FactoryUtil;
 import jetbrains.mps.baseLanguage.actions.PrecedenceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class smartCast extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nkius4_a(), AUX_nkius4.Expression_4199e28d));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nkius4_b(), AUX_nkius4.Expression_4199e28d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nkius4_a(), CONCEPTS.Expression$TP));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nkius4_b(), CONCEPTS.Expression$TP));
     return result;
   }
 
@@ -82,7 +85,7 @@ public class smartCast extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_nkius4.Expression_4199e28d, context);
+        super(CONCEPTS.Expression$TP, context);
         _context = context;
       }
 
@@ -93,21 +96,21 @@ public class smartCast extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        if (!(SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d))) {
-          return SNodeFactoryOperations.createNewNode(AUX_nkius4.CastExpression_6a411f0c, null);
+        if (!(SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP))) {
+          return SNodeFactoryOperations.createNewNode(CONCEPTS.CastExpression$7m, null);
         }
-        SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d));
+        SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP));
         SNode castType = null;
         if ((originalExpression != null)) {
-          castType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(originalExpression, AUX_nkius4.Expression_4199e28d));
+          castType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(originalExpression, CONCEPTS.Expression$TP));
         }
-        if (SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_nkius4.Expression_4199e28d) && !(SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_nkius4.ParenthesizedExpression_a4b89678))) {
+        if (SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.Expression$TP) && !(SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.ParenthesizedExpression$vE))) {
           SNode p = _quotation_createNode_nkius4_a0a0e0a0(SNodeOperations.copyNode(castType), SNodeOperations.copyNode(_context.getCurrentTargetNode()));
-          PrecedenceUtil.parenthesiseIfNecessary(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(p, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression")), AUX_nkius4.CastExpression_6a411f0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")));
+          PrecedenceUtil.parenthesiseIfNecessary(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(p, LINKS.expression$4_F0), CONCEPTS.CastExpression$7m), LINKS.expression$8QPv));
           return p;
         } else {
           SNode c = _quotation_createNode_nkius4_a0a0a4a0a(SNodeOperations.copyNode(castType), SNodeOperations.copyNode(_context.getCurrentTargetNode()));
-          PrecedenceUtil.parenthesiseIfNecessary(SLinkOperations.getTarget(c, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")));
+          PrecedenceUtil.parenthesiseIfNecessary(SLinkOperations.getTarget(c, LINKS.expression$8QPv));
           return c;
         }
       }
@@ -119,12 +122,12 @@ public class smartCast extends SubstituteMenuBase {
       @Nullable
       @Override
       public String getMatchingText(@NotNull String pattern) {
-        return AUX_nkius4.CastExpression_6a411f0c.getConceptAlias();
+        return CONCEPTS.CastExpression$7m.getConceptAlias();
       }
       @Nullable
       @Override
       public String getDescriptionText(@NotNull String pattern) {
-        return AUX_nkius4.CastExpression_6a411f0c.getShortDescription();
+        return CONCEPTS.CastExpression$7m.getShortDescription();
       }
     }
   }
@@ -156,7 +159,7 @@ public class smartCast extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_nkius4.Expression_4199e28d, context);
+        super(CONCEPTS.Expression$TP, context);
         _context = context;
       }
 
@@ -167,28 +170,28 @@ public class smartCast extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode cast = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_nkius4.CastExpression_6a411f0c, null);
-        SNode parens = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_nkius4.ParenthesizedExpression_a4b89678, null);
-        SLinkOperations.setTarget(parens, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), cast);
+        SNode cast = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.CastExpression$7m, null);
+        SNode parens = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.ParenthesizedExpression$vE, null);
+        SLinkOperations.setTarget(parens, LINKS.expression$4_F0, cast);
         SNode instanceOf = ExpectedType_FactoryUtil.getCorrespondingInstanceOf((_context.getCurrentTargetNode() != null && SNodeOperations.getParent(_context.getCurrentTargetNode()) == _context.getParentNode() ? _context.getCurrentTargetNode() : _context.getParentNode()));
         if ((instanceOf != null)) {
-          SLinkOperations.setTarget(cast, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4bL, "type"), SNodeOperations.copyNode(SLinkOperations.getTarget(instanceOf, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06219L, "classType"))));
-          SLinkOperations.setTarget(cast, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression"), (_context.getCurrentTargetNode() == null || SNodeOperations.getConcept(_context.getCurrentTargetNode()).isAbstract() ? SNodeOperations.copyNode(SLinkOperations.getTarget(instanceOf, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression"))) : null));
-          if ((SLinkOperations.getTarget(cast, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression")) == null) && SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d)) {
-            SLinkOperations.setTarget(cast, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression"), SNodeOperations.copyNode(_context.getCurrentTargetNode()));
+          SLinkOperations.setTarget(cast, LINKS.type$8QP0, SNodeOperations.copyNode(SLinkOperations.getTarget(instanceOf, LINKS.classType$zxNQ)));
+          SLinkOperations.setTarget(cast, LINKS.expression$8QPv, (_context.getCurrentTargetNode() == null || SNodeOperations.getConcept(_context.getCurrentTargetNode()).isAbstract() ? SNodeOperations.copyNode(SLinkOperations.getTarget(instanceOf, LINKS.leftExpression$zxNn)) : null));
+          if ((SLinkOperations.getTarget(cast, LINKS.expression$8QPv) == null) && SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP)) {
+            SLinkOperations.setTarget(cast, LINKS.expression$8QPv, SNodeOperations.copyNode(_context.getCurrentTargetNode()));
           }
-        } else if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d)) {
-          SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d));
+        } else if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP)) {
+          SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP));
           if ((originalExpression != null)) {
-            SNode castType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d));
+            SNode castType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP));
             if (castType != null) {
-              SLinkOperations.setTarget(cast, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4bL, "type"), castType);
+              SLinkOperations.setTarget(cast, LINKS.type$8QP0, castType);
             }
           }
 
-          SLinkOperations.setTarget(cast, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression"), SNodeOperations.copyNode(_context.getCurrentTargetNode()));
+          SLinkOperations.setTarget(cast, LINKS.expression$8QPv, SNodeOperations.copyNode(_context.getCurrentTargetNode()));
         }
-        SNode expr = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(parens, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression")), AUX_nkius4.CastExpression_6a411f0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression"));
+        SNode expr = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(parens, LINKS.expression$4_F0), CONCEPTS.CastExpression$7m), LINKS.expression$8QPv);
         if (expr != null) {
           PrecedenceUtil.parenthesiseIfNecessary(expr);
         }
@@ -208,18 +211,18 @@ public class smartCast extends SubstituteMenuBase {
           SNode instanceOf = ExpectedType_FactoryUtil.getCorrespondingInstanceOf((_context.getCurrentTargetNode() != null && SNodeOperations.getParent(_context.getCurrentTargetNode()) == _context.getParentNode() ? _context.getCurrentTargetNode() : _context.getParentNode()));
           SNode var;
           if (instanceOf != null) {
-            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(instanceOf, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06219L, "classType")), AUX_nkius4.ClassifierType_42700403)) {
-              typeName = BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SNodeOperations.cast(SLinkOperations.getTarget(instanceOf, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06219L, "classType")), AUX_nkius4.ClassifierType_42700403));
+            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(instanceOf, LINKS.classType$zxNQ), CONCEPTS.ClassifierType$IZ)) {
+              typeName = BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SNodeOperations.cast(SLinkOperations.getTarget(instanceOf, LINKS.classType$zxNQ), CONCEPTS.ClassifierType$IZ));
             }
-            var = (_context.getCurrentTargetNode() == null || SNodeOperations.getConcept(_context.getCurrentTargetNode()).isAbstract() ? SLinkOperations.getTarget(instanceOf, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression")) : _context.getCurrentTargetNode());
+            var = (_context.getCurrentTargetNode() == null || SNodeOperations.getConcept(_context.getCurrentTargetNode()).isAbstract() ? SLinkOperations.getTarget(instanceOf, LINKS.leftExpression$zxNn) : _context.getCurrentTargetNode());
           } else {
-            if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d)) {
-              SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d));
+            if (SNodeOperations.isInstanceOf(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP)) {
+              SNode originalExpression = ExpectedType_FactoryUtil.getOriginalExpression(_context.getParentNode(), SNodeOperations.cast(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP));
               if ((originalExpression != null)) {
-                SNode castType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(_context.getCurrentTargetNode(), AUX_nkius4.Expression_4199e28d));
+                SNode castType = ExpectedType_FactoryUtil.createExpectedType(SNodeOperations.cast(_context.getCurrentTargetNode(), CONCEPTS.Expression$TP));
                 if (castType != null) {
-                  if (SNodeOperations.isInstanceOf(castType, AUX_nkius4.ClassifierType_42700403)) {
-                    typeName = BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke((SNodeOperations.cast(castType, AUX_nkius4.ClassifierType_42700403)));
+                  if (SNodeOperations.isInstanceOf(castType, CONCEPTS.ClassifierType$IZ)) {
+                    typeName = BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke((SNodeOperations.cast(castType, CONCEPTS.ClassifierType$IZ)));
                   } else {
                     typeName = SConceptOperations.conceptAlias(SNodeOperations.getConcept(castType));
                   }
@@ -229,10 +232,10 @@ public class smartCast extends SubstituteMenuBase {
 
             var = _context.getCurrentTargetNode();
           }
-          if ((SNodeOperations.isInstanceOf(var, AUX_nkius4.VariableReference_24d60dac) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(var, AUX_nkius4.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_nkius4.LocalVariableDeclaration_d47683f3))) {
-            varName = SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(var, AUX_nkius4.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-          } else if ((SNodeOperations.isInstanceOf(var, AUX_nkius4.VariableReference_24d60dac) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(var, AUX_nkius4.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_nkius4.ParameterDeclaration_24d60da8))) {
-            varName = SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(var, AUX_nkius4.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          if ((SNodeOperations.isInstanceOf(var, CONCEPTS.VariableReference$sQ) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(var, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.LocalVariableDeclaration$Bf))) {
+            varName = SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(var, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), PROPS.name$tAp1);
+          } else if ((SNodeOperations.isInstanceOf(var, CONCEPTS.VariableReference$sQ) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(var, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.ParameterDeclaration$qU))) {
+            varName = SPropertyOperations.getString(SLinkOperations.getTarget(SNodeOperations.cast(var, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), PROPS.name$tAp1);
           }
           return "((" + typeName + ")" + varName + ")";
         }
@@ -256,13 +259,13 @@ public class smartCast extends SubstituteMenuBase {
     quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940dabe4aL, "CastExpression"), null, null, false);
     quotedNode_5 = (SNode) parameter_1;
     if (quotedNode_5 != null) {
-      quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4bL, "type"), SNodeOperations.copyIfNecessary(quotedNode_5));
+      quotedNode_4.addChild(LINKS.type$8QP0, SNodeOperations.copyIfNecessary(quotedNode_5));
     }
     quotedNode_6 = (SNode) parameter_2;
     if (quotedNode_6 != null) {
-      quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression"), SNodeOperations.copyIfNecessary(quotedNode_6));
+      quotedNode_4.addChild(LINKS.expression$8QPv, SNodeOperations.copyIfNecessary(quotedNode_6));
     }
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), quotedNode_4);
+    quotedNode_3.addChild(LINKS.expression$4_F0, quotedNode_4);
     return quotedNode_3;
   }
   private static SNode _quotation_createNode_nkius4_a0a0a4a0a(Object parameter_1, Object parameter_2) {
@@ -273,22 +276,35 @@ public class smartCast extends SubstituteMenuBase {
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940dabe4aL, "CastExpression"), null, null, false);
     quotedNode_4 = (SNode) parameter_1;
     if (quotedNode_4 != null) {
-      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4bL, "type"), SNodeOperations.copyIfNecessary(quotedNode_4));
+      quotedNode_3.addChild(LINKS.type$8QP0, SNodeOperations.copyIfNecessary(quotedNode_4));
     }
     quotedNode_5 = (SNode) parameter_2;
     if (quotedNode_5 != null) {
-      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression"), SNodeOperations.copyIfNecessary(quotedNode_5));
+      quotedNode_3.addChild(LINKS.expression$8QPv, SNodeOperations.copyIfNecessary(quotedNode_5));
     }
     return quotedNode_3;
   }
 
-  private static final class AUX_nkius4 {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept CastExpression_6a411f0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept CastExpression$7m = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, "jetbrains.mps.baseLanguage.structure.CastExpression");
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SContainmentLink expression$8QPv = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4cL, "expression");
+    /*package*/ static final SContainmentLink type$8QP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940dabe4aL, 0xf940dabe4bL, "type");
+    /*package*/ static final SContainmentLink classType$zxNQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06219L, "classType");
+    /*package*/ static final SContainmentLink leftExpression$zxNn = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression");
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

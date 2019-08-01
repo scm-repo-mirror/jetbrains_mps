@@ -31,6 +31,7 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ReportFeedbackStatement_subs extends SubstituteMenuBase {
   @NotNull
@@ -57,7 +58,7 @@ public class ReportFeedbackStatement_subs extends SubstituteMenuBase {
   public class SMP_Group_hskkdq_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_hskkdq.JobDefinition_b2a5a9c8, false, false) != null);
+      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.JobDefinition$Uq, false, false) != null);
     }
     @NotNull
     @Override
@@ -73,7 +74,7 @@ public class ReportFeedbackStatement_subs extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_hskkdq_a.SMP_Param_hskkdq_a0(), AUX_hskkdq.ReportFeedbackStatement_f1550a97));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_hskkdq_a.SMP_Param_hskkdq_a0(), CONCEPTS.ReportFeedbackStatement$uF));
     }
     private class SMP_Param_hskkdq_a0 extends ParameterizedMenuPart<SEnumerationLiteral, SubstituteMenuItem, SubstituteMenuContext> {
       @NotNull
@@ -130,7 +131,7 @@ public class ReportFeedbackStatement_subs extends SubstituteMenuBase {
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_hskkdq.ReportFeedbackStatement_f1550a97, context);
+            super(CONCEPTS.ReportFeedbackStatement$uF, context);
             _context = context;
           }
 
@@ -150,7 +151,7 @@ public class ReportFeedbackStatement_subs extends SubstituteMenuBase {
           }
           @NotNull
           protected CompletionItemInformation createInformation(String pattern) {
-            return new CompletionItemInformation(myParameterObject, AUX_hskkdq.ReportFeedbackStatement_f1550a97, getMatchingText(pattern), getDescriptionText(pattern));
+            return new CompletionItemInformation(myParameterObject, CONCEPTS.ReportFeedbackStatement$uF, getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -179,12 +180,16 @@ public class ReportFeedbackStatement_subs extends SubstituteMenuBase {
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, "jetbrains.mps.make.script"), 0x32eac1b57fc1b828L, "ReportFeedbackStatement"), null, null, false);
     SNodeAccessUtil.setPropertyValue(quotedNode_2, MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x32eac1b57fc1b828L, 0x32eac1b57fc1b82eL, "feedback"), (SEnumerationLiteral) parameter_1);
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c37f506fL, "Expression"), null, null, false);
-    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x32eac1b57fc1b828L, 0x32eac1b57fc1c3e8L, "message"), quotedNode_3);
+    quotedNode_2.addChild(LINKS.message$MMy7, quotedNode_3);
     return quotedNode_2;
   }
 
-  private static final class AUX_hskkdq {
-    /*package*/ static final SConcept JobDefinition_b2a5a9c8 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a972dabL, "jetbrains.mps.make.script.structure.JobDefinition");
-    /*package*/ static final SConcept ReportFeedbackStatement_f1550a97 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x32eac1b57fc1b828L, "jetbrains.mps.make.script.structure.ReportFeedbackStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept JobDefinition$Uq = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a972dabL, "jetbrains.mps.make.script.structure.JobDefinition");
+    /*package*/ static final SConcept ReportFeedbackStatement$uF = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x32eac1b57fc1b828L, "jetbrains.mps.make.script.structure.ReportFeedbackStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink message$MMy7 = MetaAdapterFactory.getContainmentLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x32eac1b57fc1b828L, 0x32eac1b57fc1c3e8L, "message");
   }
 }

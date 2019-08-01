@@ -26,6 +26,8 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class AddScopeTestAnnotation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -44,7 +46,7 @@ public final class AddScopeTestAnnotation_Intention extends AbstractIntentionDes
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(AUX_1sv180.NodesTestCase_fd5a0bf4), node) && (boolean) ScopesTest__BehaviorDescriptor.isApplicable_id4IvydoGviup.invoke(SNodeOperations.asSConcept(AUX_1sv180.ScopesTest_1ed83fd8), node);
+    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(CONCEPTS.NodesTestCase$7I), node) && (boolean) ScopesTest__BehaviorDescriptor.isApplicable_id4IvydoGviup.invoke(SNodeOperations.asSConcept(CONCEPTS.ScopesTest$Ea), node);
   }
   @Override
   public boolean isSurroundWith() {
@@ -66,16 +68,16 @@ public final class AddScopeTestAnnotation_Intention extends AbstractIntentionDes
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode newAnnotation = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest"));
-      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_1sv180.ScopesTest_1ed83fd8), newAnnotation);
+      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ScopesTest$Ea), newAnnotation);
 
-      if ((boolean) ScopesTest__BehaviorDescriptor.isSimple_id4IvydoGvpbr.invoke(SNodeOperations.asSConcept(AUX_1sv180.ScopesTest_1ed83fd8), node)) {
-        SLinkOperations.setTarget(newAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference"), ScopesTest__BehaviorDescriptor.getCheckingReference_id4IvydoGvimX.invoke(newAnnotation).getTargetNode());
+      if ((boolean) ScopesTest__BehaviorDescriptor.isSimple_id4IvydoGvpbr.invoke(SNodeOperations.asSConcept(CONCEPTS.ScopesTest$Ea), node)) {
+        SLinkOperations.setTarget(newAnnotation, LINKS.checkingReference$ZKEm, ScopesTest__BehaviorDescriptor.getCheckingReference_id4IvydoGvimX.invoke(newAnnotation).getTargetNode());
         Scope scope = ModelConstraints.getScope(ScopesTest__BehaviorDescriptor.getCheckingReference_id4IvydoGvimX.invoke(newAnnotation));
 
         for (SNode available : scope.getAvailableElements(null)) {
           SNode expectedNode = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, "jetbrains.mps.lang.test.structure.ScopesExpectedNode"));
-          SLinkOperations.setTarget(expectedNode, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, 0x383e5e55de89bc1fL, "ref"), available);
-          ListSequence.fromList(SLinkOperations.getChildren(newAnnotation, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x32ba5b0ec25fea03L, "nodes"))).addElement(expectedNode);
+          SLinkOperations.setTarget(expectedNode, LINKS.ref$mFxT, available);
+          ListSequence.fromList(SLinkOperations.getChildren(newAnnotation, LINKS.nodes$B16t)).addElement(expectedNode);
         }
       }
 
@@ -87,8 +89,14 @@ public final class AddScopeTestAnnotation_Intention extends AbstractIntentionDes
     }
   }
 
-  private static final class AUX_1sv180 {
-    /*package*/ static final SConcept ScopesTest_1ed83fd8 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ScopesTest$Ea = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
+    /*package*/ static final SConcept NodesTestCase$7I = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink checkingReference$ZKEm = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference");
+    /*package*/ static final SReferenceLink ref$mFxT = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, 0x383e5e55de89bc1fL, "ref");
+    /*package*/ static final SContainmentLink nodes$B16t = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x32ba5b0ec25fea03L, "nodes");
   }
 }

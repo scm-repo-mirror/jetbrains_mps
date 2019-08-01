@@ -10,13 +10,14 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.lightweightdsl.util.DSLDescriptorUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.lightweightdsl.behavior.DSLClassMember__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ClassLikeMember_unique_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -27,7 +28,7 @@ public class check_ClassLikeMember_unique_NonTypesystemRule extends AbstractNonT
       return;
     }
 
-    for (SNode memberDescriptor : ListSequence.fromList(SLinkOperations.getChildren(DSLDescriptorUtil.getDescriptor(classLike), MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x72b255a0447fe4c8L, "classLikeMember")))) {
+    for (SNode memberDescriptor : ListSequence.fromList(SLinkOperations.getChildren(DSLDescriptorUtil.getDescriptor(classLike), LINKS.classLikeMember$UT6r))) {
       if (!((boolean) DSLClassMember__BehaviorDescriptor.isMultiple_id1QReUKIGS9B.invoke(memberDescriptor))) {
         if (Sequence.fromIterable(DSLClassMember__BehaviorDescriptor.find_id2gzehMfi1$l.invoke(memberDescriptor, classLike)).count() > 1) {
           for (SNode member : Sequence.fromIterable(DSLClassMember__BehaviorDescriptor.find_id2gzehMfi1$l.invoke(memberDescriptor, classLike))) {
@@ -41,7 +42,7 @@ public class check_ClassLikeMember_unique_NonTypesystemRule extends AbstractNonT
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_hpa60o.ClassConcept_e2711824;
+    return CONCEPTS.ClassConcept$IY;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -50,7 +51,11 @@ public class check_ClassLikeMember_unique_NonTypesystemRule extends AbstractNonT
     return false;
   }
 
-  private static final class AUX_hpa60o {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classLikeMember$UT6r = MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x72b255a0447fe4c8L, "classLikeMember");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

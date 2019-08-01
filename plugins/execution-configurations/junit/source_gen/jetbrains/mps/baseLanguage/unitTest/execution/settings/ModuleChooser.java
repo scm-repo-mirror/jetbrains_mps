@@ -57,7 +57,7 @@ public final class ModuleChooser extends TextFieldWithBrowseButton.NoPathComplet
     final Collection<SModuleReference> moduleRefs = new LinkedHashSet<SModuleReference>();
     myMpsProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        SAbstractConcept concept = AUX_yu0807.ITestCase_8c8c490a;
+        SAbstractConcept concept = CONCEPTS.ITestCase$uo;
         Set<SNode> usages = getFindUsagesManager().findInstances(new ProjectScope(myMpsProject), Collections.singleton(concept), false, new EmptyProgressMonitor());
         for (SNode node : usages) {
           SModuleReference module = SNodeOperations.getModel(node).getModule().getModuleReference();
@@ -78,7 +78,7 @@ public final class ModuleChooser extends TextFieldWithBrowseButton.NoPathComplet
     return myModuleRef;
   }
 
-  private static final class AUX_yu0807 {
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
   }
 }

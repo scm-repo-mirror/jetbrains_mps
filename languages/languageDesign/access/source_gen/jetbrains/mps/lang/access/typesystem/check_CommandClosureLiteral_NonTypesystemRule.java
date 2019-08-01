@@ -10,10 +10,11 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -21,8 +22,8 @@ public class check_CommandClosureLiteral_NonTypesystemRule extends AbstractNonTy
   public check_CommandClosureLiteral_NonTypesystemRule() {
   }
   public void applyRule(final SNode commandClosureLiteral, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    for (SNode rs : SNodeOperations.getNodeDescendants(commandClosureLiteral, AUX_kc5ybx.ReturnStatement_d4768417, false, new SAbstractConcept[]{AUX_kc5ybx.IMethodLike_583347ed})) {
-      if ((SLinkOperations.getTarget(rs, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression")) != null)) {
+    for (SNode rs : SNodeOperations.getNodeDescendants(commandClosureLiteral, CONCEPTS.ReturnStatement$SF, false, new SAbstractConcept[]{CONCEPTS.IMethodLike$kl})) {
+      if ((SLinkOperations.getTarget(rs, LINKS.expression$EsbK) != null)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(rs, "return statement not allowed here", "r:aad06b20-0a6a-42d7-81b8-671529c6126a(jetbrains.mps.lang.access.typesystem)", "5842059399448775938", null, errorTarget);
@@ -31,7 +32,7 @@ public class check_CommandClosureLiteral_NonTypesystemRule extends AbstractNonTy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_kc5ybx.CommandClosureLiteral_af1c362e;
+    return CONCEPTS.CommandClosureLiteral$VO;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,9 +41,13 @@ public class check_CommandClosureLiteral_NonTypesystemRule extends AbstractNonTy
     return false;
   }
 
-  private static final class AUX_kc5ybx {
-    /*package*/ static final SConcept ReturnStatement_d4768417 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
-    /*package*/ static final SInterfaceConcept IMethodLike_583347ed = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1208f458d37L, "jetbrains.mps.baseLanguage.structure.IMethodLike");
-    /*package*/ static final SConcept CommandClosureLiteral_af1c362e = MetaAdapterFactory.getConcept(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20dL, "jetbrains.mps.lang.access.structure.CommandClosureLiteral");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$EsbK = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReturnStatement$SF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
+    /*package*/ static final SInterfaceConcept IMethodLike$kl = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1208f458d37L, "jetbrains.mps.baseLanguage.structure.IMethodLike");
+    /*package*/ static final SConcept CommandClosureLiteral$VO = MetaAdapterFactory.getConcept(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20dL, "jetbrains.mps.lang.access.structure.CommandClosureLiteral");
   }
 }

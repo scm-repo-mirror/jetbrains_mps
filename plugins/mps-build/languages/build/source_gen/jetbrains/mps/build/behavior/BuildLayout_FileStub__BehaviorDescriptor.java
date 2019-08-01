@@ -4,6 +4,7 @@ package jetbrains.mps.build.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,17 +16,17 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class BuildLayout_FileStub__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_lodnpl.BuildLayout_FileStub_3fbf9811;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d31b36L, "jetbrains.mps.build.structure.BuildLayout_FileStub");
 
   public static final SMethod<Void> unpack_id6IqTD4bJTWZ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("unpack").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6IqTD4bJTWZ").build(SMethodBuilder.createJavaParameter(UnpackHelper.class, ""));
   public static final SMethod<Boolean> isFile_id1bWeed$oPZ2 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isFile").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1bWeed$oPZ2").build();
@@ -41,20 +42,20 @@ public final class BuildLayout_FileStub__BehaviorDescriptor extends BaseBHDescri
   /*package*/ static void unpack_id6IqTD4bJTWZ(@NotNull SNode __thisNode__, UnpackHelper helper) {
     SNode parent = helper.parent(__thisNode__);
     String parentLocation = helper.getContentLocation(parent);
-    helper.putLocation(__thisNode__, parentLocation + "/" + BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d31b36L, 0x63a87b9320d31b94L, "fileName")), helper.getMacroHelper()));
+    helper.putLocation(__thisNode__, parentLocation + "/" + BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.fileName$WK5A), helper.getMacroHelper()));
   }
   /*package*/ static boolean isFile_id1bWeed$oPZ2(@NotNull SNode __thisNode__) {
     return true;
   }
   /*package*/ static void appendName_id1bWeed$ownT(@NotNull SNode __thisNode__, SNode parent, StringBuilder sb) {
-    if (SNodeOperations.isInstanceOf(parent, AUX_lodnpl.BuildLayout_Container_6a682ce6)) {
+    if (SNodeOperations.isInstanceOf(parent, CONCEPTS.BuildLayout_Container$WW)) {
       sb.append("/");
     }
-    sb.append(BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d31b36L, 0x63a87b9320d31b94L, "fileName")), null));
+    sb.append(BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.fileName$WK5A), null));
 
   }
   /*package*/ static String getApproximateName_id4RsV8qJDnFm(@NotNull SNode __thisNode__) {
-    return (String) BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d31b36L, 0x63a87b9320d31b94L, "fileName")), null);
+    return (String) BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.fileName$WK5A), null);
   }
   /*package*/ static boolean exports_id5FtnUVJQES1(@NotNull SNode __thisNode__, Object artifactId) {
     //  turn off, see BuildSourceArchiveRelativePath#unpack 
@@ -63,21 +64,21 @@ public final class BuildLayout_FileStub__BehaviorDescriptor extends BaseBHDescri
       //  copied from BuildLayout_File, with narrow cast, BuildRelativePath instead of BuildSourcePath as I need to match a tail part only (BRP.getPathTail), without any macro or project 
       //  I would recieve from BuildSourcePath.getRelativePath() otherwise 
       SNode node = (SNode) artifactId;
-      if (SNodeOperations.isInstanceOf(node, AUX_lodnpl.BuildRelativePath_e8191f19)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildRelativePath$dD)) {
         StringBuilder layoutRelativeName = new StringBuilder(BuildSource_SingleFile__BehaviorDescriptor.getApproximateName_id4RsV8qJDnFm.invoke(__thisNode__));
         // HACK. match against re-constructed layout-relative path, respecting named containers (usually, folders) only. 
-        SNode namedParent = SNodeOperations.as(SNodeOperations.getParent(__thisNode__), AUX_lodnpl.BuildLayout_NamedContainer_b7d4ec15);
+        SNode namedParent = SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.BuildLayout_NamedContainer$nH);
         // XXX alternatively, _AbstractContainer + BL_Node.isFolder()? Jars are NamedContainers, too. 
         while (namedParent != null) {
           layoutRelativeName.insert(0, '/');
-          layoutRelativeName.insert(0, BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(namedParent, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, 0x3cca41cd0fe75496L, "containerName")), null));
-          namedParent = SNodeOperations.as(SNodeOperations.getParent(namedParent), AUX_lodnpl.BuildLayout_NamedContainer_b7d4ec15);
+          layoutRelativeName.insert(0, BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(namedParent, LINKS.containerName$Mzv5), null));
+          namedParent = SNodeOperations.as(SNodeOperations.getParent(namedParent), CONCEPTS.BuildLayout_NamedContainer$nH);
         }
-        return Objects.equals(BuildRelativePath__BehaviorDescriptor.getPathTail_id15RAxQX0M4T.invoke(SNodeOperations.cast(node, AUX_lodnpl.BuildRelativePath_e8191f19)), layoutRelativeName.toString());
+        return Objects.equals(BuildRelativePath__BehaviorDescriptor.getPathTail_id15RAxQX0M4T.invoke(SNodeOperations.cast(node, CONCEPTS.BuildRelativePath$dD)), layoutRelativeName.toString());
       }
     }
 
-    return ((boolean) BuildLayout_Node__BehaviorDescriptor.exports_id5FtnUVJQES1.invokeSuper(__thisNode__, AUX_lodnpl.BuildLayout_FileStub_3fbf9811, artifactId));
+    return ((boolean) BuildLayout_Node__BehaviorDescriptor.exports_id5FtnUVJQES1.invokeSuper(__thisNode__, CONCEPTS.BuildLayout_FileStub$_L, artifactId));
   }
 
   /*package*/ BuildLayout_FileStub__BehaviorDescriptor() {
@@ -136,10 +137,15 @@ public final class BuildLayout_FileStub__BehaviorDescriptor extends BaseBHDescri
     return CONCEPT;
   }
 
-  private static final class AUX_lodnpl {
-    /*package*/ static final SConcept BuildLayout_FileStub_3fbf9811 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d31b36L, "jetbrains.mps.build.structure.BuildLayout_FileStub");
-    /*package*/ static final SInterfaceConcept BuildLayout_Container_6a682ce6 = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, "jetbrains.mps.build.structure.BuildLayout_Container");
-    /*package*/ static final SConcept BuildLayout_NamedContainer_b7d4ec15 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, "jetbrains.mps.build.structure.BuildLayout_NamedContainer");
-    /*package*/ static final SConcept BuildRelativePath_e8191f19 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, "jetbrains.mps.build.structure.BuildRelativePath");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink fileName$WK5A = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d31b36L, 0x63a87b9320d31b94L, "fileName");
+    /*package*/ static final SContainmentLink containerName$Mzv5 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, 0x3cca41cd0fe75496L, "containerName");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept BuildLayout_Container$WW = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, "jetbrains.mps.build.structure.BuildLayout_Container");
+    /*package*/ static final SConcept BuildLayout_NamedContainer$nH = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, "jetbrains.mps.build.structure.BuildLayout_NamedContainer");
+    /*package*/ static final SConcept BuildRelativePath$dD = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, "jetbrains.mps.build.structure.BuildRelativePath");
+    /*package*/ static final SConcept BuildLayout_FileStub$_L = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d31b36L, "jetbrains.mps.build.structure.BuildLayout_FileStub");
   }
 }

@@ -20,7 +20,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.xml.constraints.XmlNameUtil;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
@@ -29,15 +28,17 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rajt6d_a(), AUX_rajt6d.XmlValuePart_62249475));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rajt6d_b(), AUX_rajt6d.XmlValuePart_62249475));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rajt6d_c(), AUX_rajt6d.XmlValuePart_62249475));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rajt6d_a(), CONCEPTS.XmlValuePart$Ad));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rajt6d_b(), CONCEPTS.XmlValuePart$Ad));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_rajt6d_c(), CONCEPTS.XmlValuePart$Ad));
     result.add(new SMP_Subconcepts_rajt6d_d());
     return result;
   }
@@ -83,7 +84,7 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rajt6d.XmlValuePart_62249475, context);
+        super(CONCEPTS.XmlValuePart$Ad, context);
         _context = context;
       }
 
@@ -94,7 +95,7 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        return SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_rajt6d.XmlCharRefValue_d43d5d39, null);
+        return SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.XmlCharRefValue$_9, null);
       }
 
       @Override
@@ -136,7 +137,7 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rajt6d.XmlValuePart_62249475, context);
+        super(CONCEPTS.XmlValuePart$Ad, context);
         _context = context;
       }
 
@@ -147,7 +148,7 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        return SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_rajt6d.XmlEntityRefValue_6224948f, null);
+        return SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.XmlEntityRefValue$MN, null);
       }
 
       @Override
@@ -189,7 +190,7 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_rajt6d.XmlValuePart_62249475, context);
+        super(CONCEPTS.XmlValuePart$Ad, context);
         _context = context;
       }
 
@@ -200,8 +201,8 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode val = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_rajt6d.XmlTextValue_62249478, null);
-        SPropertyOperations.assign(val, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), pattern);
+        SNode val = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.XmlTextValue$BE, null);
+        SPropertyOperations.assign(val, PROPS.text$$xPb, pattern);
         return val;
       }
 
@@ -224,7 +225,7 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_rajt6d_d extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_rajt6d.XmlValuePart_62249475);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.XmlValuePart$Ad);
     }
     @NotNull
     @Override
@@ -244,10 +245,14 @@ public class XmlValuePart_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_rajt6d {
-    /*package*/ static final SConcept XmlValuePart_62249475 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1cL, "jetbrains.mps.core.xml.structure.XmlValuePart");
-    /*package*/ static final SConcept XmlCharRefValue_d43d5d39 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x2abf08504ffed7feL, "jetbrains.mps.core.xml.structure.XmlCharRefValue");
-    /*package*/ static final SConcept XmlEntityRefValue_6224948f = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd21L, "jetbrains.mps.core.xml.structure.XmlEntityRefValue");
-    /*package*/ static final SConcept XmlTextValue_62249478 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlValuePart$Ad = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1cL, "jetbrains.mps.core.xml.structure.XmlValuePart");
+    /*package*/ static final SConcept XmlCharRefValue$_9 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x2abf08504ffed7feL, "jetbrains.mps.core.xml.structure.XmlCharRefValue");
+    /*package*/ static final SConcept XmlEntityRefValue$MN = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd21L, "jetbrains.mps.core.xml.structure.XmlEntityRefValue");
+    /*package*/ static final SConcept XmlTextValue$BE = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$$xPb = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text");
   }
 }

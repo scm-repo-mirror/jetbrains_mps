@@ -30,7 +30,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -42,6 +41,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class dowcast_Contribution extends TransformationMenuBase {
   public dowcast_Contribution() {
@@ -78,7 +79,7 @@ public class dowcast_Contribution extends TransformationMenuBase {
   public class TMP_Group_9reugi_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return (TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), AUX_9reugi.DebuggedType_9357587d) != null);
+      return (TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), CONCEPTS.DebuggedType$q5) != null);
     }
 
     @NotNull
@@ -94,7 +95,7 @@ public class dowcast_Contribution extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_9reugi_a0.TMP_Action_9reugi_a0a(), AUX_9reugi.DownCastToLowLevel_982bdfce));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_9reugi_a0.TMP_Action_9reugi_a0a(), CONCEPTS.DownCastToLowLevel$_k));
     }
     private class TMP_Action_9reugi_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -134,8 +135,8 @@ public class dowcast_Contribution extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode downcast = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_9reugi.DownCastToLowLevel_982bdfce);
-          SLinkOperations.setTarget(downcast, MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x6dd9f7bd221bb1d5L, 0x6dd9f7bd221bb39eL, "expression"), _context.getNode());
+          SNode downcast = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.DownCastToLowLevel$_k);
+          SLinkOperations.setTarget(downcast, LINKS.expression$vmO6, _context.getNode());
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), downcast, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -143,7 +144,7 @@ public class dowcast_Contribution extends TransformationMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_9reugi.DownCastToLowLevel_982bdfce;
+          return CONCEPTS.DownCastToLowLevel$_k;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -158,7 +159,7 @@ public class dowcast_Contribution extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_9reugi.DownCastToLowLevel_982bdfce;
+          SAbstractConcept outputConcept = CONCEPTS.DownCastToLowLevel$_k;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -169,8 +170,12 @@ public class dowcast_Contribution extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_9reugi {
-    /*package*/ static final SConcept DebuggedType_9357587d = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, "jetbrains.mps.debugger.java.evaluation.structure.DebuggedType");
-    /*package*/ static final SConcept DownCastToLowLevel_982bdfce = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x6dd9f7bd221bb1d5L, "jetbrains.mps.debugger.java.evaluation.structure.DownCastToLowLevel");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DebuggedType$q5 = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, "jetbrains.mps.debugger.java.evaluation.structure.DebuggedType");
+    /*package*/ static final SConcept DownCastToLowLevel$_k = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x6dd9f7bd221bb1d5L, "jetbrains.mps.debugger.java.evaluation.structure.DownCastToLowLevel");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$vmO6 = MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x6dd9f7bd221bb1d5L, 0x6dd9f7bd221bb39eL, "expression");
   }
 }

@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class MatrixInitializerIndexReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_2x2usv_a(), AUX_2x2usv.MatrixInitializerIndexReference_492e561f));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_2x2usv_a(), CONCEPTS.MatrixInitializerIndexReference$Oz));
     result.add(new SMP_Subconcepts_2x2usv_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class MatrixInitializerIndexReference_SubstituteMenu extends SubstituteMe
 
     public SMP_ReferenceScope_2x2usv_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_2x2usv.MatrixInitializerIndexReference_492e561f, MetaAdapterFactory.getReferenceLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, 0x5650ac0d4240f275L, "index"));
+      super((SAbstractConcept) CONCEPTS.MatrixInitializerIndexReference$Oz, LINKS.index$MECO);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class MatrixInitializerIndexReference_SubstituteMenu extends SubstituteMe
   }
   public class SMP_Subconcepts_2x2usv_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_2x2usv.MatrixInitializerIndexReference_492e561f);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.MatrixInitializerIndexReference$Oz);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class MatrixInitializerIndexReference_SubstituteMenu extends SubstituteMe
     }
   }
 
-  private static final class AUX_2x2usv {
-    /*package*/ static final SConcept MatrixInitializerIndexReference_492e561f = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, "jetbrains.mps.baseLanguage.math.structure.MatrixInitializerIndexReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixInitializerIndexReference$Oz = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, "jetbrains.mps.baseLanguage.math.structure.MatrixInitializerIndexReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink index$MECO = MetaAdapterFactory.getReferenceLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, 0x5650ac0d4240f275L, "index");
   }
 }

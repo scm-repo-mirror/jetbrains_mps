@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.migration.behavior.MigrationScript__BehaviorDescriptor;
@@ -17,15 +16,17 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ProducesData_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ProducesData_NonTypesystemRule() {
   }
   public void applyRule(final SNode migrationScript, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    Iterable<SNode> putDataDeclaration = SNodeOperations.ofConcept(SLinkOperations.getChildren(migrationScript, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member")), AUX_r9fi43.ProducedAnnotationDataDeclaration_a1ef0fcf);
+    Iterable<SNode> putDataDeclaration = SNodeOperations.ofConcept(SLinkOperations.getChildren(migrationScript, LINKS.member$oYX5), CONCEPTS.ProducedAnnotationDataDeclaration$_N);
     if (Sequence.fromIterable(putDataDeclaration).isNotEmpty()) {
-      if (!(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(MigrationScript__BehaviorDescriptor.getMethod_id6d7r2Fq2j7f.invoke(migrationScript, SNodeOperations.getNode("90746344-04fd-4286-97d5-b46ae6a81709/r:52a3d974-bd4f-4651-ba6e-a2de5e336d95(jetbrains.mps.lang.migration/jetbrains.mps.lang.migration.methods)", "5155329496662709030")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), AUX_r9fi43.PutDataExpression_eef082bb, false, new SAbstractConcept[]{AUX_r9fi43.BaseCommentAttribute_f7206635})).isNotEmpty())) {
+      if (!(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(MigrationScript__BehaviorDescriptor.getMethod_id6d7r2Fq2j7f.invoke(migrationScript, SNodeOperations.getNode("90746344-04fd-4286-97d5-b46ae6a81709/r:52a3d974-bd4f-4651-ba6e-a2de5e336d95(jetbrains.mps.lang.migration/jetbrains.mps.lang.migration.methods)", "5155329496662709030")), LINKS.body$WIlu), CONCEPTS.PutDataExpression$g7, false, new SAbstractConcept[]{CONCEPTS.BaseCommentAttribute$Zd})).isNotEmpty())) {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(Sequence.fromIterable(putDataDeclaration).first(), "Migration script is declared to produce data but never uses putData()", "r:47a77104-3b09-4998-a2bd-ada4655c0c77(jetbrains.mps.lang.migration.typesystem)", "5310388462668349111", null, errorTarget);
       }
@@ -33,7 +34,7 @@ public class check_ProducesData_NonTypesystemRule extends AbstractNonTypesystemR
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_r9fi43.MigrationScript_43a85fbf;
+    return CONCEPTS.MigrationScript$u3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,10 +43,15 @@ public class check_ProducesData_NonTypesystemRule extends AbstractNonTypesystemR
     return false;
   }
 
-  private static final class AUX_r9fi43 {
-    /*package*/ static final SConcept ProducedAnnotationDataDeclaration_a1ef0fcf = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2a0198dL, "jetbrains.mps.lang.migration.structure.ProducedAnnotationDataDeclaration");
-    /*package*/ static final SConcept PutDataExpression_eef082bb = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c28dce2dL, "jetbrains.mps.lang.migration.structure.PutDataExpression");
-    /*package*/ static final SConcept BaseCommentAttribute_f7206635 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
-    /*package*/ static final SConcept MigrationScript_43a85fbf = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x73e8a2c68b62c6a3L, "jetbrains.mps.lang.migration.structure.MigrationScript");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ProducedAnnotationDataDeclaration$_N = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c2a0198dL, "jetbrains.mps.lang.migration.structure.ProducedAnnotationDataDeclaration");
+    /*package*/ static final SConcept PutDataExpression$g7 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x5e7aa366c28dce2dL, "jetbrains.mps.lang.migration.structure.PutDataExpression");
+    /*package*/ static final SConcept BaseCommentAttribute$Zd = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
+    /*package*/ static final SConcept MigrationScript$u3 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x73e8a2c68b62c6a3L, "jetbrains.mps.lang.migration.structure.MigrationScript");
   }
 }

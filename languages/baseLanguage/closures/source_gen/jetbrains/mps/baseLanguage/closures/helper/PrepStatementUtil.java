@@ -6,13 +6,16 @@ import jetbrains.mps.generator.template.ITemplateGenerator;
 import jetbrains.mps.generator.template.TemplateQueryContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PrepStatementUtil {
   private Context ctx;
@@ -31,7 +34,7 @@ public class PrepStatementUtil {
   private int prepStatementList(TemplateQueryContext genContext, SNode slist) {
     boolean labelAutoIncremented = true;
     int label = this.ctx.incrementLabel();
-    for (SNode stmt : SLinkOperations.getChildren(slist, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))) {
+    for (SNode stmt : SLinkOperations.getChildren(slist, LINKS.statement$WHn8)) {
       if (!(labelAutoIncremented) && StatementListUtil.isControlStatement(stmt)) {
         label = this.ctx.incrementLabel();
       }
@@ -41,92 +44,92 @@ public class PrepStatementUtil {
     return label;
   }
   private int prepStatement(TemplateQueryContext genContext, SNode stmt, int label) {
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.WhileStatement_1f5f4332)) {
-      return this.prepWhileStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.WhileStatement_1f5f4332), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.WhileStatement$9K)) {
+      return this.prepWhileStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.WhileStatement$9K), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.DoWhileStatement_50b6f79b)) {
-      return this.prepDoWhileStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.DoWhileStatement_50b6f79b), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.DoWhileStatement$GB)) {
+      return this.prepDoWhileStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.DoWhileStatement$GB), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.ForStatement_1eab9ef9)) {
-      return this.prepForStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.ForStatement_1eab9ef9), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.ForStatement$Y9)) {
+      return this.prepForStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.ForStatement$Y9), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.ForeachStatement_bf20b0bc)) {
-      return this.prepForeachStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.ForeachStatement_bf20b0bc), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.ForeachStatement$oA)) {
+      return this.prepForeachStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.ForeachStatement$oA), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.IfStatement_9dbf9b10)) {
-      return this.prepIfStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.IfStatement_9dbf9b10), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.IfStatement$pi)) {
+      return this.prepIfStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.IfStatement$pi), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.SwitchStatement_11e52181)) {
-      return this.prepSwitchStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.SwitchStatement_11e52181), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.SwitchStatement$S1)) {
+      return this.prepSwitchStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.SwitchStatement$S1), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.LocalVariableDeclarationStatement_d47683f4)) {
-      return this.prepLocalvariableDeclarationStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.LocalVariableDeclarationStatement_d47683f4), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.LocalVariableDeclarationStatement$BI)) {
+      return this.prepLocalvariableDeclarationStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.LocalVariableDeclarationStatement$BI), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.YieldStatement_4ed4f60b)) {
-      return this.prepYieldStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.YieldStatement_4ed4f60b), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.YieldStatement$ER)) {
+      return this.prepYieldStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.YieldStatement$ER), label);
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.BreakStatement_aab71ba2)) {
-      this.prepBreakStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.BreakStatement_aab71ba2));
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.BreakStatement$w0)) {
+      this.prepBreakStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.BreakStatement$w0));
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.ContinueStatement_91fd0556)) {
-      this.prepContinueStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.ContinueStatement_91fd0556));
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.ContinueStatement$jc)) {
+      this.prepContinueStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.ContinueStatement$jc));
     } else
-    if (SNodeOperations.isInstanceOf(stmt, AUX_7a8k82.BlockStatement_8943d110)) {
-      return this.prepBlockStatement(genContext, SNodeOperations.cast(stmt, AUX_7a8k82.BlockStatement_8943d110), label);
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.BlockStatement$1i)) {
+      return this.prepBlockStatement(genContext, SNodeOperations.cast(stmt, CONCEPTS.BlockStatement$1i), label);
     }
     return label;
   }
   private int prepWhileStatement(TemplateQueryContext genContext, SNode wstmt, int label) {
     int beginLabel = label;
     int blockLabel = this.ctx.incrementLabel();
-    SNode sn = SLinkOperations.getTarget(wstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body"));
+    SNode sn = SLinkOperations.getTarget(wstmt, LINKS.body$OFes);
     Object data1 = new Integer[]{blockLabel, beginLabel};
     Values.CLOSURE_DATA.set(genContext, sn, data1);
     int nextLabel = this.calcNextLabel(genContext, wstmt);
     Object data = new Integer[]{beginLabel, beginLabel, blockLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, wstmt, data);
-    this.prepStatementList(genContext, SLinkOperations.getTarget(wstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body")));
+    this.prepStatementList(genContext, SLinkOperations.getTarget(wstmt, LINKS.body$OFes));
     return nextLabel;
   }
   private int prepDoWhileStatement(TemplateQueryContext genContext, SNode dwstmt, int label) {
     int beginLabel = label;
     int condLabel = this.ctx.incrementLabel();
-    SNode sn = SLinkOperations.getTarget(dwstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body"));
+    SNode sn = SLinkOperations.getTarget(dwstmt, LINKS.body$OFes);
     Object data = new Integer[]{beginLabel, condLabel};
     Values.CLOSURE_DATA.set(genContext, sn, data);
     int nextLabel = this.calcNextLabel(genContext, dwstmt);
     Object data1 = new Integer[]{beginLabel, condLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, dwstmt, data1);
-    this.prepStatementList(genContext, SLinkOperations.getTarget(dwstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body")));
+    this.prepStatementList(genContext, SLinkOperations.getTarget(dwstmt, LINKS.body$OFes));
     return nextLabel;
   }
   private int prepForStatement(TemplateQueryContext genContext, SNode fstmt, int label) {
     int beginLabel = label;
-    this.prepLocalVariableDeclaration(genContext, SLinkOperations.getTarget(fstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a697996feL, 0x10a6979f36bL, "variable")));
+    this.prepLocalVariableDeclaration(genContext, SLinkOperations.getTarget(fstmt, LINKS.variable$H$_G));
     int condLabel = this.ctx.incrementLabel();
     int blockLabel = this.ctx.incrementLabel();
     int postLabel = this.ctx.incrementLabel();
-    SNode sn = SLinkOperations.getTarget(fstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body"));
+    SNode sn = SLinkOperations.getTarget(fstmt, LINKS.body$OFes);
     Object data = new Integer[]{blockLabel, postLabel};
     Values.CLOSURE_DATA.set(genContext, sn, data);
     int nextLabel = this.calcNextLabel(genContext, fstmt);
     Object data1 = new Integer[]{beginLabel, postLabel, blockLabel, condLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, fstmt, data1);
-    this.prepStatementList(genContext, SLinkOperations.getTarget(fstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body")));
+    this.prepStatementList(genContext, SLinkOperations.getTarget(fstmt, LINKS.body$OFes));
     return nextLabel;
   }
   private int prepForeachStatement(TemplateQueryContext genContext, SNode fstmt, int label) {
     int beginLabel = label;
-    this.prepLocalVariableDeclaration(genContext, SLinkOperations.getTarget(fstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a697996feL, 0x10a6979f36bL, "variable")));
+    this.prepLocalVariableDeclaration(genContext, SLinkOperations.getTarget(fstmt, LINKS.variable$H$_G));
     int condLabel = this.ctx.incrementLabel();
     int blockLabel = this.ctx.incrementLabel();
-    SNode sn = SLinkOperations.getTarget(fstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body"));
+    SNode sn = SLinkOperations.getTarget(fstmt, LINKS.body$OFes);
     Object data1 = new Integer[]{blockLabel, condLabel};
     Values.CLOSURE_DATA.set(genContext, sn, data1);
     int nextLabel = this.calcNextLabel(genContext, fstmt);
     Object data = new Integer[]{beginLabel, condLabel, blockLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, fstmt, data);
-    this.prepStatementList(genContext, SLinkOperations.getTarget(fstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body")));
+    this.prepStatementList(genContext, SLinkOperations.getTarget(fstmt, LINKS.body$OFes));
     return nextLabel;
   }
   private int prepIfStatement(TemplateQueryContext genContext, SNode ifstmt, int label) {
@@ -134,36 +137,36 @@ public class PrepStatementUtil {
     int ifTrueLabel = this.ctx.incrementLabel();
     int ifFalseLabel = -1;
     int nextLabel = this.calcNextLabel(genContext, ifstmt);
-    SNode sn = SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue"));
+    SNode sn = SLinkOperations.getTarget(ifstmt, LINKS.ifTrue$WJ1E);
     Object data = new Integer[]{ifTrueLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, sn, data);
-    this.prepStatementList(genContext, SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")));
-    if (ListSequence.fromList(SLinkOperations.getChildren(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).isNotEmpty()) {
-      for (SNode eicls : SLinkOperations.getChildren(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))) {
+    this.prepStatementList(genContext, SLinkOperations.getTarget(ifstmt, LINKS.ifTrue$WJ1E));
+    if (ListSequence.fromList(SLinkOperations.getChildren(ifstmt, LINKS.elsifClauses$uXBQ)).isNotEmpty()) {
+      for (SNode eicls : SLinkOperations.getChildren(ifstmt, LINKS.elsifClauses$uXBQ)) {
         int tmp = this.ctx.incrementLabel();
-        SNode sn1 = SLinkOperations.getTarget(eicls, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList"));
+        SNode sn1 = SLinkOperations.getTarget(eicls, LINKS.statementList$TaC3);
         Object data1 = new Integer[]{tmp, nextLabel};
         Values.CLOSURE_DATA.set(genContext, sn1, data1);
-        this.prepStatementList(genContext, SLinkOperations.getTarget(eicls, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList")));
+        this.prepStatementList(genContext, SLinkOperations.getTarget(eicls, LINKS.statementList$TaC3));
         Object data2 = new Integer[]{tmp};
         Values.CLOSURE_DATA.set(genContext, eicls, data2);
       }
     }
-    if ((SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")) != null)) {
-      if (StatementListUtil.isControlStatement(SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement"))) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), AUX_7a8k82.BlockStatement_8943d110)) {
+    if ((SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2) != null)) {
+      if (StatementListUtil.isControlStatement(SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2)) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i)) {
         ifFalseLabel = this.ctx.incrementLabel();
       }
     }
     Object data2 = new Integer[]{beginLabel, ifTrueLabel, ifFalseLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, ifstmt, data2);
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), AUX_7a8k82.BlockStatement_8943d110)) {
-      SNode sn1 = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), AUX_7a8k82.BlockStatement_8943d110), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"));
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i)) {
+      SNode sn1 = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0);
       Object data1 = new Integer[]{ifFalseLabel, nextLabel};
       Values.CLOSURE_DATA.set(genContext, sn1, data1);
-      this.prepStatementList(genContext, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), AUX_7a8k82.BlockStatement_8943d110), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements")));
+      this.prepStatementList(genContext, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2), CONCEPTS.BlockStatement$1i), LINKS.statements$uqR0));
     } else
-    if ((SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")) != null)) {
-      this.prepStatement(genContext, SLinkOperations.getTarget(ifstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")), ifFalseLabel);
+    if ((SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2) != null)) {
+      this.prepStatement(genContext, SLinkOperations.getTarget(ifstmt, LINKS.ifFalseStatement$Xnu2), ifFalseLabel);
     }
     return nextLabel;
   }
@@ -173,27 +176,27 @@ public class PrepStatementUtil {
     Object data1 = new Integer[]{beginLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, sstmt, data1);
     int nextCaseLabel = this.ctx.incrementLabel();
-    for (SNode scase : SLinkOperations.getChildren(sstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02edcafL, "case"))) {
+    for (SNode scase : SLinkOperations.getChildren(sstmt, LINKS.case$31$8)) {
       int caseLabel = nextCaseLabel;
       nextCaseLabel = this.ctx.incrementLabel();
-      if ((SLinkOperations.getTarget(scase, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d8048L, "body")) != null)) {
-        List<SNode> stmts = SLinkOperations.getChildren(SLinkOperations.getTarget(scase, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d8048L, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
+      if ((SLinkOperations.getTarget(scase, LINKS.body$2Ve6) != null)) {
+        List<SNode> stmts = SLinkOperations.getChildren(SLinkOperations.getTarget(scase, LINKS.body$2Ve6), LINKS.statement$WHn8);
         int endCaseLabel = nextCaseLabel;
-        if (ListSequence.fromList(stmts).isNotEmpty() && SNodeOperations.isInstanceOf(ListSequence.fromList(stmts).getElement(ListSequence.fromList(stmts).count() - 1), AUX_7a8k82.BreakStatement_aab71ba2)) {
+        if (ListSequence.fromList(stmts).isNotEmpty() && SNodeOperations.isInstanceOf(ListSequence.fromList(stmts).getElement(ListSequence.fromList(stmts).count() - 1), CONCEPTS.BreakStatement$w0)) {
           endCaseLabel = nextLabel;
         }
-        SNode sn = SLinkOperations.getTarget(scase, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d8048L, "body"));
+        SNode sn = SLinkOperations.getTarget(scase, LINKS.body$2Ve6);
         Object data = new Integer[]{caseLabel, endCaseLabel};
         Values.CLOSURE_DATA.set(genContext, sn, data);
-        this.prepStatementList(genContext, SLinkOperations.getTarget(scase, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d8048L, "body")));
+        this.prepStatementList(genContext, SLinkOperations.getTarget(scase, LINKS.body$2Ve6));
       }
     }
-    if ((SLinkOperations.getTarget(sstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02c1b6eL, "defaultBlock")) != null)) {
+    if ((SLinkOperations.getTarget(sstmt, LINKS.defaultBlock$DENE) != null)) {
       int defLabel = this.ctx.incrementLabel();
-      SNode sn = SLinkOperations.getTarget(sstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02c1b6eL, "defaultBlock"));
+      SNode sn = SLinkOperations.getTarget(sstmt, LINKS.defaultBlock$DENE);
       Object data = new Integer[]{defLabel, nextLabel};
       Values.CLOSURE_DATA.set(genContext, sn, data);
-      this.prepStatementList(genContext, SLinkOperations.getTarget(sstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02c1b6eL, "defaultBlock")));
+      this.prepStatementList(genContext, SLinkOperations.getTarget(sstmt, LINKS.defaultBlock$DENE));
     }
     return nextLabel;
   }
@@ -207,10 +210,10 @@ public class PrepStatementUtil {
   private void prepBreakStatement(TemplateQueryContext genContext, SNode bstmt) {
     int brLabel = -1;
     SNode node = bstmt;
-    while (((node = SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{AUX_7a8k82.AbstractLoopStatement_bb2741d5, AUX_7a8k82.SwitchStatement_11e52181}, false, false)) != null)) {
-      SNode loopLabel = (SNodeOperations.isInstanceOf(node, AUX_7a8k82.AbstractLoopStatement_bb2741d5) ? SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_7a8k82.AbstractLoopStatement_bb2741d5), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x50c493bf9555131L, "loopLabel")) : SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_7a8k82.SwitchStatement_11e52181), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x4091554b655a230eL, "switchLabel")));
-      String depLabel = (SNodeOperations.isInstanceOf(node, AUX_7a8k82.AbstractLoopStatement_bb2741d5) ? SPropertyOperations.getString(SNodeOperations.cast(node, AUX_7a8k82.AbstractLoopStatement_bb2741d5), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x11745b5371dL, "label")) : SPropertyOperations.getString(SNodeOperations.cast(node, AUX_7a8k82.SwitchStatement_11e52181), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x117b7e94b9bL, "label")));
-      if ((SLinkOperations.getTarget(bstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, 0x7dae85d6eb42f8c4L, "loopLabelReference")) != null) && SLinkOperations.getTarget(SLinkOperations.getTarget(bstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, 0x7dae85d6eb42f8c4L, "loopLabelReference")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x50c493bf9555129L, 0x50c493bf955512aL, "loopLabel")) == loopLabel || SPropertyOperations.getString(bstmt, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, 0x11745bfb2d8L, "label")) == depLabel || (SPropertyOperations.getString(bstmt, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, 0x11745bfb2d8L, "label")) != null && SPropertyOperations.getString(bstmt, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, 0x11745bfb2d8L, "label")).equals(depLabel))) {
+    while (((node = SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{CONCEPTS.AbstractLoopStatement$wH, CONCEPTS.SwitchStatement$S1}, false, false)) != null)) {
+      SNode loopLabel = (SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractLoopStatement$wH) ? SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.AbstractLoopStatement$wH), LINKS.loopLabel$Vp8n) : SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.SwitchStatement$S1), LINKS.switchLabel$hXmp));
+      String depLabel = (SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractLoopStatement$wH) ? SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.AbstractLoopStatement$wH), PROPS.label$5$eZ) : SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.SwitchStatement$S1), PROPS.label$Ro9j));
+      if ((SLinkOperations.getTarget(bstmt, LINKS.loopLabelReference$Hgei) != null) && SLinkOperations.getTarget(SLinkOperations.getTarget(bstmt, LINKS.loopLabelReference$Hgei), LINKS.loopLabel$GZ00) == loopLabel || SPropertyOperations.getString(bstmt, PROPS.label$Xol$) == depLabel || (SPropertyOperations.getString(bstmt, PROPS.label$Xol$) != null && SPropertyOperations.getString(bstmt, PROPS.label$Xol$).equals(depLabel))) {
         Integer[] labels = (Integer[]) Values.CLOSURE_DATA.get(genContext, node);
         brLabel = labels[labels.length - 1];
         break;
@@ -222,10 +225,10 @@ public class PrepStatementUtil {
   private void prepContinueStatement(TemplateQueryContext genContext, SNode cstmt) {
     int conLabel = -1;
     SNode node = cstmt;
-    while (((node = SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{AUX_7a8k82.AbstractLoopStatement_bb2741d5}, false, false)) != null)) {
-      String depLabel = SPropertyOperations.getString(SNodeOperations.cast(node, AUX_7a8k82.AbstractLoopStatement_bb2741d5), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x11745b5371dL, "label"));
-      SNode loopLabel = SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_7a8k82.AbstractLoopStatement_bb2741d5), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x50c493bf9555131L, "loopLabel"));
-      if (SLinkOperations.getTarget(SLinkOperations.getTarget(cstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, 0x7dae85d6eb43bbbdL, "loopLabelReference")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x50c493bf9555129L, 0x50c493bf955512aL, "loopLabel")) == loopLabel || SPropertyOperations.getString(cstmt, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, 0x11745fca58eL, "label")) == depLabel || (SPropertyOperations.getString(cstmt, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, 0x11745fca58eL, "label")) != null && SPropertyOperations.getString(cstmt, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, 0x11745fca58eL, "label")).equals(depLabel))) {
+    while (((node = SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{CONCEPTS.AbstractLoopStatement$wH}, false, false)) != null)) {
+      String depLabel = SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.AbstractLoopStatement$wH), PROPS.label$5$eZ);
+      SNode loopLabel = SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.AbstractLoopStatement$wH), LINKS.loopLabel$Vp8n);
+      if (SLinkOperations.getTarget(SLinkOperations.getTarget(cstmt, LINKS.loopLabelReference$m7OF), LINKS.loopLabel$GZ00) == loopLabel || SPropertyOperations.getString(cstmt, PROPS.label$Tq0W) == depLabel || (SPropertyOperations.getString(cstmt, PROPS.label$Tq0W) != null && SPropertyOperations.getString(cstmt, PROPS.label$Tq0W).equals(depLabel))) {
         Integer[] labels = (Integer[]) Values.CLOSURE_DATA.get(genContext, node);
         conLabel = labels[1];
         break;
@@ -237,10 +240,10 @@ public class PrepStatementUtil {
   private int prepBlockStatement(TemplateQueryContext genContext, SNode bs, int label) {
     int beginLabel = label;
     int nextLabel = this.calcNextLabel(genContext, bs);
-    SNode sn = SLinkOperations.getTarget(bs, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"));
+    SNode sn = SLinkOperations.getTarget(bs, LINKS.statements$uqR0);
     Object data1 = new Integer[]{beginLabel, nextLabel};
     Values.CLOSURE_DATA.set(genContext, sn, data1);
-    int tmp = this.prepStatementList(genContext, SLinkOperations.getTarget(bs, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements")));
+    int tmp = this.prepStatementList(genContext, SLinkOperations.getTarget(bs, LINKS.statements$uqR0));
     Object data = new Integer[]{beginLabel, tmp};
     Values.CLOSURE_DATA.set(genContext, bs, data);
     return tmp;
@@ -248,24 +251,24 @@ public class PrepStatementUtil {
   private int prepLocalvariableDeclarationStatement(TemplateQueryContext genContext, SNode lstmt, int label) {
     int nextLabel = this.ctx.incrementLabel();
     Values.CLOSURE_DATA.set(genContext, lstmt, label);
-    this.prepLocalVariableDeclaration(genContext, SLinkOperations.getTarget(lstmt, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration")));
+    this.prepLocalVariableDeclaration(genContext, SLinkOperations.getTarget(lstmt, LINKS.localVariableDeclaration$O0D0));
     return nextLabel;
   }
   private void prepLocalVariableDeclaration(TemplateQueryContext genContext, SNode lvd) {
-    String name = "_" + this.ctx.label + "_" + SPropertyOperations.getString(lvd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    String name = "_" + this.ctx.label + "_" + SPropertyOperations.getString(lvd, PROPS.name$tAp1);
     Values.CLOSURE_DATA.set(genContext, lvd, name);
   }
   private int calcNextLabel(TemplateQueryContext genContext, SNode cstmt) {
-    if (SNodeOperations.isInstanceOf(cstmt, AUX_7a8k82.IfStatement_9dbf9b10) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(cstmt), AUX_7a8k82.IfStatement_9dbf9b10)) {
-      SNode topIfStmt = SNodeOperations.cast(SNodeOperations.getParent(cstmt), AUX_7a8k82.IfStatement_9dbf9b10);
-      while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(topIfStmt), AUX_7a8k82.IfStatement_9dbf9b10)) {
-        topIfStmt = SNodeOperations.cast(SNodeOperations.getParent(topIfStmt), AUX_7a8k82.IfStatement_9dbf9b10);
+    if (SNodeOperations.isInstanceOf(cstmt, CONCEPTS.IfStatement$pi) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(cstmt), CONCEPTS.IfStatement$pi)) {
+      SNode topIfStmt = SNodeOperations.cast(SNodeOperations.getParent(cstmt), CONCEPTS.IfStatement$pi);
+      while (SNodeOperations.isInstanceOf(SNodeOperations.getParent(topIfStmt), CONCEPTS.IfStatement$pi)) {
+        topIfStmt = SNodeOperations.cast(SNodeOperations.getParent(topIfStmt), CONCEPTS.IfStatement$pi);
       }
       Integer[] parentLabels = (Integer[]) Values.CLOSURE_DATA.get(genContext, topIfStmt);
       if (parentLabels != null) {
         return parentLabels[parentLabels.length - 1];
       }
-    } else if ((SNodeOperations.getNextSibling(cstmt) == null) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(cstmt), AUX_7a8k82.StatementList_9dbf9acf)) {
+    } else if ((SNodeOperations.getNextSibling(cstmt) == null) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(cstmt), CONCEPTS.StatementList$TN)) {
       SNode sn = SNodeOperations.getParent(cstmt);
       Integer[] parentLabels = (Integer[]) Values.CLOSURE_DATA.get(genContext, sn);
       if (parentLabels != null) {
@@ -289,19 +292,47 @@ public class PrepStatementUtil {
     }
   }
 
-  private static final class AUX_7a8k82 {
-    /*package*/ static final SConcept WhileStatement_1f5f4332 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
-    /*package*/ static final SConcept DoWhileStatement_50b6f79b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, "jetbrains.mps.baseLanguage.structure.DoWhileStatement");
-    /*package*/ static final SConcept ForStatement_1eab9ef9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a698082feL, "jetbrains.mps.baseLanguage.structure.ForStatement");
-    /*package*/ static final SConcept ForeachStatement_bf20b0bc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a6933ce33L, "jetbrains.mps.baseLanguage.structure.ForeachStatement");
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept SwitchStatement_11e52181 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, "jetbrains.mps.baseLanguage.structure.SwitchStatement");
-    /*package*/ static final SConcept LocalVariableDeclarationStatement_d47683f4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement");
-    /*package*/ static final SConcept YieldStatement_4ed4f60b = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11797183e82L, "jetbrains.mps.baseLanguage.closures.structure.YieldStatement");
-    /*package*/ static final SConcept BreakStatement_aab71ba2 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement");
-    /*package*/ static final SConcept ContinueStatement_91fd0556 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, "jetbrains.mps.baseLanguage.structure.ContinueStatement");
-    /*package*/ static final SConcept BlockStatement_8943d110 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, "jetbrains.mps.baseLanguage.structure.BlockStatement");
-    /*package*/ static final SConcept AbstractLoopStatement_bb2741d5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, "jetbrains.mps.baseLanguage.structure.AbstractLoopStatement");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink body$OFes = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x10cb1ada6e8L, "body");
+    /*package*/ static final SContainmentLink variable$H$_G = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a697996feL, 0x10a6979f36bL, "variable");
+    /*package*/ static final SContainmentLink ifTrue$WJ1E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue");
+    /*package*/ static final SContainmentLink statementList$TaC3 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118ceceb41aL, 0x118ced0f8fdL, "statementList");
+    /*package*/ static final SContainmentLink elsifClauses$uXBQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses");
+    /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
+    /*package*/ static final SContainmentLink statements$uqR0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements");
+    /*package*/ static final SContainmentLink body$2Ve6 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02cdd1bL, 0x10ef02d8048L, "body");
+    /*package*/ static final SContainmentLink case$31$8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02edcafL, "case");
+    /*package*/ static final SContainmentLink defaultBlock$DENE = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x10ef02c1b6eL, "defaultBlock");
+    /*package*/ static final SContainmentLink loopLabel$Vp8n = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x50c493bf9555131L, "loopLabel");
+    /*package*/ static final SContainmentLink switchLabel$hXmp = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x4091554b655a230eL, "switchLabel");
+    /*package*/ static final SContainmentLink loopLabelReference$Hgei = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, 0x7dae85d6eb42f8c4L, "loopLabelReference");
+    /*package*/ static final SReferenceLink loopLabel$GZ00 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x50c493bf9555129L, 0x50c493bf955512aL, "loopLabel");
+    /*package*/ static final SContainmentLink loopLabelReference$m7OF = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, 0x7dae85d6eb43bbbdL, "loopLabelReference");
+    /*package*/ static final SContainmentLink localVariableDeclaration$O0D0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WhileStatement$9K = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
+    /*package*/ static final SConcept DoWhileStatement$GB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, "jetbrains.mps.baseLanguage.structure.DoWhileStatement");
+    /*package*/ static final SConcept ForStatement$Y9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a698082feL, "jetbrains.mps.baseLanguage.structure.ForStatement");
+    /*package*/ static final SConcept ForeachStatement$oA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a6933ce33L, "jetbrains.mps.baseLanguage.structure.ForeachStatement");
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+    /*package*/ static final SConcept SwitchStatement$S1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, "jetbrains.mps.baseLanguage.structure.SwitchStatement");
+    /*package*/ static final SConcept LocalVariableDeclarationStatement$BI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement");
+    /*package*/ static final SConcept YieldStatement$ER = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11797183e82L, "jetbrains.mps.baseLanguage.closures.structure.YieldStatement");
+    /*package*/ static final SConcept BreakStatement$w0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, "jetbrains.mps.baseLanguage.structure.BreakStatement");
+    /*package*/ static final SConcept ContinueStatement$jc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, "jetbrains.mps.baseLanguage.structure.ContinueStatement");
+    /*package*/ static final SConcept BlockStatement$1i = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, "jetbrains.mps.baseLanguage.structure.BlockStatement");
+    /*package*/ static final SConcept AbstractLoopStatement$wH = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, "jetbrains.mps.baseLanguage.structure.AbstractLoopStatement");
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty label$5$eZ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10cb1ac5adeL, 0x11745b5371dL, "label");
+    /*package*/ static final SProperty label$Ro9j = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, 0x117b7e94b9bL, "label");
+    /*package*/ static final SProperty label$Xol$ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbe39a867fL, 0x11745bfb2d8L, "label");
+    /*package*/ static final SProperty label$Tq0W = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbf3043726L, 0x11745fca58eL, "label");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

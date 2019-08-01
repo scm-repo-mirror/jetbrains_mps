@@ -44,7 +44,7 @@ public class valueParameter extends SubstituteMenuBase {
   public class SMP_Group_2t6il8_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_2t6il8.SetAccessor_d09c9ac9, false, false) != null);
+      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.SetAccessor$QT, false, false) != null);
     }
     @NotNull
     @Override
@@ -60,7 +60,7 @@ public class valueParameter extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_2t6il8.ValueParameter_fe168648) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.ValueParameter$8q) {
 
         @NotNull
         @Override
@@ -73,12 +73,12 @@ public class valueParameter extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_2t6il8.ValueParameter_fe168648));
+      }, CONCEPTS.ValueParameter$8q));
     }
   }
 
-  private static final class AUX_2t6il8 {
-    /*package*/ static final SConcept SetAccessor_d09c9ac9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117bd9ac3d9L, "jetbrains.mps.baseLanguage.structure.SetAccessor");
-    /*package*/ static final SConcept ValueParameter_fe168648 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117dd047c70L, "jetbrains.mps.baseLanguage.structure.ValueParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SetAccessor$QT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117bd9ac3d9L, "jetbrains.mps.baseLanguage.structure.SetAccessor");
+    /*package*/ static final SConcept ValueParameter$8q = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117dd047c70L, "jetbrains.mps.baseLanguage.structure.ValueParameter");
   }
 }

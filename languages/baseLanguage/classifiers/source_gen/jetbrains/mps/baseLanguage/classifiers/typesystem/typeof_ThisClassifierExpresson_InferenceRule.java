@@ -36,7 +36,7 @@ public class typeof_ThisClassifierExpresson_InferenceRule extends AbstractInfere
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_o7etbw.ThisClassifierExpression_b632a0cf;
+    return CONCEPTS.ThisClassifierExpression$xN;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -45,7 +45,7 @@ public class typeof_ThisClassifierExpresson_InferenceRule extends AbstractInfere
     return false;
   }
 
-  private static final class AUX_o7etbw {
-    /*package*/ static final SConcept ThisClassifierExpression_b632a0cf = MetaAdapterFactory.getConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, "jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisClassifierExpression$xN = MetaAdapterFactory.getConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, "jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression");
   }
 }

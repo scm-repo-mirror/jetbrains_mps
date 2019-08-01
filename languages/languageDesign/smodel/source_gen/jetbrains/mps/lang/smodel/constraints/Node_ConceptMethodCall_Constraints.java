@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -29,15 +28,18 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Node_ConceptMethodCall_Constraints extends BaseConstraintsDescriptor {
   public Node_ConceptMethodCall_Constraints() {
-    super(AUX_zb7xc.Node_ConceptMethodCall_376939ff);
+    super(CONCEPTS.Node_ConceptMethodCall$l3);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.baseMethodDeclaration$$A7i, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -53,7 +55,7 @@ public class Node_ConceptMethodCall_Constraints extends BaseConstraintsDescripto
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
-            SNode leftExpression = SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, AUX_zb7xc.DotExpression_97ed08d8), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"));
+            SNode leftExpression = SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, CONCEPTS.DotExpression$6a), LINKS.operand$Lcrr);
             SNode leftType = TypecheckingFacade.getFromContext().getTypeOf(leftExpression);
 
             // any concept is AbstractConceptDeclaration, not mere BaseConcept 
@@ -63,30 +65,30 @@ public class Node_ConceptMethodCall_Constraints extends BaseConstraintsDescripto
             SNode conceptNode = null;
             final Wrappers._boolean isStatic = new Wrappers._boolean(true);
             //  when there's a concept type, there's no node to invoke instance method on. 
-            SNode conceptType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, AUX_zb7xc.SConceptType_7fe2a457);
+            SNode conceptType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, CONCEPTS.SConceptType$nF);
             if ((conceptType != null)) {
-              SNode decl = SLinkOperations.getTarget(conceptType, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5cab42cd97571ceeL, 0x5cab42cd97571cefL, "conceptDeclaraton"));
+              SNode decl = SLinkOperations.getTarget(conceptType, LINKS.conceptDeclaraton$l1qw);
               conceptNode = (decl != null ? decl : defaultConceptTypeValue);
             }
 
             if ((conceptNode == null)) {
-              SNode conceptNodeType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, AUX_zb7xc.ConceptNodeType_842b4d80);
+              SNode conceptNodeType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, CONCEPTS.ConceptNodeType$7y);
               if ((conceptNodeType != null)) {
-                SNode decl = SLinkOperations.getTarget(conceptNodeType, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, 0x112da284156L, "conceptDeclaraton"));
+                SNode decl = SLinkOperations.getTarget(conceptNodeType, LINKS.conceptDeclaraton$Qe25);
                 conceptNode = (decl != null ? decl : defaultConceptTypeValue);
               }
             }
             if ((conceptNode == null)) {
-              SNode conceptTypeLit = TypecheckingFacade.getFromContext().strongCoerceType(leftType, AUX_zb7xc.SConceptTypeLiteral_83a436c5);
+              SNode conceptTypeLit = TypecheckingFacade.getFromContext().strongCoerceType(leftType, CONCEPTS.SConceptTypeLiteral$4X);
               if ((conceptTypeLit != null)) {
-                SNode decl = SLinkOperations.getTarget(conceptTypeLit, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x4bf20760d53f89eaL, 0x4bf20760d53f89ebL, "conceptDeclaraton"));
+                SNode decl = SLinkOperations.getTarget(conceptTypeLit, LINKS.conceptDeclaraton$xAhw);
                 conceptNode = (decl != null ? decl : defaultConceptTypeValue);
               }
             }
             if ((conceptNode == null)) {
-              SNode nodeType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, AUX_zb7xc.SNodeType_dcb080ab);
+              SNode nodeType = TypecheckingFacade.getFromContext().strongCoerceType(leftType, CONCEPTS.SNodeType$gn);
               if ((nodeType != null)) {
-                SNode decl = SLinkOperations.getTarget(nodeType, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept"));
+                SNode decl = SLinkOperations.getTarget(nodeType, LINKS.concept$HWFQ);
                 conceptNode = (decl != null ? decl : defaultNodeTypeValue);
               }
               isStatic.value = false;
@@ -98,16 +100,16 @@ public class Node_ConceptMethodCall_Constraints extends BaseConstraintsDescripto
 
             Iterable<SNode> methods = Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getVisibleConceptMethods_idwrIPXhfIPX.invoke(conceptNode, enclosingNode)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
-                return SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x51613f7fe129b24dL, "isStatic")) == isStatic.value;
+                return SPropertyOperations.getBoolean(it, PROPS.isStatic$KaRv) == isStatic.value;
               }
             }).toListSequence();
 
             // to remove? (ap) 
-            if (SNodeOperations.isInstanceOf(leftType, AUX_zb7xc.ConceptNodeType_842b4d80)) {
+            if (SNodeOperations.isInstanceOf(leftType, CONCEPTS.ConceptNodeType$7y)) {
               // conceptNode<> is subtype of node<AbstractConceptDeclaration>, why can't I invoke methods of the latter (used to workaround with node.conceptNode.asNode.methodCall, which is stupid) 
               methods = Sequence.fromIterable(methods).concat(Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getVisibleConceptMethods_idwrIPXhfIPX.invoke(defaultConceptTypeValue, enclosingNode)).where(new IWhereFilter<SNode>() {
                 public boolean accept(SNode it) {
-                  return SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x51613f7fe129b24dL, "isStatic")) == false;
+                  return SPropertyOperations.getBoolean(it, PROPS.isStatic$KaRv) == false;
                 }
               })).toListSequence();
             }
@@ -123,12 +125,25 @@ public class Node_ConceptMethodCall_Constraints extends BaseConstraintsDescripto
   }
   private static final SNodePointer breakingNode_zb7xc_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "6302905782373066148");
 
-  private static final class AUX_zb7xc {
-    /*package*/ static final SConcept Node_ConceptMethodCall_376939ff = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1129a43046bL, "jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept SConceptType_7fe2a457 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5cab42cd97571ceeL, "jetbrains.mps.lang.smodel.structure.SConceptType");
-    /*package*/ static final SConcept ConceptNodeType_842b4d80 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, "jetbrains.mps.lang.smodel.structure.ConceptNodeType");
-    /*package*/ static final SConcept SConceptTypeLiteral_83a436c5 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x4bf20760d53f89eaL, "jetbrains.mps.lang.smodel.structure.SConceptTypeLiteral");
-    /*package*/ static final SConcept SNodeType_dcb080ab = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_ConceptMethodCall$l3 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1129a43046bL, "jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept SConceptType$nF = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5cab42cd97571ceeL, "jetbrains.mps.lang.smodel.structure.SConceptType");
+    /*package*/ static final SConcept ConceptNodeType$7y = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, "jetbrains.mps.lang.smodel.structure.ConceptNodeType");
+    /*package*/ static final SConcept SConceptTypeLiteral$4X = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x4bf20760d53f89eaL, "jetbrains.mps.lang.smodel.structure.SConceptTypeLiteral");
+    /*package*/ static final SConcept SNodeType$gn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, "jetbrains.mps.lang.smodel.structure.SNodeType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SReferenceLink conceptDeclaraton$l1qw = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5cab42cd97571ceeL, 0x5cab42cd97571cefL, "conceptDeclaraton");
+    /*package*/ static final SReferenceLink conceptDeclaraton$Qe25 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9b63680L, 0x112da284156L, "conceptDeclaraton");
+    /*package*/ static final SReferenceLink conceptDeclaraton$xAhw = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x4bf20760d53f89eaL, 0x4bf20760d53f89ebL, "conceptDeclaraton");
+    /*package*/ static final SReferenceLink concept$HWFQ = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x108f968b3caL, 0x1090e46ca51L, "concept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isStatic$KaRv = MetaAdapterFactory.getProperty(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x51613f7fe129b24dL, "isStatic");
   }
 }

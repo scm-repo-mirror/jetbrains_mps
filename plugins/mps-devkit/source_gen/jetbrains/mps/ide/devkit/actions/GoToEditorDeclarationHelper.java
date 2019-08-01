@@ -15,9 +15,10 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class GoToEditorDeclarationHelper {
   public GoToEditorDeclarationHelper() {
@@ -70,21 +71,25 @@ public class GoToEditorDeclarationHelper {
     return SModuleOperations.getAspect(language, "editor");
   }
   public static SNode findEditorDeclaration(SModel editorModel, final SNode conceptDeclaration) {
-    return ListSequence.fromList(SModelOperations.roots(editorModel, AUX_67no7w.ConceptEditorDeclaration_9422d3dc)).findFirst(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SModelOperations.roots(editorModel, CONCEPTS.ConceptEditorDeclaration$s6)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration")) == conceptDeclaration;
+        return SLinkOperations.getTarget(it, LINKS.conceptDeclaration$sbgS) == conceptDeclaration;
       }
     });
   }
   public static SNode createEditorDeclaration(SNode conceptDeclaration, SModel editorModelDescriptor) {
     SModel editorModel = editorModelDescriptor;
-    SNode result = SNodeFactoryOperations.createNewNode(editorModel, AUX_67no7w.ConceptEditorDeclaration_9422d3dc, null);
-    SLinkOperations.setTarget(result, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration"), conceptDeclaration);
+    SNode result = SNodeFactoryOperations.createNewNode(editorModel, CONCEPTS.ConceptEditorDeclaration$s6, null);
+    SLinkOperations.setTarget(result, LINKS.conceptDeclaration$sbgS, conceptDeclaration);
     SModelOperations.addRootNode(editorModel, result);
     return result;
   }
 
-  private static final class AUX_67no7w {
-    /*package*/ static final SConcept ConceptEditorDeclaration_9422d3dc = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptEditorDeclaration$s6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$sbgS = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration");
   }
 }

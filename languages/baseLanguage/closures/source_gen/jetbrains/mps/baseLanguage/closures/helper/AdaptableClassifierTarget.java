@@ -8,13 +8,15 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.closures.behavior.FunctionType__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class AdaptableClassifierTarget {
@@ -28,44 +30,44 @@ public class AdaptableClassifierTarget {
       allAdaptable = ListSequence.fromList(new ArrayList<SNode>());
       genContext.putStepObject(Keys.ALL_NEEDS_ADAPTED, allAdaptable);
     }
-    if (!(ListSequence.fromList(allAdaptable).contains(SLinkOperations.getTarget(adaptable, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))))) {
-      ListSequence.fromList(allAdaptable).addElement(SLinkOperations.getTarget(adaptable, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
+    if (!(ListSequence.fromList(allAdaptable).contains(SLinkOperations.getTarget(adaptable, LINKS.classifier$pQ_R)))) {
+      ListSequence.fromList(allAdaptable).addElement(SLinkOperations.getTarget(adaptable, LINKS.classifier$pQ_R));
     }
     List<SNode> trgList = getOrCreateTargets(adaptable);
     if (!(ListSequence.fromList(trgList).any(new IWhereFilter<SNode>() {
       @Override
       public boolean accept(SNode cr) {
-        return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(target, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"))).equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(cr));
+        return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(target, LINKS.classifier$pQ_R)).equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(cr));
       }
     }))) {
-      ListSequence.fromList(trgList).addElement(SLinkOperations.getTarget(target, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
-      Values.ADAPTABLE.set(genContext, SLinkOperations.getTarget(target, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")), SLinkOperations.getTarget(adaptable, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
+      ListSequence.fromList(trgList).addElement(SLinkOperations.getTarget(target, LINKS.classifier$pQ_R));
+      Values.ADAPTABLE.set(genContext, SLinkOperations.getTarget(target, LINKS.classifier$pQ_R), SLinkOperations.getTarget(adaptable, LINKS.classifier$pQ_R));
     }
   }
   private List<SNode> getOrCreateTargets(SNode adaptable) {
-    List<SNode> trgList = (List<SNode>) genContext.getStepObject(Keys.NEEDS_ADAPTER.compose(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(adaptable, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")))));
+    List<SNode> trgList = (List<SNode>) genContext.getStepObject(Keys.NEEDS_ADAPTER.compose(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(adaptable, LINKS.classifier$pQ_R))));
     if (trgList == null) {
       trgList = ListSequence.fromList(new ArrayList<SNode>());
-      genContext.putStepObject(Keys.NEEDS_ADAPTER.compose(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(adaptable, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")))), trgList);
+      genContext.putStepObject(Keys.NEEDS_ADAPTER.compose(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(adaptable, LINKS.classifier$pQ_R))), trgList);
     }
     return trgList;
   }
   public String getTargetName(SNode target) {
     SNode adaptable = (SNode) Values.ADAPTABLE.get(genContext, target);
-    String aname = SPropertyOperations.getString(adaptable, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    String aname = SPropertyOperations.getString(adaptable, PROPS.name$tAp1);
     int aldidx = aname.lastIndexOf(".");
     aname = (aldidx >= 0 ? aname.substring(aldidx + 1) : aname);
-    String tname = SPropertyOperations.getString(target, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    String tname = SPropertyOperations.getString(target, PROPS.name$tAp1);
     int tldidx = tname.lastIndexOf(".");
     tname = (tldidx >= 0 ? tname.substring(tldidx + 1) : tname);
     return aname + "_to_" + tname + "_adapter";
   }
   public SNode getTarget(SNode expr) {
-    SNode ntype = FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(expr), AUX_dxi0qv.FunctionType_27eadd12));
-    ntype = (ntype == null ? TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(expr), AUX_dxi0qv.ClassifierType_42700403) : ntype);
+    SNode ntype = FunctionType__BehaviorDescriptor.getDeclarationRuntimeType_idhTOKQzf.invoke(SNodeOperations.as(TypecheckingFacade.getFromContext().getTypeOf(expr), CONCEPTS.FunctionType$ig));
+    ntype = (ntype == null ? TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(expr), CONCEPTS.ClassifierType$IZ) : ntype);
     assert ntype != null;
     final String trgFQname = (String) Values.PREP_DATA.get(genContext, expr);
-    SNode target = ListSequence.fromList(getTargets(SLinkOperations.getTarget(ntype, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")))).findFirst(new IWhereFilter<SNode>() {
+    SNode target = ListSequence.fromList(getTargets(SLinkOperations.getTarget(ntype, LINKS.classifier$pQ_R))).findFirst(new IWhereFilter<SNode>() {
       @Override
       public boolean accept(SNode cr) {
         return trgFQname.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(cr));
@@ -84,8 +86,16 @@ public class AdaptableClassifierTarget {
     return ListSequence.fromList(getAllAdaptable()).isNotEmpty();
   }
 
-  private static final class AUX_dxi0qv {
-    /*package*/ static final SConcept FunctionType_27eadd12 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, "jetbrains.mps.baseLanguage.closures.structure.FunctionType");
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FunctionType$ig = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a4d19ffL, "jetbrains.mps.baseLanguage.closures.structure.FunctionType");
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
   }
 }

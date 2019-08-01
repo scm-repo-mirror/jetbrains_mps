@@ -11,8 +11,10 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class WeaveEachConsequence extends MigrationScriptBase {
@@ -32,15 +34,15 @@ public class WeaveEachConsequence extends MigrationScriptBase {
       if (!(SModelStereotype.isGeneratorModel(model))) {
         continue;
       }
-      for (SNode werc : ListSequence.fromList(SModelOperations.nodes(((SModel) model), AUX_l2nd6o.WeaveEach_RuleConsequence_b0afcee0)).where(new IWhereFilter<SNode>() {
+      for (SNode werc : ListSequence.fromList(SModelOperations.nodes(((SModel) model), CONCEPTS.WeaveEach_RuleConsequence$M2)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x1104fcbaec2L, "template")) != null) && (SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x6bd8eb18e44da5e3L, "templateCall")) == null);
+          return (SLinkOperations.getTarget(it, LINKS.template$5EOg) != null) && (SLinkOperations.getTarget(it, LINKS.templateCall$RjMM) == null);
         }
       })) {
-        SLinkOperations.setNewChild(werc, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x6bd8eb18e44da5e3L, "templateCall"), null);
-        SLinkOperations.setTarget(SLinkOperations.getTarget(werc, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x6bd8eb18e44da5e3L, "templateCall")), MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template"), SLinkOperations.getTarget(werc, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x1104fcbaec2L, "template")));
+        SLinkOperations.setNewChild(werc, LINKS.templateCall$RjMM, null);
+        SLinkOperations.setTarget(SLinkOperations.getTarget(werc, LINKS.templateCall$RjMM), LINKS.template$yiTA, SLinkOperations.getTarget(werc, LINKS.template$5EOg));
         // leave actual arguments empty, it was not possible to invoke template with args 
-        SLinkOperations.setTarget(werc, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x1104fcbaec2L, "template"), null);
+        SLinkOperations.setTarget(werc, LINKS.template$5EOg, null);
       }
     }
 
@@ -49,7 +51,13 @@ public class WeaveEachConsequence extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xb401a68083254110L, 0x8fd384331ff25befL, "jetbrains.mps.lang.generator"), 0);
   }
 
-  private static final class AUX_l2nd6o {
-    /*package*/ static final SConcept WeaveEach_RuleConsequence_b0afcee0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, "jetbrains.mps.lang.generator.structure.WeaveEach_RuleConsequence");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink templateCall$RjMM = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x6bd8eb18e44da5e3L, "templateCall");
+    /*package*/ static final SReferenceLink template$yiTA = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template");
+    /*package*/ static final SReferenceLink template$5EOg = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, 0x1104fcbaec2L, "template");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept WeaveEach_RuleConsequence$M2 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1104fcac3b1L, "jetbrains.mps.lang.generator.structure.WeaveEach_RuleConsequence");
   }
 }

@@ -22,7 +22,7 @@ public class check_CopySrcListMacro_NonTypesystemRule extends AbstractNonTypesys
   }
   public void applyRule(final SNode macro, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode attributedNode = SNodeOperations.getParent(macro);
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(attributedNode), AUX_qevlbo.RuleConsequence_4895fee2)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(attributedNode), CONCEPTS.RuleConsequence$N0)) {
       // e.g. COPY_SRCL under ELSE in $IF$, or as inline template consequence of a rule - can't figure out containing link easily 
       return;
     }
@@ -37,7 +37,7 @@ public class check_CopySrcListMacro_NonTypesystemRule extends AbstractNonTypesys
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_qevlbo.CopySrcListMacro_84cea5bf;
+    return CONCEPTS.CopySrcListMacro$63;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,8 +46,8 @@ public class check_CopySrcListMacro_NonTypesystemRule extends AbstractNonTypesys
     return false;
   }
 
-  private static final class AUX_qevlbo {
-    /*package*/ static final SConcept RuleConsequence_4895fee2 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x110138ccc4bL, "jetbrains.mps.lang.generator.structure.RuleConsequence");
-    /*package*/ static final SConcept CopySrcListMacro_84cea5bf = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1038b0c2cc7L, "jetbrains.mps.lang.generator.structure.CopySrcListMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RuleConsequence$N0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x110138ccc4bL, "jetbrains.mps.lang.generator.structure.RuleConsequence");
+    /*package*/ static final SConcept CopySrcListMacro$63 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1038b0c2cc7L, "jetbrains.mps.lang.generator.structure.CopySrcListMacro");
   }
 }

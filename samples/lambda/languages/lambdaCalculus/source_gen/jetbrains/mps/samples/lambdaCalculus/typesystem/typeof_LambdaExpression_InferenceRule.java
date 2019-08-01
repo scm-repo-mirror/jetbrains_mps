@@ -26,7 +26,7 @@ public class typeof_LambdaExpression_InferenceRule extends AbstractInferenceRule
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_omz1sh.LambdaExpression_e6319e38;
+    return CONCEPTS.LambdaExpression$wE;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +35,7 @@ public class typeof_LambdaExpression_InferenceRule extends AbstractInferenceRule
     return false;
   }
 
-  private static final class AUX_omz1sh {
-    /*package*/ static final SConcept LambdaExpression_e6319e38 = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ec98e9L, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LambdaExpression$wE = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ec98e9L, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaExpression");
   }
 }

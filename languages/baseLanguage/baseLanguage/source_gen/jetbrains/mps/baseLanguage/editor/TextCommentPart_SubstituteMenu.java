@@ -21,7 +21,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -29,15 +28,17 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TextCommentPart_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_cldlt5_a(), AUX_cldlt5.TextCommentPart_36a4c8f7));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_cldlt5_a(), CONCEPTS.TextCommentPart$lb));
     result.add(new SMP_Subconcepts_cldlt5_b());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_cldlt5.TextCommentPart_36a4c8f7) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.TextCommentPart$lb) {
 
       @NotNull
       @Override
@@ -50,7 +51,7 @@ public class TextCommentPart_SubstituteMenu extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_cldlt5.TextCommentPart_36a4c8f7));
+    }, CONCEPTS.TextCommentPart$lb));
     return result;
   }
 
@@ -95,7 +96,7 @@ public class TextCommentPart_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_cldlt5.TextCommentPart_36a4c8f7, context);
+        super(CONCEPTS.TextCommentPart$lb, context);
         _context = context;
       }
 
@@ -106,8 +107,8 @@ public class TextCommentPart_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_cldlt5.TextCommentPart_36a4c8f7, null);
-        SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text"), pattern);
+        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.TextCommentPart$lb, null);
+        SPropertyOperations.set(result, PROPS.text$AaEw, pattern);
         return result;
       }
 
@@ -135,7 +136,7 @@ public class TextCommentPart_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_cldlt5_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_cldlt5.TextCommentPart_36a4c8f7);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.TextCommentPart$lb);
     }
     @NotNull
     @Override
@@ -155,7 +156,11 @@ public class TextCommentPart_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_cldlt5 {
-    /*package*/ static final SConcept TextCommentPart_36a4c8f7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextCommentPart$lb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$AaEw = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, 0x57d533a7af15ed3eL, "text");
   }
 }

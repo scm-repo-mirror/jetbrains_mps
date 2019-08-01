@@ -13,7 +13,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Collections;
@@ -21,6 +20,8 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class SetIdsInMoveMigrations_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -40,9 +41,9 @@ public final class SetIdsInMoveMigrations_Intention extends AbstractIntentionDes
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x67236d4a5836d7f3L, "part")), AUX_a5evov.MoveNodeMigrationPart_3e887e9b)).translate(new ITranslator2<SNode, SNode>() {
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(node, LINKS.part$x6zr), CONCEPTS.MoveNodeMigrationPart$gB)).translate(new ITranslator2<SNode, SNode>() {
       public Iterable<SNode> translate(SNode it) {
-        return SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5830221eL, 0x2b3f57492c165c59L, "specialization"));
+        return SLinkOperations.getChildren(it, LINKS.specialization$GqXw);
       }
     }).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
@@ -70,9 +71,9 @@ public final class SetIdsInMoveMigrations_Intention extends AbstractIntentionDes
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       final SRepository repo = editorContext.getRepository();
-      Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x67236d4a5836d7f3L, "part")), AUX_a5evov.MoveNodeMigrationPart_3e887e9b)).translate(new ITranslator2<SNode, SNode>() {
+      Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(node, LINKS.part$x6zr), CONCEPTS.MoveNodeMigrationPart$gB)).translate(new ITranslator2<SNode, SNode>() {
         public Iterable<SNode> translate(SNode it) {
-          return SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5830221eL, 0x2b3f57492c165c59L, "specialization"));
+          return SLinkOperations.getChildren(it, LINKS.specialization$GqXw);
         }
       }).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
@@ -86,7 +87,12 @@ public final class SetIdsInMoveMigrations_Intention extends AbstractIntentionDes
     }
   }
 
-  private static final class AUX_a5evov {
-    /*package*/ static final SConcept MoveNodeMigrationPart_3e887e9b = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5830221eL, "jetbrains.mps.lang.migration.structure.MoveNodeMigrationPart");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink part$x6zr = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x67236d4a5836d7f3L, "part");
+    /*package*/ static final SContainmentLink specialization$GqXw = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5830221eL, 0x2b3f57492c165c59L, "specialization");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MoveNodeMigrationPart$gB = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5830221eL, "jetbrains.mps.lang.migration.structure.MoveNodeMigrationPart");
   }
 }

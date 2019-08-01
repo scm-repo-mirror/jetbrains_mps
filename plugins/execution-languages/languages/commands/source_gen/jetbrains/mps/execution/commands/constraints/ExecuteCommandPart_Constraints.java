@@ -23,7 +23,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.core.behavior.IDeprecatable__BehaviorDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.execution.commands.behavior.ExecuteCommandPart__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.List;
@@ -35,10 +34,11 @@ import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
   public ExecuteCommandPart_Constraints() {
-    super(AUX_kwfdao.ExecuteCommandPart_c37ee4d);
+    super(CONCEPTS.ExecuteCommandPart$EP);
   }
 
   @Override
@@ -53,7 +53,7 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(ListSequence.fromList(SModelOperations.nodesIncludingImported(SNodeOperations.getModel(_context.getContextNode()), AUX_kwfdao.ExecuteCommandPart_c37ee4d)).where(new IWhereFilter<SNode>() {
+            return ListScope.forResolvableElements(ListSequence.fromList(SModelOperations.nodesIncludingImported(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.ExecuteCommandPart$EP)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
                 return !((boolean) IDeprecatable__BehaviorDescriptor.isDeprecated_idhOwoPtR.invoke(it));
               }
@@ -65,7 +65,7 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
   }
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -77,14 +77,14 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
     }
     private static String check_kwfdao_a0a2d(SNode checkedDotOperand) {
       if (null != checkedDotOperand) {
-        return SPropertyOperations.getString(checkedDotOperand, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return SPropertyOperations.getString(checkedDotOperand, PROPS.name$tAp1);
       }
       return null;
     }
   }
   public static class ShortDescription_Property extends BasePropertyConstraintsDescriptor {
     public ShortDescription_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), container);
+      super(PROPS.shortDescription$w2Xj, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -98,7 +98,7 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
       }
       String joined = IterableUtils.join(ListSequence.fromList(requiredParameters).select(new ISelector<SNode, String>() {
         public String select(SNode it) {
-          return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ", ";
+          return SPropertyOperations.getString(it, PROPS.name$tAp1) + ", ";
         }
       }), " ");
       return "(" + joined.substring(0, joined.length() - 2) + ")";
@@ -107,13 +107,18 @@ public class ExecuteCommandPart_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"), new ShortDescription_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
+    properties.put(PROPS.shortDescription$w2Xj, new ShortDescription_Property(this));
     return properties;
   }
   private static final SNodePointer breakingNode_kwfdao_a0a0a0a0a0a0a0a2 = new SNodePointer("r:fa479534-722a-48ea-9a2e-0d6cd7ab1559(jetbrains.mps.execution.commands.constraints)", "6836281137582824607");
 
-  private static final class AUX_kwfdao {
-    /*package*/ static final SConcept ExecuteCommandPart_c37ee4d = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, "jetbrains.mps.execution.commands.structure.ExecuteCommandPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExecuteCommandPart$EP = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x550ea9458ea107acL, "jetbrains.mps.execution.commands.structure.ExecuteCommandPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty shortDescription$w2Xj = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
   }
 }

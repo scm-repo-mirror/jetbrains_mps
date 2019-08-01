@@ -13,10 +13,12 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.generator.behavior.NodeMacro__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_TemplateCallMacro_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -32,9 +34,9 @@ public class check_TemplateCallMacro_NonTypesystemRule extends AbstractNonTypesy
       }
     } else {
       SNode inputNodeConcept = NodeMacro__BehaviorDescriptor.getInputNodeTypeInsideOfMacro_idhEwIosJ.invoke(macro);
-      if ((SLinkOperations.getTarget(template, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept")) != null) && (inputNodeConcept != null)) {
-        if (!(MetaAdapterByDeclaration.getConcept(inputNodeConcept).isSubConceptOf(MetaAdapterByDeclaration.getConcept(SLinkOperations.getTarget(template, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept")))))) {
-          String msg = String.format("Input node (%s) is not an instance of template's expected concept (%s)", SPropertyOperations.getString(inputNodeConcept, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(SLinkOperations.getTarget(template, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+      if ((SLinkOperations.getTarget(template, LINKS.applicableConcept$r_1F) != null) && (inputNodeConcept != null)) {
+        if (!(MetaAdapterByDeclaration.getConcept(inputNodeConcept).isSubConceptOf(MetaAdapterByDeclaration.getConcept(SLinkOperations.getTarget(template, LINKS.applicableConcept$r_1F))))) {
+          String msg = String.format("Input node (%s) is not an instance of template's expected concept (%s)", SPropertyOperations.getString(inputNodeConcept, PROPS.name$tAp1), SPropertyOperations.getString(SLinkOperations.getTarget(template, LINKS.applicableConcept$r_1F), PROPS.name$tAp1));
           {
             final MessageTarget errorTarget = new NodeMessageTarget();
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(macro, msg, "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "7260186302264445561", null, errorTarget);
@@ -44,7 +46,7 @@ public class check_TemplateCallMacro_NonTypesystemRule extends AbstractNonTypesy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7fu4fs.TemplateCallMacro_2b79ec44;
+    return CONCEPTS.TemplateCallMacro$Iu;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -53,7 +55,15 @@ public class check_TemplateCallMacro_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_7fu4fs {
-    /*package*/ static final SConcept TemplateCallMacro_2b79ec44 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, "jetbrains.mps.lang.generator.structure.TemplateCallMacro");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink applicableConcept$r_1F = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0x1100343ad9eL, "applicableConcept");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateCallMacro$Iu = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, "jetbrains.mps.lang.generator.structure.TemplateCallMacro");
   }
 }

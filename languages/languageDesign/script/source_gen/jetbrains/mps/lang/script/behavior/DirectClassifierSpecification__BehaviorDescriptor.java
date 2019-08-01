@@ -4,6 +4,7 @@ package jetbrains.mps.lang.script.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,15 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class DirectClassifierSpecification__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_1hdzst.DirectClassifierSpecification_2dabbf70;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, "jetbrains.mps.lang.script.structure.DirectClassifierSpecification");
 
   public static final SMethod<String> getClassifierFqName_id4HFrnGErDob = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getClassifierFqName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4HFrnGErDob").build();
   public static final SMethod<String> getSModelReference_id4HFrnGEt_VQ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSModelReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4HFrnGEt_VQ").build();
@@ -34,10 +34,10 @@ public final class DirectClassifierSpecification__BehaviorDescriptor extends Bas
   }
 
   /*package*/ static String getClassifierFqName_id4HFrnGErDob(@NotNull SNode __thisNode__) {
-    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier")));
+    return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.classifier$udFV));
   }
   /*package*/ static String getSModelReference_id4HFrnGEt_VQ(@NotNull SNode __thisNode__) {
-    return SNodeOperations.getModel(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier"))).getReference().toString();
+    return SNodeOperations.getModel(SLinkOperations.getTarget(__thisNode__, LINKS.classifier$udFV)).getReference().toString();
   }
 
   /*package*/ DirectClassifierSpecification__BehaviorDescriptor() {
@@ -88,7 +88,7 @@ public final class DirectClassifierSpecification__BehaviorDescriptor extends Bas
     return CONCEPT;
   }
 
-  private static final class AUX_1hdzst {
-    /*package*/ static final SConcept DirectClassifierSpecification_2dabbf70 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, "jetbrains.mps.lang.script.structure.DirectClassifierSpecification");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$udFV = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier");
   }
 }

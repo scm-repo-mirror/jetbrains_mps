@@ -128,7 +128,7 @@ public class SceneBuildingCommands extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_572eic.BuildWall_2f0005fa, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.BuildWall$yC, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
         }
 
@@ -181,7 +181,7 @@ public class SceneBuildingCommands extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_572eic.DestroyWall_30718107, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.DestroyWall$WV, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
 
         }
@@ -235,7 +235,7 @@ public class SceneBuildingCommands extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_572eic.DropMark_3071f567, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.DropMark$rr, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
         }
 
@@ -288,7 +288,7 @@ public class SceneBuildingCommands extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_572eic.PickMark_307e42ad, null));
+          SNode inserted = SNodeOperations.insertPrevSiblingChild(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.PickMark$9l, null));
           _context.getEditorContext().selectWRTFocusPolicy(inserted);
         }
 
@@ -305,10 +305,10 @@ public class SceneBuildingCommands extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_572eic {
-    /*package*/ static final SConcept BuildWall_2f0005fa = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a8341e10L, "jetbrains.mps.samples.KajaSceneConstruction.structure.BuildWall");
-    /*package*/ static final SConcept DestroyWall_30718107 = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a834fa55L, "jetbrains.mps.samples.KajaSceneConstruction.structure.DestroyWall");
-    /*package*/ static final SConcept DropMark_3071f567 = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a834fe3eL, "jetbrains.mps.samples.KajaSceneConstruction.structure.DropMark");
-    /*package*/ static final SConcept PickMark_307e42ad = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a835165fL, "jetbrains.mps.samples.KajaSceneConstruction.structure.PickMark");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildWall$yC = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a8341e10L, "jetbrains.mps.samples.KajaSceneConstruction.structure.BuildWall");
+    /*package*/ static final SConcept DestroyWall$WV = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a834fa55L, "jetbrains.mps.samples.KajaSceneConstruction.structure.DestroyWall");
+    /*package*/ static final SConcept DropMark$rr = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a834fe3eL, "jetbrains.mps.samples.KajaSceneConstruction.structure.DropMark");
+    /*package*/ static final SConcept PickMark$9l = MetaAdapterFactory.getConcept(0xb56912a3674f4530L, 0xb0cf55261b526a1fL, 0x2c8eb033a835165fL, "jetbrains.mps.samples.KajaSceneConstruction.structure.PickMark");
   }
 }

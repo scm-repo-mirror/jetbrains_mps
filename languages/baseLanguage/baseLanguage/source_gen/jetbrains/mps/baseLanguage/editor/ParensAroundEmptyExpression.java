@@ -23,10 +23,12 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ParensAroundEmptyExpression extends SubstituteMenuBase {
   @NotNull
@@ -54,7 +56,7 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
   public class SMP_Group_z82rnb_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return Objects.equals(SNodeOperations.getConcept(_context.getCurrentTargetNode()), AUX_z82rnb.Expression_4199e28d);
+      return Objects.equals(SNodeOperations.getConcept(_context.getCurrentTargetNode()), CONCEPTS.Expression$TP);
     }
     @NotNull
     @Override
@@ -70,7 +72,7 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_z82rnb_a.SMP_Action_z82rnb_a0(), AUX_z82rnb.ParenthesizedExpression_a4b89678));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_z82rnb_a.SMP_Action_z82rnb_a0(), CONCEPTS.ParenthesizedExpression$vE));
     }
     private class SMP_Action_z82rnb_a0 extends SingleItemSubstituteMenuPart {
 
@@ -100,7 +102,7 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_z82rnb.ParenthesizedExpression_a4b89678, context);
+          super(CONCEPTS.ParenthesizedExpression$vE, context);
           _context = context;
         }
 
@@ -111,16 +113,16 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode parens = SNodeFactoryOperations.createNewNode(AUX_z82rnb.ParenthesizedExpression_a4b89678, null);
+          SNode parens = SNodeFactoryOperations.createNewNode(CONCEPTS.ParenthesizedExpression$vE, null);
           String intent = pattern.substring(1);
           if (intent.equals("(")) {
-            SNodeFactoryOperations.setNewChild(parens, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), AUX_z82rnb.ParenthesizedExpression_a4b89678);
+            SNodeFactoryOperations.setNewChild(parens, LINKS.expression$4_F0, CONCEPTS.ParenthesizedExpression$vE);
           } else if (!(intent.equals(")"))) {
-            SNode constant = SLinkOperations.setTarget(parens, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), SNodeFactoryOperations.createNewNode(AUX_z82rnb.IntegerConstant_a127eb0a, null));
+            SNode constant = SLinkOperations.setTarget(parens, LINKS.expression$4_F0, SNodeFactoryOperations.createNewNode(CONCEPTS.IntegerConstant$mo, null));
             int value;
             try {
               value = Integer.parseInt(intent);
-              SPropertyOperations.set(constant, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), value);
+              SPropertyOperations.set(constant, PROPS.value$ZeO0, value);
             } catch (NumberFormatException e) {
             }
           }
@@ -170,7 +172,7 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_z82rnb_b.SMP_Action_z82rnb_a1(), AUX_z82rnb.NotExpression_8a1c1248));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_z82rnb_b.SMP_Action_z82rnb_a1(), CONCEPTS.NotExpression$oq));
     }
     private class SMP_Action_z82rnb_a1 extends SingleItemSubstituteMenuPart {
 
@@ -200,7 +202,7 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_z82rnb.NotExpression_8a1c1248, context);
+          super(CONCEPTS.NotExpression$oq, context);
           _context = context;
         }
 
@@ -211,8 +213,8 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode notExpr = SNodeFactoryOperations.createNewNode(AUX_z82rnb.NotExpression_8a1c1248, null);
-          SNode parens = SNodeFactoryOperations.setNewChild(notExpr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, 0xfbcf6c30a4L, "expression"), AUX_z82rnb.ParenthesizedExpression_a4b89678);
+          SNode notExpr = SNodeFactoryOperations.createNewNode(CONCEPTS.NotExpression$oq, null);
+          SNode parens = SNodeFactoryOperations.setNewChild(notExpr, LINKS.expression$bUD_, CONCEPTS.ParenthesizedExpression$vE);
           return notExpr;
         }
 
@@ -229,10 +231,19 @@ public class ParensAroundEmptyExpression extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_z82rnb {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
-    /*package*/ static final SConcept IntegerConstant_a127eb0a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
-    /*package*/ static final SConcept NotExpression_8a1c1248 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+    /*package*/ static final SConcept IntegerConstant$mo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
+    /*package*/ static final SConcept NotExpression$oq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, "jetbrains.mps.baseLanguage.structure.NotExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SContainmentLink expression$bUD_ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbcf6bd10dL, 0xfbcf6c30a4L, "expression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$ZeO0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value");
   }
 }

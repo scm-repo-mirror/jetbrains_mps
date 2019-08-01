@@ -14,13 +14,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_MathTypeCast_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_MathTypeCast_InferenceRule() {
   }
   public void applyRule(final SNode cast, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    switch (ListSequence.fromList(SEnumOperations.getMembers(MetaAdapterFactory.getEnumeration(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200fba5bb0L, "jetbrains.mps.baseLanguage.math.structure.CastTargetDescriptor"))).indexOf(SPropertyOperations.getEnum(cast, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200fb8bcedL, 0x1200fbb56e7L, "target")))) {
+    switch (ListSequence.fromList(SEnumOperations.getMembers(MetaAdapterFactory.getEnumeration(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200fba5bb0L, "jetbrains.mps.baseLanguage.math.structure.CastTargetDescriptor"))).indexOf(SPropertyOperations.getEnum(cast, PROPS.target$si1w))) {
       case 1:
         {
           SNode _nodeToCheck_1029348928467 = cast;
@@ -113,7 +114,7 @@ public class typeof_MathTypeCast_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_soj02a.MathTypeCast_3d560b30;
+    return CONCEPTS.MathTypeCast$CM;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -122,7 +123,11 @@ public class typeof_MathTypeCast_InferenceRule extends AbstractInferenceRule_Run
     return false;
   }
 
-  private static final class AUX_soj02a {
-    /*package*/ static final SConcept MathTypeCast_3d560b30 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200fb8bcedL, "jetbrains.mps.baseLanguage.math.structure.MathTypeCast");
+  private static final class PROPS {
+    /*package*/ static final SProperty target$si1w = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200fb8bcedL, 0x1200fbb56e7L, "target");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MathTypeCast$CM = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200fb8bcedL, "jetbrains.mps.baseLanguage.math.structure.MathTypeCast");
   }
 }

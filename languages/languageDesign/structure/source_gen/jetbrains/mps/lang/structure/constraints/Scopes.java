@@ -28,10 +28,10 @@ public class Scopes {
       return new EmptyScope();
     }
 
-    return new FilteringScope(forConcepts(contextNode, AUX_kflra7.AbstractConceptDeclaration_ec74828f)) {
+    return new FilteringScope(forConcepts(contextNode, CONCEPTS.AbstractConceptDeclaration$UN)) {
       @Override
       public boolean isExcluded(SNode node) {
-        return !((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SNodeOperations.cast(node, AUX_kflra7.AbstractConceptDeclaration_ec74828f), conceptNode));
+        return !((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SNodeOperations.cast(node, CONCEPTS.AbstractConceptDeclaration$UN), conceptNode));
       }
     };
   }
@@ -40,16 +40,16 @@ public class Scopes {
       return new EmptyScope();
     }
 
-    return new FilteringScope(forConcepts(contextNode, AUX_kflra7.ConceptDeclaration_cb225da8)) {
+    return new FilteringScope(forConcepts(contextNode, CONCEPTS.ConceptDeclaration$qU)) {
       @Override
       public boolean isExcluded(SNode node) {
-        return (boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SNodeOperations.cast(node, AUX_kflra7.ConceptDeclaration_cb225da8), conceptNode);
+        return (boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SNodeOperations.cast(node, CONCEPTS.ConceptDeclaration$qU), conceptNode);
       }
     };
   }
 
-  private static final class AUX_kflra7 {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
   }
 }

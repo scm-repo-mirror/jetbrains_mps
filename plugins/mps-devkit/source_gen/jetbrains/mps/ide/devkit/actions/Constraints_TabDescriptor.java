@@ -46,7 +46,7 @@ public class Constraints_TabDescriptor extends RelationDescriptor {
     return ConceptEditorOpenHelper.getBaseNode(node);
   }
   public boolean isApplicable(SNode node) {
-    return SNodeOperations.isInstanceOf(node, AUX_3obokt.AbstractConceptDeclaration_ec74828f);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractConceptDeclaration$UN);
   }
   @Nullable
   public Icon getIcon() {
@@ -64,8 +64,8 @@ public class Constraints_TabDescriptor extends RelationDescriptor {
       return nodes;
     }
 
-    ListSequence.fromList(nodes).addSequence(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(node, AUX_3obokt.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("findConceptAspects", AUX_3obokt.AbstractConceptDeclaration_ec74828f, "4G9PD8$NvPM"), aspectModel))));
-    return ConceptEditorHelper.sortRootsByConcept(nodes, new SAbstractConcept[]{AUX_3obokt.ConceptConstraints_2e5b5de5, AUX_3obokt.RulesConstraintsRoot_9de962df});
+    ListSequence.fromList(nodes).addSequence(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(node, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("findConceptAspects", CONCEPTS.AbstractConceptDeclaration$UN, "4G9PD8$NvPM"), aspectModel))));
+    return ConceptEditorHelper.sortRootsByConcept(nodes, new SAbstractConcept[]{CONCEPTS.ConceptConstraints$St, CONCEPTS.RulesConstraintsRoot$xz});
   }
   public boolean isSingle() {
     return false;
@@ -85,9 +85,9 @@ public class Constraints_TabDescriptor extends RelationDescriptor {
     return ConceptAspectsHelper.attachNewConceptAspect(node, newConceptAspectRoot, md);
   }
 
-  private static final class AUX_3obokt {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ConceptConstraints_2e5b5de5 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
-    /*package*/ static final SConcept RulesConstraintsRoot_9de962df = MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ConceptConstraints$St = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
+    /*package*/ static final SConcept RulesConstraintsRoot$xz = MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot");
   }
 }

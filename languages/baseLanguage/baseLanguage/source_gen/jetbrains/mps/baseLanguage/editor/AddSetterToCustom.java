@@ -6,12 +6,13 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class AddSetterToCustom {
@@ -22,8 +23,8 @@ public class AddSetterToCustom {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b8f1b18eL, 0x117bd9b26faL, "setAccessor")) == null)) {
-          SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b8f1b18eL, 0x117bd9b26faL, "setAccessor"), SNodeFactoryOperations.createNewNode(AUX_v66dra.SetAccessor_d09c9ac9, null));
+        if ((SLinkOperations.getTarget(node, LINKS.setAccessor$cVSe) == null)) {
+          SLinkOperations.setTarget(node, LINKS.setAccessor$cVSe, SNodeFactoryOperations.createNewNode(CONCEPTS.SetAccessor$QT, null));
         }
       }
 
@@ -35,8 +36,8 @@ public class AddSetterToCustom {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode replacingNode = SNodeFactoryOperations.replaceWithNewChild(node, AUX_v66dra.CustomSetterPropertyImplementation_343f1501);
-        SLinkOperations.setTarget(replacingNode, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b7a2005a14cfe5eL, 0x3b7a2005a14d0185L, "setAccessor"), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b8f1b18eL, 0x117bd9b26faL, "setAccessor")));
+        SNode replacingNode = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.CustomSetterPropertyImplementation$E1);
+        SLinkOperations.setTarget(replacingNode, LINKS.setAccessor$VUMX, SLinkOperations.getTarget(node, LINKS.setAccessor$cVSe));
       }
 
     };
@@ -81,8 +82,13 @@ public class AddSetterToCustom {
     }
   }
 
-  private static final class AUX_v66dra {
-    /*package*/ static final SConcept SetAccessor_d09c9ac9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117bd9ac3d9L, "jetbrains.mps.baseLanguage.structure.SetAccessor");
-    /*package*/ static final SConcept CustomSetterPropertyImplementation_343f1501 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b7a2005a14cfe5eL, "jetbrains.mps.baseLanguage.structure.CustomSetterPropertyImplementation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink setAccessor$cVSe = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b8f1b18eL, 0x117bd9b26faL, "setAccessor");
+    /*package*/ static final SContainmentLink setAccessor$VUMX = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b7a2005a14cfe5eL, 0x3b7a2005a14d0185L, "setAccessor");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SetAccessor$QT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117bd9ac3d9L, "jetbrains.mps.baseLanguage.structure.SetAccessor");
+    /*package*/ static final SConcept CustomSetterPropertyImplementation$E1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b7a2005a14cfe5eL, "jetbrains.mps.baseLanguage.structure.CustomSetterPropertyImplementation");
   }
 }

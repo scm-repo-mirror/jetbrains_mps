@@ -20,12 +20,12 @@ public class check_ReportErrorStatement_NonTypesystemRule extends AbstractNonTyp
   public check_ReportErrorStatement_NonTypesystemRule() {
   }
   public void applyRule(final SNode reportStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SNodeOperations.getNodeAncestor(reportStatement, AUX_vrp382.CommandMethod_30caf03c, false, false) != null)) {
+    if ((SNodeOperations.getNodeAncestor(reportStatement, CONCEPTS.CommandMethod$qA, false, false) != null)) {
       RulesFunctions_BaseLanguage.check(typeCheckingContext, SetSequence.fromSetAndArray(new HashSet<SNode>(), ReportErrorStatement__BehaviorDescriptor.getException_idJzCdmU6yQ5.invoke(reportStatement)), reportStatement);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_vrp382.ReportErrorStatement_30caf094;
+    return CONCEPTS.ReportErrorStatement$5e;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,8 +34,8 @@ public class check_ReportErrorStatement_NonTypesystemRule extends AbstractNonTyp
     return false;
   }
 
-  private static final class AUX_vrp382 {
-    /*package*/ static final SConcept CommandMethod_30caf03c = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2be7L, "jetbrains.mps.execution.commands.structure.CommandMethod");
-    /*package*/ static final SConcept ReportErrorStatement_30caf094 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c00L, "jetbrains.mps.execution.commands.structure.ReportErrorStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommandMethod$qA = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2be7L, "jetbrains.mps.execution.commands.structure.CommandMethod");
+    /*package*/ static final SConcept ReportErrorStatement$5e = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c00L, "jetbrains.mps.execution.commands.structure.ReportErrorStatement");
   }
 }

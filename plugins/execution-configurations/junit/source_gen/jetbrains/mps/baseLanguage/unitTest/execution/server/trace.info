@@ -25,7 +25,7 @@
   <root nodeRef="r:a8dde698-9468-4a76-b89d-abdfa4716001(jetbrains.mps.baseLanguage.unitTest.execution.server)/1353230511307473344">
     <file name="InProcessExecutionFilter.java">
       <node id="6821726771627585930" at="20,47,21,74" concept="18" />
-      <node id="1147462292881262423" at="23,156,24,71" concept="18" />
+      <node id="1147462292881262423" at="23,148,24,71" concept="18" />
       <node id="7690045930174734755" at="29,0,30,0" concept="5" trace="myWrapper" />
       <node id="1147462292881260805" at="31,65,32,16" concept="16" />
       <node id="7690045930174734924" at="32,16,33,26" concept="4" />
@@ -34,7 +34,7 @@
       <node id="7690045930175012956" at="55,37,56,183" concept="11" />
       <node id="7690045930174718199" at="61,76,62,21" concept="16" />
       <node id="7690045930175013986" at="67,37,68,158" concept="11" />
-      <node id="1353230511307473344" at="73,0,74,0" concept="14" trace="TestInfo_c0c4a9c7" />
+      <node id="1353230511307473344" at="73,0,74,0" concept="14" trace="TestInfo$TV" />
       <node id="7690045930174990744" at="44,0,46,0" concept="9" trace="getFormattedMsg#()Ljava/lang/String;" />
       <node id="321825573151184456" at="19,127,22,5" concept="8" />
       <node id="7466470118076973638" at="22,5,25,5" concept="8" />
@@ -46,7 +46,7 @@
       <node id="7690045930175010796" at="65,0,70,0" concept="9" trace="getFormattedMsg#()Ljava/lang/String;" />
       <node id="6106412458332677663" at="19,0,27,0" concept="9" trace="check#(Ljetbrains/mps/baseLanguage/unitTest/execution/client/ITestNodeWrapper;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
       <scope id="321825573151184459" at="20,47,21,74" />
-      <scope id="7466470118076973639" at="23,156,24,71" />
+      <scope id="7466470118076973639" at="23,148,24,71" />
       <scope id="7690045930174736625" at="37,39,38,23" />
       <scope id="7690045930174718391" at="49,79,50,21" />
       <scope id="7690045930175010767" at="55,37,56,183" />
@@ -71,7 +71,7 @@
         <var name="testNodeModel" id="918181594242887930" />
         <var name="testNodeWrapper" id="918181594242912518" />
       </scope>
-      <unit id="1353230511307473344" at="72,0,75,0" name="jetbrains.mps.baseLanguage.unitTest.execution.server.InProcessExecutionFilter$AUX_gfnw1f" />
+      <unit id="1353230511307473344" at="72,0,75,0" name="jetbrains.mps.baseLanguage.unitTest.execution.server.InProcessExecutionFilter$CONCEPTS" />
       <unit id="7690045930174718388" at="48,0,59,0" name="jetbrains.mps.baseLanguage.unitTest.execution.server.InProcessExecutionFilter$TestSetNotToBeExecutedInProcessException" />
       <unit id="7690045930174718195" at="60,0,71,0" name="jetbrains.mps.baseLanguage.unitTest.execution.server.InProcessExecutionFilter$ProjectSetToReopenInTestInfoException" />
       <unit id="9133525239289155685" at="28,0,47,0" name="jetbrains.mps.baseLanguage.unitTest.execution.server.InProcessExecutionFilter$InProcessCheckException" />

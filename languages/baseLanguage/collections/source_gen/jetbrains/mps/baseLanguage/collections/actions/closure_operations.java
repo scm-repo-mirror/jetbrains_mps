@@ -7,217 +7,228 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class closure_operations {
   public static class NodeFactory_1225118817881 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode sel = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode sel = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((sel == null)) {
-          sel = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          sel = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1225119174306 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode sel = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode sel = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((sel == null)) {
-          sel = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          sel = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1225119188770 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode sel = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode sel = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((sel == null)) {
-          sel = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          sel = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1225119083460 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode sel = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode sel = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((sel == null)) {
-          sel = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          sel = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1225119114838 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode sel = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode sel = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((sel == null)) {
-          sel = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          sel = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1225110009888 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SNode sel = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+      SNode sel = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
       if ((sel == null)) {
-        sel = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+        sel = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
       }
-      SNode pda = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pda, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "a");
-      SNode pdb = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pdb, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "b");
+      SNode pda = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pda, PROPS.name$tAp1, "a");
+      SNode pdb = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(sel, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pdb, PROPS.name$tAp1, "b");
     }
   }
   public static class NodeFactory_1225728791327 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode filter = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode filter = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((filter == null)) {
-          filter = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          filter = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1225730740847 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode filter = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode filter = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((filter == null)) {
-          filter = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          filter = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1235567398001 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode filter = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode filter = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((filter == null)) {
-          filter = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          filter = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1235567424420 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode filter = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode filter = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((filter == null)) {
-          filter = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          filter = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_3055999550620994085 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_xonwhk.InternalSequenceOperation_2ca93cb3), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"))));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.InternalSequenceOperation$$f)) {
+        SLinkOperations.setTarget(newNode, LINKS.closure$aJtr, SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.InternalSequenceOperation$$f), LINKS.closure$aJtr)));
       } else {
-        SNode filter = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+        SNode filter = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
         if ((filter == null)) {
-          filter = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+          filter = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
         }
-        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-        SPropertyOperations.set(pd, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+        SNode pd = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(filter, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+        SPropertyOperations.set(pd, PROPS.name$tAp1, "it");
       }
     }
   }
   public static class NodeFactory_1522217801069385377 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SNode comb = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+      SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
       if ((comb == null)) {
-        comb = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+        comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
       }
-      SNode pda = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pda, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "a");
-      SNode pdb = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pdb, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "b");
+      SNode pda = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pda, PROPS.name$tAp1, "a");
+      SNode pdb = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pdb, PROPS.name$tAp1, "b");
     }
   }
   public static class NodeFactory_1522217801069396478 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SNode comb = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+      SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
       if ((comb == null)) {
-        comb = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+        comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
       }
-      SNode pda = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pda, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "a");
-      SNode pdb = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pdb, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "b");
+      SNode pda = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pda, PROPS.name$tAp1, "a");
+      SNode pdb = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pdb, PROPS.name$tAp1, "b");
     }
   }
   public static class NodeFactory_1522217801069421699 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SNode comb = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+      SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
       if ((comb == null)) {
-        comb = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+        comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
       }
-      SNode pds = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.ParameterDeclaration_24d60da8);
-      SPropertyOperations.set(pds, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "s");
-      SNode pdit = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pdit, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
+      SNode pds = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.ParameterDeclaration$qU);
+      SPropertyOperations.set(pds, PROPS.name$tAp1, "s");
+      SNode pdit = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pdit, PROPS.name$tAp1, "it");
     }
   }
   public static class NodeFactory_1522217801069421974 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SNode comb = SLinkOperations.getTarget(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"));
+      SNode comb = SLinkOperations.getTarget(newNode, LINKS.closure$aJtr);
       if ((comb == null)) {
-        comb = SNodeFactoryOperations.setNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure"), AUX_xonwhk.ClosureLiteral_6eeca0d3);
+        comb = SNodeFactoryOperations.setNewChild(newNode, LINKS.closure$aJtr, CONCEPTS.ClosureLiteral$zJ);
       }
-      SNode pdit = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.SmartClosureParameterDeclaration_38f24421);
-      SPropertyOperations.set(pdit, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "it");
-      SNode pds = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, AUX_xonwhk.ClosureLiteral_6eeca0d3), MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter"), AUX_xonwhk.ParameterDeclaration_24d60da8);
-      SPropertyOperations.set(pds, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "s");
+      SNode pdit = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.SmartClosureParameterDeclaration$Xx);
+      SPropertyOperations.set(pdit, PROPS.name$tAp1, "it");
+      SNode pds = SNodeFactoryOperations.addNewChild(SNodeOperations.cast(comb, CONCEPTS.ClosureLiteral$zJ), LINKS.parameter$WRt7, CONCEPTS.ParameterDeclaration$qU);
+      SPropertyOperations.set(pds, PROPS.name$tAp1, "s");
     }
   }
 
-  private static final class AUX_xonwhk {
-    /*package*/ static final SConcept InternalSequenceOperation_2ca93cb3 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, "jetbrains.mps.baseLanguage.collections.structure.InternalSequenceOperation");
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
-    /*package*/ static final SConcept SmartClosureParameterDeclaration_38f24421 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x118374464e4L, "jetbrains.mps.baseLanguage.collections.structure.SmartClosureParameterDeclaration");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink closure$aJtr = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, 0x11883748452L, "closure");
+    /*package*/ static final SContainmentLink parameter$WRt7 = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf02c34L, "parameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InternalSequenceOperation$$f = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1188372895aL, "jetbrains.mps.baseLanguage.collections.structure.InternalSequenceOperation");
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+    /*package*/ static final SConcept SmartClosureParameterDeclaration$Xx = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x118374464e4L, "jetbrains.mps.baseLanguage.collections.structure.SmartClosureParameterDeclaration");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

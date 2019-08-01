@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.regexp.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class SymbolClassPart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_fyhykq.SymbolClassPart_b001b03c;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791aa602L, "jetbrains.mps.baseLanguage.regexp.structure.SymbolClassPart");
 
   public static final SMethod<String> validateChar_id75Jea4IFjf5 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("validateChar").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("75Jea4IFjf5").build(SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<String> escapeChar_id75Jea4IEVWQ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("escapeChar").modifiers(SModifiersImpl.create(2, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("75Jea4IEVWQ").build(SMethodBuilder.createJavaParameter(String.class, ""));
@@ -48,7 +48,7 @@ public final class SymbolClassPart__BehaviorDescriptor extends BaseBHDescriptor 
             return null;
           }
           c = s.charAt(i);
-          if (!((boolean) StringLiteralRegexp__BehaviorDescriptor.isHexChar_id7KMCQ$NHaYO.invoke(SNodeOperations.asSConcept(AUX_fyhykq.StringLiteralRegexp_491faa79), ((char) c)))) {
+          if (!((boolean) StringLiteralRegexp__BehaviorDescriptor.isHexChar_id7KMCQ$NHaYO.invoke(SNodeOperations.asSConcept(CONCEPTS.StringLiteralRegexp$g9), ((char) c)))) {
             return null;
           }
           sb.append(c);
@@ -147,8 +147,7 @@ public final class SymbolClassPart__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
-  private static final class AUX_fyhykq {
-    /*package*/ static final SConcept SymbolClassPart_b001b03c = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x111791aa602L, "jetbrains.mps.baseLanguage.regexp.structure.SymbolClassPart");
-    /*package*/ static final SConcept StringLiteralRegexp_491faa79 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a0992dL, "jetbrains.mps.baseLanguage.regexp.structure.StringLiteralRegexp");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringLiteralRegexp$g9 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11174a0992dL, "jetbrains.mps.baseLanguage.regexp.structure.StringLiteralRegexp");
   }
 }

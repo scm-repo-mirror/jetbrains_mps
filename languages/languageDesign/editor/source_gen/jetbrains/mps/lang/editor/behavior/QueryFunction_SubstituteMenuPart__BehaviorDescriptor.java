@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -20,11 +21,10 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class QueryFunction_SubstituteMenuPart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_xbt1sm.QueryFunction_SubstituteMenuPart_d4d1391f;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5a8bc23a16218182L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenuPart");
 
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
 
@@ -34,12 +34,12 @@ public final class QueryFunction_SubstituteMenuPart__BehaviorDescriptor extends 
   }
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
-    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invokeSuper(__thisNode__, AUX_xbt1sm.QueryFunction_SubstituteMenuPart_d4d1391f);
-    SNode extensibleMenuPart = SNodeOperations.getNodeAncestor(__thisNode__, AUX_xbt1sm.IExtensibleSubstituteMenuPart_7541fcec, false, false);
+    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invokeSuper(__thisNode__, CONCEPTS.QueryFunction_SubstituteMenuPart$Cz);
+    SNode extensibleMenuPart = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.IExtensibleSubstituteMenuPart$ZQ, false, false);
     if ((extensibleMenuPart != null)) {
       ListSequence.fromList(result).addSequence(ListSequence.fromList(IExtensibleSubstituteMenuPart__BehaviorDescriptor.getAdditionalFeatureParameters_id394Ruzxf8fe.invoke(extensibleMenuPart)));
     }
-    ListSequence.fromList(result).addElement(AUX_xbt1sm.QueryFunctionParameter_pattern_22840343);
+    ListSequence.fromList(result).addElement(CONCEPTS.QueryFunctionParameter_pattern$hZ);
     return result;
   }
 
@@ -89,9 +89,9 @@ public final class QueryFunction_SubstituteMenuPart__BehaviorDescriptor extends 
     return CONCEPT;
   }
 
-  private static final class AUX_xbt1sm {
-    /*package*/ static final SConcept QueryFunction_SubstituteMenuPart_d4d1391f = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5a8bc23a16218182L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenuPart");
-    /*package*/ static final SInterfaceConcept IExtensibleSubstituteMenuPart_7541fcec = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, "jetbrains.mps.lang.editor.structure.IExtensibleSubstituteMenuPart");
-    /*package*/ static final SConcept QueryFunctionParameter_pattern_22840343 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1121e2c89d1L, "jetbrains.mps.lang.editor.structure.QueryFunctionParameter_pattern");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryFunction_SubstituteMenuPart$Cz = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5a8bc23a16218182L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenuPart");
+    /*package*/ static final SInterfaceConcept IExtensibleSubstituteMenuPart$ZQ = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, "jetbrains.mps.lang.editor.structure.IExtensibleSubstituteMenuPart");
+    /*package*/ static final SConcept QueryFunctionParameter_pattern$hZ = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1121e2c89d1L, "jetbrains.mps.lang.editor.structure.QueryFunctionParameter_pattern");
   }
 }

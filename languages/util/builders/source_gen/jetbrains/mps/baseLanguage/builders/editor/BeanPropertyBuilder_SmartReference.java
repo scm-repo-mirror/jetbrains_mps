@@ -14,7 +14,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
@@ -23,13 +22,15 @@ import jetbrains.mps.baseLanguage.builders.behavior.BeanPropertyBuilder__Behavio
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BeanPropertyBuilder_SmartReference extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_i1rqlx_a(), AUX_i1rqlx.BeanPropertyBuilder_91c07849));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_i1rqlx_a(), CONCEPTS.BeanPropertyBuilder$T));
     return result;
   }
 
@@ -50,7 +51,7 @@ public class BeanPropertyBuilder_SmartReference extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_i1rqlx_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_i1rqlx.BeanPropertyBuilder_91c07849, MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, 0x252efd34f8a58ec8L, "setter"));
+      super((SAbstractConcept) CONCEPTS.BeanPropertyBuilder$T, LINKS.setter$3Djw);
     }
     @NotNull
     @Override
@@ -82,7 +83,7 @@ public class BeanPropertyBuilder_SmartReference extends SubstituteMenuBase {
       }
       @Override
       public String getMatchingText(String pattern) {
-        return (String) BeanPropertyBuilder__BehaviorDescriptor.getPropertyName_id2kIZjjSEvS7.invoke(SNodeOperations.asSConcept(AUX_i1rqlx.BeanPropertyBuilder_91c07849), SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return (String) BeanPropertyBuilder__BehaviorDescriptor.getPropertyName_id2kIZjjSEvS7.invoke(SNodeOperations.asSConcept(CONCEPTS.BeanPropertyBuilder$T), SPropertyOperations.getString(referencedNode, PROPS.name$tAp1));
       }
       @Override
       public String getVisibleMatchingText(String pattern) {
@@ -96,7 +97,15 @@ public class BeanPropertyBuilder_SmartReference extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_i1rqlx {
-    /*package*/ static final SConcept BeanPropertyBuilder_91c07849 = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, "jetbrains.mps.baseLanguage.builders.structure.BeanPropertyBuilder");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BeanPropertyBuilder$T = MetaAdapterFactory.getConcept(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, "jetbrains.mps.baseLanguage.builders.structure.BeanPropertyBuilder");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink setter$3Djw = MetaAdapterFactory.getReferenceLink(0x132aa4d8a3f7441cL, 0xa7eb3fce23492c6aL, 0x252efd34f8a58ec7L, 0x252efd34f8a58ec8L, "setter");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -11,9 +11,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.selection.EditorCellLabelSelection;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Word_KeyMap extends KeyMapImpl {
   public Word_KeyMap() {
@@ -50,7 +51,7 @@ public class Word_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_9vl609.Word_f8e99bb0))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$AM))) {
         return false;
       }
       return true;
@@ -60,7 +61,7 @@ public class Word_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d47eL, "bold"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d47eL, "bold"))));
+      SPropertyOperations.assign(node, PROPS.bold$WTX$, !(SPropertyOperations.getBoolean(node, PROPS.bold$WTX$)));
     }
     public String getKeyStroke() {
       return "ctrl B";
@@ -82,7 +83,7 @@ public class Word_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_9vl609.Word_f8e99bb0))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$AM))) {
         return false;
       }
       return true;
@@ -92,7 +93,7 @@ public class Word_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic"))));
+      SPropertyOperations.assign(node, PROPS.italic$WTZ1, !(SPropertyOperations.getBoolean(node, PROPS.italic$WTZ1)));
     }
     public String getKeyStroke() {
       return "ctrl I";
@@ -114,7 +115,7 @@ public class Word_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_9vl609.Word_f8e99bb0))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$AM))) {
         return false;
       }
       return true;
@@ -124,7 +125,7 @@ public class Word_KeyMap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d494L, "underlined"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d494L, "underlined"))));
+      SPropertyOperations.assign(node, PROPS.underlined$WUs$, !(SPropertyOperations.getBoolean(node, PROPS.underlined$WUs$)));
     }
     public String getKeyStroke() {
       return "ctrl U";
@@ -147,7 +148,7 @@ public class Word_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_9vl609.Word_f8e99bb0))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$AM))) {
         return false;
       }
       return true;
@@ -179,7 +180,7 @@ public class Word_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_9vl609.Word_f8e99bb0))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$AM))) {
         return false;
       }
       return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
@@ -215,7 +216,7 @@ public class Word_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_9vl609.Word_f8e99bb0))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$AM))) {
         return false;
       }
       return true;
@@ -248,7 +249,7 @@ public class Word_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_9vl609.Word_f8e99bb0))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.Word$AM))) {
         return false;
       }
       return true;
@@ -265,7 +266,13 @@ public class Word_KeyMap extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_9vl609 {
-    /*package*/ static final SConcept Word_f8e99bb0 = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Word$AM = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, "jetbrains.mps.lang.text.structure.Word");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty bold$WTX$ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d47eL, "bold");
+    /*package*/ static final SProperty italic$WTZ1 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d481L, "italic");
+    /*package*/ static final SProperty underlined$WUs$ = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d494L, "underlined");
   }
 }

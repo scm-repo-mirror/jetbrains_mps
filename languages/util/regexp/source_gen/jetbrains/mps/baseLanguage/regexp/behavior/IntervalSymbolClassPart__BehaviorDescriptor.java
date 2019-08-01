@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.regexp.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IntervalSymbolClassPart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_xrauvb.IntervalSymbolClassPart_dc0b35a2;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, "jetbrains.mps.baseLanguage.regexp.structure.IntervalSymbolClassPart");
 
   public static final SMethod<String> getRepresentation_id75Jea4IEZbM = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getRepresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("75Jea4IEZbM").build();
 
@@ -31,7 +31,7 @@ public final class IntervalSymbolClassPart__BehaviorDescriptor extends BaseBHDes
   }
 
   /*package*/ static String getRepresentation_id75Jea4IEZbM(@NotNull SNode __thisNode__) {
-    return SymbolClassPart__BehaviorDescriptor.escapeChar_id75Jea4IEVWQ.invoke(__thisNode__, SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x1117921931aL, "start"))) + "-" + SymbolClassPart__BehaviorDescriptor.escapeChar_id75Jea4IEVWQ.invoke(__thisNode__, SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x11179219cfeL, "end")));
+    return SymbolClassPart__BehaviorDescriptor.escapeChar_id75Jea4IEVWQ.invoke(__thisNode__, SPropertyOperations.getString(__thisNode__, PROPS.start$kd8P)) + "-" + SymbolClassPart__BehaviorDescriptor.escapeChar_id75Jea4IEVWQ.invoke(__thisNode__, SPropertyOperations.getString(__thisNode__, PROPS.end$rU5C));
   }
 
   /*package*/ IntervalSymbolClassPart__BehaviorDescriptor() {
@@ -80,7 +80,8 @@ public final class IntervalSymbolClassPart__BehaviorDescriptor extends BaseBHDes
     return CONCEPT;
   }
 
-  private static final class AUX_xrauvb {
-    /*package*/ static final SConcept IntervalSymbolClassPart_dc0b35a2 = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, "jetbrains.mps.baseLanguage.regexp.structure.IntervalSymbolClassPart");
+  private static final class PROPS {
+    /*package*/ static final SProperty start$kd8P = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x1117921931aL, "start");
+    /*package*/ static final SProperty end$rU5C = MetaAdapterFactory.getProperty(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x11179215e8bL, 0x11179219cfeL, "end");
   }
 }

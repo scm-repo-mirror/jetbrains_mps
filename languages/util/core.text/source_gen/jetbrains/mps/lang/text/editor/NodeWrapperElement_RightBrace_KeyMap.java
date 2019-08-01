@@ -36,7 +36,7 @@ public class NodeWrapperElement_RightBrace_KeyMap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_1wur14.NodeWrapperElement_9f69a8df))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.NodeWrapperElement$9z))) {
         return false;
       }
       return true;
@@ -53,7 +53,7 @@ public class NodeWrapperElement_RightBrace_KeyMap extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_1wur14 {
-    /*package*/ static final SConcept NodeWrapperElement_9f69a8df = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2b7b49e536031fe9L, "jetbrains.mps.lang.text.structure.NodeWrapperElement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeWrapperElement$9z = MetaAdapterFactory.getConcept(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x2b7b49e536031fe9L, "jetbrains.mps.lang.text.structure.NodeWrapperElement");
   }
 }

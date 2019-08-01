@@ -11,9 +11,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class NoMessageKeymap extends KeyMapImpl {
   public NoMessageKeymap() {
@@ -40,7 +41,7 @@ public class NoMessageKeymap extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_2tpy8h.InlineMessageProvider_dc9f38f7))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.InlineMessageProvider$lb))) {
         return false;
       }
       return true;
@@ -50,15 +51,19 @@ public class NoMessageKeymap extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "messagesExpr"), SNodeFactoryOperations.createNewNode(AUX_2tpy8h.CombinedMessageExpression_4c275d, null));
+      SLinkOperations.setTarget(node, LINKS.messagesExpr$ec2t, SNodeFactoryOperations.createNewNode(CONCEPTS.CombinedMessageExpression$e_, null));
     }
     public String getKeyStroke() {
       return "  ";
     }
   }
 
-  private static final class AUX_2tpy8h {
-    /*package*/ static final SConcept InlineMessageProvider_dc9f38f7 = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, "jetbrains.mps.lang.rulesAndMessages.structure.InlineMessageProvider");
-    /*package*/ static final SConcept CombinedMessageExpression_4c275d = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InlineMessageProvider$lb = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, "jetbrains.mps.lang.rulesAndMessages.structure.InlineMessageProvider");
+    /*package*/ static final SConcept CombinedMessageExpression$e_ = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink messagesExpr$ec2t = MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce81L, 0x48f860fc0e362dc8L, "messagesExpr");
   }
 }

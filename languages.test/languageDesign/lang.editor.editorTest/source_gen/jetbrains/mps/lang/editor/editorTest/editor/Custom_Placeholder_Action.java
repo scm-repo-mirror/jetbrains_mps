@@ -7,13 +7,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Custom_Placeholder_Action {
 
@@ -23,10 +24,10 @@ public class Custom_Placeholder_Action {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5f4994bb9f207828L, 0x611ca85be0637679L, "customPlaceholder"))).isNotEmpty()) {
+        if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.customPlaceholder$gMsh)).isNotEmpty()) {
           SNodeOperations.insertNextSiblingChild(((SNode) editorContext.getSelectedNode()), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x611ca85be0637678L, "jetbrains.mps.lang.editor.editorTest.structure.CustomPlaceholder")));
         } else {
-          SLinkOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5f4994bb9f207828L, 0x611ca85be0637679L, "customPlaceholder"), null);
+          SLinkOperations.addNewChild(node, LINKS.customPlaceholder$gMsh, null);
         }
       }
 
@@ -66,5 +67,9 @@ public class Custom_Placeholder_Action {
     if (Objects.equals(actionType, CellActionType.INSERT_PLACEHOLDER)) {
       editorCell.setAction(actionType, createAction_INSERT_PLACEHOLDER(node));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink customPlaceholder$gMsh = MetaAdapterFactory.getContainmentLink(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x5f4994bb9f207828L, 0x611ca85be0637679L, "customPlaceholder");
   }
 }

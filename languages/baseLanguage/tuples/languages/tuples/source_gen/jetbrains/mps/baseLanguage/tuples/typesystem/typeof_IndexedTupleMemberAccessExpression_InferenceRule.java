@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -21,38 +20,40 @@ import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_IndexedTupleMemberAccessExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_IndexedTupleMemberAccessExpression_InferenceRule() {
   }
   public void applyRule(final SNode mae, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(mae, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ae5facL, "index"))))) {
+    if (!((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(mae, LINKS.index$FK7s)))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(mae, "Tuple index must be a constant expression", "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "1238859427576", null, errorTarget);
     }
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(mae, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ae5facL, "index"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(mae, LINKS.index$FK7s);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "1238857999186", 0, null);
       typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "1238857984180", true), (SNode) _quotation_createNode_290su0_a1a0c0b0b(), false, true, _info_12389875345);
     }
-    if ((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(mae, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ae5facL, "index")))) {
+    if ((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SLinkOperations.getTarget(mae, LINKS.index$FK7s))) {
       if (SNodeOperations.getModel(mae) != null && SNodeOperations.getModel(mae).getModule() != null) {
-        Object idxValue = Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SLinkOperations.getTarget(mae, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ae5facL, "index")), SNodeOperations.getModel(mae).getModule());
+        Object idxValue = Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SLinkOperations.getTarget(mae, LINKS.index$FK7s), SNodeOperations.getModel(mae).getModule());
         final int index = (idxValue instanceof Integer ? ((Integer) idxValue).intValue() : -1);
         {
-          final SNode tupleType = typeCheckingContext.typeOf(SLinkOperations.getTarget(mae, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ad5056L, "tuple")), "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "1238864035483", true);
+          final SNode tupleType = typeCheckingContext.typeOf(SLinkOperations.getTarget(mae, LINKS.tuple$Uqkp), "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "1238864035483", true);
           typeCheckingContext.whenConcrete(tupleType, new Runnable() {
             public void run() {
               {
-                SNode coercedNode_2aq6od_a0c0a0c0 = TypecheckingFacade.getFromContext().coerceType(typeCheckingContext.getExpandedNode(tupleType), AUX_290su0.IndexedTupleType_dd9476bd);
+                SNode coercedNode_2aq6od_a0c0a0c0 = TypecheckingFacade.getFromContext().coerceType(typeCheckingContext.getExpandedNode(tupleType), CONCEPTS.IndexedTupleType$15);
                 if (coercedNode_2aq6od_a0c0a0c0 != null) {
-                  if (!(index >= 0 && index < ListSequence.fromList(SLinkOperations.getChildren(coercedNode_2aq6od_a0c0a0c0, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"))).count())) {
+                  if (!(index >= 0 && index < ListSequence.fromList(SLinkOperations.getChildren(coercedNode_2aq6od_a0c0a0c0, LINKS.componentType$62ij)).count())) {
                     final MessageTarget errorTarget = new NodeMessageTarget();
                     IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(mae, "Index value out of range", "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "1238864218062", null, errorTarget);
                   }
-                  if (index >= 0 && index < ListSequence.fromList(SLinkOperations.getChildren(coercedNode_2aq6od_a0c0a0c0, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"))).count()) {
-                    List<SNode> mtypes = SLinkOperations.getChildren(coercedNode_2aq6od_a0c0a0c0, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"));
+                  if (index >= 0 && index < ListSequence.fromList(SLinkOperations.getChildren(coercedNode_2aq6od_a0c0a0c0, LINKS.componentType$62ij)).count()) {
+                    List<SNode> mtypes = SLinkOperations.getChildren(coercedNode_2aq6od_a0c0a0c0, LINKS.componentType$62ij);
                     {
                       SNode _nodeToCheck_1029348928467 = mae;
                       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "1238864299354", 0, null);
@@ -74,7 +75,7 @@ public class typeof_IndexedTupleMemberAccessExpression_InferenceRule extends Abs
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_290su0.IndexedTupleMemberAccessExpression_f04375cc;
+    return CONCEPTS.IndexedTupleMemberAccessExpression$cm;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -89,8 +90,14 @@ public class typeof_IndexedTupleMemberAccessExpression_InferenceRule extends Abs
     return quotedNode_1;
   }
 
-  private static final class AUX_290su0 {
-    /*package*/ static final SConcept IndexedTupleType_dd9476bd = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType");
-    /*package*/ static final SConcept IndexedTupleMemberAccessExpression_f04375cc = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleMemberAccessExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink index$FK7s = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ae5facL, "index");
+    /*package*/ static final SContainmentLink tuple$Uqkp = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ad5056L, "tuple");
+    /*package*/ static final SContainmentLink componentType$62ij = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IndexedTupleType$15 = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType");
+    /*package*/ static final SConcept IndexedTupleMemberAccessExpression$cm = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleMemberAccessExpression");
   }
 }

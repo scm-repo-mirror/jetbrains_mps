@@ -4,47 +4,53 @@ package smodelLanguage.samples;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class TypeCast {
   public void cast_node_to_SNode(SNode ifStatement) {
     SNode nodeObject1 = ifStatement;
-    SNode nodeObject2 = (SNode) SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"));
-    SNode nodeObject3 = SLinkOperations.getTarget(ifStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"));
-    SNode expression = SNodeOperations.cast(nodeObject3, AUX_ugbc9o.Expression_4199e28d);
+    SNode nodeObject2 = (SNode) SLinkOperations.getTarget(ifStatement, LINKS.condition$WJ1b);
+    SNode nodeObject3 = SLinkOperations.getTarget(ifStatement, LINKS.condition$WJ1b);
+    SNode expression = SNodeOperations.cast(nodeObject3, CONCEPTS.Expression$TP);
   }
   public void cast_SNode_to_node(SNode node) {
     SNode node1 = node;
-    SNode node2 = SNodeOperations.cast(node, AUX_ugbc9o.IfStatement_9dbf9b10);
+    SNode node2 = SNodeOperations.cast(node, CONCEPTS.IfStatement$pi);
   }
   public void upcast_snode(SNode snode) {
-    SNode ifStatement = SNodeOperations.cast(snode, AUX_ugbc9o.IfStatement_9dbf9b10);
-    SNode ifStatement1 = SNodeOperations.cast(snode, AUX_ugbc9o.IfStatement_9dbf9b10);
+    SNode ifStatement = SNodeOperations.cast(snode, CONCEPTS.IfStatement$pi);
+    SNode ifStatement1 = SNodeOperations.cast(snode, CONCEPTS.IfStatement$pi);
   }
   public void cast_children_to_nlist(SNode statementList) {
-    List<SNode> statements = SLinkOperations.getChildren(statementList, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
+    List<SNode> statements = SLinkOperations.getChildren(statementList, LINKS.statement$WHn8);
   }
   public void cast_nlist_to_List(List<SNode> statements) {
     List list1 = statements;
     List<SNode> list2 = statements;
   }
   public void cast_children_to_List(SNode statements) {
-    List list1 = SLinkOperations.getChildren(statements, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
-    List<SNode> list2 = ListSequence.fromList(SLinkOperations.getChildren(statements, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).select(new ISelector<SNode, SNode>() {
+    List list1 = SLinkOperations.getChildren(statements, LINKS.statement$WHn8);
+    List<SNode> list2 = ListSequence.fromList(SLinkOperations.getChildren(statements, LINKS.statement$WHn8)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
         return it;
       }
     }).toListSequence();
-    List<SNode> list3 = (List<SNode>) SLinkOperations.getChildren(statements, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"));
+    List<SNode> list3 = (List<SNode>) SLinkOperations.getChildren(statements, LINKS.statement$WHn8);
   }
 
-  private static final class AUX_ugbc9o {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink condition$WJ1b = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
   }
 }

@@ -21,7 +21,7 @@ public class ReplaceMessageWithLog extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_ufs3s5.LogLowLevelStatement_66a96b81) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.LogLowLevelStatement$g1) {
 
       @NotNull
       @Override
@@ -34,7 +34,7 @@ public class ReplaceMessageWithLog extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_ufs3s5.LogLowLevelStatement_66a96b81));
+    }, CONCEPTS.LogLowLevelStatement$g1));
     return result;
   }
 
@@ -51,7 +51,7 @@ public class ReplaceMessageWithLog extends SubstituteMenuBase {
   }
 
 
-  private static final class AUX_ufs3s5 {
-    /*package*/ static final SConcept LogLowLevelStatement_66a96b81 = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x1c3d779b2be2f0b9L, "jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LogLowLevelStatement$g1 = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x1c3d779b2be2f0b9L, "jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement");
   }
 }

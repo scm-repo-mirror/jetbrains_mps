@@ -24,7 +24,7 @@ public class typeof_Address_InferenceRule extends AbstractInferenceRule_Runtime 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_954obi.Address_886b0eba;
+    return CONCEPTS.Address$vC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_Address_InferenceRule extends AbstractInferenceRule_Runtime 
     return false;
   }
 
-  private static final class AUX_954obi {
-    /*package*/ static final SConcept Address_886b0eba = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x48a6ab8c26b3f40bL, "jetbrains.mps.samples.languagePatterns.Basic.structure.Address");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Address$vC = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x48a6ab8c26b3f40bL, "jetbrains.mps.samples.languagePatterns.Basic.structure.Address");
   }
 }

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -34,6 +33,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NoWaitTransforms_ParallelFor_ext_3 extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -67,7 +68,7 @@ public class NoWaitTransforms_ParallelFor_ext_3 extends TransformationMenuBase {
   public class TMP_Group_tp4f9n_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !(SPropertyOperations.getBoolean(_context.getNode(), MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x74391c966b0f1304L, "nowait")));
+      return !(SPropertyOperations.getBoolean(_context.getNode(), PROPS.nowait$ez6i));
     }
 
     @NotNull
@@ -123,7 +124,7 @@ public class NoWaitTransforms_ParallelFor_ext_3 extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x74391c966b0f1304L, "nowait"), true);
+          SPropertyOperations.assign(_context.getNode(), PROPS.nowait$ez6i, true);
         }
 
 
@@ -145,5 +146,9 @@ public class NoWaitTransforms_ParallelFor_ext_3 extends TransformationMenuBase {
       }
 
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty nowait$ez6i = MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x7bd8445d1e8770aaL, 0x74391c966b0f1304L, "nowait");
   }
 }

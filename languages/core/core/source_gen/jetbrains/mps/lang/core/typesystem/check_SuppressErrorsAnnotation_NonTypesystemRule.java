@@ -8,13 +8,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.item.FlavouredItem;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_SuppressErrorsAnnotation_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -22,7 +23,7 @@ public class check_SuppressErrorsAnnotation_NonTypesystemRule extends AbstractNo
   }
   public void applyRule(final SNode suppressErrorsAnnotation, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     try {
-      String serializedPredicate = SPropertyOperations.getString(suppressErrorsAnnotation, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter"));
+      String serializedPredicate = SPropertyOperations.getString(suppressErrorsAnnotation, PROPS.filter$UuSh);
       FlavouredItem.ReportItemPredicate.deserialize((serializedPredicate == null ? "" : serializedPredicate));
     } catch (IllegalArgumentException e) {
       {
@@ -38,7 +39,7 @@ public class check_SuppressErrorsAnnotation_NonTypesystemRule extends AbstractNo
     // todo: message should be not empty, add migration if necessary 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2jtsz0.SuppressErrorsAnnotation_4912d93;
+    return CONCEPTS.SuppressErrorsAnnotation$gJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -47,7 +48,11 @@ public class check_SuppressErrorsAnnotation_NonTypesystemRule extends AbstractNo
     return false;
   }
 
-  private static final class AUX_2jtsz0 {
-    /*package*/ static final SConcept SuppressErrorsAnnotation_4912d93 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  private static final class PROPS {
+    /*package*/ static final SProperty filter$UuSh = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SuppressErrorsAnnotation$gJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
   }
 }

@@ -83,7 +83,7 @@ public class FindConceptInstances_Action extends BaseAction {
               @Override
               public FindUsagesOptions getDefaultSearchOptions(String concept) {
                 FindUsagesOptions findUsagesOptions = container.getDefaultSearchOptions(concept);
-                findUsagesOptions.setFindersOptions(new FindersOptions(((String) BHReflection.invoke0(SNodeOperations.getNode("r:00000000-0000-4000-0000-011c8959028e(jetbrains.mps.lang.structure.findUsages)", "1197632773078"), AUX_6dnx03.FinderDeclaration_c4096cf8, SMethodTrimmedId.create("getGeneratedClassLongName", AUX_6dnx03.FinderDeclaration_c4096cf8, "hEwIc4S")))));
+                findUsagesOptions.setFindersOptions(new FindersOptions(((String) BHReflection.invoke0(SNodeOperations.getNode("r:00000000-0000-4000-0000-011c8959028e(jetbrains.mps.lang.structure.findUsages)", "1197632773078"), CONCEPTS.FinderDeclaration$5E, SMethodTrimmedId.create("getGeneratedClassLongName", CONCEPTS.FinderDeclaration$5E, "hEwIc4S")))));
                 return findUsagesOptions;
               }
             };
@@ -105,23 +105,23 @@ public class FindConceptInstances_Action extends BaseAction {
   private SNode getConceptDeclaration(SNode node, final Map<String, Object> _params) {
     {
       final SNode acd = node;
-      if (SNodeOperations.isInstanceOf(acd, AUX_6dnx03.AbstractConceptDeclaration_ec74828f)) {
+      if (SNodeOperations.isInstanceOf(acd, CONCEPTS.AbstractConceptDeclaration$UN)) {
         return acd;
       }
     }
     {
       final SNode conceptAspect = node;
-      if (SNodeOperations.isInstanceOf(conceptAspect, AUX_6dnx03.IConceptAspect_bb65b752)) {
-        return ((SNode) BHReflection.invoke0(conceptAspect, AUX_6dnx03.IConceptAspect_bb65b752, SMethodTrimmedId.create("getBaseConcept", null, "2hxg_BDjKM8")));
+      if (SNodeOperations.isInstanceOf(conceptAspect, CONCEPTS.IConceptAspect$9g)) {
+        return ((SNode) BHReflection.invoke0(conceptAspect, CONCEPTS.IConceptAspect$9g, SMethodTrimmedId.create("getBaseConcept", null, "2hxg_BDjKM8")));
       }
     }
 
     return null;
   }
 
-  private static final class AUX_6dnx03 {
-    /*package*/ static final SConcept FinderDeclaration_c4096cf8 = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, "jetbrains.mps.lang.findUsages.structure.FinderDeclaration");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SInterfaceConcept IConceptAspect_bb65b752 = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x24614259e94f0c84L, "jetbrains.mps.lang.structure.structure.IConceptAspect");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FinderDeclaration$5E = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a8dL, "jetbrains.mps.lang.findUsages.structure.FinderDeclaration");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SInterfaceConcept IConceptAspect$9g = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x24614259e94f0c84L, "jetbrains.mps.lang.structure.structure.IConceptAspect");
   }
 }

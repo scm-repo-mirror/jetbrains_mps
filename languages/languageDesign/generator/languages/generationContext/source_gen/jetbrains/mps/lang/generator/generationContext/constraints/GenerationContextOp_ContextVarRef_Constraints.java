@@ -5,7 +5,6 @@ package jetbrains.mps.lang.generator.generationContext.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -20,16 +19,17 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class GenerationContextOp_ContextVarRef_Constraints extends BaseConstraintsDescriptor {
   public GenerationContextOp_ContextVarRef_Constraints() {
-    super(AUX_5ttjxh.GenerationContextOp_ContextVarRef_4f0f126e);
+    super(CONCEPTS.GenerationContextOp_ContextVarRef$EO);
   }
 
   public static class ContextVarName_Property extends BasePropertyConstraintsDescriptor {
     public ContextVarName_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName"), container);
+      super(PROPS.contextVarName$SNbV, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -47,10 +47,10 @@ public class GenerationContextOp_ContextVarRef_Constraints extends BaseConstrain
     private static boolean staticValidateProperty(SNode node, final String propertyValue) {
       SNode n = node;
       while (n != null) {
-        if (SNodeOperations.isInstanceOf(n, AUX_5ttjxh.ContextVariableProvider_b3c6f7bb)) {
-          if (ListSequence.fromList(ContextVariableProvider__BehaviorDescriptor.contextVariables_id6suuiWX_oN7.invoke(SNodeOperations.cast(n, AUX_5ttjxh.ContextVariableProvider_b3c6f7bb))).any(new IWhereFilter<SNode>() {
+        if (SNodeOperations.isInstanceOf(n, CONCEPTS.ContextVariableProvider$W7)) {
+          if (ListSequence.fromList(ContextVariableProvider__BehaviorDescriptor.contextVariables_id6suuiWX_oN7.invoke(SNodeOperations.cast(n, CONCEPTS.ContextVariableProvider$W7))).any(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(propertyValue);
+              return SPropertyOperations.getString(it, PROPS.name$tAp1).equals(propertyValue);
             }
           })) {
             return true;
@@ -64,12 +64,17 @@ public class GenerationContextOp_ContextVarRef_Constraints extends BaseConstrain
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName"), new ContextVarName_Property(this));
+    properties.put(PROPS.contextVarName$SNbV, new ContextVarName_Property(this));
     return properties;
   }
 
-  private static final class AUX_5ttjxh {
-    /*package*/ static final SConcept GenerationContextOp_ContextVarRef_4f0f126e = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ContextVarRef");
-    /*package*/ static final SInterfaceConcept ContextVariableProvider_b3c6f7bb = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d934cacL, "jetbrains.mps.lang.generator.structure.ContextVariableProvider");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenerationContextOp_ContextVarRef$EO = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ContextVarRef");
+    /*package*/ static final SInterfaceConcept ContextVariableProvider$W7 = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x671e792f3d934cacL, "jetbrains.mps.lang.generator.structure.ContextVariableProvider");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty contextVarName$SNbV = MetaAdapterFactory.getProperty(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x671e792f3dbdfe7eL, 0x671e792f3dbdffa2L, "contextVarName");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -11,12 +11,13 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_IndexedTupleLiteral_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -24,7 +25,7 @@ public class typeof_IndexedTupleLiteral_InferenceRule extends AbstractInferenceR
   }
   public void applyRule(final SNode tuple, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     List<SNode> memberTypes = ListSequence.fromList(new ArrayList<SNode>());
-    for (SNode mbr : SLinkOperations.getChildren(tuple, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071708c13L, 0x1207171832eL, "component"))) {
+    for (SNode mbr : SLinkOperations.getChildren(tuple, LINKS.component$zxvz)) {
       ListSequence.fromList(memberTypes).addElement(typeCheckingContext.typeOf(mbr, "r:e119dbbd-3529-4067-8bad-6b9edd79d0b6(jetbrains.mps.baseLanguage.tuples.typesystem)", "974579920306587589", true));
     }
     {
@@ -34,7 +35,7 @@ public class typeof_IndexedTupleLiteral_InferenceRule extends AbstractInferenceR
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6bpfww.IndexedTupleLiteral_1ce280f8;
+    return CONCEPTS.IndexedTupleLiteral$PE;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -50,13 +51,18 @@ public class typeof_IndexedTupleLiteral_InferenceRule extends AbstractInferenceR
     {
       List<SNode> nodes = (List<SNode>) parameter_1;
       for (SNode child : nodes) {
-        quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType"), SNodeOperations.copyIfNecessary(child));
+        quotedNode_2.addChild(LINKS.componentType$62ij, SNodeOperations.copyIfNecessary(child));
       }
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_6bpfww {
-    /*package*/ static final SConcept IndexedTupleLiteral_1ce280f8 = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071708c13L, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleLiteral");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink component$zxvz = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071708c13L, 0x1207171832eL, "component");
+    /*package*/ static final SContainmentLink componentType$62ij = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, 0x1207158795cL, "componentType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IndexedTupleLiteral$PE = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071708c13L, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleLiteral");
   }
 }

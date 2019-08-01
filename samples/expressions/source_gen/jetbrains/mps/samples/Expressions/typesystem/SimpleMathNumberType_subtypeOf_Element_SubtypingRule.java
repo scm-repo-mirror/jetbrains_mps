@@ -20,7 +20,7 @@ public class SimpleMathNumberType_subtypeOf_Element_SubtypingRule extends Subtyp
     return createSimpleMathElementType_wcy28w_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_wcy28w.SimpleMathNumberType_b9f11ec3;
+    return CONCEPTS.SimpleMathNumberType$zZ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,12 +33,12 @@ public class SimpleMathNumberType_subtypeOf_Element_SubtypingRule extends Subtyp
   }
   private static SNode createSimpleMathElementType_wcy28w_a0a1() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_wcy28w.SimpleMathElementType_b9f108fe, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SimpleMathElementType$o$, null, null, false);
     return n1;
   }
 
-  private static final class AUX_wcy28w {
-    /*package*/ static final SConcept SimpleMathNumberType_b9f11ec3 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8354763L, "jetbrains.mps.samples.Expressions.structure.SimpleMathNumberType");
-    /*package*/ static final SConcept SimpleMathElementType_b9f108fe = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b835454eL, "jetbrains.mps.samples.Expressions.structure.SimpleMathElementType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleMathNumberType$zZ = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b8354763L, "jetbrains.mps.samples.Expressions.structure.SimpleMathNumberType");
+    /*package*/ static final SConcept SimpleMathElementType$o$ = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b835454eL, "jetbrains.mps.samples.Expressions.structure.SimpleMathElementType");
   }
 }

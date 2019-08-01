@@ -20,14 +20,16 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class UtilityMethodDeclaration_Constraints extends BaseConstraintsDescriptor {
   public UtilityMethodDeclaration_Constraints() {
-    super(AUX_o7w1nm.UtilityMethodDeclaration_8da3320f);
+    super(CONCEPTS.UtilityMethodDeclaration$WN);
   }
 
   @Override
@@ -43,14 +45,14 @@ public class UtilityMethodDeclaration_Constraints extends BaseConstraintsDescrip
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> methods = new ArrayList<SNode>();
-            SNode textGen = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_o7w1nm.LanguageTextGenDeclaration_4366b437, false, false);
+            SNode textGen = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.LanguageTextGenDeclaration$8b, false, false);
             if (textGen != null) {
               while (true) {
-                ListSequence.fromList(methods).addSequence(ListSequence.fromList(SLinkOperations.getChildren(textGen, MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x11f6f8860bdL, "function"))));
-                if ((SLinkOperations.getTarget(textGen, MetaAdapterFactory.getReferenceLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x11f7eb142ecL, "baseTextGen")) == null)) {
+                ListSequence.fromList(methods).addSequence(ListSequence.fromList(SLinkOperations.getChildren(textGen, LINKS.function$T2Zy)));
+                if ((SLinkOperations.getTarget(textGen, LINKS.baseTextGen$5oDC) == null)) {
                   break;
                 }
-                textGen = SLinkOperations.getTarget(textGen, MetaAdapterFactory.getReferenceLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x11f7eb142ecL, "baseTextGen"));
+                textGen = SLinkOperations.getTarget(textGen, LINKS.baseTextGen$5oDC);
               }
             }
             return ListScope.forResolvableElements(methods);
@@ -61,8 +63,13 @@ public class UtilityMethodDeclaration_Constraints extends BaseConstraintsDescrip
   }
   private static final SNodePointer breakingNode_o7w1nm_a0a0a0a0a0a0a0a2 = new SNodePointer("r:472e3702-e789-4c3f-b300-132c65ad44f1(jetbrains.mps.lang.textGen.constraints)", "6836281137582805636");
 
-  private static final class AUX_o7w1nm {
-    /*package*/ static final SConcept UtilityMethodDeclaration_8da3320f = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f6f6a18e4L, "jetbrains.mps.lang.textGen.structure.UtilityMethodDeclaration");
-    /*package*/ static final SConcept LanguageTextGenDeclaration_4366b437 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept UtilityMethodDeclaration$WN = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f6f6a18e4L, "jetbrains.mps.lang.textGen.structure.UtilityMethodDeclaration");
+    /*package*/ static final SConcept LanguageTextGenDeclaration$8b = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink function$T2Zy = MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x11f6f8860bdL, "function");
+    /*package*/ static final SReferenceLink baseTextGen$5oDC = MetaAdapterFactory.getReferenceLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x11f7eb142ecL, "baseTextGen");
   }
 }

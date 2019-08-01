@@ -8,27 +8,32 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class wrappers_PasteWrapper_3 implements PasteWrapper {
   @Override
   public SAbstractConcept getSourceConcept() {
-    return AUX_ckry1l.BuildSource_JavaCP_d7d058d3;
+    return CONCEPTS.BuildSource_JavaCP$3J;
   }
   @Override
   public SAbstractConcept getTargetConcept() {
-    return AUX_ckry1l.BuildSource_JavaLibraryCP_d9672dec;
+    return CONCEPTS.BuildSource_JavaLibraryCP$VQ;
   }
   @Override
   public SNode wrap(SNode sourceNode) {
-    SNode nn = SModelOperations.createNewNode(SNodeOperations.getModel(sourceNode), null, AUX_ckry1l.BuildSource_JavaLibraryCP_d9672dec);
-    SLinkOperations.setTarget(nn, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, 0x3395e884b61d4cbdL, "classpath"), sourceNode);
+    SNode nn = SModelOperations.createNewNode(SNodeOperations.getModel(sourceNode), null, CONCEPTS.BuildSource_JavaLibraryCP$VQ);
+    SLinkOperations.setTarget(nn, LINKS.classpath$Tk_v, sourceNode);
     return nn;
   }
 
-  private static final class AUX_ckry1l {
-    /*package*/ static final SConcept BuildSource_JavaCP_d7d058d3 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61c2404L, "jetbrains.mps.build.structure.BuildSource_JavaCP");
-    /*package*/ static final SConcept BuildSource_JavaLibraryCP_d9672dec = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, "jetbrains.mps.build.structure.BuildSource_JavaLibraryCP");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaCP$3J = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61c2404L, "jetbrains.mps.build.structure.BuildSource_JavaCP");
+    /*package*/ static final SConcept BuildSource_JavaLibraryCP$VQ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, "jetbrains.mps.build.structure.BuildSource_JavaLibraryCP");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink classpath$Tk_v = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3395e884b61d4cbbL, 0x3395e884b61d4cbdL, "classpath");
   }
 }

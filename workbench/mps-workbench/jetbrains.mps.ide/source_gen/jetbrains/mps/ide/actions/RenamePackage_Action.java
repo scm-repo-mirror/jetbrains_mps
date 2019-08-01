@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RenamePackage_Action extends BaseAction {
@@ -98,7 +99,7 @@ public class RenamePackage_Action extends BaseAction {
         ArrayList<SNode> nodesUnderPackage = new ArrayList<SNode>();
         for (SModel am : modelsToConsider) {
           for (SNode root : am.getRootNodes()) {
-            String rootPack = SPropertyOperations.getString(root, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"));
+            String rootPack = SPropertyOperations.getString(root, PROPS.virtualPackage$j19t);
             if (rootPack != null && rootPack.startsWith(packageName)) {
               assert rootPack.length() >= packageName.length();
               if (rootPack.length() == packageName.length() || rootPack.charAt(packageName.length()) == '.') {
@@ -109,11 +110,15 @@ public class RenamePackage_Action extends BaseAction {
         }
 
         for (SNode node : nodesUnderPackage) {
-          String oldPackage = SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"));
+          String oldPackage = SPropertyOperations.getString(node, PROPS.virtualPackage$j19t);
           String newPackage = newName + oldPackage.substring(packageName.length());
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"), (newPackage.length() > 0 ? newPackage : null));
+          SPropertyOperations.assign(node, PROPS.virtualPackage$j19t, (newPackage.length() > 0 ? newPackage : null));
         }
       }
     });
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

@@ -7,7 +7,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.dataFlow.framework.Program;
@@ -18,6 +17,8 @@ import jetbrains.mps.lang.dataFlow.framework.instructions.JumpInstruction;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class InlineMethodModel {
   private SNode myMethod;
@@ -25,13 +26,13 @@ public class InlineMethodModel {
   private boolean myIsContainsSelfCalls;
   private String myMethodPresentation;
   public InlineMethodModel(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_5uqxbb.BaseMethodDeclaration_9dbf9acb)) {
-      myMethod = SNodeOperations.cast(node, AUX_5uqxbb.BaseMethodDeclaration_9dbf9acb);
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.BaseMethodDeclaration$RR)) {
+      myMethod = SNodeOperations.cast(node, CONCEPTS.BaseMethodDeclaration$RR);
     } else {
       myCall = new MethodCallAdapter(node);
       myMethod = myCall.getMethodDeclaration();
     }
-    myMethodPresentation = ((String) BHReflection.invoke0(myMethod, AUX_5uqxbb.BaseConcept_bc2351f, SMethodTrimmedId.create("getPresentation", null, "hEwIMiw")));
+    myMethodPresentation = ((String) BHReflection.invoke0(myMethod, CONCEPTS.BaseConcept$Sz, SMethodTrimmedId.create("getPresentation", null, "hEwIMiw")));
     myIsContainsSelfCalls = isContainsSelfCalls();
   }
   public boolean isRecursive() {
@@ -47,7 +48,7 @@ public class InlineMethodModel {
     return myMethod;
   }
   public String getErrors() {
-    if ((SLinkOperations.getTarget(getMethod(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(getMethod(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), AUX_5uqxbb.StubStatementList_b1b8d08e)) {
+    if ((SLinkOperations.getTarget(getMethod(), LINKS.body$WIlu) == null) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(getMethod(), LINKS.body$WIlu), CONCEPTS.StubStatementList$2k)) {
       return "No sources attached";
     }
     if (myCall == null && isRecursive()) {
@@ -69,7 +70,7 @@ public class InlineMethodModel {
     return false;
   }
   private boolean isReturnBreaksExecitionFlow() {
-    Program program = new MPSProgramBuilder().buildProgram(SLinkOperations.getTarget(getMethod(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")));
+    Program program = new MPSProgramBuilder().buildProgram(SLinkOperations.getTarget(getMethod(), LINKS.body$WIlu));
     for (Instruction instruction : ListSequence.fromList(program.getInstructions())) {
       if (instruction instanceof RetInstruction) {
         Instruction next = program.get(instruction.getIndex() + 1);
@@ -88,9 +89,13 @@ public class InlineMethodModel {
     return false;
   }
 
-  private static final class AUX_5uqxbb {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept StubStatementList_b1b8d08e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept StubStatementList$2k = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
   }
 }

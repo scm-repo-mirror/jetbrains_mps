@@ -36,6 +36,7 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class NamedNodeReference_ChildTransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -105,7 +106,7 @@ public class NamedNodeReference_ChildTransformationMenu extends TransformationMe
       @Override
       public void execute(@NotNull String pattern) {
         SNode newNode = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, "jetbrains.mps.lang.modelapi.structure.NamedNodeReference"));
-        SLinkOperations.setTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402fbcL, "child"), newNode);
+        SLinkOperations.setTarget(_context.getNode(), LINKS.child$I6D2, newNode);
         SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), newNode, SelectionManager.FIRST_CELL, -1);
       }
 
@@ -127,5 +128,9 @@ public class NamedNodeReference_ChildTransformationMenu extends TransformationMe
       }
     }
 
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink child$I6D2 = MetaAdapterFactory.getContainmentLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402fbcL, "child");
   }
 }

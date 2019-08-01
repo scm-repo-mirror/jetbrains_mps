@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class GroupAnchor_Constraints extends BaseConstraintsDescriptor {
   public GroupAnchor_Constraints() {
-    super(AUX_3uthk5.GroupAnchor_57defea);
+    super(CONCEPTS.GroupAnchor$MS);
   }
 
   @Override
@@ -37,13 +37,13 @@ public class GroupAnchor_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestor(parentNode, AUX_3uthk5.InterfaceGroup_e29d436b, false, false) == null && SNodeOperations.getNodeAncestor(parentNode, AUX_3uthk5.ElementListContents_539e70fa, true, false) != null;
+    return SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.InterfaceGroup$_n, false, false) == null && SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.ElementListContents$QC, true, false) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590361(jetbrains.mps.lang.plugin.constraints)", "1227128029536562169");
 
-  private static final class AUX_3uthk5 {
-    /*package*/ static final SConcept GroupAnchor_57defea = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11840f36089L, "jetbrains.mps.lang.plugin.structure.GroupAnchor");
-    /*package*/ static final SConcept ElementListContents_539e70fa = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1190f756bc5L, "jetbrains.mps.lang.plugin.structure.ElementListContents");
-    /*package*/ static final SConcept InterfaceGroup_e29d436b = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186ae0bf01L, "jetbrains.mps.lang.plugin.structure.InterfaceGroup");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GroupAnchor$MS = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11840f36089L, "jetbrains.mps.lang.plugin.structure.GroupAnchor");
+    /*package*/ static final SConcept ElementListContents$QC = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1190f756bc5L, "jetbrains.mps.lang.plugin.structure.ElementListContents");
+    /*package*/ static final SConcept InterfaceGroup$_n = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186ae0bf01L, "jetbrains.mps.lang.plugin.structure.InterfaceGroup");
   }
 }

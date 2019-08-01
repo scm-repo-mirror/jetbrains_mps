@@ -8,11 +8,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.typesystem.RulesUtil;
 import jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_PropertyValue_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,13 +22,13 @@ public class typeof_PropertyValue_InferenceRule extends AbstractInferenceRule_Ru
   }
   public void applyRule(final SNode propertyValue, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(propertyValue, MetaAdapterFactory.getContainmentLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8d042b6L, 0x15b423b3f8d042b8L, "value"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(propertyValue, LINKS.value$roBZ);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:080a8677-4294-4af0-a65e-b28c50fbddcd(jetbrains.mps.lang.pattern.testLang.typesystem)", "2025969025282107558", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:080a8677-4294-4af0-a65e-b28c50fbddcd(jetbrains.mps.lang.pattern.testLang.typesystem)", "2025969025282105752", true), (SNode) RulesUtil.datatypeBLType(SLinkOperations.getTarget(PropertyAttribute__BehaviorDescriptor.getPropertyDeclaration_id121FNPYBLc9.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(propertyValue, MetaAdapterFactory.getContainmentLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8d042b6L, 0x15b423b3f8d042b7L, "variable")), MetaAdapterFactory.getReferenceLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8cfebb8L, 0x15b423b3f8cfebbeL, "declaration"))), MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType"))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:080a8677-4294-4af0-a65e-b28c50fbddcd(jetbrains.mps.lang.pattern.testLang.typesystem)", "2025969025282105752", true), (SNode) RulesUtil.datatypeBLType(SLinkOperations.getTarget(PropertyAttribute__BehaviorDescriptor.getPropertyDeclaration_id121FNPYBLc9.invoke(SLinkOperations.getTarget(SLinkOperations.getTarget(propertyValue, LINKS.variable$roBw), LINKS.declaration$$36A)), LINKS.dataType$fLUl)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7av5wy.PropertyValue_ca836ff1;
+    return CONCEPTS.PropertyValue$Qh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +37,14 @@ public class typeof_PropertyValue_InferenceRule extends AbstractInferenceRule_Ru
     return false;
   }
 
-  private static final class AUX_7av5wy {
-    /*package*/ static final SConcept PropertyValue_ca836ff1 = MetaAdapterFactory.getConcept(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8d042b6L, "jetbrains.mps.lang.pattern.testLang.structure.PropertyValue");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink value$roBZ = MetaAdapterFactory.getContainmentLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8d042b6L, 0x15b423b3f8d042b8L, "value");
+    /*package*/ static final SContainmentLink variable$roBw = MetaAdapterFactory.getContainmentLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8d042b6L, 0x15b423b3f8d042b7L, "variable");
+    /*package*/ static final SReferenceLink declaration$$36A = MetaAdapterFactory.getReferenceLink(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8cfebb8L, 0x15b423b3f8cfebbeL, "declaration");
+    /*package*/ static final SReferenceLink dataType$fLUl = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyValue$Qh = MetaAdapterFactory.getConcept(0x5206c8887c5d4275L, 0xbc0a7c4da12f46e8L, 0x15b423b3f8d042b6L, "jetbrains.mps.lang.pattern.testLang.structure.PropertyValue");
   }
 }

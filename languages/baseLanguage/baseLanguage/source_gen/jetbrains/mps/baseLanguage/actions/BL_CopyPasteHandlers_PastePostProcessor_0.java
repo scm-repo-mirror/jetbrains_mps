@@ -9,30 +9,35 @@ import jetbrains.mps.scope.Scope;
 import jetbrains.mps.baseLanguage.behavior.IVariableReference__BehaviorDescriptor;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class BL_CopyPasteHandlers_PastePostProcessor_0 implements PastePostProcessor {
   @Override
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nqjmzy.StaticFieldReference_31c8669a;
+    return CONCEPTS.StaticFieldReference$K8;
   }
   @Override
   public void postProcessNode(SNode pastedNode) {
     // todo: not working for IVariableReference. Unify and fix it. 
     if (Scope.parent(pastedNode) != null) {
-      Scope surroundingScope = Scope.getScope(Scope.parent(pastedNode), pastedNode, AUX_nqjmzy.VariableDeclaration_3c610994);
+      Scope surroundingScope = Scope.getScope(Scope.parent(pastedNode), pastedNode, CONCEPTS.VariableDeclaration$xe);
       if (surroundingScope != null && surroundingScope.contains(IVariableReference__BehaviorDescriptor.getVariable_idSORzhOpB6t.invoke(pastedNode))) {
-        SNode variableReference = SNodeFactoryOperations.replaceWithNewChild(pastedNode, AUX_nqjmzy.VariableReference_24d60dac);
-        SLinkOperations.setTarget(variableReference, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"), SNodeOperations.cast(IVariableReference__BehaviorDescriptor.getVariable_idSORzhOpB6t.invoke(pastedNode), AUX_nqjmzy.VariableDeclaration_3c610994));
+        SNode variableReference = SNodeFactoryOperations.replaceWithNewChild(pastedNode, CONCEPTS.VariableReference$sQ);
+        SLinkOperations.setTarget(variableReference, LINKS.variableDeclaration$2ky6, SNodeOperations.cast(IVariableReference__BehaviorDescriptor.getVariable_idSORzhOpB6t.invoke(pastedNode), CONCEPTS.VariableDeclaration$xe));
       }
     }
   }
 
-  private static final class AUX_nqjmzy {
-    /*package*/ static final SConcept StaticFieldReference_31c8669a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticFieldReference$K8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference");
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 }

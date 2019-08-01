@@ -24,7 +24,7 @@ public class check_NodeInferTypeOperation_NonTypesystemRule extends AbstractNonT
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_207s5h.Node_InferTypeOperation_ade35697;
+    return CONCEPTS.Node_InferTypeOperation$IF;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class check_NodeInferTypeOperation_NonTypesystemRule extends AbstractNonT
     return false;
   }
 
-  private static final class AUX_207s5h {
-    /*package*/ static final SConcept Node_InferTypeOperation_ade35697 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x584039bf75272c67L, "jetbrains.mps.lang.typesystem.structure.Node_InferTypeOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_InferTypeOperation$IF = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x584039bf75272c67L, "jetbrains.mps.lang.typesystem.structure.Node_InferTypeOperation");
   }
 }

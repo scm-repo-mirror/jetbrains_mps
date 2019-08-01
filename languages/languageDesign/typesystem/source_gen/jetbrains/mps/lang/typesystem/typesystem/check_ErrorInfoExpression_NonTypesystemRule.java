@@ -19,13 +19,13 @@ public class check_ErrorInfoExpression_NonTypesystemRule extends AbstractNonType
   public check_ErrorInfoExpression_NonTypesystemRule() {
   }
   public void applyRule(final SNode errorInfoExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!((SNodeOperations.getNodeAncestor(errorInfoExpression, AUX_n3wat.InequationReplacementRule_536e0cf5, false, false) != null))) {
+    if (!((SNodeOperations.getNodeAncestor(errorInfoExpression, CONCEPTS.InequationReplacementRule$4d, false, false) != null))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(errorInfoExpression, "error info expression allowed only inside replacement rules", "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1201618438931", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_n3wat.ErrorInfoExpression_e82cfa9a;
+    return CONCEPTS.ErrorInfoExpression$w8;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,8 +34,8 @@ public class check_ErrorInfoExpression_NonTypesystemRule extends AbstractNonType
     return false;
   }
 
-  private static final class AUX_n3wat {
-    /*package*/ static final SConcept InequationReplacementRule_536e0cf5 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
-    /*package*/ static final SConcept ErrorInfoExpression_e82cfa9a = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c6082b85L, "jetbrains.mps.lang.typesystem.structure.ErrorInfoExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InequationReplacementRule$4d = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
+    /*package*/ static final SConcept ErrorInfoExpression$w8 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c6082b85L, "jetbrains.mps.lang.typesystem.structure.ErrorInfoExpression");
   }
 }

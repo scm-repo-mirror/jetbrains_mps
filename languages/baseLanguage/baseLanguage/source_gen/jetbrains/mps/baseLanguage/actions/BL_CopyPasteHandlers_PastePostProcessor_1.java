@@ -10,7 +10,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.baseLanguage.behavior.ClassifierMember__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SReference;
 import java.util.List;
 import java.util.ArrayList;
@@ -20,53 +19,57 @@ import jetbrains.mps.baseLanguage.scopes.Members;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class BL_CopyPasteHandlers_PastePostProcessor_1 implements PastePostProcessor {
   @Override
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nqjmzz.ThisExpression_a046bcfc;
+    return CONCEPTS.ThisExpression$7A;
   }
   @Override
   public void postProcessNode(SNode pastedNode) {
 
-    if (ListSequence.fromList(SNodeOperations.getNodeAncestors(pastedNode, AUX_nqjmzz.ClassifierMember_849b47d7, false)).where(new IWhereFilter<SNode>() {
+    if (ListSequence.fromList(SNodeOperations.getNodeAncestors(pastedNode, CONCEPTS.ClassifierMember$9F, false)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !((boolean) ClassifierMember__BehaviorDescriptor.isStatic_id7MS72Gc8avw.invoke(it));
       }
     }).isEmpty()) {
       return;
     }
-    SNode containingClass = SNodeOperations.getNodeAncestor(pastedNode, AUX_nqjmzz.ClassConcept_e2711824, false, false);
+    SNode containingClass = SNodeOperations.getNodeAncestor(pastedNode, CONCEPTS.ClassConcept$IY, false, false);
     if (containingClass == null) {
       return;
     }
 
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(pastedNode), AUX_nqjmzz.DotExpression_97ed08d8)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(pastedNode), CONCEPTS.DotExpression$6a)) {
       SNode parentDotExpression = (SNode) SNodeOperations.getParent(pastedNode);
-      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(parentDotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation")), AUX_nqjmzz.FieldReferenceOperation_fc8d5dda)) {
-        SNode fieldReferenceOperation = (SNode) SLinkOperations.getTarget(parentDotExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"));
-        SReference fieldDeclarationReference = SNodeOperations.getReference(fieldReferenceOperation, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration"));
+      if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(parentDotExpression, LINKS.operation$X4R8), CONCEPTS.FieldReferenceOperation$N8)) {
+        SNode fieldReferenceOperation = (SNode) SLinkOperations.getTarget(parentDotExpression, LINKS.operation$X4R8);
+        SReference fieldDeclarationReference = SNodeOperations.getReference(fieldReferenceOperation, LINKS.fieldDeclaration$mLBy);
 
         // External reference 
         final String resolveInfo = SLinkOperations.getResolveInfo(fieldDeclarationReference);
 
         // Collecting possible classConcepts (this. targets) 
         List<SNode> possibleClassConcepts = new ArrayList<SNode>();
-        for (SNode clazz = containingClass; clazz != null; clazz = ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(clazz) ? null : SNodeOperations.getNodeAncestor(clazz, AUX_nqjmzz.ClassConcept_e2711824, false, false))) {
+        for (SNode clazz = containingClass; clazz != null; clazz = ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(clazz) ? null : SNodeOperations.getNodeAncestor(clazz, CONCEPTS.ClassConcept$IY, false, false))) {
           ListSequence.fromList(possibleClassConcepts).addElement(clazz);
         }
 
         for (SNode nextClassConcept : ListSequence.fromList(possibleClassConcepts)) {
           if (Sequence.fromIterable(Members.visibleInstanceFields(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(nextClassConcept), pastedNode)).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(resolveInfo);
+              return SPropertyOperations.getString(it, PROPS.name$tAp1).equals(resolveInfo);
             }
           }).isNotEmpty()) {
             if (nextClassConcept != containingClass) {
-              SLinkOperations.setTarget(pastedNode, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept"), nextClassConcept);
-            } else if (SNodeOperations.getReference(pastedNode, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept")) != null) {
-              SLinkOperations.setTarget(pastedNode, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept"), null);
+              SLinkOperations.setTarget(pastedNode, LINKS.classConcept$Hbij, nextClassConcept);
+            } else if (SNodeOperations.getReference(pastedNode, LINKS.classConcept$Hbij) != null) {
+              SLinkOperations.setTarget(pastedNode, LINKS.classConcept$Hbij, null);
             }
             break;
           }
@@ -75,11 +78,21 @@ public final class BL_CopyPasteHandlers_PastePostProcessor_1 implements PastePos
     }
   }
 
-  private static final class AUX_nqjmzz {
-    /*package*/ static final SConcept ThisExpression_a046bcfc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
-    /*package*/ static final SInterfaceConcept ClassifierMember_849b47d7 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept FieldReferenceOperation_fc8d5dda = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisExpression$7A = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
+    /*package*/ static final SInterfaceConcept ClassifierMember$9F = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SReferenceLink fieldDeclaration$mLBy = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration");
+    /*package*/ static final SReferenceLink classConcept$Hbij = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

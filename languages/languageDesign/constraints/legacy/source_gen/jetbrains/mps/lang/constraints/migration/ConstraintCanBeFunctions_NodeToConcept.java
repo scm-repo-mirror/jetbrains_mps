@@ -16,9 +16,10 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ConstraintCanBeFunctions_NodeToConcept extends MigrationScriptBase {
   public String getCaption() {
@@ -46,11 +47,11 @@ public class ConstraintCanBeFunctions_NodeToConcept extends MigrationScriptBase 
           return scope_lwl7bs_b0e_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_lwl7bs.ConceptConstraints_2e5b5de5, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ConceptConstraints$St, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode node) {
-          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x5d05239254eb05daL, "canBeChild")), problems);
-          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x5d05239254e7e6a8L, "canBeParent")), problems);
-          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x5d05239254e7e6baL, "canBeAncestor")), problems);
+          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(node, LINKS.canBeChild$cGzA), problems);
+          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(node, LINKS.canBeParent$8r6w), problems);
+          ConstraintsMigrationUtil.findProblems(SLinkOperations.getTarget(node, LINKS.canBeAncestor$8rz$), problems);
         }
       });
     }
@@ -60,7 +61,13 @@ public class ConstraintCanBeFunctions_NodeToConcept extends MigrationScriptBase 
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, "jetbrains.mps.lang.constraints"), 0);
   }
 
-  private static final class AUX_lwl7bs {
-    /*package*/ static final SConcept ConceptConstraints_2e5b5de5 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptConstraints$St = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, "jetbrains.mps.lang.constraints.structure.ConceptConstraints");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink canBeChild$cGzA = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x5d05239254eb05daL, "canBeChild");
+    /*package*/ static final SContainmentLink canBeParent$8r6w = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x5d05239254e7e6a8L, "canBeParent");
+    /*package*/ static final SContainmentLink canBeAncestor$8rz$ = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL, 0x5d05239254e7e6baL, "canBeAncestor");
   }
 }

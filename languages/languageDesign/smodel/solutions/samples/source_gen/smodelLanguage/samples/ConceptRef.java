@@ -14,17 +14,17 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class ConceptRef {
 
   public void concept_ref_1(SNode node) {
-    SConcept concept1 = AUX_h0wb9.IfStatement_9dbf9b10;
+    SConcept concept1 = CONCEPTS.IfStatement$pi;
     SAbstractConcept concept2 = SNodeOperations.getConcept(node);
     if (SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(concept1), SNodeOperations.asSConcept(concept2))) {
     }
-    boolean b2 = SConceptOperations.isExactly(SNodeOperations.asSConcept(concept1), AUX_h0wb9.IfStatement_9dbf9b10);
+    boolean b2 = SConceptOperations.isExactly(SNodeOperations.asSConcept(concept1), CONCEPTS.IfStatement$pi);
     boolean b3 = SConceptOperations.isExactly(SNodeOperations.asSConcept(concept1), SNodeOperations.asSConcept(concept2));
   }
 
   public void instanceOf_1(SNode node, SNode concept1, SAbstractConcept concept2) {
-    SNodeOperations.isInstanceOf(node, AUX_h0wb9.IfStatement_9dbf9b10);
-    SNodeOperations.isInstanceOf(node, SNodeOperations.asSConcept(AUX_h0wb9.IfStatement_9dbf9b10));
+    SNodeOperations.isInstanceOf(node, CONCEPTS.IfStatement$pi);
+    SNodeOperations.isInstanceOf(node, SNodeOperations.asSConcept(CONCEPTS.IfStatement$pi));
     SNodeOperations.isInstanceOf(node, SNodeOperations.asSConcept(SNodeOperations.getConcept(node)));
     SNodeOperations.isInstanceOf(node, SNodeOperations.asSConcept(SNodeOperations.getConcept(concept1)));
     SNodeOperations.isInstanceOf(node, SNodeOperations.asSConcept(concept2));
@@ -32,7 +32,7 @@ public class ConceptRef {
   }
 
   public void concept_types() {
-    SConcept exprConcept = AUX_h0wb9.Expression_4199e28d;
+    SConcept exprConcept = CONCEPTS.Expression$TP;
     SConcept c1 = exprConcept;
     SConcept c2 = (SConcept) c1;
     // ====== to node 
@@ -42,8 +42,8 @@ public class ConceptRef {
     // -- not ok -- 
     // ====== to concept 
     // - ok - 
-    SConcept exprConc = AUX_h0wb9.Expression_4199e28d;
-    SConcept bExprConc = SNodeOperations.castConcept(exprConc, AUX_h0wb9.BinaryOperation_7c4c55f3);
+    SConcept exprConc = CONCEPTS.Expression$TP;
+    SConcept bExprConc = SNodeOperations.castConcept(exprConc, CONCEPTS.BinaryOperation$vf);
     exprConc = bExprConc;
     // -- not ok -- 
   }
@@ -56,22 +56,22 @@ public class ConceptRef {
     List<SAbstractConcept> supers_direct = SConceptOperations.getDirectSuperConcepts(concept, false);
     List<SAbstractConcept> supers_direct_inclusive = SConceptOperations.getDirectSuperConcepts(concept, true);
     // ====== 
-    boolean yes1 = SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(AUX_h0wb9.Expression_4199e28d), AUX_h0wb9.BinaryOperation_7c4c55f3);
-    boolean yes2 = SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(AUX_h0wb9.Expression_4199e28d), SNodeOperations.asSConcept(AUX_h0wb9.BinaryOperation_7c4c55f3));
-    boolean yes3 = SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(AUX_h0wb9.BinaryOperation_7c4c55f3), AUX_h0wb9.Expression_4199e28d);
-    boolean yes4 = SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(AUX_h0wb9.BinaryOperation_7c4c55f3), SNodeOperations.asSConcept(AUX_h0wb9.Expression_4199e28d));
+    boolean yes1 = SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(CONCEPTS.Expression$TP), CONCEPTS.BinaryOperation$vf);
+    boolean yes2 = SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(CONCEPTS.Expression$TP), SNodeOperations.asSConcept(CONCEPTS.BinaryOperation$vf));
+    boolean yes3 = SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(CONCEPTS.BinaryOperation$vf), CONCEPTS.Expression$TP);
+    boolean yes4 = SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(CONCEPTS.BinaryOperation$vf), SNodeOperations.asSConcept(CONCEPTS.Expression$TP));
     SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(concept), SNodeOperations.asSConcept(concept));
     SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(concept), SNodeOperations.asSConcept(concept));
   }
   public void concept_hierarchy2(SModel model) {
-    List<SConcept> subConcepts = SConceptOperations.getAllSubConcepts2(AUX_h0wb9.BinaryOperation_7c4c55f3, model);
+    List<SConcept> subConcepts = SConceptOperations.getAllSubConcepts2(CONCEPTS.BinaryOperation$vf, model);
     SNode n = null;
     List<SAbstractConcept> subConcepts1 = SConceptOperations.getAllSubConcepts(SNodeOperations.getConcept(n), model);
   }
 
-  private static final class AUX_h0wb9 {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
   }
 }

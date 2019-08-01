@@ -8,18 +8,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_Node_InsertNextSiblingOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_Node_InsertNextSiblingOperation_InferenceRule() {
   }
   public void applyRule(final SNode op, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode parameter = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a2d76e31eL, 0x10a2d76e321L, "insertedNode"));
+    SNode parameter = SLinkOperations.getTarget(op, LINKS.insertedNode$hyfY);
     if (!((parameter == null))) {
       {
         SNode _nodeToCheck_1029348928467 = parameter;
@@ -31,11 +32,11 @@ public class typeof_Node_InsertNextSiblingOperation_InferenceRule extends Abstra
     {
       SNode _nodeToCheck_1029348928467 = op;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1225408236977", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1225408236984", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a2d76e31eL, 0x10a2d76e321L, "insertedNode")), "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1225408236979", true), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1225408236984", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(op, LINKS.insertedNode$hyfY), "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "1225408236979", true), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_yio9mj.Node_InsertNextSiblingOperation_5c4234c0;
+    return CONCEPTS.Node_InsertNextSiblingOperation$ay;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -50,7 +51,11 @@ public class typeof_Node_InsertNextSiblingOperation_InferenceRule extends Abstra
     return quotedNode_1;
   }
 
-  private static final class AUX_yio9mj {
-    /*package*/ static final SConcept Node_InsertNextSiblingOperation_5c4234c0 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a2d76e31eL, "jetbrains.mps.lang.smodel.structure.Node_InsertNextSiblingOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink insertedNode$hyfY = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a2d76e31eL, 0x10a2d76e321L, "insertedNode");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_InsertNextSiblingOperation$ay = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a2d76e31eL, "jetbrains.mps.lang.smodel.structure.Node_InsertNextSiblingOperation");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.console.base.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -27,10 +27,11 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class INodeWithReference__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_40tjfx.INodeWithReference_c758c20d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, "jetbrains.mps.console.base.structure.INodeWithReference");
 
   public static final SMethod<Runnable> execute_id7oNS25df64x = new SMethodBuilder<Runnable>(new SJavaCompoundTypeImpl(Runnable.class)).name("execute").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7oNS25df64x").build(SMethodBuilder.createJavaParameter(MPSProject.class, ""));
   public static final SMethod<Boolean> canExecute_id2QdC0h7dh1h = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canExecute").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2QdC0h7dh1h").build();
@@ -44,7 +45,7 @@ public final class INodeWithReference__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static Runnable execute_id7oNS25df64x(@NotNull SNode __thisNode__, final MPSProject project) {
-    final SNodeReference targetNode = SLinkOperations.getPointer(__thisNode__, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target"));
+    final SNodeReference targetNode = SLinkOperations.getPointer(__thisNode__, LINKS.target$9y$J);
     return new Runnable() {
       public void run() {
         new EditorNavigator(project).shallFocus(true).selectIfChild().open(targetNode);
@@ -55,16 +56,16 @@ public final class INodeWithReference__BehaviorDescriptor extends BaseBHDescript
     return !(((boolean) INodeWithReference__BehaviorDescriptor.isBroken_id7m$hACyVN2F.invoke(__thisNode__)));
   }
   /*package*/ static String getText_id5E451QuvdoB(@NotNull SNode __thisNode__) {
-    return BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target")));
+    return BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$9y$J));
   }
   /*package*/ static String getTextWhenBroken_idigjXyuNrou(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e75e1c4L, "referencePresentation")) + " (deleted node)";
+    return SPropertyOperations.getString(__thisNode__, PROPS.referencePresentation$ap3S) + " (deleted node)";
   }
   /*package*/ static boolean isBroken_id7m$hACyVN2F(@NotNull SNode __thisNode__) {
-    if (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target")) == null || (check_rmj4zv_a0a0a0e(SNodeOperations.getModel(__thisNode__)) == null)) {
+    if (SLinkOperations.getTarget(__thisNode__, LINKS.target$9y$J) == null || (check_rmj4zv_a0a0a0e(SNodeOperations.getModel(__thisNode__)) == null)) {
       return true;
     }
-    return !(SNodeUtil.isAccessible(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target")), SNodeOperations.getModel(__thisNode__).getRepository()));
+    return !(SNodeUtil.isAccessible(SLinkOperations.getTarget(__thisNode__, LINKS.target$9y$J), SNodeOperations.getModel(__thisNode__).getRepository()));
   }
 
   /*package*/ INodeWithReference__BehaviorDescriptor() {
@@ -127,7 +128,11 @@ public final class INodeWithReference__BehaviorDescriptor extends BaseBHDescript
     return null;
   }
 
-  private static final class AUX_40tjfx {
-    /*package*/ static final SInterfaceConcept INodeWithReference_c758c20d = MetaAdapterFactory.getInterfaceConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, "jetbrains.mps.console.base.structure.INodeWithReference");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$9y$J = MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty referencePresentation$ap3S = MetaAdapterFactory.getProperty(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e75e1c4L, "referencePresentation");
   }
 }

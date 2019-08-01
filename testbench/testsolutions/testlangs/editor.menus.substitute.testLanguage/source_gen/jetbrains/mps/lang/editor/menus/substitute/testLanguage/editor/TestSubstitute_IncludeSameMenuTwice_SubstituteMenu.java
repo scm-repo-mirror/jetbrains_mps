@@ -65,7 +65,7 @@ public class TestSubstitute_IncludeSameMenuTwice_SubstituteMenu extends Substitu
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstitute_SameMenu_ToInclude");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_n50j7p.TestSubstitute_IncludeSameMenuTwice_6b78c77e;
+      return CONCEPTS.TestSubstitute_IncludeSameMenuTwice$u$;
     }
   }
   public class SMP_Include_n50j7p_b extends IncludeSubstituteMenuSubstituteMenuPart {
@@ -89,11 +89,11 @@ public class TestSubstitute_IncludeSameMenuTwice_SubstituteMenu extends Substitu
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.editor.TestSubstitute_SameMenu_ToInclude");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_n50j7p.TestSubstitute_IncludeSameMenuTwice_6b78c77e;
+      return CONCEPTS.TestSubstitute_IncludeSameMenuTwice$u$;
     }
   }
 
-  private static final class AUX_n50j7p {
-    /*package*/ static final SConcept TestSubstitute_IncludeSameMenuTwice_6b78c77e = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x3f759544c6a0709aL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstitute_IncludeSameMenuTwice");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstitute_IncludeSameMenuTwice$u$ = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x3f759544c6a0709aL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstitute_IncludeSameMenuTwice");
   }
 }

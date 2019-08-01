@@ -48,25 +48,25 @@ public class FindUsagesDescriptor extends BaseFindUsagesDescriptor {
 
   @Override
   public void init(FinderRegistry reg) {
-    reg.add(AUX_o9tm2l.AbstractConceptDeclaration_ec74828f, 0, "ConceptAncestors");
-    reg.add(AUX_o9tm2l.AbstractConceptDeclaration_ec74828f, 1, "ConceptDescendants");
-    reg.add(AUX_o9tm2l.AbstractConceptDeclaration_ec74828f, 2, "ConceptInstances");
-    reg.add(AUX_o9tm2l.ConceptDeclaration_cb225da8, 3, "DerivedConcepts");
-    reg.add(AUX_o9tm2l.InterfaceConceptDeclaration_efdf2bc9, 4, "DerivedInterfaceConcepts");
-    reg.add(AUX_o9tm2l.ConceptDeclaration_cb225da8, 5, "ExactConceptInstances");
-    reg.add(AUX_o9tm2l.InterfaceConceptDeclaration_efdf2bc9, 6, "ImplementingConcepts");
-    reg.add(AUX_o9tm2l.LinkDeclaration_ce818bfc, 7, "LinkInstances");
-    reg.add(AUX_o9tm2l.BaseConcept_bc2351f, 8, "NodeUsages");
-    reg.add(AUX_o9tm2l.PropertyDeclaration_ce818bfd, 9, "PropertyInstances");
-    reg.add(AUX_o9tm2l.AbstractConceptDeclaration_ec74828f, 10, "StraightDescendants");
+    reg.add(CONCEPTS.AbstractConceptDeclaration$UN, 0, "ConceptAncestors");
+    reg.add(CONCEPTS.AbstractConceptDeclaration$UN, 1, "ConceptDescendants");
+    reg.add(CONCEPTS.AbstractConceptDeclaration$UN, 2, "ConceptInstances");
+    reg.add(CONCEPTS.ConceptDeclaration$qU, 3, "DerivedConcepts");
+    reg.add(CONCEPTS.InterfaceConceptDeclaration$MT, 4, "DerivedInterfaceConcepts");
+    reg.add(CONCEPTS.ConceptDeclaration$qU, 5, "ExactConceptInstances");
+    reg.add(CONCEPTS.InterfaceConceptDeclaration$MT, 6, "ImplementingConcepts");
+    reg.add(CONCEPTS.LinkDeclaration$bA, 7, "LinkInstances");
+    reg.add(CONCEPTS.BaseConcept$Sz, 8, "NodeUsages");
+    reg.add(CONCEPTS.PropertyDeclaration$c5, 9, "PropertyInstances");
+    reg.add(CONCEPTS.AbstractConceptDeclaration$UN, 10, "StraightDescendants");
   }
 
-  private static final class AUX_o9tm2l {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
-    /*package*/ static final SConcept LinkDeclaration_ce818bfc = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept PropertyDeclaration_ce818bfd = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+    /*package*/ static final SConcept LinkDeclaration$bA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept PropertyDeclaration$c5 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
   }
 }

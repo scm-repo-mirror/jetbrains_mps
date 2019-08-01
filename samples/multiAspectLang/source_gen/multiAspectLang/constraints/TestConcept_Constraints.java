@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -24,15 +23,16 @@ import jetbrains.mps.scope.ModelsScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestConcept_Constraints extends BaseConstraintsDescriptor {
   public TestConcept_Constraints() {
-    super(AUX_72100m.TestConcept_e187f53f);
+    super(CONCEPTS.TestConcept$83);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, 0x161a25d497067a9eL, "link"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.link$1Bcs, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -49,7 +49,7 @@ public class TestConcept_Constraints extends BaseConstraintsDescriptor {
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SModel> seq = ListSequence.fromList(new ArrayList<SModel>());
             ListSequence.fromList(seq).addElement(SNodeOperations.getModel(_context.getContextNode()));
-            return new ModelsScope(seq, false, AUX_72100m.TestConcept_e187f53f);
+            return new ModelsScope(seq, false, CONCEPTS.TestConcept$83);
           }
         };
       }
@@ -60,7 +60,11 @@ public class TestConcept_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_72100m_a0a0a0a0a1a0a0a0c = new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(multiAspectLang.constraints)", "8918166317255507159");
 
-  private static final class AUX_72100m {
-    /*package*/ static final SConcept TestConcept_e187f53f = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestConcept$83 = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink link$1Bcs = MetaAdapterFactory.getReferenceLink(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, 0x161a25d497067a9eL, "link");
   }
 }

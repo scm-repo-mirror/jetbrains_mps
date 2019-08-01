@@ -9,19 +9,20 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class check_SubstituteFeaturesAreNotDuplicated_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_SubstituteFeaturesAreNotDuplicated_NonTypesystemRule() {
   }
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    ListSequence.fromList(DuplicationUtil.getDuplications(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, 0x75a895eb6bcee99eL, "features")))).visitAll(new IVisitor<SNode>() {
+    ListSequence.fromList(DuplicationUtil.getDuplications(SLinkOperations.getChildren(node, LINKS.features$fM_0))).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
@@ -31,7 +32,7 @@ public class check_SubstituteFeaturesAreNotDuplicated_NonTypesystemRule extends 
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_8iwegc.IExtensibleSubstituteMenuPart_7541fcec;
+    return CONCEPTS.IExtensibleSubstituteMenuPart$ZQ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +41,11 @@ public class check_SubstituteFeaturesAreNotDuplicated_NonTypesystemRule extends 
     return false;
   }
 
-  private static final class AUX_8iwegc {
-    /*package*/ static final SInterfaceConcept IExtensibleSubstituteMenuPart_7541fcec = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, "jetbrains.mps.lang.editor.structure.IExtensibleSubstituteMenuPart");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink features$fM_0 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, 0x75a895eb6bcee99eL, "features");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IExtensibleSubstituteMenuPart$ZQ = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x75a895eb6bcee99dL, "jetbrains.mps.lang.editor.structure.IExtensibleSubstituteMenuPart");
   }
 }

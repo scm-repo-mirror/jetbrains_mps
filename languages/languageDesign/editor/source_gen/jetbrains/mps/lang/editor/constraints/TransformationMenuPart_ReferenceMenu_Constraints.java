@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,16 +22,17 @@ import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__Behavio
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class TransformationMenuPart_ReferenceMenu_Constraints extends BaseConstraintsDescriptor {
   public TransformationMenuPart_ReferenceMenu_Constraints() {
-    super(AUX_fw5mta.TransformationMenuPart_ReferenceMenu_34d7bf8b);
+    super(CONCEPTS.TransformationMenuPart_ReferenceMenu$4R);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5ddc2e3f050ded4L, 0x5ddc2e3f050ded5L, "referenceLink"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.referenceLink$XROw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,7 +47,7 @@ public class TransformationMenuPart_ReferenceMenu_Constraints extends BaseConstr
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode outputConcept = IMenu__BehaviorDescriptor.getApplicableConcept_id1quYWAD18xk.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_fw5mta.ITransformationMenu_95e6b4d7, false, false));
+            SNode outputConcept = IMenu__BehaviorDescriptor.getApplicableConcept_id1quYWAD18xk.invoke(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ITransformationMenu$lF, false, false));
 
             return ListScope.forNamedElements(AbstractConceptDeclaration__BehaviorDescriptor.getReferenceLinkDeclarations_idhEwILL0.invoke(outputConcept));
           }
@@ -60,8 +60,12 @@ public class TransformationMenuPart_ReferenceMenu_Constraints extends BaseConstr
   }
   private static final SNodePointer breakingNode_fw5mta_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "422708224287892916");
 
-  private static final class AUX_fw5mta {
-    /*package*/ static final SConcept TransformationMenuPart_ReferenceMenu_34d7bf8b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5ddc2e3f050ded4L, "jetbrains.mps.lang.editor.structure.TransformationMenuPart_ReferenceMenu");
-    /*package*/ static final SInterfaceConcept ITransformationMenu_95e6b4d7 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0c11832L, "jetbrains.mps.lang.editor.structure.ITransformationMenu");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenuPart_ReferenceMenu$4R = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5ddc2e3f050ded4L, "jetbrains.mps.lang.editor.structure.TransformationMenuPart_ReferenceMenu");
+    /*package*/ static final SInterfaceConcept ITransformationMenu$lF = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0c11832L, "jetbrains.mps.lang.editor.structure.ITransformationMenu");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink referenceLink$XROw = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5ddc2e3f050ded4L, 0x5ddc2e3f050ded5L, "referenceLink");
   }
 }

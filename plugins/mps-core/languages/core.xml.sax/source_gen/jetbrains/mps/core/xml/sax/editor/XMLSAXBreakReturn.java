@@ -11,9 +11,10 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class XMLSAXBreakReturn extends KeyMapImpl {
   public XMLSAXBreakReturn() {
@@ -38,7 +39,7 @@ public class XMLSAXBreakReturn extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_dy8kzy.XMLSAXBreakStatement_1c3fd385))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.XMLSAXBreakStatement$LX))) {
         return false;
       }
       return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
@@ -48,11 +49,11 @@ public class XMLSAXBreakReturn extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      return (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cfL, 0x1f6c736337b5e2d1L, "result")) == null);
+      return (SLinkOperations.getTarget(node, LINKS.result$YvLZ) == null);
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cfL, 0x1f6c736337b5e2d1L, "result")) == null)) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cfL, 0x1f6c736337b5e2d1L, "result"), null);
+      if ((SLinkOperations.getTarget(node, LINKS.result$YvLZ) == null)) {
+        SNodeFactoryOperations.setNewChild(node, LINKS.result$YvLZ, null);
       }
     }
     public String getKeyStroke() {
@@ -60,7 +61,11 @@ public class XMLSAXBreakReturn extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_dy8kzy {
-    /*package*/ static final SConcept XMLSAXBreakStatement_1c3fd385 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cfL, "jetbrains.mps.core.xml.sax.structure.XMLSAXBreakStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXBreakStatement$LX = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cfL, "jetbrains.mps.core.xml.sax.structure.XMLSAXBreakStatement");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink result$YvLZ = MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cfL, 0x1f6c736337b5e2d1L, "result");
   }
 }

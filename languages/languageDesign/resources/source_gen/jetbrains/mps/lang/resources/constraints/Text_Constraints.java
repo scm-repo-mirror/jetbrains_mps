@@ -5,7 +5,6 @@ package jetbrains.mps.lang.resources.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Text_Constraints extends BaseConstraintsDescriptor {
   public Text_Constraints() {
-    super(AUX_a68rv6.Text_d76cc73e);
+    super(CONCEPTS.Text$Z$);
   }
 
   public static class Text_Property extends BasePropertyConstraintsDescriptor {
     public Text_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x26417c37742e28beL, "text"), container);
+      super(PROPS.text$A7q7, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class Text_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x26417c37742e28beL, "text"), new Text_Property(this));
+    properties.put(PROPS.text$A7q7, new Text_Property(this));
     return properties;
   }
 
-  private static final class AUX_a68rv6 {
-    /*package*/ static final SConcept Text_d76cc73e = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, "jetbrains.mps.lang.resources.structure.Text");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Text$Z$ = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, "jetbrains.mps.lang.resources.structure.Text");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$A7q7 = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b9L, 0x26417c37742e28beL, "text");
   }
 }

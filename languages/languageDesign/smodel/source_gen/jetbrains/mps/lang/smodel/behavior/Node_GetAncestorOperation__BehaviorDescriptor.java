@@ -4,6 +4,7 @@ package jetbrains.mps.lang.smodel.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -19,10 +20,9 @@ import java.util.ArrayList;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class Node_GetAncestorOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_lpv7ym.Node_GetAncestorOperation_2b423327;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110bd4e0067L, "jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation");
 
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
   public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
@@ -40,7 +40,7 @@ public final class Node_GetAncestorOperation__BehaviorDescriptor extends BaseBHD
     return true;
   }
   /*package*/ static List<SConcept> getParameterConcepts_id6ALWH9fQysn(@NotNull SAbstractConcept __thisConcept__) {
-    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), AUX_lpv7ym.OperationParm_Inclusion_281b6df5, AUX_lpv7ym.OperationParm_ConceptList_eaecf032, AUX_lpv7ym.OperationParm_Root_56852572, AUX_lpv7ym.OperationParm_SameMetaLevel_a6b672ab, AUX_lpv7ym.OperationParm_Concept_5d3a0ef3);
+    return ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.OperationParm_Inclusion$d, CONCEPTS.OperationParm_ConceptList$lK, CONCEPTS.OperationParm_Root$wK, CONCEPTS.OperationParm_SameMetaLevel$8n, CONCEPTS.OperationParm_Concept$Vf);
   }
 
   /*package*/ Node_GetAncestorOperation__BehaviorDescriptor() {
@@ -93,12 +93,11 @@ public final class Node_GetAncestorOperation__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_lpv7ym {
-    /*package*/ static final SConcept Node_GetAncestorOperation_2b423327 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110bd4e0067L, "jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation");
-    /*package*/ static final SConcept OperationParm_Inclusion_281b6df5 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a61bacc13L, "jetbrains.mps.lang.smodel.structure.OperationParm_Inclusion");
-    /*package*/ static final SConcept OperationParm_ConceptList_eaecf032 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10cd05bec71L, "jetbrains.mps.lang.smodel.structure.OperationParm_ConceptList");
-    /*package*/ static final SConcept OperationParm_Root_56852572 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a61c4f312L, "jetbrains.mps.lang.smodel.structure.OperationParm_Root");
-    /*package*/ static final SConcept OperationParm_SameMetaLevel_a6b672ab = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x155fb7143719d578L, "jetbrains.mps.lang.smodel.structure.OperationParm_SameMetaLevel");
-    /*package*/ static final SConcept OperationParm_Concept_5d3a0ef3 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a61caab68L, "jetbrains.mps.lang.smodel.structure.OperationParm_Concept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OperationParm_Inclusion$d = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a61bacc13L, "jetbrains.mps.lang.smodel.structure.OperationParm_Inclusion");
+    /*package*/ static final SConcept OperationParm_ConceptList$lK = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10cd05bec71L, "jetbrains.mps.lang.smodel.structure.OperationParm_ConceptList");
+    /*package*/ static final SConcept OperationParm_Root$wK = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a61c4f312L, "jetbrains.mps.lang.smodel.structure.OperationParm_Root");
+    /*package*/ static final SConcept OperationParm_SameMetaLevel$8n = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x155fb7143719d578L, "jetbrains.mps.lang.smodel.structure.OperationParm_SameMetaLevel");
+    /*package*/ static final SConcept OperationParm_Concept$Vf = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10a61caab68L, "jetbrains.mps.lang.smodel.structure.OperationParm_Concept");
   }
 }

@@ -12,11 +12,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AddSeeAlso_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -35,7 +36,7 @@ public final class AddSeeAlso_Intention extends AbstractIntentionDescriptor impl
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0ea9L, 0x6d1df6c2700b0eb8L, "seeAlso"))).isEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.seeAlso$hzj8)).isEmpty();
   }
   @Override
   public boolean isSurroundWith() {
@@ -56,11 +57,15 @@ public final class AddSeeAlso_Intention extends AbstractIntentionDescriptor impl
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNodeFactoryOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0ea9L, 0x6d1df6c2700b0eb8L, "seeAlso"), null);
+      SNodeFactoryOperations.addNewChild(node, LINKS.seeAlso$hzj8, null);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return AddSeeAlso_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink seeAlso$hzj8 = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0ea9L, 0x6d1df6c2700b0eb8L, "seeAlso");
   }
 }

@@ -143,7 +143,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private boolean nodeCondition_5v10so_a5f0() {
-    return SNodeOperations.isInstanceOf(myNode, AUX_9bino5.ConstraintFunction_ReferentSearchScope_Presentation_7d4fbe28);
+    return SNodeOperations.isInstanceOf(myNode, CONCEPTS.ConstraintFunction_ReferentSearchScope_Presentation$oU);
   }
   private EditorCell createCollection_3() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
@@ -499,7 +499,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
 
-  private static final class AUX_9bino5 {
-    /*package*/ static final SConcept ConstraintFunction_ReferentSearchScope_Presentation_7d4fbe28 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x36367902116a44c1L, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_ReferentSearchScope_Presentation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstraintFunction_ReferentSearchScope_Presentation$oU = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x36367902116a44c1L, "jetbrains.mps.lang.constraints.structure.ConstraintFunction_ReferentSearchScope_Presentation");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -19,12 +20,11 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ILocalDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_72ezxo.ILocalDeclaration_256946f7;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2d45f01afccba89cL, "jetbrains.mps.baseLanguage.structure.ILocalDeclaration");
 
   public static final SMethod<Boolean> isReferencedInClosure_id2P5W1FWMWTY = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isReferencedInClosure").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2P5W1FWMWTY").build();
   public static final SMethod<Boolean> isReferencedInControlFlowInterrupter_id1rgSh_h_K4n = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isReferencedInControlFlowInterrupter").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1rgSh_h_K4n").build();
@@ -35,22 +35,22 @@ public final class ILocalDeclaration__BehaviorDescriptor extends BaseBHDescripto
   }
 
   /*package*/ static boolean isReferencedInClosure_id2P5W1FWMWTY(@NotNull SNode __thisNode__) {
-    SNode container = SNodeOperations.getNodeAncestor(__thisNode__, AUX_72ezxo.StatementList_9dbf9acf, false, false);
+    SNode container = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.StatementList$TN, false, false);
     {
-      Iterator<SNode> ref_it = ListSequence.fromList(SNodeOperations.getNodeDescendants(container, AUX_72ezxo.ILocalReference_256946f8, false, new SAbstractConcept[]{})).iterator();
+      Iterator<SNode> ref_it = ListSequence.fromList(SNodeOperations.getNodeDescendants(container, CONCEPTS.ILocalReference$tE, false, new SAbstractConcept[]{})).iterator();
       SNode ref_var;
       while (ref_it.hasNext()) {
         ref_var = ref_it.next();
         if (ILocalReference__BehaviorDescriptor.getDeclaration_id2P5W1FWMYZ5.invoke(ref_var) == __thisNode__) {
-          SNode referenceContainer = SNodeOperations.getNodeAncestor(ref_var, AUX_72ezxo.StatementList_9dbf9acf, false, false);
+          SNode referenceContainer = SNodeOperations.getNodeAncestor(ref_var, CONCEPTS.StatementList$TN, false, false);
           while (referenceContainer != null) {
             if (referenceContainer == container) {
               return false;
             }
-            if ((boolean) IStatementListContainer__BehaviorDescriptor.isClosure_id2P5W1FWMZPJ.invoke(SNodeOperations.getNodeAncestor(referenceContainer, AUX_72ezxo.IStatementListContainer_5e186851, false, false))) {
+            if ((boolean) IStatementListContainer__BehaviorDescriptor.isClosure_id2P5W1FWMZPJ.invoke(SNodeOperations.getNodeAncestor(referenceContainer, CONCEPTS.IStatementListContainer$4L, false, false))) {
               return true;
             }
-            referenceContainer = SNodeOperations.getNodeAncestor(referenceContainer, AUX_72ezxo.StatementList_9dbf9acf, false, false);
+            referenceContainer = SNodeOperations.getNodeAncestor(referenceContainer, CONCEPTS.StatementList$TN, false, false);
           }
         }
       }
@@ -58,14 +58,14 @@ public final class ILocalDeclaration__BehaviorDescriptor extends BaseBHDescripto
     return false;
   }
   /*package*/ static boolean isReferencedInControlFlowInterrupter_id1rgSh_h_K4n(@NotNull SNode __thisNode__) {
-    SNode container = SNodeOperations.getNodeAncestor(__thisNode__, AUX_72ezxo.StatementList_9dbf9acf, false, false);
+    SNode container = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.StatementList$TN, false, false);
     {
-      Iterator<SNode> ref_it = ListSequence.fromList(SNodeOperations.getNodeDescendants(container, AUX_72ezxo.ILocalReference_256946f8, false, new SAbstractConcept[]{})).iterator();
+      Iterator<SNode> ref_it = ListSequence.fromList(SNodeOperations.getNodeDescendants(container, CONCEPTS.ILocalReference$tE, false, new SAbstractConcept[]{})).iterator();
       SNode ref_var;
       while (ref_it.hasNext()) {
         ref_var = ref_it.next();
         if (ILocalReference__BehaviorDescriptor.getDeclaration_id2P5W1FWMYZ5.invoke(ref_var) == __thisNode__) {
-          SNode interrupter = SNodeOperations.getNodeAncestor(ref_var, AUX_72ezxo.IControlFlowInterrupter_85caca0a, false, false);
+          SNode interrupter = SNodeOperations.getNodeAncestor(ref_var, CONCEPTS.IControlFlowInterrupter$qo, false, false);
           if (interrupter == container || ListSequence.fromList(SNodeOperations.getNodeAncestors(interrupter, null, false)).contains(container)) {
             return true;
           }
@@ -123,11 +123,10 @@ public final class ILocalDeclaration__BehaviorDescriptor extends BaseBHDescripto
     return CONCEPT;
   }
 
-  private static final class AUX_72ezxo {
-    /*package*/ static final SInterfaceConcept ILocalDeclaration_256946f7 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2d45f01afccba89cL, "jetbrains.mps.baseLanguage.structure.ILocalDeclaration");
-    /*package*/ static final SConcept StatementList_9dbf9acf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
-    /*package*/ static final SInterfaceConcept ILocalReference_256946f8 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2d45f01afccba89dL, "jetbrains.mps.baseLanguage.structure.ILocalReference");
-    /*package*/ static final SInterfaceConcept IStatementListContainer_5e186851 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
-    /*package*/ static final SInterfaceConcept IControlFlowInterrupter_85caca0a = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x7c8556154508e980L, "jetbrains.mps.baseLanguage.structure.IControlFlowInterrupter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StatementList$TN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, "jetbrains.mps.baseLanguage.structure.StatementList");
+    /*package*/ static final SInterfaceConcept ILocalReference$tE = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2d45f01afccba89dL, "jetbrains.mps.baseLanguage.structure.ILocalReference");
+    /*package*/ static final SInterfaceConcept IStatementListContainer$4L = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
+    /*package*/ static final SInterfaceConcept IControlFlowInterrupter$qo = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x7c8556154508e980L, "jetbrains.mps.baseLanguage.structure.IControlFlowInterrupter");
   }
 }

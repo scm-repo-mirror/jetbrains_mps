@@ -2026,8 +2026,8 @@
       <node id="2702384151996661689" at="38,52,39,19" concept="9" />
       <node id="3715262949174660907" at="43,81,44,65" concept="6" />
       <node id="3715262949174660907" at="44,65,45,63" concept="6" />
-      <node id="3715262949174660907" at="45,63,46,155" concept="3" />
-      <node id="2702384151996661689" at="52,0,53,0" concept="8" trace="INodesTestMethod_40438e0e" />
+      <node id="3715262949174660907" at="45,63,46,148" concept="3" />
+      <node id="2702384151996661689" at="52,0,53,0" concept="8" trace="INodesTestMethod$ck" />
       <node id="2702384151996661689" at="22,0,24,0" concept="8" trace="ourParamCache" />
       <node id="2702384151996661689" at="24,0,26,0" concept="4" trace="myWithCommandRule" />
       <node id="2702384151996661689" at="27,0,30,0" concept="2" trace="SimpleUnreachable_Test#()V" />
@@ -2041,13 +2041,13 @@
       <scope id="2702384151996661689" at="38,0,41,0">
         <var name="owner" id="2702384151996661689" />
       </scope>
-      <scope id="3715262949174660907" at="43,81,46,155">
+      <scope id="3715262949174660907" at="43,81,46,148">
         <var name="nodeToCheck" id="3715262949174660907" />
         <var name="operation" id="3715262949174660907" />
       </scope>
       <scope id="3715262949174660907" at="31,0,35,0" />
       <scope id="3715262949174660907" at="43,0,48,0" />
-      <unit id="2702384151996661689" at="51,0,54,0" name="jetbrains.mps.baseLanguage.test.SimpleUnreachable_Test$AUX_o9jtj" />
+      <unit id="2702384151996661689" at="51,0,54,0" name="jetbrains.mps.baseLanguage.test.SimpleUnreachable_Test$CONCEPTS" />
       <unit id="2702384151996661689" at="36,0,50,0" name="jetbrains.mps.baseLanguage.test.SimpleUnreachable_Test$TestBody" />
       <unit id="2702384151996661689" at="20,0,55,0" name="jetbrains.mps.baseLanguage.test.SimpleUnreachable_Test" />
     </file>
@@ -7467,19 +7467,19 @@
       <node id="5868639094267614275" at="40,77,41,68" concept="3" />
       <node id="5868639094257169531" at="46,52,47,19" concept="9" />
       <node id="5868639094257179247" at="50,51,51,41" concept="3" />
-      <node id="5868639094257282095" at="51,41,52,347" concept="0" />
-      <node id="5868639094257285967" at="52,347,53,347" concept="0" />
-      <node id="5868639094257285982" at="53,347,54,361" concept="0" />
-      <node id="5868639094257287077" at="54,361,55,383" concept="0" />
-      <node id="5868639094257289977" at="55,383,56,383" concept="0" />
-      <node id="5868639094257290190" at="56,383,57,392" concept="0" />
+      <node id="5868639094257282095" at="51,41,52,339" concept="0" />
+      <node id="5868639094257285967" at="52,339,53,339" concept="0" />
+      <node id="5868639094257285982" at="53,339,54,354" concept="0" />
+      <node id="5868639094257287077" at="54,354,55,375" concept="0" />
+      <node id="5868639094257289977" at="55,375,56,375" concept="0" />
+      <node id="5868639094257290190" at="56,375,57,384" concept="0" />
       <node id="5868639094267614275" at="60,79,61,65" concept="6" />
       <node id="5868639094267614275" at="61,65,62,63" concept="6" />
       <node id="5868639094267614275" at="62,63,63,163" concept="3" />
-      <node id="5868639094257169531" at="69,0,70,0" concept="8" trace="FloatingPointConstant_aa454d3c" />
-      <node id="5868639094257169531" at="70,0,71,0" concept="8" trace="FloatingPointFloatConstant_f651563" />
-      <node id="5868639094257169531" at="71,0,72,0" concept="8" trace="DoubleType_635118d4" />
-      <node id="5868639094257169531" at="72,0,73,0" concept="8" trace="FloatType_61b9ea5b" />
+      <node id="5868639094257169531" at="69,0,70,0" concept="8" trace="FloatingPointConstant$AA" />
+      <node id="5868639094257169531" at="70,0,71,0" concept="8" trace="FloatingPointFloatConstant$pv" />
+      <node id="5868639094257169531" at="71,0,72,0" concept="8" trace="DoubleType$4e" />
+      <node id="5868639094257169531" at="72,0,73,0" concept="8" trace="FloatType$1B" />
       <node id="5868639094257169531" at="26,0,28,0" concept="8" trace="ourParamCache" />
       <node id="5868639094257169531" at="28,0,30,0" concept="4" trace="myWithCommandRule" />
       <node id="5868639094257169531" at="31,0,34,0" concept="2" trace="FloatConstantType_Test#()V" />
@@ -7503,9 +7503,9 @@
       <scope id="5868639094257281965" at="35,0,39,0" />
       <scope id="5868639094267614275" at="39,0,43,0" />
       <scope id="5868639094267614275" at="60,0,65,0" />
-      <scope id="5868639094257281965" at="50,51,57,392" />
+      <scope id="5868639094257281965" at="50,51,57,384" />
       <scope id="5868639094257281965" at="50,0,59,0" />
-      <unit id="5868639094257169531" at="68,0,74,0" name="jetbrains.mps.baseLanguage.test.FloatConstantType_Test$AUX_rchkxn" />
+      <unit id="5868639094257169531" at="68,0,74,0" name="jetbrains.mps.baseLanguage.test.FloatConstantType_Test$CONCEPTS" />
       <unit id="5868639094257169531" at="44,0,67,0" name="jetbrains.mps.baseLanguage.test.FloatConstantType_Test$TestBody" />
       <unit id="5868639094257169531" at="24,0,75,0" name="jetbrains.mps.baseLanguage.test.FloatConstantType_Test" />
     </file>
@@ -9543,33 +9543,35 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c7(jetbrains.mps.baseLanguage.test@tests)/6649467621789725810">
     <file name="AnonymousClassJavaName_Test.java">
-      <node id="6649467621789725810" at="26,40,27,25" concept="9" />
-      <node id="6649467621789800767" at="31,53,32,44" concept="3" />
-      <node id="6649467621789725810" at="37,52,38,19" concept="9" />
-      <node id="6649467621789725811" at="41,55,42,41" concept="3" />
-      <node id="6649467621789930734" at="42,41,43,512" concept="0" />
-      <node id="6649467621790014147" at="43,512,44,512" concept="0" />
-      <node id="6649467621790015035" at="44,512,45,514" concept="0" />
-      <node id="6649467621790015071" at="45,514,46,514" concept="0" />
-      <node id="7102466869931835904" at="46,514,47,518" concept="0" />
-      <node id="6649467621789725810" at="21,0,23,0" concept="8" trace="ourParamCache" />
-      <node id="6649467621789725810" at="23,0,25,0" concept="4" trace="myWithCommandRule" />
-      <node id="6649467621789725810" at="26,0,29,0" concept="2" trace="AnonymousClassJavaName_Test#()V" />
-      <node id="6649467621789725810" at="37,0,40,0" concept="2" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="6649467621789800767" at="30,0,34,0" concept="5" trace="test_testJavaNames#()V" />
-      <node id="6649467621789800767" at="41,0,49,0" concept="5" trace="test_testJavaNames#()V" />
-      <scope id="6649467621789725810" at="26,40,27,25" />
-      <scope id="6649467621789800767" at="31,53,32,44" />
-      <scope id="6649467621789725810" at="37,52,38,19" />
-      <scope id="6649467621789725810" at="26,0,29,0" />
-      <scope id="6649467621789725810" at="37,0,40,0">
+      <node id="6649467621789725810" at="27,40,28,25" concept="9" />
+      <node id="6649467621789800767" at="32,53,33,44" concept="3" />
+      <node id="6649467621789725810" at="38,52,39,19" concept="9" />
+      <node id="6649467621789725811" at="42,55,43,41" concept="3" />
+      <node id="6649467621789930734" at="43,41,44,408" concept="0" />
+      <node id="6649467621790014147" at="44,408,45,408" concept="0" />
+      <node id="6649467621790015035" at="45,408,46,410" concept="0" />
+      <node id="6649467621790015071" at="46,410,47,410" concept="0" />
+      <node id="7102466869931835904" at="47,410,48,414" concept="0" />
+      <node id="6649467621789725810" at="55,0,56,0" concept="8" trace="cls$xt3G" />
+      <node id="6649467621789725810" at="22,0,24,0" concept="8" trace="ourParamCache" />
+      <node id="6649467621789725810" at="24,0,26,0" concept="4" trace="myWithCommandRule" />
+      <node id="6649467621789725810" at="27,0,30,0" concept="2" trace="AnonymousClassJavaName_Test#()V" />
+      <node id="6649467621789725810" at="38,0,41,0" concept="2" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="6649467621789800767" at="31,0,35,0" concept="5" trace="test_testJavaNames#()V" />
+      <node id="6649467621789800767" at="42,0,50,0" concept="5" trace="test_testJavaNames#()V" />
+      <scope id="6649467621789725810" at="27,40,28,25" />
+      <scope id="6649467621789800767" at="32,53,33,44" />
+      <scope id="6649467621789725810" at="38,52,39,19" />
+      <scope id="6649467621789725810" at="27,0,30,0" />
+      <scope id="6649467621789725810" at="38,0,41,0">
         <var name="owner" id="6649467621789725810" />
       </scope>
-      <scope id="6649467621789800767" at="30,0,34,0" />
-      <scope id="6649467621789800767" at="41,55,47,518" />
-      <scope id="6649467621789800767" at="41,0,49,0" />
-      <unit id="6649467621789725810" at="35,0,52,0" name="jetbrains.mps.baseLanguage.test.AnonymousClassJavaName_Test$TestBody" />
-      <unit id="6649467621789725810" at="19,0,53,0" name="jetbrains.mps.baseLanguage.test.AnonymousClassJavaName_Test" />
+      <scope id="6649467621789800767" at="31,0,35,0" />
+      <scope id="6649467621789800767" at="42,55,48,414" />
+      <scope id="6649467621789800767" at="42,0,50,0" />
+      <unit id="6649467621789725810" at="54,0,57,0" name="jetbrains.mps.baseLanguage.test.AnonymousClassJavaName_Test$LINKS" />
+      <unit id="6649467621789725810" at="36,0,53,0" name="jetbrains.mps.baseLanguage.test.AnonymousClassJavaName_Test$TestBody" />
+      <unit id="6649467621789725810" at="20,0,58,0" name="jetbrains.mps.baseLanguage.test.AnonymousClassJavaName_Test" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c7(jetbrains.mps.baseLanguage.test@tests)/7187651930235347758">

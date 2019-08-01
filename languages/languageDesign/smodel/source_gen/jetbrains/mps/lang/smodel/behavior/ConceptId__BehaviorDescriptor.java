@@ -4,6 +4,7 @@ package jetbrains.mps.lang.smodel.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.adapter.ids.SConceptId;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
@@ -25,10 +25,12 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ConceptId__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_7h2wmq.ConceptId_51d9f118;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId");
 
   public static final SMethod<SAbstractConcept> getConcept_id5ZE7FBYYOpv = new SMethodBuilder<SAbstractConcept>(new SJavaCompoundTypeImpl(SAbstractConcept.class)).name("getConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYYOpv").build();
   public static final SMethod<Void> setConcept_id5ZE7FBYYR6j = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setConcept").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYYR6j").build(SMethodBuilder.createJavaParameter(SAbstractConcept.class, ""));
@@ -40,13 +42,13 @@ public final class ConceptId__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SAbstractConcept getConcept_id5ZE7FBYYOpv(@NotNull SNode __thisNode__) {
-    SLanguage lang = LanguageIdentity__BehaviorDescriptor.getLanguage_id34EJa6aIcyj.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb6feaL, "languageIdentity")));
-    String cn = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb73d7L, "conceptName"));
+    SLanguage lang = LanguageIdentity__BehaviorDescriptor.getLanguage_id34EJa6aIcyj.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.languageIdentity$fqVY));
+    String cn = SPropertyOperations.getString(__thisNode__, PROPS.conceptName$iWsq);
     if (lang == null || cn == null) {
       return null;
     }
     long cid = ((long) ConceptId__BehaviorDescriptor.getIdValue_id5ZE7FBZ0whU.invoke(__thisNode__));
-    if (SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb9fecL, "isInterface"))) {
+    if (SPropertyOperations.getBoolean(__thisNode__, PROPS.isInterface$40ZV)) {
       return MetaAdapterFactory.getInterfaceConcept(lang, cid, cn);
     } else {
       return MetaAdapterFactory.getConcept(lang, cid, cn);
@@ -54,15 +56,15 @@ public final class ConceptId__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void setConcept_id5ZE7FBYYR6j(@NotNull SNode __thisNode__, @NotNull SAbstractConcept concept) {
     SConceptId cid = MetaIdHelper.getConcept(concept);
-    SNode lang = SModelOperations.createNewNode(SNodeOperations.getModel(__thisNode__), null, AUX_7h2wmq.LanguageId_f5e2e6b);
+    SNode lang = SModelOperations.createNewNode(SNodeOperations.getModel(__thisNode__), null, CONCEPTS.LanguageId$Tn);
     LanguageIdentity__BehaviorDescriptor.setLanguage_id34EJa6aIcyw.invoke(lang, concept.getLanguage());
-    SLinkOperations.setTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb6feaL, "languageIdentity"), lang);
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb73d7L, "conceptName"), concept.getName());
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb9fecL, "isInterface"), concept instanceof SInterfaceConcept);
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb6fecL, "conceptId"), Long.toString(cid.getIdValue(), Character.MAX_RADIX));
+    SLinkOperations.setTarget(__thisNode__, LINKS.languageIdentity$fqVY, lang);
+    SPropertyOperations.assign(__thisNode__, PROPS.conceptName$iWsq, concept.getName());
+    SPropertyOperations.assign(__thisNode__, PROPS.isInterface$40ZV, concept instanceof SInterfaceConcept);
+    SPropertyOperations.assign(__thisNode__, PROPS.conceptId$fqWW, Long.toString(cid.getIdValue(), Character.MAX_RADIX));
   }
   /*package*/ static long getIdValue_id5ZE7FBZ0whU(@NotNull SNode __thisNode__) {
-    return Long.parseLong(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb6fecL, "conceptId")), Character.MAX_RADIX);
+    return Long.parseLong(SPropertyOperations.getString(__thisNode__, PROPS.conceptId$fqWW), Character.MAX_RADIX);
   }
 
   /*package*/ ConceptId__BehaviorDescriptor() {
@@ -116,8 +118,17 @@ public final class ConceptId__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_7h2wmq {
-    /*package*/ static final SConcept ConceptId_51d9f118 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId");
-    /*package*/ static final SConcept LanguageId_f5e2e6b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink languageIdentity$fqVY = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb6feaL, "languageIdentity");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptName$iWsq = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb73d7L, "conceptName");
+    /*package*/ static final SProperty isInterface$40ZV = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb9fecL, "isInterface");
+    /*package*/ static final SProperty conceptId$fqWW = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, 0x5fea1eb9fefb6fecL, "conceptId");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LanguageId$Tn = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312abca18ab8c8c0L, "jetbrains.mps.lang.smodel.structure.LanguageId");
   }
 }

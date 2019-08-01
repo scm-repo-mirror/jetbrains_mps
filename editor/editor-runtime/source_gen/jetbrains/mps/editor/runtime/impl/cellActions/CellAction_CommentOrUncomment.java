@@ -28,23 +28,23 @@ public abstract class CellAction_CommentOrUncomment extends AbstractCellAction {
     SNode nodeToProcess = getNodeToProcess(editorContext);
     SNode nodeToUncomment = getNodeToUncomment(nodeToProcess);
     if (nodeToUncomment != null) {
-      new CellAction_Uncomment(SNodeOperations.cast(nodeToUncomment, AUX_iy9lqd.BaseCommentAttribute_f7206635)).execute(editorContext);
+      new CellAction_Uncomment(SNodeOperations.cast(nodeToUncomment, CONCEPTS.BaseCommentAttribute$Zd)).execute(editorContext);
     } else {
       new CellAction_Comment(nodeToProcess).execute(editorContext);
     }
   }
   protected abstract SNode getNodeToProcess(EditorContext editorContext);
   private SNode getNodeToUncomment(SNode nodeToProcess) {
-    if (SNodeOperations.isInstanceOf(nodeToProcess, AUX_iy9lqd.BaseCommentAttribute_f7206635)) {
-      return SNodeOperations.cast(nodeToProcess, AUX_iy9lqd.BaseCommentAttribute_f7206635);
+    if (SNodeOperations.isInstanceOf(nodeToProcess, CONCEPTS.BaseCommentAttribute$Zd)) {
+      return SNodeOperations.cast(nodeToProcess, CONCEPTS.BaseCommentAttribute$Zd);
     }
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(nodeToProcess), AUX_iy9lqd.BaseCommentAttribute_f7206635)) {
-      return SNodeOperations.cast(SNodeOperations.getParent(nodeToProcess), AUX_iy9lqd.BaseCommentAttribute_f7206635);
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(nodeToProcess), CONCEPTS.BaseCommentAttribute$Zd)) {
+      return SNodeOperations.cast(SNodeOperations.getParent(nodeToProcess), CONCEPTS.BaseCommentAttribute$Zd);
     }
     return null;
   }
 
-  private static final class AUX_iy9lqd {
-    /*package*/ static final SConcept BaseCommentAttribute_f7206635 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseCommentAttribute$Zd = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
   }
 }

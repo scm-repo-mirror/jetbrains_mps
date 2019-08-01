@@ -47,7 +47,7 @@ public final class AddPlaceholderChildAttribute_Intention extends AbstractIntent
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_8g75xb.PlaceholderChildAttribute_4c3bdb31)) == null)) {
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.PlaceholderChildAttribute$Dh)) == null)) {
         return "Add Attribute";
       } else {
         return "Remove Attribute";
@@ -55,10 +55,10 @@ public final class AddPlaceholderChildAttribute_Intention extends AbstractIntent
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_8g75xb.PlaceholderChildAttribute_4c3bdb31)) == null)) {
-        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(AUX_8g75xb.PlaceholderChildAttribute_4c3bdb31), AUX_8g75xb.PlaceholderChildAttribute_4c3bdb31);
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.PlaceholderChildAttribute$Dh)) == null)) {
+        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.PlaceholderChildAttribute$Dh), CONCEPTS.PlaceholderChildAttribute$Dh);
       } else {
-        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_8g75xb.PlaceholderChildAttribute_4c3bdb31)));
+        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.PlaceholderChildAttribute$Dh)));
       }
     }
     @Override
@@ -67,7 +67,7 @@ public final class AddPlaceholderChildAttribute_Intention extends AbstractIntent
     }
   }
 
-  private static final class AUX_8g75xb {
-    /*package*/ static final SConcept PlaceholderChildAttribute_4c3bdb31 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x34450358999d2201L, "jetbrains.mps.lang.editor.editorTest.structure.PlaceholderChildAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PlaceholderChildAttribute$Dh = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x34450358999d2201L, "jetbrains.mps.lang.editor.editorTest.structure.PlaceholderChildAttribute");
   }
 }

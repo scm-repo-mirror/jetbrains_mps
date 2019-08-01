@@ -47,7 +47,7 @@ public class UnresolvedReferencesChecker extends SpecificChecker {
       }
       // Check for unresolved references 
       for (final SReference ref : ListSequence.fromList(SNodeOperations.getReferences(node))) {
-        if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_xiru3y.ReferenceMacro_62f8c34e, ref.getLink())) != null)) {
+        if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, ref.getLink())) != null)) {
           continue;
         }
         if (jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(ref) == null) {
@@ -78,7 +78,7 @@ public class UnresolvedReferencesChecker extends SpecificChecker {
     return IssueKindReportItem.UNRESOLVED_REFERENCE;
   }
 
-  private static final class AUX_xiru3y {
-    /*package*/ static final SConcept ReferenceMacro_62f8c34e = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReferenceMacro$nk = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
   }
 }

@@ -30,7 +30,6 @@ import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsAction
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -40,6 +39,8 @@ import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class _Helgins_RT_Contribution extends TransformationMenuBase {
   public _Helgins_RT_Contribution() {
@@ -94,7 +95,7 @@ public class _Helgins_RT_Contribution extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_hjeljm.AbstractEquationStatement_37e39569;
+      return CONCEPTS.AbstractEquationStatement$sp;
     }
 
 
@@ -105,14 +106,14 @@ public class _Helgins_RT_Contribution extends TransformationMenuBase {
         @Override
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
-          SNode statement = SNodeOperations.getNodeAncestor(_context.getNode(), AUX_hjeljm.Statement_9dbf9b0e, false, false);
+          SNode statement = SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.Statement$ok, false, false);
           if (statement == null) {
             return;
           }
           SNodeOperations.replaceWithAnother(statement, createdNode);
-          SNode left = SNodeFactoryOperations.createNewNode(AUX_hjeljm.NormalTypeClause_ca93a2ce, null);
-          SLinkOperations.setTarget(left, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, 0x1141682cac0L, "normalType"), _context.getNode());
-          SLinkOperations.setTarget(createdNode, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, 0x1117f3d1d35L, "leftExpression"), left);
+          SNode left = SNodeFactoryOperations.createNewNode(CONCEPTS.NormalTypeClause$pk, null);
+          SLinkOperations.setTarget(left, LINKS.normalType$$uJr, _context.getNode());
+          SLinkOperations.setTarget(createdNode, LINKS.leftExpression$7i2i, left);
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), createdNode, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -133,9 +134,14 @@ public class _Helgins_RT_Contribution extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_hjeljm {
-    /*package*/ static final SConcept AbstractEquationStatement_37e39569 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, "jetbrains.mps.lang.typesystem.structure.AbstractEquationStatement");
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
-    /*package*/ static final SConcept NormalTypeClause_ca93a2ce = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, "jetbrains.mps.lang.typesystem.structure.NormalTypeClause");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractEquationStatement$sp = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, "jetbrains.mps.lang.typesystem.structure.AbstractEquationStatement");
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+    /*package*/ static final SConcept NormalTypeClause$pk = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, "jetbrains.mps.lang.typesystem.structure.NormalTypeClause");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink normalType$$uJr = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, 0x1141682cac0L, "normalType");
+    /*package*/ static final SContainmentLink leftExpression$7i2i = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, 0x1117f3d1d35L, "leftExpression");
   }
 }

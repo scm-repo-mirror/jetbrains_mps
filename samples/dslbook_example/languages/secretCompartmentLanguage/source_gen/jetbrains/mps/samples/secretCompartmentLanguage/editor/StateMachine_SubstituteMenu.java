@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class StateMachine_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_kdnim9_a(), AUX_kdnim9.StateMachine_6263cdb9));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_kdnim9_a(), CONCEPTS.StateMachine$z9));
     result.add(new SMP_Subconcepts_kdnim9_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class StateMachine_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_kdnim9_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_kdnim9.StateMachine_6263cdb9, MetaAdapterFactory.getReferenceLink(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116bbacae3cL, 0x116c1078061L, "startState"));
+      super((SAbstractConcept) CONCEPTS.StateMachine$z9, LINKS.startState$fO9A);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class StateMachine_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_kdnim9_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_kdnim9.StateMachine_6263cdb9);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.StateMachine$z9);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class StateMachine_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_kdnim9 {
-    /*package*/ static final SConcept StateMachine_6263cdb9 = MetaAdapterFactory.getConcept(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116bbacae3cL, "jetbrains.mps.samples.secretCompartmentLanguage.structure.StateMachine");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StateMachine$z9 = MetaAdapterFactory.getConcept(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116bbacae3cL, "jetbrains.mps.samples.secretCompartmentLanguage.structure.StateMachine");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink startState$fO9A = MetaAdapterFactory.getReferenceLink(0x6986543d82184ebfL, 0xa2e9565e5049c1ceL, 0x116bbacae3cL, 0x116c1078061L, "startState");
   }
 }

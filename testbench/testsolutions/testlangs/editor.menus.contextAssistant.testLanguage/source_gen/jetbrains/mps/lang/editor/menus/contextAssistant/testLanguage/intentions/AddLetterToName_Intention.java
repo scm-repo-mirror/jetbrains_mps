@@ -16,8 +16,9 @@ import java.util.ArrayList;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.ParameterizedIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AddLetterToName_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   public AddLetterToName_Intention() {
@@ -59,7 +60,7 @@ public final class AddLetterToName_Intention extends AbstractIntentionDescriptor
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.plusAssignStringProp(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), myParameter);
+      SPropertyOperations.plusAssignStringProp(node, PROPS.name$tAp1, myParameter);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -68,5 +69,9 @@ public final class AddLetterToName_Intention extends AbstractIntentionDescriptor
     public Object getParameter() {
       return myParameter;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

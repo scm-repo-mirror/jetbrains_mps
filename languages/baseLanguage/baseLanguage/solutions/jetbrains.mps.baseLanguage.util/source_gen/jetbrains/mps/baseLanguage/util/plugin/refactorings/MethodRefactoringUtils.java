@@ -9,38 +9,40 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MethodRefactoringUtils {
   public MethodRefactoringUtils() {
   }
   public static List<SNode> findOverridingMethods(SearchScope scope, SNode method, ProgressMonitor progressMonitor) {
     List<SNode> results = new ArrayList<SNode>();
-    if (SNodeOperations.isInstanceOf(method, AUX_6ltell.InstanceMethodDeclaration_9dbf9b2b)) {
-      if (SPropertyOperations.getBoolean(method, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal")) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(method, AUX_6ltell.InstanceMethodDeclaration_9dbf9b2b), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")), AUX_6ltell.PrivateVisibility_63f5dbd4)) {
+    if (SNodeOperations.isInstanceOf(method, CONCEPTS.InstanceMethodDeclaration$An)) {
+      if (SPropertyOperations.getBoolean(method, PROPS.isFinal$I$Qu) || SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(method, CONCEPTS.InstanceMethodDeclaration$An), LINKS.visibility$2GiC), CONCEPTS.PrivateVisibility$Se)) {
         return results;
       }
       SearchResults<SNode> searchResults;
-      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(method), AUX_6ltell.Interface_bca2069)) {
+      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(method), CONCEPTS.Interface$Kp)) {
         searchResults = FindUtils.getSearchResults(progressMonitor, method, scope, "jetbrains.mps.baseLanguage.findUsages.InterfaceMethodImplementations_Finder");
       } else {
         searchResults = FindUtils.getSearchResults(progressMonitor, method, scope, "jetbrains.mps.baseLanguage.findUsages.OverridingMethods_Finder");
       }
 
       for (SearchResult<SNode> result : ListSequence.fromList(searchResults.getSearchResults())) {
-        ListSequence.fromList(results).addElement(SNodeOperations.cast(result.getObject(), AUX_6ltell.BaseMethodDeclaration_9dbf9acb));
+        ListSequence.fromList(results).addElement(SNodeOperations.cast(result.getObject(), CONCEPTS.BaseMethodDeclaration$RR));
       }
     }
-    if (SNodeOperations.isInstanceOf(method, AUX_6ltell.ConceptMethodDeclaration_6c80ca4f)) {
+    if (SNodeOperations.isInstanceOf(method, CONCEPTS.ConceptMethodDeclaration$VN)) {
       SearchResults<SNode> searchResults = FindUtils.getSearchResults(progressMonitor, method, scope, "jetbrains.mps.lang.behavior.findUsages.OverridingMethods_Finder");
       for (SearchResult<SNode> result : ListSequence.fromList(searchResults.getSearchResults())) {
-        ListSequence.fromList(results).addElement(SNodeOperations.cast(result.getObject(), AUX_6ltell.BaseMethodDeclaration_9dbf9acb));
+        ListSequence.fromList(results).addElement(SNodeOperations.cast(result.getObject(), CONCEPTS.BaseMethodDeclaration$RR));
       }
     }
     return results;
@@ -49,11 +51,19 @@ public class MethodRefactoringUtils {
     return FindUtils.getSearchResults(progressMonitor, method, scope, "jetbrains.mps.baseLanguage.findUsages.ExactMethodUsages_Finder");
   }
 
-  private static final class AUX_6ltell {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept PrivateVisibility_63f5dbd4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept PrivateVisibility$Se = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$I$Qu = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x113294bffd2L, "isFinal");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -18,13 +19,13 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class CompletionCustomization_CustomizeFunction__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_x1uoe2.CompletionCustomization_CustomizeFunction_1ffd49b7;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xab9d570df2577c8L, "jetbrains.mps.lang.editor.structure.CompletionCustomization_CustomizeFunction");
 
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
 
@@ -35,9 +36,9 @@ public final class CompletionCustomization_CustomizeFunction__BehaviorDescriptor
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
     List<SConcept> result = ListSequence.fromList(new ArrayList<SConcept>());
-    ListSequence.fromList(result).addElement(AUX_x1uoe2.ConceptFunctionParameterCustomize_CompletionItemInformation_21aee480);
-    ListSequence.fromList(result).addElement(AUX_x1uoe2.ConceptFunctionParameterCustomize_Style_21aee4f9);
-    ListSequence.fromList(result).addSequence(ListSequence.fromList(CompletionCustomizationContextSpecificator__BehaviorDescriptor.getAdditionalParameters_idETPn3v9Kre.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, AUX_x1uoe2.CompletionStyling_e17dd1cd, false, false), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6c7f2eeda1a0b162L, 0x64a01fa8546d376bL, "specificator")))));
+    ListSequence.fromList(result).addElement(CONCEPTS.ConceptFunctionParameterCustomize_CompletionItemInformation$Fy);
+    ListSequence.fromList(result).addElement(CONCEPTS.ConceptFunctionParameterCustomize_Style$A9);
+    ListSequence.fromList(result).addSequence(ListSequence.fromList(CompletionCustomizationContextSpecificator__BehaviorDescriptor.getAdditionalParameters_idETPn3v9Kre.invoke(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.CompletionStyling$sP, false, false), LINKS.specificator$U6Kz))));
     return result;
   }
 
@@ -87,10 +88,13 @@ public final class CompletionCustomization_CustomizeFunction__BehaviorDescriptor
     return CONCEPT;
   }
 
-  private static final class AUX_x1uoe2 {
-    /*package*/ static final SConcept CompletionCustomization_CustomizeFunction_1ffd49b7 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xab9d570df2577c8L, "jetbrains.mps.lang.editor.structure.CompletionCustomization_CustomizeFunction");
-    /*package*/ static final SConcept ConceptFunctionParameterCustomize_CompletionItemInformation_21aee480 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xab9d570df26e171L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameterCustomize_CompletionItemInformation");
-    /*package*/ static final SConcept ConceptFunctionParameterCustomize_Style_21aee4f9 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xab9d570df26e196L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameterCustomize_Style");
-    /*package*/ static final SConcept CompletionStyling_e17dd1cd = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6c7f2eeda1a0b162L, "jetbrains.mps.lang.editor.structure.CompletionStyling");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptFunctionParameterCustomize_CompletionItemInformation$Fy = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xab9d570df26e171L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameterCustomize_CompletionItemInformation");
+    /*package*/ static final SConcept ConceptFunctionParameterCustomize_Style$A9 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xab9d570df26e196L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameterCustomize_Style");
+    /*package*/ static final SConcept CompletionStyling$sP = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6c7f2eeda1a0b162L, "jetbrains.mps.lang.editor.structure.CompletionStyling");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink specificator$U6Kz = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6c7f2eeda1a0b162L, 0x64a01fa8546d376bL, "specificator");
   }
 }

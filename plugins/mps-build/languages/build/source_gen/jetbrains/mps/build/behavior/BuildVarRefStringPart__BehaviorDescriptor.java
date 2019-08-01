@@ -4,6 +4,7 @@ package jetbrains.mps.build.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,15 +17,16 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class BuildVarRefStringPart__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_bxli2n.BuildVarRefStringPart_a64ab0cc;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, "jetbrains.mps.build.structure.BuildVarRefStringPart");
 
   public static final SMethod<String> getText_id3NagsOfTq4Y = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3NagsOfTq4Y").build(SMethodBuilder.createJavaParameter(MacroHelper.class, ""));
   public static final SMethod<Boolean> isLastPositionAllowed_idyEtdY40wNH = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLastPositionAllowed").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("yEtdY40wNH").build();
@@ -36,11 +38,11 @@ public final class BuildVarRefStringPart__BehaviorDescriptor extends BaseBHDescr
   }
 
   /*package*/ static String getText_id3NagsOfTq4Y(@NotNull SNode __thisNode__, MacroHelper helper) {
-    String macroName = SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    String macroName = SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.macro$lql0), PROPS.name$tAp1);
     if (helper != null) {
-      macroName = helper.getName(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro")));
+      macroName = helper.getName(SLinkOperations.getTarget(__thisNode__, LINKS.macro$lql0));
       if (macroName == null) {
-        helper.report("macro " + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " is not available in " + helper.getProjectName() + ", make it exportable", __thisNode__);
+        helper.report("macro " + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.macro$lql0), PROPS.name$tAp1) + " is not available in " + helper.getProjectName() + ", make it exportable", __thisNode__);
         macroName = "???";
       }
     }
@@ -50,7 +52,7 @@ public final class BuildVarRefStringPart__BehaviorDescriptor extends BaseBHDescr
     return (SNodeOperations.getNextSibling(__thisNode__) == null);
   }
   /*package*/ static boolean isFirstPositionAllowed_idyEtdY40p7m(@NotNull SNode __thisNode__) {
-    return !(SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(__thisNode__), AUX_bxli2n.BuildTextStringPart_a64ab0ce));
+    return !(SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(__thisNode__), CONCEPTS.BuildTextStringPart$xk));
   }
 
   /*package*/ BuildVarRefStringPart__BehaviorDescriptor() {
@@ -103,8 +105,15 @@ public final class BuildVarRefStringPart__BehaviorDescriptor extends BaseBHDescr
     return CONCEPT;
   }
 
-  private static final class AUX_bxli2n {
-    /*package*/ static final SConcept BuildVarRefStringPart_a64ab0cc = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, "jetbrains.mps.build.structure.BuildVarRefStringPart");
-    /*package*/ static final SConcept BuildTextStringPart_a64ab0ce = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink macro$lql0 = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildTextStringPart$xk = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
   }
 }

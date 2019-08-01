@@ -4,6 +4,7 @@ package jetbrains.mps.console.ideCommands.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -25,14 +26,13 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.lang.modelapi.behavior.ModelIdentity__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ModelStatisticsTarget__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dppvz.ModelStatisticsTarget_86c12611;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x67f2bafb7a5cad96L, "jetbrains.mps.console.ideCommands.structure.ModelStatisticsTarget");
 
   public static final SMethod<Iterable<Tuples._2<String, Integer>>> getStat_id6vMIJHUBlVT = new SMethodBuilder<Iterable<Tuples._2<String, Integer>>>(new SJavaCompoundTypeImpl((Class<Iterable<Tuples._2<String, Integer>>>) ((Class) Object.class))).name("getStat").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6vMIJHUBlVT").build(SMethodBuilder.createJavaParameter(ConsoleContext.class, ""));
   public static final SMethod<Iterable<SNode>> getNodes_id4x3U0fq41hN = new SMethodBuilder<Iterable<SNode>>(new SJavaCompoundTypeImpl((Class<Iterable<SNode>>) ((Class) Object.class))).name("getNodes").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4x3U0fq41hN").build(SMethodBuilder.createJavaParameter(ConsoleContext.class, ""));
@@ -66,7 +66,7 @@ public final class ModelStatisticsTarget__BehaviorDescriptor extends BaseBHDescr
   }
   /*package*/ static SModel resolveModel_id4xqDcS7DWbP(@NotNull SNode __thisNode__, SRepository repo) {
     SModel m = null;
-    SModelReference ref = ModelIdentity__BehaviorDescriptor.toModelReference_id1Bs_61$mvvu.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x67f2bafb7a5cad96L, 0x485aa4ce07a6ea0fL, "target")));
+    SModelReference ref = ModelIdentity__BehaviorDescriptor.toModelReference_id1Bs_61$mvvu.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.target$WcuB));
     if (ref != null) {
       m = ref.resolve(repo);
     }
@@ -123,7 +123,7 @@ public final class ModelStatisticsTarget__BehaviorDescriptor extends BaseBHDescr
     return CONCEPT;
   }
 
-  private static final class AUX_dppvz {
-    /*package*/ static final SConcept ModelStatisticsTarget_86c12611 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x67f2bafb7a5cad96L, "jetbrains.mps.console.ideCommands.structure.ModelStatisticsTarget");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink target$WcuB = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x67f2bafb7a5cad96L, 0x485aa4ce07a6ea0fL, "target");
   }
 }

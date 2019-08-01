@@ -26,7 +26,6 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
@@ -42,15 +41,18 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_fvo6kj_a(), AUX_fvo6kj.BuildVarRefStringPart_a64ab0cc));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_fvo6kj_b(), AUX_fvo6kj.BuildTextStringPart_a64ab0ce));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_fvo6kj_a(), CONCEPTS.BuildVarRefStringPart$wm));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_fvo6kj_b(), CONCEPTS.BuildTextStringPart$xk));
     result.add(new SMP_Subconcepts_fvo6kj_c());
     return result;
   }
@@ -88,17 +90,17 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
     @Nullable
     @Override
     protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-      Scope scope = Scope.getScope(((_context.getCurrentTargetNode() != null) ? _context.getCurrentTargetNode() : _context.getParentNode()), null, AUX_fvo6kj.BuildMacro_808bb078);
+      Scope scope = Scope.getScope(((_context.getCurrentTargetNode() != null) ? _context.getCurrentTargetNode() : _context.getParentNode()), null, CONCEPTS.BuildMacro$RE);
       if (scope == null) {
         return null;
       }
       return Sequence.fromIterable(scope.getAvailableElements(null)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, AUX_fvo6kj.BuildVariableMacro_66593451);
+          return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildVariableMacro$kL);
         }
       }).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SNodeOperations.cast(it, AUX_fvo6kj.BuildVariableMacro_66593451);
+          return SNodeOperations.cast(it, CONCEPTS.BuildVariableMacro$kL);
         }
       }).toListSequence();
     }
@@ -135,7 +137,7 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_fvo6kj.BuildVarRefStringPart_a64ab0cc, context);
+          super(CONCEPTS.BuildVarRefStringPart$wm, context);
           _context = context;
         }
 
@@ -146,8 +148,8 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode res = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_fvo6kj.BuildVarRefStringPart_a64ab0cc, null);
-          SLinkOperations.setTarget(res, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro"), myParameterObject);
+          SNode res = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.BuildVarRefStringPart$wm, null);
+          SLinkOperations.setTarget(res, LINKS.macro$lql0, myParameterObject);
           return res;
         }
 
@@ -157,7 +159,7 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_fvo6kj.BuildVarRefStringPart_a64ab0cc, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.BuildVarRefStringPart$wm, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -178,7 +180,7 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public String getMatchingText(@NotNull String pattern) {
-          return "$" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          return "$" + SPropertyOperations.getString(myParameterObject, PROPS.name$tAp1);
         }
       }
     }
@@ -212,7 +214,7 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_fvo6kj.BuildTextStringPart_a64ab0ce, context);
+        super(CONCEPTS.BuildTextStringPart$xk, context);
         _context = context;
       }
 
@@ -223,8 +225,8 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode buildText = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_fvo6kj.BuildTextStringPart_a64ab0ce, null);
-        SPropertyOperations.set(buildText, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text"), pattern);
+        SNode buildText = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.BuildTextStringPart$xk, null);
+        SPropertyOperations.set(buildText, PROPS.text$2p89, pattern);
         return buildText;
       }
 
@@ -242,9 +244,9 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
           Pattern _pattern_0 = REGEXP_fvo6kj_a0a0b0j2g;
           Matcher _matcher_0 = _pattern_0.matcher(pattern);
           if (_matcher_0.find()) {
-            SNode container = (SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_fvo6kj.BuildString_bd6afb30) ? SNodeOperations.getParent(_context.getParentNode()) : _context.getParentNode());
-            if (SNodeOperations.isInstanceOf(container, AUX_fvo6kj.BuildStringContainer_4c29117c)) {
-              if ((boolean) BuildStringContainer__BehaviorDescriptor.isValidPart_id7XQqoCTkVIS.invoke(SNodeOperations.cast(container, AUX_fvo6kj.BuildStringContainer_4c29117c), pattern, (SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_fvo6kj.BuildString_bd6afb30) ? _context.getParentNode().getContainmentLink() : _context.getCurrentTargetNode().getContainmentLink()))) {
+            SNode container = (SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BuildString$CM) ? SNodeOperations.getParent(_context.getParentNode()) : _context.getParentNode());
+            if (SNodeOperations.isInstanceOf(container, CONCEPTS.BuildStringContainer$PA)) {
+              if ((boolean) BuildStringContainer__BehaviorDescriptor.isValidPart_id7XQqoCTkVIS.invoke(SNodeOperations.cast(container, CONCEPTS.BuildStringContainer$PA), pattern, (SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.BuildString$CM) ? _context.getParentNode().getContainmentLink() : _context.getCurrentTargetNode().getContainmentLink()))) {
                 return pattern;
               }
             } else if (!(pattern.contains("$"))) {
@@ -259,7 +261,7 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_fvo6kj_c extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_fvo6kj.BuildStringPart_a64ab0ca);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildStringPart$vo);
     }
     @NotNull
     @Override
@@ -280,13 +282,22 @@ public class BuildStringPart_SubstituteMenu extends SubstituteMenuBase {
   }
   private static final Pattern REGEXP_fvo6kj_a0a0b0j2g = Pattern.compile("[^\\$].*", 0);
 
-  private static final class AUX_fvo6kj {
-    /*package*/ static final SConcept BuildVarRefStringPart_a64ab0cc = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, "jetbrains.mps.build.structure.BuildVarRefStringPart");
-    /*package*/ static final SConcept BuildTextStringPart_a64ab0ce = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
-    /*package*/ static final SConcept BuildMacro_808bb078 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a1fL, "jetbrains.mps.build.structure.BuildMacro");
-    /*package*/ static final SConcept BuildVariableMacro_66593451 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3449288aa0d560e2L, "jetbrains.mps.build.structure.BuildVariableMacro");
-    /*package*/ static final SConcept BuildString_bd6afb30 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, "jetbrains.mps.build.structure.BuildString");
-    /*package*/ static final SInterfaceConcept BuildStringContainer_4c29117c = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7f76698a3953bbb4L, "jetbrains.mps.build.structure.BuildStringContainer");
-    /*package*/ static final SConcept BuildStringPart_a64ab0ca = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7cffL, "jetbrains.mps.build.structure.BuildStringPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildVarRefStringPart$wm = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, "jetbrains.mps.build.structure.BuildVarRefStringPart");
+    /*package*/ static final SConcept BuildTextStringPart$xk = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, "jetbrains.mps.build.structure.BuildTextStringPart");
+    /*package*/ static final SConcept BuildMacro$RE = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a1fL, "jetbrains.mps.build.structure.BuildMacro");
+    /*package*/ static final SConcept BuildVariableMacro$kL = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3449288aa0d560e2L, "jetbrains.mps.build.structure.BuildVariableMacro");
+    /*package*/ static final SConcept BuildString$CM = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3cca41cd0fe51d4fL, "jetbrains.mps.build.structure.BuildString");
+    /*package*/ static final SInterfaceConcept BuildStringContainer$PA = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7f76698a3953bbb4L, "jetbrains.mps.build.structure.BuildStringContainer");
+    /*package*/ static final SConcept BuildStringPart$vo = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7cffL, "jetbrains.mps.build.structure.BuildStringPart");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink macro$lql0 = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d01L, 0x440d7ea3b68b7d02L, "macro");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty text$2p89 = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x440d7ea3b68b7d03L, 0x440d7ea3b68c4d56L, "text");
   }
 }

@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class PropertyVCSDescriptor_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_zfowks_a(), AUX_zfowks.PropertyVCSDescriptor_eb95949a));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_zfowks_a(), CONCEPTS.PropertyVCSDescriptor$S8));
     result.add(new SMP_Subconcepts_zfowks_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class PropertyVCSDescriptor_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_zfowks_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_zfowks.PropertyVCSDescriptor_eb95949a, MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, 0x4f2cc0d970a4f877L, "prop"));
+      super((SAbstractConcept) CONCEPTS.PropertyVCSDescriptor$S8, LINKS.prop$DMff);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class PropertyVCSDescriptor_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_zfowks_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_zfowks.PropertyVCSDescriptor_eb95949a);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.PropertyVCSDescriptor$S8);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class PropertyVCSDescriptor_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_zfowks {
-    /*package*/ static final SConcept PropertyVCSDescriptor_eb95949a = MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, "jetbrains.mps.vcs.mergehints.structure.PropertyVCSDescriptor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyVCSDescriptor$S8 = MetaAdapterFactory.getConcept(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, "jetbrains.mps.vcs.mergehints.structure.PropertyVCSDescriptor");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink prop$DMff = MetaAdapterFactory.getReferenceLink(0x37e03aa1728949bcL, 0x826930de5eceec76L, 0x4f2cc0d970a4f9d0L, 0x4f2cc0d970a4f877L, "prop");
   }
 }

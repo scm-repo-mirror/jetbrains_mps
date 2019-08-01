@@ -9,12 +9,13 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_ListAntiquotation_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ListAntiquotation_NonTypesystemRule() {
@@ -28,11 +29,11 @@ public class check_ListAntiquotation_NonTypesystemRule extends AbstractNonTypesy
         {
           SNode matchingNode_5jb8fe_a1a = SNodeOperations.getParent(annotatedNode);
           if (matchingNode_5jb8fe_a1a != null) {
-            matches_5jb8fe_a1a = matchingNode_5jb8fe_a1a.getConcept().isSubConceptOf(AUX_q8bn4k.Quotation_25f29ad1);
+            matches_5jb8fe_a1a = matchingNode_5jb8fe_a1a.getConcept().isSubConceptOf(CONCEPTS.Quotation$UL);
           }
         }
         if (matches_5jb8fe_a1a) {
-          if (SLinkOperations.getTarget(matchedNode_5jb8fe_b0, MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode")) == annotatedNode) {
+          if (SLinkOperations.getTarget(matchedNode_5jb8fe_b0, LINKS.quotedNode$kInw) == annotatedNode) {
             {
               final MessageTarget errorTarget = new NodeMessageTarget();
               IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(listAntiquotation, "list antiquotation should not be used on a quoted node itself", "r:00000000-0000-4000-0000-011c8959034a(jetbrains.mps.lang.quotation.typesystem)", "1202840835255", null, errorTarget);
@@ -43,7 +44,7 @@ public class check_ListAntiquotation_NonTypesystemRule extends AbstractNonTypesy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_q8bn4k.ListAntiquotation_25f29ad6;
+    return CONCEPTS.ListAntiquotation$Xc;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -52,8 +53,12 @@ public class check_ListAntiquotation_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_q8bn4k {
-    /*package*/ static final SConcept Quotation_25f29ad1 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, "jetbrains.mps.lang.quotation.structure.Quotation");
-    /*package*/ static final SConcept ListAntiquotation_25f29ad6 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c10465eL, "jetbrains.mps.lang.quotation.structure.ListAntiquotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Quotation$UL = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, "jetbrains.mps.lang.quotation.structure.Quotation");
+    /*package*/ static final SConcept ListAntiquotation$Xc = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c10465eL, "jetbrains.mps.lang.quotation.structure.ListAntiquotation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink quotedNode$kInw = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode");
   }
 }

@@ -5,9 +5,10 @@ package jetbrains.mps.lang.behavior.generator.template.util;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * TODO need to be moved to the behavior of the ConceptBehavior after MPS project rebuilt
@@ -26,7 +27,7 @@ public final class MethodNameHelper {
 
   @NotNull
   public String getGeneratedName() {
-    return SPropertyOperations.getString(getBaseMethod(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(getBaseMethod(), PROPS.name$tAp1);
   }
 
   @NotNull
@@ -41,5 +42,9 @@ public final class MethodNameHelper {
       baseMethod = BaseMethodDeclaration__BehaviorDescriptor.getBaseMethod_id4mmymf_0z7l.invoke(myMethodDecl);
     }
     return baseMethod;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.samples.customizedDebugger.Bottomline.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,13 +16,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class OutputMessage__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_xj6a6b.OutputMessage_4497ec5c;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x3f028972a2904cf2L, 0xa87e9b8f7e56076bL, 0x7df3f12f124a5e4L, "jetbrains.mps.samples.customizedDebugger.Bottomline.structure.OutputMessage");
 
   public static final SMethod<String> getTraceableProperty_id4pl5GY7LKmH = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTraceableProperty").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4pl5GY7LKmH").build();
 
@@ -32,7 +32,7 @@ public final class OutputMessage__BehaviorDescriptor extends BaseBHDescriptor {
 
   @Nullable
   /*package*/ static String getTraceableProperty_id4pl5GY7LKmH(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x3f028972a2904cf2L, 0xa87e9b8f7e56076bL, 0x7df3f12f124a5e4L, 0x7df3f12f124a629L, "value"));
+    return SPropertyOperations.getString(__thisNode__, PROPS.value$Zo0u);
   }
 
   /*package*/ OutputMessage__BehaviorDescriptor() {
@@ -81,7 +81,7 @@ public final class OutputMessage__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_xj6a6b {
-    /*package*/ static final SConcept OutputMessage_4497ec5c = MetaAdapterFactory.getConcept(0x3f028972a2904cf2L, 0xa87e9b8f7e56076bL, 0x7df3f12f124a5e4L, "jetbrains.mps.samples.customizedDebugger.Bottomline.structure.OutputMessage");
+  private static final class PROPS {
+    /*package*/ static final SProperty value$Zo0u = MetaAdapterFactory.getProperty(0x3f028972a2904cf2L, 0xa87e9b8f7e56076bL, 0x7df3f12f124a5e4L, 0x7df3f12f124a629L, "value");
   }
 }

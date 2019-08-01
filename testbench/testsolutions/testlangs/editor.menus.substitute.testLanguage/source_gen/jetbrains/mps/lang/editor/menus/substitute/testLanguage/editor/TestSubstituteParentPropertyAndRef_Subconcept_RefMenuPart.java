@@ -23,8 +23,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteCompletionActionItem;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class TestSubstituteParentPropertyAndRef_Subconcept_RefMenuPart extends TransformationMenuBase {
@@ -92,22 +93,30 @@ public class TestSubstituteParentPropertyAndRef_Subconcept_RefMenuPart extends T
       @Nullable
       @Override
       public boolean canExecute(String pattern) {
-        return SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).contains("1");
+        return SPropertyOperations.getString(targetNode, PROPS.name$tAp1).contains("1");
       }
 
     }
     @Override
     protected SReferenceLink getReferenceLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x69b757bd7bd1801L, 0x70e6651a9408d373L, "referenceWithReferenceMenuPart");
+      return LINKS.referenceWithReferenceMenuPart$PCOI;
     }
     @Nullable
     @Override
     protected SAbstractConcept getTargetConcept(TransformationMenuContext context) {
-      return AUX_t3kxv.TestSubstituteChildToReferenceSubconcept_2d223c3d;
+      return CONCEPTS.TestSubstituteChildToReferenceSubconcept$F5;
     }
   }
 
-  private static final class AUX_t3kxv {
-    /*package*/ static final SConcept TestSubstituteChildToReferenceSubconcept_2d223c3d = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x6723ebbaa4956096L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildToReferenceSubconcept");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink referenceWithReferenceMenuPart$PCOI = MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x69b757bd7bd1801L, 0x70e6651a9408d373L, "referenceWithReferenceMenuPart");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteChildToReferenceSubconcept$F5 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x6723ebbaa4956096L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildToReferenceSubconcept");
   }
 }

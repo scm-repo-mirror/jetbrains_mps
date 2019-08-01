@@ -164,7 +164,7 @@ public class DiffEditor implements EditorMessageOwner {
     public MainEditorComponent(SRepository repository, boolean showGutter, boolean rightToLeft) {
       super(repository, new EditorConfigurationBuilder().showErrorsGutter(showGutter).rightToLeft(rightToLeft).build());
       myDiffFileEditor = new DiffFileEditor(this);
-      setDefaultPopupGroupId(((String) BHReflection.invoke0(SNodeOperations.getNode("r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)", "426251916200108583"), AUX_n3ensp.ActionGroupDeclaration_3a039d1, SMethodTrimmedId.create("getGeneratedClassFQName", AUX_n3ensp.ActionGroupDeclaration_3a039d1, "hEwJa8g"))));
+      setDefaultPopupGroupId(((String) BHReflection.invoke0(SNodeOperations.getNode("r:c29f530b-f74d-4627-9da2-61138cfa6722(jetbrains.mps.vcs.platform.actions)", "426251916200108583"), CONCEPTS.ActionGroupDeclaration$YL, SMethodTrimmedId.create("getGeneratedClassFQName", CONCEPTS.ActionGroupDeclaration$YL, "hEwJa8g"))));
     }
 
     @Override
@@ -190,7 +190,7 @@ public class DiffEditor implements EditorMessageOwner {
     }
   }
 
-  private static final class AUX_n3ensp {
-    /*package*/ static final SConcept ActionGroupDeclaration_3a039d1 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionGroupDeclaration$YL = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
   }
 }

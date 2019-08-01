@@ -17,14 +17,14 @@ public class DefaultTransformationMenuUtil {
     return Sequence.fromIterable(SNodeOperations.ofConcept(AbstractConceptDeclaration__BehaviorDescriptor.findConceptAspectCollection_id1n18fON7w20.invoke(concept, LanguageAspect.EDITOR), SNodeOperations.asSConcept(menuConcept))).first();
   }
   public static SNode findDefaultTransformationMenuForConcept(@NotNull SNode concept) {
-    return ((SNode) findDefaultMenuForConcept(concept, AUX_m5rcnp.TransformationMenu_Default_bfde92b));
+    return ((SNode) findDefaultMenuForConcept(concept, CONCEPTS.TransformationMenu_Default$In));
   }
   public static SNode findDefaultSubstituteMenuForConcept(@NotNull SNode concept) {
-    return ((SNode) findDefaultMenuForConcept(concept, AUX_m5rcnp.SubstituteMenu_Default_1af84ce));
+    return ((SNode) findDefaultMenuForConcept(concept, CONCEPTS.SubstituteMenu_Default$hk));
   }
 
-  private static final class AUX_m5rcnp {
-    /*package*/ static final SConcept TransformationMenu_Default_bfde92b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x16be955f384efce1L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Default");
-    /*package*/ static final SConcept SubstituteMenu_Default_1af84ce = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2de9c932f4e5ab84L, "jetbrains.mps.lang.editor.structure.SubstituteMenu_Default");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenu_Default$In = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x16be955f384efce1L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Default");
+    /*package*/ static final SConcept SubstituteMenu_Default$hk = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2de9c932f4e5ab84L, "jetbrains.mps.lang.editor.structure.SubstituteMenu_Default");
   }
 }

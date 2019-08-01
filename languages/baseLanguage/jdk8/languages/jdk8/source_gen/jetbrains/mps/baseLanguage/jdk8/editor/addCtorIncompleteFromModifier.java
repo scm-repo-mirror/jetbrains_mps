@@ -27,6 +27,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class addCtorIncompleteFromModifier extends SubstituteMenuBase {
   public addCtorIncompleteFromModifier() {
@@ -56,7 +57,7 @@ public class addCtorIncompleteFromModifier extends SubstituteMenuBase {
   public class SMP_Group_oxmga2_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_oxmga2.Interface_bca2069);
+      return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.Interface$Kp);
     }
     @NotNull
     @Override
@@ -72,7 +73,7 @@ public class addCtorIncompleteFromModifier extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_oxmga2_a.SMP_Action_oxmga2_a0(), AUX_oxmga2.IncompleteMemberDeclaration_71f5ae66));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_oxmga2_a.SMP_Action_oxmga2_a0(), CONCEPTS.IncompleteMemberDeclaration$QW));
     }
     private class SMP_Action_oxmga2_a0 extends SingleItemSubstituteMenuPart {
 
@@ -102,7 +103,7 @@ public class addCtorIncompleteFromModifier extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_oxmga2.IncompleteMemberDeclaration_71f5ae66, context);
+          super(CONCEPTS.IncompleteMemberDeclaration$QW, context);
           _context = context;
         }
 
@@ -114,7 +115,7 @@ public class addCtorIncompleteFromModifier extends SubstituteMenuBase {
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode decl = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, "jetbrains.mps.baseLanguage.structure.IncompleteMemberDeclaration"));
-          ListSequence.fromList(SLinkOperations.getChildren(decl, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).addElement(SNodeFactoryOperations.createNewNode(AUX_oxmga2.DefaultModifier_996633a0, null));
+          ListSequence.fromList(SLinkOperations.getChildren(decl, LINKS.modifiers$akE0)).addElement(SNodeFactoryOperations.createNewNode(CONCEPTS.DefaultModifier$Z2, null));
           return decl;
         }
 
@@ -129,15 +130,19 @@ public class addCtorIncompleteFromModifier extends SubstituteMenuBase {
         @Nullable
         @Override
         public String getMatchingText(@NotNull String pattern) {
-          return SConceptOperations.conceptAlias(AUX_oxmga2.DefaultModifier_996633a0);
+          return SConceptOperations.conceptAlias(CONCEPTS.DefaultModifier$Z2);
         }
       }
     }
   }
 
-  private static final class AUX_oxmga2 {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept IncompleteMemberDeclaration_71f5ae66 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, "jetbrains.mps.baseLanguage.structure.IncompleteMemberDeclaration");
-    /*package*/ static final SConcept DefaultModifier_996633a0 = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x40ed0df0ef40a332L, "jetbrains.mps.baseLanguage.jdk8.structure.DefaultModifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept IncompleteMemberDeclaration$QW = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, "jetbrains.mps.baseLanguage.structure.IncompleteMemberDeclaration");
+    /*package*/ static final SConcept DefaultModifier$Z2 = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x40ed0df0ef40a332L, "jetbrains.mps.baseLanguage.jdk8.structure.DefaultModifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modifiers$akE0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
   }
 }

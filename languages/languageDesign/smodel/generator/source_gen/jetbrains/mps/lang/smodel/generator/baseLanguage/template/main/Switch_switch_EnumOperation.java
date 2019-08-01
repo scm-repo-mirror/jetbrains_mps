@@ -50,7 +50,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
   }
   /*package*/ static final class ReductionRule0 extends ReductionRuleBase {
     public ReductionRule0() {
-      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190252959530"), AUX.Enum_FromNameOperation_8ef84a96, true);
+      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190252959530"), CONCEPTS.Enum_FromNameOperation$uc, true);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -85,7 +85,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
   }
   /*package*/ static final class ReductionRule1 extends ReductionRuleBase {
     public ReductionRule1() {
-      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190253254746"), AUX.Enum_FromPresentationOperation_12a40ebe, true);
+      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190253254746"), CONCEPTS.Enum_FromPresentationOperation$x$, true);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -120,7 +120,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
   }
   /*package*/ static final class ReductionRule2 extends ReductionRuleBase {
     public ReductionRule2() {
-      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190253258397"), AUX.Enum_MemberLiteral_8ef84a8f, true);
+      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190253258397"), CONCEPTS.Enum_MemberLiteral$qN, true);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -168,7 +168,7 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
   }
   /*package*/ static final class ReductionRule3 extends ReductionRuleBase {
     public ReductionRule3() {
-      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190253275587"), AUX.Enum_MembersOperation_8ef84aac, true);
+      super(new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "3689841190253275587"), CONCEPTS.Enum_MembersOperation$CQ, true);
     }
     @Override
     public Collection<SNode> apply(@NotNull final TemplateContext context) throws GenerationException {
@@ -201,10 +201,10 @@ public class Switch_switch_EnumOperation extends TemplateSwitchBase implements T
   private static final SNodePointer propertyMacro_r03umb_c0a0c0a0b0f0c0b9 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "7002445415533147894");
   private static final SNodePointer copySrcMacro_r03umb_b0a0c0d0c0b01 = new SNodePointer("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "5162844862474298979");
 
-  private static final class AUX {
-    /*package*/ static final SConcept Enum_FromNameOperation_8ef84a96 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012d67L, "jetbrains.mps.lang.smodel.structure.Enum_FromNameOperation");
-    /*package*/ static final SConcept Enum_FromPresentationOperation_12a40ebe = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x50352c802da23a6eL, "jetbrains.mps.lang.smodel.structure.Enum_FromPresentationOperation");
-    /*package*/ static final SConcept Enum_MemberLiteral_8ef84a8f = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012d60L, "jetbrains.mps.lang.smodel.structure.Enum_MemberLiteral");
-    /*package*/ static final SConcept Enum_MembersOperation_8ef84aac = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012d68L, "jetbrains.mps.lang.smodel.structure.Enum_MembersOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Enum_FromNameOperation$uc = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012d67L, "jetbrains.mps.lang.smodel.structure.Enum_FromNameOperation");
+    /*package*/ static final SConcept Enum_FromPresentationOperation$x$ = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x50352c802da23a6eL, "jetbrains.mps.lang.smodel.structure.Enum_FromPresentationOperation");
+    /*package*/ static final SConcept Enum_MemberLiteral$qN = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012d60L, "jetbrains.mps.lang.smodel.structure.Enum_MemberLiteral");
+    /*package*/ static final SConcept Enum_MembersOperation$CQ = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012d68L, "jetbrains.mps.lang.smodel.structure.Enum_MembersOperation");
   }
 }

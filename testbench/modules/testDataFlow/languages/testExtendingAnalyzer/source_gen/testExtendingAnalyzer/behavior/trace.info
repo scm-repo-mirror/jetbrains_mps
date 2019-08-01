@@ -21,8 +21,8 @@
       <node id="1417601170173058148" at="27,0,28,0" concept="6" trace="isLegalAsStatement_idi26MfYG" />
       <node id="1417601170173058148" at="28,0,29,0" concept="6" trace="allowsNullOperand_id3Yy2P0QQESt" />
       <node id="1417601170173058148" at="30,0,31,0" concept="6" trace="BH_METHODS" />
-      <node id="1417601170173058166" at="35,88,36,154" concept="5" />
-      <node id="1417601170173058178" at="38,91,39,160" concept="5" />
+      <node id="1417601170173058166" at="35,88,36,146" concept="5" />
+      <node id="1417601170173058178" at="38,91,39,152" concept="5" />
       <node id="1417601170173058148" at="46,114,47,21" concept="1" />
       <node id="1417601170173058148" at="51,114,52,49" concept="4" />
       <node id="1417601170173058148" at="53,26,54,56" concept="9" />
@@ -34,7 +34,7 @@
       <node id="1417601170173058148" at="73,14,74,58" concept="9" />
       <node id="1417601170173058148" at="80,48,81,22" concept="5" />
       <node id="1417601170173058148" at="86,40,87,19" concept="5" />
-      <node id="1417601170173058148" at="91,0,92,0" concept="6" trace="NullUnsafeDotExpression_fc3886af" />
+      <node id="1417601170173058148" at="91,0,92,0" concept="6" trace="NullUnsafeDotExpression$Uj" />
       <node id="1417601170173058148" at="32,0,34,0" concept="7" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="1417601170173058148" at="42,0,44,0" concept="0" trace="NullUnsafeDotExpression__BehaviorDescriptor#()V" />
       <node id="1417601170173058148" at="35,0,38,0" concept="7" trace="isLegalAsStatement_idi26MfYG#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -50,8 +50,8 @@
       <node id="1417601170173058148" at="50,0,65,0" concept="3" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="1417601170173058148" at="32,63,32,63" />
       <scope id="1417601170173058148" at="42,61,42,61" />
-      <scope id="1417601170173058161" at="35,88,36,154" />
-      <scope id="1417601170173058173" at="38,91,39,160" />
+      <scope id="1417601170173058161" at="35,88,36,146" />
+      <scope id="1417601170173058173" at="38,91,39,152" />
       <scope id="1417601170173058148" at="46,114,47,21" />
       <scope id="1417601170173058148" at="53,26,54,56" />
       <scope id="1417601170173058148" at="57,13,58,66" />
@@ -94,7 +94,7 @@
         <var name="node" id="1417601170173058148" />
         <var name="parameters" id="1417601170173058148" />
       </scope>
-      <unit id="1417601170173058148" at="90,0,93,0" name="testExtendingAnalyzer.behavior.NullUnsafeDotExpression__BehaviorDescriptor$AUX_1f6f0a" />
+      <unit id="1417601170173058148" at="90,0,93,0" name="testExtendingAnalyzer.behavior.NullUnsafeDotExpression__BehaviorDescriptor$CONCEPTS" />
       <unit id="1417601170173058148" at="24,0,94,0" name="testExtendingAnalyzer.behavior.NullUnsafeDotExpression__BehaviorDescriptor" />
     </file>
   </root>
@@ -104,8 +104,8 @@
       <node id="1417601170173058603" at="27,0,28,0" concept="6" trace="allowsNullOperand_id3Yy2P0QQESt" />
       <node id="1417601170173058603" at="28,0,29,0" concept="6" trace="isLegalAsStatement_idi26MfYG" />
       <node id="1417601170173058603" at="30,0,31,0" concept="6" trace="BH_METHODS" />
-      <node id="1417601170173058617" at="35,91,36,158" concept="5" />
-      <node id="1417601170173058633" at="38,88,39,152" concept="5" />
+      <node id="1417601170173058617" at="35,91,36,150" concept="5" />
+      <node id="1417601170173058633" at="38,88,39,144" concept="5" />
       <node id="1417601170173058603" at="46,114,47,21" concept="1" />
       <node id="1417601170173058603" at="51,114,52,49" concept="4" />
       <node id="1417601170173058603" at="53,26,54,56" concept="9" />
@@ -117,7 +117,7 @@
       <node id="1417601170173058603" at="73,14,74,58" concept="9" />
       <node id="1417601170173058603" at="80,48,81,22" concept="5" />
       <node id="1417601170173058603" at="86,40,87,19" concept="5" />
-      <node id="1417601170173058603" at="91,0,92,0" concept="6" trace="NullSafeDotExpression_fc38e850" />
+      <node id="1417601170173058603" at="91,0,92,0" concept="6" trace="NullSafeDotExpression$4i" />
       <node id="1417601170173058603" at="32,0,34,0" concept="7" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="1417601170173058603" at="42,0,44,0" concept="0" trace="NullSafeDotExpression__BehaviorDescriptor#()V" />
       <node id="1417601170173058603" at="35,0,38,0" concept="7" trace="allowsNullOperand_id3Yy2P0QQESt#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -133,8 +133,8 @@
       <node id="1417601170173058603" at="50,0,65,0" concept="3" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="1417601170173058603" at="32,63,32,63" />
       <scope id="1417601170173058603" at="42,59,42,59" />
-      <scope id="1417601170173058612" at="35,91,36,158" />
-      <scope id="1417601170173058628" at="38,88,39,152" />
+      <scope id="1417601170173058612" at="35,91,36,150" />
+      <scope id="1417601170173058628" at="38,88,39,144" />
       <scope id="1417601170173058603" at="46,114,47,21" />
       <scope id="1417601170173058603" at="53,26,54,56" />
       <scope id="1417601170173058603" at="57,13,58,69" />
@@ -177,7 +177,7 @@
         <var name="node" id="1417601170173058603" />
         <var name="parameters" id="1417601170173058603" />
       </scope>
-      <unit id="1417601170173058603" at="90,0,93,0" name="testExtendingAnalyzer.behavior.NullSafeDotExpression__BehaviorDescriptor$AUX_8ao653" />
+      <unit id="1417601170173058603" at="90,0,93,0" name="testExtendingAnalyzer.behavior.NullSafeDotExpression__BehaviorDescriptor$CONCEPTS" />
       <unit id="1417601170173058603" at="24,0,94,0" name="testExtendingAnalyzer.behavior.NullSafeDotExpression__BehaviorDescriptor" />
     </file>
   </root>

@@ -10,9 +10,10 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_EvaluatorsThisExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_EvaluatorsThisExpression_InferenceRule() {
@@ -21,11 +22,11 @@ public class typeof_EvaluatorsThisExpression_InferenceRule extends AbstractInfer
     {
       SNode _nodeToCheck_1029348928467 = evaluatorsThisExpression;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:1b2caefb-8c76-452e-a59a-bbd2c73d0b03(jetbrains.mps.debugger.java.evaluation.typesystem)", "4544608336420724767", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:1b2caefb-8c76-452e-a59a-bbd2c73d0b03(jetbrains.mps.debugger.java.evaluation.typesystem)", "4544608336420724764", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(evaluatorsThisExpression, AUX_489m1r.EvaluatorConcept_59d4c760, false, false), MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, 0x3f11b1341fa23613L, "thisNode")), "r:1b2caefb-8c76-452e-a59a-bbd2c73d0b03(jetbrains.mps.debugger.java.evaluation.typesystem)", "4544608336420724772", true), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:1b2caefb-8c76-452e-a59a-bbd2c73d0b03(jetbrains.mps.debugger.java.evaluation.typesystem)", "4544608336420724764", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(evaluatorsThisExpression, CONCEPTS.EvaluatorConcept$g2, false, false), LINKS.thisNode$Gl5y), "r:1b2caefb-8c76-452e-a59a-bbd2c73d0b03(jetbrains.mps.debugger.java.evaluation.typesystem)", "4544608336420724772", true), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_489m1r.EvaluatorsThisExpression_5cdd3c3a;
+    return CONCEPTS.EvaluatorsThisExpression$DC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,8 +35,12 @@ public class typeof_EvaluatorsThisExpression_InferenceRule extends AbstractInfer
     return false;
   }
 
-  private static final class AUX_489m1r {
-    /*package*/ static final SConcept EvaluatorConcept_59d4c760 = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorConcept");
-    /*package*/ static final SConcept EvaluatorsThisExpression_5cdd3c3a = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b1ae1c6L, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorsThisExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EvaluatorConcept$g2 = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorConcept");
+    /*package*/ static final SConcept EvaluatorsThisExpression$DC = MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b1ae1c6L, "jetbrains.mps.debugger.java.evaluation.structure.EvaluatorsThisExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink thisNode$Gl5y = MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d925L, 0x3f11b1341fa23613L, "thisNode");
   }
 }

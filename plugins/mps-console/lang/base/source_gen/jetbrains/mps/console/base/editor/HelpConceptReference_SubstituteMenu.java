@@ -69,12 +69,12 @@ public class HelpConceptReference_SubstituteMenu extends SubstituteMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.console.base.editor.HelpConceptReference_SmartReference");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_52z2kq.HelpConceptReference_ccce40b3;
+      return CONCEPTS.HelpConceptReference$kf;
     }
   }
   public class SMP_Subconcepts_52z2kq_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_52z2kq.HelpConceptReference_ccce40b3);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.HelpConceptReference$kf);
     }
     @NotNull
     @Override
@@ -94,7 +94,7 @@ public class HelpConceptReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_52z2kq {
-    /*package*/ static final SConcept HelpConceptReference_ccce40b3 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x60279080c2f3b209L, "jetbrains.mps.console.base.structure.HelpConceptReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept HelpConceptReference$kf = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x60279080c2f3b209L, "jetbrains.mps.console.base.structure.HelpConceptReference");
   }
 }

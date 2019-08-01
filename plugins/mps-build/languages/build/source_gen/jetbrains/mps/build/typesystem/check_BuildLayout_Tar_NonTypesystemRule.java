@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.build.behavior.BuildString__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -17,23 +16,26 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BuildLayout_Tar_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BuildLayout_Tar_NonTypesystemRule() {
   }
   public void applyRule(final SNode tarArchive, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    String approxName = BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(tarArchive, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, 0x3cca41cd0fe75496L, "containerName")), null);
+    String approxName = BuildString__BehaviorDescriptor.getText_id3NagsOfTioI.invoke(SLinkOperations.getTarget(tarArchive, LINKS.containerName$Mzv5), null);
     String ext = ".tar";
-    if (SEnumOperations.isMember(SPropertyOperations.getEnum(tarArchive, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7709f0532a526203L, 0x1b76dbd13de88928L, "compression")), 0x1b76dbd13de88927L)) {
+    if (SEnumOperations.isMember(SPropertyOperations.getEnum(tarArchive, PROPS.compression$6C_4), 0x1b76dbd13de88927L)) {
       ext = ".tar.bz2";
-    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(tarArchive, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7709f0532a526203L, 0x1b76dbd13de88928L, "compression")), 0x1b76dbd13de88926L)) {
+    } else if (SEnumOperations.isMember(SPropertyOperations.getEnum(tarArchive, PROPS.compression$6C_4), 0x1b76dbd13de88926L)) {
       ext = ".tar.gz";
     }
     if (!(approxName.endsWith("}")) && !(approxName.toLowerCase().endsWith(ext))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(tarArchive, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, 0x3cca41cd0fe75496L, "containerName")), "should end with `" + ext + "'", "r:2349e4dd-6518-4a4c-9022-c7887bed8b52(jetbrains.mps.build.typesystem)", "1979010778009323432", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(tarArchive, LINKS.containerName$Mzv5), "should end with `" + ext + "'", "r:2349e4dd-6518-4a4c-9022-c7887bed8b52(jetbrains.mps.build.typesystem)", "1979010778009323432", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.build.typesystem.fixContainerName_QuickFix", false);
           intentionProvider.putArgument("newExtension", ext);
@@ -43,7 +45,7 @@ public class check_BuildLayout_Tar_NonTypesystemRule extends AbstractNonTypesyst
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ypkv3x.BuildLayout_Tar_10e87c46;
+    return CONCEPTS.BuildLayout_Tar$Js;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -52,7 +54,15 @@ public class check_BuildLayout_Tar_NonTypesystemRule extends AbstractNonTypesyst
     return false;
   }
 
-  private static final class AUX_ypkv3x {
-    /*package*/ static final SConcept BuildLayout_Tar_10e87c46 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7709f0532a526203L, "jetbrains.mps.build.structure.BuildLayout_Tar");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink containerName$Mzv5 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac7f8cL, 0x3cca41cd0fe75496L, "containerName");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty compression$6C_4 = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7709f0532a526203L, 0x1b76dbd13de88928L, "compression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_Tar$Js = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x7709f0532a526203L, "jetbrains.mps.build.structure.BuildLayout_Tar");
   }
 }

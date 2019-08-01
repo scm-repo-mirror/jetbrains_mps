@@ -17,9 +17,10 @@ import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.baseLanguage.typesystem.ExpressionPresentationUtil;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ComputeWholeExpressionValue_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -39,7 +40,7 @@ public final class ComputeWholeExpressionValue_Intention extends AbstractIntenti
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
     SNode parent = SNodeOperations.getParent(node);
-    if (((parent == null) || !(SNodeOperations.isInstanceOf(parent, AUX_tpqesj.Expression_4199e28d)) || !((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SNodeOperations.cast(parent, AUX_tpqesj.Expression_4199e28d))) || Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SNodeOperations.cast(parent, AUX_tpqesj.Expression_4199e28d), SNodeOperations.getModel(parent).getModule()) == null) && (boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(node) && !((boolean) Expression__BehaviorDescriptor.constant_id1653mnvAgr2.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node))))) {
+    if (((parent == null) || !(SNodeOperations.isInstanceOf(parent, CONCEPTS.Expression$TP)) || !((boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(SNodeOperations.cast(parent, CONCEPTS.Expression$TP))) || Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SNodeOperations.cast(parent, CONCEPTS.Expression$TP), SNodeOperations.getModel(parent).getModule()) == null) && (boolean) Expression__BehaviorDescriptor.isCompileTimeConstant_idi1LOPRp.invoke(node) && !((boolean) Expression__BehaviorDescriptor.constant_id1653mnvAgr2.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(node))))) {
 
       Object v = Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(node, SNodeOperations.getModel(node).getModule());
       return v != null && (v instanceof Number || v instanceof Boolean || v instanceof String || v instanceof Character);
@@ -66,26 +67,26 @@ public final class ComputeWholeExpressionValue_Intention extends AbstractIntenti
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      Object value = Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SNodeOperations.cast(node, AUX_tpqesj.Expression_4199e28d), SNodeOperations.getModel(SNodeOperations.cast(node, AUX_tpqesj.Expression_4199e28d)).getModule());
+      Object value = Expression__BehaviorDescriptor.getCompileTimeConstantValue_idi1LP2xI.invoke(SNodeOperations.cast(node, CONCEPTS.Expression$TP), SNodeOperations.getModel(SNodeOperations.cast(node, CONCEPTS.Expression$TP)).getModule());
       if (value instanceof Boolean) {
-        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, AUX_tpqesj.Expression_4199e28d), AUX_tpqesj.BooleanConstant_9dbf9ad0);
-        SPropertyOperations.assign(v, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), ((Boolean) value).booleanValue());
+        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, CONCEPTS.Expression$TP), CONCEPTS.BooleanConstant$Ui);
+        SPropertyOperations.assign(v, PROPS.value$WIn0, ((Boolean) value).booleanValue());
       }
       if (value instanceof String) {
-        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, AUX_tpqesj.Expression_4199e28d), AUX_tpqesj.StringLiteral_aa5a8cf6);
-        SPropertyOperations.assign(v, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), ((String) value));
+        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, CONCEPTS.Expression$TP), CONCEPTS.StringLiteral$4G);
+        SPropertyOperations.assign(v, PROPS.value$kiE0, ((String) value));
       }
       if (value instanceof Integer || value instanceof Short || value instanceof Byte) {
-        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, AUX_tpqesj.Expression_4199e28d), AUX_tpqesj.IntegerConstant_a127eb0a);
-        SPropertyOperations.assign(v, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), ((Number) value).intValue());
+        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, CONCEPTS.Expression$TP), CONCEPTS.IntegerConstant$mo);
+        SPropertyOperations.assign(v, PROPS.value$ZeO0, ((Number) value).intValue());
       }
       if (value instanceof Float) {
-        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, AUX_tpqesj.Expression_4199e28d), AUX_tpqesj.FloatingPointFloatConstant_f651563);
-        SPropertyOperations.assign(v, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, 0x494547eeedc219bbL, "value"), "" + ((Number) value).floatValue());
+        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, CONCEPTS.Expression$TP), CONCEPTS.FloatingPointFloatConstant$pv);
+        SPropertyOperations.assign(v, PROPS.value$CzwZ, "" + ((Number) value).floatValue());
       }
       if (value instanceof Double) {
-        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, AUX_tpqesj.Expression_4199e28d), AUX_tpqesj.FloatingPointConstant_aa454d3c);
-        SPropertyOperations.assign(v, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, 0x103245d193fL, "value"), "" + ((Number) value).doubleValue());
+        SNode v = SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.cast(node, CONCEPTS.Expression$TP), CONCEPTS.FloatingPointConstant$AA);
+        SPropertyOperations.assign(v, PROPS.value$oKYE, "" + ((Number) value).doubleValue());
       }
     }
     @Override
@@ -94,12 +95,20 @@ public final class ComputeWholeExpressionValue_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_tpqesj {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept BooleanConstant_9dbf9ad0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
-    /*package*/ static final SConcept IntegerConstant_a127eb0a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
-    /*package*/ static final SConcept FloatingPointFloatConstant_f651563 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, "jetbrains.mps.baseLanguage.structure.FloatingPointFloatConstant");
-    /*package*/ static final SConcept FloatingPointConstant_aa454d3c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, "jetbrains.mps.baseLanguage.structure.FloatingPointConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept BooleanConstant$Ui = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+    /*package*/ static final SConcept IntegerConstant$mo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
+    /*package*/ static final SConcept FloatingPointFloatConstant$pv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, "jetbrains.mps.baseLanguage.structure.FloatingPointFloatConstant");
+    /*package*/ static final SConcept FloatingPointConstant$AA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, "jetbrains.mps.baseLanguage.structure.FloatingPointConstant");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$WIn0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value");
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
+    /*package*/ static final SProperty value$ZeO0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value");
+    /*package*/ static final SProperty value$CzwZ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, 0x494547eeedc219bbL, "value");
+    /*package*/ static final SProperty value$oKYE = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, 0x103245d193fL, "value");
   }
 }

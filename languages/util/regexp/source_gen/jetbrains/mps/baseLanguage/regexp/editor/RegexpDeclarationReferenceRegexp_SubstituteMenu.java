@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class RegexpDeclarationReferenceRegexp_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_xnowcq_a(), AUX_xnowcq.RegexpDeclarationReferenceRegexp_9febb6cd));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_xnowcq_a(), CONCEPTS.RegexpDeclarationReferenceRegexp$8P));
     result.add(new SMP_Subconcepts_xnowcq_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class RegexpDeclarationReferenceRegexp_SubstituteMenu extends SubstituteM
 
     public SMP_ReferenceScope_xnowcq_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_xnowcq.RegexpDeclarationReferenceRegexp_9febb6cd, MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117f58ea2aL, 0x1117f594636L, "regexp"));
+      super((SAbstractConcept) CONCEPTS.RegexpDeclarationReferenceRegexp$8P, LINKS.regexp$3gyO);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class RegexpDeclarationReferenceRegexp_SubstituteMenu extends SubstituteM
   }
   public class SMP_Subconcepts_xnowcq_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_xnowcq.RegexpDeclarationReferenceRegexp_9febb6cd);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.RegexpDeclarationReferenceRegexp$8P);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class RegexpDeclarationReferenceRegexp_SubstituteMenu extends SubstituteM
     }
   }
 
-  private static final class AUX_xnowcq {
-    /*package*/ static final SConcept RegexpDeclarationReferenceRegexp_9febb6cd = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117f58ea2aL, "jetbrains.mps.baseLanguage.regexp.structure.RegexpDeclarationReferenceRegexp");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RegexpDeclarationReferenceRegexp$8P = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117f58ea2aL, "jetbrains.mps.baseLanguage.regexp.structure.RegexpDeclarationReferenceRegexp");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink regexp$3gyO = MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x1117f58ea2aL, 0x1117f594636L, "regexp");
   }
 }

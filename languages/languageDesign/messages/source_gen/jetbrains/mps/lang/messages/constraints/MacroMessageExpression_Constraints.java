@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class MacroMessageExpression_Constraints extends BaseConstraintsDescriptor {
   public MacroMessageExpression_Constraints() {
-    super(AUX_g55pl1.MacroMessageExpression_203c595);
+    super(CONCEPTS.MacroMessageExpression$LH);
   }
 
-  private static final class AUX_g55pl1 {
-    /*package*/ static final SConcept MacroMessageExpression_203c595 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MacroMessageExpression$LH = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
   }
 }

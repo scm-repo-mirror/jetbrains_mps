@@ -10,7 +10,6 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -21,51 +20,53 @@ import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CheckVariableDoubling_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public CheckVariableDoubling_NonTypesystemRule() {
   }
   public void applyRule(final SNode localVariableDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    Scope variablesScope = Scope.getScope(Scope.parent(localVariableDeclaration), localVariableDeclaration, AUX_6gv83m.VariableDeclaration_3c610994);
+    Scope variablesScope = Scope.getScope(Scope.parent(localVariableDeclaration), localVariableDeclaration, CONCEPTS.VariableDeclaration$xe);
     Iterable<SNode> variablesInScope;
     if (variablesScope != null) {
-      variablesInScope = Sequence.fromIterable(variablesScope.getAvailableElements(SPropertyOperations.getString(localVariableDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))).where(new IWhereFilter<SNode>() {
+      variablesInScope = Sequence.fromIterable(variablesScope.getAvailableElements(SPropertyOperations.getString(localVariableDeclaration, PROPS.name$tAp1))).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, AUX_6gv83m.VariableDeclaration_3c610994);
+          return SNodeOperations.isInstanceOf(it, CONCEPTS.VariableDeclaration$xe);
         }
       }).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SNodeOperations.cast(it, AUX_6gv83m.VariableDeclaration_3c610994);
+          return SNodeOperations.cast(it, CONCEPTS.VariableDeclaration$xe);
         }
       }).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(localVariableDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          return Objects.equals(SPropertyOperations.getString(it, PROPS.name$tAp1), SPropertyOperations.getString(localVariableDeclaration, PROPS.name$tAp1));
         }
       });
     } else {
       variablesInScope = Collections.emptyList();
     }
-    final SNode nearestMethod = SNodeOperations.getNodeAncestor(localVariableDeclaration, AUX_6gv83m.IMethodLike_583347ed, false, false);
+    final SNode nearestMethod = SNodeOperations.getNodeAncestor(localVariableDeclaration, CONCEPTS.IMethodLike$kl, false, false);
     Iterable<SNode> variablesFromCurrentMethod = Sequence.fromIterable(variablesInScope).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.getNodeAncestor(it, AUX_6gv83m.IMethodLike_583347ed, false, false) == nearestMethod;
+        return SNodeOperations.getNodeAncestor(it, CONCEPTS.IMethodLike$kl, false, false) == nearestMethod;
       }
     });
 
     if (Sequence.fromIterable(variablesFromCurrentMethod).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_6gv83m.ParameterDeclaration_24d60da8) || SNodeOperations.isInstanceOf(it, AUX_6gv83m.LocalVariableDeclaration_d47683f3);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.ParameterDeclaration$qU) || SNodeOperations.isInstanceOf(it, CONCEPTS.LocalVariableDeclaration$Bf);
       }
     })) {
       {
-        final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(localVariableDeclaration, "Variable " + SPropertyOperations.getString(localVariableDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " is already defined in the scope", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4164094338984214928", null, errorTarget);
+        final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(localVariableDeclaration, "Variable " + SPropertyOperations.getString(localVariableDeclaration, PROPS.name$tAp1) + " is already defined in the scope", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4164094338984214928", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6gv83m.LocalVariableDeclaration_d47683f3;
+    return CONCEPTS.LocalVariableDeclaration$Bf;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -74,10 +75,14 @@ public class CheckVariableDoubling_NonTypesystemRule extends AbstractNonTypesyst
     return false;
   }
 
-  private static final class AUX_6gv83m {
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SInterfaceConcept IMethodLike_583347ed = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1208f458d37L, "jetbrains.mps.baseLanguage.structure.IMethodLike");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SInterfaceConcept IMethodLike$kl = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1208f458d37L, "jetbrains.mps.baseLanguage.structure.IMethodLike");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

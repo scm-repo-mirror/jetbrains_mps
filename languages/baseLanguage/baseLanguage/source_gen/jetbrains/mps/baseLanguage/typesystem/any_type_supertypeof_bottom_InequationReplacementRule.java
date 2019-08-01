@@ -34,14 +34,14 @@ public class any_type_supertypeof_bottom_InequationReplacementRule extends Abstr
   }
 
   public SAbstractConcept getApplicableSubtypeConcept() {
-    return AUX_8roqc7.BLBottomType_1099af70;
+    return CONCEPTS.BLBottomType$RM;
   }
   public SAbstractConcept getApplicableSupertypeConcept() {
-    return AUX_8roqc7.BaseConcept_bc2351f;
+    return CONCEPTS.BaseConcept$Sz;
   }
 
-  private static final class AUX_8roqc7 {
-    /*package*/ static final SConcept BLBottomType_1099af70 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1210c38a8adL, "jetbrains.mps.baseLanguage.structure.BLBottomType");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BLBottomType$RM = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1210c38a8adL, "jetbrains.mps.baseLanguage.structure.BLBottomType");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

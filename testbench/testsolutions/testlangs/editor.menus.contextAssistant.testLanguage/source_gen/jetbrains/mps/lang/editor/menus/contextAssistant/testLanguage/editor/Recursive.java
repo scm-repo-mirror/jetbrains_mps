@@ -74,12 +74,12 @@ public class Recursive extends TransformationMenuBase {
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_q7lcll.Child_2a5630ea, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.Recursive");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.Child$IS, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.Recursive");
     }
 
   }
 
-  private static final class AUX_q7lcll {
-    /*package*/ static final SConcept Child_2a5630ea = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x4d6a8b533e60aa32L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.Child");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Child$IS = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x4d6a8b533e60aa32L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.Child");
   }
 }

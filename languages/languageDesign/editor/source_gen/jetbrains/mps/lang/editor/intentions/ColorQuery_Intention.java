@@ -13,11 +13,13 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ColorQuery_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -48,7 +50,7 @@ public final class ColorQuery_Intention extends AbstractIntentionDescriptor impl
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2bb8c4L, 0x1143b2d5fabL, "query")) == null)) {
+      if ((SLinkOperations.getTarget(node, LINKS.query$o5Tm) == null)) {
         return "Add Query";
       } else {
         return "Remove Query";
@@ -56,11 +58,11 @@ public final class ColorQuery_Intention extends AbstractIntentionDescriptor impl
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.setEnum(node, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2bb8c4L, 0x1143b2c0352L, "color"), 0xfc609b3d56L, "none");
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2bb8c4L, 0x1143b2d5fabL, "query")) == null)) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2bb8c4L, 0x1143b2d5fabL, "query"), AUX_xnb4q1.QueryFunction_Color_b972e09f);
+      SPropertyOperations.setEnum(node, PROPS.color$cEqb, 0xfc609b3d56L, "none");
+      if ((SLinkOperations.getTarget(node, LINKS.query$o5Tm) == null)) {
+        SNodeFactoryOperations.setNewChild(node, LINKS.query$o5Tm, CONCEPTS.QueryFunction_Color$az);
       } else {
-        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2bb8c4L, 0x1143b2d5fabL, "query")));
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.query$o5Tm));
       }
     }
     @Override
@@ -69,7 +71,15 @@ public final class ColorQuery_Intention extends AbstractIntentionDescriptor impl
     }
   }
 
-  private static final class AUX_xnb4q1 {
-    /*package*/ static final SConcept QueryFunction_Color_b972e09f = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x111ff56f066L, "jetbrains.mps.lang.editor.structure.QueryFunction_Color");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink query$o5Tm = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2bb8c4L, 0x1143b2d5fabL, "query");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty color$cEqb = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143b2bb8c4L, 0x1143b2c0352L, "color");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryFunction_Color$az = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x111ff56f066L, "jetbrains.mps.lang.editor.structure.QueryFunction_Color");
   }
 }

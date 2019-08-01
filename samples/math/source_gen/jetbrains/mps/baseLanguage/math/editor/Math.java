@@ -28,8 +28,9 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Math extends TransformationMenuBase {
   public Math() {
@@ -163,7 +164,7 @@ public class Math extends TransformationMenuBase {
 
           @Override
           public void execute(@NotNull String pattern) {
-            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.BigMaxExpression_aefa123b);
+            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.BigMaxExpression$i7);
           }
 
 
@@ -223,7 +224,7 @@ public class Math extends TransformationMenuBase {
 
           @Override
           public void execute(@NotNull String pattern) {
-            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.BigMinExpression_aefaf375);
+            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.BigMinExpression$Ed);
           }
 
 
@@ -283,7 +284,7 @@ public class Math extends TransformationMenuBase {
 
           @Override
           public void execute(@NotNull String pattern) {
-            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.BigProdExpression_aee0a83f);
+            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.BigProdExpression$W3);
           }
 
 
@@ -343,7 +344,7 @@ public class Math extends TransformationMenuBase {
 
           @Override
           public void execute(@NotNull String pattern) {
-            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.BigSumExpression_4ba54e22);
+            SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.BigSumExpression$m0);
           }
 
 
@@ -434,8 +435,8 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode m = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.MatrixConstructor_c63cc751);
-          SPropertyOperations.assign(m, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x308cb55abc73bd40L, "column"), true);
+          SNode m = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.MatrixConstructor$8L);
+          SPropertyOperations.assign(m, PROPS.column$5PEh, true);
         }
 
 
@@ -495,7 +496,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.MatrixConstructor_c63cc751);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.MatrixConstructor$8L);
         }
 
 
@@ -585,7 +586,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.DecimalPlusExpression_a1c37431);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.DecimalPlusExpression$5h);
         }
 
 
@@ -645,7 +646,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.DecimalMinusExpression_a20d114f);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.DecimalMinusExpression$vN);
         }
 
 
@@ -705,7 +706,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.DecimalMulExpression_a1a741d1);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.DecimalMulExpression$uL);
         }
 
 
@@ -765,7 +766,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.DecimalDivExpression_a06420f6);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.DecimalDivExpression$OG);
         }
 
 
@@ -855,7 +856,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.AbsExpression_5d9838c4);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.AbsExpression$Wu);
         }
 
 
@@ -915,7 +916,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.LogExpression_fbefa188);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.LogExpression$Vq);
         }
 
 
@@ -975,7 +976,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.ExponentExpression_2d862bf6);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.ExponentExpression$8G);
         }
 
 
@@ -1035,7 +1036,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.PowExpression_64103b99);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.PowExpression$rD);
         }
 
 
@@ -1125,7 +1126,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.SineExpression_fba684d3);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.SineExpression$jJ);
         }
 
 
@@ -1185,7 +1186,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.CosineExpression_fbb513d7);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.CosineExpression$pF);
         }
 
 
@@ -1245,7 +1246,7 @@ public class Math extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_pmdw.TangentExpression_fbe0acac);
+          SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.TangentExpression$wQ);
         }
 
 
@@ -1269,22 +1270,26 @@ public class Math extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_pmdw {
-    /*package*/ static final SConcept BigMaxExpression_aefa123b = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e16047L, "jetbrains.mps.baseLanguage.math.structure.BigMaxExpression");
-    /*package*/ static final SConcept BigMinExpression_aefaf375 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e1674dL, "jetbrains.mps.baseLanguage.math.structure.BigMinExpression");
-    /*package*/ static final SConcept BigProdExpression_aee0a83f = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e12aa0L, "jetbrains.mps.baseLanguage.math.structure.BigProdExpression");
-    /*package*/ static final SConcept BigSumExpression_4ba54e22 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe188eafbL, "jetbrains.mps.baseLanguage.math.structure.BigSumExpression");
-    /*package*/ static final SConcept MatrixConstructor_c63cc751 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, "jetbrains.mps.baseLanguage.math.structure.MatrixConstructor");
-    /*package*/ static final SConcept DecimalPlusExpression_a1c37431 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697a328L, "jetbrains.mps.baseLanguage.math.structure.DecimalPlusExpression");
-    /*package*/ static final SConcept DecimalMinusExpression_a20d114f = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12076988136L, "jetbrains.mps.baseLanguage.math.structure.DecimalMinusExpression");
-    /*package*/ static final SConcept DecimalMulExpression_a1a741d1 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120769754c8L, "jetbrains.mps.baseLanguage.math.structure.DecimalMulExpression");
-    /*package*/ static final SConcept DecimalDivExpression_a06420f6 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697107bL, "jetbrains.mps.baseLanguage.math.structure.DecimalDivExpression");
-    /*package*/ static final SConcept AbsExpression_5d9838c4 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12051ecbe19L, "jetbrains.mps.baseLanguage.math.structure.AbsExpression");
-    /*package*/ static final SConcept LogExpression_fbefa188 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205311f8ffL, "jetbrains.mps.baseLanguage.math.structure.LogExpression");
-    /*package*/ static final SConcept ExponentExpression_2d862bf6 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120531e6b2fL, "jetbrains.mps.baseLanguage.math.structure.ExponentExpression");
-    /*package*/ static final SConcept PowExpression_64103b99 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12052b2cdd3L, "jetbrains.mps.baseLanguage.math.structure.PowExpression");
-    /*package*/ static final SConcept SineExpression_fba684d3 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205311204eL, "jetbrains.mps.baseLanguage.math.structure.SineExpression");
-    /*package*/ static final SConcept CosineExpression_fbb513d7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12053114b76L, "jetbrains.mps.baseLanguage.math.structure.CosineExpression");
-    /*package*/ static final SConcept TangentExpression_fbe0acac = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205311cb56L, "jetbrains.mps.baseLanguage.math.structure.TangentExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BigMaxExpression$i7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e16047L, "jetbrains.mps.baseLanguage.math.structure.BigMaxExpression");
+    /*package*/ static final SConcept BigMinExpression$Ed = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e1674dL, "jetbrains.mps.baseLanguage.math.structure.BigMinExpression");
+    /*package*/ static final SConcept BigProdExpression$W3 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0e12aa0L, "jetbrains.mps.baseLanguage.math.structure.BigProdExpression");
+    /*package*/ static final SConcept BigSumExpression$m0 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe188eafbL, "jetbrains.mps.baseLanguage.math.structure.BigSumExpression");
+    /*package*/ static final SConcept MatrixConstructor$8L = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, "jetbrains.mps.baseLanguage.math.structure.MatrixConstructor");
+    /*package*/ static final SConcept DecimalPlusExpression$5h = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697a328L, "jetbrains.mps.baseLanguage.math.structure.DecimalPlusExpression");
+    /*package*/ static final SConcept DecimalMinusExpression$vN = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12076988136L, "jetbrains.mps.baseLanguage.math.structure.DecimalMinusExpression");
+    /*package*/ static final SConcept DecimalMulExpression$uL = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120769754c8L, "jetbrains.mps.baseLanguage.math.structure.DecimalMulExpression");
+    /*package*/ static final SConcept DecimalDivExpression$OG = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1207697107bL, "jetbrains.mps.baseLanguage.math.structure.DecimalDivExpression");
+    /*package*/ static final SConcept AbsExpression$Wu = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12051ecbe19L, "jetbrains.mps.baseLanguage.math.structure.AbsExpression");
+    /*package*/ static final SConcept LogExpression$Vq = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205311f8ffL, "jetbrains.mps.baseLanguage.math.structure.LogExpression");
+    /*package*/ static final SConcept ExponentExpression$8G = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120531e6b2fL, "jetbrains.mps.baseLanguage.math.structure.ExponentExpression");
+    /*package*/ static final SConcept PowExpression$rD = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12052b2cdd3L, "jetbrains.mps.baseLanguage.math.structure.PowExpression");
+    /*package*/ static final SConcept SineExpression$jJ = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205311204eL, "jetbrains.mps.baseLanguage.math.structure.SineExpression");
+    /*package*/ static final SConcept CosineExpression$pF = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x12053114b76L, "jetbrains.mps.baseLanguage.math.structure.CosineExpression");
+    /*package*/ static final SConcept TangentExpression$wQ = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205311cb56L, "jetbrains.mps.baseLanguage.math.structure.TangentExpression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty column$5PEh = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a626b0a85L, 0x308cb55abc73bd40L, "column");
   }
 }

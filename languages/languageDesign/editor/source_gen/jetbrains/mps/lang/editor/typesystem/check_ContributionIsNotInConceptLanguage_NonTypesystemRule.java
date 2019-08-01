@@ -36,7 +36,7 @@ public class check_ContributionIsNotInConceptLanguage_NonTypesystemRule extends 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_vbn2nq.IMenu_Contribution_b582d47e;
+    return CONCEPTS.IMenu_Contribution$E$;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -57,7 +57,7 @@ public class check_ContributionIsNotInConceptLanguage_NonTypesystemRule extends 
     return null;
   }
 
-  private static final class AUX_vbn2nq {
-    /*package*/ static final SInterfaceConcept IMenu_Contribution_b582d47e = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a90a5d62L, "jetbrains.mps.lang.editor.structure.IMenu_Contribution");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMenu_Contribution$E$ = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a90a5d62L, "jetbrains.mps.lang.editor.structure.IMenu_Contribution");
   }
 }

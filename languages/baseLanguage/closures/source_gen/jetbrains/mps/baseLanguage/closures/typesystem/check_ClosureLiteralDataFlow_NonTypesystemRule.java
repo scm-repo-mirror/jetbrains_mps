@@ -10,8 +10,9 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.behavior.IStatementListContainer__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.typesystem.DataFlowUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ClosureLiteralDataFlow_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -19,11 +20,11 @@ public class check_ClosureLiteralDataFlow_NonTypesystemRule extends AbstractNonT
   }
   public void applyRule(final SNode closureLiteral, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!((boolean) IStatementListContainer__BehaviorDescriptor.isExecuteSynchronous_idhTIpcC8.invoke(closureLiteral))) {
-      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(closureLiteral, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf0522fL, "body")));
+      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(closureLiteral, LINKS.body$DJEC));
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_vn0o5n.ClosureLiteral_6eeca0d3;
+    return CONCEPTS.ClosureLiteral$zJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -32,7 +33,11 @@ public class check_ClosureLiteralDataFlow_NonTypesystemRule extends AbstractNonT
     return false;
   }
 
-  private static final class AUX_vn0o5n {
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$DJEC = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0x1174bf0522fL, "body");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
   }
 }

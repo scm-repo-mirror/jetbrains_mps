@@ -32,7 +32,7 @@ public class check_CellActionMapDeclarationAcyclicImports_NonTypesystemRule exte
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4tn44a.CellActionMapDeclaration_ddcf7ab1;
+    return CONCEPTS.CellActionMapDeclaration$Fh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +41,7 @@ public class check_CellActionMapDeclarationAcyclicImports_NonTypesystemRule exte
     return false;
   }
 
-  private static final class AUX_4tn44a {
-    /*package*/ static final SConcept CellActionMapDeclaration_ddcf7ab1 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, "jetbrains.mps.lang.editor.structure.CellActionMapDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellActionMapDeclaration$Fh = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, "jetbrains.mps.lang.editor.structure.CellActionMapDeclaration");
   }
 }

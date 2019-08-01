@@ -21,7 +21,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.scope.ListScope;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
@@ -32,10 +31,12 @@ import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor {
   public OperationDeclaration_Constraints() {
-    super(AUX_617hs5.OperationDeclaration_7830c746);
+    super(CONCEPTS.OperationDeclaration$3s);
   }
 
   @Override
@@ -51,9 +52,9 @@ public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor 
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> result = new ArrayList<SNode>();
-            List<SNode> tgList = SModelOperations.rootsIncludingImported(SNodeOperations.getModel(_context.getContextNode()), AUX_617hs5.LanguageTextGenDeclaration_4366b437);
+            List<SNode> tgList = SModelOperations.rootsIncludingImported(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.LanguageTextGenDeclaration$8b);
             for (SNode tg : tgList) {
-              ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(tg, MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x11f4b821fc5L, "operation"))));
+              ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(tg, LINKS.operation$J$cU)));
             }
             return ListScope.forResolvableElements(result);
           }
@@ -63,7 +64,7 @@ public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor 
   }
   public static class OperationName_Property extends BasePropertyConstraintsDescriptor {
     public OperationName_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b80e9d3L, 0x11f5fdf3bedL, "operationName"), container);
+      super(PROPS.operationName$QlUU, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -71,7 +72,7 @@ public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor 
     }
     @Override
     public Object getValue(SNode node) {
-      String name = SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      String name = SPropertyOperations.getString(node, PROPS.name$tAp1);
       if (name == null) {
         return null;
       }
@@ -90,13 +91,22 @@ public class OperationDeclaration_Constraints extends BaseConstraintsDescriptor 
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b80e9d3L, 0x11f5fdf3bedL, "operationName"), new OperationName_Property(this));
+    properties.put(PROPS.operationName$QlUU, new OperationName_Property(this));
     return properties;
   }
   private static final SNodePointer breakingNode_617hs5_a0a0a0a0a0a0a0a2 = new SNodePointer("r:472e3702-e789-4c3f-b300-132c65ad44f1(jetbrains.mps.lang.textGen.constraints)", "6836281137582805508");
 
-  private static final class AUX_617hs5 {
-    /*package*/ static final SConcept OperationDeclaration_7830c746 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b80e9d3L, "jetbrains.mps.lang.textGen.structure.OperationDeclaration");
-    /*package*/ static final SConcept LanguageTextGenDeclaration_4366b437 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OperationDeclaration$3s = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b80e9d3L, "jetbrains.mps.lang.textGen.structure.OperationDeclaration");
+    /*package*/ static final SConcept LanguageTextGenDeclaration$8b = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, "jetbrains.mps.lang.textGen.structure.LanguageTextGenDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operation$J$cU = MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b71f51fL, 0x11f4b821fc5L, "operation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty operationName$QlUU = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4b80e9d3L, 0x11f5fdf3bedL, "operationName");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

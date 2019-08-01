@@ -13,88 +13,96 @@
   </root>
   <root nodeRef="r:02073207-e767-4759-a6fd-2e43f805a438(jetbrains.mps.console.ideCommands.actions)/2087237500476328199">
     <file name="NodeStatisticsTarget_Setup.java">
-      <node id="2087237500476347103" at="14,91,15,218" concept="0" />
-      <node id="2087237500476328199" at="20,0,21,0" concept="5" trace="NodeReference_7f952d5d" />
-      <node id="2087237500476328251" at="14,0,17,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="2087237500476328251" at="14,91,15,218" />
-      <scope id="2087237500476328251" at="14,0,17,0">
+      <node id="2087237500476347103" at="15,91,16,96" concept="0" />
+      <node id="2087237500476328199" at="21,0,22,0" concept="5" trace="target$ueX0" />
+      <node id="2087237500476328199" at="25,0,26,0" concept="5" trace="NodeReference$Q_" />
+      <node id="2087237500476328251" at="15,0,18,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="2087237500476328251" at="15,91,16,96" />
+      <scope id="2087237500476328251" at="15,0,18,0">
         <var name="enclosingNode" id="2087237500476328251" />
         <var name="model" id="2087237500476328251" />
         <var name="newNode" id="2087237500476328251" />
         <var name="sampleNode" id="2087237500476328251" />
       </scope>
-      <unit id="2087237500476328199" at="19,0,22,0" name="jetbrains.mps.console.ideCommands.actions.NodeStatisticsTarget_Setup$AUX_9sly3e" />
-      <unit id="2087237500476328251" at="13,0,18,0" name="jetbrains.mps.console.ideCommands.actions.NodeStatisticsTarget_Setup$NodeFactory_2087237500476328251" />
-      <unit id="2087237500476328199" at="12,0,23,0" name="jetbrains.mps.console.ideCommands.actions.NodeStatisticsTarget_Setup" />
+      <unit id="2087237500476328199" at="20,0,23,0" name="jetbrains.mps.console.ideCommands.actions.NodeStatisticsTarget_Setup$LINKS" />
+      <unit id="2087237500476328199" at="24,0,27,0" name="jetbrains.mps.console.ideCommands.actions.NodeStatisticsTarget_Setup$CONCEPTS" />
+      <unit id="2087237500476328251" at="14,0,19,0" name="jetbrains.mps.console.ideCommands.actions.NodeStatisticsTarget_Setup$NodeFactory_2087237500476328251" />
+      <unit id="2087237500476328199" at="13,0,28,0" name="jetbrains.mps.console.ideCommands.actions.NodeStatisticsTarget_Setup" />
     </file>
   </root>
   <root nodeRef="r:02073207-e767-4759-a6fd-2e43f805a438(jetbrains.mps.console.ideCommands.actions)/5308946314782063423">
     <file name="MakeFactories.java">
-      <node id="5308946314782064317" at="16,86,17,407" concept="0" />
-      <node id="5308946314782063423" at="23,0,24,0" concept="5" trace="AbsractMake_f0e1eb35" />
-      <node id="5308946314782063429" at="15,91,18,7" concept="1" />
-      <node id="5308946314782063424" at="15,0,20,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="5308946314782063430" at="16,86,17,407" />
-      <scope id="5308946314782063424" at="15,91,18,7" />
-      <scope id="5308946314782063424" at="15,0,20,0">
+      <node id="5308946314782064317" at="17,78,18,171" concept="0" />
+      <node id="5308946314782063423" at="24,0,25,0" concept="5" trace="argument$fm9z" />
+      <node id="5308946314782063423" at="28,0,29,0" concept="5" trace="AbsractMake$Fd" />
+      <node id="5308946314782063429" at="16,91,19,7" concept="1" />
+      <node id="5308946314782063424" at="16,0,21,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="5308946314782063430" at="17,78,18,171" />
+      <scope id="5308946314782063424" at="16,91,19,7" />
+      <scope id="5308946314782063424" at="16,0,21,0">
         <var name="enclosingNode" id="5308946314782063424" />
         <var name="model" id="5308946314782063424" />
         <var name="newNode" id="5308946314782063424" />
         <var name="sampleNode" id="5308946314782063424" />
       </scope>
-      <unit id="5308946314782063423" at="22,0,25,0" name="jetbrains.mps.console.ideCommands.actions.MakeFactories$AUX_f2h17h" />
-      <unit id="5308946314782063424" at="14,0,21,0" name="jetbrains.mps.console.ideCommands.actions.MakeFactories$NodeFactory_5308946314782063424" />
-      <unit id="5308946314782063423" at="13,0,26,0" name="jetbrains.mps.console.ideCommands.actions.MakeFactories" />
+      <unit id="5308946314782063423" at="23,0,26,0" name="jetbrains.mps.console.ideCommands.actions.MakeFactories$LINKS" />
+      <unit id="5308946314782063423" at="27,0,30,0" name="jetbrains.mps.console.ideCommands.actions.MakeFactories$CONCEPTS" />
+      <unit id="5308946314782063424" at="15,0,22,0" name="jetbrains.mps.console.ideCommands.actions.MakeFactories$NodeFactory_5308946314782063424" />
+      <unit id="5308946314782063423" at="14,0,31,0" name="jetbrains.mps.console.ideCommands.actions.MakeFactories" />
     </file>
   </root>
   <root nodeRef="r:02073207-e767-4759-a6fd-2e43f805a438(jetbrains.mps.console.ideCommands.actions)/6961633949328001911">
     <file name="PasterNodeRef_wrappers_PasteWrapper_0.java">
-      <node id="6961633949329748700" at="16,46,17,51" concept="4" />
-      <node id="6961633949329748700" at="20,46,21,49" concept="4" />
-      <node id="6961633949329748703" at="24,39,25,217" concept="3" />
-      <node id="6961633949329748709" at="25,217,26,183" concept="0" />
-      <node id="6961633949329748715" at="26,183,27,18" concept="4" />
-      <node id="6961633949329748700" at="31,0,32,0" concept="5" trace="PastedNodeReference_e7fee7da" />
-      <node id="6961633949329748700" at="32,0,33,0" concept="5" trace="IStatisticsTarget_5c79ba4f" />
-      <node id="6961633949329748700" at="15,0,19,0" concept="2" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="6961633949329748700" at="19,0,23,0" concept="2" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="6961633949329748700" at="23,0,29,0" concept="2" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="6961633949329748700" at="16,46,17,51" />
-      <scope id="6961633949329748700" at="20,46,21,49" />
-      <scope id="6961633949329748702" at="24,39,27,18">
+      <node id="6961633949329748700" at="17,46,18,43" concept="4" />
+      <node id="6961633949329748700" at="21,46,22,41" concept="4" />
+      <node id="6961633949329748703" at="25,39,26,217" concept="3" />
+      <node id="6961633949329748709" at="26,217,27,69" concept="0" />
+      <node id="6961633949329748715" at="27,69,28,18" concept="4" />
+      <node id="6961633949329748700" at="32,0,33,0" concept="5" trace="PastedNodeReference$b8" />
+      <node id="6961633949329748700" at="33,0,34,0" concept="5" trace="IStatisticsTarget$VN" />
+      <node id="6961633949329748700" at="37,0,38,0" concept="5" trace="target$ueX0" />
+      <node id="6961633949329748700" at="16,0,20,0" concept="2" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="6961633949329748700" at="20,0,24,0" concept="2" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="6961633949329748700" at="24,0,30,0" concept="2" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="6961633949329748700" at="17,46,18,43" />
+      <scope id="6961633949329748700" at="21,46,22,41" />
+      <scope id="6961633949329748702" at="25,39,28,18">
         <var name="result" id="6961633949329748704" />
       </scope>
-      <scope id="6961633949329748700" at="15,0,19,0" />
-      <scope id="6961633949329748700" at="19,0,23,0" />
-      <scope id="6961633949329748700" at="23,0,29,0">
+      <scope id="6961633949329748700" at="16,0,20,0" />
+      <scope id="6961633949329748700" at="20,0,24,0" />
+      <scope id="6961633949329748700" at="24,0,30,0">
         <var name="sourceNode" id="6961633949329748700" />
       </scope>
-      <unit id="6961633949329748700" at="30,0,34,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_0$AUX_t6x469" />
-      <unit id="6961633949329748700" at="14,0,35,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_0" />
+      <unit id="6961633949329748700" at="36,0,39,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_0$LINKS" />
+      <unit id="6961633949329748700" at="31,0,35,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_0$CONCEPTS" />
+      <unit id="6961633949329748700" at="15,0,40,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_0" />
     </file>
     <file name="PasterNodeRef_wrappers_PasteWrapper_1.java">
-      <node id="6961633949328073113" at="16,46,17,51" concept="4" />
-      <node id="6961633949328073113" at="20,46,21,49" concept="4" />
-      <node id="6961633949328078376" at="24,39,25,217" concept="3" />
-      <node id="6961633949328086842" at="25,217,26,183" concept="0" />
-      <node id="6961633949328133481" at="26,183,27,18" concept="4" />
-      <node id="6961633949328073113" at="31,0,32,0" concept="5" trace="PastedNodeReference_e7fee7da" />
-      <node id="6961633949328073113" at="32,0,33,0" concept="5" trace="INodeSetReference_3727be25" />
-      <node id="6961633949328073113" at="15,0,19,0" concept="2" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="6961633949328073113" at="19,0,23,0" concept="2" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="6961633949328073113" at="23,0,29,0" concept="2" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="6961633949328073113" at="16,46,17,51" />
-      <scope id="6961633949328073113" at="20,46,21,49" />
-      <scope id="6961633949328073115" at="24,39,27,18">
+      <node id="6961633949328073113" at="17,46,18,43" concept="4" />
+      <node id="6961633949328073113" at="21,46,22,41" concept="4" />
+      <node id="6961633949328078376" at="25,39,26,217" concept="3" />
+      <node id="6961633949328086842" at="26,217,27,69" concept="0" />
+      <node id="6961633949328133481" at="27,69,28,18" concept="4" />
+      <node id="6961633949328073113" at="32,0,33,0" concept="5" trace="PastedNodeReference$b8" />
+      <node id="6961633949328073113" at="33,0,34,0" concept="5" trace="INodeSetReference$nt" />
+      <node id="6961633949328073113" at="37,0,38,0" concept="5" trace="target$ueX0" />
+      <node id="6961633949328073113" at="16,0,20,0" concept="2" trace="getSourceConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="6961633949328073113" at="20,0,24,0" concept="2" trace="getTargetConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="6961633949328073113" at="24,0,30,0" concept="2" trace="wrap#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="6961633949328073113" at="17,46,18,43" />
+      <scope id="6961633949328073113" at="21,46,22,41" />
+      <scope id="6961633949328073115" at="25,39,28,18">
         <var name="result" id="6961633949328078379" />
       </scope>
-      <scope id="6961633949328073113" at="15,0,19,0" />
-      <scope id="6961633949328073113" at="19,0,23,0" />
-      <scope id="6961633949328073113" at="23,0,29,0">
+      <scope id="6961633949328073113" at="16,0,20,0" />
+      <scope id="6961633949328073113" at="20,0,24,0" />
+      <scope id="6961633949328073113" at="24,0,30,0">
         <var name="sourceNode" id="6961633949328073113" />
       </scope>
-      <unit id="6961633949328073113" at="30,0,34,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_1$AUX_t6x46a" />
-      <unit id="6961633949328073113" at="14,0,35,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_1" />
+      <unit id="6961633949328073113" at="36,0,39,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_1$LINKS" />
+      <unit id="6961633949328073113" at="31,0,35,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_1$CONCEPTS" />
+      <unit id="6961633949328073113" at="15,0,40,0" name="jetbrains.mps.console.ideCommands.actions.PasterNodeRef_wrappers_PasteWrapper_1" />
     </file>
   </root>
 </debug-info>

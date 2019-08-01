@@ -6,40 +6,49 @@ import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.structure.util.ConceptIdHelper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class SetStructureIds {
   public static class NodeFactory_5424895381998988571 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId"), ConceptIdHelper.generateConceptId(model, newNode) + "");
+      SPropertyOperations.assign(newNode, PROPS.conceptId$TMc5, ConceptIdHelper.generateConceptId(model, newNode) + "");
     }
   }
   public static class NodeFactory_7791109065626944384 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId"), ConceptIdHelper.generateDatatypeId(model, newNode) + "");
+      SPropertyOperations.assign(newNode, PROPS.datatypeId$Bvg3, ConceptIdHelper.generateDatatypeId(model, newNode) + "");
     }
   }
   public static class NodeFactory_5424895381999015715 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId"), ConceptIdHelper.generatePropertyId(SNodeOperations.as(enclosingNode, AUX_rkje8j.AbstractConceptDeclaration_ec74828f), newNode) + "");
+      SPropertyOperations.assign(newNode, PROPS.propertyId$cckp, ConceptIdHelper.generatePropertyId(SNodeOperations.as(enclosingNode, CONCEPTS.AbstractConceptDeclaration$UN), newNode) + "");
     }
   }
   public static class NodeFactory_5424895381999015757 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId"), ConceptIdHelper.generateLinkId(SNodeOperations.as(enclosingNode, AUX_rkje8j.AbstractConceptDeclaration_ec74828f), newNode) + "");
+      SPropertyOperations.assign(newNode, PROPS.linkId$ccI3, ConceptIdHelper.generateLinkId(SNodeOperations.as(enclosingNode, CONCEPTS.AbstractConceptDeclaration$UN), newNode) + "");
     }
   }
   public static class NodeFactory_1421157252384198379 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x13b8f6fdce540e38L, "memberId"), ConceptIdHelper.generateEnumMemberId(SNodeOperations.as(enclosingNode, AUX_rkje8j.EnumerationDeclartaion_dd035f36), newNode) + "");
+      SPropertyOperations.assign(newNode, PROPS.memberId$d5NS, ConceptIdHelper.generateEnumMemberId(SNodeOperations.as(enclosingNode, CONCEPTS.EnumerationDeclartaion$rG), newNode) + "");
     }
   }
 
-  private static final class AUX_rkje8j {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept EnumerationDeclartaion_dd035f36 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptId$TMc5 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId");
+    /*package*/ static final SProperty datatypeId$Bvg3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId");
+    /*package*/ static final SProperty propertyId$cckp = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId");
+    /*package*/ static final SProperty linkId$ccI3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId");
+    /*package*/ static final SProperty memberId$d5NS = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x13b8f6fdce540e38L, "memberId");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept EnumerationDeclartaion$rG = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
   }
 }

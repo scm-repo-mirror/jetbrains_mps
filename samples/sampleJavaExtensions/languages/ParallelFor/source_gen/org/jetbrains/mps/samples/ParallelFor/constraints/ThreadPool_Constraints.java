@@ -5,7 +5,6 @@ package org.jetbrains.mps.samples.ParallelFor.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ThreadPool_Constraints extends BaseConstraintsDescriptor {
   public ThreadPool_Constraints() {
-    super(AUX_esr13y.ThreadPool_e1f827b7);
+    super(CONCEPTS.ThreadPool$Ub);
   }
 
   public static class NumberOfThreads_Property extends BasePropertyConstraintsDescriptor {
     public NumberOfThreads_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x8c9905a80efd03cL, 0x8c9905a80efd045L, "numberOfThreads"), container);
+      super(PROPS.numberOfThreads$18oz, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class ThreadPool_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x8c9905a80efd03cL, 0x8c9905a80efd045L, "numberOfThreads"), new NumberOfThreads_Property(this));
+    properties.put(PROPS.numberOfThreads$18oz, new NumberOfThreads_Property(this));
     return properties;
   }
 
-  private static final class AUX_esr13y {
-    /*package*/ static final SConcept ThreadPool_e1f827b7 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x8c9905a80efd03cL, "org.jetbrains.mps.samples.ParallelFor.structure.ThreadPool");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThreadPool$Ub = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x8c9905a80efd03cL, "org.jetbrains.mps.samples.ParallelFor.structure.ThreadPool");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty numberOfThreads$18oz = MetaAdapterFactory.getProperty(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x8c9905a80efd03cL, 0x8c9905a80efd045L, "numberOfThreads");
   }
 }

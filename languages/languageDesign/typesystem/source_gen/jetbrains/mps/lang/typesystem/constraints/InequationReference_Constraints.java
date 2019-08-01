@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -18,15 +17,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class InequationReference_Constraints extends BaseConstraintsDescriptor {
   public InequationReference_Constraints() {
-    super(AUX_q84ruw.InequationReference_c8ce3df0);
+    super(CONCEPTS.InequationReference$XM);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x42501924d0bd1913L, 0x42501924d0bd1914L, "inequation"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.inequation$LOB0, this) {
       @Nullable
       @Override
       public ReferenceScopeProvider getScopeProvider() {
@@ -37,8 +38,8 @@ public class InequationReference_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            if (isNotEmptyString(SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11a342c1412L, 0x42501924d0bd6481L, "label")))) {
-              return SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11a342c1412L, 0x42501924d0bd6481L, "label")) + " " + SConceptOperations.conceptAlias(SNodeOperations.getConcept(_context.getParameterNode()));
+            if (isNotEmptyString(SPropertyOperations.getString(_context.getParameterNode(), PROPS.label$ndJm))) {
+              return SPropertyOperations.getString(_context.getParameterNode(), PROPS.label$ndJm) + " " + SConceptOperations.conceptAlias(SNodeOperations.getConcept(_context.getParameterNode()));
             } else {
               return SConceptOperations.conceptAlias(SNodeOperations.getConcept(_context.getParameterNode()));
             }
@@ -54,7 +55,15 @@ public class InequationReference_Constraints extends BaseConstraintsDescriptor {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_q84ruw {
-    /*package*/ static final SConcept InequationReference_c8ce3df0 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x42501924d0bd1913L, "jetbrains.mps.lang.typesystem.structure.InequationReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InequationReference$XM = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x42501924d0bd1913L, "jetbrains.mps.lang.typesystem.structure.InequationReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink inequation$LOB0 = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x42501924d0bd1913L, 0x42501924d0bd1914L, "inequation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty label$ndJm = MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11a342c1412L, 0x42501924d0bd6481L, "label");
   }
 }

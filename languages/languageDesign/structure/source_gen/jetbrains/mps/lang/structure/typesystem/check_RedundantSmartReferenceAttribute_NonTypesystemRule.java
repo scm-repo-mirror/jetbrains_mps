@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -18,14 +17,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.structure.util.SmartRefAttributeUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class check_RedundantSmartReferenceAttribute_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_RedundantSmartReferenceAttribute_NonTypesystemRule() {
   }
   public void applyRule(final SNode attr, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode concept = SNodeOperations.as(SNodeOperations.getParent(attr), AUX_4dxhu3.ConceptDeclaration_cb225da8);
+    SNode concept = SNodeOperations.as(SNodeOperations.getParent(attr), CONCEPTS.ConceptDeclaration$qU);
     if ((concept != null)) {
-      if (SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(attr), AUX_4dxhu3.ConceptDeclaration_cb225da8), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract"))) {
+      if (SPropertyOperations.getBoolean(SNodeOperations.cast(SNodeOperations.getParent(attr), CONCEPTS.ConceptDeclaration$qU), PROPS.abstract$moSU)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(attr, "'smart reference' attribute used for abstract concept", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "3455926958821554247", null, errorTarget);
@@ -36,7 +38,7 @@ public class check_RedundantSmartReferenceAttribute_NonTypesystemRule extends Ab
         }
       }
 
-      if ((SLinkOperations.getTarget(attr, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d66ac37L, "refPresentationTemplate")) == null) && SmartRefAttributeUtil.canBeAttributedImplicitly(concept)) {
+      if ((SLinkOperations.getTarget(attr, LINKS.refPresentationTemplate$RgQc) == null) && SmartRefAttributeUtil.canBeAttributedImplicitly(concept)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(attr, "Trivial 'smart reference' attribute can be dropped", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "3455926958821552685", null, errorTarget);
@@ -50,7 +52,7 @@ public class check_RedundantSmartReferenceAttribute_NonTypesystemRule extends Ab
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4dxhu3.SmartReferenceAttribute_500a3d52;
+    return CONCEPTS.SmartReferenceAttribute$Lg;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -59,8 +61,16 @@ public class check_RedundantSmartReferenceAttribute_NonTypesystemRule extends Ab
     return false;
   }
 
-  private static final class AUX_4dxhu3 {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept SmartReferenceAttribute_500a3d52 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, "jetbrains.mps.lang.structure.structure.SmartReferenceAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept SmartReferenceAttribute$Lg = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, "jetbrains.mps.lang.structure.structure.SmartReferenceAttribute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty abstract$moSU = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec2L, "abstract");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink refPresentationTemplate$RgQc = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x7ab7b29c4d6297e8L, 0x7ab7b29c4d66ac37L, "refPresentationTemplate");
   }
 }

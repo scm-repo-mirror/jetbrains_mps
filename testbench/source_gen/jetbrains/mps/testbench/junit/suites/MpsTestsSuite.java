@@ -38,9 +38,10 @@ import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.util.JavaNameUtil;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * Currently used for ant tests
@@ -139,8 +140,8 @@ public class MpsTestsSuite extends BaseMpsSuite {
             continue;
           }
           for (SModel model : Sequence.fromIterable(module.getModels())) {
-            for (SNode testCase : ListSequence.fromList(SModelOperations.roots(((SModel) model), AUX_2a7sjn.ITestCase_8c8c490a))) {
-              String testClassName = ((String) BHReflection.invoke0(testCase, AUX_2a7sjn.ITestCase_8c8c490a, SMethodTrimmedId.create("getClassName", null, "hGBnqtL")));
+            for (SNode testCase : ListSequence.fromList(SModelOperations.roots(((SModel) model), CONCEPTS.ITestCase$uo))) {
+              String testClassName = ((String) BHReflection.invoke0(testCase, CONCEPTS.ITestCase$uo, SMethodTrimmedId.create("getClassName", null, "hGBnqtL")));
               try {
                 Class<?> testClass = moduleCL.loadClass(testClassName);
                 result.add(builder.safeRunnerForClass(testClass));
@@ -151,8 +152,8 @@ public class MpsTestsSuite extends BaseMpsSuite {
               }
             }
             final String packageStmt = JavaNameUtil.packageName(model);
-            for (SNode gt : ListSequence.fromList(SModelOperations.roots(((SModel) model), AUX_2a7sjn.GeneratorTest_10386a99))) {
-              String testClassName = NameUtil.longNameFromNamespaceAndShortName(packageStmt, SPropertyOperations.getString(gt, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+            for (SNode gt : ListSequence.fromList(SModelOperations.roots(((SModel) model), CONCEPTS.GeneratorTest$vD))) {
+              String testClassName = NameUtil.longNameFromNamespaceAndShortName(packageStmt, SPropertyOperations.getString(gt, PROPS.name$tAp1));
               try {
                 result.add(builder.safeRunnerForClass(moduleCL.loadClass(testClassName)));
               } catch (ClassNotFoundException ex) {
@@ -168,8 +169,12 @@ public class MpsTestsSuite extends BaseMpsSuite {
     return result;
   }
 
-  private static final class AUX_2a7sjn {
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
-    /*package*/ static final SConcept GeneratorTest_10386a99 = MetaAdapterFactory.getConcept(0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf092beL, "jetbrains.mps.lang.test.generator.structure.GeneratorTest");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+    /*package*/ static final SConcept GeneratorTest$vD = MetaAdapterFactory.getConcept(0x68015e26cc4d49dbL, 0x8715b643faea1769L, 0x7b1db36ecf092beL, "jetbrains.mps.lang.test.generator.structure.GeneratorTest");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

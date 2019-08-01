@@ -4,6 +4,7 @@ package jetbrains.mps.core.xml.sax.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -19,10 +20,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class XMLSAXChildHandler__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_aain5t.XMLSAXChildHandler_1c3fd39d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXChildHandler");
 
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
 
@@ -32,8 +32,8 @@ public final class XMLSAXChildHandler__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
-    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, AUX_aain5t.XMLSAXHandlerFunction_1c3fd3c3);
-    ListSequence.fromList(result).addElement(AUX_aain5t.XMLSAXChildHandler_childObject_1c3fd3a0);
+    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, CONCEPTS.XMLSAXHandlerFunction$fZ);
+    ListSequence.fromList(result).addElement(CONCEPTS.XMLSAXChildHandler_childObject$Z2);
     return result;
   }
 
@@ -83,9 +83,8 @@ public final class XMLSAXChildHandler__BehaviorDescriptor extends BaseBHDescript
     return CONCEPT;
   }
 
-  private static final class AUX_aain5t {
-    /*package*/ static final SConcept XMLSAXChildHandler_1c3fd39d = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXChildHandler");
-    /*package*/ static final SConcept XMLSAXHandlerFunction_1c3fd3c3 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2e3L, "jetbrains.mps.core.xml.sax.structure.XMLSAXHandlerFunction");
-    /*package*/ static final SConcept XMLSAXChildHandler_childObject_1c3fd3a0 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d5L, "jetbrains.mps.core.xml.sax.structure.XMLSAXChildHandler_childObject");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXHandlerFunction$fZ = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2e3L, "jetbrains.mps.core.xml.sax.structure.XMLSAXHandlerFunction");
+    /*package*/ static final SConcept XMLSAXChildHandler_childObject$Z2 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d5L, "jetbrains.mps.core.xml.sax.structure.XMLSAXChildHandler_childObject");
   }
 }

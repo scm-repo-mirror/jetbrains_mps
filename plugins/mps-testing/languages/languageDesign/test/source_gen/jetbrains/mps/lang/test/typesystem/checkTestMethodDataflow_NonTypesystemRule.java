@@ -9,18 +9,19 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.baseLanguage.typesystem.DataFlowUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class checkTestMethodDataflow_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public checkTestMethodDataflow_NonTypesystemRule() {
   }
   public void applyRule(final SNode nodesTestMethod, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(nodesTestMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")));
+    DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(nodesTestMethod, LINKS.body$WIlu));
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3xeair.NodesTestMethod_fd945a51;
+    return CONCEPTS.NodesTestMethod$WL;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -29,7 +30,11 @@ public class checkTestMethodDataflow_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_3xeair {
-    /*package*/ static final SConcept NodesTestMethod_fd945a51 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b54d88L, "jetbrains.mps.lang.test.structure.NodesTestMethod");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodesTestMethod$WL = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b54d88L, "jetbrains.mps.lang.test.structure.NodesTestMethod");
   }
 }

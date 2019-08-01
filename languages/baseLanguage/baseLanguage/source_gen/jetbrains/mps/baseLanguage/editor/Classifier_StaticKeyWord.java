@@ -7,13 +7,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class Classifier_StaticKeyWord {
@@ -27,18 +28,18 @@ public class Classifier_StaticKeyWord {
         if (DeletionApproverUtil.approve(editorContext, node, "staticKeyword")) {
           return;
         }
-        SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic"), true);
-        if (SNodeOperations.isInstanceOf(node, AUX_mirqxa.ClassConcept_e2711824)) {
-          SNode classConcept = SNodeOperations.cast(node, AUX_mirqxa.ClassConcept_e2711824);
-          if (SPropertyOperations.getBoolean(classConcept, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass"))) {
+        SPropertyOperations.set(node, PROPS.nonStatic$pNlE, true);
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.ClassConcept$IY)) {
+          SNode classConcept = SNodeOperations.cast(node, CONCEPTS.ClassConcept$IY);
+          if (SPropertyOperations.getBoolean(classConcept, PROPS.abstractClass$gY5l)) {
             SelectionUtil.selectLabelCellAnSetCaret(editorContext, classConcept, "abstractKeyword", 0);
-          } else if (SPropertyOperations.getBoolean(classConcept, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal"))) {
+          } else if (SPropertyOperations.getBoolean(classConcept, PROPS.isFinal$dzaH)) {
             SelectionUtil.selectLabelCellAnSetCaret(editorContext, classConcept, "finalKeyword", 0);
           } else {
             SelectionUtil.selectLabelCellAnSetCaret(editorContext, classConcept, "classKeyword", 0);
           }
-        } else if (SNodeOperations.isInstanceOf(node, AUX_mirqxa.Interface_bca2069)) {
-          SelectionUtil.selectLabelCellAnSetCaret(editorContext, SNodeOperations.cast(node, AUX_mirqxa.Interface_bca2069), "interfaceKeyword", 0);
+        } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.Interface$Kp)) {
+          SelectionUtil.selectLabelCellAnSetCaret(editorContext, SNodeOperations.cast(node, CONCEPTS.Interface$Kp), "interfaceKeyword", 0);
         }
       }
 
@@ -80,8 +81,14 @@ public class Classifier_StaticKeyWord {
     }
   }
 
-  private static final class AUX_mirqxa {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+  private static final class PROPS {
+    /*package*/ static final SProperty nonStatic$pNlE = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic");
+    /*package*/ static final SProperty abstractClass$gY5l = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xfa5cee6dfaL, "abstractClass");
+    /*package*/ static final SProperty isFinal$dzaH = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x11c6af4b284L, "isFinal");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
   }
 }

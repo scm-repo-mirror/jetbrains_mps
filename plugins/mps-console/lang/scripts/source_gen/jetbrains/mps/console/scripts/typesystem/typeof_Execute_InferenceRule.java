@@ -25,7 +25,7 @@ public class typeof_Execute_InferenceRule extends AbstractInferenceRule_Runtime 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tzz2ta.Execute_1ad06a40;
+    return CONCEPTS.Execute$Oy;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_Execute_InferenceRule extends AbstractInferenceRule_Runtime 
     return quotedNode_1;
   }
 
-  private static final class AUX_tzz2ta {
-    /*package*/ static final SConcept Execute_1ad06a40 = MetaAdapterFactory.getConcept(0xf26691d20def4c06L, 0xaec62cb90c4af0a4L, 0x1811ccc46ac3dc6aL, "jetbrains.mps.console.scripts.structure.Execute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Execute$Oy = MetaAdapterFactory.getConcept(0xf26691d20def4c06L, 0xaec62cb90c4af0a4L, 0x1811ccc46ac3dc6aL, "jetbrains.mps.console.scripts.structure.Execute");
   }
 }

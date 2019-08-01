@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.AnnotationUtil;
@@ -17,6 +16,9 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -24,25 +26,25 @@ public class check_AnnotationTarget_NonTypesystemRule extends AbstractNonTypesys
   public check_AnnotationTarget_NonTypesystemRule() {
   }
   public void applyRule(final SNode annotationInstance, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode annotationDeclaration = SLinkOperations.getTarget(annotationInstance, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"));
+    SNode annotationDeclaration = SLinkOperations.getTarget(annotationInstance, LINKS.annotation$zNxu);
     SNode targetAi = null;
-    for (SNode ai : SLinkOperations.getChildren(annotationDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation"))) {
-      if (SLinkOperations.hasPointer(ai, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation"), new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang.annotation(JDK/)", "~Target"))) {
+    for (SNode ai : SLinkOperations.getChildren(annotationDeclaration, LINKS.annotation$oVP4)) {
+      if (SLinkOperations.hasPointer(ai, LINKS.annotation$zNxu, new SNodePointer("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang.annotation(JDK/)", "~Target"))) {
         targetAi = ai;
         break;
       }
     }
-    if (targetAi == null || (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(annotationInstance), AUX_uo1agl.HasAnnotation_800804c4))) && SNodeOperations.getNodeAncestor(annotationInstance, AUX_uo1agl.AnnotationInstance_51bc59df, false, false) != null) {
+    if (targetAi == null || (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(annotationInstance), CONCEPTS.HasAnnotation$cu))) && SNodeOperations.getNodeAncestor(annotationInstance, CONCEPTS.AnnotationInstance$5z, false, false) != null) {
       return;
     }
-    boolean goodTarget = AnnotationUtil.accept(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(targetAi, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a71c697fL, "value"))).first(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, 0x114a71c0fc4L, "value")), SNodeOperations.as(SNodeOperations.getParent(annotationInstance), AUX_uo1agl.HasAnnotation_800804c4));
+    boolean goodTarget = AnnotationUtil.accept(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(targetAi, LINKS.value$EXfF)).first(), LINKS.value$Bis), SNodeOperations.as(SNodeOperations.getParent(annotationInstance), CONCEPTS.HasAnnotation$cu));
     if (!(goodTarget)) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(annotationInstance, "wrong target of annotation", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "8695552310380242272", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_uo1agl.AnnotationInstance_51bc59df;
+    return CONCEPTS.AnnotationInstance$5z;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -51,8 +53,15 @@ public class check_AnnotationTarget_NonTypesystemRule extends AbstractNonTypesys
     return false;
   }
 
-  private static final class AUX_uo1agl {
-    /*package*/ static final SConcept AnnotationInstance_51bc59df = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
-    /*package*/ static final SInterfaceConcept HasAnnotation_800804c4 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, "jetbrains.mps.baseLanguage.structure.HasAnnotation");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink annotation$zNxu = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a6b85d40L, "annotation");
+    /*package*/ static final SContainmentLink annotation$oVP4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, 0x114a6beb0bdL, "annotation");
+    /*package*/ static final SContainmentLink value$EXfF = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, 0x114a71c697fL, "value");
+    /*package*/ static final SContainmentLink value$Bis = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, 0x114a71c0fc4L, "value");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnnotationInstance$5z = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6b4ccabL, "jetbrains.mps.baseLanguage.structure.AnnotationInstance");
+    /*package*/ static final SInterfaceConcept HasAnnotation$cu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a6be947aL, "jetbrains.mps.baseLanguage.structure.HasAnnotation");
   }
 }

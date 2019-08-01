@@ -23,8 +23,9 @@ import java.util.List;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ForbidIncomingReferencesInSubconcepts_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -74,12 +75,12 @@ public final class ForbidIncomingReferencesInSubconcepts_Intention extends Abstr
       });
 
       for (SModel model : Sequence.fromIterable(seq)) {
-        for (SNode cd : ListSequence.fromList(SModelOperations.roots(model, AUX_ch4rdk.ConceptDeclaration_cb225da8))) {
+        for (SNode cd : ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.ConceptDeclaration$qU))) {
           List<SNode> allSupers = Sequence.fromIterable(AbstractConceptDeclaration__BehaviorDescriptor.getAllSuperConcepts_id2A8AB0rAWpG.invoke(cd, ((boolean) true))).toListSequence();
           ListSequence.fromList(allSupers).addElement(SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"));
 
           if (ListSequence.fromList(allSupers).contains(node)) {
-            SPropertyOperations.setEnum(cd, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x4b014033eedc8a48L, "staticScope"), 0x4b014033eedc8becL, "none");
+            SPropertyOperations.setEnum(cd, PROPS.staticScope$SzuZ, 0x4b014033eedc8becL, "none");
           }
         }
       }
@@ -90,7 +91,11 @@ public final class ForbidIncomingReferencesInSubconcepts_Intention extends Abstr
     }
   }
 
-  private static final class AUX_ch4rdk {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty staticScope$SzuZ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x4b014033eedc8a48L, "staticScope");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
   }
 }

@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DocumentationObjectiveRef_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_wmax4y_a(), AUX_wmax4y.DocumentationObjectiveRef_4b123548));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_wmax4y_a(), CONCEPTS.DocumentationObjectiveRef$cq));
     result.add(new SMP_Subconcepts_wmax4y_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class DocumentationObjectiveRef_SubstituteMenu extends SubstituteMenuBase
 
     public SMP_ReferenceScope_wmax4y_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_wmax4y.DocumentationObjectiveRef_4b123548, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0eb5L, 0x6d1df6c2700b0eb6L, "target"));
+      super((SAbstractConcept) CONCEPTS.DocumentationObjectiveRef$cq, LINKS.target$hzj0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class DocumentationObjectiveRef_SubstituteMenu extends SubstituteMenuBase
   }
   public class SMP_Subconcepts_wmax4y_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_wmax4y.DocumentationObjectiveRef_4b123548);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.DocumentationObjectiveRef$cq);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class DocumentationObjectiveRef_SubstituteMenu extends SubstituteMenuBase
     }
   }
 
-  private static final class AUX_wmax4y {
-    /*package*/ static final SConcept DocumentationObjectiveRef_4b123548 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0eb5L, "jetbrains.mps.lang.structure.structure.DocumentationObjectiveRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DocumentationObjectiveRef$cq = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0eb5L, "jetbrains.mps.lang.structure.structure.DocumentationObjectiveRef");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$hzj0 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0eb5L, 0x6d1df6c2700b0eb6L, "target");
   }
 }

@@ -10,13 +10,15 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class checkCircularCustomization_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -25,8 +27,8 @@ public class checkCircularCustomization_NonTypesystemRule extends AbstractNonTyp
   public void applyRule(final SNode dailyPlan, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     SNode plan = dailyPlan;
     List<SNode> visitedPlans = new ArrayList<SNode>();
-    while ((SLinkOperations.getTarget(plan, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes")) != null)) {
-      plan = SLinkOperations.getTarget(SLinkOperations.getTarget(plan, MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes")), MetaAdapterFactory.getReferenceLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, 0xcfa085c9af5e831L, "target"));
+    while ((SLinkOperations.getTarget(plan, LINKS.customizes$a6Ia) != null)) {
+      plan = SLinkOperations.getTarget(SLinkOperations.getTarget(plan, LINKS.customizes$a6Ia), LINKS.target$bW60);
       if (Objects.equals(plan, dailyPlan)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
@@ -41,7 +43,7 @@ public class checkCircularCustomization_NonTypesystemRule extends AbstractNonTyp
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2rs9bj.DailyPlan_82e65b88;
+    return CONCEPTS.DailyPlan$jq;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -50,7 +52,12 @@ public class checkCircularCustomization_NonTypesystemRule extends AbstractNonTyp
     return false;
   }
 
-  private static final class AUX_2rs9bj {
-    /*package*/ static final SConcept DailyPlan_82e65b88 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink customizes$a6Ia = MetaAdapterFactory.getContainmentLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, 0xcfa085c9af881f8L, "customizes");
+    /*package*/ static final SReferenceLink target$bW60 = MetaAdapterFactory.getReferenceLink(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0xcfa085c9af5e830L, 0xcfa085c9af5e831L, "target");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DailyPlan$jq = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4644aa4ce08aec4fL, "jetbrains.mps.samples.heating.structure.DailyPlan");
   }
 }

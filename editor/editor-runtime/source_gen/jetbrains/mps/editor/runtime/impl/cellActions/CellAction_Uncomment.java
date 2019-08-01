@@ -8,11 +8,12 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.nodeEditor.selectionRestoring.RestorableSelection;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.selectionRestoring.RestorableSelectionByNode;
 import java.util.Objects;
 import jetbrains.mps.nodeEditor.selectionRestoring.RestorableSelectionComposite;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * Used only in CellActionCommentOrUncomment
@@ -40,7 +41,7 @@ public class CellAction_Uncomment extends AbstractCommentAction {
   }
   @Override
   protected RestorableSelection createRestorableSelection(EditorContext editorContext) {
-    SNode commentedNode = SLinkOperations.getTarget(myNode, MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, 0x2ab99f0d2248e89dL, "commentedNode"));
+    SNode commentedNode = SLinkOperations.getTarget(myNode, LINKS.commentedNode$I8FA);
     if (commentedNode == null) {
       return new RestorableSelectionByNode(SNodeOperations.getParent(myNode));
     } else {
@@ -78,5 +79,9 @@ public class CellAction_Uncomment extends AbstractCommentAction {
       return checkedDotOperand.getSelectedCell();
     }
     return null;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink commentedNode$I8FA = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, 0x2ab99f0d2248e89dL, "commentedNode");
   }
 }

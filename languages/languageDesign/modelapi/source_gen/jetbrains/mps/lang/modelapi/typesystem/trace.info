@@ -31,10 +31,10 @@
       <node id="3138462966838136628" at="31,7,32,66" concept="5" />
       <node id="3138462966838136628" at="32,66,33,258" concept="5" />
       <node id="3138462966838142863" at="35,5,36,0" concept="7" />
-      <node id="855366892729582606" at="38,50,39,43" concept="6" />
+      <node id="855366892729582606" at="38,50,39,35" concept="6" />
       <node id="855366892729582606" at="41,68,42,102" concept="6" />
       <node id="855366892729582606" at="44,30,45,17" concept="6" />
-      <node id="855366892729582606" at="49,0,50,0" concept="8" trace="NodePointer_a7ab22d1" />
+      <node id="855366892729582606" at="49,0,50,0" concept="8" trace="NodePointer$qL" />
       <node id="855366892729582606" at="21,0,23,0" concept="1" trace="check_NodePointer_NonTypesystemRule#()V" />
       <node id="855366892729597282" at="24,77,27,5" concept="3" />
       <node id="855366892729582606" at="38,0,41,0" concept="4" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
@@ -45,7 +45,7 @@
       <node id="855366892729582606" at="23,0,38,0" concept="4" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="855366892729582606" at="21,48,21,48" />
       <scope id="855366892729597284" at="25,23,26,13" />
-      <scope id="855366892729582606" at="38,50,39,43" />
+      <scope id="855366892729582606" at="38,50,39,35" />
       <scope id="855366892729582606" at="41,68,42,102" />
       <scope id="855366892729582606" at="44,30,45,17" />
       <scope id="855366892729582606" at="21,0,23,0" />
@@ -68,7 +68,7 @@
         <var name="status" id="855366892729582606" />
         <var name="typeCheckingContext" id="855366892729582606" />
       </scope>
-      <unit id="855366892729582606" at="48,0,51,0" name="jetbrains.mps.lang.modelapi.typesystem.check_NodePointer_NonTypesystemRule$AUX_k5fhu3" />
+      <unit id="855366892729582606" at="48,0,51,0" name="jetbrains.mps.lang.modelapi.typesystem.check_NodePointer_NonTypesystemRule$CONCEPTS" />
       <unit id="855366892729582606" at="20,0,52,0" name="jetbrains.mps.lang.modelapi.typesystem.check_NodePointer_NonTypesystemRule" />
     </file>
   </root>

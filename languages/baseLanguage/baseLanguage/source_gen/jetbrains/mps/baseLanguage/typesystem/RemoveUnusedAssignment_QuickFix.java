@@ -7,8 +7,9 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RemoveUnusedAssignment_QuickFix extends QuickFix_Runtime {
   public RemoveUnusedAssignment_QuickFix() {
@@ -18,25 +19,30 @@ public class RemoveUnusedAssignment_QuickFix extends QuickFix_Runtime {
     return "Remove unused assignment";
   }
   public void execute(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_lshh5s.AssignmentExpression_24d60daa)) {
-      SNode assignmentExpression = SNodeOperations.cast(node, AUX_lshh5s.AssignmentExpression_24d60daa);
-      SNode lValue = SLinkOperations.getTarget(assignmentExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue"));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.AssignmentExpression$rS)) {
+      SNode assignmentExpression = SNodeOperations.cast(node, CONCEPTS.AssignmentExpression$rS);
+      SNode lValue = SLinkOperations.getTarget(assignmentExpression, LINKS.lValue$J0D4);
       SNodeOperations.replaceWithAnother(assignmentExpression, lValue);
-      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(lValue), AUX_lshh5s.ExpressionStatement_9dbf9b0c)) {
+      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(lValue), CONCEPTS.ExpressionStatement$nm)) {
         SNodeOperations.deleteNode(SNodeOperations.getParent(lValue));
       }
     }
-    if (SNodeOperations.isInstanceOf(node, AUX_lshh5s.LocalVariableDeclaration_d47683f3)) {
-      SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_lshh5s.LocalVariableDeclaration_d47683f3), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer")));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.LocalVariableDeclaration$Bf)) {
+      SNodeOperations.deleteNode(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.LocalVariableDeclaration$Bf), LINKS.initializer$KgD));
     }
-    if (SNodeOperations.hasRole(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"))) {
+    if (SNodeOperations.hasRole(node, LINKS.initializer$KgD)) {
       SNodeOperations.deleteNode(node);
     }
   }
 
-  private static final class AUX_lshh5s {
-    /*package*/ static final SConcept AssignmentExpression_24d60daa = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AssignmentExpression$rS = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink lValue$J0D4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue");
+    /*package*/ static final SContainmentLink initializer$KgD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer");
   }
 }

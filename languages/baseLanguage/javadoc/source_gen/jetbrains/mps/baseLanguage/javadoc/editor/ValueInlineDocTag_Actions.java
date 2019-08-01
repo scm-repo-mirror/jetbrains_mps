@@ -6,11 +6,12 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ValueInlineDocTag_Actions {
 
@@ -20,7 +21,7 @@ public class ValueInlineDocTag_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e83bL, 0x2398cefbc25f6d46L, "variableReference"), null);
+        SNodeFactoryOperations.setNewChild(node, LINKS.variableReference$lbmD, null);
       }
 
     };
@@ -59,5 +60,9 @@ public class ValueInlineDocTag_Actions {
     if (Objects.equals(actionType, CellActionType.RIGHT_TRANSFORM)) {
       editorCell.setAction(actionType, createAction_RIGHT_TRANSFORM(node));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink variableReference$lbmD = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e83bL, 0x2398cefbc25f6d46L, "variableReference");
   }
 }

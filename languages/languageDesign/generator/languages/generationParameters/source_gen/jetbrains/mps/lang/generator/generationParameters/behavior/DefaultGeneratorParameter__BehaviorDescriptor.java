@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.generationParameters.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,15 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class DefaultGeneratorParameter__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_75ghks.DefaultGeneratorParameter_e8186bc3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x289fcc83654341e8L, 0xa5ca768235715ce4L, 0x75bebc44281efab4L, "jetbrains.mps.lang.generator.generationParameters.structure.DefaultGeneratorParameter");
 
   public static final SMethod<String> getUniqueId_id$79JWCe2bn = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getUniqueId").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("$79JWCe2bn").build();
 
@@ -33,8 +33,8 @@ public final class DefaultGeneratorParameter__BehaviorDescriptor extends BaseBHD
   }
 
   /*package*/ static String getUniqueId_id$79JWCe2bn(@NotNull SNode __thisNode__) {
-    String containerName = ((SNodeOperations.getParent(__thisNode__) != null) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), AUX_75ghks.INamedConcept_8cd7e247) ? SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), AUX_75ghks.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : "default");
-    return SNodeOperations.getModel(__thisNode__).getModelId() + "." + containerName + "." + SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    String containerName = ((SNodeOperations.getParent(__thisNode__) != null) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), CONCEPTS.INamedConcept$nV) ? SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1) : "default");
+    return SNodeOperations.getModel(__thisNode__).getModelId() + "." + containerName + "." + SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1);
   }
 
   /*package*/ DefaultGeneratorParameter__BehaviorDescriptor() {
@@ -83,8 +83,11 @@ public final class DefaultGeneratorParameter__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_75ghks {
-    /*package*/ static final SConcept DefaultGeneratorParameter_e8186bc3 = MetaAdapterFactory.getConcept(0x289fcc83654341e8L, 0xa5ca768235715ce4L, 0x75bebc44281efab4L, "jetbrains.mps.lang.generator.generationParameters.structure.DefaultGeneratorParameter");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

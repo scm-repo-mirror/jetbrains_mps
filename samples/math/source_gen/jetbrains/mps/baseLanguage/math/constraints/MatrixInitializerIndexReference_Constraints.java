@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,16 +24,18 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MatrixInitializerIndexReference_Constraints extends BaseConstraintsDescriptor {
   public MatrixInitializerIndexReference_Constraints() {
-    super(AUX_5upoaw.MatrixInitializerIndexReference_492e561f);
+    super(CONCEPTS.MatrixInitializerIndexReference$Oz);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, 0x5650ac0d4240f275L, "index"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.index$MECO, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -49,7 +50,7 @@ public class MatrixInitializerIndexReference_Constraints extends BaseConstraints
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode n = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_5upoaw.MatrixOrVectorInitializer_7ac2ef77, true, false);
+            SNode n = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.MatrixOrVectorInitializer$Vb, true, false);
             List<SNode> indices = new ArrayList<SNode>();
             while (n != null) {
               {
@@ -59,27 +60,27 @@ public class MatrixInitializerIndexReference_Constraints extends BaseConstraints
                   {
                     SNode matchingNode_5upoaw_a0a2a1a0a0a1a0a0a0c = n;
                     if (matchingNode_5upoaw_a0a2a1a0a0a1a0a0a0c != null) {
-                      matches_5upoaw_a0a2a1a0a0a1a0a0a0c = matchingNode_5upoaw_a0a2a1a0a0a1a0a0a0c.getConcept().isSubConceptOf(AUX_5upoaw.MatrixInitializer_4911b2a7);
+                      matches_5upoaw_a0a2a1a0a0a1a0a0a0c = matchingNode_5upoaw_a0a2a1a0a0a1a0a0a0c.getConcept().isSubConceptOf(CONCEPTS.MatrixInitializer$6r);
                     }
                   }
                   if (matches_5upoaw_a0a2a1a0a0a1a0a0a0c) {
-                    ListSequence.fromList(indices).addElement(SLinkOperations.getTarget(matchedNode_5upoaw_a0c0b0a0a0b0a0a0a2, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240a048L, 0x5650ac0d4240f25cL, "colIndex")));
-                    ListSequence.fromList(indices).addElement(SLinkOperations.getTarget(matchedNode_5upoaw_a0c0b0a0a0b0a0a0a2, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240a048L, 0x5650ac0d4240f25bL, "rowIndex")));
+                    ListSequence.fromList(indices).addElement(SLinkOperations.getTarget(matchedNode_5upoaw_a0c0b0a0a0b0a0a0a2, LINKS.colIndex$FvUv));
+                    ListSequence.fromList(indices).addElement(SLinkOperations.getTarget(matchedNode_5upoaw_a0c0b0a0a0b0a0a0a2, LINKS.rowIndex$FqOw));
                   } else {
                     boolean matches_5upoaw_b0a2a1a0a0a1a0a0a0c = false;
                     {
                       SNode matchingNode_5upoaw_b0a2a1a0a0a1a0a0a0c = n;
                       if (matchingNode_5upoaw_b0a2a1a0a0a1a0a0a0c != null) {
-                        matches_5upoaw_b0a2a1a0a0a1a0a0a0c = matchingNode_5upoaw_b0a2a1a0a0a1a0a0a0c.getConcept().isSubConceptOf(AUX_5upoaw.VectorInitializer_7aa82552);
+                        matches_5upoaw_b0a2a1a0a0a1a0a0a0c = matchingNode_5upoaw_b0a2a1a0a0a1a0a0a0c.getConcept().isSubConceptOf(CONCEPTS.VectorInitializer$hg);
                       }
                     }
                     if (matches_5upoaw_b0a2a1a0a0a1a0a0a0c) {
-                      ListSequence.fromList(indices).addElement(SLinkOperations.getTarget(matchedNode_5upoaw_a0c0b0a0a0b0a0a0a2, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d424d0fb5L, 0x5650ac0d424d0fb7L, "rowIndex")));
+                      ListSequence.fromList(indices).addElement(SLinkOperations.getTarget(matchedNode_5upoaw_a0c0b0a0a0b0a0a0a2, LINKS.rowIndex$13ov));
                     }
                   }
                 }
               }
-              n = SNodeOperations.getNodeAncestor(n, AUX_5upoaw.MatrixOrVectorInitializer_7ac2ef77, false, false);
+              n = SNodeOperations.getNodeAncestor(n, CONCEPTS.MatrixOrVectorInitializer$Vb, false, false);
             }
             return ListScope.forResolvableElements(indices);
           }
@@ -92,10 +93,17 @@ public class MatrixInitializerIndexReference_Constraints extends BaseConstraints
   }
   private static final SNodePointer breakingNode_5upoaw_a0a0a0a0a1a0a0a0c = new SNodePointer("r:d37b3f1e-89c7-4936-a6de-207bf5ae7643(jetbrains.mps.baseLanguage.math.constraints)", "6836281137582848190");
 
-  private static final class AUX_5upoaw {
-    /*package*/ static final SConcept MatrixInitializerIndexReference_492e561f = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, "jetbrains.mps.baseLanguage.math.structure.MatrixInitializerIndexReference");
-    /*package*/ static final SInterfaceConcept MatrixOrVectorInitializer_7ac2ef77 = MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d424d5141L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorInitializer");
-    /*package*/ static final SConcept MatrixInitializer_4911b2a7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240a048L, "jetbrains.mps.baseLanguage.math.structure.MatrixInitializer");
-    /*package*/ static final SConcept VectorInitializer_7aa82552 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d424d0fb5L, "jetbrains.mps.baseLanguage.math.structure.VectorInitializer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixInitializerIndexReference$Oz = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, "jetbrains.mps.baseLanguage.math.structure.MatrixInitializerIndexReference");
+    /*package*/ static final SInterfaceConcept MatrixOrVectorInitializer$Vb = MetaAdapterFactory.getInterfaceConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d424d5141L, "jetbrains.mps.baseLanguage.math.structure.MatrixOrVectorInitializer");
+    /*package*/ static final SConcept MatrixInitializer$6r = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240a048L, "jetbrains.mps.baseLanguage.math.structure.MatrixInitializer");
+    /*package*/ static final SConcept VectorInitializer$hg = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d424d0fb5L, "jetbrains.mps.baseLanguage.math.structure.VectorInitializer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink index$MECO = MetaAdapterFactory.getReferenceLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240f252L, 0x5650ac0d4240f275L, "index");
+    /*package*/ static final SContainmentLink colIndex$FvUv = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240a048L, 0x5650ac0d4240f25cL, "colIndex");
+    /*package*/ static final SContainmentLink rowIndex$FqOw = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d4240a048L, 0x5650ac0d4240f25bL, "rowIndex");
+    /*package*/ static final SContainmentLink rowIndex$13ov = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x5650ac0d424d0fb5L, 0x5650ac0d424d0fb7L, "rowIndex");
   }
 }

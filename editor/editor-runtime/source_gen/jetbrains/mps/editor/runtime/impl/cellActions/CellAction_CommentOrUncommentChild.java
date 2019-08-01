@@ -50,7 +50,7 @@ public class CellAction_CommentOrUncommentChild extends CellAction_CommentOrUnco
     SNode currentNode = editorContext.getSelectedNode();
     while (currentNode != null) {
       if (Objects.equals(SNodeOperations.getParent(currentNode), myNode)) {
-        SContainmentLink link = (SNodeOperations.isInstanceOf(currentNode, AUX_z6u0tk.BaseCommentAttribute_f7206635) ? ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(currentNode, AUX_z6u0tk.BaseCommentAttribute_f7206635), AUX_z6u0tk.ChildAttribute_96496d6c, SMethodTrimmedId.create("getLink", AUX_z6u0tk.ChildAttribute_96496d6c, "BpxLfMirzf"))) : currentNode.getContainmentLink());
+        SContainmentLink link = (SNodeOperations.isInstanceOf(currentNode, CONCEPTS.BaseCommentAttribute$Zd) ? ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(currentNode, CONCEPTS.BaseCommentAttribute$Zd), CONCEPTS.ChildAttribute$XQ, SMethodTrimmedId.create("getLink", CONCEPTS.ChildAttribute$XQ, "BpxLfMirzf"))) : currentNode.getContainmentLink());
         return (Objects.equals(link, myLink) ? currentNode : null);
       }
       currentNode = SNodeOperations.getParent(currentNode);
@@ -58,8 +58,8 @@ public class CellAction_CommentOrUncommentChild extends CellAction_CommentOrUnco
     return null;
   }
 
-  private static final class AUX_z6u0tk {
-    /*package*/ static final SConcept BaseCommentAttribute_f7206635 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseCommentAttribute$Zd = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
   }
 }

@@ -228,26 +228,26 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       InequationReplacementRule_Runtime eliminationRule = new vector_vector_replacement_rule_InequationReplacementRule();
       this.myInequationReplacementRules.add(eliminationRule);
     }
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_f(AUX_3ist9o.ShiftLeftExpression_cc9b66c));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_h(AUX_3ist9o.BitwiseAndExpression_53d6d58a));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_i(AUX_3ist9o.BitwiseOrExpression_53ff64dd));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_j(AUX_3ist9o.BitwiseXorExpression_54037f59));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_g(AUX_3ist9o.ShiftRightExpression_e8d21ca));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_e(AUX_3ist9o.RemExpression_b1431353));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_k(AUX_3ist9o.LessThanExpression_22666a82));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_l(AUX_3ist9o.GreaterThanExpression_2257f88b));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_m(AUX_3ist9o.LessThanOrEqualsExpression_b4accc56));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_n(AUX_3ist9o.GreaterThanOrEqualsExpression_5e0d40b9));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(AUX_3ist9o.PlusExpression_d4768414));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_b(AUX_3ist9o.MinusExpression_d47683f9));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_c(AUX_3ist9o.MulExpression_642dc8dd));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_d(AUX_3ist9o.DivExpression_9e035f9d));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_o(AUX_3ist9o.PlusExpression_d4768414));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_p(AUX_3ist9o.MinusExpression_d47683f9));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_q(AUX_3ist9o.MulExpression_642dc8dd));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_r(AUX_3ist9o.MulExpression_642dc8dd));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_s(AUX_3ist9o.DivExpression_9e035f9d));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_t(AUX_3ist9o.MulExpression_642dc8dd));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_f(CONCEPTS.ShiftLeftExpression$pQ));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_h(CONCEPTS.BitwiseAndExpression$Go));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_i(CONCEPTS.BitwiseOrExpression$o_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_j(CONCEPTS.BitwiseXorExpression$GD));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_g(CONCEPTS.ShiftRightExpression$ro));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_e(CONCEPTS.RemExpression$pJ));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_k(CONCEPTS.LessThanExpression$kw));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_l(CONCEPTS.GreaterThanExpression$wR));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_m(CONCEPTS.LessThanOrEqualsExpression$Rc));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_n(CONCEPTS.GreaterThanOrEqualsExpression$n9));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(CONCEPTS.PlusExpression$Re));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_b(CONCEPTS.MinusExpression$E9));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_c(CONCEPTS.MulExpression$8_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_d(CONCEPTS.DivExpression$d_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_o(CONCEPTS.PlusExpression$Re));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_p(CONCEPTS.MinusExpression$E9));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_q(CONCEPTS.MulExpression$8_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_r(CONCEPTS.MulExpression$8_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_s(CONCEPTS.DivExpression$d_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_t(CONCEPTS.MulExpression$8_));
   }
   public static class CustomOverloadedOperationsTypesProvider_f extends OverloadedOperationsTypesProvider {
     public CustomOverloadedOperationsTypesProvider_f(SAbstractConcept concept) {
@@ -285,7 +285,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBigInteger);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.BigIntegerType_a60a11bf) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.BigIntegerType_a60a11bf);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.BigIntegerType$m3) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.BigIntegerType$m3);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -308,7 +308,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBigInteger);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.BigIntegerType_a60a11bf) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.BigIntegerType_a60a11bf);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.BigIntegerType$m3) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.BigIntegerType$m3);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -331,7 +331,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBigInteger);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.BigIntegerType_a60a11bf) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.BigIntegerType_a60a11bf);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.BigIntegerType$m3) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.BigIntegerType$m3);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -374,7 +374,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBigInteger);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.BigIntegerType_a60a11bf) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.BigIntegerType_a60a11bf);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.BigIntegerType$m3) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.BigIntegerType$m3);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -397,7 +397,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBoolean);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return !((SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.NullType_6bb6754a) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.NullType_6bb6754a)));
+      return !((SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.NullType$do) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.NullType$do)));
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -420,7 +420,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBoolean);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return !((SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.NullType_6bb6754a) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.NullType_6bb6754a)));
+      return !((SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.NullType$do) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.NullType$do)));
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -443,7 +443,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBoolean);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return !((SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.NullType_6bb6754a) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.NullType_6bb6754a)));
+      return !((SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.NullType$do) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.NullType$do)));
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -466,7 +466,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return SNodeOperations.copyNode(MathTypeUtil.qBoolean);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return !((SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.NullType_6bb6754a) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.NullType_6bb6754a)));
+      return !((SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.NullType$do) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.NullType$do)));
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -489,7 +489,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return MathTypeUtil.join(leftOperandType, rightOperandType);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.MathPrimitiveType$1R) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.MathPrimitiveType$1R);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -512,7 +512,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return MathTypeUtil.join(leftOperandType, rightOperandType);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.MathPrimitiveType$1R) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.MathPrimitiveType$1R);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -535,7 +535,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return MathTypeUtil.join(leftOperandType, rightOperandType);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.MathPrimitiveType$1R) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.MathPrimitiveType$1R);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -558,7 +558,7 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       return MathTypeUtil.join(leftOperandType, rightOperandType);
     }
     public boolean isApplicable(SubtypingManager subtypingManager, SNode operation, SNode leftOperandType, SNode rightOperandType) {
-      return SNodeOperations.isInstanceOf(leftOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b) || SNodeOperations.isInstanceOf(rightOperandType, AUX_3ist9o.MathPrimitiveType_bc3384b);
+      return SNodeOperations.isInstanceOf(leftOperandType, CONCEPTS.MathPrimitiveType$1R) || SNodeOperations.isInstanceOf(rightOperandType, CONCEPTS.MathPrimitiveType$1R);
     }
     @Override
     public void reportConflict(IRuleConflictWarningProducer producer) {
@@ -694,23 +694,23 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     }
   }
 
-  private static final class AUX_3ist9o {
-    /*package*/ static final SConcept ShiftLeftExpression_cc9b66c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d6cde9fb9L, "jetbrains.mps.baseLanguage.structure.ShiftLeftExpression");
-    /*package*/ static final SConcept BitwiseAndExpression_53d6d58a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19eede01L, "jetbrains.mps.baseLanguage.structure.BitwiseAndExpression");
-    /*package*/ static final SConcept BitwiseOrExpression_53ff64dd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef4652L, "jetbrains.mps.baseLanguage.structure.BitwiseOrExpression");
-    /*package*/ static final SConcept BitwiseXorExpression_54037f59 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef69abL, "jetbrains.mps.baseLanguage.structure.BitwiseXorExpression");
-    /*package*/ static final SConcept ShiftRightExpression_e8d21ca = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d6ce051dfL, "jetbrains.mps.baseLanguage.structure.ShiftRightExpression");
-    /*package*/ static final SConcept RemExpression_b1431353 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c8d509af4L, "jetbrains.mps.baseLanguage.structure.RemExpression");
-    /*package*/ static final SConcept LessThanExpression_22666a82 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbced3b82aL, "jetbrains.mps.baseLanguage.structure.LessThanExpression");
-    /*package*/ static final SConcept GreaterThanExpression_2257f88b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbced38fcfL, "jetbrains.mps.baseLanguage.structure.GreaterThanExpression");
-    /*package*/ static final SConcept LessThanOrEqualsExpression_b4accc56 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c8d53a915L, "jetbrains.mps.baseLanguage.structure.LessThanOrEqualsExpression");
-    /*package*/ static final SConcept GreaterThanOrEqualsExpression_5e0d40b9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c8d0fac2cL, "jetbrains.mps.baseLanguage.structure.GreaterThanOrEqualsExpression");
-    /*package*/ static final SConcept PlusExpression_d4768414 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
-    /*package*/ static final SConcept MinusExpression_d47683f9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f5L, "jetbrains.mps.baseLanguage.structure.MinusExpression");
-    /*package*/ static final SConcept MulExpression_642dc8dd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfe476b758fL, "jetbrains.mps.baseLanguage.structure.MulExpression");
-    /*package*/ static final SConcept DivExpression_9e035f9d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xff2bbc13daL, "jetbrains.mps.baseLanguage.structure.DivExpression");
-    /*package*/ static final SConcept BigIntegerType_a60a11bf = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200944b8b7L, "jetbrains.mps.baseLanguage.math.structure.BigIntegerType");
-    /*package*/ static final SConcept NullType_6bb6754a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1185ff468caL, "jetbrains.mps.baseLanguage.structure.NullType");
-    /*package*/ static final SConcept MathPrimitiveType_bc3384b = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200ff11214L, "jetbrains.mps.baseLanguage.math.structure.MathPrimitiveType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ShiftLeftExpression$pQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d6cde9fb9L, "jetbrains.mps.baseLanguage.structure.ShiftLeftExpression");
+    /*package*/ static final SConcept BitwiseAndExpression$Go = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19eede01L, "jetbrains.mps.baseLanguage.structure.BitwiseAndExpression");
+    /*package*/ static final SConcept BitwiseOrExpression$o_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef4652L, "jetbrains.mps.baseLanguage.structure.BitwiseOrExpression");
+    /*package*/ static final SConcept BitwiseXorExpression$GD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef69abL, "jetbrains.mps.baseLanguage.structure.BitwiseXorExpression");
+    /*package*/ static final SConcept ShiftRightExpression$ro = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d6ce051dfL, "jetbrains.mps.baseLanguage.structure.ShiftRightExpression");
+    /*package*/ static final SConcept RemExpression$pJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c8d509af4L, "jetbrains.mps.baseLanguage.structure.RemExpression");
+    /*package*/ static final SConcept LessThanExpression$kw = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbced3b82aL, "jetbrains.mps.baseLanguage.structure.LessThanExpression");
+    /*package*/ static final SConcept GreaterThanExpression$wR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbced38fcfL, "jetbrains.mps.baseLanguage.structure.GreaterThanExpression");
+    /*package*/ static final SConcept LessThanOrEqualsExpression$Rc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c8d53a915L, "jetbrains.mps.baseLanguage.structure.LessThanOrEqualsExpression");
+    /*package*/ static final SConcept GreaterThanOrEqualsExpression$n9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c8d0fac2cL, "jetbrains.mps.baseLanguage.structure.GreaterThanOrEqualsExpression");
+    /*package*/ static final SConcept PlusExpression$Re = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
+    /*package*/ static final SConcept MinusExpression$E9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f5L, "jetbrains.mps.baseLanguage.structure.MinusExpression");
+    /*package*/ static final SConcept MulExpression$8_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfe476b758fL, "jetbrains.mps.baseLanguage.structure.MulExpression");
+    /*package*/ static final SConcept DivExpression$d_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xff2bbc13daL, "jetbrains.mps.baseLanguage.structure.DivExpression");
+    /*package*/ static final SConcept BigIntegerType$m3 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200944b8b7L, "jetbrains.mps.baseLanguage.math.structure.BigIntegerType");
+    /*package*/ static final SConcept NullType$do = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1185ff468caL, "jetbrains.mps.baseLanguage.structure.NullType");
+    /*package*/ static final SConcept MathPrimitiveType$1R = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1200ff11214L, "jetbrains.mps.baseLanguage.math.structure.MathPrimitiveType");
   }
 }

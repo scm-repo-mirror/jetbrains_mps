@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class CheckingRuleReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_4hu1dd_a(), AUX_4hu1dd.CheckingRuleReference_b0da7032));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_4hu1dd_a(), CONCEPTS.CheckingRuleReference$lK));
     result.add(new SMP_Subconcepts_4hu1dd_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class CheckingRuleReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_4hu1dd_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_4hu1dd.CheckingRuleReference_b0da7032, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2054bec22d01782eL, 0x2054bec22d01782fL, "declaration"));
+      super((SAbstractConcept) CONCEPTS.CheckingRuleReference$lK, LINKS.declaration$jp80);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class CheckingRuleReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_4hu1dd_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_4hu1dd.CheckingRuleReference_b0da7032);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.CheckingRuleReference$lK);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class CheckingRuleReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_4hu1dd {
-    /*package*/ static final SConcept CheckingRuleReference_b0da7032 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2054bec22d01782eL, "jetbrains.mps.lang.typesystem.structure.CheckingRuleReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CheckingRuleReference$lK = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2054bec22d01782eL, "jetbrains.mps.lang.typesystem.structure.CheckingRuleReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$jp80 = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2054bec22d01782eL, 0x2054bec22d01782fL, "declaration");
   }
 }

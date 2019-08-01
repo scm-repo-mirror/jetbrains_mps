@@ -9,26 +9,27 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.typesystem.RulesUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class typeof_TransactionPropertyHandler_newValue_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_TransactionPropertyHandler_newValue_InferenceRule() {
   }
   public void applyRule(final SNode value, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode transactionalProperty = SNodeOperations.getNodeAncestor(value, AUX_6xc0u8.CellModel_TransactionalProperty_c197ca8a, false, false);
-    SNode property = SLinkOperations.getTarget(transactionalProperty, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, 0x11b35f87187L, "property"));
+    SNode transactionalProperty = SNodeOperations.getNodeAncestor(value, CONCEPTS.CellModel_TransactionalProperty$oo, false, false);
+    SNode property = SLinkOperations.getTarget(transactionalProperty, LINKS.property$p2l_);
     {
       SNode _nodeToCheck_1029348928467 = value;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "2735767332089497934", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "2735767332089497946", true), (SNode) RulesUtil.datatypeBLType(SLinkOperations.getTarget(property, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType"))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "2735767332089497946", true), (SNode) RulesUtil.datatypeBLType(SLinkOperations.getTarget(property, LINKS.dataType$fLUl)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_6xc0u8.TransactionPropertyHandler_newValue_e89453a4;
+    return CONCEPTS.TransactionPropertyHandler_newValue$Y;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -37,8 +38,13 @@ public class typeof_TransactionPropertyHandler_newValue_InferenceRule extends Ab
     return false;
   }
 
-  private static final class AUX_6xc0u8 {
-    /*package*/ static final SConcept CellModel_TransactionalProperty_c197ca8a = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, "jetbrains.mps.lang.editor.structure.CellModel_TransactionalProperty");
-    /*package*/ static final SConcept TransactionPropertyHandler_newValue_e89453a4 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f75b6dL, "jetbrains.mps.lang.editor.structure.TransactionPropertyHandler_newValue");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_TransactionalProperty$oo = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, "jetbrains.mps.lang.editor.structure.CellModel_TransactionalProperty");
+    /*package*/ static final SConcept TransactionPropertyHandler_newValue$Y = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f75b6dL, "jetbrains.mps.lang.editor.structure.TransactionPropertyHandler_newValue");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink property$p2l_ = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11b35f4f515L, 0x11b35f87187L, "property");
+    /*package*/ static final SReferenceLink dataType$fLUl = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType");
   }
 }

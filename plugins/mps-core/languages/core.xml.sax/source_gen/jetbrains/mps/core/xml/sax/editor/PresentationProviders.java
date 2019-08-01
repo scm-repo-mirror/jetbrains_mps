@@ -7,23 +7,28 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PresentationProviders {
   public static final IReferentPresentationProvider PRESENTATION_air6th_a0a0a = new IReferentPresentationProvider() {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      if (SNodeOperations.getNodeAncestor(sourceNode, AUX_nxpo3o.XMLSAXNodeRule_1c3fd687, true, false) != SNodeOperations.getParent(targetNode)) {
-        SNode nodeRule = SNodeOperations.as(SNodeOperations.getParent(targetNode), AUX_nxpo3o.XMLSAXNodeRule_1c3fd687);
-        return ((nodeRule == null ? "<unknown>" : SPropertyOperations.getString(nodeRule, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) + "." + SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      if (SNodeOperations.getNodeAncestor(sourceNode, CONCEPTS.XMLSAXNodeRule$AV, true, false) != SNodeOperations.getParent(targetNode)) {
+        SNode nodeRule = SNodeOperations.as(SNodeOperations.getParent(targetNode), CONCEPTS.XMLSAXNodeRule$AV);
+        return ((nodeRule == null ? "<unknown>" : SPropertyOperations.getString(nodeRule, PROPS.name$tAp1))) + "." + SPropertyOperations.getString(targetNode, PROPS.name$tAp1);
       }
-      return SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return SPropertyOperations.getString(targetNode, PROPS.name$tAp1);
     }
   };
 
-  private static final class AUX_nxpo3o {
-    /*package*/ static final SConcept XMLSAXNodeRule_1c3fd687 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXNodeRule$AV = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

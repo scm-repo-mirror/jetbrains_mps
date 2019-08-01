@@ -36,7 +36,7 @@ public class IgnoreRightSquareBracketInVariableName extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_gp0wom.VariableDeclaration_3c610994))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.VariableDeclaration$xe))) {
         return false;
       }
       return true;
@@ -52,7 +52,7 @@ public class IgnoreRightSquareBracketInVariableName extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_gp0wom {
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
   }
 }

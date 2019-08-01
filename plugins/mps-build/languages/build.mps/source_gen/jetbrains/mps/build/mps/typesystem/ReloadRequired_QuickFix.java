@@ -21,17 +21,17 @@ public class ReloadRequired_QuickFix extends QuickFix_Runtime {
     return "Load required information from file";
   }
   public void execute(SNode node) {
-    SNode module = SNodeOperations.as(node, AUX_8991mf.BuildMps_AbstractModule_ebf3f6db);
+    SNode module = SNodeOperations.as(node, CONCEPTS.BuildMps_AbstractModule$fB);
     if (module == null) {
       return;
     }
 
-    SNode project = SNodeOperations.as(SNodeOperations.getContainingRoot(node), AUX_8991mf.BuildProject_808bb057);
+    SNode project = SNodeOperations.as(SNodeOperations.getContainingRoot(node), CONCEPTS.BuildProject$BF);
     if ((project == null)) {
       return;
     }
 
-    if (SNodeOperations.isInstanceOf(module, AUX_8991mf.BuildMps_Generator_bcabe904)) {
+    if (SNodeOperations.isInstanceOf(module, CONCEPTS.BuildMps_Generator$ru)) {
       return;
     }
 
@@ -39,9 +39,9 @@ public class ReloadRequired_QuickFix extends QuickFix_Runtime {
     ml.createModuleChecker(module).check(ModuleChecker.CheckType.LOAD_IMPORTANT_PART);
   }
 
-  private static final class AUX_8991mf {
-    /*package*/ static final SConcept BuildMps_AbstractModule_ebf3f6db = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, "jetbrains.mps.build.mps.structure.BuildMps_AbstractModule");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildMps_Generator_bcabe904 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_AbstractModule$fB = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, "jetbrains.mps.build.mps.structure.BuildMps_AbstractModule");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildMps_Generator$ru = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator");
   }
 }

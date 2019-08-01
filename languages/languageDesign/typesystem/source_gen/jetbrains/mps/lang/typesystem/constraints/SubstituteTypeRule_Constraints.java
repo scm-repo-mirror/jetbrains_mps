@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SubstituteTypeRule_Constraints extends BaseConstraintsDescriptor {
   public SubstituteTypeRule_Constraints() {
-    super(AUX_px5uf7.SubstituteTypeRule_21d2d106);
+    super(CONCEPTS.SubstituteTypeRule$Ws);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class SubstituteTypeRule_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)", "6405009306797516358");
 
-  private static final class AUX_px5uf7 {
-    /*package*/ static final SConcept SubstituteTypeRule_21d2d106 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x58e32a0782bca52aL, "jetbrains.mps.lang.typesystem.structure.SubstituteTypeRule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstituteTypeRule$Ws = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x58e32a0782bca52aL, "jetbrains.mps.lang.typesystem.structure.SubstituteTypeRule");
   }
 }

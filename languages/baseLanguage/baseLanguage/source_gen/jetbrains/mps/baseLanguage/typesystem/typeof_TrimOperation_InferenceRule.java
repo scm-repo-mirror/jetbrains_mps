@@ -25,7 +25,7 @@ public class typeof_TrimOperation_InferenceRule extends AbstractInferenceRule_Ru
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_w48852.TrimOperation_93dc8225;
+    return CONCEPTS.TrimOperation$7t;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_TrimOperation_InferenceRule extends AbstractInferenceRule_Ru
     return quotedNode_1;
   }
 
-  private static final class AUX_w48852 {
-    /*package*/ static final SConcept TrimOperation_93dc8225 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47e0122aL, "jetbrains.mps.baseLanguage.structure.TrimOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TrimOperation$7t = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47e0122aL, "jetbrains.mps.baseLanguage.structure.TrimOperation");
   }
 }

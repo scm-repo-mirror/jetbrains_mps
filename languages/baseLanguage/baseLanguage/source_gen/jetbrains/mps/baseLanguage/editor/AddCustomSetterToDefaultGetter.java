@@ -6,12 +6,13 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class AddCustomSetterToDefaultGetter {
@@ -22,8 +23,8 @@ public class AddCustomSetterToDefaultGetter {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b7a2005a14cfe5eL, 0x3b7a2005a14d0185L, "setAccessor")) == null)) {
-          SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b7a2005a14cfe5eL, 0x3b7a2005a14d0185L, "setAccessor"), SNodeFactoryOperations.createNewNode(AUX_zf9kf4.SetAccessor_d09c9ac9, null));
+        if ((SLinkOperations.getTarget(node, LINKS.setAccessor$VUMX) == null)) {
+          SLinkOperations.setTarget(node, LINKS.setAccessor$VUMX, SNodeFactoryOperations.createNewNode(CONCEPTS.SetAccessor$QT, null));
         }
       }
 
@@ -35,7 +36,7 @@ public class AddCustomSetterToDefaultGetter {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeFactoryOperations.replaceWithNewChild(node, AUX_zf9kf4.DefaultPropertyImplementation_63948c4f);
+        SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.DefaultPropertyImplementation$NN);
       }
 
     };
@@ -80,8 +81,12 @@ public class AddCustomSetterToDefaultGetter {
     }
   }
 
-  private static final class AUX_zf9kf4 {
-    /*package*/ static final SConcept SetAccessor_d09c9ac9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117bd9ac3d9L, "jetbrains.mps.baseLanguage.structure.SetAccessor");
-    /*package*/ static final SConcept DefaultPropertyImplementation_63948c4f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b7633177L, "jetbrains.mps.baseLanguage.structure.DefaultPropertyImplementation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink setAccessor$VUMX = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b7a2005a14cfe5eL, 0x3b7a2005a14d0185L, "setAccessor");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SetAccessor$QT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117bd9ac3d9L, "jetbrains.mps.baseLanguage.structure.SetAccessor");
+    /*package*/ static final SConcept DefaultPropertyImplementation$NN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b7633177L, "jetbrains.mps.baseLanguage.structure.DefaultPropertyImplementation");
   }
 }

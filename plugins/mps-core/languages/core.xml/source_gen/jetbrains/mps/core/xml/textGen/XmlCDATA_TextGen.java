@@ -9,24 +9,29 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.xml.behavior.XmlPart__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XmlCDATA_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
     SNode left = SNodeOperations.getPrevSibling(ctx.getPrimaryInput());
-    if (SNodeOperations.isInstanceOf(left, AUX_r909bh.XmlContent_5d5001c3) && (boolean) XmlPart__BehaviorDescriptor.hasNewLineAfter_id1Qs9WekVZ9E.invoke(SNodeOperations.cast(left, AUX_r909bh.XmlContent_5d5001c3))) {
+    if (SNodeOperations.isInstanceOf(left, CONCEPTS.XmlContent$nZ) && (boolean) XmlPart__BehaviorDescriptor.hasNewLineAfter_id1Qs9WekVZ9E.invoke(SNodeOperations.cast(left, CONCEPTS.XmlContent$nZ))) {
       tgs.newLine();
       tgs.indent();
     }
     tgs.append("<![CDATA[");
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549487aL, 0x16838b3fce9b2633L, "content")));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.content$ENhU));
     tgs.append("]]>");
   }
 
-  private static final class AUX_r909bh {
-    /*package*/ static final SConcept XmlContent_5d5001c3 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486bL, "jetbrains.mps.core.xml.structure.XmlContent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlContent$nZ = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549486bL, "jetbrains.mps.core.xml.structure.XmlContent");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty content$ENhU = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549487aL, 0x16838b3fce9b2633L, "content");
   }
 }

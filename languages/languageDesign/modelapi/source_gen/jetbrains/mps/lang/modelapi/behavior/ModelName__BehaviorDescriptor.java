@@ -4,6 +4,7 @@ package jetbrains.mps.lang.modelapi.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,14 +18,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ModelName__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_79j0p6.ModelName_561a0ce1;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, "jetbrains.mps.lang.modelapi.structure.ModelName");
 
   public static final SMethod<SNode> create_id_GDk1qZ6bz = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("create").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("_GDk1qZ6bz").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(String.class, ""));
   public static final SMethod<SNode> create_id_GDk1qZdiH = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("create").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("_GDk1qZdiH").build(SMethodBuilder.createJavaParameter((Class<SModel>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter(SModelName.class, ""));
@@ -39,26 +40,26 @@ public final class ModelName__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SNode create_id_GDk1qZ6bz(@NotNull SAbstractConcept __thisConcept__, SModel where, String value) {
-    SNode rv = SModelOperations.createNewNode(where, null, AUX_79j0p6.ModelName_561a0ce1);
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"), value);
+    SNode rv = SModelOperations.createNewNode(where, null, CONCEPTS.ModelName$Ux);
+    SPropertyOperations.assign(rv, PROPS.value$givw, value);
     return rv;
   }
   /*package*/ static SNode create_id_GDk1qZdiH(@NotNull SAbstractConcept __thisConcept__, SModel where, SModelName modelName) {
-    SNode rv = SModelOperations.createNewNode(where, null, AUX_79j0p6.ModelName_561a0ce1);
-    SPropertyOperations.assign(rv, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"), modelName.getValue());
+    SNode rv = SModelOperations.createNewNode(where, null, CONCEPTS.ModelName$Ux);
+    SPropertyOperations.assign(rv, PROPS.value$givw, modelName.getValue());
     return rv;
   }
   /*package*/ static String getNamespace_id_GDk1qYZiR(@NotNull SNode __thisNode__) {
-    return new SModelName(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"))).getNamespace();
+    return new SModelName(SPropertyOperations.getString(__thisNode__, PROPS.value$givw)).getNamespace();
   }
   /*package*/ static String getStereotype_id_GDk1qZ1fV(@NotNull SNode __thisNode__) {
-    return new SModelName(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"))).getStereotype();
+    return new SModelName(SPropertyOperations.getString(__thisNode__, PROPS.value$givw)).getStereotype();
   }
   /*package*/ static String getLongName_id_GDk1qZ1tf(@NotNull SNode __thisNode__) {
-    return new SModelName(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"))).getLongName();
+    return new SModelName(SPropertyOperations.getString(__thisNode__, PROPS.value$givw)).getLongName();
   }
   /*package*/ static String getSimpleName_id_GDk1qZ1ND(@NotNull SNode __thisNode__) {
-    return new SModelName(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value"))).getSimpleName();
+    return new SModelName(SPropertyOperations.getString(__thisNode__, PROPS.value$givw)).getSimpleName();
   }
 
   /*package*/ ModelName__BehaviorDescriptor() {
@@ -117,7 +118,11 @@ public final class ModelName__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_79j0p6 {
-    /*package*/ static final SConcept ModelName_561a0ce1 = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, "jetbrains.mps.lang.modelapi.structure.ModelName");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModelName$Ux = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, "jetbrains.mps.lang.modelapi.structure.ModelName");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$givw = MetaAdapterFactory.getProperty(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x96ca5405afbf490L, 0x96ca5405afbf491L, "value");
   }
 }

@@ -25,7 +25,7 @@ public class typeof_Node_IsNullOperation_InferenceRule extends AbstractInference
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3qig26.Node_IsNullOperation_2152399b;
+    return CONCEPTS.Node_IsNullOperation$$B;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_Node_IsNullOperation_InferenceRule extends AbstractInference
     return quotedNode_1;
   }
 
-  private static final class AUX_3qig26 {
-    /*package*/ static final SConcept Node_IsNullOperation_2152399b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110e0974e46L, "jetbrains.mps.lang.smodel.structure.Node_IsNullOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_IsNullOperation$$B = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110e0974e46L, "jetbrains.mps.lang.smodel.structure.Node_IsNullOperation");
   }
 }

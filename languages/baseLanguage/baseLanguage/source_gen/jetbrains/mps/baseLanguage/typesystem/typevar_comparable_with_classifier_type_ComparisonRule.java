@@ -27,14 +27,14 @@ public class typevar_comparable_with_classifier_type_ComparisonRule extends Comp
   }
 
   public SAbstractConcept getApplicableConcept1() {
-    return AUX_thiktl.ClassifierType_42700403;
+    return CONCEPTS.ClassifierType$IZ;
   }
   public SAbstractConcept getApplicableConcept2() {
-    return AUX_thiktl.TypeVariableReference_3815fc3;
+    return CONCEPTS.TypeVariableReference$vZ;
   }
 
-  private static final class AUX_thiktl {
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
-    /*package*/ static final SConcept TypeVariableReference_3815fc3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+    /*package*/ static final SConcept TypeVariableReference$vZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
   }
 }

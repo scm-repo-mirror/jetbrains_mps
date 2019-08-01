@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
@@ -19,6 +18,8 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_PropertyDeclaration_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -26,34 +27,34 @@ public class check_PropertyDeclaration_NonTypesystemRule extends AbstractNonType
   }
   public void applyRule(final SNode prop, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     // property overriding is banned 
-    if (SPropertyOperations.getString(prop, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) == null) {
+    if (SPropertyOperations.getString(prop, PROPS.name$tAp1) == null) {
       return;
     }
-    SNode concept = SNodeOperations.getNodeAncestor(prop, AUX_lxacuo.AbstractConceptDeclaration_ec74828f, false, false);
-    SNode propInConcept = AbstractConceptDeclaration__BehaviorDescriptor.findPropertyDeclaration_idhK3S4A1.invoke(concept, SPropertyOperations.getString(prop, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    SNode concept = SNodeOperations.getNodeAncestor(prop, CONCEPTS.AbstractConceptDeclaration$UN, false, false);
+    SNode propInConcept = AbstractConceptDeclaration__BehaviorDescriptor.findPropertyDeclaration_idhK3S4A1.invoke(concept, SPropertyOperations.getString(prop, PROPS.name$tAp1));
     if (prop != propInConcept) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(prop, "property '" + SPropertyOperations.getString(prop, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' is already declared in " + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(propInConcept, AUX_lxacuo.AbstractConceptDeclaration_ec74828f, false, false), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "1212182341577", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(prop, "property '" + SPropertyOperations.getString(prop, PROPS.name$tAp1) + "' is already declared in " + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(propInConcept, CONCEPTS.AbstractConceptDeclaration$UN, false, false), PROPS.name$tAp1), "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "1212182341577", null, errorTarget);
       }
       return;
     }
     // check constant names generated in adapters 
-    final String name = NameUtil.toConstantName(SPropertyOperations.getString(prop, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    final String name = NameUtil.toConstantName(SPropertyOperations.getString(prop, PROPS.name$tAp1));
     SNode node = ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(concept)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return it != prop && Objects.equals(name, NameUtil.toConstantName(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))));
+        return it != prop && Objects.equals(name, NameUtil.toConstantName(SPropertyOperations.getString(it, PROPS.name$tAp1)));
       }
     });
     if ((node != null)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(prop, "similar property '" + SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "' is declared in " + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(node, AUX_lxacuo.AbstractConceptDeclaration_ec74828f, false, false), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "576141512674073565", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(prop, "similar property '" + SPropertyOperations.getString(node, PROPS.name$tAp1) + "' is declared in " + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(node, CONCEPTS.AbstractConceptDeclaration$UN, false, false), PROPS.name$tAp1), "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "576141512674073565", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_lxacuo.PropertyDeclaration_ce818bfd;
+    return CONCEPTS.PropertyDeclaration$c5;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -62,8 +63,12 @@ public class check_PropertyDeclaration_NonTypesystemRule extends AbstractNonType
     return false;
   }
 
-  private static final class AUX_lxacuo {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept PropertyDeclaration_ce818bfd = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept PropertyDeclaration$c5 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, "jetbrains.mps.lang.structure.structure.PropertyDeclaration");
   }
 }

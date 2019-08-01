@@ -64,11 +64,11 @@ public class DevkitPointer_SubstituteMenu extends SubstituteMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.smodel.editor.Devkits_Substitute");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_u3lrke.DevkitPointer_3ae74ac5;
+      return CONCEPTS.DevkitPointer$OX;
     }
   }
 
-  private static final class AUX_u3lrke {
-    /*package*/ static final SConcept DevkitPointer_3ae74ac5 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, "jetbrains.mps.lang.smodel.structure.DevkitPointer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DevkitPointer$OX = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, "jetbrains.mps.lang.smodel.structure.DevkitPointer");
   }
 }

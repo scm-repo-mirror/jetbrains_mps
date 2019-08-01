@@ -36,7 +36,7 @@ public final class MarkAsNonThreadSafe_Intention extends AbstractIntentionDescri
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_7sz8pl.NonThreadSafeClass_dea93301)) == null;
+    return AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NonThreadSafeClass$M1)) == null;
   }
   @Override
   public boolean isSurroundWith() {
@@ -57,8 +57,8 @@ public final class MarkAsNonThreadSafe_Intention extends AbstractIntentionDescri
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_7sz8pl.NonThreadSafeClass_dea93301), SNodeFactoryOperations.createNewNode(AUX_7sz8pl.NonThreadSafeClass_dea93301, null));
-      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_7sz8pl.ThreadSafe_dcd8a07b), null);
+      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NonThreadSafeClass$M1), SNodeFactoryOperations.createNewNode(CONCEPTS.NonThreadSafeClass$M1, null));
+      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ThreadSafe$T7), null);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -66,8 +66,8 @@ public final class MarkAsNonThreadSafe_Intention extends AbstractIntentionDescri
     }
   }
 
-  private static final class AUX_7sz8pl {
-    /*package*/ static final SConcept NonThreadSafeClass_dea93301 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b8450380L, "org.jetbrains.mps.samples.ParallelFor.structure.NonThreadSafeClass");
-    /*package*/ static final SConcept ThreadSafe_dcd8a07b = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b84332e6L, "org.jetbrains.mps.samples.ParallelFor.structure.ThreadSafe");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NonThreadSafeClass$M1 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b8450380L, "org.jetbrains.mps.samples.ParallelFor.structure.NonThreadSafeClass");
+    /*package*/ static final SConcept ThreadSafe$T7 = MetaAdapterFactory.getConcept(0xcb7388e8f1824cdaL, 0xbd839796e8634856L, 0x294c1cd4b84332e6L, "org.jetbrains.mps.samples.ParallelFor.structure.ThreadSafe");
   }
 }

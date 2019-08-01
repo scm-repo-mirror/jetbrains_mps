@@ -40,7 +40,7 @@ public class DeriveGenPlanModel_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_d31sgf.Plan_4c7f418c))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.Plan$Xm))) {
         node = null;
       }
       if (node == null) {
@@ -88,7 +88,7 @@ public class DeriveGenPlanModel_Action extends BaseAction {
     });
   }
 
-  private static final class AUX_d31sgf {
-    /*package*/ static final SConcept Plan_4c7f418c = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, "jetbrains.mps.lang.generator.plan.structure.Plan");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Plan$Xm = MetaAdapterFactory.getConcept(0x7ab1a6fa0a114b95L, 0x9e4875f363d6cb00L, 0x19443180a20717fbL, "jetbrains.mps.lang.generator.plan.structure.Plan");
   }
 }

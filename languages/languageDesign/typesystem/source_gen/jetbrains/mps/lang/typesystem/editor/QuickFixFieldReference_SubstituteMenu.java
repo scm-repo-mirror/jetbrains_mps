@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class QuickFixFieldReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_gea767_a(), AUX_gea767.QuickFixFieldReference_bbeee072));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_gea767_a(), CONCEPTS.QuickFixFieldReference$OK));
     result.add(new SMP_Subconcepts_gea767_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class QuickFixFieldReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_gea767_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_gea767.QuickFixFieldReference_bbeee072, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, 0x70489eee8479b55eL, "quickFixField"));
+      super((SAbstractConcept) CONCEPTS.QuickFixFieldReference$OK, LINKS.quickFixField$QTC0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class QuickFixFieldReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_gea767_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_gea767.QuickFixFieldReference_bbeee072);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.QuickFixFieldReference$OK);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class QuickFixFieldReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_gea767 {
-    /*package*/ static final SConcept QuickFixFieldReference_bbeee072 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, "jetbrains.mps.lang.typesystem.structure.QuickFixFieldReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QuickFixFieldReference$OK = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, "jetbrains.mps.lang.typesystem.structure.QuickFixFieldReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink quickFixField$QTC0 = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, 0x70489eee8479b55eL, "quickFixField");
   }
 }

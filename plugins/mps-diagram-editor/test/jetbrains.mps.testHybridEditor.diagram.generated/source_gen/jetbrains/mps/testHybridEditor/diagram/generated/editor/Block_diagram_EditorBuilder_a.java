@@ -12,7 +12,6 @@ import jetbrains.mps.nodeEditor.cells.jetpad.PropertyMapperCell;
 import jetbrains.jetpad.model.collections.list.ObservableList;
 import jetbrains.jetpad.model.collections.list.ObservableArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.Pair;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
@@ -34,6 +33,9 @@ import jetbrains.mps.nodeEditor.cells.jetpad.JetpadUtils;
 import jetbrains.mps.nodeEditor.cells.jetpad.DiagramCell;
 import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.NodeDecoratorView;
 import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.PortDecoratorView;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class Block_diagram_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -73,40 +75,40 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.PortDecoratorView;
       super(editorContext, node);
       myPropertyCell_pj4dhh_a0a = new PropertyMapperCell<String>(editorContext, node) {
         protected String getModelPropertyValueImpl() {
-          return SPropertyOperations.getString(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          return SPropertyOperations.getString(node, PROPS.name$tAp1);
         }
         protected void setModelPropertyValueImpl(String value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), value);
+          SPropertyOperations.assign(node, PROPS.name$tAp1, value);
         }
       };
       addEditorCell(myPropertyCell_pj4dhh_a0a);
       myPropertyCell_pj4dhh_a0a.getEditorComponent().getUpdater().getCurrentUpdateSession().registerCleanDependency(myPropertyCell_pj4dhh_a0a, new Pair<SNodeReference, String>(new SNodePointer(node), "name"));
       myPropertyCell_pj4dhh_a1a = new PropertyMapperCell<Boolean>(editorContext, node) {
         protected Boolean getModelPropertyValueImpl() {
-          return SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x44b26e77dadd9885L, "myBooleanProperty"));
+          return SPropertyOperations.getBoolean(node, PROPS.myBooleanProperty$wXpw);
         }
         protected void setModelPropertyValueImpl(Boolean value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x44b26e77dadd9885L, "myBooleanProperty"), value);
+          SPropertyOperations.assign(node, PROPS.myBooleanProperty$wXpw, value);
         }
       };
       addEditorCell(myPropertyCell_pj4dhh_a1a);
       myPropertyCell_pj4dhh_a1a.getEditorComponent().getUpdater().getCurrentUpdateSession().registerCleanDependency(myPropertyCell_pj4dhh_a1a, new Pair<SNodeReference, String>(new SNodePointer(node), "myBooleanProperty"));
       myPropertyCell_pj4dhh_a2a = new PropertyMapperCell<Integer>(editorContext, node) {
         protected Integer getModelPropertyValueImpl() {
-          return SPropertyOperations.getInteger(node, MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x57239d35e26cf167L, "x"));
+          return SPropertyOperations.getInteger(node, PROPS.x$$W_$);
         }
         protected void setModelPropertyValueImpl(Integer value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x57239d35e26cf167L, "x"), value);
+          SPropertyOperations.assign(node, PROPS.x$$W_$, value);
         }
       };
       addEditorCell(myPropertyCell_pj4dhh_a2a);
       myPropertyCell_pj4dhh_a2a.getEditorComponent().getUpdater().getCurrentUpdateSession().registerCleanDependency(myPropertyCell_pj4dhh_a2a, new Pair<SNodeReference, String>(new SNodePointer(node), "x"));
       myPropertyCell_pj4dhh_a3a = new PropertyMapperCell<Integer>(editorContext, node) {
         protected Integer getModelPropertyValueImpl() {
-          return SPropertyOperations.getInteger(node, MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x57239d35e26cf357L, "y"));
+          return SPropertyOperations.getInteger(node, PROPS.y$_wV3);
         }
         protected void setModelPropertyValueImpl(Integer value) {
-          SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x57239d35e26cf357L, "y"), value);
+          SPropertyOperations.assign(node, PROPS.y$_wV3, value);
         }
       };
       addEditorCell(myPropertyCell_pj4dhh_a3a);
@@ -119,8 +121,8 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.PortDecoratorView;
       myPropertyCell_pj4dhh_a1a.synchronize();
       myPropertyCell_pj4dhh_a2a.synchronize();
       myPropertyCell_pj4dhh_a3a.synchronize();
-      syncPortNodes(SLinkOperations.getChildren(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65702ffeL, "inputPorts")), myInputPorts.listIterator(), new HashSet<SNode>(myInputPorts));
-      syncPortNodes(SLinkOperations.getChildren(getSNode(), MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65703000L, "outputPorts")), myOutputPorts.listIterator(), new HashSet<SNode>(myOutputPorts));
+      syncPortNodes(SLinkOperations.getChildren(getSNode(), LINKS.inputPorts$18yY), myInputPorts.listIterator(), new HashSet<SNode>(myInputPorts));
+      syncPortNodes(SLinkOperations.getChildren(getSNode(), LINKS.outputPorts$18zW), myOutputPorts.listIterator(), new HashSet<SNode>(myOutputPorts));
     }
     public Mapper<SNode, DiagramNodeView> createMapper() {
       return new Mapper<SNode, DiagramNodeView>(getSNode(), createDiagramNodeView()) {
@@ -236,5 +238,17 @@ import jetbrains.mps.lang.editor.diagram.runtime.jetpad.views.PortDecoratorView;
         }
       };
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty myBooleanProperty$wXpw = MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x44b26e77dadd9885L, "myBooleanProperty");
+    /*package*/ static final SProperty x$$W_$ = MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x57239d35e26cf167L, "x");
+    /*package*/ static final SProperty y$_wV3 = MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0x57239d35e26cf357L, "y");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink inputPorts$18yY = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65702ffeL, "inputPorts");
+    /*package*/ static final SContainmentLink outputPorts$18zW = MetaAdapterFactory.getContainmentLink(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702f98L, 0xa10615a65703000L, "outputPorts");
   }
 }

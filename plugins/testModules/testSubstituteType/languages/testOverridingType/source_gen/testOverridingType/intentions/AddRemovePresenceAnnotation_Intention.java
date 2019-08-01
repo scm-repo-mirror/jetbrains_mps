@@ -47,15 +47,15 @@ public final class AddRemovePresenceAnnotation_Intention extends AbstractIntenti
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_93hfvy.OverrideAnnotation_8ef10817)) == null) ? "Add Presence Annotation" : "Remove Presence Annotation");
+      return ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.OverrideAnnotation$CF)) == null) ? "Add Presence Annotation" : "Remove Presence Annotation");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_93hfvy.OverrideAnnotation_8ef10817)) == null)) {
-        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(AUX_93hfvy.OverrideAnnotation_8ef10817), AUX_93hfvy.OverrideAnnotation_8ef10817);
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.OverrideAnnotation$CF)) == null)) {
+        AttributeOperations.createAndSetAttrbiute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.OverrideAnnotation$CF), CONCEPTS.OverrideAnnotation$CF);
 
       } else {
-        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_93hfvy.OverrideAnnotation_8ef10817)));
+        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.OverrideAnnotation$CF)));
       }
     }
     @Override
@@ -64,7 +64,7 @@ public final class AddRemovePresenceAnnotation_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_93hfvy {
-    /*package*/ static final SConcept OverrideAnnotation_8ef10817 = MetaAdapterFactory.getConcept(0x394e385732564e8bL, 0x96015abe7ad354d9L, 0x391548fac32006d4L, "testOverridingType.structure.OverrideAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OverrideAnnotation$CF = MetaAdapterFactory.getConcept(0x394e385732564e8bL, 0x96015abe7ad354d9L, 0x391548fac32006d4L, "testOverridingType.structure.OverrideAnnotation");
   }
 }

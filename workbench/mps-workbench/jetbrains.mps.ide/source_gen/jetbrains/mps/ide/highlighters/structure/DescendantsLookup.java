@@ -10,7 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.nodeEditor.EditorMessage;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
@@ -22,6 +21,8 @@ import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ final class DescendantsLookup {
@@ -41,7 +42,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   @Nullable
   /*package*/ EditorMessage calcMessage() {
-    if (SPropertyOperations.getBoolean(myConcept, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec7L, "final"))) {
+    if (SPropertyOperations.getBoolean(myConcept, PROPS.final$moVl)) {
       return null;
     }
     Set<SNode> overrides = findDescendantsOverrides(myCancellable);
@@ -68,8 +69,8 @@ import org.jetbrains.mps.openapi.language.SConcept;
         SNode nodeParam = (SNode) searchResult.getObject();
         new _FunctionTypes._void_P1_E0<SNode>() {
           public void invoke(SNode res) {
-            if (SNodeOperations.isInstanceOf(res, AUX_bxsweg.AbstractConceptDeclaration_ec74828f)) {
-              SetSequence.fromSet(result).addElement(SNodeOperations.cast(res, AUX_bxsweg.AbstractConceptDeclaration_ec74828f));
+            if (SNodeOperations.isInstanceOf(res, CONCEPTS.AbstractConceptDeclaration$UN)) {
+              SetSequence.fromSet(result).addElement(SNodeOperations.cast(res, CONCEPTS.AbstractConceptDeclaration$UN));
               if (SetSequence.fromSet(result).count() > myMaxResultsToCollect) {
                 monitor.cancel();
               }
@@ -81,7 +82,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return result;
   }
 
-  private static final class AUX_bxsweg {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty final$moVl = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x403a32c5772c7ec7L, "final");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

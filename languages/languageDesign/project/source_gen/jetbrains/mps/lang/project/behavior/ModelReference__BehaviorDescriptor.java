@@ -4,6 +4,7 @@ package jetbrains.mps.lang.project.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,7 +18,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -25,10 +25,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_z1inv5.ModelReference_33f91149;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, "jetbrains.mps.lang.project.structure.ModelReference");
 
   public static final SMethod<String> getModelReference_id5qdugmiLBZZ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getModelReference").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5qdugmiLBZZ").build();
   public static final SMethod<SModelReference> toModelReference_id2BHFktfnfdc = new SMethodBuilder<SModelReference>(new SJavaCompoundTypeImpl(SModelReference.class)).name("toModelReference").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2BHFktfnfdc").build();
@@ -45,27 +47,27 @@ public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static SModelReference toModelReference_id2BHFktfnfdc(@NotNull SNode __thisNode__) {
     SModuleReference moduleRef = null;
-    if (SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x29edad474f5d54b1L, "module")) != null) {
-      moduleRef = ModuleReference__BehaviorDescriptor.toModuleReference_id2BHFktfnkjF.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x29edad474f5d54b1L, "module")));
+    if (SLinkOperations.getTarget(__thisNode__, LINKS.module$rfH6) != null) {
+      moduleRef = ModuleReference__BehaviorDescriptor.toModuleReference_id2BHFktfnkjF.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.module$rfH6));
     }
     PersistenceFacade pf = PersistenceFacade.getInstance();
-    return pf.createModelReference(moduleRef, pf.createModelId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5869770da61dfe2dL, "uuid"))), new SModelName(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5869770da61dfe2eL, "qualifiedName")), SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5c5cb5cdd09abfb1L, "stereotype"))).getValue());
+    return pf.createModelReference(moduleRef, pf.createModelId(SPropertyOperations.getString(__thisNode__, PROPS.uuid$8rlV)), new SModelName(SPropertyOperations.getString(__thisNode__, PROPS.qualifiedName$8rw_), SPropertyOperations.getString(__thisNode__, PROPS.stereotype$MaYH)).getValue());
   }
   /*package*/ static void populateFrom_id2BHFktfniCd(@NotNull SNode __thisNode__, SModelReference modelRef) {
     if (modelRef.getModelId().isGloballyUnique()) {
-      SNodeOperations.deleteNode(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x29edad474f5d54b1L, "module")));
+      SNodeOperations.deleteNode(SLinkOperations.getTarget(__thisNode__, LINKS.module$rfH6));
     } else {
-      SNode moduleRef = SModelOperations.createNewNode(SNodeOperations.getModel(__thisNode__), null, AUX_z1inv5.ModuleReference_99810d32);
+      SNode moduleRef = SModelOperations.createNewNode(SNodeOperations.getModel(__thisNode__), null, CONCEPTS.ModuleReference$xK);
       ModuleReference__BehaviorDescriptor.populateFrom_id2BHFktfnlSL.invoke(moduleRef, modelRef.getModuleReference());
-      SLinkOperations.setTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x29edad474f5d54b1L, "module"), moduleRef);
+      SLinkOperations.setTarget(__thisNode__, LINKS.module$rfH6, moduleRef);
     }
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5869770da61dfe2dL, "uuid"), PersistenceFacade.getInstance().asString(modelRef.getModelId()));
+    SPropertyOperations.assign(__thisNode__, PROPS.uuid$8rlV, PersistenceFacade.getInstance().asString(modelRef.getModelId()));
     SModelName modelName = modelRef.getName();
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5869770da61dfe2eL, "qualifiedName"), modelName.getLongName());
+    SPropertyOperations.assign(__thisNode__, PROPS.qualifiedName$8rw_, modelName.getLongName());
     if (modelName.hasStereotype()) {
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5c5cb5cdd09abfb1L, "stereotype"), modelName.getStereotype());
+      SPropertyOperations.assign(__thisNode__, PROPS.stereotype$MaYH, modelName.getStereotype());
     } else {
-      SPropertyOperations.remove(__thisNode__, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5c5cb5cdd09abfb1L, "stereotype"));
+      SPropertyOperations.remove(__thisNode__, PROPS.stereotype$MaYH);
     }
   }
 
@@ -120,8 +122,17 @@ public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_z1inv5 {
-    /*package*/ static final SConcept ModelReference_33f91149 = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, "jetbrains.mps.lang.project.structure.ModelReference");
-    /*package*/ static final SConcept ModuleReference_99810d32 = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x19bfb4173fb5210cL, "jetbrains.mps.lang.project.structure.ModuleReference");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink module$rfH6 = MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x29edad474f5d54b1L, "module");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty uuid$8rlV = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5869770da61dfe2dL, "uuid");
+    /*package*/ static final SProperty qualifiedName$8rw_ = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5869770da61dfe2eL, "qualifiedName");
+    /*package*/ static final SProperty stereotype$MaYH = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe27L, 0x5c5cb5cdd09abfb1L, "stereotype");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModuleReference$xK = MetaAdapterFactory.getConcept(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x19bfb4173fb5210cL, "jetbrains.mps.lang.project.structure.ModuleReference");
   }
 }

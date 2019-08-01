@@ -11,14 +11,17 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class CreateScript_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -37,7 +40,7 @@ public final class CreateScript_Intention extends AbstractIntentionDescriptor im
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x116597b27aaL, 0x116597b663aL, "mappingScript")) == null);
+    return (SLinkOperations.getTarget(node, LINKS.mappingScript$YoG1) == null);
   }
   @Override
   public boolean isSurroundWith() {
@@ -58,12 +61,12 @@ public final class CreateScript_Intention extends AbstractIntentionDescriptor im
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode script = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(node), AUX_dqz2ve.MappingScript_44901c39, null);
-      SPropertyOperations.set(script, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "script");
-      if (SNodeOperations.hasRole(node, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x116597a610dL, "preMappingScript"))) {
-        SPropertyOperations.setEnum(script, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, 0x1165f0cf1aaL, "scriptKind"), 0x1165f07f3c2L, "pre_processing");
+      SNode script = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(node), CONCEPTS.MappingScript$D9, null);
+      SPropertyOperations.set(script, PROPS.name$tAp1, "script");
+      if (SNodeOperations.hasRole(node, LINKS.preMappingScript$DukP)) {
+        SPropertyOperations.setEnum(script, PROPS.scriptKind$P4GV, 0x1165f07f3c2L, "pre_processing");
       }
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x116597b27aaL, 0x116597b663aL, "mappingScript"), script);
+      SLinkOperations.setTarget(node, LINKS.mappingScript$YoG1, script);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -71,7 +74,17 @@ public final class CreateScript_Intention extends AbstractIntentionDescriptor im
     }
   }
 
-  private static final class AUX_dqz2ve {
-    /*package*/ static final SConcept MappingScript_44901c39 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, "jetbrains.mps.lang.generator.structure.MappingScript");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink mappingScript$YoG1 = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x116597b27aaL, 0x116597b663aL, "mappingScript");
+    /*package*/ static final SContainmentLink preMappingScript$DukP = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x116597a610dL, "preMappingScript");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MappingScript$D9 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, "jetbrains.mps.lang.generator.structure.MappingScript");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty scriptKind$P4GV = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, 0x1165f0cf1aaL, "scriptKind");
   }
 }

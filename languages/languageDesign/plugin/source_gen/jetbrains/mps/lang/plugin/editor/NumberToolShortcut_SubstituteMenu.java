@@ -21,16 +21,17 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.regex.Pattern;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class NumberToolShortcut_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_33swfs.NumberToolShortcut_3de8b80d) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.NumberToolShortcut$zP) {
 
       @NotNull
       @Override
@@ -43,8 +44,8 @@ public class NumberToolShortcut_SubstituteMenu extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_33swfs.NumberToolShortcut_3de8b80d));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_33swfs_b(), AUX_33swfs.NumberToolShortcut_3de8b80d));
+    }, CONCEPTS.NumberToolShortcut$zP));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_33swfs_b(), CONCEPTS.NumberToolShortcut$zP));
     return result;
   }
 
@@ -89,7 +90,7 @@ public class NumberToolShortcut_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_33swfs.NumberToolShortcut_3de8b80d, context);
+        super(CONCEPTS.NumberToolShortcut$zP, context);
         _context = context;
       }
 
@@ -127,13 +128,17 @@ public class NumberToolShortcut_SubstituteMenu extends SubstituteMenuBase {
   }
   private static SNode createNumberToolShortcut_33swfs_a0a0b(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_33swfs.NumberToolShortcut_3de8b80d, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b76107L, 0x68b8d4843b76123L, "number"), MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b76107L, 0x68b8d4843b76123L, "number").getType().toString(p0));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.NumberToolShortcut$zP, null, null, false);
+    n1.setProperty(PROPS.number$5Dx6, PROPS.number$5Dx6.getType().toString(p0));
     return n1;
   }
   private static final Pattern REGEXP_33swfs_a0a0a11c5 = Pattern.compile("\\d", 0);
 
-  private static final class AUX_33swfs {
-    /*package*/ static final SConcept NumberToolShortcut_3de8b80d = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b76107L, "jetbrains.mps.lang.plugin.structure.NumberToolShortcut");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NumberToolShortcut$zP = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b76107L, "jetbrains.mps.lang.plugin.structure.NumberToolShortcut");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty number$5Dx6 = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b76107L, 0x68b8d4843b76123L, "number");
   }
 }

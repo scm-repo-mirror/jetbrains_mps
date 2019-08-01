@@ -20,17 +20,17 @@
       <node id="2516477739733858583" at="39,5,40,64" concept="3" />
       <node id="2516477739733858583" at="40,64,41,90" concept="3" />
       <node id="2516477739733858583" at="43,52,44,36" concept="4" />
-      <node id="2516477739733869067" at="48,41,49,138" concept="4" />
-      <node id="2516477739733861119" at="52,37,53,149" concept="1" />
+      <node id="2516477739733869067" at="48,41,49,131" concept="4" />
+      <node id="2516477739733861119" at="52,37,53,142" concept="1" />
       <node id="5462094956390110264" at="60,5,61,64" concept="3" />
       <node id="5462094956390110264" at="61,64,62,90" concept="3" />
       <node id="5462094956390110264" at="64,52,65,36" concept="4" />
-      <node id="5462094956390350510" at="69,41,70,138" concept="4" />
+      <node id="5462094956390350510" at="69,41,70,131" concept="4" />
       <node id="7680625225105816845" at="75,40,76,73" concept="4" />
       <node id="2516477739733857545" at="83,51,84,162" concept="4" />
-      <node id="2516477739733857545" at="88,0,89,0" concept="5" trace="AutoInitDSLClass_f4d98b17" />
-      <node id="2516477739733857545" at="89,0,90,0" concept="5" trace="ClassConcept_e2711824" />
-      <node id="2516477739733857545" at="90,0,91,0" concept="5" trace="DSLAnnotation_eee1a74" />
+      <node id="2516477739733857545" at="88,0,89,0" concept="5" trace="AutoInitDSLClass$sF" />
+      <node id="2516477739733857545" at="89,0,90,0" concept="5" trace="ClassConcept$IY" />
+      <node id="2516477739733857545" at="90,0,91,0" concept="5" trace="DSLAnnotation$dI" />
       <node id="2516477739733857545" at="27,0,30,0" concept="2" trace="getCaption#()Ljava/lang/String;" />
       <node id="2516477739733858583" at="43,0,46,0" concept="2" trace="getDefaultSearchScope#()Lorg/jetbrains/mps/openapi/module/SearchScope;" />
       <node id="2516477739733868615" at="48,0,51,0" concept="2" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -54,10 +54,10 @@
       <scope id="2516477739733857545" at="27,30,28,77" />
       <scope id="2516477739733857545" at="31,33,32,16" />
       <scope id="2516477739733858583" at="43,52,44,36" />
-      <scope id="2516477739733868616" at="48,41,49,138" />
-      <scope id="2516477739733860830" at="52,37,53,149" />
+      <scope id="2516477739733868616" at="48,41,49,131" />
+      <scope id="2516477739733860830" at="52,37,53,142" />
       <scope id="5462094956390110264" at="64,52,65,36" />
-      <scope id="5462094956390350024" at="69,41,70,138" />
+      <scope id="5462094956390350024" at="69,41,70,131" />
       <scope id="7680625225105816844" at="75,40,76,73" />
       <scope id="2516477739733857545" at="83,51,84,162" />
       <scope id="2516477739733857545" at="34,41,36,16" />
@@ -102,12 +102,12 @@
         <var name="m" id="2516477739733857545" />
       </scope>
       <unit id="2516477739733858583" at="42,42,46,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$1" />
-      <unit id="2516477739733868615" at="47,207,51,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$2" />
+      <unit id="2516477739733868615" at="47,191,51,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$2" />
       <unit id="2516477739733860829" at="51,22,55,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$3" />
       <unit id="5462094956390110264" at="63,42,67,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$4" />
-      <unit id="5462094956390350023" at="68,214,72,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$5" />
+      <unit id="5462094956390350023" at="68,198,72,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$5" />
       <unit id="7680625225105816839" at="74,32,78,11" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$6$1" />
-      <unit id="2516477739733857545" at="87,0,92,0" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$AUX_gqzzto" />
+      <unit id="2516477739733857545" at="87,0,92,0" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$CONCEPTS" />
       <unit id="5462094956390116025" at="72,20,80,7" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations$6" />
       <unit id="2516477739733857545" at="26,0,93,0" name="jetbrains.mps.baseLanguage.lightweightdsl.migration.RemoveOddAnnotations" />
     </file>

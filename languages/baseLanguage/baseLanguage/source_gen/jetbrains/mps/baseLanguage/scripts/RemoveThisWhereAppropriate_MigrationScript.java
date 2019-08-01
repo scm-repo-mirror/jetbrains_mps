@@ -29,7 +29,7 @@ public final class RemoveThisWhereAppropriate_MigrationScript extends BaseMigrat
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_la33m7.FieldReferenceOperation_fc8d5dda;
+        return CONCEPTS.FieldReferenceOperation$N8;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
@@ -58,7 +58,7 @@ public final class RemoveThisWhereAppropriate_MigrationScript extends BaseMigrat
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_la33m7.InstanceMethodCallOperation_cd28f5b6;
+        return CONCEPTS.InstanceMethodCallOperation$1G;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
@@ -87,7 +87,7 @@ public final class RemoveThisWhereAppropriate_MigrationScript extends BaseMigrat
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_la33m7.StaticMethodCall_9cd8c444;
+        return CONCEPTS.StaticMethodCall$eu;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
@@ -113,9 +113,9 @@ public final class RemoveThisWhereAppropriate_MigrationScript extends BaseMigrat
     return PersistenceFacade.getInstance().createNodeReference("r:00000000-0000-4000-0000-011c895902c9(jetbrains.mps.baseLanguage.scripts)/1704189004094297789");
   }
 
-  private static final class AUX_la33m7 {
-    /*package*/ static final SConcept FieldReferenceOperation_fc8d5dda = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
-    /*package*/ static final SConcept InstanceMethodCallOperation_cd28f5b6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
-    /*package*/ static final SConcept StaticMethodCall_9cd8c444 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
+    /*package*/ static final SConcept InstanceMethodCallOperation$1G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
+    /*package*/ static final SConcept StaticMethodCall$eu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall");
   }
 }

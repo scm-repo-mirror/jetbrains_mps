@@ -4,6 +4,7 @@ package jetbrains.mps.make.script.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,16 +16,15 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class QueryDefinition__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_aocq9q.QueryDefinition_bda9d493;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc49b2bL, "jetbrains.mps.make.script.structure.QueryDefinition");
 
   public static final SMethod<String> classifierName_id3ZSHU3pg$b_ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("classifierName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3ZSHU3pg$b_").build();
 
@@ -34,7 +34,7 @@ public final class QueryDefinition__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   /*package*/ static String classifierName_id3ZSHU3pg$b_(@NotNull SNode __thisNode__) {
-    return NameUtil.toValidCamelIdentifier(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) + "_" + SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__));
+    return NameUtil.toValidCamelIdentifier(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1)) + "_" + SConceptOperations.conceptAlias(SNodeOperations.getConcept(__thisNode__));
   }
 
   /*package*/ QueryDefinition__BehaviorDescriptor() {
@@ -83,7 +83,7 @@ public final class QueryDefinition__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
-  private static final class AUX_aocq9q {
-    /*package*/ static final SConcept QueryDefinition_bda9d493 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc49b2bL, "jetbrains.mps.make.script.structure.QueryDefinition");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

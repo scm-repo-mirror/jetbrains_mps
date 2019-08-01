@@ -21,7 +21,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 public class EnumOperation_Constraints extends BaseConstraintsDescriptor {
   public EnumOperation_Constraints() {
-    super(AUX_wqjkum.EnumOperation_8ef846b2);
+    super(CONCEPTS.EnumOperation$VK);
   }
 
   @Override
@@ -40,13 +40,13 @@ public class EnumOperation_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return TypecheckingFacade.getFromContext().strongCoerceType(DotExpression__BehaviorDescriptor.getOperandType_id7GulAc9z0dN.invoke(SNodeOperations.as(parentNode, AUX_wqjkum.DotExpression_97ed08d8)), AUX_wqjkum.SEnumerationType_a6f977e7) != null;
+    return TypecheckingFacade.getFromContext().strongCoerceType(DotExpression__BehaviorDescriptor.getOperandType_id7GulAc9z0dN.invoke(SNodeOperations.as(parentNode, CONCEPTS.DotExpression$6a)), CONCEPTS.SEnumerationType$hr) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "5779574625832943722");
 
-  private static final class AUX_wqjkum {
-    /*package*/ static final SInterfaceConcept EnumOperation_8ef846b2 = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012cf5L, "jetbrains.mps.lang.smodel.structure.EnumOperation");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept SEnumerationType_a6f977e7 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x50352c802d81c423L, "jetbrains.mps.lang.smodel.structure.SEnumerationType");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept EnumOperation$VK = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b4bba1ba0012cf5L, "jetbrains.mps.lang.smodel.structure.EnumOperation");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept SEnumerationType$hr = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x50352c802d81c423L, "jetbrains.mps.lang.smodel.structure.SEnumerationType");
   }
 }

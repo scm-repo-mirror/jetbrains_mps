@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -18,34 +17,36 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_GetAccessor_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_GetAccessor_InferenceRule() {
   }
   public void applyRule(final SNode getAccessor, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getAccessor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b9245fc5L, 0x11800267618L, "statementList")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).isEmpty()) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getAccessor, LINKS.statementList$TTjM), LINKS.statement$WHn8)).isEmpty()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(getAccessor, "No return value from the property getter", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203929984146", null, errorTarget);
       }
     }
 
-    Iterable<SNode> returnStatements = RulesFunctions_BaseLanguage.collectReturnStatements(SLinkOperations.getTarget(getAccessor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b9245fc5L, 0x11800267618L, "statementList")));
+    Iterable<SNode> returnStatements = RulesFunctions_BaseLanguage.collectReturnStatements(SLinkOperations.getTarget(getAccessor, LINKS.statementList$TTjM));
     SNode expectedRetType = IMethodLike__BehaviorDescriptor.getExpectedRetType_idi2fhBNC.invoke(getAccessor);
 
     // should return subtypes of the 'expected type' 
     for (SNode returnStatement : Sequence.fromIterable(returnStatements)) {
-      if ((SLinkOperations.getTarget(returnStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression")) == null)) {
+      if ((SLinkOperations.getTarget(returnStatement, LINKS.expression$EsbK) == null)) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(returnStatement, "should return value", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203933582350", null, errorTarget);
         }
       } else {
-        SNode returnType = typeCheckingContext.typeOf(SLinkOperations.getTarget(returnStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression")), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203933582363", true);
+        SNode returnType = typeCheckingContext.typeOf(SLinkOperations.getTarget(returnStatement, LINKS.expression$EsbK), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203933582363", true);
         if (!(typeCheckingContext.isSingleTypeComputation())) {
           {
-            SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(returnStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression"));
+            SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(returnStatement, LINKS.expression$EsbK);
             EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, "" + expectedRetType + " is expected", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203933582367", 0, null);
             typeCheckingContext.createLessThanInequality((SNode) returnType, (SNode) expectedRetType, true, true, _info_12389875345);
           }
@@ -54,24 +55,24 @@ public class typeof_GetAccessor_InferenceRule extends AbstractInferenceRule_Runt
     }
     // last expression statement can serve as return statement 
     SNode lastStatement = IMethodLike__BehaviorDescriptor.getLastStatement_idi2fhS7A.invoke(getAccessor);
-    if (SNodeOperations.isInstanceOf(lastStatement, AUX_71a3du.ExpressionStatement_9dbf9b0c)) {
-      SNode returnType = typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.cast(lastStatement, AUX_71a3du.ExpressionStatement_9dbf9b0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression")), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203933582401", true);
+    if (SNodeOperations.isInstanceOf(lastStatement, CONCEPTS.ExpressionStatement$nm)) {
+      SNode returnType = typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.cast(lastStatement, CONCEPTS.ExpressionStatement$nm), LINKS.expression$WIP0), "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203933582401", true);
       if (!(typeCheckingContext.isSingleTypeComputation())) {
         {
-          SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(SNodeOperations.cast(lastStatement, AUX_71a3du.ExpressionStatement_9dbf9b0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression"));
+          SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(SNodeOperations.cast(lastStatement, CONCEPTS.ExpressionStatement$nm), LINKS.expression$WIP0);
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, expectedRetType + " is expected", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "4285773203933582406", 0, null);
           typeCheckingContext.createLessThanInequality((SNode) returnType, (SNode) expectedRetType, true, true, _info_12389875345);
         }
       }
     }
 
-    if ((SLinkOperations.getTarget(getAccessor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b9245fc5L, 0x11800267618L, "statementList")) != null)) {
-      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(getAccessor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b9245fc5L, 0x11800267618L, "statementList")), true);
+    if ((SLinkOperations.getTarget(getAccessor, LINKS.statementList$TTjM) != null)) {
+      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(getAccessor, LINKS.statementList$TTjM), true);
     }
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_71a3du.GetAccessor_16ab103a;
+    return CONCEPTS.GetAccessor$pC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -80,8 +81,15 @@ public class typeof_GetAccessor_InferenceRule extends AbstractInferenceRule_Runt
     return false;
   }
 
-  private static final class AUX_71a3du {
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SConcept GetAccessor_16ab103a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b9245fc5L, "jetbrains.mps.baseLanguage.structure.GetAccessor");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink statementList$TTjM = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b9245fc5L, 0x11800267618L, "statementList");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink expression$EsbK = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression");
+    /*package*/ static final SContainmentLink expression$WIP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SConcept GetAccessor$pC = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117b9245fc5L, "jetbrains.mps.baseLanguage.structure.GetAccessor");
   }
 }

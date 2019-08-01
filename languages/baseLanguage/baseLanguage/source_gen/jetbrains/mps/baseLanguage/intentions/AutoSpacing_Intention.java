@@ -14,12 +14,13 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class AutoSpacing_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -54,10 +55,10 @@ public final class AutoSpacing_Intention extends AbstractIntentionDescriptor imp
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       boolean previousIsMethodLike = false;
-      for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member")))) {
-        boolean currentIsMethodLike = SNodeOperations.isInstanceOf(member, AUX_zbm5i8.IStatementListContainer_5e186851);
+      for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.member$oYX5))) {
+        boolean currentIsMethodLike = SNodeOperations.isInstanceOf(member, CONCEPTS.IStatementListContainer$4L);
         if (previousIsMethodLike && currentIsMethodLike) {
-          SNodeOperations.insertPrevSiblingChild(member, SNodeFactoryOperations.createNewNode(AUX_zbm5i8.PlaceholderMember_c843310c, null));
+          SNodeOperations.insertPrevSiblingChild(member, SNodeFactoryOperations.createNewNode(CONCEPTS.PlaceholderMember$Zm, null));
         }
         previousIsMethodLike = currentIsMethodLike;
       }
@@ -68,8 +69,12 @@ public final class AutoSpacing_Intention extends AbstractIntentionDescriptor imp
     }
   }
 
-  private static final class AUX_zbm5i8 {
-    /*package*/ static final SInterfaceConcept IStatementListContainer_5e186851 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
-    /*package*/ static final SConcept PlaceholderMember_c843310c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1458378889e6d166L, "jetbrains.mps.baseLanguage.structure.PlaceholderMember");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IStatementListContainer$4L = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
+    /*package*/ static final SConcept PlaceholderMember$Zm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1458378889e6d166L, "jetbrains.mps.baseLanguage.structure.PlaceholderMember");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
   }
 }

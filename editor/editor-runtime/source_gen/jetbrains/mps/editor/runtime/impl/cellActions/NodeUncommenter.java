@@ -6,11 +6,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class NodeUncommenter {
@@ -38,7 +38,7 @@ public class NodeUncommenter {
     if (!(isValid())) {
       throw new IllegalStateException("Node uncommenter has invalid state. Comment attribute has no parent. Attribute " + myComment.getPresentation() + " Attribute id: " + myComment.getNodeId());
     }
-    SNode commentedNode = SLinkOperations.getTarget(myComment, MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, 0x2ab99f0d2248e89dL, "commentedNode"));
+    SNode commentedNode = SLinkOperations.getTarget(myComment, LINKS.commentedNode$I8FA);
     if (getContainmentLink() != null && commentedNode != null) {
       removeOrCommentChildInSingleRole();
       myComment.removeChild(commentedNode);
@@ -75,12 +75,16 @@ public class NodeUncommenter {
   }
   private SContainmentLink getContainmentLink() {
     if (myContainmentLink == null) {
-      myContainmentLink = ((SContainmentLink) BHReflection.invoke0(myComment, AUX_kciqw8.ChildAttribute_96496d6c, SMethodTrimmedId.create("getLink", AUX_kciqw8.ChildAttribute_96496d6c, "BpxLfMirzf")));
+      myContainmentLink = ((SContainmentLink) BHReflection.invoke0(myComment, CONCEPTS.ChildAttribute$XQ, SMethodTrimmedId.create("getLink", CONCEPTS.ChildAttribute$XQ, "BpxLfMirzf")));
     }
     return myContainmentLink;
   }
 
-  private static final class AUX_kciqw8 {
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink commentedNode$I8FA = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, 0x2ab99f0d2248e89dL, "commentedNode");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
   }
 }

@@ -14,7 +14,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
@@ -26,13 +25,14 @@ import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildSourceMacroRelativePath_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_whou42_a(), AUX_whou42.BuildSourceMacroRelativePath_b98b24fe));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_whou42_a(), CONCEPTS.BuildSourceMacroRelativePath$C$));
     result.add(new SMP_Subconcepts_whou42_b());
     return result;
   }
@@ -54,7 +54,7 @@ public class BuildSourceMacroRelativePath_SubstituteMenu extends SubstituteMenuB
 
     public SMP_ReferenceScope_whou42_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_whou42.BuildSourceMacroRelativePath_b98b24fe, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro"));
+      super((SAbstractConcept) CONCEPTS.BuildSourceMacroRelativePath$C$, LINKS.macro$p38a);
     }
     @NotNull
     @Override
@@ -101,7 +101,7 @@ public class BuildSourceMacroRelativePath_SubstituteMenu extends SubstituteMenuB
   }
   public class SMP_Subconcepts_whou42_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_whou42.BuildSourceMacroRelativePath_b98b24fe);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildSourceMacroRelativePath$C$);
     }
     @NotNull
     @Override
@@ -121,7 +121,11 @@ public class BuildSourceMacroRelativePath_SubstituteMenu extends SubstituteMenuB
     }
   }
 
-  private static final class AUX_whou42 {
-    /*package*/ static final SConcept BuildSourceMacroRelativePath_b98b24fe = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, "jetbrains.mps.build.structure.BuildSourceMacroRelativePath");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSourceMacroRelativePath$C$ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, "jetbrains.mps.build.structure.BuildSourceMacroRelativePath");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink macro$p38a = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro");
   }
 }

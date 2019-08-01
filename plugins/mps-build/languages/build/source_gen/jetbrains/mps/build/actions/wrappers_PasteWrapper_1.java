@@ -8,27 +8,32 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class wrappers_PasteWrapper_1 implements PasteWrapper {
   @Override
   public SAbstractConcept getSourceConcept() {
-    return AUX_ckry1k.BuildInputSingleFolder_eab69018;
+    return CONCEPTS.BuildInputSingleFolder$9a;
   }
   @Override
   public SAbstractConcept getTargetConcept() {
-    return AUX_ckry1k.BuildSource_JavaFiles_c21a9dad;
+    return CONCEPTS.BuildSource_JavaFiles$tl;
   }
   @Override
   public SNode wrap(SNode sourceNode) {
-    SNode nn = SModelOperations.createNewNode(SNodeOperations.getModel(sourceNode), null, AUX_ckry1k.BuildSource_JavaFiles_c21a9dad);
-    SLinkOperations.setTarget(nn, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x14d3fb6fb8480882L, 0x14d3fb6fb8480883L, "resset"), sourceNode);
+    SNode nn = SModelOperations.createNewNode(SNodeOperations.getModel(sourceNode), null, CONCEPTS.BuildSource_JavaFiles$tl);
+    SLinkOperations.setTarget(nn, LINKS.resset$kO5w, sourceNode);
     return nn;
   }
 
-  private static final class AUX_ckry1k {
-    /*package*/ static final SConcept BuildInputSingleFolder_eab69018 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
-    /*package*/ static final SConcept BuildSource_JavaFiles_c21a9dad = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x14d3fb6fb8480882L, "jetbrains.mps.build.structure.BuildSource_JavaFiles");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildInputSingleFolder$9a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1ff930b22643b0ffL, "jetbrains.mps.build.structure.BuildInputSingleFolder");
+    /*package*/ static final SConcept BuildSource_JavaFiles$tl = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x14d3fb6fb8480882L, "jetbrains.mps.build.structure.BuildSource_JavaFiles");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink resset$kO5w = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x14d3fb6fb8480882L, 0x14d3fb6fb8480883L, "resset");
   }
 }

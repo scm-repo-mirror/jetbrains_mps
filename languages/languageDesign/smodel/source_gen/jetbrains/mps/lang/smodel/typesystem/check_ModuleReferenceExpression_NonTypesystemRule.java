@@ -12,8 +12,9 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ModuleReferenceExpression_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -24,12 +25,12 @@ public class check_ModuleReferenceExpression_NonTypesystemRule extends AbstractN
       // XXX CheckedModuleReference does the same with property constraint, what's the right approach? 
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(moduleRefExpr, (SPropertyOperations.getString(moduleRefExpr, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af3L, "moduleId")) == null ? "Module is not specified" : "Couldn't find module"), "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "6857306964584715722", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(moduleRefExpr, (SPropertyOperations.getString(moduleRefExpr, PROPS.moduleId$IIeZ) == null ? "Module is not specified" : "Couldn't find module"), "r:00000000-0000-4000-0000-011c895902fe(jetbrains.mps.lang.smodel.typesystem)", "6857306964584715722", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nbmqc9.ModuleReferenceExpression_9145dabf;
+    return CONCEPTS.ModuleReferenceExpression$M3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -38,7 +39,11 @@ public class check_ModuleReferenceExpression_NonTypesystemRule extends AbstractN
     return false;
   }
 
-  private static final class AUX_nbmqc9 {
-    /*package*/ static final SConcept ModuleReferenceExpression_9145dabf = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, "jetbrains.mps.lang.smodel.structure.ModuleReferenceExpression");
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleId$IIeZ = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, 0x38130dc4e3db5af3L, "moduleId");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ModuleReferenceExpression$M3 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x38130dc4e3db5af1L, "jetbrains.mps.lang.smodel.structure.ModuleReferenceExpression");
   }
 }

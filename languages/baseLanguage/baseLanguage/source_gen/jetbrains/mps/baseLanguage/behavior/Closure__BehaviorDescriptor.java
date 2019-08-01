@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -17,7 +18,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -27,10 +27,11 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class Closure__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_ewr2f2.Closure_b90a2b6c;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c63f4f3f3L, "jetbrains.mps.baseLanguage.structure.Closure");
 
   public static final SMethod<List<SNode>> getVariablesReferencedInClosure_idhNVujlz = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getVariablesReferencedInClosure").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hNVujlz").build();
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
@@ -42,27 +43,27 @@ public final class Closure__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static List<SNode> getVariablesReferencedInClosure_idhNVujlz(@NotNull SNode __thisNode__) {
     List<SNode> referencedInClosures = new ArrayList<SNode>();
-    for (SNode varRef : SNodeOperations.getNodeDescendants(__thisNode__, AUX_ewr2f2.VariableReference_24d60dac, false, new SAbstractConcept[]{})) {
-      SNode closure = SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(varRef, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_ewr2f2.Closure_b90a2b6c, false, false);
+    for (SNode varRef : SNodeOperations.getNodeDescendants(__thisNode__, CONCEPTS.VariableReference$sQ, false, new SAbstractConcept[]{})) {
+      SNode closure = SNodeOperations.getNodeAncestor(SLinkOperations.getTarget(varRef, LINKS.variableDeclaration$2ky6), CONCEPTS.Closure$5Q, false, false);
       if ((closure == null) || closure != SNodeOperations.getParent(__thisNode__)) {
-        ListSequence.fromList(referencedInClosures).addElement(SLinkOperations.getTarget(varRef, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")));
+        ListSequence.fromList(referencedInClosures).addElement(SLinkOperations.getTarget(varRef, LINKS.variableDeclaration$2ky6));
       }
     }
     return referencedInClosures;
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     final Wrappers._T<SNode> _child = new Wrappers._T<SNode>(child);
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), AUX_ewr2f2.ClosureParameter_7517d298)) {
+    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(kind), CONCEPTS.ClosureParameter$Za)) {
       while (SNodeOperations.getParent(_child.value) != __thisNode__) {
         _child.value = SNodeOperations.getParent(_child.value);
       }
       return new NamedElementsScope(ListSequence.fromList(SNodeOperations.getChildren(__thisNode__)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, AUX_ewr2f2.ClosureParameter_7517d298) && it != _child.value;
+          return SNodeOperations.isInstanceOf(it, CONCEPTS.ClosureParameter$Za) && it != _child.value;
         }
       }).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SNodeOperations.cast(it, AUX_ewr2f2.ClosureParameter_7517d298);
+          return SNodeOperations.cast(it, CONCEPTS.ClosureParameter$Za);
         }
       }));
     }
@@ -117,9 +118,13 @@ public final class Closure__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_ewr2f2 {
-    /*package*/ static final SConcept Closure_b90a2b6c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c63f4f3f3L, "jetbrains.mps.baseLanguage.structure.Closure");
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
-    /*package*/ static final SConcept ClosureParameter_7517d298 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c7edb2aa8L, "jetbrains.mps.baseLanguage.structure.ClosureParameter");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Closure$5Q = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c63f4f3f3L, "jetbrains.mps.baseLanguage.structure.Closure");
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+    /*package*/ static final SConcept ClosureParameter$Za = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10c7edb2aa8L, "jetbrains.mps.baseLanguage.structure.ClosureParameter");
   }
 }

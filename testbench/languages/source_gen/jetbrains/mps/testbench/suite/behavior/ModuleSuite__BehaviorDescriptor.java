@@ -4,6 +4,7 @@ package jetbrains.mps.testbench.suite.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,7 +18,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -25,10 +25,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ModuleSuite__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_encas6.ModuleSuite_e5f1f89d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, "jetbrains.mps.testbench.suite.structure.ModuleSuite");
 
   public static final SMethod<Iterable<SModel>> models_id173Z5qAOyPn = new SMethodBuilder<Iterable<SModel>>(new SJavaCompoundTypeImpl((Class<Iterable<SModel>>) ((Class) Object.class))).name("models").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("173Z5qAOyPn").build();
   public static final SMethod<SModule> module_id7A48itizp2R = new SMethodBuilder<SModule>(new SJavaCompoundTypeImpl(SModule.class)).name("module").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7A48itizp2R").build();
@@ -47,7 +48,7 @@ public final class ModuleSuite__BehaviorDescriptor extends BaseBHDescriptor {
     return m.getModels();
   }
   /*package*/ static SModule module_id7A48itizp2R(@NotNull SNode __thisNode__) {
-    SModuleReference moduleReference = IModuleRef__BehaviorDescriptor.moduleReference_id173Z5qAOun8.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, 0x11c3fc56a6d1cc88L, "moduleRef")));
+    SModuleReference moduleReference = IModuleRef__BehaviorDescriptor.moduleReference_id173Z5qAOun8.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.moduleRef$cQ0V));
     if (moduleReference == null) {
       return null;
     }
@@ -55,9 +56,9 @@ public final class ModuleSuite__BehaviorDescriptor extends BaseBHDescriptor {
     return moduleReference.resolve(SNodeOperations.getModel(__thisNode__).getRepository());
   }
   /*package*/ static Iterable<SNode> getNotMutedTests_id7tF7F0nXrAX(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, 0x3e81ed1e2be77cbeL, "testRef"))).where(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.testRef$fEbz)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cbaL, 0x776b1eb017f5bc5eL, "muted")));
+        return !(SPropertyOperations.getBoolean(it, PROPS.muted$Piv7));
       }
     });
   }
@@ -112,7 +113,12 @@ public final class ModuleSuite__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_encas6 {
-    /*package*/ static final SConcept ModuleSuite_e5f1f89d = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, "jetbrains.mps.testbench.suite.structure.ModuleSuite");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink moduleRef$cQ0V = MetaAdapterFactory.getContainmentLink(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, 0x11c3fc56a6d1cc88L, "moduleRef");
+    /*package*/ static final SContainmentLink testRef$fEbz = MetaAdapterFactory.getContainmentLink(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, 0x3e81ed1e2be77cbeL, "testRef");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty muted$Piv7 = MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cbaL, 0x776b1eb017f5bc5eL, "muted");
   }
 }

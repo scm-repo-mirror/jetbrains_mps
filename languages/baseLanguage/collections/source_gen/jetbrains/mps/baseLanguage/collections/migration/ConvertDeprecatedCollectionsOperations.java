@@ -13,11 +13,12 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ConvertDeprecatedCollectionsOperations extends MigrationScriptBase {
   public String getCaption() {
@@ -40,24 +41,24 @@ public class ConvertDeprecatedCollectionsOperations extends MigrationScriptBase 
           return scope_oas78t_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_oas78t.AddSetElementOperation_eabd708b, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AddSetElementOperation$R, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0a0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d9514ebd8L, 0x11d951a651bL, "argument")))));
+          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0a0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, LINKS.argument$hDsv))));
         }
       });
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_oas78t.AddAllSetElementsOperation_4b168a2d, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AddAllSetElementsOperation$Fl, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0b0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d969dca87L, 0x11d969e1c69L, "argument")))));
+          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0b0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, LINKS.argument$i8R5))));
         }
       });
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_oas78t.RemoveSetElementOperation_1336d6ca, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.RemoveSetElementOperation$7o, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0c0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d968cae32L, 0x11d968cfea4L, "argument")))));
+          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0c0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, LINKS.argument$798v))));
         }
       });
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_oas78t.RemoveAllSetElementsOperation_83d64d17, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.RemoveAllSetElementsOperation$kF, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0d0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d96b14ae4L, 0x11d96b1a226L, "argument")))));
+          SNodeOperations.replaceWithAnother(it, _quotation_createNode_oas78t_a0a0a0a0d0a0g(SNodeOperations.copyNode(SLinkOperations.getTarget(it, LINKS.argument$bWHU))));
         }
       });
     }
@@ -73,7 +74,7 @@ public class ConvertDeprecatedCollectionsOperations extends MigrationScriptBase 
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10e39e3ff80L, "AddElementOperation"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7818f71827244b5L, 0x7818f71827244b6L, "argument"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.argument$I6hw, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -84,7 +85,7 @@ public class ConvertDeprecatedCollectionsOperations extends MigrationScriptBase 
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10e3d20dbefL, "AddAllElementsOperation"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7818f71827244b5L, 0x7818f71827244b6L, "argument"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.argument$I6hw, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -95,7 +96,7 @@ public class ConvertDeprecatedCollectionsOperations extends MigrationScriptBase 
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x10fcd477695L, "RemoveElementOperation"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7818f71827244b5L, 0x7818f71827244b6L, "argument"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.argument$I6hw, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
@@ -106,15 +107,23 @@ public class ConvertDeprecatedCollectionsOperations extends MigrationScriptBase 
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, "jetbrains.mps.baseLanguage.collections"), 0x11154a8aed3L, "RemoveAllElementsOperation"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7818f71827244b5L, 0x7818f71827244b6L, "argument"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.argument$I6hw, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_oas78t {
-    /*package*/ static final SConcept AddSetElementOperation_eabd708b = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d9514ebd8L, "jetbrains.mps.baseLanguage.collections.structure.AddSetElementOperation");
-    /*package*/ static final SConcept AddAllSetElementsOperation_4b168a2d = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d969dca87L, "jetbrains.mps.baseLanguage.collections.structure.AddAllSetElementsOperation");
-    /*package*/ static final SConcept RemoveSetElementOperation_1336d6ca = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d968cae32L, "jetbrains.mps.baseLanguage.collections.structure.RemoveSetElementOperation");
-    /*package*/ static final SConcept RemoveAllSetElementsOperation_83d64d17 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d96b14ae4L, "jetbrains.mps.baseLanguage.collections.structure.RemoveAllSetElementsOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AddSetElementOperation$R = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d9514ebd8L, "jetbrains.mps.baseLanguage.collections.structure.AddSetElementOperation");
+    /*package*/ static final SConcept AddAllSetElementsOperation$Fl = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d969dca87L, "jetbrains.mps.baseLanguage.collections.structure.AddAllSetElementsOperation");
+    /*package*/ static final SConcept RemoveSetElementOperation$7o = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d968cae32L, "jetbrains.mps.baseLanguage.collections.structure.RemoveSetElementOperation");
+    /*package*/ static final SConcept RemoveAllSetElementsOperation$kF = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d96b14ae4L, "jetbrains.mps.baseLanguage.collections.structure.RemoveAllSetElementsOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink argument$hDsv = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d9514ebd8L, 0x11d951a651bL, "argument");
+    /*package*/ static final SContainmentLink argument$i8R5 = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d969dca87L, 0x11d969e1c69L, "argument");
+    /*package*/ static final SContainmentLink argument$798v = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d968cae32L, 0x11d968cfea4L, "argument");
+    /*package*/ static final SContainmentLink argument$bWHU = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11d96b14ae4L, 0x11d96b1a226L, "argument");
+    /*package*/ static final SContainmentLink argument$I6hw = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7818f71827244b5L, 0x7818f71827244b6L, "argument");
   }
 }

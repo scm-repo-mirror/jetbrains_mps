@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,15 +25,17 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class PatternVariableReference_Constraints extends BaseConstraintsDescriptor {
   public PatternVariableReference_Constraints() {
-    super(AUX_fw8caj.PatternVariableReference_982a9e22);
+    super(CONCEPTS.PatternVariableReference$m0);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d10036L, 0x11192d17e60L, "patternVarDecl"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.patternVarDecl$zQmv, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,35 +51,35 @@ public class PatternVariableReference_Constraints extends BaseConstraintsDescrip
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> result = new ArrayList<SNode>();
-            SNode rule = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_fw8caj.AbstractRule_3c273af, false, false);
-            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(rule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")), AUX_fw8caj.PatternCondition_d545a8f0)) {
-              ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(rule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")), AUX_fw8caj.PatternCondition_d545a8f0), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, 0x1117e2ccbe9L, "pattern")), AUX_fw8caj.PatternVariableDeclaration_b5cd3dd8, false, new SAbstractConcept[]{})));
+            SNode rule = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.AbstractRule$6j, false, false);
+            if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(rule, LINKS.applicableNode$lCke), CONCEPTS.PatternCondition$hM)) {
+              ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(rule, LINKS.applicableNode$lCke), CONCEPTS.PatternCondition$hM), LINKS.pattern$ag0O), CONCEPTS.PatternVariableDeclaration$Ma, false, new SAbstractConcept[]{})));
             }
-            if (SNodeOperations.isInstanceOf(rule, AUX_fw8caj.InequationReplacementRule_536e0cf5)) {
-              SNode supertypeNode = SLinkOperations.getTarget(SNodeOperations.cast(rule, AUX_fw8caj.InequationReplacementRule_536e0cf5), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, 0x117c567f086L, "supertypeNode"));
-              if (SNodeOperations.isInstanceOf(supertypeNode, AUX_fw8caj.PatternCondition_d545a8f0)) {
-                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(supertypeNode, AUX_fw8caj.PatternCondition_d545a8f0), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, 0x1117e2ccbe9L, "pattern")), AUX_fw8caj.PatternVariableDeclaration_b5cd3dd8, false, new SAbstractConcept[]{})));
+            if (SNodeOperations.isInstanceOf(rule, CONCEPTS.InequationReplacementRule$4d)) {
+              SNode supertypeNode = SLinkOperations.getTarget(SNodeOperations.cast(rule, CONCEPTS.InequationReplacementRule$4d), LINKS.supertypeNode$b3lK);
+              if (SNodeOperations.isInstanceOf(supertypeNode, CONCEPTS.PatternCondition$hM)) {
+                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(supertypeNode, CONCEPTS.PatternCondition$hM), LINKS.pattern$ag0O), CONCEPTS.PatternVariableDeclaration$Ma, false, new SAbstractConcept[]{})));
               }
             }
-            if (SNodeOperations.isInstanceOf(rule, AUX_fw8caj.ComparisonRule_ed69e3b9)) {
-              SNode anotherNode = SLinkOperations.getTarget(SNodeOperations.cast(rule, AUX_fw8caj.ComparisonRule_ed69e3b9), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114caade477L, 0x114cb3d0f37L, "anotherNode"));
-              if (SNodeOperations.isInstanceOf(anotherNode, AUX_fw8caj.PatternCondition_d545a8f0)) {
-                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(anotherNode, AUX_fw8caj.PatternCondition_d545a8f0), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, 0x1117e2ccbe9L, "pattern")), AUX_fw8caj.PatternVariableDeclaration_b5cd3dd8, false, new SAbstractConcept[]{})));
+            if (SNodeOperations.isInstanceOf(rule, CONCEPTS.ComparisonRule$b9)) {
+              SNode anotherNode = SLinkOperations.getTarget(SNodeOperations.cast(rule, CONCEPTS.ComparisonRule$b9), LINKS.anotherNode$7HZ2);
+              if (SNodeOperations.isInstanceOf(anotherNode, CONCEPTS.PatternCondition$hM)) {
+                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(anotherNode, CONCEPTS.PatternCondition$hM), LINKS.pattern$ag0O), CONCEPTS.PatternVariableDeclaration$Ma, false, new SAbstractConcept[]{})));
               }
             }
-            SNode coerceStatement = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_fw8caj.CoerceStatement_cbd4f4c1, false, false);
+            SNode coerceStatement = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.CoerceStatement$b1, false, false);
             while (coerceStatement != null) {
-              if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(coerceStatement, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111f05e2451L, 0x111f05fb92aL, "pattern")), AUX_fw8caj.PatternCondition_d545a8f0)) {
-                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(coerceStatement, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111f05e2451L, 0x111f05fb92aL, "pattern")), AUX_fw8caj.PatternCondition_d545a8f0), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, 0x1117e2ccbe9L, "pattern")), AUX_fw8caj.PatternVariableDeclaration_b5cd3dd8, false, new SAbstractConcept[]{})));
+              if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(coerceStatement, LINKS.pattern$Gn5H), CONCEPTS.PatternCondition$hM)) {
+                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(coerceStatement, LINKS.pattern$Gn5H), CONCEPTS.PatternCondition$hM), LINKS.pattern$ag0O), CONCEPTS.PatternVariableDeclaration$Ma, false, new SAbstractConcept[]{})));
               }
-              coerceStatement = SNodeOperations.getNodeAncestor(coerceStatement, AUX_fw8caj.CoerceStatement_cbd4f4c1, false, false);
+              coerceStatement = SNodeOperations.getNodeAncestor(coerceStatement, CONCEPTS.CoerceStatement$b1, false, false);
             }
-            SNode matchStatementItem = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_fw8caj.MatchStatementItem_4e89ef55, false, false);
+            SNode matchStatementItem = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.MatchStatementItem$EH, false, false);
             while (matchStatementItem != null) {
-              if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(matchStatementItem, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x112295a8fecL, 0x112295ab642L, "condition")), AUX_fw8caj.PatternCondition_d545a8f0)) {
-                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(matchStatementItem, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x112295a8fecL, 0x112295ab642L, "condition")), AUX_fw8caj.PatternCondition_d545a8f0), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, 0x1117e2ccbe9L, "pattern")), AUX_fw8caj.PatternVariableDeclaration_b5cd3dd8, false, new SAbstractConcept[]{})));
+              if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(matchStatementItem, LINKS.condition$JZ3Z), CONCEPTS.PatternCondition$hM)) {
+                ListSequence.fromList(result).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(matchStatementItem, LINKS.condition$JZ3Z), CONCEPTS.PatternCondition$hM), LINKS.pattern$ag0O), CONCEPTS.PatternVariableDeclaration$Ma, false, new SAbstractConcept[]{})));
               }
-              matchStatementItem = SNodeOperations.getNodeAncestor(matchStatementItem, AUX_fw8caj.MatchStatementItem_4e89ef55, false, false);
+              matchStatementItem = SNodeOperations.getNodeAncestor(matchStatementItem, CONCEPTS.MatchStatementItem$EH, false, false);
             }
             return ListScope.forResolvableElements(result);
           }
@@ -91,14 +92,24 @@ public class PatternVariableReference_Constraints extends BaseConstraintsDescrip
   }
   private static final SNodePointer breakingNode_fw8caj_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)", "6836281137582806008");
 
-  private static final class AUX_fw8caj {
-    /*package*/ static final SConcept PatternVariableReference_982a9e22 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d10036L, "jetbrains.mps.lang.typesystem.structure.PatternVariableReference");
-    /*package*/ static final SConcept AbstractRule_3c273af = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
-    /*package*/ static final SConcept PatternCondition_d545a8f0 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, "jetbrains.mps.lang.typesystem.structure.PatternCondition");
-    /*package*/ static final SConcept PatternVariableDeclaration_b5cd3dd8 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
-    /*package*/ static final SConcept InequationReplacementRule_536e0cf5 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
-    /*package*/ static final SConcept ComparisonRule_ed69e3b9 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114caade477L, "jetbrains.mps.lang.typesystem.structure.ComparisonRule");
-    /*package*/ static final SConcept CoerceStatement_cbd4f4c1 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111f05e2451L, "jetbrains.mps.lang.typesystem.structure.CoerceStatement");
-    /*package*/ static final SConcept MatchStatementItem_4e89ef55 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x112295a8fecL, "jetbrains.mps.lang.typesystem.structure.MatchStatementItem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PatternVariableReference$m0 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d10036L, "jetbrains.mps.lang.typesystem.structure.PatternVariableReference");
+    /*package*/ static final SConcept AbstractRule$6j = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, "jetbrains.mps.lang.typesystem.structure.AbstractRule");
+    /*package*/ static final SConcept PatternCondition$hM = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, "jetbrains.mps.lang.typesystem.structure.PatternCondition");
+    /*package*/ static final SConcept PatternVariableDeclaration$Ma = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
+    /*package*/ static final SConcept InequationReplacementRule$4d = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, "jetbrains.mps.lang.typesystem.structure.InequationReplacementRule");
+    /*package*/ static final SConcept ComparisonRule$b9 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114caade477L, "jetbrains.mps.lang.typesystem.structure.ComparisonRule");
+    /*package*/ static final SConcept CoerceStatement$b1 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111f05e2451L, "jetbrains.mps.lang.typesystem.structure.CoerceStatement");
+    /*package*/ static final SConcept MatchStatementItem$EH = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x112295a8fecL, "jetbrains.mps.lang.typesystem.structure.MatchStatementItem");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink patternVarDecl$zQmv = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11192d10036L, 0x11192d17e60L, "patternVarDecl");
+    /*package*/ static final SContainmentLink applicableNode$lCke = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode");
+    /*package*/ static final SContainmentLink pattern$ag0O = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2c3e68L, 0x1117e2ccbe9L, "pattern");
+    /*package*/ static final SContainmentLink supertypeNode$b3lK = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x117c5668bf2L, 0x117c567f086L, "supertypeNode");
+    /*package*/ static final SContainmentLink anotherNode$7HZ2 = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114caade477L, 0x114cb3d0f37L, "anotherNode");
+    /*package*/ static final SContainmentLink pattern$Gn5H = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x111f05e2451L, 0x111f05fb92aL, "pattern");
+    /*package*/ static final SContainmentLink condition$JZ3Z = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x112295a8fecL, 0x112295ab642L, "condition");
   }
 }

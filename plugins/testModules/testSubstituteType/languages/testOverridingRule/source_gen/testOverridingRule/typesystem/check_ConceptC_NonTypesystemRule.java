@@ -10,11 +10,12 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.pattern.GeneratedMatchingPattern;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ConceptC_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -35,7 +36,7 @@ public class check_ConceptC_NonTypesystemRule extends AbstractNonTypesystemRule_
         matches_umd1d5_a0a = matchingPattern_umd1d5_a0a.match(matchedNode_umd1d5_a0);
         if (matches_umd1d5_a0a) {
           {
-            final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874caa6L, 0x7aa4e26e6874caa7L, "conceptCProp"));
+            final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.conceptCProp$R$a0);
             IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(matchedNode_umd1d5_a0, "error from ConceptC", "r:05c5940c-484d-4321-945d-0e467fc18ae8(testOverridingRule.typesystem)", "8837437332634520611", null, errorTarget);
           }
         }
@@ -43,7 +44,7 @@ public class check_ConceptC_NonTypesystemRule extends AbstractNonTypesystemRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_id212q.ConceptC_ffe6f5b6;
+    return CONCEPTS.ConceptC$1G;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -60,7 +61,11 @@ public class check_ConceptC_NonTypesystemRule extends AbstractNonTypesystemRule_
     return quotedNode_1;
   }
 
-  private static final class AUX_id212q {
-    /*package*/ static final SConcept ConceptC_ffe6f5b6 = MetaAdapterFactory.getConcept(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874caa6L, "testOverridingRule.structure.ConceptC");
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptCProp$R$a0 = MetaAdapterFactory.getProperty(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874caa6L, 0x7aa4e26e6874caa7L, "conceptCProp");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptC$1G = MetaAdapterFactory.getConcept(0x38be1c36cdf64e3cL, 0xb9db14f88a11fa03L, 0x7aa4e26e6874caa6L, "testOverridingRule.structure.ConceptC");
   }
 }

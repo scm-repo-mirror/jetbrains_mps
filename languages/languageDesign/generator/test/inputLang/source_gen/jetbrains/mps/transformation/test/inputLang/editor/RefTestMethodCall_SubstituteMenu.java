@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class RefTestMethodCall_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_5bwta2_a(), AUX_5bwta2.RefTestMethodCall_268f5c5d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_5bwta2_a(), CONCEPTS.RefTestMethodCall$U_));
     result.add(new SMP_Subconcepts_5bwta2_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class RefTestMethodCall_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_5bwta2_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_5bwta2.RefTestMethodCall_268f5c5d, MetaAdapterFactory.getReferenceLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x2e0420fbd0995e09L, 0x2e0420fbd0995e0aL, "method"));
+      super((SAbstractConcept) CONCEPTS.RefTestMethodCall$U_, LINKS.method$ULtw);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class RefTestMethodCall_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_5bwta2_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_5bwta2.RefTestMethodCall_268f5c5d);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.RefTestMethodCall$U_);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class RefTestMethodCall_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_5bwta2 {
-    /*package*/ static final SConcept RefTestMethodCall_268f5c5d = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x2e0420fbd0995e09L, "jetbrains.mps.transformation.test.inputLang.structure.RefTestMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RefTestMethodCall$U_ = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x2e0420fbd0995e09L, "jetbrains.mps.transformation.test.inputLang.structure.RefTestMethodCall");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink method$ULtw = MetaAdapterFactory.getReferenceLink(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x2e0420fbd0995e09L, 0x2e0420fbd0995e0aL, "method");
   }
 }

@@ -518,7 +518,7 @@ public class ChangesTracking {
         return;
       }
       SNode child = event.getChild();
-      final SContainmentLink childRole = (SNodeOperations.isInstanceOf(child, AUX_5iuzi5.ChildAttribute_96496d6c) ? ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(child, AUX_5iuzi5.ChildAttribute_96496d6c), AUX_5iuzi5.ChildAttribute_96496d6c, SMethodTrimmedId.create("getLink", AUX_5iuzi5.ChildAttribute_96496d6c, "BpxLfMirzf"))) : event.getAggregationLink());
+      final SContainmentLink childRole = (SNodeOperations.isInstanceOf(child, CONCEPTS.ChildAttribute$XQ) ? ((SContainmentLink) BHReflection.invoke0(SNodeOperations.cast(child, CONCEPTS.ChildAttribute$XQ), CONCEPTS.ChildAttribute$XQ, SMethodTrimmedId.create("getLink", CONCEPTS.ChildAttribute$XQ, "BpxLfMirzf"))) : event.getAggregationLink());
 
       // trying to avoid update task execution for the same child role twice 
       Set<SContainmentLink> changedChildRoles = MapSequence.fromMap(childChanged).get(parent);
@@ -686,7 +686,7 @@ public class ChangesTracking {
     return null;
   }
 
-  private static final class AUX_5iuzi5 {
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
   }
 }

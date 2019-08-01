@@ -11,8 +11,9 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class FilteringByNameScope extends Scope {
   private final Set<String> filteredNames;
@@ -25,7 +26,7 @@ public class FilteringByNameScope extends Scope {
   public Iterable<SNode> getAvailableElements(@Nullable String prefix) {
     return Sequence.fromIterable(scope.getAvailableElements(prefix)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(SNodeOperations.isInstanceOf(it, AUX_34c9w.INamedConcept_8cd7e247)) || !(SetSequence.fromSet(filteredNames).contains(SPropertyOperations.getString(SNodeOperations.cast(it, AUX_34c9w.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))));
+        return !(SNodeOperations.isInstanceOf(it, CONCEPTS.INamedConcept$nV)) || !(SetSequence.fromSet(filteredNames).contains(SPropertyOperations.getString(SNodeOperations.cast(it, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)));
       }
     });
   }
@@ -41,15 +42,19 @@ public class FilteringByNameScope extends Scope {
   }
   @Override
   public boolean contains(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_34c9w.INamedConcept_8cd7e247)) {
-      String name = SPropertyOperations.getString(SNodeOperations.cast(node, AUX_34c9w.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$nV)) {
+      String name = SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
       return !(SetSequence.fromSet(filteredNames).contains(name)) && scope.contains(node);
     } else {
       return scope.contains(node);
     }
   }
 
-  private static final class AUX_34c9w {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

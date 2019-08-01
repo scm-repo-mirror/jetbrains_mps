@@ -5,57 +5,73 @@ package jetbrains.mps.lang.structure.util;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ConceptIdSetter {
   public static void processConcept(SNode root, SModel m, boolean force) {
-    if (force || isEmptyString(SPropertyOperations.getString(root, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId")))) {
-      SPropertyOperations.assign(root, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId"), ConceptIdHelper.generateConceptId(m, root) + "");
+    if (force || isEmptyString(SPropertyOperations.getString(root, PROPS.conceptId$TMc5))) {
+      SPropertyOperations.assign(root, PROPS.conceptId$TMc5, ConceptIdHelper.generateConceptId(m, root) + "");
     }
 
-    for (SNode p : ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration")))) {
+    for (SNode p : ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.propertyDeclaration$lL73))) {
       processProperty(p, root, force);
     }
 
-    for (SNode l : ListSequence.fromList(SLinkOperations.getChildren(root, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration")))) {
+    for (SNode l : ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.linkDeclaration$lL6$))) {
       processLink(l, root, force);
     }
   }
 
   public static void processProperty(SNode prop, SNode root, boolean force) {
-    if (force || isEmptyString(SPropertyOperations.getString(prop, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId")))) {
-      SPropertyOperations.assign(prop, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId"), ConceptIdHelper.generatePropertyId(root, prop) + "");
+    if (force || isEmptyString(SPropertyOperations.getString(prop, PROPS.propertyId$cckp))) {
+      SPropertyOperations.assign(prop, PROPS.propertyId$cckp, ConceptIdHelper.generatePropertyId(root, prop) + "");
     }
   }
 
   public static void processLink(SNode link, SNode root, boolean force) {
-    if (force || isEmptyString(SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId")))) {
-      SPropertyOperations.assign(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId"), ConceptIdHelper.generateLinkId(root, link) + "");
+    if (force || isEmptyString(SPropertyOperations.getString(link, PROPS.linkId$ccI3))) {
+      SPropertyOperations.assign(link, PROPS.linkId$ccI3, ConceptIdHelper.generateLinkId(root, link) + "");
     }
   }
 
   public static void processDatatype(SNode root, SModel m) {
-    SPropertyOperations.assign(root, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId"), ConceptIdHelper.generateDatatypeId(m, root) + "");
+    SPropertyOperations.assign(root, PROPS.datatypeId$Bvg3, ConceptIdHelper.generateDatatypeId(m, root) + "");
 
-    SNode enumm = SNodeOperations.as(root, AUX_kgpm29.EnumerationDeclartaion_dd035f36);
-    for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(enumm, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members")))) {
+    SNode enumm = SNodeOperations.as(root, CONCEPTS.EnumerationDeclartaion$rG);
+    for (SNode member : ListSequence.fromList(SLinkOperations.getChildren(enumm, LINKS.members$qYq2))) {
       processEnumMember(member, enumm);
     }
   }
 
 
   public static void processEnumMember(SNode member, SNode root) {
-    SPropertyOperations.assign(member, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x13b8f6fdce540e38L, "memberId"), ConceptIdHelper.generateEnumMemberId(root, member) + "");
+    SPropertyOperations.assign(member, PROPS.memberId$d5NS, ConceptIdHelper.generateEnumMemberId(root, member) + "");
   }
   private static boolean isEmptyString(String str) {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_kgpm29 {
-    /*package*/ static final SConcept EnumerationDeclartaion_dd035f36 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptId$TMc5 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x5d2e6079771f8cc0L, "conceptId");
+    /*package*/ static final SProperty propertyId$cckp = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0x35a81382d82a4d9L, "propertyId");
+    /*package*/ static final SProperty linkId$ccI3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x35a81382d82a4e4L, "linkId");
+    /*package*/ static final SProperty datatypeId$Bvg3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId");
+    /*package*/ static final SProperty memberId$d5NS = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c60L, 0x13b8f6fdce540e38L, "memberId");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink propertyDeclaration$lL73 = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6cL, "propertyDeclaration");
+    /*package*/ static final SContainmentLink linkDeclaration$lL6$ = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration");
+    /*package*/ static final SContainmentLink members$qYq2 = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, 0x2e770ca32c607cc1L, "members");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumerationDeclartaion$rG = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
   }
 }

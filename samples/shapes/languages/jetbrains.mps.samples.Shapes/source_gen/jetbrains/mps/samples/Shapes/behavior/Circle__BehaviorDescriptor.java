@@ -4,6 +4,7 @@ package jetbrains.mps.samples.Shapes.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Circle__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nth99k.Circle_1471155;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, "jetbrains.mps.samples.Shapes.structure.Circle");
 
   public static final SMethod<Void> drawShape_idW6XMzE_hbz = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("drawShape").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("W6XMzE_hbz").build(SMethodBuilder.createJavaParameter(Graphics.class, ""));
   public static final SMethod<Void> drawShapeAt_id3u6SZi0POQS = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("drawShapeAt").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3u6SZi0POQS").build(SMethodBuilder.createJavaParameter(Graphics.class, ""), SMethodBuilder.createJavaParameter(Integer.TYPE, ""), SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
@@ -33,12 +34,12 @@ public final class Circle__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static void drawShape_idW6XMzE_hbz(@NotNull SNode __thisNode__, Graphics graphics) {
-    Shape__BehaviorDescriptor.drawShape_idW6XMzE_hbz.invokeSuper(__thisNode__, AUX_nth99k.Circle_1471155, graphics);
-    graphics.drawOval(SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc199L, "x")), SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19bL, "y")), SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius")), SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius")));
+    Shape__BehaviorDescriptor.drawShape_idW6XMzE_hbz.invokeSuper(__thisNode__, CONCEPTS.Circle$yH, graphics);
+    graphics.drawOval(SPropertyOperations.getInteger(__thisNode__, PROPS.x$Srpw), SPropertyOperations.getInteger(__thisNode__, PROPS.y$Srqu), SPropertyOperations.getInteger(__thisNode__, PROPS.radius$SrrV), SPropertyOperations.getInteger(__thisNode__, PROPS.radius$SrrV));
   }
   /*package*/ static void drawShapeAt_id3u6SZi0POQS(@NotNull SNode __thisNode__, Graphics graphics, int x, int y) {
-    Shape__BehaviorDescriptor.drawShapeAt_id3u6SZi0POQS.invokeSuper(__thisNode__, AUX_nth99k.Circle_1471155, graphics, ((int) x), ((int) y));
-    graphics.drawOval(x, y, SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius")), SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius")));
+    Shape__BehaviorDescriptor.drawShapeAt_id3u6SZi0POQS.invokeSuper(__thisNode__, CONCEPTS.Circle$yH, graphics, ((int) x), ((int) y));
+    graphics.drawOval(x, y, SPropertyOperations.getInteger(__thisNode__, PROPS.radius$SrrV), SPropertyOperations.getInteger(__thisNode__, PROPS.radius$SrrV));
   }
 
   /*package*/ Circle__BehaviorDescriptor() {
@@ -91,7 +92,13 @@ public final class Circle__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_nth99k {
-    /*package*/ static final SConcept Circle_1471155 = MetaAdapterFactory.getConcept(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, "jetbrains.mps.samples.Shapes.structure.Circle");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Circle$yH = MetaAdapterFactory.getConcept(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, "jetbrains.mps.samples.Shapes.structure.Circle");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty x$Srpw = MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc199L, "x");
+    /*package*/ static final SProperty y$Srqu = MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19bL, "y");
+    /*package*/ static final SProperty radius$SrrV = MetaAdapterFactory.getProperty(0x16bafbb4c6cd4cc5L, 0x83327c6de8729b3fL, 0x51dcaa29974fc198L, 0x51dcaa29974fc19eL, "radius");
   }
 }

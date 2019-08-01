@@ -36,7 +36,7 @@ public class IgnoreRightSquareBrackedInIncompleteMember extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_xzn9d3.IncompleteMemberDeclaration_71f5ae66))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.IncompleteMemberDeclaration$QW))) {
         return false;
       }
       return true;
@@ -52,7 +52,7 @@ public class IgnoreRightSquareBrackedInIncompleteMember extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_xzn9d3 {
-    /*package*/ static final SConcept IncompleteMemberDeclaration_71f5ae66 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, "jetbrains.mps.baseLanguage.structure.IncompleteMemberDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IncompleteMemberDeclaration$QW = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x32175ac2e6fcc181L, "jetbrains.mps.baseLanguage.structure.IncompleteMemberDeclaration");
   }
 }

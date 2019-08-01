@@ -26,7 +26,7 @@ public class RemoveDocComment {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode doc = ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_j43kkl.BaseDocComment_a28e0b95, true, new SAbstractConcept[]{})).first();
+        SNode doc = ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.BaseDocComment$pH, true, new SAbstractConcept[]{})).first();
         if (DeletionApproverUtil.approve(editorContext, doc, "commentCollection")) {
           return;
         }
@@ -88,7 +88,7 @@ public class RemoveDocComment {
     }
   }
 
-  private static final class AUX_j43kkl {
-    /*package*/ static final SConcept BaseDocComment_a28e0b95 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseDocComment$pH = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x4a3c146b7fae70d3L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseDocComment");
   }
 }

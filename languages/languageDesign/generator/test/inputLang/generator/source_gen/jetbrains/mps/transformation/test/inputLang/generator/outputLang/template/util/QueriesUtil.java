@@ -9,21 +9,26 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class QueriesUtil {
   public static boolean isTest1(SModel model) {
-    List<SNode> nodes = SModelOperations.roots(model, AUX_w9106s.InputRoot_10fdbd0b);
+    List<SNode> nodes = SModelOperations.roots(model, CONCEPTS.InputRoot$eR);
     for (SNode node : ListSequence.fromList(nodes)) {
-      if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest")), 0x117eb3f7612L)) {
+      if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.useInTest$QJWm), 0x117eb3f7612L)) {
         return true;
       }
     }
     return false;
   }
 
-  private static final class AUX_w9106s {
-    /*package*/ static final SConcept InputRoot_10fdbd0b = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, "jetbrains.mps.transformation.test.inputLang.structure.InputRoot");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InputRoot$eR = MetaAdapterFactory.getConcept(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, "jetbrains.mps.transformation.test.inputLang.structure.InputRoot");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty useInTest$QJWm = MetaAdapterFactory.getProperty(0xab0ae915e3b54f35L, 0xb55ac655d649a03cL, 0x11645953ab3L, 0x117eb48fdf5L, "useInTest");
   }
 }

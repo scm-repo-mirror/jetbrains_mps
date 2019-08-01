@@ -19,7 +19,7 @@ public class double_extends_bigdecimal_SubtypingRule extends SubtypingRule_Runti
     return SNodeOperations.copyNode(MathTypeUtil.qBigDecimal);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ttg5v0.DoubleType_635118d4;
+    return CONCEPTS.DoubleType$4e;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -28,7 +28,7 @@ public class double_extends_bigdecimal_SubtypingRule extends SubtypingRule_Runti
     return true;
   }
 
-  private static final class AUX_ttg5v0 {
-    /*package*/ static final SConcept DoubleType_635118d4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d451a6L, "jetbrains.mps.baseLanguage.structure.DoubleType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DoubleType$4e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d451a6L, "jetbrains.mps.baseLanguage.structure.DoubleType");
   }
 }

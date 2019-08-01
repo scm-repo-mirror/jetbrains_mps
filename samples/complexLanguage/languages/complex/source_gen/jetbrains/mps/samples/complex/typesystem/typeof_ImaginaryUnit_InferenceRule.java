@@ -25,7 +25,7 @@ public class typeof_ImaginaryUnit_InferenceRule extends AbstractInferenceRule_Ru
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ir5twi.ImaginaryUnit_b1a92358;
+    return CONCEPTS.ImaginaryUnit$sa;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ImaginaryUnit_InferenceRule extends AbstractInferenceRule_Ru
     return quotedNode_1;
   }
 
-  private static final class AUX_ir5twi {
-    /*package*/ static final SConcept ImaginaryUnit_b1a92358 = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11691060ce1L, "jetbrains.mps.samples.complex.structure.ImaginaryUnit");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ImaginaryUnit$sa = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11691060ce1L, "jetbrains.mps.samples.complex.structure.ImaginaryUnit");
   }
 }

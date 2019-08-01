@@ -40,7 +40,7 @@ public final class ReloadModulesFromDisk_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_b3cgep.BuildMps_AbstractModule_ebf3f6db, false, new SAbstractConcept[]{})).isNotEmpty();
+    return ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.BuildMps_AbstractModule$fB, false, new SAbstractConcept[]{})).isNotEmpty();
   }
   @Override
   public boolean isSurroundWith() {
@@ -70,7 +70,7 @@ public final class ReloadModulesFromDisk_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_b3cgep {
-    /*package*/ static final SConcept BuildMps_AbstractModule_ebf3f6db = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, "jetbrains.mps.build.mps.structure.BuildMps_AbstractModule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_AbstractModule$fB = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, "jetbrains.mps.build.mps.structure.BuildMps_AbstractModule");
   }
 }

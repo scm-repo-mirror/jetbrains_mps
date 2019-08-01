@@ -20,14 +20,15 @@ import java.util.stream.Collectors;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class JavaModifier_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
@@ -53,7 +54,7 @@ public class JavaModifier_SubstituteMenu extends SubstituteMenuBase {
 
   public class SMP_Subconcepts_25qe7z_a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_25qe7z.JavaModifier_27d318fc).stream().filter(new Predicate<SAbstractConcept>() {
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.JavaModifier$nA).stream().filter(new Predicate<SAbstractConcept>() {
         public boolean test(SAbstractConcept concept) {
           return filterConcept(_context, concept);
         }
@@ -64,10 +65,10 @@ public class JavaModifier_SubstituteMenu extends SubstituteMenuBase {
       // in order for the descendant modifiers to work properly (if we are using the subconcepts construction) 
       // this is totally about the case of wrapping this substitute menu into a transformation menu -- 
       // because of that I cannot put it simply into the constraints aspect 
-      if (!(SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_25qe7z.IHasModifiers_8f114dd7))) {
+      if (!(SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.IHasModifiers$LF))) {
         return true;
       }
-      List<SNode> modifiers = SLinkOperations.getChildren(SNodeOperations.cast(_context.getParentNode(), AUX_25qe7z.IHasModifiers_8f114dd7), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"));
+      List<SNode> modifiers = SLinkOperations.getChildren(SNodeOperations.cast(_context.getParentNode(), CONCEPTS.IHasModifiers$LF), LINKS.modifiers$akE0);
       return ListSequence.fromList(modifiers).all(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return !(Objects.equals(SNodeOperations.getConcept(it), concept));
@@ -92,8 +93,12 @@ public class JavaModifier_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_25qe7z {
-    /*package*/ static final SConcept JavaModifier_27d318fc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1027dd744a287198L, "jetbrains.mps.baseLanguage.structure.JavaModifier");
-    /*package*/ static final SInterfaceConcept IHasModifiers_8f114dd7 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, "jetbrains.mps.baseLanguage.structure.IHasModifiers");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept JavaModifier$nA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1027dd744a287198L, "jetbrains.mps.baseLanguage.structure.JavaModifier");
+    /*package*/ static final SInterfaceConcept IHasModifiers$LF = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, "jetbrains.mps.baseLanguage.structure.IHasModifiers");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modifiers$akE0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
   }
 }

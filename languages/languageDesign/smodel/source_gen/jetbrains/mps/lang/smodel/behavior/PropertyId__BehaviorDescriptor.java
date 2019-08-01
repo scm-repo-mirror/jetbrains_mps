@@ -4,6 +4,7 @@ package jetbrains.mps.lang.smodel.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,7 +16,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.smodel.adapter.ids.SPropertyId;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
@@ -24,10 +24,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class PropertyId__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_k5l4fc.PropertyId_52150612;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, "jetbrains.mps.lang.smodel.structure.PropertyId");
 
   public static final SMethod<SProperty> getProperty_id5ZE7FBYYOoO = new SMethodBuilder<SProperty>(new SJavaCompoundTypeImpl(SProperty.class)).name("getProperty").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYYOoO").build();
   public static final SMethod<Void> setProperty_id5ZE7FBYZ2jW = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setProperty").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5ZE7FBYZ2jW").build(SMethodBuilder.createJavaParameter(SProperty.class, ""));
@@ -39,8 +40,8 @@ public final class PropertyId__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SProperty getProperty_id5ZE7FBYYOoO(@NotNull SNode __thisNode__) {
-    SAbstractConcept pc = ConceptIdentity__BehaviorDescriptor.getConcept_id5ZE7FBYYOpv.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc2364L, "conceptIdentity")));
-    String pn = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc235fL, "propertyName"));
+    SAbstractConcept pc = ConceptIdentity__BehaviorDescriptor.getConcept_id5ZE7FBYYOpv.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.conceptIdentity$C55$));
+    String pn = SPropertyOperations.getString(__thisNode__, PROPS.propertyName$C4SY);
     if (pc == null || pn == null) {
       return null;
     }
@@ -49,14 +50,14 @@ public final class PropertyId__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static void setProperty_id5ZE7FBYZ2jW(@NotNull SNode __thisNode__, @NotNull SProperty property) {
     SPropertyId pid = MetaIdHelper.getProperty(property);
-    SNode cid = SModelOperations.createNewNode(SNodeOperations.getModel(__thisNode__), null, AUX_k5l4fc.ConceptId_51d9f118);
+    SNode cid = SModelOperations.createNewNode(SNodeOperations.getModel(__thisNode__), null, CONCEPTS.ConceptId$5a);
     ConceptId__BehaviorDescriptor.setConcept_id5ZE7FBYYR6j.invoke(cid, property.getOwner());
-    SLinkOperations.setTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc2364L, "conceptIdentity"), cid);
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc235fL, "propertyName"), property.getName());
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc2361L, "propertyId"), Long.toString(pid.getIdValue(), Character.MAX_RADIX));
+    SLinkOperations.setTarget(__thisNode__, LINKS.conceptIdentity$C55$, cid);
+    SPropertyOperations.assign(__thisNode__, PROPS.propertyName$C4SY, property.getName());
+    SPropertyOperations.assign(__thisNode__, PROPS.propertyId$C4TW, Long.toString(pid.getIdValue(), Character.MAX_RADIX));
   }
   /*package*/ static long getIdValue_id5ZE7FBZ0xVG(@NotNull SNode __thisNode__) {
-    return Long.parseLong(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc2361L, "propertyId")), Character.MAX_RADIX);
+    return Long.parseLong(SPropertyOperations.getString(__thisNode__, PROPS.propertyId$C4TW), Character.MAX_RADIX);
   }
 
   /*package*/ PropertyId__BehaviorDescriptor() {
@@ -110,8 +111,16 @@ public final class PropertyId__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_k5l4fc {
-    /*package*/ static final SConcept PropertyId_52150612 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, "jetbrains.mps.lang.smodel.structure.PropertyId");
-    /*package*/ static final SConcept ConceptId_51d9f118 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink conceptIdentity$C55$ = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc2364L, "conceptIdentity");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty propertyName$C4SY = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc235fL, "propertyName");
+    /*package*/ static final SProperty propertyId$C4TW = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefc235cL, 0x5fea1eb9fefc2361L, "propertyId");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptId$5a = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5fea1eb9fefb6fe7L, "jetbrains.mps.lang.smodel.structure.ConceptId");
   }
 }

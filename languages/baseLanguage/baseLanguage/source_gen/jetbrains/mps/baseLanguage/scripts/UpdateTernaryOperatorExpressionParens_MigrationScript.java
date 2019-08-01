@@ -9,12 +9,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class UpdateTernaryOperatorExpressionParens_MigrationScript extends BaseMigrationScript {
   public UpdateTernaryOperatorExpressionParens_MigrationScript() {
@@ -30,17 +31,17 @@ public final class UpdateTernaryOperatorExpressionParens_MigrationScript extends
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_lkooh4.TernaryOperatorExpression_580beb3a;
+        return CONCEPTS.TernaryOperatorExpression$HC;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_lkooh4.BinaryOperation_7c4c55f3) || (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_lkooh4.TernaryOperatorExpression_580beb3a) && Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_lkooh4.TernaryOperatorExpression_580beb3a), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition")), node));
+        return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.BinaryOperation$vf) || (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.TernaryOperatorExpression$HC) && Objects.equals(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.TernaryOperatorExpression$HC), LINKS.condition$CEb4), node));
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
 
-        SNode result = SNodeFactoryOperations.replaceWithNewChild(node, AUX_lkooh4.ParenthesizedExpression_a4b89678);
-        SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), node);
+        SNode result = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.ParenthesizedExpression$vE);
+        SLinkOperations.setTarget(result, LINKS.expression$4_F0, node);
       }
       @Override
       public boolean isShowAsIntention() {
@@ -55,9 +56,14 @@ public final class UpdateTernaryOperatorExpressionParens_MigrationScript extends
     return PersistenceFacade.getInstance().createNodeReference("r:00000000-0000-4000-0000-011c895902c9(jetbrains.mps.baseLanguage.scripts)/818296778609449086");
   }
 
-  private static final class AUX_lkooh4 {
-    /*package*/ static final SConcept TernaryOperatorExpression_580beb3a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TernaryOperatorExpression$HC = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink condition$CEb4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition");
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
   }
 }

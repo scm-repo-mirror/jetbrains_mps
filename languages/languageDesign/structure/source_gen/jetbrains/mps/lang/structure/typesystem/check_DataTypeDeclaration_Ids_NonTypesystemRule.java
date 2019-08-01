@@ -10,7 +10,6 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
@@ -21,6 +20,8 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_DataTypeDeclaration_Ids_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_DataTypeDeclaration_Ids_NonTypesystemRule() {
@@ -30,11 +31,11 @@ public class check_DataTypeDeclaration_Ids_NonTypesystemRule extends AbstractNon
       return;
     }
 
-    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(dtd), AUX_bfqhmd.EnumMigrationInfo_a4b5d8d1)) {
+    if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(dtd), CONCEPTS.EnumMigrationInfo$2L)) {
       return;
     }
 
-    if (isEmptyString(SPropertyOperations.getString(dtd, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId")))) {
+    if (isEmptyString(SPropertyOperations.getString(dtd, PROPS.datatypeId$Bvg3))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(dtd, "Absent member id.\n" + "Please invoke the \"Correct ID\" intention on it", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "7791109065627029302", null, errorTarget);
@@ -44,9 +45,9 @@ public class check_DataTypeDeclaration_Ids_NonTypesystemRule extends AbstractNon
           _reporter_2309309498.addIntentionProvider(intentionProvider);
         }
       }
-    } else if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(dtd), AUX_bfqhmd.EnumerationDeclartaion_dd035f36)).any(new IWhereFilter<SNode>() {
+    } else if (ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(dtd), CONCEPTS.EnumerationDeclartaion$rG)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return it != dtd && Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId")), SPropertyOperations.getString(dtd, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId")));
+        return it != dtd && Objects.equals(SPropertyOperations.getString(it, PROPS.datatypeId$Bvg3), SPropertyOperations.getString(dtd, PROPS.datatypeId$Bvg3));
       }
     })) {
       {
@@ -61,7 +62,7 @@ public class check_DataTypeDeclaration_Ids_NonTypesystemRule extends AbstractNon
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_bfqhmd.DataTypeDeclaration_9e6b98ac;
+    return CONCEPTS.DataTypeDeclaration$KQ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -73,9 +74,13 @@ public class check_DataTypeDeclaration_Ids_NonTypesystemRule extends AbstractNon
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_bfqhmd {
-    /*package*/ static final SConcept EnumMigrationInfo_a4b5d8d1 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, "jetbrains.mps.lang.structure.structure.EnumMigrationInfo");
-    /*package*/ static final SConcept EnumerationDeclartaion_dd035f36 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
-    /*package*/ static final SConcept DataTypeDeclaration_9e6b98ac = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumMigrationInfo$2L = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, "jetbrains.mps.lang.structure.structure.EnumMigrationInfo");
+    /*package*/ static final SConcept EnumerationDeclartaion$rG = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x2e770ca32c607c5fL, "jetbrains.mps.lang.structure.structure.EnumerationDeclartaion");
+    /*package*/ static final SConcept DataTypeDeclaration$KQ = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, "jetbrains.mps.lang.structure.structure.DataTypeDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty datatypeId$Bvg3 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfaL, 0x6c1f946a87044403L, "datatypeId");
   }
 }

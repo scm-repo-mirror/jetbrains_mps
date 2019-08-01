@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,17 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsDescriptor {
   public ExtractToConstantRefExpression_Constraints() {
-    super(AUX_o7daap.ExtractToConstantRefExpression_86e65ed);
+    super(CONCEPTS.ExtractToConstantRefExpression$sl);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, 0x162724dabcdc672L, "original"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.original$N4_w, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -46,7 +47,7 @@ public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsD
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x1204d897032L, 0x1204d89aadaL, "fieldName"));
+            return SPropertyOperations.getString(_context.getParameterNode(), PROPS.fieldName$SVPF);
           }
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
@@ -54,7 +55,7 @@ public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsD
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(_context.getContextNode()), AUX_o7daap.ExtractToConstantExpression_341746e5, false, new SAbstractConcept[]{}));
+            return ListScope.forResolvableElements(SNodeOperations.getNodeDescendants(SNodeOperations.getContainingRoot(_context.getContextNode()), CONCEPTS.ExtractToConstantExpression$kt, false, new SAbstractConcept[]{}));
           }
         };
       }
@@ -65,8 +66,16 @@ public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsD
   }
   private static final SNodePointer breakingNode_o7daap_a0a2a0a0a1a0a0a0c = new SNodePointer("r:1ce54900-c35b-4aa5-b24f-b47c871a6d6f(jetbrains.mps.baseLanguageInternal.constraints)", "6836281137582645545");
 
-  private static final class AUX_o7daap {
-    /*package*/ static final SConcept ExtractToConstantRefExpression_86e65ed = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, "jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantRefExpression");
-    /*package*/ static final SConcept ExtractToConstantExpression_341746e5 = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x1204d897032L, "jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExtractToConstantRefExpression$sl = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, "jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantRefExpression");
+    /*package*/ static final SConcept ExtractToConstantExpression$kt = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x1204d897032L, "jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink original$N4_w = MetaAdapterFactory.getReferenceLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, 0x162724dabcdc672L, "original");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty fieldName$SVPF = MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x1204d897032L, 0x1204d89aadaL, "fieldName");
   }
 }

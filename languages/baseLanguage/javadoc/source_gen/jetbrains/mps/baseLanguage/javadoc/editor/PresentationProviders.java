@@ -8,22 +8,23 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.javadoc.behavior.BaseDocReference__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PresentationProviders {
   public static final IReferentPresentationProvider PRESENTATION_mgmaof_a0a0a = new IReferentPresentationProvider() {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return BaseDocReference__BehaviorDescriptor.getFQNameInContextIgnoreSameClassifier_idM5aELaQ3fi.invoke(sourceNode, SNodeOperations.as(SNodeOperations.getParent(targetNode), AUX_nxpo3o.Classifier_4b7e553)) + SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return BaseDocReference__BehaviorDescriptor.getFQNameInContextIgnoreSameClassifier_idM5aELaQ3fi.invoke(sourceNode, SNodeOperations.as(SNodeOperations.getParent(targetNode), CONCEPTS.Classifier$hJ)) + SPropertyOperations.getString(targetNode, PROPS.name$tAp1);
     }
   };
   public static final IReferentPresentationProvider PRESENTATION_t5duq4_a0a0a = new IReferentPresentationProvider() {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return BaseDocReference__BehaviorDescriptor.getFQNameInContextIgnoreSameClassifier_idM5aELaQ3fi.invoke(sourceNode, SNodeOperations.as(SNodeOperations.getParent(targetNode), AUX_nxpo3o.Classifier_4b7e553)) + SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "()";
+      return BaseDocReference__BehaviorDescriptor.getFQNameInContextIgnoreSameClassifier_idM5aELaQ3fi.invoke(sourceNode, SNodeOperations.as(SNodeOperations.getParent(targetNode), CONCEPTS.Classifier$hJ)) + SPropertyOperations.getString(targetNode, PROPS.name$tAp1) + "()";
     }
   };
   public static final IReferentPresentationProvider PRESENTATION_yqqfxo_a0a0a = new IReferentPresentationProvider() {
@@ -37,11 +38,15 @@ public class PresentationProviders {
     @NotNull
     @Override
     public String getPresentation(@NotNull SNode sourceNode, @NotNull SNode targetNode) {
-      return BaseDocReference__BehaviorDescriptor.getFQNameInContextIgnoreSameClassifier_idM5aELaQ3fi.invoke(sourceNode, SNodeOperations.as(SNodeOperations.getParent(targetNode), AUX_nxpo3o.Classifier_4b7e553)) + SPropertyOperations.getString(targetNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      return BaseDocReference__BehaviorDescriptor.getFQNameInContextIgnoreSameClassifier_idM5aELaQ3fi.invoke(sourceNode, SNodeOperations.as(SNodeOperations.getParent(targetNode), CONCEPTS.Classifier$hJ)) + SPropertyOperations.getString(targetNode, PROPS.name$tAp1);
     }
   };
 
-  private static final class AUX_nxpo3o {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

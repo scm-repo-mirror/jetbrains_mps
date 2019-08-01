@@ -13,7 +13,6 @@ import jetbrains.mps.ide.actions.nodes.GoToRulesHelper;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.Comparator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -21,6 +20,9 @@ import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.kernel.language.ConceptAspectsHelper;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class Typesystem_TabDescriptor extends RelationDescriptor {
   private static final Icon ICON = MPSIcons.Nodes.Type;
@@ -42,7 +44,7 @@ public class Typesystem_TabDescriptor extends RelationDescriptor {
     return ConceptEditorOpenHelper.getBaseNode(node);
   }
   public boolean isApplicable(SNode node) {
-    return SNodeOperations.isInstanceOf(node, AUX_8b3gcn.AbstractConceptDeclaration_ec74828f);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractConceptDeclaration$UN);
   }
   @Nullable
   public Icon getIcon() {
@@ -52,8 +54,8 @@ public class Typesystem_TabDescriptor extends RelationDescriptor {
     List<SNode> rules = GoToRulesHelper.getRules(node, true);
     return ListSequence.fromList(rules).sort(new Comparator<SNode>() {
       public int compare(SNode a, SNode b) {
-        boolean aConceptRef = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(a, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")), AUX_8b3gcn.ConceptReference_d2505614);
-        boolean bConceptRef = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(b, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")), AUX_8b3gcn.ConceptReference_d2505614);
+        boolean aConceptRef = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(a, LINKS.applicableNode$lCke), CONCEPTS.ConceptReference$Je);
+        boolean bConceptRef = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(b, LINKS.applicableNode$lCke), CONCEPTS.ConceptReference$Je);
 
         // rules with concept references go first 
         if (aConceptRef && !(bConceptRef)) {
@@ -65,12 +67,12 @@ public class Typesystem_TabDescriptor extends RelationDescriptor {
 
         // rules with concept references - more specific goes first 
         if (aConceptRef && bConceptRef) {
-          SNode aConcept = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(a, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")), AUX_8b3gcn.ConceptReference_d2505614), MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, 0x1117e2ab6c9L, "concept"));
-          SNode bConcept = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(b, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")), AUX_8b3gcn.ConceptReference_d2505614), MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, 0x1117e2ab6c9L, "concept"));
-          if (((boolean) (Boolean) BHReflection.invoke0(aConcept, AUX_8b3gcn.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("isSubconceptOf", AUX_8b3gcn.AbstractConceptDeclaration_ec74828f, "73yVtVlWOga"), bConcept))) {
+          SNode aConcept = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(a, LINKS.applicableNode$lCke), CONCEPTS.ConceptReference$Je), LINKS.concept$Q1Nr);
+          SNode bConcept = SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(b, LINKS.applicableNode$lCke), CONCEPTS.ConceptReference$Je), LINKS.concept$Q1Nr);
+          if (((boolean) (Boolean) BHReflection.invoke0(aConcept, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("isSubconceptOf", CONCEPTS.AbstractConceptDeclaration$UN, "73yVtVlWOga"), bConcept))) {
             return 1;
           }
-          if (((boolean) (Boolean) BHReflection.invoke0(bConcept, AUX_8b3gcn.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("isSubconceptOf", AUX_8b3gcn.AbstractConceptDeclaration_ec74828f, "73yVtVlWOga"), aConcept))) {
+          if (((boolean) (Boolean) BHReflection.invoke0(bConcept, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("isSubconceptOf", CONCEPTS.AbstractConceptDeclaration$UN, "73yVtVlWOga"), aConcept))) {
             return -1;
           }
         }
@@ -89,8 +91,13 @@ public class Typesystem_TabDescriptor extends RelationDescriptor {
     return ConceptAspectsHelper.attachNewConceptAspect(LanguageAspect.TYPESYSTEM, node, SNodeFactoryOperations.createNewNode(((SAbstractConcept) concept), null));
   }
 
-  private static final class AUX_8b3gcn {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ConceptReference_d2505614 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, "jetbrains.mps.lang.typesystem.structure.ConceptReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ConceptReference$Je = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, "jetbrains.mps.lang.typesystem.structure.ConceptReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink applicableNode$lCke = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode");
+    /*package*/ static final SReferenceLink concept$Q1Nr = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2a88b3L, 0x1117e2ab6c9L, "concept");
   }
 }

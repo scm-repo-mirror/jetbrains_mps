@@ -19,7 +19,6 @@ import java.awt.Frame;
 import com.intellij.featureStatistics.FeatureUsageTracker;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import javax.swing.JOptionPane;
 import jetbrains.mps.ide.platform.refactoring.RenameDialog;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -28,6 +27,8 @@ import jetbrains.mps.smodel.language.ConceptRegistry;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import org.apache.log4j.Level;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Rename_Action extends BaseAction {
   private static final Logger LOG = LogManager.getLogger(Rename_Action.class);
@@ -57,7 +58,7 @@ public class Rename_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_64hb8r.INamedConcept_8cd7e247))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$nV))) {
         node = null;
       }
       MapSequence.fromMap(_params).put("target", node);
@@ -90,7 +91,7 @@ public class Rename_Action extends BaseAction {
     ((MPSProject) MapSequence.fromMap(_params).get("project")).getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
         canBeRenamed.value = Rename_Action.this.canBeRenamed(_params);
-        oldName.value = SPropertyOperations.getString(((SNode) MapSequence.fromMap(_params).get("target")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        oldName.value = SPropertyOperations.getString(((SNode) MapSequence.fromMap(_params).get("target")), PROPS.name$tAp1);
       }
     });
     if (!(canBeRenamed.value)) {
@@ -109,7 +110,7 @@ public class Rename_Action extends BaseAction {
     // we won't rename nodes, for which there is getter without setter 
     SAbstractConcept concept = SNodeOperations.getConcept(((SNode) MapSequence.fromMap(_params).get("target")));
     ConstraintsDescriptor cd = ConceptRegistry.getInstance().getConstraintsDescriptor(concept);
-    PropertyConstraintsDescriptor propertyConstraint = cd.getProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    PropertyConstraintsDescriptor propertyConstraint = cd.getProperty(PROPS.name$tAp1);
     if (propertyConstraint == null) {
       if (LOG.isEnabledFor(Level.ERROR)) {
         LOG.error("Missing constraints descriptor for property INamedConcept.name for concept:" + concept);
@@ -119,7 +120,11 @@ public class Rename_Action extends BaseAction {
     return !(propertyConstraint.isReadOnly());
   }
 
-  private static final class AUX_64hb8r {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

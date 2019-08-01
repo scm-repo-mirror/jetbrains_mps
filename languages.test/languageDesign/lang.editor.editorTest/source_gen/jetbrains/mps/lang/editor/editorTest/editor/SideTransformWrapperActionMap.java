@@ -6,11 +6,12 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SideTransformWrapperActionMap {
 
@@ -20,7 +21,7 @@ public class SideTransformWrapperActionMap {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x46eb259b12ef5172L, 0x46eb259b12ef5179L, "rightOpen"), true);
+        SPropertyOperations.assign(node, PROPS.rightOpen$PhL5, true);
       }
 
     };
@@ -59,5 +60,9 @@ public class SideTransformWrapperActionMap {
     if (Objects.equals(actionType, CellActionType.RIGHT_TRANSFORM)) {
       editorCell.setAction(actionType, createAction_RIGHT_TRANSFORM(node));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty rightOpen$PhL5 = MetaAdapterFactory.getProperty(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x46eb259b12ef5172L, 0x46eb259b12ef5179L, "rightOpen");
   }
 }

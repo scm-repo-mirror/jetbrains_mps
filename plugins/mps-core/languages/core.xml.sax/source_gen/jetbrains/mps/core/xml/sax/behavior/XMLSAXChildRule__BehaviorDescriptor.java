@@ -4,6 +4,7 @@ package jetbrains.mps.core.xml.sax.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,7 +17,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.scope.EmptyScope;
@@ -26,11 +26,13 @@ import jetbrains.mps.lang.core.behavior.ScopeProvider__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class XMLSAXChildRule__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_1olkhf.XMLSAXChildRule_1c3fd3a3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, "jetbrains.mps.core.xml.sax.structure.XMLSAXChildRule");
 
   public static final SMethod<String> getTagName_id1XGsQcRHuf0 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getTagName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1XGsQcRHuf0").build();
   public static final SMethod<Scope> getArgumentsScope_id460OzqriLdX = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getArgumentsScope").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("460OzqriLdX").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""));
@@ -43,49 +45,49 @@ public final class XMLSAXChildRule__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   /*package*/ static String getTagName_id1XGsQcRHuf0(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2dcL, "rule")) != null) && isNotEmptyString(SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2dcL, "rule")), MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f9L, "tagName"))) && (SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2dbL, "overrideTag")) == false || isEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2daL, "tagName"))))) {
-      return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2dcL, "rule")), MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f9L, "tagName"));
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.rule$Ywc8) != null) && isNotEmptyString(SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.rule$Ywc8), PROPS.tagName$Y_Pq)) && (SPropertyOperations.getBoolean(__thisNode__, PROPS.overrideTag$Yw1u) == false || isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.tagName$Yw0Z)))) {
+      return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.rule$Ywc8), PROPS.tagName$Y_Pq);
     }
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2daL, "tagName"));
+    return SPropertyOperations.getString(__thisNode__, PROPS.tagName$Yw0Z);
   }
   /*package*/ static Scope getArgumentsScope_id460OzqriLdX(@NotNull SNode __thisNode__, SAbstractConcept kind) {
     SAbstractConcept cncpt = (kind);
     boolean noneMatched = true;
-    if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, AUX_1olkhf.VariableDeclaration_3c610994)) {
+    if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.VariableDeclaration$xe)) {
       noneMatched = false;
       return new EmptyScope();
     }
-    if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, AUX_1olkhf.XMLSAXAttributeRule_1c3fd381)) {
+    if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.XMLSAXAttributeRule$K1)) {
       noneMatched = false;
-      return SimpleRoleScope.forNamedElements(SNodeOperations.getNodeAncestor(__thisNode__, AUX_1olkhf.XMLSAXNodeRule_1c3fd687, false, false), MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f4L, "attrs"));
+      return SimpleRoleScope.forNamedElements(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.XMLSAXNodeRule$AV, false, false), LINKS.attrs$Y_MZ);
     }
     return null;
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
-    if (child != null && child.getContainmentLink().equals(MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0xf8c78301aeL, "actualArgument"))) {
+    if (child != null && child.getContainmentLink().equals(LINKS.actualArgument$DrSD)) {
       Scope argumentsScope = XMLSAXChildRule__BehaviorDescriptor.getArgumentsScope_id460OzqriLdX.invoke(__thisNode__, kind);
       if (argumentsScope != null) {
         return argumentsScope;
       }
     }
-    if (child == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x4180d2369beda765L, "condition"))) {
+    if (child == SLinkOperations.getTarget(__thisNode__, LINKS.condition$rVjD)) {
       SAbstractConcept cncpt = kind;
       boolean noneMatched = true;
-      if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, AUX_1olkhf.XMLSAXAttributeRule_1c3fd381)) {
+      if (noneMatched && SConceptOperations.isSubConceptOf(cncpt, CONCEPTS.XMLSAXAttributeRule$K1)) {
         noneMatched = false;
-        return SimpleRoleScope.forNamedElements(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2dcL, "rule")), MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f4L, "attrs"));
+        return SimpleRoleScope.forNamedElements(SLinkOperations.getTarget(__thisNode__, LINKS.rule$Ywc8), LINKS.attrs$Y_MZ);
       }
     }
-    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, AUX_1olkhf.ScopeProvider_545e361a, kind, child));
+    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$M8, kind, child));
   }
   /*package*/ static Scope getScope_id52_Geb4QFgX(@NotNull SNode __thisNode__, SAbstractConcept kind, SContainmentLink role, int index) {
-    if (role.equals(MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0xf8c78301aeL, "actualArgument"))) {
+    if (role.equals(LINKS.actualArgument$DrSD)) {
       Scope argumentsScope = XMLSAXChildRule__BehaviorDescriptor.getArgumentsScope_id460OzqriLdX.invoke(__thisNode__, kind);
       if (argumentsScope != null) {
         return argumentsScope;
       }
     }
-    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QFgX.invoke0(__thisNode__, AUX_1olkhf.ScopeProvider_545e361a, kind, role, ((int) index)));
+    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QFgX.invoke0(__thisNode__, CONCEPTS.ScopeProvider$M8, kind, role, ((int) index)));
   }
 
   /*package*/ XMLSAXChildRule__BehaviorDescriptor() {
@@ -146,11 +148,23 @@ public final class XMLSAXChildRule__BehaviorDescriptor extends BaseBHDescriptor 
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_1olkhf {
-    /*package*/ static final SConcept XMLSAXChildRule_1c3fd3a3 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, "jetbrains.mps.core.xml.sax.structure.XMLSAXChildRule");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept XMLSAXNodeRule_1c3fd687 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
-    /*package*/ static final SConcept XMLSAXAttributeRule_1c3fd381 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cbL, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeRule");
-    /*package*/ static final SInterfaceConcept ScopeProvider_545e361a = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink rule$Ywc8 = MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2dcL, "rule");
+    /*package*/ static final SContainmentLink attrs$Y_MZ = MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f4L, "attrs");
+    /*package*/ static final SContainmentLink actualArgument$DrSD = MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0xf8c78301aeL, "actualArgument");
+    /*package*/ static final SContainmentLink condition$rVjD = MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x4180d2369beda765L, "condition");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty tagName$Y_Pq = MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f9L, "tagName");
+    /*package*/ static final SProperty tagName$Yw0Z = MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2daL, "tagName");
+    /*package*/ static final SProperty overrideTag$Yw1u = MetaAdapterFactory.getProperty(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2d8L, 0x1f6c736337b5e2dbL, "overrideTag");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept XMLSAXNodeRule$AV = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
+    /*package*/ static final SConcept XMLSAXAttributeRule$K1 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cbL, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeRule");
+    /*package*/ static final SInterfaceConcept ScopeProvider$M8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
   }
 }

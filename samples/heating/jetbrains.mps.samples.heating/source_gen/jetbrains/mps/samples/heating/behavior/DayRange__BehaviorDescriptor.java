@@ -4,6 +4,7 @@ package jetbrains.mps.samples.heating.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class DayRange__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_oo8e81.DayRange_4c0c89f2;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x40bcae6c0e6bc56bL, "jetbrains.mps.samples.heating.structure.DayRange");
 
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
 
@@ -32,7 +32,7 @@ public final class DayRange__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
-    return "From " + SEnumOperations.getMemberName0(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x40bcae6c0e6bc56bL, 0x40bcae6c0e6bc59fL, "start"))) + " to " + SEnumOperations.getMemberName0(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x40bcae6c0e6bc56bL, 0x40bcae6c0e6bc5a1L, "end")));
+    return "From " + SEnumOperations.getMemberName0(SPropertyOperations.getEnum(__thisNode__, PROPS.start$$dXJ)) + " to " + SEnumOperations.getMemberName0(SPropertyOperations.getEnum(__thisNode__, PROPS.end$$dYH));
   }
 
   /*package*/ DayRange__BehaviorDescriptor() {
@@ -81,7 +81,8 @@ public final class DayRange__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_oo8e81 {
-    /*package*/ static final SConcept DayRange_4c0c89f2 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x40bcae6c0e6bc56bL, "jetbrains.mps.samples.heating.structure.DayRange");
+  private static final class PROPS {
+    /*package*/ static final SProperty end$$dYH = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x40bcae6c0e6bc56bL, 0x40bcae6c0e6bc5a1L, "end");
+    /*package*/ static final SProperty start$$dXJ = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x40bcae6c0e6bc56bL, 0x40bcae6c0e6bc59fL, "start");
   }
 }

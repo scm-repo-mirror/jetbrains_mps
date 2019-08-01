@@ -4,6 +4,7 @@ package jetbrains.mps.lang.quotation.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -22,10 +23,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AbstractAntiquotation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_p6r1p0.AbstractAntiquotation_25f29ace;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104656L, "jetbrains.mps.lang.quotation.structure.AbstractAntiquotation");
 
   public static final SMethod<Integer> getMetaLevelChange_idbc0iGlxcsE = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getMetaLevelChange").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("bc0iGlxcsE").build();
   public static final SMethod<Scope> getScope_id52_Geb4QDV$ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getScope").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("52_Geb4QDV$").build(SMethodBuilder.createJavaParameter((Class<SAbstractConcept>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
@@ -50,8 +50,8 @@ public final class AbstractAntiquotation__BehaviorDescriptor extends BaseBHDescr
     SNode node = __thisNode__;
     int metaLevelChange = 0;
     while ((node != null)) {
-      if (SNodeOperations.isInstanceOf(node, AUX_p6r1p0.IMetaLevelChanger_92c10750)) {
-        metaLevelChange += (int) IMetaLevelChanger__BehaviorDescriptor.getMetaLevelChange_idbc0iGlxcsE.invoke(SNodeOperations.cast(node, AUX_p6r1p0.IMetaLevelChanger_92c10750));
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.IMetaLevelChanger$8i)) {
+        metaLevelChange += (int) IMetaLevelChanger__BehaviorDescriptor.getMetaLevelChange_idbc0iGlxcsE.invoke(SNodeOperations.cast(node, CONCEPTS.IMetaLevelChanger$8i));
       }
       if (metaLevelChange == 0) {
         break;
@@ -116,8 +116,7 @@ public final class AbstractAntiquotation__BehaviorDescriptor extends BaseBHDescr
     return CONCEPT;
   }
 
-  private static final class AUX_p6r1p0 {
-    /*package*/ static final SInterfaceConcept AbstractAntiquotation_25f29ace = MetaAdapterFactory.getInterfaceConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104656L, "jetbrains.mps.lang.quotation.structure.AbstractAntiquotation");
-    /*package*/ static final SInterfaceConcept IMetaLevelChanger_92c10750 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2cc012b1584bd3aL, "jetbrains.mps.lang.core.structure.IMetaLevelChanger");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IMetaLevelChanger$8i = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2cc012b1584bd3aL, "jetbrains.mps.lang.core.structure.IMetaLevelChanger");
   }
 }

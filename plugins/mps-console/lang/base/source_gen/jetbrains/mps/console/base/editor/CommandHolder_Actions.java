@@ -9,10 +9,11 @@ import java.util.Objects;
 import jetbrains.mps.nodeEditor.selection.SelectUpUtil;
 import java.util.function.BooleanSupplier;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CommandHolder_Actions {
 
@@ -42,7 +43,7 @@ public class CommandHolder_Actions {
 
         SelectUpUtil.executeWhile(editorContext, new BooleanSupplier() {
           public boolean getAsBoolean() {
-            return !(Objects.equals(editorContext.getSelectionManager().getSelection().getSelectedNodes().get(0), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command"))));
+            return !(Objects.equals(editorContext.getSelectionManager().getSelection().getSelectedNodes().get(0), SLinkOperations.getTarget(node, LINKS.command$pL9$)));
           }
         });
       }
@@ -51,7 +52,7 @@ public class CommandHolder_Actions {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return SelectUpUtil.canExecute(editorContext) && (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command")) != null);
+        return SelectUpUtil.canExecute(editorContext) && (SLinkOperations.getTarget(node, LINKS.command$pL9$) != null);
       }
 
     };
@@ -94,5 +95,9 @@ public class CommandHolder_Actions {
     if (Objects.equals(actionType, CellActionType.SELECT_ALL)) {
       editorCell.setAction(actionType, createAction_SELECT_ALL(node));
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink command$pL9$ = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command");
   }
 }

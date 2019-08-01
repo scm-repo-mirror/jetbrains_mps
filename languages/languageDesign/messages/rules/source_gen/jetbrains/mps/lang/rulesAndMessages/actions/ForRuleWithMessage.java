@@ -7,21 +7,26 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ForRuleWithMessage {
   public static class NodeFactory_6990313848119162803 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_mgz4ku.RuleWithMessage_dc955b88)) {
-        if (SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_mgz4ku.RuleWithMessage_dc955b88), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider")) != null) {
-          SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_mgz4ku.RuleWithMessage_dc955b88), MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.RuleWithMessage$jq)) {
+        if (SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.RuleWithMessage$jq), LINKS.messageProvider$Rd0S) != null) {
+          SLinkOperations.setTarget(newNode, LINKS.messageProvider$Rd0S, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.RuleWithMessage$jq), LINKS.messageProvider$Rd0S));
         }
       }
     }
   }
 
-  private static final class AUX_mgz4ku {
-    /*package*/ static final SConcept RuleWithMessage_dc955b88 = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink messageProvider$Rd0S = MetaAdapterFactory.getContainmentLink(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, 0x46263286dc0ce86L, "messageProvider");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RuleWithMessage$jq = MetaAdapterFactory.getConcept(0xb3551702269c4f05L, 0xba6158060cef4292L, 0x46263286dc0ce67L, "jetbrains.mps.lang.rulesAndMessages.structure.RuleWithMessage");
   }
 }

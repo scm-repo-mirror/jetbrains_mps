@@ -37,13 +37,15 @@ import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TestCaseRef_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_dnvvk3_a(), AUX_dnvvk3.TestCaseRef_e5f1f89f));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_dnvvk3_a(), CONCEPTS.TestCaseRef$Ez));
     return result;
   }
 
@@ -80,10 +82,10 @@ public class TestCaseRef_SubstituteMenu extends SubstituteMenuBase {
     @Nullable
     @Override
     protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-      SNode msuite = SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_dnvvk3.ModuleSuite_e5f1f89d, true, false);
+      SNode msuite = SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ModuleSuite$D_, true, false);
       return Sequence.fromIterable(ModuleSuite__BehaviorDescriptor.models_id173Z5qAOyPn.invoke(msuite)).translate(new ITranslator2<SModel, SNode>() {
         public Iterable<SNode> translate(SModel smd) {
-          return SModelOperations.nodes(((SModel) smd), AUX_dnvvk3.ITestCase_8c8c490a);
+          return SModelOperations.nodes(((SModel) smd), CONCEPTS.ITestCase$uo);
         }
       }).toListSequence();
     }
@@ -120,7 +122,7 @@ public class TestCaseRef_SubstituteMenu extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_dnvvk3.TestCaseRef_e5f1f89f, context);
+          super(CONCEPTS.TestCaseRef$Ez, context);
           _context = context;
         }
 
@@ -132,7 +134,7 @@ public class TestCaseRef_SubstituteMenu extends SubstituteMenuBase {
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode tref = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb7L, "jetbrains.mps.testbench.suite.structure.TestCaseRef"));
-          SLinkOperations.setTarget(tref, MetaAdapterFactory.getReferenceLink(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb7L, 0x3e81ed1e2be77cc0L, "testCase"), myParameterObject);
+          SLinkOperations.setTarget(tref, LINKS.testCase$fEcz, myParameterObject);
           ((AbstractModule) _context.getModel().getModule()).addDependency(SNodeOperations.getModel(myParameterObject).getModule().getModuleReference(), false);
           ((SModelInternal) _context.getModel()).addModelImport(SModelOperations.getPointer(SNodeOperations.getModel(myParameterObject)));
           return tref;
@@ -144,7 +146,7 @@ public class TestCaseRef_SubstituteMenu extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_dnvvk3.TestCaseRef_e5f1f89f, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.TestCaseRef$Ez, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -165,16 +167,24 @@ public class TestCaseRef_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public String getMatchingText(@NotNull String pattern) {
-          return SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+          return SPropertyOperations.getString(myParameterObject, PROPS.name$tAp1);
         }
       }
     }
 
   }
 
-  private static final class AUX_dnvvk3 {
-    /*package*/ static final SConcept TestCaseRef_e5f1f89f = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb7L, "jetbrains.mps.testbench.suite.structure.TestCaseRef");
-    /*package*/ static final SConcept ModuleSuite_e5f1f89d = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, "jetbrains.mps.testbench.suite.structure.ModuleSuite");
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestCaseRef$Ez = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb7L, "jetbrains.mps.testbench.suite.structure.TestCaseRef");
+    /*package*/ static final SConcept ModuleSuite$D_ = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb5L, "jetbrains.mps.testbench.suite.structure.ModuleSuite");
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink testCase$fEcz = MetaAdapterFactory.getReferenceLink(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb7L, 0x3e81ed1e2be77cc0L, "testCase");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -27,7 +27,7 @@ public class check_BuildStringNotEmpty_NonTypesystemRule extends AbstractNonType
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_r4mo4a.BuildStringNotEmpty_fb110cc3;
+    return CONCEPTS.BuildStringNotEmpty$FZ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -39,7 +39,7 @@ public class check_BuildStringNotEmpty_NonTypesystemRule extends AbstractNonType
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_r4mo4a {
-    /*package*/ static final SConcept BuildStringNotEmpty_fb110cc3 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee17fe57L, "jetbrains.mps.build.structure.BuildStringNotEmpty");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildStringNotEmpty$FZ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xbabdfbeee17fe57L, "jetbrains.mps.build.structure.BuildStringNotEmpty");
   }
 }

@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CanWrapHighLevelValue_ConceptFunction_Constraints extends BaseConstraintsDescriptor {
   public CanWrapHighLevelValue_ConceptFunction_Constraints() {
-    super(AUX_9jy5e8.CanWrapHighLevelValue_ConceptFunction_602f12fc);
+    super(CONCEPTS.CanWrapHighLevelValue_ConceptFunction$JA);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class CanWrapHighLevelValue_ConceptFunction_Constraints extends BaseConst
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_9jy5e8.HighLevelCustomViewer_d8153e93);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.HighLevelCustomViewer$cJ);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:90c5d87d-81cd-4991-8860-6ac3ba3269c4(jetbrains.mps.debugger.java.customViewers.constraints)", "1227128029536564833");
 
-  private static final class AUX_9jy5e8 {
-    /*package*/ static final SConcept CanWrapHighLevelValue_ConceptFunction_602f12fc = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514043ecbdbL, "jetbrains.mps.debugger.java.customViewers.structure.CanWrapHighLevelValue_ConceptFunction");
-    /*package*/ static final SConcept HighLevelCustomViewer_d8153e93 = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelCustomViewer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CanWrapHighLevelValue_ConceptFunction$JA = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514043ecbdbL, "jetbrains.mps.debugger.java.customViewers.structure.CanWrapHighLevelValue_ConceptFunction");
+    /*package*/ static final SConcept HighLevelCustomViewer$cJ = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x97038071a3bfa40L, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelCustomViewer");
   }
 }

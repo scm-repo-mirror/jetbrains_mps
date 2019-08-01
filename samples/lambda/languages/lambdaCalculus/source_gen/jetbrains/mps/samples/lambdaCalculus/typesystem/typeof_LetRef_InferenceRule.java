@@ -9,32 +9,35 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class typeof_LetRef_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_LetRef_InferenceRule() {
   }
   public void applyRule(final SNode letRef, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
 
-    SNode type = SNodeOperations.copyNode(typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(SLinkOperations.getTarget(letRef, MetaAdapterFactory.getReferenceLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x48db75d5dc496b08L, 0x48db75d5dc497af4L, "variable"))), AUX_ewtwjy.LetExpression_c0b43c81), MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x448ba254edbfc79fL, 0x448ba254edbfc7a0L, "value")), "r:8c01d5e0-82c3-43e7-9986-af954df6cb8b(jetbrains.mps.samples.lambdaCalculus.typesystem)", "926857988255646351", true));
+    SNode type = SNodeOperations.copyNode(typeCheckingContext.typeOf(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(SLinkOperations.getTarget(letRef, LINKS.variable$j9XA)), CONCEPTS.LetExpression$c1), LINKS.value$xLTF), "r:8c01d5e0-82c3-43e7-9986-af954df6cb8b(jetbrains.mps.samples.lambdaCalculus.typesystem)", "926857988255646351", true));
     Map<String, SNode> map = MapSequence.fromMap(new HashMap<String, SNode>());
-    for (SNode t : SNodeOperations.getNodeDescendants(type, AUX_ewtwjy.RuntimeTypeVariable_7182948e, false, new SAbstractConcept[]{})) {
+    for (SNode t : SNodeOperations.getNodeDescendants(type, CONCEPTS.RuntimeTypeVariable$Mk, false, new SAbstractConcept[]{})) {
       final SNode v_typevar_464844656889754475 = typeCheckingContext.createNewRuntimeTypesVariable();
       SNode varNode = typeCheckingContext.getRepresentative(v_typevar_464844656889754475);
-      if (!(MapSequence.fromMap(map).containsKey(SPropertyOperations.getString(t, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))))) {
-        MapSequence.fromMap(map).put(SPropertyOperations.getString(t, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SNodeOperations.cast(typeCheckingContext.getRepresentative(v_typevar_464844656889754475), AUX_ewtwjy.RuntimeTypeVariable_7182948e));
+      if (!(MapSequence.fromMap(map).containsKey(SPropertyOperations.getString(t, PROPS.name$tAp1)))) {
+        MapSequence.fromMap(map).put(SPropertyOperations.getString(t, PROPS.name$tAp1), SNodeOperations.cast(typeCheckingContext.getRepresentative(v_typevar_464844656889754475), CONCEPTS.RuntimeTypeVariable$Mk));
       } else {
         {
           SNode _nodeToCheck_1029348928467 = letRef;
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:8c01d5e0-82c3-43e7-9986-af954df6cb8b(jetbrains.mps.samples.lambdaCalculus.typesystem)", "464844656889754494", 0, null);
-          typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(v_typevar_464844656889754475), (SNode) MapSequence.fromMap(map).get(SPropertyOperations.getString(t, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))), _info_12389875345);
+          typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(v_typevar_464844656889754475), (SNode) MapSequence.fromMap(map).get(SPropertyOperations.getString(t, PROPS.name$tAp1)), _info_12389875345);
         }
       }
       SNodeOperations.replaceWithAnother(t, varNode);
@@ -46,7 +49,7 @@ public class typeof_LetRef_InferenceRule extends AbstractInferenceRule_Runtime i
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ewtwjy.LetRef_ebceb1d3;
+    return CONCEPTS.LetRef$vJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -55,9 +58,18 @@ public class typeof_LetRef_InferenceRule extends AbstractInferenceRule_Runtime i
     return false;
   }
 
-  private static final class AUX_ewtwjy {
-    /*package*/ static final SConcept LetExpression_c0b43c81 = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x448ba254edbfc79fL, "jetbrains.mps.samples.lambdaCalculus.structure.LetExpression");
-    /*package*/ static final SConcept RuntimeTypeVariable_7182948e = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x113f84956fbL, "jetbrains.mps.lang.typesystem.structure.RuntimeTypeVariable");
-    /*package*/ static final SConcept LetRef_ebceb1d3 = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x448ba254edc7216cL, "jetbrains.mps.samples.lambdaCalculus.structure.LetRef");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variable$j9XA = MetaAdapterFactory.getReferenceLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x48db75d5dc496b08L, 0x48db75d5dc497af4L, "variable");
+    /*package*/ static final SContainmentLink value$xLTF = MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x448ba254edbfc79fL, 0x448ba254edbfc7a0L, "value");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LetExpression$c1 = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x448ba254edbfc79fL, "jetbrains.mps.samples.lambdaCalculus.structure.LetExpression");
+    /*package*/ static final SConcept RuntimeTypeVariable$Mk = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x113f84956fbL, "jetbrains.mps.lang.typesystem.structure.RuntimeTypeVariable");
+    /*package*/ static final SConcept LetRef$vJ = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x448ba254edc7216cL, "jetbrains.mps.samples.lambdaCalculus.structure.LetRef");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

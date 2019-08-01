@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ActionInstance_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_2cluuu_a(), AUX_2cluuu.ActionInstance_2a9bf533));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_2cluuu_a(), CONCEPTS.ActionInstance$2f));
     result.add(new SMP_Subconcepts_2cluuu_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class ActionInstance_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_2cluuu_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_2cluuu.ActionInstance_2a9bf533, MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da2ba57L, 0x1181da2f27fL, "action"));
+      super((SAbstractConcept) CONCEPTS.ActionInstance$2f, LINKS.action$BEI2);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class ActionInstance_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_2cluuu_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_2cluuu.ActionInstance_2a9bf533);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.ActionInstance$2f);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class ActionInstance_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_2cluuu {
-    /*package*/ static final SConcept ActionInstance_2a9bf533 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da2ba57L, "jetbrains.mps.lang.plugin.structure.ActionInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionInstance$2f = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da2ba57L, "jetbrains.mps.lang.plugin.structure.ActionInstance");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink action$BEI2 = MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da2ba57L, 0x1181da2f27fL, "action");
   }
 }

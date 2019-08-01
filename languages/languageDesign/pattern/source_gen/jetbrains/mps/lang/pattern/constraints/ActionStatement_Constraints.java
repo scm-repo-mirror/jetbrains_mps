@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ActionStatement_Constraints extends BaseConstraintsDescriptor {
   public ActionStatement_Constraints() {
-    super(AUX_ugy0js.ActionStatement_e09bd46a);
+    super(CONCEPTS.ActionStatement$wS);
   }
 
-  private static final class AUX_ugy0js {
-    /*package*/ static final SConcept ActionStatement_e09bd46a = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1815d960L, "jetbrains.mps.lang.pattern.structure.ActionStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionStatement$wS = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1815d960L, "jetbrains.mps.lang.pattern.structure.ActionStatement");
   }
 }

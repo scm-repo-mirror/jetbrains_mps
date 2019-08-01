@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class PropertyPatternVariableReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_wbk7fm_a(), AUX_wbk7fm.PropertyPatternVariableReference_43346469));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_wbk7fm_a(), CONCEPTS.PropertyPatternVariableReference$wp));
     result.add(new SMP_Subconcepts_wbk7fm_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class PropertyPatternVariableReference_SubstituteMenu extends SubstituteM
 
     public SMP_ReferenceScope_wbk7fm_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_wbk7fm.PropertyPatternVariableReference_43346469, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, 0x2cb3222730cfe469L, "declaration"));
+      super((SAbstractConcept) CONCEPTS.PropertyPatternVariableReference$wp, LINKS.declaration$Swc3);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class PropertyPatternVariableReference_SubstituteMenu extends SubstituteM
   }
   public class SMP_Subconcepts_wbk7fm_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_wbk7fm.PropertyPatternVariableReference_43346469);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.PropertyPatternVariableReference$wp);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class PropertyPatternVariableReference_SubstituteMenu extends SubstituteM
     }
   }
 
-  private static final class AUX_wbk7fm {
-    /*package*/ static final SConcept PropertyPatternVariableReference_43346469 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, "jetbrains.mps.lang.migration.structure.PropertyPatternVariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyPatternVariableReference$wp = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, "jetbrains.mps.lang.migration.structure.PropertyPatternVariableReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$Swc3 = MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, 0x2cb3222730cfe469L, "declaration");
   }
 }

@@ -31,6 +31,7 @@ import jetbrains.mps.openapi.navigation.EditorNavigator;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PasteNode_Action extends BaseAction {
@@ -154,11 +155,15 @@ public class PasteNode_Action extends BaseAction {
   }
   private String getContextPackage(final Map<String, Object> _params) {
     if (((SNode) MapSequence.fromMap(_params).get("node")) != null) {
-      return SPropertyOperations.getString(((SNode) ((SNode) MapSequence.fromMap(_params).get("node"))), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"));
+      return SPropertyOperations.getString(((SNode) ((SNode) MapSequence.fromMap(_params).get("node"))), PROPS.virtualPackage$j19t);
     }
     if (((List<Pair<SModel, String>>) MapSequence.fromMap(_params).get("packs")) != null && ((List<Pair<SModel, String>>) MapSequence.fromMap(_params).get("packs")).size() == 1 && ((List<Pair<SModel, String>>) MapSequence.fromMap(_params).get("packs")).get(0).o1 == ((SModel) MapSequence.fromMap(_params).get("contextModel"))) {
       return ((List<Pair<SModel, String>>) MapSequence.fromMap(_params).get("packs")).get(0).o2;
     }
     return null;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

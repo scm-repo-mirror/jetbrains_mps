@@ -4,6 +4,7 @@ package jetbrains.mps.lang.plugin.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,7 +17,6 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -25,9 +25,11 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ActionGroupDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_68ue09.ActionGroupDeclaration_3a039d1;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
 
   public static final SMethod<String> getGroupPrefix_idhEwJa7y = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGroupPrefix").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJa7y").build();
   public static final SMethod<String> getGeneratedName_idhEwJa82 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGeneratedName").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJa82").build();
@@ -42,25 +44,25 @@ public final class ActionGroupDeclaration__BehaviorDescriptor extends BaseBHDesc
 
   /*package*/ static String getGroupPrefix_idhEwJa7y(@NotNull SNode __thisNode__) {
     String prefix = "";
-    SNode parentGroup = SNodeOperations.getNodeAncestor(__thisNode__, AUX_68ue09.ActionGroupDeclaration_3a039d1, false, false);
+    SNode parentGroup = SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.ActionGroupDeclaration$YL, false, false);
     if (parentGroup != null) {
-      prefix = ActionGroupDeclaration__BehaviorDescriptor.getGroupPrefix_idhEwJa7y.invoke(parentGroup) + SPropertyOperations.getString(parentGroup, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      prefix = ActionGroupDeclaration__BehaviorDescriptor.getGroupPrefix_idhEwJa7y.invoke(parentGroup) + SPropertyOperations.getString(parentGroup, PROPS.name$tAp1);
     }
     return prefix;
   }
   /*package*/ static String getGeneratedName_idhEwJa82(@NotNull SNode __thisNode__) {
-    return ActionGroupDeclaration__BehaviorDescriptor.getGroupPrefix_idhEwJa7y.invoke(__thisNode__) + NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) + "_ActionGroup";
+    return ActionGroupDeclaration__BehaviorDescriptor.getGroupPrefix_idhEwJa7y.invoke(__thisNode__) + NameUtil.toValidIdentifier(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1)) + "_ActionGroup";
   }
   /*package*/ static String getGeneratedClassFQName_idhEwJa8g(@NotNull SNode __thisNode__) {
     return SModelOperations.getModelName(SNodeOperations.getModel(__thisNode__)) + '.' + ActionGroupDeclaration__BehaviorDescriptor.getGeneratedName_idhEwJa82.invoke(__thisNode__);
   }
   /*package*/ static SNode createType_idhEwJimy(@NotNull SNode __thisNode__) {
     SNode type = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119240f9168L, "jetbrains.mps.lang.plugin.structure.GroupType"));
-    SLinkOperations.setTarget(type, MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119240f9168L, 0x119240f916aL, "actionGroup"), __thisNode__);
+    SLinkOperations.setTarget(type, LINKS.actionGroup$zMLv, __thisNode__);
     return type;
   }
   /*package*/ static PropertyReference getPropertyToCheck_id4cWf37B8oYh(@NotNull SNode __thisNode__) {
-    return new PropertyReference(__thisNode__, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, 0x1188f1dd933L, "caption"));
+    return new PropertyReference(__thisNode__, PROPS.caption$RiqX);
   }
 
   /*package*/ ActionGroupDeclaration__BehaviorDescriptor() {
@@ -117,7 +119,16 @@ public final class ActionGroupDeclaration__BehaviorDescriptor extends BaseBHDesc
     return CONCEPT;
   }
 
-  private static final class AUX_68ue09 {
-    /*package*/ static final SConcept ActionGroupDeclaration_3a039d1 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionGroupDeclaration$YL = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, "jetbrains.mps.lang.plugin.structure.ActionGroupDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty caption$RiqX = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181da058d2L, 0x1188f1dd933L, "caption");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink actionGroup$zMLv = MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x119240f9168L, 0x119240f916aL, "actionGroup");
   }
 }

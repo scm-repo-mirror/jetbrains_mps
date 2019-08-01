@@ -23,7 +23,7 @@ public class checkITestCase_And_TestInfo_NonTypesystemRule extends AbstractNonTy
   public checkITestCase_And_TestInfo_NonTypesystemRule() {
   }
   public void applyRule(final SNode iTestCase, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((boolean) ITestable__BehaviorDescriptor.isMpsStartRequired_id2RMg39tmiFh.invoke(iTestCase) && ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(iTestCase), AUX_zc9r63.TestInfo_c0c4a9c7)).isEmpty()) {
+    if ((boolean) ITestable__BehaviorDescriptor.isMpsStartRequired_id2RMg39tmiFh.invoke(iTestCase) && ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(iTestCase), CONCEPTS.TestInfo$TV)).isEmpty()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(iTestCase, "TestInfo root pointing the the test project should be created in the model to properly code in all environments", "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "1558359368029368278", null, errorTarget);
@@ -31,7 +31,7 @@ public class checkITestCase_And_TestInfo_NonTypesystemRule extends AbstractNonTy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_zc9r63.ITestCase_8c8c490a;
+    return CONCEPTS.ITestCase$uo;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,8 +40,8 @@ public class checkITestCase_And_TestInfo_NonTypesystemRule extends AbstractNonTy
     return false;
   }
 
-  private static final class AUX_zc9r63 {
-    /*package*/ static final SConcept TestInfo_c0c4a9c7 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x46bca02bfb6e730aL, "jetbrains.mps.lang.test.structure.TestInfo");
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestInfo$TV = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x46bca02bfb6e730aL, "jetbrains.mps.lang.test.structure.TestInfo");
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
   }
 }

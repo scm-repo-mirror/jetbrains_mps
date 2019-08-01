@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.generationContext.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class GenerationContextOp_UserObjectAccessBase__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_dq0pg3.GenerationContextOp_UserObjectAccessBase_772535d6;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_UserObjectAccessBase");
 
   public static final SMethod<Boolean> isLValueInAssignment_idhIg3nxk = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLValueInAssignment").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hIg3nxk").build();
 
@@ -33,8 +34,8 @@ public final class GenerationContextOp_UserObjectAccessBase__BehaviorDescriptor 
 
   /*package*/ static boolean isLValueInAssignment_idhIg3nxk(@NotNull SNode __thisNode__) {
     SNode mayBeAssignment = SNodeOperations.getParent(SNodeOperations.getParent(__thisNode__));
-    if (SNodeOperations.isInstanceOf(mayBeAssignment, AUX_dq0pg3.AssignmentExpression_24d60daa)) {
-      if (SNodeOperations.getParent(__thisNode__) == SLinkOperations.getTarget(SNodeOperations.cast(mayBeAssignment, AUX_dq0pg3.AssignmentExpression_24d60daa), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue"))) {
+    if (SNodeOperations.isInstanceOf(mayBeAssignment, CONCEPTS.AssignmentExpression$rS)) {
+      if (SNodeOperations.getParent(__thisNode__) == SLinkOperations.getTarget(SNodeOperations.cast(mayBeAssignment, CONCEPTS.AssignmentExpression$rS), LINKS.lValue$J0D4)) {
         return true;
       }
     }
@@ -87,8 +88,11 @@ public final class GenerationContextOp_UserObjectAccessBase__BehaviorDescriptor 
     return CONCEPT;
   }
 
-  private static final class AUX_dq0pg3 {
-    /*package*/ static final SConcept GenerationContextOp_UserObjectAccessBase_772535d6 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_UserObjectAccessBase");
-    /*package*/ static final SConcept AssignmentExpression_24d60daa = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AssignmentExpression$rS = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink lValue$J0D4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue");
   }
 }

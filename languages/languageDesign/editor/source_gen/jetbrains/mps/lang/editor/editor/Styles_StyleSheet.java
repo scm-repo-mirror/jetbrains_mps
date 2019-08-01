@@ -217,31 +217,31 @@ public class Styles_StyleSheet {
     }
 
     private boolean _StyleParameter_QueryFunction_kkd5s1_a0a() {
-      if (!(SNodeOperations.isInstanceOf(getNode(), AUX_f5vaad.EditorCellModel_226b88d6))) {
+      if (!(SNodeOperations.isInstanceOf(getNode(), CONCEPTS.EditorCellModel$5c))) {
         return false;
       }
-      return (boolean) EditorCellModel__BehaviorDescriptor.isIndented_idi0pN94$.invoke(SNodeOperations.cast(getNode(), AUX_f5vaad.EditorCellModel_226b88d6));
+      return (boolean) EditorCellModel__BehaviorDescriptor.isIndented_idi0pN94$.invoke(SNodeOperations.cast(getNode(), CONCEPTS.EditorCellModel$5c));
     }
     private boolean _StyleParameter_QueryFunction_kkd5s1_a1a() {
-      if (!(SNodeOperations.isInstanceOf(getNode(), AUX_f5vaad.EditorCellModel_226b88d6))) {
+      if (!(SNodeOperations.isInstanceOf(getNode(), CONCEPTS.EditorCellModel$5c))) {
         return false;
       }
-      if ((boolean) EditorCellModel__BehaviorDescriptor.isNewLine_idi0pLPAc.invoke(SNodeOperations.cast(getNode(), AUX_f5vaad.EditorCellModel_226b88d6))) {
+      if ((boolean) EditorCellModel__BehaviorDescriptor.isNewLine_idi0pLPAc.invoke(SNodeOperations.cast(getNode(), CONCEPTS.EditorCellModel$5c))) {
         return true;
       }
-      if ((boolean) EditorCellModel__BehaviorDescriptor.isNewLineChildren_idi0pNGlC.invoke(SNodeOperations.cast(getNode(), AUX_f5vaad.EditorCellModel_226b88d6))) {
+      if ((boolean) EditorCellModel__BehaviorDescriptor.isNewLineChildren_idi0pNGlC.invoke(SNodeOperations.cast(getNode(), CONCEPTS.EditorCellModel$5c))) {
         return true;
       }
-      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(getNode()), AUX_f5vaad.EditorCellModel_226b88d6)) {
-        return (boolean) EditorCellModel__BehaviorDescriptor.isNewLineChildren_idi0pNGlC.invoke(SNodeOperations.cast(SNodeOperations.getParent(getNode()), AUX_f5vaad.EditorCellModel_226b88d6));
+      if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(getNode()), CONCEPTS.EditorCellModel$5c)) {
+        return (boolean) EditorCellModel__BehaviorDescriptor.isNewLineChildren_idi0pNGlC.invoke(SNodeOperations.cast(SNodeOperations.getParent(getNode()), CONCEPTS.EditorCellModel$5c));
       }
       return false;
     }
     private boolean _StyleParameter_QueryFunction_kkd5s1_a2a() {
-      if (!(SNodeOperations.isInstanceOf(getNode(), AUX_f5vaad.EditorCellModel_226b88d6))) {
+      if (!(SNodeOperations.isInstanceOf(getNode(), CONCEPTS.EditorCellModel$5c))) {
         return false;
       }
-      return (boolean) EditorCellModel__BehaviorDescriptor.isOnNewLine_idi0pUMOG.invoke(SNodeOperations.cast(getNode(), AUX_f5vaad.EditorCellModel_226b88d6));
+      return (boolean) EditorCellModel__BehaviorDescriptor.isOnNewLine_idi0pUMOG.invoke(SNodeOperations.cast(getNode(), CONCEPTS.EditorCellModel$5c));
     }
   }
   public static class styleStyleClass extends AbstractStyleClass {
@@ -456,7 +456,7 @@ public class Styles_StyleSheet {
 
   }
 
-  private static final class AUX_f5vaad {
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
   }
 }

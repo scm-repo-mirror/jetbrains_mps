@@ -13,8 +13,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.plugins.runconfigs.MPSPsiElement;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class DemoApplication_Producer {
 
@@ -45,16 +46,16 @@ public final class DemoApplication_Producer {
 
     @Override
     protected boolean isApplicable(Object source) {
-      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), AUX_6g01ma.SomeConcept_beaeb5b9);
+      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), CONCEPTS.SomeConcept$39);
     }
 
     @Override
     protected DemoApplication_Configuration doCreateConfiguration(final SNode source) {
       setSourceElement(MPSPsiElement.createFor(source, getMpsProject()));
-      if (!(SPropertyOperations.getBoolean(source, MetaAdapterFactory.getProperty(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, 0x446739e63be7cbc4L, "valid")))) {
+      if (!(SPropertyOperations.getBoolean(source, PROPS.valid$$Z1J))) {
         return null;
       }
-      DemoApplication_Configuration configuration = ((DemoApplication_Configuration) getConfigurationFactory().createConfiguration("" + "SomeNode " + SPropertyOperations.getString(source, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
+      DemoApplication_Configuration configuration = ((DemoApplication_Configuration) getConfigurationFactory().createConfiguration("" + "SomeNode " + SPropertyOperations.getString(source, PROPS.name$tAp1), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getNode().setNode(source);
       return configuration;
     }
@@ -66,7 +67,12 @@ public final class DemoApplication_Producer {
     }
   }
 
-  private static final class AUX_6g01ma {
-    /*package*/ static final SConcept SomeConcept_beaeb5b9 = MetaAdapterFactory.getConcept(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, "jetbrains.mps.execution.demo.structure.SomeConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SomeConcept$39 = MetaAdapterFactory.getConcept(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, "jetbrains.mps.execution.demo.structure.SomeConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty valid$$Z1J = MetaAdapterFactory.getProperty(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, 0x446739e63be7cbc4L, "valid");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -85,7 +85,7 @@ public class BaseIconManager {
     }
 
     Icon mainIcon = null;
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), AUX_cuhaqp.ConceptDeclaration_cb225da8)) {
+    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(node)), CONCEPTS.ConceptDeclaration$qU)) {
       mainIcon = getIconFromConstraints(node);
     }
     if (mainIcon == null) {
@@ -159,8 +159,8 @@ public class BaseIconManager {
     }
     RowIcon result = new RowIcon(2);
     result.setIcon(mainIcon, 0);
-    result.setIcon(getIconForResource(((IconResource) BHReflection.invoke0(node, AUX_cuhaqp.BaseConcept_bc2351f, SMethodTrimmedId.create("getSideIcon", null, "6TtJ6IUjtJX")))), 1);
-    List<Icon> markIcons = ListSequence.fromList(((List<IconResource>) BHReflection.invoke0(node, AUX_cuhaqp.BaseConcept_bc2351f, SMethodTrimmedId.create("getIconMarks", null, "6TtJ6IUkhQJ")))).select(new ISelector<IconResource, Icon>() {
+    result.setIcon(getIconForResource(((IconResource) BHReflection.invoke0(node, CONCEPTS.BaseConcept$Sz, SMethodTrimmedId.create("getSideIcon", null, "6TtJ6IUjtJX")))), 1);
+    List<Icon> markIcons = ListSequence.fromList(((List<IconResource>) BHReflection.invoke0(node, CONCEPTS.BaseConcept$Sz, SMethodTrimmedId.create("getIconMarks", null, "6TtJ6IUkhQJ")))).select(new ISelector<IconResource, Icon>() {
       public Icon select(IconResource it) {
         return getIconForResource(it);
       }
@@ -222,8 +222,8 @@ public class BaseIconManager {
     return icon;
   }
 
-  private static final class AUX_cuhaqp {
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

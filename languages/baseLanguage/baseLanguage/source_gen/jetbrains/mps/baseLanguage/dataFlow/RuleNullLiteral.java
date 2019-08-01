@@ -18,7 +18,7 @@ public class RuleNullLiteral implements DataFlowConstructor {
     return concept.equals(applicableConcept) || concept.isSubConceptOf(applicableConcept);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_h8e0xi.NullLiteral_5b038c9e;
+    return CONCEPTS.NullLiteral$q4;
   }
   public void performActions(Program o, SNode node) {
     {
@@ -34,7 +34,7 @@ public class RuleNullLiteral implements DataFlowConstructor {
     }
   }
 
-  private static final class AUX_h8e0xi {
-    /*package*/ static final SConcept NullLiteral_5b038c9e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NullLiteral$q4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral");
   }
 }

@@ -23,7 +23,7 @@ public class TypeSystemCheckUtil {
   public static void checkGenerationMode(SNode node) {
     TypeCheckingContext typeCheckingContext = TypeContextManager.getInstance().createTypeCheckingContext(node.getContainingRoot());
     typeCheckingContext.checkRoot(true);
-    for (SNode child : SNodeOperations.getNodeDescendants(node, AUX_ia0n0g.BaseConcept_bc2351f, false, new SAbstractConcept[]{})) {
+    for (SNode child : SNodeOperations.getNodeDescendants(node, CONCEPTS.BaseConcept$Sz, false, new SAbstractConcept[]{})) {
       TypeCheckingContext typeCheckingContext2 = TypeContextManager.getInstance().createTracingTypeCheckingContext(node.getContainingRoot());
       SNode type1 = typeCheckingContext.getTypeDontCheck(child);
       if (type1 == null) {
@@ -52,7 +52,7 @@ public class TypeSystemCheckUtil {
     Assert.assertTrue(StateMatcher.match(state, state2));
   }
 
-  private static final class AUX_ia0n0g {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

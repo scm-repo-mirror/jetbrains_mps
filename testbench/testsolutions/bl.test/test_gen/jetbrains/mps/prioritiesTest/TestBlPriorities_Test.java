@@ -14,14 +14,16 @@ import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
 import junit.framework.Assert;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.ParenthesisUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 @MPSLaunch
 public class TestBlPriorities_Test extends BaseTransformationTest {
@@ -59,56 +61,56 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
 
     public void check(SNode expr, Object expectedValue) {
       this.expressionPriorityRebalance(expr);
-      Assert.assertEquals(expectedValue, this.eval(SLinkOperations.getTarget(expr, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"))));
+      Assert.assertEquals(expectedValue, this.eval(SLinkOperations.getTarget(expr, LINKS.expression$4_F0)));
     }
     public void expressionPriorityRebalance(SNode e) {
       for (SNode child : SNodeOperations.getChildren(e)) {
-        if (SNodeOperations.isInstanceOf(child, AUX_p8h609.Expression_4199e28d)) {
-          this.expressionPriorityRebalance(SNodeOperations.cast(child, AUX_p8h609.Expression_4199e28d));
+        if (SNodeOperations.isInstanceOf(child, CONCEPTS.Expression$TP)) {
+          this.expressionPriorityRebalance(SNodeOperations.cast(child, CONCEPTS.Expression$TP));
         }
       }
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.BinaryOperation_7c4c55f3)) {
-        ParenthesisUtil.checkOperationWRTPriority(SNodeOperations.cast(e, AUX_p8h609.BinaryOperation_7c4c55f3));
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.BinaryOperation$vf)) {
+        ParenthesisUtil.checkOperationWRTPriority(SNodeOperations.cast(e, CONCEPTS.BinaryOperation$vf));
       }
     }
     public Object eval(SNode e) {
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.BinaryOperation_7c4c55f3)) {
-        return this.evalBinaryOperation(SNodeOperations.cast(e, AUX_p8h609.BinaryOperation_7c4c55f3));
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.BinaryOperation$vf)) {
+        return this.evalBinaryOperation(SNodeOperations.cast(e, CONCEPTS.BinaryOperation$vf));
       }
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.IntegerConstant_a127eb0a)) {
-        return SPropertyOperations.getInteger(SNodeOperations.cast(e, AUX_p8h609.IntegerConstant_a127eb0a), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"));
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.IntegerConstant$mo)) {
+        return SPropertyOperations.getInteger(SNodeOperations.cast(e, CONCEPTS.IntegerConstant$mo), PROPS.value$ZeO0);
       }
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.BooleanConstant_9dbf9ad0)) {
-        return SPropertyOperations.getBoolean(SNodeOperations.cast(e, AUX_p8h609.BooleanConstant_9dbf9ad0), MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"));
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.BooleanConstant$Ui)) {
+        return SPropertyOperations.getBoolean(SNodeOperations.cast(e, CONCEPTS.BooleanConstant$Ui), PROPS.value$WIn0);
       }
 
       throw new UnsupportedOperationException(e.getPresentation());
     }
     public Object evalBinaryOperation(SNode e) {
-      Object left = this.eval(SLinkOperations.getTarget(SNodeOperations.cast(e, AUX_p8h609.BinaryOperation_7c4c55f3), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression")));
-      Object right = this.eval(SLinkOperations.getTarget(SNodeOperations.cast(e, AUX_p8h609.BinaryOperation_7c4c55f3), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression")));
+      Object left = this.eval(SLinkOperations.getTarget(SNodeOperations.cast(e, CONCEPTS.BinaryOperation$vf), LINKS.leftExpression$rxLZ));
+      Object right = this.eval(SLinkOperations.getTarget(SNodeOperations.cast(e, CONCEPTS.BinaryOperation$vf), LINKS.rightExpression$rxBl));
 
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.ShiftLeftExpression_cc9b66c)) {
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.ShiftLeftExpression$pQ)) {
         return ((Integer) left) << ((Integer) right);
       }
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.BitwiseAndExpression_53d6d58a)) {
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.BitwiseAndExpression$Go)) {
         return ((Integer) left) & ((Integer) right);
       }
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.BitwiseOrExpression_53ff64dd)) {
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.BitwiseOrExpression$o_)) {
         return ((Integer) left) | ((Integer) right);
       }
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.BitwiseXorExpression_54037f59)) {
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.BitwiseXorExpression$GD)) {
         return ((Integer) left) ^ ((Integer) right);
       }
 
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.AndExpression_68694788)) {
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.AndExpression$zq)) {
         return ((Boolean) left) && ((Boolean) right);
       }
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.OrExpression_9cfbcc24)) {
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.OrExpression$uY)) {
         return ((Boolean) left) || ((Boolean) right);
       }
 
-      if (SNodeOperations.isInstanceOf(e, AUX_p8h609.EqualsExpression_9dbf9b09)) {
+      if (SNodeOperations.isInstanceOf(e, CONCEPTS.EqualsExpression$lT)) {
         return Objects.equals(left, right);
       }
 
@@ -132,31 +134,31 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
       quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d19ef4652L, "BitwiseOrExpression"), null, null, false);
       quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
       quotedNode_3.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "6");
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_3);
+      quotedNode_2.addChild(LINKS.rightExpression$rxBl, quotedNode_3);
       quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d19ef4652L, "BitwiseOrExpression"), null, null, false);
       quotedNode_5 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d19eede01L, "BitwiseAndExpression"), null, null, false);
       quotedNode_7 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
       quotedNode_7.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
-      quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_7);
+      quotedNode_5.addChild(LINKS.leftExpression$rxLZ, quotedNode_7);
       quotedNode_8 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
       quotedNode_8.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "2");
-      quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_8);
-      quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_5);
+      quotedNode_5.addChild(LINKS.rightExpression$rxBl, quotedNode_8);
+      quotedNode_4.addChild(LINKS.leftExpression$rxLZ, quotedNode_5);
       quotedNode_6 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d19ef69abL, "BitwiseXorExpression"), null, null, false);
       quotedNode_9 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11d6cde9fb9L, "ShiftLeftExpression"), null, null, false);
       quotedNode_11 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
       quotedNode_11.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "3");
-      quotedNode_9.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_11);
+      quotedNode_9.addChild(LINKS.leftExpression$rxLZ, quotedNode_11);
       quotedNode_12 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
       quotedNode_12.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "4");
-      quotedNode_9.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_12);
-      quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_9);
+      quotedNode_9.addChild(LINKS.rightExpression$rxBl, quotedNode_12);
+      quotedNode_6.addChild(LINKS.leftExpression$rxLZ, quotedNode_9);
       quotedNode_10 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant"), null, null, false);
       quotedNode_10.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "5");
-      quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_10);
-      quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_6);
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_4);
-      quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), quotedNode_2);
+      quotedNode_6.addChild(LINKS.rightExpression$rxBl, quotedNode_10);
+      quotedNode_4.addChild(LINKS.rightExpression$rxBl, quotedNode_6);
+      quotedNode_2.addChild(LINKS.leftExpression$rxLZ, quotedNode_4);
+      quotedNode_1.addChild(LINKS.expression$4_F0, quotedNode_2);
       return quotedNode_1;
     }
     private static SNode _quotation_createNode_p8h609_a0a0a4i() {
@@ -171,31 +173,42 @@ public class TestBlPriorities_Test extends BaseTransformationTest {
       quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b210L, "EqualsExpression"), null, null, false);
       quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b201L, "BooleanConstant"), null, null, false);
       quotedNode_3.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), "false");
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_3);
+      quotedNode_2.addChild(LINKS.rightExpression$rxBl, quotedNode_3);
       quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xfb8255689fL, "OrExpression"), null, null, false);
       quotedNode_5 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b201L, "BooleanConstant"), null, null, false);
       quotedNode_5.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), "false");
-      quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_5);
+      quotedNode_4.addChild(LINKS.rightExpression$rxBl, quotedNode_5);
       quotedNode_6 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b201L, "BooleanConstant"), null, null, false);
       quotedNode_6.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), "true");
-      quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_6);
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_4);
-      quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression"), quotedNode_2);
+      quotedNode_4.addChild(LINKS.leftExpression$rxLZ, quotedNode_6);
+      quotedNode_2.addChild(LINKS.leftExpression$rxLZ, quotedNode_4);
+      quotedNode_1.addChild(LINKS.expression$4_F0, quotedNode_2);
       return quotedNode_1;
     }
   }
 
-  private static final class AUX_p8h609 {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
-    /*package*/ static final SConcept IntegerConstant_a127eb0a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
-    /*package*/ static final SConcept BooleanConstant_9dbf9ad0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
-    /*package*/ static final SConcept ShiftLeftExpression_cc9b66c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d6cde9fb9L, "jetbrains.mps.baseLanguage.structure.ShiftLeftExpression");
-    /*package*/ static final SConcept BitwiseAndExpression_53d6d58a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19eede01L, "jetbrains.mps.baseLanguage.structure.BitwiseAndExpression");
-    /*package*/ static final SConcept BitwiseOrExpression_53ff64dd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef4652L, "jetbrains.mps.baseLanguage.structure.BitwiseOrExpression");
-    /*package*/ static final SConcept BitwiseXorExpression_54037f59 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef69abL, "jetbrains.mps.baseLanguage.structure.BitwiseXorExpression");
-    /*package*/ static final SConcept AndExpression_68694788 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb7c3070eeL, "jetbrains.mps.baseLanguage.structure.AndExpression");
-    /*package*/ static final SConcept OrExpression_9cfbcc24 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb8255689fL, "jetbrains.mps.baseLanguage.structure.OrExpression");
-    /*package*/ static final SConcept EqualsExpression_9dbf9b09 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b210L, "jetbrains.mps.baseLanguage.structure.EqualsExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$4_F0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+    /*package*/ static final SConcept IntegerConstant$mo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
+    /*package*/ static final SConcept BooleanConstant$Ui = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+    /*package*/ static final SConcept ShiftLeftExpression$pQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d6cde9fb9L, "jetbrains.mps.baseLanguage.structure.ShiftLeftExpression");
+    /*package*/ static final SConcept BitwiseAndExpression$Go = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19eede01L, "jetbrains.mps.baseLanguage.structure.BitwiseAndExpression");
+    /*package*/ static final SConcept BitwiseOrExpression$o_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef4652L, "jetbrains.mps.baseLanguage.structure.BitwiseOrExpression");
+    /*package*/ static final SConcept BitwiseXorExpression$GD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d19ef69abL, "jetbrains.mps.baseLanguage.structure.BitwiseXorExpression");
+    /*package*/ static final SConcept AndExpression$zq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb7c3070eeL, "jetbrains.mps.baseLanguage.structure.AndExpression");
+    /*package*/ static final SConcept OrExpression$uY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb8255689fL, "jetbrains.mps.baseLanguage.structure.OrExpression");
+    /*package*/ static final SConcept EqualsExpression$lT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b210L, "jetbrains.mps.baseLanguage.structure.EqualsExpression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$ZeO0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value");
+    /*package*/ static final SProperty value$WIn0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value");
   }
 }

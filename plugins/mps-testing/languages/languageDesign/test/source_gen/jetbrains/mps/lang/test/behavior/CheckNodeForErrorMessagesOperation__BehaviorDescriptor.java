@@ -4,6 +4,7 @@ package jetbrains.mps.lang.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,7 +17,6 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -26,10 +26,11 @@ import jetbrains.mps.baseLanguage.unitTest.behavior.ITestMethod__BehaviorDescrip
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class CheckNodeForErrorMessagesOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_yw7cl5.CheckNodeForErrorMessagesOperation_addb30a2;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, "jetbrains.mps.lang.test.structure.CheckNodeForErrorMessagesOperation");
 
   public static final SMethod<Void> perform_id1kgh5YabdhC = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("perform").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1kgh5YabdhC").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<String> getDefaultName_id7scb9XJdmH2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getDefaultName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7scb9XJdmH2").build();
@@ -39,11 +40,11 @@ public final class CheckNodeForErrorMessagesOperation__BehaviorDescriptor extend
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(perform_id1kgh5YabdhC, getDefaultName_id7scb9XJdmH2, getPresentation_idhEwIMiw, expectsErrorsInside_id77$odk0vlBj);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0x33f30f661f8cdca2L, "includeSelf"), true);
+    SPropertyOperations.assign(__thisNode__, PROPS.includeSelf$1l1v, true);
   }
 
   /*package*/ static void perform_id1kgh5YabdhC(@NotNull SNode __thisNode__, final SNode node) {
-    new CheckErrorMessagesAction(node, SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0xbd376db27cdbaaeL, "allowWarnings")), SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0xbd376db27cdbaadL, "allowErrors"))).includeSelf(SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0x33f30f661f8cdca2L, "includeSelf"))).exclude(ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_yw7cl5.AbstractNodeRuleCheckOperation_ce3faada, false, new SAbstractConcept[]{})).select(new ISelector<SNode, CheckExpectedMessageAction>() {
+    new CheckErrorMessagesAction(node, SPropertyOperations.getBoolean(__thisNode__, PROPS.allowWarnings$vTwT), SPropertyOperations.getBoolean(__thisNode__, PROPS.allowErrors$vTwq)).includeSelf(SPropertyOperations.getBoolean(__thisNode__, PROPS.includeSelf$1l1v)).exclude(ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.AbstractNodeRuleCheckOperation$Z8, false, new SAbstractConcept[]{})).select(new ISelector<SNode, CheckExpectedMessageAction>() {
       public CheckExpectedMessageAction select(final SNode excludeAnnotation) {
         return (CheckExpectedMessageAction) AbstractNodeRuleCheckOperation__BehaviorDescriptor.checkAction_id7jfLc8W17Cr.invoke(excludeAnnotation, SNodeOperations.getModel(node).getRepository());
       }
@@ -56,7 +57,7 @@ public final class CheckNodeForErrorMessagesOperation__BehaviorDescriptor extend
     return ((String) ITestMethod__BehaviorDescriptor.getTestName_idhGBohAB.invoke(__thisNode__));
   }
   /*package*/ static boolean expectsErrorsInside_id77$odk0vlBj(@NotNull SNode __thisNode__, NodeReportItem reportItem, SRepository ruleRepository) {
-    CheckErrorMessagesAction checkErrorsAction = new CheckErrorMessagesAction(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__), SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0xbd376db27cdbaaeL, "allowWarnings")), SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0xbd376db27cdbaadL, "allowErrors"))).includeSelf(SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0x33f30f661f8cdca2L, "includeSelf")));
+    CheckErrorMessagesAction checkErrorsAction = new CheckErrorMessagesAction(INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(__thisNode__), SPropertyOperations.getBoolean(__thisNode__, PROPS.allowWarnings$vTwT), SPropertyOperations.getBoolean(__thisNode__, PROPS.allowErrors$vTwq)).includeSelf(SPropertyOperations.getBoolean(__thisNode__, PROPS.includeSelf$1l1v));
     return checkErrorsAction.isReportItemAllowed(reportItem);
   }
 
@@ -113,8 +114,13 @@ public final class CheckNodeForErrorMessagesOperation__BehaviorDescriptor extend
     return CONCEPT;
   }
 
-  private static final class AUX_yw7cl5 {
-    /*package*/ static final SConcept CheckNodeForErrorMessagesOperation_addb30a2 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, "jetbrains.mps.lang.test.structure.CheckNodeForErrorMessagesOperation");
-    /*package*/ static final SConcept AbstractNodeRuleCheckOperation_ce3faada = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6cbc57bb7a42d28aL, "jetbrains.mps.lang.test.structure.AbstractNodeRuleCheckOperation");
+  private static final class PROPS {
+    /*package*/ static final SProperty includeSelf$1l1v = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0x33f30f661f8cdca2L, "includeSelf");
+    /*package*/ static final SProperty allowWarnings$vTwT = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0xbd376db27cdbaaeL, "allowWarnings");
+    /*package*/ static final SProperty allowErrors$vTwq = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07d3d54aL, 0xbd376db27cdbaadL, "allowErrors");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractNodeRuleCheckOperation$Z8 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x6cbc57bb7a42d28aL, "jetbrains.mps.lang.test.structure.AbstractNodeRuleCheckOperation");
   }
 }

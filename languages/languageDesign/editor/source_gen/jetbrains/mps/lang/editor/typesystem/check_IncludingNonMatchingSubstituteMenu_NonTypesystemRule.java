@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.behavior.IMenuReference__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
@@ -17,6 +16,8 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.behavior.IMenu__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -24,15 +25,15 @@ public class check_IncludingNonMatchingSubstituteMenu_NonTypesystemRule extends 
   public check_IncludingNonMatchingSubstituteMenu_NonTypesystemRule() {
   }
   public void applyRule(final SNode part, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(part, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xa22200b56b57990L, 0xa22200b56b57993L, "menuReference")) == null)) {
+    if ((SLinkOperations.getTarget(part, LINKS.menuReference$mfCY) == null)) {
       return;
     }
-    SNode includedMenuConcept = IMenuReference__BehaviorDescriptor.getApplicableConcept_id1quYWAD4TFX.invoke(SLinkOperations.getTarget(part, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xa22200b56b57990L, 0xa22200b56b57993L, "menuReference")));
+    SNode includedMenuConcept = IMenuReference__BehaviorDescriptor.getApplicableConcept_id1quYWAD4TFX.invoke(SLinkOperations.getTarget(part, LINKS.menuReference$mfCY));
     if ((includedMenuConcept == null)) {
       return;
     }
     SNode destinationMenuConcept;
-    destinationMenuConcept = check_uv1jfo_a0e0b(SNodeOperations.getNodeAncestor(part, AUX_uv1jfo.ISubstituteMenu_3907f4f4, false, false));
+    destinationMenuConcept = check_uv1jfo_a0e0b(SNodeOperations.getNodeAncestor(part, CONCEPTS.ISubstituteMenu$zI, false, false));
     if ((destinationMenuConcept == null)) {
       return;
     }
@@ -43,11 +44,11 @@ public class check_IncludingNonMatchingSubstituteMenu_NonTypesystemRule extends 
 
     {
       final MessageTarget errorTarget = new NodeMessageTarget();
-      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(part, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xa22200b56b57990L, 0xa22200b56b57993L, "menuReference")), String.format("Menu for %s or its subconcept is expected", destinationMenuConcept), "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "8777569553578237881", null, errorTarget);
+      IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(SLinkOperations.getTarget(part, LINKS.menuReference$mfCY), String.format("Menu for %s or its subconcept is expected", destinationMenuConcept), "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "8777569553578237881", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_uv1jfo.SubstituteMenuPart_IncludeMenu_ecf2cb72;
+    return CONCEPTS.SubstituteMenuPart_IncludeMenu$8K;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -62,8 +63,12 @@ public class check_IncludingNonMatchingSubstituteMenu_NonTypesystemRule extends 
     return null;
   }
 
-  private static final class AUX_uv1jfo {
-    /*package*/ static final SInterfaceConcept ISubstituteMenu_3907f4f4 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1bc2c2df999a7727L, "jetbrains.mps.lang.editor.structure.ISubstituteMenu");
-    /*package*/ static final SConcept SubstituteMenuPart_IncludeMenu_ecf2cb72 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xa22200b56b57990L, "jetbrains.mps.lang.editor.structure.SubstituteMenuPart_IncludeMenu");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink menuReference$mfCY = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xa22200b56b57990L, 0xa22200b56b57993L, "menuReference");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ISubstituteMenu$zI = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1bc2c2df999a7727L, "jetbrains.mps.lang.editor.structure.ISubstituteMenu");
+    /*package*/ static final SConcept SubstituteMenuPart_IncludeMenu$8K = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xa22200b56b57990L, "jetbrains.mps.lang.editor.structure.SubstituteMenuPart_IncludeMenu");
   }
 }

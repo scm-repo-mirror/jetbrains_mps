@@ -169,6 +169,7 @@
         <child id="1179332974947" name="type" index="2lIhxL" />
       </concept>
       <concept id="4927083583736784422" name="jetbrains.mps.baseLanguageInternal.structure.ExtractToSingleConstantExpression" flags="ng" index="1BaE9c">
+        <property id="3566113306135792467" name="baseContainerName" index="1ouuDV" />
         <property id="4927083583736815155" name="uniqueFieldName" index="1BaxDp" />
         <child id="4927083583736819744" name="expression" index="1Bazha" />
       </concept>
@@ -349,7 +350,8 @@
         <node concept="XkiVB" id="10" role="3cqZAp">
           <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <node concept="1BaE9c" id="12" role="37wK5m">
-            <property role="1BaxDp" value="ConvertTo_bf76cd63" />
+            <property role="1ouuDV" value="CONCEPTS" />
+            <property role="1BaxDp" value="ConvertTo$Tv" />
             <node concept="2YIFZM" id="14" role="1Bazha">
               <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
               <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(long,long,long,java.lang.String)" resolve="getConcept" />
@@ -1172,7 +1174,8 @@
         <node concept="XkiVB" id="62" role="3cqZAp">
           <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <node concept="1BaE9c" id="64" role="37wK5m">
-            <property role="1BaxDp" value="GetAmount_db61f2bf" />
+            <property role="1ouuDV" value="CONCEPTS" />
+            <property role="1BaxDp" value="GetAmount$i3" />
             <node concept="2YIFZM" id="66" role="1Bazha">
               <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
               <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(long,long,long,java.lang.String)" resolve="getConcept" />
@@ -1984,7 +1987,8 @@
         <node concept="XkiVB" id="b0" role="3cqZAp">
           <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <node concept="1BaE9c" id="b2" role="37wK5m">
-            <property role="1BaxDp" value="GetCurrency_bf075892" />
+            <property role="1ouuDV" value="CONCEPTS" />
+            <property role="1BaxDp" value="GetCurrency$$g" />
             <node concept="2YIFZM" id="b4" role="1Bazha">
               <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
               <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(long,long,long,java.lang.String)" resolve="getConcept" />
@@ -2796,7 +2800,8 @@
         <node concept="XkiVB" id="fW" role="3cqZAp">
           <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <node concept="1BaE9c" id="fY" role="37wK5m">
-            <property role="1BaxDp" value="MoneyLiteral_da19b76d" />
+            <property role="1ouuDV" value="CONCEPTS" />
+            <property role="1BaxDp" value="MoneyLiteral$ml" />
             <node concept="2YIFZM" id="g0" role="1Bazha">
               <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
               <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(long,long,long,java.lang.String)" resolve="getConcept" />

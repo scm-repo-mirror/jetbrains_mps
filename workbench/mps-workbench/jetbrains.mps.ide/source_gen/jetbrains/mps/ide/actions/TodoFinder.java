@@ -29,19 +29,19 @@ public class TodoFinder extends BaseFinder {
   @Override
   @NotNull
   public SearchResults find(SearchQuery query, ProgressMonitor monitor) {
-    Set<SConcept> s = Collections.singleton(AUX_fyag46.TextCommentPart_36a4c8f7);
+    Set<SConcept> s = Collections.singleton(CONCEPTS.TextCommentPart$lb);
     Set<SNode> textCommentParts = FindUsagesFacade.getInstance().findInstances(query.getScope(), s, false, new EmptyProgressMonitor());
     SearchResults<SNode> results = new SearchResults<SNode>();
-    for (SNode node : SNodeOperations.ofConcept(textCommentParts, AUX_fyag46.TextCommentPart_36a4c8f7)) {
-      if (((boolean) (Boolean) BHReflection.invoke0(node, AUX_fyag46.CommentPart_36a4c8f5, SMethodTrimmedId.create("isToDo", null, "6hHyb3YSGHZ")))) {
+    for (SNode node : SNodeOperations.ofConcept(textCommentParts, CONCEPTS.TextCommentPart$lb)) {
+      if (((boolean) (Boolean) BHReflection.invoke0(node, CONCEPTS.CommentPart$kd, SMethodTrimmedId.create("isToDo", null, "6hHyb3YSGHZ")))) {
         results.getSearchResults().add(new SearchResult<SNode>(node, "TODO items"));
       }
     }
     return results;
   }
 
-  private static final class AUX_fyag46 {
-    /*package*/ static final SConcept TextCommentPart_36a4c8f7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
-    /*package*/ static final SConcept CommentPart_36a4c8f5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3bL, "jetbrains.mps.baseLanguage.structure.CommentPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextCommentPart$lb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3dL, "jetbrains.mps.baseLanguage.structure.TextCommentPart");
+    /*package*/ static final SConcept CommentPart$kd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x57d533a7af15ed3bL, "jetbrains.mps.baseLanguage.structure.CommentPart");
   }
 }

@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -21,17 +20,20 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_RequiredParametersArePassed_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_RequiredParametersArePassed_NonTypesystemRule() {
   }
   public void applyRule(final SNode callAction, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    Iterable<SNode> requiredParameters = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(callAction, MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, 0x4d7759afce9587aeL, "action")), MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x11b737b91a4L, "parameter"))).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> requiredParameters = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(callAction, LINKS.action$Qcew), LINKS.parameter$RKlM)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b737a6b7cL, 0x4cdc1c9014f46cb2L, "condition"))).any(new IWhereFilter<SNode>() {
+        return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.condition$_Lmm)).any(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SNodeOperations.isInstanceOf(it, AUX_7pk42j.RequiredCondition_b0e07c54);
+            return SNodeOperations.isInstanceOf(it, CONCEPTS.RequiredCondition$Qe);
           }
         });
       }
@@ -40,7 +42,7 @@ public class check_RequiredParametersArePassed_NonTypesystemRule extends Abstrac
         return (SNode) ActionParameter__BehaviorDescriptor.getFieldDeclaration_id112RIkgil0h.invoke(it);
       }
     });
-    Iterable<SNode> passedParameters = ListSequence.fromList(SLinkOperations.getChildren(callAction, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, 0x4d7759afce9587afL, "parameter"))).select(new ISelector<SNode, SNode>() {
+    Iterable<SNode> passedParameters = ListSequence.fromList(SLinkOperations.getChildren(callAction, LINKS.parameter$QceZ)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
         return (SNode) ActionCallParameter__BehaviorDescriptor.getParameterDeclaration_id4PRmqZe_o$D.invoke(it);
       }
@@ -54,7 +56,7 @@ public class check_RequiredParametersArePassed_NonTypesystemRule extends Abstrac
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7pk42j.CallActionExpression_48a6c9bf;
+    return CONCEPTS.CallActionExpression$Q3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -63,8 +65,15 @@ public class check_RequiredParametersArePassed_NonTypesystemRule extends Abstrac
     return false;
   }
 
-  private static final class AUX_7pk42j {
-    /*package*/ static final SConcept RequiredCondition_b0e07c54 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x4cdc1c9014f52faeL, "jetbrains.mps.lang.plugin.structure.RequiredCondition");
-    /*package*/ static final SConcept CallActionExpression_48a6c9bf = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, "jetbrains.mps.console.ideCommands.structure.CallActionExpression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink action$Qcew = MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, 0x4d7759afce9587aeL, "action");
+    /*package*/ static final SContainmentLink parameter$RKlM = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1181ca87c38L, 0x11b737b91a4L, "parameter");
+    /*package*/ static final SContainmentLink condition$_Lmm = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11b737a6b7cL, 0x4cdc1c9014f46cb2L, "condition");
+    /*package*/ static final SContainmentLink parameter$QceZ = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, 0x4d7759afce9587afL, "parameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RequiredCondition$Qe = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x4cdc1c9014f52faeL, "jetbrains.mps.lang.plugin.structure.RequiredCondition");
+    /*package*/ static final SConcept CallActionExpression$Q3 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587adL, "jetbrains.mps.console.ideCommands.structure.CallActionExpression");
   }
 }

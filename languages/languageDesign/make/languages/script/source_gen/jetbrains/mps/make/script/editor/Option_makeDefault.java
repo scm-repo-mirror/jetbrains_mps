@@ -19,7 +19,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.SingleItemMenuPart;
 import org.jetbrains.annotations.Nullable;
@@ -38,6 +37,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Option_makeDefault extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -71,7 +72,7 @@ public class Option_makeDefault extends TransformationMenuBase {
   public class TMP_Group_xteztw_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.getIndexInParent(_context.getNode()) != SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), AUX_xteztw.ExpectedOption_bdc41f58), MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, 0x3318e2a89ff0296cL, "defaultOption"));
+      return SNodeOperations.getIndexInParent(_context.getNode()) != SPropertyOperations.getInteger(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ExpectedOption$Ga), PROPS.defaultOption$57Ad);
     }
 
     @NotNull
@@ -127,7 +128,7 @@ public class Option_makeDefault extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SPropertyOperations.assign(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), AUX_xteztw.ExpectedOption_bdc41f58), MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, 0x3318e2a89ff0296cL, "defaultOption"), SNodeOperations.getIndexInParent(_context.getNode()));
+          SPropertyOperations.assign(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ExpectedOption$Ga), PROPS.defaultOption$57Ad, SNodeOperations.getIndexInParent(_context.getNode()));
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -156,7 +157,11 @@ public class Option_makeDefault extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_xteztw {
-    /*package*/ static final SConcept ExpectedOption_bdc41f58 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, "jetbrains.mps.make.script.structure.ExpectedOption");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExpectedOption$Ga = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, "jetbrains.mps.make.script.structure.ExpectedOption");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty defaultOption$57Ad = MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x70276038dc4d7bbL, 0x3318e2a89ff0296cL, "defaultOption");
   }
 }

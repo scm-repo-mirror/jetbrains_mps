@@ -24,7 +24,7 @@ public class typeof_IYetUnresolved_InferenceRule extends AbstractInferenceRule_R
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_adr0h6.IYetUnresolved_7220cc50;
+    return CONCEPTS.IYetUnresolved$Oi;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_IYetUnresolved_InferenceRule extends AbstractInferenceRule_R
     return false;
   }
 
-  private static final class AUX_adr0h6 {
-    /*package*/ static final SInterfaceConcept IYetUnresolved_7220cc50 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70ea1dc4c5721865L, "jetbrains.mps.baseLanguage.structure.IYetUnresolved");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IYetUnresolved$Oi = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70ea1dc4c5721865L, "jetbrains.mps.baseLanguage.structure.IYetUnresolved");
   }
 }

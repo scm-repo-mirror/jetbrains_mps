@@ -10,7 +10,6 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import org.jetbrains.mps.openapi.language.SProperty;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.lang.editor.cellProviders.PropertyCellProvider;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
@@ -36,6 +35,8 @@ import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Superscript;
 import jetbrains.mps.editor.runtime.style.ScriptKind;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 /*package*/ class TransactionalProperty_IStyleContainer_ComponentBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -66,7 +67,7 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
   private EditorCell createTransactionalProperty_0() {
     getCellFactory().pushCellContext();
     try {
-      SProperty property = MetaAdapterFactory.getProperty(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531aadcccL, 0xbde89531aae3a9L, "theProperty");
+      SProperty property = PROPS.theProperty$70A$;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       PropertyCellProvider provider = new PropertyCellProvider(myNode, property, getEditorContext());
       EditorCell_Property editorCell = null;
@@ -166,7 +167,7 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
         style.set(StyleAttributes.MAX_WIDTH, 10);
         style.set(StyleAttributes.MAX_WIDTH, _StyleParameter_QueryFunction_2eo8r0_a97a0());
         style.set(StyleAttributes.NAVIGATABLE_NODE, _StyleParameter_QueryFunction_2eo8r0_a08a0());
-        style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, MetaAdapterFactory.getReferenceLink(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531a681a1L, 0xbde895319b644cL, "navigable"));
+        style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, LINKS.navigable$buwj);
         style.set(StyleAttributes.PARAMETERS_INFORMATION, new TestTargetParametersInformation());
         style.set(StyleAttributes.POSITION_CHILDREN, "next-line");
         style.set(StyleAttributes.POSITION, "indented");
@@ -352,7 +353,7 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
   private EditorCell createTransactionalProperty_1() {
     getCellFactory().pushCellContext();
     try {
-      SProperty property = MetaAdapterFactory.getProperty(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531aadcccL, 0xbde89531aae3a9L, "theProperty");
+      SProperty property = PROPS.theProperty$70A$;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       PropertyCellProvider provider = new PropertyCellProvider(myNode, property, getEditorContext());
       EditorCell_Property editorCell = null;
@@ -385,5 +386,13 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
     } finally {
       getCellFactory().popCellContext();
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty theProperty$70A$ = MetaAdapterFactory.getProperty(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531aadcccL, 0xbde89531aae3a9L, "theProperty");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink navigable$buwj = MetaAdapterFactory.getReferenceLink(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531a681a1L, 0xbde895319b644cL, "navigable");
   }
 }

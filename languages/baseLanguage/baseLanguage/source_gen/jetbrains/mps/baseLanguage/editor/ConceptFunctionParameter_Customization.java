@@ -30,7 +30,7 @@ public class ConceptFunctionParameter_Customization implements EditorMenuItemCus
   private static class ConceptFunctionParameter_CustomizationSpecific implements EditorMenuItemCustomizer {
 
     public boolean matches(EditorMenuItemCustomizationContext context) {
-      return new EditorMenuItemCreatingConceptContextMatcher(AUX_fdgrdq.ConceptFunctionParameter_edf48040).matchesContext(context) && getCompletionItemInformation(context) != null;
+      return new EditorMenuItemCreatingConceptContextMatcher(CONCEPTS.ConceptFunctionParameter$sy).matchesContext(context) && getCompletionItemInformation(context) != null;
     }
 
 
@@ -59,7 +59,7 @@ public class ConceptFunctionParameter_Customization implements EditorMenuItemCus
   }
 
 
-  private static final class AUX_fdgrdq {
-    /*package*/ static final SConcept ConceptFunctionParameter_edf48040 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101c66e2c0bL, "jetbrains.mps.baseLanguage.structure.ConceptFunctionParameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptFunctionParameter$sy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101c66e2c0bL, "jetbrains.mps.baseLanguage.structure.ConceptFunctionParameter");
   }
 }

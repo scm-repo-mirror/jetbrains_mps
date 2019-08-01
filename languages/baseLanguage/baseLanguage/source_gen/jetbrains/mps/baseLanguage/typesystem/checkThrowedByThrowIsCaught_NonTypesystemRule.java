@@ -8,34 +8,35 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class checkThrowedByThrowIsCaught_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public checkThrowedByThrowIsCaught_NonTypesystemRule() {
   }
   public void applyRule(final SNode throwStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode throwable = SLinkOperations.getTarget(throwStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, 0x10f3ee0cd6fL, "throwable"));
+    SNode throwable = SLinkOperations.getTarget(throwStatement, LINKS.throwable$o3ty);
     if ((throwable == null)) {
       return;
     }
     SNode throwableType = TypecheckingFacade.getFromContext().getTypeOf(throwable);
     Set<SNode> throwables = SetSequence.fromSet(new HashSet<SNode>());
-    if (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(throwable), AUX_x57bkl.Type_4199e276)) {
-      SetSequence.fromSet(throwables).addElement(SNodeOperations.cast(throwableType, AUX_x57bkl.Type_4199e276));
+    if (SNodeOperations.isInstanceOf(TypecheckingFacade.getFromContext().getTypeOf(throwable), CONCEPTS.Type$IG)) {
+      SetSequence.fromSet(throwables).addElement(SNodeOperations.cast(throwableType, CONCEPTS.Type$IG));
     }
-    if (SNodeOperations.isInstanceOf(throwableType, AUX_x57bkl.Type_4199e276)) {
+    if (SNodeOperations.isInstanceOf(throwableType, CONCEPTS.Type$IG)) {
       RulesFunctions_BaseLanguage.check(typeCheckingContext, throwables, throwStatement);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_x57bkl.ThrowStatement_c08024f2;
+    return CONCEPTS.ThrowStatement$yK;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -44,8 +45,12 @@ public class checkThrowedByThrowIsCaught_NonTypesystemRule extends AbstractNonTy
     return false;
   }
 
-  private static final class AUX_x57bkl {
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
-    /*package*/ static final SConcept ThrowStatement_c08024f2 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, "jetbrains.mps.baseLanguage.structure.ThrowStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink throwable$o3ty = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, 0x10f3ee0cd6fL, "throwable");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept ThrowStatement$yK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, "jetbrains.mps.baseLanguage.structure.ThrowStatement");
   }
 }

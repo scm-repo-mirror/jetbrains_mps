@@ -19,7 +19,6 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.behavior.AssignmentExpression__BehaviorDescriptor;
 import java.util.Arrays;
@@ -44,6 +43,9 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class convertVariableAssignmentToVarDeclaration extends TransformationMenuBase {
@@ -78,14 +80,14 @@ public class convertVariableAssignmentToVarDeclaration extends TransformationMen
   public class TMP_Group_lavomd_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_lavomd.LocalVariableDeclaration_d47683f3))) {
+      if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(_context.getNode(), LINKS.variableDeclaration$2ky6), CONCEPTS.LocalVariableDeclaration$Bf))) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_lavomd.AssignmentExpression_24d60daa))) {
+      if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.AssignmentExpression$rS))) {
         return false;
       }
-      SNode assignment = SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_lavomd.AssignmentExpression_24d60daa);
-      return (boolean) AssignmentExpression__BehaviorDescriptor.canConvertToLocalVariableDeclaration_idhLFstkU.invoke(assignment) && SLinkOperations.getTarget(assignment, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue")) == _context.getNode();
+      SNode assignment = SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.AssignmentExpression$rS);
+      return (boolean) AssignmentExpression__BehaviorDescriptor.canConvertToLocalVariableDeclaration_idhLFstkU.invoke(assignment) && SLinkOperations.getTarget(assignment, LINKS.lValue$J0D4) == _context.getNode();
     }
 
     @NotNull
@@ -111,12 +113,12 @@ public class convertVariableAssignmentToVarDeclaration extends TransformationMen
         super.initialize(_context);
         assignment = new Computable<SNode>() {
           public SNode compute() {
-            return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_lavomd.AssignmentExpression_24d60daa);
+            return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.AssignmentExpression$rS);
           }
         }.compute();
         type = new Computable<SNode>() {
           public SNode compute() {
-            return (SNode) TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(assignment, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue")));
+            return (SNode) TypecheckingFacade.getFromContext().getTypeOf(SLinkOperations.getTarget(assignment, LINKS.rValue$J0E2));
           }
         }.compute();
       }
@@ -134,7 +136,7 @@ public class convertVariableAssignmentToVarDeclaration extends TransformationMen
       }
       @Override
       protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-        return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_lavomd_a0.TMP_Group_lavomd_a0a.TMP_Action_lavomd_a0a0(), AUX_lavomd.Expression_4199e28d));
+        return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_lavomd_a0.TMP_Group_lavomd_a0a.TMP_Action_lavomd_a0a0(), CONCEPTS.Expression$TP));
       }
       private class TMP_Action_lavomd_a0a0 extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
         @Nullable
@@ -181,7 +183,7 @@ public class convertVariableAssignmentToVarDeclaration extends TransformationMen
           @Nullable
           @Override
           public SAbstractConcept getOutputConcept() {
-            return AUX_lavomd.Expression_4199e28d;
+            return CONCEPTS.Expression$TP;
           }
 
 
@@ -192,7 +194,7 @@ public class convertVariableAssignmentToVarDeclaration extends TransformationMen
 
           public void customize(String pattern, EditorMenuItemStyle style) {
             EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-            SAbstractConcept outputConcept = AUX_lavomd.Expression_4199e28d;
+            SAbstractConcept outputConcept = CONCEPTS.Expression$TP;
             EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
             for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
               customizer.customize(style, compositeContext);
@@ -204,9 +206,15 @@ public class convertVariableAssignmentToVarDeclaration extends TransformationMen
     }
   }
 
-  private static final class AUX_lavomd {
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept AssignmentExpression_24d60daa = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+    /*package*/ static final SContainmentLink lValue$J0D4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue");
+    /*package*/ static final SContainmentLink rValue$J0E2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept AssignmentExpression$rS = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e96L, "jetbrains.mps.baseLanguage.structure.AssignmentExpression");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
   }
 }

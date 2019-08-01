@@ -23,7 +23,7 @@ public class check_BuildMps_TipsMps_NonTypesystemRule extends AbstractNonTypesys
   public void applyRule(final SNode buildMps_TipsMps, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (ListSequence.fromList(SNodeOperations.getAllSiblings(buildMps_TipsMps, false)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_pjg8fm.BuildMps_TipsMps_c727c095);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildMps_TipsMps$5H);
       }
     })) {
       {
@@ -33,7 +33,7 @@ public class check_BuildMps_TipsMps_NonTypesystemRule extends AbstractNonTypesys
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_pjg8fm.BuildMps_TipsMps_c727c095;
+    return CONCEPTS.BuildMps_TipsMps$5H;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -42,7 +42,7 @@ public class check_BuildMps_TipsMps_NonTypesystemRule extends AbstractNonTypesys
     return false;
   }
 
-  private static final class AUX_pjg8fm {
-    /*package*/ static final SConcept BuildMps_TipsMps_c727c095 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a2289999L, "jetbrains.mps.build.mps.structure.BuildMps_TipsMps");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_TipsMps$5H = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a2289999L, "jetbrains.mps.build.mps.structure.BuildMps_TipsMps");
   }
 }

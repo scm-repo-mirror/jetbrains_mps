@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,10 +18,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ScriptKindClassItem__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_hgv8wm.ScriptKindClassItem_352d1f90;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x72908ac6c78618c8L, "jetbrains.mps.lang.editor.structure.ScriptKindClassItem");
 
   public static final SMethod<Boolean> isApplicableInLayout_iditlittOTkB = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isApplicableInLayout").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("itlittOTkB").build(SMethodBuilder.createJavaParameter((Class<SConcept>) ((Class) Object.class), ""));
 
@@ -30,7 +30,7 @@ public final class ScriptKindClassItem__BehaviorDescriptor extends BaseBHDescrip
   }
 
   /*package*/ static boolean isApplicableInLayout_iditlittOTkB(@NotNull SAbstractConcept __thisConcept__, SConcept layoutConcept) {
-    return AUX_hgv8wm.CellLayout_Superscript_e4d61bcd.equals(layoutConcept);
+    return CONCEPTS.CellLayout_Superscript$OP.equals(layoutConcept);
   }
 
   /*package*/ ScriptKindClassItem__BehaviorDescriptor() {
@@ -79,8 +79,7 @@ public final class ScriptKindClassItem__BehaviorDescriptor extends BaseBHDescrip
     return CONCEPT;
   }
 
-  private static final class AUX_hgv8wm {
-    /*package*/ static final SConcept ScriptKindClassItem_352d1f90 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x72908ac6c78618c8L, "jetbrains.mps.lang.editor.structure.ScriptKindClassItem");
-    /*package*/ static final SConcept CellLayout_Superscript_e4d61bcd = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1a2fd43187388681L, "jetbrains.mps.lang.editor.structure.CellLayout_Superscript");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellLayout_Superscript$OP = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1a2fd43187388681L, "jetbrains.mps.lang.editor.structure.CellLayout_Superscript");
   }
 }

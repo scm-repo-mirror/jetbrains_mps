@@ -12,9 +12,12 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 @MPSLaunch
 public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
@@ -351,7 +354,7 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
     // l21 has rt21 as runtime, depends on sln21 
     // dvk exports l3, which has rt3 as runtime 
     SModel auxModel = null;
-    project1 = SModelOperations.createNewNode(auxModel, null, AUX_4qddds.BuildProject_808bb057);
+    project1 = SModelOperations.createNewNode(auxModel, null, CONCEPTS.BuildProject$BF);
     BuildProjectBTestCaseHelper helper = new BuildProjectBTestCaseHelper(project1);
     rt1 = helper.createSolution("rt1");
     rt2 = helper.createSolution("rt2");
@@ -368,45 +371,64 @@ public class MPSModuleClosureTest_Test extends EnvironmentAwareTestCase {
     l4 = helper.createLang("l4");
     dvk = helper.createDevkit("dvk");
 
-    project2 = SModelOperations.createNewNode(auxModel, null, AUX_4qddds.BuildProject_808bb057);
-    sln = SModelOperations.createNewNode(auxModel, null, AUX_4qddds.BuildMps_Solution_41959b13);
-    ListSequence.fromList(SLinkOperations.getChildren(project2, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts"))).addElement(sln);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(project2, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a25L, "dependencies"), AUX_4qddds.BuildProjectDependency_6a704312), MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, 0x4df58c6f18f84a24L, "script"), project1);
+    project2 = SModelOperations.createNewNode(auxModel, null, CONCEPTS.BuildProject$BF);
+    sln = SModelOperations.createNewNode(auxModel, null, CONCEPTS.BuildMps_Solution$qJ);
+    ListSequence.fromList(SLinkOperations.getChildren(project2, LINKS.parts$tgxg)).addElement(sln);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(project2, LINKS.dependencies$tpR5, CONCEPTS.BuildProjectDependency$Ug), LINKS.script$mz1x, project1);
 
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(sln, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyUseLanguage_432f3c6d), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language"), l1);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(sln, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyOnDevKit_12fdc91e), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, 0x4780308f5d5bc4aL, "devkit"), dvk);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(sln, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyUseLanguage$2l), LINKS.language$TL_w, l1);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(sln, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyOnDevKit$C4), LINKS.devkit$Ib8b, dvk);
 
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l1, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyUseLanguage_432f3c6d), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language"), l2);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l1, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime"), AUX_4qddds.BuildMps_ModuleSolutionRuntime_43833e55), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution"), rt1);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l1, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyUseLanguage$2l), LINKS.language$TL_w, l2);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l1, LINKS.runtime$RrxF, CONCEPTS.BuildMps_ModuleSolutionRuntime$IH), LINKS.solution$pPpw, rt1);
 
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime"), AUX_4qddds.BuildMps_ModuleSolutionRuntime_43833e55), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution"), rt2);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyExtendLanguage_f1a3b5fe), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, 0x3b60c4a45c190330L, "language"), l21);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyOnModule_90dfc052), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module"), l4);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyOnModule_90dfc052), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module"), sln4);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, LINKS.runtime$RrxF, CONCEPTS.BuildMps_ModuleSolutionRuntime$IH), LINKS.solution$pPpw, rt2);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyExtendLanguage$$$), LINKS.language$t$Iv, l21);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyOnModule$_g), LINKS.module$gbmo, l4);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l2, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyOnModule$_g), LINKS.module$gbmo, sln4);
 
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l4, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime"), AUX_4qddds.BuildMps_ModuleSolutionRuntime_43833e55), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution"), rt4);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l4, LINKS.runtime$RrxF, CONCEPTS.BuildMps_ModuleSolutionRuntime$IH), LINKS.solution$pPpw, rt4);
 
-    SNode reexportDep = SLinkOperations.addNewChild(sln4, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyOnModule_90dfc052);
-    SLinkOperations.setTarget(reexportDep, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module"), sln5);
-    SPropertyOperations.assign(reexportDep, MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cc1L, "reexport"), true);
+    SNode reexportDep = SLinkOperations.addNewChild(sln4, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyOnModule$_g);
+    SLinkOperations.setTarget(reexportDep, LINKS.module$gbmo, sln5);
+    SPropertyOperations.assign(reexportDep, PROPS.reexport$gb$r, true);
 
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l21, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime"), AUX_4qddds.BuildMps_ModuleSolutionRuntime_43833e55), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution"), rt21);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l21, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies"), AUX_4qddds.BuildMps_ModuleDependencyOnModule_90dfc052), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module"), sln21);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(dvk, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, 0x4780308f5d29d82L, "exports"), AUX_4qddds.BuildMps_DevKitExportLanguage_ebbc1f9f), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, 0x4780308f5d29d73L, "language"), l3);
-    SLinkOperations.setTarget(SLinkOperations.addNewChild(l3, MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime"), AUX_4qddds.BuildMps_ModuleSolutionRuntime_43833e55), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution"), rt3);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l21, LINKS.runtime$RrxF, CONCEPTS.BuildMps_ModuleSolutionRuntime$IH), LINKS.solution$pPpw, rt21);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l21, LINKS.dependencies$Pit_, CONCEPTS.BuildMps_ModuleDependencyOnModule$_g), LINKS.module$gbmo, sln21);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(dvk, LINKS.exports$90Bp, CONCEPTS.BuildMps_DevKitExportLanguage$ez), LINKS.language$wScz, l3);
+    SLinkOperations.setTarget(SLinkOperations.addNewChild(l3, LINKS.runtime$RrxF, CONCEPTS.BuildMps_ModuleSolutionRuntime$IH), LINKS.solution$pPpw, rt3);
   }
   public void tearDown() {
   }
 
-  private static final class AUX_4qddds {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildMps_Solution_41959b13 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution");
-    /*package*/ static final SConcept BuildProjectDependency_6a704312 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, "jetbrains.mps.build.structure.BuildProjectDependency");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyUseLanguage_432f3c6d = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyUseLanguage");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyOnDevKit_12fdc91e = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnDevKit");
-    /*package*/ static final SConcept BuildMps_ModuleSolutionRuntime_43833e55 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSolutionRuntime");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyExtendLanguage_f1a3b5fe = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyExtendLanguage");
-    /*package*/ static final SConcept BuildMps_ModuleDependencyOnModule_90dfc052 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnModule");
-    /*package*/ static final SConcept BuildMps_DevKitExportLanguage_ebbc1f9f = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, "jetbrains.mps.build.mps.structure.BuildMps_DevKitExportLanguage");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildMps_Solution$qJ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, "jetbrains.mps.build.mps.structure.BuildMps_Solution");
+    /*package*/ static final SConcept BuildProjectDependency$Ug = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, "jetbrains.mps.build.structure.BuildProjectDependency");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyUseLanguage$2l = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyUseLanguage");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyOnDevKit$C4 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnDevKit");
+    /*package*/ static final SConcept BuildMps_ModuleSolutionRuntime$IH = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSolutionRuntime");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyExtendLanguage$$$ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyExtendLanguage");
+    /*package*/ static final SConcept BuildMps_ModuleDependencyOnModule$_g = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, "jetbrains.mps.build.mps.structure.BuildMps_ModuleDependencyOnModule");
+    /*package*/ static final SConcept BuildMps_DevKitExportLanguage$ez = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, "jetbrains.mps.build.mps.structure.BuildMps_DevKitExportLanguage");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parts$tgxg = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x668c6cfbafacf6f2L, "parts");
+    /*package*/ static final SContainmentLink dependencies$tpR5 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a25L, "dependencies");
+    /*package*/ static final SReferenceLink script$mz1x = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x454b730dd908c220L, 0x4df58c6f18f84a24L, "script");
+    /*package*/ static final SContainmentLink dependencies$Pit_ = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508331930cL, 0x48e82d5083341cb8L, "dependencies");
+    /*package*/ static final SReferenceLink language$TL_w = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914643d2d2L, 0x2c4467914643d2d3L, "language");
+    /*package*/ static final SReferenceLink devkit$Ib8b = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d5bc49L, 0x4780308f5d5bc4aL, "devkit");
+    /*package*/ static final SContainmentLink runtime$RrxF = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x2c4467914643be24L, "runtime");
+    /*package*/ static final SReferenceLink solution$pPpw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c4467914644b6e3L, 0x2c4467914644b6e4L, "solution");
+    /*package*/ static final SReferenceLink language$t$Iv = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3b60c4a45c19032eL, 0x3b60c4a45c190330L, "language");
+    /*package*/ static final SReferenceLink module$gbmo = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cb9L, "module");
+    /*package*/ static final SContainmentLink exports$90Bp = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d2060eL, 0x4780308f5d29d82L, "exports");
+    /*package*/ static final SReferenceLink language$wScz = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d29d6aL, 0x4780308f5d29d73L, "language");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty reexport$gb$r = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x48e82d508334b11aL, 0x48e82d5083341cc1L, "reexport");
   }
 }

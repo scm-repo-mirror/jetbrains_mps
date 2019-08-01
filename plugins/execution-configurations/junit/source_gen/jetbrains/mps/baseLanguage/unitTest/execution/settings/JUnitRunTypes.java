@@ -16,7 +16,6 @@ import jetbrains.mps.execution.lib.PointerUtils;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.unitTest.execution.client.TestNodeWrapperFactory;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
@@ -29,6 +28,8 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.project.Project;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public enum JUnitRunTypes {
   PROJECT() {
@@ -136,7 +137,7 @@ public enum JUnitRunTypes {
             if (testNode != null) {
               SModel model = testNode.getModel();
               SNode module = SModelOperations.getModuleStub(model);
-              if (!(SPropertyOperations.getBoolean(module, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS")))) {
+              if (!(SPropertyOperations.getBoolean(module, JUnitRunTypes.PROPS.compileInMPS$8r6V))) {
                 return "The module's " + module + " compile output is not managed by MPS.";
               }
             }
@@ -171,7 +172,7 @@ public enum JUnitRunTypes {
             if (testMethpdNode != null) {
               SModel model = testMethpdNode.getModel();
               SNode module = SModelOperations.getModuleStub(model);
-              if (!(SPropertyOperations.getBoolean(module, MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS")))) {
+              if (!(SPropertyOperations.getBoolean(module, JUnitRunTypes.PROPS.compileInMPS$8r6V))) {
                 return "The module's " + module + " compile output is not managed by MPS.";
               }
             }
@@ -230,4 +231,8 @@ public enum JUnitRunTypes {
   public abstract boolean hasTests(JUnitSettings_Configuration configuration, @NotNull MPSProject project);
 
   public abstract String check(JUnitSettings_Configuration configuration, @NotNull MPSProject project);
+
+  private static final class PROPS {
+    /*package*/ static final SProperty compileInMPS$8r6V = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS");
+  }
 }

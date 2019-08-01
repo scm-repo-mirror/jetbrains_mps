@@ -12,13 +12,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ChildConceptBase_Constraints extends BaseConstraintsDescriptor {
   public ChildConceptBase_Constraints() {
-    super(AUX_c0ysay.ChildConceptBase_9fa4eeec);
+    super(CONCEPTS.ChildConceptBase$RQ);
   }
 
   @Override
@@ -37,11 +38,15 @@ public class ChildConceptBase_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SPropertyOperations.getInteger(node, MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L, 0x74b496bab051e02eL, "tolerance")) != 55;
+    return SPropertyOperations.getInteger(node, PROPS.tolerance$FKON) != 55;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:50e6e59b-26e4-4ba1-9996-7aefbabd31cf(constraints.rulesAndMessages.sandbox.constraints)", "8409512132773797059");
 
-  private static final class AUX_c0ysay {
-    /*package*/ static final SConcept ChildConceptBase_9fa4eeec = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L, "constraints.rulesAndMessages.sandbox.structure.ChildConceptBase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ChildConceptBase$RQ = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L, "constraints.rulesAndMessages.sandbox.structure.ChildConceptBase");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty tolerance$FKON = MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L, 0x74b496bab051e02eL, "tolerance");
   }
 }

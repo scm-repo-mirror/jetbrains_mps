@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -30,11 +29,12 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.editor.behavior.StyleClassItem__BehaviorDescriptor;
 import jetbrains.mps.lang.editor.behavior.LayoutContainer__BehaviorDescriptor;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class CellModel_Component_Constraints extends BaseConstraintsDescriptor {
   public CellModel_Component_Constraints() {
-    super(AUX_pzef4u.CellModel_Component_58bccf85);
+    super(CONCEPTS.CellModel_Component$1X);
   }
 
   @Override
@@ -54,7 +54,7 @@ public class CellModel_Component_Constraints extends BaseConstraintsDescriptor {
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.editorComponent$AnLw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -69,7 +69,7 @@ public class CellModel_Component_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_pzef4u.EditorComponentDeclaration_2ddc41f7);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.EditorComponentDeclaration$Lb);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
@@ -80,11 +80,11 @@ public class CellModel_Component_Constraints extends BaseConstraintsDescriptor {
     return references;
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    if (MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11beb039542L, 0x11beb040d06L, "styleItem").equals(link)) {
+    if (LINKS.styleItem$$mEY.equals(link)) {
       SConcept styleClassItemConcept = (SConcept) childConcept;
-      SNode cellModel = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_pzef4u.CellModel_Component_58bccf85), MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent")), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel"));
+      SNode cellModel = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.CellModel_Component$1X), LINKS.editorComponent$AnLw), LINKS.cellModel$3wIV);
       if (cellModel != null) {
-        return (boolean) StyleClassItem__BehaviorDescriptor.isApplicableToCellConcept_id2u3gVK1lsco.invoke(SNodeOperations.asSConcept(styleClassItemConcept), (SConcept) SNodeOperations.getConcept(cellModel)) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableForLayout_iditlittOTie.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(cellModel, AUX_pzef4u.LayoutContainer_14ba1309)))) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableInLayout_iditlittOTkB.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(SNodeOperations.getParent(node), AUX_pzef4u.LayoutContainer_14ba1309))));
+        return (boolean) StyleClassItem__BehaviorDescriptor.isApplicableToCellConcept_id2u3gVK1lsco.invoke(SNodeOperations.asSConcept(styleClassItemConcept), (SConcept) SNodeOperations.getConcept(cellModel)) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableForLayout_iditlittOTie.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(cellModel, CONCEPTS.LayoutContainer$PT)))) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableInLayout_iditlittOTkB.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.LayoutContainer$PT))));
       }
       return true;
     }
@@ -93,9 +93,15 @@ public class CellModel_Component_Constraints extends BaseConstraintsDescriptor {
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "332515575063429654");
   private static final SNodePointer breakingNode_pzef4u_a0a0a0a0a1a0a0a0d = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "7348800710866403480");
 
-  private static final class AUX_pzef4u {
-    /*package*/ static final SConcept CellModel_Component_58bccf85 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, "jetbrains.mps.lang.editor.structure.CellModel_Component");
-    /*package*/ static final SConcept EditorComponentDeclaration_2ddc41f7 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
-    /*package*/ static final SInterfaceConcept LayoutContainer_14ba1309 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49d55275de690fdL, "jetbrains.mps.lang.editor.structure.LayoutContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_Component$1X = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, "jetbrains.mps.lang.editor.structure.CellModel_Component");
+    /*package*/ static final SConcept EditorComponentDeclaration$Lb = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
+    /*package*/ static final SInterfaceConcept LayoutContainer$PT = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49d55275de690fdL, "jetbrains.mps.lang.editor.structure.LayoutContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink editorComponent$AnLw = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent");
+    /*package*/ static final SContainmentLink cellModel$3wIV = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel");
+    /*package*/ static final SContainmentLink styleItem$$mEY = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11beb039542L, 0x11beb040d06L, "styleItem");
   }
 }

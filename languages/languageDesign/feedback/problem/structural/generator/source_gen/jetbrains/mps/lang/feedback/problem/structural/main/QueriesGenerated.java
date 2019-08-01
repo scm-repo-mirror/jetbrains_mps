@@ -25,11 +25,11 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
-    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), AUX_x583g4.MissingPropertyInConceptProblem_7103a397);
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.MissingPropertyInConceptProblem$UF);
     return (SNode) MissingPropertyInConceptProblem__BehaviorDescriptor.getConcept_id224Bjf9ui32.invoke(node0);
   }
   public static Object referenceMacro_GetReferent_0_1(final ReferenceMacroContext _context) {
-    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), AUX_x583g4.MissingChildInConceptProblem_4ddb1e90);
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.MissingChildInConceptProblem$bi);
     return (SNode) MissingChildInConceptProblem__BehaviorDescriptor.getConcept_id224Bjf9ukOx.invoke(node0);
   }
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
@@ -65,8 +65,8 @@ public class QueriesGenerated extends QueryProviderBase {
     }
   }
 
-  private static final class AUX_x583g4 {
-    /*package*/ static final SConcept MissingPropertyInConceptProblem_7103a397 = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingPropertyInConceptProblem");
-    /*package*/ static final SConcept MissingChildInConceptProblem_4ddb1e90 = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x2372fa56cc4ea3f4L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MissingPropertyInConceptProblem$UF = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingPropertyInConceptProblem");
+    /*package*/ static final SConcept MissingChildInConceptProblem$bi = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x2372fa56cc4ea3f4L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem");
   }
 }

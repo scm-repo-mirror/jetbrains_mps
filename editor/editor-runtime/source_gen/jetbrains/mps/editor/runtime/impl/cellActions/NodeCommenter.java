@@ -7,11 +7,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.action.NodeFactoryManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -37,10 +37,10 @@ public class NodeCommenter {
   @NotNull
   public SNode commentOut(final boolean shouldCreateNewNodeInSingleRole) {
     if (!(isValid())) {
-      throw new IllegalStateException("Node commenter has invalid state. Node to comment has no parent. Node: " + ((String) BHReflection.invoke0(myNode, AUX_no0c6d.BaseConcept_bc2351f, SMethodTrimmedId.create("getPresentation", null, "hEwIMiw"))) + " Node id: " + myNode.getNodeId());
+      throw new IllegalStateException("Node commenter has invalid state. Node to comment has no parent. Node: " + ((String) BHReflection.invoke0(myNode, CONCEPTS.BaseConcept$Sz, SMethodTrimmedId.create("getPresentation", null, "hEwIMiw"))) + " Node id: " + myNode.getNodeId());
     }
     SNode comment = createNewComment();
-    getParent().insertChildBefore(MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute"), comment, myNode);
+    getParent().insertChildBefore(LINKS.smodelAttribute$K8bJ, comment, myNode);
     moveNodeUnderComment(comment);
     if (shouldCreateNewNodeInSingleRole) {
       createNewNodeInSingleRole();
@@ -88,15 +88,20 @@ public class NodeCommenter {
 
   private SNode createNewComment() {
     SNode newComment = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute"));
-    BHReflection.invoke0(newComment, AUX_no0c6d.ChildAttribute_96496d6c, SMethodTrimmedId.create("setLink", AUX_no0c6d.ChildAttribute_96496d6c, "BpxLfMirzM"), getContainmentLink());
+    BHReflection.invoke0(newComment, CONCEPTS.ChildAttribute$XQ, SMethodTrimmedId.create("setLink", CONCEPTS.ChildAttribute$XQ, "BpxLfMirzM"), getContainmentLink());
     return newComment;
   }
   private void moveNodeUnderComment(SNode comment) {
-    SLinkOperations.setTarget(comment, MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, 0x2ab99f0d2248e89dL, "commentedNode"), myNode);
+    SLinkOperations.setTarget(comment, LINKS.commentedNode$I8FA, myNode);
   }
 
-  private static final class AUX_no0c6d {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept ChildAttribute_96496d6c = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept ChildAttribute$XQ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x9d98713f247885aL, "jetbrains.mps.lang.core.structure.ChildAttribute");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
+    /*package*/ static final SContainmentLink commentedNode$I8FA = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, 0x2ab99f0d2248e89dL, "commentedNode");
   }
 }

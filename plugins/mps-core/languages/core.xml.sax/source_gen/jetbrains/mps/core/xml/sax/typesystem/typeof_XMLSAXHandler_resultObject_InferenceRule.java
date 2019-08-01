@@ -10,34 +10,36 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class typeof_XMLSAXHandler_resultObject_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_XMLSAXHandler_resultObject_InferenceRule() {
   }
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode parent = SNodeOperations.getParent(SNodeOperations.getNodeAncestor(node, AUX_cvvjbo.XMLSAXTextRule_1c3fd6e4, false, false));
-    if (SNodeOperations.isInstanceOf(parent, AUX_cvvjbo.XMLSAXParser_1c3fd6ab)) {
+    SNode parent = SNodeOperations.getParent(SNodeOperations.getNodeAncestor(node, CONCEPTS.XMLSAXTextRule$jY, false, false));
+    if (SNodeOperations.isInstanceOf(parent, CONCEPTS.XMLSAXParser$Sn)) {
       {
         SNode _nodeToCheck_1029348928467 = node;
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:553bcb75-a1cc-4005-9641-b5a2524d9f6a(jetbrains.mps.core.xml.sax.typesystem)", "2264311582634140448", 0, null);
-        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:553bcb75-a1cc-4005-9641-b5a2524d9f6a(jetbrains.mps.core.xml.sax.typesystem)", "2264311582634140457", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(parent, AUX_cvvjbo.XMLSAXParser_1c3fd6ab), MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, 0x1f6c736337b5e303L, "root")), MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f3L, "type")), _info_12389875345);
+        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:553bcb75-a1cc-4005-9641-b5a2524d9f6a(jetbrains.mps.core.xml.sax.typesystem)", "2264311582634140457", true), (SNode) SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(parent, CONCEPTS.XMLSAXParser$Sn), LINKS.root$YA4Z), LINKS.type$Y_Mw), _info_12389875345);
       }
     } else {
-      SNode parentMacro = SNodeOperations.getNodeAncestor(node, AUX_cvvjbo.XMLSAXNodeRule_1c3fd687, false, false);
+      SNode parentMacro = SNodeOperations.getNodeAncestor(node, CONCEPTS.XMLSAXNodeRule$AV, false, false);
       if (parentMacro != null) {
         {
           SNode _nodeToCheck_1029348928467 = node;
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:553bcb75-a1cc-4005-9641-b5a2524d9f6a(jetbrains.mps.core.xml.sax.typesystem)", "2264311582634140475", 0, null);
-          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:553bcb75-a1cc-4005-9641-b5a2524d9f6a(jetbrains.mps.core.xml.sax.typesystem)", "2264311582634140477", true), (SNode) SLinkOperations.getTarget(parentMacro, MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f3L, "type")), _info_12389875345);
+          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:553bcb75-a1cc-4005-9641-b5a2524d9f6a(jetbrains.mps.core.xml.sax.typesystem)", "2264311582634140477", true), (SNode) SLinkOperations.getTarget(parentMacro, LINKS.type$Y_Mw), _info_12389875345);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_cvvjbo.XMLSAXHandler_resultObject_1c3fd3df;
+    return CONCEPTS.XMLSAXHandler_resultObject$tz;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -46,10 +48,15 @@ public class typeof_XMLSAXHandler_resultObject_InferenceRule extends AbstractInf
     return false;
   }
 
-  private static final class AUX_cvvjbo {
-    /*package*/ static final SConcept XMLSAXTextRule_1c3fd6e4 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e310L, "jetbrains.mps.core.xml.sax.structure.XMLSAXTextRule");
-    /*package*/ static final SConcept XMLSAXParser_1c3fd6ab = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, "jetbrains.mps.core.xml.sax.structure.XMLSAXParser");
-    /*package*/ static final SConcept XMLSAXNodeRule_1c3fd687 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
-    /*package*/ static final SConcept XMLSAXHandler_resultObject_1c3fd3df = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2eaL, "jetbrains.mps.core.xml.sax.structure.XMLSAXHandler_resultObject");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXTextRule$jY = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e310L, "jetbrains.mps.core.xml.sax.structure.XMLSAXTextRule");
+    /*package*/ static final SConcept XMLSAXParser$Sn = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, "jetbrains.mps.core.xml.sax.structure.XMLSAXParser");
+    /*package*/ static final SConcept XMLSAXNodeRule$AV = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
+    /*package*/ static final SConcept XMLSAXHandler_resultObject$tz = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2eaL, "jetbrains.mps.core.xml.sax.structure.XMLSAXHandler_resultObject");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink root$YA4Z = MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, 0x1f6c736337b5e303L, "root");
+    /*package*/ static final SContainmentLink type$Y_Mw = MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, 0x1f6c736337b5e2f3L, "type");
   }
 }

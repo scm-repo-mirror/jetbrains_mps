@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.tuples.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class NamedTupleComponentAccessOperation__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_ukvlrf.NamedTupleComponentAccessOperation_bf0a980d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, "jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentAccessOperation");
 
   public static final SMethod<Boolean> isLValue_idhEwIP$w = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIP$w").build();
 
@@ -32,7 +33,7 @@ public final class NamedTupleComponentAccessOperation__BehaviorDescriptor extend
   }
 
   /*package*/ static boolean isLValue_idhEwIP$w(@NotNull SNode __thisNode__) {
-    return !(SPropertyOperations.getBoolean(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, 0x1209c84fd08L, "component")), MetaAdapterFactory.getProperty(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12095b3e54fL, 0x120cda6c3beL, "final")));
+    return !(SPropertyOperations.getBoolean(SLinkOperations.getTarget(__thisNode__, LINKS.component$34c4), PROPS.final$pCJq));
   }
 
   /*package*/ NamedTupleComponentAccessOperation__BehaviorDescriptor() {
@@ -81,7 +82,11 @@ public final class NamedTupleComponentAccessOperation__BehaviorDescriptor extend
     return CONCEPT;
   }
 
-  private static final class AUX_ukvlrf {
-    /*package*/ static final SConcept NamedTupleComponentAccessOperation_bf0a980d = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, "jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentAccessOperation");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink component$34c4 = MetaAdapterFactory.getReferenceLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, 0x1209c84fd08L, "component");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty final$pCJq = MetaAdapterFactory.getProperty(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12095b3e54fL, 0x120cda6c3beL, "final");
   }
 }

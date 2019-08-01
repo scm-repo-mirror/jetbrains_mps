@@ -27,11 +27,12 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
   @NotNull
@@ -58,7 +59,7 @@ public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
   public class SMP_Group_37w0d7_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{AUX_37w0d7.ConstructorDeclaration_9dbf9ae8, AUX_37w0d7.InstanceMethodDeclaration_9dbf9b2b}, false, false) != null;
+      return SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{CONCEPTS.ConstructorDeclaration$5U, CONCEPTS.InstanceMethodDeclaration$An}, false, false) != null;
     }
     @NotNull
     @Override
@@ -74,7 +75,7 @@ public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_37w0d7_a.SMP_Param_37w0d7_a0(), AUX_37w0d7.SuperMethodCall_5571c318));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_37w0d7_a.SMP_Param_37w0d7_a0(), CONCEPTS.SuperMethodCall$Xa));
     }
     private class SMP_Param_37w0d7_a0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
       @NotNull
@@ -98,10 +99,10 @@ public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
       protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
         //  'qualified this' - only in inner classes 
         List<SNode> result = new ArrayList<SNode>();
-        SNode classifier = SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_37w0d7.Classifier_4b7e553, false, false);
+        SNode classifier = SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.Classifier$hJ, false, false);
         if (!((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(classifier))) {
-          for (SNode parentClassifier : SNodeOperations.getNodeAncestors(classifier, AUX_37w0d7.Classifier_4b7e553, false)) {
-            if (!(SNodeOperations.isInstanceOf(parentClassifier, AUX_37w0d7.AnonymousClass_e4a73f97))) {
+          for (SNode parentClassifier : SNodeOperations.getNodeAncestors(classifier, CONCEPTS.Classifier$hJ, false)) {
+            if (!(SNodeOperations.isInstanceOf(parentClassifier, CONCEPTS.AnonymousClass$aF))) {
               ListSequence.fromList(result).addElement(parentClassifier);
               if ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(parentClassifier)) {
                 break;
@@ -144,7 +145,7 @@ public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_37w0d7.SuperMethodCall_5571c318, context);
+            super(CONCEPTS.SuperMethodCall$Xa, context);
             _context = context;
           }
 
@@ -155,8 +156,8 @@ public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode superCall = SNodeFactoryOperations.createNewNode(AUX_37w0d7.QualifiedSuperMethodCall_15cc8989, null);
-            SLinkOperations.setTarget(superCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x37f722a7ce38076aL, 0x37f722a7ce38077dL, "classifier"), myParameterObject);
+            SNode superCall = SNodeFactoryOperations.createNewNode(CONCEPTS.QualifiedSuperMethodCall$rT, null);
+            SLinkOperations.setTarget(superCall, LINKS.classifier$$cg$, myParameterObject);
             return superCall;
           }
 
@@ -166,7 +167,7 @@ public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
           }
           @NotNull
           protected CompletionItemInformation createInformation(String pattern) {
-            return new CompletionItemInformation(myParameterObject, AUX_37w0d7.SuperMethodCall_5571c318, getMatchingText(pattern), getDescriptionText(pattern));
+            return new CompletionItemInformation(myParameterObject, CONCEPTS.SuperMethodCall$Xa, getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -192,12 +193,16 @@ public class qualifiedSuperMethodCallExpression extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_37w0d7 {
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
-    /*package*/ static final SConcept SuperMethodCall_5571c318 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf9d78b55aaL, "jetbrains.mps.baseLanguage.structure.SuperMethodCall");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
-    /*package*/ static final SConcept QualifiedSuperMethodCall_15cc8989 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x37f722a7ce38076aL, "jetbrains.mps.baseLanguage.structure.QualifiedSuperMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+    /*package*/ static final SConcept SuperMethodCall$Xa = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf9d78b55aaL, "jetbrains.mps.baseLanguage.structure.SuperMethodCall");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+    /*package*/ static final SConcept QualifiedSuperMethodCall$rT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x37f722a7ce38076aL, "jetbrains.mps.baseLanguage.structure.QualifiedSuperMethodCall");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$$cg$ = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x37f722a7ce38076aL, 0x37f722a7ce38077dL, "classifier");
   }
 }

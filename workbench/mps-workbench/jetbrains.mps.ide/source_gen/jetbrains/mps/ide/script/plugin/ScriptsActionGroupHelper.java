@@ -15,7 +15,6 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -27,6 +26,8 @@ import jetbrains.mps.internal.collections.runtime.SortedSetSequence;
 import java.util.Collections;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ScriptsActionGroupHelper {
   public ScriptsActionGroupHelper() {
@@ -36,7 +37,7 @@ public class ScriptsActionGroupHelper {
     for (Language language : languages) {
       SModel m = SModuleOperations.getAspect(language, "scripts");
       if (m != null) {
-        ListSequence.fromList(migrationScripts).addSequence(ListSequence.fromList(SModelOperations.roots(m, AUX_krfcdz.MigrationScript_eaf59bfd)));
+        ListSequence.fromList(migrationScripts).addSequence(ListSequence.fromList(SModelOperations.roots(m, CONCEPTS.MigrationScript$c5)));
       }
     }
     return migrationScripts;
@@ -44,7 +45,7 @@ public class ScriptsActionGroupHelper {
   public static void populateByCategoryGroup(List<SNode> migrationScripts, BaseGroup ownerGroup, boolean applyToSelection) {
     _FunctionTypes._return_P1_E0<? extends String, ? super SNode> getCategoryClosure = new _FunctionTypes._return_P1_E0<String, SNode>() {
       public String invoke(SNode script) {
-        String cat = NameUtil.pluralize(NameUtil.capitalize(SEnumOperations.getMemberName0(SPropertyOperations.getEnum(script, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081153L, "type")))));
+        String cat = NameUtil.pluralize(NameUtil.capitalize(SEnumOperations.getMemberName0(SPropertyOperations.getEnum(script, PROPS.type$wKbU))));
         if (cat == null) {
           cat = "<uncategorized>";
         }
@@ -69,7 +70,7 @@ public class ScriptsActionGroupHelper {
       BaseGroup categoryGroup = createGroup(cat, ownerGroup);
       _FunctionTypes._return_P1_E0<? extends String, ? super SNode> getBuildClosure = new _FunctionTypes._return_P1_E0<String, SNode>() {
         public String invoke(SNode script) {
-          return (SPropertyOperations.getString(script, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081155L, "toBuild")) == null ? "" : SPropertyOperations.getString(script, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081155L, "toBuild")));
+          return (SPropertyOperations.getString(script, PROPS.toBuild$wKcS) == null ? "" : SPropertyOperations.getString(script, PROPS.toBuild$wKcS));
         }
       };
       Map<String, List<SNode>> byBuild = groupBy(MapSequence.fromMap(byCategory).get(cat), getBuildClosure);
@@ -98,8 +99,8 @@ public class ScriptsActionGroupHelper {
     Collections.sort(scripts, new Comparator<SNode>() {
       @Override
       public int compare(SNode node1, SNode node2) {
-        String name1 = ScriptsActionGroupHelper.makeScriptActionName(null, SPropertyOperations.getString(node1, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x11225f2354aL, "title")), null).toLowerCase();
-        String name2 = ScriptsActionGroupHelper.makeScriptActionName(null, SPropertyOperations.getString(node2, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x11225f2354aL, "title")), null).toLowerCase();
+        String name1 = ScriptsActionGroupHelper.makeScriptActionName(null, SPropertyOperations.getString(node1, PROPS.title$cHtL), null).toLowerCase();
+        String name2 = ScriptsActionGroupHelper.makeScriptActionName(null, SPropertyOperations.getString(node2, PROPS.title$cHtL), null).toLowerCase();
         return name1.compareTo(name2);
       }
     });
@@ -108,7 +109,7 @@ public class ScriptsActionGroupHelper {
       SNode script_var;
       while (script_it.hasNext()) {
         script_var = script_it.next();
-        group.add(new RunMigrationScriptAction(script_var, ScriptsActionGroupHelper.makeScriptActionName(null, SPropertyOperations.getString(script_var, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x11225f2354aL, "title")), null), applyToSelection));
+        group.add(new RunMigrationScriptAction(script_var, ScriptsActionGroupHelper.makeScriptActionName(null, SPropertyOperations.getString(script_var, PROPS.title$cHtL), null), applyToSelection));
       }
     }
   }
@@ -142,7 +143,13 @@ public class ScriptsActionGroupHelper {
     return sb.toString();
   }
 
-  private static final class AUX_krfcdz {
-    /*package*/ static final SConcept MigrationScript_eaf59bfd = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, "jetbrains.mps.lang.script.structure.MigrationScript");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MigrationScript$c5 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, "jetbrains.mps.lang.script.structure.MigrationScript");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty type$wKbU = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081153L, "type");
+    /*package*/ static final SProperty toBuild$wKcS = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081155L, "toBuild");
+    /*package*/ static final SProperty title$cHtL = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x11225f2354aL, "title");
   }
 }

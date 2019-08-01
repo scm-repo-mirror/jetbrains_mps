@@ -4,6 +4,7 @@ package jetbrains.mps.lang.structure.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,16 +16,15 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.smodel.Primitives;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class PrimitiveDataTypeDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_op5tfc.PrimitiveDataTypeDeclaration_44a77975;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc3652de27L, "jetbrains.mps.lang.structure.structure.PrimitiveDataTypeDeclaration");
 
   public static final SMethod<SNode> toBaseLanguageType_idhEwI9ym = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("toBaseLanguageType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwI9ym").build();
   public static final SMethod<Boolean> isString_idhKtFRO6 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isString").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hKtFRO6").build();
@@ -37,22 +37,22 @@ public final class PrimitiveDataTypeDeclaration__BehaviorDescriptor extends Base
   }
 
   /*package*/ static SNode toBaseLanguageType_idhEwI9ym(@NotNull SNode __thisNode__) {
-    if (Primitives.INTEGER_TYPE.equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) {
+    if (Primitives.INTEGER_TYPE.equals(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1))) {
       return _quotation_createNode_qjn9ch_a0a0a0();
     }
-    if (Primitives.BOOLEAN_TYPE.equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) {
+    if (Primitives.BOOLEAN_TYPE.equals(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1))) {
       return _quotation_createNode_qjn9ch_a0a1a0();
     }
     return _quotation_createNode_qjn9ch_a2a0();
   }
   /*package*/ static boolean isString_idhKtFRO6(@NotNull SNode __thisNode__) {
-    return Primitives.STRING_TYPE.equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    return Primitives.STRING_TYPE.equals(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1));
   }
   /*package*/ static boolean isInteger_idhKtFYCF(@NotNull SNode __thisNode__) {
-    return Primitives.INTEGER_TYPE.equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    return Primitives.INTEGER_TYPE.equals(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1));
   }
   /*package*/ static boolean isBoolean_idhKtG1tp(@NotNull SNode __thisNode__) {
-    return Primitives.BOOLEAN_TYPE.equals(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+    return Primitives.BOOLEAN_TYPE.equals(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1));
   }
 
   /*package*/ PrimitiveDataTypeDeclaration__BehaviorDescriptor() {
@@ -125,7 +125,7 @@ public final class PrimitiveDataTypeDeclaration__BehaviorDescriptor extends Base
     return quotedNode_1;
   }
 
-  private static final class AUX_op5tfc {
-    /*package*/ static final SConcept PrimitiveDataTypeDeclaration_44a77975 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc3652de27L, "jetbrains.mps.lang.structure.structure.PrimitiveDataTypeDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

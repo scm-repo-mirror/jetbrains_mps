@@ -51,7 +51,7 @@ public class YieldAllStatement_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_Group_4np28e_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      SNode anc = SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{AUX_4np28e.ClosureLiteral_6eeca0d3}, true, false);
+      SNode anc = SNodeOperations.getNodeAncestorWhereConceptInList(_context.getParentNode(), new SAbstractConcept[]{CONCEPTS.ClosureLiteral$zJ}, true, false);
       return anc != null;
     }
     @NotNull
@@ -68,7 +68,7 @@ public class YieldAllStatement_SubstituteMenu extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new SMP_Group_4np28e_a.SMP_Subconcepts_4np28e_a0(), new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_4np28e.YieldAllStatement_9292feeb) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new SMP_Group_4np28e_a.SMP_Subconcepts_4np28e_a0(), new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.YieldAllStatement$Rn) {
 
         @NotNull
         @Override
@@ -81,11 +81,11 @@ public class YieldAllStatement_SubstituteMenu extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_4np28e.YieldAllStatement_9292feeb));
+      }, CONCEPTS.YieldAllStatement$Rn));
     }
     public class SMP_Subconcepts_4np28e_a0 extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
       protected Collection getConcepts(final SubstituteMenuContext _context) {
-        return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_4np28e.YieldAllStatement_9292feeb);
+        return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.YieldAllStatement$Rn);
       }
       @NotNull
       @Override
@@ -106,8 +106,8 @@ public class YieldAllStatement_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_4np28e {
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
-    /*package*/ static final SConcept YieldAllStatement_9292feeb = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11e25fc6c63L, "jetbrains.mps.baseLanguage.closures.structure.YieldAllStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+    /*package*/ static final SConcept YieldAllStatement$Rn = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11e25fc6c63L, "jetbrains.mps.baseLanguage.closures.structure.YieldAllStatement");
   }
 }

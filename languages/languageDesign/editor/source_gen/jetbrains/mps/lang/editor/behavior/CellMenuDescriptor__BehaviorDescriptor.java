@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,14 +16,15 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class CellMenuDescriptor__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_rerfmg.CellMenuDescriptor_ff9b94f6;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f34f6aaacL, "jetbrains.mps.lang.editor.structure.CellMenuDescriptor");
 
   public static final SMethod<SNode> getEditedFeature_idhKy3mrJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEditedFeature").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hKy3mrJ").build();
 
@@ -32,14 +34,14 @@ public final class CellMenuDescriptor__BehaviorDescriptor extends BaseBHDescript
   }
 
   /*package*/ static SNode getEditedFeature_idhKy3mrJ(@NotNull SNode __thisNode__) {
-    SNode owner = SNodeOperations.getNodeAncestorWhereConceptInList(__thisNode__, new SAbstractConcept[]{AUX_rerfmg.EditorCellModel_226b88d6, AUX_rerfmg.CellMenuComponent_409bb26e}, false, false);
-    if (SNodeOperations.isInstanceOf(owner, AUX_rerfmg.CellModel_WithRole_a669eb72)) {
-      return SLinkOperations.getTarget(SNodeOperations.cast(owner, AUX_rerfmg.CellModel_WithRole_a669eb72), MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration"));
-    } else if (SNodeOperations.isInstanceOf(owner, AUX_rerfmg.CellMenuComponent_409bb26e)) {
-      SNode component = SNodeOperations.cast(owner, AUX_rerfmg.CellMenuComponent_409bb26e);
-      SNode feature = SLinkOperations.getTarget(component, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, 0x10f7d739ad9L, "applicableFeature"));
+    SNode owner = SNodeOperations.getNodeAncestorWhereConceptInList(__thisNode__, new SAbstractConcept[]{CONCEPTS.EditorCellModel$5c, CONCEPTS.CellMenuComponent$EO}, false, false);
+    if (SNodeOperations.isInstanceOf(owner, CONCEPTS.CellModel_WithRole$8K)) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(owner, CONCEPTS.CellModel_WithRole$8K), LINKS.relationDeclaration$wbRV);
+    } else if (SNodeOperations.isInstanceOf(owner, CONCEPTS.CellMenuComponent$EO)) {
+      SNode component = SNodeOperations.cast(owner, CONCEPTS.CellMenuComponent$EO);
+      SNode feature = SLinkOperations.getTarget(component, LINKS.applicableFeature$h527);
       if ((feature != null)) {
-        return SLinkOperations.getTarget(feature, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d762adcL, 0x10f7e408e08L, "relationDeclaration"));
+        return SLinkOperations.getTarget(feature, LINKS.relationDeclaration$y4$D);
       }
       return null;
     } else {
@@ -93,10 +95,15 @@ public final class CellMenuDescriptor__BehaviorDescriptor extends BaseBHDescript
     return CONCEPT;
   }
 
-  private static final class AUX_rerfmg {
-    /*package*/ static final SConcept CellMenuDescriptor_ff9b94f6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f34f6aaacL, "jetbrains.mps.lang.editor.structure.CellMenuDescriptor");
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
-    /*package*/ static final SConcept CellMenuComponent_409bb26e = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, "jetbrains.mps.lang.editor.structure.CellMenuComponent");
-    /*package*/ static final SConcept CellModel_WithRole_a669eb72 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, "jetbrains.mps.lang.editor.structure.CellModel_WithRole");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+    /*package*/ static final SConcept CellMenuComponent$EO = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, "jetbrains.mps.lang.editor.structure.CellMenuComponent");
+    /*package*/ static final SConcept CellModel_WithRole$8K = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, "jetbrains.mps.lang.editor.structure.CellModel_WithRole");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink relationDeclaration$wbRV = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10964446123L, 0x10973779681L, "relationDeclaration");
+    /*package*/ static final SContainmentLink applicableFeature$h527 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, 0x10f7d739ad9L, "applicableFeature");
+    /*package*/ static final SReferenceLink relationDeclaration$y4$D = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d762adcL, 0x10f7e408e08L, "relationDeclaration");
   }
 }

@@ -13,14 +13,14 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public final class StructureIds_PastePostProcessor_1 implements PastePostProcessor {
   @Override
   public SAbstractConcept getApplicableConcept() {
-    return AUX_kuurpx.InterfaceConceptDeclaration_efdf2bc9;
+    return CONCEPTS.InterfaceConceptDeclaration$MT;
   }
   @Override
   public void postProcessNode(SNode pastedNode) {
     ConceptIdSetter.processConcept(pastedNode, SNodeOperations.getModel(pastedNode), true);
   }
 
-  private static final class AUX_kuurpx {
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.lightweightdsl.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,17 +18,19 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class DSLClassMember__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_88jafv.DSLClassMember_736de11a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a0447fe4c7L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLClassMember");
 
   public static final SMethod<Boolean> isMultiple_id1QReUKIGS9B = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isMultiple").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1QReUKIGS9B").build();
   public static final SMethod<Boolean> isRequired_id2WSWNq1VhVM = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isRequired").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2WSWNq1VhVM").build();
@@ -45,23 +48,23 @@ public final class DSLClassMember__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static boolean isMultiple_id1QReUKIGS9B(@NotNull SNode __thisNode__) {
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a0447fe4c7L, 0x2f38f33681e6c568L, "modifier")), AUX_88jafv.MultipleModifier_5f26d00a)).isNotEmpty();
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.modifier$Y2M5), CONCEPTS.MultipleModifier$2o)).isNotEmpty();
   }
   /*package*/ static boolean isRequired_id2WSWNq1VhVM(@NotNull SNode __thisNode__) {
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a0447fe4c7L, 0x2f38f33681e6c568L, "modifier")), AUX_88jafv.RequiredModifier_1f9974f4)).isNotEmpty();
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.modifier$Y2M5), CONCEPTS.RequiredModifier$zI)).isNotEmpty();
   }
   /*package*/ static SNode getPlaceholder_id7T23sO8tlHe(@NotNull SNode __thisNode__) {
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a0447fe4c7L, 0x2f38f33681e6c568L, "modifier")), AUX_88jafv.PlaceholderModifier_738d46ad)).first();
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.modifier$Y2M5), CONCEPTS.PlaceholderModifier$Tl)).first();
   }
   /*package*/ static SNode getDefault_id7DN9hucqR$0(@NotNull SNode __thisNode__) {
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a0447fe4c7L, 0x2f38f33681e6c568L, "modifier")), AUX_88jafv.DefaultModifier_253531fd)).first();
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.modifier$Y2M5), CONCEPTS.DefaultModifier$O5)).first();
   }
   /*package*/ static SNode createForClass_id5BD$AU437jJ(@NotNull SNode __thisNode__, SNode cls, SModel futureModel) {
     if (Sequence.fromIterable(DSLClassMember__BehaviorDescriptor.find_id2gzehMfi1$l.invoke(__thisNode__, cls)).isNotEmpty()) {
       return null;
     }
     if ((DSLClassMember__BehaviorDescriptor.getDefault_id7DN9hucqR$0.invoke(__thisNode__) != null)) {
-      return SNodeOperations.copyNode(SLinkOperations.getTarget(DSLClassMember__BehaviorDescriptor.getDefault_id7DN9hucqR$0.invoke(__thisNode__), MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x7a7325178c68eba9L, 0x7a7325178c68f138L, "value")));
+      return SNodeOperations.copyNode(SLinkOperations.getTarget(DSLClassMember__BehaviorDescriptor.getDefault_id7DN9hucqR$0.invoke(__thisNode__), LINKS.value$HrKt));
     }
     if (((boolean) DSLClassMember__BehaviorDescriptor.isRequired_id2WSWNq1VhVM.invoke(__thisNode__))) {
       return DSLClassMember__BehaviorDescriptor.create_id7ay_HjIOVVe.invoke(__thisNode__, futureModel);
@@ -72,15 +75,15 @@ public final class DSLClassMember__BehaviorDescriptor extends BaseBHDescriptor {
     }
   }
   /*package*/ static Iterable<SNode> findPlaceholders_id5ZzANK5B6wZ(@NotNull final SNode __thisNode__, SNode cls) {
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(cls, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member")), AUX_88jafv.MemberPlaceholder_6692a737)).where(new IWhereFilter<SNode>() {
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(cls, LINKS.member$oYX5), CONCEPTS.MemberPlaceholder$Wb)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl")) == __thisNode__;
+        return SLinkOperations.getTarget(it, LINKS.decl$l7bu) == __thisNode__;
       }
     });
   }
   /*package*/ static String getMatchingText_id2nUiI4k7qhh(@NotNull SNode __thisNode__) {
-    if (SNodeOperations.isInstanceOf(__thisNode__, AUX_88jafv.INamedConcept_8cd7e247)) {
-      return SPropertyOperations.getString(SNodeOperations.cast(__thisNode__, AUX_88jafv.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    if (SNodeOperations.isInstanceOf(__thisNode__, CONCEPTS.INamedConcept$nV)) {
+      return SPropertyOperations.getString(SNodeOperations.cast(__thisNode__, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1);
     }
     return SNodeOperations.getConcept(__thisNode__).getName();
   }
@@ -143,13 +146,23 @@ public final class DSLClassMember__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_88jafv {
-    /*package*/ static final SInterfaceConcept DSLClassMember_736de11a = MetaAdapterFactory.getInterfaceConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a0447fe4c7L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLClassMember");
-    /*package*/ static final SConcept MultipleModifier_5f26d00a = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x1db73bac2eaf51eeL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MultipleModifier");
-    /*package*/ static final SConcept RequiredModifier_1f9974f4 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x2f38f33681e6c616L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.RequiredModifier");
-    /*package*/ static final SConcept PlaceholderModifier_738d46ad = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044804f29L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.PlaceholderModifier");
-    /*package*/ static final SConcept DefaultModifier_253531fd = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x7a7325178c68eba9L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DefaultModifier");
-    /*package*/ static final SConcept MemberPlaceholder_6692a737 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MemberPlaceholder");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modifier$Y2M5 = MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a0447fe4c7L, 0x2f38f33681e6c568L, "modifier");
+    /*package*/ static final SContainmentLink value$HrKt = MetaAdapterFactory.getContainmentLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x7a7325178c68eba9L, 0x7a7325178c68f138L, "value");
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
+    /*package*/ static final SReferenceLink decl$l7bu = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db5L, "decl");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MultipleModifier$2o = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x1db73bac2eaf51eeL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MultipleModifier");
+    /*package*/ static final SConcept RequiredModifier$zI = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x2f38f33681e6c616L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.RequiredModifier");
+    /*package*/ static final SConcept PlaceholderModifier$Tl = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x72b255a044804f29L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.PlaceholderModifier");
+    /*package*/ static final SConcept DefaultModifier$O5 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x7a7325178c68eba9L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DefaultModifier");
+    /*package*/ static final SConcept MemberPlaceholder$Wb = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MemberPlaceholder");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

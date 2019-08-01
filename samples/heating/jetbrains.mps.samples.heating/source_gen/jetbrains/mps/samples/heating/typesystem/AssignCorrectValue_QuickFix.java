@@ -7,8 +7,9 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class AssignCorrectValue_QuickFix extends QuickFix_Runtime {
   public AssignCorrectValue_QuickFix() {
@@ -18,15 +19,19 @@ public class AssignCorrectValue_QuickFix extends QuickFix_Runtime {
     return "Assign correct value";
   }
   public void execute(SNode node) {
-    SNode prev = SNodeOperations.cast(SNodeOperations.getPrevSibling(node), AUX_46hsq0.Slot_ae41f8e3);
+    SNode prev = SNodeOperations.cast(SNodeOperations.getPrevSibling(node), CONCEPTS.Slot$bv);
     if ((prev != null)) {
-      SPropertyOperations.assign(SNodeOperations.cast(node, AUX_46hsq0.Slot_ae41f8e3), MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start"), SPropertyOperations.getInteger(prev, MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start")) + 1);
+      SPropertyOperations.assign(SNodeOperations.cast(node, CONCEPTS.Slot$bv), PROPS.start$fZpo, SPropertyOperations.getInteger(prev, PROPS.start$fZpo) + 1);
     } else {
-      SPropertyOperations.assign(SNodeOperations.cast(node, AUX_46hsq0.Slot_ae41f8e3), MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start"), 0);
+      SPropertyOperations.assign(SNodeOperations.cast(node, CONCEPTS.Slot$bv), PROPS.start$fZpo, 0);
     }
   }
 
-  private static final class AUX_46hsq0 {
-    /*package*/ static final SConcept Slot_ae41f8e3 = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Slot$bv = MetaAdapterFactory.getConcept(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, "jetbrains.mps.samples.heating.structure.Slot");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty start$fZpo = MetaAdapterFactory.getProperty(0xa7d67633e8d9473bL, 0x98ce995a7aa66941L, 0x4f786d85fe288176L, 0x4f786d85fe28827cL, "start");
   }
 }

@@ -33,7 +33,7 @@
       <node id="2244048449136669030" at="43,0,44,90" concept="10" />
       <node id="2244048449136669030" at="44,90,45,58" concept="10" />
       <node id="2244048449136669031" at="48,5,49,68" concept="8" />
-      <node id="2244048449136669040" at="52,118,53,24" concept="9" />
+      <node id="2244048449136669040" at="52,110,53,24" concept="9" />
       <node id="2244048449136669031" at="54,11,55,23" concept="9" />
       <node id="2244048449136669031" at="55,23,56,0" concept="11" />
       <node id="2244048449136669034" at="61,15,62,139" concept="9" />
@@ -43,8 +43,8 @@
       <node id="2244048449136669031" at="71,0,72,95" concept="2" />
       <node id="2244048449136669031" at="72,95,73,34" concept="2" />
       <node id="2244048449136669041" at="75,5,76,68" concept="8" />
-      <node id="2244048449136669050" at="79,125,80,24" concept="9" />
-      <node id="2244048449136669051" at="82,131,83,24" concept="9" />
+      <node id="2244048449136669050" at="79,117,80,24" concept="9" />
+      <node id="2244048449136669051" at="82,123,83,24" concept="9" />
       <node id="2244048449136669041" at="84,11,85,23" concept="9" />
       <node id="2244048449136669041" at="85,23,86,0" concept="11" />
       <node id="2244048449136669044" at="91,15,92,140" concept="9" />
@@ -59,9 +59,9 @@
       <node id="2244048449136669030" at="113,26,114,13" concept="9" />
       <node id="2244048449136669030" at="116,108,117,37" concept="2" />
       <node id="2244048449136669030" at="118,5,119,81" concept="2" />
-      <node id="2244048449136669030" at="123,0,124,0" concept="12" trace="Statement_9dbf9b0e" />
-      <node id="2244048449136669030" at="124,0,125,0" concept="12" trace="FieldDeclaration_e2711ac6" />
-      <node id="2244048449136669030" at="125,0,126,0" concept="12" trace="StaticFieldDeclaration_9649293d" />
+      <node id="2244048449136669030" at="123,0,124,0" concept="12" trace="Statement$ok" />
+      <node id="2244048449136669030" at="124,0,125,0" concept="12" trace="FieldDeclaration$Ps" />
+      <node id="2244048449136669030" at="125,0,126,0" concept="12" trace="StaticFieldDeclaration$R5" />
       <node id="2244048449136669030" at="31,0,33,0" concept="1" trace="DebugInfoProvider_AppPluginPart#()V" />
       <node id="2244048449136669030" at="45,58,47,5" concept="5" />
       <node id="2244048449136669030" at="35,118,38,5" concept="6" />
@@ -92,11 +92,11 @@
       <scope id="2244048449136669030" at="46,108,46,108" />
       <scope id="2244048449136669030" at="36,33,37,13" />
       <scope id="2244048449136669030" at="40,26,41,13" />
-      <scope id="2244048449136669040" at="52,118,53,24" />
+      <scope id="2244048449136669040" at="52,110,53,24" />
       <scope id="2244048449136669033" at="61,15,62,139" />
       <scope id="2244048449136669031" at="64,47,65,91" />
-      <scope id="2244048449136669050" at="79,125,80,24" />
-      <scope id="2244048449136669051" at="82,131,83,24" />
+      <scope id="2244048449136669050" at="79,117,80,24" />
+      <scope id="2244048449136669051" at="82,123,83,24" />
       <scope id="2244048449136669043" at="91,15,92,140" />
       <scope id="2244048449136669041" at="94,47,95,91" />
       <scope id="2244048449136669030" at="109,33,110,13" />
@@ -153,7 +153,7 @@
         <var name="manager" id="2244048449136669030" />
       </scope>
       <scope id="2244048449136669030" at="33,0,106,0" />
-      <unit id="2244048449136669030" at="122,0,127,0" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.DebugInfoProvider_AppPluginPart$AUX_xj3d25" />
+      <unit id="2244048449136669030" at="122,0,127,0" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.DebugInfoProvider_AppPluginPart$CONCEPTS" />
       <unit id="2244048449136669031" at="50,28,58,7" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.DebugInfoProvider_AppPluginPart$1" />
       <unit id="2244048449136669031" at="59,25,70,7" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.DebugInfoProvider_AppPluginPart$2" />
       <unit id="2244048449136669041" at="77,28,88,7" name="jetbrains.mps.debugger.java.customViewers.plugin.plugin.DebugInfoProvider_AppPluginPart$3" />

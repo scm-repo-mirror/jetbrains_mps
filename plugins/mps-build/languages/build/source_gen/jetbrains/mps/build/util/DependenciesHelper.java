@@ -10,8 +10,9 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.extapi.model.TransientSModel;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class DependenciesHelper {
@@ -34,9 +35,9 @@ public class DependenciesHelper {
     this.requiresFetch = GenerationUtil.getSessionSet(project, genContext, "requiresFetch");
     myGenContext = genContext;
     myProject = project;
-    myLocationKey = "location:" + SModelOperations.getModelName(SNodeOperations.getModel(project)) + '/' + SPropertyOperations.getString(project, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    myContentLocationKey = "contentLocation:" + SModelOperations.getModelName(SNodeOperations.getModel(project)) + '/' + SPropertyOperations.getString(project, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    myLayoutRelativeKey = "layout-relative:" + SModelOperations.getModelName(SNodeOperations.getModel(project)) + '/' + SPropertyOperations.getString(project, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    myLocationKey = "location:" + SModelOperations.getModelName(SNodeOperations.getModel(project)) + '/' + SPropertyOperations.getString(project, PROPS.name$tAp1);
+    myContentLocationKey = "contentLocation:" + SModelOperations.getModelName(SNodeOperations.getModel(project)) + '/' + SPropertyOperations.getString(project, PROPS.name$tAp1);
+    myLayoutRelativeKey = "layout-relative:" + SModelOperations.getModelName(SNodeOperations.getModel(project)) + '/' + SPropertyOperations.getString(project, PROPS.name$tAp1);
   }
 
   public TemplateQueryContext getGenContext() {
@@ -112,15 +113,15 @@ public class DependenciesHelper {
   }
 
   public SNode getArtifact(String id) {
-    return SNodeOperations.as(idToArtifactMap.get(id), AUX_xhchm3.BuildLayout_Node_b7bb997a);
+    return SNodeOperations.as(idToArtifactMap.get(id), CONCEPTS.BuildLayout_Node$kC);
   }
 
   public SNode getArtifact(SNode id) {
-    return SNodeOperations.as(idToArtifactMap.get(getOriginalNode(id)), AUX_xhchm3.BuildLayout_Node_b7bb997a);
+    return SNodeOperations.as(idToArtifactMap.get(getOriginalNode(id)), CONCEPTS.BuildLayout_Node$kC);
   }
 
   public SNode getArtifact(LocalSourcePathArtifact id) {
-    return SNodeOperations.as(idToArtifactMap.get(id), AUX_xhchm3.BuildLayout_Node_b7bb997a);
+    return SNodeOperations.as(idToArtifactMap.get(id), CONCEPTS.BuildLayout_Node$kC);
   }
 
   public void putArtifact(String id, SNode artifact) {
@@ -160,7 +161,7 @@ public class DependenciesHelper {
    * keep distinct locations for project B and C).
    */
   private boolean isFromTransformedModel(SNode n) {
-    SNode ancestorProject = SNodeOperations.getNodeAncestor(n, AUX_xhchm3.BuildProject_808bb057, false, false);
+    SNode ancestorProject = SNodeOperations.getNodeAncestor(n, CONCEPTS.BuildProject$BF, false, false);
     // ancestorProject could be null for a layout node from external layout root 
     return ancestorProject == myProject || (SNodeOperations.getModel(n) == SNodeOperations.getModel(myProject) && SNodeOperations.getModel(n) instanceof TransientSModel);
   }
@@ -191,8 +192,12 @@ public class DependenciesHelper {
     return originalNode;
   }
 
-  private static final class AUX_xhchm3 {
-    /*package*/ static final SConcept BuildLayout_Node_b7bb997a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildLayout_Node$kC = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafac4c85L, "jetbrains.mps.build.structure.BuildLayout_Node");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
   }
 }

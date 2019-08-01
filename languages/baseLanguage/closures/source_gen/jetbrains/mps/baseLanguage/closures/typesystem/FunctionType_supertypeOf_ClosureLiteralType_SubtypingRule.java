@@ -19,7 +19,7 @@ public class FunctionType_supertypeOf_ClosureLiteralType_SubtypingRule extends S
     return (SNode) IInternalType__BehaviorDescriptor.getPublicType_idhEwIXGa.invoke(closureLiteralType);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2n27ld.ClosureLiteralType_ed776bc1;
+    return CONCEPTS.ClosureLiteralType$J1;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -31,7 +31,7 @@ public class FunctionType_supertypeOf_ClosureLiteralType_SubtypingRule extends S
     return true;
   }
 
-  private static final class AUX_2n27ld {
-    /*package*/ static final SConcept ClosureLiteralType_ed776bc1 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0xe8770ba07b68051L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClosureLiteralType$J1 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0xe8770ba07b68051L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteralType");
   }
 }

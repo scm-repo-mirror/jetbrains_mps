@@ -16,7 +16,6 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -24,6 +23,7 @@ import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
 import jetbrains.mps.openapi.editor.cells.DefaultSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class UltimateContainer_EditorBuilder_a extends AbstractEditorBuilder {
@@ -112,10 +112,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x4c733427bdede058L, "stateMachines");
+      return LINKS.stateMachines$wvFe;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_skhs8w.StateMachine_23cbcaa2;
+      return CONCEPTS.StateMachine$$0;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -125,7 +125,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(stateMachinesListHandler_hd4pfy_b1a.this.getNode(), MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x4c733427bdede058L, "stateMachines")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(stateMachinesListHandler_hd4pfy_b1a.this.getNode(), LINKS.stateMachines$wvFe));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -183,10 +183,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x4c733427bdede059L, "tables");
+      return LINKS.tables$wvFH;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_skhs8w.Table_3f226df3;
+      return CONCEPTS.Table$Zf;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -196,7 +196,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(tablesListHandler_hd4pfy_d1a.this.getNode(), MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x4c733427bdede059L, "tables")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(tablesListHandler_hd4pfy_d1a.this.getNode(), LINKS.tables$wvFH));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -254,10 +254,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x3cc6bd99e23e4592L, "matrixes");
+      return LINKS.matrixes$zItd;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_skhs8w.Matrix_3f39b954;
+      return CONCEPTS.Matrix$2e;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -267,7 +267,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(matrixesListHandler_hd4pfy_f1a.this.getNode(), MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x3cc6bd99e23e4592L, "matrixes")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(matrixesListHandler_hd4pfy_f1a.this.getNode(), LINKS.matrixes$zItd));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -301,9 +301,15 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_skhs8w {
-    /*package*/ static final SConcept StateMachine_23cbcaa2 = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0xa99ffe1c8456ba1L, "jetbrains.mps.lang.editor.tableTests.structure.StateMachine");
-    /*package*/ static final SConcept Table_3f226df3 = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea0L, "jetbrains.mps.lang.editor.tableTests.structure.Table");
-    /*package*/ static final SConcept Matrix_3f39b954 = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x3cc6bd99e23e4590L, "jetbrains.mps.lang.editor.tableTests.structure.Matrix");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink stateMachines$wvFe = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x4c733427bdede058L, "stateMachines");
+    /*package*/ static final SContainmentLink tables$wvFH = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x4c733427bdede059L, "tables");
+    /*package*/ static final SContainmentLink matrixes$zItd = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x4c733427bdedcbd0L, 0x3cc6bd99e23e4592L, "matrixes");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StateMachine$$0 = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0xa99ffe1c8456ba1L, "jetbrains.mps.lang.editor.tableTests.structure.StateMachine");
+    /*package*/ static final SConcept Table$Zf = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea0L, "jetbrains.mps.lang.editor.tableTests.structure.Table");
+    /*package*/ static final SConcept Matrix$2e = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x3cc6bd99e23e4590L, "jetbrains.mps.lang.editor.tableTests.structure.Matrix");
   }
 }

@@ -8,7 +8,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
@@ -16,6 +15,9 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DeleteThought {
 
@@ -25,11 +27,11 @@ public class DeleteThought {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, final SNode node) {
-        SNode mindMap = SNodeOperations.getNodeAncestor(node, AUX_tcgyjr.MindMap_15680b5a, false, false);
+        SNode mindMap = SNodeOperations.getNodeAncestor(node, CONCEPTS.MindMap$X8, false, false);
 
-        ListSequence.fromList(SLinkOperations.getChildren(mindMap, MetaAdapterFactory.getContainmentLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14758fL, 0x1198689ff14c5dbL, "relationships"))).where(new IWhereFilter<SNode>() {
+        ListSequence.fromList(SLinkOperations.getChildren(mindMap, LINKS.relationships$tHU$)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return Objects.equals(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x1198689ff14c5dfL, "target")), node) || Objects.equals(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x517b79625769ba9eL, "source")), node);
+            return Objects.equals(SLinkOperations.getTarget(it, LINKS.target$$xE0), node) || Objects.equals(SLinkOperations.getTarget(it, LINKS.source$jsja), node);
           }
         }).visitAll(new IVisitor<SNode>() {
           public void visit(SNode it) {
@@ -77,7 +79,13 @@ public class DeleteThought {
     }
   }
 
-  private static final class AUX_tcgyjr {
-    /*package*/ static final SConcept MindMap_15680b5a = MetaAdapterFactory.getConcept(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14758fL, "jetbrains.mps.samples.mindmaps.structure.MindMap");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MindMap$X8 = MetaAdapterFactory.getConcept(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14758fL, "jetbrains.mps.samples.mindmaps.structure.MindMap");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink relationships$tHU$ = MetaAdapterFactory.getContainmentLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14758fL, 0x1198689ff14c5dbL, "relationships");
+    /*package*/ static final SReferenceLink source$jsja = MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x517b79625769ba9eL, "source");
+    /*package*/ static final SReferenceLink target$$xE0 = MetaAdapterFactory.getReferenceLink(0x33f294fd370a4a40L, 0x999b43f382910018L, 0x1198689ff14bad3L, 0x1198689ff14c5dfL, "target");
   }
 }

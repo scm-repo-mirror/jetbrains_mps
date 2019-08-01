@@ -27,11 +27,14 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /*package*/ class Dependency_diagram_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -176,14 +179,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 
     public void synchronize() {
-      myInputPort.set(MultiTuple.<SNode>from(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(getSNode()), AUX_z0lzg8.Component_5ebb22db), MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381be146L, "out"))).findFirst(new IWhereFilter<SNode>() {
+      myInputPort.set(MultiTuple.<SNode>from(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(getSNode()), CONCEPTS.Component$vB), LINKS.out$U7Cg)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(SPropertyOperations.getString(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e1976381b71a0L, 0x565e1976381b7654L, "to")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          return SPropertyOperations.getString(it, PROPS.name$tAp1).equals(SPropertyOperations.getString(SLinkOperations.getTarget(getSNode(), LINKS.to$V$vW), PROPS.name$tAp1));
         }
       })));
-      myOutputPort.set(MultiTuple.<SNode>from(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getSNode(), MetaAdapterFactory.getReferenceLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e1976381b71a0L, 0x565e1976381b7654L, "to")), MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381be142L, "in"))).findFirst(new IWhereFilter<SNode>() {
+      myOutputPort.set(MultiTuple.<SNode>from(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(getSNode(), LINKS.to$V$vW), LINKS.in$U7Ak)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(getSNode()), AUX_z0lzg8.Component_5ebb22db), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          return SPropertyOperations.getString(it, PROPS.name$tAp1).equals(SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(getSNode()), CONCEPTS.Component$vB), PROPS.name$tAp1));
         }
       })));
     }
@@ -201,7 +204,17 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
   }
 
-  private static final class AUX_z0lzg8 {
-    /*package*/ static final SConcept Component_5ebb22db = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Component$vB = MetaAdapterFactory.getConcept(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, "jetbrains.mps.samples.componentDependencies.structure.Component");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink out$U7Cg = MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381be146L, "out");
+    /*package*/ static final SReferenceLink to$V$vW = MetaAdapterFactory.getReferenceLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e1976381b71a0L, 0x565e1976381b7654L, "to");
+    /*package*/ static final SContainmentLink in$U7Ak = MetaAdapterFactory.getContainmentLink(0x3066bc0924384300L, 0xa9365bd59917ae9bL, 0x565e19763814f144L, 0x565e1976381be142L, "in");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

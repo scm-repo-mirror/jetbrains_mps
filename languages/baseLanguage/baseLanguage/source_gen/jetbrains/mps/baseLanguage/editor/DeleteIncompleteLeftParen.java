@@ -24,9 +24,9 @@ public class DeleteIncompleteLeftParen {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode paren = AttributeOperations.getAttribute(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_k0uxgd.Expression_4199e28d), new IAttributeDescriptor.NodeAttribute(AUX_k0uxgd.IncompleteLeftParen_1befc46d));
+        SNode paren = AttributeOperations.getAttribute(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.Expression$TP), new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteLeftParen$yl));
         if ((boolean) IIncompleteParen__BehaviorDescriptor.isSingleParen_idVufYxgmHsD.invoke(paren)) {
-          AttributeOperations.setAttribute(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_k0uxgd.Expression_4199e28d), new IAttributeDescriptor.NodeAttribute(AUX_k0uxgd.IncompleteLeftParen_1befc46d), null);
+          AttributeOperations.setAttribute(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.Expression$TP), new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteLeftParen$yl), null);
         } else {
           IIncompleteParen__BehaviorDescriptor.decreaseCount_idVufYxgmFtR.invoke(paren);
         }
@@ -70,8 +70,8 @@ public class DeleteIncompleteLeftParen {
     }
   }
 
-  private static final class AUX_k0uxgd {
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept IncompleteLeftParen_1befc46d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64a1ef64cd9b42ceL, "jetbrains.mps.baseLanguage.structure.IncompleteLeftParen");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept IncompleteLeftParen$yl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64a1ef64cd9b42ceL, "jetbrains.mps.baseLanguage.structure.IncompleteLeftParen");
   }
 }

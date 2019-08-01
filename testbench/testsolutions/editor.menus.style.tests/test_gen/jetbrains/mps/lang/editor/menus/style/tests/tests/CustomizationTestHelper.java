@@ -12,10 +12,10 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.constraints.ModelConstraints;
 import jetbrains.mps.smodel.action.NodeSubstituteActionWrapper;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -24,6 +24,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class CustomizationTestHelper {
   public static SubstituteInfo createTextPropertySubstituteInfo(final EditorComponent editorComponent, final String... matchingTexts) {
@@ -33,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
         for (String text : matchingTexts) {
           list.add(createAction(editorComponent, text, new _FunctionTypes._return_P4_E0<SNode, EditorContext, String, String, SNode>() {
             public SNode invoke(EditorContext context, String pattern, String text, SNode parent) {
-              SPropertyOperations.assign(parent, MetaAdapterFactory.getProperty(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x406156e80eef1d16L, "stringProperty"), text);
+              SPropertyOperations.assign(parent, PROPS.stringProperty$V_nS, text);
               return parent;
             }
           }));
@@ -51,7 +54,7 @@ import org.jetbrains.annotations.Nullable;
         for (final SEnumerationLiteral member : ListSequence.fromList(SEnumOperations.getMembers(MetaAdapterFactory.getEnumeration(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b71ff4L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_Enum")))) {
           list.add(createAction(editorComponent, member.getPresentation(), new _FunctionTypes._return_P4_E0<SNode, EditorContext, String, String, SNode>() {
             public SNode invoke(EditorContext context, String pattern, String text, SNode parent) {
-              SPropertyOperations.assignEnum(parent, MetaAdapterFactory.getProperty(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x34d3e9eb931270eaL, "customActionEnumProperty"), member);
+              SPropertyOperations.assignEnum(parent, PROPS.customActionEnumProperty$7pF, member);
               return parent;
             }
           }));
@@ -65,10 +68,10 @@ import org.jetbrains.annotations.Nullable;
     return new AbstractNodeSubstituteInfo(editorComponent.getEditorContext()) {
       protected List<SubstituteAction> createActions() {
         ArrayList<SubstituteAction> list = new ArrayList<SubstituteAction>();
-        for (final SNode child : (Iterable<SNode>) ModelConstraints.getReferenceDescriptor(currentNode, MetaAdapterFactory.getReferenceLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x34d3e9eb93127264L, "customActionReference")).getScope().getAvailableElements("")) {
-          list.add(new NodeSubstituteActionWrapper(createAction(editorComponent, SPropertyOperations.getString(child, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), new _FunctionTypes._return_P4_E0<SNode, EditorContext, String, String, SNode>() {
+        for (final SNode child : (Iterable<SNode>) ModelConstraints.getReferenceDescriptor(currentNode, LINKS.customActionReference$2WJM).getScope().getAvailableElements("")) {
+          list.add(new NodeSubstituteActionWrapper(createAction(editorComponent, SPropertyOperations.getString(child, PROPS.name$tAp1), new _FunctionTypes._return_P4_E0<SNode, EditorContext, String, String, SNode>() {
             public SNode invoke(EditorContext context, String pattern, String text, SNode parent) {
-              SLinkOperations.setTarget(parent, MetaAdapterFactory.getReferenceLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x34d3e9eb93127264L, "customActionReference"), child);
+              SLinkOperations.setTarget(parent, LINKS.customActionReference$2WJM, child);
               return parent;
             }
           })) {
@@ -88,12 +91,12 @@ import org.jetbrains.annotations.Nullable;
     return new AbstractNodeSubstituteInfo(editorComponent.getEditorContext()) {
       protected List<SubstituteAction> createActions() {
         ArrayList<SubstituteAction> list = new ArrayList<SubstituteAction>();
-        for (final SConcept concept : ListSequence.fromList(SConceptOperations.getAllSubConcepts2(AUX_afigzd.TestCompletionCustomization_ContextMatcherChildInMatchingLink_159d0e88, SNodeOperations.getModel(parentNode))).subtract(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SConcept>(), AUX_afigzd.TestCompletionCustomization_ContextMatcherChildInMatchingLink_159d0e88)))) {
+        for (final SConcept concept : ListSequence.fromList(SConceptOperations.getAllSubConcepts2(CONCEPTS.TestCompletionCustomization_ContextMatcherChildInMatchingLink$7q, SNodeOperations.getModel(parentNode))).subtract(ListSequence.fromList(ListSequence.fromListAndArray(new ArrayList<SConcept>(), CONCEPTS.TestCompletionCustomization_ContextMatcherChildInMatchingLink$7q)))) {
           SubstituteAction action = new NodeSubstituteActionWrapper(createAction(editorComponent, SConceptOperations.conceptAlias(concept), new _FunctionTypes._return_P4_E0<SNode, EditorContext, String, String, SNode>() {
             public SNode invoke(EditorContext context, String pattern, String text, SNode parent) {
               SNode newInstance = SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(concept));
               if (currentChild == null) {
-                ListSequence.fromList(SLinkOperations.getChildren(parent, MetaAdapterFactory.getContainmentLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x34d3e9eb931272b0L, "customActionChildInMatchingLink"))).addElement(newInstance);
+                ListSequence.fromList(SLinkOperations.getChildren(parent, LINKS.customActionChildInMatchingLink$33n8)).addElement(newInstance);
               } else {
                 SNodeOperations.replaceWithAnother(currentChild, newInstance);
               }
@@ -160,16 +163,27 @@ import org.jetbrains.annotations.Nullable;
       }
       public SNode substitute(@Nullable EditorContext editorContext, String pattern) {
         SNode parent = getSourceNode();
-        while (!(SNodeOperations.isInstanceOf(parent, AUX_afigzd.TestCompletionCustomization_ParentTestContextMatcher_5aa6e2a6))) {
+        while (!(SNodeOperations.isInstanceOf(parent, CONCEPTS.TestCompletionCustomization_ParentTestContextMatcher$5W))) {
           parent = SNodeOperations.getParent(parent);
         }
-        return substitute.invoke(editorContext, pattern, text, SNodeOperations.cast(parent, AUX_afigzd.TestCompletionCustomization_ParentTestContextMatcher_5aa6e2a6));
+        return substitute.invoke(editorContext, pattern, text, SNodeOperations.cast(parent, CONCEPTS.TestCompletionCustomization_ParentTestContextMatcher$5W));
       }
     };
   }
 
-  private static final class AUX_afigzd {
-    /*package*/ static final SConcept TestCompletionCustomization_ContextMatcherChildInMatchingLink_159d0e88 = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80eedf54eL, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ContextMatcherChildInMatchingLink");
-    /*package*/ static final SConcept TestCompletionCustomization_ParentTestContextMatcher_5aa6e2a6 = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ParentTestContextMatcher");
+  private static final class PROPS {
+    /*package*/ static final SProperty stringProperty$V_nS = MetaAdapterFactory.getProperty(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x406156e80eef1d16L, "stringProperty");
+    /*package*/ static final SProperty customActionEnumProperty$7pF = MetaAdapterFactory.getProperty(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x34d3e9eb931270eaL, "customActionEnumProperty");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink customActionReference$2WJM = MetaAdapterFactory.getReferenceLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x34d3e9eb93127264L, "customActionReference");
+    /*package*/ static final SContainmentLink customActionChildInMatchingLink$33n8 = MetaAdapterFactory.getContainmentLink(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, 0x34d3e9eb931272b0L, "customActionChildInMatchingLink");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestCompletionCustomization_ContextMatcherChildInMatchingLink$7q = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x406156e80eedf54eL, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ContextMatcherChildInMatchingLink");
+    /*package*/ static final SConcept TestCompletionCustomization_ParentTestContextMatcher$5W = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b11095109798c7L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ParentTestContextMatcher");
   }
 }

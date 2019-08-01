@@ -11,11 +11,12 @@ import jetbrains.mps.project.EditableFilteringScope;
 import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.lang.pattern.migration.PropertyPatternVariableMigration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class MigratePropertyPatternVariables extends MigrationScriptBase {
   public String getCaption() {
@@ -41,11 +42,11 @@ public class MigratePropertyPatternVariables extends MigrationScriptBase {
       new PropertyPatternVariableMigration<SNode>() {
         @Override
         protected Iterable<SNode> getUsagesToMigrate() {
-          return CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_mymgc3.PropertyPatternVariableReference_43346469, false);
+          return CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.PropertyPatternVariableReference$wp, false);
         }
         @Override
         protected SNode getDeclaration(SNode usage) {
-          return SLinkOperations.getTarget(usage, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, 0x2cb3222730cfe469L, "declaration"));
+          return SLinkOperations.getTarget(usage, LINKS.declaration$Swc3);
         }
         @Override
         protected void migrateRawValue(SNode usage, SNode datatype) {
@@ -65,7 +66,11 @@ public class MigratePropertyPatternVariables extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x9074634404fd4286L, 0x97d5b46ae6a81709L, "jetbrains.mps.lang.migration"), 1);
   }
 
-  private static final class AUX_mymgc3 {
-    /*package*/ static final SConcept PropertyPatternVariableReference_43346469 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, "jetbrains.mps.lang.migration.structure.PropertyPatternVariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyPatternVariableReference$wp = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, "jetbrains.mps.lang.migration.structure.PropertyPatternVariableReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$Swc3 = MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x2cb3222730cfcbccL, 0x2cb3222730cfe469L, "declaration");
   }
 }

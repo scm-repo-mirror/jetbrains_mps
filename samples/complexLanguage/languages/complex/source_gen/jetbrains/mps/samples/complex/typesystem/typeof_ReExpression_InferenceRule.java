@@ -25,7 +25,7 @@ public class typeof_ReExpression_InferenceRule extends AbstractInferenceRule_Run
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_oi02vb.ReExpression_f9560eac;
+    return CONCEPTS.ReExpression$oQ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_ReExpression_InferenceRule extends AbstractInferenceRule_Run
     return quotedNode_1;
   }
 
-  private static final class AUX_oi02vb {
-    /*package*/ static final SConcept ReExpression_f9560eac = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b25791L, "jetbrains.mps.samples.complex.structure.ReExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReExpression$oQ = MetaAdapterFactory.getConcept(0xff24ab03965e4d15L, 0x9aed52dc276658f4L, 0x11686b25791L, "jetbrains.mps.samples.complex.structure.ReExpression");
   }
 }

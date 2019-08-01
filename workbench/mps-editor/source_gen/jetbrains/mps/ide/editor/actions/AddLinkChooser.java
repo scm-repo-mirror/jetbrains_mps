@@ -11,7 +11,6 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import javax.swing.JLabel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
@@ -23,6 +22,8 @@ import java.awt.Point;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class AddLinkChooser {
 
@@ -51,7 +52,7 @@ import jetbrains.mps.editor.runtime.commands.EditorCommand;
     c.anchor = GridBagConstraints.LINE_END;
     myEditorComponent.getEditorContext().getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        myTextField = new JTextField(SPropertyOperations.getString(myWord, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value")), 20);
+        myTextField = new JTextField(SPropertyOperations.getString(myWord, PROPS.value$cK70), 20);
       }
     });
     mainPanel.add(myTextField, c);
@@ -101,11 +102,16 @@ import jetbrains.mps.editor.runtime.commands.EditorCommand;
     public void actionPerformed(ActionEvent event) {
       myEditorComponent.getEditorContext().getRepository().getModelAccess().executeCommand(new EditorCommand(myEditorComponent) {
         protected void doExecute() {
-          SPropertyOperations.assign(myWord, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value"), myTextField.getText());
-          SPropertyOperations.assign(myWord, MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d485L, "url"), myLinkField.getText());
+          SPropertyOperations.assign(myWord, PROPS.value$cK70, myTextField.getText());
+          SPropertyOperations.assign(myWord, PROPS.url$WUb8, myLinkField.getText());
           myPopup.closeOk(null);
         }
       });
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$cK70 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x229012ddae35f05L, "value");
+    /*package*/ static final SProperty url$WUb8 = MetaAdapterFactory.getProperty(0xc7fb639fbe784307L, 0x89b0b5959c3fa8c8L, 0x229012ddae35f04L, 0x57d1fa7f2af1d485L, "url");
   }
 }

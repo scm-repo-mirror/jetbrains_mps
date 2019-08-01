@@ -5,7 +5,6 @@ package jetbrains.mps.ide.httpsupport.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class Port_Constraints extends BaseConstraintsDescriptor {
   public Port_Constraints() {
-    super(AUX_yqpnzw.Port_c20f422d);
+    super(CONCEPTS.Port$bl);
   }
 
   public static class PortNumber_Property extends BasePropertyConstraintsDescriptor {
     public PortNumber_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x6f2759b7139c32c2L, 0x6f2759b7139c32c3L, "portNumber"), container);
+      super(PROPS.portNumber$TX5w, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class Port_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x6f2759b7139c32c2L, 0x6f2759b7139c32c3L, "portNumber"), new PortNumber_Property(this));
+    properties.put(PROPS.portNumber$TX5w, new PortNumber_Property(this));
     return properties;
   }
 
-  private static final class AUX_yqpnzw {
-    /*package*/ static final SConcept Port_c20f422d = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x6f2759b7139c32c2L, "jetbrains.mps.ide.httpsupport.structure.Port");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Port$bl = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x6f2759b7139c32c2L, "jetbrains.mps.ide.httpsupport.structure.Port");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty portNumber$TX5w = MetaAdapterFactory.getProperty(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x6f2759b7139c32c2L, 0x6f2759b7139c32c3L, "portNumber");
   }
 }

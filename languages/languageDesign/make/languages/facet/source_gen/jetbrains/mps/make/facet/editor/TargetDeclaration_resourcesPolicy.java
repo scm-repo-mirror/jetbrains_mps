@@ -18,6 +18,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.editor.menus.EditorMenuDescriptor;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TargetDeclaration_resourcesPolicy extends AbstractCellMenuComponent {
   public TargetDeclaration_resourcesPolicy() {
@@ -34,7 +35,7 @@ public class TargetDeclaration_resourcesPolicy extends AbstractCellMenuComponent
       this.handleAction_impl((SEnumerationLiteral) parameterObject, node, model, operationContext, editorContext);
     }
     public void handleAction_impl(SEnumerationLiteral parameterObject, SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assignEnum(node, MetaAdapterFactory.getProperty(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, 0x1740bd43b75c4b28L, "resourcesPolicy"), SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1740bd43b75c4b23L, "jetbrains.mps.make.facet.structure.ResourcesPolicy"), SEnumOperations.getMemberName0(parameterObject)));
+      SPropertyOperations.assignEnum(node, PROPS.resourcesPolicy$ZX9G, SEnumOperations.getMemberForName(MetaAdapterFactory.getEnumeration(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1740bd43b75c4b23L, "jetbrains.mps.make.facet.structure.ResourcesPolicy"), SEnumOperations.getMemberName0(parameterObject)));
     }
     public boolean isReferentPresentation() {
       return false;
@@ -44,5 +45,9 @@ public class TargetDeclaration_resourcesPolicy extends AbstractCellMenuComponent
     protected EditorMenuDescriptor getEditorMenuDescriptor(Object parameterObject) {
       return new EditorMenuDescriptorBase("generic group with parameter: " + ((parameterObject == null ? "null" : parameterObject.toString())), new SNodePointer("r:53dc5a43-c15e-4a00-8af6-c42420ba30d9(jetbrains.mps.make.facet.editor)", "1675547159918562575"));
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty resourcesPolicy$ZX9G = MetaAdapterFactory.getProperty(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, 0x1740bd43b75c4b28L, "resourcesPolicy");
   }
 }

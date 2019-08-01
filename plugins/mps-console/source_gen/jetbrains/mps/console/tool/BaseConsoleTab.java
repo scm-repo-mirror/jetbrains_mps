@@ -21,7 +21,6 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.ide.PasteProvider;
 import jetbrains.mps.nodeEditor.commands.CommandContextImpl;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
@@ -67,6 +66,7 @@ import jetbrains.mps.ide.datatransfer.SModelDataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.datatransfer.NodePaster;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -81,6 +81,8 @@ import jetbrains.mps.ide.findusages.model.scopes.ProjectScope;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import org.jetbrains.mps.openapi.model.SModelReference;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -155,7 +157,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
             if (getEditorComponent().getEditedNode() != myRoot) {
               throw new IllegalStateException("Console editor can be used only for ConsoleRoot nodes.");
             }
-            contextNode = SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"));
+            contextNode = SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX);
           }
           @Override
           public SNode getContextNode() {
@@ -365,7 +367,7 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
           SNode referenceTarget = check_6q36mf_a0e0a0a0a0a0f65(pastingNodeReference, myProject);
           if (referenceTarget != null && currentCell != null && !(check_6q36mf_a0a5a0a0a0a0a5ec(check_6q36mf_a0a0f0a0a0a0a0f65(pastingNodeReference), myModel))) {
             SNode refContainer = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference"));
-            SLinkOperations.setTarget(refContainer, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target"), referenceTarget);
+            SLinkOperations.setTarget(refContainer, LINKS.target$9y$J, referenceTarget);
             NodePaster paster = new NodePaster(ListSequence.fromListAndArray(new ArrayList<SNode>(), refContainer));
             if (paster.canPaste(currentCell)) {
               paster.paste(currentCell);
@@ -420,8 +422,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
         }
       }).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          if ((SNodeOperations.getNodeAncestor(it, AUX_6q36mf.HistoryItem_aebee308, false, false) != null)) {
-            SNodeOperations.deleteNode(SNodeOperations.getNodeAncestor(it, AUX_6q36mf.HistoryItem_aebee308, false, false));
+          if ((SNodeOperations.getNodeAncestor(it, CONCEPTS.HistoryItem$Pq, false, false) != null)) {
+            SNodeOperations.deleteNode(SNodeOperations.getNodeAncestor(it, CONCEPTS.HistoryItem$Pq, false, false));
             if (LOG.isEnabledFor(Level.ERROR)) {
               LOG.error("Unknown concept on loading console history: removing enclosing history item");
             }
@@ -462,11 +464,11 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
   }
 
   protected SNode getLastReponse() {
-    SNode last = SNodeOperations.as(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bafL, "history")), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa835f28c1aa02beL, 0x63da33792b5df49aL, "item"))).last(), AUX_6q36mf.Response_57781430);
+    SNode last = SNodeOperations.as(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myRoot, LINKS.history$4VRZ), LINKS.item$O9_l)).last(), CONCEPTS.Response$4M);
     if (last != null) {
       return last;
     }
-    return SLinkOperations.addNewChild(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bafL, "history")), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa835f28c1aa02beL, 0x63da33792b5df49aL, "item"), AUX_6q36mf.Response_57781430);
+    return SLinkOperations.addNewChild(SLinkOperations.getTarget(myRoot, LINKS.history$4VRZ), LINKS.item$O9_l, CONCEPTS.Response$4M);
   }
 
   public void execute(@Nullable final SNode command, @Nullable final Runnable executeBefore, @Nullable final Runnable executeAfter) {
@@ -477,8 +479,8 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
         typedCommand[0] = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, "jetbrains.mps.console.base.structure.CommandHolder"));
         if (command != null) {
           addNodeImports(command);
-          SLinkOperations.setTarget(typedCommand[0], MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command"), SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder")), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command"))));
-          SLinkOperations.setTarget(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder")), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command"), SNodeOperations.copyNode(command));
+          SLinkOperations.setTarget(typedCommand[0], LINKS.command$pL9$, SNodeOperations.copyNode(SLinkOperations.getTarget(SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX), LINKS.command$pL9$)));
+          SLinkOperations.setTarget(SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX), LINKS.command$pL9$, SNodeOperations.copyNode(command));
         }
       }
     });
@@ -491,9 +493,9 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
         }
         myProject.getModelAccess().executeCommand(new EditorCommand(myEditor) {
           public void doExecute() {
-            ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bafL, "history")), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa835f28c1aa02beL, 0x63da33792b5df49aL, "item"))).addElement(SNodeOperations.copyNode(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"))));
-            SLinkOperations.setNewChild(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"), AUX_6q36mf.CommandHolder_317b34b7);
-            SLinkOperations.setTarget(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x7d401fa40806ebe7L, "cursor")), MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4fe9275cea077231L, 0x4fe9275cea077232L, "target"), SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder")));
+            ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myRoot, LINKS.history$4VRZ), LINKS.item$O9_l)).addElement(SNodeOperations.copyNode(SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX)));
+            SLinkOperations.setNewChild(myRoot, LINKS.commandHolder$4VSX, CONCEPTS.CommandHolder$6b);
+            SLinkOperations.setTarget(SLinkOperations.getTarget(myRoot, LINKS.cursor$a68T), LINKS.target$63Aw, SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX));
             check_6q36mf_a3a0a0a0a1a0a4a86(executeBefore);
           }
         });
@@ -504,18 +506,18 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
         consoleStream.commitResult();
         myProject.getRepository().getModelAccess().executeCommand(new Runnable() {
           public void run() {
-            if (SLinkOperations.getTarget(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x7d401fa40806ebe7L, "cursor")), MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4fe9275cea077231L, 0x4fe9275cea077232L, "target")) == SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"))) {
-              SLinkOperations.setTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"), typedCommand[0]);
-              SLinkOperations.setTarget(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x7d401fa40806ebe7L, "cursor")), MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4fe9275cea077231L, 0x4fe9275cea077232L, "target"), SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder")));
+            if (SLinkOperations.getTarget(SLinkOperations.getTarget(myRoot, LINKS.cursor$a68T), LINKS.target$63Aw) == SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX)) {
+              SLinkOperations.setTarget(myRoot, LINKS.commandHolder$4VSX, typedCommand[0]);
+              SLinkOperations.setTarget(SLinkOperations.getTarget(myRoot, LINKS.cursor$a68T), LINKS.target$63Aw, SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX));
             } else {
-              SLinkOperations.setTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder"), typedCommand[0]);
+              SLinkOperations.setTarget(myRoot, LINKS.commandHolder$4VSX, typedCommand[0]);
             }
             check_6q36mf_a1a0b0a0f0qc(executeAfter);
           }
         });
       }
     };
-    BHReflection.invoke0(SLinkOperations.getTarget(SLinkOperations.getTarget(myRoot, MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder")), MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command")), AUX_6q36mf.Command_d03ba149, SMethodTrimmedId.create("execute", null, "5WvH$QO9bva"), getConsoleContext(), consoleStream, beforeCommandClosure, afterCommandClosure);
+    BHReflection.invoke0(SLinkOperations.getTarget(SLinkOperations.getTarget(myRoot, LINKS.commandHolder$4VSX), LINKS.command$pL9$), CONCEPTS.Command$sT, SMethodTrimmedId.create("execute", null, "5WvH$QO9bva"), getConsoleContext(), consoleStream, beforeCommandClosure, afterCommandClosure);
   }
 
   private static void check_6q36mf_a41a03(Highlighter checkedDotOperand, UIEditorComponent myEditor) {
@@ -564,10 +566,20 @@ public abstract class BaseConsoleTab extends SimpleToolWindowPanel implements Di
     return (type.isInstance(o) ? (T) o : null);
   }
 
-  private static final class AUX_6q36mf {
-    /*package*/ static final SInterfaceConcept HistoryItem_aebee308 = MetaAdapterFactory.getInterfaceConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f195a051bd47defL, "jetbrains.mps.console.base.structure.HistoryItem");
-    /*package*/ static final SConcept Response_57781430 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171a5ba02L, "jetbrains.mps.console.base.structure.Response");
-    /*package*/ static final SConcept CommandHolder_317b34b7 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, "jetbrains.mps.console.base.structure.CommandHolder");
-    /*package*/ static final SConcept Command_d03ba149 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f1fb64db424879fL, "jetbrains.mps.console.base.structure.Command");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink commandHolder$4VSX = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder");
+    /*package*/ static final SReferenceLink target$9y$J = MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target");
+    /*package*/ static final SContainmentLink history$4VRZ = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bafL, "history");
+    /*package*/ static final SContainmentLink item$O9_l = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa835f28c1aa02beL, 0x63da33792b5df49aL, "item");
+    /*package*/ static final SContainmentLink command$pL9$ = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command");
+    /*package*/ static final SContainmentLink cursor$a68T = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x7d401fa40806ebe7L, "cursor");
+    /*package*/ static final SReferenceLink target$63Aw = MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4fe9275cea077231L, 0x4fe9275cea077232L, "target");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept HistoryItem$Pq = MetaAdapterFactory.getInterfaceConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f195a051bd47defL, "jetbrains.mps.console.base.structure.HistoryItem");
+    /*package*/ static final SConcept Response$4M = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e3b035171a5ba02L, "jetbrains.mps.console.base.structure.Response");
+    /*package*/ static final SConcept CommandHolder$6b = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, "jetbrains.mps.console.base.structure.CommandHolder");
+    /*package*/ static final SConcept Command$sT = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f1fb64db424879fL, "jetbrains.mps.console.base.structure.Command");
   }
 }

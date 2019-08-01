@@ -7,10 +7,11 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class RemoveDefaultModifier_QuickFix extends QuickFix_Runtime {
@@ -21,9 +22,9 @@ public class RemoveDefaultModifier_QuickFix extends QuickFix_Runtime {
     return "Remove the 'default' modifier";
   }
   public void execute(SNode node) {
-    ListSequence.fromList(SLinkOperations.getChildren(((SNode) RemoveDefaultModifier_QuickFix.this.getField("member")[0]), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers"))).where(new IWhereFilter<SNode>() {
+    ListSequence.fromList(SLinkOperations.getChildren(((SNode) RemoveDefaultModifier_QuickFix.this.getField("member")[0]), LINKS.modifiers$akE0)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_hroa2h.DefaultModifier_996633a0);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.DefaultModifier$Z2);
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -32,7 +33,11 @@ public class RemoveDefaultModifier_QuickFix extends QuickFix_Runtime {
     });
   }
 
-  private static final class AUX_hroa2h {
-    /*package*/ static final SConcept DefaultModifier_996633a0 = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x40ed0df0ef40a332L, "jetbrains.mps.baseLanguage.jdk8.structure.DefaultModifier");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink modifiers$akE0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x203eeb62af522fa5L, 0x203eeb62af522fb1L, "modifiers");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DefaultModifier$Z2 = MetaAdapterFactory.getConcept(0xfdcdc48fbfd84831L, 0xaa765abac2ffa010L, 0x40ed0df0ef40a332L, "jetbrains.mps.baseLanguage.jdk8.structure.DefaultModifier");
   }
 }

@@ -6,22 +6,23 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class StatementListUtil {
   public static List<SNode> selectStatementsUntilControlStatement(SNode slist) {
-    if (ListSequence.fromList(SLinkOperations.getChildren(slist, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).isNotEmpty()) {
-      return selectStatementsUntilControlStatement(slist, ListSequence.fromList(((List<SNode>) SLinkOperations.getChildren(slist, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement")))).getElement(0));
+    if (ListSequence.fromList(SLinkOperations.getChildren(slist, LINKS.statement$WHn8)).isNotEmpty()) {
+      return selectStatementsUntilControlStatement(slist, ListSequence.fromList(((List<SNode>) SLinkOperations.getChildren(slist, LINKS.statement$WHn8))).getElement(0));
     }
     return ListSequence.fromList(new ArrayList<SNode>());
   }
   public static List<SNode> selectStatementsUntilControlStatement(SNode slist, SNode start) {
     List<SNode> res = ListSequence.fromList(new ArrayList<SNode>());
     boolean foundStart = false;
-    for (SNode stmt : ((List<SNode>) SLinkOperations.getChildren(slist, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement")))) {
+    for (SNode stmt : ((List<SNode>) SLinkOperations.getChildren(slist, LINKS.statement$WHn8))) {
       if (stmt == start) {
         foundStart = true;
       }
@@ -37,52 +38,56 @@ public class StatementListUtil {
     return res;
   }
   public static SNode nextSibling(SNode stmt) {
-    SNode nextSibling = SNodeOperations.cast(SNodeOperations.getNextSibling(stmt), AUX_cmghef.Statement_9dbf9b0e);
+    SNode nextSibling = SNodeOperations.cast(SNodeOperations.getNextSibling(stmt), CONCEPTS.Statement$ok);
     while ((nextSibling != null) && isIgnoredStatement(nextSibling)) {
-      nextSibling = SNodeOperations.cast(SNodeOperations.getNextSibling(nextSibling), AUX_cmghef.Statement_9dbf9b0e);
+      nextSibling = SNodeOperations.cast(SNodeOperations.getNextSibling(nextSibling), CONCEPTS.Statement$ok);
     }
     return nextSibling;
   }
   public static boolean isControlStatement(SNode stmt) {
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.WhileStatement_1f5f4332)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.WhileStatement$9K)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.DoWhileStatement_50b6f79b)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.DoWhileStatement$GB)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.ForStatement_1eab9ef9)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.ForStatement$Y9)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.ForeachStatement_bf20b0bc)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.ForeachStatement$oA)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.SwitchStatement_11e52181)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.SwitchStatement$S1)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.IfStatement_9dbf9b10)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.IfStatement$pi)) {
       return true;
     }
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.YieldStatement_4ed4f60b)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.YieldStatement$ER)) {
       return true;
     }
     return false;
   }
   public static boolean isIgnoredStatement(SNode stmt) {
-    if (SNodeOperations.isInstanceOf(stmt, AUX_cmghef.BlockStatement_8943d110)) {
+    if (SNodeOperations.isInstanceOf(stmt, CONCEPTS.BlockStatement$1i)) {
       return true;
     }
     return false;
   }
 
-  private static final class AUX_cmghef {
-    /*package*/ static final SConcept Statement_9dbf9b0e = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
-    /*package*/ static final SConcept WhileStatement_1f5f4332 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
-    /*package*/ static final SConcept DoWhileStatement_50b6f79b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, "jetbrains.mps.baseLanguage.structure.DoWhileStatement");
-    /*package*/ static final SConcept ForStatement_1eab9ef9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a698082feL, "jetbrains.mps.baseLanguage.structure.ForStatement");
-    /*package*/ static final SConcept ForeachStatement_bf20b0bc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a6933ce33L, "jetbrains.mps.baseLanguage.structure.ForeachStatement");
-    /*package*/ static final SConcept SwitchStatement_11e52181 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, "jetbrains.mps.baseLanguage.structure.SwitchStatement");
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept YieldStatement_4ed4f60b = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11797183e82L, "jetbrains.mps.baseLanguage.closures.structure.YieldStatement");
-    /*package*/ static final SConcept BlockStatement_8943d110 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, "jetbrains.mps.baseLanguage.structure.BlockStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Statement$ok = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b215L, "jetbrains.mps.baseLanguage.structure.Statement");
+    /*package*/ static final SConcept WhileStatement$9K = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfaa4bf0f2fL, "jetbrains.mps.baseLanguage.structure.WhileStatement");
+    /*package*/ static final SConcept DoWhileStatement$GB = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11232674988L, "jetbrains.mps.baseLanguage.structure.DoWhileStatement");
+    /*package*/ static final SConcept ForStatement$Y9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a698082feL, "jetbrains.mps.baseLanguage.structure.ForStatement");
+    /*package*/ static final SConcept ForeachStatement$oA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10a6933ce33L, "jetbrains.mps.baseLanguage.structure.ForeachStatement");
+    /*package*/ static final SConcept SwitchStatement$S1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef02a8c6aL, "jetbrains.mps.baseLanguage.structure.SwitchStatement");
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+    /*package*/ static final SConcept YieldStatement$ER = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x11797183e82L, "jetbrains.mps.baseLanguage.closures.structure.YieldStatement");
+    /*package*/ static final SConcept BlockStatement$1i = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, "jetbrains.mps.baseLanguage.structure.BlockStatement");
   }
 }

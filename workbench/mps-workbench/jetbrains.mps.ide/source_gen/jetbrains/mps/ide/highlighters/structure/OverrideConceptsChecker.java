@@ -30,11 +30,11 @@ public final class OverrideConceptsChecker extends BaseEventProcessingEditorChec
   @Override
   public UpdateResult update(EditorComponent component, boolean incremental, boolean applyQuickFixes, Cancellable cancellable) {
     SNode rootNode = component.getEditedNode();
-    if (!(SNodeOperations.isInstanceOf(rootNode, AUX_nxs4en.AbstractConceptDeclaration_ec74828f))) {
+    if (!(SNodeOperations.isInstanceOf(rootNode, CONCEPTS.AbstractConceptDeclaration$UN))) {
       return new UpdateResult.Completed(false, emptyListEditorMessage());
     }
 
-    List<EditorMessage> result = calculateEditorMessages(SNodeOperations.cast(rootNode, AUX_nxs4en.AbstractConceptDeclaration_ec74828f), cancellable);
+    List<EditorMessage> result = calculateEditorMessages(SNodeOperations.cast(rootNode, CONCEPTS.AbstractConceptDeclaration$UN), cancellable);
     if (cancellable.isCancelled()) {
       return new UpdateResult.Cancelled();
     }
@@ -51,7 +51,7 @@ public final class OverrideConceptsChecker extends BaseEventProcessingEditorChec
     return (msg == null ? Collections.<EditorMessage>emptyList() : Collections.singletonList(msg));
   }
 
-  private static final class AUX_nxs4en {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

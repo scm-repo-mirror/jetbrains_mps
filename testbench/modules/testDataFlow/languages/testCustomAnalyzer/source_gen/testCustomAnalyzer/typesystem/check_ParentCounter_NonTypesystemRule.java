@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.analyzers.runtime.framework.CustomAnalyzerRunner;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import testCustomAnalyzer.dataFlow.CustomAnalyzerWithModeAnalyzerRunner;
 import jetbrains.mps.lang.dataFlow.MPSProgramFactory;
 import java.util.Arrays;
@@ -23,6 +22,8 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ParentCounter_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -30,7 +31,7 @@ public class check_ParentCounter_NonTypesystemRule extends AbstractNonTypesystem
   }
   public void applyRule(final SNode root, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     CustomAnalyzerRunner<Integer> runner;
-    if (SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount")) < 10) {
+    if (SPropertyOperations.getInteger(root, PROPS.maxChildCount$V46W) < 10) {
       runner = new CustomAnalyzerWithModeAnalyzerRunner(root);
     } else {
       runner = new CustomAnalyzerWithModeAnalyzerRunner(root, new MPSProgramFactory(Arrays.<IDataFlowModeId>asList(new ConceptDataFlowModeId("jetbrains.mps.lang.dataFlow.structure.IntraProcedural_BuilderMode"))));
@@ -40,17 +41,17 @@ public class check_ParentCounter_NonTypesystemRule extends AbstractNonTypesystem
     for (Instruction instruction : ListSequence.fromList(instructions)) {
       Integer resultCounter = result.get(instruction);
       SNode source = ((SNode) instruction.getSource());
-      if (resultCounter > SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount")) && source != null) {
+      if (resultCounter > SPropertyOperations.getInteger(root, PROPS.maxChildCount$V46W) && source != null) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(root, "child counter > " + SPropertyOperations.getInteger(root, MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount")), "r:6ac8df16-203b-470e-8af3-57784a2fb1f4(testCustomAnalyzer.typesystem)", "2955426575106086783", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(root, "child counter > " + SPropertyOperations.getInteger(root, PROPS.maxChildCount$V46W), "r:6ac8df16-203b-470e-8af3-57784a2fb1f4(testCustomAnalyzer.typesystem)", "2955426575106086783", null, errorTarget);
         }
         break;
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4z1q8n.Root_b795c6fc;
+    return CONCEPTS.Root$vA;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -59,7 +60,11 @@ public class check_ParentCounter_NonTypesystemRule extends AbstractNonTypesystem
     return false;
   }
 
-  private static final class AUX_4z1q8n {
-    /*package*/ static final SConcept Root_b795c6fc = MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, "testCustomAnalyzer.structure.Root");
+  private static final class PROPS {
+    /*package*/ static final SProperty maxChildCount$V46W = MetaAdapterFactory.getProperty(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, 0x73a316f7f548c73dL, "maxChildCount");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Root$vA = MetaAdapterFactory.getConcept(0xb124c25e1e164432L, 0xad5e0ac0ecae98f5L, 0x73a316f7f5468ed4L, "testCustomAnalyzer.structure.Root");
   }
 }

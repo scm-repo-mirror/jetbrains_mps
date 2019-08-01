@@ -19,7 +19,7 @@ public class check_ReferenceMacro_NonTypesystemRule extends AbstractNonTypesyste
   public check_ReferenceMacro_NonTypesystemRule() {
   }
   public void applyRule(final SNode macro, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SNodeOperations.isAttribute(macro) && SNodeOperations.getNodeAncestor(macro, AUX_njb6px.TemplateDeclaration_6074fd22, false, false) != null) {
+    if (SNodeOperations.isAttribute(macro) && SNodeOperations.getNodeAncestor(macro, CONCEPTS.TemplateDeclaration$q0, false, false) != null) {
       if (QueriesUtil.getEnclosing_TemplateFragment(SNodeOperations.getParent(macro)) == null) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
@@ -29,7 +29,7 @@ public class check_ReferenceMacro_NonTypesystemRule extends AbstractNonTypesyste
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_njb6px.ReferenceMacro_62f8c34e;
+    return CONCEPTS.ReferenceMacro$nk;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -38,8 +38,8 @@ public class check_ReferenceMacro_NonTypesystemRule extends AbstractNonTypesyste
     return false;
   }
 
-  private static final class AUX_njb6px {
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
-    /*package*/ static final SConcept ReferenceMacro_62f8c34e = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+    /*package*/ static final SConcept ReferenceMacro$nk = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
   }
 }

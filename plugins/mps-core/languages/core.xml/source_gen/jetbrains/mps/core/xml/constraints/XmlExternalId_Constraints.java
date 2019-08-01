@@ -5,7 +5,6 @@ package jetbrains.mps.core.xml.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlExternalId_Constraints extends BaseConstraintsDescriptor {
   public XmlExternalId_Constraints() {
-    super(AUX_bewbp6.XmlExternalId_56e28865);
+    super(CONCEPTS.XmlExternalId$et);
   }
 
   public static class PublicId_Property extends BasePropertyConstraintsDescriptor {
     public PublicId_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, 0x1d9c27c394f60343L, "publicId"), container);
+      super(PROPS.publicId$k9H8, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -44,7 +44,7 @@ public class XmlExternalId_Constraints extends BaseConstraintsDescriptor {
   }
   public static class SystemId_Property extends BasePropertyConstraintsDescriptor {
     public SystemId_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, 0x1d9c27c394f60344L, "systemId"), container);
+      super(PROPS.systemId$k9HB, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -66,12 +66,17 @@ public class XmlExternalId_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, 0x1d9c27c394f60343L, "publicId"), new PublicId_Property(this));
-    properties.put(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, 0x1d9c27c394f60344L, "systemId"), new SystemId_Property(this));
+    properties.put(PROPS.publicId$k9H8, new PublicId_Property(this));
+    properties.put(PROPS.systemId$k9HB, new SystemId_Property(this));
     return properties;
   }
 
-  private static final class AUX_bewbp6 {
-    /*package*/ static final SConcept XmlExternalId_56e28865 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, "jetbrains.mps.core.xml.structure.XmlExternalId");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlExternalId$et = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, "jetbrains.mps.core.xml.structure.XmlExternalId");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty publicId$k9H8 = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, 0x1d9c27c394f60343L, "publicId");
+    /*package*/ static final SProperty systemId$k9HB = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x1d9c27c394f6033fL, 0x1d9c27c394f60344L, "systemId");
   }
 }

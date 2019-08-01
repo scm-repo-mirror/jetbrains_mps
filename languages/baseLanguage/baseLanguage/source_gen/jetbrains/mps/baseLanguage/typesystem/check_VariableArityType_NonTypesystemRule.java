@@ -26,7 +26,7 @@ public class check_VariableArityType_NonTypesystemRule extends AbstractNonTypesy
         {
           SNode matchingNode_x4f43m_a0a = SNodeOperations.getParent(variableArityType);
           if (matchingNode_x4f43m_a0a != null) {
-            matches_x4f43m_a0a = matchingNode_x4f43m_a0a.getConcept().isSubConceptOf(AUX_r7ke17.ParameterDeclaration_24d60da8);
+            matches_x4f43m_a0a = matchingNode_x4f43m_a0a.getConcept().isSubConceptOf(CONCEPTS.ParameterDeclaration$qU);
           }
         }
         if (matches_x4f43m_a0a) {
@@ -44,7 +44,7 @@ public class check_VariableArityType_NonTypesystemRule extends AbstractNonTypesy
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_r7ke17.VariableArityType_a873fb89;
+    return CONCEPTS.VariableArityType$jT;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -53,8 +53,8 @@ public class check_VariableArityType_NonTypesystemRule extends AbstractNonTypesy
     return false;
   }
 
-  private static final class AUX_r7ke17 {
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
-    /*package*/ static final SConcept VariableArityType_a873fb89 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c08f42e7bL, "jetbrains.mps.baseLanguage.structure.VariableArityType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+    /*package*/ static final SConcept VariableArityType$jT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11c08f42e7bL, "jetbrains.mps.baseLanguage.structure.VariableArityType");
   }
 }

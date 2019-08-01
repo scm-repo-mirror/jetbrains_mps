@@ -4,6 +4,7 @@ package jetbrains.mps.lang.migration.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,17 +15,17 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.Collections;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class PureMigrationScript__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_o1ern5.PureMigrationScript_45927c66;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, "jetbrains.mps.lang.migration.structure.PureMigrationScript");
 
   public static final SMethod<Integer> fromVersion_id4uVwhQyFcnl = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("fromVersion").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uVwhQyFcnl").build();
   public static final SMethod<Boolean> isVersionSet_id4uVwhQyFpOe = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isVersionSet").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4uVwhQyFpOe").build();
@@ -41,13 +42,13 @@ public final class PureMigrationScript__BehaviorDescriptor extends BaseBHDescrip
   }
 
   /*package*/ static int fromVersion_id4uVwhQyFcnl(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getInteger(__thisNode__, MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x67236d4a5836cabcL, "fromVersion"));
+    return SPropertyOperations.getInteger(__thisNode__, PROPS.fromVersion$jLy0);
   }
   /*package*/ static boolean isVersionSet_id4uVwhQyFpOe(@NotNull SNode __thisNode__) {
-    return __thisNode__.getProperty(MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x67236d4a5836cabcL, "fromVersion")) != null;
+    return __thisNode__.getProperty(PROPS.fromVersion$jLy0) != null;
   }
   /*package*/ static Iterable<SNode> getExecuteAfter_id2bWK$jI6RRp(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x47bb811da2d68dd0L, "executeAfter"));
+    return SLinkOperations.getChildren(__thisNode__, LINKS.executeAfter$w13r);
   }
   /*package*/ static Iterable<SNode> getRequiredData_id7s$_UJMVosT(@NotNull SNode __thisNode__) {
     return Sequence.fromIterable(Collections.<SNode>emptyList());
@@ -125,7 +126,11 @@ public final class PureMigrationScript__BehaviorDescriptor extends BaseBHDescrip
     return CONCEPT;
   }
 
-  private static final class AUX_o1ern5 {
-    /*package*/ static final SConcept PureMigrationScript_45927c66 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, "jetbrains.mps.lang.migration.structure.PureMigrationScript");
+  private static final class PROPS {
+    /*package*/ static final SProperty fromVersion$jLy0 = MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x67236d4a5836cabcL, "fromVersion");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink executeAfter$w13r = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x67236d4a5836cabbL, 0x47bb811da2d68dd0L, "executeAfter");
   }
 }

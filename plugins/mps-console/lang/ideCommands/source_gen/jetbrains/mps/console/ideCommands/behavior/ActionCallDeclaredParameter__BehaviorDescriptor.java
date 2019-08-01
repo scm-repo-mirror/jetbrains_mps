@@ -4,6 +4,7 @@ package jetbrains.mps.console.ideCommands.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,14 +16,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.plugin.behavior.ActionParameter__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ActionCallDeclaredParameter__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_zztry.ActionCallDeclaredParameter_48a6c9a4;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a7L, "jetbrains.mps.console.ideCommands.structure.ActionCallDeclaredParameter");
 
   public static final SMethod<SNode> getParameterDeclaration_id4PRmqZe_o$D = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getParameterDeclaration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4PRmqZe_o$D").build();
 
@@ -32,7 +32,7 @@ public final class ActionCallDeclaredParameter__BehaviorDescriptor extends BaseB
   }
 
   /*package*/ static SNode getParameterDeclaration_id4PRmqZe_o$D(@NotNull SNode __thisNode__) {
-    return ActionParameter__BehaviorDescriptor.getFieldDeclaration_id112RIkgil0h.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a7L, 0x4d7759afce9587a8L, "declaration")));
+    return ActionParameter__BehaviorDescriptor.getFieldDeclaration_id112RIkgil0h.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.declaration$Qc10));
   }
 
   /*package*/ ActionCallDeclaredParameter__BehaviorDescriptor() {
@@ -81,7 +81,7 @@ public final class ActionCallDeclaredParameter__BehaviorDescriptor extends BaseB
     return CONCEPT;
   }
 
-  private static final class AUX_zztry {
-    /*package*/ static final SConcept ActionCallDeclaredParameter_48a6c9a4 = MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a7L, "jetbrains.mps.console.ideCommands.structure.ActionCallDeclaredParameter");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$Qc10 = MetaAdapterFactory.getReferenceLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x4d7759afce9587a7L, 0x4d7759afce9587a8L, "declaration");
   }
 }

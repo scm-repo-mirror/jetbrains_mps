@@ -69,7 +69,11 @@ public class TestSubstituteParentPropertyAndReference_EnumMenuPart extends Trans
 
     @Override
     protected SProperty getProperty(TransformationMenuContext context) {
-      return MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x69b757bd7bd1801L, 0x69b757bd7f90802L, "enumPropertyWithPropertyMenuPart");
+      return PROPS.enumPropertyWithPropertyMenuPart$wyze;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty enumPropertyWithPropertyMenuPart$wyze = MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x69b757bd7bd1801L, 0x69b757bd7f90802L, "enumPropertyWithPropertyMenuPart");
   }
 }

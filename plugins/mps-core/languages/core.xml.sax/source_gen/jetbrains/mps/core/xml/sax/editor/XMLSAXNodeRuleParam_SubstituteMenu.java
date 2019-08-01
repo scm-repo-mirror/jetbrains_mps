@@ -40,15 +40,16 @@ import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class XMLSAXNodeRuleParam_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_b5jt4u_a(), AUX_b5jt4u.XMLSAXNodeRuleParam_a48cb082));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_b5jt4u_a(), CONCEPTS.XMLSAXNodeRuleParam$Ww));
     result.add(new SMP_Subconcepts_b5jt4u_b());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_b5jt4u.XMLSAXNodeRuleParam_a48cb082) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.XMLSAXNodeRuleParam$Ww) {
 
       @NotNull
       @Override
@@ -61,7 +62,7 @@ public class XMLSAXNodeRuleParam_SubstituteMenu extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_b5jt4u.XMLSAXNodeRuleParam_a48cb082));
+    }, CONCEPTS.XMLSAXNodeRuleParam$Ww));
     return result;
   }
 
@@ -101,14 +102,14 @@ public class XMLSAXNodeRuleParam_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_b5jt4u.XMLSAXNodeRuleParam_a48cb082;
+          return CONCEPTS.XMLSAXNodeRuleParam$Ww;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
           SNode res = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0xd9be961730be3edL, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRuleParam"));
-          SLinkOperations.setTarget(res, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), nodeToWrap);
+          SLinkOperations.setTarget(res, LINKS.type$pLrO, nodeToWrap);
           return res;
         }
 
@@ -135,12 +136,12 @@ public class XMLSAXNodeRuleParam_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_b5jt4u.Type_4199e276;
+      return CONCEPTS.Type$IG;
     }
   }
   public class SMP_Subconcepts_b5jt4u_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_b5jt4u.XMLSAXNodeRuleParam_a48cb082);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.XMLSAXNodeRuleParam$Ww);
     }
     @NotNull
     @Override
@@ -160,8 +161,12 @@ public class XMLSAXNodeRuleParam_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_b5jt4u {
-    /*package*/ static final SConcept XMLSAXNodeRuleParam_a48cb082 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0xd9be961730be3edL, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRuleParam");
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXNodeRuleParam$Ww = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0xd9be961730be3edL, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRuleParam");
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }

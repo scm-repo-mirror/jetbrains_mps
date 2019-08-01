@@ -7,13 +7,15 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.behavior.ClassifierMember__BehaviorDescriptor;
 import java.util.List;
 import java.util.ArrayList;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class DefaultConstructorUtils {
@@ -31,16 +33,16 @@ public final class DefaultConstructorUtils {
     if (Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(clazz)).isNotEmpty()) {
       return false;
     }
-    if ((SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(clazz), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == null)) {
+    if ((SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(clazz), LINKS.classifier$pQ_R) == null)) {
       return false;
     }
-    return containsVisibleNoArgumentsConstructor(SNodeOperations.cast(SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(clazz), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")), AUX_s9e9vw.ClassConcept_e2711824), clazz);
+    return containsVisibleNoArgumentsConstructor(SNodeOperations.cast(SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(clazz), LINKS.classifier$pQ_R), CONCEPTS.ClassConcept$IY), clazz);
   }
   private static boolean containsVisibleNoArgumentsConstructor(SNode currentClass, SNode startClass) {
     if (Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(currentClass)).isNotEmpty()) {
       SNode constructor = Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(currentClass)).findFirst(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return ListSequence.fromList(SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).isEmpty();
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.parameter$WIkZ)).isEmpty();
         }
       });
       if ((constructor == null)) {
@@ -48,15 +50,15 @@ public final class DefaultConstructorUtils {
       }
       return (boolean) ClassifierMember__BehaviorDescriptor.isVisible_id70J2WaK_oVl.invoke(constructor, currentClass, startClass);
     } else {
-      if ((SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(currentClass), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) == null)) {
+      if ((SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(currentClass), LINKS.classifier$pQ_R) == null)) {
         return false;
       }
-      return containsVisibleNoArgumentsConstructor(SNodeOperations.cast(SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(currentClass), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")), AUX_s9e9vw.ClassConcept_e2711824), startClass);
+      return containsVisibleNoArgumentsConstructor(SNodeOperations.cast(SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(currentClass), LINKS.classifier$pQ_R), CONCEPTS.ClassConcept$IY), startClass);
     }
   }
   public static List<SNode> retrieveSuperConstructors(final SNode currentClass) {
     List<SNode> constructors = new ArrayList<SNode>();
-    SNode superClass = SNodeOperations.as(SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(currentClass), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")), AUX_s9e9vw.ClassConcept_e2711824);
+    SNode superClass = SNodeOperations.as(SLinkOperations.getTarget(ClassConcept__BehaviorDescriptor.getSuperclass_idi3H_lLu.invoke(currentClass), LINKS.classifier$pQ_R), CONCEPTS.ClassConcept$IY);
     if ((superClass == null) || Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(superClass)).isEmpty()) {
       return constructors;
     }
@@ -69,7 +71,12 @@ public final class DefaultConstructorUtils {
     return constructors;
   }
 
-  private static final class AUX_s9e9vw {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

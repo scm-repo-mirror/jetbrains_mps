@@ -20,7 +20,7 @@
       <node id="4174052498196307125" at="24,0,25,0" concept="6" trace="CONCEPT" />
       <node id="4174052498196307125" at="26,0,27,0" concept="6" trace="getPresentation_idhEwIMiw" />
       <node id="4174052498196307125" at="28,0,29,0" concept="6" trace="BH_METHODS" />
-      <node id="4174052498196324831" at="33,84,34,542" concept="5" />
+      <node id="4174052498196324831" at="33,84,34,233" concept="5" />
       <node id="4174052498196307125" at="41,114,42,21" concept="1" />
       <node id="4174052498196307125" at="46,114,47,49" concept="4" />
       <node id="4174052498196307125" at="48,26,49,56" concept="9" />
@@ -32,7 +32,8 @@
       <node id="4174052498196307125" at="73,48,74,22" concept="5" />
       <node id="4174052498196307125" at="79,40,80,19" concept="5" />
       <node id="4174052498196338905" at="82,55,83,43" concept="5" />
-      <node id="4174052498196307125" at="87,0,88,0" concept="6" trace="Entry_bbfb6de3" />
+      <node id="4174052498196307125" at="87,0,88,0" concept="6" trace="name$tAp1" />
+      <node id="4174052498196307125" at="88,0,89,0" concept="6" trace="id$rkxX" />
       <node id="4174052498196307125" at="30,0,32,0" concept="7" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="4174052498196307125" at="37,0,39,0" concept="0" trace="Entry__BehaviorDescriptor#()V" />
       <node id="4174052498196307125" at="33,0,36,0" concept="7" trace="getPresentation_idhEwIMiw#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
@@ -48,7 +49,7 @@
       <node id="4174052498196307125" at="45,0,58,0" concept="3" trace="invokeSpecial0#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/core/aspects/behaviour/api/SMethod;[Ljava/lang/Object;)null" />
       <scope id="4174052498196307125" at="30,63,30,63" />
       <scope id="4174052498196307125" at="37,43,37,43" />
-      <scope id="4174052498196307171" at="33,84,34,542" />
+      <scope id="4174052498196307171" at="33,84,34,233" />
       <scope id="4174052498196307125" at="41,114,42,21" />
       <scope id="4174052498196307125" at="48,26,49,56" />
       <scope id="4174052498196307125" at="52,13,53,62" />
@@ -91,8 +92,8 @@
         <var name="node" id="4174052498196307125" />
         <var name="parameters" id="4174052498196307125" />
       </scope>
-      <unit id="4174052498196307125" at="86,0,89,0" name="jetbrains.mps.samples.requirementTracking.RequirementDefinition.behavior.Entry__BehaviorDescriptor$AUX_pptgt5" />
-      <unit id="4174052498196307125" at="23,0,90,0" name="jetbrains.mps.samples.requirementTracking.RequirementDefinition.behavior.Entry__BehaviorDescriptor" />
+      <unit id="4174052498196307125" at="86,0,90,0" name="jetbrains.mps.samples.requirementTracking.RequirementDefinition.behavior.Entry__BehaviorDescriptor$PROPS" />
+      <unit id="4174052498196307125" at="23,0,91,0" name="jetbrains.mps.samples.requirementTracking.RequirementDefinition.behavior.Entry__BehaviorDescriptor" />
     </file>
   </root>
 </debug-info>

@@ -69,12 +69,12 @@ public class GenerationContextOp_VarRef_SubstituteMenu extends SubstituteMenuBas
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.generator.generationContext.editor.GenerationContextOp_VarRef_SmartReference");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_2abar6.GenerationContextOp_VarRef_f921d43f;
+      return CONCEPTS.GenerationContextOp_VarRef$c3;
     }
   }
   public class SMP_Subconcepts_2abar6_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_2abar6.GenerationContextOp_VarRef_f921d43f);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.GenerationContextOp_VarRef$c3);
     }
     @NotNull
     @Override
@@ -94,7 +94,7 @@ public class GenerationContextOp_VarRef_SubstituteMenu extends SubstituteMenuBas
     }
   }
 
-  private static final class AUX_2abar6 {
-    /*package*/ static final SConcept GenerationContextOp_VarRef_f921d43f = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x25c655ce6e80fdd8L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_VarRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenerationContextOp_VarRef$c3 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x25c655ce6e80fdd8L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_VarRef");
   }
 }

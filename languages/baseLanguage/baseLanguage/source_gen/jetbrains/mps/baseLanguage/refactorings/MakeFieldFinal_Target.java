@@ -18,7 +18,7 @@ public class MakeFieldFinal_Target implements IRefactoringTarget {
     return false;
   }
   public boolean isApplicableToEntityType(final Object entity) {
-    return SNodeOperations.isInstanceOf(((SNode) entity), AUX_wb249v.FieldDeclaration_e2711ac6);
+    return SNodeOperations.isInstanceOf(((SNode) entity), CONCEPTS.FieldDeclaration$Ps);
   }
   public boolean isApplicable(final Object entity) {
     if (!(this.isApplicableToEntityType(entity))) {
@@ -27,7 +27,7 @@ public class MakeFieldFinal_Target implements IRefactoringTarget {
     return true;
   }
 
-  private static final class AUX_wb249v {
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
   }
 }

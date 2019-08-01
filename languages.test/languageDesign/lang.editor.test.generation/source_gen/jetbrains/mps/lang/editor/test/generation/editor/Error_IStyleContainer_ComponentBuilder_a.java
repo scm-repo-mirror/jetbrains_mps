@@ -23,12 +23,13 @@ import jetbrains.mps.editor.runtime.style.Padding;
 import jetbrains.mps.editor.runtime.style.Measure;
 import jetbrains.mps.nodeEditor.MPSFonts;
 import jetbrains.mps.editor.runtime.style.CellAlign;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.style.ShowBoundariesArea;
 import jetbrains.mps.editor.runtime.style.TableComponent;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Superscript;
 import jetbrains.mps.editor.runtime.style.ScriptKind;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class Error_IStyleContainer_ComponentBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -145,7 +146,7 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
     style.set(StyleAttributes.MAX_WIDTH, 10);
     style.set(StyleAttributes.MAX_WIDTH, _StyleParameter_QueryFunction_47wt8x_a97a0());
     style.set(StyleAttributes.NAVIGATABLE_NODE, _StyleParameter_QueryFunction_47wt8x_a08a0());
-    style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, MetaAdapterFactory.getReferenceLink(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531a681a1L, 0xbde895319b644cL, "navigable"));
+    style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, LINKS.navigable$buwj);
     style.set(StyleAttributes.PARAMETERS_INFORMATION, new TestTargetParametersInformation());
     style.set(StyleAttributes.POSITION_CHILDREN, "next-line");
     style.set(StyleAttributes.POSITION, "indented");
@@ -324,5 +325,9 @@ import jetbrains.mps.editor.runtime.style.ScriptKind;
     style.set(StyleAttributes.SCRIPT_KIND, ScriptKind.SUPERSCRIPT);
     editorCell.getStyle().putAll(style);
     return editorCell;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink navigable$buwj = MetaAdapterFactory.getReferenceLink(0xeaa98d49af584b80L, 0xb585c05e7b5fd335L, 0xbde89531a681a1L, 0xbde895319b644cL, "navigable");
   }
 }

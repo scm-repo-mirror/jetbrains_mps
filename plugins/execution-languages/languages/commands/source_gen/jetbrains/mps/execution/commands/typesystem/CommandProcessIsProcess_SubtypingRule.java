@@ -20,7 +20,7 @@ public class CommandProcessIsProcess_SubtypingRule extends SubtypingRule_Runtime
     return createProcessType_y17zi2_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_y17zi2.CommandProcessType_b1238c37;
+    return CONCEPTS.CommandProcessType$Cb;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -30,12 +30,12 @@ public class CommandProcessIsProcess_SubtypingRule extends SubtypingRule_Runtime
   }
   private static SNode createProcessType_y17zi2_a0a1() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_y17zi2.ProcessType_30caf35b, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ProcessType$tB, null, null, false);
     return n1;
   }
 
-  private static final class AUX_y17zi2 {
-    /*package*/ static final SConcept CommandProcessType_b1238c37 = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x87f99370d7e1ea3L, "jetbrains.mps.execution.commands.structure.CommandProcessType");
-    /*package*/ static final SConcept ProcessType_30caf35b = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c12L, "jetbrains.mps.execution.commands.structure.ProcessType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CommandProcessType$Cb = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x87f99370d7e1ea3L, "jetbrains.mps.execution.commands.structure.CommandProcessType");
+    /*package*/ static final SConcept ProcessType$tB = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c12L, "jetbrains.mps.execution.commands.structure.ProcessType");
   }
 }

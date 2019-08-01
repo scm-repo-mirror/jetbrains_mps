@@ -23,11 +23,12 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.script.plugin.RunMigrationScriptsDialog;
 import java.awt.Component;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class RunMigrationScripts_Action extends BaseAction {
@@ -91,11 +92,11 @@ public class RunMigrationScripts_Action extends BaseAction {
         ScriptsMenuBuilder menuBuilder = new ScriptsMenuBuilder(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), RunMigrationScripts_Action.this.global);
         allScripts.value = ListSequence.fromList(menuBuilder.getAllScripts()).sort(new ISelector<SNode, String>() {
           public String select(SNode it) {
-            return (SEnumOperations.getMemberName0(SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081153L, "type"))) == null ? "" : SEnumOperations.getMemberName0(SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081153L, "type"))));
+            return (SEnumOperations.getMemberName0(SPropertyOperations.getEnum(it, PROPS.type$wKbU)) == null ? "" : SEnumOperations.getMemberName0(SPropertyOperations.getEnum(it, PROPS.type$wKbU)));
           }
         }, true).alsoSort(new ISelector<SNode, String>() {
           public String select(SNode it) {
-            return (SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081155L, "toBuild")) == null ? "" : SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081155L, "toBuild")));
+            return (SPropertyOperations.getString(it, PROPS.toBuild$wKcS) == null ? "" : SPropertyOperations.getString(it, PROPS.toBuild$wKcS));
           }
         }, true).select(new ISelector<SNode, SNodeReference>() {
           public SNodeReference select(SNode it) {
@@ -117,7 +118,7 @@ public class RunMigrationScripts_Action extends BaseAction {
           List<SNodeReference> checked = dialog.getCheckedScripts();
           AbstractMigrationScriptHelper.doRunScripts(ListSequence.fromList(checked).select(new ISelector<SNodeReference, SNode>() {
             public SNode select(SNodeReference it) {
-              return SNodeOperations.cast(it.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()), AUX_9mkpo8.MigrationScript_eaf59bfd);
+              return SNodeOperations.cast(it.resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository()), CONCEPTS.MigrationScript$c5);
             }
           }).toListSequence(), scope.value, ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")));
         } else if (dialog.isOpenSelected()) {
@@ -137,7 +138,12 @@ public class RunMigrationScripts_Action extends BaseAction {
     return res.toString();
   }
 
-  private static final class AUX_9mkpo8 {
-    /*package*/ static final SConcept MigrationScript_eaf59bfd = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, "jetbrains.mps.lang.script.structure.MigrationScript");
+  private static final class PROPS {
+    /*package*/ static final SProperty type$wKbU = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081153L, "type");
+    /*package*/ static final SProperty toBuild$wKcS = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, 0x498b4f71ee081155L, "toBuild");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MigrationScript$c5 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x11225e9072dL, "jetbrains.mps.lang.script.structure.MigrationScript");
   }
 }

@@ -12,7 +12,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.Sequence;
@@ -22,19 +21,21 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ScriptNameUniqueness_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public ScriptNameUniqueness_NonTypesystemRule() {
   }
   public void applyRule(final SNode script, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    Iterable<String> scriptNames = ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(script), AUX_9oc3nc.Script_a5f03f85)).select(new ISelector<SNode, String>() {
+    Iterable<String> scriptNames = ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(script), CONCEPTS.Script$1X)).select(new ISelector<SNode, String>() {
       public String select(SNode it) {
-        return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return SPropertyOperations.getString(it, PROPS.name$tAp1);
       }
     });
-    Iterable<String> libraryNames = ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(script), AUX_9oc3nc.Library_9cea916e)).select(new ISelector<SNode, String>() {
+    Iterable<String> libraryNames = ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(script), CONCEPTS.Library$IO)).select(new ISelector<SNode, String>() {
       public String select(SNode it) {
-        return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return SPropertyOperations.getString(it, PROPS.name$tAp1);
       }
     });
     List<String> allNames = ListSequence.fromListWithValues(new ArrayList<String>(), scriptNames);
@@ -42,7 +43,7 @@ public class ScriptNameUniqueness_NonTypesystemRule extends AbstractNonTypesyste
 
     if (ListSequence.fromList(allNames).where(new IWhereFilter<String>() {
       public boolean accept(String it) {
-        return it != null && it.equals(SPropertyOperations.getString(script, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+        return it != null && it.equals(SPropertyOperations.getString(script, PROPS.name$tAp1));
       }
     }).count() > 1) {
       {
@@ -52,7 +53,7 @@ public class ScriptNameUniqueness_NonTypesystemRule extends AbstractNonTypesyste
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_9oc3nc.Script_a5f03f85;
+    return CONCEPTS.Script$1X;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -61,8 +62,12 @@ public class ScriptNameUniqueness_NonTypesystemRule extends AbstractNonTypesyste
     return false;
   }
 
-  private static final class AUX_9oc3nc {
-    /*package*/ static final SConcept Script_a5f03f85 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45746L, "jetbrains.mps.samples.Kaja.structure.Script");
-    /*package*/ static final SConcept Library_9cea916e = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, "jetbrains.mps.samples.Kaja.structure.Library");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Script$1X = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2d523c5e4cc45746L, "jetbrains.mps.samples.Kaja.structure.Script");
+    /*package*/ static final SConcept Library$IO = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x3cfcda239f19d316L, "jetbrains.mps.samples.Kaja.structure.Library");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,17 @@ import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class OrPatternVariableReference_Constraints extends BaseConstraintsDescriptor {
   public OrPatternVariableReference_Constraints() {
-    super(AUX_8aolto.OrPatternVariableReference_2f936265);
+    super(CONCEPTS.OrPatternVariableReference$At);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3b2f5e7b070d317cL, 0x3b2f5e7b070d317dL, "declaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.declaration$qXxw, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -46,7 +47,7 @@ public class OrPatternVariableReference_Constraints extends BaseConstraintsDescr
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode orPattern = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_8aolto.OrPattern_60bda891, false, false);
+            SNode orPattern = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.OrPattern$zL, false, false);
             return ListScope.forResolvableElements(check_8aolto_a0b0b0a0a0b0a0a0a2(orPattern));
           }
         };
@@ -58,14 +59,19 @@ public class OrPatternVariableReference_Constraints extends BaseConstraintsDescr
   }
   private static List<SNode> check_8aolto_a0b0b0a0a0b0a0a0a2(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return SLinkOperations.getChildren(checkedDotOperand, MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, 0x3b2f5e7b070d317eL, "variable"));
+      return SLinkOperations.getChildren(checkedDotOperand, LINKS.variable$_xUF);
     }
     return null;
   }
   private static final SNodePointer breakingNode_8aolto_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590340(jetbrains.mps.lang.pattern.constraints)", "6836281137582794838");
 
-  private static final class AUX_8aolto {
-    /*package*/ static final SConcept OrPatternVariableReference_2f936265 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3b2f5e7b070d317cL, "jetbrains.mps.lang.pattern.structure.OrPatternVariableReference");
-    /*package*/ static final SConcept OrPattern_60bda891 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, "jetbrains.mps.lang.pattern.structure.OrPattern");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OrPatternVariableReference$At = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3b2f5e7b070d317cL, "jetbrains.mps.lang.pattern.structure.OrPatternVariableReference");
+    /*package*/ static final SConcept OrPattern$zL = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, "jetbrains.mps.lang.pattern.structure.OrPattern");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$qXxw = MetaAdapterFactory.getReferenceLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3b2f5e7b070d317cL, 0x3b2f5e7b070d317dL, "declaration");
+    /*package*/ static final SContainmentLink variable$_xUF = MetaAdapterFactory.getContainmentLink(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x27f758f8bc6aaa84L, 0x3b2f5e7b070d317eL, "variable");
   }
 }

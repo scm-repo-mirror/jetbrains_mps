@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -27,15 +26,17 @@ import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DirectMethodSpecification_Constraints extends BaseConstraintsDescriptor {
   public DirectMethodSpecification_Constraints() {
-    super(AUX_xwijc.DirectMethodSpecification_a6500f7a);
+    super(CONCEPTS.DirectMethodSpecification$WC);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, 0x1fcdfeb518c43c59L, "methodDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.methodDeclaration$4Hf0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,12 +51,12 @@ public class DirectMethodSpecification_Constraints extends BaseConstraintsDescri
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode ancestor = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_xwijc.ExtractInterfaceMigration_4551b965, true, false);
-            SNode classifierSpecification = SNodeOperations.as(SLinkOperations.getTarget(ancestor, MetaAdapterFactory.getContainmentLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, 0x4b6b6d7b2a62097fL, "oldClassifier")), AUX_xwijc.DirectClassifierSpecification_2dabbf70);
+            SNode ancestor = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.ExtractInterfaceMigration$at, true, false);
+            SNode classifierSpecification = SNodeOperations.as(SLinkOperations.getTarget(ancestor, LINKS.oldClassifier$h5yg), CONCEPTS.DirectClassifierSpecification$RM);
             if (classifierSpecification != null) {
-              return new SimpleScope(ListSequence.fromList(IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invoke(SLinkOperations.getTarget(classifierSpecification, MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier")))).where(new IWhereFilter<SNode>() {
+              return new SimpleScope(ListSequence.fromList(IMemberContainer__BehaviorDescriptor.getMembers_idhEwJjl2.invoke(SLinkOperations.getTarget(classifierSpecification, LINKS.classifier$udFV))).where(new IWhereFilter<SNode>() {
                 public boolean accept(SNode it) {
-                  return SNodeOperations.isInstanceOf(it, AUX_xwijc.InstanceMethodDeclaration_9dbf9b2b);
+                  return SNodeOperations.isInstanceOf(it, CONCEPTS.InstanceMethodDeclaration$An);
                 }
               })) {
                 @Nullable
@@ -76,10 +77,16 @@ public class DirectMethodSpecification_Constraints extends BaseConstraintsDescri
   }
   private static final SNodePointer breakingNode_xwijc_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c8959031e(jetbrains.mps.lang.script.constraints)", "6836281137582797330");
 
-  private static final class AUX_xwijc {
-    /*package*/ static final SConcept DirectMethodSpecification_a6500f7a = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, "jetbrains.mps.lang.script.structure.DirectMethodSpecification");
-    /*package*/ static final SConcept ExtractInterfaceMigration_4551b965 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, "jetbrains.mps.lang.script.structure.ExtractInterfaceMigration");
-    /*package*/ static final SConcept DirectClassifierSpecification_2dabbf70 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, "jetbrains.mps.lang.script.structure.DirectClassifierSpecification");
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DirectMethodSpecification$WC = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, "jetbrains.mps.lang.script.structure.DirectMethodSpecification");
+    /*package*/ static final SConcept ExtractInterfaceMigration$at = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, "jetbrains.mps.lang.script.structure.ExtractInterfaceMigration");
+    /*package*/ static final SConcept DirectClassifierSpecification$RM = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, "jetbrains.mps.lang.script.structure.DirectClassifierSpecification");
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink methodDeclaration$4Hf0 = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, 0x1fcdfeb518c43c59L, "methodDeclaration");
+    /*package*/ static final SContainmentLink oldClassifier$h5yg = MetaAdapterFactory.getContainmentLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x5c5c941438573499L, 0x4b6b6d7b2a62097fL, "oldClassifier");
+    /*package*/ static final SReferenceLink classifier$udFV = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier");
   }
 }

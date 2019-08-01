@@ -14,7 +14,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
@@ -24,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import org.apache.log4j.Logger;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class TestSubstituteExceptionReferenceMatchingTextChild_SubstituteMenu extends SubstituteMenuBase {
@@ -31,8 +31,8 @@ public class TestSubstituteExceptionReferenceMatchingTextChild_SubstituteMenu ex
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_tafz9j_a(), AUX_tafz9j.TestSubstituteExceptionReferenceMatchingTextChild_542a5eb2));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_tafz9j_b(), AUX_tafz9j.TestSubstituteExceptionReferenceMatchingTextChild_542a5eb2));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_tafz9j_a(), CONCEPTS.TestSubstituteExceptionReferenceMatchingTextChild$rK));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_tafz9j_b(), CONCEPTS.TestSubstituteExceptionReferenceMatchingTextChild$rK));
     return result;
   }
 
@@ -53,7 +53,7 @@ public class TestSubstituteExceptionReferenceMatchingTextChild_SubstituteMenu ex
 
     public SMP_ReferenceScope_tafz9j_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_tafz9j.TestSubstituteExceptionReferenceMatchingTextChild_542a5eb2, MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582978bL, 0x63457d5cb582a92aL, "reference"));
+      super((SAbstractConcept) CONCEPTS.TestSubstituteExceptionReferenceMatchingTextChild$rK, LINKS.reference$zkwb);
     }
     @NotNull
     @Override
@@ -126,7 +126,7 @@ public class TestSubstituteExceptionReferenceMatchingTextChild_SubstituteMenu ex
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_tafz9j.TestSubstituteExceptionReferenceMatchingTextChild_542a5eb2, context);
+        super(CONCEPTS.TestSubstituteExceptionReferenceMatchingTextChild$rK, context);
         _context = context;
       }
 
@@ -152,7 +152,11 @@ public class TestSubstituteExceptionReferenceMatchingTextChild_SubstituteMenu ex
     }
   }
 
-  private static final class AUX_tafz9j {
-    /*package*/ static final SConcept TestSubstituteExceptionReferenceMatchingTextChild_542a5eb2 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582978bL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionReferenceMatchingTextChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteExceptionReferenceMatchingTextChild$rK = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582978bL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionReferenceMatchingTextChild");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink reference$zkwb = MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582978bL, 0x63457d5cb582a92aL, "reference");
   }
 }

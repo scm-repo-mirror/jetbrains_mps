@@ -8,7 +8,6 @@ import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicable2Status;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
@@ -17,6 +16,9 @@ import jetbrains.mps.lang.typesystem.runtime.HUtil;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class matrix_vector_replacement_rule_InequationReplacementRule extends AbstractInequationReplacementRule_Runtime {
@@ -27,10 +29,10 @@ public class matrix_vector_replacement_rule_InequationReplacementRule extends Ab
       SNode _nodeToCheck_1029348928467 = equationInfo.getNodeWithError();
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "6389121991275039360", 0, null);
       _info_12389875345.getOuterRulesIdFromInfo(equationInfo);
-      typeCheckingContext.createLessThanInequality((SNode) SLinkOperations.getTarget(subtype, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType")), (SNode) SLinkOperations.getTarget(supertype, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType")), false, true, _info_12389875345);
+      typeCheckingContext.createLessThanInequality((SNode) SLinkOperations.getTarget(subtype, LINKS.elementType$Gzh1), (SNode) SLinkOperations.getTarget(supertype, LINKS.elementType$Gy$X), false, true, _info_12389875345);
     }
-    if (SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns")) != 0) {
-      if (!((1 == SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"))))) {
+    if (SPropertyOperations.getInteger(supertype, PROPS.columns$rd3m) != 0) {
+      if (!((1 == SPropertyOperations.getInteger(supertype, PROPS.columns$rd3m)))) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(equationInfo.getNodeWithError(), " invalid matrix dimensions", "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "6389121991275039373", null, errorTarget);
@@ -38,8 +40,8 @@ public class matrix_vector_replacement_rule_InequationReplacementRule extends Ab
         }
       }
     }
-    if (SPropertyOperations.getInteger(subtype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height")) != 0 && SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows")) != 0) {
-      if (!((SPropertyOperations.getInteger(subtype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height")) == SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"))))) {
+    if (SPropertyOperations.getInteger(subtype, PROPS.height$Gzgy) != 0 && SPropertyOperations.getInteger(supertype, PROPS.rows$rd2R) != 0) {
+      if (!((SPropertyOperations.getInteger(subtype, PROPS.height$Gzgy) == SPropertyOperations.getInteger(supertype, PROPS.rows$rd2R)))) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(equationInfo.getNodeWithError(), " invalid matrix dimensions", "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "6389121991275039401", null, errorTarget);
@@ -50,14 +52,14 @@ public class matrix_vector_replacement_rule_InequationReplacementRule extends Ab
   }
   public boolean checkInequation(final SNode subtype, final SNode supertype, final EquationInfo equationInfo, IsApplicable2Status status, final boolean inequalityIsWeak, final boolean inequalityIsLessThan) {
     boolean result_14532009 = true;
-    result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) SLinkOperations.getTarget(subtype, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType")), (SNode) SLinkOperations.getTarget(supertype, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType")));
-    if (SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns")) != 0) {
-      if (!((1 == SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"))))) {
+    result_14532009 = result_14532009 && TypecheckingFacade.getFromContext().isSubtype((SNode) SLinkOperations.getTarget(subtype, LINKS.elementType$Gzh1), (SNode) SLinkOperations.getTarget(supertype, LINKS.elementType$Gy$X));
+    if (SPropertyOperations.getInteger(supertype, PROPS.columns$rd3m) != 0) {
+      if (!((1 == SPropertyOperations.getInteger(supertype, PROPS.columns$rd3m)))) {
         result_14532009 = false;
       }
     }
-    if (SPropertyOperations.getInteger(subtype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height")) != 0 && SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows")) != 0) {
-      if (!((SPropertyOperations.getInteger(subtype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height")) == SPropertyOperations.getInteger(supertype, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"))))) {
+    if (SPropertyOperations.getInteger(subtype, PROPS.height$Gzgy) != 0 && SPropertyOperations.getInteger(supertype, PROPS.rows$rd2R) != 0) {
+      if (!((SPropertyOperations.getInteger(subtype, PROPS.height$Gzgy) == SPropertyOperations.getInteger(supertype, PROPS.rows$rd2R)))) {
         result_14532009 = false;
       }
     }
@@ -74,14 +76,25 @@ public class matrix_vector_replacement_rule_InequationReplacementRule extends Ab
   }
 
   public SAbstractConcept getApplicableSubtypeConcept() {
-    return AUX_65e87m.VectorType_c2d2403b;
+    return CONCEPTS.VectorType$q7;
   }
   public SAbstractConcept getApplicableSupertypeConcept() {
-    return AUX_65e87m.MatrixType_c2d2403c;
+    return CONCEPTS.MatrixType$qA;
   }
 
-  private static final class AUX_65e87m {
-    /*package*/ static final SConcept VectorType_c2d2403b = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
-    /*package*/ static final SConcept MatrixType_c2d2403c = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$Gzh1 = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType");
+    /*package*/ static final SContainmentLink elementType$Gy$X = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty columns$rd3m = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns");
+    /*package*/ static final SProperty rows$rd2R = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows");
+    /*package*/ static final SProperty height$Gzgy = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VectorType$q7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
+    /*package*/ static final SConcept MatrixType$qA = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
   }
 }

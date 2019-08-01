@@ -60,7 +60,7 @@ public class Node_InferTypeOperation_SubstituteMenu extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_no6eem.Node_InferTypeOperation_ade35697) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.Node_InferTypeOperation$IF) {
 
         @NotNull
         @Override
@@ -73,11 +73,11 @@ public class Node_InferTypeOperation_SubstituteMenu extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_no6eem.Node_InferTypeOperation_ade35697));
+      }, CONCEPTS.Node_InferTypeOperation$IF));
     }
   }
 
-  private static final class AUX_no6eem {
-    /*package*/ static final SConcept Node_InferTypeOperation_ade35697 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x584039bf75272c67L, "jetbrains.mps.lang.typesystem.structure.Node_InferTypeOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_InferTypeOperation$IF = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x584039bf75272c67L, "jetbrains.mps.lang.typesystem.structure.Node_InferTypeOperation");
   }
 }

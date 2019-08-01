@@ -8,8 +8,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ChangeMethodSignatureParameters {
@@ -19,7 +20,7 @@ public class ChangeMethodSignatureParameters {
   public ChangeMethodSignatureParameters(SNode declaration) {
     this.myMethod = SNodeOperations.copyNode(declaration);
     this.myOldMethod = SNodeOperations.copyNode(declaration);
-    for (SNode param : ListSequence.fromList(SLinkOperations.getChildren(this.myMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter")))) {
+    for (SNode param : ListSequence.fromList(SLinkOperations.getChildren(this.myMethod, LINKS.parameter$WIkZ))) {
       ListSequence.fromList(this.myParametersIds).addElement(param.getNodeId().toString());
     }
   }
@@ -30,13 +31,19 @@ public class ChangeMethodSignatureParameters {
     return this.myParametersIds;
   }
   public boolean isVisibilityChanged() {
-    return SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myMethod, AUX_viavx4.IVisible_84badc76), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"))) != SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myOldMethod, AUX_viavx4.IVisible_84badc76), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility")));
+    return SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myMethod, CONCEPTS.IVisible$6G), LINKS.visibility$2GiC)) != SNodeOperations.getConcept(SLinkOperations.getTarget(SNodeOperations.cast(this.myOldMethod, CONCEPTS.IVisible$6G), LINKS.visibility$2GiC));
   }
   public boolean isReturnValueChanged() {
-    return !((MatchingUtil.matchNodes(SLinkOperations.getTarget(this.myMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType")), SLinkOperations.getTarget(this.myOldMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType")))));
+    return !((MatchingUtil.matchNodes(SLinkOperations.getTarget(this.myMethod, LINKS.returnType$WIkw), SLinkOperations.getTarget(this.myOldMethod, LINKS.returnType$WIkw))));
   }
 
-  private static final class AUX_viavx4 {
-    /*package*/ static final SInterfaceConcept IVisible_84badc76 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink returnType$WIkw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IVisible$6G = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
   }
 }

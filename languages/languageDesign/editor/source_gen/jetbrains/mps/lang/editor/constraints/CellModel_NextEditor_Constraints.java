@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CellModel_NextEditor_Constraints extends BaseConstraintsDescriptor {
   public CellModel_NextEditor_Constraints() {
-    super(AUX_2xykyf.CellModel_NextEditor_da4b18c);
+    super(CONCEPTS.CellModel_NextEditor$Xm);
   }
 
   @Override
@@ -37,13 +37,13 @@ public class CellModel_NextEditor_Constraints extends BaseConstraintsDescriptor 
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{AUX_2xykyf.InlineEditorComponent_8b148b30, AUX_2xykyf.EditorComponentDeclaration_2ddc41f7}, false, false) == null;
+    return SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{CONCEPTS.InlineEditorComponent$CM, CONCEPTS.EditorComponentDeclaration$Lb}, false, false) == null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "1227128029536561243");
 
-  private static final class AUX_2xykyf {
-    /*package*/ static final SConcept CellModel_NextEditor_da4b18c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7456aec153c7f5a2L, "jetbrains.mps.lang.editor.structure.CellModel_NextEditor");
-    /*package*/ static final SConcept InlineEditorComponent_8b148b30 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfd5cee772bL, "jetbrains.mps.lang.editor.structure.InlineEditorComponent");
-    /*package*/ static final SConcept EditorComponentDeclaration_2ddc41f7 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_NextEditor$Xm = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7456aec153c7f5a2L, "jetbrains.mps.lang.editor.structure.CellModel_NextEditor");
+    /*package*/ static final SConcept InlineEditorComponent$CM = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfd5cee772bL, "jetbrains.mps.lang.editor.structure.InlineEditorComponent");
+    /*package*/ static final SConcept EditorComponentDeclaration$Lb = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c2bb47L, "jetbrains.mps.lang.editor.structure.EditorComponentDeclaration");
   }
 }

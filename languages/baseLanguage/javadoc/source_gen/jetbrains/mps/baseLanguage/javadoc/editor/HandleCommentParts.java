@@ -7,7 +7,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.baseLanguage.javadoc.behavior.CommentLinePart__BehaviorDescriptor;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
@@ -18,6 +17,8 @@ import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class HandleCommentParts {
 
@@ -27,8 +28,8 @@ public class HandleCommentParts {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(node, AUX_h4al1w.TextCommentLinePart_b468bde4) && SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(node), AUX_h4al1w.TextCommentLinePart_b468bde4)) {
-          SPropertyOperations.assign(SNodeOperations.cast(SNodeOperations.getPrevSibling(node), AUX_h4al1w.TextCommentLinePart_b468bde4), MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text"), SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getPrevSibling(node), AUX_h4al1w.TextCommentLinePart_b468bde4), MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text")) + SPropertyOperations.getString(SNodeOperations.cast(node, AUX_h4al1w.TextCommentLinePart_b468bde4), MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text")));
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.TextCommentLinePart$RY) && SNodeOperations.isInstanceOf(SNodeOperations.getPrevSibling(node), CONCEPTS.TextCommentLinePart$RY)) {
+          SPropertyOperations.assign(SNodeOperations.cast(SNodeOperations.getPrevSibling(node), CONCEPTS.TextCommentLinePart$RY), PROPS.text$5Ox0, SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getPrevSibling(node), CONCEPTS.TextCommentLinePart$RY), PROPS.text$5Ox0) + SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.TextCommentLinePart$RY), PROPS.text$5Ox0));
           SNodeOperations.deleteNode(node);
         } else {
           if (DeletionApproverUtil.approve(editorContext, node)) {
@@ -49,9 +50,9 @@ public class HandleCommentParts {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(node, AUX_h4al1w.TextCommentLinePart_b468bde4) && SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(node), AUX_h4al1w.TextCommentLinePart_b468bde4)) {
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.TextCommentLinePart$RY) && SNodeOperations.isInstanceOf(SNodeOperations.getNextSibling(node), CONCEPTS.TextCommentLinePart$RY)) {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, SelectionManager.LAST_CELL, -1);
-          SPropertyOperations.assign(SNodeOperations.cast(node, AUX_h4al1w.TextCommentLinePart_b468bde4), MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text"), SPropertyOperations.getString(SNodeOperations.cast(node, AUX_h4al1w.TextCommentLinePart_b468bde4), MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text")) + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getNextSibling(node), AUX_h4al1w.TextCommentLinePart_b468bde4), MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text")));
+          SPropertyOperations.assign(SNodeOperations.cast(node, CONCEPTS.TextCommentLinePart$RY), PROPS.text$5Ox0, SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.TextCommentLinePart$RY), PROPS.text$5Ox0) + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getNextSibling(node), CONCEPTS.TextCommentLinePart$RY), PROPS.text$5Ox0));
           SNodeOperations.deleteNode(SNodeOperations.getNextSibling(node));
         } else {
           if (DeletionApproverUtil.approve(editorContext, node)) {
@@ -105,7 +106,11 @@ public class HandleCommentParts {
     }
   }
 
-  private static final class AUX_h4al1w {
-    /*package*/ static final SConcept TextCommentLinePart_b468bde4 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, "jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextCommentLinePart$RY = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, "jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$5Ox0 = MetaAdapterFactory.getProperty(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x7c7f5b2f31990287L, 0x7c7f5b2f31990288L, "text");
   }
 }

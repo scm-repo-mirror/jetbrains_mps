@@ -4,6 +4,7 @@ package multiAspectLang.constraints;
 
 import jetbrains.mps.core.aspects.constraints.rules.BaseRulesConstraintsDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.constraints.rules.Rule;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.CanBeRootContext;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext;
@@ -22,10 +23,10 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.core.aspects.constraints.rules.RuleId;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.PredefinedRuleKinds;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_6y4avc.TestConcept_e187f53f;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
 
   public static final Rule<CanBeRootContext> check_id7932913038699129641 = new Rule_unnamed_6y4avc_e0();
   public static final Rule<ContainmentContext> check_id2716118816015675669 = new Rule_unnamed_6y4avc_a1();
@@ -91,7 +92,7 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
       if (!(Def_AModel7932913038696329443.isDefined(context))) {
         return false;
       }
-      return ListSequence.fromList(SModelOperations.nodes(Def_AModel7932913038696329443.getValue(context), AUX_6y4avc.TestConcept_e187f53f)).isNotEmpty();
+      return ListSequence.fromList(SModelOperations.nodes(Def_AModel7932913038696329443.getValue(context), CONCEPTS.TestConcept$83)).isNotEmpty();
     }
   }
 
@@ -148,7 +149,7 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
 
     @Override
     public boolean check(@NotNull ContainmentContext context) {
-      return SLinkOperations.getTarget(context.getChildNode(), MetaAdapterFactory.getReferenceLink(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, 0x161a25d497067a9eL, "link")) != null;
+      return SLinkOperations.getTarget(context.getChildNode(), LINKS.link$1Bcs) != null;
     }
 
     @Override
@@ -161,7 +162,11 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
     super(CONCEPT);
   }
 
-  private static final class AUX_6y4avc {
-    /*package*/ static final SConcept TestConcept_e187f53f = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestConcept$83 = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "multiAspectLang.structure.TestConcept");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink link$1Bcs = MetaAdapterFactory.getReferenceLink(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, 0x161a25d497067a9eL, "link");
   }
 }

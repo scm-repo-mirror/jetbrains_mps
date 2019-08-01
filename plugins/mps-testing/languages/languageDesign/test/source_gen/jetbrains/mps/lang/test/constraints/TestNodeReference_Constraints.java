@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,16 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestNodeReference_Constraints extends BaseConstraintsDescriptor {
   public TestNodeReference_Constraints() {
-    super(AUX_i5q66v.TestNodeReference_292ff84b);
+    super(CONCEPTS.TestNodeReference$1R);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1d33213L, 0x119e1d356c6L, "declaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.declaration$Gb10, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -48,13 +48,13 @@ public class TestNodeReference_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            if (SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_i5q66v.TestNode_e633d16, false, false) != null) {
+            if (SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.TestNode$kc, false, false) != null) {
               return ListScope.forResolvableElements(new ArrayList<SNode>());
             }
-            SNode test = SNodeOperations.getNodeAncestorWhereConceptInList(_context.getContextNode(), new SAbstractConcept[]{AUX_i5q66v.NodesTestCase_fd5a0bf4, AUX_i5q66v.EditorTestCase_77c60a8e}, true, false);
+            SNode test = SNodeOperations.getNodeAncestorWhereConceptInList(_context.getContextNode(), new SAbstractConcept[]{CONCEPTS.NodesTestCase$7I, CONCEPTS.EditorTestCase$qk}, true, false);
             List<SNode> result = new ArrayList<SNode>();
             if (test != null) {
-              for (SNode node : ListSequence.fromList(SNodeOperations.getNodeDescendants(test, AUX_i5q66v.TestNodeAnnotation_f65321fa, true, new SAbstractConcept[]{}))) {
+              for (SNode node : ListSequence.fromList(SNodeOperations.getNodeDescendants(test, CONCEPTS.TestNodeAnnotation$MC, true, new SAbstractConcept[]{}))) {
                 ListSequence.fromList(result).addElement(node);
               }
             }
@@ -69,11 +69,15 @@ public class TestNodeReference_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_i5q66v_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590382(jetbrains.mps.lang.test.constraints)", "6836281137582846018");
 
-  private static final class AUX_i5q66v {
-    /*package*/ static final SConcept TestNodeReference_292ff84b = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1d33213L, "jetbrains.mps.lang.test.structure.TestNodeReference");
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
-    /*package*/ static final SConcept EditorTestCase_77c60a8e = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, "jetbrains.mps.lang.test.structure.EditorTestCase");
-    /*package*/ static final SConcept TestNodeAnnotation_f65321fa = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1c6609cL, "jetbrains.mps.lang.test.structure.TestNodeAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestNodeReference$1R = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1d33213L, "jetbrains.mps.lang.test.structure.TestNodeReference");
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+    /*package*/ static final SConcept NodesTestCase$7I = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+    /*package*/ static final SConcept EditorTestCase$qk = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, "jetbrains.mps.lang.test.structure.EditorTestCase");
+    /*package*/ static final SConcept TestNodeAnnotation$MC = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1c6609cL, "jetbrains.mps.lang.test.structure.TestNodeAnnotation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$Gb10 = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1d33213L, 0x119e1d356c6L, "declaration");
   }
 }

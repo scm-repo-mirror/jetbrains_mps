@@ -13,9 +13,10 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AddRemoveMessage_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -45,19 +46,24 @@ public final class AddRemoveMessage_Intention extends AbstractIntentionDescripto
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return ((SLinkOperations.getTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5250918L, 0x110e52557daL, "message")), MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5064e8fL, 0x110e50678bdL, "message")) == null) ? "Add message" : "Remove message");
+      return ((SLinkOperations.getTarget(SLinkOperations.getTarget(node, LINKS.message$Lko2), LINKS.message$$wk_) == null) ? "Add message" : "Remove message");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((SLinkOperations.getTarget(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5250918L, 0x110e52557daL, "message")), MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5064e8fL, 0x110e50678bdL, "message")) == null)) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5250918L, 0x110e52557daL, "message"), null);
+      if ((SLinkOperations.getTarget(SLinkOperations.getTarget(node, LINKS.message$Lko2), LINKS.message$$wk_) == null)) {
+        SNodeFactoryOperations.setNewChild(node, LINKS.message$Lko2, null);
       } else {
-        SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5250918L, 0x110e52557daL, "message"), null);
+        SLinkOperations.setTarget(node, LINKS.message$Lko2, null);
       }
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return AddRemoveMessage_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink message$Lko2 = MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5250918L, 0x110e52557daL, "message");
+    /*package*/ static final SContainmentLink message$$wk_ = MetaAdapterFactory.getContainmentLink(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x110e5064e8fL, 0x110e50678bdL, "message");
   }
 }

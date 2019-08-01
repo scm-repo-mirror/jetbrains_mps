@@ -30,7 +30,7 @@ public class parameter_Contribution extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Concepts_bxx1tv_a(), AUX_bxx1tv.IntentionParameter_bb949e73));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Concepts_bxx1tv_a(), CONCEPTS.IntentionParameter$Xf));
     return result;
   }
 
@@ -50,11 +50,11 @@ public class parameter_Contribution extends SubstituteMenuBase {
   public class SMP_Concepts_bxx1tv_a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(SubstituteMenuContext _context) {
       List<SConcept> parameters = ListSequence.fromList(new ArrayList<SConcept>());
-      boolean inParInt = SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_bxx1tv.ParameterizedIntentionDeclaration_2ac6f11a, false, false) != null;
-      boolean notInApplicable = SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_bxx1tv.IsApplicableBlock_4dd2853e, false, false) == null;
-      boolean notInChildFilterBlock = SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_bxx1tv.ChildFilterBlock_1c9be52d, false, false) == null;
+      boolean inParInt = SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ParameterizedIntentionDeclaration$68, false, false) != null;
+      boolean notInApplicable = SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.IsApplicableBlock$7$, false, false) == null;
+      boolean notInChildFilterBlock = SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ChildFilterBlock$Zl, false, false) == null;
       if (inParInt && notInApplicable && notInChildFilterBlock) {
-        ListSequence.fromList(parameters).addElement(AUX_bxx1tv.IntentionParameter_bb949e73);
+        ListSequence.fromList(parameters).addElement(CONCEPTS.IntentionParameter$Xf);
       }
       return parameters;
     }
@@ -88,10 +88,10 @@ public class parameter_Contribution extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_bxx1tv {
-    /*package*/ static final SConcept IntentionParameter_bb949e73 = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c8fd57fbL, "jetbrains.mps.lang.intentions.structure.IntentionParameter");
-    /*package*/ static final SConcept ParameterizedIntentionDeclaration_2ac6f11a = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, "jetbrains.mps.lang.intentions.structure.ParameterizedIntentionDeclaration");
-    /*package*/ static final SConcept IsApplicableBlock_4dd2853e = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x115b82b10f5L, "jetbrains.mps.lang.intentions.structure.IsApplicableBlock");
-    /*package*/ static final SInterfaceConcept ChildFilterBlock_1c9be52d = MetaAdapterFactory.getInterfaceConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x323731f511d1c198L, "jetbrains.mps.lang.intentions.structure.ChildFilterBlock");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IntentionParameter$Xf = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120c8fd57fbL, "jetbrains.mps.lang.intentions.structure.IntentionParameter");
+    /*package*/ static final SConcept ParameterizedIntentionDeclaration$68 = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x120cd519c2dL, "jetbrains.mps.lang.intentions.structure.ParameterizedIntentionDeclaration");
+    /*package*/ static final SConcept IsApplicableBlock$7$ = MetaAdapterFactory.getConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x115b82b10f5L, "jetbrains.mps.lang.intentions.structure.IsApplicableBlock");
+    /*package*/ static final SInterfaceConcept ChildFilterBlock$Zl = MetaAdapterFactory.getInterfaceConcept(0xd7a92d38f7db40d0L, 0x8431763b0c3c9f20L, 0x323731f511d1c198L, "jetbrains.mps.lang.intentions.structure.ChildFilterBlock");
   }
 }

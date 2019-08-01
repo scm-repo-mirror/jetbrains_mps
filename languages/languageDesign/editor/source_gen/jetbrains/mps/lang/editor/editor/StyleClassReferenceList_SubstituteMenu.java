@@ -35,16 +35,17 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class StyleClassReferenceList_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_cyyevv_a(), AUX_cyyevv.StyleClassReferenceList_2a1719e8));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_cyyevv_a(), CONCEPTS.StyleClassReferenceList$9U));
     return result;
   }
 
@@ -84,7 +85,7 @@ public class StyleClassReferenceList_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_cyyevv.StyleClassReferenceList_2a1719e8;
+          return CONCEPTS.StyleClassReferenceList$9U;
         }
         @Nullable
         @Override
@@ -116,20 +117,24 @@ public class StyleClassReferenceList_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_cyyevv.StyleClassReference_250cf680;
+      return CONCEPTS.StyleClassReference$zy;
     }
   }
   private static SNode createStyleClassReferenceList_cyyevv_a0a0a(Iterable<? extends SNode> seq0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_cyyevv.StyleClassReferenceList_2a1719e8, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.StyleClassReferenceList$9U, null, null, false);
     for (SNode n : seq0) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1cb5b6d8L, 0x7e9b10ab1cb5b959L, "element"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(n, AUX_cyyevv.StyleClassReference_250cf680)));
+      n1.addChild(LINKS.element$VLR9, SNodeOperations.copyIfNecessary(SNodeOperations.cast(n, CONCEPTS.StyleClassReference$zy)));
     }
     return n1;
   }
 
-  private static final class AUX_cyyevv {
-    /*package*/ static final SConcept StyleClassReferenceList_2a1719e8 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1cb5b6d8L, "jetbrains.mps.lang.editor.structure.StyleClassReferenceList");
-    /*package*/ static final SConcept StyleClassReference_250cf680 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a130c0dL, "jetbrains.mps.lang.editor.structure.StyleClassReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StyleClassReferenceList$9U = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1cb5b6d8L, "jetbrains.mps.lang.editor.structure.StyleClassReferenceList");
+    /*package*/ static final SConcept StyleClassReference$zy = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a130c0dL, "jetbrains.mps.lang.editor.structure.StyleClassReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink element$VLR9 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7e9b10ab1cb5b6d8L, 0x7e9b10ab1cb5b959L, "element");
   }
 }

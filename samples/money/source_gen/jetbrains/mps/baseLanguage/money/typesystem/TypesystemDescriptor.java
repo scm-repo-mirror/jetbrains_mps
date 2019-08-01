@@ -35,11 +35,11 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
       InferenceRule_Runtime inferenceRule = new typeof_MoneyLiteral_InferenceRule();
       this.myInferenceRules.add(inferenceRule);
     }
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(AUX_3ist9o.PlusExpression_d4768414));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_b(AUX_3ist9o.MinusExpression_d47683f9));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_c(AUX_3ist9o.DivExpression_9e035f9d));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_d(AUX_3ist9o.MulExpression_642dc8dd));
-    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_e(AUX_3ist9o.MulExpression_642dc8dd));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_a(CONCEPTS.PlusExpression$Re));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_b(CONCEPTS.MinusExpression$E9));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_c(CONCEPTS.DivExpression$d_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_d(CONCEPTS.MulExpression$8_));
+    this.myOverloadedOperationsTypesProviders.add(new CustomOverloadedOperationsTypesProvider_e(CONCEPTS.MulExpression$8_));
   }
   public static class CustomOverloadedOperationsTypesProvider_a extends OverloadedOperationsTypesProvider {
     public CustomOverloadedOperationsTypesProvider_a(SAbstractConcept concept) {
@@ -232,10 +232,10 @@ public class TypesystemDescriptor extends BaseHelginsDescriptor {
     }
   }
 
-  private static final class AUX_3ist9o {
-    /*package*/ static final SConcept PlusExpression_d4768414 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
-    /*package*/ static final SConcept MinusExpression_d47683f9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f5L, "jetbrains.mps.baseLanguage.structure.MinusExpression");
-    /*package*/ static final SConcept DivExpression_9e035f9d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xff2bbc13daL, "jetbrains.mps.baseLanguage.structure.DivExpression");
-    /*package*/ static final SConcept MulExpression_642dc8dd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfe476b758fL, "jetbrains.mps.baseLanguage.structure.MulExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PlusExpression$Re = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
+    /*package*/ static final SConcept MinusExpression$E9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f5L, "jetbrains.mps.baseLanguage.structure.MinusExpression");
+    /*package*/ static final SConcept DivExpression$d_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xff2bbc13daL, "jetbrains.mps.baseLanguage.structure.DivExpression");
+    /*package*/ static final SConcept MulExpression$8_ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfe476b758fL, "jetbrains.mps.baseLanguage.structure.MulExpression");
   }
 }

@@ -13,8 +13,9 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ToggleMultiLine_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -44,7 +45,7 @@ public final class ToggleMultiLine_Intention extends AbstractIntentionDescriptor
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0xc5cbfc0eeac457bL, "forceMultiLine"))) {
+      if (SPropertyOperations.getBoolean(node, PROPS.forceMultiLine$sHyN)) {
         return "Remove Force Multi Line";
       } else {
         return "Make Force Multi Line";
@@ -52,12 +53,16 @@ public final class ToggleMultiLine_Intention extends AbstractIntentionDescriptor
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0xc5cbfc0eeac457bL, "forceMultiLine"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0xc5cbfc0eeac457bL, "forceMultiLine"))));
+      SPropertyOperations.assign(node, PROPS.forceMultiLine$sHyN, !(SPropertyOperations.getBoolean(node, PROPS.forceMultiLine$sHyN)));
       editorContext.getEditorComponent().rebuildEditorContent();
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return ToggleMultiLine_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty forceMultiLine$sHyN = MetaAdapterFactory.getProperty(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, 0xc5cbfc0eeac457bL, "forceMultiLine");
   }
 }

@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class SimplePropertyReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_3e0a16_a(), AUX_3e0a16.SimplePropertyReference_90ac13cb));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_3e0a16_a(), CONCEPTS.SimplePropertyReference$jR));
     result.add(new SMP_Subconcepts_3e0a16_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class SimplePropertyReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_3e0a16_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_3e0a16.SimplePropertyReference_90ac13cb, MetaAdapterFactory.getReferenceLink(0xc457c5de60274104L, 0xab9ca31c5404ae8bL, 0x346ead2c08ccfa10L, 0x346ead2c08ccfa1fL, "prop"));
+      super((SAbstractConcept) CONCEPTS.SimplePropertyReference$jR, LINKS.prop$w_wM);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class SimplePropertyReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_3e0a16_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_3e0a16.SimplePropertyReference_90ac13cb);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.SimplePropertyReference$jR);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class SimplePropertyReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_3e0a16 {
-    /*package*/ static final SConcept SimplePropertyReference_90ac13cb = MetaAdapterFactory.getConcept(0xc457c5de60274104L, 0xab9ca31c5404ae8bL, 0x346ead2c08ccfa10L, "jetbrains.mps.samples.highlevel.simpleEditor.structure.SimplePropertyReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimplePropertyReference$jR = MetaAdapterFactory.getConcept(0xc457c5de60274104L, 0xab9ca31c5404ae8bL, 0x346ead2c08ccfa10L, "jetbrains.mps.samples.highlevel.simpleEditor.structure.SimplePropertyReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink prop$w_wM = MetaAdapterFactory.getReferenceLink(0xc457c5de60274104L, 0xab9ca31c5404ae8bL, 0x346ead2c08ccfa10L, 0x346ead2c08ccfa1fL, "prop");
   }
 }

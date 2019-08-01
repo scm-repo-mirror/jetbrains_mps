@@ -4,6 +4,7 @@ package jetbrains.mps.build.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,16 +16,14 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NonNls;
 import jetbrains.mps.nodeEditor.MPSColors;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class BuildLayout_JarManifest_Attribute__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_4594f4.BuildLayout_JarManifest_Attribute_bd0e9b48;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Attribute");
 
   public static final SMethod<Boolean> isValidPart_id7XQqoCTkVIS = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isValidPart").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7XQqoCTkVIS").build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
   public static final SMethod<Color> getColorForTextPart_id5hFYqIiXWl$ = new SMethodBuilder<Color>(new SJavaCompoundTypeImpl(Color.class)).name("getColorForTextPart").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5hFYqIiXWl$").build(SMethodBuilder.createJavaParameter(SContainmentLink.class, ""));
@@ -35,14 +34,14 @@ public final class BuildLayout_JarManifest_Attribute__BehaviorDescriptor extends
   }
 
   /*package*/ static boolean isValidPart_id7XQqoCTkVIS(@NotNull SNode __thisNode__, String propertyValue, SContainmentLink role) {
-    if (role.equals(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, 0x115d3b22faf20f31L, "name"))) {
+    if (role.equals(LINKS.name$OJj0)) {
       return propertyValue.matches("[A-Za-z0-9][A-Za-z0-9-_]*");
     }
     return !(propertyValue.contains("$"));
   }
   @Nullable
   /*package*/ static Color getColorForTextPart_id5hFYqIiXWl$(@NotNull SNode __thisNode__, @NonNls SContainmentLink role) {
-    if (role.equals(MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, 0x115d3b22faf20f31L, "name"))) {
+    if (role.equals(LINKS.name$OJj0)) {
       return MPSColors.DARK_GRAY.darker();
     }
     return MPSColors.DARK_GREEN.darker();
@@ -96,7 +95,7 @@ public final class BuildLayout_JarManifest_Attribute__BehaviorDescriptor extends
     return CONCEPT;
   }
 
-  private static final class AUX_4594f4 {
-    /*package*/ static final SConcept BuildLayout_JarManifest_Attribute_bd0e9b48 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, "jetbrains.mps.build.structure.BuildLayout_JarManifest_Attribute");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink name$OJj0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x115d3b22faf20f30L, 0x115d3b22faf20f31L, "name");
   }
 }

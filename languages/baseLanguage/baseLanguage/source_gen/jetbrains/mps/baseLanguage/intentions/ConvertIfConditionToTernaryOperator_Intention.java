@@ -12,11 +12,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ConvertIfConditionToTernaryOperator_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -35,12 +36,12 @@ public final class ConvertIfConditionToTernaryOperator_Intention extends Abstrac
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses"))).isNotEmpty()) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.elsifClauses$uXBQ)).isNotEmpty()) {
       return false;
     }
 
-    SNode s1 = IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue")));
-    SNode s2 = IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement")));
+    SNode s1 = IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, LINKS.ifTrue$WJ1E));
+    SNode s2 = IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2));
     return (s1 != null) && (s2 != null) && IntentionUtils.canBeConvertedToTernary(s1, s2);
   }
   @Override
@@ -62,7 +63,7 @@ public final class ConvertIfConditionToTernaryOperator_Intention extends Abstrac
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode result = IntentionUtils.convertToTernary(IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue"))), IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement"))), SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition")));
+      SNode result = IntentionUtils.convertToTernary(IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, LINKS.ifTrue$WJ1E)), IntentionUtils.optimizeNode(SLinkOperations.getTarget(node, LINKS.ifFalseStatement$Xnu2)), SLinkOperations.getTarget(node, LINKS.condition$WJ1b));
       if (result != null) {
         SNodeOperations.replaceWithAnother(node, result);
       }
@@ -71,5 +72,12 @@ public final class ConvertIfConditionToTernaryOperator_Intention extends Abstrac
     public IntentionDescriptor getDescriptor() {
       return ConvertIfConditionToTernaryOperator_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elsifClauses$uXBQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0x118cecf1287L, "elsifClauses");
+    /*package*/ static final SContainmentLink ifTrue$WJ1E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b219L, "ifTrue");
+    /*package*/ static final SContainmentLink ifFalseStatement$Xnu2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xfc092b6b76L, "ifFalseStatement");
+    /*package*/ static final SContainmentLink condition$WJ1b = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
   }
 }

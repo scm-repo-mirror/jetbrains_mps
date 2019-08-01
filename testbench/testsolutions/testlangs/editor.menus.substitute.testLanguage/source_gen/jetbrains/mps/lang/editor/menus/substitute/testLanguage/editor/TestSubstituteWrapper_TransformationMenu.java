@@ -28,7 +28,6 @@ import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuItem;
 import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
@@ -40,6 +39,9 @@ import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TestSubstituteWrapper_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM);
@@ -91,7 +93,7 @@ public class TestSubstituteWrapper_TransformationMenu extends TransformationMenu
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_fhjb1s.TestSubstituteChildOfWrapper_f0e60521;
+      return CONCEPTS.TestSubstituteChildOfWrapper$Tx;
     }
 
 
@@ -102,11 +104,11 @@ public class TestSubstituteWrapper_TransformationMenu extends TransformationMenu
         @Override
         public void execute(@NotNull String pattern) {
           SNode createdNode = item.createNode(pattern);
-          SLinkOperations.setTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x401156263ff3470fL, "child"), createdNode);
-          SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x52ae9daefcc45c00L, "wrappedMatchingText"), wrappedItem.getMatchingText(pattern));
-          SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x52ae9daefcc45c02L, "wrappedDescriptionText"), wrappedItem.getDescriptionText(pattern));
-          SPropertyOperations.assign(_context.getNode(), MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x52ae9daefcc45c05L, "wrappedConceptAlias"), SConceptOperations.conceptAlias(wrappedItem.getOutputConcept()));
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(_context.getNode(), MetaAdapterFactory.getContainmentLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x401156263ff3470fL, "child")), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          SLinkOperations.setTarget(_context.getNode(), LINKS.child$K30t, createdNode);
+          SPropertyOperations.assign(_context.getNode(), PROPS.wrappedMatchingText$F7GJ, wrappedItem.getMatchingText(pattern));
+          SPropertyOperations.assign(_context.getNode(), PROPS.wrappedDescriptionText$F7HH, wrappedItem.getDescriptionText(pattern));
+          SPropertyOperations.assign(_context.getNode(), PROPS.wrappedConceptAlias$F7Ja, SConceptOperations.conceptAlias(wrappedItem.getOutputConcept()));
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(_context.getNode(), LINKS.child$K30t), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
         @Override
@@ -134,7 +136,17 @@ public class TestSubstituteWrapper_TransformationMenu extends TransformationMenu
     }
   }
 
-  private static final class AUX_fhjb1s {
-    /*package*/ static final SConcept TestSubstituteChildOfWrapper_f0e60521 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470cL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildOfWrapper");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteChildOfWrapper$Tx = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470cL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildOfWrapper");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink child$K30t = MetaAdapterFactory.getContainmentLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x401156263ff3470fL, "child");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty wrappedMatchingText$F7GJ = MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x52ae9daefcc45c00L, "wrappedMatchingText");
+    /*package*/ static final SProperty wrappedDescriptionText$F7HH = MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x52ae9daefcc45c02L, "wrappedDescriptionText");
+    /*package*/ static final SProperty wrappedConceptAlias$F7Ja = MetaAdapterFactory.getProperty(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x401156263ff3470bL, 0x52ae9daefcc45c05L, "wrappedConceptAlias");
   }
 }

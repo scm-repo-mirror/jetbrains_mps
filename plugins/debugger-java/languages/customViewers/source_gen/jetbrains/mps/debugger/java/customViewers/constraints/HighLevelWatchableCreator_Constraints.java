@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,15 +25,17 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class HighLevelWatchableCreator_Constraints extends BaseConstraintsDescriptor {
   public HighLevelWatchableCreator_Constraints() {
-    super(AUX_fcwqku.HighLevelWatchableCreator_61d6573e);
+    super(CONCEPTS.HighLevelWatchableCreator$Z$);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514044030ceL, 0x9a151404409225L, "watchable"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.watchable$tXZ8, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -50,8 +51,8 @@ public class HighLevelWatchableCreator_Constraints extends BaseConstraintsDescri
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> result = new ArrayList<SNode>();
-            for (SNode container : SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), AUX_fcwqku.CustomWatchablesContainer_d392136b)) {
-              ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(container, MetaAdapterFactory.getContainmentLink(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x47047b766556943dL, 0x47047b766556943eL, "watchable"))));
+            for (SNode container : SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.CustomWatchablesContainer$_n)) {
+              ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(container, LINKS.watchable$gv$w)));
             }
             return ListScope.forResolvableElements(result);
           }
@@ -64,8 +65,13 @@ public class HighLevelWatchableCreator_Constraints extends BaseConstraintsDescri
   }
   private static final SNodePointer breakingNode_fcwqku_a0a0a0a0a1a0a0a0c = new SNodePointer("r:90c5d87d-81cd-4991-8860-6ac3ba3269c4(jetbrains.mps.debugger.java.customViewers.constraints)", "6836281137582821035");
 
-  private static final class AUX_fcwqku {
-    /*package*/ static final SConcept HighLevelWatchableCreator_61d6573e = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514044030ceL, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelWatchableCreator");
-    /*package*/ static final SConcept CustomWatchablesContainer_d392136b = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x47047b766556943dL, "jetbrains.mps.debugger.java.customViewers.structure.CustomWatchablesContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept HighLevelWatchableCreator$Z$ = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514044030ceL, "jetbrains.mps.debugger.java.customViewers.structure.HighLevelWatchableCreator");
+    /*package*/ static final SConcept CustomWatchablesContainer$_n = MetaAdapterFactory.getConcept(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x47047b766556943dL, "jetbrains.mps.debugger.java.customViewers.structure.CustomWatchablesContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink watchable$tXZ8 = MetaAdapterFactory.getReferenceLink(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x9a1514044030ceL, 0x9a151404409225L, "watchable");
+    /*package*/ static final SContainmentLink watchable$gv$w = MetaAdapterFactory.getContainmentLink(0xfa8aeae94df94e13L, 0xbfb19b04c67ddb77L, 0x47047b766556943dL, 0x47047b766556943eL, "watchable");
   }
 }

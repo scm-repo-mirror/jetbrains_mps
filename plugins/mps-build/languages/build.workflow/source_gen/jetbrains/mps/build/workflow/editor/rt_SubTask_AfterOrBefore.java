@@ -7,11 +7,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class rt_SubTask_AfterOrBefore {
@@ -22,10 +23,10 @@ public class rt_SubTask_AfterOrBefore {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x36fb0dc9fd36bb1bL, "before"))).isEmpty()) {
-          SLinkOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x36fb0dc9fd36bb1bL, "before"), AUX_rq5s6r.BwfSubTaskDependency_ea416a83);
-        } else if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x2670d5989d5b4a01L, "after"))).isEmpty()) {
-          SLinkOperations.addNewChild(node, MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x2670d5989d5b4a01L, "after"), AUX_rq5s6r.BwfSubTaskDependency_ea416a83);
+        if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.before$hqay)).isEmpty()) {
+          SLinkOperations.addNewChild(node, LINKS.before$hqay, CONCEPTS.BwfSubTaskDependency$kZ);
+        } else if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.after$Gju$)).isEmpty()) {
+          SLinkOperations.addNewChild(node, LINKS.after$Gju$, CONCEPTS.BwfSubTaskDependency$kZ);
         }
       }
 
@@ -67,7 +68,12 @@ public class rt_SubTask_AfterOrBefore {
     }
   }
 
-  private static final class AUX_rq5s6r {
-    /*package*/ static final SConcept BwfSubTaskDependency_ea416a83 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5b49b8L, "jetbrains.mps.build.workflow.structure.BwfSubTaskDependency");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink before$hqay = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x36fb0dc9fd36bb1bL, "before");
+    /*package*/ static final SContainmentLink after$Gju$ = MetaAdapterFactory.getContainmentLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5a6275L, 0x2670d5989d5b4a01L, "after");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfSubTaskDependency$kZ = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x2670d5989d5b49b8L, "jetbrains.mps.build.workflow.structure.BwfSubTaskDependency");
   }
 }

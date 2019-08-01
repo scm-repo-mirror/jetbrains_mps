@@ -18,7 +18,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart;
 import org.apache.log4j.Logger;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
@@ -29,6 +28,10 @@ import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CustomConstructorUsage_Substitute_Contribution extends SubstituteMenuBase {
   public CustomConstructorUsage_Substitute_Contribution() {
@@ -38,7 +41,7 @@ public class CustomConstructorUsage_Substitute_Contribution extends SubstituteMe
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_33kcmf_a(), AUX_33kcmf.CustomConstructorUsage_5403bf01));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_33kcmf_a(), CONCEPTS.CustomConstructorUsage$21));
     return result;
   }
 
@@ -75,10 +78,10 @@ public class CustomConstructorUsage_Substitute_Contribution extends SubstituteMe
     @Nullable
     @Override
     protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-      List<SNode> containers = SModelOperations.rootsIncludingImported(_context.getModel(), AUX_33kcmf.CustomConstructorContainer_61057680);
+      List<SNode> containers = SModelOperations.rootsIncludingImported(_context.getModel(), CONCEPTS.CustomConstructorContainer$zy);
       List<SNode> customConstructors = new ArrayList<SNode>();
       for (SNode container : ListSequence.fromList(containers)) {
-        ListSequence.fromList(customConstructors).addSequence(ListSequence.fromList(SLinkOperations.getChildren(container, MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c1L, 0x2a36c1b072f3e746L, "constructors"))));
+        ListSequence.fromList(customConstructors).addSequence(ListSequence.fromList(SLinkOperations.getChildren(container, LINKS.constructors$PI9j)));
       }
       return customConstructors;
     }
@@ -115,7 +118,7 @@ public class CustomConstructorUsage_Substitute_Contribution extends SubstituteMe
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_33kcmf.CustomConstructorUsage_5403bf01, context);
+          super(CONCEPTS.CustomConstructorUsage$21, context);
           _context = context;
         }
 
@@ -126,8 +129,8 @@ public class CustomConstructorUsage_Substitute_Contribution extends SubstituteMe
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode usage = SNodeFactoryOperations.createNewNode(AUX_33kcmf.CustomConstructorUsage_5403bf01, null);
-          SLinkOperations.setTarget(usage, MetaAdapterFactory.getReferenceLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x5ea800dcf8ca1ca6L, 0x5ea800dcf8cc71b3L, "customConstructor"), myParameterObject);
+          SNode usage = SNodeFactoryOperations.createNewNode(CONCEPTS.CustomConstructorUsage$21, null);
+          SLinkOperations.setTarget(usage, LINKS.customConstructor$3U3x, myParameterObject);
           return usage;
         }
 
@@ -137,7 +140,7 @@ public class CustomConstructorUsage_Substitute_Contribution extends SubstituteMe
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_33kcmf.CustomConstructorUsage_5403bf01, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.CustomConstructorUsage$21, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -150,20 +153,31 @@ public class CustomConstructorUsage_Substitute_Contribution extends SubstituteMe
         @Nullable
         @Override
         public String getMatchingText(@NotNull String pattern) {
-          return SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, 0x2e373c3e4b60e010L, "leftParenthesis")) + "..." + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, 0x2e373c3e4b60e011L, "rightParenthesis"));
+          return SPropertyOperations.getString(myParameterObject, PROPS.leftParenthesis$gTqC) + "..." + SPropertyOperations.getString(myParameterObject, PROPS.rightParenthesis$gTr7);
         }
         @Nullable
         @Override
         public String getDescriptionText(@NotNull String pattern) {
-          return SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription"));
+          return SPropertyOperations.getString(myParameterObject, PROPS.shortDescription$w2Xj);
         }
       }
     }
 
   }
 
-  private static final class AUX_33kcmf {
-    /*package*/ static final SConcept CustomConstructorUsage_5403bf01 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x5ea800dcf8ca1ca6L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructorUsage");
-    /*package*/ static final SConcept CustomConstructorContainer_61057680 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c1L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructorContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CustomConstructorUsage$21 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x5ea800dcf8ca1ca6L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructorUsage");
+    /*package*/ static final SConcept CustomConstructorContainer$zy = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c1L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructorContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink constructors$PI9j = MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c1L, 0x2a36c1b072f3e746L, "constructors");
+    /*package*/ static final SReferenceLink customConstructor$3U3x = MetaAdapterFactory.getReferenceLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x5ea800dcf8ca1ca6L, 0x5ea800dcf8cc71b3L, "customConstructor");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty rightParenthesis$gTr7 = MetaAdapterFactory.getProperty(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, 0x2e373c3e4b60e011L, "rightParenthesis");
+    /*package*/ static final SProperty leftParenthesis$gTqC = MetaAdapterFactory.getProperty(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, 0x2e373c3e4b60e010L, "leftParenthesis");
+    /*package*/ static final SProperty shortDescription$w2Xj = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x10d34f97574L, "shortDescription");
   }
 }

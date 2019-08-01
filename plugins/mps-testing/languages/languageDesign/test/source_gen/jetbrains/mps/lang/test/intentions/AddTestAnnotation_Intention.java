@@ -40,7 +40,7 @@ public final class AddTestAnnotation_Intention extends AbstractIntentionDescript
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(AUX_lvho93.NodesTestCase_fd5a0bf4), node);
+    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(CONCEPTS.NodesTestCase$7I), node);
   }
   @Override
   public boolean isSurroundWith() {
@@ -61,8 +61,8 @@ public final class AddTestAnnotation_Intention extends AbstractIntentionDescript
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode newAnnotation = SNodeFactoryOperations.createNewNode(AUX_lvho93.TestNodeAnnotation_f65321fa, null);
-      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_lvho93.AbstractTestNodeAnnotation_2d7c3bf0), newAnnotation);
+      SNode newAnnotation = SNodeFactoryOperations.createNewNode(CONCEPTS.TestNodeAnnotation$MC, null);
+      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AbstractTestNodeAnnotation$5M), newAnnotation);
       SelectionUtil.selectCell(editorContext, newAnnotation, SelectionManager.FIRST_EDITABLE_CELL);
     }
     @Override
@@ -71,9 +71,9 @@ public final class AddTestAnnotation_Intention extends AbstractIntentionDescript
     }
   }
 
-  private static final class AUX_lvho93 {
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
-    /*package*/ static final SConcept TestNodeAnnotation_f65321fa = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1c6609cL, "jetbrains.mps.lang.test.structure.TestNodeAnnotation");
-    /*package*/ static final SConcept AbstractTestNodeAnnotation_2d7c3bf0 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodesTestCase$7I = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+    /*package*/ static final SConcept TestNodeAnnotation$MC = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x119e1c6609cL, "jetbrains.mps.lang.test.structure.TestNodeAnnotation");
+    /*package*/ static final SConcept AbstractTestNodeAnnotation$5M = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
   }
 }

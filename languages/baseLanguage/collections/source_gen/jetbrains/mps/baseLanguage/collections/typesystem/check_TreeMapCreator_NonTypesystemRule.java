@@ -22,14 +22,14 @@ public class check_TreeMapCreator_NonTypesystemRule extends AbstractNonTypesyste
   public check_TreeMapCreator_NonTypesystemRule() {
   }
   public void applyRule(final SNode tmc, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode dtype = TypeDerivable__BehaviorDescriptor.deriveType_idhEwIVPz.invoke(SNodeOperations.as(SNodeOperations.getParent(SNodeOperations.getParent(tmc)), AUX_ukhiyk.TypeDerivable_db8fd96c), SNodeOperations.as(SNodeOperations.getParent(tmc), AUX_ukhiyk.Expression_4199e28d));
-    if (!((dtype == null) || SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(dtype)), AUX_ukhiyk.SortedMapType_fc6c97f6))) {
+    SNode dtype = TypeDerivable__BehaviorDescriptor.deriveType_idhEwIVPz.invoke(SNodeOperations.as(SNodeOperations.getParent(SNodeOperations.getParent(tmc)), CONCEPTS.TypeDerivable$dQ), SNodeOperations.as(SNodeOperations.getParent(tmc), CONCEPTS.Expression$TP));
+    if (!((dtype == null) || SConceptOperations.isSuperConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(dtype)), CONCEPTS.SortedMapType$oG))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(tmc, "not available here", "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "4998595809121273803", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ukhiyk.TreeMapCreator_fe747dbc;
+    return CONCEPTS.TreeMapCreator$$A;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -38,10 +38,10 @@ public class check_TreeMapCreator_NonTypesystemRule extends AbstractNonTypesyste
     return false;
   }
 
-  private static final class AUX_ukhiyk {
-    /*package*/ static final SInterfaceConcept TypeDerivable_db8fd96c = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117ac2330f4L, "jetbrains.mps.baseLanguage.structure.TypeDerivable");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept SortedMapType_fc6c97f6 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c4067207L, "jetbrains.mps.baseLanguage.collections.structure.SortedMapType");
-    /*package*/ static final SConcept TreeMapCreator_fe747dbc = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c408d37aL, "jetbrains.mps.baseLanguage.collections.structure.TreeMapCreator");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept TypeDerivable$dQ = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x117ac2330f4L, "jetbrains.mps.baseLanguage.structure.TypeDerivable");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept SortedMapType$oG = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c4067207L, "jetbrains.mps.baseLanguage.collections.structure.SortedMapType");
+    /*package*/ static final SConcept TreeMapCreator$$A = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x120c408d37aL, "jetbrains.mps.baseLanguage.collections.structure.TreeMapCreator");
   }
 }

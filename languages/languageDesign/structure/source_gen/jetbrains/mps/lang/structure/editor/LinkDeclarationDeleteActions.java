@@ -9,7 +9,6 @@ import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
@@ -19,6 +18,9 @@ import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class LinkDeclarationDeleteActions {
 
@@ -34,22 +36,22 @@ public class LinkDeclarationDeleteActions {
         if (DeletionApproverUtil.approve(editorContext, node)) {
           return;
         }
-        SNode containingAbstractConcept = SNodeOperations.cast(SNodeOperations.getParent(node), AUX_dgbx09.AbstractConceptDeclaration_ec74828f);
-        if (!(CustomActionsHandler.deleteElementFromCollectionAndSetSelection(node, ListSequence.fromList(SLinkOperations.getChildren(containingAbstractConcept, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration"))).where(new IWhereFilter<SNode>() {
+        SNode containingAbstractConcept = SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.AbstractConceptDeclaration$UN);
+        if (!(CustomActionsHandler.deleteElementFromCollectionAndSetSelection(node, ListSequence.fromList(SLinkOperations.getChildren(containingAbstractConcept, LINKS.linkDeclaration$lL6$)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")) == SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass"));
+            return SPropertyOperations.getEnum(it, PROPS.metaClass$tHD7) == SPropertyOperations.getEnum(node, PROPS.metaClass$tHD7);
           }
         }), editorContext))) {
-          if (SNodeOperations.isInstanceOf(containingAbstractConcept, AUX_dgbx09.ConceptDeclaration_cb225da8)) {
-            SNode cd = SNodeOperations.cast(containingAbstractConcept, AUX_dgbx09.ConceptDeclaration_cb225da8);
-            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L)) {
+          if (SNodeOperations.isInstanceOf(containingAbstractConcept, CONCEPTS.ConceptDeclaration$qU)) {
+            SNode cd = SNodeOperations.cast(containingAbstractConcept, CONCEPTS.ConceptDeclaration$qU);
+            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.metaClass$tHD7), 0xfc6f4e95b9L)) {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, cd, "emptyChildrenPlaceHolder", 0);
             } else {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, cd, "emptyRefPlaceHolder", 0);
             }
-          } else if (SNodeOperations.isInstanceOf(containingAbstractConcept, AUX_dgbx09.InterfaceConceptDeclaration_efdf2bc9)) {
-            SNode id = SNodeOperations.cast(containingAbstractConcept, AUX_dgbx09.InterfaceConceptDeclaration_efdf2bc9);
-            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L)) {
+          } else if (SNodeOperations.isInstanceOf(containingAbstractConcept, CONCEPTS.InterfaceConceptDeclaration$MT)) {
+            SNode id = SNodeOperations.cast(containingAbstractConcept, CONCEPTS.InterfaceConceptDeclaration$MT);
+            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.metaClass$tHD7), 0xfc6f4e95b9L)) {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, id, "emptyChildrenPlaceHolder", 0);
             } else {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, id, "emptyRefPlaceHolder", 0);
@@ -72,22 +74,22 @@ public class LinkDeclarationDeleteActions {
         if (DeletionApproverUtil.approve(editorContext, node)) {
           return;
         }
-        SNode containingAbstractConcept = SNodeOperations.cast(SNodeOperations.getParent(node), AUX_dgbx09.AbstractConceptDeclaration_ec74828f);
-        if (!(CustomActionsHandler.backspaceElementFromCollectionAndSetSelection(node, ListSequence.fromList(SLinkOperations.getChildren(containingAbstractConcept, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration"))).where(new IWhereFilter<SNode>() {
+        SNode containingAbstractConcept = SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.AbstractConceptDeclaration$UN);
+        if (!(CustomActionsHandler.backspaceElementFromCollectionAndSetSelection(node, ListSequence.fromList(SLinkOperations.getChildren(containingAbstractConcept, LINKS.linkDeclaration$lL6$)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SPropertyOperations.getEnum(it, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")) == SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass"));
+            return SPropertyOperations.getEnum(it, PROPS.metaClass$tHD7) == SPropertyOperations.getEnum(node, PROPS.metaClass$tHD7);
           }
         }), editorContext))) {
-          if (SNodeOperations.isInstanceOf(containingAbstractConcept, AUX_dgbx09.ConceptDeclaration_cb225da8)) {
-            SNode cd = SNodeOperations.cast(containingAbstractConcept, AUX_dgbx09.ConceptDeclaration_cb225da8);
-            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L)) {
+          if (SNodeOperations.isInstanceOf(containingAbstractConcept, CONCEPTS.ConceptDeclaration$qU)) {
+            SNode cd = SNodeOperations.cast(containingAbstractConcept, CONCEPTS.ConceptDeclaration$qU);
+            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.metaClass$tHD7), 0xfc6f4e95b9L)) {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, cd, "emptyChildrenPlaceHolder", 0);
             } else {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, cd, "emptyRefPlaceHolder", 0);
             }
-          } else if (SNodeOperations.isInstanceOf(containingAbstractConcept, AUX_dgbx09.InterfaceConceptDeclaration_efdf2bc9)) {
-            SNode id = SNodeOperations.cast(containingAbstractConcept, AUX_dgbx09.InterfaceConceptDeclaration_efdf2bc9);
-            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b9L)) {
+          } else if (SNodeOperations.isInstanceOf(containingAbstractConcept, CONCEPTS.InterfaceConceptDeclaration$MT)) {
+            SNode id = SNodeOperations.cast(containingAbstractConcept, CONCEPTS.InterfaceConceptDeclaration$MT);
+            if (SEnumOperations.isMember(SPropertyOperations.getEnum(node, PROPS.metaClass$tHD7), 0xfc6f4e95b9L)) {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, id, "emptyChildrenPlaceHolder", 0);
             } else {
               SelectionUtil.selectLabelCellAnSetCaret(editorContext, id, "emptyRefPlaceHolder", 0);
@@ -138,9 +140,17 @@ public class LinkDeclarationDeleteActions {
     }
   }
 
-  private static final class AUX_dgbx09 {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
-    /*package*/ static final SConcept InterfaceConceptDeclaration_efdf2bc9 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+    /*package*/ static final SConcept InterfaceConceptDeclaration$MT = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103556dcafL, "jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink linkDeclaration$lL6$ = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration");
   }
 }

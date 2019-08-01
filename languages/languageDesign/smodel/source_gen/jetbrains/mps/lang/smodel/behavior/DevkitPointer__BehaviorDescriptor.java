@@ -4,6 +4,7 @@ package jetbrains.mps.lang.smodel.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,15 +17,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class DevkitPointer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_z8t9se.DevkitPointer_3ae74ac5;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, "jetbrains.mps.lang.smodel.structure.DevkitPointer");
 
   public static final SMethod<SModuleReference> getModuleReference_id78qQRpbgix2 = new SMethodBuilder<SModuleReference>(new SJavaCompoundTypeImpl(SModuleReference.class)).name("getModuleReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("78qQRpbgix2").build();
   public static final SMethod<Void> setModuleReference_id78qQRpbgix9 = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setModuleReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("78qQRpbgix9").build(SMethodBuilder.createJavaParameter(SModuleReference.class, ""));
@@ -36,20 +36,20 @@ public final class DevkitPointer__BehaviorDescriptor extends BaseBHDescriptor {
 
   @Nullable
   /*package*/ static SModuleReference getModuleReference_id78qQRpbgix2(@NotNull SNode __thisNode__) {
-    if (SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1dL, "devkitId")) == null) {
+    if (SPropertyOperations.getString(__thisNode__, PROPS.devkitId$UehZ) == null) {
       return null;
     }
     PersistenceFacade pf = PersistenceFacade.getInstance();
-    SModuleId id = pf.createModuleId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1dL, "devkitId")));
-    return pf.createModuleReference(id, SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1cL, "devkitName")));
+    SModuleId id = pf.createModuleId(SPropertyOperations.getString(__thisNode__, PROPS.devkitId$UehZ));
+    return pf.createModuleReference(id, SPropertyOperations.getString(__thisNode__, PROPS.devkitName$Uehw));
   }
   /*package*/ static void setModuleReference_id78qQRpbgix9(@NotNull SNode __thisNode__, @Nullable SModuleReference moduleRef) {
     if (moduleRef == null) {
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1dL, "devkitId"), null);
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1cL, "devkitName"), null);
+      SPropertyOperations.assign(__thisNode__, PROPS.devkitId$UehZ, null);
+      SPropertyOperations.assign(__thisNode__, PROPS.devkitName$Uehw, null);
     } else {
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1dL, "devkitId"), PersistenceFacade.getInstance().asString(moduleRef.getModuleId()));
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1cL, "devkitName"), moduleRef.getModuleName());
+      SPropertyOperations.assign(__thisNode__, PROPS.devkitId$UehZ, PersistenceFacade.getInstance().asString(moduleRef.getModuleId()));
+      SPropertyOperations.assign(__thisNode__, PROPS.devkitName$Uehw, moduleRef.getModuleName());
     }
   }
 
@@ -102,7 +102,8 @@ public final class DevkitPointer__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_z8t9se {
-    /*package*/ static final SConcept DevkitPointer_3ae74ac5 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, "jetbrains.mps.lang.smodel.structure.DevkitPointer");
+  private static final class PROPS {
+    /*package*/ static final SProperty devkitId$UehZ = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1dL, "devkitId");
+    /*package*/ static final SProperty devkitName$Uehw = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x721adb764b3fbd1bL, 0x721adb764b3fbd1cL, "devkitName");
   }
 }

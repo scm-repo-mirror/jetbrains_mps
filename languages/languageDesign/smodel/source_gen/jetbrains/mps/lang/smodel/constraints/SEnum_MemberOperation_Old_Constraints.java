@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class SEnum_MemberOperation_Old_Constraints extends BaseConstraintsDescriptor {
   public SEnum_MemberOperation_Old_Constraints() {
-    super(AUX_oafbtc.SEnum_MemberOperation_Old_2ff51e20);
+    super(CONCEPTS.SEnum_MemberOperation_Old$l2);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed37e691L, 0x120ed37e692L, "member"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.member$COZ0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,9 +48,9 @@ public class SEnum_MemberOperation_Old_Constraints extends BaseConstraintsDescri
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
-            SNode enumNode = (SNodeOperations.isInstanceOf(enclosingNode, AUX_oafbtc.SEnumOperationInvocation_2aadfd37) ? SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, AUX_oafbtc.SEnumOperationInvocation_2aadfd37), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed32e98bL, 0x120ed32e98cL, "enumDeclaration")) : null);
+            SNode enumNode = (SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.SEnumOperationInvocation$$b) ? SLinkOperations.getTarget(SNodeOperations.cast(enclosingNode, CONCEPTS.SEnumOperationInvocation$$b), LINKS.enumDeclaration$JNaw) : null);
             if (enumNode != null) {
-              return ListScope.forResolvableElements(SLinkOperations.getChildren(enumNode, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member")));
+              return ListScope.forResolvableElements(SLinkOperations.getChildren(enumNode, LINKS.member$_cRv));
             }
             return ListScope.forResolvableElements(new ArrayList<SNode>());
           }
@@ -62,8 +63,14 @@ public class SEnum_MemberOperation_Old_Constraints extends BaseConstraintsDescri
   }
   private static final SNodePointer breakingNode_oafbtc_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "6836281137582800917");
 
-  private static final class AUX_oafbtc {
-    /*package*/ static final SConcept SEnum_MemberOperation_Old_2ff51e20 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed37e691L, "jetbrains.mps.lang.smodel.structure.SEnum_MemberOperation_Old");
-    /*package*/ static final SConcept SEnumOperationInvocation_2aadfd37 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed32e98bL, "jetbrains.mps.lang.smodel.structure.SEnumOperationInvocation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SEnum_MemberOperation_Old$l2 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed37e691L, "jetbrains.mps.lang.smodel.structure.SEnum_MemberOperation_Old");
+    /*package*/ static final SConcept SEnumOperationInvocation$$b = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed32e98bL, "jetbrains.mps.lang.smodel.structure.SEnumOperationInvocation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink member$COZ0 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed37e691L, 0x120ed37e692L, "member");
+    /*package*/ static final SReferenceLink enumDeclaration$JNaw = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x120ed32e98bL, 0x120ed32e98cL, "enumDeclaration");
+    /*package*/ static final SContainmentLink member$_cRv = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member");
   }
 }

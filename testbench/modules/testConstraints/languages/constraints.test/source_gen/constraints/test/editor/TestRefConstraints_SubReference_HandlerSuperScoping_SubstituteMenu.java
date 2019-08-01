@@ -14,7 +14,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
@@ -26,13 +25,14 @@ import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestRefConstraints_SubReference_HandlerSuperScoping_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_lqwasx_a(), AUX_lqwasx.TestRefConstraints_SubReference_HandlerSuperScoping_f07b71ea));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_lqwasx_a(), CONCEPTS.TestRefConstraints_SubReference_HandlerSuperScoping$ES));
     result.add(new SMP_Subconcepts_lqwasx_b());
     return result;
   }
@@ -54,7 +54,7 @@ public class TestRefConstraints_SubReference_HandlerSuperScoping_SubstituteMenu 
 
     public SMP_ReferenceScope_lqwasx_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_lqwasx.TestRefConstraints_SubReference_HandlerSuperScoping_f07b71ea, MetaAdapterFactory.getReferenceLink(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c73L, 0x244a306605641d21L, "target"));
+      super((SAbstractConcept) CONCEPTS.TestRefConstraints_SubReference_HandlerSuperScoping$ES, LINKS.target$rEaS);
     }
     @NotNull
     @Override
@@ -101,7 +101,7 @@ public class TestRefConstraints_SubReference_HandlerSuperScoping_SubstituteMenu 
   }
   public class SMP_Subconcepts_lqwasx_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_lqwasx.TestRefConstraints_SubReference_HandlerSuperScoping_f07b71ea);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.TestRefConstraints_SubReference_HandlerSuperScoping$ES);
     }
     @NotNull
     @Override
@@ -121,7 +121,11 @@ public class TestRefConstraints_SubReference_HandlerSuperScoping_SubstituteMenu 
     }
   }
 
-  private static final class AUX_lqwasx {
-    /*package*/ static final SConcept TestRefConstraints_SubReference_HandlerSuperScoping_f07b71ea = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c7fL, "constraints.test.structure.TestRefConstraints_SubReference_HandlerSuperScoping");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestRefConstraints_SubReference_HandlerSuperScoping$ES = MetaAdapterFactory.getConcept(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c7fL, "constraints.test.structure.TestRefConstraints_SubReference_HandlerSuperScoping");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$rEaS = MetaAdapterFactory.getReferenceLink(0x2b80057037584c14L, 0x86fb871266fb9d11L, 0x244a306605641c73L, 0x244a306605641d21L, "target");
   }
 }

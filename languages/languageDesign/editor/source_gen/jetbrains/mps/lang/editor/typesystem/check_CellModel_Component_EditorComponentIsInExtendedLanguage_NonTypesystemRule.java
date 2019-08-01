@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.Language;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -20,13 +19,16 @@ import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_CellModel_Component_EditorComponentIsInExtendedLanguage_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_CellModel_Component_EditorComponentIsInExtendedLanguage_NonTypesystemRule() {
   }
   public void applyRule(final SNode cmc, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(cmc, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent")) == null)) {
+    if ((SLinkOperations.getTarget(cmc, LINKS.editorComponent$AnLw) == null)) {
       return;
     }
     Language language = as_5bg4jt_a0a1a1(check_5bg4jt_a0a1a1(cmc.getModel()), Language.class);
@@ -35,11 +37,11 @@ public class check_CellModel_Component_EditorComponentIsInExtendedLanguage_NonTy
     }
     Set<Language> extendedLanguages = language.getAllExtendedLanguages();
 
-    Language ecLanguage = as_5bg4jt_a0a5a1(check_5bg4jt_a0a5a1(SLinkOperations.getTarget(cmc, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent")).getModel()), Language.class);
+    Language ecLanguage = as_5bg4jt_a0a5a1(check_5bg4jt_a0a5a1(SLinkOperations.getTarget(cmc, LINKS.editorComponent$AnLw).getModel()), Language.class);
     if (!(SetSequence.fromSet(extendedLanguages).contains(ecLanguage))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
-        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(cmc, "language " + ecLanguage.getModuleName() + " of editor component " + SPropertyOperations.getString(SLinkOperations.getTarget(cmc, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " is not extended by " + language.getModuleName(), "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "1235136520823", null, errorTarget);
+        IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(cmc, "language " + ecLanguage.getModuleName() + " of editor component " + SPropertyOperations.getString(SLinkOperations.getTarget(cmc, LINKS.editorComponent$AnLw), PROPS.name$tAp1) + " is not extended by " + language.getModuleName(), "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "1235136520823", null, errorTarget);
         {
           BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.lang.editor.typesystem.AddExtendedLanguage_QuickFix", false);
           intentionProvider.putArgument("extLang", ecLanguage);
@@ -51,7 +53,7 @@ public class check_CellModel_Component_EditorComponentIsInExtendedLanguage_NonTy
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_5bg4jt.CellModel_Component_58bccf85;
+    return CONCEPTS.CellModel_Component$1X;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -78,7 +80,15 @@ public class check_CellModel_Component_EditorComponentIsInExtendedLanguage_NonTy
     return (type.isInstance(o) ? (T) o : null);
   }
 
-  private static final class AUX_5bg4jt {
-    /*package*/ static final SConcept CellModel_Component_58bccf85 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, "jetbrains.mps.lang.editor.structure.CellModel_Component");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink editorComponent$AnLw = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_Component$1X = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, "jetbrains.mps.lang.editor.structure.CellModel_Component");
   }
 }

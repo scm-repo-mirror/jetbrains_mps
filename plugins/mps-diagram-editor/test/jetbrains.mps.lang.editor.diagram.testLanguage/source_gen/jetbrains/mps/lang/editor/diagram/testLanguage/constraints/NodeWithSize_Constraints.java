@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NodeWithSize_Constraints extends BaseConstraintsDescriptor {
   public NodeWithSize_Constraints() {
-    super(AUX_yxlugw.NodeWithSize_60ffe586);
+    super(CONCEPTS.NodeWithSize$Es);
   }
 
-  private static final class AUX_yxlugw {
-    /*package*/ static final SConcept NodeWithSize_60ffe586 = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.NodeWithSize");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeWithSize$Es = MetaAdapterFactory.getConcept(0x50560c9658e49c5L, 0xb8e79e4db4c7e97fL, 0x7a0afda102e202aaL, "jetbrains.mps.lang.editor.diagram.testLanguage.structure.NodeWithSize");
   }
 }

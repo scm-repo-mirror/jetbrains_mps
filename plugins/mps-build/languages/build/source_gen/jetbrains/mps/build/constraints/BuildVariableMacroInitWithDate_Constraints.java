@@ -5,7 +5,6 @@ package jetbrains.mps.build.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -16,15 +15,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildVariableMacroInitWithDate_Constraints extends BaseConstraintsDescriptor {
   public BuildVariableMacroInitWithDate_Constraints() {
-    super(AUX_xib8ri.BuildVariableMacroInitWithDate_8bc6cae2);
+    super(CONCEPTS.BuildVariableMacroInitWithDate$30);
   }
 
   public static class Pattern_Property extends BasePropertyConstraintsDescriptor {
     public Pattern_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x365f30e12d2c3e4L, 0x365f30e12d2c3f0L, "pattern"), container);
+      super(PROPS.pattern$QeJw, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -51,11 +51,15 @@ public class BuildVariableMacroInitWithDate_Constraints extends BaseConstraintsD
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x365f30e12d2c3e4L, 0x365f30e12d2c3f0L, "pattern"), new Pattern_Property(this));
+    properties.put(PROPS.pattern$QeJw, new Pattern_Property(this));
     return properties;
   }
 
-  private static final class AUX_xib8ri {
-    /*package*/ static final SConcept BuildVariableMacroInitWithDate_8bc6cae2 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x365f30e12d2c3e4L, "jetbrains.mps.build.structure.BuildVariableMacroInitWithDate");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildVariableMacroInitWithDate$30 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x365f30e12d2c3e4L, "jetbrains.mps.build.structure.BuildVariableMacroInitWithDate");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty pattern$QeJw = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x365f30e12d2c3e4L, 0x365f30e12d2c3f0L, "pattern");
   }
 }

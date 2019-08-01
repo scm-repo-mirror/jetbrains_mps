@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.closures.constraints.ClassifierTypeUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_VarVariableDeclaration_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,7 +22,7 @@ public class typeof_VarVariableDeclaration_InferenceRule extends AbstractInferen
   public void applyRule(final SNode varVariableDeclaration, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final SNode initializerType_typevar_8425555512443936489 = typeCheckingContext.createNewRuntimeTypesVariable();
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(varVariableDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(varVariableDeclaration, LINKS.initializer$KgD);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:376aaabb-efff-403a-9afa-fc63fa67c6b3(jetbrains.mps.baseLanguage.varVariable.typesystem)", "1236696586241", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(initializerType_typevar_8425555512443936489), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:376aaabb-efff-403a-9afa-fc63fa67c6b3(jetbrains.mps.baseLanguage.varVariable.typesystem)", "1236696598890", true), _info_12389875345);
     }
@@ -29,7 +30,7 @@ public class typeof_VarVariableDeclaration_InferenceRule extends AbstractInferen
       final SNode _concreteInitializerType = typeCheckingContext.getRepresentative(initializerType_typevar_8425555512443936489);
       typeCheckingContext.whenConcrete(_concreteInitializerType, new Runnable() {
         public void run() {
-          SNode concreteInitializerType = SNodeOperations.cast(typeCheckingContext.getExpandedNode(_concreteInitializerType), AUX_lwie4t.Type_4199e276);
+          SNode concreteInitializerType = SNodeOperations.cast(typeCheckingContext.getExpandedNode(_concreteInitializerType), CONCEPTS.Type$IG);
           concreteInitializerType = ClassifierTypeUtil.copyTypeRecursively(ClassifierTypeUtil.getTypeCoercedToClassifierType(concreteInitializerType));
           {
             SNode _nodeToCheck_1029348928467 = varVariableDeclaration;
@@ -41,7 +42,7 @@ public class typeof_VarVariableDeclaration_InferenceRule extends AbstractInferen
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_lwie4t.VarVariableDeclaration_a40678b3;
+    return CONCEPTS.VarVariableDeclaration$Of;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -50,8 +51,12 @@ public class typeof_VarVariableDeclaration_InferenceRule extends AbstractInferen
     return true;
   }
 
-  private static final class AUX_lwie4t {
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
-    /*package*/ static final SConcept VarVariableDeclaration_a40678b3 = MetaAdapterFactory.getConcept(0x515552c7fcc04ab4L, 0x97892f3c49344e85L, 0x11ff0aa3699L, "jetbrains.mps.baseLanguage.varVariable.structure.VarVariableDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink initializer$KgD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SConcept VarVariableDeclaration$Of = MetaAdapterFactory.getConcept(0x515552c7fcc04ab4L, 0x97892f3c49344e85L, 0x11ff0aa3699L, "jetbrains.mps.baseLanguage.varVariable.structure.VarVariableDeclaration");
   }
 }

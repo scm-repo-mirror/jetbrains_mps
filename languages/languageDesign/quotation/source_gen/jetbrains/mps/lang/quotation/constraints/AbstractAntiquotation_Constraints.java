@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class AbstractAntiquotation_Constraints extends BaseConstraintsDescriptor {
   public AbstractAntiquotation_Constraints() {
-    super(AUX_nke767.AbstractAntiquotation_25f29ace);
+    super(CONCEPTS.AbstractAntiquotation$Tk);
   }
 
   @Override
@@ -37,11 +37,11 @@ public class AbstractAntiquotation_Constraints extends BaseConstraintsDescriptor
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_nke767.AbstractAntiquotation_25f29ace, true, false) == null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.AbstractAntiquotation$Tk, true, false) == null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:abd7937b-2ad1-4cfc-8256-a7fa45a55f0f(jetbrains.mps.lang.quotation.constraints)", "1227128029536562885");
 
-  private static final class AUX_nke767 {
-    /*package*/ static final SInterfaceConcept AbstractAntiquotation_25f29ace = MetaAdapterFactory.getInterfaceConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104656L, "jetbrains.mps.lang.quotation.structure.AbstractAntiquotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept AbstractAntiquotation$Tk = MetaAdapterFactory.getInterfaceConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104656L, "jetbrains.mps.lang.quotation.structure.AbstractAntiquotation");
   }
 }

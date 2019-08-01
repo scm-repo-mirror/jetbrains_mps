@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Tokens__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_bdkrnx.Tokens_29d71721;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, "jetbrains.mps.baseLanguage.structure.Tokens");
 
   public static final SMethod<String> firstToken_id17WpDCYRWCz = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("firstToken").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("17WpDCYRWCz").build();
   public static final SMethod<String> lastToken_id17WpDCYLyrY = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("lastToken").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("17WpDCYLyrY").build();
@@ -33,39 +33,39 @@ public final class Tokens__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static String firstToken_id17WpDCYRWCz(@NotNull SNode __thisNode__) {
-    if (SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")) == null) {
+    if (SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu) == null) {
       return null;
     }
 
-    int firstDot = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")).indexOf('.');
+    int firstDot = SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu).indexOf('.');
     if (firstDot < 0) {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens"));
+      return SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu);
     } else {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")).substring(0, firstDot);
+      return SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu).substring(0, firstDot);
     }
   }
   /*package*/ static String lastToken_id17WpDCYLyrY(@NotNull SNode __thisNode__) {
-    if (SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")) == null) {
+    if (SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu) == null) {
       return null;
     }
 
-    int lastDot = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")).lastIndexOf('.');
+    int lastDot = SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu).lastIndexOf('.');
     if (lastDot < 0) {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens"));
+      return SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu);
     } else {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")).substring(lastDot + 1);
+      return SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu).substring(lastDot + 1);
     }
   }
   /*package*/ static String withoutLastToken_id5ll4uk6512$(@NotNull SNode __thisNode__) {
-    if (SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")) == null) {
+    if (SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu) == null) {
       return null;
     }
 
-    int lastDot = SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")).lastIndexOf('.');
+    int lastDot = SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu).lastIndexOf('.');
     if (lastDot < 0) {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens"));
+      return SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu);
     } else {
-      return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens")).substring(0, lastDot);
+      return SPropertyOperations.getString(__thisNode__, PROPS.tokens$DqHu).substring(0, lastDot);
     }
   }
 
@@ -119,7 +119,7 @@ public final class Tokens__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_bdkrnx {
-    /*package*/ static final SInterfaceConcept Tokens_29d71721 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, "jetbrains.mps.baseLanguage.structure.Tokens");
+  private static final class PROPS {
+    /*package*/ static final SProperty tokens$DqHu = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x5a98df4004080866L, 0x1996ec29712bdd92L, "tokens");
   }
 }

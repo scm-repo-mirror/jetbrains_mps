@@ -12,11 +12,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 public class NodeAttributesUtil {
   public static boolean isDeprecatedNode(SNode node) {
-    return SNodeOperations.isInstanceOf(node, AUX_qi8in1.IStructureDeprecatable_504f05c0) && (AttributeOperations.getAttribute(SNodeOperations.cast(node, AUX_qi8in1.IStructureDeprecatable_504f05c0), new IAttributeDescriptor.NodeAttribute(AUX_qi8in1.DeprecatedNodeAnnotation_3819b71a)) != null);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.IStructureDeprecatable$6y) && (AttributeOperations.getAttribute(SNodeOperations.cast(node, CONCEPTS.IStructureDeprecatable$6y), new IAttributeDescriptor.NodeAttribute(CONCEPTS.DeprecatedNodeAnnotation$I8)) != null);
   }
 
-  private static final class AUX_qi8in1 {
-    /*package*/ static final SInterfaceConcept IStructureDeprecatable_504f05c0 = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d2ea63881L, "jetbrains.mps.lang.structure.structure.IStructureDeprecatable");
-    /*package*/ static final SConcept DeprecatedNodeAnnotation_3819b71a = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L, "jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IStructureDeprecatable$6y = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d2ea63881L, "jetbrains.mps.lang.structure.structure.IStructureDeprecatable");
+    /*package*/ static final SConcept DeprecatedNodeAnnotation$I8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d0a70ae54L, "jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation");
   }
 }

@@ -60,7 +60,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     public ReplaceWith_BaseInlineDocTag_cellMenu_ru37wa_a0a() {
     }
     public SAbstractConcept getReplacementConcept() {
-      return AUX_cwt4no.BaseInlineDocTag_87a9992c;
+      return CONCEPTS.BaseInlineDocTag$IQ;
     }
     @Override
     protected EditorMenuDescriptor createEditorMenuDescriptor(CellContext cellContext, EditorContext editorContext) {
@@ -68,7 +68,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     }
   }
 
-  private static final class AUX_cwt4no {
-    /*package*/ static final SConcept BaseInlineDocTag_87a9992c = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e838L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseInlineDocTag");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseInlineDocTag$IQ = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x60a0f9237ac5e838L, "jetbrains.mps.baseLanguage.javadoc.structure.BaseInlineDocTag");
   }
 }

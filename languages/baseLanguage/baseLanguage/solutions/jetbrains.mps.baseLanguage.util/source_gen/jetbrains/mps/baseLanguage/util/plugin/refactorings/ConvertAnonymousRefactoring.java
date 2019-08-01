@@ -6,7 +6,6 @@ import java.util.Set;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Map;
 import java.util.List;
@@ -23,6 +22,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.Collection;
@@ -32,11 +32,13 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConvertAnonymousRefactoring {
-  private static final Set<SContainmentLink> ROLES_NOT_TO_COPY = SetSequence.fromSetAndArray(new HashSet<SContainmentLink>(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"));
+  private static final Set<SContainmentLink> ROLES_NOT_TO_COPY = SetSequence.fromSetAndArray(new HashSet<SContainmentLink>(), LINKS.visibility$2GiC);
   private SNode myClassToRefactor;
   private String myNameForInnerClass;
   private Map<SNode, SNode> myInnerFields;
@@ -49,9 +51,9 @@ public class ConvertAnonymousRefactoring {
   }
   public void doRefactor() {
     collectInformation();
-    SNode creator = SNodeOperations.as(SNodeOperations.getParent(myClassToRefactor), AUX_qy1soj.AnonymousClassCreator_f341761c);
+    SNode creator = SNodeOperations.as(SNodeOperations.getParent(myClassToRefactor), CONCEPTS.AnonymousClassCreator$N6);
     if ((creator != null)) {
-      SNodeOperations.replaceWithAnother(creator, makeInnerConstructorInvocation(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(makeInnerClass(), AUX_qy1soj.ClassConcept_e2711824, SMethodTrimmedId.create("constructors", AUX_qy1soj.ClassConcept_e2711824, "4_LVZ3pCvsd")))).first()));
+      SNodeOperations.replaceWithAnother(creator, makeInnerConstructorInvocation(Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(makeInnerClass(), CONCEPTS.ClassConcept$IY, SMethodTrimmedId.create("constructors", CONCEPTS.ClassConcept$IY, "4_LVZ3pCvsd")))).first()));
     }
   }
   private void collectInformation() {
@@ -63,26 +65,26 @@ public class ConvertAnonymousRefactoring {
   private void createParameterDeclarationsForFields() {
     this.myInnerConstructorParameters = MapSequence.fromMap(new LinkedHashMap<SNode, SNode>(16, (float) 0.75, false));
     for (SNode varDeclaration : SetSequence.fromSet(MapSequence.fromMap(this.myInnerFields).keySet())) {
-      MapSequence.fromMap(this.myInnerConstructorParameters).put(MapSequence.fromMap(this.myInnerFields).get(varDeclaration), _quotation_createNode_qy1soj_a0a0b0k(SLinkOperations.getTarget(varDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")), SPropertyOperations.getString(varDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))));
+      MapSequence.fromMap(this.myInnerConstructorParameters).put(MapSequence.fromMap(this.myInnerFields).get(varDeclaration), _quotation_createNode_qy1soj_a0a0b0k(SLinkOperations.getTarget(varDeclaration, LINKS.type$pLrO), SPropertyOperations.getString(varDeclaration, PROPS.name$tAp1)));
     }
   }
   private void collectFields() {
     this.myInnerFields = MapSequence.fromMap(new LinkedHashMap<SNode, SNode>(16, (float) 0.75, false));
     for (SNode varReference : Sequence.fromIterable(this.getExternalReferences(this.myClassToRefactor))) {
-      SNode varDeclaration = SLinkOperations.getTarget(varReference, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"));
+      SNode varDeclaration = SLinkOperations.getTarget(varReference, LINKS.variableDeclaration$2ky6);
       if (!(MapSequence.fromMap(this.myInnerFields).containsKey(varDeclaration))) {
-        MapSequence.fromMap(this.myInnerFields).put(varDeclaration, _quotation_createNode_qy1soj_a0a0b0b0l(SNodeOperations.copyNode(SLinkOperations.getTarget(varDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"))), "my" + NameUtil.capitalize(SPropertyOperations.getString(varDeclaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))));
+        MapSequence.fromMap(this.myInnerFields).put(varDeclaration, _quotation_createNode_qy1soj_a0a0b0b0l(SNodeOperations.copyNode(SLinkOperations.getTarget(varDeclaration, LINKS.type$pLrO)), "my" + NameUtil.capitalize(SPropertyOperations.getString(varDeclaration, PROPS.name$tAp1))));
       }
     }
   }
   private void collectTypeVariables() {
     Set<SNode> usedTypeVariables = SetSequence.fromSet(new HashSet<SNode>());
     for (SNode node : Sequence.fromIterable(MapSequence.fromMap(myInnerFields).values()).concat(Sequence.fromIterable(Sequence.<SNode>singleton(myClassToRefactor)))) {
-      SetSequence.fromSet(usedTypeVariables).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.getNodeDescendants(node, AUX_qy1soj.TypeVariableReference_3815fc3, false, new SAbstractConcept[]{}), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration"))));
+      SetSequence.fromSet(usedTypeVariables).addSequence(Sequence.fromIterable(SLinkOperations.collect(SNodeOperations.getNodeDescendants(node, CONCEPTS.TypeVariableReference$vZ, false, new SAbstractConcept[]{}), LINKS.typeVariableDeclaration$U0X4)));
     }
 
     myInnerTypeVariables = MapSequence.fromMap(new LinkedHashMap<SNode, SNode>(16, (float) 0.75, false));
-    for (SNode decl : Sequence.fromIterable(SLinkOperations.collectMany(SNodeOperations.getNodeAncestors(myClassToRefactor, AUX_qy1soj.BaseMethodDeclaration_9dbf9acb, false), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration")))) {
+    for (SNode decl : Sequence.fromIterable(SLinkOperations.collectMany(SNodeOperations.getNodeAncestors(myClassToRefactor, CONCEPTS.BaseMethodDeclaration$RR, false), LINKS.typeVariableDeclaration$ziZT))) {
       if (SetSequence.fromSet(usedTypeVariables).contains(decl)) {
         MapSequence.fromMap(myInnerTypeVariables).put(decl, SNodeOperations.copyNode(decl));
       }
@@ -90,15 +92,15 @@ public class ConvertAnonymousRefactoring {
   }
   private void collectSuperConstructorParameters() {
     this.mySuperConstructorParameters = new ArrayList<SNode>();
-    for (SNode param : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(this.myClassToRefactor, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter")))) {
+    for (SNode param : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(this.myClassToRefactor, LINKS.baseMethodDeclaration$$A7i), LINKS.parameter$WIkZ))) {
       ListSequence.fromList(this.mySuperConstructorParameters).addElement(SNodeOperations.copyNode(param));
     }
   }
   private SNode makeInnerClass() {
     SNode innerClass = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept"));
-    ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(this.myClassToRefactor, AUX_qy1soj.Classifier_4b7e553, false, false), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"))).addElement(innerClass);
-    SPropertyOperations.assign(innerClass, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), this.myNameForInnerClass);
-    SLinkOperations.setTarget(innerClass, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility")));
+    ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.getNodeAncestor(this.myClassToRefactor, CONCEPTS.Classifier$hJ, false, false), LINKS.member$oYX5)).addElement(innerClass);
+    SPropertyOperations.assign(innerClass, PROPS.name$tAp1, this.myNameForInnerClass);
+    SLinkOperations.setTarget(innerClass, LINKS.visibility$2GiC, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9586f0cL, "jetbrains.mps.baseLanguage.structure.PrivateVisibility")));
     this.chooseNonStaticForInnerClass(innerClass);
     this.copyChildren(this.myClassToRefactor, innerClass);
     this.addSuperToInnerClass(innerClass);
@@ -108,34 +110,34 @@ public class ConvertAnonymousRefactoring {
     return innerClass;
   }
   private void makeInnerConstructor(SNode innerClass) {
-    if (Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(innerClass, AUX_qy1soj.ClassConcept_e2711824, SMethodTrimmedId.create("constructors", AUX_qy1soj.ClassConcept_e2711824, "4_LVZ3pCvsd")))).isEmpty()) {
-      SNode ctor = SModelOperations.createNewNode(SNodeOperations.getModel(innerClass), null, AUX_qy1soj.ConstructorDeclaration_9dbf9ae8);
+    if (Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(innerClass, CONCEPTS.ClassConcept$IY, SMethodTrimmedId.create("constructors", CONCEPTS.ClassConcept$IY, "4_LVZ3pCvsd")))).isEmpty()) {
+      SNode ctor = SModelOperations.createNewNode(SNodeOperations.getModel(innerClass), null, CONCEPTS.ConstructorDeclaration$5U);
       MemberInsertingUtils.insertClassifierMemberInBestPlace(innerClass, ctor);
-      SLinkOperations.setNewChild(ctor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body"), null);
-      SLinkOperations.setNewChild(ctor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), AUX_qy1soj.PublicVisibility_63d95354);
-      SLinkOperations.setNewChild(ctor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType"), AUX_qy1soj.VoidType_d96d05c9);
+      SLinkOperations.setNewChild(ctor, LINKS.body$WIlu, null);
+      SLinkOperations.setNewChild(ctor, LINKS.visibility$2GiC, CONCEPTS.PublicVisibility$qe);
+      SLinkOperations.setNewChild(ctor, LINKS.returnType$WIkw, CONCEPTS.VoidType$aT);
     }
-    SNode innerConstructor = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(innerClass, AUX_qy1soj.ClassConcept_e2711824, SMethodTrimmedId.create("constructors", AUX_qy1soj.ClassConcept_e2711824, "4_LVZ3pCvsd")))).first();
+    SNode innerConstructor = Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(innerClass, CONCEPTS.ClassConcept$IY, SMethodTrimmedId.create("constructors", CONCEPTS.ClassConcept$IY, "4_LVZ3pCvsd")))).first();
     this.addParametersToConstructor(innerConstructor);
     this.makeConstructorBody(innerConstructor);
   }
   private void makeConstructorBody(SNode constructorDeclaration) {
-    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(this.myClassToRefactor, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).isNotEmpty()) {
+    if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(this.myClassToRefactor, LINKS.baseMethodDeclaration$$A7i), LINKS.parameter$WIkZ)).isNotEmpty()) {
       List<SNode> parameterReferences = ListSequence.fromList(this.mySuperConstructorParameters).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return ((SNode) (SNode) BHReflection.invoke0(it, AUX_qy1soj.VariableDeclaration_3c610994, SMethodTrimmedId.create("createReference", null, "hEwJfME")));
+          return ((SNode) (SNode) BHReflection.invoke0(it, CONCEPTS.VariableDeclaration$xe, SMethodTrimmedId.create("createReference", null, "hEwJfME")));
         }
       }).toListSequence();
-      SNode invocation = createSuperConstructorInvocation_qy1soj_a0b0a0q(SLinkOperations.getTarget(this.myClassToRefactor, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")), parameterReferences);
-      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(constructorDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).insertElement(0, invocation);
+      SNode invocation = createSuperConstructorInvocation_qy1soj_a0b0a0q(SLinkOperations.getTarget(this.myClassToRefactor, LINKS.baseMethodDeclaration$$A7i), parameterReferences);
+      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(constructorDeclaration, LINKS.body$WIlu), LINKS.statement$WHn8)).insertElement(0, invocation);
     }
     for (SNode fieldDeclaration : SetSequence.fromSet(MapSequence.fromMap(this.myInnerConstructorParameters).keySet())) {
-      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(constructorDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).addElement(_quotation_createNode_qy1soj_a0a0a1a61(SNodeOperations.getParent(constructorDeclaration), fieldDeclaration, ((SNode) BHReflection.invoke0(MapSequence.fromMap(this.myInnerConstructorParameters).get(fieldDeclaration), AUX_qy1soj.VariableDeclaration_3c610994, SMethodTrimmedId.create("createReference", null, "hEwJfME")))));
+      ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(constructorDeclaration, LINKS.body$WIlu), LINKS.statement$WHn8)).addElement(_quotation_createNode_qy1soj_a0a0a1a61(SNodeOperations.getParent(constructorDeclaration), fieldDeclaration, ((SNode) BHReflection.invoke0(MapSequence.fromMap(this.myInnerConstructorParameters).get(fieldDeclaration), CONCEPTS.VariableDeclaration$xe, SMethodTrimmedId.create("createReference", null, "hEwJfME")))));
     }
   }
   private void addParametersToConstructor(SNode constructorDeclaration) {
-    ListSequence.fromList(SLinkOperations.getChildren(constructorDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).addSequence(ListSequence.fromList(this.mySuperConstructorParameters));
-    ListSequence.fromList(SLinkOperations.getChildren(constructorDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter"))).addSequence(Sequence.fromIterable(MapSequence.fromMap(this.myInnerConstructorParameters).values()));
+    ListSequence.fromList(SLinkOperations.getChildren(constructorDeclaration, LINKS.parameter$WIkZ)).addSequence(ListSequence.fromList(this.mySuperConstructorParameters));
+    ListSequence.fromList(SLinkOperations.getChildren(constructorDeclaration, LINKS.parameter$WIkZ)).addSequence(Sequence.fromIterable(MapSequence.fromMap(this.myInnerConstructorParameters).values()));
   }
   private void copyChildren(SNode from, SNode to) {
     Collection<SContainmentLink> links = SNodeOperations.getConcept(to).getContainmentLinks();
@@ -149,42 +151,42 @@ public class ConvertAnonymousRefactoring {
     }
   }
   private void chooseNonStaticForInnerClass(SNode innerClass) {
-    SPropertyOperations.assign(innerClass, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic"), !(isStatic()));
+    SPropertyOperations.assign(innerClass, PROPS.nonStatic$pNlE, !(isStatic()));
   }
   private void addFieldsToInnerClass(SNode innerClass) {
     for (SNode field : Sequence.fromIterable(MapSequence.fromMap(this.myInnerFields).values())) {
       MemberInsertingUtils.insertClassifierMemberInBestPlace(innerClass, field);
     }
     for (SNode varReference : Sequence.fromIterable(this.getExternalReferences(innerClass))) {
-      SNodeOperations.replaceWithAnother(varReference, _quotation_createNode_qy1soj_a0a0a1a02(innerClass, MapSequence.fromMap(this.myInnerFields).get(SLinkOperations.getTarget(varReference, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")))));
+      SNodeOperations.replaceWithAnother(varReference, _quotation_createNode_qy1soj_a0a0a1a02(innerClass, MapSequence.fromMap(this.myInnerFields).get(SLinkOperations.getTarget(varReference, LINKS.variableDeclaration$2ky6))));
     }
   }
   private void addTypeVariablesToInnerClass(SNode innerClass) {
-    ListSequence.fromList(SLinkOperations.getChildren(innerClass, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration"))).addSequence(MapSequence.fromMap(myInnerTypeVariables).select(new ISelector<IMapping<SNode, SNode>, SNode>() {
+    ListSequence.fromList(SLinkOperations.getChildren(innerClass, LINKS.typeVariableDeclaration$ziZT)).addSequence(MapSequence.fromMap(myInnerTypeVariables).select(new ISelector<IMapping<SNode, SNode>, SNode>() {
       public SNode select(IMapping<SNode, SNode> it) {
         return it.value();
       }
     }));
-    for (SNode typeReference : ListSequence.fromList(SNodeOperations.getNodeDescendants(innerClass, AUX_qy1soj.TypeVariableReference_3815fc3, false, new SAbstractConcept[]{}))) {
-      if (MapSequence.fromMap(myInnerTypeVariables).containsKey(SLinkOperations.getTarget(typeReference, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration")))) {
-        SLinkOperations.setTarget(typeReference, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration"), MapSequence.fromMap(myInnerTypeVariables).get(SLinkOperations.getTarget(typeReference, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration"))));
+    for (SNode typeReference : ListSequence.fromList(SNodeOperations.getNodeDescendants(innerClass, CONCEPTS.TypeVariableReference$vZ, false, new SAbstractConcept[]{}))) {
+      if (MapSequence.fromMap(myInnerTypeVariables).containsKey(SLinkOperations.getTarget(typeReference, LINKS.typeVariableDeclaration$U0X4))) {
+        SLinkOperations.setTarget(typeReference, LINKS.typeVariableDeclaration$U0X4, MapSequence.fromMap(myInnerTypeVariables).get(SLinkOperations.getTarget(typeReference, LINKS.typeVariableDeclaration$U0X4)));
       }
     }
   }
   private void addSuperToInnerClass(SNode innerClass) {
-    SNode superInnerClass = _quotation_createNode_qy1soj_a0a0w(SLinkOperations.getTarget(this.myClassToRefactor, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier")));
-    ListSequence.fromList(SLinkOperations.getChildren(superInnerClass, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"))).addSequence(ListSequence.fromList(SLinkOperations.getChildren(this.myClassToRefactor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter"))));
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(this.myClassToRefactor, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier")), AUX_qy1soj.Interface_bca2069)) {
-      ListSequence.fromList(SLinkOperations.getChildren(innerClass, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface"))).addElement(superInnerClass);
+    SNode superInnerClass = _quotation_createNode_qy1soj_a0a0w(SLinkOperations.getTarget(this.myClassToRefactor, LINKS.classifier$1y5e));
+    ListSequence.fromList(SLinkOperations.getChildren(superInnerClass, LINKS.parameter$dQne)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(this.myClassToRefactor, LINKS.typeParameter$uY4E)));
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(this.myClassToRefactor, LINKS.classifier$1y5e), CONCEPTS.Interface$Kp)) {
+      ListSequence.fromList(SLinkOperations.getChildren(innerClass, LINKS.implementedInterface$mdc6)).addElement(superInnerClass);
     } else {
-      SLinkOperations.setTarget(innerClass, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass"), superInnerClass);
+      SLinkOperations.setTarget(innerClass, LINKS.superclass$_pqe, superInnerClass);
     }
   }
   private SNode makeInnerConstructorInvocation(SNode constructor) {
-    SNode constructorInvocation = _quotation_createNode_qy1soj_a0a0x(constructor, SLinkOperations.getChildren(this.myClassToRefactor, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument")));
-    ListSequence.fromList(SLinkOperations.getChildren(constructorInvocation, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).addSequence(SetSequence.fromSet(MapSequence.fromMap(this.myInnerFields).keySet()).select(new ISelector<SNode, SNode>() {
+    SNode constructorInvocation = _quotation_createNode_qy1soj_a0a0x(constructor, SLinkOperations.getChildren(this.myClassToRefactor, LINKS.actualArgument$$A7L));
+    ListSequence.fromList(SLinkOperations.getChildren(constructorInvocation, LINKS.actualArgument$$A7L)).addSequence(SetSequence.fromSet(MapSequence.fromMap(this.myInnerFields).keySet()).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return ((SNode) (SNode) BHReflection.invoke0(it, AUX_qy1soj.VariableDeclaration_3c610994, SMethodTrimmedId.create("createReference", null, "hEwJfME")));
+        return ((SNode) (SNode) BHReflection.invoke0(it, CONCEPTS.VariableDeclaration$xe, SMethodTrimmedId.create("createReference", null, "hEwJfME")));
       }
     }));
     for (SNode typeVaryable : MapSequence.fromMap(this.myInnerTypeVariables).select(new ISelector<IMapping<SNode, SNode>, SNode>() {
@@ -192,33 +194,33 @@ public class ConvertAnonymousRefactoring {
         return it.key();
       }
     })) {
-      ListSequence.fromList(SLinkOperations.getChildren(constructorInvocation, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, 0x11a59c8ffe0L, "typeParameter"))).addElement(_quotation_createNode_qy1soj_a0a0a2a32(typeVaryable));
+      ListSequence.fromList(SLinkOperations.getChildren(constructorInvocation, LINKS.typeParameter$swNi)).addElement(_quotation_createNode_qy1soj_a0a0a2a32(typeVaryable));
     }
     return constructorInvocation;
   }
   private Iterable<SNode> getExternalReferences(final SNode node) {
-    Iterable<SNode> result = ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_qy1soj.VariableReference_24d60dac, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+    Iterable<SNode> result = ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.VariableReference$sQ, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_qy1soj.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_qy1soj.ParameterDeclaration_24d60da8);
+        return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.ParameterDeclaration$qU);
       }
     }).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), null, false)).contains(node));
+        return !(ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTarget(it, LINKS.variableDeclaration$2ky6), null, false)).contains(node));
       }
     });
-    result = Sequence.fromIterable(result).concat(ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_qy1soj.VariableReference_24d60dac, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+    result = Sequence.fromIterable(result).concat(ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.VariableReference$sQ, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, AUX_qy1soj.VariableReference_24d60dac), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), AUX_qy1soj.LocalVariableDeclaration_d47683f3);
+        return SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6), CONCEPTS.LocalVariableDeclaration$Bf);
       }
     }).toListSequence().where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")), null, false)).contains(node));
+        return !(ListSequence.fromList(SNodeOperations.getNodeAncestors(SLinkOperations.getTarget(it, LINKS.variableDeclaration$2ky6), null, false)).contains(node));
       }
     }));
     return result;
   }
   private boolean isStatic() {
-    return check_qy1soj_a0a52(SNodeOperations.getNodeAncestor(myClassToRefactor, AUX_qy1soj.ClassifierMember_849b47d7, false, false));
+    return check_qy1soj_a0a52(SNodeOperations.getNodeAncestor(myClassToRefactor, CONCEPTS.ClassifierMember$9F, false, false));
   }
   private static SNode _quotation_createNode_qy1soj_a0a0b0k(Object parameter_1, Object parameter_2) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
@@ -228,7 +230,7 @@ public class ConvertAnonymousRefactoring {
     SNodeAccessUtil.setPropertyValue(quotedNode_3, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_2);
     quotedNode_4 = (SNode) parameter_1;
     if (quotedNode_4 != null) {
-      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), SNodeOperations.copyIfNecessary(quotedNode_4));
+      quotedNode_3.addChild(LINKS.type$pLrO, SNodeOperations.copyIfNecessary(quotedNode_4));
     }
     return quotedNode_3;
   }
@@ -241,19 +243,19 @@ public class ConvertAnonymousRefactoring {
     quotedNode_3.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"), "true");
     SNodeAccessUtil.setPropertyValue(quotedNode_3, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), (String) parameter_2);
     quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10af9586f0cL, "PrivateVisibility"), null, null, false);
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility"), quotedNode_4);
+    quotedNode_3.addChild(LINKS.visibility$2GiC, quotedNode_4);
     quotedNode_5 = (SNode) parameter_1;
     if (quotedNode_5 != null) {
-      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), SNodeOperations.copyIfNecessary(quotedNode_5));
+      quotedNode_3.addChild(LINKS.type$pLrO, SNodeOperations.copyIfNecessary(quotedNode_5));
     }
     return quotedNode_3;
   }
   private static SNode createSuperConstructorInvocation_qy1soj_a0b0a0q(SNode node0, Iterable<? extends SNode> seq0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_qy1soj.SuperConstructorInvocation_a3dc119a, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SuperConstructorInvocation$48, null, null, false);
+    n1.setReferenceTarget(LINKS.baseMethodDeclaration$$A7i, node0);
     for (SNode n : seq0) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(n, AUX_qy1soj.Expression_4199e28d)));
+      n1.addChild(LINKS.actualArgument$$A7L, SNodeOperations.copyIfNecessary(SNodeOperations.cast(n, CONCEPTS.Expression$TP)));
     }
     return n1;
   }
@@ -269,17 +271,17 @@ public class ConvertAnonymousRefactoring {
     quotedNode_5 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c77f1e96L, "AssignmentExpression"), null, null, false);
     quotedNode_6 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x116b46a08c4L, "DotExpression"), null, null, false);
     quotedNode_8 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf93d4da00cL, "ThisExpression"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_8, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept"), (SNode) parameter_1);
-    quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), quotedNode_8);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_8, LINKS.classConcept$Hbij, (SNode) parameter_1);
+    quotedNode_6.addChild(LINKS.operand$Lcrr, quotedNode_8);
     quotedNode_9 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x116b483d77aL, "FieldReferenceOperation"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_9, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration"), (SNode) parameter_2);
-    quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), quotedNode_9);
-    quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue"), quotedNode_6);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_9, LINKS.fieldDeclaration$mLBy, (SNode) parameter_2);
+    quotedNode_6.addChild(LINKS.operation$X4R8, quotedNode_9);
+    quotedNode_5.addChild(LINKS.lValue$J0D4, quotedNode_6);
     quotedNode_7 = (SNode) parameter_3;
     if (quotedNode_7 != null) {
-      quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue"), SNodeOperations.copyIfNecessary(quotedNode_7));
+      quotedNode_5.addChild(LINKS.rValue$J0E2, SNodeOperations.copyIfNecessary(quotedNode_7));
     }
-    quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression"), quotedNode_5);
+    quotedNode_4.addChild(LINKS.expression$WIP0, quotedNode_5);
     return quotedNode_4;
   }
   private static SNode _quotation_createNode_qy1soj_a0a0a1a02(Object parameter_1, Object parameter_2) {
@@ -289,18 +291,18 @@ public class ConvertAnonymousRefactoring {
     SNode quotedNode_5 = null;
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x116b46a08c4L, "DotExpression"), null, null, false);
     quotedNode_4 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf93d4da00cL, "ThisExpression"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_4, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept"), (SNode) parameter_1);
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), quotedNode_4);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_4, LINKS.classConcept$Hbij, (SNode) parameter_1);
+    quotedNode_3.addChild(LINKS.operand$Lcrr, quotedNode_4);
     quotedNode_5 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x116b483d77aL, "FieldReferenceOperation"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_5, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration"), (SNode) parameter_2);
-    quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), quotedNode_5);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_5, LINKS.fieldDeclaration$mLBy, (SNode) parameter_2);
+    quotedNode_3.addChild(LINKS.operation$X4R8, quotedNode_5);
     return quotedNode_3;
   }
   private static SNode _quotation_createNode_qy1soj_a0a0w(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.classifier$pQ_R, (SNode) parameter_1);
     return quotedNode_2;
   }
   private static SNode _quotation_createNode_qy1soj_a0a0x(Object parameter_1, Object parameter_2) {
@@ -310,11 +312,11 @@ public class ConvertAnonymousRefactoring {
     SNode quotedNode_5 = null;
     SNode quotedNode_6 = null;
     quotedNode_3 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11a59b0fbceL, "ClassCreator"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_3, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_3, LINKS.baseMethodDeclaration$$A7i, (SNode) parameter_1);
     {
       List<SNode> nodes = (List<SNode>) parameter_2;
       for (SNode child : nodes) {
-        quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"), SNodeOperations.copyIfNecessary(child));
+        quotedNode_3.addChild(LINKS.actualArgument$$A7L, SNodeOperations.copyIfNecessary(child));
       }
     }
     return quotedNode_3;
@@ -323,32 +325,66 @@ public class ConvertAnonymousRefactoring {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x102467229d8L, "TypeVariableReference"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.typeVariableDeclaration$U0X4, (SNode) parameter_1);
     return quotedNode_2;
   }
   private static boolean check_qy1soj_a0a52(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
-      return ((boolean) (Boolean) BHReflection.invoke0(checkedDotOperand, AUX_qy1soj.ClassifierMember_849b47d7, SMethodTrimmedId.create("isStatic", null, "7MS72Gc8avw")));
+      return ((boolean) (Boolean) BHReflection.invoke0(checkedDotOperand, CONCEPTS.ClassifierMember$9F, SMethodTrimmedId.create("isStatic", null, "7MS72Gc8avw")));
     }
     return false;
   }
 
-  private static final class AUX_qy1soj {
-    /*package*/ static final SConcept AnonymousClassCreator_f341761c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, "jetbrains.mps.baseLanguage.structure.AnonymousClassCreator");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept TypeVariableReference_3815fc3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept PublicVisibility_63d95354 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
-    /*package*/ static final SConcept VoidType_d96d05c9 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SInterfaceConcept ClassifierMember_849b47d7 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
-    /*package*/ static final SConcept SuperConstructorInvocation_a3dc119a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d512e1eL, "jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink visibility$2GiC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+    /*package*/ static final SReferenceLink typeVariableDeclaration$U0X4 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, 0x1024673a581L, "typeVariableDeclaration");
+    /*package*/ static final SContainmentLink typeVariableDeclaration$ziZT = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102463b447aL, 0x102463bb98eL, "typeVariableDeclaration");
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+    /*package*/ static final SContainmentLink returnType$WIkw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+    /*package*/ static final SContainmentLink parameter$dQne = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter");
+    /*package*/ static final SContainmentLink typeParameter$uY4E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter");
+    /*package*/ static final SContainmentLink implementedInterface$mdc6 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface");
+    /*package*/ static final SContainmentLink superclass$_pqe = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass");
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
+    /*package*/ static final SContainmentLink typeParameter$swNi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, 0x11a59c8ffe0L, "typeParameter");
+    /*package*/ static final SReferenceLink classConcept$Hbij = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, 0x1136d9d21b3L, "classConcept");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SReferenceLink fieldDeclaration$mLBy = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, 0x116b484a653L, "fieldDeclaration");
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SContainmentLink lValue$J0D4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e97L, "lValue");
+    /*package*/ static final SContainmentLink rValue$J0E2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11b0d00332cL, 0xf8c77f1e99L, "rValue");
+    /*package*/ static final SContainmentLink expression$WIP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnonymousClassCreator$N6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, "jetbrains.mps.baseLanguage.structure.AnonymousClassCreator");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept TypeVariableReference$vZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102467229d8L, "jetbrains.mps.baseLanguage.structure.TypeVariableReference");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept PublicVisibility$qe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
+    /*package*/ static final SConcept VoidType$aT = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc6bf96dL, "jetbrains.mps.baseLanguage.structure.VoidType");
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SInterfaceConcept ClassifierMember$9F = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
+    /*package*/ static final SConcept SuperConstructorInvocation$48 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d512e1eL, "jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty nonStatic$pNlE = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x73c6d8a8c021f99L, "nonStatic");
   }
 }

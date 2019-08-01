@@ -17,9 +17,10 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import javax.swing.Icon;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MyMainActionGroup implements PaletteActionGroup {
   private Map<String, List<SNode>> tagToGroupMap = MapSequence.fromMap(new HashMap<String, List<SNode>>());
@@ -31,13 +32,13 @@ public class MyMainActionGroup implements PaletteActionGroup {
 
   public PaletteElement[] getElements() {
     List<PaletteElement> groups = ListSequence.fromList(new ArrayList<PaletteElement>());
-    ModelPlusImportedScope scope = new ModelPlusImportedScope(myDiagramCell.getSNode().getModel(), false, AUX_d9m1du.MetaBlock_ac76321f);
+    ModelPlusImportedScope scope = new ModelPlusImportedScope(myDiagramCell.getSNode().getModel(), false, CONCEPTS.MetaBlock$4z);
     for (SNode node : Sequence.fromIterable(scope.getAvailableElements(null)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_d9m1du.MetaBlock_ac76321f);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.MetaBlock$4z);
       }
     })) {
-      String key = SPropertyOperations.getString(SNodeOperations.cast(node, AUX_d9m1du.MetaBlock_ac76321f), MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec40c2c8L, 0x206c20835c7e9707L, "path"));
+      String key = SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.MetaBlock$4z), PROPS.path$xm$K);
       if (!(MapSequence.fromMap(tagToGroupMap).containsKey(key))) {
         MapSequence.fromMap(tagToGroupMap).put(key, ListSequence.fromList(new ArrayList<SNode>()));
       }
@@ -59,7 +60,11 @@ public class MyMainActionGroup implements PaletteActionGroup {
     return "";
   }
 
-  private static final class AUX_d9m1du {
-    /*package*/ static final SConcept MetaBlock_ac76321f = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec40c2c8L, "jetbrains.mps.testHybridEditor.structure.MetaBlock");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MetaBlock$4z = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec40c2c8L, "jetbrains.mps.testHybridEditor.structure.MetaBlock");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty path$xm$K = MetaAdapterFactory.getProperty(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0x20a804e2ec40c2c8L, 0x206c20835c7e9707L, "path");
   }
 }

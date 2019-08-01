@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class BuildExternalLayoutDependency_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_ye7991_a(), AUX_ye7991.BuildExternalLayoutDependency_4122fc54));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_ye7991_a(), CONCEPTS.BuildExternalLayoutDependency$Qe));
     result.add(new SMP_Subconcepts_ye7991_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class BuildExternalLayoutDependency_SubstituteMenu extends SubstituteMenu
 
     public SMP_ReferenceScope_ye7991_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_ye7991.BuildExternalLayoutDependency_4122fc54, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d3d0a4L, 0x63a87b9320d3d0a7L, "layout"));
+      super((SAbstractConcept) CONCEPTS.BuildExternalLayoutDependency$Qe, LINKS.layout$nLpY);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class BuildExternalLayoutDependency_SubstituteMenu extends SubstituteMenu
   }
   public class SMP_Subconcepts_ye7991_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_ye7991.BuildExternalLayoutDependency_4122fc54);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BuildExternalLayoutDependency$Qe);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class BuildExternalLayoutDependency_SubstituteMenu extends SubstituteMenu
     }
   }
 
-  private static final class AUX_ye7991 {
-    /*package*/ static final SConcept BuildExternalLayoutDependency_4122fc54 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d3d0a4L, "jetbrains.mps.build.structure.BuildExternalLayoutDependency");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildExternalLayoutDependency$Qe = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d3d0a4L, "jetbrains.mps.build.structure.BuildExternalLayoutDependency");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink layout$nLpY = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x63a87b9320d3d0a4L, 0x63a87b9320d3d0a7L, "layout");
   }
 }

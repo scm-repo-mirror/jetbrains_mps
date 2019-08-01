@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class FacetReference_Constraints extends BaseConstraintsDescriptor {
   public FacetReference_Constraints() {
-    super(AUX_1adbdx.FacetReference_e70643bd);
+    super(CONCEPTS.FacetReference$d5);
   }
 
-  private static final class AUX_1adbdx {
-    /*package*/ static final SConcept FacetReference_e70643bd = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, "jetbrains.mps.make.facet.structure.FacetReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FacetReference$d5 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, "jetbrains.mps.make.facet.structure.FacetReference");
   }
 }

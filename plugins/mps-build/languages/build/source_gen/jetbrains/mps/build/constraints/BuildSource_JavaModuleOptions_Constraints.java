@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -21,15 +20,17 @@ import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildSource_JavaModuleOptions_Constraints extends BaseConstraintsDescriptor {
   public BuildSource_JavaModuleOptions_Constraints() {
-    super(AUX_q5t0js.BuildSource_JavaModuleOptions_dd203b1a);
+    super(CONCEPTS.BuildSource_JavaModuleOptions$u8);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1708d207f2178b52L, 0x1708d207f214252bL, "compileOptions"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.compileOptions$vXAZ, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -44,7 +45,7 @@ public class BuildSource_JavaModuleOptions_Constraints extends BaseConstraintsDe
           }
           @Override
           public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return ((isEmptyString(SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0xcdff0e1a96739c3L, "optionsName"))) ? "<default options>" : SPropertyOperations.getString(_context.getParameterNode(), MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0xcdff0e1a96739c3L, "optionsName"))));
+            return ((isEmptyString(SPropertyOperations.getString(_context.getParameterNode(), PROPS.optionsName$jZt0)) ? "<default options>" : SPropertyOperations.getString(_context.getParameterNode(), PROPS.optionsName$jZt0)));
           }
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
@@ -52,7 +53,7 @@ public class BuildSource_JavaModuleOptions_Constraints extends BaseConstraintsDe
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_q5t0js.BuildSource_JavaOptions_d1ea835c);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.BuildSource_JavaOptions$u6);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
@@ -67,8 +68,16 @@ public class BuildSource_JavaModuleOptions_Constraints extends BaseConstraintsDe
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_q5t0js {
-    /*package*/ static final SConcept BuildSource_JavaModuleOptions_dd203b1a = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1708d207f2178b52L, "jetbrains.mps.build.structure.BuildSource_JavaModuleOptions");
-    /*package*/ static final SConcept BuildSource_JavaOptions_d1ea835c = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, "jetbrains.mps.build.structure.BuildSource_JavaOptions");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildSource_JavaModuleOptions$u8 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1708d207f2178b52L, "jetbrains.mps.build.structure.BuildSource_JavaModuleOptions");
+    /*package*/ static final SConcept BuildSource_JavaOptions$u6 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, "jetbrains.mps.build.structure.BuildSource_JavaOptions");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink compileOptions$vXAZ = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x1708d207f2178b52L, 0x1708d207f214252bL, "compileOptions");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty optionsName$jZt0 = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0xcdff0e1a96739c2L, 0xcdff0e1a96739c3L, "optionsName");
   }
 }

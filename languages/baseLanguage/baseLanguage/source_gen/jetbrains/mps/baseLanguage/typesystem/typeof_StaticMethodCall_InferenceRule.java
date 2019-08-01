@@ -18,7 +18,7 @@ public class typeof_StaticMethodCall_InferenceRule extends AbstractInferenceRule
     TypeVariableMatchUtil.calculateTypesForStaticMethod(typeCheckingContext, staticMethodCall);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_twb6p4.StaticMethodCall_9cd8c444;
+    return CONCEPTS.StaticMethodCall$eu;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -27,7 +27,7 @@ public class typeof_StaticMethodCall_InferenceRule extends AbstractInferenceRule
     return true;
   }
 
-  private static final class AUX_twb6p4 {
-    /*package*/ static final SConcept StaticMethodCall_9cd8c444 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticMethodCall$eu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf09L, "jetbrains.mps.baseLanguage.structure.StaticMethodCall");
   }
 }

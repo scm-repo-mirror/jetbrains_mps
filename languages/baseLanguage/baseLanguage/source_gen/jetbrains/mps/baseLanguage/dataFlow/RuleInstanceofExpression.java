@@ -11,9 +11,10 @@ import jetbrains.mps.baseLanguage.behavior.NextProgramPoint;
 import jetbrains.mps.baseLanguage.behavior.IConditional__BehaviorDescriptor;
 import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class RuleInstanceofExpression implements DataFlowConstructor {
   public boolean isApplicable(SNode node) {
@@ -22,13 +23,13 @@ public class RuleInstanceofExpression implements DataFlowConstructor {
     return concept.equals(applicableConcept) || concept.isSubConceptOf(applicableConcept);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_umjtao.InstanceOfExpression_70765a36;
+    return CONCEPTS.InstanceOfExpression$JG;
   }
   public void performActions(Program o, SNode node) {
-    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_umjtao.IConditional_d904c968))) {
+    if (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.IConditional$bU))) {
       return;
     }
-    SNode conditional = SNodeOperations.cast(SNodeOperations.getParent(node), AUX_umjtao.IConditional_d904c968);
+    SNode conditional = SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.IConditional$bU);
 
     NextProgramPoint pp = IConditional__BehaviorDescriptor.getNextProgramPoint_id3F8BxGibk8h.invoke(conditional, node, ((boolean) true));
     if (pp != null) {
@@ -40,7 +41,7 @@ public class RuleInstanceofExpression implements DataFlowConstructor {
           if (((Program) o).contains(object)) {
             boolean before = false;
             int position = ((Program) (o)).getEnd(object);
-            Instruction instruction = new notNullInstruction(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression")));
+            Instruction instruction = new notNullInstruction(SLinkOperations.getTarget(node, LINKS.leftExpression$zxNn));
             instruction.setRuleReference("r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/7701013275659709424");
             instruction.setSource(node);
             ((Program) (o)).insert(instruction, position, true, before);
@@ -52,7 +53,7 @@ public class RuleInstanceofExpression implements DataFlowConstructor {
           if (((Program) o).contains(object)) {
             boolean before = true;
             int position = ((Program) (o)).getStart(pp.getSucceedingNode());
-            Instruction instruction = new notNullInstruction(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression")));
+            Instruction instruction = new notNullInstruction(SLinkOperations.getTarget(node, LINKS.leftExpression$zxNn));
             instruction.setRuleReference("r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/7701013275659713511");
             instruction.setSource(node);
             ((Program) (o)).insert(instruction, position, true, before);
@@ -63,8 +64,12 @@ public class RuleInstanceofExpression implements DataFlowConstructor {
     // If instanceof didn't match, no idea whether leftExpression is nullable or not. 
   }
 
-  private static final class AUX_umjtao {
-    /*package*/ static final SConcept InstanceOfExpression_70765a36 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, "jetbrains.mps.baseLanguage.structure.InstanceOfExpression");
-    /*package*/ static final SInterfaceConcept IConditional_d904c968 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3ac89e1b122cd5c2L, "jetbrains.mps.baseLanguage.structure.IConditional");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceOfExpression$JG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, "jetbrains.mps.baseLanguage.structure.InstanceOfExpression");
+    /*package*/ static final SInterfaceConcept IConditional$bU = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3ac89e1b122cd5c2L, "jetbrains.mps.baseLanguage.structure.IConditional");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink leftExpression$zxNn = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbff03700L, 0xfbbff06218L, "leftExpression");
   }
 }

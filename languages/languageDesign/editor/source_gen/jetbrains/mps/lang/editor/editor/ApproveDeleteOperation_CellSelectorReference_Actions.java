@@ -8,13 +8,14 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ApproveDeleteOperation_CellSelectorReference_Actions {
@@ -25,14 +26,14 @@ public class ApproveDeleteOperation_CellSelectorReference_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(AUX_2kbkpo.AbstractCellSelector_2ccdb5fd), SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x73977fa5d21f1f37L, 0x7c9cb4f2b6826b88L, "cellSelector")))))) {
+        if (SConceptOperations.isExactly(SNodeOperations.asSConcept(CONCEPTS.AbstractCellSelector$$5), SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, LINKS.cellSelector$Ow7n))))) {
           if (DeletionApproverUtil.approve(editorContext, node, "cellSelector")) {
             return;
           }
-          SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x73977fa5d21f1f37L, 0x7c9cb4f2b6826b88L, "cellSelector"), null);
+          SLinkOperations.setTarget(node, LINKS.cellSelector$Ow7n, null);
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, "closingBracket", 0);
         } else {
-          SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x73977fa5d21f1f37L, 0x7c9cb4f2b6826b88L, "cellSelector"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1b0a9b8c0eb8e726L, "jetbrains.mps.lang.editor.structure.AbstractCellSelector")));
+          SLinkOperations.setTarget(node, LINKS.cellSelector$Ow7n, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1b0a9b8c0eb8e726L, "jetbrains.mps.lang.editor.structure.AbstractCellSelector")));
         }
       }
 
@@ -74,7 +75,11 @@ public class ApproveDeleteOperation_CellSelectorReference_Actions {
     }
   }
 
-  private static final class AUX_2kbkpo {
-    /*package*/ static final SConcept AbstractCellSelector_2ccdb5fd = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1b0a9b8c0eb8e726L, "jetbrains.mps.lang.editor.structure.AbstractCellSelector");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink cellSelector$Ow7n = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x73977fa5d21f1f37L, 0x7c9cb4f2b6826b88L, "cellSelector");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractCellSelector$$5 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1b0a9b8c0eb8e726L, "jetbrains.mps.lang.editor.structure.AbstractCellSelector");
   }
 }

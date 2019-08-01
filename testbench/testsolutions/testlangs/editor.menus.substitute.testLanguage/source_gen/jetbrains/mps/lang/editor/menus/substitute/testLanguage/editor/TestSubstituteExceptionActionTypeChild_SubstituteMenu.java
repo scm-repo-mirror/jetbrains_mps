@@ -27,8 +27,8 @@ public class TestSubstituteExceptionActionTypeChild_SubstituteMenu extends Subst
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nbkj2f_a(), AUX_nbkj2f.TestSubstituteExceptionActionTypeChild_53e20c31));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nbkj2f_b(), AUX_nbkj2f.TestSubstituteExceptionActionTypeChild_53e20c31));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nbkj2f_a(), CONCEPTS.TestSubstituteExceptionActionTypeChild$_h));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_nbkj2f_b(), CONCEPTS.TestSubstituteExceptionActionTypeChild$_h));
     return result;
   }
 
@@ -73,7 +73,7 @@ public class TestSubstituteExceptionActionTypeChild_SubstituteMenu extends Subst
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_nbkj2f.TestSubstituteExceptionActionTypeChild_53e20c31, context);
+        super(CONCEPTS.TestSubstituteExceptionActionTypeChild$_h, context);
         _context = context;
       }
 
@@ -126,7 +126,7 @@ public class TestSubstituteExceptionActionTypeChild_SubstituteMenu extends Subst
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_nbkj2f.TestSubstituteExceptionActionTypeChild_53e20c31, context);
+        super(CONCEPTS.TestSubstituteExceptionActionTypeChild$_h, context);
         _context = context;
       }
 
@@ -157,7 +157,7 @@ public class TestSubstituteExceptionActionTypeChild_SubstituteMenu extends Subst
     }
   }
 
-  private static final class AUX_nbkj2f {
-    /*package*/ static final SConcept TestSubstituteExceptionActionTypeChild_53e20c31 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb581c35cL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionActionTypeChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteExceptionActionTypeChild$_h = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb581c35cL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionActionTypeChild");
   }
 }

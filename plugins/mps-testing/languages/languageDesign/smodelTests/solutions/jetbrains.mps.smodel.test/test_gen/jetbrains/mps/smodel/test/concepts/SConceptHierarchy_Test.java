@@ -51,48 +51,48 @@ public class SConceptHierarchy_Test extends BaseTransformationTest {
     }
 
     public void test_conceptHierarchy() throws Exception {
-      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(AUX_pzab08.INamedConcept_8cd7e247), AUX_pzab08.BaseConcept_bc2351f));
-      Assert.assertTrue(AUX_pzab08.INamedConcept_8cd7e247.isSubConceptOf(AUX_pzab08.BaseConcept_bc2351f));
-      Assert.assertFalse(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(AUX_pzab08.BaseConcept_bc2351f), AUX_pzab08.INamedConcept_8cd7e247));
-      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(AUX_pzab08.INamedConcept_8cd7e247), SNodeOperations.asSConcept(AUX_pzab08.INamedConcept_8cd7e247)));
-      Assert.assertTrue(AUX_pzab08.INamedConcept_8cd7e247 instanceof SInterfaceConcept);
+      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(CONCEPTS.INamedConcept$nV), CONCEPTS.BaseConcept$Sz));
+      Assert.assertTrue(CONCEPTS.INamedConcept$nV.isSubConceptOf(CONCEPTS.BaseConcept$Sz));
+      Assert.assertFalse(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(CONCEPTS.BaseConcept$Sz), CONCEPTS.INamedConcept$nV));
+      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(CONCEPTS.INamedConcept$nV), SNodeOperations.asSConcept(CONCEPTS.INamedConcept$nV)));
+      Assert.assertTrue(CONCEPTS.INamedConcept$nV instanceof SInterfaceConcept);
       //  there's suspicious code in SConceptAdapter.getSuperInterfaces, make sure it didn't get out elsewhere 
-      Assert.assertTrue(AUX_pzab08.ImplementationWithStubPart_cd027773.getSuperInterfaces().iterator().next().equals(AUX_pzab08.ImplementationPart_5865f1c6));
+      Assert.assertTrue(CONCEPTS.ImplementationWithStubPart$pf.getSuperInterfaces().iterator().next().equals(CONCEPTS.ImplementationPart$ps));
     }
     public void test_conceptSuperConcept() throws Exception {
       // state the fact we do not report BaseConcept as its own super-concept 
       // it's questionable, as it makes BC the only concept without superconcept. 
-      SConcept baseConcept = AUX_pzab08.BaseConcept_bc2351f;
+      SConcept baseConcept = CONCEPTS.BaseConcept$Sz;
       Assert.assertNull(baseConcept.getSuperConcept());
       Assert.assertFalse(baseConcept.getSuperInterfaces().iterator().hasNext());
-      Assert.assertTrue(baseConcept.equals(AUX_pzab08.Attribute_2a18bbd3.getSuperConcept()));
-      Assert.assertTrue(AUX_pzab08.Attribute_2a18bbd3.equals(AUX_pzab08.NodeAttribute_d001db72.getSuperConcept()));
+      Assert.assertTrue(baseConcept.equals(CONCEPTS.Attribute$RJ.getSuperConcept()));
+      Assert.assertTrue(CONCEPTS.Attribute$RJ.equals(CONCEPTS.NodeAttribute$8K.getSuperConcept()));
     }
     public void test_defaultIfaceConcept() throws Exception {
-      SAbstractConcept defaultIfaceConcept = SNodeOperations.getConcept(SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(AUX_pzab08.INamedConcept_8cd7e247)));
-      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(defaultIfaceConcept), AUX_pzab08.INamedConcept_8cd7e247));
-      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(defaultIfaceConcept), AUX_pzab08.BaseConcept_bc2351f));
+      SAbstractConcept defaultIfaceConcept = SNodeOperations.getConcept(SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(CONCEPTS.INamedConcept$nV)));
+      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(defaultIfaceConcept), CONCEPTS.INamedConcept$nV));
+      Assert.assertTrue(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(defaultIfaceConcept), CONCEPTS.BaseConcept$Sz));
       // next two checks are questionable, as it puzzles users (see mbeddr slack Sep 17, 2016) 
-      Assert.assertFalse(defaultIfaceConcept.equals(AUX_pzab08.INamedConcept_8cd7e247));
-      Assert.assertFalse(SConceptOperations.isExactly(SNodeOperations.asSConcept(defaultIfaceConcept), AUX_pzab08.INamedConcept_8cd7e247));
+      Assert.assertFalse(defaultIfaceConcept.equals(CONCEPTS.INamedConcept$nV));
+      Assert.assertFalse(SConceptOperations.isExactly(SNodeOperations.asSConcept(defaultIfaceConcept), CONCEPTS.INamedConcept$nV));
 
-      Assert.assertFalse(AUX_pzab08.INamedConcept_8cd7e247.isSubConceptOf(defaultIfaceConcept));
+      Assert.assertFalse(CONCEPTS.INamedConcept$nV.isSubConceptOf(defaultIfaceConcept));
 
       Assert.assertTrue(defaultIfaceConcept instanceof SConcept);
-      Assert.assertTrue(((SConcept) defaultIfaceConcept).getSuperConcept().equals(AUX_pzab08.BaseConcept_bc2351f));
+      Assert.assertTrue(((SConcept) defaultIfaceConcept).getSuperConcept().equals(CONCEPTS.BaseConcept$Sz));
       Assert.assertTrue(IterableUtil.asCollection(((SConcept) defaultIfaceConcept).getSuperInterfaces()).size() == 1);
-      Assert.assertTrue(((SConcept) defaultIfaceConcept).getSuperInterfaces().iterator().next().equals(AUX_pzab08.INamedConcept_8cd7e247));
+      Assert.assertTrue(((SConcept) defaultIfaceConcept).getSuperInterfaces().iterator().next().equals(CONCEPTS.INamedConcept$nV));
     }
 
 
   }
 
-  private static final class AUX_pzab08 {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SInterfaceConcept ImplementationWithStubPart_cd027773 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x612410e32cf46136L, "jetbrains.mps.lang.core.structure.ImplementationWithStubPart");
-    /*package*/ static final SInterfaceConcept ImplementationPart_5865f1c6 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x12509ddfaa7c0557L, "jetbrains.mps.lang.core.structure.ImplementationPart");
-    /*package*/ static final SConcept Attribute_2a18bbd3 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x47bf8397520e5939L, "jetbrains.mps.lang.core.structure.Attribute");
-    /*package*/ static final SConcept NodeAttribute_d001db72 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L, "jetbrains.mps.lang.core.structure.NodeAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SInterfaceConcept ImplementationWithStubPart$pf = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x612410e32cf46136L, "jetbrains.mps.lang.core.structure.ImplementationWithStubPart");
+    /*package*/ static final SInterfaceConcept ImplementationPart$ps = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x12509ddfaa7c0557L, "jetbrains.mps.lang.core.structure.ImplementationPart");
+    /*package*/ static final SConcept Attribute$RJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x47bf8397520e5939L, "jetbrains.mps.lang.core.structure.Attribute");
+    /*package*/ static final SConcept NodeAttribute$8K = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da54L, "jetbrains.mps.lang.core.structure.NodeAttribute");
   }
 }

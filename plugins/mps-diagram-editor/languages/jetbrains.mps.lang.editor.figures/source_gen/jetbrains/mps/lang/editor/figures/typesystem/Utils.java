@@ -4,19 +4,26 @@ package jetbrains.mps.lang.editor.figures.typesystem;
 
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class Utils {
   /*package*/ static SNode getFirstGenericParameterType(SNode classifierType) {
-    if (classifierType != null && SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) != null && ListSequence.fromList(SLinkOperations.getChildren(classifierType, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"))).count() > 0) {
-      return ListSequence.fromList(SLinkOperations.getChildren(classifierType, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"))).first();
+    if (classifierType != null && SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R) != null && ListSequence.fromList(SLinkOperations.getChildren(classifierType, LINKS.parameter$dQne)).count() > 0) {
+      return ListSequence.fromList(SLinkOperations.getChildren(classifierType, LINKS.parameter$dQne)).first();
     }
     return null;
   }
   /*package*/ static boolean isSupportedParameterType(SNode classifierType, SNode superClassifier) {
-    return classifierType != null && SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")) != null && SetSequence.fromSet(Classifier__BehaviorDescriptor.getAllExtendedClassifiers_id2xreLMO8jma.invoke(SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")))).contains(superClassifier);
+    return classifierType != null && SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R) != null && SetSequence.fromSet(Classifier__BehaviorDescriptor.getAllExtendedClassifiers_id2xreLMO8jma.invoke(SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R))).contains(superClassifier);
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$dQne = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter");
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
   }
 }

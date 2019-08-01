@@ -67,7 +67,7 @@ public class check_ModulesImport_NonTypesystemRule extends AbstractNonTypesystem
     ml.checkAllModules(ModuleChecker.CheckType.CHECK);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_e9am04.BuildProject_808bb057;
+    return CONCEPTS.BuildProject$BF;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -76,7 +76,7 @@ public class check_ModulesImport_NonTypesystemRule extends AbstractNonTypesystem
     return false;
   }
 
-  private static final class AUX_e9am04 {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
   }
 }

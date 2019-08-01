@@ -20,7 +20,7 @@ public class short_extends_int_SubtypingRule extends SubtypingRule_Runtime imple
     return _quotation_createNode_q77eql_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_q77eql.ShortType_35a0773c;
+    return CONCEPTS.ShortType$YA;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +35,7 @@ public class short_extends_int_SubtypingRule extends SubtypingRule_Runtime imple
     return quotedNode_1;
   }
 
-  private static final class AUX_q77eql {
-    /*package*/ static final SConcept ShortType_35a0773c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cc380dL, "jetbrains.mps.baseLanguage.structure.ShortType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ShortType$YA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cc380dL, "jetbrains.mps.baseLanguage.structure.ShortType");
   }
 }

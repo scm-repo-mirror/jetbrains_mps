@@ -69,12 +69,12 @@ public class XMLSAXAttributeReference_SubstituteMenu extends SubstituteMenuBase 
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.core.xml.sax.editor.XMLSAXAttributeReference_SmartReference");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_8gefmj.XMLSAXAttributeReference_1c3fd37f;
+      return CONCEPTS.XMLSAXAttributeReference$J3;
     }
   }
   public class SMP_Subconcepts_8gefmj_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_8gefmj.XMLSAXAttributeReference_1c3fd37f);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.XMLSAXAttributeReference$J3);
     }
     @NotNull
     @Override
@@ -94,7 +94,7 @@ public class XMLSAXAttributeReference_SubstituteMenu extends SubstituteMenuBase 
     }
   }
 
-  private static final class AUX_8gefmj {
-    /*package*/ static final SConcept XMLSAXAttributeReference_1c3fd37f = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXAttributeReference$J3 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
   }
 }

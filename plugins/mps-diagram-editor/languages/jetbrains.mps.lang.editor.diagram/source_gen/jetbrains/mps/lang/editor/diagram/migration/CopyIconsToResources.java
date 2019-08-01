@@ -12,7 +12,6 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.util.MacroHelper;
 import jetbrains.mps.util.MacrosFactory;
@@ -21,10 +20,13 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SModelInternal;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.lang.migration.runtime.base.NotMigratedNode;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /**
  * This was copied from Structure Language's migration (v2)
@@ -50,20 +52,20 @@ public class CopyIconsToResources extends MigrationScriptBase {
           return scope_n70cuq_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_n70cuq.CreationActionReference_dfa87a5e, false)).where(new IWhereFilter<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.CreationActionReference$34, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return isNotEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, 0x3cfdbd635b5afe8dL, "iconPath")));
+          return isNotEmptyString(SPropertyOperations.getString(it, PROPS.iconPath$qm1k));
         }
       }).toListSequence().visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
           // we re-shrink paths to convert ${language_descriptoe} to ${module} at the same time 
           MacroHelper macros = MacrosFactory.forModule(m);
-          String newPath = macros.shrinkPath(macros.expandPath(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, 0x3cfdbd635b5afe8dL, "iconPath"))));
-          SPropertyOperations.assign(SLinkOperations.setNewChild(it, MetaAdapterFactory.getContainmentLink(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, 0x57cf4eb14c4f9ef5L, "icon"), AUX_n70cuq.FileIcon_a9e20c14), MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file"), newPath);
-          it.setProperty(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x10e328118ddL, "iconPath"), null);
+          String newPath = macros.shrinkPath(macros.expandPath(SPropertyOperations.getString(it, PROPS.iconPath$qm1k)));
+          SPropertyOperations.assign(SLinkOperations.setNewChild(it, LINKS.icon$$akM, CONCEPTS.FileIcon$ne), PROPS.file$xmj_, newPath);
+          it.setProperty(PROPS.iconPath$YYV1, null);
         }
       });
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_n70cuq.CreationActionReference_dfa87a5e, false)).select(new ISelector<SNode, SModel>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.CreationActionReference$34, false)).select(new ISelector<SNode, SModel>() {
         public SModel select(SNode it) {
           return SNodeOperations.getModel(it);
         }
@@ -85,9 +87,9 @@ public class CopyIconsToResources extends MigrationScriptBase {
           return scope_n70cuq_b0e_0;
         }
       };
-      result = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_n70cuq.CreationActionReference_dfa87a5e, false)).where(new IWhereFilter<SNode>() {
+      result = CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.CreationActionReference$34, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return isNotEmptyString(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, 0x3cfdbd635b5afe8dL, "iconPath")));
+          return isNotEmptyString(SPropertyOperations.getString(it, PROPS.iconPath$qm1k));
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
@@ -109,8 +111,18 @@ public class CopyIconsToResources extends MigrationScriptBase {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_n70cuq {
-    /*package*/ static final SConcept CreationActionReference_dfa87a5e = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, "jetbrains.mps.lang.editor.diagram.structure.CreationActionReference");
-    /*package*/ static final SConcept FileIcon_a9e20c14 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CreationActionReference$34 = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, "jetbrains.mps.lang.editor.diagram.structure.CreationActionReference");
+    /*package*/ static final SConcept FileIcon$ne = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, "jetbrains.mps.lang.resources.structure.FileIcon");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty iconPath$qm1k = MetaAdapterFactory.getProperty(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, 0x3cfdbd635b5afe8dL, "iconPath");
+    /*package*/ static final SProperty file$xmj_ = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x7c8b08a50a39c6bbL, 0x26417c377428f6b3L, "file");
+    /*package*/ static final SProperty iconPath$YYV1 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0x10e328118ddL, "iconPath");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink icon$$akM = MetaAdapterFactory.getContainmentLink(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x5bdb7aaec13745e9L, 0x57cf4eb14c4f9ef5L, "icon");
   }
 }

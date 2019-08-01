@@ -20,7 +20,6 @@ import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import com.intellij.openapi.ui.Messages;
 import java.util.List;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.ChangeMethodSignatureRefactoring;
@@ -29,6 +28,8 @@ import org.jetbrains.mps.openapi.model.SNodeUtil;
 import jetbrains.mps.refactoring.framework.RefactoringContext;
 import java.util.Arrays;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ChangeMethodSignature_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -57,7 +58,7 @@ public class ChangeMethodSignature_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_miouaf.BaseMethodDeclaration_9dbf9acb))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.BaseMethodDeclaration$RR))) {
         node = null;
       }
       MapSequence.fromMap(_params).put("method", node);
@@ -91,9 +92,9 @@ public class ChangeMethodSignature_Action extends BaseAction {
     modelAccess.runWriteAction(new Runnable() {
       public void run() {
         repo.saveAll();
-        baseMethod.value = ((SNode) BHReflection.invoke0(((SNode) MapSequence.fromMap(_params).get("method")), AUX_miouaf.BaseMethodDeclaration_9dbf9acb, SMethodTrimmedId.create("getBaseMethod", AUX_miouaf.BaseMethodDeclaration_9dbf9acb, "4mmymf_0z7l")));
+        baseMethod.value = ((SNode) BHReflection.invoke0(((SNode) MapSequence.fromMap(_params).get("method")), CONCEPTS.BaseMethodDeclaration$RR, SMethodTrimmedId.create("getBaseMethod", CONCEPTS.BaseMethodDeclaration$RR, "4mmymf_0z7l")));
         if (baseMethod.value != null) {
-          message.value = "Method " + ((SNode) MapSequence.fromMap(_params).get("method")).getPresentation() + " overrides method from " + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(baseMethod.value), AUX_miouaf.Classifier_4b7e553), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ".\n";
+          message.value = "Method " + ((SNode) MapSequence.fromMap(_params).get("method")).getPresentation() + " overrides method from " + SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getParent(baseMethod.value), CONCEPTS.Classifier$hJ), PROPS.name$tAp1) + ".\n";
           message.value += "Do you want to change signature of this method instead?";
         }
       }
@@ -126,8 +127,12 @@ public class ChangeMethodSignature_Action extends BaseAction {
     });
   }
 
-  private static final class AUX_miouaf {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

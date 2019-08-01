@@ -12,13 +12,14 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class ConvertLoopWithCopySrc_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -37,20 +38,20 @@ public final class ConvertLoopWithCopySrc_Intention extends AbstractIntentionDes
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    Iterable<SNode> nodes = SNodeOperations.ofConcept(SNodeOperations.getChildren(SNodeOperations.getParent(node)), AUX_twaq9r.NodeMacro_2cb20614);
+    Iterable<SNode> nodes = SNodeOperations.ofConcept(SNodeOperations.getChildren(SNodeOperations.getParent(node)), CONCEPTS.NodeMacro$Je);
     boolean seen = false;
     for (SNode n : nodes) {
       if (seen) {
-        if (SNodeOperations.isInstanceOf(n, AUX_twaq9r.CopySrcNodeMacro_1ef1b675)) {
-          SNode m = SLinkOperations.getTarget(SNodeOperations.cast(n, AUX_twaq9r.CopySrcNodeMacro_1ef1b675), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10389b50fefL, 0x10ff3aea96eL, "sourceNodeQuery"));
+        if (SNodeOperations.isInstanceOf(n, CONCEPTS.CopySrcNodeMacro$ud)) {
+          SNode m = SLinkOperations.getTarget(SNodeOperations.cast(n, CONCEPTS.CopySrcNodeMacro$ud), LINKS.sourceNodeQuery$u9yb);
           if ((m == null)) {
             return true;
           }
-          if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(m, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).count() != 1) {
+          if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(m, LINKS.body$pTP2), LINKS.statement$WHn8)).count() != 1) {
             return false;
           }
-          SNode st = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(m, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).first();
-          return SNodeOperations.isInstanceOf(st, AUX_twaq9r.ExpressionStatement_9dbf9b0c) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(st, AUX_twaq9r.ExpressionStatement_9dbf9b0c), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression")), AUX_twaq9r.TemplateFunctionParameter_sourceNode_6cc2a91a);
+          SNode st = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(m, LINKS.body$pTP2), LINKS.statement$WHn8)).first();
+          return SNodeOperations.isInstanceOf(st, CONCEPTS.ExpressionStatement$nm) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(st, CONCEPTS.ExpressionStatement$nm), LINKS.expression$WIP0), CONCEPTS.TemplateFunctionParameter_sourceNode$A8);
         } else {
           return false;
         }
@@ -79,13 +80,13 @@ public final class ConvertLoopWithCopySrc_Intention extends AbstractIntentionDes
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      Iterable<SNode> nodes = SNodeOperations.ofConcept(SNodeOperations.getChildren(SNodeOperations.getParent(node)), AUX_twaq9r.NodeMacro_2cb20614);
+      Iterable<SNode> nodes = SNodeOperations.ofConcept(SNodeOperations.getChildren(SNodeOperations.getParent(node)), CONCEPTS.NodeMacro$Je);
       boolean seen = false;
       for (SNode n : nodes) {
         if (seen) {
-          if (SNodeOperations.isInstanceOf(n, AUX_twaq9r.CopySrcNodeMacro_1ef1b675)) {
+          if (SNodeOperations.isInstanceOf(n, CONCEPTS.CopySrcNodeMacro$ud)) {
             SNodeOperations.deleteNode(n);
-            SNodeFactoryOperations.replaceWithNewChild(node, AUX_twaq9r.CopySrcListMacro_84cea5bf);
+            SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.CopySrcListMacro$63);
           }
           return;
         } else if (n == node) {
@@ -99,11 +100,18 @@ public final class ConvertLoopWithCopySrc_Intention extends AbstractIntentionDes
     }
   }
 
-  private static final class AUX_twaq9r {
-    /*package*/ static final SConcept NodeMacro_2cb20614 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
-    /*package*/ static final SConcept CopySrcNodeMacro_1ef1b675 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10389b50fefL, "jetbrains.mps.lang.generator.structure.CopySrcNodeMacro");
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode_6cc2a91a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
-    /*package*/ static final SConcept CopySrcListMacro_84cea5bf = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1038b0c2cc7L, "jetbrains.mps.lang.generator.structure.CopySrcListMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeMacro$Je = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
+    /*package*/ static final SConcept CopySrcNodeMacro$ud = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10389b50fefL, "jetbrains.mps.lang.generator.structure.CopySrcNodeMacro");
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode$A8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
+    /*package*/ static final SConcept CopySrcListMacro$63 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1038b0c2cc7L, "jetbrains.mps.lang.generator.structure.CopySrcListMacro");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink sourceNodeQuery$u9yb = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10389b50fefL, 0x10ff3aea96eL, "sourceNodeQuery");
+    /*package*/ static final SContainmentLink body$pTP2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
+    /*package*/ static final SContainmentLink expression$WIP0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression");
   }
 }

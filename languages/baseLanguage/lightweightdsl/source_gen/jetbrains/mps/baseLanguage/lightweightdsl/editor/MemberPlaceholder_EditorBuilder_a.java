@@ -12,7 +12,6 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cellMenu.CompositeSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.BasicCellContext;
 import jetbrains.mps.nodeEditor.cellMenu.SubstituteInfoPartExt;
@@ -21,6 +20,8 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.baseLanguage.editor.BaseLanguageStyle_StyleSheet.CommentStyleClass;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class MemberPlaceholder_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -47,7 +48,7 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
         return new AbstractCellProvider(myNode) {
           public EditorCell createEditorCell(EditorContext context) {
             EditorCell_Label cell = new EditorCell_Constant(context, myNode, "");
-            cell.setDefaultText(SPropertyOperations.getString(myNode, MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db3L, "caption")));
+            cell.setDefaultText(SPropertyOperations.getString(myNode, PROPS.caption$l7aw));
             cell.setSelectable(true);
             cell.setSubstituteInfo(new CompositeSubstituteInfo(getEditorContext(), new BasicCellContext(myNode), new SubstituteInfoPartExt[]{new ClassLikeMemberPlaceholderMenu()}));
 
@@ -70,5 +71,9 @@ import jetbrains.mps.editor.runtime.style.StyleAttributes;
     style.set(StyleAttributes.SELECTABLE, true);
     editorCell.getStyle().putAll(style);
     return editorCell;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty caption$l7aw = MetaAdapterFactory.getProperty(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d7db2L, 0x59e9926e840d7db3L, "caption");
   }
 }

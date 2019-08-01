@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.javadoc.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,17 +16,16 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ILeftCombinator;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class CodeSnippet__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_bwaw2g.CodeSnippet_5dd44763;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x2398cefbc261e3ffL, "jetbrains.mps.baseLanguage.javadoc.structure.CodeSnippet");
 
   public static final SMethod<String> buildCommentText_id7Qt73fl2z8k = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("buildCommentText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7Qt73fl2z8k").build();
 
@@ -36,7 +36,7 @@ public final class CodeSnippet__BehaviorDescriptor extends BaseBHDescriptor {
 
   /*package*/ static String buildCommentText_id7Qt73fl2z8k(@NotNull SNode __thisNode__) {
 
-    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x2398cefbc261e3ffL, 0x2398cefbc26369e1L, "statement"))).select(new ISelector<SNode, String>() {
+    return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.statement$rsT5)).select(new ISelector<SNode, String>() {
       public String select(SNode it) {
         return (String) BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(it);
       }
@@ -93,7 +93,7 @@ public final class CodeSnippet__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_bwaw2g {
-    /*package*/ static final SConcept CodeSnippet_5dd44763 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x2398cefbc261e3ffL, "jetbrains.mps.baseLanguage.javadoc.structure.CodeSnippet");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink statement$rsT5 = MetaAdapterFactory.getContainmentLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x2398cefbc261e3ffL, 0x2398cefbc26369e1L, "statement");
   }
 }

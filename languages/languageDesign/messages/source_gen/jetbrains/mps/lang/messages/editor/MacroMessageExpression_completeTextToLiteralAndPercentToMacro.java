@@ -14,9 +14,10 @@ import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class MacroMessageExpression_completeTextToLiteralAndPercentToMacro extends KeyMapImpl {
   public MacroMessageExpression_completeTextToLiteralAndPercentToMacro() {
@@ -45,7 +46,7 @@ public class MacroMessageExpression_completeTextToLiteralAndPercentToMacro exten
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_4ojwcw.MacroMessageExpression_203c595))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.MacroMessageExpression$LH))) {
         return false;
       }
       return true;
@@ -69,14 +70,14 @@ public class MacroMessageExpression_completeTextToLiteralAndPercentToMacro exten
     }
     private static SNode createLiteralMessageExpression_4ojwcw_a0a0a0c0a0() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
-      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_4ojwcw.LiteralMessageExpression_d1e3ef58, null, null, false);
-      n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
+      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.LiteralMessageExpression$Ga, null, null, false);
+      n1.setProperty(PROPS.message$vnr0, "");
       return n1;
     }
     private static SNode createLiteralMessageExpression_4ojwcw_a0a0a0a2a0a() {
       PersistenceFacade facade = PersistenceFacade.getInstance();
-      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_4ojwcw.LiteralMessageExpression_d1e3ef58, null, null, false);
-      n1.setProperty(MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
+      SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.LiteralMessageExpression$Ga, null, null, false);
+      n1.setProperty(PROPS.message$vnr0, "");
       return n1;
     }
     private static <T> T as_4ojwcw_a0a0a4b(Object o, Class<T> type) {
@@ -99,7 +100,7 @@ public class MacroMessageExpression_completeTextToLiteralAndPercentToMacro exten
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_4ojwcw.MacroMessageExpression_203c595))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.MacroMessageExpression$LH))) {
         return false;
       }
       return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
@@ -127,8 +128,12 @@ public class MacroMessageExpression_completeTextToLiteralAndPercentToMacro exten
     }
   }
 
-  private static final class AUX_4ojwcw {
-    /*package*/ static final SConcept MacroMessageExpression_203c595 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
-    /*package*/ static final SConcept LiteralMessageExpression_d1e3ef58 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MacroMessageExpression$LH = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
+    /*package*/ static final SConcept LiteralMessageExpression$Ga = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty message$vnr0 = MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message");
   }
 }

@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class NativeTypedConceptDef_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_axz9qc_a(), AUX_axz9qc.NativeTypedConceptDef_a5ccc3ab));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_axz9qc_a(), CONCEPTS.NativeTypedConceptDef$4n));
     return result;
   }
 
@@ -48,7 +49,7 @@ public class NativeTypedConceptDef_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_axz9qc_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_axz9qc.NativeTypedConceptDef_a5ccc3ab, MetaAdapterFactory.getReferenceLink(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x26084ede749bc5f2L, 0x26084ede749bc5f3L, "conceptParameter"));
+      super((SAbstractConcept) CONCEPTS.NativeTypedConceptDef$4n, LINKS.conceptParameter$A04w);
     }
     @NotNull
     @Override
@@ -80,7 +81,7 @@ public class NativeTypedConceptDef_SubstituteMenu extends SubstituteMenuBase {
       }
       @Override
       public String getMatchingText(String pattern) {
-        return "concept<" + SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ">";
+        return "concept<" + SPropertyOperations.getString(referencedNode, PROPS.name$tAp1) + ">";
       }
       @Override
       public String getVisibleMatchingText(String pattern) {
@@ -94,7 +95,15 @@ public class NativeTypedConceptDef_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_axz9qc {
-    /*package*/ static final SConcept NativeTypedConceptDef_a5ccc3ab = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x26084ede749bc5f2L, "jetbrains.mps.lang.context.defs.structure.NativeTypedConceptDef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NativeTypedConceptDef$4n = MetaAdapterFactory.getConcept(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x26084ede749bc5f2L, "jetbrains.mps.lang.context.defs.structure.NativeTypedConceptDef");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptParameter$A04w = MetaAdapterFactory.getReferenceLink(0xea3159bff48e4720L, 0xbde286dba75f0d34L, 0x26084ede749bc5f2L, 0x26084ede749bc5f3L, "conceptParameter");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

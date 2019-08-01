@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class MathSymbolIndexReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_kbkb4f_a(), AUX_kbkb4f.MathSymbolIndexReference_825864f5));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_kbkb4f_a(), CONCEPTS.MathSymbolIndexReference$$d));
     result.add(new SMP_Subconcepts_kbkb4f_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class MathSymbolIndexReference_SubstituteMenu extends SubstituteMenuBase 
 
     public SMP_ReferenceScope_kbkb4f_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_kbkb4f.MathSymbolIndexReference_825864f5, MetaAdapterFactory.getReferenceLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0d91491L, 0x11fe0d95bdfL, "indexRef"));
+      super((SAbstractConcept) CONCEPTS.MathSymbolIndexReference$$d, LINKS.indexRef$p3h7);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class MathSymbolIndexReference_SubstituteMenu extends SubstituteMenuBase 
   }
   public class SMP_Subconcepts_kbkb4f_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_kbkb4f.MathSymbolIndexReference_825864f5);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.MathSymbolIndexReference$$d);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class MathSymbolIndexReference_SubstituteMenu extends SubstituteMenuBase 
     }
   }
 
-  private static final class AUX_kbkb4f {
-    /*package*/ static final SConcept MathSymbolIndexReference_825864f5 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0d91491L, "jetbrains.mps.baseLanguage.math.structure.MathSymbolIndexReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MathSymbolIndexReference$$d = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0d91491L, "jetbrains.mps.baseLanguage.math.structure.MathSymbolIndexReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink indexRef$p3h7 = MetaAdapterFactory.getReferenceLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fe0d91491L, 0x11fe0d95bdfL, "indexRef");
   }
 }

@@ -8,7 +8,6 @@ import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.ArrayList;
@@ -17,9 +16,12 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DimensionUtil {
   @InferenceMethod
@@ -38,70 +40,70 @@ public class DimensionUtil {
             {
               SNode matchingNode_48zlf8_a0a5a0a0 = type;
               if (matchingNode_48zlf8_a0a5a0a0 != null) {
-                matches_48zlf8_a0a5a0a0 = matchingNode_48zlf8_a0a5a0a0.getConcept().isSubConceptOf(AUX_48zlf8.MatrixType_c2d2403c);
+                matches_48zlf8_a0a5a0a0 = matchingNode_48zlf8_a0a5a0a0.getConcept().isSubConceptOf(CONCEPTS.MatrixType$qA);
               }
             }
             if (matches_48zlf8_a0a5a0a0) {
               if (row) {
-                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows")) == 0) {
+                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.rows$rd2R) == 0) {
                   cbd = false;
                 }
-                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns")) == 0) {
+                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.columns$rd3m) == 0) {
                   cbc = false;
                 }
-                if (cbd && f != 0 && f != SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"))) {
+                if (cbd && f != 0 && f != SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.rows$rd2R)) {
                   reportError(typeCheckingContext, node);
                 }
                 if (f == 0) {
-                  f = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"));
+                  f = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.rows$rd2R);
                 }
                 if (s == 0) {
-                  s = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"));
+                  s = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.columns$rd3m);
                 } else {
-                  s += SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"));
+                  s += SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.columns$rd3m);
                 }
               } else {
-                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns")) == 0) {
+                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.columns$rd3m) == 0) {
                   cbd = false;
                 }
-                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows")) == 0) {
+                if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.rows$rd2R) == 0) {
                   cbc = false;
                 }
-                if (cbd && f != 0 && f != SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"))) {
+                if (cbd && f != 0 && f != SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.columns$rd3m)) {
                   reportError(typeCheckingContext, node);
                 }
                 if (f == 0) {
-                  f = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"));
+                  f = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.columns$rd3m);
                 }
                 if (s == 0) {
-                  s = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"));
+                  s = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.rows$rd2R);
                 } else {
-                  s += SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"));
+                  s += SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.rows$rd2R);
                 }
               }
               {
                 SNode _nodeToCheck_1029348928467 = null;
                 EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "757772128652074322", 0, null);
-                typeCheckingContext.createLessThanInequality((SNode) SLinkOperations.getTarget(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType")), (SNode) typeCheckingContext.getRepresentative(T_typevar_757772128652074250), false, true, _info_12389875345);
+                typeCheckingContext.createLessThanInequality((SNode) SLinkOperations.getTarget(matchedNode_48zlf8_a0f0a0a, LINKS.elementType$Gy$X), (SNode) typeCheckingContext.getRepresentative(T_typevar_757772128652074250), false, true, _info_12389875345);
               }
             } else {
               boolean matches_48zlf8_b0a5a0a0 = false;
               {
                 SNode matchingNode_48zlf8_b0a5a0a0 = type;
                 if (matchingNode_48zlf8_b0a5a0a0 != null) {
-                  matches_48zlf8_b0a5a0a0 = matchingNode_48zlf8_b0a5a0a0.getConcept().isSubConceptOf(AUX_48zlf8.VectorType_c2d2403b);
+                  matches_48zlf8_b0a5a0a0 = matchingNode_48zlf8_b0a5a0a0.getConcept().isSubConceptOf(CONCEPTS.VectorType$q7);
                 }
               }
               if (matches_48zlf8_b0a5a0a0) {
                 if (row) {
-                  if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height")) == 0) {
+                  if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.height$Gzgy) == 0) {
                     cbd = false;
                   }
-                  if (cbd && f != 0 && f != SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height"))) {
+                  if (cbd && f != 0 && f != SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.height$Gzgy)) {
                     reportError(typeCheckingContext, node);
                   }
                   if (f == 0) {
-                    f = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height"));
+                    f = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.height$Gzgy);
                   }
                   if (s == 0) {
                     s = 1;
@@ -109,7 +111,7 @@ public class DimensionUtil {
                     s += 1;
                   }
                 } else {
-                  if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height")) == 0) {
+                  if (SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.height$Gzgy) == 0) {
                     cbc = false;
                   }
                   if (cbd && f != 0 && f != 1) {
@@ -119,15 +121,15 @@ public class DimensionUtil {
                     f = 1;
                   }
                   if (s == 0) {
-                    s = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height"));
+                    s = SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.height$Gzgy);
                   } else {
-                    s += SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height"));
+                    s += SPropertyOperations.getInteger(matchedNode_48zlf8_a0f0a0a, PROPS.height$Gzgy);
                   }
                 }
                 {
                   SNode _nodeToCheck_1029348928467 = null;
                   EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "757772128652075446", 0, null);
-                  typeCheckingContext.createLessThanInequality((SNode) SLinkOperations.getTarget(matchedNode_48zlf8_a0f0a0a, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType")), (SNode) typeCheckingContext.getRepresentative(T_typevar_757772128652074250), false, true, _info_12389875345);
+                  typeCheckingContext.createLessThanInequality((SNode) SLinkOperations.getTarget(matchedNode_48zlf8_a0f0a0a, LINKS.elementType$Gzh1), (SNode) typeCheckingContext.getRepresentative(T_typevar_757772128652074250), false, true, _info_12389875345);
                 }
               } else {
                 {
@@ -168,24 +170,24 @@ public class DimensionUtil {
       SNode result = MathTypeUtil.qMatrix(typeCheckingContext.getRepresentative(T_typevar_757772128652074250));
       if (row) {
         if (cbc) {
-          SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"), s);
+          SPropertyOperations.assign(result, PROPS.columns$rd3m, s);
         }
         if (cbd) {
-          SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"), f);
+          SPropertyOperations.assign(result, PROPS.rows$rd2R, f);
         }
       } else {
         if (cbc) {
-          SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"), s);
+          SPropertyOperations.assign(result, PROPS.rows$rd2R, s);
         }
         if (cbd) {
-          SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"), f);
+          SPropertyOperations.assign(result, PROPS.columns$rd3m, f);
         }
       }
-      if (SPropertyOperations.getInteger(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns")) == 1) {
+      if (SPropertyOperations.getInteger(result, PROPS.columns$rd3m) == 1) {
         {
           SNode _nodeToCheck_1029348928467 = node;
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "6389121991274973498", 0, null);
-          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "6389121991274973494", true), (SNode) _quotation_createNode_48zlf8_a1a0c0a0i0a0a(typeCheckingContext.getRepresentative(T_typevar_757772128652074250), SPropertyOperations.getInteger(result, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"))), _info_12389875345);
+          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "6389121991274973494", true), (SNode) _quotation_createNode_48zlf8_a1a0c0a0i0a0a(typeCheckingContext.getRepresentative(T_typevar_757772128652074250), SPropertyOperations.getInteger(result, PROPS.rows$rd2R)), _info_12389875345);
         }
       } else {
         {
@@ -223,21 +225,21 @@ public class DimensionUtil {
         {
           SNode matchingNode_48zlf8_a0a2 = t;
           if (matchingNode_48zlf8_a0a2 != null) {
-            matches_48zlf8_a0a2 = matchingNode_48zlf8_a0a2.getConcept().isSubConceptOf(AUX_48zlf8.MatrixType_c2d2403c);
+            matches_48zlf8_a0a2 = matchingNode_48zlf8_a0a2.getConcept().isSubConceptOf(CONCEPTS.MatrixType$qA);
           }
         }
         if (matches_48zlf8_a0a2) {
-          return SPropertyOperations.getInteger(matchedNode_48zlf8_a0c, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows"));
+          return SPropertyOperations.getInteger(matchedNode_48zlf8_a0c, PROPS.rows$rd2R);
         } else {
           boolean matches_48zlf8_b0a2 = false;
           {
             SNode matchingNode_48zlf8_b0a2 = t;
             if (matchingNode_48zlf8_b0a2 != null) {
-              matches_48zlf8_b0a2 = matchingNode_48zlf8_b0a2.getConcept().isSubConceptOf(AUX_48zlf8.VectorType_c2d2403b);
+              matches_48zlf8_b0a2 = matchingNode_48zlf8_b0a2.getConcept().isSubConceptOf(CONCEPTS.VectorType$q7);
             }
           }
           if (matches_48zlf8_b0a2) {
-            return SPropertyOperations.getInteger(matchedNode_48zlf8_a0c, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height"));
+            return SPropertyOperations.getInteger(matchedNode_48zlf8_a0c, PROPS.height$Gzgy);
           } else
           return 0;
         }
@@ -252,17 +254,17 @@ public class DimensionUtil {
         {
           SNode matchingNode_48zlf8_a0a3 = t;
           if (matchingNode_48zlf8_a0a3 != null) {
-            matches_48zlf8_a0a3 = matchingNode_48zlf8_a0a3.getConcept().isSubConceptOf(AUX_48zlf8.MatrixType_c2d2403c);
+            matches_48zlf8_a0a3 = matchingNode_48zlf8_a0a3.getConcept().isSubConceptOf(CONCEPTS.MatrixType$qA);
           }
         }
         if (matches_48zlf8_a0a3) {
-          return SPropertyOperations.getInteger(matchedNode_48zlf8_a0d, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns"));
+          return SPropertyOperations.getInteger(matchedNode_48zlf8_a0d, PROPS.columns$rd3m);
         } else {
           boolean matches_48zlf8_b0a3 = false;
           {
             SNode matchingNode_48zlf8_b0a3 = t;
             if (matchingNode_48zlf8_b0a3 != null) {
-              matches_48zlf8_b0a3 = matchingNode_48zlf8_b0a3.getConcept().isSubConceptOf(AUX_48zlf8.VectorType_c2d2403b);
+              matches_48zlf8_b0a3 = matchingNode_48zlf8_b0a3.getConcept().isSubConceptOf(CONCEPTS.VectorType$q7);
             }
           }
           if (matches_48zlf8_b0a3) {
@@ -281,13 +283,24 @@ public class DimensionUtil {
     SNodeAccessUtil.setPropertyValue(quotedNode_3, MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height"), (int) parameter_2);
     quotedNode_4 = (SNode) parameter_1;
     if (quotedNode_4 != null) {
-      quotedNode_3.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_4));
+      quotedNode_3.addChild(LINKS.elementType$Gzh1, SNodeOperations.copyIfNecessary(quotedNode_4));
     }
     return quotedNode_3;
   }
 
-  private static final class AUX_48zlf8 {
-    /*package*/ static final SConcept MatrixType_c2d2403c = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
-    /*package*/ static final SConcept VectorType_c2d2403b = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MatrixType$qA = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, "jetbrains.mps.baseLanguage.math.structure.MatrixType");
+    /*package*/ static final SConcept VectorType$q7 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, "jetbrains.mps.baseLanguage.math.structure.VectorType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty rows$rd2R = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dacL, "rows");
+    /*package*/ static final SProperty columns$rd3m = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62683dadL, "columns");
+    /*package*/ static final SProperty height$Gzgy = MetaAdapterFactory.getProperty(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466eL, "height");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$Gy$X = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f776L, 0x42d5783a62684653L, "elementType");
+    /*package*/ static final SContainmentLink elementType$Gzh1 = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x42d5783a6267f775L, 0x42d5783a6268466fL, "elementType");
   }
 }

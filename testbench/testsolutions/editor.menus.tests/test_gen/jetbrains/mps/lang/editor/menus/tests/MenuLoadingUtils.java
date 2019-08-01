@@ -63,13 +63,13 @@ public class MenuLoadingUtils {
     final Wrappers._T<String> fqName = new Wrappers._T<String>();
     repository.getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        fqName.value = INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.cast(menuNode.resolve(repository), AUX_po248q.INamedConcept_8cd7e247));
+        fqName.value = INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.cast(menuNode.resolve(repository), CONCEPTS.INamedConcept$nV));
       }
     });
     return fqName.value;
   }
 
-  private static final class AUX_po248q {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

@@ -14,11 +14,12 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class StraightDerivedClasses_Finder extends GeneratedFinder {
   public StraightDerivedClasses_Finder() {
@@ -40,7 +41,7 @@ public class StraightDerivedClasses_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_7tjkw1.ClassConcept_e2711824;
+    return CONCEPTS.ClassConcept$IY;
   }
 
   @Override
@@ -55,9 +56,9 @@ public class StraightDerivedClasses_Finder extends GeneratedFinder {
               if (monitor.isCanceled()) {
                 return;
               }
-              if (SNodeOperations.hasRole(nodeUsage, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass"))) {
+              if (SNodeOperations.hasRole(nodeUsage, LINKS.superclass$_pqe)) {
                 callback.onUsageFound(createSingleResult(SNodeOperations.getParent(nodeUsage)));
-              } else if (SNodeOperations.isInstanceOf(nodeUsage, AUX_7tjkw1.AnonymousClass_e4a73f97)) {
+              } else if (SNodeOperations.isInstanceOf(nodeUsage, CONCEPTS.AnonymousClass$aF)) {
                 callback.onUsageFound(createSingleResult(nodeUsage));
               }
             }
@@ -80,8 +81,12 @@ public class StraightDerivedClasses_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "1204122859723");
   }
 
-  private static final class AUX_7tjkw1 {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept AnonymousClass_e4a73f97 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept AnonymousClass$aF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, "jetbrains.mps.baseLanguage.structure.AnonymousClass");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink superclass$_pqe = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass");
   }
 }

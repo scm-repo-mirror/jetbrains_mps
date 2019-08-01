@@ -8,7 +8,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -19,6 +18,10 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.openapi.navigation.NavigationSupport;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConvertInferenceRuleToCheckingRule_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -34,7 +37,7 @@ public class ConvertInferenceRuleToCheckingRule_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return (SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL, 0x5dbc5aa1b944adaL, "overridesFun")) == null) && ListSequence.fromList(SNodeOperations.getNodeDescendantsWhereConceptInList(event.getData(MPSCommonDataKeys.NODE), new SAbstractConcept[]{AUX_u6ws75.AbstractEquationStatement_37e39569, AUX_u6ws75.TypeVarDeclaration_3d2e42c5, AUX_u6ws75.TypeVarReference_6d039004, AUX_u6ws75.TypeOfExpression_3d919dbd, AUX_u6ws75.WhenConcreteStatement_76fb8bc3}, false, new SAbstractConcept[]{})).isEmpty();
+    return (SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), LINKS.overridesFun$fE4F) == null) && ListSequence.fromList(SNodeOperations.getNodeDescendantsWhereConceptInList(event.getData(MPSCommonDataKeys.NODE), new SAbstractConcept[]{CONCEPTS.AbstractEquationStatement$sp, CONCEPTS.TypeVarDeclaration$kX, CONCEPTS.TypeVarReference$Zu, CONCEPTS.TypeOfExpression$_5, CONCEPTS.WhenConcreteStatement$JZ}, false, new SAbstractConcept[]{})).isEmpty();
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -47,7 +50,7 @@ public class ConvertInferenceRuleToCheckingRule_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_u6ws75.InferenceRule_fc876475))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.InferenceRule$Ad))) {
         node = null;
       }
       if (node == null) {
@@ -64,28 +67,40 @@ public class ConvertInferenceRuleToCheckingRule_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    SNode nonTypesystemRule = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)), AUX_u6ws75.NonTypesystemRule_ca890c82, null);
-    SPropertyOperations.set(nonTypesystemRule, MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x116484991d1L, "overrides"), SPropertyOperations.getBoolean(event.getData(MPSCommonDataKeys.NODE), MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x116484991d1L, "overrides")));
-    SPropertyOperations.set(nonTypesystemRule, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), SPropertyOperations.getString(event.getData(MPSCommonDataKeys.NODE), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
-    SLinkOperations.setTarget(nonTypesystemRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x1164848bdf4L, "body"), SNodeOperations.copyNode(SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x1164848bdf4L, "body"))));
-    SLinkOperations.setTarget(nonTypesystemRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode"), SNodeOperations.copyNode(SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode"))));
-    for (SNode applicableNodeReference : SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nonTypesystemRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x1164848bdf4L, "body")), AUX_u6ws75.ApplicableNodeReference_cae3e20d, false, new SAbstractConcept[]{})) {
-      if (SLinkOperations.getTarget(applicableNodeReference, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e9ef5dcL, 0x1117e9f2a5aL, "applicableNode")) == SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode"))) {
-        SLinkOperations.setTarget(applicableNodeReference, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e9ef5dcL, 0x1117e9f2a5aL, "applicableNode"), SLinkOperations.getTarget(nonTypesystemRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode")));
+    SNode nonTypesystemRule = SNodeFactoryOperations.createNewRootNode(SNodeOperations.getModel(event.getData(MPSCommonDataKeys.NODE)), CONCEPTS.NonTypesystemRule$cw, null);
+    SPropertyOperations.set(nonTypesystemRule, PROPS.overrides$fn$d, SPropertyOperations.getBoolean(event.getData(MPSCommonDataKeys.NODE), PROPS.overrides$fn$d));
+    SPropertyOperations.set(nonTypesystemRule, PROPS.name$tAp1, SPropertyOperations.getString(event.getData(MPSCommonDataKeys.NODE), PROPS.name$tAp1));
+    SLinkOperations.setTarget(nonTypesystemRule, LINKS.body$uYGk, SNodeOperations.copyNode(SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), LINKS.body$uYGk)));
+    SLinkOperations.setTarget(nonTypesystemRule, LINKS.applicableNode$lCke, SNodeOperations.copyNode(SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), LINKS.applicableNode$lCke)));
+    for (SNode applicableNodeReference : SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nonTypesystemRule, LINKS.body$uYGk), CONCEPTS.ApplicableNodeReference$VP, false, new SAbstractConcept[]{})) {
+      if (SLinkOperations.getTarget(applicableNodeReference, LINKS.applicableNode$z$o5) == SLinkOperations.getTarget(event.getData(MPSCommonDataKeys.NODE), LINKS.applicableNode$lCke)) {
+        SLinkOperations.setTarget(applicableNodeReference, LINKS.applicableNode$z$o5, SLinkOperations.getTarget(nonTypesystemRule, LINKS.applicableNode$lCke));
       }
     }
     SNodeOperations.deleteNode(event.getData(MPSCommonDataKeys.NODE));
     NavigationSupport.getInstance().openNode(event.getData(MPSCommonDataKeys.MPS_PROJECT), nonTypesystemRule, true, false);
   }
 
-  private static final class AUX_u6ws75 {
-    /*package*/ static final SConcept AbstractEquationStatement_37e39569 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, "jetbrains.mps.lang.typesystem.structure.AbstractEquationStatement");
-    /*package*/ static final SConcept TypeVarDeclaration_3d2e42c5 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f85df7bL, "jetbrains.mps.lang.typesystem.structure.TypeVarDeclaration");
-    /*package*/ static final SConcept TypeVarReference_6d039004 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f90b04cL, "jetbrains.mps.lang.typesystem.structure.TypeVarReference");
-    /*package*/ static final SConcept TypeOfExpression_3d919dbd = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f0ad10aL, "jetbrains.mps.lang.typesystem.structure.TypeOfExpression");
-    /*package*/ static final SConcept WhenConcreteStatement_76fb8bc3 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteStatement");
-    /*package*/ static final SConcept InferenceRule_fc876475 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL, "jetbrains.mps.lang.typesystem.structure.InferenceRule");
-    /*package*/ static final SConcept NonTypesystemRule_ca890c82 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164853e0faL, "jetbrains.mps.lang.typesystem.structure.NonTypesystemRule");
-    /*package*/ static final SConcept ApplicableNodeReference_cae3e20d = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e9ef5dcL, "jetbrains.mps.lang.typesystem.structure.ApplicableNodeReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractEquationStatement$sp = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f3c1ffaL, "jetbrains.mps.lang.typesystem.structure.AbstractEquationStatement");
+    /*package*/ static final SConcept TypeVarDeclaration$kX = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f85df7bL, "jetbrains.mps.lang.typesystem.structure.TypeVarDeclaration");
+    /*package*/ static final SConcept TypeVarReference$Zu = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f90b04cL, "jetbrains.mps.lang.typesystem.structure.TypeVarReference");
+    /*package*/ static final SConcept TypeOfExpression$_5 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f0ad10aL, "jetbrains.mps.lang.typesystem.structure.TypeOfExpression");
+    /*package*/ static final SConcept WhenConcreteStatement$JZ = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114177ce6cdL, "jetbrains.mps.lang.typesystem.structure.WhenConcreteStatement");
+    /*package*/ static final SConcept InferenceRule$Ad = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL, "jetbrains.mps.lang.typesystem.structure.InferenceRule");
+    /*package*/ static final SConcept NonTypesystemRule$cw = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164853e0faL, "jetbrains.mps.lang.typesystem.structure.NonTypesystemRule");
+    /*package*/ static final SConcept ApplicableNodeReference$VP = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e9ef5dcL, "jetbrains.mps.lang.typesystem.structure.ApplicableNodeReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink overridesFun$fE4F = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL, 0x5dbc5aa1b944adaL, "overridesFun");
+    /*package*/ static final SContainmentLink body$uYGk = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x1164848bdf4L, "body");
+    /*package*/ static final SContainmentLink applicableNode$lCke = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e7b5c73L, 0x1117e7b9c40L, "applicableNode");
+    /*package*/ static final SReferenceLink applicableNode$z$o5 = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e9ef5dcL, 0x1117e9f2a5aL, "applicableNode");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty overrides$fn$d = MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x116484991d1L, "overrides");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

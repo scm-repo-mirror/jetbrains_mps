@@ -28,7 +28,7 @@ public class ifStatement_ extends SubstituteMenuBase {
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vrmndy_a(), AUX_vrmndy.IfStatement_9dbf9b10));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_vrmndy_a(), CONCEPTS.IfStatement$pi));
     return result;
   }
 
@@ -73,7 +73,7 @@ public class ifStatement_ extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_vrmndy.IfStatement_9dbf9b10, context);
+        super(CONCEPTS.IfStatement$pi, context);
         _context = context;
       }
 
@@ -84,7 +84,7 @@ public class ifStatement_ extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        return SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_vrmndy.IfStatement_9dbf9b10, SNodeOperations.copyNode(_context.getCurrentTargetNode()));
+        return SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.IfStatement$pi, SNodeOperations.copyNode(_context.getCurrentTargetNode()));
       }
 
       @Override
@@ -99,7 +99,7 @@ public class ifStatement_ extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_vrmndy {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
   }
 }

@@ -12,10 +12,11 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator;
 import jetbrains.mps.lang.editor.menus.substitute.SimpleConceptSubstituteMenuPart;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ConceptSubstitutePartTest extends SubstituteMenuBase {
@@ -50,7 +51,7 @@ public class ConceptSubstitutePartTest extends SubstituteMenuBase {
       tmpVar = tmpVar && _context.getEditorContext() != null;
       tmpVar = tmpVar && _context.getModel() != null;
 
-      return _context.getLink() == MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x2365c14e167221c6L, "conceptSubstitutePart");
+      return _context.getLink() == LINKS.conceptSubstitutePart$TU3w;
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class ConceptSubstitutePartTest extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_rd4mcj.ActionTestChild1_98b2a179) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.ActionTestChild1$O9) {
 
         @NotNull
         @Override
@@ -79,11 +80,15 @@ public class ConceptSubstitutePartTest extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_rd4mcj.ActionTestChild1_98b2a179));
+      }, CONCEPTS.ActionTestChild1$O9));
     }
   }
 
-  private static final class AUX_rd4mcj {
-    /*package*/ static final SConcept ActionTestChild1_98b2a179 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e167220f9L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestChild1");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink conceptSubstitutePart$TU3w = MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x2365c14e167221c6L, "conceptSubstitutePart");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionTestChild1$O9 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e167220f9L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestChild1");
   }
 }

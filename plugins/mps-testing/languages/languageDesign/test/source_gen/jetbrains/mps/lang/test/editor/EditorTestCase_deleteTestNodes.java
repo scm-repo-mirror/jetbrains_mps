@@ -6,12 +6,13 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class EditorTestCase_deleteTestNodes {
 
@@ -22,7 +23,7 @@ public class EditorTestCase_deleteTestNodes {
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
         SNode selectedNode = editorContext.getSelectedNode();
-        SNode testNode = SNodeOperations.getNodeAncestor(selectedNode, AUX_47la4y.TestNode_e633d16, false, false);
+        SNode testNode = SNodeOperations.getNodeAncestor(selectedNode, CONCEPTS.TestNode$kc, false, false);
         SNodeOperations.deleteNode(testNode);
       }
       @Override
@@ -31,8 +32,8 @@ public class EditorTestCase_deleteTestNodes {
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
         SNode selectedNode = editorContext.getSelectedNode();
-        SNode testNode = SNodeOperations.getNodeAncestor(selectedNode, AUX_47la4y.TestNode_e633d16, false, false);
-        return SNodeOperations.hasRole(testNode, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643585L, "testNodeResult")) || SNodeOperations.hasRole(testNode, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643562L, "testNodeBefore"));
+        SNode testNode = SNodeOperations.getNodeAncestor(selectedNode, CONCEPTS.TestNode$kc, false, false);
+        return SNodeOperations.hasRole(testNode, LINKS.testNodeResult$BP60) || SNodeOperations.hasRole(testNode, LINKS.testNodeBefore$BOcn);
       }
 
     };
@@ -73,7 +74,12 @@ public class EditorTestCase_deleteTestNodes {
     }
   }
 
-  private static final class AUX_47la4y {
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink testNodeResult$BP60 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643585L, "testNodeResult");
+    /*package*/ static final SContainmentLink testNodeBefore$BOcn = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e314b20e0L, 0x2b9f5f5eae643562L, "testNodeBefore");
   }
 }

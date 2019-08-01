@@ -10,7 +10,6 @@ import jetbrains.mps.smodel.structure.Extension;
 import jetbrains.mps.lang.migration.util.NodeReferenceUtil;
 import jetbrains.mps.lang.migration.behavior.AbstractNodeReference__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import java.util.List;
 import org.jetbrains.mps.openapi.module.SRepository;
@@ -47,6 +46,8 @@ import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.refactoring.participant.NodeCopyTracker;
 import jetbrains.mps.util.annotation.ToRemove;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public abstract class UpdateReferencesParticipantBase<T> extends RefactoringParticipantBase<UpdateReferencesParticipantBase.NodeData<T>, UpdateReferencesParticipantBase.NodeData<T>, SNode, SNode> implements MoveNodeRefactoringParticipant<UpdateReferencesParticipantBase.NodeData<T>, UpdateReferencesParticipantBase.NodeData<T>>, RefactoringParticipant.PersistentRefactoringParticipant<UpdateReferencesParticipantBase.NodeData<T>, UpdateReferencesParticipantBase.NodeData<T>, SNode, SNode> {
 
@@ -78,10 +79,10 @@ public abstract class UpdateReferencesParticipantBase<T> extends RefactoringPart
       return NodeReferenceUtil.makeReflection(finalState.baseData().reference(), finalState.baseData().name());
     }
     public NodeData<Void> deserializeFinalState(SNode serialized) {
-      return new NodeData<Void>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(serialized), SPropertyOperations.getString(serialized, MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, 0x27bf3263be23f299L, "nodeName"))), ((Void) null));
+      return new NodeData<Void>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(serialized), SPropertyOperations.getString(serialized, PROPS.nodeName$KMmO)), ((Void) null));
     }
     public NodeData<Void> deserializeInitialState(SNode serialized) {
-      return new NodeData<Void>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(serialized), SPropertyOperations.getString(serialized, MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, 0x27bf3263be23f299L, "nodeName"))), ((Void) null));
+      return new NodeData<Void>(new NamedNodeReference(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(serialized), SPropertyOperations.getString(serialized, PROPS.nodeName$KMmO)), ((Void) null));
     }
     private boolean isOverridingParticipant(UpdateReferencesParticipant it) {
       return this.getClass().isAssignableFrom(it.getClass()) && !(Objects.equals(this.getClass(), it.getClass()));
@@ -269,5 +270,9 @@ public abstract class UpdateReferencesParticipantBase<T> extends RefactoringPart
   }
   protected void doUpdateModelImport(List<RefactoringParticipant.Option> selectedOptions, SRepository repository, final SNode containingNode, final SReferenceLink role, NodeData<T> newTarget) {
     UpdateModelImports.addModelImport(containingNode.getModel(), newTarget.baseData().reference().getModelReference().resolve(repository));
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty nodeName$KMmO = MetaAdapterFactory.getProperty(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, 0x27bf3263be23f299L, "nodeName");
   }
 }

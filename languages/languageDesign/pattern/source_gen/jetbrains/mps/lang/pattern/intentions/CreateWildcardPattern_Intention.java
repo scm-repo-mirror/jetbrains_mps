@@ -58,7 +58,7 @@ public final class CreateWildcardPattern_Intention extends AbstractIntentionDesc
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode currentNode = editorContext.getSelectedNode();
-      SNodeFactoryOperations.setNewAttribute(currentNode, new IAttributeDescriptor.NodeAttribute(AUX_mswtdf.Pattern_b5cd3dd4), AUX_mswtdf.WildcardPattern_b5cd3df1);
+      SNodeFactoryOperations.setNewAttribute(currentNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.Pattern$Ke), CONCEPTS.WildcardPattern$Yh);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -66,8 +66,8 @@ public final class CreateWildcardPattern_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_mswtdf {
-    /*package*/ static final SConcept Pattern_b5cd3dd4 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478fL, "jetbrains.mps.lang.pattern.structure.Pattern");
-    /*package*/ static final SConcept WildcardPattern_b5cd3df1 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4797L, "jetbrains.mps.lang.pattern.structure.WildcardPattern");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Pattern$Ke = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478fL, "jetbrains.mps.lang.pattern.structure.Pattern");
+    /*package*/ static final SConcept WildcardPattern$Yh = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4797L, "jetbrains.mps.lang.pattern.structure.WildcardPattern");
   }
 }

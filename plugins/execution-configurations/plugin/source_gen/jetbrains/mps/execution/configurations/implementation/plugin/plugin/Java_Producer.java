@@ -15,14 +15,15 @@ import jetbrains.mps.plugins.runconfigs.MPSPsiElement;
 import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.execution.configurations.RunConfiguration;
 import com.intellij.execution.actions.ConfigurationContext;
 import jetbrains.mps.baseLanguage.behavior.StaticMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.execution.util.behavior.IMainClass__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Java_Producer {
 
@@ -55,7 +56,7 @@ public final class Java_Producer {
 
     @Override
     protected boolean isApplicable(Object source) {
-      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), AUX_ud0a6f.ClassConcept_e2711824);
+      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), CONCEPTS.ClassConcept$IY);
     }
 
     @Override
@@ -64,10 +65,10 @@ public final class Java_Producer {
       if ((ClassConcept__BehaviorDescriptor.getMainMethod_idhEwIClG.invoke(source) == null)) {
         return null;
       }
-      if (!(SPropertyOperations.getBoolean(SModelOperations.getModuleStub(SNodeOperations.getModel(source)), MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS")))) {
+      if (!(SPropertyOperations.getBoolean(SModelOperations.getModuleStub(SNodeOperations.getModel(source)), PROPS.compileInMPS$8r6V))) {
         return null;
       }
-      Java_Configuration configuration = ((Java_Configuration) getConfigurationFactory().createConfiguration("" + "Class " + SPropertyOperations.getString(source, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
+      Java_Configuration configuration = ((Java_Configuration) getConfigurationFactory().createConfiguration("" + "Class " + SPropertyOperations.getString(source, PROPS.name$tAp1), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getNode().setNode(source);
       return configuration;
     }
@@ -93,27 +94,27 @@ public final class Java_Producer {
 
     @Override
     protected boolean isApplicable(Object source) {
-      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), AUX_ud0a6f.BaseConcept_bc2351f);
+      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), CONCEPTS.BaseConcept$Sz);
     }
 
     @Override
     protected Java_Configuration doCreateConfiguration(final SNode source) {
       setSourceElement(MPSPsiElement.createFor(source, getMpsProject()));
-      SNode mainMethodCandidate = SNodeOperations.getNodeAncestor(source, AUX_ud0a6f.StaticMethodDeclaration_9cd8c445, true, false);
+      SNode mainMethodCandidate = SNodeOperations.getNodeAncestor(source, CONCEPTS.StaticMethodDeclaration$eX, true, false);
       if (mainMethodCandidate == null) {
         return null;
       }
       if (!((boolean) StaticMethodDeclaration__BehaviorDescriptor.isMainMethod_idhEwJkuu.invoke(mainMethodCandidate))) {
         return null;
       }
-      SNode classifier = SNodeOperations.getNodeAncestor(mainMethodCandidate, AUX_ud0a6f.Classifier_4b7e553, false, false);
+      SNode classifier = SNodeOperations.getNodeAncestor(mainMethodCandidate, CONCEPTS.Classifier$hJ, false, false);
       if ((classifier == null)) {
         return null;
       }
-      if (!(SPropertyOperations.getBoolean(SModelOperations.getModuleStub(SNodeOperations.getModel(classifier)), MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS")))) {
+      if (!(SPropertyOperations.getBoolean(SModelOperations.getModuleStub(SNodeOperations.getModel(classifier)), PROPS.compileInMPS$8r6V))) {
         return null;
       }
-      Java_Configuration configuration = ((Java_Configuration) getConfigurationFactory().createConfiguration("" + "Class " + SPropertyOperations.getString(classifier, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
+      Java_Configuration configuration = ((Java_Configuration) getConfigurationFactory().createConfiguration("" + "Class " + SPropertyOperations.getString(classifier, PROPS.name$tAp1), getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getNode().setNode(classifier);
       return configuration;
     }
@@ -139,7 +140,7 @@ public final class Java_Producer {
 
     @Override
     protected boolean isApplicable(Object source) {
-      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), AUX_ud0a6f.IMainClass_47cb36ac);
+      return source instanceof SNode && SNodeOperations.isInstanceOf(((SNode) source), CONCEPTS.IMainClass$SQ);
     }
 
     @Override
@@ -148,10 +149,10 @@ public final class Java_Producer {
       if (!((boolean) IMainClass__BehaviorDescriptor.isNodeRunnable_id431DWIovi3C.invoke(source))) {
         return null;
       }
-      if (!(SPropertyOperations.getBoolean(SModelOperations.getModuleStub(SNodeOperations.getModel(source)), MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS")))) {
+      if (!(SPropertyOperations.getBoolean(SModelOperations.getModuleStub(SNodeOperations.getModel(source)), PROPS.compileInMPS$8r6V))) {
         return null;
       }
-      String name = (SNodeOperations.isInstanceOf(source, AUX_ud0a6f.INamedConcept_8cd7e247) ? SPropertyOperations.getString(SNodeOperations.cast(source, AUX_ud0a6f.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : IMainClass__BehaviorDescriptor.getUnitName_id431DWIovi3n.invoke(source));
+      String name = (SNodeOperations.isInstanceOf(source, CONCEPTS.INamedConcept$nV) ? SPropertyOperations.getString(SNodeOperations.cast(source, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1) : IMainClass__BehaviorDescriptor.getUnitName_id431DWIovi3n.invoke(source));
       Java_Configuration configuration = ((Java_Configuration) getConfigurationFactory().createConfiguration("" + "Node " + name, getContext().getRunManager().getConfigurationTemplate(getConfigurationFactory()).getConfiguration()));
       configuration.getNode().setNode(source);
       return configuration;
@@ -172,12 +173,17 @@ public final class Java_Producer {
     }
   }
 
-  private static final class AUX_ud0a6f {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
-    /*package*/ static final SConcept StaticMethodDeclaration_9cd8c445 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept IMainClass_47cb36ac = MetaAdapterFactory.getInterfaceConcept(0x4caf0310491e41f5L, 0x8a9b2006b3a94898L, 0x40c1a7cb987d20d5L, "jetbrains.mps.execution.util.structure.IMainClass");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+    /*package*/ static final SConcept StaticMethodDeclaration$eX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept IMainClass$SQ = MetaAdapterFactory.getInterfaceConcept(0x4caf0310491e41f5L, 0x8a9b2006b3a94898L, 0x40c1a7cb987d20d5L, "jetbrains.mps.execution.util.structure.IMainClass");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty compileInMPS$8r6V = MetaAdapterFactory.getProperty(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1eL, 0x5869770da61dfe24L, "compileInMPS");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

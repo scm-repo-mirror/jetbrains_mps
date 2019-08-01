@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RunConfigurationSource_Constraints extends BaseConstraintsDescriptor {
   public RunConfigurationSource_Constraints() {
-    super(AUX_4vz2dq.RunConfigurationSource_89803ad1);
+    super(CONCEPTS.RunConfigurationSource$UL);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class RunConfigurationSource_Constraints extends BaseConstraintsDescripto
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_4vz2dq.RunConfigurationProducerPart_8983d282);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.RunConfigurationProducerPart$Ow);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:d6e5159c-3299-41f5-8a8a-81b5b79d5073(jetbrains.mps.execution.configurations.constraints)", "1227128029536566002");
 
-  private static final class AUX_4vz2dq {
-    /*package*/ static final SConcept RunConfigurationSource_89803ad1 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c84af96L, "jetbrains.mps.execution.configurations.structure.RunConfigurationSource");
-    /*package*/ static final SConcept RunConfigurationProducerPart_8983d282 = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c84cda6L, "jetbrains.mps.execution.configurations.structure.RunConfigurationProducerPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RunConfigurationSource$UL = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c84af96L, "jetbrains.mps.execution.configurations.structure.RunConfigurationSource");
+    /*package*/ static final SConcept RunConfigurationProducerPart$Ow = MetaAdapterFactory.getConcept(0x22e72e4c0f6946ceL, 0x84036750153aa615L, 0x3c97fcb79c84cda6L, "jetbrains.mps.execution.configurations.structure.RunConfigurationProducerPart");
   }
 }

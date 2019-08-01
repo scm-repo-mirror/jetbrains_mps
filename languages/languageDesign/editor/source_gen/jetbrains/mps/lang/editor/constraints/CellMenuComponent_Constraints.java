@@ -17,7 +17,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CellMenuComponent_Constraints extends BaseConstraintsDescriptor {
   public CellMenuComponent_Constraints() {
-    super(AUX_ymb3mx.CellMenuComponent_409bb26e);
+    super(CONCEPTS.CellMenuComponent$EO);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class CellMenuComponent_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "1227090243940");
 
-  private static final class AUX_ymb3mx {
-    /*package*/ static final SConcept CellMenuComponent_409bb26e = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, "jetbrains.mps.lang.editor.structure.CellMenuComponent");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellMenuComponent$EO = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7d702058L, "jetbrains.mps.lang.editor.structure.CellMenuComponent");
   }
 }

@@ -14,7 +14,6 @@ import java.util.List;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScript;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.Language;
@@ -34,6 +33,9 @@ import jetbrains.mps.lang.migration.behavior.IMigrationUnit__BehaviorDescriptor;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class GenerateOutput_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -53,7 +55,7 @@ public final class GenerateOutput_Intention extends AbstractIntentionDescriptor 
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    List<MigrationScript> migrationScripts = Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration")), MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration"))).select(new ISelector<SNode, MigrationScript>() {
+    List<MigrationScript> migrationScripts = Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, LINKS.migration$wvkx), LINKS.migration$RUsw)).select(new ISelector<SNode, MigrationScript>() {
       public MigrationScript select(SNode it) {
         if (!(SNodeOperations.getModel(it).getModule() instanceof Language)) {
           return null;
@@ -87,15 +89,15 @@ public final class GenerateOutput_Intention extends AbstractIntentionDescriptor 
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SModel tempModel = TemporaryModels.getInstance().createEditable(false, TempModuleOptions.nonReloadableModule());
-      List<MigrationScript> migrationScripts = Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration")), MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration"))).select(new ISelector<SNode, MigrationScript>() {
+      List<MigrationScript> migrationScripts = Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, LINKS.migration$wvkx), LINKS.migration$RUsw)).select(new ISelector<SNode, MigrationScript>() {
         public MigrationScript select(SNode it) {
           return check_hr1otd_a0a0a0a0b0c7(check_hr1otd_a0a0a0a0a1a2h(LanguageRegistry.getInstance().getLanguage(((Language) SNodeOperations.getModel(it).getModule()))), it);
         }
       }).toListSequence();
-      Collection<SNode> output = BaseMigrationTestBody.runMigration(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be4be8L, "inputNodes")), MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck"))).toListSequence(), tempModel, ListSequence.fromList(migrationScripts).toGenericArray(MigrationScript.class));
-      ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be5494L, "outputNodes"))).clear();
+      Collection<SNode> output = BaseMigrationTestBody.runMigration(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, LINKS.inputNodes$h6eF), LINKS.nodeToCheck$Pz43)).toListSequence(), tempModel, ListSequence.fromList(migrationScripts).toGenericArray(MigrationScript.class));
+      ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).clear();
       for (SNode n : CollectionSequence.fromCollection(output)) {
-        ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be5494L, "outputNodes"))).addElement(createTestNode_8ua06z_a0a0a4a0(n));
+        ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).addElement(createTestNode_8ua06z_a0a0a4a0(n));
       }
       TemporaryModels.getInstance().dispose(tempModel);
     }
@@ -130,15 +132,23 @@ public final class GenerateOutput_Intention extends AbstractIntentionDescriptor 
   }
   private static SNode createTestNode_8ua06z_a0a0a4a0(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_hr1otd.TestNode_e633d16, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TestNode$kc, null, null, false);
     if (node0 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, AUX_hr1otd.BaseConcept_bc2351f)));
+      n1.addChild(LINKS.nodeToCheck$Pz43, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, CONCEPTS.BaseConcept$Sz)));
     }
     return n1;
   }
 
-  private static final class AUX_hr1otd {
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink migration$wvkx = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x5bf7864595df8b02L, "migration");
+    /*package*/ static final SReferenceLink migration$RUsw = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x5bf7864595dddf89L, 0x5bf7864595dddf8aL, "migration");
+    /*package*/ static final SContainmentLink inputNodes$h6eF = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be4be8L, "inputNodes");
+    /*package*/ static final SContainmentLink nodeToCheck$Pz43 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, 0x11b5a397b92L, "nodeToCheck");
+    /*package*/ static final SContainmentLink outputNodes$ot72 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x4c010b30d9be4be7L, 0x4c010b30d9be5494L, "outputNodes");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

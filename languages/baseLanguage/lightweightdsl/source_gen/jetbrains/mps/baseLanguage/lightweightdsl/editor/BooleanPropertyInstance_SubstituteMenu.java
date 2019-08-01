@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class BooleanPropertyInstance_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_dxbbg3_a(), AUX_dxbbg3.BooleanPropertyInstance_68a9433f));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_dxbbg3_a(), CONCEPTS.BooleanPropertyInstance$g3));
     result.add(new SMP_Subconcepts_dxbbg3_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class BooleanPropertyInstance_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_dxbbg3_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_dxbbg3.BooleanPropertyInstance_68a9433f, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d9151L, 0x772497abf2e77969L, "decl"));
+      super((SAbstractConcept) CONCEPTS.BooleanPropertyInstance$g3, LINKS.decl$Ails);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class BooleanPropertyInstance_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_dxbbg3_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_dxbbg3.BooleanPropertyInstance_68a9433f);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BooleanPropertyInstance$g3);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class BooleanPropertyInstance_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_dxbbg3 {
-    /*package*/ static final SConcept BooleanPropertyInstance_68a9433f = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e84100ec3L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.BooleanPropertyInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BooleanPropertyInstance$g3 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e84100ec3L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.BooleanPropertyInstance");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink decl$Ails = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d9151L, 0x772497abf2e77969L, "decl");
   }
 }

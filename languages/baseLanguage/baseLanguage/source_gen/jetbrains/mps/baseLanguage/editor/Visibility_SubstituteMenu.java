@@ -48,15 +48,15 @@ public class Visibility_SubstituteMenu extends SubstituteMenuBase {
 
   public class SMP_Subconcepts_m0xer7_a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_m0xer7.Visibility_62961edf).stream().filter(new Predicate<SAbstractConcept>() {
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.Visibility$Lz).stream().filter(new Predicate<SAbstractConcept>() {
         public boolean test(SAbstractConcept concept) {
           return filterConcept(_context, concept);
         }
       }).collect(Collectors.toList());
     }
     private boolean filterConcept(SubstituteMenuContext _context, SAbstractConcept concept) {
-      if (SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_m0xer7.Classifier_4b7e553) && SNodeOperations.getParent(_context.getParentNode()) == null && _context.getLink() != null) {
-        return Objects.equals(concept, AUX_m0xer7.PublicVisibility_63d95354);
+      if (SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.Classifier$hJ) && SNodeOperations.getParent(_context.getParentNode()) == null && _context.getLink() != null) {
+        return Objects.equals(concept, CONCEPTS.PublicVisibility$qe);
       }
       return true;
     }
@@ -78,9 +78,9 @@ public class Visibility_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_m0xer7 {
-    /*package*/ static final SConcept Visibility_62961edf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af957d96eL, "jetbrains.mps.baseLanguage.structure.Visibility");
-    /*package*/ static final SConcept PublicVisibility_63d95354 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Visibility$Lz = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af957d96eL, "jetbrains.mps.baseLanguage.structure.Visibility");
+    /*package*/ static final SConcept PublicVisibility$qe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10af9581ff1L, "jetbrains.mps.baseLanguage.structure.PublicVisibility");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
   }
 }

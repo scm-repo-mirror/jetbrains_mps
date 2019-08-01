@@ -11,32 +11,37 @@
   </root>
   <root nodeRef="r:a8c26c18-fb37-4d4a-a67a-16f7c6482380(jetbrains.mps.build.mps.actions)/8369506495128727675">
     <file name="constructors_BuildMps.java">
-      <node id="8369506495128729611" at="17,91,18,173" concept="0" />
-      <node id="8369506495128729645" at="18,173,19,184" concept="0" />
-      <node id="2105528055260692159" at="24,100,25,411" concept="0" />
-      <node id="8369506495128727675" at="31,0,32,0" concept="3" trace="BuildMpsLayout_ModuleSources_6bdf3" />
-      <node id="2105528055260692133" at="23,91,26,7" concept="1" />
-      <node id="8369506495128727676" at="17,0,21,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <node id="2105528055260692130" at="23,0,28,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="2105528055260692135" at="24,100,25,411" />
-      <scope id="8369506495128727676" at="17,91,19,184" />
-      <scope id="2105528055260692130" at="23,91,26,7" />
-      <scope id="8369506495128727676" at="17,0,21,0">
+      <node id="8369506495128729611" at="20,91,21,68" concept="0" />
+      <node id="8369506495128729645" at="21,68,22,73" concept="0" />
+      <node id="2105528055260692159" at="27,95,28,184" concept="0" />
+      <node id="8369506495128727675" at="34,0,35,0" concept="3" trace="compact$1aZR" />
+      <node id="8369506495128727675" at="38,0,39,0" concept="3" trace="path$g7Oh" />
+      <node id="8369506495128727675" at="39,0,40,0" concept="3" trace="module$POCw" />
+      <node id="8369506495128727675" at="43,0,44,0" concept="3" trace="BuildMpsLayout_ModuleSources$Zf" />
+      <node id="2105528055260692133" at="26,91,29,7" concept="1" />
+      <node id="8369506495128727676" at="20,0,24,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <node id="2105528055260692130" at="26,0,31,0" concept="2" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="2105528055260692135" at="27,95,28,184" />
+      <scope id="8369506495128727676" at="20,91,22,73" />
+      <scope id="2105528055260692130" at="26,91,29,7" />
+      <scope id="8369506495128727676" at="20,0,24,0">
         <var name="enclosingNode" id="8369506495128727676" />
         <var name="model" id="8369506495128727676" />
         <var name="newNode" id="8369506495128727676" />
         <var name="sampleNode" id="8369506495128727676" />
       </scope>
-      <scope id="2105528055260692130" at="23,0,28,0">
+      <scope id="2105528055260692130" at="26,0,31,0">
         <var name="enclosingNode" id="2105528055260692130" />
         <var name="model" id="2105528055260692130" />
         <var name="newNode" id="2105528055260692130" />
         <var name="sampleNode" id="2105528055260692130" />
       </scope>
-      <unit id="8369506495128727675" at="30,0,33,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$AUX_jlg4is" />
-      <unit id="8369506495128727676" at="16,0,22,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$NodeFactory_8369506495128727676" />
-      <unit id="2105528055260692130" at="22,0,29,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$NodeFactory_2105528055260692130" />
-      <unit id="8369506495128727675" at="15,0,34,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps" />
+      <unit id="8369506495128727675" at="33,0,36,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$PROPS" />
+      <unit id="8369506495128727675" at="42,0,45,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$CONCEPTS" />
+      <unit id="8369506495128727675" at="37,0,41,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$LINKS" />
+      <unit id="8369506495128727676" at="19,0,25,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$NodeFactory_8369506495128727676" />
+      <unit id="2105528055260692130" at="25,0,32,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps$NodeFactory_2105528055260692130" />
+      <unit id="8369506495128727675" at="18,0,46,0" name="jetbrains.mps.build.mps.actions.constructors_BuildMps" />
     </file>
   </root>
 </debug-info>

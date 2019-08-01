@@ -25,7 +25,7 @@ public class typeof_InputFieldReference_InferenceRule extends AbstractInferenceR
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_q8g7ld.InputFieldReference_7a5e9e1c;
+    return CONCEPTS.InputFieldReference$j6;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_InputFieldReference_InferenceRule extends AbstractInferenceR
     return quotedNode_1;
   }
 
-  private static final class AUX_q8g7ld {
-    /*package*/ static final SConcept InputFieldReference_7a5e9e1c = MetaAdapterFactory.getConcept(0x26b3d6d5b99a4ed6L, 0x83bed2ea6f3627a1L, 0x12107017046L, "jetbrains.mps.calculator.structure.InputFieldReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InputFieldReference$j6 = MetaAdapterFactory.getConcept(0x26b3d6d5b99a4ed6L, 0x83bed2ea6f3627a1L, 0x12107017046L, "jetbrains.mps.calculator.structure.InputFieldReference");
   }
 }

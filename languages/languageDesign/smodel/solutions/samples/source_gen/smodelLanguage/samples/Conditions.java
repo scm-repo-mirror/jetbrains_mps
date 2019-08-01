@@ -5,16 +5,17 @@ package smodelLanguage.samples;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Conditions {
   public void checkTypeOfNode(SNode node) {
-    boolean b = SNodeOperations.isInstanceOf(node, AUX_8sbnu4.IfStatement_9dbf9b10);
-    boolean b2 = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_8sbnu4.IfStatement_9dbf9b10), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition")), AUX_8sbnu4.BooleanConstant_9dbf9ad0);
+    boolean b = SNodeOperations.isInstanceOf(node, CONCEPTS.IfStatement$pi);
+    boolean b2 = SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.IfStatement$pi), LINKS.condition$WJ1b), CONCEPTS.BooleanConstant$Ui);
   }
   public void checkRoleAndTypeOfDirectParent(SNode node) {
-    boolean b = SNodeOperations.hasRole(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition"));
+    boolean b = SNodeOperations.hasRole(node, LINKS.condition$WJ1b);
   }
   public boolean checkIsNull(SNode node) {
     if ((node == null)) {
@@ -24,8 +25,12 @@ public class Conditions {
     return (node == null) || (node != null);
   }
 
-  private static final class AUX_8sbnu4 {
-    /*package*/ static final SConcept IfStatement_9dbf9b10 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
-    /*package*/ static final SConcept BooleanConstant_9dbf9ad0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IfStatement$pi = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, "jetbrains.mps.baseLanguage.structure.IfStatement");
+    /*package*/ static final SConcept BooleanConstant$Ui = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink condition$WJ1b = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b217L, 0xf8cc56b218L, "condition");
   }
 }

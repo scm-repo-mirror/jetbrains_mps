@@ -7,7 +7,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
@@ -19,6 +18,9 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.List;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class EditorAssistantUtilities {
   private SNode myCell;
@@ -29,26 +31,26 @@ public class EditorAssistantUtilities {
   }
 
   public boolean isTopLevelCell() {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(myCell), AUX_5zp5o.ConceptEditorDeclaration_9422d3dc);
+    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(myCell), CONCEPTS.ConceptEditorDeclaration$s6);
   }
 
   public boolean isAbstratCell() {
-    return SNodeOperations.getConcept(myCell) == AUX_5zp5o.EditorCellModel_226b88d6;
+    return SNodeOperations.getConcept(myCell) == CONCEPTS.EditorCellModel$5c;
   }
 
   public SNode getEditorDeclaration() {
     if (myEditorDeclaration == null) {
-      myEditorDeclaration = SNodeOperations.getNodeAncestor(myCell, AUX_5zp5o.ConceptEditorDeclaration_9422d3dc, false, false);
+      myEditorDeclaration = SNodeOperations.getNodeAncestor(myCell, CONCEPTS.ConceptEditorDeclaration$s6, false, false);
     }
     return myEditorDeclaration;
   }
 
   public boolean hasFeatures() {
-    return ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(SLinkOperations.getTarget(getEditorDeclaration(), MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration")))).any(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getPropertyDeclarations_idhEwILLM.invoke(SLinkOperations.getTarget(getEditorDeclaration(), LINKS.conceptDeclaration$sbgS))).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(SNodeOperations.is(it, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1156234966388"))) && !(SNodeOperations.is(it, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1193676396447")));
       }
-    }) || ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getLinkDeclarations_idhEwILKK.invoke(SLinkOperations.getTarget(getEditorDeclaration(), MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration")))).any(new IWhereFilter<SNode>() {
+    }) || ListSequence.fromList(AbstractConceptDeclaration__BehaviorDescriptor.getLinkDeclarations_idhEwILKK.invoke(SLinkOperations.getTarget(getEditorDeclaration(), LINKS.conceptDeclaration$sbgS))).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return !(SNodeOperations.is(it, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "5169995583184591170")));
       }
@@ -60,15 +62,15 @@ public class EditorAssistantUtilities {
     QueueSequence.fromQueue(editorComponents).addLastElement(getEditorDeclaration());
     while (QueueSequence.fromQueue(editorComponents).isNotEmpty()) {
       SNode nextComponent = QueueSequence.fromQueue(editorComponents).removeFirstElement();
-      for (SNode nextCell : ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel")), AUX_5zp5o.EditorCellModel_226b88d6, true, new SAbstractConcept[]{}))) {
+      for (SNode nextCell : ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, LINKS.cellModel$3wIV), CONCEPTS.EditorCellModel$5c, true, new SAbstractConcept[]{}))) {
         T value = valueCalculator.invoke(nextCell);
         if (value != null) {
           return value;
         }
       }
-      QueueSequence.fromQueue(editorComponents).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel")), AUX_5zp5o.CellModel_Component_58bccf85, true, new SAbstractConcept[]{})).select(new ISelector<SNode, SNode>() {
+      QueueSequence.fromQueue(editorComponents).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, LINKS.cellModel$3wIV), CONCEPTS.CellModel_Component$1X, true, new SAbstractConcept[]{})).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent"));
+          return SLinkOperations.getTarget(it, LINKS.editorComponent$AnLw);
         }
       }));
     }
@@ -82,24 +84,30 @@ public class EditorAssistantUtilities {
     QueueSequence.fromQueue(editorComponents).addLastElement(getEditorDeclaration());
     while (QueueSequence.fromQueue(editorComponents).isNotEmpty()) {
       SNode nextComponent = QueueSequence.fromQueue(editorComponents).removeFirstElement();
-      for (SNode nextCell : ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel")), AUX_5zp5o.EditorCellModel_226b88d6, true, new SAbstractConcept[]{}))) {
+      for (SNode nextCell : ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, LINKS.cellModel$3wIV), CONCEPTS.EditorCellModel$5c, true, new SAbstractConcept[]{}))) {
         T value = valueCalculator.invoke(nextCell);
         if (value != null) {
           ListSequence.fromList(result).addElement(value);
         }
       }
-      QueueSequence.fromQueue(editorComponents).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel")), AUX_5zp5o.CellModel_Component_58bccf85, true, new SAbstractConcept[]{})).select(new ISelector<SNode, SNode>() {
+      QueueSequence.fromQueue(editorComponents).addSequence(ListSequence.fromList(SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(nextComponent, LINKS.cellModel$3wIV), CONCEPTS.CellModel_Component$1X, true, new SAbstractConcept[]{})).select(new ISelector<SNode, SNode>() {
         public SNode select(SNode it) {
-          return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent"));
+          return SLinkOperations.getTarget(it, LINKS.editorComponent$AnLw);
         }
       }));
     }
     return result;
   }
 
-  private static final class AUX_5zp5o {
-    /*package*/ static final SConcept ConceptEditorDeclaration_9422d3dc = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration");
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
-    /*package*/ static final SConcept CellModel_Component_58bccf85 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, "jetbrains.mps.lang.editor.structure.CellModel_Component");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptEditorDeclaration$s6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9845363abL, "jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration");
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+    /*package*/ static final SConcept CellModel_Component$1X = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, "jetbrains.mps.lang.editor.structure.CellModel_Component");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$sbgS = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f7df344a9L, 0x10f7df451aeL, "conceptDeclaration");
+    /*package*/ static final SContainmentLink cellModel$3wIV = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel");
+    /*package*/ static final SReferenceLink editorComponent$AnLw = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfb35c96896L, 0xfb35c96897L, "editorComponent");
   }
 }

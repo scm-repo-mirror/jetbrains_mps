@@ -20,8 +20,8 @@
       <node id="8484425748929510084" at="26,0,27,0" concept="6" trace="CONCEPT" />
       <node id="8484425748929510084" at="28,0,29,0" concept="6" trace="getUniqueId_id$79JWCe2bn" />
       <node id="8484425748929510084" at="30,0,31,0" concept="6" trace="BH_METHODS" />
-      <node id="8484425748929510090" at="35,83,36,443" concept="4" />
-      <node id="8484425748929510113" at="36,443,37,251" concept="5" />
+      <node id="8484425748929510090" at="35,83,36,330" concept="4" />
+      <node id="8484425748929510113" at="36,330,37,154" concept="5" />
       <node id="8484425748929510084" at="44,114,45,21" concept="1" />
       <node id="8484425748929510084" at="49,114,50,49" concept="4" />
       <node id="8484425748929510084" at="51,26,52,56" concept="9" />
@@ -32,8 +32,8 @@
       <node id="8484425748929510084" at="69,14,70,58" concept="9" />
       <node id="8484425748929510084" at="76,48,77,22" concept="5" />
       <node id="8484425748929510084" at="82,40,83,19" concept="5" />
-      <node id="8484425748929510084" at="87,0,88,0" concept="6" trace="DefaultGeneratorParameter_e8186bc3" />
-      <node id="8484425748929510084" at="88,0,89,0" concept="6" trace="INamedConcept_8cd7e247" />
+      <node id="8484425748929510084" at="87,0,88,0" concept="6" trace="INamedConcept$nV" />
+      <node id="8484425748929510084" at="91,0,92,0" concept="6" trace="name$tAp1" />
       <node id="8484425748929510084" at="32,0,34,0" concept="7" trace="___init___#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="8484425748929510084" at="40,0,42,0" concept="0" trace="DefaultGeneratorParameter__BehaviorDescriptor#()V" />
       <node id="8484425748929510084" at="50,49,53,5" concept="2" />
@@ -59,7 +59,7 @@
       <scope id="8484425748929510084" at="32,0,34,0">
         <var name="__thisNode__" id="8484425748929510084" />
       </scope>
-      <scope id="8484425748929510089" at="35,83,37,251">
+      <scope id="8484425748929510089" at="35,83,37,154">
         <var name="containerName" id="8484425748929510091" />
       </scope>
       <scope id="8484425748929510084" at="40,0,42,0" />
@@ -89,8 +89,9 @@
         <var name="node" id="8484425748929510084" />
         <var name="parameters" id="8484425748929510084" />
       </scope>
-      <unit id="8484425748929510084" at="86,0,90,0" name="jetbrains.mps.lang.generator.generationParameters.behavior.DefaultGeneratorParameter__BehaviorDescriptor$AUX_75ghks" />
-      <unit id="8484425748929510084" at="25,0,91,0" name="jetbrains.mps.lang.generator.generationParameters.behavior.DefaultGeneratorParameter__BehaviorDescriptor" />
+      <unit id="8484425748929510084" at="86,0,89,0" name="jetbrains.mps.lang.generator.generationParameters.behavior.DefaultGeneratorParameter__BehaviorDescriptor$CONCEPTS" />
+      <unit id="8484425748929510084" at="90,0,93,0" name="jetbrains.mps.lang.generator.generationParameters.behavior.DefaultGeneratorParameter__BehaviorDescriptor$PROPS" />
+      <unit id="8484425748929510084" at="25,0,94,0" name="jetbrains.mps.lang.generator.generationParameters.behavior.DefaultGeneratorParameter__BehaviorDescriptor" />
     </file>
   </root>
 </debug-info>

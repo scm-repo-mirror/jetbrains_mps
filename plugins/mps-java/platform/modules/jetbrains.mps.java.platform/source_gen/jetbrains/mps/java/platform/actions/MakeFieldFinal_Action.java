@@ -46,7 +46,7 @@ public class MakeFieldFinal_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_rtp5yt.FieldDeclaration_e2711ac6))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.FieldDeclaration$Ps))) {
         node = null;
       }
       MapSequence.fromMap(_params).put("target", node);
@@ -77,7 +77,7 @@ public class MakeFieldFinal_Action extends BaseAction {
 
   }
 
-  private static final class AUX_rtp5yt {
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
   }
 }

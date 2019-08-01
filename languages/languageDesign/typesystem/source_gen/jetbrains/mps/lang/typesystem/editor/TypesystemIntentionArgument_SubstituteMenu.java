@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class TypesystemIntentionArgument_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_oskrf0_a(), AUX_oskrf0.TypesystemIntentionArgument_22406bb7));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_oskrf0_a(), CONCEPTS.TypesystemIntentionArgument$Eb));
     result.add(new SMP_Subconcepts_oskrf0_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class TypesystemIntentionArgument_SubstituteMenu extends SubstituteMenuBa
 
     public SMP_ReferenceScope_oskrf0_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_oskrf0.TypesystemIntentionArgument_22406bb7, MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, 0x11b3650a4b4L, "quickFixArgument"));
+      super((SAbstractConcept) CONCEPTS.TypesystemIntentionArgument$Eb, LINKS.quickFixArgument$pwQi);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class TypesystemIntentionArgument_SubstituteMenu extends SubstituteMenuBa
   }
   public class SMP_Subconcepts_oskrf0_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_oskrf0.TypesystemIntentionArgument_22406bb7);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.TypesystemIntentionArgument$Eb);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class TypesystemIntentionArgument_SubstituteMenu extends SubstituteMenuBa
     }
   }
 
-  private static final class AUX_oskrf0 {
-    /*package*/ static final SConcept TypesystemIntentionArgument_22406bb7 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, "jetbrains.mps.lang.typesystem.structure.TypesystemIntentionArgument");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypesystemIntentionArgument$Eb = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, "jetbrains.mps.lang.typesystem.structure.TypesystemIntentionArgument");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink quickFixArgument$pwQi = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x119e85f8628L, 0x11b3650a4b4L, "quickFixArgument");
   }
 }

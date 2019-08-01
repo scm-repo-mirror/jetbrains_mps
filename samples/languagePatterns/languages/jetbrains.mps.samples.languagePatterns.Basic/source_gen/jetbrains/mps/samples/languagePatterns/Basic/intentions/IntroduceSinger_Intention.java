@@ -15,11 +15,14 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class IntroduceSinger_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -61,11 +64,11 @@ public final class IntroduceSinger_Intention extends AbstractIntentionDescriptor
     public void execute(final SNode node, final EditorContext editorContext) {
       EditorCell_Error selectedCell = (EditorCell_Error) editorContext.getSelectedCell();
       String text = selectedCell.getText();
-      SNode concert = SNodeOperations.getNodeAncestor(node, AUX_unskqc.Concert_bab5ff8e, false, false);
-      SNode singer = SNodeFactoryOperations.addNewChild(concert, MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, 0x34c8853ae7895c8bL, "performers"), null);
-      SPropertyOperations.assign(singer, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), text);
-      SNode performance = SNodeFactoryOperations.replaceWithNewChild(node, AUX_unskqc.Performance_bab60690);
-      SLinkOperations.setTarget(performance, MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, 0x34c8853ae7895ce2L, "singer"), singer);
+      SNode concert = SNodeOperations.getNodeAncestor(node, CONCEPTS.Concert$6k, false, false);
+      SNode singer = SNodeFactoryOperations.addNewChild(concert, LINKS.performers$JYpX, null);
+      SPropertyOperations.assign(singer, PROPS.name$tAp1, text);
+      SNode performance = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.Performance$Fi);
+      SLinkOperations.setTarget(performance, LINKS.singer$K5R0, singer);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -76,8 +79,17 @@ public final class IntroduceSinger_Intention extends AbstractIntentionDescriptor
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_unskqc {
-    /*package*/ static final SConcept Concert_bab5ff8e = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Concert");
-    /*package*/ static final SConcept Performance_bab60690 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Performance");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Concert$6k = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Concert");
+    /*package*/ static final SConcept Performance$Fi = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Performance");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink performers$JYpX = MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, 0x34c8853ae7895c8bL, "performers");
+    /*package*/ static final SReferenceLink singer$K5R0 = MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, 0x34c8853ae7895ce2L, "singer");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -14,10 +14,11 @@ import jetbrains.mps.lang.editor.behavior.BooleanStyleSheetItem__BehaviorDescrip
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class BooleanQuery_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -53,7 +54,7 @@ public final class BooleanQuery_Intention extends AbstractIntentionDescriptor im
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143bd1283bL, 0x11cd79149a9L, "query")) == null)) {
+      if ((SLinkOperations.getTarget(node, LINKS.query$TaQi) == null)) {
         return "Add Query";
       } else {
         return "Remove Query";
@@ -61,15 +62,19 @@ public final class BooleanQuery_Intention extends AbstractIntentionDescriptor im
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143bd1283bL, 0x11cd79149a9L, "query")) == null)) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143bd1283bL, 0x11cd79149a9L, "query"), null);
+      if ((SLinkOperations.getTarget(node, LINKS.query$TaQi) == null)) {
+        SNodeFactoryOperations.setNewChild(node, LINKS.query$TaQi, null);
       } else {
-        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143bd1283bL, 0x11cd79149a9L, "query")));
+        SNodeOperations.deleteNode(SLinkOperations.getTarget(node, LINKS.query$TaQi));
       }
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return BooleanQuery_Intention.this;
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink query$TaQi = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1143bd1283bL, 0x11cd79149a9L, "query");
   }
 }

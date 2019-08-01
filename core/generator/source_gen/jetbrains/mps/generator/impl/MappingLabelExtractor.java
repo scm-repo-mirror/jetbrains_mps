@@ -7,7 +7,6 @@ import jetbrains.mps.generator.impl.cache.MappingsMemento;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNodeId;
 import org.jetbrains.mps.openapi.model.SReference;
@@ -16,6 +15,10 @@ import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -27,32 +30,32 @@ public class MappingLabelExtractor {
    */
   public MappingsMemento restore(SNode debugNode) {
     MappingsMemento rv = new MappingsMemento();
-    for (SNode labelEntry : ListSequence.fromList(SLinkOperations.getChildren(debugNode, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc97f1c1L, 0x35a02f6bfc9806c5L, "labels")))) {
-      final String labelName = SPropertyOperations.getString(labelEntry, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c4L, 0x35a02f6bfc9810e9L, "label"));
-      for (SNode entry : ListSequence.fromList(SLinkOperations.getChildren(labelEntry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c4L, 0x35a02f6bfc9810ebL, "entries")))) {
-        if (SPropertyOperations.getBoolean(entry, MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x511a0d44c7f45537L, "isNewRoot"))) {
-          rv.addNewOutputNode(labelName, SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(entry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x35a02f6bfc9806d5L, "outputNode"))).first(), MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806d2L, 0x35a02f6bfc9806d3L, "node")).getNodeId());
+    for (SNode labelEntry : ListSequence.fromList(SLinkOperations.getChildren(debugNode, LINKS.labels$$TS0))) {
+      final String labelName = SPropertyOperations.getString(labelEntry, PROPS.label$JFo0);
+      for (SNode entry : ListSequence.fromList(SLinkOperations.getChildren(labelEntry, LINKS.entries$JFoY))) {
+        if (SPropertyOperations.getBoolean(entry, PROPS.isNewRoot$oMHI)) {
+          rv.addNewOutputNode(labelName, SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(entry, LINKS.outputNode$BXhu)).first(), LINKS.node$BXh0).getNodeId());
           continue;
         }
         // reference to input node may not necessarily exist or resolve, 
         // for inputs from transient models we don't keep nodePtr, just NodeIdentity 
         final SNodeId inputNodeId;
-        if ((SLinkOperations.getTarget(SLinkOperations.getTarget(entry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x509c00a99889f77eL, "inputNode")), MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x509c00a998897534L, 0x509c00a99889f6ffL, "nodePtr")) != null)) {
+        if ((SLinkOperations.getTarget(SLinkOperations.getTarget(entry, LINKS.inputNode$Qxyf), LINKS.nodePtr$WtI5) != null)) {
           // FIXME in fact, nodePtr likely to point to external model (either CP or completely 
           //       independent one). MappingsMemento, however, is limited to SNodeId only, implying 
           //       all ML's inputs come from the same model (node GeneratorMappings does not imply that). 
-          SReference ref = SLinkOperations.getTarget(entry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x509c00a99889f77eL, "inputNode")).getReference(MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x509c00a998897534L, 0x509c00a99889f6ffL, "nodePtr"));
+          SReference ref = SLinkOperations.getTarget(entry, LINKS.inputNode$Qxyf).getReference(LINKS.nodePtr$WtI5);
           inputNodeId = ref.getTargetNodeId();
         } else {
-          inputNodeId = ((SNodeId) BHReflection.invoke0(SLinkOperations.getTarget(SLinkOperations.getTarget(entry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x509c00a99889f77eL, "inputNode")), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x509c00a998897534L, 0x509c00a99889f0aeL, "node")), AUX_9wmfan.NodeIdentity_b6a3fabb, SMethodTrimmedId.create("getNodeId", null, "39TODbGsIdf")));
+          inputNodeId = ((SNodeId) BHReflection.invoke0(SLinkOperations.getTarget(SLinkOperations.getTarget(entry, LINKS.inputNode$Qxyf), LINKS.node$Sga_), CONCEPTS.NodeIdentity$K7, SMethodTrimmedId.create("getNodeId", null, "39TODbGsIdf")));
         }
         // output node shall resolve as it's from the same node as debugNode, it's checkpoint model, after all. 
-        if (ListSequence.fromList(SLinkOperations.getChildren(entry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x35a02f6bfc9806d5L, "outputNode"))).count() == 1) {
-          rv.addOutputNodeByInputNodeAndMappingName(inputNodeId, labelName, SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(entry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x35a02f6bfc9806d5L, "outputNode"))).first(), MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806d2L, 0x35a02f6bfc9806d3L, "node")));
+        if (ListSequence.fromList(SLinkOperations.getChildren(entry, LINKS.outputNode$BXhu)).count() == 1) {
+          rv.addOutputNodeByInputNodeAndMappingName(inputNodeId, labelName, SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(entry, LINKS.outputNode$BXhu)).first(), LINKS.node$BXh0));
         } else {
           List<SNode> t = new ArrayList<SNode>();
-          for (SNode on : ListSequence.fromList(SLinkOperations.getChildren(entry, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x35a02f6bfc9806d5L, "outputNode")))) {
-            ListSequence.fromList(t).addElement(SLinkOperations.getTarget(on, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806d2L, 0x35a02f6bfc9806d3L, "node")));
+          for (SNode on : ListSequence.fromList(SLinkOperations.getChildren(entry, LINKS.outputNode$BXhu))) {
+            ListSequence.fromList(t).addElement(SLinkOperations.getTarget(on, LINKS.node$BXh0));
           }
           rv.addOutputNodeByInputNodeAndMappingName(inputNodeId, labelName, t);
         }
@@ -62,11 +65,26 @@ public class MappingLabelExtractor {
   }
 
   public static SNode findDebugNode(SModel cpModel) {
-    return ListSequence.fromList(SModelOperations.roots(cpModel, AUX_9wmfan.GeneratorDebug_Mappings_e410d2cc)).first();
+    return ListSequence.fromList(SModelOperations.roots(cpModel, CONCEPTS.GeneratorDebug_Mappings$om)).first();
   }
 
-  private static final class AUX_9wmfan {
-    /*package*/ static final SInterfaceConcept NodeIdentity_b6a3fabb = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b5e358L, "jetbrains.mps.lang.generator.structure.NodeIdentity");
-    /*package*/ static final SConcept GeneratorDebug_Mappings_e410d2cc = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc97f1c1L, "jetbrains.mps.lang.generator.structure.GeneratorDebug_Mappings");
+  private static final class PROPS {
+    /*package*/ static final SProperty label$JFo0 = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c4L, 0x35a02f6bfc9810e9L, "label");
+    /*package*/ static final SProperty isNewRoot$oMHI = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x511a0d44c7f45537L, "isNewRoot");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink outputNode$BXhu = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x35a02f6bfc9806d5L, "outputNode");
+    /*package*/ static final SReferenceLink node$BXh0 = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806d2L, 0x35a02f6bfc9806d3L, "node");
+    /*package*/ static final SContainmentLink inputNode$Qxyf = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c7L, 0x509c00a99889f77eL, "inputNode");
+    /*package*/ static final SReferenceLink nodePtr$WtI5 = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x509c00a998897534L, 0x509c00a99889f6ffL, "nodePtr");
+    /*package*/ static final SContainmentLink node$Sga_ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x509c00a998897534L, 0x509c00a99889f0aeL, "node");
+    /*package*/ static final SContainmentLink entries$JFoY = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc9806c4L, 0x35a02f6bfc9810ebL, "entries");
+    /*package*/ static final SContainmentLink labels$$TS0 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc97f1c1L, 0x35a02f6bfc9806c5L, "labels");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept NodeIdentity$K7 = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7d58bd9fd9b5e358L, "jetbrains.mps.lang.generator.structure.NodeIdentity");
+    /*package*/ static final SConcept GeneratorDebug_Mappings$om = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x35a02f6bfc97f1c1L, "jetbrains.mps.lang.generator.structure.GeneratorDebug_Mappings");
   }
 }

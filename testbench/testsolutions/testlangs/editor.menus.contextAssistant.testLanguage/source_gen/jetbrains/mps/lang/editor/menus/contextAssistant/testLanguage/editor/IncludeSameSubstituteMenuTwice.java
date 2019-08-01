@@ -20,11 +20,11 @@ import jetbrains.mps.lang.editor.menus.transformation.IncludeSubstituteMenuTrans
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class IncludeSameSubstituteMenuTwice extends TransformationMenuBase {
@@ -82,7 +82,7 @@ public class IncludeSameSubstituteMenuTwice extends TransformationMenuBase {
     }
     @Override
     protected SContainmentLink getContainmentLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getContainmentLink(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a0703eL, 0x3f759544c6a82caeL, "childIncludeSameSubstituteMenuTwice");
+      return LINKS.childIncludeSameSubstituteMenuTwice$8rQZ;
     }
     @Override
     protected SubstituteMenuLookup getSubstituteMenuLookup(TransformationMenuContext context) {
@@ -91,7 +91,7 @@ public class IncludeSameSubstituteMenuTwice extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_k4700g.ToIncludeSubstituteMenu_740db920;
+      return CONCEPTS.ToIncludeSubstituteMenu$D2;
     }
   }
   public class TMP_IncludeSM_k4700g_b0 extends IncludeSubstituteMenuTransformationMenuPart {
@@ -119,7 +119,7 @@ public class IncludeSameSubstituteMenuTwice extends TransformationMenuBase {
     }
     @Override
     protected SContainmentLink getContainmentLink(TransformationMenuContext context) {
-      return MetaAdapterFactory.getContainmentLink(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a0703eL, 0x3f759544c6a82caeL, "childIncludeSameSubstituteMenuTwice");
+      return LINKS.childIncludeSameSubstituteMenuTwice$8rQZ;
     }
     @Override
     protected SubstituteMenuLookup getSubstituteMenuLookup(TransformationMenuContext context) {
@@ -128,11 +128,15 @@ public class IncludeSameSubstituteMenuTwice extends TransformationMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_k4700g.ToIncludeSubstituteMenu_740db920;
+      return CONCEPTS.ToIncludeSubstituteMenu$D2;
     }
   }
 
-  private static final class AUX_k4700g {
-    /*package*/ static final SConcept ToIncludeSubstituteMenu_740db920 = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a82ca7L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.ToIncludeSubstituteMenu");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink childIncludeSameSubstituteMenuTwice$8rQZ = MetaAdapterFactory.getContainmentLink(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a0703eL, 0x3f759544c6a82caeL, "childIncludeSameSubstituteMenuTwice");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ToIncludeSubstituteMenu$D2 = MetaAdapterFactory.getConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a82ca7L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.ToIncludeSubstituteMenu");
   }
 }

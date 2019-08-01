@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -17,7 +18,6 @@ import java.util.function.Consumer;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
@@ -38,11 +38,13 @@ import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_vd91nv.CellActionMapDeclaration_ddcf7ab1;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, "jetbrains.mps.lang.editor.structure.CellActionMapDeclaration");
 
   public static final SMethod<SNode> getBaseConcept_id2hxg_BDjKM8 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getBaseConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2hxg_BDjKM8").build();
   public static final SMethod<Void> setBaseConcept_id5r_35Ihc58c = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setBaseConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5r_35Ihc58c").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
@@ -61,14 +63,14 @@ public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDe
   }
 
   /*package*/ static SNode getBaseConcept_id2hxg_BDjKM8(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d00L, "applicableConcept"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.applicableConcept$VI7Z);
   }
   /*package*/ static void setBaseConcept_id5r_35Ihc58c(@NotNull SNode __thisNode__, SNode baseConcept) {
-    SLinkOperations.setTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d00L, "applicableConcept"), baseConcept);
+    SLinkOperations.setTarget(__thisNode__, LINKS.applicableConcept$VI7Z, baseConcept);
   }
   /*package*/ static SNode getApplicableConcept_id1hkJY7harvo(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d00L, "applicableConcept")) != null)) {
-      return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d00L, "applicableConcept"));
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.applicableConcept$VI7Z) != null)) {
+      return SLinkOperations.getTarget(__thisNode__, LINKS.applicableConcept$VI7Z);
     } else {
       return SPointerOperations.resolveNode(new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626"), __thisNode__.getModel().getRepository());
     }
@@ -77,20 +79,20 @@ public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDe
 
     // override what action maps we are able to import from 
     // based on compatibility of applicable concepts 
-    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), AUX_vd91nv.CellActionMapDeclaration_ddcf7ab1) && ScopeUtils.comeFrom(MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x765abcb2949869d3L, "imports"), __thisNode__, child)) {
-      return new FilteringScope(new ModelPlusImportedScope(SNodeOperations.getModel(__thisNode__), false, AUX_vd91nv.CellActionMapDeclaration_ddcf7ab1)) {
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), CONCEPTS.CellActionMapDeclaration$Fh) && ScopeUtils.comeFrom(LINKS.imports$AMF8, __thisNode__, child)) {
+      return new FilteringScope(new ModelPlusImportedScope(SNodeOperations.getModel(__thisNode__), false, CONCEPTS.CellActionMapDeclaration$Fh)) {
         @Override
         public boolean isExcluded(SNode node) {
-          return !((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(CellActionMapDeclaration__BehaviorDescriptor.getApplicableConcept_id1hkJY7harvo.invoke(__thisNode__), CellActionMapDeclaration__BehaviorDescriptor.getApplicableConcept_id1hkJY7harvo.invoke(SNodeOperations.cast(node, AUX_vd91nv.CellActionMapDeclaration_ddcf7ab1))));
+          return !((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(CellActionMapDeclaration__BehaviorDescriptor.getApplicableConcept_id1hkJY7harvo.invoke(__thisNode__), CellActionMapDeclaration__BehaviorDescriptor.getApplicableConcept_id1hkJY7harvo.invoke(SNodeOperations.cast(node, CONCEPTS.CellActionMapDeclaration$Fh))));
         }
       };
     }
 
-    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, AUX_vd91nv.ScopeProvider_545e361a, kind, child));
+    return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$M8, kind, child));
   }
   /*package*/ static Iterable<ImportCycle> detectCycles_id7pqJbakYMN2(@NotNull SNode __thisNode__) {
     List<ImportCycle> cycles = ListSequence.fromList(new ArrayList<ImportCycle>());
-    for (SNode imp : SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x765abcb2949869d3L, "imports"))) {
+    for (SNode imp : SLinkOperations.getChildren(__thisNode__, LINKS.imports$AMF8)) {
       CellActionMapDeclaration__BehaviorDescriptor.detectCycles_id5Sx2dSLQoMP.invoke(__thisNode__, ListSequence.fromList(new ArrayList<SNode>()), imp, cycles);
     }
     return cycles;
@@ -98,7 +100,7 @@ public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDe
   /*package*/ static void detectCycles_id5Sx2dSLQoMP(@NotNull final SNode __thisNode__, Iterable<SNode> traceback, final SNode next, final List<ImportCycle> accumulator) {
     final Wrappers._T<Iterable<SNode>> _traceback = new Wrappers._T<Iterable<SNode>>(traceback);
 
-    if (Objects.equals(SLinkOperations.getTarget(next, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap")), __thisNode__)) {
+    if (Objects.equals(SLinkOperations.getTarget(next, LINKS.cellActionMap$jBrw), __thisNode__)) {
       // `next` import completes a cycle starting in this action map 
       ListSequence.fromList(accumulator).addElement(new ImportCycle(Sequence.fromIterable(_traceback.value).concat(ListSequence.fromList(Collections.singletonList(next)))));
       return;
@@ -106,7 +108,7 @@ public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDe
 
     if (Sequence.fromIterable(_traceback.value).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode imp) {
-        return Objects.equals(SLinkOperations.getTarget(next, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap")), SLinkOperations.getTarget(imp, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap")));
+        return Objects.equals(SLinkOperations.getTarget(next, LINKS.cellActionMap$jBrw), SLinkOperations.getTarget(imp, LINKS.cellActionMap$jBrw));
       }
     })) {
       // Found a cycle which, however, doesn't contain this action map. 
@@ -115,7 +117,7 @@ public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDe
     }
 
     _traceback.value = Sequence.fromIterable(_traceback.value).concat(ListSequence.fromList(Collections.singletonList(next)));
-    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(next, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap")), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x765abcb2949869d3L, "imports"))).visitAll(new IVisitor<SNode>() {
+    ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(next, LINKS.cellActionMap$jBrw), LINKS.imports$AMF8)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode imp) {
         CellActionMapDeclaration__BehaviorDescriptor.detectCycles_id5Sx2dSLQoMP.invoke(__thisNode__, _traceback.value, imp, accumulator);
       }
@@ -134,17 +136,17 @@ public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDe
     _visited.value = Sequence.fromIterable(_visited.value).concat(Sequence.fromIterable(Sequence.<SNode>singleton(__thisNode__)));
 
     // first handle imports 
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x765abcb2949869d3L, "imports"))).visitAll(new IVisitor<SNode>() {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.imports$AMF8)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode imp) {
-        if ((boolean) CellActionMapImportSelector__BehaviorDescriptor.selectsActionId_id3XXPjz_pJfc.invoke(SLinkOperations.getTarget(imp, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x4f883d04113872dbL, "selector")), actionId)) {
-          CellActionMapDeclaration__BehaviorDescriptor.forEachActionOfType_id2pg2GNQaQaM.invoke(SLinkOperations.getTarget(imp, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap")), actionId, _visited.value, f);
+        if ((boolean) CellActionMapImportSelector__BehaviorDescriptor.selectsActionId_id3XXPjz_pJfc.invoke(SLinkOperations.getTarget(imp, LINKS.selector$zy1K), actionId)) {
+          CellActionMapDeclaration__BehaviorDescriptor.forEachActionOfType_id2pg2GNQaQaM.invoke(SLinkOperations.getTarget(imp, LINKS.cellActionMap$jBrw), actionId, _visited.value, f);
         }
       }
     });
 
 
     // then handle actions defined directly in this action map 
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d01L, "item"))).visitAll(new IVisitor<SNode>() {
+    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.item$VI8u)).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
         if (Objects.equals(CellActionMapItem__BehaviorDescriptor.getActionId_idJCy0JrvU0M.invoke(it), actionId)) {
           f.accept(it);
@@ -234,8 +236,16 @@ public final class CellActionMapDeclaration__BehaviorDescriptor extends BaseBHDe
     return CONCEPT;
   }
 
-  private static final class AUX_vd91nv {
-    /*package*/ static final SConcept CellActionMapDeclaration_ddcf7ab1 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, "jetbrains.mps.lang.editor.structure.CellActionMapDeclaration");
-    /*package*/ static final SInterfaceConcept ScopeProvider_545e361a = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink applicableConcept$VI7Z = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d00L, "applicableConcept");
+    /*package*/ static final SContainmentLink imports$AMF8 = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x765abcb2949869d3L, "imports");
+    /*package*/ static final SReferenceLink cellActionMap$jBrw = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x765abcb2949869d8L, "cellActionMap");
+    /*package*/ static final SContainmentLink selector$zy1K = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x765abcb2949869d7L, 0x4f883d04113872dbL, "selector");
+    /*package*/ static final SContainmentLink item$VI8u = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, 0x10951978d01L, "item");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellActionMapDeclaration$Fh = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10951978cfeL, "jetbrains.mps.lang.editor.structure.CellActionMapDeclaration");
+    /*package*/ static final SInterfaceConcept ScopeProvider$M8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x33d23ee961a0cbf3L, "jetbrains.mps.lang.core.structure.ScopeProvider");
   }
 }

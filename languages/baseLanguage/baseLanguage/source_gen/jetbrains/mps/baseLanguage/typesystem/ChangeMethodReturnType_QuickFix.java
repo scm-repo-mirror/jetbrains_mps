@@ -9,8 +9,9 @@ import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ChangeMethodReturnType_QuickFix extends QuickFix_Runtime {
   public ChangeMethodReturnType_QuickFix() {
@@ -20,12 +21,16 @@ public class ChangeMethodReturnType_QuickFix extends QuickFix_Runtime {
     return "Change return type of " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(((SNode) ChangeMethodReturnType_QuickFix.this.getField("expression")[0])) + " to " + BaseConcept__BehaviorDescriptor.getPresentation_idhEwIMiw.invoke(TypecheckingFacade.getFromContext().getTypeOf(((SNode) ChangeMethodReturnType_QuickFix.this.getField("desiredType")[0])));
   }
   public void execute(SNode node) {
-    if (SNodeOperations.isInstanceOf(((SNode) ChangeMethodReturnType_QuickFix.this.getField("expression")[0]), AUX_ehnqkm.BaseMethodDeclaration_9dbf9acb)) {
-      SLinkOperations.setTarget(SNodeOperations.cast(((SNode) ChangeMethodReturnType_QuickFix.this.getField("expression")[0]), AUX_ehnqkm.BaseMethodDeclaration_9dbf9acb), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType"), TypecheckingFacade.getFromContext().getTypeOf(((SNode) ChangeMethodReturnType_QuickFix.this.getField("desiredType")[0])));
+    if (SNodeOperations.isInstanceOf(((SNode) ChangeMethodReturnType_QuickFix.this.getField("expression")[0]), CONCEPTS.BaseMethodDeclaration$RR)) {
+      SLinkOperations.setTarget(SNodeOperations.cast(((SNode) ChangeMethodReturnType_QuickFix.this.getField("expression")[0]), CONCEPTS.BaseMethodDeclaration$RR), LINKS.returnType$WIkw, TypecheckingFacade.getFromContext().getTypeOf(((SNode) ChangeMethodReturnType_QuickFix.this.getField("desiredType")[0])));
     }
   }
 
-  private static final class AUX_ehnqkm {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink returnType$WIkw = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
   }
 }

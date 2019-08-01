@@ -56,7 +56,7 @@ public final class SpecifyMathContext_Intention extends AbstractIntentionDescrip
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNodeOperations.replaceWithAnother(node, MathUtil.convert2(SNodeOperations.cast(node, AUX_e3fynd.BinaryOperation_7c4c55f3)));
+      SNodeOperations.replaceWithAnother(node, MathUtil.convert2(SNodeOperations.cast(node, CONCEPTS.BinaryOperation$vf)));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -64,7 +64,7 @@ public final class SpecifyMathContext_Intention extends AbstractIntentionDescrip
     }
   }
 
-  private static final class AUX_e3fynd {
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
   }
 }

@@ -13,8 +13,9 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class editoMute_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -44,16 +45,20 @@ public final class editoMute_Intention extends AbstractIntentionDescriptor imple
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cbaL, 0x776b1eb017f5bc5eL, "muted")) ? "Unmute TestCase" : "Mute TestCase");
+      return (SPropertyOperations.getBoolean(node, PROPS.muted$Piv7) ? "Unmute TestCase" : "Mute TestCase");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cbaL, 0x776b1eb017f5bc5eL, "muted"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cbaL, 0x776b1eb017f5bc5eL, "muted"))));
+      SPropertyOperations.assign(node, PROPS.muted$Piv7, !(SPropertyOperations.getBoolean(node, PROPS.muted$Piv7)));
       editorContext.getEditorComponent().rebuildEditorContent();
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return editoMute_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty muted$Piv7 = MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cbaL, 0x776b1eb017f5bc5eL, "muted");
   }
 }

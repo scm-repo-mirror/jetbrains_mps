@@ -4,6 +4,7 @@ package jetbrains.mps.testbench.suite.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,15 +17,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class SolutionRef__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_2wyerx.SolutionRef_3143dcdd;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, "jetbrains.mps.testbench.suite.structure.SolutionRef");
 
   public static final SMethod<SModuleReference> moduleReference_id173Z5qAOun8 = new SMethodBuilder<SModuleReference>(new SJavaCompoundTypeImpl(SModuleReference.class)).name("moduleReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("173Z5qAOun8").build();
   public static final SMethod<String> presentation_id173Z5qAPmZ2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("presentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("173Z5qAPmZ2").build();
@@ -35,10 +35,10 @@ public final class SolutionRef__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SModuleReference moduleReference_id173Z5qAOun8(@NotNull SNode __thisNode__) {
-    return new ModuleReference(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbddL, "moduleFQName")), ModuleId.fromString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbdeL, "moduleID"))));
+    return new ModuleReference(SPropertyOperations.getString(__thisNode__, PROPS.moduleFQName$uMtw), ModuleId.fromString(SPropertyOperations.getString(__thisNode__, PROPS.moduleID$uMCa)));
   }
   /*package*/ static String presentation_id173Z5qAPmZ2(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbddL, "moduleFQName"));
+    return SPropertyOperations.getString(__thisNode__, PROPS.moduleFQName$uMtw);
   }
 
   /*package*/ SolutionRef__BehaviorDescriptor() {
@@ -89,7 +89,8 @@ public final class SolutionRef__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_2wyerx {
-    /*package*/ static final SConcept SolutionRef_3143dcdd = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, "jetbrains.mps.testbench.suite.structure.SolutionRef");
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleFQName$uMtw = MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbddL, "moduleFQName");
+    /*package*/ static final SProperty moduleID$uMCa = MetaAdapterFactory.getProperty(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x11c3fc56a6d1cbdcL, 0x11c3fc56a6d1cbdeL, "moduleID");
   }
 }

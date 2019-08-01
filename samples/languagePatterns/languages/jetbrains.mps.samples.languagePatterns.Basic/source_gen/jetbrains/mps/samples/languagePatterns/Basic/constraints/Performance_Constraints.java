@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,15 +22,17 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class Performance_Constraints extends BaseConstraintsDescriptor {
   public Performance_Constraints() {
-    super(AUX_lq51rn.Performance_bab60690);
+    super(CONCEPTS.Performance$Fi);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, 0x34c8853ae7895ce2L, "singer"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.singer$K5R0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,9 +48,9 @@ public class Performance_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
 
-            SNode surroundingConcert = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_lq51rn.Concert_bab5ff8e, true, false);
+            SNode surroundingConcert = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.Concert$6k, true, false);
 
-            List<SNode> performersAtTheConcert = SLinkOperations.getChildren(surroundingConcert, MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, 0x34c8853ae7895c8bL, "performers"));
+            List<SNode> performersAtTheConcert = SLinkOperations.getChildren(surroundingConcert, LINKS.performers$JYpX);
 
             return ListScope.forNamedElements(performersAtTheConcert);
           }
@@ -62,8 +63,13 @@ public class Performance_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_lq51rn_a0a0a0a0a1a0a0a0c = new SNodePointer("r:7e1c7518-df7a-4f22-84b2-a5e68261264a(jetbrains.mps.samples.languagePatterns.Basic.constraints)", "6836281137582847667");
 
-  private static final class AUX_lq51rn {
-    /*package*/ static final SConcept Performance_bab60690 = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Performance");
-    /*package*/ static final SConcept Concert_bab5ff8e = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Concert");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Performance$Fi = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Performance");
+    /*package*/ static final SConcept Concert$6k = MetaAdapterFactory.getConcept(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, "jetbrains.mps.samples.languagePatterns.Basic.structure.Concert");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink singer$K5R0 = MetaAdapterFactory.getReferenceLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895ce1L, 0x34c8853ae7895ce2L, "singer");
+    /*package*/ static final SContainmentLink performers$JYpX = MetaAdapterFactory.getContainmentLink(0x7a6f7ef73988464bL, 0x8cc51182671c136eL, 0x34c8853ae7895c45L, 0x34c8853ae7895c8bL, "performers");
   }
 }

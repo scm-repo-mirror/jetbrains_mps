@@ -24,7 +24,7 @@ public class check_port_NonTypesystemRule extends AbstractNonTypesystemRule_Runt
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tdh705.InputPort_a048248a;
+    return CONCEPTS.InputPort$Ko;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class check_port_NonTypesystemRule extends AbstractNonTypesystemRule_Runt
     return false;
   }
 
-  private static final class AUX_tdh705 {
-    /*package*/ static final SConcept InputPort_a048248a = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fb4L, "jetbrains.mps.testHybridEditor.structure.InputPort");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InputPort$Ko = MetaAdapterFactory.getConcept(0x913a1d639e1948faL, 0xad03e33ecccd3814L, 0xa10615a65702fb4L, "jetbrains.mps.testHybridEditor.structure.InputPort");
   }
 }

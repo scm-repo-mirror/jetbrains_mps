@@ -6,12 +6,17 @@ import jetbrains.mps.text.rt.TextGenDescriptorBase;
 import jetbrains.mps.text.rt.TextGenContext;
 import jetbrains.mps.text.impl.TextGenSupport;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class File2_TextGen extends TextGenDescriptorBase {
   @Override
   public void generateText(final TextGenContext ctx) {
     final TextGenSupport tgs = new TextGenSupport(ctx);
-    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), MetaAdapterFactory.getProperty(0x9e34de6fa11f4866L, 0xa52c3e2e545d3d90L, 0x32e7e3e1f3d0e288L, 0x32e7e3e1f3d0e28dL, "text")));
+    tgs.append(SPropertyOperations.getString(ctx.getPrimaryInput(), PROPS.text$d8Y7));
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$d8Y7 = MetaAdapterFactory.getProperty(0x9e34de6fa11f4866L, 0xa52c3e2e545d3d90L, 0x32e7e3e1f3d0e288L, 0x32e7e3e1f3d0e28dL, "text");
   }
 }

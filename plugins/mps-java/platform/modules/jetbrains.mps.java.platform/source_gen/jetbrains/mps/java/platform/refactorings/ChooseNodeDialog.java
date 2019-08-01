@@ -28,7 +28,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.event.TreeSelectionEvent;
 import jetbrains.mps.smodel.SNodePointer;
@@ -36,6 +35,8 @@ import javax.swing.JScrollPane;
 import com.intellij.ui.ScrollPaneFactory;
 import java.awt.Dimension;
 import org.jetbrains.annotations.NonNls;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class ChooseNodeDialog extends DialogWrapper {
@@ -108,14 +109,14 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
       private void initModelDescriptorNode(ModelTreeNode node, SModel descriptor) {
         SModel sModel = descriptor;
-        for (SNode nextRoot : Sequence.fromIterable(ModelTreeBuilder.sortChildNodes(ListSequence.fromList(SModelOperations.roots(sModel, AUX_q3qf28.BaseConcept_bc2351f)).where(new IWhereFilter<SNode>() {
+        for (SNode nextRoot : Sequence.fromIterable(ModelTreeBuilder.sortChildNodes(ListSequence.fromList(SModelOperations.roots(sModel, CONCEPTS.BaseConcept$Sz)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
             return isAcceptable(it);
           }
         })))) {
           ModelTreeNode modelRootTreeNode = ModelTreeBuilder.createSNodeTreeNode(nextRoot);
           modelRootTreeNode.setLeafPosition(true);
-          ModelTreeBuilder.insertChildSNodeTreeNode(node, modelRootTreeNode, SPropertyOperations.getString(nextRoot, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")));
+          ModelTreeBuilder.insertChildSNodeTreeNode(node, modelRootTreeNode, SPropertyOperations.getString(nextRoot, PROPS.virtualPackage$j19t));
         }
 
         notifyNodeStructureChanged(node);
@@ -149,7 +150,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return getClass().getName();
   }
 
-  private static final class AUX_q3qf28 {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

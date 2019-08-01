@@ -4,6 +4,7 @@ package jetbrains.mps.console.base.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,15 +16,14 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class PastedNodeReference__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_rn1530.PastedNodeReference_e7fee7da;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference");
 
   public static final SMethod<SNode> getTargetNode_id36vPRrqnscn = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTargetNode").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("36vPRrqnscn").build();
   public static final SMethod<String> getText_id5E451QuvdoB = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getText").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5E451QuvdoB").build();
@@ -37,13 +37,13 @@ public final class PastedNodeReference__BehaviorDescriptor extends BaseBHDescrip
   }
 
   /*package*/ static SNode getTargetNode_id36vPRrqnscn(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.target$9y$J);
   }
   /*package*/ static String getText_id5E451QuvdoB(@NotNull SNode __thisNode__) {
     if (((boolean) INodeWithReference__BehaviorDescriptor.isBroken_id7m$hACyVN2F.invoke(__thisNode__))) {
       return INodeWithReference__BehaviorDescriptor.getTextWhenBroken_idigjXyuNrou.invoke(__thisNode__);
     } else {
-      return PastedNodeReference__BehaviorDescriptor.getText_id25MaZwhj0R7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(__thisNode__)), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target")).getNodeId());
+      return PastedNodeReference__BehaviorDescriptor.getText_id25MaZwhj0R7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(__thisNode__)), SLinkOperations.getTarget(__thisNode__, LINKS.target$9y$J).getNodeId());
     }
   }
   /*package*/ static String getText_id25MaZwhj0R7(@NotNull SAbstractConcept __thisConcept__, SNodeId targetNodeId) {
@@ -54,7 +54,7 @@ public final class PastedNodeReference__BehaviorDescriptor extends BaseBHDescrip
     return "nodeRef@" + ((id >>> 16) + (id << 16 >>> 16));
   }
   /*package*/ static String getTextWhenBroken_idigjXyuNrou(@NotNull SNode __thisNode__) {
-    SNodeId targetNodeId = __thisNode__.getReference(MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target")).getTargetNodeId();
+    SNodeId targetNodeId = __thisNode__.getReference(LINKS.target$9y$J).getTargetNodeId();
     return PastedNodeReference__BehaviorDescriptor.getText_id25MaZwhj0R7.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(__thisNode__)), targetNodeId) + "(deleted node)";
   }
   /*package*/ static boolean canExecute_id2QdC0h7dh1h(@NotNull SNode __thisNode__) {
@@ -115,7 +115,7 @@ public final class PastedNodeReference__BehaviorDescriptor extends BaseBHDescrip
     return CONCEPT;
   }
 
-  private static final class AUX_rn1530 {
-    /*package*/ static final SConcept PastedNodeReference_e7fee7da = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$9y$J = MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target");
   }
 }

@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.ide.httpsupport.behavior.RequestURLBuilderExpression__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.ide.httpsupport.behavior.RequestHandler__BehaviorDescriptor;
@@ -17,15 +16,17 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_RequestURIBuilderExpression_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_RequestURIBuilderExpression_NonTypesystemRule() {
   }
   public void applyRule(final SNode requestURIBuilderExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SLinkOperations.getTarget(requestURIBuilderExpression, MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5ce93L, 0x4027f9073ff5cebeL, "requestHandler")) != null) {
+    if (SLinkOperations.getTarget(requestURIBuilderExpression, LINKS.requestHandler$Zk4n) != null) {
       final Iterable<SNode> initializedParameters = RequestURLBuilderExpression__BehaviorDescriptor.getInitializedParameters_id40BYgt09_iZ.invoke(requestURIBuilderExpression);
-      boolean allRequiredParams = Sequence.fromIterable(RequestHandler__BehaviorDescriptor.getRequieredParameters_id40BYgsZXRLw.invoke(SLinkOperations.getTarget(requestURIBuilderExpression, MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5ce93L, 0x4027f9073ff5cebeL, "requestHandler")))).all(new IWhereFilter<SNode>() {
+      boolean allRequiredParams = Sequence.fromIterable(RequestHandler__BehaviorDescriptor.getRequieredParameters_id40BYgsZXRLw.invoke(SLinkOperations.getTarget(requestURIBuilderExpression, LINKS.requestHandler$Zk4n))).all(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Sequence.fromIterable(initializedParameters).contains(it);
         }
@@ -38,7 +39,7 @@ public class check_RequestURIBuilderExpression_NonTypesystemRule extends Abstrac
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ua2avt.RequestURLBuilderExpression_5a1feaba;
+    return CONCEPTS.RequestURLBuilderExpression$JC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -47,7 +48,11 @@ public class check_RequestURIBuilderExpression_NonTypesystemRule extends Abstrac
     return false;
   }
 
-  private static final class AUX_ua2avt {
-    /*package*/ static final SConcept RequestURLBuilderExpression_5a1feaba = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5ce93L, "jetbrains.mps.ide.httpsupport.structure.RequestURLBuilderExpression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink requestHandler$Zk4n = MetaAdapterFactory.getReferenceLink(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5ce93L, 0x4027f9073ff5cebeL, "requestHandler");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RequestURLBuilderExpression$JC = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x4027f9073ff5ce93L, "jetbrains.mps.ide.httpsupport.structure.RequestURLBuilderExpression");
   }
 }

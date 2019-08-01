@@ -5,21 +5,23 @@ package jetbrains.mps.baseLanguage.typesystem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class VaraibleTypeUtil {
 
   public static TypeDescriptor fromType(SNode valueType) {
-    SNode classifierType = TypecheckingFacade.getFromContext().strongCoerceType(valueType, AUX_c9xwxw.ClassifierType_42700403);
+    SNode classifierType = TypecheckingFacade.getFromContext().strongCoerceType(valueType, CONCEPTS.ClassifierType$IZ);
     if ((classifierType != null)) {
-      return new ClassifierTypeDescriptor(SLinkOperations.getTarget(classifierType, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier")));
+      return new ClassifierTypeDescriptor(SLinkOperations.getTarget(classifierType, LINKS.classifier$pQ_R));
     }
     if (TypecheckingFacade.getFromContext().isStrongSubtype(valueType, _quotation_createNode_c9xwxw_b0a2a1())) {
       return PrimitiveTypeDescriptor.BOOL;
@@ -52,8 +54,8 @@ public class VaraibleTypeUtil {
   public static SNode toLocalVariableClassType(SNode valueType) {
     TypeDescriptor td = fromType(valueType);
     SNode res = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType"));
-    SLinkOperations.setPointer(res, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), td.handle(LOCAL_VARIABLE_CLASS));
-    ListSequence.fromList(SLinkOperations.getChildren(res, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter"))).addElement(td.handle(VARIABLE_TYPE_PARAMETER));
+    SLinkOperations.setPointer(res, LINKS.classifier$pQ_R, td.handle(LOCAL_VARIABLE_CLASS));
+    ListSequence.fromList(SLinkOperations.getChildren(res, LINKS.parameter$dQne)).addElement(td.handle(VARIABLE_TYPE_PARAMETER));
     return res;
   }
 
@@ -356,12 +358,17 @@ public class VaraibleTypeUtil {
   }
   private static SNode createClassifierType_c9xwxw_a0a1a0a12(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_c9xwxw.ClassifierType_42700403, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ClassifierType$IZ, null, null, false);
+    n1.setReferenceTarget(LINKS.classifier$pQ_R, node0);
     return n1;
   }
 
-  private static final class AUX_c9xwxw {
-    /*package*/ static final SConcept ClassifierType_42700403 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassifierType$IZ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, "jetbrains.mps.baseLanguage.structure.ClassifierType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$pQ_R = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier");
+    /*package*/ static final SContainmentLink parameter$dQne = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x102419671abL, "parameter");
   }
 }

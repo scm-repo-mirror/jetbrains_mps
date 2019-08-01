@@ -9,26 +9,27 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import java.util.Iterator;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_AssertMatch_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_AssertMatch_InferenceRule() {
   }
   public void applyRule(final SNode nodeToCheck, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    for (SNode node : ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, 0x11a2f989195L, "before")))) {
+    for (SNode node : ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, LINKS.before$Msn5))) {
       {
         SNode _nodeToCheck_1029348928467 = node;
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "1211982433132", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "1211982433134", true), (SNode) _quotation_createNode_qwyt5f_a1a0c0a0a0b(), false, true, _info_12389875345);
       }
     }
-    for (SNode node : ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, 0x11a2f98d40fL, "after")))) {
+    for (SNode node : ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, LINKS.after$2jv4))) {
       {
         SNode _nodeToCheck_1029348928467 = node;
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "1211982429078", 0, null);
@@ -36,8 +37,8 @@ public class typeof_AssertMatch_InferenceRule extends AbstractInferenceRule_Runt
       }
     }
     {
-      Iterator<SNode> nodeBefore_it = ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, 0x11a2f989195L, "before"))).iterator();
-      Iterator<SNode> nodeAfter_it = ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, 0x11a2f98d40fL, "after"))).iterator();
+      Iterator<SNode> nodeBefore_it = ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, LINKS.before$Msn5)).iterator();
+      Iterator<SNode> nodeAfter_it = ListSequence.fromList(SLinkOperations.getChildren(nodeToCheck, LINKS.after$2jv4)).iterator();
       SNode nodeBefore_var;
       SNode nodeAfter_var;
       while (nodeBefore_it.hasNext() && nodeAfter_it.hasNext()) {
@@ -52,7 +53,7 @@ public class typeof_AssertMatch_InferenceRule extends AbstractInferenceRule_Runt
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_qwyt5f.AssertMatch_ddfdbab9;
+    return CONCEPTS.AssertMatch$J9;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -73,7 +74,12 @@ public class typeof_AssertMatch_InferenceRule extends AbstractInferenceRule_Runt
     return quotedNode_1;
   }
 
-  private static final class AUX_qwyt5f {
-    /*package*/ static final SConcept AssertMatch_ddfdbab9 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, "jetbrains.mps.lang.test.structure.AssertMatch");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink before$Msn5 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, 0x11a2f989195L, "before");
+    /*package*/ static final SContainmentLink after$2jv4 = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, 0x11a2f98d40fL, "after");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AssertMatch$J9 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11a2f985130L, "jetbrains.mps.lang.test.structure.AssertMatch");
   }
 }

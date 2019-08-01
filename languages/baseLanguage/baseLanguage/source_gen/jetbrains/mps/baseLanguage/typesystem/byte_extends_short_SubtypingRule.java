@@ -20,7 +20,7 @@ public class byte_extends_short_SubtypingRule extends SubtypingRule_Runtime impl
     return _quotation_createNode_jozoh5_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_jozoh5.ByteType_64f858f8;
+    return CONCEPTS.ByteType$lE;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -35,7 +35,7 @@ public class byte_extends_short_SubtypingRule extends SubtypingRule_Runtime impl
     return quotedNode_1;
   }
 
-  private static final class AUX_jozoh5 {
-    /*package*/ static final SConcept ByteType_64f858f8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d5b617L, "jetbrains.mps.baseLanguage.structure.ByteType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ByteType$lE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d5b617L, "jetbrains.mps.baseLanguage.structure.ByteType");
   }
 }

@@ -9,6 +9,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ExtractMethodWithReturn extends ExtractMethodFromStatementsRefactoring {
   /*package*/ ExtractMethodWithReturn(ExtractMethodRefactoringParameters params) {
@@ -22,11 +23,15 @@ public class ExtractMethodWithReturn extends ExtractMethodFromStatementsRefactor
   public void replaceMatch(MethodMatch match, SNode methodDeclaration) {
     SNode methodCall = this.createMethodCall(match, methodDeclaration);
     SNode returnlStatement = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement"));
-    SLinkOperations.setTarget(returnlStatement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression"), methodCall);
+    SLinkOperations.setTarget(returnlStatement, LINKS.expression$EsbK, methodCall);
     List<SNode> statements = match.getNodes();
     SNodeOperations.insertPrevSiblingChild(ListSequence.fromList(statements).first(), returnlStatement);
     for (SNode statement : ListSequence.fromList(statements)) {
       SNodeOperations.deleteNode(statement);
     }
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink expression$EsbK = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, 0xf8cc6bf96cL, "expression");
   }
 }

@@ -21,7 +21,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 
 public class AbstractTestNodeAnnotation_Constraints extends BaseConstraintsDescriptor {
   public AbstractTestNodeAnnotation_Constraints() {
-    super(AUX_makpy6.AbstractTestNodeAnnotation_2d7c3bf0);
+    super(CONCEPTS.AbstractTestNodeAnnotation$5M);
   }
 
   @Override
@@ -47,12 +47,12 @@ public class AbstractTestNodeAnnotation_Constraints extends BaseConstraintsDescr
     if (model instanceof SModelInternal && ((SModelInternal) model).getLanguageImportVersion(MetaAdapterFactory.getLanguage(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, "jetbrains.mps.lang.test")) <= 4) {
       return true;
     }
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_makpy6.TestNode_e633d16, false, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.TestNode$kc, false, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590382(jetbrains.mps.lang.test.constraints)", "3143335925186804910");
 
-  private static final class AUX_makpy6 {
-    /*package*/ static final SConcept AbstractTestNodeAnnotation_2d7c3bf0 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
-    /*package*/ static final SConcept TestNode_e633d16 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractTestNodeAnnotation$5M = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
+    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
   }
 }

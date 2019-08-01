@@ -47,7 +47,7 @@ public class SortKeymapMembers_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_z9uvez.KeymapChangesDeclaration_b179307c))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.KeymapChangesDeclaration$TA))) {
         node = null;
       }
       MapSequence.fromMap(_params).put("target", node);
@@ -80,7 +80,7 @@ public class SortKeymapMembers_Action extends BaseAction {
 
   }
 
-  private static final class AUX_z9uvez {
-    /*package*/ static final SConcept KeymapChangesDeclaration_b179307c = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, "jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept KeymapChangesDeclaration$TA = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, "jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration");
   }
 }

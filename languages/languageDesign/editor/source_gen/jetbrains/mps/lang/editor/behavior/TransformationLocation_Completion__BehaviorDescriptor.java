@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Collection;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -20,10 +21,9 @@ import java.util.HashSet;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class TransformationLocation_Completion__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_wjnly7.TransformationLocation_Completion_bde73c71;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x65e54712ab56011cL, "jetbrains.mps.lang.editor.structure.TransformationLocation_Completion");
 
   public static final SMethod<Collection<SConcept>> getAvailableFeatures_id1A4kJjlZ$rL = new SMethodBuilder<Collection<SConcept>>(new SJavaCompoundTypeImpl((Class<Collection<SConcept>>) ((Class) Object.class))).name("getAvailableFeatures").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1A4kJjlZ$rL").build();
 
@@ -33,7 +33,7 @@ public final class TransformationLocation_Completion__BehaviorDescriptor extends
   }
 
   /*package*/ static Collection<SConcept> getAvailableFeatures_id1A4kJjlZ$rL(@NotNull SNode __thisNode__) {
-    return CollectionSequence.fromCollectionAndArray(new HashSet<SConcept>(), AUX_wjnly7.TransformationFeature_Icon_98962c2a, AUX_wjnly7.TransformationFeature_ActionType_98b0f68e, AUX_wjnly7.TransformationFeature_DescriptionText_98a53007);
+    return CollectionSequence.fromCollectionAndArray(new HashSet<SConcept>(), CONCEPTS.TransformationFeature_Icon$xS, CONCEPTS.TransformationFeature_ActionType$Ek, CONCEPTS.TransformationFeature_DescriptionText$V);
   }
 
   /*package*/ TransformationLocation_Completion__BehaviorDescriptor() {
@@ -82,10 +82,9 @@ public final class TransformationLocation_Completion__BehaviorDescriptor extends
     return CONCEPT;
   }
 
-  private static final class AUX_wjnly7 {
-    /*package*/ static final SConcept TransformationLocation_Completion_bde73c71 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x65e54712ab56011cL, "jetbrains.mps.lang.editor.structure.TransformationLocation_Completion");
-    /*package*/ static final SConcept TransformationFeature_Icon_98962c2a = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x198452f4d5ee6651L, "jetbrains.mps.lang.editor.structure.TransformationFeature_Icon");
-    /*package*/ static final SConcept TransformationFeature_ActionType_98b0f68e = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x198452f4d5eea7f2L, "jetbrains.mps.lang.editor.structure.TransformationFeature_ActionType");
-    /*package*/ static final SConcept TransformationFeature_DescriptionText_98a53007 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x198452f4d5ee9587L, "jetbrains.mps.lang.editor.structure.TransformationFeature_DescriptionText");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationFeature_Icon$xS = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x198452f4d5ee6651L, "jetbrains.mps.lang.editor.structure.TransformationFeature_Icon");
+    /*package*/ static final SConcept TransformationFeature_ActionType$Ek = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x198452f4d5eea7f2L, "jetbrains.mps.lang.editor.structure.TransformationFeature_ActionType");
+    /*package*/ static final SConcept TransformationFeature_DescriptionText$V = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x198452f4d5ee9587L, "jetbrains.mps.lang.editor.structure.TransformationFeature_DescriptionText");
   }
 }

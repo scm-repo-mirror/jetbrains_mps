@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -28,11 +27,12 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class ThisClassifierExpression_Constraints extends BaseConstraintsDescriptor {
   public ThisClassifierExpression_Constraints() {
-    super(AUX_9aiht3.ThisClassifierExpression_b632a0cf);
+    super(CONCEPTS.ThisClassifierExpression$xN);
   }
 
   @Override
@@ -52,7 +52,7 @@ public class ThisClassifierExpression_Constraints extends BaseConstraintsDescrip
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, 0x11bc25d4bc3L, "classifier"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.classifier$Xpfr, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -67,7 +67,7 @@ public class ThisClassifierExpression_Constraints extends BaseConstraintsDescrip
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forResolvableElements(ThisClassifierExpression__BehaviorDescriptor.getPossibleClassifiers_idhJm8WEN.invoke(SNodeOperations.cast(_context.getReferenceNode(), AUX_9aiht3.ThisClassifierExpression_b632a0cf)));
+            return ListScope.forResolvableElements(ThisClassifierExpression__BehaviorDescriptor.getPossibleClassifiers_idhJm8WEN.invoke(SNodeOperations.cast(_context.getReferenceNode(), CONCEPTS.ThisClassifierExpression$xN)));
           }
         };
       }
@@ -77,14 +77,18 @@ public class ThisClassifierExpression_Constraints extends BaseConstraintsDescrip
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{AUX_9aiht3.IClassifier_86b0ec37, AUX_9aiht3.IClassifierPart_ade32ff9}, true, false) != null;
+    return SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{CONCEPTS.IClassifier$Cb, CONCEPTS.IClassifierPart$U9}, true, false) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959036e(jetbrains.mps.baseLanguage.classifiers.constraints)", "1227128029536559870");
   private static final SNodePointer breakingNode_9aiht3_a0a0a0a0a1a0a0a0d = new SNodePointer("r:00000000-0000-4000-0000-011c8959036e(jetbrains.mps.baseLanguage.classifiers.constraints)", "6836281137582646251");
 
-  private static final class AUX_9aiht3 {
-    /*package*/ static final SConcept ThisClassifierExpression_b632a0cf = MetaAdapterFactory.getConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, "jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression");
-    /*package*/ static final SInterfaceConcept IClassifier_86b0ec37 = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6b2af5L, "jetbrains.mps.baseLanguage.classifiers.structure.IClassifier");
-    /*package*/ static final SInterfaceConcept IClassifierPart_ade32ff9 = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6e188eL, "jetbrains.mps.baseLanguage.classifiers.structure.IClassifierPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisClassifierExpression$xN = MetaAdapterFactory.getConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, "jetbrains.mps.baseLanguage.classifiers.structure.ThisClassifierExpression");
+    /*package*/ static final SInterfaceConcept IClassifier$Cb = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6b2af5L, "jetbrains.mps.baseLanguage.classifiers.structure.IClassifier");
+    /*package*/ static final SInterfaceConcept IClassifierPart$U9 = MetaAdapterFactory.getInterfaceConcept(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc6e188eL, "jetbrains.mps.baseLanguage.classifiers.structure.IClassifierPart");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$Xpfr = MetaAdapterFactory.getReferenceLink(0x443f4c36fcf54eb6L, 0x95008d06ed259e3eL, 0x118bc751a81L, 0x11bc25d4bc3L, "classifier");
   }
 }

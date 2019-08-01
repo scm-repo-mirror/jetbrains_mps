@@ -49,7 +49,7 @@ public final class ConvertToMultiForeach_Intention extends AbstractIntentionDesc
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNodeFactoryOperations.replaceWithNewChild(node, AUX_ir8rxy.MultiForEachStatement_66bcbb43);
+      SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.MultiForEachStatement$LZ);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -57,7 +57,7 @@ public final class ConvertToMultiForeach_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_ir8rxy {
-    /*package*/ static final SConcept MultiForEachStatement_66bcbb43 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7d7db8f4181fe9f2L, "jetbrains.mps.baseLanguage.collections.structure.MultiForEachStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MultiForEachStatement$LZ = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x7d7db8f4181fe9f2L, "jetbrains.mps.baseLanguage.collections.structure.MultiForEachStatement");
   }
 }

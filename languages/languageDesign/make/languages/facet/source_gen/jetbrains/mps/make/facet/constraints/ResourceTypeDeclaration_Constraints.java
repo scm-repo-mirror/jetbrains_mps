@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ResourceTypeDeclaration_Constraints extends BaseConstraintsDescriptor {
   public ResourceTypeDeclaration_Constraints() {
-    super(AUX_684sr8.ResourceTypeDeclaration_495b1793);
+    super(CONCEPTS.ResourceTypeDeclaration$CJ);
   }
 
-  private static final class AUX_684sr8 {
-    /*package*/ static final SConcept ResourceTypeDeclaration_495b1793 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1a6da65e8aab1d4L, "jetbrains.mps.make.facet.structure.ResourceTypeDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ResourceTypeDeclaration$CJ = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x1a6da65e8aab1d4L, "jetbrains.mps.make.facet.structure.ResourceTypeDeclaration");
   }
 }

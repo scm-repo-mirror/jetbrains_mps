@@ -19,8 +19,9 @@ import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class PastedNodeReference_EditorBuilder_a extends AbstractEditorBuilder {
   @NotNull
@@ -81,13 +82,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
     style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.DARK_BLUE));
     style.set(StyleAttributes.UNDERLINED, true);
     style.set(StyleAttributes.NAVIGATABLE_NODE, _StyleParameter_QueryFunction_7k9x8q_a2a0());
-    style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target"));
+    style.set(StyleAttributes.NAVIGATABLE_SREFERENCE, LINKS.target$9y$J);
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
     return editorCell;
   }
   private SNode _StyleParameter_QueryFunction_7k9x8q_a2a0() {
-    return SLinkOperations.getTarget(getNode(), MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target"));
+    return SLinkOperations.getTarget(getNode(), LINKS.target$9y$J);
   }
   private EditorCell createReadOnlyModelAccessor_1() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor() {
@@ -108,5 +109,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
     style.set(StyleAttributes.EDITABLE, false);
     editorCell.getStyle().putAll(style);
     return editorCell;
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$9y$J = MetaAdapterFactory.getReferenceLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L, 0x4904fd89e74fc6fL, "target");
   }
 }

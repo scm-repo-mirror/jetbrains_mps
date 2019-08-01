@@ -4,6 +4,7 @@ package jetbrains.mps.build.mps.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,17 +18,17 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.behavior.BuildLayout_Node__BehaviorDescriptor;
 import jetbrains.mps.build.behavior.BuildLayout_PathElement__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class BuildMpsLayout_PluginDescriptor__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_ffxv63.BuildMpsLayout_PluginDescriptor_d6d8a8c3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, "jetbrains.mps.build.mps.structure.BuildMpsLayout_PluginDescriptor");
 
   public static final SMethod<Boolean> exports_id5FtnUVJQES1 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("exports").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5FtnUVJQES1").build(SMethodBuilder.createJavaParameter(Object.class, ""));
   public static final SMethod<Boolean> reexportsFromJar_id5bqm540K$Gb = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("reexportsFromJar").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5bqm540K$Gb").build(SMethodBuilder.createJavaParameter(Object.class, ""));
@@ -46,36 +47,36 @@ public final class BuildMpsLayout_PluginDescriptor__BehaviorDescriptor extends B
       SNode node = (SNode) artifactId;
       // todo (in 3.0+) plugin should be exported by folder, not by xml 
       // weeeeell? 
-      if (SNodeOperations.isInstanceOf(node, AUX_ffxv63.BuildMps_IdeaPlugin_d1bb7c62)) {
-        return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, 0x5b7be37b4dee437dL, "plugin")) == node;
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_IdeaPlugin$X0)) {
+        return SLinkOperations.getTarget(__thisNode__, LINKS.plugin$5agw) == node;
       }
     }
-    return ((boolean) BuildLayout_Node__BehaviorDescriptor.exports_id5FtnUVJQES1.invokeSuper(__thisNode__, AUX_ffxv63.BuildMpsLayout_PluginDescriptor_d6d8a8c3, artifactId));
+    return ((boolean) BuildLayout_Node__BehaviorDescriptor.exports_id5FtnUVJQES1.invokeSuper(__thisNode__, CONCEPTS.BuildMpsLayout_PluginDescriptor$VZ, artifactId));
   }
   /*package*/ static boolean reexportsFromJar_id5bqm540K$Gb(@NotNull SNode __thisNode__, Object o) {
     // XXX We imply here parent node is BuildLayout_Jar as it's the only place to use InJarNode.reexportsFromJar 
     //     For folder with BML_PD, #exports shall work, and I don't care yet to remove that as (a) for folder, no unneccesary unzip (in dependants) happens 
     //     (b) no idea how to let BL_Folder know about BML_PD without introducing something like BL_InFolderNode similar to BL_InJarNode 
-    return o == SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, 0x5b7be37b4dee437dL, "plugin"));
+    return o == SLinkOperations.getTarget(__thisNode__, LINKS.plugin$5agw);
   }
   /*package*/ static String location_id6b4RkXS8sT2(@NotNull SNode __thisNode__, DependenciesHelper helper, Object artifactId) {
     if (artifactId instanceof jetbrains.mps.smodel.SNode) {
       SNode node = (SNode) artifactId;
-      if (SNodeOperations.isInstanceOf(node, AUX_ffxv63.BuildMps_IdeaPlugin_d1bb7c62)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_IdeaPlugin$X0)) {
         return helper.getLocation(__thisNode__) + "/../..";
       }
     }
-    return ((String) BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invokeSuper(__thisNode__, AUX_ffxv63.BuildMpsLayout_PluginDescriptor_d6d8a8c3, helper, artifactId));
+    return ((String) BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invokeSuper(__thisNode__, CONCEPTS.BuildMpsLayout_PluginDescriptor$VZ, helper, artifactId));
   }
   /*package*/ static void appendName_id1bWeed$ownT(@NotNull SNode __thisNode__, SNode parent, StringBuilder sb) {
-    if (SNodeOperations.isInstanceOf(parent, AUX_ffxv63.BuildLayout_Container_6a682ce6)) {
+    if (SNodeOperations.isInstanceOf(parent, CONCEPTS.BuildLayout_Container$WW)) {
       sb.append("/");
     }
-    sb.append(BuildMpsLayout_PluginDescriptor__BehaviorDescriptor.pluginXml_idQkG2t1cwfm.invoke(SNodeOperations.asSConcept(AUX_ffxv63.BuildMpsLayout_PluginDescriptor_d6d8a8c3)));
+    sb.append(BuildMpsLayout_PluginDescriptor__BehaviorDescriptor.pluginXml_idQkG2t1cwfm.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildMpsLayout_PluginDescriptor$VZ)));
   }
   /*package*/ static void unpack_id6IqTD4bJTWZ(@NotNull SNode __thisNode__, UnpackHelper helper) {
     String parentLocation = helper.getContentLocation(helper.parent(__thisNode__));
-    helper.putLocation(__thisNode__, parentLocation + "/" + BuildMpsLayout_PluginDescriptor__BehaviorDescriptor.pluginXml_idQkG2t1cwfm.invoke(SNodeOperations.asSConcept(AUX_ffxv63.BuildMpsLayout_PluginDescriptor_d6d8a8c3)));
+    helper.putLocation(__thisNode__, parentLocation + "/" + BuildMpsLayout_PluginDescriptor__BehaviorDescriptor.pluginXml_idQkG2t1cwfm.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildMpsLayout_PluginDescriptor$VZ)));
   }
   /*package*/ static String pluginXml_idQkG2t1cwfm(@NotNull SAbstractConcept __thisConcept__) {
     return "plugin.xml";
@@ -139,9 +140,13 @@ public final class BuildMpsLayout_PluginDescriptor__BehaviorDescriptor extends B
     return CONCEPT;
   }
 
-  private static final class AUX_ffxv63 {
-    /*package*/ static final SConcept BuildMpsLayout_PluginDescriptor_d6d8a8c3 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, "jetbrains.mps.build.mps.structure.BuildMpsLayout_PluginDescriptor");
-    /*package*/ static final SConcept BuildMps_IdeaPlugin_d1bb7c62 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
-    /*package*/ static final SInterfaceConcept BuildLayout_Container_6a682ce6 = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, "jetbrains.mps.build.structure.BuildLayout_Container");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink plugin$5agw = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, 0x5b7be37b4dee437dL, "plugin");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_IdeaPlugin$X0 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4de9bb74L, "jetbrains.mps.build.mps.structure.BuildMps_IdeaPlugin");
+    /*package*/ static final SConcept BuildMpsLayout_PluginDescriptor$VZ = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5b7be37b4dee437cL, "jetbrains.mps.build.mps.structure.BuildMpsLayout_PluginDescriptor");
+    /*package*/ static final SInterfaceConcept BuildLayout_Container$WW = MetaAdapterFactory.getInterfaceConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4140393b234482c3L, "jetbrains.mps.build.structure.BuildLayout_Container");
   }
 }

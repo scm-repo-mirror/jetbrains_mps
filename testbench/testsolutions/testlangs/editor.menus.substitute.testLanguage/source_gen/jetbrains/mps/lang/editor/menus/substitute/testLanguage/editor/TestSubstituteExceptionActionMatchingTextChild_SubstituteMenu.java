@@ -27,8 +27,8 @@ public class TestSubstituteExceptionActionMatchingTextChild_SubstituteMenu exten
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_a4kxqn_a(), AUX_a4kxqn.TestSubstituteExceptionActionMatchingTextChild_53c65d6e));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_a4kxqn_b(), AUX_a4kxqn.TestSubstituteExceptionActionMatchingTextChild_53c65d6e));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_a4kxqn_a(), CONCEPTS.TestSubstituteExceptionActionMatchingTextChild$YO));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_a4kxqn_b(), CONCEPTS.TestSubstituteExceptionActionMatchingTextChild$YO));
     return result;
   }
 
@@ -73,7 +73,7 @@ public class TestSubstituteExceptionActionMatchingTextChild_SubstituteMenu exten
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_a4kxqn.TestSubstituteExceptionActionMatchingTextChild_53c65d6e, context);
+        super(CONCEPTS.TestSubstituteExceptionActionMatchingTextChild$YO, context);
         _context = context;
       }
 
@@ -126,7 +126,7 @@ public class TestSubstituteExceptionActionMatchingTextChild_SubstituteMenu exten
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_a4kxqn.TestSubstituteExceptionActionMatchingTextChild_53c65d6e, context);
+        super(CONCEPTS.TestSubstituteExceptionActionMatchingTextChild$YO, context);
         _context = context;
       }
 
@@ -152,7 +152,7 @@ public class TestSubstituteExceptionActionMatchingTextChild_SubstituteMenu exten
     }
   }
 
-  private static final class AUX_a4kxqn {
-    /*package*/ static final SConcept TestSubstituteExceptionActionMatchingTextChild_53c65d6e = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb5817a84L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionActionMatchingTextChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteExceptionActionMatchingTextChild$YO = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb5817a84L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionActionMatchingTextChild");
   }
 }

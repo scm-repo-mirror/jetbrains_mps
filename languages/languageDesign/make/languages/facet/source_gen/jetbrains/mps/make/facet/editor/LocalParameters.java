@@ -19,7 +19,6 @@ import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart;
 import org.apache.log4j.Logger;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
@@ -32,8 +31,12 @@ import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class LocalParameters extends SubstituteMenuBase {
   @NotNull
@@ -60,7 +63,7 @@ public class LocalParameters extends SubstituteMenuBase {
   public class SMP_Group_59frgq_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_59frgq.TargetDeclaration_ec040aeb, false, false) != null);
+      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.TargetDeclaration$7n, false, false) != null);
     }
     @NotNull
     @Override
@@ -76,7 +79,7 @@ public class LocalParameters extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_59frgq_a.SMP_Param_59frgq_a0(), AUX_59frgq.LocalParametersComponentExpression_ac1fb4e4));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_59frgq_a.SMP_Param_59frgq_a0(), CONCEPTS.LocalParametersComponentExpression$rY));
     }
     private class SMP_Param_59frgq_a0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
       @NotNull
@@ -98,7 +101,7 @@ public class LocalParameters extends SubstituteMenuBase {
       @Nullable
       @Override
       protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-        return SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_59frgq.TargetDeclaration_ec040aeb, false, false), MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, 0x6598ce4d2f20bbdfL, "parameters")), MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1208fa48aa5L, 0x12099b7fca9L, "component"));
+        return SLinkOperations.getChildren(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.TargetDeclaration$7n, false, false), LINKS.parameters$W12k), LINKS.component$eWwg);
       }
       private class SMP_Action_59frgq_a0a extends SingleItemSubstituteMenuPart {
         private final SNode myParameterObject;
@@ -133,7 +136,7 @@ public class LocalParameters extends SubstituteMenuBase {
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_59frgq.LocalParametersComponentExpression_ac1fb4e4, context);
+            super(CONCEPTS.LocalParametersComponentExpression$rY, context);
             _context = context;
           }
 
@@ -144,10 +147,10 @@ public class LocalParameters extends SubstituteMenuBase {
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode lve = SNodeFactoryOperations.createNewNode(AUX_59frgq.LocalParametersExpression_ac1fb4e3, null);
-            SNode lvce = SNodeFactoryOperations.createNewNode(AUX_59frgq.LocalParametersComponentExpression_ac1fb4e4, null);
-            SLinkOperations.setTarget(lvce, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand"), lve);
-            SLinkOperations.setTarget(lvce, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"), _quotation_createNode_59frgq_a0d0a0a0(myParameterObject));
+            SNode lve = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalParametersExpression$rv, null);
+            SNode lvce = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalParametersComponentExpression$rY, null);
+            SLinkOperations.setTarget(lvce, LINKS.operand$Lcrr, lve);
+            SLinkOperations.setTarget(lvce, LINKS.operation$X4R8, _quotation_createNode_59frgq_a0d0a0a0(myParameterObject));
             return lvce;
           }
 
@@ -157,7 +160,7 @@ public class LocalParameters extends SubstituteMenuBase {
           }
           @NotNull
           protected CompletionItemInformation createInformation(String pattern) {
-            return new CompletionItemInformation(myParameterObject, AUX_59frgq.LocalParametersComponentExpression_ac1fb4e4, getMatchingText(pattern), getDescriptionText(pattern));
+            return new CompletionItemInformation(myParameterObject, CONCEPTS.LocalParametersComponentExpression$rY, getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -178,7 +181,7 @@ public class LocalParameters extends SubstituteMenuBase {
           @Nullable
           @Override
           public String getMatchingText(@NotNull String pattern) {
-            return SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+            return SPropertyOperations.getString(myParameterObject, PROPS.name$tAp1);
           }
         }
       }
@@ -189,13 +192,25 @@ public class LocalParameters extends SubstituteMenuBase {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xa247e09e243545baL, 0xb8d207e93feba96aL, "jetbrains.mps.baseLanguage.tuples"), 0x1209c84a4eaL, "NamedTupleComponentAccessOperation"), null, null, false);
-    SNodeAccessUtil.setReferenceTarget(quotedNode_2, MetaAdapterFactory.getReferenceLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, 0x1209c84fd08L, "component"), (SNode) parameter_1);
+    SNodeAccessUtil.setReferenceTarget(quotedNode_2, LINKS.component$34c4, (SNode) parameter_1);
     return quotedNode_2;
   }
 
-  private static final class AUX_59frgq {
-    /*package*/ static final SConcept TargetDeclaration_ec040aeb = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, "jetbrains.mps.make.facet.structure.TargetDeclaration");
-    /*package*/ static final SConcept LocalParametersComponentExpression_ac1fb4e4 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x6598ce4d2f231cb3L, "jetbrains.mps.make.facet.structure.LocalParametersComponentExpression");
-    /*package*/ static final SConcept LocalParametersExpression_ac1fb4e3 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x6598ce4d2f231cb2L, "jetbrains.mps.make.facet.structure.LocalParametersExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TargetDeclaration$7n = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, "jetbrains.mps.make.facet.structure.TargetDeclaration");
+    /*package*/ static final SConcept LocalParametersComponentExpression$rY = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x6598ce4d2f231cb3L, "jetbrains.mps.make.facet.structure.LocalParametersComponentExpression");
+    /*package*/ static final SConcept LocalParametersExpression$rv = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x6598ce4d2f231cb2L, "jetbrains.mps.make.facet.structure.LocalParametersExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameters$W12k = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, 0x6598ce4d2f20bbdfL, "parameters");
+    /*package*/ static final SContainmentLink component$eWwg = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1208fa48aa5L, 0x12099b7fca9L, "component");
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
+    /*package*/ static final SReferenceLink component$34c4 = MetaAdapterFactory.getReferenceLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, 0x1209c84fd08L, "component");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

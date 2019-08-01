@@ -16,8 +16,10 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1153952380246:jetbrains.mps.baseLanguage.structure.TryStatement" />
   <root>
     <file name="QueriesGenerated.java">
-      <unit at="28,0,31,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.QueriesGenerated$AUX_x583g4" />
-      <unit at="16,0,32,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.QueriesGenerated" />
+      <unit at="30,0,33,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.QueriesGenerated$CONCEPTS" />
+      <unit at="34,0,37,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.QueriesGenerated$PROPS" />
+      <unit at="38,0,41,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.QueriesGenerated$LINKS" />
+      <unit at="18,0,42,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.QueriesGenerated" />
     </file>
     <file name="TemplateModelImpl.java">
       <unit at="21,0,58,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.TemplateModelImpl" />
@@ -32,7 +34,7 @@
       <node id="1209150022679" at="34,83,35,91" concept="2" />
       <node id="1209150022679" at="38,64,39,17" concept="8" />
       <node id="1209150022679" at="42,61,43,21" concept="8" />
-      <node id="1209150610748" at="46,29,47,265" concept="12" />
+      <node id="1209150610748" at="46,29,47,257" concept="12" />
       <node id="1209150610748" at="50,94,51,104" concept="8" />
       <node id="1209150610748" at="54,103,55,80" concept="7" />
       <node id="1209150610748" at="55,80,56,229" concept="7" />
@@ -42,13 +44,13 @@
       <node id="1209150737045" at="64,11,65,159" concept="2" />
       <node id="1209150737045" at="65,159,66,33" concept="9" />
       <node id="1209150610748" at="69,7,70,48" concept="8" />
-      <node id="1209150078117" at="74,31,75,269" concept="12" />
+      <node id="1209150078117" at="74,31,75,261" concept="12" />
       <node id="1209150078117" at="78,94,79,97" concept="8" />
       <node id="1209150078117" at="82,103,83,80" concept="7" />
       <node id="1209150078117" at="83,80,84,86" concept="7" />
       <node id="1209150078117" at="84,86,85,20" concept="8" />
-      <node id="1209150022679" at="90,0,91,0" concept="10" trace="ExpressionToReduceToStatement_77d0f1e3" />
-      <node id="1209150022679" at="91,0,92,0" concept="10" trace="InputRootWithStatementList_14af8b8c" />
+      <node id="1209150022679" at="90,0,91,0" concept="10" trace="ExpressionToReduceToStatement$Bv" />
+      <node id="1209150022679" at="91,0,92,0" concept="10" trace="InputRootWithStatementList$lm" />
       <node id="1209150610748" at="46,0,49,0" concept="1" trace="ReductionRule0#()V" />
       <node id="1209150078117" at="74,0,77,0" concept="1" trace="RootMappingRule0#()V" />
       <node id="1209150022679" at="37,0,41,0" concept="6" trace="getReductionRules#()Ljava/util/Collection;" />
@@ -65,10 +67,10 @@
       <scope id="1209150610748" at="68,17,68,17" />
       <scope id="1209150022679" at="38,64,39,17" />
       <scope id="1209150022679" at="42,61,43,21" />
-      <scope id="1209150610748" at="46,29,47,265" />
+      <scope id="1209150610748" at="46,29,47,257" />
       <scope id="1209150610748" at="50,94,51,104" />
       <scope id="1209150737045" at="61,15,62,178" />
-      <scope id="1209150078117" at="74,31,75,269" />
+      <scope id="1209150078117" at="74,31,75,261" />
       <scope id="1209150078117" at="78,94,79,97" />
       <scope id="1209150022679" at="32,53,35,91" />
       <scope id="1209150610748" at="46,0,49,0" />
@@ -104,32 +106,32 @@
       <scope id="1209150610748" at="53,0,72,0">
         <var name="context" id="1209150610748" />
       </scope>
-      <unit id="1209150022679" at="89,0,93,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.Mapping_main$AUX_ief6mt" />
+      <unit id="1209150022679" at="89,0,93,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.Mapping_main$CONCEPTS" />
       <unit id="1209150078117" at="73,0,88,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.Mapping_main$RootMappingRule0" />
       <unit id="1209150610748" at="45,0,73,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.Mapping_main$ReductionRule0" />
       <unit id="1209150022679" at="28,0,94,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.Mapping_main" />
     </file>
     <file name="QueriesGenerated.java">
-      <node id="1209150621175" at="18,83,19,325" concept="8" />
-      <node id="1209150505329" at="21,83,22,220" concept="8" />
-      <node id="1209150617830" at="18,0,21,0" concept="11" trace="rule_Condition_0_0#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
-      <node id="1209150502311" at="21,0,24,0" concept="11" trace="rule_Condition_0_1#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
-      <scope id="1209150617831" at="18,83,19,325" />
-      <scope id="1209150502312" at="21,83,22,220" />
-      <scope id="1209150617830" at="18,0,21,0">
+      <node id="1209150621175" at="20,83,21,220" concept="8" />
+      <node id="1209150505329" at="23,83,24,123" concept="8" />
+      <node id="1209150617830" at="20,0,23,0" concept="11" trace="rule_Condition_0_0#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
+      <node id="1209150502311" at="23,0,26,0" concept="11" trace="rule_Condition_0_1#(Ljetbrains/mps/generator/template/BaseMappingRuleContext;)Z" />
+      <scope id="1209150617831" at="20,83,21,220" />
+      <scope id="1209150502312" at="23,83,24,123" />
+      <scope id="1209150617830" at="20,0,23,0">
         <var name="_context" id="1209150617830" />
       </scope>
-      <scope id="1209150502311" at="21,0,24,0">
+      <scope id="1209150502311" at="23,0,26,0">
         <var name="_context" id="1209150502311" />
       </scope>
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895905f8(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement@generator)/1209150125542">
     <file name="QueriesGenerated.java">
-      <node id="1209150220871" at="24,92,25,187" concept="8" />
-      <node id="1209150187921" at="24,0,27,0" concept="11" trace="sourceNodeQuery_1_0#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodeContext;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="1209150187922" at="24,92,25,187" />
-      <scope id="1209150187921" at="24,0,27,0">
+      <node id="1209150220871" at="26,92,27,83" concept="8" />
+      <node id="1209150187921" at="26,0,29,0" concept="11" trace="sourceNodeQuery_1_0#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodeContext;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="1209150187922" at="26,92,27,83" />
+      <scope id="1209150187921" at="26,0,29,0">
         <var name="_context" id="1209150187921" />
       </scope>
     </file>

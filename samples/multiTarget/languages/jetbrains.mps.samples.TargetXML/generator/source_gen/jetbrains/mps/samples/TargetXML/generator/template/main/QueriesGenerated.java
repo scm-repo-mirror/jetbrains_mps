@@ -7,7 +7,6 @@ import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.template.PropertyMacroContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.generator.template.SourceSubstituteMacroNodesContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -21,8 +20,10 @@ import java.util.Collection;
 import jetbrains.mps.generator.impl.GenerationFailureException;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.generator.impl.query.PropertyValueQuery;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -33,19 +34,19 @@ public class QueriesGenerated extends QueryProviderBase {
     return _context.createUniqueName("member", SNodeOperations.getParent(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_0_1(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0x42cb30372cd244e7L, 0x8fe7254f0c50f311L, 0xbd2fe10cbfadf5fL, 0xbd2fe10cbfadf60L, "value"));
+    return SPropertyOperations.getString(_context.getNode(), PROPS.value$4Yi0);
   }
   public static Object propertyMacro_GetValue_0_2(final PropertyMacroContext _context) {
     return _context.createUniqueName("member", SNodeOperations.getParent(_context.getNode()));
   }
   public static Object propertyMacro_GetValue_0_3(final PropertyMacroContext _context) {
-    return "" + SPropertyOperations.getInteger(_context.getNode(), MetaAdapterFactory.getProperty(0x42cb30372cd244e7L, 0x8fe7254f0c50f311L, 0xbd2fe10cbfadf8dL, 0xbd2fe10cbfadf8eL, "value"));
+    return "" + SPropertyOperations.getInteger(_context.getNode(), PROPS.value$4Ztw);
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(_context.getNode(), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(_context.getNode(), PROPS.name$tAp1);
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    return SLinkOperations.getChildren(_context.getNode(), MetaAdapterFactory.getContainmentLink(0x42cb30372cd244e7L, 0x8fe7254f0c50f311L, 0xbd2fe10cbfadf1dL, 0xbd2fe10cbfadf21L, "members"));
+    return SLinkOperations.getChildren(_context.getNode(), LINKS.members$4RHX);
   }
   private final Map<String, SourceNodesQuery> snsqMethods = new HashMap<String, SourceNodesQuery>();
   {
@@ -117,5 +118,15 @@ public class QueriesGenerated extends QueryProviderBase {
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$4Yi0 = MetaAdapterFactory.getProperty(0x42cb30372cd244e7L, 0x8fe7254f0c50f311L, 0xbd2fe10cbfadf5fL, 0xbd2fe10cbfadf60L, "value");
+    /*package*/ static final SProperty value$4Ztw = MetaAdapterFactory.getProperty(0x42cb30372cd244e7L, 0x8fe7254f0c50f311L, 0xbd2fe10cbfadf8dL, 0xbd2fe10cbfadf8eL, "value");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink members$4RHX = MetaAdapterFactory.getContainmentLink(0x42cb30372cd244e7L, 0x8fe7254f0c50f311L, 0xbd2fe10cbfadf1dL, 0xbd2fe10cbfadf21L, "members");
   }
 }

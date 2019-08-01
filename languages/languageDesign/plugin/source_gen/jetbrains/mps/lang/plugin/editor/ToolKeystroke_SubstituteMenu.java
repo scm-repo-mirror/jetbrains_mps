@@ -28,13 +28,15 @@ import jetbrains.mps.smodel.runtime.IconResource;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ToolKeystroke_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_846jr0_a(), AUX_846jr0.ToolKeystroke_3de982bc));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_846jr0_a(), CONCEPTS.ToolKeystroke$gA));
     return result;
   }
 
@@ -106,7 +108,7 @@ public class ToolKeystroke_SubstituteMenu extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_846jr0.ToolKeystroke_3de982bc, context);
+          super(CONCEPTS.ToolKeystroke$gA, context);
           _context = context;
         }
 
@@ -127,7 +129,7 @@ public class ToolKeystroke_SubstituteMenu extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_846jr0.ToolKeystroke_3de982bc, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.ToolKeystroke$gA, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -150,18 +152,27 @@ public class ToolKeystroke_SubstituteMenu extends SubstituteMenuBase {
   }
   private static SNode createToolKeystroke_846jr0_a1a0a0(Object p0, Object p1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_846jr0.ToolKeystroke_3de982bc, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ToolKeystroke$gA, null, null, false);
     {
-      n1.setProperty(MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b765b0L, 0x68b8d4843b765b6L, "keymap"), MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b765b0L, 0x68b8d4843b765b6L, "keymap").getType().toString(p0));
-      SNode n2 = SModelUtil_new.instantiateConceptDeclaration(AUX_846jr0.KeyMapKeystroke_e4ceb015, null, null, false);
-      n2.setProperty(MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, 0x11919c665d5L, "modifiers"), MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, 0x11919c665d5L, "modifiers").getType().toString(p1));
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b765b0L, 0x68b8d4843b76126L, "keystroke"), n2);
+      n1.setProperty(PROPS.keymap$bYfr, PROPS.keymap$bYfr.getType().toString(p0));
+      SNode n2 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.KeyMapKeystroke$7H, null, null, false);
+      n2.setProperty(PROPS.modifiers$PoTw, PROPS.modifiers$PoTw.getType().toString(p1));
+      n1.addChild(LINKS.keystroke$5Qdi, n2);
     }
     return n1;
   }
 
-  private static final class AUX_846jr0 {
-    /*package*/ static final SConcept ToolKeystroke_3de982bc = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b765b0L, "jetbrains.mps.lang.plugin.structure.ToolKeystroke");
-    /*package*/ static final SConcept KeyMapKeystroke_e4ceb015 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, "jetbrains.mps.lang.plugin.structure.KeyMapKeystroke");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ToolKeystroke$gA = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b765b0L, "jetbrains.mps.lang.plugin.structure.ToolKeystroke");
+    /*package*/ static final SConcept KeyMapKeystroke$7H = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, "jetbrains.mps.lang.plugin.structure.KeyMapKeystroke");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty keymap$bYfr = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b765b0L, 0x68b8d4843b765b6L, "keymap");
+    /*package*/ static final SProperty modifiers$PoTw = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x11919c665d4L, 0x11919c665d5L, "modifiers");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink keystroke$5Qdi = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x68b8d4843b765b0L, 0x68b8d4843b76126L, "keystroke");
   }
 }

@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XMLSAXLocatorExpression_Constraints extends BaseConstraintsDescriptor {
   public XMLSAXLocatorExpression_Constraints() {
-    super(AUX_vvfr21.XMLSAXLocatorExpression_1c3fd3e2);
+    super(CONCEPTS.XMLSAXLocatorExpression$v0);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class XMLSAXLocatorExpression_Constraints extends BaseConstraintsDescript
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestor(parentNode, AUX_vvfr21.XMLSAXParser_1c3fd6ab, false, false) != null);
+    return (SNodeOperations.getNodeAncestor(parentNode, CONCEPTS.XMLSAXParser$Sn, false, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:a2a452cd-a0b4-4774-9b7e-00f9c8226bfa(jetbrains.mps.core.xml.sax.constraints)", "1227128029536581188");
 
-  private static final class AUX_vvfr21 {
-    /*package*/ static final SConcept XMLSAXLocatorExpression_1c3fd3e2 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2edL, "jetbrains.mps.core.xml.sax.structure.XMLSAXLocatorExpression");
-    /*package*/ static final SConcept XMLSAXParser_1c3fd6ab = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, "jetbrains.mps.core.xml.sax.structure.XMLSAXParser");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXLocatorExpression$v0 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2edL, "jetbrains.mps.core.xml.sax.structure.XMLSAXLocatorExpression");
+    /*package*/ static final SConcept XMLSAXParser$Sn = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e301L, "jetbrains.mps.core.xml.sax.structure.XMLSAXParser");
   }
 }

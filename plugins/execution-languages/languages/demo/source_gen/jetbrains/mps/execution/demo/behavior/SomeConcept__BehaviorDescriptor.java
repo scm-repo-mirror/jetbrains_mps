@@ -4,6 +4,7 @@ package jetbrains.mps.execution.demo.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class SomeConcept__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_vtl6oa.SomeConcept_beaeb5b9;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, "jetbrains.mps.execution.demo.structure.SomeConcept");
 
   public static final SMethod<Boolean> isNodeRunnable_id431DWIovi3C = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isNodeRunnable").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("431DWIovi3C").build();
 
@@ -31,7 +31,7 @@ public final class SomeConcept__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static boolean isNodeRunnable_id431DWIovi3C(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getBoolean(__thisNode__, MetaAdapterFactory.getProperty(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, 0x446739e63be7cbc4L, "valid"));
+    return SPropertyOperations.getBoolean(__thisNode__, PROPS.valid$$Z1J);
   }
 
   /*package*/ SomeConcept__BehaviorDescriptor() {
@@ -80,7 +80,7 @@ public final class SomeConcept__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_vtl6oa {
-    /*package*/ static final SConcept SomeConcept_beaeb5b9 = MetaAdapterFactory.getConcept(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, "jetbrains.mps.execution.demo.structure.SomeConcept");
+  private static final class PROPS {
+    /*package*/ static final SProperty valid$$Z1J = MetaAdapterFactory.getProperty(0xe6081818930c4926L, 0xbdef3537bcc59087L, 0x446739e63be33684L, 0x446739e63be7cbc4L, "valid");
   }
 }

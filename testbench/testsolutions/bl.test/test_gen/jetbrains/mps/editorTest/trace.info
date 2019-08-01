@@ -9242,47 +9242,52 @@
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/3852894662483397197">
     <file name="PriorityCheckTest_Test.java">
-      <node id="3852894662483397197" at="34,35,35,25" concept="11" />
-      <node id="3852894662483449723" at="39,52,40,43" concept="2" />
-      <node id="3852894662483397197" at="45,52,46,19" concept="11" />
-      <node id="3852894662483441863" at="49,54,50,41" concept="2" />
-      <node id="3852894662483449708" at="50,41,51,41" concept="2" />
-      <node id="3852894662483449727" at="51,41,52,193" concept="6" />
-      <node id="3852894662483493968" at="52,193,53,200" concept="6" />
-      <node id="3852894662483493976" at="53,200,54,159" concept="2" />
-      <node id="3852894662483493950" at="54,159,55,175" concept="2" />
-      <node id="3852894662483493995" at="55,175,56,299" concept="2" />
-      <node id="3852894662483494009" at="56,299,57,420" concept="2" />
-      <node id="3852894662483494029" at="57,420,58,52" concept="2" />
-      <node id="3852894662483494025" at="59,7,60,347" concept="6" />
-      <node id="3852894662483494025" at="60,347,61,346" concept="6" />
-      <node id="3852894662483494025" at="61,346,62,160" concept="2" />
-      <node id="3852894662483397197" at="29,0,31,0" concept="9" trace="ourParamCache" />
-      <node id="3852894662483397197" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
-      <node id="3852894662483397197" at="34,0,37,0" concept="1" trace="PriorityCheckTest_Test#()V" />
-      <node id="3852894662483397197" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="3852894662483449723" at="38,0,42,0" concept="5" trace="test_testRotation#()V" />
-      <node id="3852894662483494025" at="58,52,63,7" concept="0" />
-      <node id="3852894662483449723" at="49,0,65,0" concept="5" trace="test_testRotation#()V" />
-      <scope id="3852894662483397197" at="34,35,35,25" />
-      <scope id="3852894662483449723" at="39,52,40,43" />
-      <scope id="3852894662483397197" at="45,52,46,19" />
-      <scope id="3852894662483397197" at="34,0,37,0" />
-      <scope id="3852894662483397197" at="45,0,48,0">
+      <node id="3852894662483397197" at="36,35,37,25" concept="11" />
+      <node id="3852894662483449723" at="41,52,42,43" concept="2" />
+      <node id="3852894662483397197" at="47,52,48,19" concept="11" />
+      <node id="3852894662483441863" at="51,54,52,41" concept="2" />
+      <node id="3852894662483449708" at="52,41,53,41" concept="2" />
+      <node id="3852894662483449727" at="53,41,54,193" concept="6" />
+      <node id="3852894662483493968" at="54,193,55,200" concept="6" />
+      <node id="3852894662483493976" at="55,200,56,64" concept="2" />
+      <node id="3852894662483493950" at="56,64,57,73" concept="2" />
+      <node id="3852894662483493995" at="57,73,58,299" concept="2" />
+      <node id="3852894662483494009" at="58,299,59,318" concept="2" />
+      <node id="3852894662483494029" at="59,318,60,52" concept="2" />
+      <node id="3852894662483494025" at="61,7,62,347" concept="6" />
+      <node id="3852894662483494025" at="62,347,63,346" concept="6" />
+      <node id="3852894662483494025" at="63,346,64,160" concept="2" />
+      <node id="3852894662483397197" at="72,0,73,0" concept="9" trace="value$ZeO0" />
+      <node id="3852894662483397197" at="76,0,77,0" concept="9" trace="leftExpression$rxLZ" />
+      <node id="3852894662483397197" at="77,0,78,0" concept="9" trace="rightExpression$rxBl" />
+      <node id="3852894662483397197" at="31,0,33,0" concept="9" trace="ourParamCache" />
+      <node id="3852894662483397197" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="3852894662483397197" at="36,0,39,0" concept="1" trace="PriorityCheckTest_Test#()V" />
+      <node id="3852894662483397197" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3852894662483449723" at="40,0,44,0" concept="5" trace="test_testRotation#()V" />
+      <node id="3852894662483494025" at="60,52,65,7" concept="0" />
+      <node id="3852894662483449723" at="51,0,67,0" concept="5" trace="test_testRotation#()V" />
+      <scope id="3852894662483397197" at="36,35,37,25" />
+      <scope id="3852894662483449723" at="41,52,42,43" />
+      <scope id="3852894662483397197" at="47,52,48,19" />
+      <scope id="3852894662483397197" at="36,0,39,0" />
+      <scope id="3852894662483397197" at="47,0,50,0">
         <var name="owner" id="3852894662483397197" />
       </scope>
-      <scope id="3852894662483494025" at="59,7,62,160">
+      <scope id="3852894662483494025" at="61,7,64,160">
         <var name="nodesAfter" id="3852894662483494025" />
         <var name="nodesBefore" id="3852894662483494025" />
       </scope>
-      <scope id="3852894662483449723" at="38,0,42,0" />
-      <scope id="3852894662483449723" at="49,54,63,7">
+      <scope id="3852894662483449723" at="40,0,44,0" />
+      <scope id="3852894662483449723" at="51,54,65,7">
         <var name="constant" id="3852894662483493969" />
         <var name="op" id="3852894662483449728" />
       </scope>
-      <scope id="3852894662483449723" at="49,0,65,0" />
-      <unit id="3852894662483397197" at="43,0,68,0" name="jetbrains.mps.editorTest.PriorityCheckTest_Test$TestBody" />
-      <unit id="3852894662483397197" at="27,0,69,0" name="jetbrains.mps.editorTest.PriorityCheckTest_Test" />
+      <scope id="3852894662483449723" at="51,0,67,0" />
+      <unit id="3852894662483397197" at="71,0,74,0" name="jetbrains.mps.editorTest.PriorityCheckTest_Test$PROPS" />
+      <unit id="3852894662483397197" at="75,0,79,0" name="jetbrains.mps.editorTest.PriorityCheckTest_Test$LINKS" />
+      <unit id="3852894662483397197" at="45,0,70,0" name="jetbrains.mps.editorTest.PriorityCheckTest_Test$TestBody" />
+      <unit id="3852894662483397197" at="29,0,80,0" name="jetbrains.mps.editorTest.PriorityCheckTest_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/3891087596588926733">
@@ -22319,92 +22324,102 @@
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/818296778579227381">
     <file name="PriorityCheckTestMulFirst_Test.java">
-      <node id="818296778579227381" at="34,43,35,25" concept="11" />
-      <node id="818296778579227401" at="39,52,40,43" concept="2" />
-      <node id="818296778579227381" at="45,52,46,19" concept="11" />
-      <node id="818296778579227382" at="49,54,50,40" concept="2" />
-      <node id="818296778579227391" at="50,40,51,40" concept="2" />
-      <node id="818296778579227404" at="51,40,52,192" concept="6" />
-      <node id="818296778579227410" at="52,192,53,200" concept="6" />
-      <node id="818296778579227416" at="53,200,54,159" concept="2" />
-      <node id="818296778579227422" at="54,159,55,175" concept="2" />
-      <node id="818296778579227428" at="55,175,56,298" concept="2" />
-      <node id="818296778579227433" at="56,298,57,419" concept="2" />
-      <node id="818296778579227439" at="57,419,58,52" concept="2" />
-      <node id="818296778579227442" at="59,7,60,346" concept="6" />
-      <node id="818296778579227442" at="60,346,61,345" concept="6" />
-      <node id="818296778579227442" at="61,345,62,160" concept="2" />
-      <node id="818296778579227381" at="29,0,31,0" concept="9" trace="ourParamCache" />
-      <node id="818296778579227381" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
-      <node id="818296778579227381" at="34,0,37,0" concept="1" trace="PriorityCheckTestMulFirst_Test#()V" />
-      <node id="818296778579227381" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="818296778579227401" at="38,0,42,0" concept="5" trace="test_testRotation#()V" />
-      <node id="818296778579227442" at="58,52,63,7" concept="0" />
-      <node id="818296778579227401" at="49,0,65,0" concept="5" trace="test_testRotation#()V" />
-      <scope id="818296778579227381" at="34,43,35,25" />
-      <scope id="818296778579227401" at="39,52,40,43" />
-      <scope id="818296778579227381" at="45,52,46,19" />
-      <scope id="818296778579227381" at="34,0,37,0" />
-      <scope id="818296778579227381" at="45,0,48,0">
+      <node id="818296778579227381" at="36,43,37,25" concept="11" />
+      <node id="818296778579227401" at="41,52,42,43" concept="2" />
+      <node id="818296778579227381" at="47,52,48,19" concept="11" />
+      <node id="818296778579227382" at="51,54,52,40" concept="2" />
+      <node id="818296778579227391" at="52,40,53,40" concept="2" />
+      <node id="818296778579227404" at="53,40,54,192" concept="6" />
+      <node id="818296778579227410" at="54,192,55,200" concept="6" />
+      <node id="818296778579227416" at="55,200,56,64" concept="2" />
+      <node id="818296778579227422" at="56,64,57,73" concept="2" />
+      <node id="818296778579227428" at="57,73,58,298" concept="2" />
+      <node id="818296778579227433" at="58,298,59,317" concept="2" />
+      <node id="818296778579227439" at="59,317,60,52" concept="2" />
+      <node id="818296778579227442" at="61,7,62,346" concept="6" />
+      <node id="818296778579227442" at="62,346,63,345" concept="6" />
+      <node id="818296778579227442" at="63,345,64,160" concept="2" />
+      <node id="818296778579227381" at="72,0,73,0" concept="9" trace="value$ZeO0" />
+      <node id="818296778579227381" at="76,0,77,0" concept="9" trace="leftExpression$rxLZ" />
+      <node id="818296778579227381" at="77,0,78,0" concept="9" trace="rightExpression$rxBl" />
+      <node id="818296778579227381" at="31,0,33,0" concept="9" trace="ourParamCache" />
+      <node id="818296778579227381" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="818296778579227381" at="36,0,39,0" concept="1" trace="PriorityCheckTestMulFirst_Test#()V" />
+      <node id="818296778579227381" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="818296778579227401" at="40,0,44,0" concept="5" trace="test_testRotation#()V" />
+      <node id="818296778579227442" at="60,52,65,7" concept="0" />
+      <node id="818296778579227401" at="51,0,67,0" concept="5" trace="test_testRotation#()V" />
+      <scope id="818296778579227381" at="36,43,37,25" />
+      <scope id="818296778579227401" at="41,52,42,43" />
+      <scope id="818296778579227381" at="47,52,48,19" />
+      <scope id="818296778579227381" at="36,0,39,0" />
+      <scope id="818296778579227381" at="47,0,50,0">
         <var name="owner" id="818296778579227381" />
       </scope>
-      <scope id="818296778579227442" at="59,7,62,160">
+      <scope id="818296778579227442" at="61,7,64,160">
         <var name="nodesAfter" id="818296778579227442" />
         <var name="nodesBefore" id="818296778579227442" />
       </scope>
-      <scope id="818296778579227401" at="38,0,42,0" />
-      <scope id="818296778579227401" at="49,54,63,7">
+      <scope id="818296778579227401" at="40,0,44,0" />
+      <scope id="818296778579227401" at="51,54,65,7">
         <var name="constant" id="818296778579227411" />
         <var name="op" id="818296778579227405" />
       </scope>
-      <scope id="818296778579227401" at="49,0,65,0" />
-      <unit id="818296778579227381" at="43,0,68,0" name="jetbrains.mps.editorTest.PriorityCheckTestMulFirst_Test$TestBody" />
-      <unit id="818296778579227381" at="27,0,69,0" name="jetbrains.mps.editorTest.PriorityCheckTestMulFirst_Test" />
+      <scope id="818296778579227401" at="51,0,67,0" />
+      <unit id="818296778579227381" at="71,0,74,0" name="jetbrains.mps.editorTest.PriorityCheckTestMulFirst_Test$PROPS" />
+      <unit id="818296778579227381" at="75,0,79,0" name="jetbrains.mps.editorTest.PriorityCheckTestMulFirst_Test$LINKS" />
+      <unit id="818296778579227381" at="45,0,70,0" name="jetbrains.mps.editorTest.PriorityCheckTestMulFirst_Test$TestBody" />
+      <unit id="818296778579227381" at="29,0,80,0" name="jetbrains.mps.editorTest.PriorityCheckTestMulFirst_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/818296778579245154">
     <file name="PriorityCheckTestPlusFirst_Test.java">
-      <node id="818296778579245154" at="34,44,35,25" concept="11" />
-      <node id="818296778579245174" at="39,52,40,43" concept="2" />
-      <node id="818296778579245154" at="45,52,46,19" concept="11" />
-      <node id="818296778579245155" at="49,54,50,40" concept="2" />
-      <node id="818296778579245164" at="50,40,51,40" concept="2" />
-      <node id="818296778579245177" at="51,40,52,193" concept="6" />
-      <node id="818296778579245183" at="52,193,53,200" concept="6" />
-      <node id="818296778579245189" at="53,200,54,159" concept="2" />
-      <node id="818296778579245195" at="54,159,55,175" concept="2" />
-      <node id="818296778579245201" at="55,175,56,297" concept="2" />
-      <node id="818296778579245206" at="56,297,57,418" concept="2" />
-      <node id="818296778579245212" at="57,418,58,52" concept="2" />
-      <node id="818296778579245215" at="59,7,60,346" concept="6" />
-      <node id="818296778579245215" at="60,346,61,345" concept="6" />
-      <node id="818296778579245215" at="61,345,62,160" concept="2" />
-      <node id="818296778579245154" at="29,0,31,0" concept="9" trace="ourParamCache" />
-      <node id="818296778579245154" at="31,0,33,0" concept="3" trace="myWithCommandRule" />
-      <node id="818296778579245154" at="34,0,37,0" concept="1" trace="PriorityCheckTestPlusFirst_Test#()V" />
-      <node id="818296778579245154" at="45,0,48,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="818296778579245174" at="38,0,42,0" concept="5" trace="test_testRotation#()V" />
-      <node id="818296778579245215" at="58,52,63,7" concept="0" />
-      <node id="818296778579245174" at="49,0,65,0" concept="5" trace="test_testRotation#()V" />
-      <scope id="818296778579245154" at="34,44,35,25" />
-      <scope id="818296778579245174" at="39,52,40,43" />
-      <scope id="818296778579245154" at="45,52,46,19" />
-      <scope id="818296778579245154" at="34,0,37,0" />
-      <scope id="818296778579245154" at="45,0,48,0">
+      <node id="818296778579245154" at="36,44,37,25" concept="11" />
+      <node id="818296778579245174" at="41,52,42,43" concept="2" />
+      <node id="818296778579245154" at="47,52,48,19" concept="11" />
+      <node id="818296778579245155" at="51,54,52,40" concept="2" />
+      <node id="818296778579245164" at="52,40,53,40" concept="2" />
+      <node id="818296778579245177" at="53,40,54,193" concept="6" />
+      <node id="818296778579245183" at="54,193,55,200" concept="6" />
+      <node id="818296778579245189" at="55,200,56,64" concept="2" />
+      <node id="818296778579245195" at="56,64,57,73" concept="2" />
+      <node id="818296778579245201" at="57,73,58,297" concept="2" />
+      <node id="818296778579245206" at="58,297,59,316" concept="2" />
+      <node id="818296778579245212" at="59,316,60,52" concept="2" />
+      <node id="818296778579245215" at="61,7,62,346" concept="6" />
+      <node id="818296778579245215" at="62,346,63,345" concept="6" />
+      <node id="818296778579245215" at="63,345,64,160" concept="2" />
+      <node id="818296778579245154" at="72,0,73,0" concept="9" trace="value$ZeO0" />
+      <node id="818296778579245154" at="76,0,77,0" concept="9" trace="leftExpression$rxLZ" />
+      <node id="818296778579245154" at="77,0,78,0" concept="9" trace="rightExpression$rxBl" />
+      <node id="818296778579245154" at="31,0,33,0" concept="9" trace="ourParamCache" />
+      <node id="818296778579245154" at="33,0,35,0" concept="3" trace="myWithCommandRule" />
+      <node id="818296778579245154" at="36,0,39,0" concept="1" trace="PriorityCheckTestPlusFirst_Test#()V" />
+      <node id="818296778579245154" at="47,0,50,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="818296778579245174" at="40,0,44,0" concept="5" trace="test_testRotation#()V" />
+      <node id="818296778579245215" at="60,52,65,7" concept="0" />
+      <node id="818296778579245174" at="51,0,67,0" concept="5" trace="test_testRotation#()V" />
+      <scope id="818296778579245154" at="36,44,37,25" />
+      <scope id="818296778579245174" at="41,52,42,43" />
+      <scope id="818296778579245154" at="47,52,48,19" />
+      <scope id="818296778579245154" at="36,0,39,0" />
+      <scope id="818296778579245154" at="47,0,50,0">
         <var name="owner" id="818296778579245154" />
       </scope>
-      <scope id="818296778579245215" at="59,7,62,160">
+      <scope id="818296778579245215" at="61,7,64,160">
         <var name="nodesAfter" id="818296778579245215" />
         <var name="nodesBefore" id="818296778579245215" />
       </scope>
-      <scope id="818296778579245174" at="38,0,42,0" />
-      <scope id="818296778579245174" at="49,54,63,7">
+      <scope id="818296778579245174" at="40,0,44,0" />
+      <scope id="818296778579245174" at="51,54,65,7">
         <var name="constant" id="818296778579245184" />
         <var name="op" id="818296778579245178" />
       </scope>
-      <scope id="818296778579245174" at="49,0,65,0" />
-      <unit id="818296778579245154" at="43,0,68,0" name="jetbrains.mps.editorTest.PriorityCheckTestPlusFirst_Test$TestBody" />
-      <unit id="818296778579245154" at="27,0,69,0" name="jetbrains.mps.editorTest.PriorityCheckTestPlusFirst_Test" />
+      <scope id="818296778579245174" at="51,0,67,0" />
+      <unit id="818296778579245154" at="71,0,74,0" name="jetbrains.mps.editorTest.PriorityCheckTestPlusFirst_Test$PROPS" />
+      <unit id="818296778579245154" at="75,0,79,0" name="jetbrains.mps.editorTest.PriorityCheckTestPlusFirst_Test$LINKS" />
+      <unit id="818296778579245154" at="45,0,70,0" name="jetbrains.mps.editorTest.PriorityCheckTestPlusFirst_Test$TestBody" />
+      <unit id="818296778579245154" at="29,0,80,0" name="jetbrains.mps.editorTest.PriorityCheckTestPlusFirst_Test" />
     </file>
   </root>
   <root nodeRef="r:914ee49a-537d-44b2-a5fb-bac87a54743d(jetbrains.mps.editorTest@tests)/8199816903240326885">

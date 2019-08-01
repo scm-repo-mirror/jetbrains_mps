@@ -11,16 +11,17 @@ import jetbrains.mps.build.util.DependenciesHelper;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.behavior.BuildLayout_PathElement__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ModuleFinder {
   public static Iterable<SNode> findModules(Iterable<SNode> modules, final TemplateQueryContext genContext, final SNode node) {
-    final SNode project = SNodeOperations.cast(SNodeOperations.getContainingRoot(node), AUX_8pqt49.BuildProject_808bb057);
+    final SNode project = SNodeOperations.cast(SNodeOperations.getContainingRoot(node), CONCEPTS.BuildProject$BF);
     if (project == null) {
       genContext.showErrorMessage(node, "no context project defined");
       return ListSequence.fromList(new ArrayList<SNode>());
@@ -32,12 +33,12 @@ public class ModuleFinder {
         // similar code is in BuildMps_Module.fetchDependencies() behavior (at least). 
         SNode layoutNode = helper.getArtifact(module);
         if (layoutNode == null) {
-          genContext.showErrorMessage(node, "mps module " + SPropertyOperations.getString(module, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " was not found in the layout of `" + SPropertyOperations.getString(project, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "'");
+          genContext.showErrorMessage(node, "mps module " + SPropertyOperations.getString(module, PROPS.name$tAp1) + " was not found in the layout of `" + SPropertyOperations.getString(project, PROPS.name$tAp1) + "'");
           return null;
         }
         String val = BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invoke(layoutNode, helper, module);
         if (val == null) {
-          genContext.showErrorMessage(node, "no location for module" + SPropertyOperations.getString(module, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+          genContext.showErrorMessage(node, "no location for module" + SPropertyOperations.getString(module, PROPS.name$tAp1));
           return null;
         }
         return val;
@@ -58,13 +59,18 @@ public class ModuleFinder {
   }
   private static SNode createGeneratorInternal_String_8pqt49_a0a0a0e0a(Object p0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_8pqt49.GeneratorInternal_String_73162e92, null, null, false);
-    n1.setProperty(MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path"), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path").getType().toString(p0));
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.GeneratorInternal_String$cg, null, null, false);
+    n1.setProperty(PROPS.path$LlSY, PROPS.path$LlSY.getType().toString(p0));
     return n1;
   }
 
-  private static final class AUX_8pqt49 {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept GeneratorInternal_String_73162e92 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, "jetbrains.mps.build.mps.structure.GeneratorInternal_String");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept GeneratorInternal_String$cg = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, "jetbrains.mps.build.mps.structure.GeneratorInternal_String");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty path$LlSY = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0xd94b027412f0824L, 0xd94b027412f0827L, "path");
   }
 }

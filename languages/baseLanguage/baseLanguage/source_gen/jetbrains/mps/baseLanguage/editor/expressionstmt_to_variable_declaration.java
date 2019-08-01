@@ -32,7 +32,6 @@ import jetbrains.mps.editor.runtime.menus.SubstituteItemProxy;
 import jetbrains.mps.lang.editor.menus.transformation.SubstituteMenuItemAsActionItem;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.editor.runtime.cells.CellIdManager;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
@@ -42,6 +41,8 @@ import jetbrains.mps.editor.runtime.menus.EditorMenuItemCompositeCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationContext;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class expressionstmt_to_variable_declaration extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.SUBSTITUTE);
@@ -75,7 +76,7 @@ public class expressionstmt_to_variable_declaration extends TransformationMenuBa
   public class TMP_Group_mt5nim_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_mt5nim.ExpressionStatement_9dbf9b0c);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ExpressionStatement$nm);
     }
 
     @NotNull
@@ -114,7 +115,7 @@ public class expressionstmt_to_variable_declaration extends TransformationMenuBa
         return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
       }
       private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-        return AUX_mt5nim.StringType_8d33e5b7;
+        return CONCEPTS.StringType$2b;
       }
 
       @Override
@@ -129,15 +130,15 @@ public class expressionstmt_to_variable_declaration extends TransformationMenuBa
           @Override
           public void execute(@NotNull String pattern) {
             SNode createdNode = item.createNode(pattern);
-            SNode statement = SNodeFactoryOperations.createNewNode(AUX_mt5nim.LocalVariableDeclarationStatement_d47683f4, null);
+            SNode statement = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalVariableDeclarationStatement$BI, null);
             SNodeOperations.replaceWithAnother(targetNode, statement);
-            SNode localVariableDeclaration = SNodeFactoryOperations.createNewNode(AUX_mt5nim.LocalVariableDeclaration_d47683f3, null);
-            SLinkOperations.setTarget(statement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration"), localVariableDeclaration);
-            SLinkOperations.setTarget(localVariableDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), createdNode);
+            SNode localVariableDeclaration = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalVariableDeclaration$Bf, null);
+            SLinkOperations.setTarget(statement, LINKS.localVariableDeclaration$O0D0, localVariableDeclaration);
+            SLinkOperations.setTarget(localVariableDeclaration, LINKS.type$pLrO, createdNode);
             if (!(SNodeOperations.getConcept(_context.getNode()).isAbstract())) {
-              SLinkOperations.setTarget(localVariableDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"), _context.getNode());
+              SLinkOperations.setTarget(localVariableDeclaration, LINKS.initializer$KgD, _context.getNode());
             }
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(statement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration")), "*" + CellIdManager.createPropertyId("name"), -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(statement, LINKS.localVariableDeclaration$O0D0), "*" + CellIdManager.createPropertyId("name"), -1);
           }
 
           @Override
@@ -177,7 +178,7 @@ public class expressionstmt_to_variable_declaration extends TransformationMenuBa
         return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
       }
       private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-        return AUX_mt5nim.PrimitiveType_53355efd;
+        return CONCEPTS.PrimitiveType$5;
       }
 
       @Override
@@ -192,15 +193,15 @@ public class expressionstmt_to_variable_declaration extends TransformationMenuBa
           @Override
           public void execute(@NotNull String pattern) {
             SNode createdNode = item.createNode(pattern);
-            SNode statement = SNodeFactoryOperations.createNewNode(AUX_mt5nim.LocalVariableDeclarationStatement_d47683f4, null);
+            SNode statement = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalVariableDeclarationStatement$BI, null);
             SNodeOperations.replaceWithAnother(targetNode, statement);
-            SNode localVariableDeclaration = SNodeFactoryOperations.createNewNode(AUX_mt5nim.LocalVariableDeclaration_d47683f3, null);
-            SLinkOperations.setTarget(statement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration"), localVariableDeclaration);
-            SLinkOperations.setTarget(localVariableDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), createdNode);
+            SNode localVariableDeclaration = SNodeFactoryOperations.createNewNode(CONCEPTS.LocalVariableDeclaration$Bf, null);
+            SLinkOperations.setTarget(statement, LINKS.localVariableDeclaration$O0D0, localVariableDeclaration);
+            SLinkOperations.setTarget(localVariableDeclaration, LINKS.type$pLrO, createdNode);
             if (!(SNodeOperations.getConcept(_context.getNode()).isAbstract())) {
-              SLinkOperations.setTarget(localVariableDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"), _context.getNode());
+              SLinkOperations.setTarget(localVariableDeclaration, LINKS.initializer$KgD, _context.getNode());
             }
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(statement, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration")), "*" + CellIdManager.createPropertyId("name"), -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(statement, LINKS.localVariableDeclaration$O0D0), "*" + CellIdManager.createPropertyId("name"), -1);
           }
 
           @Override
@@ -221,11 +222,17 @@ public class expressionstmt_to_variable_declaration extends TransformationMenuBa
     }
   }
 
-  private static final class AUX_mt5nim {
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SConcept StringType_8d33e5b7 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47da71ecL, "jetbrains.mps.baseLanguage.structure.StringType");
-    /*package*/ static final SConcept LocalVariableDeclarationStatement_d47683f4 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept PrimitiveType_53355efd = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SConcept StringType$2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47da71ecL, "jetbrains.mps.baseLanguage.structure.StringType");
+    /*package*/ static final SConcept LocalVariableDeclarationStatement$BI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept PrimitiveType$5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink localVariableDeclaration$O0D0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration");
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink initializer$KgD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer");
   }
 }

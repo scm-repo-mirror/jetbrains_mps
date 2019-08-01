@@ -14,12 +14,14 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.script.behavior.AbstractClassifierSpecification__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class ConvertToClassifierFQNameSpecification_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -53,10 +55,10 @@ public final class ConvertToClassifierFQNameSpecification_Intention extends Abst
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode classifierSpecification = SNodeFactoryOperations.replaceWithNewChild(node, AUX_uy8vp.FQNameClassifierSpecification_2dabc6b8);
-      SPropertyOperations.assign(classifierSpecification, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a6bdf42L, "classifierFQName"), AbstractClassifierSpecification__BehaviorDescriptor.getClassifierFqName_id4HFrnGErDob.invoke(node));
-      SPropertyOperations.assign(classifierSpecification, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a76ca23L, "smodelReference"), AbstractClassifierSpecification__BehaviorDescriptor.getSModelReference_id4HFrnGEt_VQ.invoke(node));
-      SPropertyOperations.assign(classifierSpecification, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x7bba19eddf8bfaa0L, "snodeId"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier")).getNodeId().toString());
+      SNode classifierSpecification = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.FQNameClassifierSpecification$YE);
+      SPropertyOperations.assign(classifierSpecification, PROPS.classifierFQName$esZ1, AbstractClassifierSpecification__BehaviorDescriptor.getClassifierFqName_id4HFrnGErDob.invoke(node));
+      SPropertyOperations.assign(classifierSpecification, PROPS.smodelReference$rQr7, AbstractClassifierSpecification__BehaviorDescriptor.getSModelReference_id4HFrnGEt_VQ.invoke(node));
+      SPropertyOperations.assign(classifierSpecification, PROPS.snodeId$9KsG, SLinkOperations.getTarget(node, LINKS.classifier$udFV).getNodeId().toString());
       SNodeOperations.deleteNode(node);
     }
     @Override
@@ -65,7 +67,17 @@ public final class ConvertToClassifierFQNameSpecification_Intention extends Abst
     }
   }
 
-  private static final class AUX_uy8vp {
-    /*package*/ static final SConcept FQNameClassifierSpecification_2dabc6b8 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, "jetbrains.mps.lang.script.structure.FQNameClassifierSpecification");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FQNameClassifierSpecification$YE = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, "jetbrains.mps.lang.script.structure.FQNameClassifierSpecification");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty classifierFQName$esZ1 = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a6bdf42L, "classifierFQName");
+    /*package*/ static final SProperty smodelReference$rQr7 = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a76ca23L, "smodelReference");
+    /*package*/ static final SProperty snodeId$9KsG = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x7bba19eddf8bfaa0L, "snodeId");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$udFV = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier");
   }
 }

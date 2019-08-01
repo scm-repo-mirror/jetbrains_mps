@@ -22,7 +22,6 @@ import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodePointer;
@@ -34,6 +33,8 @@ import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.smodel.MPSModuleRepository;
 import jetbrains.mps.ide.projectPane.CreateRootFilterEP;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ClassLikeMenuAdjustment_AppPluginPart extends ApplicationPluginPart {
   private LanguageRegistryListener myReloadListener = new LanguageRegistryListener() {
@@ -64,11 +65,11 @@ public class ClassLikeMenuAdjustment_AppPluginPart extends ApplicationPluginPart
               }
             }).where(new NotNullWhereFilter<SModel>()).translate(new ITranslator2<SModel, SNode>() {
               public Iterable<SNode> translate(SModel it) {
-                return SModelOperations.roots(((SModel) it), AUX_2rt3y9.DSLDescriptor_799dc12a);
+                return SModelOperations.roots(((SModel) it), CONCEPTS.DSLDescriptor$dS);
               }
             }).select(new ISelector<SNode, SNode>() {
               public SNode select(SNode it) {
-                return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept"));
+                return SLinkOperations.getTarget(it, LINKS.preferredConcept$ybbQ);
               }
             }).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode it) {
@@ -112,7 +113,11 @@ public class ClassLikeMenuAdjustment_AppPluginPart extends ApplicationPluginPart
     ClassLikeMenuAdjustment_AppPluginPart.this.myClassLikeConcepts = null;
   }
 
-  private static final class AUX_2rt3y9 {
-    /*package*/ static final SConcept DSLDescriptor_799dc12a = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLDescriptor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DSLDescriptor$dS = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLDescriptor");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink preferredConcept$ybbQ = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept");
   }
 }

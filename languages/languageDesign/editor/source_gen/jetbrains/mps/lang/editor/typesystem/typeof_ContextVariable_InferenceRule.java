@@ -24,7 +24,7 @@ public class typeof_ContextVariable_InferenceRule extends AbstractInferenceRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_lj2qp5.ContextVariable_8fdc508b;
+    return CONCEPTS.ContextVariable$R;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,7 +33,7 @@ public class typeof_ContextVariable_InferenceRule extends AbstractInferenceRule_
     return false;
   }
 
-  private static final class AUX_lj2qp5 {
-    /*package*/ static final SConcept ContextVariable_8fdc508b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x794cf8ea9e119f99L, "jetbrains.mps.lang.editor.structure.ContextVariable");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ContextVariable$R = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x794cf8ea9e119f99L, "jetbrains.mps.lang.editor.structure.ContextVariable");
   }
 }

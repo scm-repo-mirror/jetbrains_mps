@@ -12,13 +12,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestSubstituteChildWithConstraints1_Constraints extends BaseConstraintsDescriptor {
   public TestSubstituteChildWithConstraints1_Constraints() {
-    super(AUX_ecjzx0.TestSubstituteChildWithConstraints1_5a6e81b4);
+    super(CONCEPTS.TestSubstituteChildWithConstraints1$gI);
   }
 
   @Override
@@ -37,11 +37,15 @@ public class TestSubstituteChildWithConstraints1_Constraints extends BaseConstra
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return !(Objects.equals(link, MetaAdapterFactory.getContainmentLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x9c8de75f2cc6e9aL, 0x9c8de75f2d0d666L, "childCanBeChild")));
+    return !(Objects.equals(link, LINKS.childCanBeChild$6bh2));
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:0cba60fc-aa17-42ba-b3ca-69b0d1a86fe9(jetbrains.mps.lang.editor.menus.substitute.testLanguage.constraints)", "1227128029536583199");
 
-  private static final class AUX_ecjzx0 {
-    /*package*/ static final SConcept TestSubstituteChildWithConstraints1_5a6e81b4 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x9c8de75f2ccf9b4L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildWithConstraints1");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteChildWithConstraints1$gI = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x9c8de75f2ccf9b4L, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteChildWithConstraints1");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink childCanBeChild$6bh2 = MetaAdapterFactory.getContainmentLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x9c8de75f2cc6e9aL, 0x9c8de75f2d0d666L, "childCanBeChild");
   }
 }

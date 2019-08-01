@@ -21,7 +21,7 @@ public class PropertyExpressionDelete_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNodeOperations.replaceWithNewChild(node, AUX_re24uj.PropertyDeclarationCellSelector_9f6b369e);
+        SNodeOperations.replaceWithNewChild(node, CONCEPTS.PropertyDeclarationCellSelector$M4);
       }
 
     };
@@ -62,7 +62,7 @@ public class PropertyExpressionDelete_Actions {
     }
   }
 
-  private static final class AUX_re24uj {
-    /*package*/ static final SConcept PropertyDeclarationCellSelector_9f6b369e = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3e970bbc3009e3a3L, "jetbrains.mps.lang.editor.structure.PropertyDeclarationCellSelector");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyDeclarationCellSelector$M4 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3e970bbc3009e3a3L, "jetbrains.mps.lang.editor.structure.PropertyDeclarationCellSelector");
   }
 }

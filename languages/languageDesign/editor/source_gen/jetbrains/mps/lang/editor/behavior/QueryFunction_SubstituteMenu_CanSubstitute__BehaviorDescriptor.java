@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -21,10 +22,9 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class QueryFunction_SubstituteMenu_CanSubstitute__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_9bbbsy.QueryFunction_SubstituteMenu_CanSubstitute_d546c189;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7ce1116e3a2db1e1L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenu_CanSubstitute");
 
   public static final SMethod<SNode> getExpectedReturnType_idhEwIGRD = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExpectedReturnType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIGRD").build();
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
@@ -38,8 +38,8 @@ public final class QueryFunction_SubstituteMenu_CanSubstitute__BehaviorDescripto
     return _quotation_createNode_lfd2pz_a0a0();
   }
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
-    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invokeSuper(__thisNode__, AUX_9bbbsy.QueryFunction_SubstituteMenu_CanSubstitute_d546c189);
-    ListSequence.fromList(result).addElement(AUX_9bbbsy.QueryFunctionParameter_SubstituteMenu_Strictly_a63e0c46);
+    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invokeSuper(__thisNode__, CONCEPTS.QueryFunction_SubstituteMenu_CanSubstitute$VT);
+    ListSequence.fromList(result).addElement(CONCEPTS.QueryFunctionParameter_SubstituteMenu_Strictly$Js);
     return result;
   }
 
@@ -97,8 +97,8 @@ public final class QueryFunction_SubstituteMenu_CanSubstitute__BehaviorDescripto
     return quotedNode_1;
   }
 
-  private static final class AUX_9bbbsy {
-    /*package*/ static final SConcept QueryFunction_SubstituteMenu_CanSubstitute_d546c189 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7ce1116e3a2db1e1L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenu_CanSubstitute");
-    /*package*/ static final SConcept QueryFunctionParameter_SubstituteMenu_Strictly_a63e0c46 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x59f39dd19d1526cdL, "jetbrains.mps.lang.editor.structure.QueryFunctionParameter_SubstituteMenu_Strictly");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QueryFunction_SubstituteMenu_CanSubstitute$VT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x7ce1116e3a2db1e1L, "jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenu_CanSubstitute");
+    /*package*/ static final SConcept QueryFunctionParameter_SubstituteMenu_Strictly$Js = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x59f39dd19d1526cdL, "jetbrains.mps.lang.editor.structure.QueryFunctionParameter_SubstituteMenu_Strictly");
   }
 }

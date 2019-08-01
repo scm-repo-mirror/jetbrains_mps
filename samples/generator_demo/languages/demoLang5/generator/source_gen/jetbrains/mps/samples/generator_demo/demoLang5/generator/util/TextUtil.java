@@ -9,29 +9,34 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class TextUtil {
   public TextUtil() {
   }
   public static void fixText(SModel model) {
     // get all strings from the model 
-    List<SNode> strings = SModelOperations.nodes(model, AUX_rr1htj.StringLiteral_aa5a8cf6);
+    List<SNode> strings = SModelOperations.nodes(model, CONCEPTS.StringLiteral$4G);
     // get all MPS strings 
     Iterable<SNode> mpses = ListSequence.fromList(strings).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")).startsWith("MPS");
+        return SPropertyOperations.getString(it, PROPS.value$kiE0).startsWith("MPS");
       }
     });
     for (SNode mps : Sequence.fromIterable(mpses)) {
       // convert "MPS" --> "JetBrains MPS" 
-      SPropertyOperations.assign(mps, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), "JetBrains " + SPropertyOperations.getString(mps, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value")));
+      SPropertyOperations.assign(mps, PROPS.value$kiE0, "JetBrains " + SPropertyOperations.getString(mps, PROPS.value$kiE0));
     }
   }
 
-  private static final class AUX_rr1htj {
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
   }
 }

@@ -13,14 +13,14 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public class BreakStatement_DataFlow extends DataFlowBuilder {
   public void build(final DataFlowBuilderContext _context) {
     SNode statement = BreakStatement__BehaviorDescriptor.getLoopOrSwitch_idhEwIHwh.invoke(_context.getNode());
-    if ((statement != null) && SNodeOperations.getNodeAncestor(statement, AUX_tsqhf.IStatementListContainer_5e186851, false, false) == SNodeOperations.getNodeAncestor(_context.getNode(), AUX_tsqhf.IStatementListContainer_5e186851, false, false)) {
+    if ((statement != null) && SNodeOperations.getNodeAncestor(statement, CONCEPTS.IStatementListContainer$4L, false, false) == SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.IStatementListContainer$4L, false, false)) {
       _context.getBuilder().emitJump(_context.getBuilder().after(statement), "r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/1206465263853");
     } else {
       _context.getBuilder().emitNop("r:00000000-0000-4000-0000-011c895902c2(jetbrains.mps.baseLanguage.dataFlow)/5090797586239216724");
     }
   }
 
-  private static final class AUX_tsqhf {
-    /*package*/ static final SInterfaceConcept IStatementListContainer_5e186851 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IStatementListContainer$4L = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11750ef8265L, "jetbrains.mps.baseLanguage.structure.IStatementListContainer");
   }
 }

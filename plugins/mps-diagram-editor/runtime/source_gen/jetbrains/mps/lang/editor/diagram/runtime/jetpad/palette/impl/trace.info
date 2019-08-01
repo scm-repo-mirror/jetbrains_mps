@@ -392,7 +392,7 @@
       <node id="6327362524872575230" at="34,27,35,57" concept="9" />
       <node id="1590052124026021115" at="35,57,36,106" concept="9" />
       <node id="8335510736429048493" at="36,106,37,80" concept="7" />
-      <node id="8335510736429943057" at="37,80,38,264" concept="2" />
+      <node id="8335510736429943057" at="37,80,38,257" concept="2" />
       <node id="6194248980632177494" at="39,12,40,35" concept="2" />
       <node id="6194248980632177518" at="41,5,42,16" concept="8" />
       <node id="4394877045818107907" at="49,25,50,30" concept="2" />
@@ -400,7 +400,7 @@
       <node id="4394877045818108059" at="55,25,56,18" concept="8" />
       <node id="4394877045818108111" at="58,27,59,18" concept="8" />
       <node id="5142486769434461115" at="62,25,63,47" concept="2" />
-      <node id="6194248980632146498" at="67,0,68,0" concept="11" trace="AbstractConceptDeclaration_ec74828f" />
+      <node id="6194248980632146498" at="67,0,68,0" concept="11" trace="AbstractConceptDeclaration$UN" />
       <node id="6194248980632177492" at="39,10,41,5" concept="0" />
       <node id="4394877045818108055" at="55,0,58,0" concept="6" trace="getIcon#()Ljavax/swing/Icon;" />
       <node id="4394877045818108107" at="58,0,61,0" concept="6" trace="getText#()Ljava/lang/String;" />
@@ -424,7 +424,7 @@
       <scope id="4394877045818108055" at="55,0,58,0" />
       <scope id="4394877045818108107" at="58,0,61,0" />
       <scope id="5142486769434349590" at="62,0,65,0" />
-      <scope id="6194248980632177498" at="34,27,38,264">
+      <scope id="6194248980632177498" at="34,27,38,257">
         <var name="concept" id="8335510736429048489" />
       </scope>
       <scope id="6831048720710621636" at="49,0,53,0" />
@@ -439,7 +439,7 @@
         <var name="iconNode" id="6194248980632177482" />
       </scope>
       <scope id="6194248980632177472" at="30,0,44,0" />
-      <unit id="6194248980632146498" at="66,0,69,0" name="jetbrains.mps.lang.editor.diagram.runtime.jetpad.palette.impl.AbstractPaletteCreationAction$AUX_9evbr" />
+      <unit id="6194248980632146498" at="66,0,69,0" name="jetbrains.mps.lang.editor.diagram.runtime.jetpad.palette.impl.AbstractPaletteCreationAction$CONCEPTS" />
       <unit id="6831048720710621636" at="48,82,53,5" name="jetbrains.mps.lang.editor.diagram.runtime.jetpad.palette.impl.AbstractPaletteCreationAction$1" />
       <unit id="6194248980632146498" at="18,0,70,0" name="jetbrains.mps.lang.editor.diagram.runtime.jetpad.palette.impl.AbstractPaletteCreationAction" />
     </file>

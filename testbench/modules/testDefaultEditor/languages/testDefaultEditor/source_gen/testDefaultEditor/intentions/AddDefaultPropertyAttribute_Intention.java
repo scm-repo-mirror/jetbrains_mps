@@ -14,12 +14,13 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class AddDefaultPropertyAttribute_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -49,7 +50,7 @@ public final class AddDefaultPropertyAttribute_Intention extends AbstractIntenti
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_91o61m.DefaultPropertyAttribute_a60c9993, MetaAdapterFactory.getProperty(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132948L, "age"))) != null)) {
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.DefaultPropertyAttribute$wJ, PROPS.age$LvVX)) != null)) {
         return "remove default property attribute";
       } else {
         return "add default property attribute";
@@ -57,11 +58,11 @@ public final class AddDefaultPropertyAttribute_Intention extends AbstractIntenti
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_91o61m.DefaultPropertyAttribute_a60c9993, MetaAdapterFactory.getProperty(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132948L, "age"))) != null)) {
-        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_91o61m.DefaultPropertyAttribute_a60c9993, MetaAdapterFactory.getProperty(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132948L, "age"))));
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.DefaultPropertyAttribute$wJ, PROPS.age$LvVX)) != null)) {
+        SNodeOperations.deleteNode(AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.DefaultPropertyAttribute$wJ, PROPS.age$LvVX)));
       } else {
-        AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_91o61m.DefaultPropertyAttribute_a60c9993, MetaAdapterFactory.getProperty(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132948L, "age")), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0x27d5e845b8e8ae64L, "testDefaultEditor.structure.DefaultPropertyAttribute")));
-        SelectionUtil.selectCell(editorContext, AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(AUX_91o61m.DefaultPropertyAttribute_a60c9993, MetaAdapterFactory.getProperty(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132948L, "age"))), "const");
+        AttributeOperations.setAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.DefaultPropertyAttribute$wJ, PROPS.age$LvVX), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0x27d5e845b8e8ae64L, "testDefaultEditor.structure.DefaultPropertyAttribute")));
+        SelectionUtil.selectCell(editorContext, AttributeOperations.getAttribute(node, new IAttributeDescriptor.PropertyAttribute(CONCEPTS.DefaultPropertyAttribute$wJ, PROPS.age$LvVX)), "const");
       }
 
     }
@@ -71,7 +72,11 @@ public final class AddDefaultPropertyAttribute_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_91o61m {
-    /*package*/ static final SConcept DefaultPropertyAttribute_a60c9993 = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0x27d5e845b8e8ae64L, "testDefaultEditor.structure.DefaultPropertyAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DefaultPropertyAttribute$wJ = MetaAdapterFactory.getConcept(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0x27d5e845b8e8ae64L, "testDefaultEditor.structure.DefaultPropertyAttribute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty age$LvVX = MetaAdapterFactory.getProperty(0xb5734616c4b04639L, 0x9c6af3a1cf5dc4dbL, 0xd0768d7cf132939L, 0xd0768d7cf132948L, "age");
   }
 }

@@ -80,7 +80,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
   public class TMP_Group_f4aahd_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !(SNodeOperations.isInstanceOf(_context.getNode(), AUX_f4aahd.BinaryOperation_7c4c55f3));
+      return !(SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.BinaryOperation$vf));
     }
 
     @NotNull
@@ -96,7 +96,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_f4aahd_a0.TMP_Action_f4aahd_a0a(), AUX_f4aahd.ParenthesizedExpression_a4b89678));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_f4aahd_a0.TMP_Action_f4aahd_a0a(), CONCEPTS.ParenthesizedExpression$vE));
     }
     private class TMP_Action_f4aahd_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -138,9 +138,9 @@ public class expressionToParenthesis extends TransformationMenuBase {
         public void execute(@NotNull String pattern) {
           SNode parenthesisedNode = ParenthesisUtil.createUnmatchedLeftParenthesis(_context.getNode());
           if (Objects.equals(parenthesisedNode, _context.getNode())) {
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), AttributeOperations.getAttribute(parenthesisedNode, new IAttributeDescriptor.NodeAttribute(AUX_f4aahd.IncompleteLeftParen_1befc46d)), SelectionManager.FIRST_CELL, -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), AttributeOperations.getAttribute(parenthesisedNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteLeftParen$yl)), SelectionManager.FIRST_CELL, -1);
           } else {
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SNodeOperations.cast(parenthesisedNode, AUX_f4aahd.ParenthesizedExpression_a4b89678), "openParen", -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SNodeOperations.cast(parenthesisedNode, CONCEPTS.ParenthesizedExpression$vE), "openParen", -1);
           }
           return;
         }
@@ -149,7 +149,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_f4aahd.ParenthesizedExpression_a4b89678;
+          return CONCEPTS.ParenthesizedExpression$vE;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -164,7 +164,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_f4aahd.ParenthesizedExpression_a4b89678;
+          SAbstractConcept outputConcept = CONCEPTS.ParenthesizedExpression$vE;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -177,7 +177,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
   public class TMP_Group_f4aahd_a1 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return !(SNodeOperations.isInstanceOf(_context.getNode(), AUX_f4aahd.BinaryOperation_7c4c55f3));
+      return !(SNodeOperations.isInstanceOf(_context.getNode(), CONCEPTS.BinaryOperation$vf));
     }
 
     @NotNull
@@ -193,7 +193,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_f4aahd_a1.TMP_Action_f4aahd_a0b(), AUX_f4aahd.ParenthesizedExpression_a4b89678));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_f4aahd_a1.TMP_Action_f4aahd_a0b(), CONCEPTS.ParenthesizedExpression$vE));
     }
     private class TMP_Action_f4aahd_a0b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -235,7 +235,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
         public void execute(@NotNull String pattern) {
           SNode parens = ParenthesisUtil.createUnmatchedRightParenthesis(_context.getNode());
           if (Objects.equals(parens, _context.getNode())) {
-            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), AttributeOperations.getAttribute(parens, new IAttributeDescriptor.NodeAttribute(AUX_f4aahd.IncompleteRightParen_e00c988)), SelectionManager.LAST_CELL, -1);
+            SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), AttributeOperations.getAttribute(parens, new IAttributeDescriptor.NodeAttribute(CONCEPTS.IncompleteRightParen$rq)), SelectionManager.LAST_CELL, -1);
           } else {
             SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), parens, SelectionManager.LAST_CELL, -1);
           }
@@ -246,7 +246,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_f4aahd.ParenthesizedExpression_a4b89678;
+          return CONCEPTS.ParenthesizedExpression$vE;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -261,7 +261,7 @@ public class expressionToParenthesis extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_f4aahd.ParenthesizedExpression_a4b89678;
+          SAbstractConcept outputConcept = CONCEPTS.ParenthesizedExpression$vE;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -272,10 +272,10 @@ public class expressionToParenthesis extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_f4aahd {
-    /*package*/ static final SConcept BinaryOperation_7c4c55f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
-    /*package*/ static final SConcept ParenthesizedExpression_a4b89678 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
-    /*package*/ static final SConcept IncompleteLeftParen_1befc46d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64a1ef64cd9b42ceL, "jetbrains.mps.baseLanguage.structure.IncompleteLeftParen");
-    /*package*/ static final SConcept IncompleteRightParen_e00c988 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2052c4520af308e1L, "jetbrains.mps.baseLanguage.structure.IncompleteRightParen");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperation$vf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, "jetbrains.mps.baseLanguage.structure.BinaryOperation");
+    /*package*/ static final SConcept ParenthesizedExpression$vE = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression");
+    /*package*/ static final SConcept IncompleteLeftParen$yl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64a1ef64cd9b42ceL, "jetbrains.mps.baseLanguage.structure.IncompleteLeftParen");
+    /*package*/ static final SConcept IncompleteRightParen$rq = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x2052c4520af308e1L, "jetbrains.mps.baseLanguage.structure.IncompleteRightParen");
   }
 }

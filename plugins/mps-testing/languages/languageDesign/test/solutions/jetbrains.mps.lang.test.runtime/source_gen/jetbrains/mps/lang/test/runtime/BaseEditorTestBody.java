@@ -137,7 +137,7 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
   }
 
   private CellReference findCellReference(SNode node) {
-    List<SNode> annotations = SNodeOperations.getNodeDescendants(node, AUX_drymxl.AnonymousCellAnnotation_4623621a, false, new SAbstractConcept[]{});
+    List<SNode> annotations = SNodeOperations.getNodeDescendants(node, CONCEPTS.AnonymousCellAnnotation$28, false, new SAbstractConcept[]{});
     if (ListSequence.fromList(annotations).isEmpty()) {
       return null;
     }
@@ -418,7 +418,7 @@ public abstract class BaseEditorTestBody extends BaseTestBody {
     Logger.getRootLogger().removeAppender(appender);
   }
 
-  private static final class AUX_drymxl {
-    /*package*/ static final SConcept AnonymousCellAnnotation_4623621a = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnonymousCellAnnotation$28 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
   }
 }

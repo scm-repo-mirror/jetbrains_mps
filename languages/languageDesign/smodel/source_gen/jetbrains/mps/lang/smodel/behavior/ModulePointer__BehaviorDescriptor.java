@@ -4,6 +4,7 @@ package jetbrains.mps.lang.smodel.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -16,15 +17,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.module.SModuleId;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ModulePointer__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_nnyiyh.ModulePointer_5af9ea20;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, "jetbrains.mps.lang.smodel.structure.ModulePointer");
 
   public static final SMethod<SModuleReference> getModuleReference_idnJmxU5cSSU = new SMethodBuilder<SModuleReference>(new SJavaCompoundTypeImpl(SModuleReference.class)).name("getModuleReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("nJmxU5cSSU").build();
   public static final SMethod<Void> setModuleReference_idnJmxU5cSTj = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("setModuleReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("nJmxU5cSTj").build(SMethodBuilder.createJavaParameter(SModuleReference.class, ""));
@@ -36,20 +36,20 @@ public final class ModulePointer__BehaviorDescriptor extends BaseBHDescriptor {
 
   @Nullable
   /*package*/ static SModuleReference getModuleReference_idnJmxU5cSSU(@NotNull SNode __thisNode__) {
-    if (SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e1bL, "moduleId")) == null) {
+    if (SPropertyOperations.getString(__thisNode__, PROPS.moduleId$jb6o) == null) {
       return null;
     }
     PersistenceFacade pf = PersistenceFacade.getInstance();
-    SModuleId id = pf.createModuleId(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e1bL, "moduleId")));
-    return pf.createModuleReference(id, SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e19L, "moduleName")));
+    SModuleId id = pf.createModuleId(SPropertyOperations.getString(__thisNode__, PROPS.moduleId$jb6o));
+    return pf.createModuleReference(id, SPropertyOperations.getString(__thisNode__, PROPS.moduleName$jb5q));
   }
   /*package*/ static void setModuleReference_idnJmxU5cSTj(@NotNull SNode __thisNode__, @Nullable SModuleReference moduleRef) {
     if (moduleRef == null) {
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e1bL, "moduleId"), null);
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e19L, "moduleName"), null);
+      SPropertyOperations.assign(__thisNode__, PROPS.moduleId$jb6o, null);
+      SPropertyOperations.assign(__thisNode__, PROPS.moduleName$jb5q, null);
     } else {
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e1bL, "moduleId"), PersistenceFacade.getInstance().asString(moduleRef.getModuleId()));
-      SPropertyOperations.assign(__thisNode__, MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e19L, "moduleName"), moduleRef.getModuleName());
+      SPropertyOperations.assign(__thisNode__, PROPS.moduleId$jb6o, PersistenceFacade.getInstance().asString(moduleRef.getModuleId()));
+      SPropertyOperations.assign(__thisNode__, PROPS.moduleName$jb5q, moduleRef.getModuleName());
     }
   }
 
@@ -102,7 +102,8 @@ public final class ModulePointer__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_nnyiyh {
-    /*package*/ static final SConcept ModulePointer_5af9ea20 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, "jetbrains.mps.lang.smodel.structure.ModulePointer");
+  private static final class PROPS {
+    /*package*/ static final SProperty moduleId$jb6o = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e1bL, "moduleId");
+    /*package*/ static final SProperty moduleName$jb5q = MetaAdapterFactory.getProperty(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x5ef5a1e853388b3L, 0x5ef5a1e85338e19L, "moduleName");
   }
 }

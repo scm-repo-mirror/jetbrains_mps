@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DirectMethodSpecification_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_be9igf_a(), AUX_be9igf.DirectMethodSpecification_a6500f7a));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_be9igf_a(), CONCEPTS.DirectMethodSpecification$WC));
     result.add(new SMP_Subconcepts_be9igf_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class DirectMethodSpecification_SubstituteMenu extends SubstituteMenuBase
 
     public SMP_ReferenceScope_be9igf_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_be9igf.DirectMethodSpecification_a6500f7a, MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, 0x1fcdfeb518c43c59L, "methodDeclaration"));
+      super((SAbstractConcept) CONCEPTS.DirectMethodSpecification$WC, LINKS.methodDeclaration$4Hf0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class DirectMethodSpecification_SubstituteMenu extends SubstituteMenuBase
   }
   public class SMP_Subconcepts_be9igf_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_be9igf.DirectMethodSpecification_a6500f7a);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.DirectMethodSpecification$WC);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class DirectMethodSpecification_SubstituteMenu extends SubstituteMenuBase
     }
   }
 
-  private static final class AUX_be9igf {
-    /*package*/ static final SConcept DirectMethodSpecification_a6500f7a = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, "jetbrains.mps.lang.script.structure.DirectMethodSpecification");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DirectMethodSpecification$WC = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, "jetbrains.mps.lang.script.structure.DirectMethodSpecification");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink methodDeclaration$4Hf0 = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x1fcdfeb518c43583L, 0x1fcdfeb518c43c59L, "methodDeclaration");
   }
 }

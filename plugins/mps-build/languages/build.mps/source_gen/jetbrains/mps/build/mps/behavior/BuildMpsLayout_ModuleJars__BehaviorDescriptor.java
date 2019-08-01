@@ -4,6 +4,7 @@ package jetbrains.mps.build.mps.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,17 +18,19 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.build.behavior.BuildLayout_PathElement__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_1i983w.BuildMpsLayout_ModuleJars_c448bd1b;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars");
 
   public static final SMethod<Void> unpack_id6IqTD4bJTWZ = new SMethodBuilder<Void>(new SJavaCompoundTypeImpl(Void.class)).name("unpack").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6IqTD4bJTWZ").build(SMethodBuilder.createJavaParameter(UnpackHelper.class, ""));
   public static final SMethod<String> location_id6b4RkXS8sT2 = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("location").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6b4RkXS8sT2").build(SMethodBuilder.createJavaParameter(DependenciesHelper.class, ""), SMethodBuilder.createJavaParameter(Object.class, ""));
@@ -42,13 +45,13 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
   /*package*/ static void unpack_id6IqTD4bJTWZ(@NotNull SNode __thisNode__, UnpackHelper helper) {
     SNode parent = helper.parent(__thisNode__);
     String parentLocation = helper.getContentLocation(parent);
-    String languageLocation = parentLocation + "/" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ".jar";
+    String languageLocation = parentLocation + "/" + SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.module$5MWZ), PROPS.name$tAp1) + ".jar";
     helper.putLocation(__thisNode__, languageLocation);
     // XXX next is location() implementation moved to a proper moment of time, for the reason see BuildMpsLayout_Plugin_Behavior#unpack 
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")), AUX_1i983w.BuildMps_Language_41959b14)) {
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.module$5MWZ), CONCEPTS.BuildMps_Language$re)) {
       languageLocation = languageLocation.substring(0, languageLocation.length() - ".jar".length());
       int i = 0;
-      for (SNode gm : Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.as(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")), AUX_1i983w.BuildMps_Language_41959b14), MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6d1df6c2700aeb88L, "managedGenerators")), MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6d1df6c2700aeb81L, 0x6d1df6c2700aeb82L, "generator")))) {
+      for (SNode gm : Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(SNodeOperations.as(SLinkOperations.getTarget(__thisNode__, LINKS.module$5MWZ), CONCEPTS.BuildMps_Language$re), LINKS.managedGenerators$8HoD), LINKS.generator$$sLb))) {
         // see property macro for module-generator.jar name in reduce_BuildMpsLayout_ModuleJars 
         helper.putLayoutRelativePath(__thisNode__, gm, languageLocation + ((i > 0 ? String.format("-%d-generator.jar", i) : "-generator.jar")));
         i++;
@@ -60,7 +63,7 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
       SNode node = (SNode) artifactId;
       String languageLocation = helper.getLocation(__thisNode__);
 
-      if (SNodeOperations.isInstanceOf(node, AUX_1i983w.BuildMps_Generator_bcabe904)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_Generator$ru)) {
         // XXX utilize values calculated above in unpack() 
         // try pre-calculated location 
         String layoutRelativePath = helper.getLayoutRelativePath(__thisNode__, node);
@@ -70,26 +73,26 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
         // fallback to default path calculation, which doesn't respect multiple generators per language, by the way. 
         return languageLocation.substring(0, languageLocation.length() - ".jar".length()) + "-generator.jar";
       }
-      if (SNodeOperations.isInstanceOf(node, AUX_1i983w.BuildMps_AbstractModule_ebf3f6db)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_AbstractModule$fB)) {
         return languageLocation;
       }
     }
-    return ((String) BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invokeSuper(__thisNode__, AUX_1i983w.BuildMpsLayout_ModuleJars_c448bd1b, helper, artifactId));
+    return ((String) BuildLayout_PathElement__BehaviorDescriptor.location_id6b4RkXS8sT2.invokeSuper(__thisNode__, CONCEPTS.BuildMpsLayout_ModuleJars$mB, helper, artifactId));
   }
   /*package*/ static boolean exports_id5FtnUVJQES1(@NotNull SNode __thisNode__, Object object) {
     if (object instanceof SNode) {
       SNode node = (SNode) object;
-      if (SNodeOperations.isInstanceOf(node, AUX_1i983w.BuildMps_Generator_bcabe904)) {
-        return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")) == BuildMps_Generator__BehaviorDescriptor.getSourceLanguage_id7YI57w6ZMdZ.invoke(SNodeOperations.cast(node, AUX_1i983w.BuildMps_Generator_bcabe904));
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_Generator$ru)) {
+        return SLinkOperations.getTarget(__thisNode__, LINKS.module$5MWZ) == BuildMps_Generator__BehaviorDescriptor.getSourceLanguage_id7YI57w6ZMdZ.invoke(SNodeOperations.cast(node, CONCEPTS.BuildMps_Generator$ru));
       }
-      if (SNodeOperations.isInstanceOf(node, AUX_1i983w.BuildMps_AbstractModule_ebf3f6db)) {
-        return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")) == node;
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.BuildMps_AbstractModule$fB)) {
+        return SLinkOperations.getTarget(__thisNode__, LINKS.module$5MWZ) == node;
       }
     }
     return false;
   }
   /*package*/ static String getSourceModuleJarName_id6v5CVv8csP9(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "-src.jar";
+    return SPropertyOperations.getString(SLinkOperations.getTarget(__thisNode__, LINKS.module$5MWZ), PROPS.name$tAp1) + "-src.jar";
   }
 
   /*package*/ BuildMpsLayout_ModuleJars__BehaviorDescriptor() {
@@ -145,10 +148,20 @@ public final class BuildMpsLayout_ModuleJars__BehaviorDescriptor extends BaseBHD
     return CONCEPT;
   }
 
-  private static final class AUX_1i983w {
-    /*package*/ static final SConcept BuildMpsLayout_ModuleJars_c448bd1b = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars");
-    /*package*/ static final SConcept BuildMps_Language_41959b14 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, "jetbrains.mps.build.mps.structure.BuildMps_Language");
-    /*package*/ static final SConcept BuildMps_Generator_bcabe904 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator");
-    /*package*/ static final SConcept BuildMps_AbstractModule_ebf3f6db = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, "jetbrains.mps.build.mps.structure.BuildMps_AbstractModule");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink module$5MWZ = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, 0x11918e0f209b83e9L, "module");
+    /*package*/ static final SContainmentLink managedGenerators$8HoD = MetaAdapterFactory.getContainmentLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, 0x6d1df6c2700aeb88L, "managedGenerators");
+    /*package*/ static final SReferenceLink generator$$sLb = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x6d1df6c2700aeb81L, 0x6d1df6c2700aeb82L, "generator");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_Language$re = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f8L, "jetbrains.mps.build.mps.structure.BuildMps_Language");
+    /*package*/ static final SConcept BuildMps_Generator$ru = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4c6db07d2e56a8b4L, "jetbrains.mps.build.mps.structure.BuildMps_Generator");
+    /*package*/ static final SConcept BuildMps_AbstractModule$fB = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x4780308f5d333ebL, "jetbrains.mps.build.mps.structure.BuildMps_AbstractModule");
+    /*package*/ static final SConcept BuildMpsLayout_ModuleJars$mB = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x11918e0f209b83e7L, "jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars");
   }
 }

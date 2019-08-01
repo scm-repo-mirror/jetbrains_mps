@@ -49,7 +49,7 @@ public class templateCallArguments_Contribution extends SubstituteMenuBase {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
       // under template call but not under a CF. There's a contribution for CFP that adds all CFP of a CF if there's one, avoid menu item duplication. 
-      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_rzydzc.ITemplateCall_bd844c23, true, false) != null) && (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_rzydzc.ConceptFunction_e08795a5, true, false) == null);
+      return (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ITemplateCall$uv, true, false) != null) && (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.ConceptFunction$Tt, true, false) == null);
     }
     @NotNull
     @Override
@@ -65,7 +65,7 @@ public class templateCallArguments_Contribution extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_rzydzc.TemplateFunctionParameter_sourceNode_6cc2a91a) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.TemplateFunctionParameter_sourceNode$A8) {
 
         @NotNull
         @Override
@@ -78,13 +78,13 @@ public class templateCallArguments_Contribution extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_rzydzc.TemplateFunctionParameter_sourceNode_6cc2a91a));
+      }, CONCEPTS.TemplateFunctionParameter_sourceNode$A8));
     }
   }
 
-  private static final class AUX_rzydzc {
-    /*package*/ static final SConcept ConceptFunction_e08795a5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
-    /*package*/ static final SInterfaceConcept ITemplateCall_bd844c23 = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, "jetbrains.mps.lang.generator.structure.ITemplateCall");
-    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode_6cc2a91a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptFunction$Tt = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
+    /*package*/ static final SInterfaceConcept ITemplateCall$uv = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, "jetbrains.mps.lang.generator.structure.ITemplateCall");
+    /*package*/ static final SConcept TemplateFunctionParameter_sourceNode$A8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b471fcL, "jetbrains.mps.lang.generator.structure.TemplateFunctionParameter_sourceNode");
   }
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -18,15 +17,16 @@ import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TransformationMenuReference_Named_Constraints extends BaseConstraintsDescriptor {
   public TransformationMenuReference_Named_Constraints() {
-    super(AUX_bj2kbe.TransformationMenuReference_Named_3b5362ba);
+    super(CONCEPTS.TransformationMenuReference_Named$fC);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5d3b34577b3cff09L, 0x5d3b34577b3cff0aL, "menu"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.menu$qYc0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -43,7 +43,7 @@ public class TransformationMenuReference_Named_Constraints extends BaseConstrain
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), _context.getLinkTargetConcept());
             if (scope == null) {
-              return MenuScopes.getNamedMenus(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_bj2kbe.TransformationMenu_Named_37b65df8);
+              return MenuScopes.getNamedMenus(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.TransformationMenu_Named$1E);
             }
             return scope;
           }
@@ -56,8 +56,12 @@ public class TransformationMenuReference_Named_Constraints extends BaseConstrain
   }
   private static final SNodePointer breakingNode_bj2kbe_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "6836281137582785570");
 
-  private static final class AUX_bj2kbe {
-    /*package*/ static final SConcept TransformationMenuReference_Named_3b5362ba = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5d3b34577b3cff09L, "jetbrains.mps.lang.editor.structure.TransformationMenuReference_Named");
-    /*package*/ static final SConcept TransformationMenu_Named_37b65df8 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0ac4ee8L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Named");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenuReference_Named$fC = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5d3b34577b3cff09L, "jetbrains.mps.lang.editor.structure.TransformationMenuReference_Named");
+    /*package*/ static final SConcept TransformationMenu_Named$1E = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x4e0f93d8a0ac4ee8L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Named");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink menu$qYc0 = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x5d3b34577b3cff09L, 0x5d3b34577b3cff0aL, "menu");
   }
 }

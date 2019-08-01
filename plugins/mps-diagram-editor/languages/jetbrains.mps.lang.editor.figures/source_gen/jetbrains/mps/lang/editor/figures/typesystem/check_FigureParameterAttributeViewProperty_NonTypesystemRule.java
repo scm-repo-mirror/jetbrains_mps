@@ -28,7 +28,7 @@ public class check_FigureParameterAttributeViewProperty_NonTypesystemRule extend
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_h26h7h.FigureParameterAttributeViewProperty_ed9b0d7;
+    return CONCEPTS.FigureParameterAttributeViewProperty$_F;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -37,7 +37,7 @@ public class check_FigureParameterAttributeViewProperty_NonTypesystemRule extend
     return false;
   }
 
-  private static final class AUX_h26h7h {
-    /*package*/ static final SConcept FigureParameterAttributeViewProperty_ed9b0d7 = MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x6595651980a1f8ecL, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeViewProperty");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept FigureParameterAttributeViewProperty$_F = MetaAdapterFactory.getConcept(0xd7722d504b934c3aL, 0xae061903d05f95a7L, 0x6595651980a1f8ecL, "jetbrains.mps.lang.editor.figures.structure.FigureParameterAttributeViewProperty");
   }
 }

@@ -10,7 +10,6 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.annotations.Nullable;
@@ -19,8 +18,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.baseLanguage.behavior.IClassifierType__BehaviorDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MethodsScope extends Scope {
   private final Map<SNode, SNode> typeBindings;
@@ -28,7 +30,7 @@ public class MethodsScope extends Scope {
   public MethodsScope(Iterable<SNode> methods, Map<SNode, SNode> typeByTypeVariable) {
     nameToMethods = MapSequence.fromMap(new HashMap<String, List<SNode>>());
     for (SNode method : Sequence.fromIterable(methods)) {
-      String name = SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      String name = SPropertyOperations.getString(method, PROPS.name$tAp1);
       if (name != null) {
         if (MapSequence.fromMap(nameToMethods).containsKey(name)) {
           ListSequence.fromList(MapSequence.fromMap(nameToMethods).get(name)).addElement(method);
@@ -59,15 +61,15 @@ public class MethodsScope extends Scope {
   @Nullable
   @Override
   public String getReferenceText(SNode contextNode, @NotNull SNode node) {
-    return SPropertyOperations.getString(SNodeOperations.cast(node, AUX_gttecx.BaseMethodDeclaration_9dbf9acb), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+    return SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.BaseMethodDeclaration$RR), PROPS.name$tAp1);
   }
   @Override
   public boolean contains(SNode node) {
-    if (!(SNodeOperations.isInstanceOf(node, AUX_gttecx.BaseMethodDeclaration_9dbf9acb))) {
+    if (!(SNodeOperations.isInstanceOf(node, CONCEPTS.BaseMethodDeclaration$RR))) {
       return false;
     }
-    String name = SPropertyOperations.getString(SNodeOperations.cast(node, AUX_gttecx.BaseMethodDeclaration_9dbf9acb), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-    return MapSequence.fromMap(nameToMethods).containsKey(name) && ListSequence.fromList(MapSequence.fromMap(nameToMethods).get(name)).contains(SNodeOperations.cast(node, AUX_gttecx.BaseMethodDeclaration_9dbf9acb));
+    String name = SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.BaseMethodDeclaration$RR), PROPS.name$tAp1);
+    return MapSequence.fromMap(nameToMethods).containsKey(name) && ListSequence.fromList(MapSequence.fromMap(nameToMethods).get(name)).contains(SNodeOperations.cast(node, CONCEPTS.BaseMethodDeclaration$RR));
   }
   @Nullable
   @Override
@@ -79,10 +81,10 @@ public class MethodsScope extends Scope {
     if (methods.size() == 1) {
       return ListSequence.fromList(methods).first();
     }
-    if (!(SNodeOperations.isInstanceOf(contextNode, AUX_gttecx.IMethodCall_ee2c776b))) {
+    if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.IMethodCall$ln))) {
       return null;
     }
-    List<SNode> actualArguments = SLinkOperations.getChildren((SNodeOperations.cast(contextNode, AUX_gttecx.IMethodCall_ee2c776b)), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"));
+    List<SNode> actualArguments = SLinkOperations.getChildren((SNodeOperations.cast(contextNode, CONCEPTS.IMethodCall$ln)), LINKS.actualArgument$$A7L);
 
     methods = MethodResolveUtil.selectByParmCount(methods, actualArguments);
     if (methods.size() == 1) {
@@ -99,12 +101,20 @@ public class MethodsScope extends Scope {
   }
   private static Map<SNode, SNode> calcTypeBindings(SNode classifierType) {
     SNode classifier = IClassifierType__BehaviorDescriptor.getClassifier_id6r77ob2URY9.invoke(classifierType);
-    return ((classifier != null) ? MethodResolveUtil.getTypesByTypeVars(SNodeOperations.cast(classifier, AUX_gttecx.Classifier_4b7e553), IClassifierType__BehaviorDescriptor.getTypeParameters_id6r77ob2URYe.invoke(classifierType)) : new HashMap<SNode, SNode>());
+    return ((classifier != null) ? MethodResolveUtil.getTypesByTypeVars(SNodeOperations.cast(classifier, CONCEPTS.Classifier$hJ), IClassifierType__BehaviorDescriptor.getTypeParameters_id6r77ob2URYe.invoke(classifierType)) : new HashMap<SNode, SNode>());
   }
 
-  private static final class AUX_gttecx {
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SInterfaceConcept IMethodCall_ee2c776b = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SInterfaceConcept IMethodCall$ln = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, "jetbrains.mps.baseLanguage.structure.IMethodCall");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
   }
 }

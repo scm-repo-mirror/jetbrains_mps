@@ -10,7 +10,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.ide.icons.GlobalIconManager;
@@ -28,6 +27,9 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class NewClassLike_Action extends BaseAction {
@@ -46,16 +48,16 @@ public class NewClassLike_Action extends BaseAction {
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
-    String alias = SPropertyOperations.getString(SLinkOperations.getTarget(NewClassLike_Action.this.descr, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept")), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias"));
-    event.getPresentation().setText(((alias == null || alias.length() == 0) ? SPropertyOperations.getString(NewClassLike_Action.this.descr, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : alias));
+    String alias = SPropertyOperations.getString(SLinkOperations.getTarget(NewClassLike_Action.this.descr, LINKS.preferredConcept$ybbQ), PROPS.conceptAlias$YIL2);
+    event.getPresentation().setText(((alias == null || alias.length() == 0) ? SPropertyOperations.getString(NewClassLike_Action.this.descr, PROPS.name$tAp1) : alias));
     Icon icon;
-    SNode pc = SLinkOperations.getTarget(NewClassLike_Action.this.descr, MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept"));
+    SNode pc = SLinkOperations.getTarget(NewClassLike_Action.this.descr, LINKS.preferredConcept$ybbQ);
     if (pc != null) {
       // viva la interpretation! 
       SAbstractConcept concept = SNodeOperations.asSConcept(pc);
       icon = GlobalIconManager.getInstance().getIconFor(concept);
     } else {
-      SAbstractConcept concept = AUX_9wburn.ClassConcept_e2711824;
+      SAbstractConcept concept = CONCEPTS.ClassConcept$IY;
       icon = GlobalIconManager.getInstance().getIconFor(concept);
     }
     event.getPresentation().setIcon(icon);
@@ -83,13 +85,13 @@ public class NewClassLike_Action extends BaseAction {
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     SAbstractConcept c = SNodeOperations.asSConcept(DSLDescriptor__BehaviorDescriptor.getPreferredConcept_id1_lSsE3TA5X.invoke(NewClassLike_Action.this.descr));
     SNode newClass;
-    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), AUX_9wburn.ClassConcept_e2711824)) {
-      newClass = SNodeFactoryOperations.createNewNode(AUX_9wburn.ClassConcept_e2711824, null);
+    if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.ClassConcept$IY)) {
+      newClass = SNodeFactoryOperations.createNewNode(CONCEPTS.ClassConcept$IY, null);
       event.getData(MPSCommonDataKeys.MODEL).addRootNode(newClass);
-      AttributeOperations.setAttribute(newClass, new IAttributeDescriptor.NodeAttribute(AUX_9wburn.DSLAnnotation_eee1a74), createDSLAnnotation_3skzbb_a0c0c0a(NewClassLike_Action.this.descr));
+      AttributeOperations.setAttribute(newClass, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DSLAnnotation$dI), createDSLAnnotation_3skzbb_a0c0c0a(NewClassLike_Action.this.descr));
       ClassLikeInitHelper.init(newClass, NewClassLike_Action.this.descr, event.getData(MPSCommonDataKeys.MODEL));
     } else {
-      newClass = SNodeOperations.cast(SNodeFactoryOperations.createNewRootNode(event.getData(MPSCommonDataKeys.MODEL), c, null), AUX_9wburn.ClassConcept_e2711824);
+      newClass = SNodeOperations.cast(SNodeFactoryOperations.createNewRootNode(event.getData(MPSCommonDataKeys.MODEL), c, null), CONCEPTS.ClassConcept$IY);
     }
     if (!(NewRootNodeAction.trySelectInCurrentPane(event.getData(MPSCommonDataKeys.MPS_PROJECT), newClass))) {
       new ProjectPaneNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).select(newClass.getReference());
@@ -110,13 +112,23 @@ public class NewClassLike_Action extends BaseAction {
   }
   private static SNode createDSLAnnotation_3skzbb_a0c0c0a(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_9wburn.DSLAnnotation_eee1a74, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, 0x3190d3f9f1cac277L, "descriptor"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.DSLAnnotation$dI, null, null, false);
+    n1.setReferenceTarget(LINKS.descriptor$Zoot, node0);
     return n1;
   }
 
-  private static final class AUX_9wburn {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SConcept DSLAnnotation_eee1a74 = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLAnnotation");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink preferredConcept$ybbQ = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x340eb2bd2e03d160L, 0x1955e1ca83e5ed92L, "preferredConcept");
+    /*package*/ static final SReferenceLink descriptor$Zoot = MetaAdapterFactory.getReferenceLink(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, 0x3190d3f9f1cac277L, "descriptor");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty conceptAlias$YIL2 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0x46ab0ad5826c74caL, "conceptAlias");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SConcept DSLAnnotation$dI = MetaAdapterFactory.getConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x3190d3f9f1cab0caL, "jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLAnnotation");
   }
 }

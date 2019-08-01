@@ -723,49 +723,54 @@
   </root>
   <root nodeRef="r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)/4792031542972815559">
     <file name="ConceptAncestorsProvider.java">
-      <node id="4792031542972815573" at="18,48,19,45" concept="7" />
-      <node id="4792031542972815587" at="20,85,21,100" concept="7" />
-      <node id="4792031542972815595" at="21,100,22,187" concept="7" />
-      <node id="4792031542972815606" at="23,29,24,27" concept="2" />
-      <node id="4792031542972815620" at="26,221,27,193" concept="2" />
-      <node id="4792031542972815636" at="30,94,31,118" concept="7" />
-      <node id="4792031542972815651" at="32,228,33,193" concept="2" />
-      <node id="4792031542972815660" at="35,5,36,18" concept="8" />
-      <node id="4792031542972815559" at="40,0,41,0" concept="11" trace="ConceptDeclaration_cb225da8" />
-      <node id="4792031542972815559" at="41,0,42,0" concept="11" trace="InterfaceConceptDeclaration_efdf2bc9" />
-      <node id="4792031542972815562" at="15,0,17,0" concept="1" trace="ConceptAncestorsProvider#()V" />
-      <node id="4792031542972815601" at="22,187,25,7" concept="5" />
-      <node id="4792031542972815613" at="25,7,28,7" concept="4" />
-      <node id="4792031542972815644" at="31,118,34,7" concept="4" />
-      <node id="4792031542972815629" at="29,5,35,5" concept="5" />
-      <node id="4792031542972815580" at="19,45,29,5" concept="5" />
-      <node id="4792031542972815566" at="17,0,38,0" concept="6" trace="getDescendants#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/util/Set;" />
-      <scope id="4792031542972815565" at="15,37,15,37" />
-      <scope id="4792031542972815605" at="23,29,24,27" />
-      <scope id="4792031542972815619" at="26,221,27,193" />
-      <scope id="4792031542972815650" at="32,228,33,193" />
-      <scope id="4792031542972815562" at="15,0,17,0" />
-      <scope id="4792031542972815613" at="25,7,28,7">
+      <node id="4792031542972815573" at="20,48,21,45" concept="7" />
+      <node id="4792031542972815587" at="22,77,23,92" concept="7" />
+      <node id="4792031542972815595" at="23,92,24,87" concept="7" />
+      <node id="4792031542972815606" at="25,29,26,27" concept="2" />
+      <node id="4792031542972815620" at="28,118,29,90" concept="2" />
+      <node id="4792031542972815636" at="32,86,33,110" concept="7" />
+      <node id="4792031542972815651" at="34,124,35,90" concept="2" />
+      <node id="4792031542972815660" at="37,5,38,18" concept="8" />
+      <node id="4792031542972815559" at="42,0,43,0" concept="11" trace="ConceptDeclaration$qU" />
+      <node id="4792031542972815559" at="43,0,44,0" concept="11" trace="InterfaceConceptDeclaration$MT" />
+      <node id="4792031542972815559" at="47,0,48,0" concept="11" trace="extends$LQV3" />
+      <node id="4792031542972815559" at="48,0,49,0" concept="11" trace="implements$oQDh" />
+      <node id="4792031542972815559" at="49,0,50,0" concept="11" trace="intfc$fO5" />
+      <node id="4792031542972815559" at="50,0,51,0" concept="11" trace="extends$3Y1p" />
+      <node id="4792031542972815562" at="17,0,19,0" concept="1" trace="ConceptAncestorsProvider#()V" />
+      <node id="4792031542972815601" at="24,87,27,7" concept="5" />
+      <node id="4792031542972815613" at="27,7,30,7" concept="4" />
+      <node id="4792031542972815644" at="33,110,36,7" concept="4" />
+      <node id="4792031542972815629" at="31,5,37,5" concept="5" />
+      <node id="4792031542972815580" at="21,45,31,5" concept="5" />
+      <node id="4792031542972815566" at="19,0,40,0" concept="6" trace="getDescendants#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/util/Set;" />
+      <scope id="4792031542972815565" at="17,37,17,37" />
+      <scope id="4792031542972815605" at="25,29,26,27" />
+      <scope id="4792031542972815619" at="28,118,29,90" />
+      <scope id="4792031542972815650" at="34,124,35,90" />
+      <scope id="4792031542972815562" at="17,0,19,0" />
+      <scope id="4792031542972815613" at="27,7,30,7">
         <var name="interfaceConceptReference" id="4792031542972815617" />
       </scope>
-      <scope id="4792031542972815644" at="31,118,34,7">
+      <scope id="4792031542972815644" at="33,110,36,7">
         <var name="interfaceConceptReference" id="4792031542972815648" />
       </scope>
-      <scope id="4792031542972815635" at="30,94,34,7">
+      <scope id="4792031542972815635" at="32,86,36,7">
         <var name="interfaceConceptDeclaration" id="4792031542972815637" />
       </scope>
-      <scope id="4792031542972815586" at="20,85,28,7">
+      <scope id="4792031542972815586" at="22,77,30,7">
         <var name="conceptDeclaration" id="4792031542972815588" />
         <var name="parent" id="4792031542972815596" />
       </scope>
-      <scope id="4792031542972815572" at="18,48,36,18">
+      <scope id="4792031542972815572" at="20,48,38,18">
         <var name="result" id="4792031542972815574" />
       </scope>
-      <scope id="4792031542972815566" at="17,0,38,0">
+      <scope id="4792031542972815566" at="19,0,40,0">
         <var name="node" id="4792031542972815570" />
       </scope>
-      <unit id="4792031542972815559" at="39,0,43,0" name="jetbrains.mps.ide.platform.refactoring.ConceptAncestorsProvider$AUX_uogic4" />
-      <unit id="4792031542972815559" at="14,0,44,0" name="jetbrains.mps.ide.platform.refactoring.ConceptAncestorsProvider" />
+      <unit id="4792031542972815559" at="41,0,45,0" name="jetbrains.mps.ide.platform.refactoring.ConceptAncestorsProvider$CONCEPTS" />
+      <unit id="4792031542972815559" at="46,0,52,0" name="jetbrains.mps.ide.platform.refactoring.ConceptAncestorsProvider$LINKS" />
+      <unit id="4792031542972815559" at="16,0,53,0" name="jetbrains.mps.ide.platform.refactoring.ConceptAncestorsProvider" />
     </file>
   </root>
   <root nodeRef="r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)/5814231631271705710">

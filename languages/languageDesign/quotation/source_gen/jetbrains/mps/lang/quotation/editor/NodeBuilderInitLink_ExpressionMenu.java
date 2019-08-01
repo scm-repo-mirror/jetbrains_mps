@@ -76,11 +76,11 @@ public class NodeBuilderInitLink_ExpressionMenu extends TransformationMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.quotation.editor.NodeBuilderInitLink_Menu");
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_8yx9hl.NodeBuilderInitLinkValue_3b79599c;
+      return CONCEPTS.NodeBuilderInitLinkValue$_6;
     }
   }
 
-  private static final class AUX_8yx9hl {
-    /*package*/ static final SConcept NodeBuilderInitLinkValue_3b79599c = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x16240b8e9e79db00L, "jetbrains.mps.lang.quotation.structure.NodeBuilderInitLinkValue");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodeBuilderInitLinkValue$_6 = MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x16240b8e9e79db00L, "jetbrains.mps.lang.quotation.structure.NodeBuilderInitLinkValue");
   }
 }

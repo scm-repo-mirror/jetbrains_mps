@@ -18,7 +18,7 @@ public class check_Node_DetachOperation_NonTypesystemRule extends AbstractNonTyp
     RulesUtil.checkAppliedNotTo_LinkAccess_reference(typeCheckingContext, op);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_b5zl0g.Node_DetachOperation_cf2c2708;
+    return CONCEPTS.Node_DetachOperation$_q;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -27,7 +27,7 @@ public class check_Node_DetachOperation_NonTypesystemRule extends AbstractNonTyp
     return false;
   }
 
-  private static final class AUX_b5zl0g {
-    /*package*/ static final SConcept Node_DetachOperation_cf2c2708 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11dfede6ec0L, "jetbrains.mps.lang.smodel.structure.Node_DetachOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Node_DetachOperation$_q = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11dfede6ec0L, "jetbrains.mps.lang.smodel.structure.Node_DetachOperation");
   }
 }

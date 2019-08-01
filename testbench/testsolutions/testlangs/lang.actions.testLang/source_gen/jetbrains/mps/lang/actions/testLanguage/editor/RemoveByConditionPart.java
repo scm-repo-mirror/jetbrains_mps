@@ -13,7 +13,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
@@ -23,6 +22,8 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.stream.Collectors;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class RemoveByConditionPart extends SubstituteMenuBase {
@@ -50,7 +51,7 @@ public class RemoveByConditionPart extends SubstituteMenuBase {
   public class SMP_Group_tbd9d5_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return Objects.equals(_context.getLink(), MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc2552e60aL, "removeByConditionPart"));
+      return Objects.equals(_context.getLink(), LINKS.removeByConditionPart$LVGa);
     }
     @NotNull
     @Override
@@ -70,14 +71,14 @@ public class RemoveByConditionPart extends SubstituteMenuBase {
     }
     public class SMP_Subconcepts_tbd9d5_a0 extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
       protected Collection getConcepts(final SubstituteMenuContext _context) {
-        return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_tbd9d5.ActionTestDefaultAbstractChild_adfa7fa9).stream().filter(new Predicate<SAbstractConcept>() {
+        return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.ActionTestDefaultAbstractChild$jp).stream().filter(new Predicate<SAbstractConcept>() {
           public boolean test(SAbstractConcept concept) {
             return filterConcept(_context, concept);
           }
         }).collect(Collectors.toList());
       }
       private boolean filterConcept(SubstituteMenuContext _context, SAbstractConcept concept) {
-        return !(Objects.equals(concept, AUX_tbd9d5.ActionTestDefaultChild1_ae073d8e));
+        return !(Objects.equals(concept, CONCEPTS.ActionTestDefaultChild1$ek));
       }
       @NotNull
       @Override
@@ -98,8 +99,12 @@ public class RemoveByConditionPart extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_tbd9d5 {
-    /*package*/ static final SConcept ActionTestDefaultAbstractChild_adfa7fa9 = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x73dfe0fc25514b8dL, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestDefaultAbstractChild");
-    /*package*/ static final SConcept ActionTestDefaultChild1_ae073d8e = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x73dfe0fc25516733L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestDefaultChild1");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink removeByConditionPart$LVGa = MetaAdapterFactory.getContainmentLink(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x2365c14e1671696fL, 0x73dfe0fc2552e60aL, "removeByConditionPart");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ActionTestDefaultAbstractChild$jp = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x73dfe0fc25514b8dL, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestDefaultAbstractChild");
+    /*package*/ static final SConcept ActionTestDefaultChild1$ek = MetaAdapterFactory.getConcept(0x737ed1fffa634ebcL, 0xa834435499b23c64L, 0x73dfe0fc25516733L, "jetbrains.mps.lang.actions.testLanguage.structure.ActionTestDefaultChild1");
   }
 }

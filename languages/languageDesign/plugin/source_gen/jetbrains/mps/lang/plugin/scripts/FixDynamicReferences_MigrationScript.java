@@ -34,7 +34,7 @@ public final class FixDynamicReferences_MigrationScript extends BaseMigrationScr
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_d99l52.BaseConcept_bc2351f;
+        return CONCEPTS.BaseConcept$Sz;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
@@ -70,7 +70,7 @@ public final class FixDynamicReferences_MigrationScript extends BaseMigrationScr
     return PersistenceFacade.getInstance().createNodeReference("r:00000000-0000-4000-0000-011c89590367(jetbrains.mps.lang.plugin.scripts)/930311433812684751");
   }
 
-  private static final class AUX_d99l52 {
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

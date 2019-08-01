@@ -42,9 +42,9 @@ public class Comment_Action extends BaseAction {
     if (Objects.equals(event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getEditedNode(), event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getSelectedNode())) {
       return false;
     }
-    return Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(((SNode) event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getSelectedNode()), null, true), AUX_fuv223.IOldCommentContainer_43d44ed8)).where(new IWhereFilter<SNode>() {
+    return Sequence.fromIterable(SNodeOperations.ofConcept(SNodeOperations.getNodeAncestors(((SNode) event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getSelectedNode()), null, true), CONCEPTS.IOldCommentContainer$Ia)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(it, AUX_fuv223.IOldCommentContainer_43d44ed8, SMethodTrimmedId.create("getCommentedNodes", null, "3$Sh7m_tmZE")))).isNotEmpty();
+        return Sequence.fromIterable(((Iterable<SNode>) BHReflection.invoke0(it, CONCEPTS.IOldCommentContainer$Ia, SMethodTrimmedId.create("getCommentedNodes", null, "3$Sh7m_tmZE")))).isNotEmpty();
       }
     }).isEmpty();
   }
@@ -73,7 +73,7 @@ public class Comment_Action extends BaseAction {
     event.getData(MPSEditorDataKeys.EDITOR_COMPONENT).getSelectionManager().getSelection().executeAction(CellActionType.COMMENT);
   }
 
-  private static final class AUX_fuv223 {
-    /*package*/ static final SInterfaceConcept IOldCommentContainer_43d44ed8 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x39384475a5756fb0L, "jetbrains.mps.lang.core.structure.IOldCommentContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IOldCommentContainer$Ia = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x39384475a5756fb0L, "jetbrains.mps.lang.core.structure.IOldCommentContainer");
   }
 }

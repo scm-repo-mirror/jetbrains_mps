@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class TemplateArgumentVarRefExpression2_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_u3ihao_a(), AUX_u3ihao.TemplateArgumentVarRefExpression2_a8ab2c12));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_u3ihao_a(), CONCEPTS.TemplateArgumentVarRefExpression2$mg));
     result.add(new SMP_Subconcepts_u3ihao_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class TemplateArgumentVarRefExpression2_SubstituteMenu extends Substitute
 
     public SMP_ReferenceScope_u3ihao_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_u3ihao.TemplateArgumentVarRefExpression2_a8ab2c12, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xe8e73f9584aee0fL, 0xe8e73f9584aee10L, "vardecl"));
+      super((SAbstractConcept) CONCEPTS.TemplateArgumentVarRefExpression2$mg, LINKS.vardecl$pgS0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class TemplateArgumentVarRefExpression2_SubstituteMenu extends Substitute
   }
   public class SMP_Subconcepts_u3ihao_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_u3ihao.TemplateArgumentVarRefExpression2_a8ab2c12);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.TemplateArgumentVarRefExpression2$mg);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class TemplateArgumentVarRefExpression2_SubstituteMenu extends Substitute
     }
   }
 
-  private static final class AUX_u3ihao {
-    /*package*/ static final SConcept TemplateArgumentVarRefExpression2_a8ab2c12 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xe8e73f9584aee0fL, "jetbrains.mps.lang.generator.structure.TemplateArgumentVarRefExpression2");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateArgumentVarRefExpression2$mg = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xe8e73f9584aee0fL, "jetbrains.mps.lang.generator.structure.TemplateArgumentVarRefExpression2");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink vardecl$pgS0 = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xe8e73f9584aee0fL, 0xe8e73f9584aee10L, "vardecl");
   }
 }

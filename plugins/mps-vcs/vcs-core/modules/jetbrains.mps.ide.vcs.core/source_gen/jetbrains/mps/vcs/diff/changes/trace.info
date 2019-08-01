@@ -644,8 +644,8 @@
       <node id="7777695626470245806" at="132,24,133,93" concept="10" />
       <node id="3396946986144293808" at="133,93,134,49" concept="10" />
       <node id="78535434227608989" at="135,61,136,60" concept="5" />
-      <node id="7777695626470196190" at="139,83,140,251" concept="10" />
-      <node id="7777695626470196200" at="140,251,141,52" concept="5" />
+      <node id="7777695626470196190" at="139,83,140,134" concept="10" />
+      <node id="7777695626470196200" at="140,134,141,52" concept="5" />
       <node id="7777695626470196208" at="141,52,142,19" concept="11" />
       <node id="4453118635377437332" at="146,30,147,75" concept="11" />
       <node id="959738663751366469" at="152,27,153,28" concept="11" />
@@ -680,7 +680,8 @@
       <node id="3519985790943202137" at="229,5,230,16" concept="11" />
       <node id="4368453382370887970" at="233,36,234,33" concept="5" />
       <node id="4368453382370887970" at="235,5,236,0" concept="13" />
-      <node id="4972886494893223485" at="240,0,241,0" concept="14" trace="ChildAttribute_96496d6c" />
+      <node id="4972886494893223485" at="240,0,241,0" concept="14" trace="smodelAttribute$K8bJ" />
+      <node id="4972886494893223485" at="244,0,245,0" concept="14" trace="ChildAttribute$XQ" />
       <node id="5814105446971274264" at="199,12,201,7" concept="1" />
       <node id="5814105446971274289" at="208,10,210,5" concept="1" />
       <node id="5919091324068268112" at="66,0,69,0" concept="9" trace="isAbout#(Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
@@ -879,12 +880,13 @@
       <scope id="5814105446971274098" at="174,0,212,0">
         <var name="verbose" id="5814105446971274231" />
       </scope>
-      <unit id="4972886494893223485" at="239,0,242,0" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange$AUX_yjf6x2" />
+      <unit id="4972886494893223485" at="239,0,242,0" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange$LINKS" />
+      <unit id="4972886494893223485" at="243,0,246,0" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange$CONCEPTS" />
       <unit id="6975118071489391050" at="105,94,109,7" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange$1" />
       <unit id="959738663751511227" at="118,62,122,5" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange$2" />
       <unit id="1887089739065784605" at="126,127,130,5" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange$3" />
       <unit id="5814105446971274127" at="179,113,183,7" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange$4" />
-      <unit id="4972886494893223485" at="27,0,243,0" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange" />
+      <unit id="4972886494893223485" at="27,0,247,0" name="jetbrains.mps.vcs.diff.changes.NodeGroupChange" />
     </file>
   </root>
   <root nodeRef="r:9b4a89e1-ec38-42c4-b1bd-96ab47ffcb3f(jetbrains.mps.vcs.diff.changes)/5505786199853653616">

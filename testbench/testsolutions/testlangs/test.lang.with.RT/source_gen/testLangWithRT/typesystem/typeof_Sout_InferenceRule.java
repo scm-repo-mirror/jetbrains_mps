@@ -25,7 +25,7 @@ public class typeof_Sout_InferenceRule extends AbstractInferenceRule_Runtime imp
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_e14ijz.Sout_89f2a8b1;
+    return CONCEPTS.Sout$Nh;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_Sout_InferenceRule extends AbstractInferenceRule_Runtime imp
     return quotedNode_1;
   }
 
-  private static final class AUX_e14ijz {
-    /*package*/ static final SConcept Sout_89f2a8b1 = MetaAdapterFactory.getConcept(0x2e4f876dc3944f48L, 0x93c5b5f4c0ec9b51L, 0x748e34155462f038L, "testLangWithRT.structure.Sout");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Sout$Nh = MetaAdapterFactory.getConcept(0x2e4f876dc3944f48L, 0x93c5b5f4c0ec9b51L, 0x748e34155462f038L, "testLangWithRT.structure.Sout");
   }
 }

@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_SkipOperation_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,7 +22,7 @@ public class typeof_SkipOperation_InferenceRule extends AbstractInferenceRule_Ru
   public void applyRule(final SNode op, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111076c0538L, 0x11107e408a4L, "elementsToSkip"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, LINKS.elementsToSkip$Ja3);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "1184847107857", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959032b(jetbrains.mps.baseLanguage.collections.typesystem)", "1184847100456", true), (SNode) _quotation_createNode_kphkc8_a1a0c0a0a0b(), true, true, _info_12389875345);
       }
@@ -29,7 +30,7 @@ public class typeof_SkipOperation_InferenceRule extends AbstractInferenceRule_Ru
     RulesFunctions_Collections.setInputSequenceType(typeCheckingContext, op, op);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_kphkc8.SkipOperation_e47361ff;
+    return CONCEPTS.SkipOperation$P3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -44,7 +45,11 @@ public class typeof_SkipOperation_InferenceRule extends AbstractInferenceRule_Ru
     return quotedNode_1;
   }
 
-  private static final class AUX_kphkc8 {
-    /*package*/ static final SConcept SkipOperation_e47361ff = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111076c0538L, "jetbrains.mps.baseLanguage.collections.structure.SkipOperation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementsToSkip$Ja3 = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111076c0538L, 0x11107e408a4L, "elementsToSkip");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SkipOperation$P3 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x111076c0538L, "jetbrains.mps.baseLanguage.collections.structure.SkipOperation");
   }
 }

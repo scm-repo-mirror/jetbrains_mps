@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ExecuteFinderExpression_Constraints extends BaseConstraintsDescriptor {
   public ExecuteFinderExpression_Constraints() {
-    super(AUX_g0hwt1.ExecuteFinderExpression_daa74bcd);
+    super(CONCEPTS.ExecuteFinderExpression$OP);
   }
 
   @Override
@@ -37,13 +37,13 @@ public class ExecuteFinderExpression_Constraints extends BaseConstraintsDescript
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{AUX_g0hwt1.FindBlock_c4096cf3, AUX_g0hwt1.SearchedNodesBlock_1eda078a}, false, false) != null;
+    return SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{CONCEPTS.FindBlock$3f, CONCEPTS.SearchedNodesBlock$$o}, false, false) != null;
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590358(jetbrains.mps.lang.findUsages.constraints)", "6869265041613951919");
 
-  private static final class AUX_g0hwt1 {
-    /*package*/ static final SConcept ExecuteFinderExpression_daa74bcd = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x118d6fce801L, "jetbrains.mps.lang.findUsages.structure.ExecuteFinderExpression");
-    /*package*/ static final SConcept FindBlock_c4096cf3 = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a88L, "jetbrains.mps.lang.findUsages.structure.FindBlock");
-    /*package*/ static final SConcept SearchedNodesBlock_1eda078a = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x118e6b5cc19L, "jetbrains.mps.lang.findUsages.structure.SearchedNodesBlock");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExecuteFinderExpression$OP = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x118d6fce801L, "jetbrains.mps.lang.findUsages.structure.ExecuteFinderExpression");
+    /*package*/ static final SConcept FindBlock$3f = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x116b5695a88L, "jetbrains.mps.lang.findUsages.structure.FindBlock");
+    /*package*/ static final SConcept SearchedNodesBlock$$o = MetaAdapterFactory.getConcept(0x64d34fcdad024e73L, 0xaff8a581124c2e30L, 0x118e6b5cc19L, "jetbrains.mps.lang.findUsages.structure.SearchedNodesBlock");
   }
 }

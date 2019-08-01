@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class SmartDisposeClosureParameterDeclaration_Constraints extends BaseConstraintsDescriptor {
   public SmartDisposeClosureParameterDeclaration_Constraints() {
-    super(AUX_pd740m.SmartDisposeClosureParameterDeclaration_4574bb4b);
+    super(CONCEPTS.SmartDisposeClosureParameterDeclaration$PR);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class SmartDisposeClosureParameterDeclaration_Constraints extends BaseCon
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_pd740m.ClosureLiteral_6eeca0d3);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.ClosureLiteral$zJ);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590361(jetbrains.mps.lang.plugin.constraints)", "1227128029536562162");
 
-  private static final class AUX_pd740m {
-    /*package*/ static final SConcept SmartDisposeClosureParameterDeclaration_4574bb4b = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x6bd88e2e00aae68L, "jetbrains.mps.lang.plugin.structure.SmartDisposeClosureParameterDeclaration");
-    /*package*/ static final SConcept ClosureLiteral_6eeca0d3 = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SmartDisposeClosureParameterDeclaration$PR = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x6bd88e2e00aae68L, "jetbrains.mps.lang.plugin.structure.SmartDisposeClosureParameterDeclaration");
+    /*package*/ static final SConcept ClosureLiteral$zJ = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174bed3125L, "jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral");
   }
 }

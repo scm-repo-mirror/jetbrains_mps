@@ -13,7 +13,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -32,10 +31,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class CustomConstructorParameterReference_Constraints extends BaseConstraintsDescriptor {
   public CustomConstructorParameterReference_Constraints() {
-    super(AUX_3lmvlt.CustomConstructorParameterReference_6ef522e4);
+    super(CONCEPTS.CustomConstructorParameterReference$zY);
   }
 
   @Override
@@ -70,7 +70,7 @@ public class CustomConstructorParameterReference_Constraints extends BaseConstra
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b745ce64L, 0x4aa85872b745ce65L, "parameter"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.parameter$CYx0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -85,13 +85,13 @@ public class CustomConstructorParameterReference_Constraints extends BaseConstra
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode args = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_3lmvlt.CustomConstructor_61057681, false, false), MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, 0x4aa85872b7431817L, "arguments"));
-            if (SNodeOperations.isInstanceOf(args, AUX_3lmvlt.ListArgumentsClause_6b8a6f01)) {
+            SNode args = SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.CustomConstructor$$1, false, false), LINKS.arguments$tz7x);
+            if (SNodeOperations.isInstanceOf(args, CONCEPTS.ListArgumentsClause$21)) {
               List<SNode> result = new ArrayList<SNode>();
-              ListSequence.fromList(result).addElement(SLinkOperations.getTarget(SNodeOperations.cast(args, AUX_3lmvlt.ListArgumentsClause_6b8a6f01), MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6b9L, 0x41c47a507380d0bcL, "list")));
+              ListSequence.fromList(result).addElement(SLinkOperations.getTarget(SNodeOperations.cast(args, CONCEPTS.ListArgumentsClause$21), LINKS.list$X02a));
               return ListScope.forResolvableElements(result);
-            } else if (SNodeOperations.isInstanceOf(args, AUX_3lmvlt.CustomArgumentClause_6b8a6f02)) {
-              return ListScope.forResolvableElements(SLinkOperations.getChildren(SNodeOperations.cast(args, AUX_3lmvlt.CustomArgumentClause_6b8a6f02), MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6baL, 0x4aa85872b7431821L, "parameter")));
+            } else if (SNodeOperations.isInstanceOf(args, CONCEPTS.CustomArgumentClause$2w)) {
+              return ListScope.forResolvableElements(SLinkOperations.getChildren(SNodeOperations.cast(args, CONCEPTS.CustomArgumentClause$2w), LINKS.parameter$YMSz));
             } else {
               return null;
             }
@@ -113,10 +113,17 @@ public class CustomConstructorParameterReference_Constraints extends BaseConstra
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:79d4c714-b426-4aae-a835-35e7add55090(jetbrains.mps.baseLanguage.constructors.constraints)", "1227128029536560195");
   private static final SNodePointer breakingNode_3lmvlt_a0a0a0a0a1a0a0a0e = new SNodePointer("r:79d4c714-b426-4aae-a835-35e7add55090(jetbrains.mps.baseLanguage.constructors.constraints)", "6836281137582648266");
 
-  private static final class AUX_3lmvlt {
-    /*package*/ static final SConcept CustomConstructorParameterReference_6ef522e4 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b745ce64L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructorParameterReference");
-    /*package*/ static final SConcept CustomConstructor_61057681 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructor");
-    /*package*/ static final SConcept ListArgumentsClause_6b8a6f01 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6b9L, "jetbrains.mps.baseLanguage.constructors.structure.ListArgumentsClause");
-    /*package*/ static final SConcept CustomArgumentClause_6b8a6f02 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6baL, "jetbrains.mps.baseLanguage.constructors.structure.CustomArgumentClause");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CustomConstructorParameterReference$zY = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b745ce64L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructorParameterReference");
+    /*package*/ static final SConcept CustomConstructor$$1 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, "jetbrains.mps.baseLanguage.constructors.structure.CustomConstructor");
+    /*package*/ static final SConcept ListArgumentsClause$21 = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6b9L, "jetbrains.mps.baseLanguage.constructors.structure.ListArgumentsClause");
+    /*package*/ static final SConcept CustomArgumentClause$2w = MetaAdapterFactory.getConcept(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6baL, "jetbrains.mps.baseLanguage.constructors.structure.CustomArgumentClause");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink parameter$CYx0 = MetaAdapterFactory.getReferenceLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b745ce64L, 0x4aa85872b745ce65L, "parameter");
+    /*package*/ static final SContainmentLink arguments$tz7x = MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x7500da2cf0943c2L, 0x4aa85872b7431817L, "arguments");
+    /*package*/ static final SContainmentLink list$X02a = MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6b9L, 0x41c47a507380d0bcL, "list");
+    /*package*/ static final SContainmentLink parameter$YMSz = MetaAdapterFactory.getContainmentLink(0xae47ad35abd486cL, 0xac0f298884f39393L, 0x4aa85872b742b6baL, 0x4aa85872b7431821L, "parameter");
   }
 }

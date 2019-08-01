@@ -4,6 +4,7 @@ package constraints.rulesAndMessages.sandbox.constraints;
 
 import jetbrains.mps.core.aspects.constraints.rules.BaseRulesConstraintsDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.constraints.rules.Rule;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.ContainmentContext;
 import java.util.List;
@@ -16,11 +17,10 @@ import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.core.aspects.constraints.rules.RuleId;
 import jetbrains.mps.core.aspects.constraints.rules.kinds.PredefinedRuleKinds;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ChildConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_cwyqf7.ChildConcept_3eda7ad4;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
 
   public static final Rule<ContainmentContext> check_id8878450512092605113 = new Rule_toleranceNotTooHigh();
   public static final Rule<ContainmentContext> check_id8878450512092611869 = new Rule_toleranceNotTooLow();
@@ -43,7 +43,7 @@ public final class ChildConcept_ConstraintRules extends BaseRulesConstraintsDesc
 
     @Override
     public boolean check(@NotNull ContainmentContext context) {
-      return SPropertyOperations.getInteger(context.getChildNode(), MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L, 0x74b496bab051e02eL, "tolerance")) < 100;
+      return SPropertyOperations.getInteger(context.getChildNode(), PROPS.tolerance$FKON) < 100;
     }
 
     @Override
@@ -62,7 +62,7 @@ public final class ChildConcept_ConstraintRules extends BaseRulesConstraintsDesc
 
     @Override
     public boolean check(@NotNull ContainmentContext context) {
-      return SPropertyOperations.getInteger(context.getChildNode(), MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L, 0x74b496bab051e02eL, "tolerance")) > 1;
+      return SPropertyOperations.getInteger(context.getChildNode(), PROPS.tolerance$FKON) > 1;
     }
 
     @Override
@@ -75,7 +75,7 @@ public final class ChildConcept_ConstraintRules extends BaseRulesConstraintsDesc
     super(CONCEPT);
   }
 
-  private static final class AUX_cwyqf7 {
-    /*package*/ static final SConcept ChildConcept_3eda7ad4 = MetaAdapterFactory.getConcept(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x7825711952b6d480L, "constraints.rulesAndMessages.sandbox.structure.ChildConcept");
+  private static final class PROPS {
+    /*package*/ static final SProperty tolerance$FKON = MetaAdapterFactory.getProperty(0xfc39d7264089464aL, 0x8fc15f71edfdf03bL, 0x74b496bab051d961L, 0x74b496bab051e02eL, "tolerance");
   }
 }

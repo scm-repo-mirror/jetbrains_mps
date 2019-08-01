@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -16,31 +15,33 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_GenericLValueExpression_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_GenericLValueExpression_NonTypesystemRule() {
   }
   public void applyRule(final SNode glv, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SLinkOperations.getTarget(glv, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression")) == null) {
+    if (SLinkOperations.getTarget(glv, LINKS.assignValueExression$_LdN) == null) {
       return;
     }
-    List<SNode> valueRefs = SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(glv, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression")), AUX_66cs6g.ValueRef_e564cec2, false, new SAbstractConcept[]{});
+    List<SNode> valueRefs = SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(glv, LINKS.assignValueExression$_LdN), CONCEPTS.ValueRef$zw, false, new SAbstractConcept[]{});
     if (ListSequence.fromList(valueRefs).count() == 0) {
       {
-        final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression"));
+        final MessageTarget errorTarget = new ReferenceMessageTarget(LINKS.assignValueExression$_LdN);
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(glv, "value is not used in assignment", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3140757037547068229", null, errorTarget);
       }
     }
     if (ListSequence.fromList(valueRefs).count() > 1) {
       {
-        final MessageTarget errorTarget = new ReferenceMessageTarget(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression"));
+        final MessageTarget errorTarget = new ReferenceMessageTarget(LINKS.assignValueExression$_LdN);
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportInfo(glv, "value should be used exactly once in assignment", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "3140757037547070636", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_66cs6g.GenericLValueExpression_e5647799;
+    return CONCEPTS.GenericLValueExpression$FD;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -49,8 +50,12 @@ public class check_GenericLValueExpression_NonTypesystemRule extends AbstractNon
     return false;
   }
 
-  private static final class AUX_66cs6g {
-    /*package*/ static final SConcept ValueRef_e564cec2 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac33aL, "jetbrains.mps.baseLanguage.structure.ValueRef");
-    /*package*/ static final SConcept GenericLValueExpression_e5647799 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, "jetbrains.mps.baseLanguage.structure.GenericLValueExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink assignValueExression$_LdN = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ValueRef$zw = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac33aL, "jetbrains.mps.baseLanguage.structure.ValueRef");
+    /*package*/ static final SConcept GenericLValueExpression$FD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, "jetbrains.mps.baseLanguage.structure.GenericLValueExpression");
   }
 }

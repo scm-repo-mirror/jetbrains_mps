@@ -276,36 +276,39 @@
   </root>
   <root nodeRef="r:0bb5e892-3294-41a6-b5db-b1bdf3480f53(jetbrains.mps.debugger.java.runtime.ui.breakpoints)/742486944792833383">
     <file name="ExceptionChooserDialog.java">
-      <node id="2636689644485725114" at="19,0,20,0" concept="2" trace="myProject" />
-      <node id="742486944792833397" at="20,118,21,26" concept="10" />
-      <node id="2636689644485727384" at="21,26,22,52" concept="1" />
-      <node id="2636689644485730182" at="25,41,26,165" concept="6" />
-      <node id="742486944792833420" at="26,165,27,22" concept="6" />
-      <node id="742486944792833440" at="28,148,29,379" concept="1" />
-      <node id="742486944792833450" at="30,5,31,98" concept="7" />
-      <node id="2816410937774688222" at="36,45,37,50" concept="7" />
-      <node id="742486944792833383" at="41,0,42,0" concept="9" trace="ClassConcept_e2711824" />
-      <node id="742486944792833424" at="27,22,30,5" concept="11" />
-      <node id="742486944792833389" at="20,0,24,0" concept="0" trace="ExceptionChooserDialog#(Lcom/intellij/openapi/project/Project;Ljava/lang/String;)V" />
-      <node id="2816410937774688213" at="33,0,39,0" concept="5" trace="getDimensionServiceKey#()Ljava/lang/String;" />
-      <node id="742486944792833414" at="24,0,33,0" concept="5" trace="isValid#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <scope id="742486944792833439" at="28,148,29,379" />
-      <scope id="2816410937774688218" at="36,45,37,50" />
-      <scope id="742486944792833396" at="20,118,22,52" />
-      <scope id="742486944792833389" at="20,0,24,0">
+      <node id="2636689644485725114" at="21,0,22,0" concept="2" trace="myProject" />
+      <node id="742486944792833397" at="22,118,23,26" concept="10" />
+      <node id="2636689644485727384" at="23,26,24,52" concept="1" />
+      <node id="2636689644485730182" at="27,41,28,165" concept="6" />
+      <node id="742486944792833420" at="28,165,29,22" concept="6" />
+      <node id="742486944792833440" at="30,140,31,166" concept="1" />
+      <node id="742486944792833450" at="32,5,33,90" concept="7" />
+      <node id="2816410937774688222" at="38,45,39,50" concept="7" />
+      <node id="742486944792833383" at="43,0,44,0" concept="9" trace="ClassConcept$IY" />
+      <node id="742486944792833383" at="47,0,48,0" concept="9" trace="superclass$_pqe" />
+      <node id="742486944792833383" at="48,0,49,0" concept="9" trace="classifier$pQ_R" />
+      <node id="742486944792833424" at="29,22,32,5" concept="11" />
+      <node id="742486944792833389" at="22,0,26,0" concept="0" trace="ExceptionChooserDialog#(Lcom/intellij/openapi/project/Project;Ljava/lang/String;)V" />
+      <node id="2816410937774688213" at="35,0,41,0" concept="5" trace="getDimensionServiceKey#()Ljava/lang/String;" />
+      <node id="742486944792833414" at="26,0,35,0" concept="5" trace="isValid#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <scope id="742486944792833439" at="30,140,31,166" />
+      <scope id="2816410937774688218" at="38,45,39,50" />
+      <scope id="742486944792833396" at="22,118,24,52" />
+      <scope id="742486944792833389" at="22,0,26,0">
         <var name="project" id="7987943333504860234" />
         <var name="title" id="742486944792833394" />
       </scope>
-      <scope id="742486944792833419" at="25,41,31,98">
+      <scope id="742486944792833419" at="27,41,33,90">
         <var name="base" id="742486944792833421" />
         <var name="throwableClassifier" id="2636689644485730185" />
       </scope>
-      <scope id="2816410937774688213" at="33,0,39,0" />
-      <scope id="742486944792833414" at="24,0,33,0">
+      <scope id="2816410937774688213" at="35,0,41,0" />
+      <scope id="742486944792833414" at="26,0,35,0">
         <var name="node" id="742486944792833417" />
       </scope>
-      <unit id="742486944792833383" at="40,0,43,0" name="jetbrains.mps.debugger.java.runtime.ui.breakpoints.ExceptionChooserDialog$AUX_lt001m" />
-      <unit id="742486944792833383" at="18,0,44,0" name="jetbrains.mps.debugger.java.runtime.ui.breakpoints.ExceptionChooserDialog" />
+      <unit id="742486944792833383" at="42,0,45,0" name="jetbrains.mps.debugger.java.runtime.ui.breakpoints.ExceptionChooserDialog$CONCEPTS" />
+      <unit id="742486944792833383" at="46,0,50,0" name="jetbrains.mps.debugger.java.runtime.ui.breakpoints.ExceptionChooserDialog$LINKS" />
+      <unit id="742486944792833383" at="20,0,51,0" name="jetbrains.mps.debugger.java.runtime.ui.breakpoints.ExceptionChooserDialog" />
     </file>
   </root>
 </debug-info>

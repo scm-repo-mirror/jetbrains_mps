@@ -31,7 +31,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -45,6 +44,8 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AddRedirect_Contribution extends TransformationMenuBase {
   public AddRedirect_Contribution() {
@@ -97,7 +98,7 @@ public class AddRedirect_Contribution extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_rmyimx_a0.TMP_Action_rmyimx_a0a(), AUX_rmyimx.RedirectOutputExpression_30caf35d));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_rmyimx_a0.TMP_Action_rmyimx_a0a(), CONCEPTS.RedirectOutputExpression$u_));
     }
     private class TMP_Action_rmyimx_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -137,9 +138,9 @@ public class AddRedirect_Contribution extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode redirect = SNodeFactoryOperations.createNewNode(AUX_rmyimx.RedirectOutputExpression_30caf35d, null);
+          SNode redirect = SNodeFactoryOperations.createNewNode(CONCEPTS.RedirectOutputExpression$u_, null);
           SNodeOperations.replaceWithAnother(_context.getNode(), redirect);
-          SLinkOperations.setTarget(redirect, MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c14L, 0xbe3a0d5ba1a2c15L, "processHandler"), _context.getNode());
+          SLinkOperations.setTarget(redirect, LINKS.processHandler$nvtw, _context.getNode());
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), redirect, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -147,7 +148,7 @@ public class AddRedirect_Contribution extends TransformationMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_rmyimx.RedirectOutputExpression_30caf35d;
+          return CONCEPTS.RedirectOutputExpression$u_;
         }
 
 
@@ -158,7 +159,7 @@ public class AddRedirect_Contribution extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_rmyimx.RedirectOutputExpression_30caf35d;
+          SAbstractConcept outputConcept = CONCEPTS.RedirectOutputExpression$u_;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -170,12 +171,16 @@ public class AddRedirect_Contribution extends TransformationMenuBase {
   }
   private static SNode createProcessType_rmyimx_b0a0a0a0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_rmyimx.ProcessType_30caf35b, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ProcessType$tB, null, null, false);
     return n1;
   }
 
-  private static final class AUX_rmyimx {
-    /*package*/ static final SConcept RedirectOutputExpression_30caf35d = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c14L, "jetbrains.mps.execution.commands.structure.RedirectOutputExpression");
-    /*package*/ static final SConcept ProcessType_30caf35b = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c12L, "jetbrains.mps.execution.commands.structure.ProcessType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RedirectOutputExpression$u_ = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c14L, "jetbrains.mps.execution.commands.structure.RedirectOutputExpression");
+    /*package*/ static final SConcept ProcessType$tB = MetaAdapterFactory.getConcept(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c12L, "jetbrains.mps.execution.commands.structure.ProcessType");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink processHandler$nvtw = MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0xbe3a0d5ba1a2c14L, 0xbe3a0d5ba1a2c15L, "processHandler");
   }
 }

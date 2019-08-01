@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PlatformAccessExpression_Constraints extends BaseConstraintsDescriptor {
   public PlatformAccessExpression_Constraints() {
-    super(AUX_6fq2tv.PlatformAccessExpression_6b3ea63b);
+    super(CONCEPTS.PlatformAccessExpression$27);
   }
 
   @Override
@@ -37,13 +37,13 @@ public class PlatformAccessExpression_Constraints extends BaseConstraintsDescrip
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{AUX_6fq2tv.ApplicationPluginInitBlock_430ea808, AUX_6fq2tv.ApplicationPluginDisposeBlock_430ea7ee}, false, false) != null);
+    return (SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{CONCEPTS.ApplicationPluginInitBlock$xq, CONCEPTS.ApplicationPluginDisposeBlock$kO}, false, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:d8316079-6c93-4f9e-8d0b-3c915180ce5c(jetbrains.mps.lang.plugin.standalone.constraints)", "3418954410726349165");
 
-  private static final class AUX_6fq2tv {
-    /*package*/ static final SConcept PlatformAccessExpression_6b3ea63b = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x2f7290ec129946e7L, "jetbrains.mps.lang.plugin.standalone.structure.PlatformAccessExpression");
-    /*package*/ static final SConcept ApplicationPluginInitBlock_430ea808 = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2063L, "jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginInitBlock");
-    /*package*/ static final SConcept ApplicationPluginDisposeBlock_430ea7ee = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f205eL, "jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginDisposeBlock");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PlatformAccessExpression$27 = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x2f7290ec129946e7L, "jetbrains.mps.lang.plugin.standalone.structure.PlatformAccessExpression");
+    /*package*/ static final SConcept ApplicationPluginInitBlock$xq = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f2063L, "jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginInitBlock");
+    /*package*/ static final SConcept ApplicationPluginDisposeBlock$kO = MetaAdapterFactory.getConcept(0xef7bf5acd06c4342L, 0xb11de42104eb9343L, 0x6b059b0986f205eL, "jetbrains.mps.lang.plugin.standalone.structure.ApplicationPluginDisposeBlock");
   }
 }

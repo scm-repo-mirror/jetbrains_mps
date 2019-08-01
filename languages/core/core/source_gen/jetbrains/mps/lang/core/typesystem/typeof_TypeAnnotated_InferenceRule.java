@@ -10,8 +10,9 @@ import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_TypeAnnotated_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,11 +22,11 @@ public class typeof_TypeAnnotated_InferenceRule extends AbstractInferenceRule_Ru
     {
       SNode _nodeToCheck_1029348928467 = typeAnnotated;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "5259630923505771313", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "5259630923505770757", true), (SNode) SNodeOperations.copyNode(SLinkOperations.getTarget(typeAnnotated, MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x48fdf6754d38a0a9L, 0x48fdf6754d38a0aaL, "annotation"))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:cec599e3-51d2-48a7-af31-989e3cbd593c(jetbrains.mps.lang.core.typesystem)", "5259630923505770757", true), (SNode) SNodeOperations.copyNode(SLinkOperations.getTarget(typeAnnotated, LINKS.annotation$lMr0)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_4r9v4z.TypeAnnotated_8852bcd8;
+    return CONCEPTS.TypeAnnotated$Qa;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,7 +35,11 @@ public class typeof_TypeAnnotated_InferenceRule extends AbstractInferenceRule_Ru
     return false;
   }
 
-  private static final class AUX_4r9v4z {
-    /*package*/ static final SConcept TypeAnnotated_8852bcd8 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x48fdf6754d38a0a9L, "jetbrains.mps.lang.core.structure.TypeAnnotated");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink annotation$lMr0 = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x48fdf6754d38a0a9L, 0x48fdf6754d38a0aaL, "annotation");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TypeAnnotated$Qa = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x48fdf6754d38a0a9L, "jetbrains.mps.lang.core.structure.TypeAnnotated");
   }
 }

@@ -37,7 +37,7 @@ public final class SpecifyRuleReferences_Intention extends AbstractIntentionDesc
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(AUX_ef6asp.NodesTestCase_fd5a0bf4), node) && Sequence.fromIterable(SpecifyUtil.getErrorReporters(node)).isNotEmpty();
+    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(CONCEPTS.NodesTestCase$7I), node) && Sequence.fromIterable(SpecifyUtil.getErrorReporters(node)).isNotEmpty();
   }
   @Override
   public boolean isSurroundWith() {
@@ -67,7 +67,7 @@ public final class SpecifyRuleReferences_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_ef6asp {
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodesTestCase$7I = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
   }
 }

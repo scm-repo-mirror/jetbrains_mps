@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class RefactoringOrderDependency_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_gjfk1b_a(), AUX_gjfk1b.RefactoringOrderDependency_f0aa76fc));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_gjfk1b_a(), CONCEPTS.RefactoringOrderDependency$vA));
     result.add(new SMP_Subconcepts_gjfk1b_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class RefactoringOrderDependency_SubstituteMenu extends SubstituteMenuBas
 
     public SMP_ReferenceScope_gjfk1b_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_gjfk1b.RefactoringOrderDependency_f0aa76fc, MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d9dL, 0x1bf9eb43276b6d9eL, "refactoring"));
+      super((SAbstractConcept) CONCEPTS.RefactoringOrderDependency$vA, LINKS.refactoring$jAH0);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class RefactoringOrderDependency_SubstituteMenu extends SubstituteMenuBas
   }
   public class SMP_Subconcepts_gjfk1b_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_gjfk1b.RefactoringOrderDependency_f0aa76fc);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.RefactoringOrderDependency$vA);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class RefactoringOrderDependency_SubstituteMenu extends SubstituteMenuBas
     }
   }
 
-  private static final class AUX_gjfk1b {
-    /*package*/ static final SConcept RefactoringOrderDependency_f0aa76fc = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d9dL, "jetbrains.mps.lang.migration.structure.RefactoringOrderDependency");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RefactoringOrderDependency$vA = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d9dL, "jetbrains.mps.lang.migration.structure.RefactoringOrderDependency");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink refactoring$jAH0 = MetaAdapterFactory.getReferenceLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x1bf9eb43276b6d9dL, 0x1bf9eb43276b6d9eL, "refactoring");
   }
 }

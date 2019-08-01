@@ -8,26 +8,28 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_HelpURL_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_HelpURL_NonTypesystemRule() {
   }
   public void applyRule(final SNode url, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(url, MetaAdapterFactory.getReferenceLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x47d8f9811b73d397L, 0x4197d5560e6966c4L, "baseURL")) != null)) {
+    if ((SLinkOperations.getTarget(url, LINKS.baseURL$oVbU) != null)) {
       return;
     }
-    if (isEmptyString(SPropertyOperations.getString(url, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x47d8f9811b73d397L, 0x47d8f9811b73d398L, "url")))) {
+    if (isEmptyString(SPropertyOperations.getString(url, PROPS.url$W1e0))) {
       return;
     }
 
-    URLCheckUtil.check(typeCheckingContext, url, SPropertyOperations.getString(url, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x47d8f9811b73d397L, 0x47d8f9811b73d398L, "url")));
+    URLCheckUtil.check(typeCheckingContext, url, SPropertyOperations.getString(url, PROPS.url$W1e0));
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_nmfygl.HelpURL_270f81b3;
+    return CONCEPTS.HelpURL$gf;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -39,7 +41,15 @@ public class check_HelpURL_NonTypesystemRule extends AbstractNonTypesystemRule_R
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_nmfygl {
-    /*package*/ static final SConcept HelpURL_270f81b3 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x47d8f9811b73d397L, "jetbrains.mps.lang.resources.structure.HelpURL");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseURL$oVbU = MetaAdapterFactory.getReferenceLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x47d8f9811b73d397L, 0x4197d5560e6966c4L, "baseURL");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty url$W1e0 = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x47d8f9811b73d397L, 0x47d8f9811b73d398L, "url");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept HelpURL$gf = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x47d8f9811b73d397L, "jetbrains.mps.lang.resources.structure.HelpURL");
   }
 }

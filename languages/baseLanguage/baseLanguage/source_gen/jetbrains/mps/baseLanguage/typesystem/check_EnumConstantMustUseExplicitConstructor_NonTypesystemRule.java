@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Objects;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
@@ -19,19 +18,21 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule() {
   }
   public void applyRule(final SNode enumConstant, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode enumClass = SNodeOperations.getNodeAncestor(enumConstant, AUX_l7r8hn.EnumClass_acf68fc0, false, false);
+    SNode enumClass = SNodeOperations.getNodeAncestor(enumConstant, CONCEPTS.EnumClass$uy, false, false);
     if ((enumClass == null)) {
       return;
     }
-    SNode constructorDeclaration = SLinkOperations.getTarget(enumConstant, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+    SNode constructorDeclaration = SLinkOperations.getTarget(enumConstant, LINKS.baseMethodDeclaration$$A7i);
 
     if ((constructorDeclaration != null)) {
-      if (Objects.equals(SNodeOperations.getParent(SLinkOperations.getTarget(enumConstant, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"))), enumClass)) {
+      if (Objects.equals(SNodeOperations.getParent(SLinkOperations.getTarget(enumConstant, LINKS.baseMethodDeclaration$$A7i)), enumClass)) {
         return;
       }
       if (Sequence.fromIterable(ClassConcept__BehaviorDescriptor.constructors_id4_LVZ3pCvsd.invoke(enumClass)).isNotEmpty()) {
@@ -59,7 +60,7 @@ public class check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule exte
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_l7r8hn.EnumConstantDeclaration_b06144d8;
+    return CONCEPTS.EnumConstantDeclaration$ma;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -68,8 +69,12 @@ public class check_EnumConstantMustUseExplicitConstructor_NonTypesystemRule exte
     return false;
   }
 
-  private static final class AUX_l7r8hn {
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept EnumConstantDeclaration_b06144d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept EnumConstantDeclaration$ma = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
   }
 }

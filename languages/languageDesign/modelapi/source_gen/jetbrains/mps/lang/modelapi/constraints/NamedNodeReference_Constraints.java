@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -21,15 +20,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class NamedNodeReference_Constraints extends BaseConstraintsDescriptor {
   public NamedNodeReference_Constraints() {
-    super(AUX_37947n.NamedNodeReference_1b8b6fa);
+    super(CONCEPTS.NamedNodeReference$uC);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402faaL, "target"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.target$I6bY, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -45,8 +45,8 @@ public class NamedNodeReference_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             SNode parent = ((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode()));
-            if (SNodeOperations.isInstanceOf(parent, AUX_37947n.NamedNodeReference_1b8b6fa)) {
-              return NamedNodeReferencesScope.createDescendantsScope(SLinkOperations.getTarget(SNodeOperations.cast(parent, AUX_37947n.NamedNodeReference_1b8b6fa), MetaAdapterFactory.getReferenceLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402faaL, "target")));
+            if (SNodeOperations.isInstanceOf(parent, CONCEPTS.NamedNodeReference$uC)) {
+              return NamedNodeReferencesScope.createDescendantsScope(SLinkOperations.getTarget(SNodeOperations.cast(parent, CONCEPTS.NamedNodeReference$uC), LINKS.target$I6bY));
             } else {
               return NamedNodeReferencesScope.createRootsScope(SNodeOperations.getModel(_context.getContextNode()));
             }
@@ -60,7 +60,11 @@ public class NamedNodeReference_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_37947n_a0a0a0a0a1a0a0a0c = new SNodePointer("r:1a4a897f-9f8b-4a0a-812b-895506d5a1ab(jetbrains.mps.lang.modelapi.constraints)", "7256306938026172583");
 
-  private static final class AUX_37947n {
-    /*package*/ static final SConcept NamedNodeReference_1b8b6fa = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, "jetbrains.mps.lang.modelapi.structure.NamedNodeReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NamedNodeReference$uC = MetaAdapterFactory.getConcept(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, "jetbrains.mps.lang.modelapi.structure.NamedNodeReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$I6bY = MetaAdapterFactory.getReferenceLink(0x446c26eb2b7b4bf0L, 0x9b35f83fa582753eL, 0x41af228e7e0d7f3eL, 0x64b394b6ee402faaL, "target");
   }
 }

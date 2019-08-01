@@ -59,7 +59,7 @@ public class ModelChooser extends TextFieldWithBrowseButton.NoPathCompletion {
     final Collection<SModelReference> modelRefs = new LinkedHashSet<SModelReference>();
     myMpsProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        SAbstractConcept concept = AUX_6fbl6h.ITestCase_8c8c490a;
+        SAbstractConcept concept = CONCEPTS.ITestCase$uo;
         ProjectScope scope = new ProjectScope(myMpsProject);
         Set<SNode> usages = getFindUsagesManager().findInstances(scope, Collections.singleton(concept), false, new EmptyProgressMonitor());
         for (SNode node : usages) {
@@ -89,7 +89,7 @@ public class ModelChooser extends TextFieldWithBrowseButton.NoPathCompletion {
     return myModelRef;
   }
 
-  private static final class AUX_6fbl6h {
-    /*package*/ static final SInterfaceConcept ITestCase_8c8c490a = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ITestCase$uo = MetaAdapterFactory.getInterfaceConcept(0xf61473f9130f42f6L, 0xb98d6c438812c2f6L, 0x11b2709bd56L, "jetbrains.mps.baseLanguage.unitTest.structure.ITestCase");
   }
 }

@@ -8,21 +8,22 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.typesystem.DataFlowUtil;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_AbstractCheckingRule_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_AbstractCheckingRule_NonTypesystemRule() {
   }
   public void applyRule(final SNode abstractCheckingRule, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (SLinkOperations.getTarget(abstractCheckingRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x1164848bdf4L, "body")) != null) {
-      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(abstractCheckingRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x1164848bdf4L, "body")));
+    if (SLinkOperations.getTarget(abstractCheckingRule, LINKS.body$uYGk) != null) {
+      DataFlowUtil.checkDataFlow(typeCheckingContext, SLinkOperations.getTarget(abstractCheckingRule, LINKS.body$uYGk));
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_x5ixq9.AbstractCheckingRule_9926d1be;
+    return CONCEPTS.AbstractCheckingRule$l$;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -31,7 +32,11 @@ public class check_AbstractCheckingRule_NonTypesystemRule extends AbstractNonTyp
     return false;
   }
 
-  private static final class AUX_x5ixq9 {
-    /*package*/ static final SConcept AbstractCheckingRule_9926d1be = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, "jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$uYGk = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, 0x1164848bdf4L, "body");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractCheckingRule$l$ = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1164847e929L, "jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule");
   }
 }

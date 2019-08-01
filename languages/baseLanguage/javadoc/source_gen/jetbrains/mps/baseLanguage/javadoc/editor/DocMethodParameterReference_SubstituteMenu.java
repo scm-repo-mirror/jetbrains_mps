@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DocMethodParameterReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_7j3pri_a(), AUX_7j3pri.DocMethodParameterReference_1a7f35b8));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_7j3pri_a(), CONCEPTS.DocMethodParameterReference$2E));
     result.add(new SMP_Subconcepts_7j3pri_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class DocMethodParameterReference_SubstituteMenu extends SubstituteMenuBa
 
     public SMP_ReferenceScope_7j3pri_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_7j3pri.DocMethodParameterReference_1a7f35b8, MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86d7L, 0x5ed0d79d7dbe86dcL, "param"));
+      super((SAbstractConcept) CONCEPTS.DocMethodParameterReference$2E, LINKS.param$T$cs);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class DocMethodParameterReference_SubstituteMenu extends SubstituteMenuBa
   }
   public class SMP_Subconcepts_7j3pri_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_7j3pri.DocMethodParameterReference_1a7f35b8);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.DocMethodParameterReference$2E);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class DocMethodParameterReference_SubstituteMenu extends SubstituteMenuBa
     }
   }
 
-  private static final class AUX_7j3pri {
-    /*package*/ static final SConcept DocMethodParameterReference_1a7f35b8 = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86d8L, "jetbrains.mps.baseLanguage.javadoc.structure.DocMethodParameterReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DocMethodParameterReference$2E = MetaAdapterFactory.getConcept(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86d8L, "jetbrains.mps.baseLanguage.javadoc.structure.DocMethodParameterReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink param$T$cs = MetaAdapterFactory.getReferenceLink(0xf280165065d5424eL, 0xbb1b463a8781b786L, 0x5ed0d79d7dbe86d7L, 0x5ed0d79d7dbe86dcL, "param");
   }
 }

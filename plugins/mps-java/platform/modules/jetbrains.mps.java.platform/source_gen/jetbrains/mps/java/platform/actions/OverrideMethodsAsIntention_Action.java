@@ -35,7 +35,7 @@ public class OverrideMethodsAsIntention_Action extends BaseAction {
   }
   @Override
   public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
-    return SNodeOperations.isInstanceOf(event.getData(MPSCommonDataKeys.NODE), AUX_q43dlc.Classifier_4b7e553) && ListSequence.fromList(((List<SNode>) BHReflection.invoke0(SNodeOperations.cast(event.getData(MPSCommonDataKeys.NODE), AUX_q43dlc.Classifier_4b7e553), AUX_q43dlc.IMemberContainer_166f7222, SMethodTrimmedId.create("getMethodsToOverride", null, "4GM03FJm3zL")))).isNotEmpty();
+    return SNodeOperations.isInstanceOf(event.getData(MPSCommonDataKeys.NODE), CONCEPTS.Classifier$hJ) && ListSequence.fromList(((List<SNode>) BHReflection.invoke0(SNodeOperations.cast(event.getData(MPSCommonDataKeys.NODE), CONCEPTS.Classifier$hJ), CONCEPTS.IMemberContainer$60, SMethodTrimmedId.create("getMethodsToOverride", null, "4GM03FJm3zL")))).isNotEmpty();
   }
   @Override
   public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
@@ -71,8 +71,8 @@ public class OverrideMethodsAsIntention_Action extends BaseAction {
     new OverrideImplementMethodAction(event.getData(MPSCommonDataKeys.MPS_PROJECT), event.getData(MPSCommonDataKeys.NODE), event.getData(MPSEditorDataKeys.EDITOR_CONTEXT), true).run();
   }
 
-  private static final class AUX_q43dlc {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept IMemberContainer_166f7222 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept IMemberContainer$60 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
   }
 }

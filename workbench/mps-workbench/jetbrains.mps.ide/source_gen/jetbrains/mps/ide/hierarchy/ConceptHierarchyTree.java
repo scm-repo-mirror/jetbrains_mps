@@ -15,7 +15,6 @@ import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import java.util.Collections;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
@@ -31,6 +30,8 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 /**
  * This works on concept nodes
@@ -47,13 +48,13 @@ public class ConceptHierarchyTree extends AbstractHierarchyTree {
     if (visited.contains(node)) {
       throw new CircularHierarchyException(node, "circular concept hierarchy");
     }
-    return SetSequence.fromSetWithValues(new HashSet<SNode>(), ((List<SNode>) BHReflection.invoke0(node, AUX_hbdwjp.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("getImmediateSuperconcepts", null, "hMuxyK2"))));
+    return SetSequence.fromSetWithValues(new HashSet<SNode>(), ((List<SNode>) BHReflection.invoke0(node, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("getImmediateSuperconcepts", null, "hMuxyK2"))));
   }
   @Override
   protected SNode getParent(SNode node) {
-    if (SNodeOperations.isInstanceOf(node, AUX_hbdwjp.ConceptDeclaration_cb225da8)) {
-      SNode concept = SNodeOperations.cast(node, AUX_hbdwjp.ConceptDeclaration_cb225da8);
-      SNode extendsConcept = SLinkOperations.getTarget(concept, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends"));
+    if (SNodeOperations.isInstanceOf(node, CONCEPTS.ConceptDeclaration$qU)) {
+      SNode concept = SNodeOperations.cast(node, CONCEPTS.ConceptDeclaration$qU);
+      SNode extendsConcept = SLinkOperations.getTarget(concept, LINKS.extends$LQV3);
       if (extendsConcept == null && !(SNodeOperations.is(concept, new SNodePointer("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626")))) {
         extendsConcept = SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "1133920641626");
       }
@@ -91,12 +92,12 @@ public class ConceptHierarchyTree extends AbstractHierarchyTree {
     }).where(new NotNullWhereFilter<SModel>());
     Iterable<SNode> concepts = Sequence.fromIterable(structures).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel it) {
-        return SModelOperations.roots(it, AUX_hbdwjp.AbstractConceptDeclaration_ec74828f);
+        return SModelOperations.roots(it, CONCEPTS.AbstractConceptDeclaration$UN);
       }
     });
     Sequence.fromIterable(concepts).visitAll(new IVisitor<SNode>() {
       public void visit(final SNode child) {
-        List<SNode> immediate = ((List<SNode>) BHReflection.invoke0(child, AUX_hbdwjp.AbstractConceptDeclaration_ec74828f, SMethodTrimmedId.create("getImmediateSuperconcepts", null, "hMuxyK2")));
+        List<SNode> immediate = ((List<SNode>) BHReflection.invoke0(child, CONCEPTS.AbstractConceptDeclaration$UN, SMethodTrimmedId.create("getImmediateSuperconcepts", null, "hMuxyK2")));
         ListSequence.fromList(immediate).visitAll(new IVisitor<SNode>() {
           public void visit(SNode parent) {
             Set<SNode> desc = MapSequence.fromMap(myChildrenCache).get(parent);
@@ -111,8 +112,12 @@ public class ConceptHierarchyTree extends AbstractHierarchyTree {
     });
   }
 
-  private static final class AUX_hbdwjp {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept ConceptDeclaration_cb225da8 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept ConceptDeclaration$qU = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, "jetbrains.mps.lang.structure.structure.ConceptDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extends$LQV3 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L, 0xf979be93cfL, "extends");
   }
 }

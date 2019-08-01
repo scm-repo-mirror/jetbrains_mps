@@ -14,12 +14,13 @@ import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.GroupMenuPart;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator;
 import jetbrains.mps.lang.editor.menus.substitute.SimpleConceptSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ValueRef_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
@@ -46,18 +47,18 @@ public class ValueRef_SubstituteMenu extends SubstituteMenuBase {
   public class SMP_Group_tudm17_a extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      if (SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_tudm17.GenericLValueExpression_e5647799)) {
-        return Objects.equals(_context.getLink(), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression"));
+      if (SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.GenericLValueExpression$FD)) {
+        return Objects.equals(_context.getLink(), LINKS.assignValueExression$_LdN);
       }
       SNode contextNode = _context.getParentNode();
-      while (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(contextNode), AUX_tudm17.GenericLValueExpression_e5647799))) {
+      while (!(SNodeOperations.isInstanceOf(SNodeOperations.getParent(contextNode), CONCEPTS.GenericLValueExpression$FD))) {
         SNode parent = SNodeOperations.getParent(contextNode);
         if ((parent == null)) {
           return false;
         }
         contextNode = parent;
       }
-      return Objects.equals(SNodeOperations.getContainingLink(contextNode), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression"));
+      return Objects.equals(SNodeOperations.getContainingLink(contextNode), LINKS.assignValueExression$_LdN);
     }
     @NotNull
     @Override
@@ -73,7 +74,7 @@ public class ValueRef_SubstituteMenu extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_tudm17.ValueRef_e564cec2) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.ValueRef$zw) {
 
         @NotNull
         @Override
@@ -86,12 +87,16 @@ public class ValueRef_SubstituteMenu extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_tudm17.ValueRef_e564cec2));
+      }, CONCEPTS.ValueRef$zw));
     }
   }
 
-  private static final class AUX_tudm17 {
-    /*package*/ static final SConcept GenericLValueExpression_e5647799 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, "jetbrains.mps.baseLanguage.structure.GenericLValueExpression");
-    /*package*/ static final SConcept ValueRef_e564cec2 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac33aL, "jetbrains.mps.baseLanguage.structure.ValueRef");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericLValueExpression$FD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, "jetbrains.mps.baseLanguage.structure.GenericLValueExpression");
+    /*package*/ static final SConcept ValueRef$zw = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac33aL, "jetbrains.mps.baseLanguage.structure.ValueRef");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink assignValueExression$_LdN = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53cc4e75e79ac233L, 0x7e4df7e6620fe175L, "assignValueExression");
   }
 }

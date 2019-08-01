@@ -35,7 +35,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.debugger.java.api.evaluation.transform.TransformatorBuilder;
 import jetbrains.mps.generator.GenerationStatus;
 import jetbrains.mps.make.script.IFeedback;
@@ -67,6 +66,8 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class JavaDebugEvaluate_Facet extends IFacet.Stub {
   private static final Logger LOG = LogManager.getLogger(JavaDebugEvaluate_Facet.class);
@@ -129,9 +130,9 @@ public class JavaDebugEvaluate_Facet extends IFacet.Stub {
                       if (evaluator.value != null) {
                         try {
                           assert SNodeOperations.getModel(evaluator.value) != null;
-                          SNode evaluateMethod = ListSequence.fromList(SNodeOperations.getNodeDescendants(evaluator.value, AUX_9b2k1t.InstanceMethodDeclaration_9dbf9b2b, false, new SAbstractConcept[]{})).findFirst(new IWhereFilter<SNode>() {
+                          SNode evaluateMethod = ListSequence.fromList(SNodeOperations.getNodeDescendants(evaluator.value, CONCEPTS.InstanceMethodDeclaration$An, false, new SAbstractConcept[]{})).findFirst(new IWhereFilter<SNode>() {
                             public boolean accept(SNode it) {
-                              return "evaluate".equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
+                              return "evaluate".equals(SPropertyOperations.getString(it, PROPS.name$tAp1));
                             }
                           });
                           TransformatorBuilder.getInstance().build(evaluateMethod, true).transformEvaluator();
@@ -393,7 +394,11 @@ public class JavaDebugEvaluate_Facet extends IFacet.Stub {
     }
   }
 
-  private static final class AUX_9b2k1t {
-    /*package*/ static final SConcept InstanceMethodDeclaration_9dbf9b2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodDeclaration$An = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

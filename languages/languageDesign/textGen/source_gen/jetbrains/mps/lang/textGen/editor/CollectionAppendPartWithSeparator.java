@@ -24,7 +24,6 @@ import jetbrains.mps.nodeEditor.cellMenu.SideTransformCompletionActionItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -37,6 +36,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CollectionAppendPartWithSeparator extends TransformationMenuBase {
   public CollectionAppendPartWithSeparator() {
@@ -108,15 +109,15 @@ public class CollectionAppendPartWithSeparator extends TransformationMenuBase {
 
       @Override
       public void execute(@NotNull String pattern) {
-        SPropertyOperations.assign(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), AUX_f1smt6.CollectionAppendPart_a0989fc2), MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator"), true);
+        SPropertyOperations.assign(SNodeOperations.as(SNodeOperations.getParent(_context.getNode()), CONCEPTS.CollectionAppendPart$vw), PROPS.withSeparator$ZLcq, true);
         SelectionUtil.selectCell(_context.getEditorContext(), SNodeOperations.getParent(_context.getNode()), SelectionManager.LAST_EDITABLE_CELL);
       }
 
       @Override
       public boolean canExecute(@NotNull String pattern) {
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_f1smt6.CollectionAppendPart_a0989fc2)) {
-          SNode part = SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_f1smt6.CollectionAppendPart_a0989fc2);
-          return !((SPropertyOperations.getBoolean(part, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator")) || isNotEmptyString(SPropertyOperations.getString(part, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x120152f5107L, "separator")))));
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.CollectionAppendPart$vw)) {
+          SNode part = SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.CollectionAppendPart$vw);
+          return !((SPropertyOperations.getBoolean(part, PROPS.withSeparator$ZLcq) || isNotEmptyString(SPropertyOperations.getString(part, PROPS.separator$6WSy))));
         }
         return false;
       }
@@ -147,7 +148,12 @@ public class CollectionAppendPartWithSeparator extends TransformationMenuBase {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_f1smt6 {
-    /*package*/ static final SConcept CollectionAppendPart_a0989fc2 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, "jetbrains.mps.lang.textGen.structure.CollectionAppendPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CollectionAppendPart$vw = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, "jetbrains.mps.lang.textGen.structure.CollectionAppendPart");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty withSeparator$ZLcq = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator");
+    /*package*/ static final SProperty separator$6WSy = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x120152f5107L, "separator");
   }
 }

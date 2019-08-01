@@ -18,7 +18,9 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MessageExpression_Actions {
 
@@ -28,10 +30,10 @@ public class MessageExpression_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58)) {
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.LiteralMessageExpression$Ga)) {
           SNode newMessage = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"));
-          SPropertyOperations.assign(newMessage, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
-          new LiteralMessageSplitHelper(editorContext, SNodeOperations.cast(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58)).insertMessageExpr(newMessage);
+          SPropertyOperations.assign(newMessage, PROPS.message$vnr0, "");
+          new LiteralMessageSplitHelper(editorContext, SNodeOperations.cast(node, CONCEPTS.LiteralMessageExpression$Ga)).insertMessageExpr(newMessage);
           editorContext.selectWRTFocusPolicy(newMessage);
         }
       }
@@ -44,10 +46,10 @@ public class MessageExpression_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58)) {
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.LiteralMessageExpression$Ga)) {
           SNode newMessage = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression"));
-          SPropertyOperations.assign(newMessage, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), "");
-          new LiteralMessageSplitHelper(editorContext, SNodeOperations.cast(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58)).insertMessageExpr(newMessage);
+          SPropertyOperations.assign(newMessage, PROPS.message$vnr0, "");
+          new LiteralMessageSplitHelper(editorContext, SNodeOperations.cast(node, CONCEPTS.LiteralMessageExpression$Ga)).insertMessageExpr(newMessage);
           editorContext.selectWRTFocusPolicy(newMessage);
         }
       }
@@ -60,31 +62,31 @@ public class MessageExpression_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.hasRole(node, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part")) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_m74rwe.CombinedMessageExpression_4c275d), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part"))).count() == 1) {
+        if (SNodeOperations.hasRole(node, LINKS.part$x7tZ) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.CombinedMessageExpression$e_), LINKS.part$x7tZ)).count() == 1) {
           SNodeOperations.deleteNode(SNodeOperations.getParent(node));
         } else {
-          if (SNodeOperations.isInstanceOf(node, AUX_m74rwe.MacroMessageExpression_203c595)) {
+          if (SNodeOperations.isInstanceOf(node, CONCEPTS.MacroMessageExpression$LH)) {
             if (DeletionApproverUtil.approve(editorContext, node)) {
               return;
             }
             SNodeOperations.deleteNode(node);
-          } else if (SNodeOperations.isInstanceOf(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58)) {
-            SNode lit = SNodeOperations.cast(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58);
+          } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.LiteralMessageExpression$Ga)) {
+            SNode lit = SNodeOperations.cast(node, CONCEPTS.LiteralMessageExpression$Ga);
             SNode nextSibling = SNodeOperations.getNextSibling(lit);
-            SNode nextLit = SNodeOperations.as(nextSibling, AUX_m74rwe.LiteralMessageExpression_d1e3ef58);
-            if (isEmptyString(SPropertyOperations.getString(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")))) {
+            SNode nextLit = SNodeOperations.as(nextSibling, CONCEPTS.LiteralMessageExpression$Ga);
+            if (isEmptyString(SPropertyOperations.getString(lit, PROPS.message$vnr0))) {
               SNodeOperations.deleteNode(lit);
               if (nextLit != null) {
                 SelectionUtil.selectLabelCellAnSetCaret(editorContext, nextLit, SelectionManager.FIRST_CELL, 0);
               }
             } else {
               if (nextLit != null) {
-                if (isNotEmptyString(SPropertyOperations.getString(nextLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")))) {
-                  SPropertyOperations.plusAssignStringProp(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), SPropertyOperations.getString(nextLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")));
+                if (isNotEmptyString(SPropertyOperations.getString(nextLit, PROPS.message$vnr0))) {
+                  SPropertyOperations.plusAssignStringProp(lit, PROPS.message$vnr0, SPropertyOperations.getString(nextLit, PROPS.message$vnr0));
                 }
                 SNodeOperations.deleteNode(nextLit);
               } else {
-                if (SNodeOperations.isInstanceOf(nextSibling, AUX_m74rwe.MacroMessageExpression_203c595)) {
+                if (SNodeOperations.isInstanceOf(nextSibling, CONCEPTS.MacroMessageExpression$LH)) {
                   if (DeletionApproverUtil.approve(editorContext, nextSibling)) {
                     return;
                   }
@@ -104,31 +106,31 @@ public class MessageExpression_Actions {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.hasRole(node, MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part")) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), AUX_m74rwe.CombinedMessageExpression_4c275d), MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part"))).count() == 1) {
+        if (SNodeOperations.hasRole(node, LINKS.part$x7tZ) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.CombinedMessageExpression$e_), LINKS.part$x7tZ)).count() == 1) {
           SNodeOperations.deleteNode(SNodeOperations.getParent(node));
         } else {
-          if (SNodeOperations.isInstanceOf(node, AUX_m74rwe.MacroMessageExpression_203c595)) {
+          if (SNodeOperations.isInstanceOf(node, CONCEPTS.MacroMessageExpression$LH)) {
             if (DeletionApproverUtil.approve(editorContext, node)) {
               return;
             }
             SNodeOperations.deleteNode(node);
-          } else if (SNodeOperations.isInstanceOf(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58)) {
-            SNode lit = SNodeOperations.cast(node, AUX_m74rwe.LiteralMessageExpression_d1e3ef58);
+          } else if (SNodeOperations.isInstanceOf(node, CONCEPTS.LiteralMessageExpression$Ga)) {
+            SNode lit = SNodeOperations.cast(node, CONCEPTS.LiteralMessageExpression$Ga);
             SNode prevSib = SNodeOperations.getPrevSibling(lit);
-            SNode prevLit = SNodeOperations.as(prevSib, AUX_m74rwe.LiteralMessageExpression_d1e3ef58);
-            if (isEmptyString(SPropertyOperations.getString(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")))) {
+            SNode prevLit = SNodeOperations.as(prevSib, CONCEPTS.LiteralMessageExpression$Ga);
+            if (isEmptyString(SPropertyOperations.getString(lit, PROPS.message$vnr0))) {
               SNodeOperations.deleteNode(lit);
               if (prevLit != null) {
                 SelectionUtil.selectLabelCellAnSetCaret(editorContext, prevLit, SelectionManager.LAST_CELL, -1);
               }
             } else {
               if (prevLit != null) {
-                if (isNotEmptyString(SPropertyOperations.getString(prevLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")))) {
-                  SPropertyOperations.assign(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message"), SPropertyOperations.getString(prevLit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")) + SPropertyOperations.getString(lit, MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message")));
+                if (isNotEmptyString(SPropertyOperations.getString(prevLit, PROPS.message$vnr0))) {
+                  SPropertyOperations.assign(lit, PROPS.message$vnr0, SPropertyOperations.getString(prevLit, PROPS.message$vnr0) + SPropertyOperations.getString(lit, PROPS.message$vnr0));
                 }
                 SNodeOperations.deleteNode(prevLit);
               } else {
-                if (SNodeOperations.isInstanceOf(prevSib, AUX_m74rwe.MacroMessageExpression_203c595)) {
+                if (SNodeOperations.isInstanceOf(prevSib, CONCEPTS.MacroMessageExpression$LH)) {
                   if (DeletionApproverUtil.approve(editorContext, prevSib)) {
                     return;
                   }
@@ -196,9 +198,17 @@ public class MessageExpression_Actions {
     return str != null && str.length() > 0;
   }
 
-  private static final class AUX_m74rwe {
-    /*package*/ static final SConcept LiteralMessageExpression_d1e3ef58 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
-    /*package*/ static final SConcept CombinedMessageExpression_4c275d = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
-    /*package*/ static final SConcept MacroMessageExpression_203c595 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
+  private static final class PROPS {
+    /*package*/ static final SProperty message$vnr0 = MetaAdapterFactory.getProperty(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, 0x48f860fc0e362dc6L, "message");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LiteralMessageExpression$Ga = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
+    /*package*/ static final SConcept CombinedMessageExpression$e_ = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
+    /*package*/ static final SConcept MacroMessageExpression$LH = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e41e4a2L, "jetbrains.mps.lang.messages.structure.MacroMessageExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink part$x7tZ = MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part");
   }
 }

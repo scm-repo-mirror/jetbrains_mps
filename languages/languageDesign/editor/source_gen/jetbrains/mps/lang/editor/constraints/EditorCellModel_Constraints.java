@@ -11,17 +11,17 @@ import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.editor.behavior.StyleClassItem__BehaviorDescriptor;
 import jetbrains.mps.lang.editor.behavior.LayoutContainer__BehaviorDescriptor;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class EditorCellModel_Constraints extends BaseConstraintsDescriptor {
   public EditorCellModel_Constraints() {
-    super(AUX_sfxqc8.EditorCellModel_226b88d6);
+    super(CONCEPTS.EditorCellModel$5c);
   }
 
   @Override
@@ -40,17 +40,21 @@ public class EditorCellModel_Constraints extends BaseConstraintsDescriptor {
     };
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    if (MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11beb039542L, 0x11beb040d06L, "styleItem").equals(link)) {
+    if (LINKS.styleItem$$mEY.equals(link)) {
       SConcept styleClassItemConcept = (SConcept) childConcept;
-      SNode layoutContainer = SNodeOperations.as(SNodeOperations.getParent(node), AUX_sfxqc8.LayoutContainer_14ba1309);
-      return (boolean) StyleClassItem__BehaviorDescriptor.isApplicableToCellConcept_id2u3gVK1lsco.invoke(SNodeOperations.asSConcept(styleClassItemConcept), (SConcept) SNodeOperations.getConcept(node)) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableForLayout_iditlittOTie.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(node, AUX_sfxqc8.LayoutContainer_14ba1309)))) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableInLayout_iditlittOTkB.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(SNodeOperations.getParent(node), AUX_sfxqc8.LayoutContainer_14ba1309))));
+      SNode layoutContainer = SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.LayoutContainer$PT);
+      return (boolean) StyleClassItem__BehaviorDescriptor.isApplicableToCellConcept_id2u3gVK1lsco.invoke(SNodeOperations.asSConcept(styleClassItemConcept), (SConcept) SNodeOperations.getConcept(node)) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableForLayout_iditlittOTie.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(node, CONCEPTS.LayoutContainer$PT)))) && (boolean) StyleClassItem__BehaviorDescriptor.isApplicableInLayout_iditlittOTkB.invoke(SNodeOperations.asSConcept(styleClassItemConcept), SNodeOperations.getConcept(LayoutContainer__BehaviorDescriptor.getLayout_iditlittTD4U.invoke(SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.LayoutContainer$PT))));
     }
     return true;
   }
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "332515575062623035");
 
-  private static final class AUX_sfxqc8 {
-    /*package*/ static final SConcept EditorCellModel_226b88d6 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
-    /*package*/ static final SInterfaceConcept LayoutContainer_14ba1309 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49d55275de690fdL, "jetbrains.mps.lang.editor.structure.LayoutContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorCellModel$5c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eafb9a39L, "jetbrains.mps.lang.editor.structure.EditorCellModel");
+    /*package*/ static final SInterfaceConcept LayoutContainer$PT = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x49d55275de690fdL, "jetbrains.mps.lang.editor.structure.LayoutContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink styleItem$$mEY = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11beb039542L, 0x11beb040d06L, "styleItem");
   }
 }

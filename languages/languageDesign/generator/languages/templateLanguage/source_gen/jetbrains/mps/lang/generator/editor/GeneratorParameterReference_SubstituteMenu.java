@@ -69,12 +69,12 @@ public class GeneratorParameterReference_SubstituteMenu extends SubstituteMenuBa
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.lang.generator.editor.GeneratorParameterReference_SmartReference");
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_nq6dmp.GeneratorParameterReference_14aabcc5;
+      return CONCEPTS.GeneratorParameterReference$GX;
     }
   }
   public class SMP_Subconcepts_nq6dmp_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_nq6dmp.GeneratorParameterReference_14aabcc5);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.GeneratorParameterReference$GX);
     }
     @NotNull
     @Override
@@ -94,7 +94,7 @@ public class GeneratorParameterReference_SubstituteMenu extends SubstituteMenuBa
     }
   }
 
-  private static final class AUX_nq6dmp {
-    /*package*/ static final SConcept GeneratorParameterReference_14aabcc5 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283cbf8aL, "jetbrains.mps.lang.generator.structure.GeneratorParameterReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GeneratorParameterReference$GX = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283cbf8aL, "jetbrains.mps.lang.generator.structure.GeneratorParameterReference");
   }
 }

@@ -41,7 +41,7 @@ public final class NewTemplateFragment_Intention extends AbstractIntentionDescri
     if (!(MacroIntentionsUtil.isInGeneratorModel(node))) {
       return false;
     }
-    if (SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{AUX_xyjl7v.TemplateDeclaration_6074fd22, AUX_xyjl7v.InlineTemplateWithContext_RuleConsequence_cd06d77c}, false, false) == null) {
+    if (SNodeOperations.getNodeAncestorWhereConceptInList(node, new SAbstractConcept[]{CONCEPTS.TemplateDeclaration$q0, CONCEPTS.InlineTemplateWithContext_RuleConsequence$tA}, false, false) == null) {
       return false;
     }
     return EditingUtil.isAnyMacroApplicable(node) && !(EditingUtil.isInsideTemplateFragment(node));
@@ -78,8 +78,8 @@ public final class NewTemplateFragment_Intention extends AbstractIntentionDescri
     }
   }
 
-  private static final class AUX_xyjl7v {
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
-    /*package*/ static final SConcept InlineTemplateWithContext_RuleConsequence_cd06d77c = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7b85dded0be53d6cL, "jetbrains.mps.lang.generator.structure.InlineTemplateWithContext_RuleConsequence");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+    /*package*/ static final SConcept InlineTemplateWithContext_RuleConsequence$tA = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x7b85dded0be53d6cL, "jetbrains.mps.lang.generator.structure.InlineTemplateWithContext_RuleConsequence");
   }
 }

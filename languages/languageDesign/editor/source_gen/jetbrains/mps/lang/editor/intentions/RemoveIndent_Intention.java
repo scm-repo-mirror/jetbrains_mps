@@ -58,7 +58,7 @@ public final class RemoveIndent_Intention extends AbstractIntentionDescriptor im
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNodeOperations.deleteNode(ListSequence.fromList(IStyleContainer__BehaviorDescriptor.getClassItems_idhJF5KPu.invoke(node, AUX_jygtpa.IndentLayoutIndentStyleClassItem_126deb2a)).first());
+      SNodeOperations.deleteNode(ListSequence.fromList(IStyleContainer__BehaviorDescriptor.getClassItems_idhJF5KPu.invoke(node, CONCEPTS.IndentLayoutIndentStyleClassItem$_S)).first());
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -66,7 +66,7 @@ public final class RemoveIndent_Intention extends AbstractIntentionDescriptor im
     }
   }
 
-  private static final class AUX_jygtpa {
-    /*package*/ static final SConcept IndentLayoutIndentStyleClassItem_126deb2a = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120154c4089L, "jetbrains.mps.lang.editor.structure.IndentLayoutIndentStyleClassItem");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IndentLayoutIndentStyleClassItem$_S = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120154c4089L, "jetbrains.mps.lang.editor.structure.IndentLayoutIndentStyleClassItem");
   }
 }

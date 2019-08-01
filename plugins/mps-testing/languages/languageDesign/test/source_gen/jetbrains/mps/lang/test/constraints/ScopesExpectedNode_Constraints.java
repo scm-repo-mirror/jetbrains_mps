@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -24,15 +23,16 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ScopesExpectedNode_Constraints extends BaseConstraintsDescriptor {
   public ScopesExpectedNode_Constraints() {
-    super(AUX_1jj8js.ScopesExpectedNode_f4862ac);
+    super(CONCEPTS.ScopesExpectedNode$8Q);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, 0x383e5e55de89bc1fL, "ref"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.ref$mFxT, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -48,10 +48,10 @@ public class ScopesExpectedNode_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
-            if (!(SNodeOperations.isInstanceOf(enclosingNode, AUX_1jj8js.ScopesTest_1ed83fd8))) {
+            if (!(SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.ScopesTest$Ea))) {
               return null;
             }
-            SNode scopesTest = SNodeOperations.cast(enclosingNode, AUX_1jj8js.ScopesTest_1ed83fd8);
+            SNode scopesTest = SNodeOperations.cast(enclosingNode, CONCEPTS.ScopesTest$Ea);
             ModelPlusImportedScope modelPlusImportedScope = new ModelPlusImportedScope(SNodeOperations.getModel(_context.getContextNode()), false, check_1jj8js_c0a0d0b0a0a0b0a0a0a2(check_1jj8js_a2a0a3a1a0a0a1a0a0a0c(ScopesTest__BehaviorDescriptor.getCheckingReference_id4IvydoGvimX.invoke(scopesTest))));
             return modelPlusImportedScope;
           }
@@ -76,8 +76,12 @@ public class ScopesExpectedNode_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_1jj8js_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c89590382(jetbrains.mps.lang.test.constraints)", "6836281137582846233");
 
-  private static final class AUX_1jj8js {
-    /*package*/ static final SConcept ScopesExpectedNode_f4862ac = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, "jetbrains.mps.lang.test.structure.ScopesExpectedNode");
-    /*package*/ static final SConcept ScopesTest_1ed83fd8 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ScopesExpectedNode$8Q = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, "jetbrains.mps.lang.test.structure.ScopesExpectedNode");
+    /*package*/ static final SConcept ScopesTest$Ea = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink ref$mFxT = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x32ba5b0ec25fe9f3L, 0x383e5e55de89bc1fL, "ref");
   }
 }

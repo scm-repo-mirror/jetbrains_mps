@@ -33,16 +33,17 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_6s2f6n.LiteralMessageExpression_d1e3ef58) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.LiteralMessageExpression$Ga) {
 
       @NotNull
       @Override
@@ -55,8 +56,8 @@ public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_6s2f6n.LiteralMessageExpression_d1e3ef58));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_6s2f6n_b(), AUX_6s2f6n.CombinedMessageExpression_4c275d));
+    }, CONCEPTS.LiteralMessageExpression$Ga));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_6s2f6n_b(), CONCEPTS.CombinedMessageExpression$e_));
     return result;
   }
 
@@ -96,7 +97,7 @@ public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_6s2f6n.CombinedMessageExpression_4c275d;
+          return CONCEPTS.CombinedMessageExpression$e_;
         }
         @Nullable
         @Override
@@ -129,21 +130,25 @@ public class CombinedMessageExpression_SubstituteMenu extends SubstituteMenuBase
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_6s2f6n.MessageExpression_d1e3ef57;
+      return CONCEPTS.MessageExpression$FF;
     }
   }
   private static SNode createCombinedMessageExpression_6s2f6n_a0a0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_6s2f6n.CombinedMessageExpression_4c275d, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.CombinedMessageExpression$e_, null, null, false);
     if (node0 != null) {
-      n1.addChild(MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part"), SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, AUX_6s2f6n.MessageExpression_d1e3ef57)));
+      n1.addChild(LINKS.part$x7tZ, SNodeOperations.copyIfNecessary(SNodeOperations.cast(node0, CONCEPTS.MessageExpression$FF)));
     }
     return n1;
   }
 
-  private static final class AUX_6s2f6n {
-    /*package*/ static final SConcept LiteralMessageExpression_d1e3ef58 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
-    /*package*/ static final SConcept CombinedMessageExpression_4c275d = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
-    /*package*/ static final SConcept MessageExpression_d1e3ef57 = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc4L, "jetbrains.mps.lang.messages.structure.MessageExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LiteralMessageExpression$Ga = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc5L, "jetbrains.mps.lang.messages.structure.LiteralMessageExpression");
+    /*package*/ static final SConcept CombinedMessageExpression$e_ = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, "jetbrains.mps.lang.messages.structure.CombinedMessageExpression");
+    /*package*/ static final SConcept MessageExpression$FF = MetaAdapterFactory.getConcept(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e362dc4L, "jetbrains.mps.lang.messages.structure.MessageExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink part$x7tZ = MetaAdapterFactory.getContainmentLink(0xad93155d79b24759L, 0xb10c55123e763903L, 0x48f860fc0e40455fL, 0x48f860fc0e404561L, "part");
   }
 }

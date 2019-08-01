@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.tableTests.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,17 +16,17 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class Table__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_bbau4n.Table_3f226df3;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea0L, "jetbrains.mps.lang.editor.tableTests.structure.Table");
 
   public static final SMethod<Integer> getInitialColumnCount_id1653mnvAgqE = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getInitialColumnCount").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgqE").build();
   public static final SMethod<Integer> getInitialRowCount_id1653mnvAgrI = new SMethodBuilder<Integer>(new SJavaCompoundTypeImpl(Integer.TYPE)).name("getInitialRowCount").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrI").build();
@@ -37,10 +38,10 @@ public final class Table__BehaviorDescriptor extends BaseBHDescriptor {
       SNode row = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea6L, "jetbrains.mps.lang.editor.tableTests.structure.Row"));
       for (int j = 0; j < (int) Table__BehaviorDescriptor.getInitialColumnCount_id1653mnvAgqE.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(__thisNode__))); j++) {
         SNode dataCell = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea4L, "jetbrains.mps.lang.editor.tableTests.structure.DataCell"));
-        SPropertyOperations.assign(dataCell, MetaAdapterFactory.getProperty(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea4L, 0x28004d411fa3bea5L, "value"), "$" + i + " " + j + "$");
-        ListSequence.fromList(SLinkOperations.getChildren(row, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea6L, 0x28004d411fa3bea7L, "cells"))).addElement(dataCell);
+        SPropertyOperations.assign(dataCell, PROPS.value$jpUw, "$" + i + " " + j + "$");
+        ListSequence.fromList(SLinkOperations.getChildren(row, LINKS.cells$jpVw)).addElement(dataCell);
       }
-      ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea0L, 0x28004d411fa3bea2L, "rows"))).addElement(row);
+      ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.rows$jkCZ)).addElement(row);
     }
   }
 
@@ -99,7 +100,12 @@ public final class Table__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_bbau4n {
-    /*package*/ static final SConcept Table_3f226df3 = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea0L, "jetbrains.mps.lang.editor.tableTests.structure.Table");
+  private static final class PROPS {
+    /*package*/ static final SProperty value$jpUw = MetaAdapterFactory.getProperty(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea4L, 0x28004d411fa3bea5L, "value");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink cells$jpVw = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea6L, 0x28004d411fa3bea7L, "cells");
+    /*package*/ static final SContainmentLink rows$jkCZ = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x28004d411fa3bea0L, 0x28004d411fa3bea2L, "rows");
   }
 }

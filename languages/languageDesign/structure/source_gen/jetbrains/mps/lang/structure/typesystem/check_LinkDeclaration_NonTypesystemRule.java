@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor;
@@ -25,17 +24,21 @@ import jetbrains.mps.lang.structure.behavior.LinkDeclaration__BehaviorDescriptor
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.errors.messageTargets.PropertyMessageTarget;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class check_LinkDeclaration_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_LinkDeclaration_NonTypesystemRule() {
   }
   public void applyRule(final SNode linkToCheck, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     // link role shouldn't hide roles in super-concepts 
-    if (SPropertyOperations.getString(linkToCheck, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role")) == null) {
+    if (SPropertyOperations.getString(linkToCheck, PROPS.role$r_O$) == null) {
       return;
     }
-    SNode declaringConcept = SNodeOperations.getNodeAncestor(linkToCheck, AUX_g6gngu.AbstractConceptDeclaration_ec74828f, false, false);
+    SNode declaringConcept = SNodeOperations.getNodeAncestor(linkToCheck, CONCEPTS.AbstractConceptDeclaration$UN, false, false);
     List<SNode> supers = AbstractConceptDeclaration__BehaviorDescriptor.getImmediateSuperconcepts_idhMuxyK2.invoke(declaringConcept);
     ListSequence.fromList(supers).addElement(declaringConcept);
     Iterable<SNode> linksInSupers = ListSequence.fromList(supers).translate(new ITranslator2<SNode, SNode>() {
@@ -67,7 +70,7 @@ __switch__:
                       this.yield(_4_link);
                       return true;
                     case 0:
-                      this._3_links = SLinkOperations.getChildren(concept, MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration"));
+                      this._3_links = SLinkOperations.getChildren(concept, LINKS.linkDeclaration$lL6$);
                       this.__CP__ = 4;
                       break;
                     case 6:
@@ -88,29 +91,29 @@ __switch__:
       }
     });
     for (SNode link : Sequence.fromIterable(linksInSupers)) {
-      if (linkToCheck != link && SPropertyOperations.getString(linkToCheck, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role")).equals(SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role"))) && SLinkOperations.getTarget(linkToCheck, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink")) != link) {
+      if (linkToCheck != link && SPropertyOperations.getString(linkToCheck, PROPS.role$r_O$).equals(SPropertyOperations.getString(link, PROPS.role$r_O$)) && SLinkOperations.getTarget(linkToCheck, LINKS.specializedLink$3uH0) != link) {
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(linkToCheck, "link '" + SPropertyOperations.getString(link, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role")) + "' is already declared in " + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(link, AUX_g6gngu.AbstractConceptDeclaration_ec74828f, false, false), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "1212181840083", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(linkToCheck, "link '" + SPropertyOperations.getString(link, PROPS.role$r_O$) + "' is already declared in " + SPropertyOperations.getString(SNodeOperations.getNodeAncestor(link, CONCEPTS.AbstractConceptDeclaration$UN, false, false), PROPS.name$tAp1), "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "1212181840083", null, errorTarget);
         }
       }
     }
-    if (SPropertyOperations.getBoolean(linkToCheck, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x213ed46fe94fc232L, "unordered")) && (boolean) LinkDeclaration__BehaviorDescriptor.isSingular_idhEwIfAt.invoke(linkToCheck)) {
-      if (SEnumOperations.isMember(SPropertyOperations.getEnum(linkToCheck, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass")), 0xfc6f4e95b8L)) {
+    if (SPropertyOperations.getBoolean(linkToCheck, PROPS.unordered$A9T6) && (boolean) LinkDeclaration__BehaviorDescriptor.isSingular_idhEwIfAt.invoke(linkToCheck)) {
+      if (SEnumOperations.isMember(SPropertyOperations.getEnum(linkToCheck, PROPS.metaClass$tHD7), 0xfc6f4e95b8L)) {
         {
-          final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"));
+          final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.sourceCardinality$$E8z);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(linkToCheck, "reference cannot be unordered", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "2395585628928851523", null, errorTarget);
         }
       } else {
         {
-          final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality"));
+          final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.sourceCardinality$$E8z);
           IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(linkToCheck, "unordered link should be multiple", "r:00000000-0000-4000-0000-011c8959028f(jetbrains.mps.lang.structure.typesystem)", "2395585628928560440", null, errorTarget);
         }
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_g6gngu.LinkDeclaration_ce818bfc;
+    return CONCEPTS.LinkDeclaration$bA;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -119,8 +122,21 @@ __switch__:
     return false;
   }
 
-  private static final class AUX_g6gngu {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
-    /*package*/ static final SConcept LinkDeclaration_ce818bfc = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+  private static final class PROPS {
+    /*package*/ static final SProperty role$r_O$ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role");
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty unordered$A9T6 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0x213ed46fe94fc232L, "unordered");
+    /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
+    /*package*/ static final SProperty sourceCardinality$$E8z = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+    /*package*/ static final SConcept LinkDeclaration$bA = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, "jetbrains.mps.lang.structure.structure.LinkDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink linkDeclaration$lL6$ = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, 0xf979c3ba6bL, "linkDeclaration");
+    /*package*/ static final SReferenceLink specializedLink$3uH0 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink");
   }
 }

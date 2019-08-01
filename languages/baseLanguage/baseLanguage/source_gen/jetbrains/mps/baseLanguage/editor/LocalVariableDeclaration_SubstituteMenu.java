@@ -21,7 +21,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -29,15 +28,17 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class LocalVariableDeclaration_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_1soak2_a(), AUX_1soak2.LocalVariableDeclaration_d47683f3));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_1soak2_a(), CONCEPTS.LocalVariableDeclaration$Bf));
     result.add(new SMP_Subconcepts_1soak2_b());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_1soak2.LocalVariableDeclaration_d47683f3) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.LocalVariableDeclaration$Bf) {
 
       @NotNull
       @Override
@@ -50,7 +51,7 @@ public class LocalVariableDeclaration_SubstituteMenu extends SubstituteMenuBase 
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_1soak2.LocalVariableDeclaration_d47683f3));
+    }, CONCEPTS.LocalVariableDeclaration$Bf));
     return result;
   }
 
@@ -95,7 +96,7 @@ public class LocalVariableDeclaration_SubstituteMenu extends SubstituteMenuBase 
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_1soak2.LocalVariableDeclaration_d47683f3, context);
+        super(CONCEPTS.LocalVariableDeclaration$Bf, context);
         _context = context;
       }
 
@@ -106,9 +107,9 @@ public class LocalVariableDeclaration_SubstituteMenu extends SubstituteMenuBase 
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_1soak2.LocalVariableDeclaration_d47683f3, null);
+        SNode result = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.LocalVariableDeclaration$Bf, null);
 
-        SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"), true);
+        SPropertyOperations.set(result, PROPS.isFinal$hIht, true);
         return result;
       }
 
@@ -130,7 +131,7 @@ public class LocalVariableDeclaration_SubstituteMenu extends SubstituteMenuBase 
   }
   public class SMP_Subconcepts_1soak2_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_1soak2.LocalVariableDeclaration_d47683f3);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.LocalVariableDeclaration$Bf);
     }
     @NotNull
     @Override
@@ -150,7 +151,11 @@ public class LocalVariableDeclaration_SubstituteMenu extends SubstituteMenuBase 
     }
   }
 
-  private static final class AUX_1soak2 {
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$hIht = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
   }
 }

@@ -7,11 +7,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AttributeUtil {
   public AttributeUtil() {
@@ -25,15 +27,15 @@ public class AttributeUtil {
 
     List<SNode> valuesToDelete = new ArrayList<SNode>();
     SNode lastValue = null;
-    for (SNode part : SLinkOperations.getChildren(attr, MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value"))) {
-      if (SNodeOperations.isInstanceOf(part, AUX_u51ahb.XmlTextValue_62249478)) {
-        if (isEmptyString(SPropertyOperations.getString(SNodeOperations.cast(part, AUX_u51ahb.XmlTextValue_62249478), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text")))) {
+    for (SNode part : SLinkOperations.getChildren(attr, LINKS.value$RZKQ)) {
+      if (SNodeOperations.isInstanceOf(part, CONCEPTS.XmlTextValue$BE)) {
+        if (isEmptyString(SPropertyOperations.getString(SNodeOperations.cast(part, CONCEPTS.XmlTextValue$BE), PROPS.text$$xPb))) {
           ListSequence.fromList(valuesToDelete).addElement(part);
         } else if (lastValue != null) {
-          SPropertyOperations.plusAssignStringProp(lastValue, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"), SPropertyOperations.getString(SNodeOperations.cast(part, AUX_u51ahb.XmlTextValue_62249478), MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text")));
+          SPropertyOperations.plusAssignStringProp(lastValue, PROPS.text$$xPb, SPropertyOperations.getString(SNodeOperations.cast(part, CONCEPTS.XmlTextValue$BE), PROPS.text$$xPb));
           ListSequence.fromList(valuesToDelete).addElement(part);
         } else {
-          lastValue = SNodeOperations.cast(part, AUX_u51ahb.XmlTextValue_62249478);
+          lastValue = SNodeOperations.cast(part, CONCEPTS.XmlTextValue$BE);
         }
       } else {
         lastValue = null;
@@ -47,7 +49,15 @@ public class AttributeUtil {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_u51ahb {
-    /*package*/ static final SConcept XmlTextValue_62249478 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlTextValue$BE = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$$xPb = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink value$RZKQ = MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value");
   }
 }

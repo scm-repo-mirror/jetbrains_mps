@@ -14,7 +14,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
@@ -22,13 +21,16 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class GeneratorParameterReference_SmartReference extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_zgxupi_a(), AUX_zgxupi.GeneratorParameterReference_14aabcc5));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_zgxupi_a(), CONCEPTS.GeneratorParameterReference$GX));
     return result;
   }
 
@@ -49,7 +51,7 @@ public class GeneratorParameterReference_SmartReference extends SubstituteMenuBa
 
     public SMP_ReferenceScope_zgxupi_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_zgxupi.GeneratorParameterReference_14aabcc5, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283cbf8aL, 0x90726ff283cbf8cL, "declaration"));
+      super((SAbstractConcept) CONCEPTS.GeneratorParameterReference$GX, LINKS.declaration$lMsa);
     }
     @NotNull
     @Override
@@ -81,7 +83,7 @@ public class GeneratorParameterReference_SmartReference extends SubstituteMenuBa
       }
       @Override
       public String getMatchingText(String pattern) {
-        return SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + " : " + SLinkOperations.getTarget(referencedNode, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283822d4L, 0x90726ff283822d5L, "type"));
+        return SPropertyOperations.getString(referencedNode, PROPS.name$tAp1) + " : " + SLinkOperations.getTarget(referencedNode, LINKS.type$dvU0);
       }
       @Override
       public String getVisibleMatchingText(String pattern) {
@@ -95,7 +97,16 @@ public class GeneratorParameterReference_SmartReference extends SubstituteMenuBa
     }
   }
 
-  private static final class AUX_zgxupi {
-    /*package*/ static final SConcept GeneratorParameterReference_14aabcc5 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283cbf8aL, "jetbrains.mps.lang.generator.structure.GeneratorParameterReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GeneratorParameterReference$GX = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283cbf8aL, "jetbrains.mps.lang.generator.structure.GeneratorParameterReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink declaration$lMsa = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283cbf8aL, 0x90726ff283cbf8cL, "declaration");
+    /*package*/ static final SContainmentLink type$dvU0 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x90726ff283822d4L, 0x90726ff283822d5L, "type");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

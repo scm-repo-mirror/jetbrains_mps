@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.Expression__BehaviorDescriptor;
@@ -17,15 +16,17 @@ import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_TernaryOperationCanBeSimplified_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_TernaryOperationCanBeSimplified_NonTypesystemRule() {
   }
   public void applyRule(final SNode ternaryOperatorExpression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode left = SLinkOperations.getTarget(ternaryOperatorExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012a1c0L, "ifTrue"));
-    SNode right = SLinkOperations.getTarget(ternaryOperatorExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012cedcL, "ifFalse"));
-    SNode condition = SLinkOperations.getTarget(ternaryOperatorExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition"));
+    SNode left = SLinkOperations.getTarget(ternaryOperatorExpression, LINKS.ifTrue$eU9r);
+    SNode right = SLinkOperations.getTarget(ternaryOperatorExpression, LINKS.ifFalse$2BqC);
+    SNode condition = SLinkOperations.getTarget(ternaryOperatorExpression, LINKS.condition$CEb4);
     SNode remainingNode;
     Boolean value;
     SModule module = SNodeOperations.getModel(ternaryOperatorExpression).getModule();
@@ -36,7 +37,7 @@ public class check_TernaryOperationCanBeSimplified_NonTypesystemRule extends Abs
         remainingNode = (value ? left : right);
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(ternaryOperatorExpression, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition")), "The ternary operator condition is always " + value, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2857825852308875366", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(SLinkOperations.getTarget(ternaryOperatorExpression, LINKS.condition$CEb4), "The ternary operator condition is always " + value, "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2857825852308875366", null, errorTarget);
           {
             BaseQuickFixProvider intentionProvider = new BaseQuickFixProvider("jetbrains.mps.baseLanguage.typesystem.SimplifyBinaryLogicalExpressionWithBooleanConstant_QuickFix", false);
             intentionProvider.putArgument("remainingNode", remainingNode);
@@ -48,7 +49,7 @@ public class check_TernaryOperationCanBeSimplified_NonTypesystemRule extends Abs
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_twhyxp.TernaryOperatorExpression_580beb3a;
+    return CONCEPTS.TernaryOperatorExpression$HC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -57,7 +58,13 @@ public class check_TernaryOperationCanBeSimplified_NonTypesystemRule extends Abs
     return false;
   }
 
-  private static final class AUX_twhyxp {
-    /*package*/ static final SConcept TernaryOperatorExpression_580beb3a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ifTrue$eU9r = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012a1c0L, "ifTrue");
+    /*package*/ static final SContainmentLink ifFalse$2BqC = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012cedcL, "ifFalse");
+    /*package*/ static final SContainmentLink condition$CEb4 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, 0x10ef012826fL, "condition");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TernaryOperatorExpression$HC = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ef01239c9L, "jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression");
   }
 }

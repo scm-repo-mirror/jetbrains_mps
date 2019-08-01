@@ -25,6 +25,7 @@ import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class AddNodeHasWarningAnnotation_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -43,7 +44,7 @@ public final class AddNodeHasWarningAnnotation_Intention extends AbstractIntenti
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(AUX_gmv60w.NodesTestCase_fd5a0bf4), node);
+    return (boolean) NodesTestCase__BehaviorDescriptor.isIntentionApplicable_idhHDM9no.invoke(SNodeOperations.asSConcept(CONCEPTS.NodesTestCase$7I), node);
   }
   @Override
   public boolean isSurroundWith() {
@@ -64,10 +65,10 @@ public final class AddNodeHasWarningAnnotation_Intention extends AbstractIntenti
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode newAnnotation = SNodeFactoryOperations.createNewNode(AUX_gmv60w.NodeOperationsContainer_e9631e6e, null);
-      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_gmv60w.NodeOperationsContainer_e9631e6e), newAnnotation);
+      SNode newAnnotation = SNodeFactoryOperations.createNewNode(CONCEPTS.NodeOperationsContainer$UO, null);
+      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.NodeOperationsContainer$UO), newAnnotation);
       SNode warningCheck = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b0224b421L, "jetbrains.mps.lang.test.structure.NodeWarningCheckOperation"));
-      ListSequence.fromList(SLinkOperations.getChildren(newAnnotation, MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, 0x11b07abae7cL, "nodeOperations"))).addElement(warningCheck);
+      ListSequence.fromList(SLinkOperations.getChildren(newAnnotation, LINKS.nodeOperations$HdFm)).addElement(warningCheck);
       SelectionUtil.selectCell(editorContext, warningCheck, SelectionManager.LAST_EDITABLE_CELL);
     }
     @Override
@@ -76,8 +77,12 @@ public final class AddNodeHasWarningAnnotation_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_gmv60w {
-    /*package*/ static final SConcept NodesTestCase_fd5a0bf4 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
-    /*package*/ static final SConcept NodeOperationsContainer_e9631e6e = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NodesTestCase$7I = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b55b49e46L, "jetbrains.mps.lang.test.structure.NodesTestCase");
+    /*package*/ static final SConcept NodeOperationsContainer$UO = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink nodeOperations$HdFm = MetaAdapterFactory.getContainmentLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, 0x11b07abae7cL, "nodeOperations");
   }
 }

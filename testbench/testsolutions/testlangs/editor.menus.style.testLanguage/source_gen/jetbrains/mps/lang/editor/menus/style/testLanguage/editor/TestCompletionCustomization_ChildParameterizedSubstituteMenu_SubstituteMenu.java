@@ -36,7 +36,7 @@ public class TestCompletionCustomization_ChildParameterizedSubstituteMenu_Substi
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_llop6s_a(), AUX_llop6s.TestCompletionCustomization_ChildParameterizedSubstituteMenu_9f119982));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_llop6s_a(), CONCEPTS.TestCompletionCustomization_ChildParameterizedSubstituteMenu$ow));
     return result;
   }
 
@@ -73,7 +73,7 @@ public class TestCompletionCustomization_ChildParameterizedSubstituteMenu_Substi
     @Nullable
     @Override
     protected Iterable<? extends SAbstractConcept> getParameters(SubstituteMenuContext _context) {
-      return ListSequence.fromListAndArray(new ArrayList<SAbstractConcept>(), AUX_llop6s.TestCompletionCustomization_ChildNoPriority_5aa6ea2b, AUX_llop6s.TestCompletionCustomization_ChildWithPriority_5aa6ea2c);
+      return ListSequence.fromListAndArray(new ArrayList<SAbstractConcept>(), CONCEPTS.TestCompletionCustomization_ChildNoPriority$En, CONCEPTS.TestCompletionCustomization_ChildWithPriority$EQ);
     }
     private class SMP_Action_llop6s_a0 extends SingleItemSubstituteMenuPart {
       private final SAbstractConcept myParameterObject;
@@ -108,7 +108,7 @@ public class TestCompletionCustomization_ChildParameterizedSubstituteMenu_Substi
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_llop6s.TestCompletionCustomization_ChildParameterizedSubstituteMenu_9f119982, context);
+          super(CONCEPTS.TestCompletionCustomization_ChildParameterizedSubstituteMenu$ow, context);
           _context = context;
         }
 
@@ -119,7 +119,7 @@ public class TestCompletionCustomization_ChildParameterizedSubstituteMenu_Substi
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          return SNodeOperations.cast(SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(myParameterObject)), AUX_llop6s.TestCompletionCustomization_ChildParameterizedSubstituteMenu_9f119982);
+          return SNodeOperations.cast(SConceptOperations.createNewNode(SNodeOperations.asInstanceConcept(myParameterObject)), CONCEPTS.TestCompletionCustomization_ChildParameterizedSubstituteMenu$ow);
         }
 
         @Override
@@ -128,7 +128,7 @@ public class TestCompletionCustomization_ChildParameterizedSubstituteMenu_Substi
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_llop6s.TestCompletionCustomization_ChildParameterizedSubstituteMenu_9f119982, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.TestCompletionCustomization_ChildParameterizedSubstituteMenu$ow, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -156,9 +156,9 @@ public class TestCompletionCustomization_ChildParameterizedSubstituteMenu_Substi
 
   }
 
-  private static final class AUX_llop6s {
-    /*package*/ static final SInterfaceConcept TestCompletionCustomization_ChildParameterizedSubstituteMenu_9f119982 = MetaAdapterFactory.getInterfaceConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b4fee9L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildParameterizedSubstituteMenu");
-    /*package*/ static final SConcept TestCompletionCustomization_ChildNoPriority_5aa6ea2b = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510979992L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildNoPriority");
-    /*package*/ static final SConcept TestCompletionCustomization_ChildWithPriority_5aa6ea2c = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510979993L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildWithPriority");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept TestCompletionCustomization_ChildParameterizedSubstituteMenu$ow = MetaAdapterFactory.getInterfaceConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510b4fee9L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildParameterizedSubstituteMenu");
+    /*package*/ static final SConcept TestCompletionCustomization_ChildNoPriority$En = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510979992L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildNoPriority");
+    /*package*/ static final SConcept TestCompletionCustomization_ChildWithPriority$EQ = MetaAdapterFactory.getConcept(0xb4a430be169648bfL, 0xbb724333242e590cL, 0x49b1109510979993L, "jetbrains.mps.lang.editor.menus.style.testLanguage.structure.TestCompletionCustomization_ChildWithPriority");
   }
 }

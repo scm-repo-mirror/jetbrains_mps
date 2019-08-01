@@ -25,7 +25,7 @@ public class typeof_GenerationContextOp_CreateUniqueName_InferenceRule extends A
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_5qxmch.GenerationContextOp_CreateUniqueName_bab4bcbf;
+    return CONCEPTS.GenerationContextOp_CreateUniqueName$E3;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_GenerationContextOp_CreateUniqueName_InferenceRule extends A
     return quotedNode_1;
   }
 
-  private static final class AUX_5qxmch {
-    /*package*/ static final SConcept GenerationContextOp_CreateUniqueName_bab4bcbf = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b994bfa0fL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_CreateUniqueName");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenerationContextOp_CreateUniqueName$E3 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b994bfa0fL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_CreateUniqueName");
   }
 }

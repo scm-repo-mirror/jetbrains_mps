@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class PrivateInstanceMethodCallOperation_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_j9hbfo_a(), AUX_j9hbfo.PrivateInstanceMethodCallOperation_8b64e8e));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_j9hbfo_a(), CONCEPTS.PrivateInstanceMethodCallOperation$ak));
     result.add(new SMP_Subconcepts_j9hbfo_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class PrivateInstanceMethodCallOperation_SubstituteMenu extends Substitut
 
     public SMP_ReferenceScope_j9hbfo_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_j9hbfo.PrivateInstanceMethodCallOperation_8b64e8e, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
+      super((SAbstractConcept) CONCEPTS.PrivateInstanceMethodCallOperation$ak, LINKS.baseMethodDeclaration$$A7i);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class PrivateInstanceMethodCallOperation_SubstituteMenu extends Substitut
   }
   public class SMP_Subconcepts_j9hbfo_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_j9hbfo.PrivateInstanceMethodCallOperation_8b64e8e);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.PrivateInstanceMethodCallOperation$ak);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class PrivateInstanceMethodCallOperation_SubstituteMenu extends Substitut
     }
   }
 
-  private static final class AUX_j9hbfo {
-    /*package*/ static final SConcept PrivateInstanceMethodCallOperation_8b64e8e = MetaAdapterFactory.getConcept(0x802088974572437dL, 0xb50e8f050cba9566L, 0x5eb820f649bb7006L, "jetbrains.mps.debugger.java.privateMembers.structure.PrivateInstanceMethodCallOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrivateInstanceMethodCallOperation$ak = MetaAdapterFactory.getConcept(0x802088974572437dL, 0xb50e8f050cba9566L, 0x5eb820f649bb7006L, "jetbrains.mps.debugger.java.privateMembers.structure.PrivateInstanceMethodCallOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
   }
 }

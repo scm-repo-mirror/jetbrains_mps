@@ -7,7 +7,6 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.smodel.Language;
@@ -20,12 +19,14 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.runtime.ConceptPresentationAspect;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ConceptAspectsHelper {
   public static SNode attachNewConceptAspect(SNode conceptNode, SNode aspectNode, SModel aspectModel) {
-    BHReflection.invoke0(aspectNode, AUX_b9zw68.IConceptAspect_bb65b752, SMethodTrimmedId.create("setBaseConcept", null, "5r_35Ihc58c"), conceptNode);
-    if (SPropertyOperations.getString(conceptNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")) != null) {
-      SPropertyOperations.assign(aspectNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage"), SPropertyOperations.getString(conceptNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage")));
+    BHReflection.invoke0(aspectNode, CONCEPTS.IConceptAspect$9g, SMethodTrimmedId.create("setBaseConcept", null, "5r_35Ihc58c"), conceptNode);
+    if (SPropertyOperations.getString(conceptNode, PROPS.virtualPackage$j19t) != null) {
+      SPropertyOperations.assign(aspectNode, PROPS.virtualPackage$j19t, SPropertyOperations.getString(conceptNode, PROPS.virtualPackage$j19t));
     }
     SModelOperations.addRootNode(aspectModel, aspectNode);
     return aspectNode;
@@ -78,7 +79,11 @@ public class ConceptAspectsHelper {
     return null;
   }
 
-  private static final class AUX_b9zw68 {
-    /*package*/ static final SInterfaceConcept IConceptAspect_bb65b752 = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x24614259e94f0c84L, "jetbrains.mps.lang.structure.structure.IConceptAspect");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IConceptAspect$9g = MetaAdapterFactory.getInterfaceConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x24614259e94f0c84L, "jetbrains.mps.lang.structure.structure.IConceptAspect");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty virtualPackage$j19t = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x115eca8579fL, "virtualPackage");
   }
 }

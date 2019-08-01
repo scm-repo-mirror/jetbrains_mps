@@ -25,7 +25,7 @@ public class typeof_AbstractAppendPart_InferenceRule extends AbstractInferenceRu
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_wpi33d.AbstractAppendPart_9b0b2737;
+    return CONCEPTS.AbstractAppendPart$Wb;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_AbstractAppendPart_InferenceRule extends AbstractInferenceRu
     return quotedNode_1;
   }
 
-  private static final class AUX_wpi33d {
-    /*package*/ static final SConcept AbstractAppendPart_9b0b2737 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201521c456L, "jetbrains.mps.lang.textGen.structure.AbstractAppendPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractAppendPart$Wb = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201521c456L, "jetbrains.mps.lang.textGen.structure.AbstractAppendPart");
   }
 }

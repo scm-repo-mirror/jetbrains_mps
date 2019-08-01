@@ -8,10 +8,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class PortProvider_Constraints extends BaseConstraintsDescriptor {
   public PortProvider_Constraints() {
-    super(AUX_pwzlhg.PortProvider_bd193858);
+    super(CONCEPTS.PortProvider$8a);
   }
 
-  private static final class AUX_pwzlhg {
-    /*package*/ static final SConcept PortProvider_bd193858 = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x6f2759b713980586L, "jetbrains.mps.ide.httpsupport.structure.PortProvider");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PortProvider$8a = MetaAdapterFactory.getConcept(0x817e4e70961e4a95L, 0x98a115e9f32231f1L, 0x6f2759b713980586L, "jetbrains.mps.ide.httpsupport.structure.PortProvider");
   }
 }

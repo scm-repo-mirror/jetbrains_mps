@@ -6,7 +6,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Map;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.EditorComponent;
 import jetbrains.mps.nodeEditor.NodeEditorComponent;
 import jetbrains.mps.lang.test.behavior.AnonymousCellAnnotation__BehaviorDescriptor;
@@ -20,6 +19,9 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Label;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.nodeEditor.selection.NodeRangeSelection;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class CellReference {
   private SNode myNode;
@@ -27,7 +29,7 @@ public class CellReference {
   private Map<SNode, SNode> myMap;
   public CellReference(SNode node, SNode annotation, Map<SNode, SNode> map) {
     myNode = node;
-    myAnnotation = SNodeOperations.cast(annotation, AUX_kow1ys.AnonymousCellAnnotation_4623621a);
+    myAnnotation = SNodeOperations.cast(annotation, CONCEPTS.AnonymousCellAnnotation$28);
     myMap = map;
   }
 
@@ -37,7 +39,7 @@ public class CellReference {
 
   @Override
   public String toString() {
-    return "(node " + myNode.getNodeId().toString() + ", id " + SPropertyOperations.getString(myAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId")) + ")";
+    return "(node " + myNode.getNodeId().toString() + ", id " + SPropertyOperations.getString(myAnnotation, PROPS.cellId$qWW0) + ")";
   }
 
   public EditorComponent setupSelection(NodeEditorComponent editorComponent) {
@@ -45,7 +47,7 @@ public class CellReference {
   }
 
   public void assertSelectionIsTheSame(EditorComponent editorComponent, Map<SNode, SNode> map) {
-    if (SPropertyOperations.getBoolean(myAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1b73330fb1241e01L, "isInInspector"))) {
+    if (SPropertyOperations.getBoolean(myAnnotation, PROPS.isInInspector$2bRd)) {
       assert editorComponent instanceof InspectorEditorComponent;
     }
     Selection selection = editorComponent.getSelectionManager().getSelection();
@@ -53,26 +55,38 @@ public class CellReference {
     if (selection instanceof SingularSelection) {
       EditorCell selectedCell = ((SingularSelection) selection).getEditorCell();
       Assert.assertSame(getNode(), MapSequence.fromMap(map).get(selectedCell.getSNode()));
-      Assert.assertEquals(SPropertyOperations.getString(myAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId")), selectedCell.getCellId());
+      Assert.assertEquals(SPropertyOperations.getString(myAnnotation, PROPS.cellId$qWW0), selectedCell.getCellId());
       if (selectedCell instanceof EditorCell_Label) {
         EditorCell_Label label = (EditorCell_Label) selectedCell;
-        Assert.assertEquals(SPropertyOperations.getInteger(myAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc33L, "selectionStart")), label.getSelectionStart());
-        Assert.assertEquals(SPropertyOperations.getInteger(myAnnotation, MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc35L, "selectionEnd")), label.getSelectionEnd());
+        Assert.assertEquals(SPropertyOperations.getInteger(myAnnotation, PROPS.selectionStart$nib_), label.getSelectionStart());
+        Assert.assertEquals(SPropertyOperations.getInteger(myAnnotation, PROPS.selectionEnd$nicz), label.getSelectionEnd());
       }
-      Assert.assertNull(SLinkOperations.getTarget(myAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart")));
-      Assert.assertNull(SLinkOperations.getTarget(myAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd")));
+      Assert.assertNull(SLinkOperations.getTarget(myAnnotation, LINKS.nodeRangeSelectionStart$8c0q));
+      Assert.assertNull(SLinkOperations.getTarget(myAnnotation, LINKS.nodeRangeSelectionEnd$8c0T));
     } else if (selection instanceof NodeRangeSelection) {
       NodeRangeSelection rangeSelection = (NodeRangeSelection) selection;
-      Assert.assertNotNull(SLinkOperations.getTarget(myAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart")));
-      Assert.assertNotNull(SLinkOperations.getTarget(myAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd")));
-      Assert.assertEquals(MapSequence.fromMap(myMap).get(SLinkOperations.getTarget(myAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart"))), MapSequence.fromMap(map).get(rangeSelection.getFirstNode()));
-      Assert.assertEquals(MapSequence.fromMap(myMap).get(SLinkOperations.getTarget(myAnnotation, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd"))), MapSequence.fromMap(map).get(rangeSelection.getLastNode()));
+      Assert.assertNotNull(SLinkOperations.getTarget(myAnnotation, LINKS.nodeRangeSelectionStart$8c0q));
+      Assert.assertNotNull(SLinkOperations.getTarget(myAnnotation, LINKS.nodeRangeSelectionEnd$8c0T));
+      Assert.assertEquals(MapSequence.fromMap(myMap).get(SLinkOperations.getTarget(myAnnotation, LINKS.nodeRangeSelectionStart$8c0q)), MapSequence.fromMap(map).get(rangeSelection.getFirstNode()));
+      Assert.assertEquals(MapSequence.fromMap(myMap).get(SLinkOperations.getTarget(myAnnotation, LINKS.nodeRangeSelectionEnd$8c0T)), MapSequence.fromMap(map).get(rangeSelection.getLastNode()));
     } else {
       Assert.fail("Selection of unsupported type: " + selection.getClass());
     }
   }
 
-  private static final class AUX_kow1ys {
-    /*package*/ static final SConcept AnonymousCellAnnotation_4623621a = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnonymousCellAnnotation$28 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, "jetbrains.mps.lang.test.structure.AnonymousCellAnnotation");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty cellId$qWW0 = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x11e31babe13L, "cellId");
+    /*package*/ static final SProperty isInInspector$2bRd = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1b73330fb1241e01L, "isInInspector");
+    /*package*/ static final SProperty selectionStart$nib_ = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc33L, "selectionStart");
+    /*package*/ static final SProperty selectionEnd$nicz = MetaAdapterFactory.getProperty(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x56ffc0a94fe5fc35L, "selectionEnd");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink nodeRangeSelectionStart$8c0q = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9accL, "nodeRangeSelectionStart");
+    /*package*/ static final SReferenceLink nodeRangeSelectionEnd$8c0T = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e31babe12L, 0x1ad0cd452e1f9acdL, "nodeRangeSelectionEnd");
   }
 }

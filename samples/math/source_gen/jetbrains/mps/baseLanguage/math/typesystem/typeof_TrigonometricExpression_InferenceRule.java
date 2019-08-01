@@ -8,7 +8,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -16,6 +15,8 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_TrigonometricExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -24,7 +25,7 @@ public class typeof_TrigonometricExpression_InferenceRule extends AbstractInfere
   public void applyRule(final SNode expression, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final SNode t1_typevar_1238344499359 = typeCheckingContext.createNewRuntimeTypesVariable();
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205307b067L, 0x120530c4ed0L, "param"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(expression, LINKS.param$R_gy);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238344499360", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(t1_typevar_1238344499359), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238344499364", true), _info_12389875345);
     }
@@ -38,7 +39,7 @@ public class typeof_TrigonometricExpression_InferenceRule extends AbstractInfere
               EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238344499372", 0, null);
               typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238344499377", true), (SNode) SNodeOperations.copyNode(MathTypeUtil.qDouble), _info_12389875345);
             }
-          } else if (SNodeOperations.isInstanceOf(typeCheckingContext.getRepresentative(t1_typevar_1238344499359), AUX_mfp136.ComplexType_e67b5baf)) {
+          } else if (SNodeOperations.isInstanceOf(typeCheckingContext.getRepresentative(t1_typevar_1238344499359), CONCEPTS.ComplexType$Aj)) {
             {
               SNode _nodeToCheck_1029348928467 = expression;
               EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1238344499408", 0, null);
@@ -55,7 +56,7 @@ public class typeof_TrigonometricExpression_InferenceRule extends AbstractInfere
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_mfp136.MathFuncExpression_cc5065cc;
+    return CONCEPTS.MathFuncExpression$cm;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -64,8 +65,12 @@ public class typeof_TrigonometricExpression_InferenceRule extends AbstractInfere
     return false;
   }
 
-  private static final class AUX_mfp136 {
-    /*package*/ static final SConcept ComplexType_e67b5baf = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120095d7138L, "jetbrains.mps.baseLanguage.math.structure.ComplexType");
-    /*package*/ static final SConcept MathFuncExpression_cc5065cc = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205307b067L, "jetbrains.mps.baseLanguage.math.structure.MathFuncExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink param$R_gy = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205307b067L, 0x120530c4ed0L, "param");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ComplexType$Aj = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x120095d7138L, "jetbrains.mps.baseLanguage.math.structure.ComplexType");
+    /*package*/ static final SConcept MathFuncExpression$cm = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x1205307b067L, "jetbrains.mps.baseLanguage.math.structure.MathFuncExpression");
   }
 }

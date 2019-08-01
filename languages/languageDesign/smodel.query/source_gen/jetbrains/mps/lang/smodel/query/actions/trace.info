@@ -12,58 +12,64 @@
   </root>
   <root nodeRef="r:9cef28f0-1d60-4407-a18b-c9fc83b30f67(jetbrains.mps.lang.smodel.query.actions)/2362304834939062501">
     <file name="ScopeParameterLiteral_factories.java">
-      <node id="2362304834939062505" at="14,91,15,224" concept="1" />
-      <node id="2362304834939062501" at="20,0,21,0" concept="4" trace="GenericNewExpression_dee38023" />
-      <node id="2362304834939062502" at="14,0,17,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="2362304834939062502" at="14,91,15,224" />
-      <scope id="2362304834939062502" at="14,0,17,0">
+      <node id="2362304834939062505" at="15,91,16,102" concept="1" />
+      <node id="2362304834939062501" at="21,0,22,0" concept="4" trace="scope$M3Kw" />
+      <node id="2362304834939062501" at="25,0,26,0" concept="4" trace="GenericNewExpression$ev" />
+      <node id="2362304834939062502" at="15,0,18,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="2362304834939062502" at="15,91,16,102" />
+      <scope id="2362304834939062502" at="15,0,18,0">
         <var name="enclosingNode" id="2362304834939062502" />
         <var name="model" id="2362304834939062502" />
         <var name="newNode" id="2362304834939062502" />
         <var name="sampleNode" id="2362304834939062502" />
       </scope>
-      <unit id="2362304834939062501" at="19,0,22,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories$AUX_dmw8bl" />
-      <unit id="2362304834939062502" at="13,0,18,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories$NodeFactory_2362304834939062502" />
-      <unit id="2362304834939062501" at="12,0,23,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories" />
+      <unit id="2362304834939062501" at="20,0,23,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories$LINKS" />
+      <unit id="2362304834939062501" at="24,0,27,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories$CONCEPTS" />
+      <unit id="2362304834939062502" at="14,0,19,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories$NodeFactory_2362304834939062502" />
+      <unit id="2362304834939062501" at="13,0,28,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories" />
     </file>
   </root>
   <root nodeRef="r:9cef28f0-1d60-4407-a18b-c9fc83b30f67(jetbrains.mps.lang.smodel.query.actions)/3492877759608901704">
     <file name="ScopeParameterLiteral_factories_old.java">
-      <node id="3492877759609298948" at="14,91,15,228" concept="1" />
-      <node id="3492877759608901704" at="20,0,21,0" concept="4" trace="GenericNewExpression_dee38023" />
-      <node id="3492877759609298945" at="14,0,17,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="3492877759609298945" at="14,91,15,228" />
-      <scope id="3492877759609298945" at="14,0,17,0">
+      <node id="3492877759609298948" at="15,91,16,106" concept="1" />
+      <node id="3492877759608901704" at="21,0,22,0" concept="4" trace="scope_old$RvyT" />
+      <node id="3492877759608901704" at="25,0,26,0" concept="4" trace="GenericNewExpression$ev" />
+      <node id="3492877759609298945" at="15,0,18,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="3492877759609298945" at="15,91,16,106" />
+      <scope id="3492877759609298945" at="15,0,18,0">
         <var name="enclosingNode" id="3492877759609298945" />
         <var name="model" id="3492877759609298945" />
         <var name="newNode" id="3492877759609298945" />
         <var name="sampleNode" id="3492877759609298945" />
       </scope>
-      <unit id="3492877759608901704" at="19,0,22,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories_old$AUX_9r2mmt" />
-      <unit id="3492877759609298945" at="13,0,18,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories_old$NodeFactory_3492877759609298945" />
-      <unit id="3492877759608901704" at="12,0,23,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories_old" />
+      <unit id="3492877759608901704" at="20,0,23,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories_old$LINKS" />
+      <unit id="3492877759608901704" at="24,0,27,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories_old$CONCEPTS" />
+      <unit id="3492877759609298945" at="14,0,19,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories_old$NodeFactory_3492877759609298945" />
+      <unit id="3492877759608901704" at="13,0,28,0" name="jetbrains.mps.lang.smodel.query.actions.ScopeParameterLiteral_factories_old" />
     </file>
   </root>
   <root nodeRef="r:9cef28f0-1d60-4407-a18b-c9fc83b30f67(jetbrains.mps.lang.smodel.query.actions)/4307205004138627839">
     <file name="QueryExpression_NodeFactories.java">
-      <node id="4307205004139671546" at="16,90,17,413" concept="1" />
-      <node id="4307205004141606430" at="18,14,19,185" concept="1" />
-      <node id="4307205004138627839" at="25,0,26,0" concept="4" trace="QueryExpression_58f52cd1" />
-      <node id="4307205004141606087" at="18,12,20,7" concept="0" />
-      <node id="4307205004138627845" at="15,91,20,7" concept="2" />
-      <node id="4307205004138627840" at="15,0,22,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
-      <scope id="4307205004138627846" at="16,90,17,413" />
-      <scope id="4307205004141606088" at="18,14,19,185" />
-      <scope id="4307205004138627840" at="15,91,20,7" />
-      <scope id="4307205004138627840" at="15,0,22,0">
+      <node id="4307205004139671546" at="17,82,18,177" concept="1" />
+      <node id="4307205004141606430" at="19,14,20,71" concept="1" />
+      <node id="4307205004138627839" at="26,0,27,0" concept="4" trace="parameter$ew30" />
+      <node id="4307205004138627839" at="30,0,31,0" concept="4" trace="QueryExpression$ML" />
+      <node id="4307205004141606087" at="19,12,21,7" concept="0" />
+      <node id="4307205004138627845" at="16,91,21,7" concept="2" />
+      <node id="4307205004138627840" at="16,0,23,0" concept="3" trace="setup#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SModel;)V" />
+      <scope id="4307205004138627846" at="17,82,18,177" />
+      <scope id="4307205004141606088" at="19,14,20,71" />
+      <scope id="4307205004138627840" at="16,91,21,7" />
+      <scope id="4307205004138627840" at="16,0,23,0">
         <var name="enclosingNode" id="4307205004138627840" />
         <var name="model" id="4307205004138627840" />
         <var name="newNode" id="4307205004138627840" />
         <var name="sampleNode" id="4307205004138627840" />
       </scope>
-      <unit id="4307205004138627839" at="24,0,27,0" name="jetbrains.mps.lang.smodel.query.actions.QueryExpression_NodeFactories$AUX_b72v5v" />
-      <unit id="4307205004138627840" at="14,0,23,0" name="jetbrains.mps.lang.smodel.query.actions.QueryExpression_NodeFactories$NodeFactory_4307205004138627840" />
-      <unit id="4307205004138627839" at="13,0,28,0" name="jetbrains.mps.lang.smodel.query.actions.QueryExpression_NodeFactories" />
+      <unit id="4307205004138627839" at="25,0,28,0" name="jetbrains.mps.lang.smodel.query.actions.QueryExpression_NodeFactories$LINKS" />
+      <unit id="4307205004138627839" at="29,0,32,0" name="jetbrains.mps.lang.smodel.query.actions.QueryExpression_NodeFactories$CONCEPTS" />
+      <unit id="4307205004138627840" at="15,0,24,0" name="jetbrains.mps.lang.smodel.query.actions.QueryExpression_NodeFactories$NodeFactory_4307205004138627840" />
+      <unit id="4307205004138627839" at="14,0,33,0" name="jetbrains.mps.lang.smodel.query.actions.QueryExpression_NodeFactories" />
     </file>
   </root>
 </debug-info>

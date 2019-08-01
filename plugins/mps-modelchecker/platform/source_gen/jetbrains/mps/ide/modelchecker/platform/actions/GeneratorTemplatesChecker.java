@@ -17,12 +17,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import org.jetbrains.mps.util.DescendantsTreeIterator;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.errors.item.ReferenceReportItem;
 import jetbrains.mps.errors.MessageStatus;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class GeneratorTemplatesChecker extends SpecificChecker {
 
@@ -46,7 +47,7 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
     List<IssueKindReportItem> results = ListSequence.fromList(new ArrayList<IssueKindReportItem>());
 
     for (SNode root : ListSequence.fromList(SModelOperations.roots(model, null))) {
-      if (AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(AUX_t6bs7b.RootTemplateAnnotation_423b5b1a)) != null) {
+      if (AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8)) != null) {
         scanTemplateNode(results, root, progressMonitor);
       }
       if (progressMonitor.isCanceled()) {
@@ -64,15 +65,15 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
         return;
       }
       SNode node = it.next();
-      if (SNodeOperations.isInstanceOf(node, AUX_t6bs7b.AbstractMacro_9c69ee36)) {
-        if (SNodeOperations.isInstanceOf(node, AUX_t6bs7b.IfMacro_1dfa186c) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_t6bs7b.IfMacro_1dfa186c), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047c1472deL, 0x1163aea5803L, "alternativeConsequence")), AUX_t6bs7b.InlineTemplate_RuleConsequence_6e1e9f65)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractMacro$vG)) {
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.IfMacro$hQ) && SNodeOperations.isInstanceOf(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.IfMacro$hQ), LINKS.alternativeConsequence$yuVJ), CONCEPTS.InlineTemplate_RuleConsequence$Mt)) {
           // afaik IF/ELSE consequence is the only place we need to treat in a distinct way 
-          scanTemplateNode(results, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(node, AUX_t6bs7b.IfMacro_1dfa186c), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047c1472deL, 0x1163aea5803L, "alternativeConsequence")), AUX_t6bs7b.InlineTemplate_RuleConsequence_6e1e9f65), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, 0x112103ebf76L, "templateNode")), progressMonitor);
+          scanTemplateNode(results, SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(node, CONCEPTS.IfMacro$hQ), LINKS.alternativeConsequence$yuVJ), CONCEPTS.InlineTemplate_RuleConsequence$Mt), LINKS.templateNode$7wRg), progressMonitor);
         }
         it.skipChildren();
         continue;
       }
-      if (SNodeOperations.isInstanceOf(node, AUX_t6bs7b.RootTemplateAnnotation_423b5b1a) || SNodeOperations.isInstanceOf(node, AUX_t6bs7b.TemplateFragment_1973fd34)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.RootTemplateAnnotation$u8) || SNodeOperations.isInstanceOf(node, CONCEPTS.TemplateFragment$yI)) {
         // it's unlikely to see TF under root template (impossible?) but does it hurt to have it excluded here? 
         it.skipChildren();
         continue;
@@ -84,7 +85,7 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
   private void checkReferences(List<IssueKindReportItem> results, SNode node) {
     for (SReference ref : ListSequence.fromList(SNodeOperations.getReferences(node))) {
       // there's macro to adjust the reference, don't care 
-      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(AUX_t6bs7b.ReferenceMacro_62f8c34e, ref.getLink())) != null)) {
+      if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.LinkAttribute(CONCEPTS.ReferenceMacro$nk, ref.getLink())) != null)) {
         continue;
       }
       SNode target = jetbrains.mps.util.SNodeOperations.getTargetNodeSilently(ref);
@@ -97,7 +98,7 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
       }
       SNode root = SNodeOperations.getContainingRoot(target);
       //  and it's a root template in the generator model... 
-      if (AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(AUX_t6bs7b.RootTemplateAnnotation_423b5b1a)) == null) {
+      if (AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8)) == null) {
         continue;
       }
       if (root == SNodeOperations.getContainingRoot(node)) {
@@ -112,12 +113,17 @@ public class GeneratorTemplatesChecker extends SpecificChecker {
     }
   }
 
-  private static final class AUX_t6bs7b {
-    /*package*/ static final SConcept RootTemplateAnnotation_423b5b1a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
-    /*package*/ static final SConcept IfMacro_1dfa186c = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047c1472deL, "jetbrains.mps.lang.generator.structure.IfMacro");
-    /*package*/ static final SConcept InlineTemplate_RuleConsequence_6e1e9f65 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, "jetbrains.mps.lang.generator.structure.InlineTemplate_RuleConsequence");
-    /*package*/ static final SInterfaceConcept AbstractMacro_9c69ee36 = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11dc0f7933bL, "jetbrains.mps.lang.generator.structure.AbstractMacro");
-    /*package*/ static final SConcept TemplateFragment_1973fd34 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
-    /*package*/ static final SConcept ReferenceMacro_62f8c34e = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RootTemplateAnnotation$u8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
+    /*package*/ static final SConcept IfMacro$hQ = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047c1472deL, "jetbrains.mps.lang.generator.structure.IfMacro");
+    /*package*/ static final SConcept InlineTemplate_RuleConsequence$Mt = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, "jetbrains.mps.lang.generator.structure.InlineTemplate_RuleConsequence");
+    /*package*/ static final SInterfaceConcept AbstractMacro$vG = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11dc0f7933bL, "jetbrains.mps.lang.generator.structure.AbstractMacro");
+    /*package*/ static final SConcept TemplateFragment$yI = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
+    /*package*/ static final SConcept ReferenceMacro$nk = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink alternativeConsequence$yuVJ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047c1472deL, 0x1163aea5803L, "alternativeConsequence");
+    /*package*/ static final SContainmentLink templateNode$7wRg = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, 0x112103ebf76L, "templateNode");
   }
 }

@@ -31,7 +31,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -43,6 +42,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class tuple_member_access_Contribution extends TransformationMenuBase {
   public tuple_member_access_Contribution() {
@@ -79,7 +80,7 @@ public class tuple_member_access_Contribution extends TransformationMenuBase {
   public class TMP_Group_dlrmni_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return (TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), AUX_dlrmni.IndexedTupleType_dd9476bd) != null);
+      return (TypecheckingFacade.getFromContext().coerceType(TypecheckingFacade.getFromContext().getTypeOf(_context.getNode()), CONCEPTS.IndexedTupleType$15) != null);
     }
 
     @NotNull
@@ -95,7 +96,7 @@ public class tuple_member_access_Contribution extends TransformationMenuBase {
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_dlrmni_a0.TMP_Action_dlrmni_a0a(), AUX_dlrmni.IndexedTupleMemberAccessExpression_f04375cc));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_dlrmni_a0.TMP_Action_dlrmni_a0a(), CONCEPTS.IndexedTupleMemberAccessExpression$cm));
     }
     private class TMP_Action_dlrmni_a0a extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -135,8 +136,8 @@ public class tuple_member_access_Contribution extends TransformationMenuBase {
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode mae = SNodeOperations.replaceWithAnother(_context.getNode(), SNodeFactoryOperations.createNewNode(AUX_dlrmni.IndexedTupleMemberAccessExpression_f04375cc, null));
-          SLinkOperations.setTarget(mae, MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ad5056L, "tuple"), _context.getNode());
+          SNode mae = SNodeOperations.replaceWithAnother(_context.getNode(), SNodeFactoryOperations.createNewNode(CONCEPTS.IndexedTupleMemberAccessExpression$cm, null));
+          SLinkOperations.setTarget(mae, LINKS.tuple$Uqkp, _context.getNode());
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), mae, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -144,7 +145,7 @@ public class tuple_member_access_Contribution extends TransformationMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_dlrmni.IndexedTupleMemberAccessExpression_f04375cc;
+          return CONCEPTS.IndexedTupleMemberAccessExpression$cm;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -159,7 +160,7 @@ public class tuple_member_access_Contribution extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_dlrmni.IndexedTupleMemberAccessExpression_f04375cc;
+          SAbstractConcept outputConcept = CONCEPTS.IndexedTupleMemberAccessExpression$cm;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -170,8 +171,12 @@ public class tuple_member_access_Contribution extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_dlrmni {
-    /*package*/ static final SConcept IndexedTupleType_dd9476bd = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType");
-    /*package*/ static final SConcept IndexedTupleMemberAccessExpression_f04375cc = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleMemberAccessExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IndexedTupleType$15 = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1207157a8dcL, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleType");
+    /*package*/ static final SConcept IndexedTupleMemberAccessExpression$cm = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, "jetbrains.mps.baseLanguage.tuples.structure.IndexedTupleMemberAccessExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink tuple$Uqkp = MetaAdapterFactory.getContainmentLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x12071acfb50L, 0x12071ad5056L, "tuple");
   }
 }

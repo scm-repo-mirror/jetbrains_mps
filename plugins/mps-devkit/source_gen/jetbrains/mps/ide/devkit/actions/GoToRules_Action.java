@@ -58,7 +58,7 @@ public class GoToRules_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_uwipkg.AbstractConceptDeclaration_ec74828f))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.AbstractConceptDeclaration$UN))) {
         node = null;
       }
       if (node == null) {
@@ -95,7 +95,7 @@ public class GoToRules_Action extends BaseAction {
     m.show(event.getData(MPSCommonDataKeys.FRAME), event.getData(MPSEditorDataKeys.EDITOR_CELL).getX(), event.getData(MPSEditorDataKeys.EDITOR_CELL).getY());
   }
 
-  private static final class AUX_uwipkg {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

@@ -16,7 +16,6 @@ import jetbrains.mps.ide.ui.filechoosers.treefilechooser.TreeFileChooser;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.util.MacroHelper;
@@ -25,6 +24,8 @@ import java.io.File;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.editor.runtime.commands.EditorCommand;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /**
  * 
@@ -53,7 +54,7 @@ public class SelectImageFileButton extends JButton {
           ModelAccess modelAccess = myEditorContext.getRepository().getModelAccess();
           modelAccess.runReadAction(new Runnable() {
             public void run() {
-              filename.value = SPropertyOperations.getString(myNode, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1095e12de6fL, 0x1095e2f7e63L, "imageFile"));
+              filename.value = SPropertyOperations.getString(myNode, PROPS.imageFile$K5RB);
             }
           });
 
@@ -75,11 +76,15 @@ public class SelectImageFileButton extends JButton {
           final String pathToShow = (macroHelper == null ? selectedPath : macroHelper.shrinkPath(selectedPath));
           modelAccess.executeCommand(new EditorCommand(myEditorContext) {
             protected void doExecute() {
-              SPropertyOperations.set(SelectImageFileButton.this.myNode, MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1095e12de6fL, 0x1095e2f7e63L, "imageFile"), pathToShow);
+              SPropertyOperations.set(SelectImageFileButton.this.myNode, PROPS.imageFile$K5RB, pathToShow);
             }
           });
         }
       }
     });
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty imageFile$K5RB = MetaAdapterFactory.getProperty(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x1095e12de6fL, 0x1095e2f7e63L, "imageFile");
   }
 }

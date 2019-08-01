@@ -20,7 +20,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
@@ -32,18 +31,20 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.substitute.SimpleConceptSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class constants extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_a(), AUX_w0ulk7.IntegerConstant_a127eb0a));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_b(), AUX_w0ulk7.LongLiteral_59a69852));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_w0ulk7_c(), AUX_w0ulk7.BooleanConstant_9dbf9ad0));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_d(), AUX_w0ulk7.FloatingPointConstant_aa454d3c));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_e(), AUX_w0ulk7.FloatingPointFloatConstant_f651563));
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_f(), AUX_w0ulk7.StringLiteral_aa5a8cf6));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_a(), CONCEPTS.IntegerConstant$mo));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_b(), CONCEPTS.LongLiteral$5g));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Param_w0ulk7_c(), CONCEPTS.BooleanConstant$Ui));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_d(), CONCEPTS.FloatingPointConstant$AA));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_e(), CONCEPTS.FloatingPointFloatConstant$pv));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_w0ulk7_f(), CONCEPTS.StringLiteral$4G));
     result.add(new SMP_Group_w0ulk7_g());
     return result;
   }
@@ -89,7 +90,7 @@ public class constants extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_w0ulk7.IntegerConstant_a127eb0a, context);
+        super(CONCEPTS.IntegerConstant$mo, context);
         _context = context;
       }
 
@@ -100,11 +101,11 @@ public class constants extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode intConst = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_w0ulk7.IntegerConstant_a127eb0a, null);
+        SNode intConst = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.IntegerConstant$mo, null);
         try {
-          SPropertyOperations.set(intConst, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), Integer.parseInt(pattern));
+          SPropertyOperations.set(intConst, PROPS.value$ZeO0, Integer.parseInt(pattern));
         } catch (NumberFormatException e) {
-          SPropertyOperations.set(intConst, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), 0);
+          SPropertyOperations.set(intConst, PROPS.value$ZeO0, 0);
         }
         return intConst;
       }
@@ -169,7 +170,7 @@ public class constants extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_w0ulk7.LongLiteral_59a69852, context);
+        super(CONCEPTS.LongLiteral$5g, context);
         _context = context;
       }
 
@@ -180,8 +181,8 @@ public class constants extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(AUX_w0ulk7.LongLiteral_59a69852, null);
-        SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "value"), pattern);
+        SNode result = SNodeFactoryOperations.createNewNode(CONCEPTS.LongLiteral$5g, null);
+        SPropertyOperations.assign(result, PROPS.value$ODo0, pattern);
         return result;
       }
 
@@ -262,7 +263,7 @@ public class constants extends SubstituteMenuBase {
         private final SubstituteMenuContext _context;
         private EditorMenuTraceInfo myTraceInfo;
         public Item(SubstituteMenuContext context) {
-          super(AUX_w0ulk7.BooleanConstant_9dbf9ad0, context);
+          super(CONCEPTS.BooleanConstant$Ui, context);
           _context = context;
         }
 
@@ -273,8 +274,8 @@ public class constants extends SubstituteMenuBase {
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
-          SNode integerConst = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_w0ulk7.BooleanConstant_9dbf9ad0, null);
-          SPropertyOperations.set(integerConst, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value"), myParameterObject.booleanValue());
+          SNode integerConst = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.BooleanConstant$Ui, null);
+          SPropertyOperations.set(integerConst, PROPS.value$WIn0, myParameterObject.booleanValue());
           return integerConst;
         }
 
@@ -284,7 +285,7 @@ public class constants extends SubstituteMenuBase {
         }
         @NotNull
         protected CompletionItemInformation createInformation(String pattern) {
-          return new CompletionItemInformation(myParameterObject, AUX_w0ulk7.BooleanConstant_9dbf9ad0, getMatchingText(pattern), getDescriptionText(pattern));
+          return new CompletionItemInformation(myParameterObject, CONCEPTS.BooleanConstant$Ui, getMatchingText(pattern), getDescriptionText(pattern));
         }
         @Nullable
         @Override
@@ -333,7 +334,7 @@ public class constants extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_w0ulk7.FloatingPointConstant_aa454d3c, context);
+        super(CONCEPTS.FloatingPointConstant$AA, context);
         _context = context;
       }
 
@@ -344,8 +345,8 @@ public class constants extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode doubleConstant = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_w0ulk7.FloatingPointConstant_aa454d3c, null);
-        SPropertyOperations.set(doubleConstant, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, 0x103245d193fL, "value"), pattern);
+        SNode doubleConstant = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.FloatingPointConstant$AA, null);
+        SPropertyOperations.set(doubleConstant, PROPS.value$oKYE, pattern);
         return doubleConstant;
       }
 
@@ -399,7 +400,7 @@ public class constants extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_w0ulk7.FloatingPointFloatConstant_f651563, context);
+        super(CONCEPTS.FloatingPointFloatConstant$pv, context);
         _context = context;
       }
 
@@ -410,8 +411,8 @@ public class constants extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode floatConst = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_w0ulk7.FloatingPointFloatConstant_f651563, null);
-        SPropertyOperations.set(floatConst, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, 0x494547eeedc219bbL, "value"), pattern);
+        SNode floatConst = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.FloatingPointFloatConstant$pv, null);
+        SPropertyOperations.set(floatConst, PROPS.value$CzwZ, pattern);
         return floatConst;
       }
 
@@ -465,7 +466,7 @@ public class constants extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_w0ulk7.StringLiteral_aa5a8cf6, context);
+        super(CONCEPTS.StringLiteral$4G, context);
         _context = context;
       }
 
@@ -476,12 +477,12 @@ public class constants extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode stringLiteral = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_w0ulk7.StringLiteral_aa5a8cf6, null);
+        SNode stringLiteral = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.StringLiteral$4G, null);
         {
           Pattern _pattern_0 = REGEXP_w0ulk7_a0a0b0g2k;
           Matcher _matcher_0 = _pattern_0.matcher(pattern);
           if (_matcher_0.matches()) {
-            SPropertyOperations.set(stringLiteral, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), _matcher_0.group(1));
+            SPropertyOperations.set(stringLiteral, PROPS.value$kiE0, _matcher_0.group(1));
           }
         }
         return stringLiteral;
@@ -512,7 +513,7 @@ public class constants extends SubstituteMenuBase {
   public class SMP_Group_w0ulk7_g extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
     @Override
     protected boolean isApplicable(SubstituteMenuContext _context) {
-      return SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_w0ulk7.VariableDeclaration_3c610994) || SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_w0ulk7.ArrayLiteral_a35f9232) || SNodeOperations.isInstanceOf(_context.getParentNode(), AUX_w0ulk7.AnnotationInstanceValue_15ce85ed);
+      return SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.VariableDeclaration$xe) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.ArrayLiteral$dK) || SNodeOperations.isInstanceOf(_context.getParentNode(), CONCEPTS.AnnotationInstanceValue$sl);
     }
     @NotNull
     @Override
@@ -528,7 +529,7 @@ public class constants extends SubstituteMenuBase {
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_w0ulk7.ArrayLiteral_a35f9232) {
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.ArrayLiteral$dK) {
 
         @NotNull
         @Override
@@ -541,7 +542,7 @@ public class constants extends SubstituteMenuBase {
             context.getEditorMenuTrace().popTraceInfo();
           }
         }
-      }, AUX_w0ulk7.ArrayLiteral_a35f9232));
+      }, CONCEPTS.ArrayLiteral$dK));
     }
   }
   private static final Pattern REGEXP_w0ulk7_a0a0a2a21c5 = Pattern.compile("-?\\d+", 0);
@@ -552,15 +553,24 @@ public class constants extends SubstituteMenuBase {
   private static final Pattern REGEXP_w0ulk7_a0a0b0g2k = Pattern.compile("\"([^\\\\\"]*)\"?", 0);
   private static final Pattern REGEXP_w0ulk7_a0a0a21c01 = Pattern.compile("\"[^\\\\\"]*\"?", 0);
 
-  private static final class AUX_w0ulk7 {
-    /*package*/ static final SConcept IntegerConstant_a127eb0a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
-    /*package*/ static final SConcept LongLiteral_59a69852 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, "jetbrains.mps.baseLanguage.structure.LongLiteral");
-    /*package*/ static final SConcept BooleanConstant_9dbf9ad0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
-    /*package*/ static final SConcept FloatingPointConstant_aa454d3c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, "jetbrains.mps.baseLanguage.structure.FloatingPointConstant");
-    /*package*/ static final SConcept FloatingPointFloatConstant_f651563 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, "jetbrains.mps.baseLanguage.structure.FloatingPointFloatConstant");
-    /*package*/ static final SConcept StringLiteral_aa5a8cf6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
-    /*package*/ static final SConcept AnnotationInstanceValue_15ce85ed = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue");
-    /*package*/ static final SConcept VariableDeclaration_3c610994 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
-    /*package*/ static final SConcept ArrayLiteral_a35f9232 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, "jetbrains.mps.baseLanguage.structure.ArrayLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IntegerConstant$mo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
+    /*package*/ static final SConcept LongLiteral$5g = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, "jetbrains.mps.baseLanguage.structure.LongLiteral");
+    /*package*/ static final SConcept BooleanConstant$Ui = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, "jetbrains.mps.baseLanguage.structure.BooleanConstant");
+    /*package*/ static final SConcept FloatingPointConstant$AA = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, "jetbrains.mps.baseLanguage.structure.FloatingPointConstant");
+    /*package*/ static final SConcept FloatingPointFloatConstant$pv = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, "jetbrains.mps.baseLanguage.structure.FloatingPointFloatConstant");
+    /*package*/ static final SConcept StringLiteral$4G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, "jetbrains.mps.baseLanguage.structure.StringLiteral");
+    /*package*/ static final SConcept AnnotationInstanceValue$sl = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a71b1af4L, "jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue");
+    /*package*/ static final SConcept VariableDeclaration$xe = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, "jetbrains.mps.baseLanguage.structure.VariableDeclaration");
+    /*package*/ static final SConcept ArrayLiteral$dK = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a770dc0dL, "jetbrains.mps.baseLanguage.structure.ArrayLiteral");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$ZeO0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value");
+    /*package*/ static final SProperty value$ODo0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x3b418722717710b4L, 0x3b418722717710b5L, "value");
+    /*package*/ static final SProperty value$WIn0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b201L, 0xf8cc56b202L, "value");
+    /*package*/ static final SProperty value$oKYE = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x102cb19a434L, 0x103245d193fL, "value");
+    /*package*/ static final SProperty value$CzwZ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x494547eeedc219b9L, 0x494547eeedc219bbL, "value");
+    /*package*/ static final SProperty value$kiE0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value");
   }
 }

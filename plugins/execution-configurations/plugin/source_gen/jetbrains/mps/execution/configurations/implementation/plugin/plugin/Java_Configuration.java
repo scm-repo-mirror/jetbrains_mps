@@ -57,13 +57,13 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class Java_Configuration extends BaseMpsRunConfiguration implements IPersistentConfiguration {
   private static final Logger LOG = LogManager.getLogger(Java_Configuration.class);
-  private NodeBySeveralConcepts_Configuration myNode = new NodeBySeveralConcepts_Configuration(ListSequence.fromListAndArray(new ArrayList<NodesDescriptor>(), new NodesDescriptor(AUX_uixado.ClassConcept_e2711824, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
+  private NodeBySeveralConcepts_Configuration myNode = new NodeBySeveralConcepts_Configuration(ListSequence.fromListAndArray(new ArrayList<NodesDescriptor>(), new NodesDescriptor(CONCEPTS.ClassConcept$IY, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
     public Boolean invoke(SNode node) {
-      return (ClassConcept__BehaviorDescriptor.getMainMethod_idhEwIClG.invoke(SNodeOperations.cast(node, AUX_uixado.ClassConcept_e2711824)) != null);
+      return (ClassConcept__BehaviorDescriptor.getMainMethod_idhEwIClG.invoke(SNodeOperations.cast(node, CONCEPTS.ClassConcept$IY)) != null);
     }
-  }), new NodesDescriptor(AUX_uixado.IMainClass_47cb36ac, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
+  }), new NodesDescriptor(CONCEPTS.IMainClass$SQ, new _FunctionTypes._return_P1_E0<Boolean, SNode>() {
     public Boolean invoke(SNode node) {
-      return (boolean) IMainClass__BehaviorDescriptor.isNodeRunnable_id431DWIovi3C.invoke(SNodeOperations.cast(node, AUX_uixado.IMainClass_47cb36ac)) && Java_Command.isUnitNode(node);
+      return (boolean) IMainClass__BehaviorDescriptor.isNodeRunnable_id431DWIovi3C.invoke(SNodeOperations.cast(node, CONCEPTS.IMainClass$SQ)) && Java_Command.isUnitNode(node);
     }
   })));
   private JavaRunParameters_Configuration myRunParameters = new JavaRunParameters_Configuration(this.getProject());
@@ -76,8 +76,8 @@ public class Java_Configuration extends BaseMpsRunConfiguration implements IPers
     mpsProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
         SNode node = Java_Configuration.this.getNode().getNode().resolve(mpsProject.getRepository());
-        if (SNodeOperations.isInstanceOf(node, AUX_uixado.ClassConcept_e2711824)) {
-          hasMainMethod.value = (ClassConcept__BehaviorDescriptor.getMainMethod_idhEwIClG.invoke(SNodeOperations.cast(node, AUX_uixado.ClassConcept_e2711824)) == null);
+        if (SNodeOperations.isInstanceOf(node, CONCEPTS.ClassConcept$IY)) {
+          hasMainMethod.value = (ClassConcept__BehaviorDescriptor.getMainMethod_idhEwIClG.invoke(SNodeOperations.cast(node, CONCEPTS.ClassConcept$IY)) == null);
         }
       }
     });
@@ -139,13 +139,13 @@ public class Java_Configuration extends BaseMpsRunConfiguration implements IPers
       return new ModelAccessHelper(repository).runReadAction(new Computable<Boolean>() {
         public Boolean compute() {
           SNode source = nodePointer.resolve(repository);
-          if (!(SNodeOperations.isInstanceOf(source, AUX_uixado.Classifier_4b7e553))) {
+          if (!(SNodeOperations.isInstanceOf(source, CONCEPTS.Classifier$hJ))) {
             // XXX Seems that this code assumes source to be descendant of a classifier, exactly as described in MPS-25114 
             //     If, however, source points to a non-classifier root (e.g. samples.shapes.Canvas which implements IMainClass) 
             //     the code below looks odd (StaticMethodDeclaration ancestor?!). 
-            SNode mainMethodCandidate = SNodeOperations.getNodeAncestor(source, AUX_uixado.StaticMethodDeclaration_9cd8c445, true, false);
+            SNode mainMethodCandidate = SNodeOperations.getNodeAncestor(source, CONCEPTS.StaticMethodDeclaration$eX, true, false);
             if (mainMethodCandidate != null && (boolean) StaticMethodDeclaration__BehaviorDescriptor.isMainMethod_idhEwJkuu.invoke(mainMethodCandidate)) {
-              SNode classifier = SNodeOperations.getNodeAncestor(mainMethodCandidate, AUX_uixado.Classifier_4b7e553, false, false);
+              SNode classifier = SNodeOperations.getNodeAncestor(mainMethodCandidate, CONCEPTS.Classifier$hJ, false, false);
               source = classifier;
             } else {
               return false;
@@ -224,10 +224,10 @@ public class Java_Configuration extends BaseMpsRunConfiguration implements IPers
     return new Object[]{ListSequence.fromListAndArray(new ArrayList<SNodeReference>(), this.getNode().getNode())};
   }
 
-  private static final class AUX_uixado {
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
-    /*package*/ static final SInterfaceConcept IMainClass_47cb36ac = MetaAdapterFactory.getInterfaceConcept(0x4caf0310491e41f5L, 0x8a9b2006b3a94898L, 0x40c1a7cb987d20d5L, "jetbrains.mps.execution.util.structure.IMainClass");
-    /*package*/ static final SConcept StaticMethodDeclaration_9cd8c445 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+    /*package*/ static final SInterfaceConcept IMainClass$SQ = MetaAdapterFactory.getInterfaceConcept(0x4caf0310491e41f5L, 0x8a9b2006b3a94898L, 0x40c1a7cb987d20d5L, "jetbrains.mps.execution.util.structure.IMainClass");
+    /*package*/ static final SConcept StaticMethodDeclaration$eX = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
   }
 }

@@ -13,8 +13,9 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class AddRemoveSeparator_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -44,18 +45,23 @@ public final class AddRemoveSeparator_Intention extends AbstractIntentionDescrip
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      return (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator")) ? "Remove Separator" : "Add Separator");
+      return (SPropertyOperations.getBoolean(node, PROPS.withSeparator$ZLcq) ? "Remove Separator" : "Add Separator");
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if (SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator"))) {
-        SPropertyOperations.set(node, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x120152f5107L, "separator"), "");
+      if (SPropertyOperations.getBoolean(node, PROPS.withSeparator$ZLcq)) {
+        SPropertyOperations.set(node, PROPS.separator$6WSy, "");
       }
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator"), !(SPropertyOperations.getBoolean(node, MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator"))));
+      SPropertyOperations.assign(node, PROPS.withSeparator$ZLcq, !(SPropertyOperations.getBoolean(node, PROPS.withSeparator$ZLcq)));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
       return AddRemoveSeparator_Intention.this;
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty withSeparator$ZLcq = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x1203d98429fL, "withSeparator");
+    /*package*/ static final SProperty separator$6WSy = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201527819cL, 0x120152f5107L, "separator");
   }
 }

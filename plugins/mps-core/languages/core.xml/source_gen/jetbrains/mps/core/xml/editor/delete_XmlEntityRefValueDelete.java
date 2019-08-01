@@ -21,7 +21,7 @@ public class delete_XmlEntityRefValueDelete {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        SNode pnode = SNodeOperations.as(SNodeOperations.getParent(node), AUX_h636fr.XmlAttribute_6072762c);
+        SNode pnode = SNodeOperations.as(SNodeOperations.getParent(node), CONCEPTS.XmlAttribute$UQ);
         SNodeOperations.deleteNode(node);
         AttributeUtil.updateValue(pnode, editorContext);
       }
@@ -64,7 +64,7 @@ public class delete_XmlEntityRefValueDelete {
     }
   }
 
-  private static final class AUX_h636fr {
-    /*package*/ static final SConcept XmlAttribute_6072762c = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, "jetbrains.mps.core.xml.structure.XmlAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlAttribute$UQ = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, "jetbrains.mps.core.xml.structure.XmlAttribute");
   }
 }

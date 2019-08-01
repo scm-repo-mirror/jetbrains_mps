@@ -34,7 +34,7 @@ public class check_StylePriorityGroup_NonTypesystemRule extends AbstractNonTypes
 
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_dnfqve.StyleClass_23aca3d8;
+    return CONCEPTS.StyleClass$qa;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -43,7 +43,7 @@ public class check_StylePriorityGroup_NonTypesystemRule extends AbstractNonTypes
     return false;
   }
 
-  private static final class AUX_dnfqve {
-    /*package*/ static final SConcept StyleClass_23aca3d8 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a126f24L, "jetbrains.mps.lang.editor.structure.StyleClass");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StyleClass$qa = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2ef3b3796a126f24L, "jetbrains.mps.lang.editor.structure.StyleClass");
   }
 }

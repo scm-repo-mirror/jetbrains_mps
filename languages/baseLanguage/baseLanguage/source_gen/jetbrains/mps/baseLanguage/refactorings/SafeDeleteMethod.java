@@ -9,8 +9,9 @@ import jetbrains.mps.baseLanguage.util.plugin.refactorings.MethodRefactoringUtil
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class SafeDeleteMethod {
   private SNode myMethod;
@@ -23,19 +24,23 @@ public class SafeDeleteMethod {
 
   public void doRefactor() {
     for (SNode method : ListSequence.fromList(MethodRefactoringUtils.findOverridingMethods(myScope, myMethod, new EmptyProgressMonitor()))) {
-      if (SNodeOperations.isInstanceOf(method, AUX_3bhfto.ConceptMethodDeclaration_6c80ca4f)) {
-        SNode methodDecl = SNodeOperations.cast(method, AUX_3bhfto.ConceptMethodDeclaration_6c80ca4f);
-        SLinkOperations.setTarget(methodDecl, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d4348057fL, "overriddenMethod"), getNewOverriddenMethod(myMethod));
+      if (SNodeOperations.isInstanceOf(method, CONCEPTS.ConceptMethodDeclaration$VN)) {
+        SNode methodDecl = SNodeOperations.cast(method, CONCEPTS.ConceptMethodDeclaration$VN);
+        SLinkOperations.setTarget(methodDecl, LINKS.overriddenMethod$6dmw, getNewOverriddenMethod(myMethod));
       }
     }
     SNodeOperations.deleteNode(myMethod);
   }
 
   private SNode getNewOverriddenMethod(SNode methodDecl) {
-    return SLinkOperations.getTarget(methodDecl, MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d4348057fL, "overriddenMethod"));
+    return SLinkOperations.getTarget(methodDecl, LINKS.overriddenMethod$6dmw);
   }
 
-  private static final class AUX_3bhfto {
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink overriddenMethod$6dmw = MetaAdapterFactory.getReferenceLink(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, 0x11d4348057fL, "overriddenMethod");
   }
 }

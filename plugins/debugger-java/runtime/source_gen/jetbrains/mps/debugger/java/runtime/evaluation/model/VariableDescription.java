@@ -5,13 +5,15 @@ package jetbrains.mps.debugger.java.runtime.evaluation.model;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -28,13 +30,13 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   }
   public void updateLowLevelVariable(SNode variable) {
     if (myIsHighLevelInfoAvailable) {
-      SPropertyOperations.set(variable, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), myHighLevelName);
-      SPropertyOperations.set(variable, MetaAdapterFactory.getProperty(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d926L, 0x6db8b4aef007e84fL, "highLevelNodeId"), SNodePointer.serialize(myHighLevelNode));
+      SPropertyOperations.set(variable, PROPS.name$tAp1, myHighLevelName);
+      SPropertyOperations.set(variable, PROPS.highLevelNodeId$zEt$, SNodePointer.serialize(myHighLevelNode));
     } else {
-      SPropertyOperations.set(variable, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), myLowLevelName);
+      SPropertyOperations.set(variable, PROPS.name$tAp1, myLowLevelName);
     }
-    SLinkOperations.setTarget(variable, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), createDebuggedType());
-    SPropertyOperations.set(variable, MetaAdapterFactory.getProperty(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d926L, 0x4db8c07036eb94eeL, "lowLevelName"), myLowLevelName);
+    SLinkOperations.setTarget(variable, LINKS.type$pLrO, createDebuggedType());
+    SPropertyOperations.set(variable, PROPS.lowLevelName$A23$, myLowLevelName);
   }
   private SNode createDebuggedType() {
     return createDebuggedType(myLowLevelType, (myIsHighLevelInfoAvailable ? myHighLevelType : null));
@@ -42,8 +44,8 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   public void setHighLevelNode(SNode node) {
     myIsHighLevelInfoAvailable = true;
     myHighLevelNode = new SNodePointer(node);
-    myHighLevelType = SNodeOperations.copyNode(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(node), AUX_5ytd5s.Type_4199e276));
-    myHighLevelName = (SNodeOperations.isInstanceOf(node, AUX_5ytd5s.INamedConcept_8cd7e247) ? SPropertyOperations.getString(SNodeOperations.cast(node, AUX_5ytd5s.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) : myLowLevelName);
+    myHighLevelType = SNodeOperations.copyNode(SNodeOperations.cast(TypecheckingFacade.getFromContext().getTypeOf(node), CONCEPTS.Type$IG));
+    myHighLevelName = (SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$nV) ? SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1) : myLowLevelName);
   }
   public void setHighLevelName(String highLevelName) {
     myHighLevelName = highLevelName;
@@ -58,17 +60,30 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
   public static SNode createDebuggedType(SNode lowType, SNode highType) {
     SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, "jetbrains.mps.debugger.java.evaluation.structure.DebuggedType"));
     if ((highType != null)) {
-      SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25edaL, "highType"), highType);
+      SLinkOperations.setTarget(result, LINKS.highType$UDHZ, highType);
     } else {
-      SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25edaL, "highType"), SNodeOperations.copyNode(lowType));
+      SLinkOperations.setTarget(result, LINKS.highType$UDHZ, SNodeOperations.copyNode(lowType));
     }
-    SPropertyOperations.set(result, MetaAdapterFactory.getProperty(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25eedL, "isHigh"), highType != null);
-    SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25ed9L, "lowType"), lowType);
+    SPropertyOperations.set(result, PROPS.isHigh$UEby, highType != null);
+    SLinkOperations.setTarget(result, LINKS.lowType$UDHw, lowType);
     return result;
   }
 
-  private static final class AUX_5ytd5s {
-    /*package*/ static final SConcept Type_4199e276 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty highLevelNodeId$zEt$ = MetaAdapterFactory.getProperty(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d926L, 0x6db8b4aef007e84fL, "highLevelNodeId");
+    /*package*/ static final SProperty lowLevelName$A23$ = MetaAdapterFactory.getProperty(0x7da4580f9d754603L, 0x816251a896d78375L, 0x53c5060c6b18d926L, 0x4db8c07036eb94eeL, "lowLevelName");
+    /*package*/ static final SProperty isHigh$UEby = MetaAdapterFactory.getProperty(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25eedL, "isHigh");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink highType$UDHZ = MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25edaL, "highType");
+    /*package*/ static final SContainmentLink lowType$UDHw = MetaAdapterFactory.getContainmentLink(0x7da4580f9d754603L, 0x816251a896d78375L, 0x3f11b1341fa25ed8L, 0x3f11b1341fa25ed9L, "lowType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Type$IG = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
   }
 }

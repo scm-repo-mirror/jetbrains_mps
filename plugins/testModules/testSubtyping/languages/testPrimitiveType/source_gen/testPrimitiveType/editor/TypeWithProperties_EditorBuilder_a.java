@@ -10,7 +10,6 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Indent;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Constant;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.openapi.editor.menus.transformation.SPropertyInfo;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
@@ -43,6 +42,7 @@ import java.util.stream.Collectors;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.IOperationContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class TypeWithProperties_EditorBuilder_a extends AbstractEditorBuilder {
@@ -110,19 +110,19 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_8yz4v0_a3a() {
-    return myNode.getProperty(MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a2L, "str")) != null;
+    return myNode.getProperty(PROPS.str$bBiM) != null;
   }
   private EditorCell createProperty_0() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a2L, "str");
+      final SProperty property = PROPS.str$bBiM;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no str>");
       editorCell.setCellId("property_str");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
-      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), AUX_uem5fm.PropertyAttribute_d001db89);
+      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.PropertyAttribute$jT);
       Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Objects.equals(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(it), property);
@@ -166,7 +166,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a2L, "str"), "");
+      SPropertyOperations.assign(node, PROPS.str$bBiM, "");
     }
     public String getMatchingText() {
       return "default";
@@ -196,19 +196,19 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_8yz4v0_a6a() {
-    return myNode.getProperty(MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a8L, "num")) != null;
+    return myNode.getProperty(PROPS.num$bBvR) != null;
   }
   private EditorCell createProperty_1() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a8L, "num");
+      final SProperty property = PROPS.num$bBvR;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no num>");
       editorCell.setCellId("property_num");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
-      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), AUX_uem5fm.PropertyAttribute_d001db89);
+      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.PropertyAttribute$jT);
       Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Objects.equals(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(it), property);
@@ -252,7 +252,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a8L, "num"), 0);
+      SPropertyOperations.assign(node, PROPS.num$bBvR, 0);
     }
     public String getMatchingText() {
       return "default";
@@ -282,19 +282,19 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_8yz4v0_a9a() {
-    return myNode.getProperty(MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556abL, "bool")) != null;
+    return myNode.getProperty(PROPS.bool$bBxk) != null;
   }
   private EditorCell createProperty_2() {
     getCellFactory().pushCellContext();
     try {
-      final SProperty property = MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556abL, "bool");
+      final SProperty property = PROPS.bool$bBxk;
       getCellFactory().setPropertyInfo(new SPropertyInfo(myNode, property));
       EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new SPropertyAccessor(myNode, property, false, false), myNode);
       editorCell.setDefaultText("<no bool>");
       editorCell.setCellId("property_bool");
       editorCell.setSubstituteInfo(new SPropertySubstituteInfo(editorCell, property));
       setCellContext(editorCell);
-      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), AUX_uem5fm.PropertyAttribute_d001db89);
+      Iterable<SNode> propertyAttributes = SNodeOperations.ofConcept(AttributeOperations.getAttributeList(myNode, new IAttributeDescriptor.AllAttributes()), CONCEPTS.PropertyAttribute$jT);
       Iterable<SNode> currentPropertyAttributes = Sequence.fromIterable(propertyAttributes).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
           return Objects.equals(PropertyAttribute__BehaviorDescriptor.getProperty_id1avfQ4BBzOo.invoke(it), property);
@@ -338,7 +338,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
 
     public void handleAction(SNode node, SModel model, IOperationContext operationContext, EditorContext editorContext) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556abL, "bool"), false);
+      SPropertyOperations.assign(node, PROPS.bool$bBxk, false);
     }
     public String getMatchingText() {
       return "default";
@@ -351,7 +351,13 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_uem5fm {
-    /*package*/ static final SConcept PropertyAttribute_d001db89 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
+  private static final class PROPS {
+    /*package*/ static final SProperty str$bBiM = MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a2L, "str");
+    /*package*/ static final SProperty num$bBvR = MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556a8L, "num");
+    /*package*/ static final SProperty bool$bBxk = MetaAdapterFactory.getProperty(0x8a53c70515e44f87L, 0x8796457845605512L, 0x9cc88b154a54d6cL, 0x9cc88b154a556abL, "bool");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PropertyAttribute$jT = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2eb1ad060897da56L, "jetbrains.mps.lang.core.structure.PropertyAttribute");
   }
 }

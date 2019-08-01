@@ -17,7 +17,6 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import java.util.HashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
@@ -31,6 +30,8 @@ import jetbrains.mps.smodel.StaticReference;
 import jetbrains.mps.smodel.ModelImports;
 import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 /**
  * To deal with ambiguous notations in Java source code (like a.b.c.d.E.f), we need to perform few rounds of reference resolution.
@@ -109,11 +110,11 @@ public class YetUnknownResolver {
     progress.start("Ambiguous concepts...", Sequence.fromIterable(roots).count());
     myResolutionMap = MapSequence.fromMap(new HashMap<SNode, SNode>());
     for (SNode node : Sequence.fromIterable(roots)) {
-      progress.step((SNodeOperations.isInstanceOf(node, AUX_lg3lw.INamedConcept_8cd7e247) ? ("node: " + SPropertyOperations.getString(SNodeOperations.cast(node, AUX_lg3lw.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) : ""));
-      List<SNode> unknowns = SNodeOperations.getNodeDescendants(node, AUX_lg3lw.IYetUnresolved_7220cc50, false, new SAbstractConcept[]{AUX_lg3lw.IYetUnresolved_7220cc50});
+      progress.step((SNodeOperations.isInstanceOf(node, CONCEPTS.INamedConcept$nV) ? ("node: " + SPropertyOperations.getString(SNodeOperations.cast(node, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)) : ""));
+      List<SNode> unknowns = SNodeOperations.getNodeDescendants(node, CONCEPTS.IYetUnresolved$Oi, false, new SAbstractConcept[]{CONCEPTS.IYetUnresolved$Oi});
       for (SNode unk : ListSequence.fromList(unknowns)) {
         final SNode unkNode = unk;
-        final _FunctionTypes._return_P0_E0<? extends SNode> subst = ((_FunctionTypes._return_P0_E0<? extends SNode>) BHReflection.invoke0(unk, AUX_lg3lw.IYetUnresolved_7220cc50, SMethodTrimmedId.create("evaluateSubst", null, "73E7sj5sxxG")));
+        final _FunctionTypes._return_P0_E0<? extends SNode> subst = ((_FunctionTypes._return_P0_E0<? extends SNode>) BHReflection.invoke0(unk, CONCEPTS.IYetUnresolved$Oi, SMethodTrimmedId.create("evaluateSubst", null, "73E7sj5sxxG")));
         if (subst == null) {
           continue;
         }
@@ -169,8 +170,12 @@ public class YetUnknownResolver {
     myRefTargetOfResolved.stream().forEach(callback);
   }
 
-  private static final class AUX_lg3lw {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SInterfaceConcept IYetUnresolved_7220cc50 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70ea1dc4c5721865L, "jetbrains.mps.baseLanguage.structure.IYetUnresolved");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SInterfaceConcept IYetUnresolved$Oi = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70ea1dc4c5721865L, "jetbrains.mps.baseLanguage.structure.IYetUnresolved");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

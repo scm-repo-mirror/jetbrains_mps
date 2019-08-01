@@ -20,15 +20,16 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Numeric_Substitute extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_6g51gm_a(), AUX_6g51gm.NumericConstant_e7f1798a));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_6g51gm_a(), CONCEPTS.NumericConstant$so));
     return result;
   }
 
@@ -73,7 +74,7 @@ public class Numeric_Substitute extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_6g51gm.NumericConstant_e7f1798a, context);
+        super(CONCEPTS.NumericConstant$so, context);
         _context = context;
       }
 
@@ -84,8 +85,8 @@ public class Numeric_Substitute extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode result = SNodeFactoryOperations.createNewNode(AUX_6g51gm.NumericConstant_e7f1798a, null);
-        SPropertyOperations.assign(result, MetaAdapterFactory.getProperty(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dd5L, 0x37d11ba7d7ee2dd6L, "value"), Integer.parseInt(pattern));
+        SNode result = SNodeFactoryOperations.createNewNode(CONCEPTS.NumericConstant$so, null);
+        SPropertyOperations.assign(result, PROPS.value$bFYb, Integer.parseInt(pattern));
         return result;
       }
 
@@ -104,7 +105,11 @@ public class Numeric_Substitute extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_6g51gm {
-    /*package*/ static final SConcept NumericConstant_e7f1798a = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dd5L, "jetbrains.mps.samples.lambdaCalculus.structure.NumericConstant");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NumericConstant$so = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dd5L, "jetbrains.mps.samples.lambdaCalculus.structure.NumericConstant");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$bFYb = MetaAdapterFactory.getProperty(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dd5L, 0x37d11ba7d7ee2dd6L, "value");
   }
 }

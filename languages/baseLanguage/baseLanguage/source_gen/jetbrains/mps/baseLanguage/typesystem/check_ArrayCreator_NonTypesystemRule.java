@@ -9,11 +9,12 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ArrayCreator_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -22,18 +23,18 @@ public class check_ArrayCreator_NonTypesystemRule extends AbstractNonTypesystemR
   public void applyRule(final SNode arrayCreator, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     boolean concreteDimensionsSoFarFromLeft = true;
     boolean errorReported = false;
-    for (int i = 0; i < ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, 0x113e4b36742L, "dimensionExpression"))).count(); i++) {
-      boolean notNull = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, 0x113e4b36742L, "dimensionExpression"))).getElement(i), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4b2dfdaL, 0x113e4b846d4L, "expression")) != null;
+    for (int i = 0; i < ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, LINKS.dimensionExpression$uV5v)).count(); i++) {
+      boolean notNull = SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, LINKS.dimensionExpression$uV5v)).getElement(i), LINKS.expression$WGFJ) != null;
       if (notNull && !(concreteDimensionsSoFarFromLeft)) {
         errorReported = true;
         {
           final MessageTarget errorTarget = new NodeMessageTarget();
-          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, 0x113e4b36742L, "dimensionExpression"))).getElement(i), "Dimension must not be specified here", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1100850602762306528", null, errorTarget);
+          IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, LINKS.dimensionExpression$uV5v)).getElement(i), "Dimension must not be specified here", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1100850602762306528", null, errorTarget);
         }
       }
       concreteDimensionsSoFarFromLeft = concreteDimensionsSoFarFromLeft && notNull;
     }
-    if (!(errorReported) && ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, 0x113e4b36742L, "dimensionExpression"))).count() > 0 && (SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, 0x113e4b36742L, "dimensionExpression"))).getElement(0), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4b2dfdaL, 0x113e4b846d4L, "expression")) == null)) {
+    if (!(errorReported) && ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, LINKS.dimensionExpression$uV5v)).count() > 0 && (SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(arrayCreator, LINKS.dimensionExpression$uV5v)).getElement(0), LINKS.expression$WGFJ) == null)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(arrayCreator, "Array initializer expected", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1100850602763676727", null, errorTarget);
@@ -41,7 +42,7 @@ public class check_ArrayCreator_NonTypesystemRule extends AbstractNonTypesystemR
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_faq5ji.ArrayCreator_2580bdd1;
+    return CONCEPTS.ArrayCreator$IL;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -50,7 +51,12 @@ public class check_ArrayCreator_NonTypesystemRule extends AbstractNonTypesystemR
     return false;
   }
 
-  private static final class AUX_faq5ji {
-    /*package*/ static final SConcept ArrayCreator_2580bdd1 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, "jetbrains.mps.baseLanguage.structure.ArrayCreator");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink dimensionExpression$uV5v = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, 0x113e4b36742L, "dimensionExpression");
+    /*package*/ static final SContainmentLink expression$WGFJ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4b2dfdaL, 0x113e4b846d4L, "expression");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ArrayCreator$IL = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x113e4952f12L, "jetbrains.mps.baseLanguage.structure.ArrayCreator");
   }
 }

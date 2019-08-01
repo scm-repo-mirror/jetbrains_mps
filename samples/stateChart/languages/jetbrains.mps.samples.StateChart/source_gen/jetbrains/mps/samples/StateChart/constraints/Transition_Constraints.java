@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -26,15 +25,18 @@ import jetbrains.mps.scope.EmptyScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class Transition_Constraints extends BaseConstraintsDescriptor {
   public Transition_Constraints() {
-    super(AUX_mgdfdy.Transition_404ac7b8);
+    super(CONCEPTS.Transition$UE);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, 0x148d06483264e4aaL, "trigger"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.trigger$m8b0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -49,21 +51,21 @@ public class Transition_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Iterable<SNode> allEventsInPath = ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getContextNode(), AUX_mgdfdy.Stateful_f28c229a, true)).translate(new ITranslator2<SNode, SNode>() {
+            Iterable<SNode> allEventsInPath = ListSequence.fromList(SNodeOperations.getNodeAncestors(_context.getContextNode(), CONCEPTS.Stateful$8, true)).translate(new ITranslator2<SNode, SNode>() {
               public Iterable<SNode> translate(SNode it) {
-                return SLinkOperations.getChildren(it, MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x2dff568bfe7dd8b5L, 0x148d06483264e4b1L, "availableTriggers"));
+                return SLinkOperations.getChildren(it, LINKS.availableTriggers$AtTV);
               }
             });
             return new ListScope(allEventsInPath) {
               public String getName(SNode child) {
-                return SPropertyOperations.getString(SNodeOperations.cast(child, AUX_mgdfdy.Event_404ac79d), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+                return SPropertyOperations.getString(SNodeOperations.cast(child, CONCEPTS.Event$H_), PROPS.name$tAp1);
               }
             };
           }
         };
       }
     };
-    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, 0x148d06483264e4acL, "target"), this) {
+    BaseReferenceConstraintsDescriptor d1 = new BaseReferenceConstraintsDescriptor(LINKS.target$m8bY, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -78,7 +80,7 @@ public class Transition_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), AUX_mgdfdy.State_404ac7a0);
+            Scope scope = Scope.getScope(_context.getContextNode(), _context.getContainmentLink(), _context.getPosition(), CONCEPTS.State$J2);
             return (scope == null ? new EmptyScope() : scope);
           }
         };
@@ -92,10 +94,20 @@ public class Transition_Constraints extends BaseConstraintsDescriptor {
   private static final SNodePointer breakingNode_mgdfdy_a0a0a0a0a1a0a0a0c = new SNodePointer("r:c9acaf76-5e77-4b59-ae68-703975aa4649(jetbrains.mps.samples.StateChart.constraints)", "6813679070098860492");
   private static final SNodePointer breakingNode_mgdfdy_a0a0a0a0a1a0a0b0c = new SNodePointer("r:c9acaf76-5e77-4b59-ae68-703975aa4649(jetbrains.mps.samples.StateChart.constraints)", "6813679070098909810");
 
-  private static final class AUX_mgdfdy {
-    /*package*/ static final SConcept Transition_404ac7b8 = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, "jetbrains.mps.samples.StateChart.structure.Transition");
-    /*package*/ static final SConcept Stateful_f28c229a = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x2dff568bfe7dd8b5L, "jetbrains.mps.samples.StateChart.structure.Stateful");
-    /*package*/ static final SConcept Event_404ac79d = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a3L, "jetbrains.mps.samples.StateChart.structure.Event");
-    /*package*/ static final SConcept State_404ac7a0 = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, "jetbrains.mps.samples.StateChart.structure.State");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Transition$UE = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, "jetbrains.mps.samples.StateChart.structure.Transition");
+    /*package*/ static final SConcept Stateful$8 = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x2dff568bfe7dd8b5L, "jetbrains.mps.samples.StateChart.structure.Stateful");
+    /*package*/ static final SConcept Event$H_ = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a3L, "jetbrains.mps.samples.StateChart.structure.Event");
+    /*package*/ static final SConcept State$J2 = MetaAdapterFactory.getConcept(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a6L, "jetbrains.mps.samples.StateChart.structure.State");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink trigger$m8b0 = MetaAdapterFactory.getReferenceLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, 0x148d06483264e4aaL, "trigger");
+    /*package*/ static final SContainmentLink availableTriggers$AtTV = MetaAdapterFactory.getContainmentLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x2dff568bfe7dd8b5L, 0x148d06483264e4b1L, "availableTriggers");
+    /*package*/ static final SReferenceLink target$m8bY = MetaAdapterFactory.getReferenceLink(0xc3b0572e7f864ac7L, 0xac44ef15dc8f5c15L, 0x148d06483264e4a9L, 0x148d06483264e4acL, "target");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

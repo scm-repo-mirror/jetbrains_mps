@@ -36,14 +36,14 @@ public class Context {
     return ((T) MapSequence.fromMap(myProperties).get(key));
   }
   protected SNode getBuildProject(SNode node) {
-    return SNodeOperations.getNodeAncestor(node, AUX_lmsybr.BuildProject_808bb057, true, false);
+    return SNodeOperations.getNodeAncestor(node, CONCEPTS.BuildProject$BF, true, false);
   }
   public MacroHelper getMacros(SNode context) {
     SNode buildProject = getBuildProject(context);
     if (buildProject == null) {
       return null;
     }
-    buildProject = SNodeOperations.as(DependenciesHelper.getOriginalNode(buildProject, myGenerationContext), AUX_lmsybr.BuildProject_808bb057);
+    buildProject = SNodeOperations.as(DependenciesHelper.getOriginalNode(buildProject, myGenerationContext), CONCEPTS.BuildProject$BF);
     if (buildProject == null) {
       return null;
     }
@@ -93,7 +93,7 @@ public class Context {
     return new Context(gencontext);
   }
 
-  private static final class AUX_lmsybr {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
   }
 }

@@ -14,9 +14,10 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class UseIndentLayoutInCollection_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -47,7 +48,7 @@ public final class UseIndentLayoutInCollection_Intention extends AbstractIntenti
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
-      if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")), AUX_grabt2.CellLayout_Indent_3a0f3674))) {
+      if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.cellLayout$usNp), CONCEPTS.CellLayout_Indent$tI))) {
         return "Use Indent Layout";
       } else {
         return "Use Horizontal Layout";
@@ -55,10 +56,10 @@ public final class UseIndentLayoutInCollection_Intention extends AbstractIntenti
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout")), AUX_grabt2.CellLayout_Indent_3a0f3674))) {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout"), AUX_grabt2.CellLayout_Indent_3a0f3674);
+      if (!(SNodeOperations.isInstanceOf(SLinkOperations.getTarget(node, LINKS.cellLayout$usNp), CONCEPTS.CellLayout_Indent$tI))) {
+        SNodeFactoryOperations.setNewChild(node, LINKS.cellLayout$usNp, CONCEPTS.CellLayout_Indent$tI);
       } else {
-        SNodeFactoryOperations.setNewChild(node, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout"), AUX_grabt2.CellLayout_Horizontal_21c61206);
+        SNodeFactoryOperations.setNewChild(node, LINKS.cellLayout$usNp, CONCEPTS.CellLayout_Horizontal$Ss);
       }
     }
     @Override
@@ -67,8 +68,12 @@ public final class UseIndentLayoutInCollection_Intention extends AbstractIntenti
     }
   }
 
-  private static final class AUX_grabt2 {
-    /*package*/ static final SConcept CellLayout_Indent_3a0f3674 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120150bb441L, "jetbrains.mps.lang.editor.structure.CellLayout_Indent");
-    /*package*/ static final SConcept CellLayout_Horizontal_21c61206 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dcf685L, "jetbrains.mps.lang.editor.structure.CellLayout_Horizontal");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink cellLayout$usNp = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eaff2517L, 0x10192e0d3baL, "cellLayout");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellLayout_Indent$tI = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x120150bb441L, "jetbrains.mps.lang.editor.structure.CellLayout_Indent");
+    /*package*/ static final SConcept CellLayout_Horizontal$Ss = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10192dcf685L, "jetbrains.mps.lang.editor.structure.CellLayout_Horizontal");
   }
 }

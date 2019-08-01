@@ -172,6 +172,7 @@
     </language>
     <language id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal">
       <concept id="4927083583736784422" name="jetbrains.mps.baseLanguageInternal.structure.ExtractToSingleConstantExpression" flags="ng" index="1BaE9c">
+        <property id="3566113306135792467" name="baseContainerName" index="1ouuDV" />
         <property id="4927083583736815155" name="uniqueFieldName" index="1BaxDp" />
         <child id="4927083583736819744" name="expression" index="1Bazha" />
       </concept>
@@ -797,7 +798,8 @@
               </node>
             </node>
             <node concept="1BaE9c" id="3y" role="37wK5m">
-              <property role="1BaxDp" value="AbstractAntiquotation_25f29ace" />
+              <property role="1ouuDV" value="CONCEPTS" />
+              <property role="1BaxDp" value="AbstractAntiquotation$Tk" />
               <node concept="2YIFZM" id="3I" role="1Bazha">
                 <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getInterfaceConcept(long,long,long,java.lang.String)" resolve="getInterfaceConcept" />
                 <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
@@ -1016,7 +1018,8 @@
                   </node>
                 </node>
                 <node concept="1BaE9c" id="51" role="3g7hyw">
-                  <property role="1BaxDp" value="PatternVariableDeclaration_b5cd3dd8" />
+                  <property role="1ouuDV" value="CONCEPTS" />
+                  <property role="1BaxDp" value="PatternVariableDeclaration$Ma" />
                   <node concept="2YIFZM" id="56" role="1Bazha">
                     <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
                     <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(long,long,long,java.lang.String)" resolve="getConcept" />
@@ -1065,7 +1068,8 @@
                   </node>
                 </node>
                 <node concept="1BaE9c" id="52" role="3g7hyw">
-                  <property role="1BaxDp" value="PropertyPatternVariableDeclaration_b5cd3def" />
+                  <property role="1ouuDV" value="CONCEPTS" />
+                  <property role="1BaxDp" value="PropertyPatternVariableDeclaration$Xj" />
                   <node concept="2YIFZM" id="5n" role="1Bazha">
                     <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
                     <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(long,long,long,java.lang.String)" resolve="getConcept" />

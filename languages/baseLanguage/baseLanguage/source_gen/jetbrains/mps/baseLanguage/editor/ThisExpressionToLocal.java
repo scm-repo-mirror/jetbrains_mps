@@ -11,10 +11,11 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.behavior.FieldReferenceOperation__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.behavior.InstanceMethodCallOperation__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ThisExpressionToLocal extends KeyMapImpl {
   public ThisExpressionToLocal() {
@@ -39,7 +40,7 @@ public class ThisExpressionToLocal extends KeyMapImpl {
       if (contextNode == null) {
         return false;
       }
-      if (!(SNodeOperations.isInstanceOf(contextNode, AUX_xcmp2l.ThisExpression_a046bcfc))) {
+      if (!(SNodeOperations.isInstanceOf(contextNode, CONCEPTS.ThisExpression$7A))) {
         return false;
       }
       return this.canExecute_internal(editorContext, contextNode, this.getSelectedNodes(editorContext));
@@ -49,20 +50,20 @@ public class ThisExpressionToLocal extends KeyMapImpl {
       this.execute_internal(editorContext, contextCell.getSNode(), this.getSelectedNodes(editorContext));
     }
     private boolean canExecute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_xcmp2l.DotExpression_97ed08d8);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a);
     }
     private void execute_internal(final EditorContext editorContext, final SNode node, final List<SNode> selectedNodes) {
-      SNode dot = SNodeOperations.cast(SNodeOperations.getParent(node), AUX_xcmp2l.DotExpression_97ed08d8);
-      SNode operation = SLinkOperations.getTarget(dot, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation"));
-      if (SNodeOperations.isInstanceOf(operation, AUX_xcmp2l.FieldReferenceOperation_fc8d5dda)) {
-        SNode fieldRef = SNodeOperations.cast(operation, AUX_xcmp2l.FieldReferenceOperation_fc8d5dda);
+      SNode dot = SNodeOperations.cast(SNodeOperations.getParent(node), CONCEPTS.DotExpression$6a);
+      SNode operation = SLinkOperations.getTarget(dot, LINKS.operation$X4R8);
+      if (SNodeOperations.isInstanceOf(operation, CONCEPTS.FieldReferenceOperation$N8)) {
+        SNode fieldRef = SNodeOperations.cast(operation, CONCEPTS.FieldReferenceOperation$N8);
         if ((boolean) FieldReferenceOperation__BehaviorDescriptor.canBeConvertedToLocal_id4APqwMfC3hI.invoke(fieldRef)) {
           FieldReferenceOperation__BehaviorDescriptor.convertToLocal_id4APqwMfCtHb.invoke(fieldRef);
           return;
         }
       }
-      if (SNodeOperations.isInstanceOf(operation, AUX_xcmp2l.InstanceMethodCallOperation_cd28f5b6)) {
-        SNode methodCall = SNodeOperations.cast(operation, AUX_xcmp2l.InstanceMethodCallOperation_cd28f5b6);
+      if (SNodeOperations.isInstanceOf(operation, CONCEPTS.InstanceMethodCallOperation$1G)) {
+        SNode methodCall = SNodeOperations.cast(operation, CONCEPTS.InstanceMethodCallOperation$1G);
         if ((boolean) InstanceMethodCallOperation__BehaviorDescriptor.canBeConvertedToLocal_id4APqwMfCiZK.invoke(methodCall)) {
           InstanceMethodCallOperation__BehaviorDescriptor.convertToLocal_id4APqwMfCtHI.invoke(methodCall);
           return;
@@ -74,10 +75,14 @@ public class ThisExpressionToLocal extends KeyMapImpl {
     }
   }
 
-  private static final class AUX_xcmp2l {
-    /*package*/ static final SConcept ThisExpression_a046bcfc = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
-    /*package*/ static final SConcept DotExpression_97ed08d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
-    /*package*/ static final SConcept FieldReferenceOperation_fc8d5dda = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
-    /*package*/ static final SConcept InstanceMethodCallOperation_cd28f5b6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ThisExpression$7A = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
+    /*package*/ static final SConcept DotExpression$6a = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, "jetbrains.mps.baseLanguage.structure.DotExpression");
+    /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
+    /*package*/ static final SConcept InstanceMethodCallOperation$1G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operation$X4R8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46b36c4L, "operation");
   }
 }

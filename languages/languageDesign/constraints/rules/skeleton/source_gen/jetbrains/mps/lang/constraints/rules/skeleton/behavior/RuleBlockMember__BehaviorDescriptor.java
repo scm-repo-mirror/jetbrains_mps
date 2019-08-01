@@ -4,6 +4,7 @@ package jetbrains.mps.lang.constraints.rules.skeleton.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -15,17 +16,17 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class RuleBlockMember__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_sdgqqe.RuleBlockMember_c70a5095;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember");
 
   public static final SMethod<SNode> getBlock_id1BFxp3HHhy9 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getBlock").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1BFxp3HHhy9").build();
   public static final SMethod<SNode> getRuleKind_id1BFxp3HHhyj = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getRuleKind").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1BFxp3HHhyj").build();
@@ -37,14 +38,14 @@ public final class RuleBlockMember__BehaviorDescriptor extends BaseBHDescriptor 
   }
 
   /*package*/ static SNode getBlock_id1BFxp3HHhy9(@NotNull SNode __thisNode__) {
-    return SNodeOperations.getNodeAncestor(__thisNode__, AUX_sdgqqe.RulesBlock_c70a508f, false, false);
+    return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.RulesBlock$2N, false, false);
   }
   /*package*/ static SNode getRuleKind_id1BFxp3HHhyj(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(RuleBlockMember__BehaviorDescriptor.getBlock_id1BFxp3HHhy9.invoke(__thisNode__), MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb5174aL, 0x19eb8590edb5174cL, "kind"));
+    return SLinkOperations.getTarget(RuleBlockMember__BehaviorDescriptor.getBlock_id1BFxp3HHhy9.invoke(__thisNode__), LINKS.kind$ipQZ);
   }
   @Hack
   /*package*/ static SNode getHighestMember_id2mL_UKGkn8G(@NotNull SNode __thisNode__) {
-    return ListSequence.fromList(SNodeOperations.getNodeAncestors(__thisNode__, AUX_sdgqqe.RuleBlockMember_c70a5095, true)).last();
+    return ListSequence.fromList(SNodeOperations.getNodeAncestors(__thisNode__, CONCEPTS.RuleBlockMember$5H, true)).last();
   }
 
   /*package*/ RuleBlockMember__BehaviorDescriptor() {
@@ -97,8 +98,12 @@ public final class RuleBlockMember__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
-  private static final class AUX_sdgqqe {
-    /*package*/ static final SInterfaceConcept RuleBlockMember_c70a5095 = MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember");
-    /*package*/ static final SConcept RulesBlock_c70a508f = MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb5174aL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesBlock");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RulesBlock$2N = MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb5174aL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesBlock");
+    /*package*/ static final SInterfaceConcept RuleBlockMember$5H = MetaAdapterFactory.getInterfaceConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb51750L, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RuleBlockMember");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink kind$ipQZ = MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edb5174aL, 0x19eb8590edb5174cL, "kind");
   }
 }

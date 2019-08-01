@@ -10,7 +10,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <root>
     <file name="TypesystemDescriptor.java">
-      <unit at="235,0,241,0" name="jetbrains.mps.baseLanguage.money.typesystem.TypesystemDescriptor$AUX_3ist9o" />
+      <unit at="235,0,241,0" name="jetbrains.mps.baseLanguage.money.typesystem.TypesystemDescriptor$CONCEPTS" />
       <unit at="16,0,242,0" name="jetbrains.mps.baseLanguage.money.typesystem.TypesystemDescriptor" />
     </file>
   </root>
@@ -27,14 +27,14 @@
       <node id="1187360077368" at="21,5,22,66" concept="4" />
       <node id="1187360077368" at="22,66,23,203" concept="4" />
       <node id="1187360077368" at="23,203,24,284" concept="2" />
-      <node id="1187359576319" at="27,50,28,56" concept="5" />
+      <node id="1187359576319" at="27,50,28,48" concept="5" />
       <node id="1187359576319" at="30,68,31,102" concept="5" />
       <node id="1187359576319" at="33,30,34,17" concept="5" />
       <node id="1197379728947" at="36,65,37,63" concept="4" />
       <node id="1197379728947" at="37,63,38,30" concept="4" />
       <node id="1197379728947" at="38,30,39,248" concept="2" />
       <node id="1197379728947" at="39,248,40,24" concept="5" />
-      <node id="1187359576319" at="44,0,45,0" concept="6" trace="MoneyGetAmountMethodCall_f949c893" />
+      <node id="1187359576319" at="44,0,45,0" concept="6" trace="MoneyGetAmountMethodCall$$J" />
       <node id="1187359576319" at="18,0,20,0" concept="1" trace="typeof_MoneyGetAmountMethodCall_InferenceRule#()V" />
       <node id="1187359576319" at="27,0,30,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="1187359576319" at="30,0,33,0" concept="3" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
@@ -43,7 +43,7 @@
       <node id="1197379728947" at="36,0,42,0" concept="7" trace="_quotation_createNode_buwp7s_a1a0c0a0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1187359576319" at="20,0,27,0" concept="3" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="1187359576319" at="18,58,18,58" />
-      <scope id="1187359576319" at="27,50,28,56" />
+      <scope id="1187359576319" at="27,50,28,48" />
       <scope id="1187359576319" at="30,68,31,102" />
       <scope id="1187359576319" at="33,30,34,17" />
       <scope id="1187359576319" at="18,0,20,0" />
@@ -67,7 +67,7 @@
         <var name="status" id="1187359576319" />
         <var name="typeCheckingContext" id="1187359576319" />
       </scope>
-      <unit id="1187359576319" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyGetAmountMethodCall_InferenceRule$AUX_buwp7s" />
+      <unit id="1187359576319" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyGetAmountMethodCall_InferenceRule$CONCEPTS" />
       <unit id="1187359576319" at="17,0,47,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyGetAmountMethodCall_InferenceRule" />
     </file>
   </root>
@@ -84,14 +84,14 @@
       <node id="1187360333778" at="21,5,22,68" concept="4" />
       <node id="1187360333778" at="22,68,23,203" concept="4" />
       <node id="1187360333778" at="23,203,24,284" concept="2" />
-      <node id="1187360305150" at="27,50,28,58" concept="5" />
+      <node id="1187360305150" at="27,50,28,50" concept="5" />
       <node id="1187360305150" at="30,68,31,102" concept="5" />
       <node id="1187360305150" at="33,30,34,17" concept="5" />
       <node id="1197379728949" at="36,65,37,63" concept="4" />
       <node id="1197379728949" at="37,63,38,30" concept="4" />
       <node id="1197379728949" at="38,30,39,248" concept="2" />
       <node id="1197379728949" at="39,248,40,24" concept="5" />
-      <node id="1187360305150" at="44,0,45,0" concept="6" trace="MoneyGetCurrencyMethodCall_fad46234" />
+      <node id="1187360305150" at="44,0,45,0" concept="6" trace="MoneyGetCurrencyMethodCall$eI" />
       <node id="1187360305150" at="18,0,20,0" concept="1" trace="typeof_MoneyGetCurrencyMethodCall_InferenceRule#()V" />
       <node id="1187360305150" at="27,0,30,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="1187360305150" at="30,0,33,0" concept="3" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
@@ -100,7 +100,7 @@
       <node id="1197379728949" at="36,0,42,0" concept="7" trace="_quotation_createNode_i0acud_a1a0c0a0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1187360305150" at="20,0,27,0" concept="3" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="1187360305150" at="18,60,18,60" />
-      <scope id="1187360305150" at="27,50,28,58" />
+      <scope id="1187360305150" at="27,50,28,50" />
       <scope id="1187360305150" at="30,68,31,102" />
       <scope id="1187360305150" at="33,30,34,17" />
       <scope id="1187360305150" at="18,0,20,0" />
@@ -124,7 +124,7 @@
         <var name="status" id="1187360305150" />
         <var name="typeCheckingContext" id="1187360305150" />
       </scope>
-      <unit id="1187360305150" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyGetCurrencyMethodCall_InferenceRule$AUX_i0acud" />
+      <unit id="1187360305150" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyGetCurrencyMethodCall_InferenceRule$CONCEPTS" />
       <unit id="1187360305150" at="17,0,47,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyGetCurrencyMethodCall_InferenceRule" />
     </file>
   </root>
@@ -141,14 +141,14 @@
       <node id="1187618239848" at="21,5,22,63" concept="4" />
       <node id="1187618239848" at="22,63,23,203" concept="4" />
       <node id="1187618239848" at="23,203,24,284" concept="2" />
-      <node id="1187618173694" at="27,50,28,53" concept="5" />
+      <node id="1187618173694" at="27,50,28,45" concept="5" />
       <node id="1187618173694" at="30,68,31,102" concept="5" />
       <node id="1187618173694" at="33,30,34,17" concept="5" />
       <node id="1197379728951" at="36,65,37,63" concept="4" />
       <node id="1197379728951" at="37,63,38,30" concept="4" />
       <node id="1197379728951" at="38,30,39,248" concept="2" />
       <node id="1197379728951" at="39,248,40,24" concept="5" />
-      <node id="1187618173694" at="44,0,45,0" concept="6" trace="MoneyIsZeroMethodCall_11816f87" />
+      <node id="1187618173694" at="44,0,45,0" concept="6" trace="MoneyIsZeroMethodCall$2V" />
       <node id="1187618173694" at="18,0,20,0" concept="1" trace="typeof_MoneyIsZeroMethodCall_InferenceRule#()V" />
       <node id="1187618173694" at="27,0,30,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="1187618173694" at="30,0,33,0" concept="3" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
@@ -157,7 +157,7 @@
       <node id="1197379728951" at="36,0,42,0" concept="7" trace="_quotation_createNode_xrh9nw_a1a0c0a0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1187618173694" at="20,0,27,0" concept="3" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="1187618173694" at="18,55,18,55" />
-      <scope id="1187618173694" at="27,50,28,53" />
+      <scope id="1187618173694" at="27,50,28,45" />
       <scope id="1187618173694" at="30,68,31,102" />
       <scope id="1187618173694" at="33,30,34,17" />
       <scope id="1187618173694" at="18,0,20,0" />
@@ -181,7 +181,7 @@
         <var name="status" id="1187618173694" />
         <var name="typeCheckingContext" id="1187618173694" />
       </scope>
-      <unit id="1187618173694" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyIsZeroMethodCall_InferenceRule$AUX_xrh9nw" />
+      <unit id="1187618173694" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyIsZeroMethodCall_InferenceRule$CONCEPTS" />
       <unit id="1187618173694" at="17,0,47,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyIsZeroMethodCall_InferenceRule" />
     </file>
   </root>
@@ -198,14 +198,14 @@
       <node id="1187621962983" at="21,5,22,54" concept="4" />
       <node id="1187621962983" at="22,54,23,203" concept="4" />
       <node id="1187621962983" at="23,203,24,284" concept="2" />
-      <node id="1187621915208" at="27,50,28,44" concept="5" />
+      <node id="1187621915208" at="27,50,28,36" concept="5" />
       <node id="1187621915208" at="30,68,31,102" concept="5" />
       <node id="1187621915208" at="33,30,34,17" concept="5" />
       <node id="1197379728953" at="36,65,37,63" concept="4" />
       <node id="1197379728953" at="37,63,38,30" concept="4" />
       <node id="1197379728953" at="38,30,39,253" concept="2" />
       <node id="1197379728953" at="39,253,40,24" concept="5" />
-      <node id="1187621915208" at="44,0,45,0" concept="6" trace="MoneyCreator_163dfa97" />
+      <node id="1187621915208" at="44,0,45,0" concept="6" trace="MoneyCreator$uF" />
       <node id="1187621915208" at="18,0,20,0" concept="1" trace="typeof_MoneyCreator_InferenceRule#()V" />
       <node id="1187621915208" at="27,0,30,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="1187621915208" at="30,0,33,0" concept="3" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
@@ -214,7 +214,7 @@
       <node id="1197379728953" at="36,0,42,0" concept="7" trace="_quotation_createNode_n52308_a1a0c0a0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1187621915208" at="20,0,27,0" concept="3" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="1187621915208" at="18,46,18,46" />
-      <scope id="1187621915208" at="27,50,28,44" />
+      <scope id="1187621915208" at="27,50,28,36" />
       <scope id="1187621915208" at="30,68,31,102" />
       <scope id="1187621915208" at="33,30,34,17" />
       <scope id="1187621915208" at="18,0,20,0" />
@@ -238,7 +238,7 @@
         <var name="status" id="1187621915208" />
         <var name="typeCheckingContext" id="1187621915208" />
       </scope>
-      <unit id="1187621915208" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyCreator_InferenceRule$AUX_n52308" />
+      <unit id="1187621915208" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyCreator_InferenceRule$CONCEPTS" />
       <unit id="1187621915208" at="17,0,47,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyCreator_InferenceRule" />
     </file>
   </root>
@@ -255,14 +255,14 @@
       <node id="1187622287642" at="21,5,22,54" concept="4" />
       <node id="1187622287642" at="22,54,23,203" concept="4" />
       <node id="1187622287642" at="23,203,24,283" concept="2" />
-      <node id="1187622269431" at="27,50,28,43" concept="5" />
+      <node id="1187622269431" at="27,50,28,36" concept="5" />
       <node id="1187622269431" at="30,68,31,102" concept="5" />
       <node id="1187622269431" at="33,30,34,17" concept="5" />
       <node id="1197379728955" at="36,64,37,63" concept="4" />
       <node id="1197379728955" at="37,63,38,30" concept="4" />
       <node id="1197379728955" at="38,30,39,253" concept="2" />
       <node id="1197379728955" at="39,253,40,24" concept="5" />
-      <node id="1187622269431" at="44,0,45,0" concept="6" trace="MoneyLiteral_262710da" />
+      <node id="1187622269431" at="44,0,45,0" concept="6" trace="MoneyLiteral$B8" />
       <node id="1187622269431" at="18,0,20,0" concept="1" trace="typeof_MoneyLiteral_InferenceRule#()V" />
       <node id="1187622269431" at="27,0,30,0" concept="3" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
       <node id="1187622269431" at="30,0,33,0" concept="3" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
@@ -271,7 +271,7 @@
       <node id="1197379728955" at="36,0,42,0" concept="7" trace="_quotation_createNode_1il3t_a1a0c0a0b#()Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="1187622269431" at="20,0,27,0" concept="3" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="1187622269431" at="18,46,18,46" />
-      <scope id="1187622269431" at="27,50,28,43" />
+      <scope id="1187622269431" at="27,50,28,36" />
       <scope id="1187622269431" at="30,68,31,102" />
       <scope id="1187622269431" at="33,30,34,17" />
       <scope id="1187622269431" at="18,0,20,0" />
@@ -295,17 +295,17 @@
         <var name="status" id="1187622269431" />
         <var name="typeCheckingContext" id="1187622269431" />
       </scope>
-      <unit id="1187622269431" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyLiteral_InferenceRule$AUX_1il3t" />
+      <unit id="1187622269431" at="43,0,46,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyLiteral_InferenceRule$CONCEPTS" />
       <unit id="1187622269431" at="17,0,47,0" name="jetbrains.mps.baseLanguage.money.typesystem.typeof_MoneyLiteral_InferenceRule" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895903f6(jetbrains.mps.baseLanguage.money.typesystem)/1239364210617">
     <file name="TypesystemDescriptor.java">
-      <node id="1239364223962" at="37,5,38,133" concept="2" />
-      <node id="1239364310827" at="38,133,39,134" concept="2" />
-      <node id="1239364342055" at="39,134,40,132" concept="2" />
-      <node id="1239364382478" at="40,132,41,132" concept="2" />
-      <node id="1239364383450" at="41,132,42,132" concept="2" />
+      <node id="1239364223962" at="37,5,38,125" concept="2" />
+      <node id="1239364310827" at="38,125,39,126" concept="2" />
+      <node id="1239364342055" at="39,126,40,124" concept="2" />
+      <node id="1239364382478" at="40,124,41,124" concept="2" />
+      <node id="1239364383450" at="41,124,42,124" concept="2" />
       <node id="1239364220843" at="45,80,46,69" concept="2" />
       <node id="1239364220843" at="46,69,47,70" concept="2" />
       <node id="1239364220843" at="47,70,48,40" concept="2" />

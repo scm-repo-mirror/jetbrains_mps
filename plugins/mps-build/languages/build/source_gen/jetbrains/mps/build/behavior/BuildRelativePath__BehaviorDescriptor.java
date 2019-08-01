@@ -4,6 +4,7 @@ package jetbrains.mps.build.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,15 +17,16 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class BuildRelativePath__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_1cjj8w.BuildRelativePath_e8191f19;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, "jetbrains.mps.build.structure.BuildRelativePath");
 
   public static final SMethod<String> getBasePath_id4jjtc7WZMYz = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getBasePath").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4jjtc7WZMYz").build(SMethodBuilder.createJavaParameter(Context.class, ""));
   public static final SMethod<String> getLocalPath_id4Kip2_918Y$ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getLocalPath").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4Kip2_918Y$").build(SMethodBuilder.createJavaParameter(Context.class, ""));
@@ -54,27 +56,27 @@ public final class BuildRelativePath__BehaviorDescriptor extends BaseBHDescripto
     return basePath + BuildRelativePath__BehaviorDescriptor.getPathTail_id15RAxQX0M4T.invoke(__thisNode__);
   }
   /*package*/ static String getPathTail_id15RAxQX0M4T(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart")) == null)) {
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.compositePart$gwj7) == null)) {
       return "";
     }
-    return (String) BuildCompositePath__BehaviorDescriptor.getPath_id7usrAn05okK.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart")));
+    return (String) BuildCompositePath__BehaviorDescriptor.getPath_id7usrAn05okK.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.compositePart$gwj7));
   }
   /*package*/ static String getLastSegment_id5dwDdJ8yckN(@NotNull SNode __thisNode__) {
-    return ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart")) != null) ? BuildCompositePath__BehaviorDescriptor.getLastSegment_id1bWeed$oUbg.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart"))) : null);
+    return ((SLinkOperations.getTarget(__thisNode__, LINKS.compositePart$gwj7) != null) ? BuildCompositePath__BehaviorDescriptor.getLastSegment_id1bWeed$oUbg.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.compositePart$gwj7)) : null);
   }
   /*package*/ static SNode getParent_id7wpYgMyTXsR(@NotNull SNode __thisNode__) {
-    if ((boolean) BuildRelativePath__BehaviorDescriptor.isEmptyTail_id7wpYgMyU0sQ.invoke(SNodeOperations.asSConcept(AUX_1cjj8w.BuildRelativePath_e8191f19), SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart")))) {
+    if ((boolean) BuildRelativePath__BehaviorDescriptor.isEmptyTail_id7wpYgMyU0sQ.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildRelativePath$dD), SLinkOperations.getTarget(__thisNode__, LINKS.compositePart$gwj7))) {
       return null;
     }
     SNode copy = SNodeOperations.copyNode(__thisNode__);
-    SNode cp = SLinkOperations.getTarget(copy, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart"));
-    if ((boolean) BuildRelativePath__BehaviorDescriptor.isEmptyTail_id7wpYgMyU0sQ.invoke(SNodeOperations.asSConcept(AUX_1cjj8w.BuildRelativePath_e8191f19), SLinkOperations.getTarget(cp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail")))) {
-      SLinkOperations.setTarget(copy, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart"), null);
+    SNode cp = SLinkOperations.getTarget(copy, LINKS.compositePart$gwj7);
+    if ((boolean) BuildRelativePath__BehaviorDescriptor.isEmptyTail_id7wpYgMyU0sQ.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildRelativePath$dD), SLinkOperations.getTarget(cp, LINKS.tail$vKD0))) {
+      SLinkOperations.setTarget(copy, LINKS.compositePart$gwj7, null);
     } else {
       SNode prev = cp;
-      cp = BuildRelativePath__BehaviorDescriptor.next_id7wpYgMyU0gZ.invoke(SNodeOperations.asSConcept(AUX_1cjj8w.BuildRelativePath_e8191f19), cp);
+      cp = BuildRelativePath__BehaviorDescriptor.next_id7wpYgMyU0gZ.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildRelativePath$dD), cp);
       while (cp != null) {
-        SNode next = BuildRelativePath__BehaviorDescriptor.next_id7wpYgMyU0gZ.invoke(SNodeOperations.asSConcept(AUX_1cjj8w.BuildRelativePath_e8191f19), cp);
+        SNode next = BuildRelativePath__BehaviorDescriptor.next_id7wpYgMyU0gZ.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildRelativePath$dD), cp);
         if (next != null) {
           prev = cp;
           cp = next;
@@ -82,21 +84,21 @@ public final class BuildRelativePath__BehaviorDescriptor extends BaseBHDescripto
           break;
         }
       }
-      SLinkOperations.setTarget(prev, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"), null);
+      SLinkOperations.setTarget(prev, LINKS.tail$vKD0, null);
     }
     return copy;
   }
   /*package*/ static boolean isEmptyTail_id7wpYgMyU0sQ(@NotNull SAbstractConcept __thisConcept__, SNode cp) {
-    return cp == null || isEmptyString(SPropertyOperations.getString(cp, MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f3L, "head"))) && (boolean) BuildRelativePath__BehaviorDescriptor.isEmptyTail_id7wpYgMyU0sQ.invoke(SNodeOperations.asSConcept(AUX_1cjj8w.BuildRelativePath_e8191f19), SLinkOperations.getTarget(cp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail")));
+    return cp == null || isEmptyString(SPropertyOperations.getString(cp, PROPS.head$vKDv)) && (boolean) BuildRelativePath__BehaviorDescriptor.isEmptyTail_id7wpYgMyU0sQ.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildRelativePath$dD), SLinkOperations.getTarget(cp, LINKS.tail$vKD0));
   }
   /*package*/ static SNode next_id7wpYgMyU0gZ(@NotNull SAbstractConcept __thisConcept__, SNode cp) {
-    if ((SLinkOperations.getTarget(cp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail")) == null)) {
+    if ((SLinkOperations.getTarget(cp, LINKS.tail$vKD0) == null)) {
       return null;
     }
-    if (isEmptyString(SPropertyOperations.getString(SLinkOperations.getTarget(cp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail")), MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f3L, "head")))) {
-      return BuildRelativePath__BehaviorDescriptor.next_id7wpYgMyU0gZ.invoke(SNodeOperations.asSConcept(AUX_1cjj8w.BuildRelativePath_e8191f19), SLinkOperations.getTarget(cp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail")));
+    if (isEmptyString(SPropertyOperations.getString(SLinkOperations.getTarget(cp, LINKS.tail$vKD0), PROPS.head$vKDv))) {
+      return BuildRelativePath__BehaviorDescriptor.next_id7wpYgMyU0gZ.invoke(SNodeOperations.asSConcept(CONCEPTS.BuildRelativePath$dD), SLinkOperations.getTarget(cp, LINKS.tail$vKD0));
     }
-    return SLinkOperations.getTarget(cp, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail"));
+    return SLinkOperations.getTarget(cp, LINKS.tail$vKD0);
   }
 
   /*package*/ BuildRelativePath__BehaviorDescriptor() {
@@ -160,7 +162,16 @@ public final class BuildRelativePath__BehaviorDescriptor extends BaseBHDescripto
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_1cjj8w {
-    /*package*/ static final SConcept BuildRelativePath_e8191f19 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, "jetbrains.mps.build.structure.BuildRelativePath");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink compositePart$gwj7 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, 0x65997a65772aebcbL, "compositePart");
+    /*package*/ static final SContainmentLink tail$vKD0 = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f2L, "tail");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildRelativePath$dD = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x65997a657729f6fbL, "jetbrains.mps.build.structure.BuildRelativePath");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty head$vKDv = MetaAdapterFactory.getProperty(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x779c6e65c01467f1L, 0x779c6e65c01467f3L, "head");
   }
 }

@@ -11,13 +11,15 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ConvertClassCreatorToAnonimous_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -37,7 +39,7 @@ public final class ConvertClassCreatorToAnonimous_Intention extends AbstractInte
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")) != null;
+    return SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i) != null;
   }
   @Override
   public boolean isSurroundWith() {
@@ -58,13 +60,13 @@ public final class ConvertClassCreatorToAnonimous_Intention extends AbstractInte
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode anonimousClassCreator = SNodeFactoryOperations.replaceWithNewChild(node, AUX_839os4.AnonymousClassCreator_f341761c);
-      SLinkOperations.setTarget(SLinkOperations.getTarget(anonimousClassCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, 0x1133e3b8b49L, "cls")), MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier"), SNodeOperations.cast(SNodeOperations.getParent(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"))), AUX_839os4.ClassConcept_e2711824));
-      for (SNode typeParm : ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, 0x11a59c8ffe0L, "typeParameter")))) {
-        ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(anonimousClassCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, 0x1133e3b8b49L, "cls")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter"))).addElement(typeParm);
+      SNode anonimousClassCreator = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.AnonymousClassCreator$N6);
+      SLinkOperations.setTarget(SLinkOperations.getTarget(anonimousClassCreator, LINKS.cls$xt3G), LINKS.classifier$1y5e, SNodeOperations.cast(SNodeOperations.getParent(SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i)), CONCEPTS.ClassConcept$IY));
+      for (SNode typeParm : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeParameter$swNi))) {
+        ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(anonimousClassCreator, LINKS.cls$xt3G), LINKS.typeParameter$uY4E)).addElement(typeParm);
       }
-      for (SNode typeParm : ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, 0x11a59c8ffe0L, "typeParameter")))) {
-        ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(anonimousClassCreator, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, 0x1133e3b8b49L, "cls")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter"))).addElement(typeParm);
+      for (SNode typeParm : ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.typeParameter$swNi))) {
+        ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(anonimousClassCreator, LINKS.cls$xt3G), LINKS.typeParameter$uY4E)).addElement(typeParm);
       }
     }
     @Override
@@ -73,8 +75,16 @@ public final class ConvertClassCreatorToAnonimous_Intention extends AbstractInte
     }
   }
 
-  private static final class AUX_839os4 {
-    /*package*/ static final SConcept AnonymousClassCreator_f341761c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, "jetbrains.mps.baseLanguage.structure.AnonymousClassCreator");
-    /*package*/ static final SConcept ClassConcept_e2711824 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink cls$xt3G = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, 0x1133e3b8b49L, "cls");
+    /*package*/ static final SReferenceLink classifier$1y5e = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x1107e0fd2a0L, "classifier");
+    /*package*/ static final SContainmentLink typeParameter$uY4E = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1107e0cb103L, 0x117ac45a693L, "typeParameter");
+    /*package*/ static final SContainmentLink typeParameter$swNi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11a59b0fbceL, 0x11a59c8ffe0L, "typeParameter");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AnonymousClassCreator$N6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x1133e3b449aL, "jetbrains.mps.baseLanguage.structure.AnonymousClassCreator");
+    /*package*/ static final SConcept ClassConcept$IY = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, "jetbrains.mps.baseLanguage.structure.ClassConcept");
   }
 }

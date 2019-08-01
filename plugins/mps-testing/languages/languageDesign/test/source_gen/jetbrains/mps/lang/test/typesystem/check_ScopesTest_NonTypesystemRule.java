@@ -11,11 +11,12 @@ import jetbrains.mps.lang.test.behavior.ScopesTest__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.test.behavior.INodesTestMethod__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_ScopesTest_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
@@ -23,14 +24,14 @@ public class check_ScopesTest_NonTypesystemRule extends AbstractNonTypesystemRul
   }
   public void applyRule(final SNode scopesTest, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     if (!((boolean) ScopesTest__BehaviorDescriptor.isSimple_id4IvydoGvpbr.invoke(SNodeOperations.asSConcept(SNodeOperations.getConcept(scopesTest)), INodesTestMethod__BehaviorDescriptor.getAnnotatedNode_id38gbJV0XvZR.invoke(scopesTest)))) {
-      if (!((SLinkOperations.getTarget(scopesTest, MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference")) != null))) {
+      if (!((SLinkOperations.getTarget(scopesTest, LINKS.checkingReference$ZKEm) != null))) {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(scopesTest, "should specify reference link to check", "r:00000000-0000-4000-0000-011c89590385(jetbrains.mps.lang.test.typesystem)", "9018216227566657445", null, errorTarget);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7v6hu5.ScopesTest_1ed83fd8;
+    return CONCEPTS.ScopesTest$Ea;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -39,7 +40,11 @@ public class check_ScopesTest_NonTypesystemRule extends AbstractNonTypesystemRul
     return false;
   }
 
-  private static final class AUX_7v6hu5 {
-    /*package*/ static final SConcept ScopesTest_1ed83fd8 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink checkingReference$ZKEm = MetaAdapterFactory.getReferenceLink(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, 0x4b9f88d62c795596L, "checkingReference");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ScopesTest$Ea = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x7181d929c720809L, "jetbrains.mps.lang.test.structure.ScopesTest");
   }
 }

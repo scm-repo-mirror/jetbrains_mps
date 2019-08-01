@@ -4,6 +4,7 @@ package jetbrains.mps.build.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -17,15 +18,14 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.build.util.JavaExportUtil;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class BuildSource_JavaExternalJarRef__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_xbntda.BuildSource_JavaExternalJarRef_e5427b75;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarRef");
 
   public static final SMethod<Tuples._2<SNode, Boolean>> getDependencyTarget_id4RsV8qJGJqY = new SMethodBuilder<Tuples._2<SNode, Boolean>>(new SJavaCompoundTypeImpl((Class<Tuples._2<SNode, Boolean>>) ((Class) Object.class))).name("getDependencyTarget").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4RsV8qJGJqY").build(SMethodBuilder.createJavaParameter(VisibleArtifacts.class, ""));
 
@@ -35,11 +35,11 @@ public final class BuildSource_JavaExternalJarRef__BehaviorDescriptor extends Ba
   }
 
   /*package*/ static Tuples._2<SNode, Boolean> getDependencyTarget_id4RsV8qJGJqY(@NotNull SNode __thisNode__, VisibleArtifacts artifacts) {
-    if (SNodeOperations.getContainingRoot(__thisNode__) == SNodeOperations.getContainingRoot(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar")))) {
+    if (SNodeOperations.getContainingRoot(__thisNode__) == SNodeOperations.getContainingRoot(SLinkOperations.getTarget(__thisNode__, LINKS.jar$jJDw))) {
       return null;
     }
 
-    return JavaExportUtil.requireJar(artifacts, SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar")), __thisNode__);
+    return JavaExportUtil.requireJar(artifacts, SLinkOperations.getTarget(__thisNode__, LINKS.jar$jJDw), __thisNode__);
   }
 
   /*package*/ BuildSource_JavaExternalJarRef__BehaviorDescriptor() {
@@ -88,7 +88,7 @@ public final class BuildSource_JavaExternalJarRef__BehaviorDescriptor extends Ba
     return CONCEPT;
   }
 
-  private static final class AUX_xbntda {
-    /*package*/ static final SConcept BuildSource_JavaExternalJarRef_e5427b75 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, "jetbrains.mps.build.structure.BuildSource_JavaExternalJarRef");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink jar$jJDw = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4ddcec86afb2f64cL, 0x4ddcec86afb2f64dL, "jar");
   }
 }

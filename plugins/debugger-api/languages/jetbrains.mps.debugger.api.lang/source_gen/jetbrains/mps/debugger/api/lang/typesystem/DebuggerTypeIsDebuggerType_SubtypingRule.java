@@ -20,7 +20,7 @@ public class DebuggerTypeIsDebuggerType_SubtypingRule extends SubtypingRule_Runt
     return createDebuggerType_ueeq0q_a0a1();
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_ueeq0q.DebuggerType_d4e281b4;
+    return CONCEPTS.DebuggerType$gI;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -33,11 +33,11 @@ public class DebuggerTypeIsDebuggerType_SubtypingRule extends SubtypingRule_Runt
   }
   private static SNode createDebuggerType_ueeq0q_a0a1() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_ueeq0q.DebuggerType_d4e281b4, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.DebuggerType$gI, null, null, false);
     return n1;
   }
 
-  private static final class AUX_ueeq0q {
-    /*package*/ static final SConcept DebuggerType_d4e281b4 = MetaAdapterFactory.getConcept(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0xf528808f912bd83L, "jetbrains.mps.debugger.api.lang.structure.DebuggerType");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DebuggerType$gI = MetaAdapterFactory.getConcept(0xfbc142795e2a4c87L, 0xa5d15f7061e6c456L, 0xf528808f912bd83L, "jetbrains.mps.debugger.api.lang.structure.DebuggerType");
   }
 }

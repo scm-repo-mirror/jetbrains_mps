@@ -14,7 +14,6 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
@@ -22,13 +21,15 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class XMLSAXAttributeReference_SmartReference extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_k75wpb_a(), AUX_k75wpb.XMLSAXAttributeReference_1c3fd37f));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_k75wpb_a(), CONCEPTS.XMLSAXAttributeReference$J3));
     return result;
   }
 
@@ -49,7 +50,7 @@ public class XMLSAXAttributeReference_SmartReference extends SubstituteMenuBase 
 
     public SMP_ReferenceScope_k75wpb_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_k75wpb.XMLSAXAttributeReference_1c3fd37f, MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, 0x1f6c736337b5e2caL, "attribute"));
+      super((SAbstractConcept) CONCEPTS.XMLSAXAttributeReference$J3, LINKS.attribute$YvIw);
     }
     @NotNull
     @Override
@@ -81,11 +82,11 @@ public class XMLSAXAttributeReference_SmartReference extends SubstituteMenuBase 
       }
       @Override
       public String getMatchingText(String pattern) {
-        if (SNodeOperations.getNodeAncestor(_context.getParentNode(), AUX_k75wpb.XMLSAXNodeRule_1c3fd687, true, false) != SNodeOperations.getParent(referencedNode)) {
-          SNode nodeRule = SNodeOperations.as(SNodeOperations.getParent(referencedNode), AUX_k75wpb.XMLSAXNodeRule_1c3fd687);
-          return ((nodeRule == null ? "<unknown>" : SPropertyOperations.getString(nodeRule, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) + "." + SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        if (SNodeOperations.getNodeAncestor(_context.getParentNode(), CONCEPTS.XMLSAXNodeRule$AV, true, false) != SNodeOperations.getParent(referencedNode)) {
+          SNode nodeRule = SNodeOperations.as(SNodeOperations.getParent(referencedNode), CONCEPTS.XMLSAXNodeRule$AV);
+          return ((nodeRule == null ? "<unknown>" : SPropertyOperations.getString(nodeRule, PROPS.name$tAp1))) + "." + SPropertyOperations.getString(referencedNode, PROPS.name$tAp1);
         }
-        return SPropertyOperations.getString(referencedNode, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return SPropertyOperations.getString(referencedNode, PROPS.name$tAp1);
       }
       @Override
       public String getVisibleMatchingText(String pattern) {
@@ -99,8 +100,16 @@ public class XMLSAXAttributeReference_SmartReference extends SubstituteMenuBase 
     }
   }
 
-  private static final class AUX_k75wpb {
-    /*package*/ static final SConcept XMLSAXAttributeReference_1c3fd37f = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
-    /*package*/ static final SConcept XMLSAXNodeRule_1c3fd687 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXAttributeReference$J3 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeReference");
+    /*package*/ static final SConcept XMLSAXNodeRule$AV = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2f2L, "jetbrains.mps.core.xml.sax.structure.XMLSAXNodeRule");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink attribute$YvIw = MetaAdapterFactory.getReferenceLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c9L, 0x1f6c736337b5e2caL, "attribute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

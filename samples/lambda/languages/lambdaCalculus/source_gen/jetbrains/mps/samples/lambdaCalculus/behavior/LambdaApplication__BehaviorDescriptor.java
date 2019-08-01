@@ -4,6 +4,7 @@ package jetbrains.mps.samples.lambdaCalculus.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -16,15 +17,15 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class LambdaApplication__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_3x8h5x.LambdaApplication_e7f179a7;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaApplication");
 
   public static final SMethod<List<SNode>> getArguments_id4pfsEnSNDeV = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getArguments").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4pfsEnSNDeV").build();
   public static final SMethod<SNode> getLambdaAbstraction_id4khEFTQ$3U7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLambdaAbstraction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4khEFTQ$3U7").build();
@@ -38,24 +39,24 @@ public final class LambdaApplication__BehaviorDescriptor extends BaseBHDescripto
 
   /*package*/ static List<SNode> getArguments_id4pfsEnSNDeV(@NotNull SNode __thisNode__) {
     List<SNode> result = new ArrayList<SNode>();
-    ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de1L, "argument"))));
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function")), AUX_3x8h5x.LambdaApplication_e7f179a7)) {
-      ListSequence.fromList(result).addSequence(ListSequence.fromList(LambdaApplication__BehaviorDescriptor.getArguments_id4pfsEnSNDeV.invoke(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function")), AUX_3x8h5x.LambdaApplication_e7f179a7))));
+    ListSequence.fromList(result).addSequence(ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.argument$bGe8)));
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.function$bGdD), CONCEPTS.LambdaApplication$Er)) {
+      ListSequence.fromList(result).addSequence(ListSequence.fromList(LambdaApplication__BehaviorDescriptor.getArguments_id4pfsEnSNDeV.invoke(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.function$bGdD), CONCEPTS.LambdaApplication$Er))));
     }
     return result;
   }
   /*package*/ static SNode getLambdaAbstraction_id4khEFTQ$3U7(@NotNull SNode __thisNode__) {
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function")), AUX_3x8h5x.LambdaApplication_e7f179a7)) {
-      return LambdaApplication__BehaviorDescriptor.getLambdaAbstraction_id4khEFTQ$3U7.invoke(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function")), AUX_3x8h5x.LambdaApplication_e7f179a7));
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.function$bGdD), CONCEPTS.LambdaApplication$Er)) {
+      return LambdaApplication__BehaviorDescriptor.getLambdaAbstraction_id4khEFTQ$3U7.invoke(SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.function$bGdD), CONCEPTS.LambdaApplication$Er));
     }
-    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function")), AUX_3x8h5x.LambdaAbstraction_e64b12bd)) {
-      return SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function")), AUX_3x8h5x.LambdaAbstraction_e64b12bd);
+    if (SNodeOperations.isInstanceOf(SLinkOperations.getTarget(__thisNode__, LINKS.function$bGdD), CONCEPTS.LambdaAbstraction$h5)) {
+      return SNodeOperations.cast(SLinkOperations.getTarget(__thisNode__, LINKS.function$bGdD), CONCEPTS.LambdaAbstraction$h5);
 
     }
     return null;
   }
   /*package*/ static boolean isInner_id18EhrW3IE$z(@NotNull SNode __thisNode__) {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), AUX_3x8h5x.LambdaApplication_e7f179a7) && SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), AUX_3x8h5x.LambdaApplication_e7f179a7), MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function")) == __thisNode__;
+    return SNodeOperations.isInstanceOf(SNodeOperations.getParent(__thisNode__), CONCEPTS.LambdaApplication$Er) && SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.LambdaApplication$Er), LINKS.function$bGdD) == __thisNode__;
   }
   /*package*/ static boolean isFullApplication_id18EhrW3IFXQ(@NotNull SNode __thisNode__) {
     return !(((boolean) LambdaApplication__BehaviorDescriptor.isInner_id18EhrW3IE$z.invoke(__thisNode__))) && (ListSequence.fromList(LambdaApplication__BehaviorDescriptor.getArguments_id4pfsEnSNDeV.invoke(__thisNode__)).count() == ListSequence.fromList(LambdaAbstraction__BehaviorDescriptor.getAllVariables_id4pfsEnSNEj7.invoke(LambdaApplication__BehaviorDescriptor.getLambdaAbstraction_id4khEFTQ$3U7.invoke(__thisNode__))).count());
@@ -113,8 +114,13 @@ public final class LambdaApplication__BehaviorDescriptor extends BaseBHDescripto
     return CONCEPT;
   }
 
-  private static final class AUX_3x8h5x {
-    /*package*/ static final SConcept LambdaApplication_e7f179a7 = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaApplication");
-    /*package*/ static final SConcept LambdaAbstraction_e64b12bd = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7eccf80L, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaAbstraction");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink argument$bGe8 = MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de1L, "argument");
+    /*package*/ static final SContainmentLink function$bGdD = MetaAdapterFactory.getContainmentLink(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, 0x37d11ba7d7ee2de0L, "function");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LambdaApplication$Er = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7ee2dddL, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaApplication");
+    /*package*/ static final SConcept LambdaAbstraction$h5 = MetaAdapterFactory.getConcept(0x7c9e280794ad4afcL, 0xadf0aaee45eb2895L, 0x37d11ba7d7eccf80L, "jetbrains.mps.samples.lambdaCalculus.structure.LambdaAbstraction");
   }
 }

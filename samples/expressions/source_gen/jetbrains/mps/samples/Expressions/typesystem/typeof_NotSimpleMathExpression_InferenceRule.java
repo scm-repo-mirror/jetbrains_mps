@@ -8,11 +8,12 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_NotSimpleMathExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -20,7 +21,7 @@ public class typeof_NotSimpleMathExpression_InferenceRule extends AbstractInfere
   }
   public void applyRule(final SNode not, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(not, MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81d547bL, 0x1cc69153b81d547cL, "original"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(not, LINKS.original$lu10);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "2073504467208515523", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:9e78ab00-457d-4aa2-aec8-f0f0bf086985(jetbrains.mps.samples.Expressions.typesystem)", "2073504467208515089", true), (SNode) createSimpleMathBooleanType_7rascm_a1a0c0a0b(), _info_12389875345);
     }
@@ -31,7 +32,7 @@ public class typeof_NotSimpleMathExpression_InferenceRule extends AbstractInfere
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_7rascm.NotSimpleMathExpression_5722b2c2;
+    return CONCEPTS.NotSimpleMathExpression$jw;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,17 +42,21 @@ public class typeof_NotSimpleMathExpression_InferenceRule extends AbstractInfere
   }
   private static SNode createSimpleMathBooleanType_7rascm_a1a0c0a0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_7rascm.SimpleMathBooleanType_7cf3ce08, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SimpleMathBooleanType$9q, null, null, false);
     return n1;
   }
   private static SNode createSimpleMathBooleanType_7rascm_a1a0c0b0b() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_7rascm.SimpleMathBooleanType_7cf3ce08, null, null, false);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.SimpleMathBooleanType$9q, null, null, false);
     return n1;
   }
 
-  private static final class AUX_7rascm {
-    /*package*/ static final SConcept NotSimpleMathExpression_5722b2c2 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81d5484L, "jetbrains.mps.samples.Expressions.structure.NotSimpleMathExpression");
-    /*package*/ static final SConcept SimpleMathBooleanType_7cf3ce08 = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81f9f68L, "jetbrains.mps.samples.Expressions.structure.SimpleMathBooleanType");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink original$lu10 = MetaAdapterFactory.getContainmentLink(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81d547bL, 0x1cc69153b81d547cL, "original");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NotSimpleMathExpression$jw = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81d5484L, "jetbrains.mps.samples.Expressions.structure.NotSimpleMathExpression");
+    /*package*/ static final SConcept SimpleMathBooleanType$9q = MetaAdapterFactory.getConcept(0x7e282943fc6b4900L, 0xada534c0024cc4f4L, 0x1cc69153b81f9f68L, "jetbrains.mps.samples.Expressions.structure.SimpleMathBooleanType");
   }
 }

@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class GetMakeSessionExpression_Constraints extends BaseConstraintsDescriptor {
   public GetMakeSessionExpression_Constraints() {
-    super(AUX_nvg2ao.GetMakeSessionExpression_6daf7dc9);
+    super(CONCEPTS.GetMakeSessionExpression$ET);
   }
 
   @Override
@@ -37,13 +37,13 @@ public class GetMakeSessionExpression_Constraints extends BaseConstraintsDescrip
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return (SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{AUX_nvg2ao.JobDefinition_b2a5a9c8, AUX_nvg2ao.ConfigDefinition_ead0810f}, false, false) != null);
+    return (SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{CONCEPTS.JobDefinition$Uq, CONCEPTS.ConfigDefinition$N}, false, false) != null);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:56325792-0540-48ec-8d52-897a8821cc64(jetbrains.mps.make.script.constraints)", "7044091413522263289");
 
-  private static final class AUX_nvg2ao {
-    /*package*/ static final SConcept GetMakeSessionExpression_6daf7dc9 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x61c1a3d1c45fac8cL, "jetbrains.mps.make.script.structure.GetMakeSessionExpression");
-    /*package*/ static final SConcept JobDefinition_b2a5a9c8 = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a972dabL, "jetbrains.mps.make.script.structure.JobDefinition");
-    /*package*/ static final SConcept ConfigDefinition_ead0810f = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dcbee4L, "jetbrains.mps.make.script.structure.ConfigDefinition");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GetMakeSessionExpression$ET = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x61c1a3d1c45fac8cL, "jetbrains.mps.make.script.structure.GetMakeSessionExpression");
+    /*package*/ static final SConcept JobDefinition$Uq = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x20c069f80a972dabL, "jetbrains.mps.make.script.structure.JobDefinition");
+    /*package*/ static final SConcept ConfigDefinition$N = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x1b731b4510dcbee4L, "jetbrains.mps.make.script.structure.ConfigDefinition");
   }
 }

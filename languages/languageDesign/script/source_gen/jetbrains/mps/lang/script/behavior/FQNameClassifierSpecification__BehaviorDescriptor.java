@@ -4,6 +4,7 @@ package jetbrains.mps.lang.script.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -14,14 +15,13 @@ import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class FQNameClassifierSpecification__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_t5kdbq.FQNameClassifierSpecification_2dabc6b8;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, "jetbrains.mps.lang.script.structure.FQNameClassifierSpecification");
 
   public static final SMethod<String> getClassifierFqName_id4HFrnGErDob = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getClassifierFqName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4HFrnGErDob").build();
   public static final SMethod<String> getSModelReference_id4HFrnGEt_VQ = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getSModelReference").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4HFrnGEt_VQ").build();
@@ -32,10 +32,10 @@ public final class FQNameClassifierSpecification__BehaviorDescriptor extends Bas
   }
 
   /*package*/ static String getClassifierFqName_id4HFrnGErDob(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a6bdf42L, "classifierFQName"));
+    return SPropertyOperations.getString(__thisNode__, PROPS.classifierFQName$esZ1);
   }
   /*package*/ static String getSModelReference_id4HFrnGEt_VQ(@NotNull SNode __thisNode__) {
-    return SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a76ca23L, "smodelReference"));
+    return SPropertyOperations.getString(__thisNode__, PROPS.smodelReference$rQr7);
   }
 
   /*package*/ FQNameClassifierSpecification__BehaviorDescriptor() {
@@ -86,7 +86,8 @@ public final class FQNameClassifierSpecification__BehaviorDescriptor extends Bas
     return CONCEPT;
   }
 
-  private static final class AUX_t5kdbq {
-    /*package*/ static final SConcept FQNameClassifierSpecification_2dabc6b8 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, "jetbrains.mps.lang.script.structure.FQNameClassifierSpecification");
+  private static final class PROPS {
+    /*package*/ static final SProperty classifierFQName$esZ1 = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a6bdf42L, "classifierFQName");
+    /*package*/ static final SProperty smodelReference$rQr7 = MetaAdapterFactory.getProperty(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638ddbL, 0x4b6b6d7b2a76ca23L, "smodelReference");
   }
 }

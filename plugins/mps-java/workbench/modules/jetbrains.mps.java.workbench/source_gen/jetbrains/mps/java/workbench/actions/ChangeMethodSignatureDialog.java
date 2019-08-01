@@ -16,8 +16,8 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
 import javax.swing.border.TitledBorder;
@@ -35,6 +35,7 @@ import jetbrains.mps.baseLanguage.util.plugin.refactorings.MethodRefactoringUtil
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class ChangeMethodSignatureDialog extends RefactoringDialog {
   private SNode myDeclaration;
@@ -63,7 +64,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
     myProject.getRepository().getModelAccess().executeCommand(new Runnable() {
       public void run() {
         SNode baseMethodDeclaration = ChangeMethodSignatureDialog.this.myParameters.getDeclaration();
-        SLinkOperations.setTarget(baseMethodDeclaration, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body"), SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList")));
+        SLinkOperations.setTarget(baseMethodDeclaration, LINKS.body$WIlu, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList")));
 
         myTempModel = TemporaryModels.getInstance().createEditable(true, TempModuleOptions.forDefaultModule());
         myTempModel.addRootNode(baseMethodDeclaration);
@@ -134,5 +135,9 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
       });
     }
     super.dispose();
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
   }
 }

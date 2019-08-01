@@ -8,7 +8,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
@@ -17,6 +16,9 @@ import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class DeleteStaticInField {
 
@@ -26,21 +28,21 @@ public class DeleteStaticInField {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_rnxsn2.Interface_bca2069)) {
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Interface$Kp)) {
           editorContext.flushEvents();
           return;
         }
-        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, AUX_rnxsn2.FieldDeclaration_e2711ac6);
+        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.FieldDeclaration$Ps);
         MemberDeclarationRefactoringUtil.rewireFieldReferences(node, replacing);
 
-        if (SPropertyOperations.getBoolean(replacing, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal"))) {
+        if (SPropertyOperations.getBoolean(replacing, PROPS.isFinal$hIht)) {
           SelectionUtil.selectCell(editorContext, replacing, "finalModifier");
-        } else if (SPropertyOperations.getBoolean(replacing, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x776fe644792f90adL, "isTransient"))) {
+        } else if (SPropertyOperations.getBoolean(replacing, PROPS.isTransient$cz2$)) {
           SelectionUtil.selectCell(editorContext, replacing, "transientModifier");
-        } else if (SPropertyOperations.getBoolean(replacing, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x120c4a208a1L, "isVolatile"))) {
+        } else if (SPropertyOperations.getBoolean(replacing, PROPS.isVolatile$v3l9)) {
           SelectionUtil.selectCell(editorContext, replacing, "volatileModifier");
         } else {
-          SelectionUtil.selectNode(editorContext, SLinkOperations.getTarget(replacing, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type")));
+          SelectionUtil.selectNode(editorContext, SLinkOperations.getTarget(replacing, LINKS.type$pLrO));
         }
       }
 
@@ -52,11 +54,11 @@ public class DeleteStaticInField {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
-        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), AUX_rnxsn2.Interface_bca2069)) {
+        if (SNodeOperations.isInstanceOf(SNodeOperations.getParent(node), CONCEPTS.Interface$Kp)) {
           editorContext.flushEvents();
           return;
         }
-        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, AUX_rnxsn2.FieldDeclaration_e2711ac6);
+        SNode replacing = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.FieldDeclaration$Ps);
         MemberDeclarationRefactoringUtil.rewireFieldReferences(node, replacing);
 
         SelectionUtil.selectLabelCellAnSetCaret(editorContext, replacing, SelectionManager.FIRST_EDITABLE_CELL, -1);
@@ -104,8 +106,18 @@ public class DeleteStaticInField {
     }
   }
 
-  private static final class AUX_rnxsn2 {
-    /*package*/ static final SConcept Interface_bca2069 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty isFinal$hIht = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0x111f9e9f00cL, "isFinal");
+    /*package*/ static final SProperty isTransient$cz2$ = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x776fe644792f90adL, "isTransient");
+    /*package*/ static final SProperty isVolatile$v3l9 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, 0x120c4a208a1L, "isVolatile");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 }

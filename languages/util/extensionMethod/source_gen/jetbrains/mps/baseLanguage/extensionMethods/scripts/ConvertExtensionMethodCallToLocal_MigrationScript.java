@@ -9,7 +9,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.IOperation__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.extensionMethods.behavior.ExtensionMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.baseLanguage.scopes.Members;
@@ -19,6 +18,10 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ConvertExtensionMethodCallToLocal_MigrationScript extends BaseMigrationScript {
   public ConvertExtensionMethodCallToLocal_MigrationScript() {
@@ -34,37 +37,37 @@ public final class ConvertExtensionMethodCallToLocal_MigrationScript extends Bas
       }
       @Override
       public SAbstractConcept getApplicableConcept() {
-        return AUX_hekfbj.InstanceMethodCallOperation_cd28f5b6;
+        return CONCEPTS.InstanceMethodCallOperation$1G;
       }
       @Override
       public boolean isApplicableInstanceNode(SNode node) {
-        if (!(SNodeOperations.isInstanceOf(IOperation__BehaviorDescriptor.getOperand_idhEwIP$m.invoke(node), AUX_hekfbj.ThisExtensionExpression_ac8e7f76))) {
+        if (!(SNodeOperations.isInstanceOf(IOperation__BehaviorDescriptor.getOperand_idhEwIP$m.invoke(node), CONCEPTS.ThisExtensionExpression$UG))) {
           return false;
         }
-        SNode declaration = SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"));
-        SNode classifier = ExtensionMethodDeclaration__BehaviorDescriptor.getClassifier_id6EBM_lhz9HU.invoke(SNodeOperations.getNodeAncestor(node, AUX_hekfbj.ExtensionMethodDeclaration_9924fbf7, false, false));
+        SNode declaration = SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i);
+        SNode classifier = ExtensionMethodDeclaration__BehaviorDescriptor.getClassifier_id6EBM_lhz9HU.invoke(SNodeOperations.getNodeAncestor(node, CONCEPTS.ExtensionMethodDeclaration$9b, false, false));
         if (classifier == null) {
           return false;
         }
-        SNode declarationClassifier = SNodeOperations.getNodeAncestor(declaration, AUX_hekfbj.Classifier_4b7e553, false, false);
+        SNode declarationClassifier = SNodeOperations.getNodeAncestor(declaration, CONCEPTS.Classifier$hJ, false, false);
         if (!((classifier == declarationClassifier || ListSequence.fromList(SNodeOperations.getNodeAncestors(classifier, null, false)).contains(declarationClassifier)))) {
           return false;
         }
         while (classifier != declarationClassifier) {
           for (SNode method : Members.visibleInstanceMethods(IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(classifier), node)) {
-            if (SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")).equals(SPropertyOperations.getString(declaration, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")))) {
+            if (SPropertyOperations.getString(method, PROPS.name$tAp1).equals(SPropertyOperations.getString(declaration, PROPS.name$tAp1))) {
               return false;
             }
           }
-          classifier = SNodeOperations.getNodeAncestor(classifier, AUX_hekfbj.Classifier_4b7e553, false, false);
+          classifier = SNodeOperations.getNodeAncestor(classifier, CONCEPTS.Classifier$hJ, false, false);
         }
         return true;
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
-        SNode methodCall = SNodeOperations.replaceWithNewChild(SNodeOperations.getParent(node), AUX_hekfbj.LocalExtendedMethodCall_f9dbee25);
-        SLinkOperations.setTarget(methodCall, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration")));
-        ListSequence.fromList(SLinkOperations.getChildren(methodCall, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))).addSequence(ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument"))));
+        SNode methodCall = SNodeOperations.replaceWithNewChild(SNodeOperations.getParent(node), CONCEPTS.LocalExtendedMethodCall$nt);
+        SLinkOperations.setTarget(methodCall, LINKS.baseMethodDeclaration$$A7i, SLinkOperations.getTarget(node, LINKS.baseMethodDeclaration$$A7i));
+        ListSequence.fromList(SLinkOperations.getChildren(methodCall, LINKS.actualArgument$$A7L)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.actualArgument$$A7L)));
       }
       @Override
       public boolean isShowAsIntention() {
@@ -79,11 +82,20 @@ public final class ConvertExtensionMethodCallToLocal_MigrationScript extends Bas
     return PersistenceFacade.getInstance().createNodeReference("r:6f595bf3-27c5-4410-a8f0-094e3ff4d9f0(jetbrains.mps.baseLanguage.extensionMethods.scripts)/7517860079983491720");
   }
 
-  private static final class AUX_hekfbj {
-    /*package*/ static final SConcept InstanceMethodCallOperation_cd28f5b6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
-    /*package*/ static final SConcept ThisExtensionExpression_ac8e7f76 = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x2e076d2695911333L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ThisExtensionExpression");
-    /*package*/ static final SConcept ExtensionMethodDeclaration_9924fbf7 = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ExtensionMethodDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept LocalExtendedMethodCall_f9dbee25 = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x6aa7ca55518b9170L, "jetbrains.mps.baseLanguage.extensionMethods.structure.LocalExtendedMethodCall");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InstanceMethodCallOperation$1G = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x118154a6332L, "jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation");
+    /*package*/ static final SConcept ThisExtensionExpression$UG = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x2e076d2695911333L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ThisExtensionExpression");
+    /*package*/ static final SConcept ExtensionMethodDeclaration$9b = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x1583d1b63365e7f9L, "jetbrains.mps.baseLanguage.extensionMethods.structure.ExtensionMethodDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept LocalExtendedMethodCall$nt = MetaAdapterFactory.getConcept(0x5dc5fc0d37ef4782L, 0x81928b5ce1f69f80L, 0x6aa7ca55518b9170L, "jetbrains.mps.baseLanguage.extensionMethods.structure.LocalExtendedMethodCall");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
+    /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

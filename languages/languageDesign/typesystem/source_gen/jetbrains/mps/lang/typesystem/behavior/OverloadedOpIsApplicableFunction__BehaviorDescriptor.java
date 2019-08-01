@@ -4,6 +4,7 @@ package jetbrains.mps.lang.typesystem.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.List;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -21,10 +22,9 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class OverloadedOpIsApplicableFunction__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_xpa2vi.OverloadedOpIsApplicableFunction_1236c7b2;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x5529dae3231347deL, "jetbrains.mps.lang.typesystem.structure.OverloadedOpIsApplicableFunction");
 
   public static final SMethod<List<SConcept>> getParameterConcepts_id2xELmDxyi2v = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2xELmDxyi2v").build();
   public static final SMethod<SNode> getExpectedReturnType_idhEwIGRD = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExpectedReturnType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIGRD").build();
@@ -35,10 +35,10 @@ public final class OverloadedOpIsApplicableFunction__BehaviorDescriptor extends 
   }
 
   /*package*/ static List<SConcept> getParameterConcepts_id2xELmDxyi2v(@NotNull SNode __thisNode__) {
-    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, AUX_xpa2vi.ConceptFunction_e08795a5);
-    ListSequence.fromList(result).addElement(AUX_xpa2vi.LeftOperandType_parameter_c0d9e887);
-    ListSequence.fromList(result).addElement(AUX_xpa2vi.RightOperandType_parameter_c111d9cd);
-    ListSequence.fromList(result).addElement(AUX_xpa2vi.Operation_parameter_c110788a);
+    List<SConcept> result = ConceptFunction__BehaviorDescriptor.getParameterConcepts_id2xELmDxyi2v.invoke0(__thisNode__, CONCEPTS.ConceptFunction$Tt);
+    ListSequence.fromList(result).addElement(CONCEPTS.LeftOperandType_parameter$uV);
+    ListSequence.fromList(result).addElement(CONCEPTS.RightOperandType_parameter$WP);
+    ListSequence.fromList(result).addElement(CONCEPTS.Operation_parameter$wo);
     return result;
   }
   /*package*/ static SNode getExpectedReturnType_idhEwIGRD(@NotNull SNode __thisNode__) {
@@ -99,11 +99,10 @@ public final class OverloadedOpIsApplicableFunction__BehaviorDescriptor extends 
     return quotedNode_1;
   }
 
-  private static final class AUX_xpa2vi {
-    /*package*/ static final SConcept OverloadedOpIsApplicableFunction_1236c7b2 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x5529dae3231347deL, "jetbrains.mps.lang.typesystem.structure.OverloadedOpIsApplicableFunction");
-    /*package*/ static final SConcept ConceptFunction_e08795a5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
-    /*package*/ static final SConcept LeftOperandType_parameter_c0d9e887 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4cf5b0L, "jetbrains.mps.lang.typesystem.structure.LeftOperandType_parameter");
-    /*package*/ static final SConcept RightOperandType_parameter_c111d9cd = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4d8edaL, "jetbrains.mps.lang.typesystem.structure.RightOperandType_parameter");
-    /*package*/ static final SConcept Operation_parameter_c110788a = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4d8298L, "jetbrains.mps.lang.typesystem.structure.Operation_parameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptFunction$Tt = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
+    /*package*/ static final SConcept LeftOperandType_parameter$uV = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4cf5b0L, "jetbrains.mps.lang.typesystem.structure.LeftOperandType_parameter");
+    /*package*/ static final SConcept RightOperandType_parameter$WP = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4d8edaL, "jetbrains.mps.lang.typesystem.structure.RightOperandType_parameter");
+    /*package*/ static final SConcept Operation_parameter$wo = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4d8298L, "jetbrains.mps.lang.typesystem.structure.Operation_parameter");
   }
 }

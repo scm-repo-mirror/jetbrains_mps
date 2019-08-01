@@ -8,12 +8,13 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_IntervalLiteral_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -21,16 +22,16 @@ public class typeof_IntervalLiteral_InferenceRule extends AbstractInferenceRule_
   }
   public void applyRule(final SNode literal, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final SNode elementType_typevar_1235747425275 = typeCheckingContext.createNewRuntimeTypesVariable();
-    if ((SLinkOperations.getTarget(literal, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, 0x11fb848396eL, "end")) != null)) {
+    if ((SLinkOperations.getTarget(literal, LINKS.end$AkTa) != null)) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(literal, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, 0x11fb848396eL, "end"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(literal, LINKS.end$AkTa);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1236434335326", 0, null);
         typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(elementType_typevar_1235747425275), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1236434335330", true), _info_12389875345);
       }
     }
-    if ((SLinkOperations.getTarget(literal, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, 0x11fb848396dL, "start")) != null)) {
+    if ((SLinkOperations.getTarget(literal, LINKS.start$AkIw) != null)) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(literal, MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, 0x11fb848396dL, "start"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(literal, LINKS.start$AkIw);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1236434330693", 0, null);
         typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(elementType_typevar_1235747425275), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:47d0f24b-df34-4ea0-aa7e-7c2eb0f88f31(jetbrains.mps.baseLanguage.math.typesystem)", "1236434330697", true), _info_12389875345);
       }
@@ -42,7 +43,7 @@ public class typeof_IntervalLiteral_InferenceRule extends AbstractInferenceRule_
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_79l3ax.IntervalLiteral_107ccdff;
+    return CONCEPTS.IntervalLiteral$53;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -57,12 +58,18 @@ public class typeof_IntervalLiteral_InferenceRule extends AbstractInferenceRule_
     quotedNode_2 = SModelUtil_new.instantiateConceptDeclaration(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, "jetbrains.mps.baseLanguage.math"), 0x11fb8483972L, "IntervalType"), null, null, false);
     quotedNode_3 = (SNode) parameter_1;
     if (quotedNode_3 != null) {
-      quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb8483972L, 0x11fb8483973L, "elementType"), SNodeOperations.copyIfNecessary(quotedNode_3));
+      quotedNode_2.addChild(LINKS.elementType$AkW0, SNodeOperations.copyIfNecessary(quotedNode_3));
     }
     return quotedNode_2;
   }
 
-  private static final class AUX_79l3ax {
-    /*package*/ static final SConcept IntervalLiteral_107ccdff = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, "jetbrains.mps.baseLanguage.math.structure.IntervalLiteral");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink end$AkTa = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, 0x11fb848396eL, "end");
+    /*package*/ static final SContainmentLink start$AkIw = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, 0x11fb848396dL, "start");
+    /*package*/ static final SContainmentLink elementType$AkW0 = MetaAdapterFactory.getContainmentLink(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb8483972L, 0x11fb8483973L, "elementType");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept IntervalLiteral$53 = MetaAdapterFactory.getConcept(0x3304fc6e7c6b401eL, 0xa016b944934bb21fL, 0x11fb848396cL, "jetbrains.mps.baseLanguage.math.structure.IntervalLiteral");
   }
 }

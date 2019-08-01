@@ -4,6 +4,7 @@ package jetbrains.mps.transformation.test.outputLang.generator.baseLanguage.temp
 
 import jetbrains.mps.lang.pattern.GeneratedMatcher;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class Pattern_x583g4_a0a0jb extends GeneratedMatcher {
@@ -11,7 +12,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     super(patternNode, false);
 
 
-    myTopMatcher.association(MetaAdapterFactory.getReferenceLink(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1e076e8c8ce9211aL, 0x1e076e8c8ce92801L, "myStatement"), "ref");
+    myTopMatcher.association(LINKS.myStatement$AJtq, "ref");
   }
 
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink myStatement$AJtq = MetaAdapterFactory.getReferenceLink(0x157a9668bf58417bL, 0x893e53d86388dc56L, 0x1e076e8c8ce9211aL, 0x1e076e8c8ce92801L, "myStatement");
+  }
 }

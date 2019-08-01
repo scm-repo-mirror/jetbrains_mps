@@ -118,7 +118,7 @@ public class structure_StyleSheet {
     }
 
     private boolean _StyleParameter_QueryFunction_170rll_a0d() {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(getNode())), AUX_t29mx9.EnumMigrationInfo_a4b5d8d1);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(SNodeOperations.getParent(getNode())), CONCEPTS.EnumMigrationInfo$2L);
     }
   }
   public static class EnumMigratedStyleClass extends AbstractStyleClass {
@@ -134,11 +134,11 @@ public class structure_StyleSheet {
     }
 
     private boolean _StyleParameter_QueryFunction_170rll_a0e() {
-      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(getNode()), AUX_t29mx9.EnumMigrationInfo_a4b5d8d1);
+      return SNodeOperations.isInstanceOf(SNodeOperations.getParent(getNode()), CONCEPTS.EnumMigrationInfo$2L);
     }
   }
 
-  private static final class AUX_t29mx9 {
-    /*package*/ static final SConcept EnumMigrationInfo_a4b5d8d1 = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, "jetbrains.mps.lang.structure.structure.EnumMigrationInfo");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumMigrationInfo$2L = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x160b046db949c266L, "jetbrains.mps.lang.structure.structure.EnumMigrationInfo");
   }
 }

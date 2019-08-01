@@ -4,6 +4,7 @@ package jetbrains.mps.lang.resources.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -17,16 +18,16 @@ import jetbrains.mps.util.IconCreationUtil;
 import org.jetbrains.mps.openapi.util.Consumer;
 import java.awt.Color;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.resources.enumMigration.Size_MigrationUtils;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class Rect__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_206v8y.Rect_d7606672;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, "jetbrains.mps.lang.resources.structure.Rect");
 
   public static final SMethod<byte[]> getImageForGeneration_id2p1v3tObywX = new SMethodBuilder<byte[]>(new SJavaCompoundTypeImpl(byte[].class)).name("getImageForGeneration").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2p1v3tObywX").build();
 
@@ -41,19 +42,19 @@ public final class Rect__BehaviorDescriptor extends BaseBHDescriptor {
         int centerX = dc.width / 2;
         int centerY = dc.height / 2;
 
-        Color fillColor = new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c11L, "fillColor"))));
-        if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c13L, "borderColor")) == null)) {
+        Color fillColor = new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.fillColor$izv2)));
+        if ((SLinkOperations.getTarget(__thisNode__, LINKS.borderColor$izEb) == null)) {
           dc.g.setColor(fillColor);
-          dc.g.fillRect(centerX, centerY, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, 0x26417c37742e0e62L, "r"))) * 2, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, 0x26417c37742e0e62L, "r"))) * 2);
+          dc.g.fillRect(centerX, centerY, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$35C0)) * 2, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$35C0)) * 2);
         } else {
           // outer 
-          dc.g.setColor(new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c13L, "borderColor")))));
-          dc.g.fillRect(centerX, centerY, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, 0x26417c37742e0e62L, "r"))) * 2, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, 0x26417c37742e0e62L, "r"))) * 2);
+          dc.g.setColor(new Color((int) Color__BehaviorDescriptor.getIntValue_id1BguvjG4ybo.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.borderColor$izEb))));
+          dc.g.fillRect(centerX, centerY, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$35C0)) * 2, Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$35C0)) * 2);
 
           // inner 
           int border = 2;
           dc.g.setColor(fillColor);
-          dc.g.fillRect(centerX, centerY, (Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, 0x26417c37742e0e62L, "r"))) - border) * 2, (Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, 0x26417c37742e0e62L, "r"))) - border) * 2);
+          dc.g.fillRect(centerX, centerY, (Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$35C0)) - border) * 2, (Size_MigrationUtils.value(SPropertyOperations.getEnum(__thisNode__, PROPS.r$35C0)) - border) * 2);
         }
       }
     });
@@ -105,7 +106,12 @@ public final class Rect__BehaviorDescriptor extends BaseBHDescriptor {
     return CONCEPT;
   }
 
-  private static final class AUX_206v8y {
-    /*package*/ static final SConcept Rect_d7606672 = MetaAdapterFactory.getConcept(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, "jetbrains.mps.lang.resources.structure.Rect");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink fillColor$izv2 = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c11L, "fillColor");
+    /*package*/ static final SContainmentLink borderColor$izEb = MetaAdapterFactory.getContainmentLink(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e28b1L, 0x19d079f4ec114c13L, "borderColor");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty r$35C0 = MetaAdapterFactory.getProperty(0x982eb8df2c964bd7L, 0x996311712ea622e5L, 0x26417c37742e0e61L, 0x26417c37742e0e62L, "r");
   }
 }

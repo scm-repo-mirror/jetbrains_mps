@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemStyle;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemCreatingCustomizationContext;
 import jetbrains.mps.lang.editor.menus.substitute.SubstituteMenuContextToEditorMenuItemModifyingCustomizationContext;
@@ -39,13 +38,15 @@ import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class TypeClause_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_zbskfb_a(), AUX_zbskfb.NormalTypeClause_ca93a2ce));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Wrap_zbskfb_a(), CONCEPTS.NormalTypeClause$pk));
     result.add(new SMP_Subconcepts_zbskfb_b());
     return result;
   }
@@ -86,14 +87,14 @@ public class TypeClause_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_zbskfb.NormalTypeClause_ca93a2ce;
+          return CONCEPTS.NormalTypeClause$pk;
         }
         @Nullable
         @Override
         public SNode createNode(@NotNull String pattern) {
           SNode nodeToWrap = super.createNode(pattern);
-          SNode normalTypeClause = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_zbskfb.NormalTypeClause_ca93a2ce, null);
-          SLinkOperations.setTarget(normalTypeClause, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, 0x1141682cac0L, "normalType"), nodeToWrap);
+          SNode normalTypeClause = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.NormalTypeClause$pk, null);
+          SLinkOperations.setTarget(normalTypeClause, LINKS.normalType$$uJr, nodeToWrap);
           return normalTypeClause;
         }
 
@@ -120,12 +121,12 @@ public class TypeClause_SubstituteMenu extends SubstituteMenuBase {
       return new DefaultSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor);
     }
     private SAbstractConcept getConceptToFindMenuFor(SubstituteMenuContext _context) {
-      return AUX_zbskfb.Expression_4199e28d;
+      return CONCEPTS.Expression$TP;
     }
   }
   public class SMP_Subconcepts_zbskfb_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_zbskfb.TypeClause_c923f488);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.TypeClause$Jq);
     }
     @NotNull
     @Override
@@ -145,9 +146,13 @@ public class TypeClause_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_zbskfb {
-    /*package*/ static final SConcept NormalTypeClause_ca93a2ce = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, "jetbrains.mps.lang.typesystem.structure.NormalTypeClause");
-    /*package*/ static final SConcept Expression_4199e28d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
-    /*package*/ static final SConcept TypeClause_c923f488 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114168188c7L, "jetbrains.mps.lang.typesystem.structure.TypeClause");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NormalTypeClause$pk = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, "jetbrains.mps.lang.typesystem.structure.NormalTypeClause");
+    /*package*/ static final SConcept Expression$TP = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL, "jetbrains.mps.baseLanguage.structure.Expression");
+    /*package*/ static final SConcept TypeClause$Jq = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x114168188c7L, "jetbrains.mps.lang.typesystem.structure.TypeClause");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink normalType$$uJr = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1141682561cL, 0x1141682cac0L, "normalType");
   }
 }

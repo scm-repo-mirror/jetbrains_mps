@@ -11,7 +11,6 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
@@ -27,6 +26,9 @@ import org.jetbrains.mps.util.Condition;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class NewTemplateInRootMappingRule_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -46,7 +48,7 @@ public final class NewTemplateInRootMappingRule_Intention extends AbstractIntent
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, 0x10fd54746ddL, "template")) == null;
+    return SLinkOperations.getTarget(node, LINKS.template$FjUa) == null;
   }
   @Override
   public boolean isSurroundWith() {
@@ -69,33 +71,33 @@ public final class NewTemplateInRootMappingRule_Intention extends AbstractIntent
     public void execute(final SNode node, final EditorContext editorContext) {
       final Wrappers._T<String> name = new Wrappers._T<String>(CreateFromUsageUtil.getText(editorContext));
       if (name.value == null || name.value.length() == 0) {
-        name.value = "map_" + SPropertyOperations.getString(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b6e730L, "applicableConcept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        name.value = "map_" + SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.applicableConcept$ljwo), PROPS.name$tAp1);
       }
       final SNode rule = node;
       CreateFromUsageUtil.showCreateNewRootMenu(editorContext, new Setter<SNode>() {
         public void set(SNode root) {
-          if (!(SNodeOperations.isInstanceOf(root, AUX_f5zk2z.INamedConcept_8cd7e247))) {
+          if (!(SNodeOperations.isInstanceOf(root, CONCEPTS.INamedConcept$nV))) {
             return;
           }
-          SPropertyOperations.set(SNodeOperations.cast(root, AUX_f5zk2z.INamedConcept_8cd7e247), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), name.value);
+          SPropertyOperations.set(SNodeOperations.cast(root, CONCEPTS.INamedConcept$nV), PROPS.name$tAp1, name.value);
           MacroIntentionsUtil.copyVirtualPackage(root, node);
-          SNodeFactoryOperations.setNewAttribute(root, new IAttributeDescriptor.NodeAttribute(AUX_f5zk2z.RootTemplateAnnotation_423b5b1a), AUX_f5zk2z.RootTemplateAnnotation_423b5b1a);
-          SLinkOperations.setTarget(AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(AUX_f5zk2z.RootTemplateAnnotation_423b5b1a)), MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, 0x11017255ccfL, "applicableConcept"), SLinkOperations.getTarget(rule, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b6e730L, "applicableConcept")));
-          SLinkOperations.setTarget(rule, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, 0x10fd54746ddL, "template"), SNodeOperations.cast(root, AUX_f5zk2z.INamedConcept_8cd7e247));
+          SNodeFactoryOperations.setNewAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8), CONCEPTS.RootTemplateAnnotation$u8);
+          SLinkOperations.setTarget(AttributeOperations.getAttribute(root, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8)), LINKS.applicableConcept$jo4f, SLinkOperations.getTarget(rule, LINKS.applicableConcept$ljwo));
+          SLinkOperations.setTarget(rule, LINKS.template$FjUa, SNodeOperations.cast(root, CONCEPTS.INamedConcept$nV));
           SelectionUtil.selectCell(editorContext, rule, "templateName");
         }
       }, new Condition<SConcept>() {
         public boolean met(SConcept c) {
-          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), AUX_f5zk2z.TemplateSwitch_30830689)) {
+          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.TemplateSwitch$BT)) {
             return false;
           }
-          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), AUX_f5zk2z.MappingConfiguration_587b13db)) {
+          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.MappingConfiguration$rB)) {
             return false;
           }
-          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), AUX_f5zk2z.TemplateDeclaration_6074fd22)) {
+          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.TemplateDeclaration$q0)) {
             return false;
           }
-          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), AUX_f5zk2z.MappingScript_44901c39)) {
+          if (SConceptOperations.isExactly(SNodeOperations.asSConcept(c), CONCEPTS.MappingScript$D9)) {
             return false;
           }
           return true;
@@ -108,12 +110,22 @@ public final class NewTemplateInRootMappingRule_Intention extends AbstractIntent
     }
   }
 
-  private static final class AUX_f5zk2z {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept RootTemplateAnnotation_423b5b1a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
-    /*package*/ static final SConcept TemplateSwitch_30830689 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10313ed7688L, "jetbrains.mps.lang.generator.structure.TemplateSwitch");
-    /*package*/ static final SConcept MappingConfiguration_587b13db = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
-    /*package*/ static final SConcept MappingScript_44901c39 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, "jetbrains.mps.lang.generator.structure.MappingScript");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink template$FjUa = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, 0x10fd54746ddL, "template");
+    /*package*/ static final SReferenceLink applicableConcept$ljwo = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, 0x10fc0b6e730L, "applicableConcept");
+    /*package*/ static final SReferenceLink applicableConcept$jo4f = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, 0x11017255ccfL, "applicableConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+    /*package*/ static final SConcept RootTemplateAnnotation$u8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
+    /*package*/ static final SConcept TemplateSwitch$BT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10313ed7688L, "jetbrains.mps.lang.generator.structure.TemplateSwitch");
+    /*package*/ static final SConcept MappingConfiguration$rB = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+    /*package*/ static final SConcept MappingScript$D9 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1165958fcd6L, "jetbrains.mps.lang.generator.structure.MappingScript");
   }
 }

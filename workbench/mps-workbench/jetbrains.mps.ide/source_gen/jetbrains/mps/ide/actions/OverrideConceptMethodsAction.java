@@ -17,9 +17,10 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.MoveRefactoringUtils;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class OverrideConceptMethodsAction {
   private Project myProject;
@@ -41,11 +42,11 @@ public class OverrideConceptMethodsAction {
 
     myProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        contextClass.value = SNodeOperations.getNodeAncestor(mySelectedNode, AUX_68osjq.ConceptBehavior_68ebe6cd, true, false);
-        contextMethod.value = SNodeOperations.getNodeAncestor(mySelectedNode, AUX_68osjq.ConceptMethodDeclaration_6c80ca4f, true, false);
-        List<SNode> methodsToOverride = ((List<SNode>) BHReflection.invoke0(contextClass.value, AUX_68osjq.IMemberContainer_166f7222, SMethodTrimmedId.create("getMethodsToImplement", null, "4GM03FJm5q2")));
+        contextClass.value = SNodeOperations.getNodeAncestor(mySelectedNode, CONCEPTS.ConceptBehavior$8P, true, false);
+        contextMethod.value = SNodeOperations.getNodeAncestor(mySelectedNode, CONCEPTS.ConceptMethodDeclaration$VN, true, false);
+        List<SNode> methodsToOverride = ((List<SNode>) BHReflection.invoke0(contextClass.value, CONCEPTS.IMemberContainer$60, SMethodTrimmedId.create("getMethodsToImplement", null, "4GM03FJm5q2")));
         if (myIsOverride) {
-          ListSequence.fromList(methodsToOverride).addSequence(ListSequence.fromList(((List<SNode>) BHReflection.invoke0(contextClass.value, AUX_68osjq.IMemberContainer_166f7222, SMethodTrimmedId.create("getMethodsToOverride", null, "4GM03FJm3zL")))));
+          ListSequence.fromList(methodsToOverride).addSequence(ListSequence.fromList(((List<SNode>) BHReflection.invoke0(contextClass.value, CONCEPTS.IMemberContainer$60, SMethodTrimmedId.create("getMethodsToOverride", null, "4GM03FJm3zL")))));
         }
         methods.value = OverrideConceptMethodsDialog.toNodePointers(OverrideConceptMethodsDialog.sortMethods(contextClass.value, methodsToOverride));
       }
@@ -67,7 +68,7 @@ public class OverrideConceptMethodsAction {
         public void run() {
           List<SNode> selection = Sequence.fromIterable(selectedElements).select(new ISelector<SNodeReference, SNode>() {
             public SNode select(SNodeReference it) {
-              return SNodeOperations.cast(it.resolve(myProject.getRepository()), AUX_68osjq.BaseMethodDeclaration_9dbf9acb);
+              return SNodeOperations.cast(it.resolve(myProject.getRepository()), CONCEPTS.BaseMethodDeclaration$RR);
             }
           }).toListSequence();
           OverrideConceptMethodsHelper helper = new OverrideConceptMethodsHelper(myProject, contextClass.value, contextMethod.value, dialog.isRemoveAttributes(), dialog.isAddReturn());
@@ -80,8 +81,8 @@ public class OverrideConceptMethodsAction {
 
           SNode firstMethod = ListSequence.fromList(insertedMethods).first();
           SNode nodeToSelect;
-          if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(firstMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).isNotEmpty()) {
-            nodeToSelect = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(firstMethod, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body")), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"))).first();
+          if (ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(firstMethod, LINKS.body$WIlu), LINKS.statement$WHn8)).isNotEmpty()) {
+            nodeToSelect = ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(firstMethod, LINKS.body$WIlu), LINKS.statement$WHn8)).first();
           } else {
             nodeToSelect = firstMethod;
           }
@@ -92,10 +93,15 @@ public class OverrideConceptMethodsAction {
     }
   }
 
-  private static final class AUX_68osjq {
-    /*package*/ static final SConcept ConceptBehavior_68ebe6cd = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
-    /*package*/ static final SConcept ConceptMethodDeclaration_6c80ca4f = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
-    /*package*/ static final SInterfaceConcept IMemberContainer_166f7222 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptBehavior$8P = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d43447b1aL, "jetbrains.mps.lang.behavior.structure.ConceptBehavior");
+    /*package*/ static final SConcept ConceptMethodDeclaration$VN = MetaAdapterFactory.getConcept(0xaf65afd8f0dd4942L, 0x87d963a55f2a9db1L, 0x11d4348057eL, "jetbrains.mps.lang.behavior.structure.ConceptMethodDeclaration");
+    /*package*/ static final SInterfaceConcept IMemberContainer$60 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11638b31955L, "jetbrains.mps.baseLanguage.structure.IMemberContainer");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink body$WIlu = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
+    /*package*/ static final SContainmentLink statement$WHn8 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement");
   }
 }

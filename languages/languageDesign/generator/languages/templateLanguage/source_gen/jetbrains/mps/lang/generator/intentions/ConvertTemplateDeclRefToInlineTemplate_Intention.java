@@ -13,7 +13,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.Collections;
@@ -24,6 +23,9 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
@@ -44,7 +46,7 @@ public final class ConvertTemplateDeclRefToInlineTemplate_Intention extends Abst
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    List<SNode> TFs = SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template")), AUX_rh2m4r.TemplateDeclaration_6074fd22), MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode")), AUX_rh2m4r.TemplateFragment_1973fd34, false, new SAbstractConcept[]{});
+    List<SNode> TFs = SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(SNodeOperations.as(SLinkOperations.getTarget(node, LINKS.template$yiTA), CONCEPTS.TemplateDeclaration$q0), LINKS.contentNode$UkrJ), CONCEPTS.TemplateFragment$yI, false, new SAbstractConcept[]{});
     return ListSequence.fromList(TFs).count() == 1;
   }
   @Override
@@ -66,15 +68,15 @@ public final class ConvertTemplateDeclRefToInlineTemplate_Intention extends Abst
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode oldTemplate = SNodeOperations.as(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template")), AUX_rh2m4r.TemplateDeclaration_6074fd22);
-      List<SNode> TFs = SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(oldTemplate, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode")), AUX_rh2m4r.TemplateFragment_1973fd34, false, new SAbstractConcept[]{});
+      SNode oldTemplate = SNodeOperations.as(SLinkOperations.getTarget(node, LINKS.template$yiTA), CONCEPTS.TemplateDeclaration$q0);
+      List<SNode> TFs = SNodeOperations.getNodeDescendants(SLinkOperations.getTarget(oldTemplate, LINKS.contentNode$UkrJ), CONCEPTS.TemplateFragment$yI, false, new SAbstractConcept[]{});
       SNode fragmentToSet = SNodeOperations.copyNode(SNodeOperations.getParent(ListSequence.fromList(TFs).first()));
-      SNode TFtoDelete = AttributeOperations.getAttribute(fragmentToSet, new IAttributeDescriptor.NodeAttribute(AUX_rh2m4r.TemplateFragment_1973fd34));
+      SNode TFtoDelete = AttributeOperations.getAttribute(fragmentToSet, new IAttributeDescriptor.NodeAttribute(CONCEPTS.TemplateFragment$yI));
       SNodeOperations.deleteNode(TFtoDelete);
-      SNode inlineTemplate = SNodeFactoryOperations.replaceWithNewChild(node, AUX_rh2m4r.InlineTemplate_RuleConsequence_6e1e9f65);
-      SLinkOperations.setTarget(inlineTemplate, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, 0x112103ebf76L, "templateNode"), fragmentToSet);
+      SNode inlineTemplate = SNodeFactoryOperations.replaceWithNewChild(node, CONCEPTS.InlineTemplate_RuleConsequence$Mt);
+      SLinkOperations.setTarget(inlineTemplate, LINKS.templateNode$7wRg, fragmentToSet);
       // ------ 
-      if (!(Sequence.fromIterable(SLinkOperations.collect(SModelOperations.nodes(SNodeOperations.getModel(node), AUX_rh2m4r.ITemplateCall_bd844c23), MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template"))).contains(oldTemplate))) {
+      if (!(Sequence.fromIterable(SLinkOperations.collect(SModelOperations.nodes(SNodeOperations.getModel(node), CONCEPTS.ITemplateCall$uv), LINKS.template$yiTA)).contains(oldTemplate))) {
         // nobody in the same model uses this template, drop it (if you care about external references, why would you use intention then?) 
         SNodeOperations.deleteNode(oldTemplate);
       }
@@ -85,10 +87,16 @@ public final class ConvertTemplateDeclRefToInlineTemplate_Intention extends Abst
     }
   }
 
-  private static final class AUX_rh2m4r {
-    /*package*/ static final SConcept TemplateDeclaration_6074fd22 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
-    /*package*/ static final SConcept TemplateFragment_1973fd34 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
-    /*package*/ static final SConcept InlineTemplate_RuleConsequence_6e1e9f65 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, "jetbrains.mps.lang.generator.structure.InlineTemplate_RuleConsequence");
-    /*package*/ static final SInterfaceConcept ITemplateCall_bd844c23 = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, "jetbrains.mps.lang.generator.structure.ITemplateCall");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink template$yiTA = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template");
+    /*package*/ static final SContainmentLink contentNode$UkrJ = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, 0xfe43de823bL, "contentNode");
+    /*package*/ static final SContainmentLink templateNode$7wRg = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, 0x112103ebf76L, "templateNode");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
+    /*package*/ static final SConcept TemplateFragment$yI = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff1b29b76cL, "jetbrains.mps.lang.generator.structure.TemplateFragment");
+    /*package*/ static final SConcept InlineTemplate_RuleConsequence$Mt = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x112103dd1e8L, "jetbrains.mps.lang.generator.structure.InlineTemplate_RuleConsequence");
+    /*package*/ static final SInterfaceConcept ITemplateCall$uv = MetaAdapterFactory.getInterfaceConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, "jetbrains.mps.lang.generator.structure.ITemplateCall");
   }
 }

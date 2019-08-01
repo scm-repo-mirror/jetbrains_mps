@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class ConstantReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_jmi3wo_a(), AUX_jmi3wo.ConstantReference_a4b2cecc));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_jmi3wo_a(), CONCEPTS.ConstantReference$Cm));
     result.add(new SMP_Subconcepts_jmi3wo_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class ConstantReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_jmi3wo_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_jmi3wo.ConstantReference_a4b2cecc, MetaAdapterFactory.getReferenceLink(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, 0x37600150f5294666L, "original"));
+      super((SAbstractConcept) CONCEPTS.ConstantReference$Cm, LINKS.original$mmvb);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class ConstantReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_jmi3wo_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_jmi3wo.ConstantReference_a4b2cecc);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.ConstantReference$Cm);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class ConstantReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_jmi3wo {
-    /*package*/ static final SConcept ConstantReference_a4b2cecc = MetaAdapterFactory.getConcept(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, "org.jetbrains.mps.samples.Constants.structure.ConstantReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConstantReference$Cm = MetaAdapterFactory.getConcept(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, "org.jetbrains.mps.samples.Constants.structure.ConstantReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink original$mmvb = MetaAdapterFactory.getReferenceLink(0xd40d465dded40d0L, 0x8d4c2c6d177f60d7L, 0x37600150f5294665L, 0x37600150f5294666L, "original");
   }
 }

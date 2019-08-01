@@ -10,11 +10,14 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class SortKeymapMembers extends BaseRefactoring {
   public SortKeymapMembers() {
@@ -27,20 +30,29 @@ public class SortKeymapMembers extends BaseRefactoring {
   }
   public void refactor(final RefactoringContext refactoringContext) {
     SNode node = refactoringContext.getSelectedNode();
-    List<SNode> copy = ListSequence.fromListWithValues(new ArrayList<SNode>(), SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, 0x15afe07f2a9bb077L, "shortcutChange")));
-    ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, 0x15afe07f2a9bb077L, "shortcutChange"))).clear();
-    ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, 0x15afe07f2a9bb077L, "shortcutChange"))).addSequence(ListSequence.fromList(copy).sort(new ISelector<SNode, Boolean>() {
+    List<SNode> copy = ListSequence.fromListWithValues(new ArrayList<SNode>(), SLinkOperations.getChildren(node, LINKS.shortcutChange$9pHv));
+    ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.shortcutChange$9pHv)).clear();
+    ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.shortcutChange$9pHv)).addSequence(ListSequence.fromList(copy).sort(new ISelector<SNode, Boolean>() {
       public Boolean select(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_ubplqn.ParameterizedShortcutChange_2a12c07f);
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.ParameterizedShortcutChange$V3);
       }
     }, true).alsoSort(new ISelector<SNode, String>() {
       public String select(SNode it) {
-        return SPropertyOperations.getString(SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e092278L, 0x55f30a5d1e096c76L, "action")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        return SPropertyOperations.getString(SLinkOperations.getTarget(it, LINKS.action$f4CQ), PROPS.name$tAp1);
       }
     }, true));
   }
 
-  private static final class AUX_ubplqn {
-    /*package*/ static final SConcept ParameterizedShortcutChange_2a12c07f = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e096c3aL, "jetbrains.mps.lang.plugin.structure.ParameterizedShortcutChange");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink shortcutChange$9pHv = MetaAdapterFactory.getContainmentLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x15afe07f2a9bb075L, 0x15afe07f2a9bb077L, "shortcutChange");
+    /*package*/ static final SReferenceLink action$f4CQ = MetaAdapterFactory.getReferenceLink(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e092278L, 0x55f30a5d1e096c76L, "action");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ParameterizedShortcutChange$V3 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e096c3aL, "jetbrains.mps.lang.plugin.structure.ParameterizedShortcutChange");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

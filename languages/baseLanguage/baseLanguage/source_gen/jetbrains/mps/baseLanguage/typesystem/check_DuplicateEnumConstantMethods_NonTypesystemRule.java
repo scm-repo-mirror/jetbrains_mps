@@ -9,7 +9,6 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.baseLanguage.behavior.BaseMethodDeclaration__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
@@ -21,31 +20,34 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.lang.core.behavior.INamedConcept__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_DuplicateEnumConstantMethods_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_DuplicateEnumConstantMethods_NonTypesystemRule() {
   }
   public void applyRule(final SNode enumConstant, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    ListSequence.fromList(SLinkOperations.getChildren(enumConstant, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"))).visitAll(new IVisitor<SNode>() {
+    ListSequence.fromList(SLinkOperations.getChildren(enumConstant, LINKS.method$3$mN)).visitAll(new IVisitor<SNode>() {
       public void visit(final SNode method) {
         final String erasureSignature = BaseMethodDeclaration__BehaviorDescriptor.getErasureSignature_id2t8d$bukubq.invoke(method);
-        SNode foundDuplicate = ListSequence.fromList(SLinkOperations.getChildren(enumConstant, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method"))).findFirst(new IWhereFilter<SNode>() {
+        SNode foundDuplicate = ListSequence.fromList(SLinkOperations.getChildren(enumConstant, LINKS.method$3$mN)).findFirst(new IWhereFilter<SNode>() {
           public boolean accept(SNode other) {
-            return other != method && Objects.equals(SPropertyOperations.getString(other, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), SPropertyOperations.getString(method, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"))) && erasureSignature.equals(BaseMethodDeclaration__BehaviorDescriptor.getErasureSignature_id2t8d$bukubq.invoke(other));
+            return other != method && Objects.equals(SPropertyOperations.getString(other, PROPS.name$tAp1), SPropertyOperations.getString(method, PROPS.name$tAp1)) && erasureSignature.equals(BaseMethodDeclaration__BehaviorDescriptor.getErasureSignature_id2t8d$bukubq.invoke(other));
           }
         });
         if ((foundDuplicate != null)) {
           {
-            final MessageTarget errorTarget = new PropertyMessageTarget(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
-            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(method, "method has duplicate erasure with " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.cast(SNodeOperations.getParent(enumConstant), AUX_pw1hme.EnumClass_acf68fc0)) + "." + SPropertyOperations.getString(enumConstant, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "." + SPropertyOperations.getString(foundDuplicate, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "(" + BaseMethodDeclaration__BehaviorDescriptor.getErasureSignature_id2t8d$bukubq.invoke(foundDuplicate) + ")", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "8960718351576519802", null, errorTarget);
+            final MessageTarget errorTarget = new PropertyMessageTarget(PROPS.name$tAp1);
+            IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(method, "method has duplicate erasure with " + INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(SNodeOperations.cast(SNodeOperations.getParent(enumConstant), CONCEPTS.EnumClass$uy)) + "." + SPropertyOperations.getString(enumConstant, PROPS.name$tAp1) + "." + SPropertyOperations.getString(foundDuplicate, PROPS.name$tAp1) + "(" + BaseMethodDeclaration__BehaviorDescriptor.getErasureSignature_id2t8d$bukubq.invoke(foundDuplicate) + ")", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "8960718351576519802", null, errorTarget);
           }
         }
       }
     });
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_pw1hme.EnumConstantDeclaration_b06144d8;
+    return CONCEPTS.EnumConstantDeclaration$ma;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,8 +56,16 @@ public class check_DuplicateEnumConstantMethods_NonTypesystemRule extends Abstra
     return false;
   }
 
-  private static final class AUX_pw1hme {
-    /*package*/ static final SConcept EnumClass_acf68fc0 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
-    /*package*/ static final SConcept EnumConstantDeclaration_b06144d8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink method$3$mN = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, 0x6d60019ab157734L, "method");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumClass$uy = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367070a5L, "jetbrains.mps.baseLanguage.structure.EnumClass");
+    /*package*/ static final SConcept EnumConstantDeclaration$ma = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc367388b3L, "jetbrains.mps.baseLanguage.structure.EnumConstantDeclaration");
   }
 }

@@ -20,14 +20,14 @@ public class check_SupersedeConceptFunction_NonTypesystemRule extends AbstractNo
   public check_SupersedeConceptFunction_NonTypesystemRule() {
   }
   public void applyRule(final SNode sce, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode infRule = SNodeOperations.getNodeAncestor(sce, AUX_pqsvjy.InferenceRule_fc876475, false, false);
+    SNode infRule = SNodeOperations.getNodeAncestor(sce, CONCEPTS.InferenceRule$Ad, false, false);
     if (!((infRule != null) && (boolean) AbstractRule__BehaviorDescriptor.isAttributeRule_id6lCixFI9vx1.invoke(infRule))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(sce, "not applicable in this context", "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "7307171874934109979", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_pqsvjy.SupersedeConceptFunction_38910f8e;
+    return CONCEPTS.SupersedeConceptFunction$6k;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,8 +36,8 @@ public class check_SupersedeConceptFunction_NonTypesystemRule extends AbstractNo
     return false;
   }
 
-  private static final class AUX_pqsvjy {
-    /*package*/ static final SConcept InferenceRule_fc876475 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL, "jetbrains.mps.lang.typesystem.structure.InferenceRule");
-    /*package*/ static final SConcept SupersedeConceptFunction_38910f8e = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x65684a1aee252403L, "jetbrains.mps.lang.typesystem.structure.SupersedeConceptFunction");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InferenceRule$Ad = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117e2f5efaL, "jetbrains.mps.lang.typesystem.structure.InferenceRule");
+    /*package*/ static final SConcept SupersedeConceptFunction$6k = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x65684a1aee252403L, "jetbrains.mps.lang.typesystem.structure.SupersedeConceptFunction");
   }
 }

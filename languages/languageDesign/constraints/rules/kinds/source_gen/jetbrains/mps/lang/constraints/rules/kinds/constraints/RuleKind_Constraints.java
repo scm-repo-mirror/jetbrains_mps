@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RuleKind_Constraints extends BaseConstraintsDescriptor {
   public RuleKind_Constraints() {
-    super(AUX_yjuemr.RuleKind_5b9bbff4);
+    super(CONCEPTS.RuleKind$RI);
   }
 
   @Override
@@ -41,7 +41,7 @@ public class RuleKind_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:52ea8481-08b2-4cbd-ad9d-1b42825f7d09(jetbrains.mps.lang.constraints.rules.kinds.constraints)", "4575984242822668306");
 
-  private static final class AUX_yjuemr {
-    /*package*/ static final SConcept RuleKind_5b9bbff4 = MetaAdapterFactory.getConcept(0x5dae8159ab9946bbL, 0xa40d0cee30ee7018L, 0x6530303593554248L, "jetbrains.mps.lang.constraints.rules.kinds.structure.RuleKind");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RuleKind$RI = MetaAdapterFactory.getConcept(0x5dae8159ab9946bbL, 0xa40d0cee30ee7018L, 0x6530303593554248L, "jetbrains.mps.lang.constraints.rules.kinds.structure.RuleKind");
   }
 }

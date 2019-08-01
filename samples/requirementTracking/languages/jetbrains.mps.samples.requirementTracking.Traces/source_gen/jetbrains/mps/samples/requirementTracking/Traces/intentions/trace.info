@@ -29,14 +29,14 @@
       <node id="4174052498196375444" at="32,35,33,36" concept="8" />
       <node id="4174052498196375444" at="37,53,38,19" concept="8" />
       <node id="4174052498196375444" at="39,5,40,16" concept="8" />
-      <node id="4174052498196475148" at="42,91,43,230" concept="8" />
+      <node id="4174052498196475148" at="42,91,43,222" concept="8" />
       <node id="4174052498196375444" at="46,35,47,17" concept="8" />
       <node id="4174052498196375444" at="50,37,51,105" concept="2" />
       <node id="4174052498196375444" at="52,5,53,30" concept="8" />
-      <node id="4174052498196386148" at="60,139,61,43" concept="8" />
+      <node id="4174052498196386148" at="60,131,61,43" concept="8" />
       <node id="4174052498196392790" at="62,14,63,40" concept="8" />
-      <node id="4174052498196397489" at="68,139,69,153" concept="2" />
-      <node id="4174052498196544287" at="69,153,70,101" concept="2" />
+      <node id="4174052498196397489" at="68,131,69,145" concept="2" />
+      <node id="4174052498196544287" at="69,145,70,101" concept="2" />
       <node id="4174052498197404689" at="72,13,73,112" concept="7" />
       <node id="4174052498197666369" at="74,43,75,47" concept="2" />
       <node id="4174052498197570743" at="76,11,77,72" concept="7" />
@@ -45,11 +45,11 @@
       <node id="4174052498197676157" at="83,11,84,130" concept="2" />
       <node id="4174052498197406542" at="84,130,85,90" concept="2" />
       <node id="4174052498197857841" at="85,90,86,67" concept="2" />
-      <node id="4174052498196406484" at="87,19,88,174" concept="2" />
-      <node id="4174052498196554489" at="88,174,89,205" concept="2" />
+      <node id="4174052498196406484" at="87,19,88,158" concept="2" />
+      <node id="4174052498196554489" at="88,158,89,197" concept="2" />
       <node id="4174052498197406250" at="90,9,91,0" concept="9" />
       <node id="4174052498196375444" at="95,48,96,51" concept="8" />
-      <node id="4174052498196375444" at="101,0,102,0" concept="10" trace="RequirementTrace_ea536294" />
+      <node id="4174052498196375444" at="101,0,102,0" concept="10" trace="RequirementTrace$Xe" />
       <node id="4174052498196375444" at="56,0,58,0" concept="1" trace="IntentionImplementation#()V" />
       <node id="4174052498196392077" at="62,12,64,7" concept="0" />
       <node id="4174052498196375444" at="28,0,31,0" concept="1" trace="ToggleRequirementTrace_Intention#()V" />
@@ -74,17 +74,17 @@
       <scope id="4174052498196375444" at="28,45,29,174" />
       <scope id="4174052498196375444" at="32,35,33,36" />
       <scope id="4174052498196375444" at="37,53,38,19" />
-      <scope id="4174052498196473784" at="42,91,43,230" />
+      <scope id="4174052498196473784" at="42,91,43,222" />
       <scope id="4174052498196375444" at="46,35,47,17" />
       <scope id="4174052498196375444" at="50,37,51,105" />
-      <scope id="4174052498196376084" at="60,139,61,43" />
+      <scope id="4174052498196376084" at="60,131,61,43" />
       <scope id="4174052498196392078" at="62,14,63,40" />
       <scope id="4174052498197562500" at="74,43,75,47" />
       <scope id="4174052498197546691" at="79,139,80,21" />
       <scope id="4174052498196375444" at="95,48,96,51" />
       <scope id="4174052498196375444" at="56,0,58,0" />
-      <scope id="4174052498196397090" at="68,139,70,101" />
-      <scope id="4174052498197962612" at="87,19,89,205" />
+      <scope id="4174052498196397090" at="68,131,70,101" />
+      <scope id="4174052498197962612" at="87,19,89,197" />
       <scope id="4174052498196375444" at="28,0,31,0" />
       <scope id="4174052498196375444" at="42,0,45,0">
         <var name="editorContext" id="4174052498196375444" />
@@ -122,7 +122,7 @@
         <var name="editorContext" id="4174052498196375444" />
         <var name="node" id="4174052498196375444" />
       </scope>
-      <unit id="4174052498196375444" at="100,0,103,0" name="jetbrains.mps.samples.requirementTracking.Traces.intentions.ToggleRequirementTrace_Intention$AUX_aqf4i9" />
+      <unit id="4174052498196375444" at="100,0,103,0" name="jetbrains.mps.samples.requirementTracking.Traces.intentions.ToggleRequirementTrace_Intention$CONCEPTS" />
       <unit id="4174052498196375444" at="55,0,99,0" name="jetbrains.mps.samples.requirementTracking.Traces.intentions.ToggleRequirementTrace_Intention$IntentionImplementation" />
       <unit id="4174052498196375444" at="26,0,104,0" name="jetbrains.mps.samples.requirementTracking.Traces.intentions.ToggleRequirementTrace_Intention" />
     </file>

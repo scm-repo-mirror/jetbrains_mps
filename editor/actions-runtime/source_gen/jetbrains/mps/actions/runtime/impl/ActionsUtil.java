@@ -11,10 +11,10 @@ public final class ActionsUtil {
   private ActionsUtil() {
   }
   public static boolean isInstanceOfIType(SNode node) {
-    return SNodeOperations.isInstanceOf(node, AUX_r16tdr.IType_3efc1c4b);
+    return SNodeOperations.isInstanceOf(node, CONCEPTS.IType$LR);
   }
 
-  private static final class AUX_r16tdr {
-    /*package*/ static final SInterfaceConcept IType_3efc1c4b = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11f8a0774f2L, "jetbrains.mps.lang.core.structure.IType");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IType$LR = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x11f8a0774f2L, "jetbrains.mps.lang.core.structure.IType");
   }
 }

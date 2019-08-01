@@ -12,9 +12,10 @@ import jetbrains.mps.lang.smodel.query.runtime.QueryExecutionContext;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CleanEditorTabCommandOnCreateProperty extends MigrationScriptBase {
   public String getCaption() {
@@ -37,9 +38,9 @@ public class CleanEditorTabCommandOnCreateProperty extends MigrationScriptBase {
           return scope_khohta_a0d_0;
         }
       };
-      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), AUX_khohta.EditorTab_405dcfd1, false)).visitAll(new IVisitor<SNode>() {
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.EditorTab$AL, false)).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
-          SPropertyOperations.remove(it, MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, 0x71dc7d539b7857cfL, "commandOnCreate"));
+          SPropertyOperations.remove(it, PROPS.commandOnCreate$rEbZ);
         }
       });
     }
@@ -48,7 +49,11 @@ public class CleanEditorTabCommandOnCreateProperty extends MigrationScriptBase {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, "jetbrains.mps.lang.plugin"), 3);
   }
 
-  private static final class AUX_khohta {
-    /*package*/ static final SConcept EditorTab_405dcfd1 = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, "jetbrains.mps.lang.plugin.structure.EditorTab");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EditorTab$AL = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, "jetbrains.mps.lang.plugin.structure.EditorTab");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty commandOnCreate$rEbZ = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x33f4c34299ff0d2fL, 0x71dc7d539b7857cfL, "commandOnCreate");
   }
 }

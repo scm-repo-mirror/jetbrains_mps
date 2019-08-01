@@ -4,6 +4,7 @@ package jetbrains.mps.baseLanguage.regexp.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,14 +17,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class MatchVariableReferenceReplacement__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_96mmtg.MatchVariableReferenceReplacement_bb25078a;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94eL, "jetbrains.mps.baseLanguage.regexp.structure.MatchVariableReferenceReplacement");
 
   public static final SMethod<String> toString_id3iI_KKpaF_p = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("toString").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3iI_KKpaF_p").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
 
@@ -35,7 +35,7 @@ public final class MatchVariableReferenceReplacement__BehaviorDescriptor extends
   /*package*/ static String toString_id3iI_KKpaF_p(@NotNull SNode __thisNode__, SNode search) {
     List<SNode> vars = new ArrayList<SNode>();
     Regexp__BehaviorDescriptor.getString_idhMuDF1A.invoke(search, vars);
-    return "$" + (ListSequence.fromList(vars).indexOf(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94eL, 0x34ae970c192abbc5L, "match"))) + 1);
+    return "$" + (ListSequence.fromList(vars).indexOf(SLinkOperations.getTarget(__thisNode__, LINKS.match$FhOt)) + 1);
   }
 
   /*package*/ MatchVariableReferenceReplacement__BehaviorDescriptor() {
@@ -84,7 +84,7 @@ public final class MatchVariableReferenceReplacement__BehaviorDescriptor extends
     return CONCEPT;
   }
 
-  private static final class AUX_96mmtg {
-    /*package*/ static final SConcept MatchVariableReferenceReplacement_bb25078a = MetaAdapterFactory.getConcept(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94eL, "jetbrains.mps.baseLanguage.regexp.structure.MatchVariableReferenceReplacement");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink match$FhOt = MetaAdapterFactory.getReferenceLink(0xdaafa647f1f74b0bL, 0xb09669cd7c8408c0L, 0x34ae970c192ab94eL, 0x34ae970c192abbc5L, "match");
   }
 }

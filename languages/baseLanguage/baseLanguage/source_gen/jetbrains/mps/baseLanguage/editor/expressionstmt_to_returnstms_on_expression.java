@@ -69,7 +69,7 @@ public class expressionstmt_to_returnstms_on_expression extends TransformationMe
   public class TMP_Group_vdgfyi_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      return SNodeOperations.getConcept(_context.getNode()).isAbstract() && SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), AUX_vdgfyi.ExpressionStatement_9dbf9b0c);
+      return SNodeOperations.getConcept(_context.getNode()).isAbstract() && SNodeOperations.isInstanceOf(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ExpressionStatement$nm);
     }
 
     @NotNull
@@ -125,7 +125,7 @@ public class expressionstmt_to_returnstms_on_expression extends TransformationMe
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(_context.getNode()), AUX_vdgfyi.ReturnStatement_d4768417);
+          SNodeFactoryOperations.replaceWithNewChild(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ReturnStatement$SF);
         }
 
 
@@ -149,8 +149,8 @@ public class expressionstmt_to_returnstms_on_expression extends TransformationMe
     }
   }
 
-  private static final class AUX_vdgfyi {
-    /*package*/ static final SConcept ExpressionStatement_9dbf9b0c = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
-    /*package*/ static final SConcept ReturnStatement_d4768417 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
+    /*package*/ static final SConcept ReturnStatement$SF = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7feL, "jetbrains.mps.baseLanguage.structure.ReturnStatement");
   }
 }

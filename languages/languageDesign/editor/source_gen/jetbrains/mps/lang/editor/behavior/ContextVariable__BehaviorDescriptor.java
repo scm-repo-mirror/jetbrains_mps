@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -19,12 +20,10 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public final class ContextVariable__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_38841y.ContextVariable_8fdc508b;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x794cf8ea9e119f99L, "jetbrains.mps.lang.editor.structure.ContextVariable");
 
   public static final SMethod<Boolean> usesParameterObject_idhEwJh7s = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("usesParameterObject").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJh7s").build();
   public static final SMethod<SNode> findProvider_idhEwJh7Q = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("findProvider").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwJh7Q").build();
@@ -41,7 +40,7 @@ public final class ContextVariable__BehaviorDescriptor extends BaseBHDescriptor 
   }
   /*package*/ static SNode findProvider_idhEwJh7Q(@NotNull SNode __thisNode__) {
     final SAbstractConcept providerConcept = ContextVariable__BehaviorDescriptor.getProviderConcept_idaxxf7pcCKs.invoke(__thisNode__.getConcept());
-    return ListSequence.fromList(SNodeOperations.getNodeAncestors(__thisNode__, AUX_38841y.IContextVariableProvider_4e164c9c, true)).findFirst(new IWhereFilter<SNode>() {
+    return ListSequence.fromList(SNodeOperations.getNodeAncestors(__thisNode__, CONCEPTS.IContextVariableProvider$p6, true)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.getConcept(it).isSubConceptOf(providerConcept);
       }
@@ -96,8 +95,7 @@ public final class ContextVariable__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
-  private static final class AUX_38841y {
-    /*package*/ static final SConcept ContextVariable_8fdc508b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x794cf8ea9e119f99L, "jetbrains.mps.lang.editor.structure.ContextVariable");
-    /*package*/ static final SInterfaceConcept IContextVariableProvider_4e164c9c = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2a184f1d9310d4eL, "jetbrains.mps.lang.editor.structure.IContextVariableProvider");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept IContextVariableProvider$p6 = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x2a184f1d9310d4eL, "jetbrains.mps.lang.editor.structure.IContextVariableProvider");
   }
 }

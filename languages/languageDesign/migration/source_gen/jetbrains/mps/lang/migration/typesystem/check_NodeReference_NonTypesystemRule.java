@@ -27,7 +27,7 @@ public class check_NodeReference_NonTypesystemRule extends AbstractNonTypesystem
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_g9nlrm.ReflectionNodeReference_bcce0b54;
+    return CONCEPTS.ReflectionNodeReference$Ue;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +36,7 @@ public class check_NodeReference_NonTypesystemRule extends AbstractNonTypesystem
     return false;
   }
 
-  private static final class AUX_g9nlrm {
-    /*package*/ static final SConcept ReflectionNodeReference_bcce0b54 = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, "jetbrains.mps.lang.migration.structure.ReflectionNodeReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReflectionNodeReference$Ue = MetaAdapterFactory.getConcept(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x27bf3263be23f0dfL, "jetbrains.mps.lang.migration.structure.ReflectionNodeReference");
   }
 }

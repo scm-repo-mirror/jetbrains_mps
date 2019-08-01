@@ -19,13 +19,13 @@ public class check_op_inside_refMacro_NonTypesystemRule extends AbstractNonTypes
   public check_op_inside_refMacro_NonTypesystemRule() {
   }
   public void applyRule(final SNode op, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if (!((SNodeOperations.getNodeAncestor(op, AUX_9v88l0.ReferenceMacro_62f8c34e, false, false) != null))) {
+    if (!((SNodeOperations.getNodeAncestor(op, CONCEPTS.ReferenceMacro$nk, false, false) != null))) {
       final MessageTarget errorTarget = new NodeMessageTarget();
       IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(op, "such an operation may be used only inside ref.macro", "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "1221220343089", null, errorTarget);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_9v88l0.GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope_ccc690d1;
+    return CONCEPTS.GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope$yL;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -34,8 +34,8 @@ public class check_op_inside_refMacro_NonTypesystemRule extends AbstractNonTypes
     return false;
   }
 
-  private static final class AUX_9v88l0 {
-    /*package*/ static final SConcept ReferenceMacro_62f8c34e = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
-    /*package*/ static final SConcept GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope_ccc690d1 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c5652e4d5L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ReferenceMacro$nk = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd7f44d616L, "jetbrains.mps.lang.generator.structure.ReferenceMacro");
+    /*package*/ static final SConcept GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope$yL = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c5652e4d5L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputByLabelAndInputAndReferenceScope");
   }
 }

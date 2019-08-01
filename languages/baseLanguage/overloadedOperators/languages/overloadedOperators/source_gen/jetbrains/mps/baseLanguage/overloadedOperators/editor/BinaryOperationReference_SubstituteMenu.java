@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class BinaryOperationReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_8e3qtl_a(), AUX_8e3qtl.BinaryOperationReference_3e98693b));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_8e3qtl_a(), CONCEPTS.BinaryOperationReference$Q7));
     result.add(new SMP_Subconcepts_8e3qtl_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class BinaryOperationReference_SubstituteMenu extends SubstituteMenuBase 
 
     public SMP_ReferenceScope_8e3qtl_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_8e3qtl.BinaryOperationReference_3e98693b, MetaAdapterFactory.getReferenceLink(0xfc8d557e5de64dd8L, 0xb749aab2fb23aefcL, 0x2764eda929d23eb4L, 0x2764eda929d23eb5L, "binaryOperation"));
+      super((SAbstractConcept) CONCEPTS.BinaryOperationReference$Q7, LINKS.binaryOperation$3bcw);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class BinaryOperationReference_SubstituteMenu extends SubstituteMenuBase 
   }
   public class SMP_Subconcepts_8e3qtl_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_8e3qtl.BinaryOperationReference_3e98693b);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BinaryOperationReference$Q7);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class BinaryOperationReference_SubstituteMenu extends SubstituteMenuBase 
     }
   }
 
-  private static final class AUX_8e3qtl {
-    /*package*/ static final SConcept BinaryOperationReference_3e98693b = MetaAdapterFactory.getConcept(0xfc8d557e5de64dd8L, 0xb749aab2fb23aefcL, 0x2764eda929d23eb4L, "jetbrains.mps.baseLanguage.overloadedOperators.structure.BinaryOperationReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BinaryOperationReference$Q7 = MetaAdapterFactory.getConcept(0xfc8d557e5de64dd8L, 0xb749aab2fb23aefcL, 0x2764eda929d23eb4L, "jetbrains.mps.baseLanguage.overloadedOperators.structure.BinaryOperationReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink binaryOperation$3bcw = MetaAdapterFactory.getReferenceLink(0xfc8d557e5de64dd8L, 0xb749aab2fb23aefcL, 0x2764eda929d23eb4L, 0x2764eda929d23eb5L, "binaryOperation");
   }
 }

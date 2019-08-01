@@ -76,11 +76,11 @@ public class MsgFirstCell extends TransformationMenuBase {
       return new NamedSubstituteMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), conceptToFindMenuFor, "jetbrains.mps.baseLanguage.logging.editor.ReplaceMessageWithLog");
     }
     private SAbstractConcept getConceptToFindMenuFor(TransformationMenuContext _context) {
-      return AUX_yyvtuw.MsgStatement_2c00a533;
+      return CONCEPTS.MsgStatement$2f;
     }
   }
 
-  private static final class AUX_yyvtuw {
-    /*package*/ static final SConcept MsgStatement_2c00a533 = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, "jetbrains.mps.baseLanguage.logging.structure.MsgStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MsgStatement$2f = MetaAdapterFactory.getConcept(0x760a0a8ceabb4521L, 0x8bfd65db761a9ba3L, 0x57e2cf14f6d5a71dL, "jetbrains.mps.baseLanguage.logging.structure.MsgStatement");
   }
 }

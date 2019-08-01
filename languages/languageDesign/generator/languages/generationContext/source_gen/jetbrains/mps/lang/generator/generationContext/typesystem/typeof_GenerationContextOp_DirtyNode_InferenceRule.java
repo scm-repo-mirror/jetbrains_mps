@@ -9,10 +9,11 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_GenerationContextOp_DirtyNode_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -26,14 +27,14 @@ public class typeof_GenerationContextOp_DirtyNode_InferenceRule extends Abstract
     }
     if (!(typeCheckingContext.isSingleTypeComputation())) {
       {
-        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4afdb473461e8c79L, 0x4afdb473461e8c7aL, "nodeToCheck"));
+        SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(op, LINKS.nodeToCheck$HUNw);
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "6908928803899694660", 0, null);
         typeCheckingContext.createLessThanInequality((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902f1(jetbrains.mps.lang.generator.generationContext.typesystem)", "6908928803899694662", true), (SNode) _quotation_createNode_3ufvnu_a1a0c0a0b0b(), true, true, _info_12389875345);
       }
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_3ufvnu.GenerationContextOp_DirtyNode_8abdc109;
+    return CONCEPTS.GenerationContextOp_DirtyNode$XT;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -54,7 +55,11 @@ public class typeof_GenerationContextOp_DirtyNode_InferenceRule extends Abstract
     return quotedNode_1;
   }
 
-  private static final class AUX_3ufvnu {
-    /*package*/ static final SConcept GenerationContextOp_DirtyNode_8abdc109 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4afdb473461e8c79L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_DirtyNode");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink nodeToCheck$HUNw = MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4afdb473461e8c79L, 0x4afdb473461e8c7aL, "nodeToCheck");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenerationContextOp_DirtyNode$XT = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x4afdb473461e8c79L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_DirtyNode");
   }
 }

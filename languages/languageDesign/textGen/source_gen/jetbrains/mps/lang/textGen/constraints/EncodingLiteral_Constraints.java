@@ -5,7 +5,6 @@ package jetbrains.mps.lang.textGen.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -16,15 +15,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class EncodingLiteral_Constraints extends BaseConstraintsDescriptor {
   public EncodingLiteral_Constraints() {
-    super(AUX_p9uqyx.EncodingLiteral_9c8ae523);
+    super(CONCEPTS.EncodingLiteral$Uv);
   }
 
   public static class Encoding_Property extends BasePropertyConstraintsDescriptor {
     public Encoding_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x63754d97e1c86b8cL, 0x63754d97e1c86b8dL, "encoding"), container);
+      super(PROPS.encoding$n30w, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -60,11 +60,15 @@ public class EncodingLiteral_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x63754d97e1c86b8cL, 0x63754d97e1c86b8dL, "encoding"), new Encoding_Property(this));
+    properties.put(PROPS.encoding$n30w, new Encoding_Property(this));
     return properties;
   }
 
-  private static final class AUX_p9uqyx {
-    /*package*/ static final SConcept EncodingLiteral_9c8ae523 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x63754d97e1c86b8cL, "jetbrains.mps.lang.textGen.structure.EncodingLiteral");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EncodingLiteral$Uv = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x63754d97e1c86b8cL, "jetbrains.mps.lang.textGen.structure.EncodingLiteral");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty encoding$n30w = MetaAdapterFactory.getProperty(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x63754d97e1c86b8cL, 0x63754d97e1c86b8dL, "encoding");
   }
 }

@@ -9,8 +9,9 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import com.intellij.openapi.ui.Messages;
+import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public abstract class AbstractLanguageMove implements MoveNodesAction {
   public boolean checkDeployed(MPSProject project, final SNode concept) {
@@ -19,7 +20,7 @@ public abstract class AbstractLanguageMove implements MoveNodesAction {
     project.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
         deployedConcept.value = MetaAdapterByDeclaration.getConcept(concept);
-        conceptName.value = SPropertyOperations.getString(concept, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+        conceptName.value = SPropertyOperations.getString(concept, PROPS.name$tAp1);
       }
     });
     if (!(deployedConcept.value.isValid())) {
@@ -27,5 +28,9 @@ public abstract class AbstractLanguageMove implements MoveNodesAction {
       return false;
     }
     return true;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

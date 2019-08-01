@@ -38,7 +38,7 @@ public final class AddMessageAnnotation_Intention extends AbstractIntentionDescr
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_qi4d8x.MessageStatementAnnotation_f105e148)) == null);
+    return (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.MessageStatementAnnotation$sq)) == null);
   }
   @Override
   public boolean isSurroundWith() {
@@ -60,7 +60,7 @@ public final class AddMessageAnnotation_Intention extends AbstractIntentionDescr
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       MessageStatement__BehaviorDescriptor.attachNewMessageAnnotation_id7nf9pEwlup1.invoke(node);
-      SelectionUtil.selectCell(editorContext, AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_qi4d8x.MessageStatementAnnotation_f105e148)), SelectionManager.FIRST_EDITABLE_CELL);
+      SelectionUtil.selectCell(editorContext, AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.MessageStatementAnnotation$sq)), SelectionManager.FIRST_EDITABLE_CELL);
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -68,7 +68,7 @@ public final class AddMessageAnnotation_Intention extends AbstractIntentionDescr
     }
   }
 
-  private static final class AUX_qi4d8x {
-    /*package*/ static final SConcept MessageStatementAnnotation_f105e148 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2bb0fe622a9eb078L, "jetbrains.mps.lang.typesystem.structure.MessageStatementAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MessageStatementAnnotation$sq = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x2bb0fe622a9eb078L, "jetbrains.mps.lang.typesystem.structure.MessageStatementAnnotation");
   }
 }

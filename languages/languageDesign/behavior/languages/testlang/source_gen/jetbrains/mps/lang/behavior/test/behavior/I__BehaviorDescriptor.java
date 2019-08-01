@@ -4,6 +4,7 @@ package jetbrains.mps.lang.behavior.test.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -16,11 +17,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class I__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_wvk61h.I_43a0fdbd;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xa18fb831fb54541L, 0x97c9a13312451954L, 0x41ab5625f92e6814L, "jetbrains.mps.lang.behavior.test.structure.I");
 
   public static final SMethod<String> virtualAbstractFromInterfaceConcept_id46FlynTbALM = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("virtualAbstractFromInterfaceConcept").modifiers(SModifiersImpl.create(12, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("46FlynTbALM").build(SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
   public static final SMethod<String> nonVirtualFromInterfaceConcept_id46FlynTbB0A = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("nonVirtualFromInterfaceConcept").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("46FlynTbB0A").build(SMethodBuilder.createJavaParameter(String.class, ""), SMethodBuilder.createJavaParameter(Integer.TYPE, ""));
@@ -84,9 +83,5 @@ public final class I__BehaviorDescriptor extends BaseBHDescriptor {
   @Override
   public SAbstractConcept getConcept() {
     return CONCEPT;
-  }
-
-  private static final class AUX_wvk61h {
-    /*package*/ static final SInterfaceConcept I_43a0fdbd = MetaAdapterFactory.getInterfaceConcept(0xa18fb831fb54541L, 0x97c9a13312451954L, 0x41ab5625f92e6814L, "jetbrains.mps.lang.behavior.test.structure.I");
   }
 }

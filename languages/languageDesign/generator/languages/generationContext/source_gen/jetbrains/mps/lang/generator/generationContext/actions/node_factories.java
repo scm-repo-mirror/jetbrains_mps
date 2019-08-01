@@ -7,58 +7,60 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class node_factories {
   public static class NodeFactory_1216861604197 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabelAndInput_c78d9c13)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x11b5282d0d7L, "label"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabelAndInput_c78d9c13), MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0dbL, 0x11b5282d0dcL, "label")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabelAndInput$mJ)) {
+        SLinkOperations.setTarget(newNode, LINKS.label$GKQ0, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabelAndInput$mJ), LINKS.label$GKSw));
       }
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputListByLabelAndInput_674a5570)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x11b5282d0d7L, "label"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputListByLabelAndInput_674a5570), MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c529a6c83L, 0x11c529a6c85L, "label")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_GetOutputListByLabelAndInput$vM)) {
+        SLinkOperations.setTarget(newNode, LINKS.label$GKQ0, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_GetOutputListByLabelAndInput$vM), LINKS.label$iCGZ));
       }
     }
   }
   public static class NodeFactory_1216861604215 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabel_c78d9c0e)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0dbL, 0x11b5282d0dcL, "label"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabel_c78d9c0e), MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x11b5282d0d7L, "label")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabel$kk)) {
+        SLinkOperations.setTarget(newNode, LINKS.label$GKSw, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabel$kk), LINKS.label$GKQ0));
       }
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputListByLabelAndInput_674a5570)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0dbL, 0x11b5282d0dcL, "label"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputListByLabelAndInput_674a5570), MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c529a6c83L, 0x11c529a6c85L, "label")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_GetOutputListByLabelAndInput$vM)) {
+        SLinkOperations.setTarget(newNode, LINKS.label$GKSw, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_GetOutputListByLabelAndInput$vM), LINKS.label$iCGZ));
       }
     }
   }
   public static class NodeFactory_1221157578225 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabel_c78d9c0e)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c529a6c83L, 0x11c529a6c85L, "label"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabel_c78d9c0e), MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x11b5282d0d7L, "label")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabel$kk)) {
+        SLinkOperations.setTarget(newNode, LINKS.label$iCGZ, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabel$kk), LINKS.label$GKQ0));
       }
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabelAndInput_c78d9c13)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c529a6c83L, 0x11c529a6c85L, "label"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_GetOutputByLabelAndInput_c78d9c13), MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0dbL, 0x11b5282d0dcL, "label")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabelAndInput$mJ)) {
+        SLinkOperations.setTarget(newNode, LINKS.label$iCGZ, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_GetOutputByLabelAndInput$mJ), LINKS.label$GKSw));
       }
     }
   }
   public static class NodeFactory_1217895102248 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_UserObjectAccessBase_772535d6)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, 0x11b8ff121e8L, "userKey"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_UserObjectAccessBase_772535d6), MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, 0x11b8ff121e8L, "userKey")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_UserObjectAccessBase$hc)) {
+        SLinkOperations.setTarget(newNode, LINKS.userKey$dfjf, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_UserObjectAccessBase$hc), LINKS.userKey$dfjf));
       }
     }
   }
   public static class NodeFactory_1217895169604 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_UserObjectAccessBase_772535d6)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, 0x11b8ff121e8L, "userKey"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_UserObjectAccessBase_772535d6), MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, 0x11b8ff121e8L, "userKey")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_UserObjectAccessBase$hc)) {
+        SLinkOperations.setTarget(newNode, LINKS.userKey$dfjf, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_UserObjectAccessBase$hc), LINKS.userKey$dfjf));
       }
     }
   }
   public static class NodeFactory_1217895187934 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jyjwr9.GenerationContextOp_UserObjectAccessBase_772535d6)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, 0x11b8ff121e8L, "userKey"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_jyjwr9.GenerationContextOp_UserObjectAccessBase_772535d6), MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, 0x11b8ff121e8L, "userKey")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.GenerationContextOp_UserObjectAccessBase$hc)) {
+        SLinkOperations.setTarget(newNode, LINKS.userKey$dfjf, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.GenerationContextOp_UserObjectAccessBase$hc), LINKS.userKey$dfjf));
       }
     }
   }
@@ -66,19 +68,28 @@ public class node_factories {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
       {
         final SNode base = sampleNode;
-        if (SNodeOperations.isInstanceOf(base, AUX_jyjwr9.GenerationContextOp_ShowMessageBase_550d726a)) {
-          SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, 0x11b94178650L, "messageText"), SLinkOperations.getTarget(base, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, 0x11b94178650L, "messageText")));
-          SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, 0x11b9418f1d8L, "referenceNode"), SLinkOperations.getTarget(base, MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, 0x11b9418f1d8L, "referenceNode")));
+        if (SNodeOperations.isInstanceOf(base, CONCEPTS.GenerationContextOp_ShowMessageBase$CS)) {
+          SLinkOperations.setTarget(newNode, LINKS.messageText$Ft_W, SLinkOperations.getTarget(base, LINKS.messageText$Ft_W));
+          SLinkOperations.setTarget(newNode, LINKS.referenceNode$2uG3, SLinkOperations.getTarget(base, LINKS.referenceNode$2uG3));
         }
       }
     }
   }
 
-  private static final class AUX_jyjwr9 {
-    /*package*/ static final SConcept GenerationContextOp_GetOutputByLabelAndInput_c78d9c13 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0dbL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputByLabelAndInput");
-    /*package*/ static final SConcept GenerationContextOp_GetOutputListByLabelAndInput_674a5570 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c529a6c83L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputListByLabelAndInput");
-    /*package*/ static final SConcept GenerationContextOp_GetOutputByLabel_c78d9c0e = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputByLabel");
-    /*package*/ static final SConcept GenerationContextOp_UserObjectAccessBase_772535d6 = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_UserObjectAccessBase");
-    /*package*/ static final SConcept GenerationContextOp_ShowMessageBase_550d726a = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ShowMessageBase");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenerationContextOp_GetOutputByLabelAndInput$mJ = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0dbL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputByLabelAndInput");
+    /*package*/ static final SConcept GenerationContextOp_GetOutputListByLabelAndInput$vM = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c529a6c83L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputListByLabelAndInput");
+    /*package*/ static final SConcept GenerationContextOp_GetOutputByLabel$kk = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_GetOutputByLabel");
+    /*package*/ static final SConcept GenerationContextOp_UserObjectAccessBase$hc = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_UserObjectAccessBase");
+    /*package*/ static final SConcept GenerationContextOp_ShowMessageBase$CS = MetaAdapterFactory.getConcept(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, "jetbrains.mps.lang.generator.generationContext.structure.GenerationContextOp_ShowMessageBase");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink label$GKQ0 = MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0d6L, 0x11b5282d0d7L, "label");
+    /*package*/ static final SReferenceLink label$GKSw = MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b5282d0dbL, 0x11b5282d0dcL, "label");
+    /*package*/ static final SReferenceLink label$iCGZ = MetaAdapterFactory.getReferenceLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11c529a6c83L, 0x11c529a6c85L, "label");
+    /*package*/ static final SContainmentLink userKey$dfjf = MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b8fe60348L, 0x11b8ff121e8L, "userKey");
+    /*package*/ static final SContainmentLink messageText$Ft_W = MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, 0x11b94178650L, "messageText");
+    /*package*/ static final SContainmentLink referenceNode$2uG3 = MetaAdapterFactory.getContainmentLink(0xd7706f639be2479cL, 0xa3daae92af1e64d5L, 0x11b9417864bL, 0x11b9418f1d8L, "referenceNode");
   }
 }

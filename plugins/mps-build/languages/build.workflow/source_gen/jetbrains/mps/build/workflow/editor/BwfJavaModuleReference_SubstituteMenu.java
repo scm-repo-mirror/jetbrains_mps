@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class BwfJavaModuleReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_w9a1py_a(), AUX_w9a1py.BwfJavaModuleReference_2d8d64a9));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_w9a1py_a(), CONCEPTS.BwfJavaModuleReference$Zp));
     result.add(new SMP_Subconcepts_w9a1py_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class BwfJavaModuleReference_SubstituteMenu extends SubstituteMenuBase {
 
     public SMP_ReferenceScope_w9a1py_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_w9a1py.BwfJavaModuleReference_2d8d64a9, MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38c4L, 0x41fde5e4adce38c5L, "target"));
+      super((SAbstractConcept) CONCEPTS.BwfJavaModuleReference$Zp, LINKS.target$F23w);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class BwfJavaModuleReference_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_w9a1py_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_w9a1py.BwfJavaModuleReference_2d8d64a9);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.BwfJavaModuleReference$Zp);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class BwfJavaModuleReference_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_w9a1py {
-    /*package*/ static final SConcept BwfJavaModuleReference_2d8d64a9 = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38c4L, "jetbrains.mps.build.workflow.structure.BwfJavaModuleReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BwfJavaModuleReference$Zp = MetaAdapterFactory.getConcept(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38c4L, "jetbrains.mps.build.workflow.structure.BwfJavaModuleReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$F23w = MetaAdapterFactory.getReferenceLink(0x698a8d22a10447a0L, 0xba8d10e3ec237f13L, 0x41fde5e4adce38c4L, 0x41fde5e4adce38c5L, "target");
   }
 }

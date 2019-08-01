@@ -9,10 +9,11 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_ExtensionPointExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -22,11 +23,11 @@ public class typeof_ExtensionPointExpression_InferenceRule extends AbstractInfer
     {
       SNode _nodeToCheck_1029348928467 = epe;
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:4b1ddbe6-5067-4a27-8697-eb786b50451b(jetbrains.mps.lang.extension.typesystem)", "6626851894249791047", 0, null);
-      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:4b1ddbe6-5067-4a27-8697-eb786b50451b(jetbrains.mps.lang.extension.typesystem)", "6626851894249791042", true), (SNode) createExtensionPointType_x0hnp2_a1a0c0a0b(SLinkOperations.getTarget(epe, MetaAdapterFactory.getReferenceLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x5bf74eafefe0e940L, 0x5bf74eafefe0eb55L, "extensionPoint"))), _info_12389875345);
+      typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:4b1ddbe6-5067-4a27-8697-eb786b50451b(jetbrains.mps.lang.extension.typesystem)", "6626851894249791042", true), (SNode) createExtensionPointType_x0hnp2_a1a0c0a0b(SLinkOperations.getTarget(epe, LINKS.extensionPoint$xzwB)), _info_12389875345);
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_x0hnp2.ExtensionPointExpression_ec5bd67a;
+    return CONCEPTS.ExtensionPointExpression$wC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,13 +37,18 @@ public class typeof_ExtensionPointExpression_InferenceRule extends AbstractInfer
   }
   private static SNode createExtensionPointType_x0hnp2_a1a0c0a0b(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
-    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(AUX_x0hnp2.ExtensionPointType_10968c5b, null, null, false);
-    n1.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x2c10fa62142eb538L, 0x2c10fa62142eb539L, "extensionPoint"), node0);
+    SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.ExtensionPointType$TB, null, null, false);
+    n1.setReferenceTarget(LINKS.extensionPoint$Ohsw, node0);
     return n1;
   }
 
-  private static final class AUX_x0hnp2 {
-    /*package*/ static final SConcept ExtensionPointExpression_ec5bd67a = MetaAdapterFactory.getConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x5bf74eafefe0e940L, "jetbrains.mps.lang.extension.structure.ExtensionPointExpression");
-    /*package*/ static final SConcept ExtensionPointType_10968c5b = MetaAdapterFactory.getConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x2c10fa62142eb538L, "jetbrains.mps.lang.extension.structure.ExtensionPointType");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink extensionPoint$xzwB = MetaAdapterFactory.getReferenceLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x5bf74eafefe0e940L, 0x5bf74eafefe0eb55L, "extensionPoint");
+    /*package*/ static final SReferenceLink extensionPoint$Ohsw = MetaAdapterFactory.getReferenceLink(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x2c10fa62142eb538L, 0x2c10fa62142eb539L, "extensionPoint");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExtensionPointExpression$wC = MetaAdapterFactory.getConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x5bf74eafefe0e940L, "jetbrains.mps.lang.extension.structure.ExtensionPointExpression");
+    /*package*/ static final SConcept ExtensionPointType$TB = MetaAdapterFactory.getConcept(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x2c10fa62142eb538L, "jetbrains.mps.lang.extension.structure.ExtensionPointType");
   }
 }

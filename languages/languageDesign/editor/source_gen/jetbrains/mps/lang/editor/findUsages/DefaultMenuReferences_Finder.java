@@ -14,10 +14,11 @@ import jetbrains.mps.ide.findusages.view.FindUtils;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DefaultMenuReferences_Finder extends GeneratedFinder {
   public DefaultMenuReferences_Finder() {
@@ -36,7 +37,7 @@ public class DefaultMenuReferences_Finder extends GeneratedFinder {
   }
   @Override
   public SAbstractConcept getSConcept() {
-    return AUX_xhjosu.TransformationMenu_Default_bfde92b;
+    return CONCEPTS.TransformationMenu_Default$In;
   }
 
   @Override
@@ -48,7 +49,7 @@ public class DefaultMenuReferences_Finder extends GeneratedFinder {
         List<SNode> allReferences = (List<SNode>) FindUtils.executeFinder("jetbrains.mps.lang.structure.findUsages.ConceptInstances_Finder", SNodeOperations.getNode("r:00000000-0000-4000-0000-011c8959029e(jetbrains.mps.lang.editor.structure)", "6718020819487620876"), scope, monitor.subTask(1));
 
         for (SNode ref : ListSequence.fromList(allReferences)) {
-          if (SLinkOperations.getTarget(ref, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a90a41c1L, 0x169efbc9a91440deL, "concept")) == SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9048c53L, 0x5b7b4c4d511049b4L, "conceptDeclaration"))) {
+          if (SLinkOperations.getTarget(ref, LINKS.concept$x5r) == SLinkOperations.getTarget(node, LINKS.conceptDeclaration$acmt)) {
             callback.onUsageFound(createSingleResult(ref));
           }
         }
@@ -71,7 +72,12 @@ public class DefaultMenuReferences_Finder extends GeneratedFinder {
     return buildNodePointer(FindUsagesDescriptor.DECLARING_MODEL, "873949054148483155");
   }
 
-  private static final class AUX_xhjosu {
-    /*package*/ static final SConcept TransformationMenu_Default_bfde92b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x16be955f384efce1L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Default");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TransformationMenu_Default$In = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x16be955f384efce1L, "jetbrains.mps.lang.editor.structure.TransformationMenu_Default");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$acmt = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a9048c53L, 0x5b7b4c4d511049b4L, "conceptDeclaration");
+    /*package*/ static final SReferenceLink concept$x5r = MetaAdapterFactory.getReferenceLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x169efbc9a90a41c1L, 0x169efbc9a91440deL, "concept");
   }
 }

@@ -11,11 +11,12 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class addHandler_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -35,7 +36,7 @@ public final class addHandler_Intention extends AbstractIntentionDescriptor impl
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    return (SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cbL, 0x1f6c736337b5e2cdL, "handler")) == null);
+    return (SLinkOperations.getTarget(node, LINKS.handler$YvJZ) == null);
   }
   @Override
   public boolean isSurroundWith() {
@@ -56,7 +57,7 @@ public final class addHandler_Intention extends AbstractIntentionDescriptor impl
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cbL, 0x1f6c736337b5e2cdL, "handler"), SNodeFactoryOperations.createNewNode(AUX_2zc5rv.XMLSAXAttributeHandler_1c3fd362, null));
+      SLinkOperations.setTarget(node, LINKS.handler$YvJZ, SNodeFactoryOperations.createNewNode(CONCEPTS.XMLSAXAttributeHandler$x0, null));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -64,7 +65,11 @@ public final class addHandler_Intention extends AbstractIntentionDescriptor impl
     }
   }
 
-  private static final class AUX_2zc5rv {
-    /*package*/ static final SConcept XMLSAXAttributeHandler_1c3fd362 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c1L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeHandler");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink handler$YvJZ = MetaAdapterFactory.getContainmentLink(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2cbL, 0x1f6c736337b5e2cdL, "handler");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XMLSAXAttributeHandler$x0 = MetaAdapterFactory.getConcept(0xdcb5a83a19a844ffL, 0xa4cbfc7d324ecc63L, 0x1f6c736337b5e2c1L, "jetbrains.mps.core.xml.sax.structure.XMLSAXAttributeHandler");
   }
 }

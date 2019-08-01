@@ -8,18 +8,19 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class check_BaseExecuteCommandStatement_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_BaseExecuteCommandStatement_NonTypesystemRule() {
   }
   public void applyRule(final SNode baseExecuteCommandStatement, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((SLinkOperations.getTarget(baseExecuteCommandStatement, MetaAdapterFactory.getContainmentLink(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20aL, 0x13bfe1ec0ded851eL, "repo")) == null)) {
+    if ((SLinkOperations.getTarget(baseExecuteCommandStatement, LINKS.repo$bGKu) == null)) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(baseExecuteCommandStatement, "Shall specify a repository to lock", "r:aad06b20-0a6a-42d7-81b8-671529c6126a(jetbrains.mps.lang.access.typesystem)", "1705896275416798528", null, errorTarget);
@@ -27,7 +28,7 @@ public class check_BaseExecuteCommandStatement_NonTypesystemRule extends Abstrac
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_fkdu2a.BaseExecuteCommandStatement_af1c362b;
+    return CONCEPTS.BaseExecuteCommandStatement$Un;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +37,11 @@ public class check_BaseExecuteCommandStatement_NonTypesystemRule extends Abstrac
     return false;
   }
 
-  private static final class AUX_fkdu2a {
-    /*package*/ static final SConcept BaseExecuteCommandStatement_af1c362b = MetaAdapterFactory.getConcept(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20aL, "jetbrains.mps.lang.access.structure.BaseExecuteCommandStatement");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink repo$bGKu = MetaAdapterFactory.getContainmentLink(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20aL, 0x13bfe1ec0ded851eL, "repo");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseExecuteCommandStatement$Un = MetaAdapterFactory.getConcept(0x63650c5916c8498aL, 0x99c8005c7ee9515dL, 0x7c8b08a50a3ea20aL, "jetbrains.mps.lang.access.structure.BaseExecuteCommandStatement");
   }
 }

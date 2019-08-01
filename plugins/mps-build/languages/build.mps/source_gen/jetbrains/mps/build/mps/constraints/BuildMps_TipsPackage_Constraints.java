@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -24,15 +23,17 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildMps_TipsPackage_Constraints extends BaseConstraintsDescriptor {
   public BuildMps_TipsPackage_Constraints() {
-    super(AUX_l4noc4.BuildMps_TipsPackage_fc8c03a7);
+    super(CONCEPTS.BuildMps_TipsPackage$2r);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5ea1926fded234efL, 0x65a11ce3e4101393L, "tips"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.tips$aWHS, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,10 +48,10 @@ public class BuildMps_TipsPackage_Constraints extends BaseConstraintsDescriptor 
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            List<SNode> descendants = SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_l4noc4.BuildProject_808bb057, false, false), AUX_l4noc4.BuildMps_Tips_d9e20f97, false, new SAbstractConcept[]{});
+            List<SNode> descendants = SNodeOperations.getNodeDescendants(SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.BuildProject$BF, false, false), CONCEPTS.BuildMps_Tips$aF, false, new SAbstractConcept[]{});
             return new ListScope(descendants) {
               public String getName(SNode child) {
-                return SPropertyOperations.getString(SNodeOperations.cast(child, AUX_l4noc4.BuildMps_Tips_d9e20f97), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+                return SPropertyOperations.getString(SNodeOperations.cast(child, CONCEPTS.BuildMps_Tips$aF), PROPS.name$tAp1);
               }
             };
           }
@@ -63,9 +64,17 @@ public class BuildMps_TipsPackage_Constraints extends BaseConstraintsDescriptor 
   }
   private static final SNodePointer breakingNode_l4noc4_a0a0a0a0a1a0a0a0c = new SNodePointer("r:76dda237-5120-4688-b749-201ab5c5059d(jetbrains.mps.build.mps.constraints)", "5554837124043851469");
 
-  private static final class AUX_l4noc4 {
-    /*package*/ static final SConcept BuildMps_TipsPackage_fc8c03a7 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5ea1926fded234efL, "jetbrains.mps.build.mps.structure.BuildMps_TipsPackage");
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildMps_Tips_d9e20f97 = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a201d7bcL, "jetbrains.mps.build.mps.structure.BuildMps_Tips");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildMps_TipsPackage$2r = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5ea1926fded234efL, "jetbrains.mps.build.mps.structure.BuildMps_TipsPackage");
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildMps_Tips$aF = MetaAdapterFactory.getConcept(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x71731b16a201d7bcL, "jetbrains.mps.build.mps.structure.BuildMps_Tips");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink tips$aWHS = MetaAdapterFactory.getReferenceLink(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x5ea1926fded234efL, 0x65a11ce3e4101393L, "tips");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

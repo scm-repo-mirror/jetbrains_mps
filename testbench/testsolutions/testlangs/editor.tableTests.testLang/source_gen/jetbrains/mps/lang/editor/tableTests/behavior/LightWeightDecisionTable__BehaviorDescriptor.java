@@ -4,33 +4,33 @@ package jetbrains.mps.lang.editor.tableTests.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class LightWeightDecisionTable__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_b33e3m.LightWeightDecisionTable_ffba85fa;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, "jetbrains.mps.lang.editor.tableTests.structure.LightWeightDecisionTable");
 
 
   private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList();
 
   private static void ___init___(@NotNull SNode __thisNode__) {
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121001L, "column"), null);
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121001L, "column"), null);
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121026L, "row"), null);
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121026L, "row"), null);
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121027L, "body"), null);
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121027L, "body"), null);
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121027L, "body"), null);
-    SLinkOperations.addNewChild(__thisNode__, MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121027L, "body"), null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.column$lJmi, null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.column$lJmi, null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.row$lP23, null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.row$lP23, null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.body$lP2y, null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.body$lP2y, null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.body$lP2y, null);
+    SLinkOperations.addNewChild(__thisNode__, LINKS.body$lP2y, null);
   }
 
 
@@ -78,7 +78,9 @@ public final class LightWeightDecisionTable__BehaviorDescriptor extends BaseBHDe
     return CONCEPT;
   }
 
-  private static final class AUX_b33e3m {
-    /*package*/ static final SConcept LightWeightDecisionTable_ffba85fa = MetaAdapterFactory.getConcept(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, "jetbrains.mps.lang.editor.tableTests.structure.LightWeightDecisionTable");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink column$lJmi = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121001L, "column");
+    /*package*/ static final SContainmentLink row$lP23 = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121026L, "row");
+    /*package*/ static final SContainmentLink body$lP2y = MetaAdapterFactory.getContainmentLink(0xdf8799e7254a406fL, 0xbd67f4cc27337152L, 0x6a2febf37d11d3dfL, 0x6a2febf37d121027L, "body");
   }
 }

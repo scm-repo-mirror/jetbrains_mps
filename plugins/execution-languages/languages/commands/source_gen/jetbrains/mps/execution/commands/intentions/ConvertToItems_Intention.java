@@ -11,13 +11,14 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.Objects;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class ConvertToItems_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
@@ -40,15 +41,15 @@ public final class ConvertToItems_Intention extends AbstractIntentionDescriptor 
     return true;
   }
   private boolean isApplicableToNode(final SNode node, final EditorContext editorContext) {
-    SNode list = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x5f50ed14026999cbL, "list"));
-    if ((list == null) || !(SNodeOperations.isInstanceOf(list, AUX_icoqxr.GenericNewExpression_dee38023))) {
+    SNode list = SLinkOperations.getTarget(node, LINKS.list$5wSZ);
+    if ((list == null) || !(SNodeOperations.isInstanceOf(list, CONCEPTS.GenericNewExpression$ev))) {
       return false;
     }
-    SNode creator = SLinkOperations.getTarget(SNodeOperations.cast(list, AUX_icoqxr.GenericNewExpression_dee38023), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator"));
-    return SNodeOperations.isInstanceOf(creator, AUX_icoqxr.AbstractContainerCreator_ec204212) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(creator, AUX_icoqxr.AbstractContainerCreator_ec204212), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1202df1ada0L, 0x1202df24ea0L, "initValue"))).isNotEmpty();
+    SNode creator = SLinkOperations.getTarget(SNodeOperations.cast(list, CONCEPTS.GenericNewExpression$ev), LINKS.creator$itDQ);
+    return SNodeOperations.isInstanceOf(creator, CONCEPTS.AbstractContainerCreator$Yg) && ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(creator, CONCEPTS.AbstractContainerCreator$Yg), LINKS.initValue$K4zR)).isNotEmpty();
   }
   private boolean isVisibleInChild(final SNode node, final SNode childNode, final EditorContext editorContext) {
-    return Objects.equals(SNodeOperations.getContainingLink(childNode), MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x5f50ed14026999cbL, "list"));
+    return Objects.equals(SNodeOperations.getContainingLink(childNode), LINKS.list$5wSZ);
   }
   @Override
   public boolean isSurroundWith() {
@@ -69,9 +70,9 @@ public final class ConvertToItems_Intention extends AbstractIntentionDescriptor 
     }
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
-      SNode list = SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x5f50ed14026999cbL, "list"));
+      SNode list = SLinkOperations.getTarget(node, LINKS.list$5wSZ);
       SNodeOperations.deleteNode(list);
-      ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x1e16a75f45341377L, "items"))).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(list, AUX_icoqxr.GenericNewExpression_dee38023), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator")), AUX_icoqxr.AbstractContainerCreator_ec204212), MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1202df1ada0L, 0x1202df24ea0L, "initValue"))));
+      ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.items$pENx)).addSequence(ListSequence.fromList(SLinkOperations.getChildren(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(list, CONCEPTS.GenericNewExpression$ev), LINKS.creator$itDQ), CONCEPTS.AbstractContainerCreator$Yg), LINKS.initValue$K4zR)));
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -79,8 +80,15 @@ public final class ConvertToItems_Intention extends AbstractIntentionDescriptor 
     }
   }
 
-  private static final class AUX_icoqxr {
-    /*package*/ static final SConcept GenericNewExpression_dee38023 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
-    /*package*/ static final SConcept AbstractContainerCreator_ec204212 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1202df1ada0L, "jetbrains.mps.baseLanguage.collections.structure.AbstractContainerCreator");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink list$5wSZ = MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x5f50ed14026999cbL, "list");
+    /*package*/ static final SContainmentLink creator$itDQ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator");
+    /*package*/ static final SContainmentLink initValue$K4zR = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1202df1ada0L, 0x1202df24ea0L, "initValue");
+    /*package*/ static final SContainmentLink items$pENx = MetaAdapterFactory.getContainmentLink(0xf3347d8a0e794f35L, 0x8ac91574f25c986fL, 0x5f50ed14026999c9L, 0x1e16a75f45341377L, "items");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericNewExpression$ev = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
+    /*package*/ static final SConcept AbstractContainerCreator$Yg = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1202df1ada0L, "jetbrains.mps.baseLanguage.collections.structure.AbstractContainerCreator");
   }
 }

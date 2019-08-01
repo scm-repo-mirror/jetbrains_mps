@@ -6,17 +6,22 @@ import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class Notes {
   public static class NodeFactory_8908453262579903201 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SNodeFactoryOperations.addNewChild(newNode, MetaAdapterFactory.getContainmentLink(0x4b0f115a88684d72L, 0x8d6197071eaaa5f1L, 0x7ba12f0b163df32dL, 0x7ba12f0b163df3ffL, "parts"), AUX_mgn68.TextNotePart_8dc4038d);
+      SNodeFactoryOperations.addNewChild(newNode, LINKS.parts$vZk0, CONCEPTS.TextNotePart$PP);
     }
   }
 
-  private static final class AUX_mgn68 {
-    /*package*/ static final SConcept TextNotePart_8dc4038d = MetaAdapterFactory.getConcept(0x4b0f115a88684d72L, 0x8d6197071eaaa5f1L, 0x7ba12f0b163df404L, "jetbrains.mps.samples.notesOrganizer.structure.TextNotePart");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parts$vZk0 = MetaAdapterFactory.getContainmentLink(0x4b0f115a88684d72L, 0x8d6197071eaaa5f1L, 0x7ba12f0b163df32dL, 0x7ba12f0b163df3ffL, "parts");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TextNotePart$PP = MetaAdapterFactory.getConcept(0x4b0f115a88684d72L, 0x8d6197071eaaa5f1L, 0x7ba12f0b163df404L, "jetbrains.mps.samples.notesOrganizer.structure.TextNotePart");
   }
 }

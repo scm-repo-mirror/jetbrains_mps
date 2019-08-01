@@ -19,7 +19,7 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class SubstituteMenuReference_DefaultWithFunction_Constraints extends BaseConstraintsDescriptor {
   public SubstituteMenuReference_DefaultWithFunction_Constraints() {
-    super(AUX_1s1bbo.SubstituteMenuReference_DefaultWithFunction_c372ea51);
+    super(CONCEPTS.SubstituteMenuReference_DefaultWithFunction$WL);
   }
 
   @Override
@@ -38,12 +38,12 @@ public class SubstituteMenuReference_DefaultWithFunction_Constraints extends Bas
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_1s1bbo.IIncludeSubstituteMenuPart_2417557e);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.IIncludeSubstituteMenuPart$A$);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590298(jetbrains.mps.lang.editor.constraints)", "1227128029536561299");
 
-  private static final class AUX_1s1bbo {
-    /*package*/ static final SConcept SubstituteMenuReference_DefaultWithFunction_c372ea51 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x71f19593ac95dee9L, "jetbrains.mps.lang.editor.structure.SubstituteMenuReference_DefaultWithFunction");
-    /*package*/ static final SInterfaceConcept IIncludeSubstituteMenuPart_2417557e = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x36f88ebb7cd0d956L, "jetbrains.mps.lang.editor.structure.IIncludeSubstituteMenuPart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstituteMenuReference_DefaultWithFunction$WL = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x71f19593ac95dee9L, "jetbrains.mps.lang.editor.structure.SubstituteMenuReference_DefaultWithFunction");
+    /*package*/ static final SInterfaceConcept IIncludeSubstituteMenuPart$A$ = MetaAdapterFactory.getInterfaceConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x36f88ebb7cd0d956L, "jetbrains.mps.lang.editor.structure.IIncludeSubstituteMenuPart");
   }
 }

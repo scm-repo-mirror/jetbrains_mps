@@ -10,43 +10,43 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 public enum BLElementType {
   TYPE() {
     public boolean accept(SNode target) {
-      return SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.Classifier_4b7e553);
+      return SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.Classifier$hJ);
     }
 
   },
   FIELD() {
     public boolean accept(SNode target) {
-      return SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.FieldDeclaration_e2711ac6) || SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.StaticFieldDeclaration_9649293d);
+      return SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.FieldDeclaration$Ps) || SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.StaticFieldDeclaration$R5);
     }
 
   },
   METHOD() {
     public boolean accept(SNode target) {
-      return SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.BaseMethodDeclaration_9dbf9acb);
+      return SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.BaseMethodDeclaration$RR);
     }
 
   },
   PARAMETER() {
     public boolean accept(SNode target) {
-      return SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.ParameterDeclaration_24d60da8);
+      return SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.ParameterDeclaration$qU);
     }
 
   },
   CONSTRUCTOR() {
     public boolean accept(SNode target) {
-      return SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.ConstructorDeclaration_9dbf9ae8);
+      return SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.ConstructorDeclaration$5U);
     }
 
   },
   LOCAL_VARIABLE() {
     public boolean accept(SNode target) {
-      return SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.LocalVariableDeclaration_d47683f3);
+      return SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.LocalVariableDeclaration$Bf);
     }
 
   },
   ANNOTATION_TYPE() {
     public boolean accept(SNode target) {
-      return SNodeOperations.isInstanceOf(target, BLElementType.AUX_be1ec6.Annotation_14405306);
+      return SNodeOperations.isInstanceOf(target, BLElementType.CONCEPTS.Annotation$Os);
     }
 
   },
@@ -59,14 +59,14 @@ public enum BLElementType {
 
   public abstract boolean accept(SNode target);
 
-  private static final class AUX_be1ec6 {
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept StaticFieldDeclaration_9649293d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
-    /*package*/ static final SConcept FieldDeclaration_e2711ac6 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
-    /*package*/ static final SConcept BaseMethodDeclaration_9dbf9acb = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
-    /*package*/ static final SConcept ParameterDeclaration_24d60da8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
-    /*package*/ static final SConcept ConstructorDeclaration_9dbf9ae8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
-    /*package*/ static final SConcept LocalVariableDeclaration_d47683f3 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept Annotation_14405306 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a69dc80cL, "jetbrains.mps.baseLanguage.structure.Annotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept StaticFieldDeclaration$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
+    /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept BaseMethodDeclaration$RR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
+    /*package*/ static final SConcept ParameterDeclaration$qU = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e94L, "jetbrains.mps.baseLanguage.structure.ParameterDeclaration");
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
+    /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
+    /*package*/ static final SConcept Annotation$Os = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x114a69dc80cL, "jetbrains.mps.baseLanguage.structure.Annotation");
   }
 }

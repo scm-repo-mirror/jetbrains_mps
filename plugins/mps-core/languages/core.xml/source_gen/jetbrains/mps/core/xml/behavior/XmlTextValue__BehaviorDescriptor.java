@@ -4,6 +4,7 @@ package jetbrains.mps.core.xml.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class XmlTextValue__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_8wzud3.XmlTextValue_62249478;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
 
   public static final SMethod<Boolean> isFirstPositionAllowed_id2EZ251g0bSk = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isFirstPositionAllowed").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSk").build();
   public static final SMethod<Boolean> isLastPositionAllowed_id2EZ251g0bSp = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLastPositionAllowed").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2EZ251g0bSp").build();
@@ -42,14 +43,14 @@ public final class XmlTextValue__BehaviorDescriptor extends BaseBHDescriptor {
   }
   /*package*/ static boolean onNewLine_id2EZ251g0bS6(@NotNull SNode __thisNode__) {
     SNode left = SNodeOperations.getPrevSibling(__thisNode__);
-    if (SNodeOperations.isInstanceOf(left, AUX_8wzud3.XmlValuePart_62249475)) {
-      SNode leftContent = SNodeOperations.cast(left, AUX_8wzud3.XmlValuePart_62249475);
-      return SNodeOperations.isInstanceOf(leftContent, AUX_8wzud3.XmlTextValue_62249478) || isEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"))) && (SNodeOperations.getNextSibling(__thisNode__) == null);
+    if (SNodeOperations.isInstanceOf(left, CONCEPTS.XmlValuePart$Ad)) {
+      SNode leftContent = SNodeOperations.cast(left, CONCEPTS.XmlValuePart$Ad);
+      return SNodeOperations.isInstanceOf(leftContent, CONCEPTS.XmlTextValue$BE) || isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.text$$xPb)) && (SNodeOperations.getNextSibling(__thisNode__) == null);
     }
     return false;
   }
   /*package*/ static boolean hasNewLineAfter_id2EZ251g0bSd(@NotNull SNode __thisNode__) {
-    if (isEmptyString(SPropertyOperations.getString(__thisNode__, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text"))) && (SNodeOperations.getNextSibling(__thisNode__) != null)) {
+    if (isEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.text$$xPb)) && (SNodeOperations.getNextSibling(__thisNode__) != null)) {
       return !(((boolean) XmlValuePart__BehaviorDescriptor.onNewLine_id2EZ251g0bS6.invoke(__thisNode__)));
     }
     return false;
@@ -110,8 +111,12 @@ public final class XmlTextValue__BehaviorDescriptor extends BaseBHDescriptor {
     return str == null || str.length() == 0;
   }
 
-  private static final class AUX_8wzud3 {
-    /*package*/ static final SConcept XmlTextValue_62249478 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
-    /*package*/ static final SConcept XmlValuePart_62249475 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1cL, "jetbrains.mps.core.xml.structure.XmlValuePart");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlValuePart$Ad = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1cL, "jetbrains.mps.core.xml.structure.XmlValuePart");
+    /*package*/ static final SConcept XmlTextValue$BE = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$$xPb = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, 0x5c842a42c54cfd20L, "text");
   }
 }

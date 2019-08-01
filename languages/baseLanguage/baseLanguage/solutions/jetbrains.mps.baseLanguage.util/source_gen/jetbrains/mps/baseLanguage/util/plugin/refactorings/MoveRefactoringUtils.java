@@ -27,8 +27,8 @@ public class MoveRefactoringUtils {
   public MoveRefactoringUtils() {
   }
   public static void addNodeAtLink(SNode container, SNode node) {
-    if (SNodeOperations.isInstanceOf(container, AUX_rpe1sx.Classifier_4b7e553) && SNodeOperations.isInstanceOf(node, AUX_rpe1sx.ClassifierMember_849b47d7)) {
-      MemberInsertingUtils.insertClassifierMemberInBestPlace(SNodeOperations.cast(container, AUX_rpe1sx.Classifier_4b7e553), SNodeOperations.cast(node, AUX_rpe1sx.ClassifierMember_849b47d7));
+    if (SNodeOperations.isInstanceOf(container, CONCEPTS.Classifier$hJ) && SNodeOperations.isInstanceOf(node, CONCEPTS.ClassifierMember$9F)) {
+      MemberInsertingUtils.insertClassifierMemberInBestPlace(SNodeOperations.cast(container, CONCEPTS.Classifier$hJ), SNodeOperations.cast(node, CONCEPTS.ClassifierMember$9F));
     } else {
       SAbstractConcept concept = SNodeOperations.getConcept(node);
       for (SContainmentLink link : CollectionSequence.fromCollection(SNodeOperations.getConcept(container).getContainmentLinks())) {
@@ -64,7 +64,7 @@ public class MoveRefactoringUtils {
     addImportIfNeed(SNodeOperations.getModel(node), SNodeOperations.getModel(toImport));
   }
   public static void fixImportsFromNode(SNode node) {
-    for (SNode descendant : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, AUX_rpe1sx.BaseConcept_bc2351f, false, new SAbstractConcept[]{}))) {
+    for (SNode descendant : ListSequence.fromList(SNodeOperations.getNodeDescendants(node, CONCEPTS.BaseConcept$Sz, false, new SAbstractConcept[]{}))) {
       for (SReference reference : ListSequence.fromList(SNodeOperations.getReferences(descendant))) {
         addNodeModelImportIfNeed(node, SLinkOperations.getTargetNode(reference));
       }
@@ -74,9 +74,9 @@ public class MoveRefactoringUtils {
     return ListSequence.fromList(SNodeOperations.getChildren(node)).isEmpty() && ListSequence.fromList(SNodeOperations.getReferences(node)).count() == 1;
   }
 
-  private static final class AUX_rpe1sx {
-    /*package*/ static final SInterfaceConcept ClassifierMember_849b47d7 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept BaseConcept_bc2351f = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ClassifierMember$9F = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SConcept BaseConcept$Sz = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, "jetbrains.mps.lang.core.structure.BaseConcept");
   }
 }

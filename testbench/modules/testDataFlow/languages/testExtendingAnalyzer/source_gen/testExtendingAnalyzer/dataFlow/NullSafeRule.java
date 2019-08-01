@@ -10,8 +10,9 @@ import jetbrains.mps.lang.dataFlow.framework.Program;
 import jetbrains.mps.lang.dataFlow.framework.instructions.Instruction;
 import jetbrains.mps.baseLanguage.dataFlow.notNullInstruction;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class NullSafeRule implements DataFlowConstructor {
   public boolean isApplicable(SNode node) {
@@ -20,7 +21,7 @@ public class NullSafeRule implements DataFlowConstructor {
     return concept.equals(applicableConcept) || concept.isSubConceptOf(applicableConcept);
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_f6y260.NullSafeDotExpression_fc38e850;
+    return CONCEPTS.NullSafeDotExpression$4i;
   }
   public void performActions(Program o, SNode node) {
     {
@@ -28,7 +29,7 @@ public class NullSafeRule implements DataFlowConstructor {
       if (((Program) o).contains(object)) {
         boolean before = true;
         int position = ((Program) (o)).getStart(node);
-        Instruction instruction = new notNullInstruction(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand")));
+        Instruction instruction = new notNullInstruction(SLinkOperations.getTarget(node, LINKS.operand$Lcrr));
         instruction.setRuleReference("r:b7d9737f-8e9b-4112-92de-8cd1bf30ae09(testExtendingAnalyzer.dataFlow)/1417601170173058915");
         instruction.setSource(node);
         ((Program) (o)).insert(instruction, position, true, before);
@@ -36,7 +37,11 @@ public class NullSafeRule implements DataFlowConstructor {
     }
   }
 
-  private static final class AUX_f6y260 {
-    /*package*/ static final SConcept NullSafeDotExpression_fc38e850 = MetaAdapterFactory.getConcept(0x3ac033a0bffa48e3L, 0xa843a40cbdd89859L, 0x13ac54c0e557dc29L, "testExtendingAnalyzer.structure.NullSafeDotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NullSafeDotExpression$4i = MetaAdapterFactory.getConcept(0x3ac033a0bffa48e3L, 0xa843a40cbdd89859L, 0x13ac54c0e557dc29L, "testExtendingAnalyzer.structure.NullSafeDotExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink operand$Lcrr = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b46a08c4L, 0x116b46a4416L, "operand");
   }
 }

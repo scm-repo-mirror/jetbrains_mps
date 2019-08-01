@@ -25,7 +25,7 @@ public class typeof_SubstituteMenuItem_OutputConcept_Operation_InferenceRule ext
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_txk528.SubstituteMenuItem_OutputConcept_Operation_a4a93b0a;
+    return CONCEPTS.SubstituteMenuItem_OutputConcept_Operation$mo;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_SubstituteMenuItem_OutputConcept_Operation_InferenceRule ext
     return quotedNode_1;
   }
 
-  private static final class AUX_txk528 {
-    /*package*/ static final SConcept SubstituteMenuItem_OutputConcept_Operation_a4a93b0a = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1507acbL, "jetbrains.mps.lang.editor.structure.SubstituteMenuItem_OutputConcept_Operation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SubstituteMenuItem_OutputConcept_Operation$mo = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x3244dde8e1507acbL, "jetbrains.mps.lang.editor.structure.SubstituteMenuItem_OutputConcept_Operation");
   }
 }

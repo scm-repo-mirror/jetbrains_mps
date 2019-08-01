@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -24,15 +23,18 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class EnumMemberValueRefExpression_Constraints extends BaseConstraintsDescriptor {
   public EnumMemberValueRefExpression_Constraints() {
-    super(AUX_ju2p9y.EnumMemberValueRefExpression_70f57cd6);
+    super(CONCEPTS.EnumMemberValueRefExpression$Pc);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, 0x60c7f83bafda1168L, "member"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.member$cDM, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -47,12 +49,12 @@ public class EnumMemberValueRefExpression_Constraints extends BaseConstraintsDes
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode enumMemberValueRef = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_ju2p9y.EnumMemberValueRefExpression_70f57cd6, true, false);
-            return new SimpleScope(SLinkOperations.getChildren(SLinkOperations.getTarget(enumMemberValueRef, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, 0x60c7f83bafda0e39L, "enum")), MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member"))) {
+            SNode enumMemberValueRef = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.EnumMemberValueRefExpression$Pc, true, false);
+            return new SimpleScope(SLinkOperations.getChildren(SLinkOperations.getTarget(enumMemberValueRef, LINKS.enum$WTtj), LINKS.member$_cRv)) {
               @Nullable
               @Override
               public String getReferenceText(@NotNull SNode target) {
-                return SPropertyOperations.getString(SNodeOperations.cast(target, AUX_ju2p9y.EnumerationMemberDeclaration_Old_8a4754eb), MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06664L, "externalValue"));
+                return SPropertyOperations.getString(SNodeOperations.cast(target, CONCEPTS.EnumerationMemberDeclaration_Old$vn), PROPS.externalValue$bx$P);
               }
             };
           }
@@ -65,8 +67,18 @@ public class EnumMemberValueRefExpression_Constraints extends BaseConstraintsDes
   }
   private static final SNodePointer breakingNode_ju2p9y_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "6836281137582800800");
 
-  private static final class AUX_ju2p9y {
-    /*package*/ static final SConcept EnumMemberValueRefExpression_70f57cd6 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, "jetbrains.mps.lang.smodel.structure.EnumMemberValueRefExpression");
-    /*package*/ static final SConcept EnumerationMemberDeclaration_Old_8a4754eb = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, "jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration_Old");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumMemberValueRefExpression$Pc = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, "jetbrains.mps.lang.smodel.structure.EnumMemberValueRefExpression");
+    /*package*/ static final SConcept EnumerationMemberDeclaration_Old$vn = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, "jetbrains.mps.lang.structure.structure.EnumerationMemberDeclaration_Old");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink member$cDM = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, 0x60c7f83bafda1168L, "member");
+    /*package*/ static final SReferenceLink enum$WTtj = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x60c7f83bafd83b5bL, 0x60c7f83bafda0e39L, "enum");
+    /*package*/ static final SContainmentLink member$_cRv = MetaAdapterFactory.getContainmentLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc32151efeL, "member");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty externalValue$bx$P = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc321331b2L, 0xfc5ee06664L, "externalValue");
   }
 }

@@ -12,6 +12,7 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 /*package*/ class TestInheritedAttribute_EditorBuilder_a extends AbstractEditorBuilder {
@@ -46,6 +47,10 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
     return editorCell;
   }
   private String _StyleParameter_QueryFunction_twhn5o_a0a() {
-    return SPropertyOperations.getString(getNode(), MetaAdapterFactory.getProperty(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x7bc02723c1a35eddL, 0x7bc02723c1a35edeL, "value"));
+    return SPropertyOperations.getString(getNode(), PROPS.value$agC0);
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty value$agC0 = MetaAdapterFactory.getProperty(0xa936c42ccb2c4d64L, 0xa1dc12986579a998L, 0x7bc02723c1a35eddL, 0x7bc02723c1a35edeL, "value");
   }
 }

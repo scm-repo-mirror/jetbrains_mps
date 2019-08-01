@@ -52,7 +52,7 @@ public class MoveConcepts extends AbstractLanguageMove implements MoveNodesActio
       public void run() {
         result.value = ListSequence.fromList(target).any(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return SNodeOperations.isInstanceOf(it, AUX_u6ijv2.AbstractConceptDeclaration_ec74828f);
+            return SNodeOperations.isInstanceOf(it, CONCEPTS.AbstractConceptDeclaration$UN);
           }
         });
       }
@@ -60,7 +60,7 @@ public class MoveConcepts extends AbstractLanguageMove implements MoveNodesActio
     return result.value;
   }
   public void execute(final MPSProject project, List<SNode> nodesToMove) {
-    final List<SNode> conceptsToMove = Sequence.fromIterable(SNodeOperations.ofConcept(nodesToMove, AUX_u6ijv2.AbstractConceptDeclaration_ec74828f)).toListSequence();
+    final List<SNode> conceptsToMove = Sequence.fromIterable(SNodeOperations.ofConcept(nodesToMove, CONCEPTS.AbstractConceptDeclaration$UN)).toListSequence();
 
     ListSequence.fromList(conceptsToMove).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -118,7 +118,7 @@ public class MoveConcepts extends AbstractLanguageMove implements MoveNodesActio
     return null;
   }
 
-  private static final class AUX_u6ijv2 {
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
   }
 }

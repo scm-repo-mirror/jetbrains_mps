@@ -15,7 +15,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import jetbrains.mps.generator.template.TemplateArgumentContext;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -34,11 +33,13 @@ import jetbrains.mps.generator.impl.query.QueryKeyImpl;
 import java.util.Collection;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.generator.impl.query.PropertyValueQuery;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
 import jetbrains.mps.generator.impl.query.CallArgumentQuery;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 @Generated
 public class QueriesGenerated extends QueryProviderBase {
@@ -53,11 +54,11 @@ public class QueriesGenerated extends QueryProviderBase {
     return SModuleOperations.isAspect(((SModel) _context.getVariable("model")), "documentation");
   }
   public static Object propertyMacro_GetValue_1_0(final PropertyMacroContext _context) {
-    return SPropertyOperations.getString(ListSequence.fromList(SModelOperations.roots(_context.getInputModel(), AUX_x583g4.ConceptDocumentation_18022139)).findFirst(new IWhereFilter<SNode>() {
+    return SPropertyOperations.getString(ListSequence.fromList(SModelOperations.roots(_context.getInputModel(), CONCEPTS.ConceptDocumentation$l9)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, 0x28360eb22c3ad436L, "cncpt")) == _context.getNode();
+        return SLinkOperations.getTarget(it, LINKS.cncpt$rQ7y) == _context.getNode();
       }
-    }), MetaAdapterFactory.getProperty(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, 0x28360eb22c3acdf0L, "text"));
+    }), PROPS.text$lg4n);
   }
   public static Object referenceMacro_GetReferent_1_0(final ReferenceMacroContext _context) {
     return _context.getNode();
@@ -69,9 +70,9 @@ public class QueriesGenerated extends QueryProviderBase {
     return SNodeOperations.getNode("r:ed8e9175-44d1-47ad-9d2b-75c7b10d01f8(jetbrains.mps.samples.customAspect.documentation.runtime)", "2897519568668564140");
   }
   public static Iterable<SNode> sourceNodesQuery_1_0(final SourceSubstituteMacroNodesContext _context) {
-    return ListSequence.fromList(SModelOperations.roots(_context.getOriginalInputModel(), AUX_x583g4.ConceptDocumentation_18022139)).select(new ISelector<SNode, SNode>() {
+    return ListSequence.fromList(SModelOperations.roots(_context.getOriginalInputModel(), CONCEPTS.ConceptDocumentation$l9)).select(new ISelector<SNode, SNode>() {
       public SNode select(SNode it) {
-        return SLinkOperations.getTarget(it, MetaAdapterFactory.getReferenceLink(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, 0x28360eb22c3ad436L, "cncpt"));
+        return SLinkOperations.getTarget(it, LINKS.cncpt$rQ7y);
       }
     }).distinct();
   }
@@ -253,7 +254,15 @@ public class QueriesGenerated extends QueryProviderBase {
     }
   }
 
-  private static final class AUX_x583g4 {
-    /*package*/ static final SConcept ConceptDocumentation_18022139 = MetaAdapterFactory.getConcept(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, "jetbrains.mps.samples.customAspect.documentation.structure.ConceptDocumentation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptDocumentation$l9 = MetaAdapterFactory.getConcept(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, "jetbrains.mps.samples.customAspect.documentation.structure.ConceptDocumentation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink cncpt$rQ7y = MetaAdapterFactory.getReferenceLink(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, 0x28360eb22c3ad436L, "cncpt");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty text$lg4n = MetaAdapterFactory.getProperty(0x22916f45e98f4433L, 0x9c1b1b382cf5bd8dL, 0x28360eb22c3ac732L, 0x28360eb22c3acdf0L, "text");
   }
 }

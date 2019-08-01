@@ -4,6 +4,7 @@ package jetbrains.mps.lang.core.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -26,10 +27,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ISuppressErrors__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_k5n8xx.ISuppressErrors_96ee6c6d;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L, "jetbrains.mps.lang.core.structure.ISuppressErrors");
 
   public static final SMethod<Boolean> suppress_id2WmWrdnSpX7 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("suppress").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2WmWrdnSpX7").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> suppress_id3612de_vrfV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("suppress").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3612de_vrfV").build(SMethodBuilder.createJavaParameter(NodeReportItem.class, ""));
@@ -42,9 +42,9 @@ public final class ISuppressErrors__BehaviorDescriptor extends BaseBHDescriptor 
   /*package*/ static boolean suppress_id2WmWrdnSpX7(@NotNull SNode __thisNode__, SNode child) {
     return !(SNodeOperations.isInstanceOf(ListSequence.fromList(SNodeOperations.getNodeAncestors(child, null, true)).findFirst(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, AUX_k5n8xx.IAntisuppressErrors_10c23902) || SNodeOperations.isInstanceOf(it, AUX_k5n8xx.ISuppressErrors_96ee6c6d) || Sequence.fromIterable(SNodeOperations.ofConcept(AttributeOperations.getAttributeList(it, new IAttributeDescriptor.AllAttributes()), AUX_k5n8xx.ISuppressErrors_96ee6c6d)).isNotEmpty();
+        return SNodeOperations.isInstanceOf(it, CONCEPTS.IAntisuppressErrors$qw) || SNodeOperations.isInstanceOf(it, CONCEPTS.ISuppressErrors$2l) || Sequence.fromIterable(SNodeOperations.ofConcept(AttributeOperations.getAttributeList(it, new IAttributeDescriptor.AllAttributes()), CONCEPTS.ISuppressErrors$2l)).isNotEmpty();
       }
-    }), AUX_k5n8xx.IAntisuppressErrors_10c23902));
+    }), CONCEPTS.IAntisuppressErrors$qw));
   }
   /*package*/ static boolean suppress_id3612de_vrfV(@NotNull SNode __thisNode__, NodeReportItem reportItem) {
     IssueKindReportItem.KindLevel kindLevel = reportItem.getIssueKind().getChecker().getKindLevel();
@@ -102,8 +102,8 @@ public final class ISuppressErrors__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
-  private static final class AUX_k5n8xx {
-    /*package*/ static final SInterfaceConcept ISuppressErrors_96ee6c6d = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L, "jetbrains.mps.lang.core.structure.ISuppressErrors");
-    /*package*/ static final SInterfaceConcept IAntisuppressErrors_10c23902 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xe8924c64a55a26fL, "jetbrains.mps.lang.core.structure.IAntisuppressErrors");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ISuppressErrors$2l = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L, "jetbrains.mps.lang.core.structure.ISuppressErrors");
+    /*package*/ static final SInterfaceConcept IAntisuppressErrors$qw = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0xe8924c64a55a26fL, "jetbrains.mps.lang.core.structure.IAntisuppressErrors");
   }
 }

@@ -21,7 +21,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.core.xml.constraints.XmlNameUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -29,13 +28,16 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class XmlBaseAttribute_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_xg7m8y_a(), AUX_xg7m8y.XmlAttribute_6072762c));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_xg7m8y_a(), CONCEPTS.XmlAttribute$UQ));
     result.add(new SMP_Subconcepts_xg7m8y_b());
     return result;
   }
@@ -81,7 +83,7 @@ public class XmlBaseAttribute_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_xg7m8y.XmlAttribute_6072762c, context);
+        super(CONCEPTS.XmlAttribute$UQ, context);
         _context = context;
       }
 
@@ -92,7 +94,7 @@ public class XmlBaseAttribute_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode attr = SNodeFactoryOperations.createNewNode(_context.getModel(), AUX_xg7m8y.XmlAttribute_6072762c, null);
+        SNode attr = SNodeFactoryOperations.createNewNode(_context.getModel(), CONCEPTS.XmlAttribute$UQ, null);
         String attrName = "name";
         if (!((pattern == null || pattern.length() == 0))) {
           String name = pattern;
@@ -103,8 +105,8 @@ public class XmlBaseAttribute_SubstituteMenu extends SubstituteMenuBase {
             attrName = name;
           }
         }
-        SPropertyOperations.assign(attr, MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54b8df6L, "attrName"), attrName);
-        SNodeFactoryOperations.addNewChild(attr, MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value"), AUX_xg7m8y.XmlTextValue_62249478);
+        SPropertyOperations.assign(attr, PROPS.attrName$j_5Y, attrName);
+        SNodeFactoryOperations.addNewChild(attr, LINKS.value$RZKQ, CONCEPTS.XmlTextValue$BE);
         return attr;
       }
 
@@ -135,7 +137,7 @@ public class XmlBaseAttribute_SubstituteMenu extends SubstituteMenuBase {
   }
   public class SMP_Subconcepts_xg7m8y_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_xg7m8y.XmlBaseAttribute_6047438d);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.XmlBaseAttribute$PP);
     }
     @NotNull
     @Override
@@ -155,9 +157,17 @@ public class XmlBaseAttribute_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_xg7m8y {
-    /*package*/ static final SConcept XmlAttribute_6072762c = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, "jetbrains.mps.core.xml.structure.XmlAttribute");
-    /*package*/ static final SConcept XmlTextValue_62249478 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
-    /*package*/ static final SConcept XmlBaseAttribute_6047438d = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b3L, "jetbrains.mps.core.xml.structure.XmlBaseAttribute");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlAttribute$UQ = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, "jetbrains.mps.core.xml.structure.XmlAttribute");
+    /*package*/ static final SConcept XmlTextValue$BE = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54cfd1fL, "jetbrains.mps.core.xml.structure.XmlTextValue");
+    /*package*/ static final SConcept XmlBaseAttribute$PP = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b10b3L, "jetbrains.mps.core.xml.structure.XmlBaseAttribute");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty attrName$j_5Y = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54b8df6L, "attrName");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink value$RZKQ = MetaAdapterFactory.getContainmentLink(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c54b8df3L, 0x5c842a42c54cfd1eL, "value");
   }
 }

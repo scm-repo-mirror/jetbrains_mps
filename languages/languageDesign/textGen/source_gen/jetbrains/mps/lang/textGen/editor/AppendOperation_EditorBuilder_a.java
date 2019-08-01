@@ -16,7 +16,6 @@ import jetbrains.mps.lang.textGen.editor.TextGenStyles_StyleSheet.TextGenOperati
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.lang.editor.cellProviders.RefNodeListHandler;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.editor.menus.transformation.SNodeLocation;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -27,6 +26,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.editor.runtime.style.Padding;
 import jetbrains.mps.editor.runtime.style.Measure;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class AppendOperation_EditorBuilder_a extends AbstractEditorBuilder {
@@ -88,10 +88,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x120153077caL, 0x12015310576L, "part");
+      return LINKS.part$MZ5w;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_6s7om7.AbstractAppendPart_9b0b2737;
+      return CONCEPTS.AbstractAppendPart$Wb;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -101,7 +101,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(partListHandler_yuehr3_b0.this.getNode(), MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x120153077caL, 0x12015310576L, "part")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(partListHandler_yuehr3_b0.this.getNode(), LINKS.part$MZ5w));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -135,7 +135,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_6s7om7 {
-    /*package*/ static final SConcept AbstractAppendPart_9b0b2737 = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201521c456L, "jetbrains.mps.lang.textGen.structure.AbstractAppendPart");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink part$MZ5w = MetaAdapterFactory.getContainmentLink(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x120153077caL, 0x12015310576L, "part");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractAppendPart$Wb = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x1201521c456L, "jetbrains.mps.lang.textGen.structure.AbstractAppendPart");
   }
 }

@@ -40,6 +40,7 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class add_moduleLocationAndFlags extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -73,7 +74,7 @@ public class add_moduleLocationAndFlags extends TransformationMenuBase {
   public class TMP_Group_vydzh3_a0 extends GroupMenuPart<TransformationMenuItem, TransformationMenuContext> {
     @Override
     protected boolean isApplicable(TransformationMenuContext _context) {
-      String sourcesKind = SEnumOperations.getMemberPresentation(SPropertyOperations.getEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, 0x3be316509dccb82L, "sourcesKind")));
+      String sourcesKind = SEnumOperations.getMemberPresentation(SPropertyOperations.getEnum(_context.getNode(), PROPS.sourcesKind$ZoTF));
       return (sourcesKind == null || sourcesKind.length() == 0) || sourcesKind.equals(SEnumOperations.getMemberPresentation(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3be316509db4513L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSourcesKind"), 0x3be316509db4552L, "sources")));
     }
 
@@ -159,7 +160,7 @@ public class add_moduleLocationAndFlags extends TransformationMenuBase {
 
           @Override
           public void execute(@NotNull String pattern) {
-            SPropertyOperations.setEnum(_context.getNode(), MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, 0x3be316509dccb82L, "sourcesKind"), SEnumOperations.getMemberForPresentation(MetaAdapterFactory.getEnumeration(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3be316509db4513L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSourcesKind"), SEnumOperations.getMemberPresentation(myParameterObject)));
+            SPropertyOperations.setEnum(_context.getNode(), PROPS.sourcesKind$ZoTF, SEnumOperations.getMemberForPresentation(MetaAdapterFactory.getEnumeration(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x3be316509db4513L, "jetbrains.mps.build.mps.structure.BuildMps_ModuleSourcesKind"), SEnumOperations.getMemberPresentation(myParameterObject)));
             SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), _context.getNode(), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
           }
 
@@ -183,5 +184,9 @@ public class add_moduleLocationAndFlags extends TransformationMenuBase {
 
       }
     }
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty sourcesKind$ZoTF = MetaAdapterFactory.getProperty(0xcf935df46994e9cL, 0xa132fa109541cba3L, 0x2c446791464290f7L, 0x3be316509dccb82L, "sourcesKind");
   }
 }

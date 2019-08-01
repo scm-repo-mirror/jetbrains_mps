@@ -17,9 +17,10 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class CreateActionAsPattern_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
@@ -60,8 +61,8 @@ public final class CreateActionAsPattern_Intention extends AbstractIntentionDesc
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       SNode currentNode = editorContext.getSelectedNode();
-      SNodeFactoryOperations.setNewAttribute(currentNode, new IAttributeDescriptor.NodeAttribute(AUX_td4xks.AsPattern_b5cd3dd2), AUX_td4xks.ActionAsPattern_df11b28d);
-      SPropertyOperations.assign(AttributeOperations.getAttribute(currentNode, new IAttributeDescriptor.NodeAttribute(AUX_td4xks.AsPattern_b5cd3dd2)), MetaAdapterFactory.getProperty(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, 0x108a9cb4794L, "varName"), "action_var_" + currentNode.getNodeId().toString());
+      SNodeFactoryOperations.setNewAttribute(currentNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AsPattern$Jg), CONCEPTS.ActionAsPattern$TP);
+      SPropertyOperations.assign(AttributeOperations.getAttribute(currentNode, new IAttributeDescriptor.NodeAttribute(CONCEPTS.AsPattern$Jg)), PROPS.varName$DO_b, "action_var_" + currentNode.getNodeId().toString());
     }
     @Override
     public IntentionDescriptor getDescriptor() {
@@ -69,8 +70,12 @@ public final class CreateActionAsPattern_Intention extends AbstractIntentionDesc
     }
   }
 
-  private static final class AUX_td4xks {
-    /*package*/ static final SConcept AsPattern_b5cd3dd2 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478dL, "jetbrains.mps.lang.pattern.structure.AsPattern");
-    /*package*/ static final SConcept ActionAsPattern_df11b28d = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, "jetbrains.mps.lang.pattern.structure.ActionAsPattern");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AsPattern$Jg = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478dL, "jetbrains.mps.lang.pattern.structure.AsPattern");
+    /*package*/ static final SConcept ActionAsPattern$TP = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1814cb54L, "jetbrains.mps.lang.pattern.structure.ActionAsPattern");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty varName$DO_b = MetaAdapterFactory.getProperty(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, 0x108a9cb4794L, "varName");
   }
 }

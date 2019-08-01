@@ -25,7 +25,7 @@ public class typeof_BootstrapExtentionPoint_InferenceRule extends AbstractInfere
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_c9h6d0.InterfaceExtentionPoint_175eb6cc;
+    return CONCEPTS.InterfaceExtentionPoint$8m;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_BootstrapExtentionPoint_InferenceRule extends AbstractInfere
     return quotedNode_1;
   }
 
-  private static final class AUX_c9h6d0 {
-    /*package*/ static final SConcept InterfaceExtentionPoint_175eb6cc = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186bb08443L, "jetbrains.mps.lang.plugin.structure.InterfaceExtentionPoint");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InterfaceExtentionPoint$8m = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x1186bb08443L, "jetbrains.mps.lang.plugin.structure.InterfaceExtentionPoint");
   }
 }

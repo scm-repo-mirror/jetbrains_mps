@@ -25,12 +25,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return;
     }
     SNode node = n;
-    if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_tnz6xi.RootTemplateAnnotation_423b5b1a)) == null)) {
-      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(AUX_tnz6xi.RootTemplateAnnotation_423b5b1a), SModelOperations.createNewNode(SNodeOperations.getModel(node), null, AUX_tnz6xi.RootTemplateAnnotation_423b5b1a));
+    if ((AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8)) == null)) {
+      AttributeOperations.setAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8), SModelOperations.createNewNode(SNodeOperations.getModel(node), null, CONCEPTS.RootTemplateAnnotation$u8));
     }
   }
 
-  private static final class AUX_tnz6xi {
-    /*package*/ static final SConcept RootTemplateAnnotation_423b5b1a = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RootTemplateAnnotation$u8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
   }
 }

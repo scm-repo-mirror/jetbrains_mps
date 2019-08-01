@@ -14,7 +14,6 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
@@ -35,20 +34,23 @@ import jetbrains.mps.errors.IErrorReporter;
 import jetbrains.mps.errors.BaseQuickFixProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class check_UnneededJavaImports_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_UnneededJavaImports_NonTypesystemRule() {
   }
   public void applyRule(final SNode clas, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    if ((AttributeOperations.getAttribute(clas, new IAttributeDescriptor.NodeAttribute(AUX_70i7i5.JavaImports_af71158f)) == null)) {
+    if ((AttributeOperations.getAttribute(clas, new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN)) == null)) {
       return;
     }
 
     final Map<String, SNode> importsByName = MapSequence.fromMap(new HashMap<String, SNode>());
-    ListSequence.fromList(SLinkOperations.getChildren(AttributeOperations.getAttribute(clas, new IAttributeDescriptor.NodeAttribute(AUX_70i7i5.JavaImports_af71158f)), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, 0x64c0181e6020a7L, "entries"))).where(new IWhereFilter<SNode>() {
+    ListSequence.fromList(SLinkOperations.getChildren(AttributeOperations.getAttribute(clas, new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN)), LINKS.entries$9FEq)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(SPropertyOperations.getBoolean(it, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64c0181e603bcfL, 0x64c0181e603bd0L, "onDemand")));
+        return !(SPropertyOperations.getBoolean(it, PROPS.onDemand$6eZw));
       }
     }).visitAll(new IVisitor<SNode>() {
       public void visit(SNode it) {
@@ -68,7 +70,7 @@ public class check_UnneededJavaImports_NonTypesystemRule extends AbstractNonType
       SNode node = DequeSequence.fromDequeNew(stack).popElement();
       DequeSequence.fromDequeNew(stack).addSequence(ListSequence.fromList(SNodeOperations.getChildren(node)));
 
-      if (SNodeOperations.isInstanceOf(node, AUX_70i7i5.IYetUnresolved_7220cc50)) {
+      if (SNodeOperations.isInstanceOf(node, CONCEPTS.IYetUnresolved$Oi)) {
         unknownPresent = true;
         break;
       }
@@ -106,7 +108,7 @@ public class check_UnneededJavaImports_NonTypesystemRule extends AbstractNonType
     // removing only those single-type imports that didn't get into retain set 
     // quick fix 
     Iterable<SNode> unneeded = Sequence.fromIterable(MapSequence.fromMap(importsByName).values()).subtract(SetSequence.fromSet(retain));
-    if (Sequence.fromIterable(unneeded).count() < ListSequence.fromList(SLinkOperations.getChildren(AttributeOperations.getAttribute(clas, new IAttributeDescriptor.NodeAttribute(AUX_70i7i5.JavaImports_af71158f)), MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, 0x64c0181e6020a7L, "entries"))).count()) {
+    if (Sequence.fromIterable(unneeded).count() < ListSequence.fromList(SLinkOperations.getChildren(AttributeOperations.getAttribute(clas, new IAttributeDescriptor.NodeAttribute(CONCEPTS.JavaImports$IN)), LINKS.entries$9FEq)).count()) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(clas, "Unneeded java imports present", "r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "2235632002330933240", null, errorTarget);
@@ -129,7 +131,7 @@ public class check_UnneededJavaImports_NonTypesystemRule extends AbstractNonType
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_70i7i5.Classifier_4b7e553;
+    return CONCEPTS.Classifier$hJ;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -138,9 +140,17 @@ public class check_UnneededJavaImports_NonTypesystemRule extends AbstractNonType
     return false;
   }
 
-  private static final class AUX_70i7i5 {
-    /*package*/ static final SConcept JavaImports_af71158f = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
-    /*package*/ static final SInterfaceConcept IYetUnresolved_7220cc50 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70ea1dc4c5721865L, "jetbrains.mps.baseLanguage.structure.IYetUnresolved");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept JavaImports$IN = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, "jetbrains.mps.baseLanguage.structure.JavaImports");
+    /*package*/ static final SInterfaceConcept IYetUnresolved$Oi = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x70ea1dc4c5721865L, "jetbrains.mps.baseLanguage.structure.IYetUnresolved");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink entries$9FEq = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x53f7c33f069862f2L, 0x64c0181e6020a7L, "entries");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty onDemand$6eZw = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x64c0181e603bcfL, 0x64c0181e603bd0L, "onDemand");
   }
 }

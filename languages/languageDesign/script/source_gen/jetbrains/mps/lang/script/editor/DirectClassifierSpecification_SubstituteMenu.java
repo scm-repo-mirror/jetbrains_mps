@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class DirectClassifierSpecification_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_clc4cv_a(), AUX_clc4cv.DirectClassifierSpecification_2dabbf70));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_clc4cv_a(), CONCEPTS.DirectClassifierSpecification$RM));
     result.add(new SMP_Subconcepts_clc4cv_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class DirectClassifierSpecification_SubstituteMenu extends SubstituteMenu
 
     public SMP_ReferenceScope_clc4cv_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_clc4cv.DirectClassifierSpecification_2dabbf70, MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier"));
+      super((SAbstractConcept) CONCEPTS.DirectClassifierSpecification$RM, LINKS.classifier$udFV);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class DirectClassifierSpecification_SubstituteMenu extends SubstituteMenu
   }
   public class SMP_Subconcepts_clc4cv_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_clc4cv.DirectClassifierSpecification_2dabbf70);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.DirectClassifierSpecification$RM);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class DirectClassifierSpecification_SubstituteMenu extends SubstituteMenu
     }
   }
 
-  private static final class AUX_clc4cv {
-    /*package*/ static final SConcept DirectClassifierSpecification_2dabbf70 = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, "jetbrains.mps.lang.script.structure.DirectClassifierSpecification");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DirectClassifierSpecification$RM = MetaAdapterFactory.getConcept(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, "jetbrains.mps.lang.script.structure.DirectClassifierSpecification");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink classifier$udFV = MetaAdapterFactory.getReferenceLink(0xeddeefac2d64437L, 0xbc2cde50fd4ce470L, 0x4b6b6d7b2a638d23L, 0x4b6b6d7b2a638e5dL, "classifier");
   }
 }

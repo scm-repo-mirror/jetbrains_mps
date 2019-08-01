@@ -14,9 +14,9 @@ import org.jetbrains.mps.openapi.model.SNodeUtil;
 import org.jetbrains.mps.openapi.model.SModel;
 import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
@@ -27,6 +27,7 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import java.util.Map;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public abstract class MigrationScriptBase implements MigrationScript {
   private DataCollector myDC = new EmptyDataCollector();
@@ -156,14 +157,14 @@ public abstract class MigrationScriptBase implements MigrationScript {
     if (!(SModuleOperations.isAspect(SNodeOperations.getModel(node), "migration"))) {
       return false;
     }
-    SNode enclosingPattern = SNodeOperations.getNodeAncestor(node, AUX_6r1jyd.PatternExpression_b5cd3dd6, false, false);
-    return (enclosingPattern != null) && SNodeOperations.hasRole(enclosingPattern, MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x4e382b39b6529ec9L, 0x4e382b39b6529eeeL, "pattern"));
+    SNode enclosingPattern = SNodeOperations.getNodeAncestor(node, CONCEPTS.PatternExpression$Lc, false, false);
+    return (enclosingPattern != null) && SNodeOperations.hasRole(enclosingPattern, LINKS.pattern$O6Rt);
   }
 
   protected void markAnnotatedNodeForReview(SNode n, List<SNode> unknownAttrs) {
     unknownAttrs = ListSequence.fromList(unknownAttrs).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return !(SNodeOperations.isInstanceOf(it, AUX_6r1jyd.MigrationAnnotation_old_10823922));
+        return !(SNodeOperations.isInstanceOf(it, CONCEPTS.MigrationAnnotation_old$E0));
       }
     }).toListSequence();
     if (ListSequence.fromList(unknownAttrs).isEmpty()) {
@@ -171,11 +172,11 @@ public abstract class MigrationScriptBase implements MigrationScript {
     }
 
     SNode ann = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, "jetbrains.mps.lang.core.structure.ReviewMigration"));
-    SPropertyOperations.set(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript"), this.getReference().serialize());
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e07L, "reasonShort"), "unknown attributes");
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e08L, "todo"), "This node should have been migrated, but has annotations not recognised by the migration. Please review this code and migrate manually if necessary. Unknown attribute: " + SNodeOperations.getConcept(ListSequence.fromList(unknownAttrs).first()).getQualifiedName());
-    SPropertyOperations.assign(ann, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e09L, "readableId"), getCaption());
-    AttributeOperations.setAttribute(n, new IAttributeDescriptor.NodeAttribute(AUX_6r1jyd.ReviewMigration_54683616), ann);
+    SPropertyOperations.set(ann, PROPS.createdByScript$1_lw, this.getReference().serialize());
+    SPropertyOperations.assign(ann, PROPS.reasonShort$1$U0, "unknown attributes");
+    SPropertyOperations.assign(ann, PROPS.todo$1_4E, "This node should have been migrated, but has annotations not recognised by the migration. Please review this code and migrate manually if necessary. Unknown attribute: " + SNodeOperations.getConcept(ListSequence.fromList(unknownAttrs).first()).getQualifiedName());
+    SPropertyOperations.assign(ann, PROPS.readableId$1_59, getCaption());
+    AttributeOperations.setAttribute(n, new IAttributeDescriptor.NodeAttribute(CONCEPTS.ReviewMigration$Kc), ann);
 
     // we want this annotation to be shown as outermost one 
     SNode firstAnnot = ListSequence.fromList(AttributeOperations.getAttributeList(n, new IAttributeDescriptor.AllAttributes())).first();
@@ -217,9 +218,20 @@ public abstract class MigrationScriptBase implements MigrationScript {
     }
   }
 
-  private static final class AUX_6r1jyd {
-    /*package*/ static final SConcept PatternExpression_b5cd3dd6 = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, "jetbrains.mps.lang.pattern.structure.PatternExpression");
-    /*package*/ static final SInterfaceConcept MigrationAnnotation_old_10823922 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2274019e61f0c2c8L, "jetbrains.mps.lang.core.structure.MigrationAnnotation_old");
-    /*package*/ static final SConcept ReviewMigration_54683616 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, "jetbrains.mps.lang.core.structure.ReviewMigration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PatternExpression$Lc = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L, "jetbrains.mps.lang.pattern.structure.PatternExpression");
+    /*package*/ static final SInterfaceConcept MigrationAnnotation_old$E0 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2274019e61f0c2c8L, "jetbrains.mps.lang.core.structure.MigrationAnnotation_old");
+    /*package*/ static final SConcept ReviewMigration$Kc = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, "jetbrains.mps.lang.core.structure.ReviewMigration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink pattern$O6Rt = MetaAdapterFactory.getContainmentLink(0x9074634404fd4286L, 0x97d5b46ae6a81709L, 0x4e382b39b6529ec9L, 0x4e382b39b6529eeeL, "pattern");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty createdByScript$1_lw = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e13L, 0x78c7e79625a38e14L, "createdByScript");
+    /*package*/ static final SProperty reasonShort$1$U0 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e07L, "reasonShort");
+    /*package*/ static final SProperty todo$1_4E = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e08L, "todo");
+    /*package*/ static final SProperty readableId$1_59 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x78c7e79625a38e06L, 0x78c7e79625a38e09L, "readableId");
   }
 }

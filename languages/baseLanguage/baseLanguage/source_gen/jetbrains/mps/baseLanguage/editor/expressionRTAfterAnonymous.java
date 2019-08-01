@@ -68,12 +68,12 @@ public class expressionRTAfterAnonymous extends TransformationMenuBase {
     @Nullable
     @Override
     protected SNode getNode(TransformationMenuContext _context) {
-      return SNodeOperations.getNodeAncestor(_context.getNode(), AUX_4j11o5.GenericNewExpression_dee38023, false, false);
+      return SNodeOperations.getNodeAncestor(_context.getNode(), CONCEPTS.GenericNewExpression$ev, false, false);
     }
 
   }
 
-  private static final class AUX_4j11o5 {
-    /*package*/ static final SConcept GenericNewExpression_dee38023 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept GenericNewExpression$ev = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, "jetbrains.mps.baseLanguage.structure.GenericNewExpression");
   }
 }

@@ -18,7 +18,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BuildVariableMacroInitValue_Constraints extends BaseConstraintsDescriptor {
   public BuildVariableMacroInitValue_Constraints() {
-    super(AUX_yxb1y3.BuildVariableMacroInitValue_31bb6195);
+    super(CONCEPTS.BuildVariableMacroInitValue$1H);
   }
 
   @Override
@@ -37,12 +37,12 @@ public class BuildVariableMacroInitValue_Constraints extends BaseConstraintsDesc
     };
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(parentNode, AUX_yxb1y3.BuildVariableMacro_66593451);
+    return SNodeOperations.isInstanceOf(parentNode, CONCEPTS.BuildVariableMacro$kL);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "1227128029536580558");
 
-  private static final class AUX_yxb1y3 {
-    /*package*/ static final SConcept BuildVariableMacroInitValue_31bb6195 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd1e1aaL, "jetbrains.mps.build.structure.BuildVariableMacroInitValue");
-    /*package*/ static final SConcept BuildVariableMacro_66593451 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3449288aa0d560e2L, "jetbrains.mps.build.structure.BuildVariableMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildVariableMacroInitValue$1H = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x263c91972cd1e1aaL, "jetbrains.mps.build.structure.BuildVariableMacroInitValue");
+    /*package*/ static final SConcept BuildVariableMacro$kL = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x3449288aa0d560e2L, "jetbrains.mps.build.structure.BuildVariableMacro");
   }
 }

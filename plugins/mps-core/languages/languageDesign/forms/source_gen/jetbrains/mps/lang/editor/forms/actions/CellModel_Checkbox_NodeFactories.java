@@ -6,25 +6,36 @@ import jetbrains.mps.openapi.actions.descriptor.NodeFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class CellModel_Checkbox_NodeFactories {
   public static class NodeFactory_5347446703373799065 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x455f8dda63d6378L, 0x1298d6f05780ea9aL, "ui"), SNodeFactoryOperations.createNewNode(AUX_cc47c1.CheckboxUI_Text_9f5ef45a, null));
+      SLinkOperations.setTarget(newNode, LINKS.ui$tMUH, SNodeFactoryOperations.createNewNode(CONCEPTS.CheckboxUI_Text$p8, null));
     }
   }
   public static class NodeFactory_5347446703373814501 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x1298d6f05780e83bL, 0x1298d6f05780e840L, "falseText"), "[ ]");
-      SPropertyOperations.assign(newNode, MetaAdapterFactory.getProperty(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x1298d6f05780e83bL, 0x1298d6f05780e83eL, "trueText"), "[x]");
+      SPropertyOperations.assign(newNode, PROPS.falseText$RxC7, "[ ]");
+      SPropertyOperations.assign(newNode, PROPS.trueText$RxsY, "[x]");
     }
   }
 
-  private static final class AUX_cc47c1 {
-    /*package*/ static final SConcept CheckboxUI_Text_9f5ef45a = MetaAdapterFactory.getConcept(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x1298d6f05780e83bL, "jetbrains.mps.lang.editor.forms.structure.CheckboxUI_Text");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink ui$tMUH = MetaAdapterFactory.getContainmentLink(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x455f8dda63d6378L, 0x1298d6f05780ea9aL, "ui");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CheckboxUI_Text$p8 = MetaAdapterFactory.getConcept(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x1298d6f05780e83bL, "jetbrains.mps.lang.editor.forms.structure.CheckboxUI_Text");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty falseText$RxC7 = MetaAdapterFactory.getProperty(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x1298d6f05780e83bL, 0x1298d6f05780e840L, "falseText");
+    /*package*/ static final SProperty trueText$RxsY = MetaAdapterFactory.getProperty(0x602c36adcc5547ffL, 0x8c4073d7f12f035cL, 0x1298d6f05780e83bL, 0x1298d6f05780e83eL, "trueText");
   }
 }

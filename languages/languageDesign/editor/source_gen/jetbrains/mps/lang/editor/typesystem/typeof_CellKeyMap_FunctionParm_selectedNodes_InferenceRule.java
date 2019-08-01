@@ -25,7 +25,7 @@ public class typeof_CellKeyMap_FunctionParm_selectedNodes_InferenceRule extends 
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_wy1ixd.CellKeyMap_FunctionParm_selectedNodes_5874388b;
+    return CONCEPTS.CellKeyMap_FunctionParm_selectedNodes$wR;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_CellKeyMap_FunctionParm_selectedNodes_InferenceRule extends 
     return quotedNode_1;
   }
 
-  private static final class AUX_wy1ixd {
-    /*package*/ static final SConcept CellKeyMap_FunctionParm_selectedNodes_5874388b = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x13781fdf13caee25L, "jetbrains.mps.lang.editor.structure.CellKeyMap_FunctionParm_selectedNodes");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellKeyMap_FunctionParm_selectedNodes$wR = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x13781fdf13caee25L, "jetbrains.mps.lang.editor.structure.CellKeyMap_FunctionParm_selectedNodes");
   }
 }

@@ -19,10 +19,11 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.util.CollectionUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MappingConfigFinder extends BaseFinder implements IFinder {
   private Generator myGenerator;
@@ -42,16 +43,16 @@ public class MappingConfigFinder extends BaseFinder implements IFinder {
     Iterable<SModel> ownTemplateModels = myGenerator.getOwnTemplateModels();
     Iterable<SNode> mappingConfigs = Sequence.fromIterable(ownTemplateModels).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel it) {
-        return SModelOperations.roots(it, AUX_6lkjxn.MappingConfiguration_587b13db);
+        return SModelOperations.roots(it, CONCEPTS.MappingConfiguration$rB);
       }
     });
     List<SNode> nodesToCheck = new ArrayList<SNode>();
     for (SNode mappingConfig : mappingConfigs) {
-      for (SNode rule : SNodeOperations.ofConcept(SNodeOperations.getChildren(mappingConfig), AUX_6lkjxn.BaseMappingRule_6fbb9a69)) {
+      for (SNode rule : SNodeOperations.ofConcept(SNodeOperations.getChildren(mappingConfig), CONCEPTS.BaseMappingRule$8p)) {
         nodesToCheck.add(rule);
         collectChildrenThatMayHaveReferenceOnTemplate(rule, nodesToCheck);
       }
-      nodesToCheck.addAll(SLinkOperations.getChildren(mappingConfig, MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x10fbbe00519L, "createRootRule")));
+      nodesToCheck.addAll(SLinkOperations.getChildren(mappingConfig, LINKS.createRootRule$gnQA));
     }
     for (SNode node : nodesToCheck) {
       for (SReference reference : node.getReferences()) {
@@ -67,7 +68,7 @@ public class MappingConfigFinder extends BaseFinder implements IFinder {
   private void collectChildrenThatMayHaveReferenceOnTemplate(SNode parent, List<SNode> result) {
     List<SNode> children = jetbrains.mps.util.SNodeOperations.getChildren(parent, false);
     for (SNode child : children) {
-      if (SNodeOperations.isInstanceOf(child, AUX_6lkjxn.ConceptFunction_e08795a5)) {
+      if (SNodeOperations.isInstanceOf(child, CONCEPTS.ConceptFunction$Tt)) {
         continue;
       }
       result.add(child);
@@ -75,9 +76,13 @@ public class MappingConfigFinder extends BaseFinder implements IFinder {
     }
   }
 
-  private static final class AUX_6lkjxn {
-    /*package*/ static final SConcept MappingConfiguration_587b13db = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
-    /*package*/ static final SConcept BaseMappingRule_6fbb9a69 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, "jetbrains.mps.lang.generator.structure.BaseMappingRule");
-    /*package*/ static final SConcept ConceptFunction_e08795a5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept MappingConfiguration$rB = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, "jetbrains.mps.lang.generator.structure.MappingConfiguration");
+    /*package*/ static final SConcept BaseMappingRule$8p = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fc0b64647L, "jetbrains.mps.lang.generator.structure.BaseMappingRule");
+    /*package*/ static final SConcept ConceptFunction$Tt = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, "jetbrains.mps.baseLanguage.structure.ConceptFunction");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink createRootRule$gnQA = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xff0bea0475L, 0x10fbbe00519L, "createRootRule");
   }
 }

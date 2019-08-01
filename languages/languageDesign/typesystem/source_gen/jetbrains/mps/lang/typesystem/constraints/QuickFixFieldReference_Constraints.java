@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,17 @@ import jetbrains.mps.scope.ListScope;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class QuickFixFieldReference_Constraints extends BaseConstraintsDescriptor {
   public QuickFixFieldReference_Constraints() {
-    super(AUX_rgybaw.QuickFixFieldReference_bbeee072);
+    super(CONCEPTS.QuickFixFieldReference$OK);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, 0x70489eee8479b55eL, "quickFixField"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.quickFixField$QTC0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -49,9 +50,9 @@ public class QuickFixFieldReference_Constraints extends BaseConstraintsDescripto
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             List<SNode> nodes = new ArrayList<SNode>();
-            SNode quickFix = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_rgybaw.TypesystemQuickFix_528784d0, false, false);
+            SNode quickFix = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.TypesystemQuickFix$ii, false, false);
             if ((quickFix != null)) {
-              ListSequence.fromList(nodes).addSequence(ListSequence.fromList(SLinkOperations.getChildren(quickFix, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b36163865L, 0x70489eee847aabdfL, "quickFixField"))));
+              ListSequence.fromList(nodes).addSequence(ListSequence.fromList(SLinkOperations.getChildren(quickFix, LINKS.quickFixField$SOUb)));
             }
             return ListScope.forResolvableElements(nodes);
           }
@@ -64,8 +65,13 @@ public class QuickFixFieldReference_Constraints extends BaseConstraintsDescripto
   }
   private static final SNodePointer breakingNode_rgybaw_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)", "6836281137582805895");
 
-  private static final class AUX_rgybaw {
-    /*package*/ static final SConcept QuickFixFieldReference_bbeee072 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, "jetbrains.mps.lang.typesystem.structure.QuickFixFieldReference");
-    /*package*/ static final SConcept TypesystemQuickFix_528784d0 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b36163865L, "jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept QuickFixFieldReference$OK = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, "jetbrains.mps.lang.typesystem.structure.QuickFixFieldReference");
+    /*package*/ static final SConcept TypesystemQuickFix$ii = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b36163865L, "jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink quickFixField$QTC0 = MetaAdapterFactory.getReferenceLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x70489eee8479b55dL, 0x70489eee8479b55eL, "quickFixField");
+    /*package*/ static final SContainmentLink quickFixField$SOUb = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11b36163865L, 0x70489eee847aabdfL, "quickFixField");
   }
 }

@@ -28,13 +28,15 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import jetbrains.mps.smodel.runtime.IconResource;
 import jetbrains.mps.smodel.runtime.IconResourceUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class PersistentConfigurationType_Contribution extends SubstituteMenuBase {
   public PersistentConfigurationType_Contribution() {
@@ -76,7 +78,7 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
 
     @Override
     protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts() {
-      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_67nl4b_a.SMP_Param_67nl4b_a0(), AUX_67nl4b.TemplatePersistentConfigurationType_9ba04fa5));
+      return Arrays.<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>asList(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Group_67nl4b_a.SMP_Param_67nl4b_a0(), CONCEPTS.TemplatePersistentConfigurationType$ht));
     }
     private class SMP_Param_67nl4b_a0 extends ParameterizedMenuPart<SNode, SubstituteMenuItem, SubstituteMenuContext> {
       @NotNull
@@ -98,9 +100,9 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
       @Nullable
       @Override
       protected Iterable<? extends SNode> getParameters(SubstituteMenuContext _context) {
-        return ListSequence.fromList(SModelOperations.rootsIncludingImported(_context.getModel(), AUX_67nl4b.PersistentConfigurationTemplate_9ba04fe5)).where(new IWhereFilter<SNode>() {
+        return ListSequence.fromList(SModelOperations.rootsIncludingImported(_context.getModel(), CONCEPTS.PersistentConfigurationTemplate$Kt)).where(new IWhereFilter<SNode>() {
           public boolean accept(SNode it) {
-            return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(AUX_67nl4b.DeprecatedAnnotation_911ebf7b)) == null);
+            return (AttributeOperations.getAttribute(it, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DeprecatedAnnotation$X7)) == null);
           }
         }).toListSequence();
       }
@@ -137,7 +139,7 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
           private final SubstituteMenuContext _context;
           private EditorMenuTraceInfo myTraceInfo;
           public Item(SubstituteMenuContext context) {
-            super(AUX_67nl4b.TemplatePersistentConfigurationType_9ba04fa5, context);
+            super(CONCEPTS.TemplatePersistentConfigurationType$ht, context);
             _context = context;
           }
 
@@ -148,8 +150,8 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
           @Nullable
           @Override
           public SNode createNode(@NotNull String pattern) {
-            SNode node = SNodeFactoryOperations.createNewNode(AUX_67nl4b.TemplatePersistentConfigurationType_9ba04fa5, null);
-            SLinkOperations.setTarget(node, MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration"), myParameterObject);
+            SNode node = SNodeFactoryOperations.createNewNode(CONCEPTS.TemplatePersistentConfigurationType$ht, null);
+            SLinkOperations.setTarget(node, LINKS.persistentConfiguration$28v0, myParameterObject);
             return node;
           }
 
@@ -159,7 +161,7 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
           }
           @NotNull
           protected CompletionItemInformation createInformation(String pattern) {
-            return new CompletionItemInformation(myParameterObject, AUX_67nl4b.TemplatePersistentConfigurationType_9ba04fa5, getMatchingText(pattern), getDescriptionText(pattern));
+            return new CompletionItemInformation(myParameterObject, CONCEPTS.TemplatePersistentConfigurationType$ht, getMatchingText(pattern), getDescriptionText(pattern));
           }
           @Nullable
           @Override
@@ -180,7 +182,7 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
           @Nullable
           @Override
           public String getDescriptionText(@NotNull String pattern) {
-            return "template<" + SPropertyOperations.getString(myParameterObject, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ">";
+            return "template<" + SPropertyOperations.getString(myParameterObject, PROPS.name$tAp1) + ">";
           }
         }
       }
@@ -188,9 +190,17 @@ public class PersistentConfigurationType_Contribution extends SubstituteMenuBase
     }
   }
 
-  private static final class AUX_67nl4b {
-    /*package*/ static final SConcept TemplatePersistentConfigurationType_9ba04fa5 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
-    /*package*/ static final SConcept PersistentConfigurationTemplate_9ba04fe5 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationTemplate");
-    /*package*/ static final SConcept DeprecatedAnnotation_911ebf7b = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0x7f8de21e263f5819L, "jetbrains.mps.execution.settings.structure.DeprecatedAnnotation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplatePersistentConfigurationType$ht = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f9100fdL, "jetbrains.mps.execution.settings.structure.TemplatePersistentConfigurationType");
+    /*package*/ static final SConcept PersistentConfigurationTemplate$Kt = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationTemplate");
+    /*package*/ static final SConcept DeprecatedAnnotation$X7 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0x7f8de21e263f5819L, "jetbrains.mps.execution.settings.structure.DeprecatedAnnotation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink persistentConfiguration$28v0 = MetaAdapterFactory.getReferenceLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f91001cL, 0xd244b712f91001dL, "persistentConfiguration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

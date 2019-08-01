@@ -10,7 +10,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -35,10 +34,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstraintsDescriptor {
   public EnumerationDataTypeDeclaration_Old_Constraints() {
-    super(AUX_njbcyv.EnumerationDataTypeDeclaration_Old_9e6b98ad);
+    super(CONCEPTS.EnumerationDataTypeDeclaration_Old$Ll);
   }
 
   @Override
@@ -58,7 +58,7 @@ public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstrai
   }
   public static class HasNoDefaultMember_Property extends BasePropertyConstraintsDescriptor {
     public HasNoDefaultMember_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0x11a35a5efdaL, "hasNoDefaultMember"), container);
+      super(PROPS.hasNoDefaultMember$9RJG, container);
     }
     @Override
     public boolean hasOwnSetter() {
@@ -69,21 +69,21 @@ public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstrai
       staticSetPropertyValue(node, SPropertyOperations.castBoolean(propertyValue));
     }
     private static void staticSetPropertyValue(SNode node, boolean propertyValue) {
-      SPropertyOperations.assign(node, MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0x11a35a5efdaL, "hasNoDefaultMember"), propertyValue);
+      SPropertyOperations.assign(node, PROPS.hasNoDefaultMember$9RJG, propertyValue);
       if (propertyValue == true) {
-        SLinkOperations.setTarget(node, MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc3640a77dL, "defaultMember"), null);
+        SLinkOperations.setTarget(node, LINKS.defaultMember$C9qo, null);
       }
     }
   }
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0x11a35a5efdaL, "hasNoDefaultMember"), new HasNoDefaultMember_Property(this));
+    properties.put(PROPS.hasNoDefaultMember$9RJG, new HasNoDefaultMember_Property(this));
     return properties;
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc3640a77dL, "defaultMember"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.defaultMember$C9qo, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -114,7 +114,15 @@ public class EnumerationDataTypeDeclaration_Old_Constraints extends BaseConstrai
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "1227087688291");
   private static final SNodePointer breakingNode_njbcyv_a0a0a0a0a1a0a0a0f = new SNodePointer("r:00000000-0000-4000-0000-011c8959028c(jetbrains.mps.lang.structure.constraints)", "6836281137582805030");
 
-  private static final class AUX_njbcyv {
-    /*package*/ static final SConcept EnumerationDataTypeDeclaration_Old_9e6b98ad = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept EnumerationDataTypeDeclaration_Old$Ll = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, "jetbrains.mps.lang.structure.structure.EnumerationDataTypeDeclaration_Old");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty hasNoDefaultMember$9RJG = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0x11a35a5efdaL, "hasNoDefaultMember");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink defaultMember$C9qo = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xfc26875dfbL, 0xfc3640a77dL, "defaultMember");
   }
 }

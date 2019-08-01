@@ -4,6 +4,7 @@ package jetbrains.mps.lang.editor.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -14,15 +15,15 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public final class CellMenuPart_ReferentPrimary__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_6g5dxy.CellMenuPart_ReferentPrimary_d0247e1c;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, "jetbrains.mps.lang.editor.structure.CellMenuPart_ReferentPrimary");
 
   public static final SMethod<SNode> getMatchingTextFunction_id6K3nYZvn7p1 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getMatchingTextFunction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6K3nYZvn7p1").build();
   public static final SMethod<SNode> getVisibleMatchingTextFunction_id5KYS0pi3wd5 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getVisibleMatchingTextFunction").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5KYS0pi3wd5").build();
@@ -33,20 +34,20 @@ public final class CellMenuPart_ReferentPrimary__BehaviorDescriptor extends Base
   }
 
   /*package*/ static SNode getMatchingTextFunction_id6K3nYZvn7p1(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, 0x6001c76613d86514L, "matchingText")) != null)) {
-      return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, 0x6001c76613d86514L, "matchingText"));
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.matchingText$KPlJ) != null)) {
+      return SLinkOperations.getTarget(__thisNode__, LINKS.matchingText$KPlJ);
     }
-    SNode cellModel = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, AUX_6g5dxy.CellModel_RefCell_a9be5399, false, false), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfd52a2c922L, 0xfd5cf2df2aL, "editorComponent")), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel"));
-    if (SNodeOperations.isInstanceOf(cellModel, AUX_6g5dxy.CellModel_ReferencePresentation_437e8527)) {
-      return SLinkOperations.getTarget((SNodeOperations.cast(cellModel, AUX_6g5dxy.CellModel_ReferencePresentation_437e8527)), MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x8ace515f0191e6eL, 0x6c035fefdf050085L, "referentPresentation"));
+    SNode cellModel = SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.CellModel_RefCell$VD, false, false), LINKS.editorComponent$36e$), LINKS.cellModel$3wIV);
+    if (SNodeOperations.isInstanceOf(cellModel, CONCEPTS.CellModel_ReferencePresentation$Wr)) {
+      return SLinkOperations.getTarget((SNodeOperations.cast(cellModel, CONCEPTS.CellModel_ReferencePresentation$Wr)), LINKS.referentPresentation$z_4O);
     }
     return null;
   }
   /*package*/ static SNode getVisibleMatchingTextFunction_id5KYS0pi3wd5(@NotNull SNode __thisNode__) {
-    if ((SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, 0x5c3ee006520dfad6L, "visibleMatchingText")) == null)) {
+    if ((SLinkOperations.getTarget(__thisNode__, LINKS.visibleMatchingText$_Wck) == null)) {
       return CellMenuPart_ReferentPrimary__BehaviorDescriptor.getMatchingTextFunction_id6K3nYZvn7p1.invoke(__thisNode__);
     }
-    return SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, 0x5c3ee006520dfad6L, "visibleMatchingText"));
+    return SLinkOperations.getTarget(__thisNode__, LINKS.visibleMatchingText$_Wck);
   }
 
   /*package*/ CellMenuPart_ReferentPrimary__BehaviorDescriptor() {
@@ -97,9 +98,16 @@ public final class CellMenuPart_ReferentPrimary__BehaviorDescriptor extends Base
     return CONCEPT;
   }
 
-  private static final class AUX_6g5dxy {
-    /*package*/ static final SConcept CellMenuPart_ReferentPrimary_d0247e1c = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, "jetbrains.mps.lang.editor.structure.CellMenuPart_ReferentPrimary");
-    /*package*/ static final SConcept CellModel_RefCell_a9be5399 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfd52a2c922L, "jetbrains.mps.lang.editor.structure.CellModel_RefCell");
-    /*package*/ static final SConcept CellModel_ReferencePresentation_437e8527 = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x8ace515f0191e6eL, "jetbrains.mps.lang.editor.structure.CellModel_ReferencePresentation");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink matchingText$KPlJ = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, 0x6001c76613d86514L, "matchingText");
+    /*package*/ static final SContainmentLink editorComponent$36e$ = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfd52a2c922L, 0xfd5cf2df2aL, "editorComponent");
+    /*package*/ static final SContainmentLink cellModel$3wIV = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfba0eb7c50L, 0xfba0ec5415L, "cellModel");
+    /*package*/ static final SContainmentLink referentPresentation$z_4O = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x8ace515f0191e6eL, 0x6c035fefdf050085L, "referentPresentation");
+    /*package*/ static final SContainmentLink visibleMatchingText$_Wck = MetaAdapterFactory.getContainmentLink(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x10f3f33baebL, 0x5c3ee006520dfad6L, "visibleMatchingText");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CellModel_RefCell$VD = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xfd52a2c922L, "jetbrains.mps.lang.editor.structure.CellModel_RefCell");
+    /*package*/ static final SConcept CellModel_ReferencePresentation$Wr = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x8ace515f0191e6eL, "jetbrains.mps.lang.editor.structure.CellModel_ReferencePresentation");
   }
 }

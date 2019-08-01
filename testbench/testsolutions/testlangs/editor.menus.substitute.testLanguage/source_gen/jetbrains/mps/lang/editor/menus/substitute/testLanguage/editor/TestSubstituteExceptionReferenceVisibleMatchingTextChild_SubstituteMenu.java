@@ -14,20 +14,20 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuItem;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.presentation.NodePresentationUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TestSubstituteExceptionReferenceVisibleMatchingTextChild_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_smhjc8_a(), AUX_smhjc8.TestSubstituteExceptionReferenceVisibleMatchingTextChild_555f6885));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_smhjc8_a(), CONCEPTS.TestSubstituteExceptionReferenceVisibleMatchingTextChild$tX));
     return result;
   }
 
@@ -48,7 +48,7 @@ public class TestSubstituteExceptionReferenceVisibleMatchingTextChild_Substitute
 
     public SMP_ReferenceScope_smhjc8_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_smhjc8.TestSubstituteExceptionReferenceVisibleMatchingTextChild_555f6885, MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582b4edL, 0x63457d5cb582b4eeL, "reference"));
+      super((SAbstractConcept) CONCEPTS.TestSubstituteExceptionReferenceVisibleMatchingTextChild$tX, LINKS.reference$V9Lw);
     }
     @NotNull
     @Override
@@ -94,7 +94,11 @@ public class TestSubstituteExceptionReferenceVisibleMatchingTextChild_Substitute
     }
   }
 
-  private static final class AUX_smhjc8 {
-    /*package*/ static final SConcept TestSubstituteExceptionReferenceVisibleMatchingTextChild_555f6885 = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582b4edL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionReferenceVisibleMatchingTextChild");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TestSubstituteExceptionReferenceVisibleMatchingTextChild$tX = MetaAdapterFactory.getConcept(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582b4edL, "jetbrains.mps.lang.editor.menus.substitute.testLanguage.structure.TestSubstituteExceptionReferenceVisibleMatchingTextChild");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink reference$V9Lw = MetaAdapterFactory.getReferenceLink(0xcb6d57037c8e46a9L, 0xb993c1373dc0942fL, 0x63457d5cb582b4edL, 0x63457d5cb582b4eeL, "reference");
   }
 }

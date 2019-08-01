@@ -9,25 +9,27 @@ import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class typeof_leftOperandConcept_parameter_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
   public typeof_leftOperandConcept_parameter_InferenceRule() {
   }
   public void applyRule(final SNode concept_parameter, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode typeRule = SNodeOperations.getNodeAncestor(concept_parameter, AUX_stim4a.OverloadedOperatorTypeRule_bda4e6ae, false, false);
+    SNode typeRule = SNodeOperations.getNodeAncestor(concept_parameter, CONCEPTS.OverloadedOperatorTypeRule$TO, false, false);
     if ((typeRule != null)) {
-      if (SPropertyOperations.getBoolean(typeRule, MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11ff554a52cL, "leftIsExact"))) {
+      if (SPropertyOperations.getBoolean(typeRule, PROPS.leftIsExact$Dl0f)) {
         {
           SNode _nodeToCheck_1029348928467 = concept_parameter;
           EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1236083427968", 0, null);
-          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1236083427979", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(typeRule, MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11fcc4b8423L, "leftOperandType")), "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8968381972988137785", true), _info_12389875345);
+          typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "1236083427979", true), (SNode) typeCheckingContext.typeOf(SLinkOperations.getTarget(typeRule, LINKS.leftOperandType$ALWH), "r:00000000-0000-4000-0000-011c895902b1(jetbrains.mps.lang.typesystem.typesystem)", "8968381972988137785", true), _info_12389875345);
         }
       } else {
         {
@@ -45,7 +47,7 @@ public class typeof_leftOperandConcept_parameter_InferenceRule extends AbstractI
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_stim4a.LeftOperandType_parameter_c0d9e887;
+    return CONCEPTS.LeftOperandType_parameter$uV;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -66,8 +68,16 @@ public class typeof_leftOperandConcept_parameter_InferenceRule extends AbstractI
     return quotedNode_1;
   }
 
-  private static final class AUX_stim4a {
-    /*package*/ static final SConcept OverloadedOperatorTypeRule_bda4e6ae = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, "jetbrains.mps.lang.typesystem.structure.OverloadedOperatorTypeRule");
-    /*package*/ static final SConcept LeftOperandType_parameter_c0d9e887 = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4cf5b0L, "jetbrains.mps.lang.typesystem.structure.LeftOperandType_parameter");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept OverloadedOperatorTypeRule$TO = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, "jetbrains.mps.lang.typesystem.structure.OverloadedOperatorTypeRule");
+    /*package*/ static final SConcept LeftOperandType_parameter$uV = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4cf5b0L, "jetbrains.mps.lang.typesystem.structure.LeftOperandType_parameter");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink leftOperandType$ALWH = MetaAdapterFactory.getContainmentLink(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11fcc4b8423L, "leftOperandType");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty leftIsExact$Dl0f = MetaAdapterFactory.getProperty(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x11fcc4a641fL, 0x11ff554a52cL, "leftIsExact");
   }
 }

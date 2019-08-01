@@ -11,7 +11,6 @@ import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.baseLanguage.closures.helper.FunctionTypeUtil;
 import java.util.Iterator;
@@ -19,6 +18,8 @@ import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class typeof_InvokeFunctionExpression_InferenceRule extends AbstractInferenceRule_Runtime implements InferenceRule_Runtime {
@@ -26,7 +27,7 @@ public class typeof_InvokeFunctionExpression_InferenceRule extends AbstractInfer
   }
   public void applyRule(final SNode invoke, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
     final List<SNode> ptypes = ListSequence.fromList(new ArrayList<SNode>());
-    for (SNode p : SLinkOperations.getChildren(invoke, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a964795L, 0x1174aa207d4L, "parameter"))) {
+    for (SNode p : SLinkOperations.getChildren(invoke, LINKS.parameter$_6zP)) {
       final SNode T_typevar_642108346586029317 = typeCheckingContext.createNewRuntimeTypesVariable();
       ListSequence.fromList(ptypes).addElement(typeCheckingContext.getRepresentative(T_typevar_642108346586029317));
       {
@@ -43,7 +44,7 @@ public class typeof_InvokeFunctionExpression_InferenceRule extends AbstractInfer
     }
     final SNode ftype_typevar_642108346586029342 = typeCheckingContext.createNewRuntimeTypesVariable();
     {
-      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(invoke, MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a964795L, 0x1174a96b8d9L, "function"));
+      SNode _nodeToCheck_1029348928467 = SLinkOperations.getTarget(invoke, LINKS.function$FuiQ);
       EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590337(jetbrains.mps.baseLanguage.closures.typesystem)", "642108346586029343", 0, null);
       typeCheckingContext.createEquation((SNode) typeCheckingContext.getRepresentative(ftype_typevar_642108346586029342), (SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590337(jetbrains.mps.baseLanguage.closures.typesystem)", "642108346586029345", true), _info_12389875345);
     }
@@ -83,7 +84,7 @@ public class typeof_InvokeFunctionExpression_InferenceRule extends AbstractInfer
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_juleau.InvokeFunctionExpression_2cf4ef4e;
+    return CONCEPTS.InvokeFunctionExpression$Bk;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -92,7 +93,12 @@ public class typeof_InvokeFunctionExpression_InferenceRule extends AbstractInfer
     return false;
   }
 
-  private static final class AUX_juleau {
-    /*package*/ static final SConcept InvokeFunctionExpression_2cf4ef4e = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a964795L, "jetbrains.mps.baseLanguage.closures.structure.InvokeFunctionExpression");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parameter$_6zP = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a964795L, 0x1174aa207d4L, "parameter");
+    /*package*/ static final SContainmentLink function$FuiQ = MetaAdapterFactory.getContainmentLink(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a964795L, 0x1174a96b8d9L, "function");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept InvokeFunctionExpression$Bk = MetaAdapterFactory.getConcept(0xfd3920347849419dL, 0x907112563d152375L, 0x1174a964795L, "jetbrains.mps.baseLanguage.closures.structure.InvokeFunctionExpression");
   }
 }

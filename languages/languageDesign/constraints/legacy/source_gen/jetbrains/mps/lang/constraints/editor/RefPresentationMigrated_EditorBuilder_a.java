@@ -11,7 +11,6 @@ import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
@@ -34,6 +33,7 @@ import jetbrains.mps.nodeEditor.cellMenu.SEmptyContainmentSubstituteInfo;
 import jetbrains.mps.nodeEditor.cellMenu.SChildSubstituteInfo;
 import jetbrains.mps.nodeEditor.EditorManager;
 import jetbrains.mps.openapi.editor.update.AttributeKind;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 /*package*/ class RefPresentationMigrated_EditorBuilder_a extends AbstractEditorBuilder {
@@ -68,7 +68,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_6blbyb_a1a() {
-    return ListSequence.fromList(SLinkOperations.getChildren(myNode, MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x583cd121d513aabeL, 0x4fd9d41024c6d474L, "problems"))).isNotEmpty();
+    return ListSequence.fromList(SLinkOperations.getChildren(myNode, LINKS.problems$o$Ki)).isNotEmpty();
   }
   private EditorCell createCollection_1() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
@@ -253,10 +253,10 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return myNode;
     }
     public SContainmentLink getSLink() {
-      return MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x583cd121d513aabeL, 0x4fd9d41024c6d474L, "problems");
+      return LINKS.problems$o$Ki;
     }
     public SAbstractConcept getChildSConcept() {
-      return AUX_82hf57.RefPresentationMigratedProblem_f6080284;
+      return CONCEPTS.RefPresentationMigratedProblem$Pu;
     }
 
     public EditorCell createNodeCell(SNode elementNode) {
@@ -266,7 +266,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     public EditorCell createEmptyCell() {
       getCellFactory().pushCellContext();
-      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(problemsListHandler_6blbyb_b5b1a.this.getNode(), MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x583cd121d513aabeL, 0x4fd9d41024c6d474L, "problems")));
+      getCellFactory().setNodeLocation(new SNodeLocation.FromParentAndLink(problemsListHandler_6blbyb_b5b1a.this.getNode(), LINKS.problems$o$Ki));
       try {
         EditorCell emptyCell = null;
         emptyCell = super.createEmptyCell();
@@ -302,7 +302,11 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
 
-  private static final class AUX_82hf57 {
-    /*package*/ static final SConcept RefPresentationMigratedProblem_f6080284 = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x583cd121d513aac3L, "jetbrains.mps.lang.constraints.structure.RefPresentationMigratedProblem");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink problems$o$Ki = MetaAdapterFactory.getContainmentLink(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x583cd121d513aabeL, 0x4fd9d41024c6d474L, "problems");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RefPresentationMigratedProblem$Pu = MetaAdapterFactory.getConcept(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x583cd121d513aac3L, "jetbrains.mps.lang.constraints.structure.RefPresentationMigratedProblem");
   }
 }

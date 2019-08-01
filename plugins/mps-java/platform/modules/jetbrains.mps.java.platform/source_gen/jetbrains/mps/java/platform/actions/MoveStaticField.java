@@ -17,11 +17,12 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import java.util.ArrayList;
 import jetbrains.mps.ide.platform.refactoring.NodeLocation;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.module.SRepository;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.MemberInsertingUtils;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class MoveStaticField implements MoveNodesAction {
 
@@ -41,30 +42,30 @@ public class MoveStaticField implements MoveNodesAction {
     final Wrappers._boolean result = new Wrappers._boolean();
     project.getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        result.value = ListSequence.fromList(nodes).count() == 1 && SNodeOperations.isInstanceOf(ListSequence.fromList(nodes).first(), AUX_inguv1.StaticFieldDeclaration_9649293d);
+        result.value = ListSequence.fromList(nodes).count() == 1 && SNodeOperations.isInstanceOf(ListSequence.fromList(nodes).first(), CONCEPTS.StaticFieldDeclaration$R5);
       }
     });
     return result.value;
   }
   public void execute(MPSProject project, List<SNode> nodes) {
-    final SNode target = SNodeOperations.cast(ListSequence.fromList(nodes).first(), AUX_inguv1.StaticFieldDeclaration_9649293d);
+    final SNode target = SNodeOperations.cast(ListSequence.fromList(nodes).first(), CONCEPTS.StaticFieldDeclaration$R5);
 
     final SNode whereToMove = MoveNodeDialog.getSelectedObject(project, target, new MoveNodeDialog.NodeFilter("Select class to move: refactoring can't be applied to selected node") {
       @Override
       public boolean check(SNode selectedObject, SNode nodeToMove, SModel modelOfSelectedObject) {
-        return SNodeOperations.isInstanceOf(selectedObject, AUX_inguv1.Classifier_4b7e553) && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(nodeToMove, null, false)).contains(selectedObject));
+        return SNodeOperations.isInstanceOf(selectedObject, CONCEPTS.Classifier$hJ) && !(ListSequence.fromList(SNodeOperations.getNodeAncestors(nodeToMove, null, false)).contains(selectedObject));
       }
     });
     if (whereToMove == null) {
       return;
     }
 
-    MoveNodesUtil.moveTo(project, getName(), MapSequence.<MoveNodesUtil.NodeProcessor, List<SNode>>fromMapAndKeysArray(new HashMap<MoveNodesUtil.NodeProcessor, List<SNode>>(), new MoveNodesUtil.NodeCreatingProcessor(new NodeLocationClassifierMember(SNodeOperations.cast(whereToMove, AUX_inguv1.Classifier_4b7e553)), project)).withValues(ListSequence.fromListAndArray(new ArrayList<SNode>(), target)));
+    MoveNodesUtil.moveTo(project, getName(), MapSequence.<MoveNodesUtil.NodeProcessor, List<SNode>>fromMapAndKeysArray(new HashMap<MoveNodesUtil.NodeProcessor, List<SNode>>(), new MoveNodesUtil.NodeCreatingProcessor(new NodeLocationClassifierMember(SNodeOperations.cast(whereToMove, CONCEPTS.Classifier$hJ)), project)).withValues(ListSequence.fromListAndArray(new ArrayList<SNode>(), target)));
   }
 
   public static class NodeLocationClassifierMember extends NodeLocation.NodeLocationChild {
     public NodeLocationClassifierMember(SNode parent) {
-      super(parent, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member"));
+      super(parent, LINKS.member$oYX5);
     }
     @Override
     public void insertNode(SRepository repository, SNode nodeToMove) {
@@ -72,13 +73,17 @@ public class MoveStaticField implements MoveNodesAction {
       if (oldParent != null) {
         oldParent.removeChild(nodeToMove);
       }
-      MemberInsertingUtils.insertClassifierMemberInBestPlace(SNodeOperations.cast(getNode().resolve(repository), AUX_inguv1.Classifier_4b7e553), SNodeOperations.cast(nodeToMove, AUX_inguv1.ClassifierMember_849b47d7));
+      MemberInsertingUtils.insertClassifierMemberInBestPlace(SNodeOperations.cast(getNode().resolve(repository), CONCEPTS.Classifier$hJ), SNodeOperations.cast(nodeToMove, CONCEPTS.ClassifierMember$9F));
     }
   }
 
-  private static final class AUX_inguv1 {
-    /*package*/ static final SConcept StaticFieldDeclaration_9649293d = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
-    /*package*/ static final SConcept Classifier_4b7e553 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SInterfaceConcept ClassifierMember_849b47d7 = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StaticFieldDeclaration$R5 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93c84351fL, "jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration");
+    /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept ClassifierMember$9F = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112574373bdL, "jetbrains.mps.baseLanguage.structure.ClassifierMember");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
   }
 }

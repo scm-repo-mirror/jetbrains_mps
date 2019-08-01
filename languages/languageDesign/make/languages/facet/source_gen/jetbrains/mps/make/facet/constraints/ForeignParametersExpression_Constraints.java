@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -25,15 +24,17 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class ForeignParametersExpression_Constraints extends BaseConstraintsDescriptor {
   public ForeignParametersExpression_Constraints() {
-    super(AUX_3lfdwm.ForeignParametersExpression_295d5fb6);
+    super(CONCEPTS.ForeignParametersExpression$pG);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x2e69d2eba535f3b0L, 0x2e69d2eba535f3beL, "target"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.target$EXvY, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -48,19 +49,19 @@ public class ForeignParametersExpression_Constraints extends BaseConstraintsDesc
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            final SNode td = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_3lfdwm.TargetDeclaration_ec040aeb, false, false);
-            SNode fd = SNodeOperations.cast(SNodeOperations.getParent(td), AUX_3lfdwm.FacetDeclaration_ec040a6d);
-            return ListScope.forResolvableElements(ListSequence.fromList(SLinkOperations.getChildren(fd, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration"))).where(new IWhereFilter<SNode>() {
+            final SNode td = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.TargetDeclaration$7n, false, false);
+            SNode fd = SNodeOperations.cast(SNodeOperations.getParent(td), CONCEPTS.FacetDeclaration$al);
+            return ListScope.forResolvableElements(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.targetDeclaration$DCGr)).where(new IWhereFilter<SNode>() {
               public boolean accept(SNode sibl) {
                 return sibl != td;
               }
-            }).concat(ListSequence.fromList(SLinkOperations.getChildren(fd, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b300L, "required"))).translate(new ITranslator2<SNode, SNode>() {
+            }).concat(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.required$LsSI)).translate(new ITranslator2<SNode, SNode>() {
               public Iterable<SNode> translate(SNode rfd) {
-                return SLinkOperations.getChildren(SLinkOperations.getTarget(rfd, MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet")), MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration"));
+                return SLinkOperations.getChildren(SLinkOperations.getTarget(rfd, LINKS.facet$M0dw), LINKS.targetDeclaration$DCGr);
               }
-            })).concat(ListSequence.fromList(SLinkOperations.getChildren(fd, MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b301L, "optional"))).translate(new ITranslator2<SNode, SNode>() {
+            })).concat(ListSequence.fromList(SLinkOperations.getChildren(fd, LINKS.optional$LsTd)).translate(new ITranslator2<SNode, SNode>() {
               public Iterable<SNode> translate(SNode rfd) {
-                return SLinkOperations.getChildren(SLinkOperations.getTarget(rfd, MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet")), MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration"));
+                return SLinkOperations.getChildren(SLinkOperations.getTarget(rfd, LINKS.facet$M0dw), LINKS.targetDeclaration$DCGr);
               }
             })));
           }
@@ -73,9 +74,17 @@ public class ForeignParametersExpression_Constraints extends BaseConstraintsDesc
   }
   private static final SNodePointer breakingNode_3lfdwm_a0a0a0a0a1a0a0a0c = new SNodePointer("r:6df86908-c97f-4644-97f0-5eff375e8e15(jetbrains.mps.make.facet.constraints)", "6836281137582791186");
 
-  private static final class AUX_3lfdwm {
-    /*package*/ static final SConcept ForeignParametersExpression_295d5fb6 = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x2e69d2eba535f3b0L, "jetbrains.mps.make.facet.structure.ForeignParametersExpression");
-    /*package*/ static final SConcept TargetDeclaration_ec040aeb = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, "jetbrains.mps.make.facet.structure.TargetDeclaration");
-    /*package*/ static final SConcept FacetDeclaration_ec040a6d = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, "jetbrains.mps.make.facet.structure.FacetDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ForeignParametersExpression$pG = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x2e69d2eba535f3b0L, "jetbrains.mps.make.facet.structure.ForeignParametersExpression");
+    /*package*/ static final SConcept TargetDeclaration$7n = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c3dL, "jetbrains.mps.make.facet.structure.TargetDeclaration");
+    /*package*/ static final SConcept FacetDeclaration$al = MetaAdapterFactory.getConcept(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, "jetbrains.mps.make.facet.structure.FacetDeclaration");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink target$EXvY = MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x2e69d2eba535f3b0L, 0x2e69d2eba535f3beL, "target");
+    /*package*/ static final SContainmentLink targetDeclaration$DCGr = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5912a2ab1cd4153eL, "targetDeclaration");
+    /*package*/ static final SContainmentLink required$LsSI = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b300L, "required");
+    /*package*/ static final SReferenceLink facet$M0dw = MetaAdapterFactory.getReferenceLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5979ed6d2b21b2f2L, 0x5979ed6d2b21b2f3L, "facet");
+    /*package*/ static final SContainmentLink optional$LsTd = MetaAdapterFactory.getContainmentLink(0x696c11654a59463bL, 0xbc5d902caab85dd0L, 0x5912a2ab1cd24c13L, 0x5979ed6d2b21b301L, "optional");
   }
 }

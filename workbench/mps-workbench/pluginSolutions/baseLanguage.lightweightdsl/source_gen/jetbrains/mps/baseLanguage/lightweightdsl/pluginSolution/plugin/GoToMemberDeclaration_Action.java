@@ -35,7 +35,7 @@ public class GoToMemberDeclaration_Action extends BaseAction {
     }
     {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      if (node != null && !(SNodeOperations.isInstanceOf(node, AUX_9gxj30.MemberInstance_6694f05a))) {
+      if (node != null && !(SNodeOperations.isInstanceOf(node, CONCEPTS.MemberInstance$D8))) {
         node = null;
       }
       if (node == null) {
@@ -52,12 +52,12 @@ public class GoToMemberDeclaration_Action extends BaseAction {
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
-    SNode methodDescriptor = MemberInstance__BehaviorDescriptor.getDeclaration_id7T23sO8vZuR.invoke(SNodeOperations.cast(event.getData(MPSCommonDataKeys.NODE), AUX_9gxj30.MemberInstance_6694f05a));
+    SNode methodDescriptor = MemberInstance__BehaviorDescriptor.getDeclaration_id7T23sO8vZuR.invoke(SNodeOperations.cast(event.getData(MPSCommonDataKeys.NODE), CONCEPTS.MemberInstance$D8));
     // XXX we don't need node here, node-ptr would suffice 
     new EditorNavigator(event.getData(MPSCommonDataKeys.MPS_PROJECT)).shallFocus(true).shallSelect(true).open(SNodeOperations.getPointer(methodDescriptor));
   }
 
-  private static final class AUX_9gxj30 {
-    /*package*/ static final SInterfaceConcept MemberInstance_6694f05a = MetaAdapterFactory.getInterfaceConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d9179L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MemberInstance");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept MemberInstance$D8 = MetaAdapterFactory.getInterfaceConcept(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0x59e9926e840d9179L, "jetbrains.mps.baseLanguage.lightweightdsl.structure.MemberInstance");
   }
 }

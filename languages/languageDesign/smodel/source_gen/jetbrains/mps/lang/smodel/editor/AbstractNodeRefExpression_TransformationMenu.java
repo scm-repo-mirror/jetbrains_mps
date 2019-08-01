@@ -33,7 +33,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -45,6 +44,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AbstractNodeRefExpression_TransformationMenu extends TransformationMenuBase {
   private final Set<String> myLocations = SetSequence.fromSetAndArray(new HashSet<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM);
@@ -70,7 +71,7 @@ public class AbstractNodeRefExpression_TransformationMenu extends Transformation
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.LEFT_SIDE_TRANSFORM, MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(AUX_wxvpf4.AbstractNodeRefExpression_d54b271f)) {
+      result.add(new DefaultConceptMenusTransformationMenuPart(SModelUtil.getDirectSuperConcepts(CONCEPTS.AbstractNodeRefExpression$Kz)) {
         @NotNull
         @Override
         public List<TransformationMenuItem> createItems(@NotNull TransformationMenuContext context) {
@@ -110,7 +111,7 @@ public class AbstractNodeRefExpression_TransformationMenu extends Transformation
     }
     @Override
     protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts() {
-      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_wxvpf4_a1.TMP_Action_wxvpf4_a0b(), AUX_wxvpf4.ChildNodeRefExpression_fc20644c));
+      return Arrays.<MenuPart<TransformationMenuItem, TransformationMenuContext>>asList(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Group_wxvpf4_a1.TMP_Action_wxvpf4_a0b(), CONCEPTS.ChildNodeRefExpression$im));
     }
     private class TMP_Action_wxvpf4_a0b extends SingleItemMenuPart<TransformationMenuItem, TransformationMenuContext> {
       @Nullable
@@ -150,8 +151,8 @@ public class AbstractNodeRefExpression_TransformationMenu extends Transformation
 
         @Override
         public void execute(@NotNull String pattern) {
-          SNode newNode = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), AUX_wxvpf4.ChildNodeRefExpression_fc20644c);
-          SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x84baf20c71f8a79L, 0x84baf20c71f924eL, "parent"), _context.getNode());
+          SNode newNode = SNodeFactoryOperations.replaceWithNewChild(_context.getNode(), CONCEPTS.ChildNodeRefExpression$im);
+          SLinkOperations.setTarget(newNode, LINKS.parent$a4t9, _context.getNode());
           SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), newNode, SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
@@ -159,7 +160,7 @@ public class AbstractNodeRefExpression_TransformationMenu extends Transformation
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_wxvpf4.ChildNodeRefExpression_fc20644c;
+          return CONCEPTS.ChildNodeRefExpression$im;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -174,7 +175,7 @@ public class AbstractNodeRefExpression_TransformationMenu extends Transformation
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_wxvpf4.ChildNodeRefExpression_fc20644c;
+          SAbstractConcept outputConcept = CONCEPTS.ChildNodeRefExpression$im;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(null, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -185,8 +186,12 @@ public class AbstractNodeRefExpression_TransformationMenu extends Transformation
     }
   }
 
-  private static final class AUX_wxvpf4 {
-    /*package*/ static final SConcept AbstractNodeRefExpression_d54b271f = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x319fd776da5d8e3cL, "jetbrains.mps.lang.smodel.structure.AbstractNodeRefExpression");
-    /*package*/ static final SConcept ChildNodeRefExpression_fc20644c = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x84baf20c71f8a79L, "jetbrains.mps.lang.smodel.structure.ChildNodeRefExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractNodeRefExpression$Kz = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x319fd776da5d8e3cL, "jetbrains.mps.lang.smodel.structure.AbstractNodeRefExpression");
+    /*package*/ static final SConcept ChildNodeRefExpression$im = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x84baf20c71f8a79L, "jetbrains.mps.lang.smodel.structure.ChildNodeRefExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink parent$a4t9 = MetaAdapterFactory.getContainmentLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x84baf20c71f8a79L, 0x84baf20c71f924eL, "parent");
   }
 }

@@ -4,6 +4,7 @@ package jetbrains.mps.lang.actions.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
@@ -18,10 +19,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class ConceptFunctionParameter_nodeToCopyPreProcessOriginal__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_31vfkj.ConceptFunctionParameter_nodeToCopyPreProcessOriginal_598bf303;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x528ba37dd3326068L, "jetbrains.mps.lang.actions.structure.ConceptFunctionParameter_nodeToCopyPreProcessOriginal");
 
   public static final SMethod<SNode> getPreProcessor_id5abCRRjcA3f = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPreProcessor").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5abCRRjcA3f").build();
   public static final SMethod<Boolean> dontUseParameterObject_id1653mnvAgv$ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("dontUseParameterObject").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgv$").build();
@@ -32,7 +32,7 @@ public final class ConceptFunctionParameter_nodeToCopyPreProcessOriginal__Behavi
   }
 
   /*package*/ static SNode getPreProcessor_id5abCRRjcA3f(@NotNull SNode __thisNode__) {
-    return SNodeOperations.getNodeAncestor(__thisNode__, AUX_31vfkj.CopyPreProcessor_57f18296, false, false);
+    return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.CopyPreProcessor$Yc, false, false);
   }
   /*package*/ static boolean dontUseParameterObject_id1653mnvAgv$(@NotNull SAbstractConcept __thisConcept__) {
     return true;
@@ -86,8 +86,7 @@ public final class ConceptFunctionParameter_nodeToCopyPreProcessOriginal__Behavi
     return CONCEPT;
   }
 
-  private static final class AUX_31vfkj {
-    /*package*/ static final SConcept ConceptFunctionParameter_nodeToCopyPreProcessOriginal_598bf303 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x528ba37dd3326068L, "jetbrains.mps.lang.actions.structure.ConceptFunctionParameter_nodeToCopyPreProcessOriginal");
-    /*package*/ static final SConcept CopyPreProcessor_57f18296 = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x528ba37dd3311946L, "jetbrains.mps.lang.actions.structure.CopyPreProcessor");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept CopyPreProcessor$Yc = MetaAdapterFactory.getConcept(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x528ba37dd3311946L, "jetbrains.mps.lang.actions.structure.CopyPreProcessor");
   }
 }

@@ -76,7 +76,7 @@ public class IncludeSameMenuForDifferentNodes_TransformationMenu extends Transfo
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_ytfyjd.ISameMenuApplicable_73f2d50d, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuToInclude");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.ISameMenuApplicable$JP, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuToInclude");
     }
     @Nullable
     @Override
@@ -104,17 +104,17 @@ public class IncludeSameMenuForDifferentNodes_TransformationMenu extends Transfo
       final SNode node = _context.getNode();
       final EditorContext editorContext = _context.getEditorContext();
 
-      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), AUX_ytfyjd.ISameMenuApplicable_73f2d50d, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuToInclude");
+      return new NamedTransformationMenuLookup(LanguageRegistry.getInstance(editorContext.getRepository()), CONCEPTS.ISameMenuApplicable$JP, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.editor.MenuToInclude");
     }
     @Nullable
     @Override
     protected SNode getNode(TransformationMenuContext _context) {
-      return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), AUX_ytfyjd.ISameMenuApplicable_73f2d50d);
+      return SNodeOperations.cast(SNodeOperations.getParent(_context.getNode()), CONCEPTS.ISameMenuApplicable$JP);
     }
 
   }
 
-  private static final class AUX_ytfyjd {
-    /*package*/ static final SInterfaceConcept ISameMenuApplicable_73f2d50d = MetaAdapterFactory.getInterfaceConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a7e879L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.ISameMenuApplicable");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ISameMenuApplicable$JP = MetaAdapterFactory.getInterfaceConcept(0x9a629f9aabc94c29L, 0xb1b8db7f349f7fbcL, 0x3f759544c6a7e879L, "jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.structure.ISameMenuApplicable");
   }
 }

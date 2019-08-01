@@ -7,24 +7,29 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.baseLanguage.behavior.VariableDeclaration__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class BL_CopyPasteHandlers_CopyPreProcessor_0 implements CopyPreProcessor {
   @Override
   public SAbstractConcept getApplicableConcept() {
-    return AUX_y4d01.VariableReference_24d60dac;
+    return CONCEPTS.VariableReference$sQ;
   }
   @Override
   public void preProcessNode(SNode copy, SNode original) {
-    SNode qualifiedReference = VariableDeclaration__BehaviorDescriptor.getQualifiedReference_id3Zg$dTLuqo9.invoke(SLinkOperations.getTarget(copy, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration")));
+    SNode qualifiedReference = VariableDeclaration__BehaviorDescriptor.getQualifiedReference_id3Zg$dTLuqo9.invoke(SLinkOperations.getTarget(copy, LINKS.variableDeclaration$2ky6));
     if ((qualifiedReference != null)) {
       SNodeOperations.replaceWithAnother(copy, qualifiedReference);
     }
   }
 
-  private static final class AUX_y4d01 {
-    /*package*/ static final SConcept VariableReference_24d60dac = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 }

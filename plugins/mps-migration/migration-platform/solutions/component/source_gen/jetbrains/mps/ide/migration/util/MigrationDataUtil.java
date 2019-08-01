@@ -33,6 +33,8 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.smodel.Generator;
+import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class MigrationDataUtil {
@@ -45,8 +47,8 @@ public class MigrationDataUtil {
       model = factory.create(dataSource, new SModelName("migrationData"));
       for (Tuples._2<MigrationScriptReference, SNode> p : Sequence.fromIterable(data)) {
         SNode stepData = SModelOperations.createNewRootNode(model, MetaAdapterFactory.getConcept(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, "jetbrains.mps.lang.migration.util.structure.StepData"));
-        SPropertyOperations.assign(stepData, MetaAdapterFactory.getProperty(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, 0x1b62b551c10bc5f4L, "script"), p._0().serialize());
-        SLinkOperations.setTarget(stepData, MetaAdapterFactory.getContainmentLink(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, 0x66eed171c5f90226L, "data"), p._1());
+        SPropertyOperations.assign(stepData, PROPS.script$TY1G, p._0().serialize());
+        SLinkOperations.setTarget(stepData, LINKS.data$3bsC, p._1());
       }
       factory.save(model, dataSource);
     } catch (IOException e) {
@@ -75,8 +77,8 @@ public class MigrationDataUtil {
       throw new RuntimeException(e);
     }
 
-    for (SNode root : ListSequence.fromList(SModelOperations.roots(model, AUX_hzite5.StepData_79599475))) {
-      ListSequence.fromList(result).addElement(MultiTuple.<MigrationScriptReference,SNode>from(MigrationScriptReference.deserialize(SPropertyOperations.getString(root, MetaAdapterFactory.getProperty(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, 0x1b62b551c10bc5f4L, "script"))), SLinkOperations.getTarget(root, MetaAdapterFactory.getContainmentLink(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, 0x66eed171c5f90226L, "data"))));
+    for (SNode root : ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.StepData$Ad))) {
+      ListSequence.fromList(result).addElement(MultiTuple.<MigrationScriptReference,SNode>from(MigrationScriptReference.deserialize(SPropertyOperations.getString(root, PROPS.script$TY1G)), SLinkOperations.getTarget(root, LINKS.data$3bsC)));
     }
     return result;
   }
@@ -115,7 +117,15 @@ public class MigrationDataUtil {
     return descriptorFile.getParent().findChild(dataFileName);
   }
 
-  private static final class AUX_hzite5 {
-    /*package*/ static final SConcept StepData_79599475 = MetaAdapterFactory.getConcept(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, "jetbrains.mps.lang.migration.util.structure.StepData");
+  private static final class PROPS {
+    /*package*/ static final SProperty script$TY1G = MetaAdapterFactory.getProperty(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, 0x1b62b551c10bc5f4L, "script");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink data$3bsC = MetaAdapterFactory.getContainmentLink(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, 0x66eed171c5f90226L, "data");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept StepData$Ad = MetaAdapterFactory.getConcept(0x9882f4ad195546feL, 0x826994189e5dbbf2L, 0x66eed171c5f82709L, "jetbrains.mps.lang.migration.util.structure.StepData");
   }
 }

@@ -7,54 +7,58 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1081236700938:jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
   <root nodeRef="r:cd31458a-5129-42ac-be1d-44effd111f4a(jetbrains.mps.lang.intentions.util)/75717156636598736">
     <file name="TypeCalculator.java">
-      <node id="75717156636598825" at="17,50,18,265" concept="1" />
-      <node id="75717156636598835" at="18,265,19,118" concept="2" />
-      <node id="5560168158247563279" at="22,50,23,536" concept="2" />
-      <node id="1153804318717601270" at="26,53,27,326" concept="2" />
-      <node id="75717156636598837" at="29,61,30,63" concept="1" />
-      <node id="75717156636598837" at="30,63,31,30" concept="1" />
-      <node id="75717156636598837" at="31,30,32,246" concept="0" />
-      <node id="75717156636598837" at="32,246,33,24" concept="2" />
-      <node id="75717156636598842" at="35,81,36,63" concept="1" />
-      <node id="75717156636598842" at="36,63,37,30" concept="1" />
-      <node id="75717156636598842" at="37,30,38,246" concept="0" />
-      <node id="75717156636598842" at="38,246,39,196" concept="0" />
-      <node id="75717156636598842" at="39,196,40,24" concept="2" />
-      <node id="75717156636598736" at="44,0,45,0" concept="3" trace="Intention_3596b387" />
-      <node id="75717156636598736" at="45,0,46,0" concept="3" trace="Parameter_8af22bf1" />
-      <node id="1039482266318303593" at="22,0,25,0" concept="4" trace="parameterType#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="1039482266318317049" at="26,0,29,0" concept="4" trace="isParametrized#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="75717156636598776" at="17,0,21,0" concept="4" trace="calculateType#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="75717156636598837" at="29,0,35,0" concept="4" trace="_quotation_createNode_5htwxq_a0b0a#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="75717156636598842" at="35,0,42,0" concept="4" trace="_quotation_createNode_5htwxq_a0b0a_0#(Ljava/lang/Object;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <scope id="1039482266318303597" at="22,50,23,536" />
-      <scope id="1039482266318317053" at="26,53,27,326" />
-      <scope id="75717156636598779" at="17,50,19,118">
+      <node id="75717156636598825" at="19,50,20,146" concept="1" />
+      <node id="75717156636598835" at="20,146,21,118" concept="2" />
+      <node id="5560168158247563279" at="24,50,25,406" concept="2" />
+      <node id="1153804318717601270" at="28,53,29,318" concept="2" />
+      <node id="75717156636598837" at="31,61,32,63" concept="1" />
+      <node id="75717156636598837" at="32,63,33,30" concept="1" />
+      <node id="75717156636598837" at="33,30,34,246" concept="0" />
+      <node id="75717156636598837" at="34,246,35,24" concept="2" />
+      <node id="75717156636598842" at="37,81,38,63" concept="1" />
+      <node id="75717156636598842" at="38,63,39,30" concept="1" />
+      <node id="75717156636598842" at="39,30,40,246" concept="0" />
+      <node id="75717156636598842" at="40,246,41,94" concept="0" />
+      <node id="75717156636598842" at="41,94,42,24" concept="2" />
+      <node id="75717156636598736" at="46,0,47,0" concept="3" trace="Intention$MV" />
+      <node id="75717156636598736" at="47,0,48,0" concept="3" trace="Parameter$6h" />
+      <node id="75717156636598736" at="51,0,52,0" concept="3" trace="forConcept$G_IT" />
+      <node id="75717156636598736" at="52,0,53,0" concept="3" trace="parameterType$kN40" />
+      <node id="75717156636598736" at="53,0,54,0" concept="3" trace="concept$HWFQ" />
+      <node id="1039482266318303593" at="24,0,27,0" concept="4" trace="parameterType#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="1039482266318317049" at="28,0,31,0" concept="4" trace="isParametrized#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="75717156636598776" at="19,0,23,0" concept="4" trace="calculateType#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="75717156636598837" at="31,0,37,0" concept="4" trace="_quotation_createNode_5htwxq_a0b0a#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="75717156636598842" at="37,0,44,0" concept="4" trace="_quotation_createNode_5htwxq_a0b0a_0#(Ljava/lang/Object;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="1039482266318303597" at="24,50,25,406" />
+      <scope id="1039482266318317053" at="28,53,29,318" />
+      <scope id="75717156636598779" at="19,50,21,118">
         <var name="typeNode" id="75717156636598826" />
       </scope>
-      <scope id="1039482266318303593" at="22,0,25,0">
+      <scope id="1039482266318303593" at="24,0,27,0">
         <var name="point" id="1039482266318312593" />
       </scope>
-      <scope id="1039482266318317049" at="26,0,29,0">
+      <scope id="1039482266318317049" at="28,0,31,0">
         <var name="point" id="1039482266318317073" />
       </scope>
-      <scope id="75717156636598776" at="17,0,21,0">
+      <scope id="75717156636598776" at="19,0,23,0">
         <var name="point" id="75717156636598813" />
       </scope>
-      <scope id="75717156636598837" at="29,61,33,24">
+      <scope id="75717156636598837" at="31,61,35,24">
         <var name="facade" id="75717156636598837" />
         <var name="quotedNode_1" id="75717156636598837" />
       </scope>
-      <scope id="75717156636598842" at="35,81,40,24">
+      <scope id="75717156636598842" at="37,81,42,24">
         <var name="facade" id="75717156636598842" />
         <var name="quotedNode_2" id="75717156636598842" />
       </scope>
-      <scope id="75717156636598837" at="29,0,35,0" />
-      <scope id="75717156636598842" at="35,0,42,0">
+      <scope id="75717156636598837" at="31,0,37,0" />
+      <scope id="75717156636598842" at="37,0,44,0">
         <var name="parameter_1" id="75717156636598842" />
       </scope>
-      <unit id="75717156636598736" at="43,0,47,0" name="jetbrains.mps.lang.intentions.util.TypeCalculator$AUX_5htwxq" />
-      <unit id="75717156636598736" at="16,0,48,0" name="jetbrains.mps.lang.intentions.util.TypeCalculator" />
+      <unit id="75717156636598736" at="45,0,49,0" name="jetbrains.mps.lang.intentions.util.TypeCalculator$CONCEPTS" />
+      <unit id="75717156636598736" at="50,0,55,0" name="jetbrains.mps.lang.intentions.util.TypeCalculator$LINKS" />
+      <unit id="75717156636598736" at="18,0,56,0" name="jetbrains.mps.lang.intentions.util.TypeCalculator" />
     </file>
   </root>
 </debug-info>

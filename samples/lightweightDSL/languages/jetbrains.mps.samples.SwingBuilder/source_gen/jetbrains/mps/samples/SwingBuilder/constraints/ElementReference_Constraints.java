@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -22,15 +21,16 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class ElementReference_Constraints extends BaseConstraintsDescriptor {
   public ElementReference_Constraints() {
-    super(AUX_4bmjf7.ElementReference_d2be17a6);
+    super(CONCEPTS.ElementReference$LW);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1e8aL, 0xd0f6999e83a1e8bL, "element"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.element$KC20, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -45,7 +45,7 @@ public class ElementReference_Constraints extends BaseConstraintsDescriptor {
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            return ListScope.forNamedElements(ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), AUX_4bmjf7.Filter_d2be0443)).union(ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), AUX_4bmjf7.Map_d2be0f8e))));
+            return ListScope.forNamedElements(ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.Filter$dZ)).union(ListSequence.fromList(SModelOperations.roots(SNodeOperations.getModel(_context.getContextNode()), CONCEPTS.Map$6k))));
           }
         };
       }
@@ -56,9 +56,13 @@ public class ElementReference_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_4bmjf7_a0a0a0a0a1a0a0a0c = new SNodePointer("r:7a1c88cb-66d9-4726-9b4a-d5dc6c544de7(jetbrains.mps.samples.SwingBuilder.constraints)", "6836281137582847989");
 
-  private static final class AUX_4bmjf7 {
-    /*package*/ static final SConcept ElementReference_d2be17a6 = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1e8aL, "jetbrains.mps.samples.SwingBuilder.structure.ElementReference");
-    /*package*/ static final SConcept Filter_d2be0443 = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1c61L, "jetbrains.mps.samples.SwingBuilder.structure.Filter");
-    /*package*/ static final SConcept Map_d2be0f8e = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1d95L, "jetbrains.mps.samples.SwingBuilder.structure.Map");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ElementReference$LW = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1e8aL, "jetbrains.mps.samples.SwingBuilder.structure.ElementReference");
+    /*package*/ static final SConcept Filter$dZ = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1c61L, "jetbrains.mps.samples.SwingBuilder.structure.Filter");
+    /*package*/ static final SConcept Map$6k = MetaAdapterFactory.getConcept(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1d95L, "jetbrains.mps.samples.SwingBuilder.structure.Map");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink element$KC20 = MetaAdapterFactory.getReferenceLink(0xb4dbff0c8c314a79L, 0xa45a98e5fd0530e7L, 0xd0f6999e83a1e8aL, 0xd0f6999e83a1e8bL, "element");
   }
 }

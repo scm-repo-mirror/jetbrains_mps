@@ -27,7 +27,7 @@ public class check_DragMouseStatement_NonTypesystemRule extends AbstractNonTypes
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_eyi3v8.DragMouseStatement_897fb853;
+    return CONCEPTS.DragMouseStatement$5J;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -36,7 +36,7 @@ public class check_DragMouseStatement_NonTypesystemRule extends AbstractNonTypes
     return false;
   }
 
-  private static final class AUX_eyi3v8 {
-    /*package*/ static final SConcept DragMouseStatement_897fb853 = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c55ca0a3L, "jetbrains.mps.lang.test.structure.DragMouseStatement");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept DragMouseStatement$5J = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x2ec0ea8c55ca0a3L, "jetbrains.mps.lang.test.structure.DragMouseStatement");
   }
 }

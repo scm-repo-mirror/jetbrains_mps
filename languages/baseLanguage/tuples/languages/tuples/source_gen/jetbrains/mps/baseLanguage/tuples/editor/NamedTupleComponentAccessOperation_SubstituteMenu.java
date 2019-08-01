@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class NamedTupleComponentAccessOperation_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_8ybxd_a(), AUX_8ybxd.NamedTupleComponentAccessOperation_bf0a980d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_8ybxd_a(), CONCEPTS.NamedTupleComponentAccessOperation$zP));
     result.add(new SMP_Subconcepts_8ybxd_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class NamedTupleComponentAccessOperation_SubstituteMenu extends Substitut
 
     public SMP_ReferenceScope_8ybxd_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_8ybxd.NamedTupleComponentAccessOperation_bf0a980d, MetaAdapterFactory.getReferenceLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, 0x1209c84fd08L, "component"));
+      super((SAbstractConcept) CONCEPTS.NamedTupleComponentAccessOperation$zP, LINKS.component$34c4);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class NamedTupleComponentAccessOperation_SubstituteMenu extends Substitut
   }
   public class SMP_Subconcepts_8ybxd_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_8ybxd.NamedTupleComponentAccessOperation_bf0a980d);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.NamedTupleComponentAccessOperation$zP);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class NamedTupleComponentAccessOperation_SubstituteMenu extends Substitut
     }
   }
 
-  private static final class AUX_8ybxd {
-    /*package*/ static final SConcept NamedTupleComponentAccessOperation_bf0a980d = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, "jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentAccessOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NamedTupleComponentAccessOperation$zP = MetaAdapterFactory.getConcept(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, "jetbrains.mps.baseLanguage.tuples.structure.NamedTupleComponentAccessOperation");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink component$34c4 = MetaAdapterFactory.getReferenceLink(0xa247e09e243545baL, 0xb8d207e93feba96aL, 0x1209c84a4eaL, 0x1209c84fd08L, "component");
   }
 }

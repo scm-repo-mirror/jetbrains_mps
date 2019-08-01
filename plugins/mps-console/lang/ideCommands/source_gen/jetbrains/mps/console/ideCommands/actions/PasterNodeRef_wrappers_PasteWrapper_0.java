@@ -10,25 +10,30 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public final class PasterNodeRef_wrappers_PasteWrapper_0 implements PasteWrapper {
   @Override
   public SAbstractConcept getSourceConcept() {
-    return AUX_t6x469.PastedNodeReference_e7fee7da;
+    return CONCEPTS.PastedNodeReference$b8;
   }
   @Override
   public SAbstractConcept getTargetConcept() {
-    return AUX_t6x469.IStatisticsTarget_5c79ba4f;
+    return CONCEPTS.IStatisticsTarget$VN;
   }
   @Override
   public SNode wrap(SNode sourceNode) {
     SNode result = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0b3962bL, "jetbrains.mps.console.ideCommands.structure.SubtreeStatisticsTarget"));
-    SLinkOperations.setTarget(result, MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0b3962bL, 0x1cf75b72b0b396c6L, "target"), sourceNode);
+    SLinkOperations.setTarget(result, LINKS.target$ueX0, sourceNode);
     return result;
   }
 
-  private static final class AUX_t6x469 {
-    /*package*/ static final SConcept PastedNodeReference_e7fee7da = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference");
-    /*package*/ static final SInterfaceConcept IStatisticsTarget_5c79ba4f = MetaAdapterFactory.getInterfaceConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x67f2bafb7a579cb2L, "jetbrains.mps.console.ideCommands.structure.IStatisticsTarget");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PastedNodeReference$b8 = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL, "jetbrains.mps.console.base.structure.PastedNodeReference");
+    /*package*/ static final SInterfaceConcept IStatisticsTarget$VN = MetaAdapterFactory.getInterfaceConcept(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x67f2bafb7a579cb2L, "jetbrains.mps.console.ideCommands.structure.IStatisticsTarget");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink target$ueX0 = MetaAdapterFactory.getContainmentLink(0xa5e4de5346a344daL, 0xaab368fdf1c34ed0L, 0x1cf75b72b0b3962bL, 0x1cf75b72b0b396c6L, "target");
   }
 }

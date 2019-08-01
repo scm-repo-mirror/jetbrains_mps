@@ -31,7 +31,6 @@ import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.editor.runtime.selection.SelectionUtil;
 import jetbrains.mps.openapi.editor.selection.SelectionManager;
@@ -43,6 +42,8 @@ import jetbrains.mps.editor.runtime.completion.CompletionMenuItemCustomizationCo
 import jetbrains.mps.editor.runtime.completion.CompletionItemInformation;
 import jetbrains.mps.openapi.editor.menus.style.EditorMenuItemCustomizer;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class AndOrTransforms_Contribution extends TransformationMenuBase {
   public AndOrTransforms_Contribution() {
@@ -71,7 +72,7 @@ public class AndOrTransforms_Contribution extends TransformationMenuBase {
   protected List<MenuPart<TransformationMenuItem, TransformationMenuContext>> getParts(TransformationMenuContext _context) {
     List<MenuPart<TransformationMenuItem, TransformationMenuContext>> result = new ArrayList<MenuPart<TransformationMenuItem, TransformationMenuContext>>();
     if (ListSequence.fromListAndArray(new ArrayList<String>(), MenuLocations.RIGHT_SIDE_TRANSFORM).contains(_context.getMenuLocation())) {
-      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Param_ry9dqf_a0(), AUX_ry9dqf.LogicalExpression_64fb6940));
+      result.add(new ConstraintsFilteringTransformationMenuPartDecorator(new TMP_Param_ry9dqf_a0(), CONCEPTS.LogicalExpression$Sy));
     }
     return result;
   }
@@ -87,7 +88,7 @@ public class AndOrTransforms_Contribution extends TransformationMenuBase {
     @Nullable
     @Override
     protected Iterable<? extends SConcept> getParameters(TransformationMenuContext _context) {
-      return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(AUX_ry9dqf.LogicalOperator_689b9df9, _context.getModel())).where(new IWhereFilter<SConcept>() {
+      return ListSequence.fromList(SConceptOperations.getAllSubConcepts2(CONCEPTS.LogicalOperator$29, _context.getModel())).where(new IWhereFilter<SConcept>() {
         public boolean accept(SConcept it) {
           return !(it.isAbstract());
         }
@@ -148,16 +149,16 @@ public class AndOrTransforms_Contribution extends TransformationMenuBase {
         @Override
         public void execute(@NotNull String pattern) {
           SNode newInitializedInstance = SNodeFactoryOperations.createNewNode(myParameterObject, null);
-          SLinkOperations.setTarget(newInitializedInstance, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left"), SNodeOperations.copyNode(_context.getNode()));
+          SLinkOperations.setTarget(newInitializedInstance, LINKS.left$sA5C, SNodeOperations.copyNode(_context.getNode()));
           SNodeOperations.replaceWithAnother(_context.getNode(), newInitializedInstance);
-          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(newInitializedInstance, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right")), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
+          SelectionUtil.selectLabelCellAnSetCaret(_context.getEditorContext(), SLinkOperations.getTarget(newInitializedInstance, LINKS.right$sA67), SelectionManager.FIRST_ERROR_CELL + "|" + SelectionManager.FOCUS_POLICY_CELL + "|" + SelectionManager.FIRST_EDITABLE_CELL + "|" + SelectionManager.FIRST_CELL, -1);
         }
 
 
         @Nullable
         @Override
         public SAbstractConcept getOutputConcept() {
-          return AUX_ry9dqf.LogicalExpression_64fb6940;
+          return CONCEPTS.LogicalExpression$Sy;
         }
         @Override
         public String getShortDescriptionText(@NotNull String pattern) {
@@ -172,7 +173,7 @@ public class AndOrTransforms_Contribution extends TransformationMenuBase {
 
         public void customize(String pattern, EditorMenuItemStyle style) {
           EditorMenuItemModifyingCustomizationContext modifyingContext = new EditorMenuItemModifyingCustomizationContext(_context.getNode(), null, null, null);
-          SAbstractConcept outputConcept = AUX_ry9dqf.LogicalExpression_64fb6940;
+          SAbstractConcept outputConcept = CONCEPTS.LogicalExpression$Sy;
           EditorMenuItemCompositeCustomizationContext compositeContext = new EditorMenuItemCompositeCustomizationContext(modifyingContext, new CompletionMenuItemCustomizationContext(new CompletionItemInformation(myParameterObject, outputConcept, getLabelText(pattern), getShortDescriptionText(pattern))));
           for (EditorMenuItemCustomizer customizer : CollectionSequence.fromCollection(_context.getCustomizers())) {
             customizer.customize(style, compositeContext);
@@ -183,8 +184,13 @@ public class AndOrTransforms_Contribution extends TransformationMenuBase {
     }
   }
 
-  private static final class AUX_ry9dqf {
-    /*package*/ static final SConcept LogicalExpression_64fb6940 = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ec9fc1L, "jetbrains.mps.samples.Kaja.structure.LogicalExpression");
-    /*package*/ static final SConcept LogicalOperator_689b9df9 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, "jetbrains.mps.samples.KajaAndOr.structure.LogicalOperator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LogicalExpression$Sy = MetaAdapterFactory.getConcept(0x49a08c51fe543ccL, 0xbd998b46d641d7f5L, 0x2de971c785ec9fc1L, "jetbrains.mps.samples.Kaja.structure.LogicalExpression");
+    /*package*/ static final SConcept LogicalOperator$29 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, "jetbrains.mps.samples.KajaAndOr.structure.LogicalOperator");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink left$sA5C = MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left");
+    /*package*/ static final SContainmentLink right$sA67 = MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right");
   }
 }

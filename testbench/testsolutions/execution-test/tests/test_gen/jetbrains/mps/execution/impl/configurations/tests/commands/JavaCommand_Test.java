@@ -21,7 +21,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.execution.impl.configurations.tests.commands.sandbox.Main;
 import jetbrains.mps.smodel.SNodePointer;
 import com.intellij.execution.process.ProcessHandler;
@@ -30,6 +29,8 @@ import jetbrains.mps.execution.impl.configurations.util.ProcessRunnerForConfigur
 import java.util.Collections;
 import java.util.regex.Pattern;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 @MPSLaunch
 public class JavaCommand_Test extends BaseTransformationTest {
@@ -58,9 +59,9 @@ public class JavaCommand_Test extends BaseTransformationTest {
       myProject.getModelAccess().runReadAction(new Runnable() {
         public void run() {
           SModel model = PersistenceFacade.getInstance().createModelReference("r:c2c670fc-188b-4168-9559-68c718816e1a(jetbrains.mps.execution.impl.configurations.tests.commands.sandbox@tests)").resolve(myProject.getRepository());
-          SNode mainNode = ListSequence.fromList(SModelOperations.roots(model, AUX_849b2c.INamedConcept_8cd7e247)).findFirst(new IWhereFilter<SNode>() {
+          SNode mainNode = ListSequence.fromList(SModelOperations.roots(model, CONCEPTS.INamedConcept$nV)).findFirst(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return Objects.equals(SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")), Main.class.getSimpleName());
+              return Objects.equals(SPropertyOperations.getString(it, PROPS.name$tAp1), Main.class.getSimpleName());
             }
           });
           pointer.value = new SNodePointer(mainNode);
@@ -75,7 +76,11 @@ public class JavaCommand_Test extends BaseTransformationTest {
 
   }
 
-  private static final class AUX_849b2c {
-    /*package*/ static final SInterfaceConcept INamedConcept_8cd7e247 = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

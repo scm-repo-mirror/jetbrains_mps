@@ -25,7 +25,7 @@ public class typeof_Reference_GetRoleOperation_InferenceRule extends AbstractInf
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_2j4prd.Reference_GetRoleOperation_c364da34;
+    return CONCEPTS.Reference_GetRoleOperation$II;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_Reference_GetRoleOperation_InferenceRule extends AbstractInf
     return quotedNode_1;
   }
 
-  private static final class AUX_2j4prd {
-    /*package*/ static final SConcept Reference_GetRoleOperation_c364da34 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x4efeb22247ff02a7L, "jetbrains.mps.lang.smodel.structure.Reference_GetRoleOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept Reference_GetRoleOperation$II = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x4efeb22247ff02a7L, "jetbrains.mps.lang.smodel.structure.Reference_GetRoleOperation");
   }
 }

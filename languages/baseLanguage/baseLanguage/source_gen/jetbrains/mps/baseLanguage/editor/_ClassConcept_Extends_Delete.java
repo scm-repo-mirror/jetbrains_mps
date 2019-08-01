@@ -7,7 +7,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.editor.runtime.deletionApprover.DeletionApproverUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
@@ -18,6 +17,8 @@ import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import java.util.Objects;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class _ClassConcept_Extends_Delete {
@@ -31,13 +32,13 @@ public class _ClassConcept_Extends_Delete {
         if (DeletionApproverUtil.approve(editorContext, node, "extendsCollection")) {
           return;
         }
-        SLinkOperations.setTarget(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass"), null);
-        ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.ChildAttribute(AUX_gkrujk.BaseCommentAttribute_f7206635, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass")))).visitAll(new IVisitor<SNode>() {
+        SLinkOperations.setTarget(node, LINKS.superclass$_pqe, null);
+        ListSequence.fromList(AttributeOperations.getAttributeList(node, new IAttributeDescriptor.ChildAttribute(CONCEPTS.BaseCommentAttribute$Zd, LINKS.superclass$_pqe))).visitAll(new IVisitor<SNode>() {
           public void visit(SNode it) {
             SNodeOperations.deleteNode(it);
           }
         });
-        if (ListSequence.fromList(SLinkOperations.getChildren(node, MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface"))).isNotEmpty()) {
+        if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.implementedInterface$mdc6)).isNotEmpty()) {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, "ImplementsCell", 0);
         } else {
           SelectionUtil.selectLabelCellAnSetCaret(editorContext, node, "OpenBraceClassCell", 0);
@@ -82,7 +83,12 @@ public class _ClassConcept_Extends_Delete {
     }
   }
 
-  private static final class AUX_gkrujk {
-    /*package*/ static final SConcept BaseCommentAttribute_f7206635 = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink superclass$_pqe = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0x10f6353296dL, "superclass");
+    /*package*/ static final SContainmentLink implementedInterface$mdc6 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L, 0xff2ac0b419L, "implementedInterface");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BaseCommentAttribute$Zd = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3dcc194340c24debL, "jetbrains.mps.lang.core.structure.BaseCommentAttribute");
   }
 }

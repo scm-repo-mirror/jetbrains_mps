@@ -7,7 +7,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
@@ -23,16 +22,17 @@ import jetbrains.mps.lang.smodel.behavior.ILinkAccessQualifierContainer__Behavio
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 public class LinkRefQualifier_Constraints extends BaseConstraintsDescriptor {
   public LinkRefQualifier_Constraints() {
-    super(AUX_cgym5w.LinkRefQualifier_24f70a94);
+    super(CONCEPTS.LinkRefQualifier$te);
   }
 
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11886c4bac0L, 0x11886c4bac1L, "link"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.link$SdT0, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -48,10 +48,10 @@ public class LinkRefQualifier_Constraints extends BaseConstraintsDescriptor {
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
             final SNode enclosingNode = (((_context.getReferenceNode() == null) ? _context.getContextNode() : SNodeOperations.getParent(_context.getReferenceNode())));
-            if (!(SNodeOperations.isInstanceOf(enclosingNode, AUX_cgym5w.ILinkAccessQualifierContainer_d914a88))) {
+            if (!(SNodeOperations.isInstanceOf(enclosingNode, CONCEPTS.ILinkAccessQualifierContainer$nq))) {
               return new EmptyScope();
             }
-            SNode qualifierContainer = SNodeOperations.cast(enclosingNode, AUX_cgym5w.ILinkAccessQualifierContainer_d914a88);
+            SNode qualifierContainer = SNodeOperations.cast(enclosingNode, CONCEPTS.ILinkAccessQualifierContainer$nq);
             return ListScope.forResolvableElements(ILinkAccessQualifierContainer__BehaviorDescriptor.getLinkAccessScope_id2xk$X1Ld2Yi.invoke(qualifierContainer));
           }
         };
@@ -63,8 +63,12 @@ public class LinkRefQualifier_Constraints extends BaseConstraintsDescriptor {
   }
   private static final SNodePointer breakingNode_cgym5w_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "6836281137582802839");
 
-  private static final class AUX_cgym5w {
-    /*package*/ static final SConcept LinkRefQualifier_24f70a94 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11886c4bac0L, "jetbrains.mps.lang.smodel.structure.LinkRefQualifier");
-    /*package*/ static final SInterfaceConcept ILinkAccessQualifierContainer_d914a88 = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312a67f61731e269L, "jetbrains.mps.lang.smodel.structure.ILinkAccessQualifierContainer");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LinkRefQualifier$te = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11886c4bac0L, "jetbrains.mps.lang.smodel.structure.LinkRefQualifier");
+    /*package*/ static final SInterfaceConcept ILinkAccessQualifierContainer$nq = MetaAdapterFactory.getInterfaceConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x312a67f61731e269L, "jetbrains.mps.lang.smodel.structure.ILinkAccessQualifierContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink link$SdT0 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x11886c4bac0L, 0x11886c4bac1L, "link");
   }
 }

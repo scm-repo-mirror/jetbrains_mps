@@ -7,21 +7,27 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class LogicalOperatorFactory {
   public static class NodeFactory_642541832606605338 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_jop8b2.LogicalOperator_689b9df9)) {
-        SNode oldNode = SNodeOperations.cast(sampleNode, AUX_jop8b2.LogicalOperator_689b9df9);
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left"), SLinkOperations.getTarget(oldNode, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left")));
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right"), SLinkOperations.getTarget(oldNode, MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.LogicalOperator$29)) {
+        SNode oldNode = SNodeOperations.cast(sampleNode, CONCEPTS.LogicalOperator$29);
+        SLinkOperations.setTarget(newNode, LINKS.left$sA5C, SLinkOperations.getTarget(oldNode, LINKS.left$sA5C));
+        SLinkOperations.setTarget(newNode, LINKS.right$sA67, SLinkOperations.getTarget(oldNode, LINKS.right$sA67));
       }
     }
   }
 
-  private static final class AUX_jop8b2 {
-    /*package*/ static final SConcept LogicalOperator_689b9df9 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, "jetbrains.mps.samples.KajaAndOr.structure.LogicalOperator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LogicalOperator$29 = MetaAdapterFactory.getConcept(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, "jetbrains.mps.samples.KajaAndOr.structure.LogicalOperator");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink left$sA5C = MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460cL, "left");
+    /*package*/ static final SContainmentLink right$sA67 = MetaAdapterFactory.getContainmentLink(0x44306fd2ef944b56L, 0x9806d9ab509536dbL, 0x1a6f404e630a46d9L, 0x1a6f404e630a460dL, "right");
   }
 }

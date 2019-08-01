@@ -4,6 +4,7 @@ package testExtendingAnalyzer.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -19,10 +20,9 @@ import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public final class NullUnsafeDotExpression__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_1f6f0a.NullUnsafeDotExpression_fc3886af;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x3ac033a0bffa48e3L, 0xa843a40cbdd89859L, 0x13ac54c0e557da2eL, "testExtendingAnalyzer.structure.NullUnsafeDotExpression");
 
   public static final SMethod<Boolean> isLegalAsStatement_idi26MfYG = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isLegalAsStatement").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i26MfYG").build();
   public static final SMethod<Boolean> allowsNullOperand_id3Yy2P0QQESt = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("allowsNullOperand").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3Yy2P0QQESt").build();
@@ -33,10 +33,10 @@ public final class NullUnsafeDotExpression__BehaviorDescriptor extends BaseBHDes
   }
 
   /*package*/ static boolean isLegalAsStatement_idi26MfYG(@NotNull SNode __thisNode__) {
-    return ((boolean) Expression__BehaviorDescriptor.isLegalAsStatement_idi26MfYG.invokeSuper(__thisNode__, AUX_1f6f0a.NullUnsafeDotExpression_fc3886af));
+    return ((boolean) Expression__BehaviorDescriptor.isLegalAsStatement_idi26MfYG.invokeSuper(__thisNode__, CONCEPTS.NullUnsafeDotExpression$Uj));
   }
   /*package*/ static boolean allowsNullOperand_id3Yy2P0QQESt(@NotNull SNode __thisNode__) {
-    return ((boolean) DotExpression__BehaviorDescriptor.allowsNullOperand_id3Yy2P0QQESt.invokeSuper(__thisNode__, AUX_1f6f0a.NullUnsafeDotExpression_fc3886af));
+    return ((boolean) DotExpression__BehaviorDescriptor.allowsNullOperand_id3Yy2P0QQESt.invokeSuper(__thisNode__, CONCEPTS.NullUnsafeDotExpression$Uj));
   }
 
   /*package*/ NullUnsafeDotExpression__BehaviorDescriptor() {
@@ -87,7 +87,7 @@ public final class NullUnsafeDotExpression__BehaviorDescriptor extends BaseBHDes
     return CONCEPT;
   }
 
-  private static final class AUX_1f6f0a {
-    /*package*/ static final SConcept NullUnsafeDotExpression_fc3886af = MetaAdapterFactory.getConcept(0x3ac033a0bffa48e3L, 0xa843a40cbdd89859L, 0x13ac54c0e557da2eL, "testExtendingAnalyzer.structure.NullUnsafeDotExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept NullUnsafeDotExpression$Uj = MetaAdapterFactory.getConcept(0x3ac033a0bffa48e3L, 0xa843a40cbdd89859L, 0x13ac54c0e557da2eL, "testExtendingAnalyzer.structure.NullUnsafeDotExpression");
   }
 }

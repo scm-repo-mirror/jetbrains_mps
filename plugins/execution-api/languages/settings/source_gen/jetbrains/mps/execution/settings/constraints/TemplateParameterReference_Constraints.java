@@ -12,7 +12,6 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -30,10 +29,11 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class TemplateParameterReference_Constraints extends BaseConstraintsDescriptor {
   public TemplateParameterReference_Constraints() {
-    super(AUX_hn11y1.TemplateParameterReference_9ba04fbe);
+    super(CONCEPTS.TemplateParameterReference$t$);
   }
 
   @Override
@@ -53,7 +53,7 @@ public class TemplateParameterReference_Constraints extends BaseConstraintsDescr
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.variableDeclaration$2ky6, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -68,11 +68,11 @@ public class TemplateParameterReference_Constraints extends BaseConstraintsDescr
           }
           @Override
           public Scope createScope(final IOperationContext operationContext, final ReferenceConstraintsContext _context) {
-            SNode template = SNodeOperations.getNodeAncestor(_context.getContextNode(), AUX_hn11y1.PersistentConfigurationTemplate_9ba04fe5, false, false);
+            SNode template = SNodeOperations.getNodeAncestor(_context.getContextNode(), CONCEPTS.PersistentConfigurationTemplate$Kt, false, false);
             if ((template == null)) {
               return ListScope.forResolvableElements(Sequence.fromIterable(Collections.<SNode>emptyList()));
             }
-            return ListScope.forResolvableElements(SLinkOperations.getChildren(template, MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, 0xd244b712f910115L, "templateParameter")));
+            return ListScope.forResolvableElements(SLinkOperations.getChildren(template, LINKS.templateParameter$2oGa));
           }
         };
       }
@@ -82,13 +82,18 @@ public class TemplateParameterReference_Constraints extends BaseConstraintsDescr
     return references;
   }
   private static boolean staticCanBeAChild(SNode node, SNode parentNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(parentNode), AUX_hn11y1.PersistentConfigurationTemplate_9ba04fe5);
+    return SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(parentNode), CONCEPTS.PersistentConfigurationTemplate$Kt);
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:26cd452e-c5c2-4d47-ad13-dda4362e8616(jetbrains.mps.execution.settings.constraints)", "1227128029536565540");
   private static final SNodePointer breakingNode_hn11y1_a0a0a0a0a1a0a0a0d = new SNodePointer("r:26cd452e-c5c2-4d47-ad13-dda4362e8616(jetbrains.mps.execution.settings.constraints)", "6836281137582822904");
 
-  private static final class AUX_hn11y1 {
-    /*package*/ static final SConcept TemplateParameterReference_9ba04fbe = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910101L, "jetbrains.mps.execution.settings.structure.TemplateParameterReference");
-    /*package*/ static final SConcept PersistentConfigurationTemplate_9ba04fe5 = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationTemplate");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept TemplateParameterReference$t$ = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910101L, "jetbrains.mps.execution.settings.structure.TemplateParameterReference");
+    /*package*/ static final SConcept PersistentConfigurationTemplate$Kt = MetaAdapterFactory.getConcept(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, "jetbrains.mps.execution.settings.structure.PersistentConfigurationTemplate");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
+    /*package*/ static final SContainmentLink templateParameter$2oGa = MetaAdapterFactory.getContainmentLink(0x756e911c3f1f4a48L, 0xbdf5a2ceb91b723cL, 0xd244b712f910113L, 0xd244b712f910115L, "templateParameter");
   }
 }

@@ -20,7 +20,6 @@ import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
 import jetbrains.mps.openapi.editor.menus.EditorMenuTraceInfo;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
@@ -29,15 +28,17 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class LinkedListCreator_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_524n7l_a(), AUX_524n7l.LinkedListCreator_f0939fb2));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_Action_524n7l_a(), CONCEPTS.LinkedListCreator$nK));
     result.add(new SMP_Subconcepts_524n7l_b());
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(AUX_524n7l.LinkedListCreator_f0939fb2) {
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SimpleConceptSubstituteMenuPart(CONCEPTS.LinkedListCreator$nK) {
 
       @NotNull
       @Override
@@ -50,7 +51,7 @@ public class LinkedListCreator_SubstituteMenu extends SubstituteMenuBase {
           context.getEditorMenuTrace().popTraceInfo();
         }
       }
-    }, AUX_524n7l.LinkedListCreator_f0939fb2));
+    }, CONCEPTS.LinkedListCreator$nK));
     return result;
   }
 
@@ -95,7 +96,7 @@ public class LinkedListCreator_SubstituteMenu extends SubstituteMenuBase {
       private final SubstituteMenuContext _context;
       private EditorMenuTraceInfo myTraceInfo;
       public Item(SubstituteMenuContext context) {
-        super(AUX_524n7l.LinkedListCreator_f0939fb2, context);
+        super(CONCEPTS.LinkedListCreator$nK, context);
         _context = context;
       }
 
@@ -106,8 +107,8 @@ public class LinkedListCreator_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public SNode createNode(@NotNull String pattern) {
-        SNode creator = SNodeFactoryOperations.createNewNode(AUX_524n7l.LinkedListCreator_f0939fb2, null);
-        SNodeFactoryOperations.setNewChild(creator, MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1202df1ada0L, 0x1202df24e9fL, "elementType"), null);
+        SNode creator = SNodeFactoryOperations.createNewNode(CONCEPTS.LinkedListCreator$nK, null);
+        SNodeFactoryOperations.setNewChild(creator, LINKS.elementType$K4zo, null);
         return creator;
       }
 
@@ -118,13 +119,13 @@ public class LinkedListCreator_SubstituteMenu extends SubstituteMenuBase {
       @Nullable
       @Override
       public String getMatchingText(@NotNull String pattern) {
-        return SConceptOperations.conceptAlias(AUX_524n7l.LinkedListCreator_f0939fb2) + "<";
+        return SConceptOperations.conceptAlias(CONCEPTS.LinkedListCreator$nK) + "<";
       }
     }
   }
   public class SMP_Subconcepts_524n7l_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_524n7l.LinkedListCreator_f0939fb2);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.LinkedListCreator$nK);
     }
     @NotNull
     @Override
@@ -144,7 +145,11 @@ public class LinkedListCreator_SubstituteMenu extends SubstituteMenuBase {
     }
   }
 
-  private static final class AUX_524n7l {
-    /*package*/ static final SConcept LinkedListCreator_f0939fb2 = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11daf69a138L, "jetbrains.mps.baseLanguage.collections.structure.LinkedListCreator");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept LinkedListCreator$nK = MetaAdapterFactory.getConcept(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x11daf69a138L, "jetbrains.mps.baseLanguage.collections.structure.LinkedListCreator");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink elementType$K4zo = MetaAdapterFactory.getContainmentLink(0x8388864671ce4f1cL, 0x9c53c54016f6ad4fL, 0x1202df1ada0L, 0x1202df24e9fL, "elementType");
   }
 }

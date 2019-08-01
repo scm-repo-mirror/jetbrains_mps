@@ -10,7 +10,6 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -37,10 +36,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class RulesConstraintsRoot_Constraints extends BaseConstraintsDescriptor {
   public RulesConstraintsRoot_Constraints() {
-    super(AUX_t9lq58.RulesConstraintsRoot_9de962df);
+    super(CONCEPTS.RulesConstraintsRoot$xz);
   }
 
   @Override
@@ -60,7 +60,7 @@ public class RulesConstraintsRoot_Constraints extends BaseConstraintsDescriptor 
   }
   public static class Name_Property extends BasePropertyConstraintsDescriptor {
     public Name_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), container);
+      super(PROPS.name$tAp1, container);
     }
     @Override
     public boolean hasOwnGetter() {
@@ -69,8 +69,8 @@ public class RulesConstraintsRoot_Constraints extends BaseConstraintsDescriptor 
     @Override
     public Object getValue(SNode node) {
       String conceptName;
-      if ((SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept")) != null)) {
-        conceptName = SPropertyOperations.getString(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+      if ((SLinkOperations.getTarget(node, LINKS.concept$aYvX) != null)) {
+        conceptName = SPropertyOperations.getString(SLinkOperations.getTarget(node, LINKS.concept$aYvX), PROPS.name$tAp1);
       } else {
         conceptName = "???";
       }
@@ -80,12 +80,12 @@ public class RulesConstraintsRoot_Constraints extends BaseConstraintsDescriptor 
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), new Name_Property(this));
+    properties.put(PROPS.name$tAp1, new Name_Property(this));
     return properties;
   }
   @Override
   protected Map<SReferenceLink, ReferenceConstraintsDescriptor> getSpecifiedReferences() {
-    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept"), this) {
+    BaseReferenceConstraintsDescriptor d0 = new BaseReferenceConstraintsDescriptor(LINKS.concept$aYvX, this) {
       @Override
       public boolean hasOwnScopeProvider() {
         return true;
@@ -105,7 +105,7 @@ public class RulesConstraintsRoot_Constraints extends BaseConstraintsDescriptor 
               return new EmptyScope();
             }
 
-            return new NamedElementsScope(SModelOperations.roots(structure, AUX_t9lq58.AbstractConceptDeclaration_ec74828f));
+            return new NamedElementsScope(SModelOperations.roots(structure, CONCEPTS.AbstractConceptDeclaration$UN));
           }
         };
       }
@@ -126,8 +126,16 @@ public class RulesConstraintsRoot_Constraints extends BaseConstraintsDescriptor 
   private static final SNodePointer canBeRootBreakingPoint = new SNodePointer("r:38d66f13-43df-406f-957b-078b52f2a2b9(jetbrains.mps.lang.constraints.rules.skeleton.constraints)", "1867733327984720171");
   private static final SNodePointer breakingNode_t9lq58_a0a0a0a0a1a0a0a0f = new SNodePointer("r:38d66f13-43df-406f-957b-078b52f2a2b9(jetbrains.mps.lang.constraints.rules.skeleton.constraints)", "6836281137582781546");
 
-  private static final class AUX_t9lq58 {
-    /*package*/ static final SConcept RulesConstraintsRoot_9de962df = MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot");
-    /*package*/ static final SConcept AbstractConceptDeclaration_ec74828f = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept RulesConstraintsRoot$xz = MetaAdapterFactory.getConcept(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, "jetbrains.mps.lang.constraints.rules.skeleton.structure.RulesConstraintsRoot");
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink concept$aYvX = MetaAdapterFactory.getReferenceLink(0x134c38d4e3af4d9eL, 0xb0691c7df0a4005dL, 0x19eb8590edaff8daL, 0x19eb8590edaff8deL, "concept");
   }
 }

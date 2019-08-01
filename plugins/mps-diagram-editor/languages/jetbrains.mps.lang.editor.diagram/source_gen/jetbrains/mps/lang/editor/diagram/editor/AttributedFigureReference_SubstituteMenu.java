@@ -14,20 +14,21 @@ import jetbrains.mps.lang.editor.menus.EditorMenuDescriptorBase;
 import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.lang.editor.menus.substitute.ReferenceScopeSubstituteMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class AttributedFigureReference_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
   @Override
   protected List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> getParts(final SubstituteMenuContext _context) {
     List<MenuPart<SubstituteMenuItem, SubstituteMenuContext>> result = new ArrayList<MenuPart<SubstituteMenuItem, SubstituteMenuContext>>();
-    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_luac2k_a(), AUX_luac2k.AttributedFigureReference_f116111d));
+    result.add(new ConstraintsFilteringSubstituteMenuPartDecorator(new SMP_ReferenceScope_luac2k_a(), CONCEPTS.AttributedFigureReference$7_));
     result.add(new SMP_Subconcepts_luac2k_b());
     return result;
   }
@@ -49,7 +50,7 @@ public class AttributedFigureReference_SubstituteMenu extends SubstituteMenuBase
 
     public SMP_ReferenceScope_luac2k_a() {
       // that cast is needed for prevent the users from https://youtrack.jetbrains.com/issue/MPS-29051 
-      super((SAbstractConcept) AUX_luac2k.AttributedFigureReference_f116111d, MetaAdapterFactory.getReferenceLink(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x4b412569a095b4ceL, 0x4b412569a0e43041L, "figureAttribute"));
+      super((SAbstractConcept) CONCEPTS.AttributedFigureReference$7_, LINKS.figureAttribute$Fuko);
     }
     @NotNull
     @Override
@@ -66,7 +67,7 @@ public class AttributedFigureReference_SubstituteMenu extends SubstituteMenuBase
   }
   public class SMP_Subconcepts_luac2k_b extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
     protected Collection getConcepts(final SubstituteMenuContext _context) {
-      return ConceptDescendantsCache.getInstance().getDirectDescendants(AUX_luac2k.AttributedFigureReference_f116111d);
+      return ConceptDescendantsCache.getInstance().getDirectDescendants(CONCEPTS.AttributedFigureReference$7_);
     }
     @NotNull
     @Override
@@ -86,7 +87,11 @@ public class AttributedFigureReference_SubstituteMenu extends SubstituteMenuBase
     }
   }
 
-  private static final class AUX_luac2k {
-    /*package*/ static final SConcept AttributedFigureReference_f116111d = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x4b412569a095b4ceL, "jetbrains.mps.lang.editor.diagram.structure.AttributedFigureReference");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept AttributedFigureReference$7_ = MetaAdapterFactory.getConcept(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x4b412569a095b4ceL, "jetbrains.mps.lang.editor.diagram.structure.AttributedFigureReference");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink figureAttribute$Fuko = MetaAdapterFactory.getReferenceLink(0x6106f6117a7442d1L, 0x80deedc5c602bfd1L, 0x4b412569a095b4ceL, 0x4b412569a0e43041L, "figureAttribute");
   }
 }

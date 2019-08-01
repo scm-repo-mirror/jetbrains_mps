@@ -7,27 +7,33 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ConceptRefFactories {
   public static class NodeFactory_2356801005208152816 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_z89jj2.ConceptIdRefExpression_e53d5f1e)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9eb64c6L, 0x110f9ec0c2aL, "conceptDeclaration"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_z89jj2.ConceptIdRefExpression_e53d5f1e), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, 0x24b2bf7ce180eb55L, "conceptDeclaration")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.ConceptIdRefExpression$g4)) {
+        SLinkOperations.setTarget(newNode, LINKS.conceptDeclaration$fBIf, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.ConceptIdRefExpression$g4), LINKS.conceptDeclaration$EQY0));
       }
     }
   }
   public static class NodeFactory_3634671212091137140 implements NodeFactory {
     public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
-      if (SNodeOperations.isInstanceOf(sampleNode, AUX_z89jj2.ConceptRefExpression_4f226d38)) {
-        SLinkOperations.setTarget(newNode, MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, 0x24b2bf7ce180eb55L, "conceptDeclaration"), SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, AUX_z89jj2.ConceptRefExpression_4f226d38), MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9eb64c6L, 0x110f9ec0c2aL, "conceptDeclaration")));
+      if (SNodeOperations.isInstanceOf(sampleNode, CONCEPTS.ConceptRefExpression$$E)) {
+        SLinkOperations.setTarget(newNode, LINKS.conceptDeclaration$EQY0, SLinkOperations.getTarget(SNodeOperations.cast(sampleNode, CONCEPTS.ConceptRefExpression$$E), LINKS.conceptDeclaration$fBIf));
       }
     }
   }
 
-  private static final class AUX_z89jj2 {
-    /*package*/ static final SConcept ConceptIdRefExpression_e53d5f1e = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, "jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression");
-    /*package*/ static final SConcept ConceptRefExpression_4f226d38 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9eb64c6L, "jetbrains.mps.lang.smodel.structure.ConceptRefExpression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink conceptDeclaration$fBIf = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9eb64c6L, 0x110f9ec0c2aL, "conceptDeclaration");
+    /*package*/ static final SReferenceLink conceptDeclaration$EQY0 = MetaAdapterFactory.getReferenceLink(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, 0x24b2bf7ce180eb55L, "conceptDeclaration");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ConceptIdRefExpression$g4 = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x24b2bf7ce180eb54L, "jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression");
+    /*package*/ static final SConcept ConceptRefExpression$$E = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x110f9eb64c6L, "jetbrains.mps.lang.smodel.structure.ConceptRefExpression");
   }
 }

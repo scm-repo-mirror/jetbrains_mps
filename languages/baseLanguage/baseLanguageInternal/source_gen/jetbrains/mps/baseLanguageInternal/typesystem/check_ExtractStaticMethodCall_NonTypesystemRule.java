@@ -12,19 +12,20 @@ import jetbrains.mps.baseLanguageInternal.behavior.ExtractStaticMethod_CallExpre
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.errors.messageTargets.MessageTarget;
 import jetbrains.mps.errors.messageTargets.NodeMessageTarget;
 import jetbrains.mps.errors.IErrorReporter;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public class check_ExtractStaticMethodCall_NonTypesystemRule extends AbstractNonTypesystemRule_Runtime implements NonTypesystemRule_Runtime {
   public check_ExtractStaticMethodCall_NonTypesystemRule() {
   }
   public void applyRule(final SNode callStatic, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    List<SNode> available = ExtractStaticMethod_CallExpression__BehaviorDescriptor.getMethods_id55buE1DVoKQ.invoke(SNodeOperations.asSConcept(AUX_egtcn9.ExtractStaticMethod_CallExpression_54f8b8c4), callStatic);
-    if (!(ListSequence.fromList(available).contains(SLinkOperations.getTarget(callStatic, MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"))))) {
+    List<SNode> available = ExtractStaticMethod_CallExpression__BehaviorDescriptor.getMethods_id55buE1DVoKQ.invoke(SNodeOperations.asSConcept(CONCEPTS.ExtractStaticMethod_CallExpression$Wu), callStatic);
+    if (!(ListSequence.fromList(available).contains(SLinkOperations.getTarget(callStatic, LINKS.baseMethodDeclaration$$A7i)))) {
       {
         final MessageTarget errorTarget = new NodeMessageTarget();
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportTypeError(callStatic, "This method can't be called from the current context", "r:00000000-0000-4000-0000-011c895903ab(jetbrains.mps.baseLanguageInternal.typesystem)", "8881995820265138588", null, errorTarget);
@@ -32,7 +33,7 @@ public class check_ExtractStaticMethodCall_NonTypesystemRule extends AbstractNon
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_egtcn9.ExtractStaticMethod_CallExpression_54f8b8c4;
+    return CONCEPTS.ExtractStaticMethod_CallExpression$Wu;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -41,7 +42,11 @@ public class check_ExtractStaticMethodCall_NonTypesystemRule extends AbstractNon
     return false;
   }
 
-  private static final class AUX_egtcn9 {
-    /*package*/ static final SConcept ExtractStaticMethod_CallExpression_54f8b8c4 = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x31c3f88088ed999aL, "jetbrains.mps.baseLanguageInternal.structure.ExtractStaticMethod_CallExpression");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept ExtractStaticMethod_CallExpression$Wu = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x31c3f88088ed999aL, "jetbrains.mps.baseLanguageInternal.structure.ExtractStaticMethod_CallExpression");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink baseMethodDeclaration$$A7i = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration");
   }
 }

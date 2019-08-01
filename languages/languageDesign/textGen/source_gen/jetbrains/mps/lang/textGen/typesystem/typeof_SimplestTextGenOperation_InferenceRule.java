@@ -25,7 +25,7 @@ public class typeof_SimplestTextGenOperation_InferenceRule extends AbstractInfer
     }
   }
   public SAbstractConcept getApplicableConcept() {
-    return AUX_tt6f1p.SimpleTextGenOperation_57581efa;
+    return CONCEPTS.SimpleTextGenOperation$YC;
   }
   public IsApplicableStatus isApplicableAndPattern(SNode argument) {
     return new IsApplicableStatus(argument.getConcept().isSubConceptOf(getApplicableConcept()), null);
@@ -40,7 +40,7 @@ public class typeof_SimplestTextGenOperation_InferenceRule extends AbstractInfer
     return quotedNode_1;
   }
 
-  private static final class AUX_tt6f1p {
-    /*package*/ static final SConcept SimpleTextGenOperation_57581efa = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4153bc8cL, "jetbrains.mps.lang.textGen.structure.SimpleTextGenOperation");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept SimpleTextGenOperation$YC = MetaAdapterFactory.getConcept(0xb83431fe5c8f40bcL, 0x8a3665e25f4dd253L, 0x11f4153bc8cL, "jetbrains.mps.lang.textGen.structure.SimpleTextGenOperation");
   }
 }

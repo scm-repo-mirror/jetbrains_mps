@@ -5,7 +5,6 @@ package jetbrains.mps.core.xml.constraints;
 import jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.base.BasePropertyConstraintsDescriptor;
 import jetbrains.mps.smodel.runtime.ConstraintsDescriptor;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.smodel.runtime.CheckingNodeContext;
@@ -15,15 +14,16 @@ import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.runtime.PropertyConstraintsDescriptor;
 import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class XmlCDATA_Constraints extends BaseConstraintsDescriptor {
   public XmlCDATA_Constraints() {
-    super(AUX_hxi786.XmlCDATA_5d5001e7);
+    super(CONCEPTS.XmlCDATA$Dr);
   }
 
   public static class Content_Property extends BasePropertyConstraintsDescriptor {
     public Content_Property(ConstraintsDescriptor container) {
-      super(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549487aL, 0x16838b3fce9b2633L, "content"), container);
+      super(PROPS.content$ENhU, container);
     }
     @Override
     public boolean hasOwnValidator() {
@@ -45,11 +45,15 @@ public class XmlCDATA_Constraints extends BaseConstraintsDescriptor {
   @Override
   protected Map<SProperty, PropertyConstraintsDescriptor> getSpecifiedProperties() {
     Map<SProperty, PropertyConstraintsDescriptor> properties = new HashMap<SProperty, PropertyConstraintsDescriptor>();
-    properties.put(MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549487aL, 0x16838b3fce9b2633L, "content"), new Content_Property(this));
+    properties.put(PROPS.content$ENhU, new Content_Property(this));
     return properties;
   }
 
-  private static final class AUX_hxi786 {
-    /*package*/ static final SConcept XmlCDATA_5d5001e7 = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549487aL, "jetbrains.mps.core.xml.structure.XmlCDATA");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept XmlCDATA$Dr = MetaAdapterFactory.getConcept(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549487aL, "jetbrains.mps.core.xml.structure.XmlCDATA");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty content$ENhU = MetaAdapterFactory.getProperty(0x479c7a8c02f943b5L, 0x9139d910cb22f298L, 0x5c842a42c549487aL, 0x16838b3fce9b2633L, "content");
   }
 }

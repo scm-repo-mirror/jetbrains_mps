@@ -4,6 +4,7 @@ package jetbrains.mps.lang.generator.behavior;
 
 import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
@@ -15,14 +16,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.pattern.behavior.PatternVarsUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class TemplateArgumentPropertyPatternRefExpression__BehaviorDescriptor extends BaseBHDescriptor {
-  private static final SAbstractConcept CONCEPT = AUX_jx1mw4.TemplateArgumentPropertyPatternRefExpression_67536bcf;
+  private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x42d71bfbeb1a5de7L, "jetbrains.mps.lang.generator.structure.TemplateArgumentPropertyPatternRefExpression");
 
   public static final SMethod<String> getVariableName_id2x5YKzmc1bX = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getVariableName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2x5YKzmc1bX").build();
 
@@ -32,7 +32,7 @@ public final class TemplateArgumentPropertyPatternRefExpression__BehaviorDescrip
   }
 
   /*package*/ static String getVariableName_id2x5YKzmc1bX(@NotNull SNode __thisNode__) {
-    return PatternVarsUtil.getFieldName(SLinkOperations.getTarget(__thisNode__, MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x42d71bfbeb1a5de7L, 0x42d71bfbeb1a5de9L, "propertyPattern")));
+    return PatternVarsUtil.getFieldName(SLinkOperations.getTarget(__thisNode__, LINKS.propertyPattern$rlsv));
   }
 
   /*package*/ TemplateArgumentPropertyPatternRefExpression__BehaviorDescriptor() {
@@ -81,7 +81,7 @@ public final class TemplateArgumentPropertyPatternRefExpression__BehaviorDescrip
     return CONCEPT;
   }
 
-  private static final class AUX_jx1mw4 {
-    /*package*/ static final SConcept TemplateArgumentPropertyPatternRefExpression_67536bcf = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x42d71bfbeb1a5de7L, "jetbrains.mps.lang.generator.structure.TemplateArgumentPropertyPatternRefExpression");
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink propertyPattern$rlsv = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x42d71bfbeb1a5de7L, 0x42d71bfbeb1a5de9L, "propertyPattern");
   }
 }

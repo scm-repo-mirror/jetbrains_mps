@@ -25,7 +25,6 @@ import jetbrains.mps.build.behavior.BuildProject__BehaviorDescriptor;
 import jetbrains.mps.build.util.Context;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
@@ -38,6 +37,9 @@ import jetbrains.mps.execution.api.configurations.DefaultExecutionConsole;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import com.intellij.execution.executors.DefaultRunExecutor;
 import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildScript_Configuration_RunProfileState implements RunProfileState {
   @NotNull
@@ -68,7 +70,7 @@ public class BuildScript_Configuration_RunProfileState implements RunProfileStat
     mpsProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
         SNodeReference configuredNode = myRunConfiguration.getNodePointer().getNodeRef();
-        SNode projectNode = SNodeOperations.cast((configuredNode == null ? null : configuredNode.resolve(mpsProject.getRepository())), AUX_d9foqq.BuildProject_808bb057);
+        SNode projectNode = SNodeOperations.cast((configuredNode == null ? null : configuredNode.resolve(mpsProject.getRepository())), CONCEPTS.BuildProject$BF);
         String scriptsPath = (projectNode != null ? BuildProject__BehaviorDescriptor.getScriptsPath_id4ahc858UcHk.invoke(projectNode, Context.defaultContext()) : null);
         if (scriptsPath != null) {
           // XXX in fact, don't need IFile here, especially the one from project's FS. Script could get generated anywhere, io.File would be better 
@@ -80,13 +82,13 @@ public class BuildScript_Configuration_RunProfileState implements RunProfileStat
           // It dated back to initial revision, and I see no reason to keep it, assume default target is better. 
           // Perhaps, shall ask user to specify one (or leave it to extra ant options 
           mainTaskName.value = null;
-          undefinedMacro.value = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(projectNode, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros")), AUX_d9foqq.BuildFolderMacro_b970540e)).where(new IWhereFilter<SNode>() {
+          undefinedMacro.value = Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(projectNode, LINKS.macros$tpFt), CONCEPTS.BuildFolderMacro$Ok)).where(new IWhereFilter<SNode>() {
             public boolean accept(SNode it) {
-              return (SLinkOperations.getTarget(it, MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, 0x668c6cfbafadf0eaL, "defaultPath")) == null);
+              return (SLinkOperations.getTarget(it, LINKS.defaultPath$DdXd) == null);
             }
           }).select(new ISelector<SNode, String>() {
             public String select(SNode it) {
-              return SPropertyOperations.getString(it, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"));
+              return SPropertyOperations.getString(it, PROPS.name$tAp1);
             }
           }).toListSequence();
         }
@@ -115,8 +117,17 @@ public class BuildScript_Configuration_RunProfileState implements RunProfileStat
     return false;
   }
 
-  private static final class AUX_d9foqq {
-    /*package*/ static final SConcept BuildProject_808bb057 = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
-    /*package*/ static final SConcept BuildFolderMacro_b970540e = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept BuildProject$BF = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, "jetbrains.mps.build.structure.BuildProject");
+    /*package*/ static final SConcept BuildFolderMacro$Ok = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, "jetbrains.mps.build.structure.BuildFolderMacro");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink macros$tpFt = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x4df58c6f18f84a13L, 0x4df58c6f18f84a22L, "macros");
+    /*package*/ static final SContainmentLink defaultPath$DdXd = MetaAdapterFactory.getContainmentLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafadd002L, 0x668c6cfbafadf0eaL, "defaultPath");
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }
