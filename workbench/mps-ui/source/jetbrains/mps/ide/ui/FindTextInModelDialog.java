@@ -266,7 +266,7 @@ public class FindTextInModelDialog extends DialogWrapper {
   /*package*/ TableEntry toEntry(SNode node, SProperty p, String value) {
     // collect necessary presentation data while still in model read
     SNode named = node;
-    while (named != null && named.isInstanceOfConcept(SNodeUtil.concept_INamedConcept)) {
+    while (named != null && !named.isInstanceOfConcept(SNodeUtil.concept_INamedConcept)) {
       named = named.getParent();
     }
     if (named == null) {
