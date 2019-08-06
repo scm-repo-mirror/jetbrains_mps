@@ -569,6 +569,7 @@
       <modulePath path="${mps_home}/testbench/testsolutions/regexp.unittest/jetbrains.mps.baseLanguage.regexp.unittest.msd" folder="core.baseLanguage.regexp" />
       <modulePath path="${mps_home}/testbench/testsolutions/smodel.unittest/jetbrains.mps.lang.smodel.unittest.msd" folder="core.languages.smodel" />
       <modulePath path="${mps_home}/testbench/testsolutions/smodelLanguage_typeTest/smodelLanguage_typetest.msd" folder="core.languages.smodel" />
+      <modulePath path="${mps_home}/testbench/testsolutions/test.test/jetbrains.mps.lang.test.test.msd" folder="core.languages.test" />
       <modulePath path="${mps_home}/testbench/testsolutions/testlangs/editor.formsTests.testLang/jetbrains.mps.lang.editor.formsTests.mpl" folder="core.aspects.editor" />
       <modulePath path="${mps_home}/testbench/testsolutions/testlangs/editor.menus.contextAssistant.extension.testLanguage/jetbrains.mps.lang.editor.menus.contextAssistant.testExtendingLanguage.mpl" folder="core.aspects.editor.menus.contextAssistant.tests" />
       <modulePath path="${mps_home}/testbench/testsolutions/testlangs/editor.menus.contextAssistant.testLanguage/jetbrains.mps.lang.editor.menus.contextAssistant.testLanguage.mpl" folder="core.aspects.editor.menus.contextAssistant.tests" />

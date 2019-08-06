@@ -27,6 +27,7 @@ import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
 import jetbrains.mps.lang.test.runtime.BaseMigrationTestBody;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import java.util.Iterator;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import jetbrains.mps.lang.migration.runtime.base.MigrationAspectDescriptor;
 import jetbrains.mps.lang.migration.behavior.IMigrationUnit__BehaviorDescriptor;
@@ -95,9 +96,23 @@ public final class GenerateOutput_Intention extends AbstractIntentionDescriptor 
         }
       }).toListSequence();
       Collection<SNode> output = BaseMigrationTestBody.runMigration(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(node, LINKS.inputNodes$h6eF), LINKS.nodeToCheck$Pz43)).toListSequence(), tempModel, ListSequence.fromList(migrationScripts).toGenericArray(MigrationScript.class));
-      ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).clear();
-      for (SNode n : CollectionSequence.fromCollection(output)) {
-        ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).addElement(createTestNode_8ua06z_a0a0a4a0(n));
+      if (ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).count() != CollectionSequence.fromCollection(output).count()) {
+        ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).clear();
+        for (SNode n : CollectionSequence.fromCollection(output)) {
+          ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).addElement(createTestNode_8ua06z_a0a0a1a3a0(n));
+        }
+      } else {
+        {
+          Iterator<SNode> n_it = CollectionSequence.fromCollection(output).iterator();
+          Iterator<SNode> current_it = ListSequence.fromList(SLinkOperations.getChildren(node, LINKS.outputNodes$ot72)).iterator();
+          SNode n_var;
+          SNode current_var;
+          while (n_it.hasNext() && current_it.hasNext()) {
+            n_var = n_it.next();
+            current_var = current_it.next();
+            SLinkOperations.setTarget(current_var, LINKS.nodeToCheck$Pz43, n_var);
+          }
+        }
       }
       TemporaryModels.getInstance().dispose(tempModel);
     }
@@ -130,7 +145,7 @@ public final class GenerateOutput_Intention extends AbstractIntentionDescriptor 
     }
     return null;
   }
-  private static SNode createTestNode_8ua06z_a0a0a4a0(SNode node0) {
+  private static SNode createTestNode_8ua06z_a0a0a1a3a0(SNode node0) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode n1 = SModelUtil_new.instantiateConceptDeclaration(CONCEPTS.TestNode$kc, null, null, false);
     if (node0 != null) {

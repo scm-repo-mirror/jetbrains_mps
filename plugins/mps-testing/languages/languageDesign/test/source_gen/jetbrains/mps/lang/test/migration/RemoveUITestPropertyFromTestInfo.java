@@ -26,8 +26,9 @@ import jetbrains.mps.smodel.SModelUtil_new;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class RemoveUITestPropertyFromTestInfo extends MigrationScriptBase {
+  private final String description = "Remove the obsolete uiTest property from TestInfo concepts";
   public String getCaption() {
-    return "Remove the obsolete uiTest property from TestInfo concepts";
+    return description;
   }
   @Override
   public boolean isRerunnable() {

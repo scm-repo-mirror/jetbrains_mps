@@ -22,8 +22,9 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
+  private final String description = "Avoid check annotations on node container";
   public String getCaption() {
-    return "Avoid check annotations on node container";
+    return description;
   }
   @Override
   public boolean isRerunnable() {
@@ -35,11 +36,11 @@ public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
   }
   public void doExecute(final SModule m) {
     {
-      SearchScope scope_kl3vza_a0d = CommandUtil.createScope(m);
-      final SearchScope scope_kl3vza_a0d_0 = new EditableFilteringScope(scope_kl3vza_a0d);
+      SearchScope scope_kl3vza_a0e = CommandUtil.createScope(m);
+      final SearchScope scope_kl3vza_a0e_0 = new EditableFilteringScope(scope_kl3vza_a0e);
       QueryExecutionContext context = new QueryExecutionContext() {
         public SearchScope getDefaultSearchScope() {
-          return scope_kl3vza_a0d_0;
+          return scope_kl3vza_a0e_0;
         }
       };
       final MoveCheckToContainedNode intention = new MoveCheckToContainedNode();
@@ -57,11 +58,11 @@ public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
   @Override
   public Iterable<Problem> check(SModule m) {
     {
-      SearchScope scope_kl3vza_a0e = CommandUtil.createScope(m);
-      final SearchScope scope_kl3vza_a0e_0 = scope_kl3vza_a0e;
+      SearchScope scope_kl3vza_a0f = CommandUtil.createScope(m);
+      final SearchScope scope_kl3vza_a0f_0 = scope_kl3vza_a0f;
       QueryExecutionContext context = new QueryExecutionContext() {
         public SearchScope getDefaultSearchScope() {
-          return scope_kl3vza_a0e_0;
+          return scope_kl3vza_a0f_0;
         }
       };
       return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AbstractTestNodeAnnotation$5M, false)).where(new IWhereFilter<SNode>() {
