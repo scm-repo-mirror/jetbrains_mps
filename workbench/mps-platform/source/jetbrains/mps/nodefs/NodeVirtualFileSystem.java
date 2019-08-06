@@ -75,7 +75,7 @@ public final class NodeVirtualFileSystem extends DeprecatedVirtualFileSystem imp
   // I don't expect this collection to grow significantly, hence just List
   private final List<RepositoryVirtualFiles> myPerRepositoryFiles = new CopyOnWriteArrayList<>();
   private final Map<RepositoryVirtualFiles, MyRepositoryListener> myFiles2ListenerMap = new HashMap<>();
-  private final SRepositoryContentAdapter myRepositoryListener = new MyRepositoryListener(myGlobalRepoFiles);;
+  private final SRepositoryContentAdapter myRepositoryListener = new MyRepositoryListener(myGlobalRepoFiles);
   private boolean myDisposed = false;
 
   public NodeVirtualFileSystem() {
@@ -364,7 +364,7 @@ public final class NodeVirtualFileSystem extends DeprecatedVirtualFileSystem imp
       if (vf1 != null) {
         files.add(vf1);
       }
-      if (root != null && root != changed) {
+      if (root != null && root.equals(changed)) {
         MPSNodeVirtualFile vf2 = rvf.getVirtualFile(root);
         if (vf2 != null && !vf2.equals(vf1)) {
           files.add(vf2);
