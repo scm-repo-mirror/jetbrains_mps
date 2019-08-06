@@ -22,11 +22,11 @@ import jetbrains.mps.project.MPSProject;
     JdkVersionDetector.JdkVersionInfo versionInfo = JdkVersionDetector.getInstance().detectJdkVersionInfo(javaHome, AppExecutorUtil.getAppExecutorService());
     if (versionInfo != null && !(versionInfo.version.isAtLeast(MIN_VERSION))) {
       StringBuilder sb = new StringBuilder();
-      sb.append("JDK to run should be at least of version " + MIN_VERSION + "<br>");
+      sb.append("JDK to run on should be at least of version " + MIN_VERSION + ". Otherwise, some configurations will fail to run.<br>");
       sb.append("Current JDK for executing run configurations " + javaHome + " has version " + versionInfo.version + "<br>");
       sb.append("Please set java.home system property or JAVA_HOME environment variable to point to newer JDK");
 
-      Notification notification = new Notification("Run", "Incorrect JDK version", sb.toString(), NotificationType.ERROR);
+      Notification notification = new Notification("Run", "Incorrect JDK version", sb.toString(), NotificationType.WARNING);
       Notifications.Bus.notify(notification, (myProject instanceof MPSProject ? ((MPSProject) myProject).getProject() : null));
     }
   }

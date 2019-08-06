@@ -5337,11 +5337,11 @@
                   <ref role="37wK5l" to="wyt6:~StringBuilder.append(java.lang.String)" resolve="append" />
                   <node concept="3cpWs3" id="3KU19GSw2th" role="37wK5m">
                     <node concept="Xl_RD" id="3KU19GSw2vk" role="3uHU7w">
-                      <property role="Xl_RC" value="&lt;br&gt;" />
+                      <property role="Xl_RC" value=". Otherwise, some configurations will fail to run.&lt;br&gt;" />
                     </node>
                     <node concept="3cpWs3" id="3KU19GSw0Yu" role="3uHU7B">
                       <node concept="Xl_RD" id="3KU19GSvVPx" role="3uHU7B">
-                        <property role="Xl_RC" value="JDK to run should be at least of version " />
+                        <property role="Xl_RC" value="JDK to run on should be at least of version " />
                       </node>
                       <node concept="37vLTw" id="3KU19GSw1a7" role="3uHU7w">
                         <ref role="3cqZAo" node="3KU19GSvZmn" resolve="MIN_VERSION" />
@@ -5426,8 +5426,8 @@
                         <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
                       </node>
                     </node>
-                    <node concept="Rm8GO" id="3KU19GSweAJ" role="37wK5m">
-                      <ref role="Rm8GQ" to="fnpx:~NotificationType.ERROR" resolve="ERROR" />
+                    <node concept="Rm8GO" id="1bAaHM4iEwe" role="37wK5m">
+                      <ref role="Rm8GQ" to="fnpx:~NotificationType.WARNING" resolve="WARNING" />
                       <ref role="1Px2BO" to="fnpx:~NotificationType" resolve="NotificationType" />
                     </node>
                   </node>

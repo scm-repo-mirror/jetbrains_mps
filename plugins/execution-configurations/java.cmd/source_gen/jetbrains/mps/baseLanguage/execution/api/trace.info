@@ -763,12 +763,12 @@
       <node id="4339786255639211353" at="17,44,18,18" concept="2" />
       <node id="4339786255638994875" at="21,53,22,157" concept="7" />
       <node id="4339786255639231839" at="23,79,24,45" concept="7" />
-      <node id="4339786255639234193" at="24,45,25,84" concept="2" />
-      <node id="4339786255639260138" at="25,84,26,125" concept="2" />
+      <node id="4339786255639234193" at="24,45,25,137" concept="2" />
+      <node id="4339786255639260138" at="25,137,26,125" concept="2" />
       <node id="4339786255639288788" at="26,125,27,112" concept="2" />
       <node id="4339786255639288111" at="27,112,28,0" concept="10" />
-      <node id="4339786255639123745" at="28,0,29,122" concept="7" />
-      <node id="7983203488411477060" at="29,122,30,127" concept="2" />
+      <node id="4339786255639123745" at="28,0,29,124" concept="7" />
+      <node id="7983203488411477060" at="29,124,30,127" concept="2" />
       <node id="4339786255638888032" at="17,0,20,0" concept="1" trace="JDKVersionChecker#(Lorg/jetbrains/mps/openapi/project/Project;)V" />
       <node id="4339786255639011235" at="22,157,31,5" concept="5" />
       <node id="4339786255638888482" at="21,0,33,0" concept="6" trace="checkAndNotifyOldJDK#(Ljava/lang/String;)V" />
