@@ -5366,7 +5366,7 @@
                         </node>
                         <node concept="3cpWs3" id="3KU19GSw83g" role="3uHU7B">
                           <node concept="Xl_RD" id="3KU19GSw45t" role="3uHU7B">
-                            <property role="Xl_RC" value="Current JDK for executing run configurations is " />
+                            <property role="Xl_RC" value="Current JDK for executing run configurations " />
                           </node>
                           <node concept="37vLTw" id="3KU19GSw8f3" role="3uHU7w">
                             <ref role="3cqZAo" node="3KU19GSuBTA" resolve="javaHome" />

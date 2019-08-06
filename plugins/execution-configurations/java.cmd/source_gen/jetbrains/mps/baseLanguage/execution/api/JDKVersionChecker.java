@@ -23,7 +23,7 @@ import jetbrains.mps.project.MPSProject;
     if (versionInfo != null && !(versionInfo.version.isAtLeast(MIN_VERSION))) {
       StringBuilder sb = new StringBuilder();
       sb.append("JDK to run should be at least of version " + MIN_VERSION + "<br>");
-      sb.append("Current JDK for executing run configurations is " + javaHome + " has version " + versionInfo.version + "<br>");
+      sb.append("Current JDK for executing run configurations " + javaHome + " has version " + versionInfo.version + "<br>");
       sb.append("Please set java.home system property or JAVA_HOME environment variable to point to newer JDK");
 
       Notification notification = new Notification("Run", "Incorrect JDK version", sb.toString(), NotificationType.ERROR);
