@@ -193,7 +193,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     editorCell.getStyle().putAll(style);
-    EditorTestCase_deleteTestNodes.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
     SNode attributeConcept = provider.getRoleAttribute();
     if (attributeConcept != null) {
@@ -265,6 +264,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         if (editorCell.getSRole() == null) {
           editorCell.setSRole(LINKS.nodeToCheck$Pz43);
         }
+        EditorTestCase_deleteTestNodes.setCellActions(editorCell, getNode(), getEditorContext());
       }
       @Override
       protected EditorCell createEmptyCell() {
@@ -370,7 +370,6 @@ import org.jetbrains.mps.openapi.language.SConcept;
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     editorCell.getStyle().putAll(style);
-    EditorTestCase_deleteTestNodes.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
     SNode attributeConcept = provider.getRoleAttribute();
     if (attributeConcept != null) {
@@ -442,6 +441,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
         if (editorCell.getSRole() == null) {
           editorCell.setSRole(LINKS.nodeToCheck$Pz43);
         }
+        EditorTestCase_deleteTestNodes.setCellActions(editorCell, getNode(), getEditorContext());
       }
       @Override
       protected EditorCell createEmptyCell() {
