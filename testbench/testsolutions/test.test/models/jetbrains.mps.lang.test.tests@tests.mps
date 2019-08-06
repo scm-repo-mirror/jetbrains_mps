@@ -155,8 +155,26 @@
             </node>
           </node>
         </node>
-        <node concept="1LZb2c" id="6IYCYtggoRW" role="1SL9yI">
+        <node concept="1LZb2c" id="6IYCYtglJNe" role="1SL9yI">
           <property role="TrG5h" value="test3" />
+          <node concept="3cqZAl" id="6IYCYtglJNf" role="3clF45" />
+          <node concept="3clFbS" id="6IYCYtglJNg" role="3clF47">
+            <node concept="3Ca1qy" id="6IYCYtglJNh" role="3cqZAp">
+              <property role="GoU3v" value="true" />
+              <node concept="3xONca" id="6IYCYtglJNi" role="3qv8fS">
+                <ref role="3xOPvv" node="6IYCYtgaw13" resolve="testNode" />
+              </node>
+            </node>
+            <node concept="3Ca1qy" id="6IYCYtglJNn" role="3cqZAp">
+              <property role="GoU3v" value="true" />
+              <node concept="3xONca" id="6IYCYtglJNo" role="3qv8fS">
+                <ref role="3xOPvv" node="6IYCYtgaw13" resolve="testNode" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1LZb2c" id="6IYCYtggoRW" role="1SL9yI">
+          <property role="TrG5h" value="test4" />
           <node concept="3cqZAl" id="6IYCYtggoRX" role="3clF45" />
           <node concept="3clFbS" id="6IYCYtggoRY" role="3clF47">
             <node concept="3clFbJ" id="6IYCYtggoSz" role="3cqZAp">
@@ -198,169 +216,261 @@
         <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;reference scopes (reference scopes)&quot;;FLAVOUR_MESSAGE=&quot;The reference  testNode (declaration) is out of search scope&quot;;FLAVOUR_NODE_FEATURE=&quot;declaration&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c89590382(jetbrains.mps.lang.test.constraints)/6836281137582846018]&quot;;" />
         <property role="huDt6" value="The reference  testNode (declaration) is out of search scope" />
       </node>
-      <node concept="1lH9Xt" id="6IYCYtghWcF" role="1qenE9">
+      <node concept="1lH9Xt" id="6IYCYtgnCCy" role="1qenE9">
         <property role="TrG5h" value="SomeTest" />
-        <node concept="1LZb2c" id="6IYCYtghWcG" role="1SL9yI">
+        <node concept="1LZb2c" id="6IYCYtgnCCz" role="1SL9yI">
           <property role="TrG5h" value="test1" />
-          <node concept="3cqZAl" id="6IYCYtghWcH" role="3clF45" />
-          <node concept="3clFbS" id="6IYCYtghWcI" role="3clF47">
-            <node concept="3SKdUt" id="6IYCYtghWcJ" role="3cqZAp">
-              <node concept="1PaTwC" id="6IYCYtghWcK" role="3ndbpf">
-                <node concept="3oM_SD" id="6IYCYtghWcL" role="1PaTwD">
+          <node concept="3cqZAl" id="6IYCYtgnCC$" role="3clF45" />
+          <node concept="3clFbS" id="6IYCYtgnCC_" role="3clF47">
+            <node concept="3SKdUt" id="6IYCYtgnCCA" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCCB" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCCC" role="1PaTwD">
                   <property role="3oM_SC" value="Check" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcM" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCD" role="1PaTwD">
                   <property role="3oM_SC" value="statement" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcN" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCE" role="1PaTwD">
                   <property role="3oM_SC" value="was" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcO" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCF" role="1PaTwD">
                   <property role="3oM_SC" value="moved" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcP" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCG" role="1PaTwD">
                   <property role="3oM_SC" value="to" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcQ" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCH" role="1PaTwD">
                   <property role="3oM_SC" value="node" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcR" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCI" role="1PaTwD">
                   <property role="3oM_SC" value="annotation" />
                 </node>
               </node>
             </node>
-            <node concept="3SKdUt" id="6IYCYtghWcS" role="3cqZAp">
-              <node concept="1PaTwC" id="6IYCYtghWcT" role="3ndbpf">
-                <node concept="3oM_SD" id="6IYCYtghWcU" role="1PaTwD">
+            <node concept="3SKdUt" id="6IYCYtgnCCJ" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCCK" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCCL" role="1PaTwD">
                   <property role="3oM_SC" value="check" />
                 </node>
-                <node concept="tu5oc" id="6IYCYtghWcV" role="1PaTwD">
-                  <node concept="3xONca" id="6IYCYtghWcW" role="tu5of">
-                    <ref role="3xOPvv" node="6IYCYtghWdN" resolve="testNode" />
+                <node concept="tu5oc" id="6IYCYtgnCCM" role="1PaTwD">
+                  <node concept="3xONca" id="6IYCYtgnCCN" role="tu5of">
+                    <ref role="3xOPvv" node="6IYCYtgnCEd" resolve="testNode" />
                   </node>
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcX" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCO" role="1PaTwD">
                   <property role="3oM_SC" value="error" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWcY" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCP" role="1PaTwD">
                   <property role="3oM_SC" value="messages" />
                 </node>
               </node>
             </node>
           </node>
         </node>
-        <node concept="1LZb2c" id="6IYCYtghWcZ" role="1SL9yI">
+        <node concept="1LZb2c" id="6IYCYtgnCCQ" role="1SL9yI">
           <property role="TrG5h" value="test2" />
-          <node concept="3cqZAl" id="6IYCYtghWd0" role="3clF45" />
-          <node concept="3clFbS" id="6IYCYtghWd1" role="3clF47">
-            <node concept="3SKdUt" id="6IYCYtghWd2" role="3cqZAp">
-              <node concept="1PaTwC" id="6IYCYtghWd3" role="3ndbpf">
-                <node concept="3oM_SD" id="6IYCYtghWd4" role="1PaTwD">
+          <node concept="3cqZAl" id="6IYCYtgnCCR" role="3clF45" />
+          <node concept="3clFbS" id="6IYCYtgnCCS" role="3clF47">
+            <node concept="3SKdUt" id="6IYCYtgnCCT" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCCU" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCCV" role="1PaTwD">
                   <property role="3oM_SC" value="Check" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWd5" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCW" role="1PaTwD">
                   <property role="3oM_SC" value="statement" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWd6" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCX" role="1PaTwD">
                   <property role="3oM_SC" value="was" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWd7" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCY" role="1PaTwD">
                   <property role="3oM_SC" value="moved" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWd8" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCCZ" role="1PaTwD">
                   <property role="3oM_SC" value="to" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWd9" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCD0" role="1PaTwD">
                   <property role="3oM_SC" value="node" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWda" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCD1" role="1PaTwD">
                   <property role="3oM_SC" value="annotation" />
                 </node>
               </node>
             </node>
-            <node concept="3SKdUt" id="6IYCYtghWdb" role="3cqZAp">
-              <node concept="1PaTwC" id="6IYCYtghWdc" role="3ndbpf">
-                <node concept="3oM_SD" id="6IYCYtghWdd" role="1PaTwD">
+            <node concept="3SKdUt" id="6IYCYtgnCD2" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCD3" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCD4" role="1PaTwD">
                   <property role="3oM_SC" value="check" />
                 </node>
-                <node concept="tu5oc" id="6IYCYtghWde" role="1PaTwD">
-                  <node concept="3xONca" id="6IYCYtghWdf" role="tu5of">
-                    <ref role="3xOPvv" node="6IYCYtghWdN" resolve="testNode" />
+                <node concept="tu5oc" id="6IYCYtgnCD5" role="1PaTwD">
+                  <node concept="3xONca" id="6IYCYtgnCD6" role="tu5of">
+                    <ref role="3xOPvv" node="6IYCYtgnCEd" resolve="testNode" />
                   </node>
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWdg" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCD7" role="1PaTwD">
                   <property role="3oM_SC" value="error" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWdh" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCD8" role="1PaTwD">
                   <property role="3oM_SC" value="messages" />
                 </node>
               </node>
             </node>
-            <node concept="3clFbH" id="6IYCYtghWdi" role="3cqZAp" />
-            <node concept="3SKdUt" id="6IYCYtghWdj" role="3cqZAp">
-              <node concept="1PaTwC" id="6IYCYtghWdk" role="3ndbpf">
-                <node concept="3oM_SD" id="6IYCYtghWdl" role="1PaTwD">
+            <node concept="3clFbH" id="6IYCYtgnCD9" role="3cqZAp" />
+            <node concept="3SKdUt" id="6IYCYtgnCDa" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCDb" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCDc" role="1PaTwD">
                   <property role="3oM_SC" value="hello!" />
                 </node>
               </node>
             </node>
-            <node concept="3SKdUt" id="6IYCYtghWdm" role="3cqZAp">
-              <node concept="1PaTwC" id="6IYCYtghWdn" role="3ndbpf">
-                <node concept="3oM_SD" id="6IYCYtghWdo" role="1PaTwD">
+            <node concept="3SKdUt" id="6IYCYtgnCDd" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCDe" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCDf" role="1PaTwD">
                   <property role="3oM_SC" value="Check" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWdp" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDg" role="1PaTwD">
                   <property role="3oM_SC" value="statement" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWdq" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDh" role="1PaTwD">
                   <property role="3oM_SC" value="was" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWdr" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDi" role="1PaTwD">
                   <property role="3oM_SC" value="moved" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWds" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDj" role="1PaTwD">
                   <property role="3oM_SC" value="to" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWdt" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDk" role="1PaTwD">
                   <property role="3oM_SC" value="node" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWdu" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDl" role="1PaTwD">
                   <property role="3oM_SC" value="annotation" />
                 </node>
               </node>
             </node>
-            <node concept="3SKdUt" id="6IYCYtghWdv" role="3cqZAp">
-              <node concept="1PaTwC" id="6IYCYtghWdw" role="3ndbpf">
-                <node concept="3oM_SD" id="6IYCYtghWdx" role="1PaTwD">
+            <node concept="3SKdUt" id="6IYCYtgnCDm" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCDn" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCDo" role="1PaTwD">
                   <property role="3oM_SC" value="check" />
                 </node>
-                <node concept="tu5oc" id="6IYCYtghWdy" role="1PaTwD">
-                  <node concept="3xONca" id="6IYCYtghWdz" role="tu5of">
-                    <ref role="3xOPvv" node="6IYCYtghWdN" resolve="testNode" />
+                <node concept="tu5oc" id="6IYCYtgnCDp" role="1PaTwD">
+                  <node concept="3xONca" id="6IYCYtgnCDq" role="tu5of">
+                    <ref role="3xOPvv" node="6IYCYtgnCEd" resolve="testNode" />
                   </node>
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWd$" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDr" role="1PaTwD">
                   <property role="3oM_SC" value="error" />
                 </node>
-                <node concept="3oM_SD" id="6IYCYtghWd_" role="1PaTwD">
+                <node concept="3oM_SD" id="6IYCYtgnCDs" role="1PaTwD">
                   <property role="3oM_SC" value="messages" />
                 </node>
               </node>
             </node>
           </node>
         </node>
-        <node concept="1LZb2c" id="6IYCYtghWdA" role="1SL9yI">
+        <node concept="1LZb2c" id="6IYCYtgnCDt" role="1SL9yI">
           <property role="TrG5h" value="test3" />
-          <node concept="3cqZAl" id="6IYCYtghWdB" role="3clF45" />
-          <node concept="3clFbS" id="6IYCYtghWdC" role="3clF47">
-            <node concept="3clFbJ" id="6IYCYtghWdD" role="3cqZAp">
-              <node concept="3clFbS" id="6IYCYtghWdE" role="3clFbx">
-                <node concept="3Ca1qy" id="6IYCYtghWdF" role="3cqZAp">
-                  <property role="GoU3v" value="true" />
-                  <node concept="3xONca" id="6IYCYtghWdG" role="3qv8fS">
-                    <ref role="3xOPvv" node="6IYCYtghWdN" resolve="testNode" />
+          <node concept="3cqZAl" id="6IYCYtgnCDu" role="3clF45" />
+          <node concept="3clFbS" id="6IYCYtgnCDv" role="3clF47">
+            <node concept="3SKdUt" id="6IYCYtgnCDw" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCDx" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCDy" role="1PaTwD">
+                  <property role="3oM_SC" value="Check" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDz" role="1PaTwD">
+                  <property role="3oM_SC" value="statement" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCD$" role="1PaTwD">
+                  <property role="3oM_SC" value="was" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCD_" role="1PaTwD">
+                  <property role="3oM_SC" value="moved" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDA" role="1PaTwD">
+                  <property role="3oM_SC" value="to" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDB" role="1PaTwD">
+                  <property role="3oM_SC" value="node" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDC" role="1PaTwD">
+                  <property role="3oM_SC" value="annotation" />
+                </node>
+              </node>
+            </node>
+            <node concept="3SKdUt" id="6IYCYtgnCDD" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCDE" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCDF" role="1PaTwD">
+                  <property role="3oM_SC" value="check" />
+                </node>
+                <node concept="tu5oc" id="6IYCYtgnCDG" role="1PaTwD">
+                  <node concept="3xONca" id="6IYCYtgnCDH" role="tu5of">
+                    <ref role="3xOPvv" node="6IYCYtgnCEd" resolve="testNode" />
                   </node>
-                  <node concept="1tp6Ag" id="6IYCYtghWdH" role="lGtFl">
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDI" role="1PaTwD">
+                  <property role="3oM_SC" value="error" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDJ" role="1PaTwD">
+                  <property role="3oM_SC" value="messages" />
+                </node>
+              </node>
+            </node>
+            <node concept="3SKdUt" id="6IYCYtgnCDK" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCDL" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCDM" role="1PaTwD">
+                  <property role="3oM_SC" value="Check" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDN" role="1PaTwD">
+                  <property role="3oM_SC" value="statement" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDO" role="1PaTwD">
+                  <property role="3oM_SC" value="was" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDP" role="1PaTwD">
+                  <property role="3oM_SC" value="moved" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDQ" role="1PaTwD">
+                  <property role="3oM_SC" value="to" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDR" role="1PaTwD">
+                  <property role="3oM_SC" value="node" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDS" role="1PaTwD">
+                  <property role="3oM_SC" value="annotation" />
+                </node>
+              </node>
+            </node>
+            <node concept="3SKdUt" id="6IYCYtgnCDT" role="3cqZAp">
+              <node concept="1PaTwC" id="6IYCYtgnCDU" role="3ndbpf">
+                <node concept="3oM_SD" id="6IYCYtgnCDV" role="1PaTwD">
+                  <property role="3oM_SC" value="check" />
+                </node>
+                <node concept="tu5oc" id="6IYCYtgnCDW" role="1PaTwD">
+                  <node concept="3xONca" id="6IYCYtgnCDX" role="tu5of">
+                    <ref role="3xOPvv" node="6IYCYtgnCEd" resolve="testNode" />
+                  </node>
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDY" role="1PaTwD">
+                  <property role="3oM_SC" value="error" />
+                </node>
+                <node concept="3oM_SD" id="6IYCYtgnCDZ" role="1PaTwD">
+                  <property role="3oM_SC" value="messages" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1LZb2c" id="6IYCYtgnCE0" role="1SL9yI">
+          <property role="TrG5h" value="test4" />
+          <node concept="3cqZAl" id="6IYCYtgnCE1" role="3clF45" />
+          <node concept="3clFbS" id="6IYCYtgnCE2" role="3clF47">
+            <node concept="3clFbJ" id="6IYCYtgnCE3" role="3cqZAp">
+              <node concept="3clFbS" id="6IYCYtgnCE4" role="3clFbx">
+                <node concept="3Ca1qy" id="6IYCYtgnCE5" role="3cqZAp">
+                  <property role="GoU3v" value="true" />
+                  <node concept="3xONca" id="6IYCYtgnCE6" role="3qv8fS">
+                    <ref role="3xOPvv" node="6IYCYtgnCEd" resolve="testNode" />
+                  </node>
+                  <node concept="1tp6Ag" id="6IYCYtgnCE7" role="lGtFl">
                     <property role="1tp6A2" value="8585453e-6bfb-4d80-98de-b16074f1d86c(jetbrains.mps.lang.test)/2" />
                     <property role="1tp6Ah" value="too complex to migrate" />
                     <property role="1tp6Au" value="This statement should have been migrated, but test method is too complex to be migrated. Please replace `check error messages` statements with test node annotations." />
@@ -368,32 +478,43 @@
                   </node>
                 </node>
               </node>
-              <node concept="3clFbT" id="6IYCYtghWdI" role="3clFbw">
+              <node concept="3clFbT" id="6IYCYtgnCE8" role="3clFbw">
                 <property role="3clFbU" value="true" />
               </node>
             </node>
           </node>
         </node>
-        <node concept="1qefOq" id="6IYCYtghWdJ" role="1SKRRt">
-          <node concept="17qRlL" id="6IYCYtghWdK" role="1qenE9">
-            <node concept="3cmrfG" id="6IYCYtghWdL" role="3uHU7B">
+        <node concept="1qefOq" id="6IYCYtgnCE9" role="1SKRRt">
+          <node concept="17qRlL" id="6IYCYtgnCEa" role="1qenE9">
+            <node concept="3cmrfG" id="6IYCYtgnCEb" role="3uHU7B">
               <property role="3cmrfH" value="1" />
             </node>
-            <node concept="3cmrfG" id="6IYCYtghWdM" role="3uHU7w">
+            <node concept="3cmrfG" id="6IYCYtgnCEc" role="3uHU7w">
               <property role="3cmrfH" value="2" />
             </node>
-            <node concept="3xLA65" id="6IYCYtghWdN" role="lGtFl">
+            <node concept="3xLA65" id="6IYCYtgnCEd" role="lGtFl">
               <property role="TrG5h" value="testNode" />
             </node>
-            <node concept="7CXmI" id="6IYCYtghWdO" role="lGtFl">
-              <node concept="7OXhh" id="6IYCYtghWdP" role="7EUXB">
+            <node concept="7CXmI" id="6IYCYtgnCEe" role="lGtFl">
+              <node concept="7OXhh" id="6IYCYtgnCEf" role="7EUXB">
                 <property role="GvXf4" value="true" />
+                <property role="TrG5h" value="test1_migrated" />
               </node>
-              <node concept="7OXhh" id="6IYCYtghWdQ" role="7EUXB">
+              <node concept="7OXhh" id="6IYCYtgnCEg" role="7EUXB">
                 <property role="GvXf4" value="true" />
+                <property role="TrG5h" value="test2_migrated1" />
               </node>
-              <node concept="7OXhh" id="6IYCYtghWdR" role="7EUXB">
+              <node concept="7OXhh" id="6IYCYtgnCEh" role="7EUXB">
                 <property role="GvXf4" value="true" />
+                <property role="TrG5h" value="test2_migrated2" />
+              </node>
+              <node concept="7OXhh" id="6IYCYtgnCEi" role="7EUXB">
+                <property role="GvXf4" value="true" />
+                <property role="TrG5h" value="test3_migrated1" />
+              </node>
+              <node concept="7OXhh" id="6IYCYtgnCEj" role="7EUXB">
+                <property role="GvXf4" value="true" />
+                <property role="TrG5h" value="test3_migrated2" />
               </node>
             </node>
           </node>

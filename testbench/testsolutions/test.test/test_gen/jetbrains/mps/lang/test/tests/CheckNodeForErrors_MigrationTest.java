@@ -52,7 +52,7 @@ public class CheckNodeForErrors_MigrationTest extends BaseTransformationTest {
     }
     @Override
     public Collection<SNode> getOutputNodes() {
-      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(SNodeOperations.cast(getRealNodeById("7763823021511034056"), CONCEPTS.TestNode$kc), LINKS.nodeToCheck$Pz43));
+      return ListSequence.fromListAndArray(new ArrayList<SNode>(), SLinkOperations.getTarget(SNodeOperations.cast(getRealNodeById("7763823021512724823"), CONCEPTS.TestNode$kc), LINKS.nodeToCheck$Pz43));
     }
     @Override
     public MigrationScript[] getMigrationScript() {
