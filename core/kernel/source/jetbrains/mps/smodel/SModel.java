@@ -993,5 +993,10 @@ public class SModel implements SModelData, UpdateModeSupport {
       super("Can't add language import with different version. Old version: " + existingVersion + "; new version: " + version +
             "; model: " + modelDescriptor.getModelName() + "; language: " + language.getQualifiedName());
     }
+
+    @Override
+    public String getHint() {
+      return "This might happen when Migration Support plugin is disabled. Please check and enable this plugin.";
+    }
   }
 }
