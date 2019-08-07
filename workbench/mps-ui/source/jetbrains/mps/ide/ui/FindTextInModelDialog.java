@@ -25,6 +25,7 @@ import com.intellij.openapi.ui.OnePixelDivider;
 import com.intellij.openapi.util.DimensionService;
 import com.intellij.openapi.util.SystemInfo;
 import com.intellij.openapi.util.registry.Registry;
+import com.intellij.openapi.vcs.FileStatus;
 import com.intellij.openapi.wm.IdeGlassPane;
 import com.intellij.openapi.wm.WindowManager;
 import com.intellij.ui.DocumentAdapter;
@@ -48,14 +49,15 @@ import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.ide.findusages.model.holders.StringHolder;
 import jetbrains.mps.ide.findusages.view.UsageToolOptions;
 import jetbrains.mps.ide.findusages.view.UsagesViewTool;
-import jetbrains.mps.ide.ui.FindTextInModelTask.FindInNodeSink;
+import jetbrains.mps.ide.ui.FindTextInModelTask.MatchHandlerEx;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.scope.EmptySearchScope;
 import jetbrains.mps.smodel.SNodeUtil;
-import jetbrains.mps.workbench.index.PropertyValueIndex;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.model.EditableSModel;
+import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
@@ -195,6 +197,7 @@ public class FindTextInModelDialog extends DialogWrapper {
     myResultsPreviewTable.setFillsViewportHeight(true); // JBTable does that, can remove?
     //myResultsPreviewTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     myResultsPreviewTable.setRowSelectionAllowed(false);
+    myResultsPreviewTable.setColumnSelectionAllowed(false);
     final Dimension minSize = new Dimension(mySearchEntry.getWidth(), 1+ myResultsPreviewTable.getRowHeight() * 4);
     myResultsPreviewTable.setPreferredScrollableViewportSize(minSize);
     myResultsPreviewTable.setMinimumSize(minSize);
@@ -240,13 +243,8 @@ public class FindTextInModelDialog extends DialogWrapper {
       @Override
       protected void doFindResults(@NotNull SearchQuery q, @NotNull final IFinder.FindCallback cb, @NotNull ProgressMonitor pm) {
         final String text = ((StringHolder) q.getObjectHolder()).getObject();
-        final FindInNodeSink sink = new FindInNodeSink(text) {
-          @Override
-          protected void handleMatch(SNode n, SProperty p, String value) {
-            cb.onUsageFound(new SearchResult<>(p, n, "usage"));
-          }
-        };
-        PropertyValueIndex.processor(text, sink, myProject).run(pm);
+        final FindTextInModelTask task = new FindTextInModelTask(myProject, text, (n, p, value) -> cb.onUsageFound(new SearchResult<>(p, n, "usage")));
+        task.performLookup(pm);
       }
     };
     UsagesViewTool.showUsages(myProject.getProject(), rp, sq, opt);
@@ -274,7 +272,8 @@ public class FindTextInModelDialog extends DialogWrapper {
     }
     String loc = SNodeUtil.getPresentation(named);
     final String text = String.format("%s%s.%s", loc, named == node ? "" : "[...]", p.getName());
-    return new TableEntry(node.getReference(), value, text);
+    final SModel m = node.getModel();
+    return new TableEntry(node.getReference(), value, text, m instanceof EditableSModel && ((EditableSModel) m).isChanged());
   }
 
   @SuppressWarnings("WeakerAccess")
@@ -304,9 +303,9 @@ public class FindTextInModelDialog extends DialogWrapper {
       return;
     }
     stopCurrentSearch();
-    myCurrentSearchTask = new FindTextInModelTask(myProject, text, new Callback() {
+    myCurrentSearchTask = new FindTextInModelTask(myProject, text, new MatchHandlerEx() {
       @Override
-      public void add(SNode one, SProperty p, String value) {
+      public void handleMatch(SNode one, SProperty p, String value) {
         final TableEntry tableEntry = toEntry(one, p, value);
         ApplicationManager.getApplication().invokeLater(() -> model.addRow(new Object[] {tableEntry}));
       }
@@ -332,31 +331,30 @@ public class FindTextInModelDialog extends DialogWrapper {
     ProgressIndicatorUtils.scheduleWithWriteActionPriority(myCurrentSearchTask);
   }
 
-  interface Callback {
-    void add(SNode one, SProperty p, String value);
-    void reset();
-    void done();
-  }
-
   static final class TableEntry {
     public final SNodeReference node;
     public final String value;
     public final String nodePresentation;
+    public final boolean fromChangedModel;
 
-    /*package*/ TableEntry(SNodeReference ptr, String pv, String np) {
+    /*package*/ TableEntry(SNodeReference ptr, String pv, String np, boolean fromChangedModel) {
       node = ptr;
       value = pv;
       nodePresentation = np;
+      this.fromChangedModel = fromChangedModel;
     }
   }
 
   static final class TableCellRenderer extends JComponent implements javax.swing.table.TableCellRenderer {
+    private final JBLabel myChangedIndicator;
     private final JBLabel myValue;
     private final JBLabel myLocation;
     public TableCellRenderer() {
       setLayout(new BorderLayout());
+      add(myChangedIndicator = new JBLabel(), BorderLayout.WEST);
       add(myValue = new JBLabel(), BorderLayout.CENTER);
       add(myLocation = new JBLabel(), BorderLayout.EAST);
+      myChangedIndicator.setForeground(FileStatus.MODIFIED.getColor());
       myLocation.setForeground(UIUtil.getInactiveTextColor());
     }
 
@@ -364,6 +362,7 @@ public class FindTextInModelDialog extends DialogWrapper {
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
       if (value instanceof TableEntry) {
         final TableEntry te = (TableEntry) value;
+        myChangedIndicator.setText(te.fromChangedModel ? "*" : " ");
         myValue.setText(te.value);
         myLocation.setText(te.nodePresentation);
       }
