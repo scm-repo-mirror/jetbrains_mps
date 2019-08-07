@@ -11,12 +11,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.CopyUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.model.SModel;
 import java.util.Objects;
 import jetbrains.mps.smodel.DynamicReference;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.SModelUtil_new;
@@ -36,11 +37,7 @@ public abstract class BaseLanguagesImportHelper {
       public SNode select(SNodeReference it) {
         return (SNode) it.resolve(repository);
       }
-    }).where(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return (it != null);
-      }
-    }).toListSequence());
+    }).where(new NotNullWhereFilter<SNode>()).toListSequence());
     for (SNode node : ListSequence.fromList(nodes)) {
       if (node == null) {
         continue;
