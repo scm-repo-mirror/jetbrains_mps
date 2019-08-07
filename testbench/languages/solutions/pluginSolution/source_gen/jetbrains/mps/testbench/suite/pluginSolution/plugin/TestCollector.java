@@ -27,10 +27,10 @@ import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 
-/*package*/ class TestCollector {
+public class TestCollector {
   public TestCollector() {
   }
-  protected boolean collectTests(SModel model, List<SNode> into) {
+  public boolean collectTests(SModel model, List<SNode> into) {
     boolean any = false;
     any |= new TestCaseCollector().collectTests(model, into);
     any |= new JUnit3TestCollector().collectTests(model, into);
@@ -41,7 +41,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     public TestCaseCollector() {
     }
     @Override
-    protected boolean collectTests(SModel model, final List<SNode> into) {
+    public boolean collectTests(SModel model, final List<SNode> into) {
       final Wrappers._boolean any = new Wrappers._boolean(false);
       List<SNode> nodes;
       final SNode ignoreAnn = SLinkOperations.getTarget(_quotation_createNode_rpw6il_a0a2a1c(), LINKS.annotation$zNxu);
@@ -77,7 +77,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     public JUnit4TestCollector() {
     }
     @Override
-    protected boolean collectTests(SModel model, final List<SNode> into) {
+    public boolean collectTests(SModel model, final List<SNode> into) {
       final Wrappers._boolean any = new Wrappers._boolean(false);
       List<SNode> nodes;
       final SNode testAnn = SLinkOperations.getTarget(_quotation_createNode_rpw6il_a0a2a1d(), LINKS.annotation$zNxu);
@@ -129,7 +129,7 @@ import org.jetbrains.mps.openapi.language.SProperty;
     public JUnit3TestCollector() {
     }
     @Override
-    protected boolean collectTests(SModel model, final List<SNode> into) {
+    public boolean collectTests(SModel model, final List<SNode> into) {
       final Wrappers._boolean any = new Wrappers._boolean(false);
       List<SNode> nodes;
       final SNode ignoreAnn = SLinkOperations.getTarget(_quotation_createNode_rpw6il_a0a2a1e(), LINKS.annotation$zNxu);

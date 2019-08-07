@@ -222,7 +222,6 @@
       <concept id="1082113931046" name="jetbrains.mps.baseLanguage.structure.ContinueStatement" flags="nn" index="3N13vt" />
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
-      <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
       <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
         <reference id="1116615189566" name="classifier" index="3VsUkX" />
       </concept>
@@ -1452,14 +1451,18 @@
     </node>
     <node concept="3clFb_" id="4KDfkUwMpiN" role="jymVt">
       <property role="TrG5h" value="collectTests" />
-      <node concept="3Tmbuc" id="1ouvi_znaT" role="1B3o_S" />
+      <node concept="3Tm1VV" id="7BTZ519LKUW" role="1B3o_S" />
       <node concept="37vLTG" id="4KDfkUwMpiO" role="3clF46">
         <property role="TrG5h" value="model" />
         <node concept="H_c77" id="4KDfkUwMpiP" role="1tU5fm" />
       </node>
       <node concept="37vLTG" id="4KDfkUwMpiQ" role="3clF46">
         <property role="TrG5h" value="into" />
-        <node concept="2I9FWS" id="1ouvi_xgKM" role="1tU5fm" />
+        <node concept="_YKpA" id="7BTZ519LSPO" role="1tU5fm">
+          <node concept="3Tqbb2" id="7BTZ519LSPP" role="_ZDj9">
+            <ref role="ehGHo" to="pop3:3U1VhSFTRMU" resolve="ITestRef" />
+          </node>
+        </node>
       </node>
       <node concept="3clFbS" id="4KDfkUwMpiW" role="3clF47">
         <node concept="3cpWs8" id="4KDfkUwMpiX" role="3cqZAp">
@@ -1563,14 +1566,18 @@
       <node concept="3clFb_" id="4KDfkUwMpd9" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="collectTests" />
-        <node concept="3Tmbuc" id="1ouvi_zo6R" role="1B3o_S" />
+        <node concept="3Tm1VV" id="7BTZ519LLmM" role="1B3o_S" />
         <node concept="37vLTG" id="4KDfkUwMpda" role="3clF46">
           <property role="TrG5h" value="model" />
           <node concept="H_c77" id="4KDfkUwMpdb" role="1tU5fm" />
         </node>
         <node concept="37vLTG" id="4KDfkUwMpdc" role="3clF46">
           <property role="TrG5h" value="into" />
-          <node concept="2I9FWS" id="1ouvi_xhPL" role="1tU5fm" />
+          <node concept="_YKpA" id="7BTZ519LPEW" role="1tU5fm">
+            <node concept="3Tqbb2" id="7BTZ519LQOH" role="_ZDj9">
+              <ref role="ehGHo" to="pop3:3U1VhSFTRMU" resolve="ITestRef" />
+            </node>
+          </node>
         </node>
         <node concept="10P_77" id="4KDfkUwMpdi" role="3clF45" />
         <node concept="3clFbS" id="4KDfkUwMpdj" role="3clF47">
@@ -1798,14 +1805,18 @@
       <node concept="3clFb_" id="4KDfkUwMpeP" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="collectTests" />
-        <node concept="3Tmbuc" id="1ouvi_znuA" role="1B3o_S" />
+        <node concept="3Tm1VV" id="7BTZ519LLGp" role="1B3o_S" />
         <node concept="37vLTG" id="4KDfkUwMpeQ" role="3clF46">
           <property role="TrG5h" value="model" />
           <node concept="H_c77" id="4KDfkUwMpeR" role="1tU5fm" />
         </node>
         <node concept="37vLTG" id="4KDfkUwMpeS" role="3clF46">
           <property role="TrG5h" value="into" />
-          <node concept="2I9FWS" id="1ouvi_xiUl" role="1tU5fm" />
+          <node concept="_YKpA" id="7BTZ519LRSs" role="1tU5fm">
+            <node concept="3Tqbb2" id="7BTZ519LRSt" role="_ZDj9">
+              <ref role="ehGHo" to="pop3:3U1VhSFTRMU" resolve="ITestRef" />
+            </node>
+          </node>
         </node>
         <node concept="10P_77" id="4KDfkUwMpeY" role="3clF45" />
         <node concept="3clFbS" id="4KDfkUwMpeZ" role="3clF47">
@@ -2101,14 +2112,18 @@
       <node concept="3clFb_" id="4KDfkUwMph1" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="collectTests" />
-        <node concept="3Tmbuc" id="1ouvi_znMq" role="1B3o_S" />
+        <node concept="3Tm1VV" id="7BTZ519LM5_" role="1B3o_S" />
         <node concept="37vLTG" id="4KDfkUwMph2" role="3clF46">
           <property role="TrG5h" value="model" />
           <node concept="H_c77" id="4KDfkUwMph3" role="1tU5fm" />
         </node>
         <node concept="37vLTG" id="4KDfkUwMph4" role="3clF46">
           <property role="TrG5h" value="into" />
-          <node concept="2I9FWS" id="1ouvi_xjOX" role="1tU5fm" />
+          <node concept="_YKpA" id="7BTZ519LSlB" role="1tU5fm">
+            <node concept="3Tqbb2" id="7BTZ519LSlC" role="_ZDj9">
+              <ref role="ehGHo" to="pop3:3U1VhSFTRMU" resolve="ITestRef" />
+            </node>
+          </node>
         </node>
         <node concept="10P_77" id="4KDfkUwMpha" role="3clF45" />
         <node concept="3clFbS" id="4KDfkUwMphb" role="3clF47">
@@ -2346,6 +2361,7 @@
         </node>
       </node>
     </node>
+    <node concept="3Tm1VV" id="7BTZ519LjCq" role="1B3o_S" />
   </node>
   <node concept="2DaZZR" id="6dAEaqvcioU" />
 </model>

@@ -6,11 +6,11 @@ import jetbrains.mps.core.aspects.behaviour.BaseBHDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.behaviour.api.SMethod;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.core.aspects.behaviour.SMethodBuilder;
 import jetbrains.mps.core.aspects.behaviour.SJavaCompoundTypeImpl;
 import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
-import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
@@ -29,15 +29,19 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public final class TestCaseRef__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xd3c5a46fb8c247dbL, 0xad0a30b8f19c2055L, 0x3e81ed1e2be77cb7L, "jetbrains.mps.testbench.suite.structure.TestCaseRef");
 
+  public static final SMethod<SNode> getTargetTest_id7BTZ519MNAR = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTargetTest").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7BTZ519MNAR").build();
   public static final SMethod<Boolean> isSame_id1ouvi_ymQH = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSame").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1ouvi_ymQH").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<String> fqClassName_id2$98zG5liRT = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("fqClassName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2$98zG5liRT").build();
   public static final SMethod<Iterable<String>> testNames_id3z1mdFUF$j3 = new SMethodBuilder<Iterable<String>>(new SJavaCompoundTypeImpl((Class<Iterable<String>>) ((Class) Object.class))).name("testNames").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3z1mdFUF$j3").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isSame_id1ouvi_ymQH, fqClassName_id2$98zG5liRT, testNames_id3z1mdFUF$j3);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getTargetTest_id7BTZ519MNAR, isSame_id1ouvi_ymQH, fqClassName_id2$98zG5liRT, testNames_id3z1mdFUF$j3);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
+  /*package*/ static SNode getTargetTest_id7BTZ519MNAR(@NotNull SNode __thisNode__) {
+    return SLinkOperations.getTarget(__thisNode__, LINKS.testCase$fEcz);
+  }
   /*package*/ static boolean isSame_id1ouvi_ymQH(@NotNull SNode __thisNode__, SNode testRef) {
     return SLinkOperations.getTarget(SNodeOperations.as(testRef, CONCEPTS.TestCaseRef$Ez), LINKS.testCase$fEcz) == SLinkOperations.getTarget(__thisNode__, LINKS.testCase$fEcz);
   }
@@ -74,10 +78,12 @@ public final class TestCaseRef__BehaviorDescriptor extends BaseBHDescriptor {
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Boolean) isSame_id1ouvi_ymQH(node, (SNode) parameters[0]));
+        return (T) ((SNode) getTargetTest_id7BTZ519MNAR(node));
       case 1:
-        return (T) ((String) fqClassName_id2$98zG5liRT(node));
+        return (T) ((Boolean) isSame_id1ouvi_ymQH(node, (SNode) parameters[0]));
       case 2:
+        return (T) ((String) fqClassName_id2$98zG5liRT(node));
+      case 3:
         return (T) ((Iterable<String>) testNames_id3z1mdFUF$j3(node));
       default:
         throw new BHMethodNotFoundException(this, method);
