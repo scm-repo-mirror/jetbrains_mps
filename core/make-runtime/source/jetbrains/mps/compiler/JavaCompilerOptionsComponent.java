@@ -71,6 +71,8 @@ public class JavaCompilerOptionsComponent {
     VERSION_1_6(CompilerOptions.VERSION_1_6),
     VERSION_1_7(CompilerOptions.VERSION_1_7),
     VERSION_1_8(CompilerOptions.VERSION_1_8),
+    VERSION_9(CompilerOptions.VERSION_9),
+    VERSION_10(CompilerOptions.VERSION_10),
     VERSION_11(CompilerOptions.VERSION_11);
     private String myCompilerVersion;
     JavaVersion(@NotNull String compilerVersion) {
