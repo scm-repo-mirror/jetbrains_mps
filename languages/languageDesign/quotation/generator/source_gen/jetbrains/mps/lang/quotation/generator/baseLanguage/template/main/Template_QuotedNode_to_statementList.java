@@ -774,7 +774,7 @@ public class Template_QuotedNode_to_statementList extends TemplateDeclarationBas
                             TemplateContext context44;
                             context44 = context42.subContext(null, callInputNode89);
                             if (callInputNode89 != null) {
-                              tlist89 = environment.findTemplate(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "6506750610319222074", "reduce_LinkDeclaration_SLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144941")).apply(environment, context44);
+                              tlist89 = environment.findTemplate(environment.createTemplateKey("r:00000000-0000-4000-0000-011c89590303(jetbrains.mps.lang.smodel.generator.baseLanguage.template.main@generator)", "8415841354032418697", "reduce_ReferenceLinkId_SReferenceLink"), new SNodePointer("r:00000000-0000-4000-0000-011c8959034c(jetbrains.mps.lang.quotation.generator.baseLanguage.template.main@generator)", "633481135935144941")).apply(environment, context44);
                             }
                             for (SNode child90 : TemplateUtil.asNotNull(tlist89)) {
                               tnode86.addChild(myAggregationLinks[3], child90);
