@@ -32,7 +32,6 @@
     <import index="ze1i" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.runtime(MPS.Core/)" />
     <import index="ucur" ref="r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)" />
     <import index="xg48" ref="r:7be9d1d9-acb4-4fe3-8096-96178feee8f5(jetbrains.mps.lang.findUsages.plugin)" />
-    <import index="mte6" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.findusages.model.scopes(MPS.Platform/)" />
     <import index="fwk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.textgen.trace(MPS.Core/)" />
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
@@ -571,11 +570,7 @@
                 </node>
               </node>
               <node concept="gft3U" id="7Qxu_6FGgoh" role="UU_$l">
-                <node concept="2ShNRf" id="7Qxu_6FGh2W" role="gfFT$">
-                  <node concept="1pGfFk" id="7Qxu_6FGkIJ" role="2ShVmc">
-                    <ref role="37wK5l" to="mte6:~GlobalScope.&lt;init&gt;()" resolve="GlobalScope" />
-                  </node>
-                </node>
+                <node concept="10Nm6u" id="65hJTmBKXg9" role="gfFT$" />
               </node>
             </node>
             <node concept="29HgVG" id="3CIwUQvT_nm" role="lGtFl">

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import jetbrains.mps.ide.findusages.model.IResultProvider;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import jetbrains.mps.ide.findusages.model.SearchResult;
 import jetbrains.mps.ide.findusages.model.SearchResults;
+import jetbrains.mps.ide.findusages.model.scopes.ModulesScope;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
@@ -41,13 +42,17 @@ import java.util.List;
 
 public class FindUtils {
   @Deprecated
-  public static SearchResults getSearchResults(@Nullable final ProgressMonitor monitor, final @NotNull SNode node, final SearchScope scope, final String... finderClassNames) {
+  public static SearchResults getSearchResults(@Nullable final ProgressMonitor monitor, final @NotNull SNode node, @Nullable SearchScope scope, final String... finderClassNames) {
     List<IInterfacedFinder> finders = new ArrayList<>(finderClassNames.length);
     for (String finderClassName : finderClassNames) {
       IInterfacedFinder finder = FindersManager.getInstance().getFinder(finderClassName);
       if (finder != null) {
         finders.add(finder);
       }
+    }
+
+    if (scope == null) {
+      scope = new ModulesScope(node.getModel().getRepository().getModules());
     }
 
     return getSearchResults(monitor, new SearchQuery(node, scope), finders.toArray(new IInterfacedFinder[0]));
