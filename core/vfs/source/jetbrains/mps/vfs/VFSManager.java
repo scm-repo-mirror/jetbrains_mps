@@ -39,13 +39,7 @@ public class VFSManager implements CoreComponent {
 
   private final Map<String, IFileSystem> myFileSystems = new HashMap<>();
 
-  private static final VFSManager ourInstance = new VFSManager(); //hack, ask Artem and remove
-
   public VFSManager() {
-  }
-
-  public static VFSManager getDefaultInstance() {
-    return ourInstance;
   }
 
   @Override
