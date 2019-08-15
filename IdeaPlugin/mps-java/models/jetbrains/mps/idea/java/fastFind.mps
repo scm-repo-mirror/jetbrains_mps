@@ -11,15 +11,10 @@
     <import index="wvgn" ref="r:e32ada56-1876-4524-85c0-29075cbd8d32(jetbrains.mps.idea.java.psiStubs)" />
     <import index="efw8" ref="c1969cf6-0de2-4f84-9a6b-4019c52c438c/java:jetbrains.mps.idea.core.psi(mps-core/)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
-    <import index="fpru" ref="~IDEA IC/java:com.intellij.psi.search(IDEA IC/)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" />
-    <import index="4nm9" ref="~IDEA IC/java:com.intellij.openapi.project(IDEA IC/)" />
     <import index="mies" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.persistence.java.library(MPS.Core/)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
-    <import index="1m72" ref="~IDEA IC/java:com.intellij.openapi.components(IDEA IC/)" />
-    <import index="mhfm" ref="~IDEA IC/java:org.jetbrains.annotations(IDEA IC/)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
-    <import index="dj18" ref="~IDEA IC/java:com.intellij.psi(IDEA IC/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="mhbf" ref="~mps-openapi/java:org.jetbrains.mps.openapi.model(mps-openapi/)" />
     <import index="dush" ref="~mps-openapi/java:org.jetbrains.mps.openapi.persistence(mps-openapi/)" />
@@ -27,10 +22,15 @@
     <import index="alof" ref="~mps-platform/java:jetbrains.mps.ide.project(mps-platform/)" />
     <import index="lui2" ref="~mps-openapi/java:org.jetbrains.mps.openapi.module(mps-openapi/)" />
     <import index="pa15" ref="~mps-core/java:jetbrains.mps.persistence(mps-core/)" />
+    <import index="dj18" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.psi(MPS.IDEA/)" />
+    <import index="4nm9" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.project(MPS.IDEA/)" />
+    <import index="dj19" ref="~ideaJavaPlugin/java:com.intellij.psi(ideaJavaPlugin/)" />
+    <import index="fpru" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.psi.search(MPS.IDEA/)" />
+    <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" />
+    <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="pj7v" ref="~ideaJavaPlugin/java:com.intellij.lang.jvm(ideaJavaPlugin/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
-    <import index="tci" ref="c1969cf6-0de2-4f84-9a6b-4019c52c438c/java:jetbrains.mps.idea.core.refactoring(mps-core/)" implicit="true" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
-    <import index="qwe6" ref="~IDEA IC/java:com.intellij.navigation(IDEA IC/)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -251,7 +251,7 @@
     <node concept="3uibUv" id="3if7C7H0amQ" role="EKbjA">
       <ref role="3uigEE" to="dush:~NavigationParticipant" resolve="NavigationParticipant" />
     </node>
-    <node concept="3uibUv" id="5$0mbB4Rl6J" role="EKbjA">
+    <node concept="3uibUv" id="7SLi_qlM2S7" role="EKbjA">
       <ref role="3uigEE" to="1m72:~ApplicationComponent" resolve="ApplicationComponent" />
     </node>
     <node concept="3Tm1VV" id="2Ta7012aTYe" role="1B3o_S" />
@@ -326,7 +326,7 @@
                       <ref role="3cqZAo" node="5M2hxw$px3x" resolve="javaFile" />
                     </node>
                     <node concept="liA8E" id="6rA4xDH5zIq" role="2OqNvi">
-                      <ref role="37wK5l" to="dj18:~PsiClassOwner.getClasses():com.intellij.psi.PsiClass[]" resolve="getClasses" />
+                      <ref role="37wK5l" to="dj19:~PsiClassOwner.getClasses()" resolve="getClasses" />
                     </node>
                   </node>
                   <node concept="2GrKxI" id="6rA4xDH5uAI" role="2Gsz3X">
@@ -338,8 +338,8 @@
                       <node concept="3cpWsn" id="6rA4xDHgqjT" role="3cpWs9">
                         <property role="3TUv4t" value="true" />
                         <property role="TrG5h" value="psiClaz" />
-                        <node concept="3uibUv" id="5M2hxw$oXpx" role="1tU5fm">
-                          <ref role="3uigEE" to="dj18:~PsiClass" resolve="PsiClass" />
+                        <node concept="3uibUv" id="7SLi_qlM3iL" role="1tU5fm">
+                          <ref role="3uigEE" to="dj19:~PsiClass" resolve="PsiClass" />
                         </node>
                         <node concept="2GrUjf" id="6rA4xDHgrZ2" role="33vP2m">
                           <ref role="2Gs0qQ" node="6rA4xDH5uAI" resolve="psiClass" />
@@ -356,7 +356,7 @@
                             <ref role="3cqZAo" node="6rA4xDHgqjT" resolve="psiClaz" />
                           </node>
                           <node concept="liA8E" id="6rA4xDHacu6" role="2OqNvi">
-                            <ref role="37wK5l" to="dj18:~PsiNamedElement.getName():java.lang.String" resolve="getName" />
+                            <ref role="37wK5l" to="pj7v:~JvmMember.getName()" resolve="getName" />
                           </node>
                         </node>
                       </node>
@@ -431,7 +431,7 @@
                                           <ref role="3cqZAo" node="6rA4xDHgqjT" resolve="psiClaz" />
                                         </node>
                                         <node concept="liA8E" id="6rA4xDHaCkw" role="2OqNvi">
-                                          <ref role="37wK5l" to="dj18:~PsiClass.isAnnotationType():boolean" resolve="isAnnotationType" />
+                                          <ref role="37wK5l" to="dj19:~PsiClass.isAnnotationType()" resolve="isAnnotationType" />
                                         </node>
                                       </node>
                                       <node concept="3clFbS" id="6rA4xDHayn7" role="3clFbx">
@@ -452,7 +452,7 @@
                                             <ref role="3cqZAo" node="6rA4xDHgqjT" resolve="psiClaz" />
                                           </node>
                                           <node concept="liA8E" id="6rA4xDHaTr3" role="2OqNvi">
-                                            <ref role="37wK5l" to="dj18:~PsiClass.isInterface():boolean" resolve="isInterface" />
+                                            <ref role="37wK5l" to="dj19:~PsiClass.isInterface()" resolve="isInterface" />
                                           </node>
                                         </node>
                                         <node concept="3clFbS" id="6rA4xDHaLcd" role="3eOfB_">
@@ -474,7 +474,7 @@
                                             <ref role="3cqZAo" node="6rA4xDHgqjT" resolve="psiClaz" />
                                           </node>
                                           <node concept="liA8E" id="6rA4xDHb4LF" role="2OqNvi">
-                                            <ref role="37wK5l" to="dj18:~PsiClass.isEnum():boolean" resolve="isEnum" />
+                                            <ref role="37wK5l" to="dj19:~PsiClass.isEnum()" resolve="isEnum" />
                                           </node>
                                         </node>
                                         <node concept="3clFbS" id="6rA4xDHaWK2" role="3eOfB_">
@@ -519,7 +519,7 @@
                                     <node concept="3clFbF" id="6rA4xDHbaPd" role="3cqZAp">
                                       <node concept="2OqwBi" id="6rA4xDHc0CC" role="3clFbG">
                                         <node concept="liA8E" id="6rA4xDHc1O8" role="2OqNvi">
-                                          <ref role="37wK5l" to="tci:~NodePtr.toSNodeReference()" resolve="toSNodeReference" />
+                                          <ref role="37wK5l" to=":^" />
                                         </node>
                                         <node concept="2YIFZM" id="6rA4xDHbb4F" role="2Oq$k0">
                                           <ref role="37wK5l" to="wvgn:4rzMiwARqn7" resolve="computeNodePtr" />
@@ -566,8 +566,8 @@
               </node>
               <node concept="3cpWsn" id="5M2hxw$px3x" role="1Duv9x">
                 <property role="TrG5h" value="javaFile" />
-                <node concept="3uibUv" id="2LFagQxTXt9" role="1tU5fm">
-                  <ref role="3uigEE" to="dj18:~PsiJavaFile" resolve="PsiJavaFile" />
+                <node concept="3uibUv" id="7SLi_qlM3aT" role="1tU5fm">
+                  <ref role="3uigEE" to="dj19:~PsiJavaFile" resolve="PsiJavaFile" />
                 </node>
               </node>
             </node>
@@ -701,7 +701,7 @@
       <property role="od$2w" value="false" />
       <property role="1EzhhJ" value="false" />
       <node concept="3Tm1VV" id="16bZt0jgdEb" role="1B3o_S" />
-      <node concept="3uibUv" id="16bZt0jgdEc" role="3clF45">
+      <node concept="3uibUv" id="7SLi_qlLOHU" role="3clF45">
         <ref role="3uigEE" to="dj18:~PsiElement" resolve="PsiElement" />
       </node>
       <node concept="37vLTG" id="16bZt0jgdEd" role="3clF46">
@@ -714,7 +714,7 @@
       <node concept="37vLTG" id="16bZt0jgdEf" role="3clF46">
         <property role="TrG5h" value="project" />
         <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="1AYiyvlqer4" role="1tU5fm">
+        <node concept="3uibUv" id="7SLi_qlLPvk" role="1tU5fm">
           <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
         </node>
       </node>
@@ -890,8 +890,8 @@
                       <ref role="3cqZAo" node="16bZt0jgdEf" resolve="project" />
                     </node>
                   </node>
-                  <node concept="3uibUv" id="1AYiyvlozr$" role="1tU5fm">
-                    <ref role="3uigEE" to="dj18:~PsiClass" resolve="PsiClass" />
+                  <node concept="3uibUv" id="7SLi_qlLSMm" role="1tU5fm">
+                    <ref role="3uigEE" to="dj19:~PsiClass" resolve="PsiClass" />
                   </node>
                 </node>
               </node>
@@ -912,16 +912,16 @@
                 <node concept="3cpWsn" id="1AYiyvlqn0e" role="3cpWs9">
                   <property role="TrG5h" value="fields" />
                   <node concept="2OqwBi" id="1AYiyvlqojN" role="33vP2m">
-                    <node concept="liA8E" id="1AYiyvlqwiH" role="2OqNvi">
-                      <ref role="37wK5l" to="dj18:~PsiClass.getFields():com.intellij.psi.PsiField[]" resolve="getFields" />
+                    <node concept="liA8E" id="7SLi_qlLWrA" role="2OqNvi">
+                      <ref role="37wK5l" to="dj19:~PsiClass.getFields()" resolve="getFields" />
                     </node>
                     <node concept="37vLTw" id="1AYiyvlqnE$" role="2Oq$k0">
                       <ref role="3cqZAo" node="1AYiyvlozrz" resolve="psiClass" />
                     </node>
                   </node>
                   <node concept="10Q1$e" id="1AYiyvlqn0f" role="1tU5fm">
-                    <node concept="3uibUv" id="1AYiyvlqn0g" role="10Q1$1">
-                      <ref role="3uigEE" to="dj18:~PsiField" resolve="PsiField" />
+                    <node concept="3uibUv" id="7SLi_qlLVk9" role="10Q1$1">
+                      <ref role="3uigEE" to="dj19:~PsiField" resolve="PsiField" />
                     </node>
                   </node>
                 </node>
@@ -958,8 +958,8 @@
                       <node concept="liA8E" id="1AYiyvlqCXR" role="2OqNvi">
                         <ref role="37wK5l" to="wyt6:~String.equals(java.lang.Object):boolean" resolve="equals" />
                         <node concept="2OqwBi" id="1AYiyvlqDEj" role="37wK5m">
-                          <node concept="liA8E" id="1AYiyvlqLHc" role="2OqNvi">
-                            <ref role="37wK5l" to="qwe6:~NavigationItem.getName():java.lang.String" resolve="getName" />
+                          <node concept="liA8E" id="7SLi_qlLXnI" role="2OqNvi">
+                            <ref role="37wK5l" to="pj7v:~JvmMember.getName()" resolve="getName" />
                           </node>
                           <node concept="2GrUjf" id="1AYiyvlqCY0" role="2Oq$k0">
                             <ref role="2Gs0qQ" node="1AYiyvlqwj1" resolve="field" />
@@ -1114,21 +1114,21 @@
         <node concept="3cpWs6" id="16bZt0jgKfX" role="3cqZAp">
           <node concept="2OqwBi" id="16bZt0jgNEt" role="3cqZAk">
             <node concept="liA8E" id="16bZt0jgOr8" role="2OqNvi">
-              <ref role="37wK5l" to="dj18:~JavaPsiFacade.findClass(java.lang.String,com.intellij.psi.search.GlobalSearchScope):com.intellij.psi.PsiClass" resolve="findClass" />
+              <ref role="37wK5l" to="dj19:~JavaPsiFacade.findClass(java.lang.String,com.intellij.psi.search.GlobalSearchScope)" resolve="findClass" />
               <node concept="37vLTw" id="16bZt0jgOrh" role="37wK5m">
                 <ref role="3cqZAo" node="16bZt0jgGo_" resolve="classFqName" />
               </node>
               <node concept="2YIFZM" id="16bZt0jh192" role="37wK5m">
-                <ref role="37wK5l" to="fpru:~GlobalSearchScope.allScope(com.intellij.openapi.project.Project):com.intellij.psi.search.GlobalSearchScope" resolve="allScope" />
                 <ref role="1Pybhc" to="fpru:~GlobalSearchScope" resolve="GlobalSearchScope" />
+                <ref role="37wK5l" to="fpru:~GlobalSearchScope.allScope(com.intellij.openapi.project.Project)" resolve="allScope" />
                 <node concept="37vLTw" id="1AYiyvlqaIm" role="37wK5m">
                   <ref role="3cqZAo" node="1AYiyvloCMn" resolve="project" />
                 </node>
               </node>
             </node>
             <node concept="2YIFZM" id="16bZt0jgL9Q" role="2Oq$k0">
-              <ref role="37wK5l" to="dj18:~JavaPsiFacade.getInstance(com.intellij.openapi.project.Project):com.intellij.psi.JavaPsiFacade" resolve="getInstance" />
-              <ref role="1Pybhc" to="dj18:~JavaPsiFacade" resolve="JavaPsiFacade" />
+              <ref role="1Pybhc" to="dj19:~JavaPsiFacade" resolve="JavaPsiFacade" />
+              <ref role="37wK5l" to="dj19:~JavaPsiFacade.getInstance(com.intellij.openapi.project.Project)" resolve="getInstance" />
               <node concept="37vLTw" id="1AYiyvlqaIx" role="37wK5m">
                 <ref role="3cqZAo" node="1AYiyvloCMn" resolve="project" />
               </node>
@@ -1137,8 +1137,8 @@
         </node>
       </node>
       <node concept="3Tm6S6" id="1AYiyvlozrC" role="1B3o_S" />
-      <node concept="3uibUv" id="1AYiyvlozrF" role="3clF45">
-        <ref role="3uigEE" to="dj18:~PsiClass" resolve="PsiClass" />
+      <node concept="3uibUv" id="7SLi_qlLXqU" role="3clF45">
+        <ref role="3uigEE" to="dj19:~PsiClass" resolve="PsiClass" />
       </node>
       <node concept="37vLTG" id="1AYiyvlozrL" role="3clF46">
         <property role="TrG5h" value="claz" />
@@ -1148,7 +1148,7 @@
       </node>
       <node concept="37vLTG" id="1AYiyvloCMn" role="3clF46">
         <property role="TrG5h" value="project" />
-        <node concept="3uibUv" id="1AYiyvlqaIb" role="1tU5fm">
+        <node concept="3uibUv" id="7SLi_qlLXHB" role="1tU5fm">
           <ref role="3uigEE" to="4nm9:~Project" resolve="Project" />
         </node>
       </node>
@@ -1159,7 +1159,7 @@
     <node concept="3uibUv" id="2gqezBWa_2l" role="EKbjA">
       <ref role="3uigEE" to="dush:~FindUsagesParticipant" resolve="FindUsagesParticipant" />
     </node>
-    <node concept="3uibUv" id="2gqezBWaGsC" role="EKbjA">
+    <node concept="3uibUv" id="7SLi_qlM272" role="EKbjA">
       <ref role="3uigEE" to="1m72:~ApplicationComponent" resolve="ApplicationComponent" />
     </node>
     <node concept="3Tm1VV" id="2gqezBWauWA" role="1B3o_S" />
