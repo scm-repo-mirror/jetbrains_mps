@@ -32,6 +32,7 @@ import com.intellij.openapi.wm.impl.IdeGlassPaneImpl;
 import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.DoubleClickListener;
 import com.intellij.ui.PopupBorder;
+import com.intellij.ui.WindowMoveListener;
 import com.intellij.ui.WindowResizeListener;
 import com.intellij.ui.awt.RelativePoint;
 import com.intellij.ui.components.JBLabel;
@@ -110,8 +111,8 @@ public class FindTextInModelDialog extends DialogWrapper {
     init();
     final Window window = WindowManager.getInstance().suggestParentWindow(mpsProject.getProject());
     Component parent = UIUtil.findUltimateParent(window);
-    Point screenPoint = DimensionService.getInstance().getLocation(getDimensionServiceKey());
     RelativePoint showPoint = null;
+    Point screenPoint = DimensionService.getInstance().getLocation(getDimensionServiceKey());
     if (screenPoint != null) {
       if (parent != null) {
         SwingUtilities.convertPointFromScreen(screenPoint, parent);
@@ -125,6 +126,10 @@ public class FindTextInModelDialog extends DialogWrapper {
     } else {
       getPeer().getWindow().setLocationRelativeTo(parent);
     }
+    // Add reaction to drag by mouse to top most component
+    WindowMoveListener windowListener = new WindowMoveListener(getContentPanel());
+    getContentPanel().addMouseListener(windowListener);
+    getContentPanel().addMouseMotionListener(windowListener);
     getPeer().getWindow().setLocationRelativeTo(parent);
     JRootPane root = ((RootPaneContainer)getPeer().getWindow()).getRootPane();
     if (SystemInfo.isMac && UIUtil.isUnderDarcula()) {
