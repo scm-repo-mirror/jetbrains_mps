@@ -77,9 +77,6 @@ public final class SingleLineComment__BehaviorDescriptor extends BaseBHDescripto
     } else {
       l = SLinkOperations.addNewChild(__thisNode__, LINKS.text$BOhB, CONCEPTS.Line$w3);
     }
-    if (words.length > 0) {
-      ListSequence.fromList(SLinkOperations.getChildren(l, LINKS.elements$eRew)).clear();
-    }
     for (String w : words) {
       SNode word = SNodeFactoryOperations.addNewChild(l, LINKS.elements$eRew, CONCEPTS.Word$AM);
       SPropertyOperations.assign(word, PROPS.value$cK70, w);
