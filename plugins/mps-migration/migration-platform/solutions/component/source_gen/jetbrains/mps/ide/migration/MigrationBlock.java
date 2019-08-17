@@ -21,6 +21,15 @@ public class MigrationBlock {
   public MigrationBlock(MigrationTrigger migrationTrigger) {
     this.myMigrationTrigger = migrationTrigger;
   }
+  public void ensureBlocked(BlockCause cause) {
+    SetSequence.fromSet(myBlocks).addElement(cause);
+  }
+  public void ensureUnblocked(BlockCause cause) {
+    BlockCause contained = SetSequence.fromSet(myBlocks).removeElement(cause);
+    if (contained != null && SetSequence.fromSet(myBlocks).isEmpty()) {
+      myMigrationTrigger.checkMigrationNeeded();
+    }
+  }
   public void blockMigrationsCheck(BlockCause cause) {
     SetSequence.fromSet(myBlocks).addElement(cause);
   }

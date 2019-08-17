@@ -350,7 +350,9 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
                 }
               });
               Notifications.Bus.notify(myLastNotification, myProject);
-              myPostponedState = myPostponedState.add(newState.value);
+              if (myPostponedState != null) {
+                myPostponedState = myPostponedState.add(newState.value);
+              }
             }
             myMigrationBlock.unblockMigrationsCheck(scheduledBlockCause);
           }
@@ -617,25 +619,18 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   /*package*/ void checkNotDeployedLanguages() {
     Set<SLanguage> problems = getNotDeployedUsedLanguages();
     if (SetSequence.fromSet(problems).isEmpty()) {
-      if (myLastDeployWarning != null) {
-        myLastNotification = null;
-        myLastDeployWarning = null;
-
-        myMigrationBlock.unblockMigrationsCheck(myNotDeployedBlockCause);
-      }
+      myMigrationBlock.ensureUnblocked(myNotDeployedBlockCause);
     } else {
+      myMigrationBlock.ensureBlocked(myNotDeployedBlockCause);
+
       if (myLastDeployWarning != null && myLastDeployWarning.getBalloon() != null) {
+        // migrations already blocked, warning is showing 
         return;
       }
-      // migrations already blocked, warning is showing 
 
-      if (myLastDeployWarning == null) {
-        myMigrationBlock.blockMigrationsCheck(myNotDeployedBlockCause);
-      } else {
-        // expire old, show new to get the balloon again 
-        if (!((myLastDeployWarning.isExpired()))) {
-          myLastDeployWarning.expire();
-        }
+      // expire old, show new to get the balloon again 
+      if (myLastDeployWarning != null && !((myLastDeployWarning.isExpired()))) {
+        myLastDeployWarning.expire();
       }
 
       if (isMigrationRequired(MigrationModuleUtil.getMigrateableModulesFromProject(myMpsProject))) {
