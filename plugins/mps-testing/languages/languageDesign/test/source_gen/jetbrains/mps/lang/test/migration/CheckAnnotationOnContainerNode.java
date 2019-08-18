@@ -15,11 +15,14 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.migration.runtime.base.Problem;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.test.behavior.ITestAnnotationsContainer__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.lang.migration.runtime.base.NotMigratedNode;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
   private final String description = "Avoid check annotations on node container";
@@ -67,14 +70,14 @@ public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
       };
       return CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.AbstractTestNodeAnnotation$5M, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SNodeOperations.getNodeAncestor(SNodeOperations.getParent(it), CONCEPTS.TestNode$kc, false, false) == null);
+          return SNodeOperations.hasRole(it, LINKS.smodelAttribute$K8bJ) && !((boolean) ITestAnnotationsContainer__BehaviorDescriptor.canAddTestAnnotation_id143xXLdhXGe.invoke(SNodeOperations.asSConcept(CONCEPTS.ITestAnnotationsContainer$pG), SNodeOperations.getParent(it)));
         }
       }).select(new ISelector<SNode, Problem>() {
         public Problem select(SNode it) {
           Problem problem = new NotMigratedNode(it) {
             @Override
             public String getMessage() {
-              return "test annotation should be placed inside the node container";
+              return "Test annotation can appear only under ITestAnnotationsContainer.";
             }
           };
           return problem;
@@ -89,6 +92,10 @@ public class CheckAnnotationOnContainerNode extends MigrationScriptBase {
   private static final class CONCEPTS {
     /*package*/ static final SConcept NodeOperationsContainer$UO = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b07a3d4b5L, "jetbrains.mps.lang.test.structure.NodeOperationsContainer");
     /*package*/ static final SConcept AbstractTestNodeAnnotation$5M = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11e0d52da47L, "jetbrains.mps.lang.test.structure.AbstractTestNodeAnnotation");
-    /*package*/ static final SConcept TestNode$kc = MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x11b5a38fc01L, "jetbrains.mps.lang.test.structure.TestNode");
+    /*package*/ static final SInterfaceConcept ITestAnnotationsContainer$pG = MetaAdapterFactory.getInterfaceConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x110387dc4d47c93dL, "jetbrains.mps.lang.test.structure.ITestAnnotationsContainer");
+  }
+
+  private static final class LINKS {
+    /*package*/ static final SContainmentLink smodelAttribute$K8bJ = MetaAdapterFactory.getContainmentLink(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL, 0x47bf8397520e5942L, "smodelAttribute");
   }
 }

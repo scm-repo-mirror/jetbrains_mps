@@ -23,6 +23,7 @@
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="tpe3" ref="r:00000000-0000-4000-0000-011c895902d7(jetbrains.mps.baseLanguage.unitTest.structure)" />
     <import index="mhbf" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.model(MPS.OpenAPI/)" implicit="true" />
+    <import index="tp5o" ref="r:00000000-0000-4000-0000-011c89590380(jetbrains.mps.lang.test.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="8585453e-6bfb-4d80-98de-b16074f1d86c" name="jetbrains.mps.lang.test">
@@ -123,6 +124,9 @@
         <child id="1079359253376" name="expression" index="1eOMHV" />
       </concept>
       <concept id="1081506762703" name="jetbrains.mps.baseLanguage.structure.GreaterThanExpression" flags="nn" index="3eOSWO" />
+      <concept id="1081516740877" name="jetbrains.mps.baseLanguage.structure.NotExpression" flags="nn" index="3fqX7Q">
+        <child id="1081516765348" name="expression" index="3fr31v" />
+      </concept>
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
@@ -220,9 +224,7 @@
       <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
         <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
       </concept>
-      <concept id="1138411891628" name="jetbrains.mps.lang.smodel.structure.SNodeOperation" flags="nn" index="eCIE_">
-        <child id="1144104376918" name="parameter" index="1xVPHs" />
-      </concept>
+      <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
       <concept id="1138661924179" name="jetbrains.mps.lang.smodel.structure.Property_SetOperation" flags="nn" index="tyxLq">
         <child id="1138662048170" name="value" index="tz02z" />
       </concept>
@@ -241,10 +243,12 @@
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
       </concept>
-      <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
       <concept id="2644386474301421077" name="jetbrains.mps.lang.smodel.structure.LinkIdRefExpression" flags="nn" index="359W_D">
         <reference id="2644386474301421078" name="conceptDeclaration" index="359W_E" />
         <reference id="2644386474301421079" name="linkDeclaration" index="359W_F" />
+      </concept>
+      <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
+        <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
       </concept>
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
@@ -252,9 +256,6 @@
       </concept>
       <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
-      <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
-        <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
-      </concept>
       <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
         <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
@@ -1317,23 +1318,32 @@
                       <property role="3yWfEV" value="true" />
                       <node concept="3clFbS" id="7jfLc8W8Agp" role="1bW5cS">
                         <node concept="3clFbF" id="7jfLc8W9XJZ" role="3cqZAp">
-                          <node concept="2OqwBi" id="7jfLc8Wa0d2" role="3clFbG">
-                            <node concept="2OqwBi" id="7jfLc8W9Z4p" role="2Oq$k0">
-                              <node concept="2OqwBi" id="7jfLc8W9Y5q" role="2Oq$k0">
-                                <node concept="37vLTw" id="7jfLc8W9XJY" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="7jfLc8W8Agw" resolve="it" />
-                                </node>
-                                <node concept="1mfA1w" id="7jfLc8W9YGt" role="2OqNvi" />
+                          <node concept="1Wc70l" id="1a8iEH4IChJ" role="3clFbG">
+                            <node concept="2OqwBi" id="1a8iEH4ID6f" role="3uHU7B">
+                              <node concept="37vLTw" id="1a8iEH4ICGz" role="2Oq$k0">
+                                <ref role="3cqZAo" node="7jfLc8W8Agw" resolve="it" />
                               </node>
-                              <node concept="2Xjw5R" id="7jfLc8W9Zr9" role="2OqNvi">
-                                <node concept="1xMEDy" id="7jfLc8W9Zrb" role="1xVPHs">
-                                  <node concept="chp4Y" id="7jfLc8W9ZHb" role="ri$Ld">
-                                    <ref role="cht4Q" to="tp5g:hHqefK1" resolve="TestNode" />
+                              <node concept="1BlSNk" id="1a8iEH4IDF9" role="2OqNvi">
+                                <ref role="1BmUXE" to="tpck:gw2VY9q" resolve="BaseConcept" />
+                                <ref role="1Bn3mz" to="tpck:4uZwTti3__2" resolve="smodelAttribute" />
+                              </node>
+                            </node>
+                            <node concept="3fqX7Q" id="1a8iEH4I_qz" role="3uHU7w">
+                              <node concept="2OqwBi" id="1a8iEH4I_q_" role="3fr31v">
+                                <node concept="35c_gC" id="1a8iEH4I_qA" role="2Oq$k0">
+                                  <ref role="35c_gD" to="tp5g:143xXLdhW$X" resolve="ITestAnnotationsContainer" />
+                                </node>
+                                <node concept="2qgKlT" id="1a8iEH4I_qB" role="2OqNvi">
+                                  <ref role="37wK5l" to="tp5o:143xXLdhXGe" resolve="canAddTestAnnotation" />
+                                  <node concept="2OqwBi" id="1a8iEH4IBaY" role="37wK5m">
+                                    <node concept="37vLTw" id="1a8iEH4I_qC" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="7jfLc8W8Agw" resolve="it" />
+                                    </node>
+                                    <node concept="1mfA1w" id="1a8iEH4IBCl" role="2OqNvi" />
                                   </node>
                                 </node>
                               </node>
                             </node>
-                            <node concept="3w_OXm" id="7jfLc8Wa0FL" role="2OqNvi" />
                           </node>
                         </node>
                       </node>
@@ -1372,7 +1382,7 @@
                                   <node concept="3clFbS" id="7jfLc8W9SKp" role="3clF47">
                                     <node concept="3clFbF" id="7jfLc8W9SKq" role="3cqZAp">
                                       <node concept="Xl_RD" id="7jfLc8W9SKr" role="3clFbG">
-                                        <property role="Xl_RC" value="test annotation should be placed inside the node container" />
+                                        <property role="Xl_RC" value="Test annotation can appear only under ITestAnnotationsContainer." />
                                       </node>
                                     </node>
                                   </node>
