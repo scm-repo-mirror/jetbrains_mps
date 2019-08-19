@@ -4578,27 +4578,6 @@
         <node concept="10P_77" id="695k0NO_Mje" role="1tU5fm" />
       </node>
       <node concept="3clFbS" id="695k0NOyyOo" role="3clF47">
-        <node concept="3clFbF" id="2LW9P$mmmd$" role="3cqZAp">
-          <node concept="2OqwBi" id="2LW9P$mmmOg" role="3clFbG">
-            <node concept="liA8E" id="2LW9P$mmrii" role="2OqNvi">
-              <ref role="37wK5l" to="dxuu:~JComponent.setPreferredSize(java.awt.Dimension)" resolve="setPreferredSize" />
-              <node concept="2ShNRf" id="2LW9P$mmsPN" role="37wK5m">
-                <node concept="1pGfFk" id="2LW9P$mmt_Q" role="2ShVmc">
-                  <ref role="37wK5l" to="z60i:~Dimension.&lt;init&gt;(int,int)" resolve="Dimension" />
-                  <node concept="3cmrfG" id="2LW9P$mmtA_" role="37wK5m">
-                    <property role="3cmrfH" value="200" />
-                  </node>
-                  <node concept="3cmrfG" id="2LW9P$mmvp0" role="37wK5m">
-                    <property role="3cmrfH" value="50" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="37vLTw" id="695k0NOzDZy" role="2Oq$k0">
-              <ref role="3cqZAo" node="695k0NOxX4t" resolve="mySettingsPanel" />
-            </node>
-          </node>
-        </node>
         <node concept="3clFbH" id="4diCoAs9ABM" role="3cqZAp" />
         <node concept="3cpWs8" id="4diCoAs9QEQ" role="3cqZAp">
           <node concept="3cpWsn" id="4diCoAs9QER" role="3cpWs9">
@@ -6067,8 +6046,6 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="3_TiVQaP2YK" role="jymVt" />
-    <node concept="2tJIrI" id="695k0NOzTYD" role="jymVt" />
   </node>
   <node concept="3HP615" id="695k0NOwZkk">
     <property role="TrG5h" value="NewModelDialogSettings" />
