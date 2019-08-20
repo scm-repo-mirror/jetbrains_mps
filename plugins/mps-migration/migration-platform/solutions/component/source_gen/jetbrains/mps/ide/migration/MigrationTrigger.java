@@ -607,12 +607,12 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
 
     @Override
     public void afterLanguagesLoaded(Iterable<LanguageRuntime> loaded) {
+      checkNotDeployedLanguages();
       checkMigrationNeededOnLanguageReload(Sequence.fromIterable(loaded).select(new ISelector<LanguageRuntime, SLanguage>() {
         public SLanguage select(LanguageRuntime it) {
           return it.getIdentity();
         }
       }).toListSequence());
-      checkNotDeployedLanguages();
     }
 
     @Override

@@ -4815,6 +4815,11 @@
           </node>
         </node>
         <node concept="3clFbS" id="5D1sRmGLg7z" role="3clF47">
+          <node concept="3clFbF" id="5D1sRmGLhXO" role="3cqZAp">
+            <node concept="1rXfSq" id="5D1sRmGLhXP" role="3clFbG">
+              <ref role="37wK5l" node="6Va2kqwrehf" resolve="checkNotDeployedLanguages" />
+            </node>
+          </node>
           <node concept="3clFbF" id="1AzqgyAk$fp" role="3cqZAp">
             <node concept="1rXfSq" id="1AzqgyAk$fn" role="3clFbG">
               <ref role="37wK5l" node="1AzqgyAgwck" resolve="checkMigrationNeededOnLanguageReload" />
@@ -4846,11 +4851,6 @@
                 </node>
                 <node concept="ANE8D" id="5D1sRmGMkXn" role="2OqNvi" />
               </node>
-            </node>
-          </node>
-          <node concept="3clFbF" id="5D1sRmGLhXO" role="3cqZAp">
-            <node concept="1rXfSq" id="5D1sRmGLhXP" role="3clFbG">
-              <ref role="37wK5l" node="6Va2kqwrehf" resolve="checkNotDeployedLanguages" />
             </node>
           </node>
         </node>
