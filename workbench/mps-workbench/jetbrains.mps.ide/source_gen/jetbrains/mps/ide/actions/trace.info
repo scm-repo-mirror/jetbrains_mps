@@ -5833,50 +5833,62 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/1846532096126341800">
     <file name="FindTextInProject_Action.java">
-      <node id="1846532096126341800" at="14,0,15,0" concept="17" trace="ICON" />
-      <node id="1846532096126341800" at="16,37,17,79" concept="19" />
-      <node id="1846532096126341800" at="17,79,18,35" concept="7" />
-      <node id="1846532096126341800" at="18,35,19,40" concept="7" />
-      <node id="1846532096126341800" at="22,32,23,17" concept="14" />
-      <node id="1846532096126341800" at="27,53,28,19" concept="14" />
-      <node id="1846532096126355202" at="30,5,31,66" concept="13" />
-      <node id="1846532096126355203" at="32,22,33,21" concept="14" />
-      <node id="1846532096126341800" at="35,5,36,16" concept="14" />
-      <node id="738276832993037378" at="39,96,40,79" concept="13" />
-      <node id="8952945986130458341" at="40,79,41,70" concept="13" />
-      <node id="6593770876341757239" at="41,70,42,117" concept="15" />
-      <node id="3709936072080667424" at="42,117,43,94" concept="15" />
-      <node id="8952945986130245540" at="43,94,44,15" concept="7" />
-      <node id="1846532096126341800" at="26,95,29,5" concept="11" />
-      <node id="1846532096126355203" at="31,66,34,7" concept="11" />
-      <node id="1846532096126341800" at="21,0,25,0" concept="12" trace="isDumbAware#()Z" />
-      <node id="1846532096126341800" at="16,0,21,0" concept="4" trace="FindTextInProject_Action#()V" />
-      <node id="1846532096126355202" at="29,5,35,5" concept="2" />
-      <node id="1846532096126341800" at="38,0,46,0" concept="12" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
-      <node id="1846532096126341800" at="25,0,38,0" concept="12" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
-      <scope id="1846532096126341800" at="22,32,23,17" />
-      <scope id="1846532096126341800" at="27,53,28,19" />
-      <scope id="1846532096126355203" at="32,22,33,21" />
-      <scope id="1846532096126341800" at="16,37,19,40" />
-      <scope id="1846532096126341800" at="21,0,25,0" />
-      <scope id="1846532096126355202" at="30,5,34,7">
+      <node id="1846532096126341800" at="18,0,19,0" concept="17" trace="ICON" />
+      <node id="1846532096126341800" at="20,37,21,79" concept="19" />
+      <node id="1846532096126341800" at="21,79,22,35" concept="7" />
+      <node id="1846532096126341800" at="22,35,23,40" concept="7" />
+      <node id="1846532096126341800" at="26,32,27,17" concept="14" />
+      <node id="1846532096126341800" at="31,53,32,19" concept="14" />
+      <node id="1846532096126355202" at="34,5,35,66" concept="13" />
+      <node id="1846532096126355203" at="36,22,37,21" concept="14" />
+      <node id="9149643338732047284" at="40,5,41,72" concept="13" />
+      <node id="1846532096126341800" at="42,5,43,16" concept="14" />
+      <node id="738276832993037378" at="46,96,47,79" concept="13" />
+      <node id="8952945986130458341" at="47,79,48,73" concept="13" />
+      <node id="6965829476527672119" at="48,73,49,161" concept="15" />
+      <node id="9149643338732067594" at="50,162,51,113" concept="13" />
+      <node id="9149643338732078848" at="52,58,53,102" concept="7" />
+      <node id="8952945986130245540" at="55,5,56,18" concept="7" />
+      <node id="1846532096126341800" at="30,95,33,5" concept="11" />
+      <node id="1846532096126355203" at="35,66,38,7" concept="11" />
+      <node id="9149643338732047284" at="39,5,42,5" concept="2" />
+      <node id="9149643338732063757" at="51,113,54,7" concept="11" />
+      <node id="1846532096126341800" at="25,0,29,0" concept="12" trace="isDumbAware#()Z" />
+      <node id="1846532096126341800" at="20,0,25,0" concept="4" trace="FindTextInProject_Action#()V" />
+      <node id="1846532096126355202" at="33,5,39,5" concept="2" />
+      <node id="9149643338731986048" at="49,161,55,5" concept="11" />
+      <node id="1846532096126341800" at="45,0,58,0" concept="12" trace="doExecute#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)V" />
+      <node id="1846532096126341800" at="29,0,45,0" concept="12" trace="collectActionData#(Lcom/intellij/openapi/actionSystem/AnActionEvent;Ljava/util/Map;)Z" />
+      <scope id="1846532096126341800" at="26,32,27,17" />
+      <scope id="1846532096126341800" at="31,53,32,19" />
+      <scope id="1846532096126355203" at="36,22,37,21" />
+      <scope id="9149643338732047284" at="40,5,41,72">
+        <var name="p" id="9149643338732047284" />
+      </scope>
+      <scope id="9149643338732063759" at="52,58,53,102" />
+      <scope id="1846532096126341800" at="20,37,23,40" />
+      <scope id="1846532096126341800" at="25,0,29,0" />
+      <scope id="1846532096126355202" at="34,5,38,7">
         <var name="p" id="1846532096126355202" />
       </scope>
-      <scope id="1846532096126341800" at="16,0,21,0" />
-      <scope id="1846532096126341800" at="39,96,44,15">
-        <var name="dlg" id="8952945986130458342" />
+      <scope id="9149643338731986050" at="50,162,54,7">
+        <var name="selection" id="9149643338732067595" />
+      </scope>
+      <scope id="1846532096126341800" at="20,0,25,0" />
+      <scope id="1846532096126341800" at="46,96,56,18">
+        <var name="dialog" id="8952945986130458342" />
         <var name="mpsProject" id="738276832993037379" />
       </scope>
-      <scope id="1846532096126341800" at="38,0,46,0">
+      <scope id="1846532096126341800" at="30,95,43,16" />
+      <scope id="1846532096126341800" at="45,0,58,0">
         <var name="_params" id="1846532096126341800" />
         <var name="event" id="1846532096126341800" />
       </scope>
-      <scope id="1846532096126341800" at="26,95,36,16" />
-      <scope id="1846532096126341800" at="25,0,38,0">
+      <scope id="1846532096126341800" at="29,0,45,0">
         <var name="_params" id="1846532096126341800" />
         <var name="event" id="1846532096126341800" />
       </scope>
-      <unit id="1846532096126341800" at="13,0,47,0" name="jetbrains.mps.ide.actions.FindTextInProject_Action" />
+      <unit id="1846532096126341800" at="17,0,59,0" name="jetbrains.mps.ide.actions.FindTextInProject_Action" />
     </file>
     <file name="Ide_ApplicationPlugin.java">
       <node id="1846532096126341800" at="53,51,54,46" concept="7" />
