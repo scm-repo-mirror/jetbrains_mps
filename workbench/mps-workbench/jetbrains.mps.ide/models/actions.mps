@@ -47221,21 +47221,17 @@
       <property role="TrG5h" value="getDefaultSettingsFactory" />
       <property role="DiZV1" value="true" />
       <node concept="3clFbS" id="695k0NOEJU3" role="3clF47">
-        <node concept="3clFbF" id="695k0NOFpUR" role="3cqZAp">
-          <node concept="2YIFZM" id="695k0NOGjH2" role="3clFbG">
-            <ref role="1Pybhc" to="yrws:695k0NOxxHF" resolve="NewModelDialogDefaultSettings" />
-            <ref role="37wK5l" to="yrws:695k0NO_dVY" resolve="getFactory" />
+        <node concept="3clFbF" id="2RQH8XooLZM" role="3cqZAp">
+          <node concept="1rXfSq" id="2RQH8XooLZK" role="3clFbG">
+            <ref role="37wK5l" node="4TkV4lCI$vz" resolve="getDefaultSettingsFactory" />
             <node concept="1rXfSq" id="695k0NOGjH3" role="37wK5m">
               <ref role="37wK5l" node="695k0NOFctU" resolve="getDefaultNamespaceFor" />
               <node concept="37vLTw" id="695k0NOGjH4" role="37wK5m">
                 <ref role="3cqZAo" node="695k0NOEPkw" resolve="module" />
               </node>
             </node>
-            <node concept="1rXfSq" id="695k0NOGMcW" role="37wK5m">
-              <ref role="37wK5l" node="695k0NOGmuO" resolve="getDefaultStereotypeProvider" />
-              <node concept="37vLTw" id="695k0NOGMpf" role="37wK5m">
-                <ref role="3cqZAo" node="695k0NOGjLY" resolve="treeNode" />
-              </node>
+            <node concept="37vLTw" id="2RQH8XooNtc" role="37wK5m">
+              <ref role="3cqZAo" node="695k0NOGjLY" resolve="treeNode" />
             </node>
           </node>
         </node>
@@ -47265,8 +47261,13 @@
           <node concept="2YIFZM" id="4TkV4lCI$vA" role="3clFbG">
             <ref role="1Pybhc" to="yrws:695k0NOxxHF" resolve="NewModelDialogDefaultSettings" />
             <ref role="37wK5l" to="yrws:695k0NO_dVY" resolve="getFactory" />
-            <node concept="37vLTw" id="4TkV4lCI$vC" role="37wK5m">
-              <ref role="3cqZAo" node="4TkV4lCI$vH" resolve="namespace" />
+            <node concept="3cpWs3" id="2RQH8XooKQu" role="37wK5m">
+              <node concept="Xl_RD" id="2RQH8XooKVE" role="3uHU7w">
+                <property role="Xl_RC" value="." />
+              </node>
+              <node concept="37vLTw" id="4TkV4lCI$vC" role="3uHU7B">
+                <ref role="3cqZAo" node="4TkV4lCI$vH" resolve="namespace" />
+              </node>
             </node>
             <node concept="1rXfSq" id="4TkV4lCI$vD" role="37wK5m">
               <ref role="37wK5l" node="695k0NOGmuO" resolve="getDefaultStereotypeProvider" />
@@ -47598,17 +47599,22 @@
           <node concept="2YIFZM" id="3QWQ9jDTviy" role="3clFbG">
             <ref role="37wK5l" to="yrws:695k0NO_dVY" resolve="getFactory" />
             <ref role="1Pybhc" to="yrws:695k0NOxxHF" resolve="NewModelDialogDefaultSettings" />
-            <node concept="2OqwBi" id="3QWQ9jDTwff" role="37wK5m">
-              <node concept="2OqwBi" id="3QWQ9jDTvXM" role="2Oq$k0">
-                <node concept="37vLTw" id="3QWQ9jDTvMS" role="2Oq$k0">
-                  <ref role="3cqZAo" node="3QWQ9jDTv0D" resolve="supermodel" />
-                </node>
-                <node concept="liA8E" id="3QWQ9jDTw9s" role="2OqNvi">
-                  <ref role="37wK5l" to="mhbf:~SModel.getName()" resolve="getName" />
-                </node>
+            <node concept="3cpWs3" id="2RQH8XooNAb" role="37wK5m">
+              <node concept="Xl_RD" id="2RQH8XooNF$" role="3uHU7w">
+                <property role="Xl_RC" value="." />
               </node>
-              <node concept="liA8E" id="3QWQ9jDTwrQ" role="2OqNvi">
-                <ref role="37wK5l" to="mhbf:~SModelName.getLongName()" resolve="getLongName" />
+              <node concept="2OqwBi" id="3QWQ9jDTwff" role="3uHU7B">
+                <node concept="2OqwBi" id="3QWQ9jDTvXM" role="2Oq$k0">
+                  <node concept="37vLTw" id="3QWQ9jDTvMS" role="2Oq$k0">
+                    <ref role="3cqZAo" node="3QWQ9jDTv0D" resolve="supermodel" />
+                  </node>
+                  <node concept="liA8E" id="3QWQ9jDTw9s" role="2OqNvi">
+                    <ref role="37wK5l" to="mhbf:~SModel.getName()" resolve="getName" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="3QWQ9jDTwrQ" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SModelName.getLongName()" resolve="getLongName" />
+                </node>
               </node>
             </node>
             <node concept="2YIFZM" id="3QWQ9jDTwOO" role="37wK5m">
@@ -47990,7 +47996,7 @@
         <node concept="3clFbF" id="457w8RR3R1B" role="3cqZAp">
           <node concept="3cpWs3" id="ZfFelTAFy4" role="3clFbG">
             <node concept="Xl_RD" id="ZfFelTAFy5" role="3uHU7w">
-              <property role="Xl_RC" value="_clone" />
+              <property role="Xl_RC" value=".clone" />
             </node>
             <node concept="2OqwBi" id="ZfFelTAFy6" role="3uHU7B">
               <node concept="liA8E" id="ZfFelTAFy8" role="2OqNvi">
