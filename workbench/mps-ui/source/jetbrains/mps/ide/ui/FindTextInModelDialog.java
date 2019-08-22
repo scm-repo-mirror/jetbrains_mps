@@ -109,6 +109,7 @@ import java.util.List;
 /**
  * Dialog to query search string to look up property values in model.
  * Quite rudimentary at the moment, supposed to improve over time to get close to IDEA's FindPopupPanel (Find in Path action)
+ *
  * @author Artem Tikhomirov
  * @since 2019.2
  */
@@ -154,7 +155,7 @@ public class FindTextInModelDialog extends DialogWrapper {
     getContentPanel().addMouseListener(windowListener);
     getContentPanel().addMouseMotionListener(windowListener);
     getPeer().getWindow().setLocationRelativeTo(parent);
-    JRootPane root = ((RootPaneContainer)getPeer().getWindow()).getRootPane();
+    JRootPane root = ((RootPaneContainer) getPeer().getWindow()).getRootPane();
     if (SystemInfo.isMac && UIUtil.isUnderDarcula()) {
       root.setBorder(PopupBorder.Factory.createColored(OnePixelDivider.BACKGROUND));
     } else {
@@ -216,8 +217,8 @@ public class FindTextInModelDialog extends DialogWrapper {
 
   @Override
   protected JComponent createCenterPanel() {
-    DialogPanel p = new DialogPanel();
-    p.setLayout(new BorderLayout());
+    DialogPanel dialogPanel = new DialogPanel();
+    dialogPanel.setLayout(new BorderLayout());
     final JBLabel title = new JBLabel("Find Text in Node Properties");
     title.setFont(title.getFont().deriveFont(Font.BOLD));
     JBTextArea textArea = new JBTextArea(1, 25); // values from FindPopupPanel
@@ -259,7 +260,7 @@ public class FindTextInModelDialog extends DialogWrapper {
     myResultsPreviewTable.setFillsViewportHeight(true); // JBTable does that, can remove?
     myResultsPreviewTable.setRowSelectionAllowed(false);
     myResultsPreviewTable.setColumnSelectionAllowed(false);
-    final Dimension minSize = new Dimension(mySearchEntry.getWidth(), 1+ myResultsPreviewTable.getRowHeight() * 4);
+    final Dimension minSize = new Dimension(mySearchEntry.getWidth(), 1 + myResultsPreviewTable.getRowHeight() * 4);
     myResultsPreviewTable.setPreferredScrollableViewportSize(minSize);
     myResultsPreviewTable.setMinimumSize(minSize);
     myResultsPreviewTable.getEmptyText().setText("Enter property value to look up");
@@ -300,7 +301,7 @@ public class FindTextInModelDialog extends DialogWrapper {
 
     boolean enterAsOK = Registry.is("ide.find.enter.as.ok", false);
 
-    new MyEnterAction(enterAsOK).registerCustomShortcutSet(new CustomShortcutSet(ENTER), p);
+    new MyEnterAction(enterAsOK).registerCustomShortcutSet(new CustomShortcutSet(ENTER), dialogPanel);
 
     final JBEmptyBorder border = Borders.empty(4, 10);
     // for whatever stupid reason, SearchTextArea implementation overrides its border, therefore have to wrap with another panel to set these
@@ -310,10 +311,10 @@ public class FindTextInModelDialog extends DialogWrapper {
     north.add(title);
     north.add(Box.createVerticalStrut(4));
     north.add(mySearchEntry);
-    p.add(north, BorderLayout.NORTH);
-    p.add(scrollPane, BorderLayout.CENTER);
-    p.setPreferredFocusedComponent(textArea);
-    return p;
+    dialogPanel.add(north, BorderLayout.NORTH);
+    dialogPanel.add(scrollPane, BorderLayout.CENTER);
+    dialogPanel.setPreferredFocusedComponent(textArea);
+    return dialogPanel;
   }
 
   @Override
@@ -396,12 +397,12 @@ public class FindTextInModelDialog extends DialogWrapper {
   }
 
   private void saveSettings() {
-    DimensionService.getInstance().setSize(getDimensionServiceKey(), getSize(), myProject.getProject() );
-    DimensionService.getInstance().setLocation(getDimensionServiceKey(), getWindow().getLocationOnScreen(), myProject.getProject() );
+    DimensionService.getInstance().setSize(getDimensionServiceKey(), getSize(), myProject.getProject());
+    DimensionService.getInstance().setLocation(getDimensionServiceKey(), getWindow().getLocationOnScreen(), myProject.getProject());
   }
 
   @SuppressWarnings("WeakerAccess")
-  /*package*/ TableEntry toEntry(SNode node, SProperty p, String value) {
+    /*package*/ TableEntry toEntry(SNode node, SProperty p, String value) {
     // collect necessary presentation data while still in model read
     SNode named = node;
     while (named != null && !named.isInstanceOfConcept(SNodeUtil.concept_INamedConcept)) {
@@ -417,7 +418,7 @@ public class FindTextInModelDialog extends DialogWrapper {
   }
 
   @SuppressWarnings("WeakerAccess")
-  /*package*/ void scheduleResultsUpdate() {
+    /*package*/ void scheduleResultsUpdate() {
     if (mySearchSchedule.isDisposed()) {
       return;
     }
@@ -434,7 +435,7 @@ public class FindTextInModelDialog extends DialogWrapper {
   }
 
   @SuppressWarnings("WeakerAccess")
-  /*package*/ void textChanged() {
+    /*package*/ void textChanged() {
     // this method works in EDT
     final DefaultTableModel model = new DefaultTableModel() {
       @Override
@@ -525,7 +526,7 @@ public class FindTextInModelDialog extends DialogWrapper {
       myChangedIndicator.setForeground(FileStatus.MODIFIED.getColor());
       myLocation.setForeground(UIUtil.getInactiveTextColor());
       /* As we don't have a line number on the right side as in IntelliJ IDEA,
-      *  we have to set some right margin. 2x was chosen experimentally */
+       *  we have to set some right margin. 2x was chosen experimentally */
       setBorder(JBUI.Borders.empty(MARGIN, MARGIN, MARGIN, 2 * MARGIN));
     }
 
@@ -561,8 +562,7 @@ public class FindTextInModelDialog extends DialogWrapper {
     public void actionPerformed(@NotNull AnActionEvent e) {
       if (myEnterAsOK) {
         doOKAction();
-      }
-      else {
+      } else {
         navigateToSelectedUsage();
       }
     }
