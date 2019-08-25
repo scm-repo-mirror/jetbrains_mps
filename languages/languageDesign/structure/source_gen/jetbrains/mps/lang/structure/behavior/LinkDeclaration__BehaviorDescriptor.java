@@ -15,15 +15,18 @@ import org.jetbrains.mps.openapi.language.SAbstractLink;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.kernel.model.SModelUtil;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -33,38 +36,37 @@ public final class LinkDeclaration__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<SNode> getGenuineLink_idhEwIf_V = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getGenuineLink").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIf_V").build();
   public static final SMethod<String> getGenuineRole_idhEwIfAe = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getGenuineRole").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIfAe").build();
   public static final SMethod<Boolean> isSingular_idhEwIfAt = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSingular").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIfAt").build();
-  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
   public static final SMethod<Boolean> isAtLeastOneCardinality_id2VYdUfnkjmB = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isAtLeastOneCardinality").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2VYdUfnkjmB").build();
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
   public static final SMethod<SNode> getConceptDeclaration_id7jb4LXpbWaP = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getConceptDeclaration").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7jb4LXpbWaP").build();
   public static final SMethod<Boolean> is_id4MKjpUYniHA = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("is").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4MKjpUYniHA").build(SMethodBuilder.createJavaParameter(SAbstractLink.class, ""));
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getGenuineLink_idhEwIf_V, getGenuineRole_idhEwIfAe, isSingular_idhEwIfAt, getPresentation_idhEwIMiw, isAtLeastOneCardinality_id2VYdUfnkjmB, getConceptDeclaration_id7jb4LXpbWaP, is_id4MKjpUYniHA);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getGenuineLink_idhEwIf_V, getGenuineRole_idhEwIfAe, isSingular_idhEwIfAt, isAtLeastOneCardinality_id2VYdUfnkjmB, getPresentation_idhEwIMiw, getConceptDeclaration_id7jb4LXpbWaP, is_id4MKjpUYniHA);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static SNode getGenuineLink_idhEwIf_V(@NotNull SNode __thisNode__) {
-    if (__thisNode__ == null) {
-      return null;
+    if (SLinkOperations.getTarget(__thisNode__, LINKS.specializedLink$3uH0) == null) {
+      return __thisNode__;
     }
-    return SModelUtil.getGenuineLinkDeclaration(__thisNode__);
+    return LinkDeclaration__BehaviorDescriptor.getGenuineLink_idhEwIf_V.invoke(SLinkOperations.getTarget(__thisNode__, LINKS.specializedLink$3uH0));
   }
+  @Deprecated
+  @ToRemove(version = 2019.3)
   /*package*/ static String getGenuineRole_idhEwIfAe(@NotNull SNode __thisNode__) {
-    if (__thisNode__ == null) {
-      return null;
-    }
-    return SModelUtil.getGenuineLinkRole(__thisNode__);
+    return SPropertyOperations.getString(LinkDeclaration__BehaviorDescriptor.getGenuineLink_idhEwIf_V.invoke(__thisNode__), PROPS.role$r_O$);
   }
   /*package*/ static boolean isSingular_idhEwIfAt(@NotNull SNode __thisNode__) {
-    SNode genuineLinkDeclaration = SModelUtil.getGenuineLinkDeclaration(__thisNode__);
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(genuineLinkDeclaration, PROPS.sourceCardinality$$E8z), 0xfc6f3944c3L) || SEnumOperations.isMember(SPropertyOperations.getEnum(genuineLinkDeclaration, PROPS.sourceCardinality$$E8z), 0xfc6f3944c4L);
+    SEnumerationLiteral cardinality = SPropertyOperations.getEnum(LinkDeclaration__BehaviorDescriptor.getGenuineLink_idhEwIf_V.invoke(__thisNode__), PROPS.sourceCardinality$$E8z);
+    return SEnumOperations.isMember(cardinality, 0xfc6f3944c3L) || SEnumOperations.isMember(cardinality, 0xfc6f3944c4L);
+  }
+  /*package*/ static boolean isAtLeastOneCardinality_id2VYdUfnkjmB(@NotNull SNode __thisNode__) {
+    SEnumerationLiteral cardinality = SPropertyOperations.getEnum(LinkDeclaration__BehaviorDescriptor.getGenuineLink_idhEwIf_V.invoke(__thisNode__), PROPS.sourceCardinality$$E8z);
+    return SEnumOperations.isMember(cardinality, 0xfc6f3944c4L) || SEnumOperations.isMember(cardinality, 0xfc6f3944c6L);
   }
   /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
     return SPropertyOperations.getString(__thisNode__, PROPS.role$r_O$);
-  }
-  /*package*/ static boolean isAtLeastOneCardinality_id2VYdUfnkjmB(@NotNull SNode __thisNode__) {
-    SNode genuineLink = LinkDeclaration__BehaviorDescriptor.getGenuineLink_idhEwIf_V.invoke(__thisNode__);
-    return SEnumOperations.isMember(SPropertyOperations.getEnum(genuineLink, PROPS.sourceCardinality$$E8z), 0xfc6f3944c4L) || SEnumOperations.isMember(SPropertyOperations.getEnum(genuineLink, PROPS.sourceCardinality$$E8z), 0xfc6f3944c6L);
   }
   /*package*/ static SNode getConceptDeclaration_id7jb4LXpbWaP(@NotNull SNode __thisNode__) {
     return SNodeOperations.getNodeAncestor(__thisNode__, CONCEPTS.AbstractConceptDeclaration$UN, false, false);
@@ -101,9 +103,9 @@ public final class LinkDeclaration__BehaviorDescriptor extends BaseBHDescriptor 
       case 2:
         return (T) ((Boolean) isSingular_idhEwIfAt(node));
       case 3:
-        return (T) ((String) getPresentation_idhEwIMiw(node));
-      case 4:
         return (T) ((Boolean) isAtLeastOneCardinality_id2VYdUfnkjmB(node));
+      case 4:
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       case 5:
         return (T) ((SNode) getConceptDeclaration_id7jb4LXpbWaP(node));
       case 6:
@@ -137,9 +139,13 @@ public final class LinkDeclaration__BehaviorDescriptor extends BaseBHDescriptor 
     return CONCEPT;
   }
 
+  private static final class LINKS {
+    /*package*/ static final SReferenceLink specializedLink$3uH0 = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98051c244L, "specializedLink");
+  }
+
   private static final class PROPS {
-    /*package*/ static final SProperty sourceCardinality$$E8z = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality");
     /*package*/ static final SProperty role$r_O$ = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98052f333L, "role");
+    /*package*/ static final SProperty sourceCardinality$$E8z = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf98054bb04L, "sourceCardinality");
     /*package*/ static final SProperty metaClass$tHD7 = MetaAdapterFactory.getProperty(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL, 0xf980556927L, "metaClass");
   }
 
