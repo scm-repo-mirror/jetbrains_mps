@@ -768,19 +768,26 @@
               </node>
               <node concept="3clFbS" id="x6gRTxBRUH" role="1bW5cS">
                 <node concept="3clFbF" id="x6gRTxBRUI" role="3cqZAp">
-                  <node concept="2YIFZM" id="4yKSLMxBAj0" role="3clFbG">
-                    <ref role="37wK5l" to="strd:~HighlightUtil.createHighlighterMessage(jetbrains.mps.errors.item.NodeReportItem,jetbrains.mps.openapi.editor.message.EditorMessageOwner,org.jetbrains.mps.openapi.module.SRepository)" resolve="createHighlighterMessage" />
-                    <ref role="1Pybhc" to="strd:~HighlightUtil" resolve="HighlightUtil" />
-                    <node concept="37vLTw" id="4yKSLMxBQe8" role="37wK5m">
-                      <ref role="3cqZAo" node="x6gRTxBRUF" resolve="report" />
+                  <node concept="2OqwBi" id="3EFSlc$uh4u" role="3clFbG">
+                    <node concept="37vLTw" id="3EFSlc$ug8$" role="2Oq$k0">
+                      <ref role="3cqZAo" node="36YhQHI6GIc" resolve="messages" />
                     </node>
-                    <node concept="Xjq3P" id="4yKSLMxBAj2" role="37wK5m" />
-                    <node concept="2OqwBi" id="4yKSLMxBGTZ" role="37wK5m">
-                      <node concept="37vLTw" id="4yKSLMxBF7w" role="2Oq$k0">
-                        <ref role="3cqZAo" node="15Dv6lKf6It" resolve="myProject" />
-                      </node>
-                      <node concept="liA8E" id="4yKSLMxBM4C" role="2OqNvi">
-                        <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                    <node concept="TSZUe" id="3EFSlc$uhLU" role="2OqNvi">
+                      <node concept="2YIFZM" id="4yKSLMxBAj0" role="25WWJ7">
+                        <ref role="1Pybhc" to="strd:~HighlightUtil" resolve="HighlightUtil" />
+                        <ref role="37wK5l" to="strd:~HighlightUtil.createHighlighterMessage(jetbrains.mps.errors.item.NodeReportItem,jetbrains.mps.openapi.editor.message.EditorMessageOwner,org.jetbrains.mps.openapi.module.SRepository)" resolve="createHighlighterMessage" />
+                        <node concept="37vLTw" id="4yKSLMxBQe8" role="37wK5m">
+                          <ref role="3cqZAo" node="x6gRTxBRUF" resolve="report" />
+                        </node>
+                        <node concept="Xjq3P" id="4yKSLMxBAj2" role="37wK5m" />
+                        <node concept="2OqwBi" id="4yKSLMxBGTZ" role="37wK5m">
+                          <node concept="37vLTw" id="4yKSLMxBF7w" role="2Oq$k0">
+                            <ref role="3cqZAo" node="15Dv6lKf6It" resolve="myProject" />
+                          </node>
+                          <node concept="liA8E" id="4yKSLMxBM4C" role="2OqNvi">
+                            <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+                          </node>
+                        </node>
                       </node>
                     </node>
                   </node>

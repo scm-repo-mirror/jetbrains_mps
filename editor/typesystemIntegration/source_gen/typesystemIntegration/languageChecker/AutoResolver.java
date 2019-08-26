@@ -75,7 +75,7 @@ public class AutoResolver extends BaseEventProcessingEditorChecker {
       return UpdateResult.CANCELLED;
     }
 
-    Set<EditorMessage> messages = SetSequence.fromSet(new LinkedHashSet<EditorMessage>());
+    final Set<EditorMessage> messages = SetSequence.fromSet(new LinkedHashSet<EditorMessage>());
     // TODO: use same settings as in LanguageEditorChecker 
     BadReferences badReferences = collectBadReferences(rootNode);
 
@@ -92,7 +92,7 @@ public class AutoResolver extends BaseEventProcessingEditorChecker {
     }
     final Consumer<NodeReportItem> consumer = new Consumer<NodeReportItem>() {
       public void consume(NodeReportItem report) {
-        HighlightUtil.createHighlighterMessage(report, AutoResolver.this, myProject.getRepository());
+        SetSequence.fromSet(messages).addElement(HighlightUtil.createHighlighterMessage(report, AutoResolver.this, myProject.getRepository()));
       }
     };
     for (ICheckingPostprocessor<NodeReportItem> postprocessor : myPostprocessors) {
