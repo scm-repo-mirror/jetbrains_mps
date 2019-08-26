@@ -280,7 +280,7 @@
              feedback="http://youtrack.jetbrains.net"
              majorVersion="2019" minorVersoin="2">
       <build number="192.2072" version="2019.2">
-        <message>JetBrains MPS 2019.2 is available!</message>
+        <message>JetBrains MPS 2019.2 is available.</message>
         <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>      </build>
     </channel>
   </product>
