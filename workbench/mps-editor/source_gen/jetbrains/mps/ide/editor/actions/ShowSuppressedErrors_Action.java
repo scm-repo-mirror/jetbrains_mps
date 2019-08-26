@@ -6,23 +6,21 @@ import jetbrains.mps.workbench.action.BaseAction;
 import javax.swing.Icon;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import java.util.Map;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
 import jetbrains.mps.project.MPSProject;
-import org.jetbrains.annotations.NotNull;
 import com.intellij.ui.awt.RelativePoint;
 import jetbrains.mps.ide.editor.util.GoToContextMenuHelper;
-import java.util.List;
 import jetbrains.mps.ide.editor.util.CustomizedNavigatable;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import java.util.HashMap;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.item.FlavouredItem;
@@ -30,6 +28,7 @@ import jetbrains.mps.errors.item.RuleIdFlavouredItem;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.AnAction;
 import jetbrains.mps.icons.MPSIcons;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.errors.item.TypesystemReportItemAdapter;
@@ -46,10 +45,13 @@ import jetbrains.mps.ide.editor.util.CaptionFunction;
 import jetbrains.mps.ide.editor.util.CustomizedNavigatableRenderer;
 import java.util.Comparator;
 import com.intellij.util.Function;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
+import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import org.jetbrains.mps.openapi.language.SProperty;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 public class ShowSuppressedErrors_Action extends BaseAction {
   private static final Icon ICON = null;
@@ -62,6 +64,15 @@ public class ShowSuppressedErrors_Action extends BaseAction {
   @Override
   public boolean isDumbAware() {
     return true;
+  }
+  @Override
+  public boolean isApplicable(AnActionEvent event, final Map<String, Object> _params) {
+    Tuples._2<SNode, List<SNode>> suppressedPair = ShowSuppressedErrors_Action.this.getSuppressed(_params);
+    return suppressedPair != null && ListSequence.fromList(suppressedPair._1()).isNotEmpty();
+  }
+  @Override
+  public void doUpdate(@NotNull AnActionEvent event, final Map<String, Object> _params) {
+    this.setEnabledState(event.getPresentation(), this.isApplicable(event, _params));
   }
   @Override
   protected boolean collectActionData(AnActionEvent event, final Map<String, Object> _params) {
@@ -98,18 +109,8 @@ public class ShowSuppressedErrors_Action extends BaseAction {
     final Wrappers._T<String> title = new Wrappers._T<String>();
     ((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository().getModelAccess().runReadAction(new Runnable() {
       public void run() {
-        List<SNode> suppressed = ListSequence.fromList(new ArrayList<SNode>());
-        SNode parent;
-        if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q)) {
-          parent = SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q);
-          ListSequence.fromList(suppressed).addSequence(ListSequence.fromList(AttributeOperations.getAttributeList(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q), new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))));
-        } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ)) {
-          parent = SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ)), CONCEPTS.ICanSuppressErrors$1Q);
-          ListSequence.fromList(suppressed).addElement(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ));
-        } else {
-          throw new IllegalStateException();
-        }
-        for (final SNode suppress : ListSequence.fromList(suppressed)) {
+        Tuples._2<SNode, List<SNode>> suppressedPair = ShowSuppressedErrors_Action.this.getSuppressed(_params);
+        for (final SNode suppress : ListSequence.fromList(suppressedPair._1())) {
           Map<String, String> predicateFlavours = new HashMap<String, String>();
           final String errorSpecialization = SPropertyOperations.getString(suppress, PROPS.filter$UuSh);
           try {
@@ -167,7 +168,7 @@ public class ShowSuppressedErrors_Action extends BaseAction {
           };
           ListSequence.fromList(navigatables).addElement(navigatable);
         }
-        title.value = "Errors suppressed for " + ((String) BHReflection.invoke0(parent, CONCEPTS.ICanSuppressErrors$1Q, SMethodTrimmedId.create("nodeDescription", null, "4oS1ku9jIXr")));
+        title.value = "Errors suppressed for " + ((String) BHReflection.invoke0(suppressedPair._0(), CONCEPTS.ICanSuppressErrors$1Q, SMethodTrimmedId.create("nodeDescription", null, "4oS1ku9jIXr")));
       }
     });
     GoToContextMenuHelperBase<CustomizedNavigatable> helper = new GoToContextMenuHelperBase<CustomizedNavigatable>(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), new CaptionFunction() {
@@ -186,14 +187,29 @@ public class ShowSuppressedErrors_Action extends BaseAction {
     });
     helper.showMenu(navigatables, relativePoint);
   }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SInterfaceConcept ICanSuppressErrors$1Q = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f42L, "jetbrains.mps.lang.core.structure.ICanSuppressErrors");
-    /*package*/ static final SConcept SuppressErrorsAnnotation$gJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
+  private Tuples._2<SNode, List<SNode>> getSuppressed(final Map<String, Object> _params) {
+    List<SNode> suppressed = ListSequence.fromList(new ArrayList<SNode>());
+    SNode parent;
+    if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q)) {
+      parent = SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q);
+      ListSequence.fromList(suppressed).addSequence(ListSequence.fromList(AttributeOperations.getAttributeList(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.ICanSuppressErrors$1Q), new IAttributeDescriptor.NodeAttribute(CONCEPTS.SuppressErrorsAnnotation$gJ))));
+      return MultiTuple.<SNode,List<SNode>>from(parent, suppressed);
+    } else if (SNodeOperations.isInstanceOf(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ)) {
+      parent = SNodeOperations.cast(SNodeOperations.getParent(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ)), CONCEPTS.ICanSuppressErrors$1Q);
+      ListSequence.fromList(suppressed).addElement(SNodeOperations.cast(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.SuppressErrorsAnnotation$gJ));
+      return MultiTuple.<SNode,List<SNode>>from(parent, suppressed);
+    } else {
+      return null;
+    }
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty filter$UuSh = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x21a1b53c6f2a72edL, "filter");
     /*package*/ static final SProperty message$PX4b = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, 0x7701afb3667b38f5L, "message");
+  }
+
+  private static final class CONCEPTS {
+    /*package*/ static final SInterfaceConcept ICanSuppressErrors$1Q = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f42L, "jetbrains.mps.lang.core.structure.ICanSuppressErrors");
+    /*package*/ static final SConcept SuppressErrorsAnnotation$gJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x3a98b0957fe8e5d2L, "jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation");
   }
 }
