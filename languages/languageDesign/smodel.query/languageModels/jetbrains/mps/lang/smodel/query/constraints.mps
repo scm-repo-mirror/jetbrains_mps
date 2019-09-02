@@ -78,6 +78,7 @@
       </concept>
       <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="334628810661441841" name="jetbrains.mps.lang.smodel.structure.AsSConcept" flags="nn" index="1rGIog" />
+      <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
       <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144100932627" name="jetbrains.mps.lang.smodel.structure.OperationParm_Inclusion" flags="ng" index="1xIGOp" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
@@ -210,6 +211,30 @@
                 </node>
               </node>
             </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="15xzdwHxePf">
+    <property role="3GE5qa" value="" />
+    <ref role="1M2myG" to="3xdn:3F2FyKbNNqb" resolve="WithStatement" />
+    <node concept="9S07l" id="15xzdwHxePg" role="9Vyp8">
+      <node concept="3clFbS" id="15xzdwHxePh" role="2VODD2">
+        <node concept="3cpWs6" id="15xzdwHxf1d" role="3cqZAp">
+          <node concept="2OqwBi" id="15xzdwHxf5y" role="3cqZAk">
+            <node concept="2OqwBi" id="15xzdwHxf5z" role="2Oq$k0">
+              <node concept="nLn13" id="15xzdwHxf5$" role="2Oq$k0" />
+              <node concept="2Xjw5R" id="15xzdwHxf5_" role="2OqNvi">
+                <node concept="1xMEDy" id="15xzdwHxf5A" role="1xVPHs">
+                  <node concept="chp4Y" id="15xzdwHxf5B" role="ri$Ld">
+                    <ref role="cht4Q" to="3xdn:s5v6K2pSK7" resolve="QueryExpressionScopeProvider" />
+                  </node>
+                </node>
+                <node concept="1xIGOp" id="15xzdwHxf5C" role="1xVPHs" />
+              </node>
+            </node>
+            <node concept="3w_OXm" id="15xzdwHxfhq" role="2OqNvi" />
           </node>
         </node>
       </node>
