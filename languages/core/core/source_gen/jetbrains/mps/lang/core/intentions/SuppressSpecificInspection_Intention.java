@@ -62,7 +62,7 @@ public final class SuppressSpecificInspection_Intention extends AbstractIntentio
     Collection<IssueKindReportItem> reportItemsForCell = editorComponent.getReportItemsForCell(editorComponent.getSelectedCell());
     return ListSequence.fromListWithValues(new ArrayList<IssueKindReportItem>(), CollectionSequence.fromCollection(reportItemsForCell).where(new IWhereFilter<IssueKindReportItem>() {
       public boolean accept(IssueKindReportItem it) {
-        return !(Objects.equals(it.getSeverity(), MessageStatus.ERROR));
+        return Objects.equals(it.getSeverity(), MessageStatus.WARNING);
       }
     }));
   }

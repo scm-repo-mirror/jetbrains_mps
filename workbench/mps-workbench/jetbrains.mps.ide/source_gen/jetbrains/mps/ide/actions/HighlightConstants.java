@@ -10,6 +10,7 @@ public class HighlightConstants {
   public static final Color NODE_COLOR = MPSColors.MAGENTA;
   public static final Color INSTANCES_COLOR = MPSColors.BLUE;
   public static final Color USAGES_COLOR = MPSColors.PINK;
+  public static final Color ANCESTOR_COLOR = MPSColors.GREEN;
   public HighlightConstants() {
   }
 }

@@ -79,7 +79,6 @@
       </concept>
       <concept id="1068498886294" name="jetbrains.mps.baseLanguage.structure.AssignmentExpression" flags="nn" index="37vLTI" />
       <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
-      <concept id="1225271221393" name="jetbrains.mps.baseLanguage.structure.NPENotEqualsExpression" flags="nn" index="17QLQc" />
       <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="1225271408483" name="jetbrains.mps.baseLanguage.structure.IsNotEmptyOperation" flags="nn" index="17RvpY" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
@@ -741,7 +740,7 @@
                   <node concept="1bVj0M" id="KgjTrBm2ov" role="23t8la">
                     <node concept="3clFbS" id="KgjTrBm2ow" role="1bW5cS">
                       <node concept="3clFbF" id="KgjTrBm2ox" role="3cqZAp">
-                        <node concept="17QLQc" id="KgjTrBmcFh" role="3clFbG">
+                        <node concept="17R0WA" id="5Ow3SnJlc7k" role="3clFbG">
                           <node concept="2OqwBi" id="KgjTrBm2o$" role="3uHU7B">
                             <node concept="37vLTw" id="KgjTrBm2o_" role="2Oq$k0">
                               <ref role="3cqZAo" node="KgjTrBm2oB" resolve="it" />
@@ -750,9 +749,9 @@
                               <ref role="37wK5l" to="d6hs:~ReportItem.getSeverity()" resolve="getSeverity" />
                             </node>
                           </node>
-                          <node concept="Rm8GO" id="KgjTrBm2oz" role="3uHU7w">
+                          <node concept="Rm8GO" id="5Ow3SnJlcmv" role="3uHU7w">
+                            <ref role="Rm8GQ" to="2gg1:~MessageStatus.WARNING" resolve="WARNING" />
                             <ref role="1Px2BO" to="2gg1:~MessageStatus" resolve="MessageStatus" />
-                            <ref role="Rm8GQ" to="2gg1:~MessageStatus.ERROR" resolve="ERROR" />
                           </node>
                         </node>
                       </node>

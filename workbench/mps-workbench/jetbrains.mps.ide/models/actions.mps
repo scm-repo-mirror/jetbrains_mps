@@ -12980,6 +12980,18 @@
         <ref role="3cqZAo" to="exr9:~MPSColors.PINK" resolve="PINK" />
       </node>
     </node>
+    <node concept="Wx3nA" id="5Ow3SnJgFHv" role="jymVt">
+      <property role="TrG5h" value="ANCESTOR_COLOR" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3uibUv" id="5Ow3SnJgFHw" role="1tU5fm">
+        <ref role="3uigEE" to="z60i:~Color" resolve="Color" />
+      </node>
+      <node concept="3Tm1VV" id="5Ow3SnJgFHx" role="1B3o_S" />
+      <node concept="10M0yZ" id="5Ow3SnJhjYM" role="33vP2m">
+        <ref role="3cqZAo" to="exr9:~MPSColors.GREEN" resolve="GREEN" />
+        <ref role="1PxDUh" to="exr9:~MPSColors" resolve="MPSColors" />
+      </node>
+    </node>
     <node concept="3clFbW" id="4zooVZdvj2i" role="jymVt">
       <node concept="3Tm1VV" id="4zooVZdvj2l" role="1B3o_S" />
       <node concept="3clFbS" id="4zooVZdvj2k" role="3clF47" />
