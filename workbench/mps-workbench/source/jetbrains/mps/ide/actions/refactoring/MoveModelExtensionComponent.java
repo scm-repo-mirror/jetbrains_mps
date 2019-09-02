@@ -16,11 +16,9 @@
 package jetbrains.mps.ide.actions.refactoring;
 
 import com.intellij.openapi.Disposable;
-import com.intellij.openapi.components.ApplicationComponent;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.actions.ExtensionDescriptor;
 import jetbrains.mps.smodel.language.ExtensionRegistry;
-import org.jetbrains.annotations.NotNull;
 
 public class MoveModelExtensionComponent implements Disposable {
   private final ExtensionDescriptor myDescriptor = new ExtensionDescriptor();

@@ -18,6 +18,7 @@
     <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
     <import index="tz5d" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.platform.actions.core(MPS.Platform/)" />
+    <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -101,7 +102,6 @@
         <property id="521412098689998745" name="nonStatic" index="2bfB8j" />
         <child id="5375687026011219971" name="member" index="jymVt" unordered="true" />
       </concept>
-      <concept id="7812454656619025412" name="jetbrains.mps.baseLanguage.structure.LocalMethodCall" flags="nn" index="1rXfSq" />
       <concept id="1107535904670" name="jetbrains.mps.baseLanguage.structure.ClassifierType" flags="in" index="3uibUv">
         <reference id="1107535924139" name="classifier" index="3uigEE" />
         <child id="1109201940907" name="parameter" index="11_B2D" />
@@ -546,8 +546,8 @@
     <property role="2bfB8j" value="true" />
     <property role="1EXbeo" value="true" />
     <node concept="3Tm1VV" id="5XSzLNJHYrr" role="1B3o_S" />
-    <node concept="3uibUv" id="5XSzLNJHYrs" role="EKbjA">
-      <ref role="3uigEE" to="1m72:~ApplicationComponent" resolve="ApplicationComponent" />
+    <node concept="3uibUv" id="15xzdwHxkKj" role="EKbjA">
+      <ref role="3uigEE" to="v23q:~Disposable" resolve="Disposable" />
     </node>
     <node concept="312cEg" id="5XSzLNJHYrt" role="jymVt">
       <property role="TrG5h" value="myDescriptor" />
@@ -589,15 +589,6 @@
             </node>
           </node>
         </node>
-      </node>
-      <node concept="3Tm1VV" id="5XSzLNJHYrJ" role="1B3o_S" />
-    </node>
-    <node concept="3clFb_" id="5XSzLNJHYrK" role="jymVt">
-      <property role="TrG5h" value="initComponent" />
-      <node concept="2AHcQZ" id="5XSzLNJHYrL" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-      <node concept="3clFbS" id="5XSzLNJHYrM" role="3clF47">
         <node concept="3cpWs8" id="5XSzLNJHYrO" role="3cqZAp">
           <node concept="3cpWsn" id="5XSzLNJHYrN" role="3cpWs9">
             <property role="TrG5h" value="extensionRegistry" />
@@ -646,11 +637,10 @@
           </node>
         </node>
       </node>
-      <node concept="3Tm1VV" id="5XSzLNJHYs4" role="1B3o_S" />
-      <node concept="3cqZAl" id="5XSzLNJHYs5" role="3clF45" />
+      <node concept="3Tm1VV" id="5XSzLNJHYrJ" role="1B3o_S" />
     </node>
     <node concept="3clFb_" id="5XSzLNJHYs6" role="jymVt">
-      <property role="TrG5h" value="disposeComponent" />
+      <property role="TrG5h" value="dispose" />
       <node concept="2AHcQZ" id="5XSzLNJHYs7" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
@@ -705,31 +695,6 @@
       </node>
       <node concept="3Tm1VV" id="5XSzLNJHYsq" role="1B3o_S" />
       <node concept="3cqZAl" id="5XSzLNJHYsr" role="3clF45" />
-    </node>
-    <node concept="3clFb_" id="5XSzLNJHYss" role="jymVt">
-      <property role="TrG5h" value="getComponentName" />
-      <node concept="2AHcQZ" id="5XSzLNJHYst" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
-      </node>
-      <node concept="2AHcQZ" id="5XSzLNJHYsu" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-      </node>
-      <node concept="3clFbS" id="5XSzLNJHYsv" role="3clF47">
-        <node concept="3cpWs6" id="5XSzLNJHYsw" role="3cqZAp">
-          <node concept="2OqwBi" id="5XSzLNJHYsx" role="3cqZAk">
-            <node concept="1rXfSq" id="5XSzLNJHYsy" role="2Oq$k0">
-              <ref role="37wK5l" to="wyt6:~Object.getClass()" resolve="getClass" />
-            </node>
-            <node concept="liA8E" id="5XSzLNJHYsz" role="2OqNvi">
-              <ref role="37wK5l" to="wyt6:~Class.getName()" resolve="getName" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tm1VV" id="5XSzLNJHYs$" role="1B3o_S" />
-      <node concept="3uibUv" id="5XSzLNJHYs_" role="3clF45">
-        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-      </node>
     </node>
   </node>
 </model>

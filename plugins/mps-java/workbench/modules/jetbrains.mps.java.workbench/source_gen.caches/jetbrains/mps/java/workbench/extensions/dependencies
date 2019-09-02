@@ -2,12 +2,10 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.java.workbench.extensions.JavaExtensionComponent">
     <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.ide.MPSCoreComponents" />
     <classNode dependClassName="jetbrains.mps.ide.platform.actions.core.ExtensionDescriptor" />
     <classNode dependClassName="jetbrains.mps.smodel.language.ExtensionRegistry" />
-    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
-    <classNode extendsClassName="com.intellij.openapi.components.ApplicationComponent" />
+    <classNode extendsClassName="com.intellij.openapi.Disposable" />
   </dependency>
   <dependency className="jetbrains.mps.java.workbench.extensions.JavaSourceStubsModelRootEntry">
     <classNode dependClassName="com.intellij.openapi.util.Disposer" />

@@ -80,37 +80,30 @@
   </root>
   <root nodeRef="r:c0d12a77-d1ce-4458-b94f-4eb6f4df358a(jetbrains.mps.java.workbench.extensions)/6879405785252095706">
     <file name="JavaExtensionComponent.java">
-      <node id="6879405785252095709" at="12,0,13,0" concept="2" trace="myDescriptor" />
-      <node id="6879405785252095714" at="13,0,14,0" concept="2" trace="myComponents" />
-      <node id="6879405785252095723" at="14,70,15,37" concept="1" />
-      <node id="6879405785252095732" at="18,31,19,108" concept="5" />
-      <node id="6879405785252095745" at="20,36,21,66" concept="1" />
-      <node id="6879405785252095754" at="25,34,26,108" concept="5" />
-      <node id="6879405785252095767" at="27,36,28,68" concept="1" />
-      <node id="6879405785252095776" at="33,36,34,32" concept="6" />
-      <node id="6879405785252095718" at="14,0,17,0" concept="0" trace="JavaExtensionComponent#(Ljetbrains/mps/ide/MPSCoreComponents;)V" />
-      <node id="6879405785252095739" at="19,108,22,5" concept="3" />
-      <node id="6879405785252095761" at="26,108,29,5" concept="3" />
-      <node id="6879405785252095772" at="31,0,36,0" concept="4" trace="getComponentName#()Ljava/lang/String;" />
-      <node id="6879405785252095728" at="17,0,24,0" concept="4" trace="initComponent#()V" />
-      <node id="6879405785252095750" at="24,0,31,0" concept="4" trace="disposeComponent#()V" />
-      <scope id="6879405785252095722" at="14,70,15,37" />
-      <scope id="6879405785252095744" at="20,36,21,66" />
-      <scope id="6879405785252095766" at="27,36,28,68" />
-      <scope id="6879405785252095775" at="33,36,34,32" />
-      <scope id="6879405785252095718" at="14,0,17,0">
-        <var name="mpsCoreComponents" id="6879405785252095720" />
-      </scope>
-      <scope id="6879405785252095730" at="18,31,22,5">
-        <var name="extensionRegistry" id="6879405785252095731" />
-      </scope>
-      <scope id="6879405785252095752" at="25,34,29,5">
+      <node id="6879405785252095709" at="11,0,12,0" concept="2" trace="myDescriptor" />
+      <node id="6879405785252095714" at="12,0,13,0" concept="2" trace="myComponents" />
+      <node id="6879405785252095723" at="13,70,14,37" concept="1" />
+      <node id="6879405785252095732" at="14,37,15,108" concept="5" />
+      <node id="6879405785252095745" at="16,36,17,66" concept="1" />
+      <node id="6879405785252095754" at="21,25,22,108" concept="5" />
+      <node id="6879405785252095767" at="23,36,24,68" concept="1" />
+      <node id="6879405785252095739" at="15,108,18,5" concept="3" />
+      <node id="6879405785252095761" at="22,108,25,5" concept="3" />
+      <node id="6879405785252095718" at="13,0,20,0" concept="0" trace="JavaExtensionComponent#(Ljetbrains/mps/ide/MPSCoreComponents;)V" />
+      <node id="6879405785252095750" at="20,0,27,0" concept="4" trace="dispose#()V" />
+      <scope id="6879405785252095744" at="16,36,17,66" />
+      <scope id="6879405785252095766" at="23,36,24,68" />
+      <scope id="6879405785252095752" at="21,25,25,5">
         <var name="extensionRegistry" id="6879405785252095753" />
       </scope>
-      <scope id="6879405785252095772" at="31,0,36,0" />
-      <scope id="6879405785252095728" at="17,0,24,0" />
-      <scope id="6879405785252095750" at="24,0,31,0" />
-      <unit id="6879405785252095706" at="11,0,37,0" name="jetbrains.mps.java.workbench.extensions.JavaExtensionComponent" />
+      <scope id="6879405785252095722" at="13,70,18,5">
+        <var name="extensionRegistry" id="6879405785252095731" />
+      </scope>
+      <scope id="6879405785252095718" at="13,0,20,0">
+        <var name="mpsCoreComponents" id="6879405785252095720" />
+      </scope>
+      <scope id="6879405785252095750" at="20,0,27,0" />
+      <unit id="6879405785252095706" at="10,0,28,0" name="jetbrains.mps.java.workbench.extensions.JavaExtensionComponent" />
     </file>
   </root>
 </debug-info>
