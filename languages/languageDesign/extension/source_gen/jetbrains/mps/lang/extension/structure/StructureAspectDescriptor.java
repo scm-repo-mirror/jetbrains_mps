@@ -26,6 +26,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptExtensionPointExpression = createDescriptorForExtensionPointExpression();
   /*package*/ final ConceptDescriptor myConceptExtensionPointType = createDescriptorForExtensionPointType();
   /*package*/ final ConceptDescriptor myConceptGetExtensionObjectsOperation = createDescriptorForGetExtensionObjectsOperation();
+  /*package*/ final ConceptDescriptor myConceptIRegisterable = createDescriptorForIRegisterable();
   /*package*/ final ConceptDescriptor myConceptIRootWithUniqueName = createDescriptorForIRootWithUniqueName();
   private final LanguageConceptSwitch myIndexSwitch;
 
@@ -43,7 +44,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptExtension, myConceptExtensionDeclaration, myConceptExtensionFieldDeclaration, myConceptExtensionFieldReference, myConceptExtensionFunction, myConceptExtensionObjectGetter, myConceptExtensionPointDeclaration, myConceptExtensionPointExpression, myConceptExtensionPointType, myConceptGetExtensionObjectsOperation, myConceptIRootWithUniqueName);
+    return Arrays.asList(myConceptExtension, myConceptExtensionDeclaration, myConceptExtensionFieldDeclaration, myConceptExtensionFieldReference, myConceptExtensionFunction, myConceptExtensionObjectGetter, myConceptExtensionPointDeclaration, myConceptExtensionPointExpression, myConceptExtensionPointType, myConceptGetExtensionObjectsOperation, myConceptIRegisterable, myConceptIRootWithUniqueName);
   }
 
   @Override
@@ -70,6 +71,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptExtensionPointType;
       case LanguageConceptSwitch.GetExtensionObjectsOperation:
         return myConceptGetExtensionObjectsOperation;
+      case LanguageConceptSwitch.IRegisterable:
+        return myConceptIRegisterable;
       case LanguageConceptSwitch.IRootWithUniqueName:
         return myConceptIRootWithUniqueName;
       default:
@@ -91,6 +94,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, true);
     b.super_("jetbrains.mps.baseLanguage.structure.ClassConcept", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca66L);
     b.parent(0xc7d5b9dda05f4be2L, 0xbc73f2e16994cc67L, 0xea740fb893a13edL);
+    b.parent(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x11618cd82d8974c5L);
     b.origin("r:2a0fe383-d602-4f5b-813c-e41afdbbb97e(jetbrains.mps.lang.extension.structure)/126958800891274162");
     b.version(2);
     b.associate("extensionPoint", 0x1c30c5b543be565L).target(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x33c018482cafa9d6L).optional(false).origin("126958800891274597").done();
@@ -153,6 +157,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, true);
     b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
     b.parent(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x2b7651d49ee9d72L);
+    b.parent(0xc0080a477e374558L, 0xbee99ae18e690549L, 0x11618cd82d8974c5L);
     b.origin("r:2a0fe383-d602-4f5b-813c-e41afdbbb97e(jetbrains.mps.lang.extension.structure)/3729007189729192406");
     b.version(2);
     b.property("extensionName", 0x520ae19dd2771b96L).type(PrimitiveTypeId.STRING).origin("5911785528834333590").done();
@@ -189,6 +194,13 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("objects");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForIRegisterable() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.extension", "IRegisterable", 0xc0080a477e374558L, 0xbee99ae18e690549L, 0x11618cd82d8974c5L);
+    b.interface_();
+    b.origin("r:2a0fe383-d602-4f5b-813c-e41afdbbb97e(jetbrains.mps.lang.extension.structure)/1252437031490516165");
+    b.version(2);
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForIRootWithUniqueName() {

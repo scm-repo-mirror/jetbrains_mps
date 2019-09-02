@@ -127,6 +127,9 @@
     <node concept="PrWs8" id="aRphP9VZsR" role="PzmwI">
       <ref role="PrY4T" node="aRphP9VDPM" resolve="IRootWithUniqueName" />
     </node>
+    <node concept="PrWs8" id="15xzdwHynjp" role="PzmwI">
+      <ref role="PrY4T" node="15xzdwHynj5" resolve="IRegisterable" />
+    </node>
   </node>
   <node concept="1TIwiD" id="6XJvNHU5Sl_">
     <property role="TrG5h" value="ExtensionObjectGetter" />
@@ -233,6 +236,9 @@
     <node concept="PrWs8" id="UBgfI9ge5M" role="PzmwI">
       <ref role="PrY4T" to="oubp:UBgfI9exfH" resolve="AutoInitDSLClass" />
     </node>
+    <node concept="PrWs8" id="15xzdwHynjh" role="PzmwI">
+      <ref role="PrY4T" node="15xzdwHynj5" resolve="IRegisterable" />
+    </node>
   </node>
   <node concept="PlHQZ" id="aRphP9VDPM">
     <property role="TrG5h" value="IRootWithUniqueName" />
@@ -240,6 +246,10 @@
     <node concept="PrWs8" id="aRphP9VE3T" role="PrDN$">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
+  </node>
+  <node concept="PlHQZ" id="15xzdwHynj5">
+    <property role="EcuMT" value="1252437031490516165" />
+    <property role="TrG5h" value="IRegisterable" />
   </node>
 </model>
 

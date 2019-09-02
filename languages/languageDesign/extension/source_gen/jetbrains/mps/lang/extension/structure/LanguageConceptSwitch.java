@@ -19,7 +19,8 @@ public final class LanguageConceptSwitch {
   public static final int ExtensionPointExpression = 7;
   public static final int ExtensionPointType = 8;
   public static final int GetExtensionObjectsOperation = 9;
-  public static final int IRootWithUniqueName = 10;
+  public static final int IRegisterable = 10;
+  public static final int IRootWithUniqueName = 11;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xc0080a477e374558L, 0xbee99ae18e690549L);
@@ -33,6 +34,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x5bf74eafefe0e940L, ExtensionPointExpression);
     builder.put(0x2c10fa62142eb538L, ExtensionPointType);
     builder.put(0x2c10fa62142ef747L, GetExtensionObjectsOperation);
+    builder.put(0x11618cd82d8974c5L, IRegisterable);
     builder.put(0x2b7651d49ee9d72L, IRootWithUniqueName);
     myIndex = builder.seal();
   }
