@@ -13,6 +13,10 @@ import jetbrains.mps.workbench.action.BaseAction;
 import com.intellij.openapi.actionSystem.ActionManager;
 import jetbrains.mps.nodeEditor.cells.EditorCell;
 import jetbrains.mps.nodeEditor.EditorComponent;
+import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.openapi.editor.cells.EditorCell_Collection;
+import jetbrains.mps.nodeEditor.cells.CellFinderUtil;
+import jetbrains.mps.openapi.editor.cells.EditorCell_Label;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -38,6 +42,17 @@ public class SuppressErrorsMessage extends AbstractLeftEditorHighlighterMessage 
 
   public static EditorCell getOwnCell(EditorComponent editor, SNode sa) {
     return editor.findCellWithId(sa, "suppressedInfo");
+  }
+
+  @Nullable
+  @Override
+  public jetbrains.mps.openapi.editor.cells.EditorCell getAnchorCell(jetbrains.mps.openapi.editor.EditorComponent editorComponent) {
+    jetbrains.mps.openapi.editor.cells.EditorCell cell = getNodeCell(editorComponent);
+    if (cell instanceof EditorCell_Collection) {
+      EditorCell_Collection collection = (EditorCell_Collection) cell;
+      return CellFinderUtil.findChildByClass(collection, EditorCell_Label.class, true);
+    }
+    return cell;
   }
 
   @Override
