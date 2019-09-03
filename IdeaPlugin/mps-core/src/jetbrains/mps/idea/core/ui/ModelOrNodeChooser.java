@@ -142,7 +142,7 @@ public class ModelOrNodeChooser extends ProjectViewPane implements ModelElementT
 
   public static MPSFacet getFacetIfInitialized(Module ideaModule) {
     MPSFacet mpsFacet = FacetManager.getInstance(ideaModule).getFacetByType(MPSFacetType.ID);
-    if (mpsFacet != null || mpsFacet.wasInitialized()) {
+    if (mpsFacet != null && mpsFacet.wasInitialized()) {
       return mpsFacet;
     }
     return null;
