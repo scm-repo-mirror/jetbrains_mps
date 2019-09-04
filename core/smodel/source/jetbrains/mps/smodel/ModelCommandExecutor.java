@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,21 +55,7 @@ public interface ModelCommandExecutor {
    */
   void runWriteInEDT(Runnable r); // == openapi.ModelAccess
 
-  /**
-   * Enables canRead() without actually acquiring the read lock (screw you, ReadWriteLock!).
-   * Requires read lock in the "parent" thread.
-   * Thread local. Returns previous value, to which it must be reset after use (in finally{}).
-   *
-   * @deprecated Shall get replaced with full-fledged 'token' object
-   *
-   * @return previous value
-   */
-  @Deprecated
-  @ToRemove(version = 3.4)
-  boolean setReadEnabledFlag(boolean flag);
-
   // there's 1 use in mbeddr
-
   /**
    * @deprecated Use {@link ModelAccess#isCommandAction()} instead
    */

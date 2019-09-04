@@ -181,9 +181,17 @@ public abstract class ModelAccess extends AbstractModelAccess implements ModelCo
     UnregisteredNodes.instance().disable();
   }
 
-  @Override
+  /**
+   * Enables canRead() without actually acquiring the read lock (screw you, ReadWriteLock!).
+   * Requires read lock in the "parent" thread.
+   * Thread local. Returns previous value, to which it must be reset after use (in finally{}).
+   *
+   * @deprecated Shall get replaced with full-fledged 'token' object
+   *
+   * @return previous value
+   */
   @Deprecated
-  public boolean setReadEnabledFlag(boolean flag) {
+  /*package*/ boolean setReadEnabledFlag(boolean flag) {
     Boolean oldValue = myReadEnabledFlag.get();
     myReadEnabledFlag.set(flag);
     return oldValue;

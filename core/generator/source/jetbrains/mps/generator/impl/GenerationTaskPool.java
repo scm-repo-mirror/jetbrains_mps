@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 package jetbrains.mps.generator.impl;
 
 import jetbrains.mps.generator.GenerationCanceledException;
-import jetbrains.mps.smodel.ModelAccess;
+import jetbrains.mps.smodel.SharedReadModelAccess;
 import jetbrains.mps.util.NamedThreadFactory;
 import org.jetbrains.annotations.NotNull;
 
@@ -34,6 +34,25 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class GenerationTaskPool implements IGenerationTaskPool {
   public GenerationTaskPool(int numberOfThreads) {
+    this(numberOfThreads, new SharedReadModelAccess() {
+      @Override
+      public boolean canRead() {
+        return true;
+      }
+
+      @Override
+      public void release() {
+
+      }
+
+      @Override
+      public void execute(@NotNull Runnable command) {
+        command.run();
+      }
+    });
+  }
+
+  public GenerationTaskPool(int numberOfThreads, @NotNull SharedReadModelAccess modelAccess) {
     myExecutor = new ThreadPoolExecutor(numberOfThreads, numberOfThreads, 10, TimeUnit.SECONDS, queue, new NamedThreadFactory("generation-thread-")) {
       @Override
       protected void afterExecute(Runnable r, Throwable t) {
@@ -45,12 +64,14 @@ public class GenerationTaskPool implements IGenerationTaskPool {
         }
       }
     };
+    mySharedModelReadAccess = modelAccess;
   }
 
   private volatile boolean isCancelled = false;
 
   final BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>();
   final ThreadPoolExecutor myExecutor;
+  private final SharedReadModelAccess mySharedModelReadAccess;
 
   final AtomicLong tasksInQueue = new AtomicLong();
   final Object objectLock = new Object();
@@ -63,7 +84,7 @@ public class GenerationTaskPool implements IGenerationTaskPool {
     }
     tasksInQueue.incrementAndGet();
     GenerationTaskAdapter gta = new GenerationTaskAdapter(r, this::handleException);
-    myExecutor.execute(new ModelReadAdapter(new ModelReadFlagLegacyAccess(), gta));
+    myExecutor.execute(new ModelReadAdapter(mySharedModelReadAccess, gta));
   }
 
   /*package*/ void handleException(Throwable param) {
@@ -110,33 +131,6 @@ public class GenerationTaskPool implements IGenerationTaskPool {
   @Override
   public void dispose() {
     myExecutor.shutdownNow();
-  }
-
-
-  private static class ModelReadFlagLegacyAccess implements Executor {
-
-    @Override
-    public void execute(@NotNull Runnable command) {
-    /*
-     * readEnabledFlag is a workaround to deal with implementation peculiarities of non-fair ReentrantReadWriteLock.
-     * IDEA uses non-fair RRWL for its read/write actions, which we use for our model read-write actions.
-     * Generator starts with a read action, and grabs platform read lock. GenerationTaskPool#waitForCompletion
-     * blocks read, and spawns few other threads which try to grab read lock. Unless there's a platform write action,
-     * everything is fine. If, however, there's a write action (e.g. focus lost event and document save action), platform
-     * tries to lock write lock of RRWL, which, in its non-fair state, put write requestee to the top of waiting queue,
-     * effectively preventing any further read attempts. Threads of GenerationTaskPool has no chance to complete,
-     * and read lock of primary generator thread is never released. Deadlock.
-     *
-     * Note, readEnabledFlag (or any other 'lightweight' model read alternative) doesn't look as a decent solution,
-     * as the read lock of primary thread still blocks platform write actions.
-     */
-      final boolean flag = ModelAccess.instance().setReadEnabledFlag(true);
-      try {
-        command.run();
-      } finally {
-        ModelAccess.instance().setReadEnabledFlag(flag);
-      }
-    }
   }
 
   // XXX could be generic WithExecutorRunnable, as it needs only Executor service.

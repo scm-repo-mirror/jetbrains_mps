@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import jetbrains.mps.generator.GeneratorTaskListener;
 import jetbrains.mps.generator.TransientModelsModule;
 import jetbrains.mps.generator.impl.IGenerationTaskPool.ITaskPoolProvider;
 import jetbrains.mps.generator.impl.IGenerationTaskPool.SimpleGenerationTaskPool;
+import jetbrains.mps.smodel.ModelAccessBase;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.typechecking.TypecheckingSession;
 import jetbrains.mps.typechecking.TypecheckingSession.Handle;
@@ -32,6 +33,7 @@ import jetbrains.mps.util.performance.IPerformanceTracer.NullPerformanceTracer;
 import jetbrains.mps.util.performance.PerformanceTracer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.module.ModelAccess;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import org.jetbrains.mps.openapi.util.SubProgressKind;
@@ -167,9 +169,10 @@ public class GenerationController implements ITaskPoolProvider {
     // not too much sense to abstract away ITaskPoolProvider if we have distinct ParallelTemplateGenerator.
     // either shall merge PTG with TG and use ITaskPoolProvider, or drop SimpleGenerationTaskPool which is dead code otherwise.
     if (myParallelTaskPool == null) {
+      final ModelAccess repoModelAccess = myContext.getRepository().getModelAccess();
       myParallelTaskPool = myOptions.isGenerateInParallel()
-        ? new GenerationTaskPool(myOptions.getNumberOfThreads())
-        : new SimpleGenerationTaskPool(myContext.getRepository().getModelAccess());
+        ? new GenerationTaskPool(myOptions.getNumberOfThreads(), ((ModelAccessBase) repoModelAccess).shareRead())
+        : new SimpleGenerationTaskPool(repoModelAccess);
     }
     return myParallelTaskPool;
   }
