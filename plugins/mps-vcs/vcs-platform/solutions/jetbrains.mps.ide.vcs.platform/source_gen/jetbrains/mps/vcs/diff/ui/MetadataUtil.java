@@ -25,6 +25,9 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import java.util.Map;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.HashMap;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -61,10 +64,12 @@ public class MetadataUtil {
       SPropertyOperations.assign(root, PROPS.donotgenerate$pfHD, check_ca1g54_a0a0e0i(((GeneratableSModel) origin)));
     }
     for (SLanguage language : CollectionSequence.fromCollection(modelBase.importedLanguageIds())) {
-      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.language$8rUz)).addElement(createLanguageNode(language));
+      int version = ((SModelBase) origin).getLanguageImportVersion(language);
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.language$8rUz)).addElement(createLanguageNode(language, version));
     }
     for (SLanguage genlanguage : CollectionSequence.fromCollection(modelBase.getLanguagesEngagedOnGeneration())) {
-      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.languageEngagedOnGeneration$8rVx)).addElement(createLanguageNode(genlanguage));
+      int version = ((SModelBase) origin).getLanguageImportVersion(genlanguage);
+      ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.languageEngagedOnGeneration$8rVx)).addElement(createLanguageNode(genlanguage, version));
     }
     for (SModuleReference devkit : ListSequence.fromList(modelBase.importedDevkits())) {
       ListSequence.fromList(SLinkOperations.getChildren(root, LINKS.devkit$8rWY)).addElement(createModuleRefNode(devkit));
@@ -76,7 +81,7 @@ public class MetadataUtil {
     SModelOperations.addRootNode(myMetadataModel, root);
   }
 
-  private SNode createLanguageNode(SLanguage lang) {
+  private SNode createLanguageNode(SLanguage lang, int version) {
     // Though it's possible to reduce mps.ide.vcs.modelmetadata language to no concepts but Model, 
     // and re-use various *Identity concepts from lang.modelapi/lang.smodel, I leave these custom wrappers for string properties 
     // to keep the language simple and isolated 
@@ -148,6 +153,9 @@ public class MetadataUtil {
     SetSequence.fromSet(impLang).subtract(SetSequence.fromSet(oldImpLang)).visitAll(new IVisitor<SLanguage>() {
       public void visit(SLanguage it) {
         modelBase.addLanguage(it);
+        // Each time after add language we should call: 
+        // but now we don't know what version to take. 
+        // It is hacked for Merge in fixLanguageImportVersionsAfterMerge() but not for Diff. 
       }
     });
 
@@ -203,6 +211,29 @@ public class MetadataUtil {
     });
 
     ((EditableSModel) metadataModel).setChanged(false);
+  }
+
+  public static void fixLanguageImportVersionsAfterMerge(SModel resultModel, SModel model1, SModel model2) {
+    // set common language version if both merged models have the same version 
+    SModelBase resultModelBase = (SModelBase) resultModel;
+    SModelBase modelBase1 = (SModelBase) model1;
+    SModelBase modelBase2 = (SModelBase) model2;
+    Map<SLanguage, Integer> langVersion1 = MapSequence.fromMap(new HashMap<SLanguage, Integer>());
+    Map<SLanguage, Integer> langVersion2 = MapSequence.fromMap(new HashMap<SLanguage, Integer>());
+    for (SLanguage lang : CollectionSequence.fromCollection(modelBase1.importedLanguageIds())) {
+      MapSequence.fromMap(langVersion1).put(lang, modelBase1.getLanguageImportVersion(lang));
+    }
+    for (SLanguage lang : CollectionSequence.fromCollection(modelBase2.importedLanguageIds())) {
+      MapSequence.fromMap(langVersion2).put(lang, modelBase2.getLanguageImportVersion(lang));
+    }
+    for (SLanguage lang : CollectionSequence.fromCollection(resultModelBase.importedLanguageIds())) {
+      if (MapSequence.fromMap(langVersion1).containsKey(lang) && MapSequence.fromMap(langVersion2).containsKey(lang)) {
+        if ((int) MapSequence.fromMap(langVersion1).get(lang) == (int) MapSequence.fromMap(langVersion2).get(lang)) {
+          resultModelBase.setLanguageImportVersion(lang, MapSequence.fromMap(langVersion1).get(lang));
+        }
+      } else {
+      }
+    }
   }
   private static boolean check_ca1g54_a0a0e0i(GeneratableSModel checkedDotOperand) {
     if (null != checkedDotOperand) {
