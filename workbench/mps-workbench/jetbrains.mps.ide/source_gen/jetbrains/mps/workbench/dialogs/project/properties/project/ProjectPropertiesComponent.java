@@ -5,9 +5,13 @@ package jetbrains.mps.workbench.dialogs.project.properties.project;
 import com.intellij.ui.components.JBPanel;
 import org.jetbrains.mps.openapi.ui.Modifiable;
 import jetbrains.mps.project.StandaloneMPSProject;
+import java.util.List;
 import com.intellij.openapi.project.Project;
+import jetbrains.mps.util.annotation.ToRemove;
+import java.util.Arrays;
+import java.util.ArrayList;
+import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
-import com.intellij.openapi.extensions.Extensions;
 import com.intellij.uiDesigner.core.GridConstraints;
 import javax.swing.JComponent;
 import com.intellij.ui.components.JBList;
@@ -30,8 +34,9 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import com.intellij.ui.IdeBorderFactory;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.function.Predicate;
 import javax.swing.AbstractListModel;
-import java.util.List;
 import jetbrains.mps.ide.make.MakeServiceConfiguration;
 import javax.swing.JCheckBox;
 import javax.swing.border.TitledBorder;
@@ -40,19 +45,31 @@ import javax.swing.BoxLayout;
 public class ProjectPropertiesComponent extends JBPanel implements Modifiable {
   private final StandaloneMPSProject myProject;
   private final ProjectProperties myProperties = new ProjectProperties();
-  private final ProjectPrefsExtraPanel[] myExtraPanels;
+  private final List<ProjectPrefsExtraPanel> myExtraPanels;
   private final MakeServiceGroup myMakeGroup;
 
+  /**
+   * 
+   * 
+   * @deprecated use {@link jetbrains.mps.workbench.dialogs.project.properties.project.ProjectPropertiesComponent#ProjectPropertiesComponent(Project, List<ProjectPrefsExtraPanel>) instead}
+   */
+  @Deprecated
+  @ToRemove(version = 2019.2)
   public ProjectPropertiesComponent(Project project, ProjectPrefsExtraPanel[] extraPanels) {
+    this(project, (extraPanels != null ? Arrays.asList(extraPanels) : new ArrayList<ProjectPrefsExtraPanel>()));
+  }
+
+  public ProjectPropertiesComponent(Project project, @NotNull List<ProjectPrefsExtraPanel> extraPanels) {
     super(true);
     myProject = (StandaloneMPSProject) project.getComponent(MPSProject.class);
-    myExtraPanels = (extraPanels != null ? extraPanels : new ProjectPrefsExtraPanel[0]);
+    myExtraPanels = extraPanels;
     myProperties.loadFrom(myProject);
     myMakeGroup = new MakeServiceGroup(project);
     init();
   }
+
   public ProjectPropertiesComponent(Project project) {
-    this(project, Extensions.getExtensions(ProjectPrefsExtraPanel.EP_NAME, project));
+    this(project, ProjectPrefsExtraPanel.EP_NAME.getExtensionList(project));
   }
 
   private static Object getGridConstraints(int row, boolean fill) {
@@ -75,7 +92,7 @@ public class ProjectPropertiesComponent extends JBPanel implements Modifiable {
         FileChooserDescriptor descriptor = FileChooserDescriptorFactory.createSingleFileNoJarsDescriptor().withFileFilter(new Condition<VirtualFile>() {
           private String[] EXTENTIONS = new String[]{MPSExtentions.LANGUAGE, MPSExtentions.SOLUTION, MPSExtentions.DEVKIT, "lib"};
           public boolean value(final VirtualFile file) {
-            // TODO: create some method to get all extetions by object type (project, module, model) 
+            // TODO: create some method to get all extensions by object type (project, module, model) 
             return Sequence.fromIterable(Sequence.fromArray(EXTENTIONS)).any(new IWhereFilter<String>() {
               public boolean accept(String it) {
                 return it.equalsIgnoreCase(file.getExtension());
@@ -113,24 +130,26 @@ public class ProjectPropertiesComponent extends JBPanel implements Modifiable {
 
   @Override
   public void init() {
-    int rowCount = 2 + ((myExtraPanels == null ? 0 : myExtraPanels.length));
+    int rowCount = 2 + myExtraPanels.size();
     int rowIndex = 0;
     this.setLayout(new GridLayoutManager(rowCount, 1));
     this.setAutoscrolls(false);
     this.add(createProjectModulesList(), getGridConstraints(rowIndex++, true));
     add(myMakeGroup.createComponent(), getGridConstraints(rowIndex++, false));
-    for (ProjectPrefsExtraPanel extraPanel : myExtraPanels) {
+    for (ProjectPrefsExtraPanel extraPanel : ListSequence.fromList(myExtraPanels)) {
       this.add(extraPanel.getComponent(), getGridConstraints(rowIndex++, false));
     }
   }
+
   @Override
   public boolean isModified() {
-    return !(myProperties.isSame(myProject.getProjectDescriptor())) || Sequence.fromIterable(Sequence.fromArray(myExtraPanels)).any(new IWhereFilter<ProjectPrefsExtraPanel>() {
-      public boolean accept(ProjectPrefsExtraPanel ep) {
-        return ep.isModified();
+    return !(myProperties.isSame(myProject.getProjectDescriptor())) || myExtraPanels.stream().anyMatch(new Predicate<ProjectPrefsExtraPanel>() {
+      public boolean test(ProjectPrefsExtraPanel extraPanel) {
+        return extraPanel.isModified();
       }
     }) || myMakeGroup.isModified();
   }
+
   @Override
   public void apply() {
     myProject.getModelAccess().runWriteAction(new Runnable() {
@@ -140,14 +159,15 @@ public class ProjectPropertiesComponent extends JBPanel implements Modifiable {
       }
     });
     myMakeGroup.apply();
-    for (ProjectPrefsExtraPanel ep : myExtraPanels) {
+    for (ProjectPrefsExtraPanel ep : ListSequence.fromList(myExtraPanels)) {
       ep.apply();
     }
   }
+
   public void reset() {
     myMakeGroup.reset();
     myProperties.loadFrom(myProject);
-    for (ProjectPrefsExtraPanel ep : myExtraPanels) {
+    for (ProjectPrefsExtraPanel ep : ListSequence.fromList(myExtraPanels)) {
       ep.reset();
     }
   }
