@@ -107,26 +107,21 @@ public class UpdateSingleLineCommentToUseTextLang extends MigrationScriptBase {
     {
       SearchScope scope_ldzx6u_b0f = CommandUtil.createScope(m);
       final SearchScope scope_ldzx6u_b0f_0 = new EditableFilteringScope(scope_ldzx6u_b0f);
-      final QueryExecutionContext context = new QueryExecutionContext() {
+      QueryExecutionContext context = new QueryExecutionContext() {
         public SearchScope getDefaultSearchScope() {
           return scope_ldzx6u_b0f_0;
         }
       };
-      Sequence.fromIterable(CommandUtil.models(CommandUtil.selectScope(null, context))).visitAll(new IVisitor<SModel>() {
-        public void visit(SModel currentModel) {
-          CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(new ModelsScope(Sequence.<SModel>singleton(currentModel)), context), CONCEPTS.SingleLineComment$jI, false)).where(new IWhereFilter<SNode>() {
-            public boolean accept(SNode it) {
-              return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.commentPart$_gGy)).isNotEmpty();
-            }
-          }).visitAll(new IVisitor<SNode>() {
-            public void visit(SNode slc) {
-              ListSequence.fromList(problems).addElement(new NotMigratedNode(slc) {
-                @Override
-                public String getMessage() {
-                  return "The SingleLineComment could not be migrated automatically, as there are attributes attached to the text of the comment.";
-                }
-              });
-
+      CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.SingleLineComment$jI, false)).where(new IWhereFilter<SNode>() {
+        public boolean accept(SNode it) {
+          return ListSequence.fromList(SLinkOperations.getChildren(it, LINKS.commentPart$_gGy)).isNotEmpty();
+        }
+      }).visitAll(new IVisitor<SNode>() {
+        public void visit(SNode slc) {
+          ListSequence.fromList(problems).addElement(new NotMigratedNode(slc) {
+            @Override
+            public String getMessage() {
+              return "The SingleLineComment could not be migrated automatically, as there are attributes attached to the text of the comment.";
             }
           });
         }
