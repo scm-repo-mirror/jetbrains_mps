@@ -62,6 +62,10 @@ public class PathProvider {
     Object x = result.getObject();
 
     if (o instanceof SNode) {
+      // If the objects displayed are nodes, we should not include them into path.
+      // If not, they can be displayed under their node if the node is the object grouped by.
+      // The same potentially should be made also for models and modules, but they are treated a bit different way.
+      boolean showingExternalObjects = o != x;
       SNode node = (SNode) o;
       // res.isEmpty() is safe way to find out if it's the first time we put anything into res list (which is reversed path,
       // hence first element to put is its tail).
@@ -69,11 +73,11 @@ public class PathProvider {
       res.add(new PathItem<>(PathItemRole.ROLE_TARGET_NODE, node, x, res.isEmpty(), myNodeElementFactory));
 
       if (node.getParent() != null) {
-        appendNodePathThroughNamedConcepts(res, node.getParent());
+        appendNodePathThroughNamedConcepts(res, showingExternalObjects ? node : node.getParent());
       }
 
       SNode rootNode = node.getContainingRoot();
-      if (node != rootNode) {
+      if (node != rootNode || showingExternalObjects) {
         res.add(new PathItem<>(PathItemRole.ROLE_ROOT, rootNode, null, false, myNodeElementFactory));
       }
 
@@ -134,7 +138,7 @@ public class PathProvider {
       name = "<getName() caused an exception on this node>";
     }
     if (name != null) {
-      if (node != node.getContainingRoot()) {
+      if (node.getParent() != null) {
         // XXX not clear what to do when some intermediate node becomes a 'tail' for a later result, how do we pass 'presentation' object there?
         // AFAIK, existing DataTree doesn't care to update presentation of a newly discovered 'tail' node (just updates its status with setIsPathTail_internal
         //       see the very end of DataTree.createPath()).
