@@ -22,6 +22,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptGeneratorInternal_PropertyDescriptor = createDescriptorForGeneratorInternal_PropertyDescriptor();
   /*package*/ final ConceptDescriptor myConceptGeneratorInternal_ReferenceDescriptor = createDescriptorForGeneratorInternal_ReferenceDescriptor();
   /*package*/ final ConceptDescriptor myConceptListAntiquotation = createDescriptorForListAntiquotation();
+  /*package*/ final ConceptDescriptor myConceptModelNodeInitializer = createDescriptorForModelNodeInitializer();
   /*package*/ final ConceptDescriptor myConceptNodeBuilder = createDescriptorForNodeBuilder();
   /*package*/ final ConceptDescriptor myConceptNodeBuilderExpression = createDescriptorForNodeBuilderExpression();
   /*package*/ final ConceptDescriptor myConceptNodeBuilderInitLink = createDescriptorForNodeBuilderInitLink();
@@ -53,7 +54,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAbstractAntiquotation, myConceptAntiquotation, myConceptGeneratorInternal_InternalReferenceHolder, myConceptGeneratorInternal_PropertyDescriptor, myConceptGeneratorInternal_ReferenceDescriptor, myConceptListAntiquotation, myConceptNodeBuilder, myConceptNodeBuilderExpression, myConceptNodeBuilderInitLink, myConceptNodeBuilderInitLinkValue, myConceptNodeBuilderInitPart, myConceptNodeBuilderInitProperty, myConceptNodeBuilderList, myConceptNodeBuilderNode, myConceptNodeBuilderRef, myConceptPropertyAntiquotation, myConceptQuotation, myConceptReferenceAntiquotation, myConceptStringToTypedValueMigrationInfo);
+    return Arrays.asList(myConceptAbstractAntiquotation, myConceptAntiquotation, myConceptGeneratorInternal_InternalReferenceHolder, myConceptGeneratorInternal_PropertyDescriptor, myConceptGeneratorInternal_ReferenceDescriptor, myConceptListAntiquotation, myConceptModelNodeInitializer, myConceptNodeBuilder, myConceptNodeBuilderExpression, myConceptNodeBuilderInitLink, myConceptNodeBuilderInitLinkValue, myConceptNodeBuilderInitPart, myConceptNodeBuilderInitProperty, myConceptNodeBuilderList, myConceptNodeBuilderNode, myConceptNodeBuilderRef, myConceptPropertyAntiquotation, myConceptQuotation, myConceptReferenceAntiquotation, myConceptStringToTypedValueMigrationInfo);
   }
 
   @Override
@@ -72,6 +73,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptGeneratorInternal_ReferenceDescriptor;
       case LanguageConceptSwitch.ListAntiquotation:
         return myConceptListAntiquotation;
+      case LanguageConceptSwitch.ModelNodeInitializer:
+        return myConceptModelNodeInitializer;
       case LanguageConceptSwitch.NodeBuilder:
         return myConceptNodeBuilder;
       case LanguageConceptSwitch.NodeBuilderExpression:
@@ -172,6 +175,16 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     return b.create();
   }
+  private static ConceptDescriptor createDescriptorForModelNodeInitializer() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.quotation", "ModelNodeInitializer", 0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x2e06ff6184da106eL);
+    b.class_(false, false, false);
+    b.origin("r:00000000-0000-4000-0000-011c8959034b(jetbrains.mps.lang.quotation.structure)/3316618969910743150");
+    b.version(2);
+    b.aggregate("modelToCreate", 0x2e06ff6184da106fL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(false).ordered(true).multiple(false).origin("3316618969910743151").done();
+    b.aggregate("nodeId", 0x2e06ff6184da1070L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("3316618969910743152").done();
+    b.alias("[model=");
+    return b.create();
+  }
   private static ConceptDescriptor createDescriptorForNodeBuilder() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.quotation", "NodeBuilder", 0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4a9dL);
     b.class_(false, false, false);
@@ -180,7 +193,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c8959034b(jetbrains.mps.lang.quotation.structure)/5455284157993863837");
     b.version(2);
     b.aggregate("quotedNode", 0x4bb51009d20a4a9eL).target(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4aa0L).optional(false).ordered(true).multiple(false).origin("5455284157993863838").done();
-    b.aggregate("modelToCreate", 0x4bb51009d20a4a9fL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("5455284157993863839").done();
+    b.aggregate("modelToCreate_old", 0x4bb51009d20a4a9fL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("5455284157993863839").done();
+    b.aggregate("modelToCreate", 0x2e06ff6184e8ee39L).target(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x2e06ff6184da106eL).optional(true).ordered(true).multiple(false).origin("3316618969911717433").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("<light quotation>");
     return b.create();
@@ -285,8 +299,9 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:00000000-0000-4000-0000-011c8959034b(jetbrains.mps.lang.quotation.structure)/1196350785113");
     b.version(2);
     b.aggregate("quotedNode", 0x1168c10465aL).target(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x10802efe25aL).optional(false).ordered(true).multiple(false).origin("1196350785114").done();
-    b.aggregate("modelToCreate", 0x1168c10465bL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("1196350785115").done();
-    b.aggregate("nodeId", 0x2c22b7a3db809c05L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("3180306201267182597").done();
+    b.aggregate("modelToCreate", 0x2e06ff6184da16a8L).target(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x2e06ff6184da106eL).optional(true).ordered(true).multiple(false).origin("3316618969910744744").done();
+    b.aggregate("modelToCreate_old", 0x1168c10465bL).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("1196350785115").done();
+    b.aggregate("nodeId_old", 0x2c22b7a3db809c05L).target(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL).optional(true).ordered(true).multiple(false).origin("3180306201267182597").done();
     b.kind(ConceptKind.NORMAL, StaticScope.NONE);
     b.alias("<quotation>");
     return b.create();

@@ -37,7 +37,7 @@ public final class InlineEditorComponent__BehaviorDescriptor extends BaseBHDescr
   }
 
   /*package*/ static SNode getConceptDeclaration_id67EYkym$wx3(@NotNull SNode __thisNode__) {
-    return SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.cast(SNodeOperations.getParent(__thisNode__), CONCEPTS.CellModel_RefCell$VD), LINKS.relationDeclaration$wbRV), LINKS.target$egp8);
+    return SLinkOperations.getTarget(SLinkOperations.getTarget(SNodeOperations.as(SNodeOperations.getParent(__thisNode__), CONCEPTS.CellModel_RefCell$VD), LINKS.relationDeclaration$wbRV), LINKS.target$egp8);
   }
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), CONCEPTS.AbstractConceptDeclaration$UN)) {

@@ -15,6 +15,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_GeneratorInternal_PropertyDescriptor;
   private ConceptPresentation props_GeneratorInternal_ReferenceDescriptor;
   private ConceptPresentation props_ListAntiquotation;
+  private ConceptPresentation props_ModelNodeInitializer;
   private ConceptPresentation props_NodeBuilder;
   private ConceptPresentation props_NodeBuilderExpression;
   private ConceptPresentation props_NodeBuilderInitLink;
@@ -75,6 +76,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_ListAntiquotation = cpb.create();
         }
         return props_ListAntiquotation;
+      case LanguageConceptSwitch.ModelNodeInitializer:
+        if (props_ModelNodeInitializer == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("[model=");
+          props_ModelNodeInitializer = cpb.create();
+        }
+        return props_ModelNodeInitializer;
       case LanguageConceptSwitch.NodeBuilder:
         if (props_NodeBuilder == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

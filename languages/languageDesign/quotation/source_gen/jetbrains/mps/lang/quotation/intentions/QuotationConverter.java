@@ -57,7 +57,7 @@ public class QuotationConverter {
 
     SNode q = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4a9dL, "jetbrains.mps.lang.quotation.structure.NodeBuilder"));
     SLinkOperations.setTarget(q, LINKS.quotedNode$8Jaw, SNodeOperations.cast(node, CONCEPTS.NodeBuilderNode$RN));
-    SLinkOperations.setTarget(q, LINKS.modelToCreate$8JaZ, SLinkOperations.getTarget(quotation, LINKS.modelToCreate$kInZ));
+    SLinkOperations.setTarget(q, LINKS.modelToCreate$MRab, SLinkOperations.getTarget(quotation, LINKS.modelToCreate$$mAt));
     return q;
   }
   /**
@@ -81,7 +81,7 @@ public class QuotationConverter {
     } else {
       SNode builder = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4a9dL, "jetbrains.mps.lang.quotation.structure.NodeBuilder"));
       SLinkOperations.setTarget(builder, LINKS.quotedNode$8Jaw, SNodeOperations.cast(expression, CONCEPTS.NodeBuilderNode$RN));
-      SLinkOperations.setTarget(builder, LINKS.modelToCreate$8JaZ, SLinkOperations.getTarget(quotation, LINKS.modelToCreate$kInZ));
+      SLinkOperations.setTarget(builder, LINKS.modelToCreate_old$8JaZ, SLinkOperations.getTarget(quotation, LINKS.modelToCreate_old$kInZ));
       return builder;
     }
   }
@@ -441,9 +441,11 @@ public class QuotationConverter {
   private static final class LINKS {
     /*package*/ static final SContainmentLink quotedNode$kInw = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465aL, "quotedNode");
     /*package*/ static final SContainmentLink quotedNode$8Jaw = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4a9dL, 0x4bb51009d20a4a9eL, "quotedNode");
-    /*package*/ static final SContainmentLink modelToCreate$8JaZ = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4a9dL, 0x4bb51009d20a4a9fL, "modelToCreate");
-    /*package*/ static final SContainmentLink modelToCreate$kInZ = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465bL, "modelToCreate");
+    /*package*/ static final SContainmentLink modelToCreate$MRab = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4a9dL, 0x2e06ff6184e8ee39L, "modelToCreate");
+    /*package*/ static final SContainmentLink modelToCreate$$mAt = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x2e06ff6184da16a8L, "modelToCreate");
     /*package*/ static final SContainmentLink expression$JCaZ = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x718e3f4cb7a3132eL, 0x718e3f4cb7a31330L, "expression");
+    /*package*/ static final SContainmentLink modelToCreate_old$8JaZ = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20a4a9dL, 0x4bb51009d20a4a9fL, "modelToCreate_old");
+    /*package*/ static final SContainmentLink modelToCreate_old$kInZ = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x1168c104659L, 0x1168c10465bL, "modelToCreate_old");
     /*package*/ static final SReferenceLink property$NCMw = MetaAdapterFactory.getReferenceLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20b0325L, 0x4bb51009d20b0326L, "property");
     /*package*/ static final SReferenceLink dataType$fLUl = MetaAdapterFactory.getReferenceLink(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086bL, 0xfc26f42fe5L, "dataType");
     /*package*/ static final SContainmentLink initValue$nhHN = MetaAdapterFactory.getContainmentLink(0x3a13115c633c4c5cL, 0xbbcc75c4219e9555L, 0x4bb51009d20b0325L, 0x16240b8e9e79d891L, "initValue");

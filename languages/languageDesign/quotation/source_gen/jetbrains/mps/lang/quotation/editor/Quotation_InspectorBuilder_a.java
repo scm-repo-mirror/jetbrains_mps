@@ -93,7 +93,7 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
   private EditorCell createReadOnlyModelAccessor_0() {
     EditorCell_Property editorCell = EditorCell_Property.create(getEditorContext(), new ModelAccessor() {
       public String getText() {
-        return (SLinkOperations.getTarget(myNode, LINKS.quotedNode$kInw) != null ? SNodeOperations.getConcept(SLinkOperations.getTarget(myNode, LINKS.quotedNode$kInw)).getName() : "<not specitied>");
+        return (SLinkOperations.getTarget(myNode, LINKS.quotedNode$kInw) != null ? SNodeOperations.getConcept(SLinkOperations.getTarget(myNode, LINKS.quotedNode$kInw)).getName() : "<not specified>");
       }
       public void setText(String s) {
       }
