@@ -344,6 +344,7 @@ public final class ModulesMiner {
    * module would pick generator modules up. Deployed language doesn't load generators.
    *
    * @deprecated Please do not use this method, it gonna fade away. With few modules coming from the same file, its API is not handy.
+   *             There's single use in mbeddr (mpsutil/spreferences)
    *
    * @param file descriptor file to parse for module information
    * @return handle for descriptor loaded from file

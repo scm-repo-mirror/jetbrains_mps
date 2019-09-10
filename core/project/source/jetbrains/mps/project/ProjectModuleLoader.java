@@ -106,15 +106,17 @@ import java.util.regex.Matcher;
    */
   private int loadNewPaths(final List<ModulePath> pathsToLoad) {
     final ModulesMiner modulesMiner = new ModulesMiner(myProject.getPlatform());
-    final Map<ModuleHandle, ModulePath> handleToPath = new HashMap<>();
+    final Map<IFile, ModulePath> fileToPath = new HashMap<>();
     for (ModulePath modulePath : pathsToLoad) {
       String descriptorPath = modulePath.getPath();
       try {
         // fixme Michael Muhin
         IFile descriptorFile = FileSystems.getDefault().getFile(descriptorPath);
         if (descriptorFile.exists()) {
-          ModuleHandle handle = modulesMiner.loadModuleHandle(descriptorFile);
-          handleToPath.put(handle, modulePath);
+          // there could be more than 1 module collected from a single file
+          modulesMiner.collectModules(descriptorFile);
+          // if there's more than 1 modulePath with the same IFile, I don't care, fine with the last one
+          fileToPath.put(descriptorFile, modulePath);
         } else {
           error(String.format("Can't load module from %s. File doesn't exist.", descriptorPath));
           fireModuleNotFound(modulePath);
@@ -135,12 +137,11 @@ import java.util.regex.Matcher;
     for (ModuleHandle handle : modulesMiner.getCollectedModules()) {
       if (handle.getDescriptor() instanceof GeneratorDescriptor) {
         postponedGeneratorHandles.add(handle);
-        // FIXME getCollectedModules() yields extended set of ModuleHandle compared to collection of MM.loadModuleHandle return values
-        //       that are keys in handleToPath. Namely, there are distinct mined handles for generator modules, which Project implementation
-        //       at the moment doesn't expect to see. Perhaps, handleToPath shall map descriptorFile -> ModulePath instead?
+        // There are distinct mined handles for generator modules, which Project implementation
+        // doesn't expect to see at the moment.
         continue;
       }
-      ModulePath modulePath = handleToPath.get(handle);
+      ModulePath modulePath = fileToPath.get(handle.getFile());
       if (handle.getDescriptor() != null) {
         SModule module = repoFacade.instantiateModule(handle, myProject);
         // it's quite tempting, indeed, to move project update (i.e. addModule) into listener ProjectModuleLoadingListener.moduleLoaded
