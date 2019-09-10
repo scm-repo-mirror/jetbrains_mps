@@ -11,8 +11,8 @@ import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
-import junit.framework.Assert;
 import java.time.Duration;
+import junit.framework.Assert;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -58,7 +58,11 @@ public class SuppressErrorsPerformanceTest_Test extends BaseTransformationTest {
 
     public void test_testPerformance() throws Exception {
       addNodeById("5968606277575949800");
-      Assert.assertTrue(this.measureSuppressPerformance(50000).compareTo(Duration.ofSeconds(1)) == -1);
+      // the goal of that test is to ensure more efficient than quadratic complexity 
+      Duration durationA = this.measureSuppressPerformance(1000);
+      Duration durationB = this.measureSuppressPerformance(40000);
+      Assert.assertTrue(String.format("%d expected to be greater than 4 ms", durationA.toMillis()), durationA.compareTo(Duration.ofMillis(4)) > 0);
+      Assert.assertTrue(String.format("%d expected to be less than 1000 ms", durationA.toMillis()), durationB.compareTo(Duration.ofMillis(1000)) < 0);
     }
 
 
