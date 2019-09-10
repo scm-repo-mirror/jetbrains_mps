@@ -37234,6 +37234,31 @@
       <node concept="nCB5N" id="4_qKb05xjE0" role="nCB5Z">
         <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
       </node>
+      <node concept="2GAZfH" id="3IN3EY5VvEy" role="398b2p">
+        <node concept="TIC1d" id="3IN3EY5VvEz" role="2GAZfG">
+          <node concept="398BVA" id="3IN3EY5VvE$" role="TIC6M">
+            <ref role="398BVh" node="2xKmvAPr96m" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="3IN3EY5VvE_" role="iGT6I">
+              <property role="2Ry0Am" value="plugins" />
+              <node concept="2Ry0Ak" id="3IN3EY5VvEA" role="2Ry0An">
+                <property role="2Ry0Am" value="mps-java" />
+                <node concept="2Ry0Ak" id="3IN3EY5VvEB" role="2Ry0An">
+                  <property role="2Ry0Am" value="platform" />
+                  <node concept="2Ry0Ak" id="3IN3EY5VvEC" role="2Ry0An">
+                    <property role="2Ry0Am" value="modules" />
+                    <node concept="2Ry0Ak" id="3IN3EY5VvED" role="2Ry0An">
+                      <property role="2Ry0Am" value="jetbrains.mps.java.platform" />
+                      <node concept="2Ry0Ak" id="3IN3EY5VvFg" role="2Ry0An">
+                        <property role="2Ry0Am" value="sources" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="2sgV4H" id="2xKmvAPr96j" role="1l3spa">
       <ref role="1l3spb" node="6S1jmf0xDFC" resolve="mpsBootstrapCore" />

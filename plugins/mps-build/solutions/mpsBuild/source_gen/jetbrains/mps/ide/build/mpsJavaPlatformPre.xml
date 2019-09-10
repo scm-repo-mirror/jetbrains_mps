@@ -78,11 +78,13 @@
   
   <target name="java.compile.mps-java-platform" depends="fetchDependencies">
     <mkdir dir="${mps_home}/plugins/mps-java/platform/modules/jetbrains.mps.java.platform/source_gen" />
+    <mkdir dir="${mps_home}/plugins/mps-java/platform/modules/jetbrains.mps.java.platform/sources" />
     <mkdir dir="${build.tmp}/java/out/mps-java-platform" />
     <javac2 destdir="${build.tmp}/java/out/mps-java-platform" fork="false" encoding="utf8" includeantruntime="false" debug="true">
       <compilerarg value="-Xlint:none" />
       <src>
         <path location="${mps_home}/plugins/mps-java/platform/modules/jetbrains.mps.java.platform/source_gen" />
+        <path location="${mps_home}/plugins/mps-java/platform/modules/jetbrains.mps.java.platform/sources" />
       </src>
       <classpath>
         <fileset file="${artifacts.mpsBootstrapCore}/lib/mps-annotations.jar" />
@@ -121,6 +123,7 @@
     </javac2>
     <copy todir="${build.tmp}/java/out/mps-java-platform">
       <fileset dir="${mps_home}/plugins/mps-java/platform/modules/jetbrains.mps.java.platform/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+      <fileset dir="${mps_home}/plugins/mps-java/platform/modules/jetbrains.mps.java.platform/sources" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
     </copy>
   </target>
 </project>
