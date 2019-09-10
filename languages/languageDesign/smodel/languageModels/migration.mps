@@ -270,7 +270,7 @@
       <concept id="1196350785112" name="jetbrains.mps.lang.quotation.structure.Antiquotation" flags="ng" index="2c44te" />
       <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
-        <child id="1196350785115" name="modelToCreate" index="2c44td" />
+        <child id="3316618969910744744" name="modelToCreate" index="2EReB9" />
       </concept>
       <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
         <reference id="5455284157994012188" name="link" index="2pIpSl" />
@@ -286,6 +286,9 @@
       <concept id="5455284157993863840" name="jetbrains.mps.lang.quotation.structure.NodeBuilderNode" flags="nn" index="2pJPED">
         <reference id="5455284157993910961" name="concept" index="2pJxaS" />
         <child id="5455284157993911099" name="values" index="2pJxcM" />
+      </concept>
+      <concept id="3316618969910743150" name="jetbrains.mps.lang.quotation.structure.ModelNodeInitializer" flags="ng" index="2EReWf">
+        <child id="3316618969910743151" name="modelToCreate" index="2EReWe" />
       </concept>
       <concept id="8182547171709752110" name="jetbrains.mps.lang.quotation.structure.NodeBuilderExpression" flags="nn" index="36biLy">
         <child id="8182547171709752112" name="expression" index="36biLW" />
@@ -14418,8 +14421,10 @@
                 </node>
               </node>
             </node>
-            <node concept="37vLTw" id="5znc4hy5rH0" role="2c44td">
-              <ref role="3cqZAo" node="5znc4hy36jg" resolve="m" />
+            <node concept="2EReWf" id="26d0PHbcAz0" role="2EReB9">
+              <node concept="37vLTw" id="5znc4hy5rH0" role="2EReWe">
+                <ref role="3cqZAo" node="5znc4hy36jg" resolve="m" />
+              </node>
             </node>
           </node>
         </node>
