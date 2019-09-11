@@ -96,6 +96,9 @@ public class ThreadWatcher implements Output {
 
       // org.apache.batik.util.CleanerThread from batik-util library 
       builder.append("|(Batik CleanerThread)");
+
+      // org.jetbrains.io.BuiltInServer 
+      builder.append("|(Netty Builtin Server [0-9]+)");
       // -------------------------------- 
 
       IGNORED_THREAD = Pattern.compile(builder.toString());
