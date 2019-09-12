@@ -899,6 +899,7 @@ public class SModel implements SModelData, UpdateModeSupport {
     }
     for (SLanguage lang : usedLanguages()) {
       to.addLanguage(lang);
+      to.setLanguageImportVersion(lang, getLanguageImportVersion(lang));
     }
     for (SLanguage mr : getLanguagesEngagedOnGeneration()) {
       to.addEngagedOnGenerationLanguage(mr);

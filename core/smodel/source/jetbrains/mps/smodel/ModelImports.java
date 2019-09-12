@@ -107,6 +107,7 @@ public final class ModelImports {
   public void copyUsedLanguagesFrom(@NotNull org.jetbrains.mps.openapi.model.SModel other) {
     for (SLanguage ref : ((SModelInternal) other).importedLanguageIds()) {
       myModel.addLanguage(ref);
+      myModel.setLanguageImportVersion(ref, myModel.getLanguageImportVersion(ref));
     }
   }
 
