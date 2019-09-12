@@ -922,6 +922,7 @@
       <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.search.jar" />
       <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.util.jar" />
       <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.platform.jar" />
+      <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.refactoring.platform.jar" />
       <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.ui.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.analyzers.runtime.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.dataFlow.runtime.jar" />
@@ -1833,6 +1834,7 @@
       <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.search.jar" />
       <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.util.jar" />
       <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.platform.jar" />
+      <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.refactoring.platform.jar" />
       <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.ui.jar" />
       <pathelement location="${artifacts.mps}/languages/runtimes/jetbrains.mps.analyzers.runtime.jar" />
       <pathelement location="${artifacts.mps}/languages/runtimes/jetbrains.mps.dataFlow.runtime.jar" />

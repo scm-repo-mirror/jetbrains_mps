@@ -374,6 +374,7 @@
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.javadoc.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jdk7.jar" />
+      <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jdk8.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.references.runtime.jar" />
@@ -442,6 +443,7 @@
       <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.search.jar" />
       <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.util.jar" />
       <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.platform.jar" />
+      <library file="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.refactoring.platform.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.analyzers.runtime.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.dataFlow.runtime.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.findUsages.runtime.jar" />
@@ -455,6 +457,7 @@
       <library file="${artifacts.mps}/languages/text/jetbrains.mps.lang.text.jar" />
       <library file="${artifacts.mps}/languages/tools/jetbrains.mps.core.tool.environment.jar" />
       <library file="${artifacts.mps}/languages/tools/jetbrains.mps.tool.common.jar" />
+      <library file="${artifacts.mps}/languages/util/jetbrains.mps.java.stub.jar" />
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.kernel.jar" />
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.project.jar" />
       <library file="${artifacts.mps}/languages/util/jetbrains.mps.refactoring.jar" />
@@ -795,6 +798,7 @@
       <pathelement location="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
       <pathelement location="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.javadoc.jar" />
       <pathelement location="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jdk7.jar" />
+      <pathelement location="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jdk8.jar" />
       <pathelement location="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.jar" />
       <pathelement location="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
       <pathelement location="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.references.runtime.jar" />
@@ -859,6 +863,8 @@
       <pathelement location="${artifacts.mps}/languages/mps-stubs.jar" />
       <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.search.jar" />
       <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.baseLanguage.util.jar" />
+      <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.platform.jar" />
+      <pathelement location="${artifacts.mps}/languages/plaf/jetbrains.mps.ide.refactoring.platform.jar" />
       <pathelement location="${artifacts.mps}/languages/runtimes/jetbrains.mps.analyzers.runtime.jar" />
       <pathelement location="${artifacts.mps}/languages/runtimes/jetbrains.mps.dataFlow.runtime.jar" />
       <pathelement location="${artifacts.mps}/languages/runtimes/jetbrains.mps.findUsages.runtime.jar" />
@@ -871,6 +877,7 @@
       <pathelement location="${artifacts.mps}/languages/text/jetbrains.mps.lang.text.jar" />
       <pathelement location="${artifacts.mps}/languages/tools/jetbrains.mps.core.tool.environment.jar" />
       <pathelement location="${artifacts.mps}/languages/tools/jetbrains.mps.tool.common.jar" />
+      <pathelement location="${artifacts.mps}/languages/util/jetbrains.mps.java.stub.jar" />
       <pathelement location="${artifacts.mps}/languages/util/jetbrains.mps.kernel.jar" />
       <pathelement location="${artifacts.mps}/languages/util/jetbrains.mps.project.jar" />
       <pathelement location="${artifacts.mps}/languages/util/jetbrains.mps.refactoring.jar" />

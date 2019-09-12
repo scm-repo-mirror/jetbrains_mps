@@ -222,6 +222,7 @@
       <library file="${artifacts.mpsPlugin}/mps-core/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/baseLanguage/jetbrains.mps.baseLanguage.javadoc.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/baseLanguage/jetbrains.mps.baseLanguage.jdk7.jar" />
+      <library file="${artifacts.mpsPlugin}/mps-core/languages/baseLanguage/jetbrains.mps.baseLanguage.jdk8.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/baseLanguage/jetbrains.mps.baseLanguage.references.runtime.jar" />
@@ -286,6 +287,7 @@
       <library file="${artifacts.mpsPlugin}/mps-core/languages/plaf/jetbrains.mps.baseLanguage.search.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/plaf/jetbrains.mps.baseLanguage.util.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/plaf/jetbrains.mps.ide.platform.jar" />
+      <library file="${artifacts.mpsPlugin}/mps-core/languages/plaf/jetbrains.mps.ide.refactoring.platform.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/runtimes/jetbrains.mps.analyzers.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/runtimes/jetbrains.mps.dataFlow.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/runtimes/jetbrains.mps.findUsages.runtime.jar" />
@@ -296,6 +298,9 @@
       <library file="${artifacts.mpsPlugin}/mps-core/languages/runtimes/jetbrains.mps.lang.smodel.query.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/runtimes/jetbrains.mps.refactoring.runtime.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/text/jetbrains.mps.lang.text.jar" />
+      <library file="${artifacts.mpsPlugin}/mps-core/languages/tools/jetbrains.mps.core.tool.environment.jar" />
+      <library file="${artifacts.mpsPlugin}/mps-core/languages/tools/jetbrains.mps.tool.common.jar" />
+      <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.java.stub.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.kernel.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.project.jar" />
       <library file="${artifacts.mpsPlugin}/mps-core/languages/util/jetbrains.mps.refactoring.jar" />
