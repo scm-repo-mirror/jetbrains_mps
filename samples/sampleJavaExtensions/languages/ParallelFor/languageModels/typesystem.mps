@@ -54,7 +54,6 @@
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
       <concept id="1068498886294" name="jetbrains.mps.baseLanguage.structure.AssignmentExpression" flags="nn" index="37vLTI" />
-      <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -1977,9 +1976,6 @@
                   <node concept="3uibUv" id="34zgNsMIJyp" role="2c44tc">
                     <ref role="3uigEE" to="wyt6:~String" resolve="String" />
                   </node>
-                </node>
-                <node concept="2c44tf" id="34zgNsMIJyr" role="HW$Y0">
-                  <node concept="17QB3L" id="34zgNsMIJyt" role="2c44tc" />
                 </node>
                 <node concept="3Tqbb2" id="34zgNsMIuHK" role="HW$YZ">
                   <ref role="ehGHo" to="tpee:g7uibYu" resolve="ClassifierType" />
