@@ -9,9 +9,9 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModelId;
 import org.jetbrains.mps.openapi.persistence.Memento;
-import java.util.List;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import java.util.ArrayList;
+import java.util.Map;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.HashMap;
 import java.util.Collection;
 import java.util.Set;
 import jetbrains.mps.vfs.IFile;
@@ -22,6 +22,8 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.vfs.path.Path;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import org.jetbrains.mps.openapi.module.SModule;
+import java.util.List;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -67,7 +69,7 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
   @NotNull
   @Override
   public Iterable<SModel> loadModels() {
-    final List<SModel> result = ListSequence.fromList(new ArrayList<SModel>());
+    final Map<SModelId, SModel> result = MapSequence.fromMap(new HashMap<SModelId, SModel>());
     final Collection<String> files = getFiles(FileBasedModelRoot.SOURCE_ROOTS);
     final Collection<String> excludedFiles = getFiles(FileBasedModelRoot.EXCLUDED);
 
@@ -105,7 +107,7 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
       }
     });
 
-    return result;
+    return MapSequence.fromMap(result).values();
   }
 
   private void collectJarFiles(final IFile file, Collection<String> excluded, Set<IFile> files) {
@@ -139,7 +141,7 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
     return null;
   }
 
-  public void getModelDescriptors(final List<SModel> result, IFile file, String prefix, SModule module) {
+  public void getModelDescriptors(Map<SModelId, SModel> result, IFile file, String prefix, SModule module) {
     List<IFile> children = file.getChildren();
     for (IFile subdir : ListSequence.fromList(children).where(new IWhereFilter<IFile>() {
       public boolean accept(IFile it) {
@@ -162,24 +164,16 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
       });
 
       if (Sequence.fromIterable(rootClasses).isNotEmpty()) {
-        final SModelReference modelReference = new JavaPackageNameStub(pack).asModelReference(module.getModuleReference());
+        SModelReference modelReference = new JavaPackageNameStub(pack).asModelReference(module.getModuleReference());
         JavaClassStubModelDescriptor smd;
         // FIXME: hack, see comment below 
         SModel modelDescriptor = getModelAlreadyRegistered(module, modelReference);
         if (modelDescriptor != null) {
           assert modelDescriptor instanceof JavaClassStubModelDescriptor;
           smd = (JavaClassStubModelDescriptor) modelDescriptor;
-          ListSequence.fromList(result).addElement(modelDescriptor);
-        } else if (ListSequence.fromList(result).any(new IWhereFilter<SModel>() {
-          public boolean accept(SModel it) {
-            return it.getModelId().equals(modelReference.getModelId());
-          }
-        })) {
-          modelDescriptor = ListSequence.fromList(result).findFirst(new IWhereFilter<SModel>() {
-            public boolean accept(SModel it) {
-              return it.getModelId().equals(modelReference.getModelId());
-            }
-          });
+          MapSequence.fromMap(result).put(modelReference.getModelId(), modelDescriptor);
+        } else if (MapSequence.fromMap(result).get(modelReference.getModelId()) != null) {
+          modelDescriptor = MapSequence.fromMap(result).get(modelReference.getModelId());
           assert modelDescriptor instanceof JavaClassStubModelDescriptor;
           smd = (JavaClassStubModelDescriptor) modelDescriptor;
         } else {
@@ -188,7 +182,7 @@ public class JavaClassStubsModelRoot extends FileBasedModelRoot implements Copya
           if (myPackageScope != null) {
             smd.setSkipPrivate(myPackageScope.isSkipPrivate());
           }
-          ListSequence.fromList(result).addElement(smd);
+          MapSequence.fromMap(result).put(modelReference.getModelId(), smd);
         }
         smd.getSource().addPath(subdir, this);
       }
