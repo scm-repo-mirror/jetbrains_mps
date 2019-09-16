@@ -18,12 +18,12 @@ import com.intellij.openapi.vcs.FileStatus;
 import com.intellij.openapi.vcs.changes.ContentRevision;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import com.intellij.openapi.vcs.merge.MergeProvider;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import com.intellij.openapi.vcs.merge.MergeData;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import org.jetbrains.annotations.NotNull;
 import com.intellij.openapi.progress.ProgressIndicator;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import com.intellij.openapi.vcs.merge.MergeData;
 import com.intellij.openapi.vcs.VcsException;
 import org.apache.log4j.Level;
 import jetbrains.mps.vfs.IFile;
@@ -84,55 +84,68 @@ public class ConflictingModelsUtil {
     }).toListSequence();
   }
 
-  public static boolean hasResolvableConflicts(final Project project, final MergeProvider provider, Iterable<VirtualFile> conflictedFiles) {
-    for (VirtualFile file : Sequence.fromIterable(conflictedFiles)) {
-      final MergeData[] mergeData = {null};
+  public static boolean hasResolvableConflicts(final Project project, final MergeProvider provider, final Iterable<VirtualFile> conflictedFiles) {
 
-      ProgressManager.getInstance().run(new Task.Modal(project, "Loading revisions...", true) {
-        @Override
-        public void run(@NotNull ProgressIndicator p0) {
+    final boolean[] result = {false};
+
+    ProgressManager.getInstance().run(new Task.Modal(project, "Loading revisions...", true) {
+      @Override
+      public void run(@NotNull ProgressIndicator progressIndicator) {
+
+        for (VirtualFile file : Sequence.fromIterable(conflictedFiles)) {
+          if (progressIndicator.isCanceled()) {
+            return;
+          }
+          progressIndicator.setText2(file.getPresentableName());
+
+          MergeData mergeData = null;
           try {
-            mergeData[0] = provider.loadRevisions(file);
+            mergeData = provider.loadRevisions(file);
           } catch (VcsException e) {
             if (LOG.isEnabledFor(Level.ERROR)) {
               LOG.error("Error loading revisions of " + file, e);
             }
           }
-        }
-      });
+          if (mergeData == null) {
+            continue;
+          }
 
-      IFile iFile = FileSystem.getInstance().getFile(file.getPath());
-      String ext = file.getExtension();
-      if (FilePerRootDataSource.isPerRootPersistenceFile(iFile)) {
-        ext = MPSExtentions.MODEL;
-      }
-      final SModel baseModel = loadModel(mergeData[0].ORIGINAL, ext);
-      final SModel mineModel = loadModel(mergeData[0].CURRENT, ext);
-      final SModel repoModel = loadModel(mergeData[0].LAST, ext);
-      if (baseModel == null || mineModel == null || repoModel == null) {
-        if (LOG.isEnabledFor(Level.WARN)) {
-          LOG.warn("Couldn't read model " + file.getPath());
-        }
-        continue;
-      }
-      // read action: 
-      final Wrappers._T<MergeSession> mergeSession = new Wrappers._T<MergeSession>();
-      ProjectHelper.getModelAccess(project).runReadAction(new Runnable() {
-        public void run() {
-          mergeSession.value = MergeSession.createMergeSession(baseModel, mineModel, repoModel);
-        }
-      });
-      int conflictingChangesCount = Sequence.fromIterable(mergeSession.value.getAllChanges()).where(new IWhereFilter<ModelChange>() {
-        public boolean accept(ModelChange c) {
-          return Sequence.fromIterable(mergeSession.value.getConflictedWith(c)).isNotEmpty();
-        }
-      }).count();
-      if (conflictingChangesCount == 0) {
-        return true;
-      }
-    }
+          IFile iFile = FileSystem.getInstance().getFile(file.getPath());
+          String ext = file.getExtension();
+          if (FilePerRootDataSource.isPerRootPersistenceFile(iFile)) {
+            ext = MPSExtentions.MODEL;
+          }
+          final SModel baseModel = loadModel(mergeData.ORIGINAL, ext);
+          final SModel mineModel = loadModel(mergeData.CURRENT, ext);
+          final SModel repoModel = loadModel(mergeData.LAST, ext);
+          if (baseModel == null || mineModel == null || repoModel == null) {
+            if (LOG.isEnabledFor(Level.WARN)) {
+              LOG.warn("Couldn't read model " + file.getPath());
+            }
+            continue;
+          }
 
-    return false;
+          final Wrappers._T<MergeSession> mergeSession = new Wrappers._T<MergeSession>();
+          ProjectHelper.getModelAccess(project).runReadAction(new Runnable() {
+            public void run() {
+              mergeSession.value = MergeSession.createMergeSession(baseModel, mineModel, repoModel);
+            }
+          });
+
+          int conflictingChangesCount = Sequence.fromIterable(mergeSession.value.getAllChanges()).where(new IWhereFilter<ModelChange>() {
+            public boolean accept(ModelChange c) {
+              return Sequence.fromIterable(mergeSession.value.getConflictedWith(c)).isNotEmpty();
+            }
+          }).count();
+          if (conflictingChangesCount == 0) {
+            result[0] = true;
+            return;
+          }
+        }
+      }
+    });
+
+    return result[0];
   }
 
   public static ModelConflictResolver getModelConflictResolverTask(Project project, MergeProvider provider, com.intellij.openapi.vcs.merge.MergeSession session, List<? extends VirtualFile> conflictedFiles) {
