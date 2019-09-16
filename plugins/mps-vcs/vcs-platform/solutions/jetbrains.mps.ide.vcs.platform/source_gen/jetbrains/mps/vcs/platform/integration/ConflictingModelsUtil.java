@@ -20,21 +20,23 @@ import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import com.intellij.openapi.vcs.merge.MergeProvider;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import com.intellij.openapi.vcs.merge.MergeData;
+import com.intellij.openapi.progress.ProgressManager;
+import com.intellij.openapi.progress.Task;
+import org.jetbrains.annotations.NotNull;
+import com.intellij.openapi.progress.ProgressIndicator;
+import com.intellij.openapi.vcs.VcsException;
+import org.apache.log4j.Level;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.persistence.FilePerRootDataSource;
 import jetbrains.mps.project.MPSExtentions;
 import org.jetbrains.mps.openapi.model.SModel;
-import org.apache.log4j.Level;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.vcs.diff.merge.MergeSession;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.vcs.diff.changes.ModelChange;
-import com.intellij.openapi.progress.Task;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import org.jetbrains.annotations.NotNull;
-import com.intellij.openapi.progress.ProgressIndicator;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
 import org.jetbrains.mps.openapi.module.ModelAccess;
@@ -48,7 +50,6 @@ import com.intellij.openapi.vcs.changes.VcsDirtyScopeManager;
 import java.io.IOException;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
-import com.intellij.openapi.vcs.VcsException;
 
 public class ConflictingModelsUtil {
   private static final Logger LOG = LogManager.getLogger(ConflictingModelsUtil.class);
@@ -83,18 +84,31 @@ public class ConflictingModelsUtil {
     }).toListSequence();
   }
 
-  public static boolean hasResolvableConflicts(Project project, MergeProvider provider, Iterable<VirtualFile> conflictedFiles) {
+  public static boolean hasResolvableConflicts(final Project project, final MergeProvider provider, Iterable<VirtualFile> conflictedFiles) {
     for (VirtualFile file : Sequence.fromIterable(conflictedFiles)) {
-      MergeData mergeData = loadRevisions(provider, file);
+      final MergeData[] mergeData = {null};
+
+      ProgressManager.getInstance().run(new Task.Modal(project, "Loading revisions...", true) {
+        @Override
+        public void run(@NotNull ProgressIndicator p0) {
+          try {
+            mergeData[0] = provider.loadRevisions(file);
+          } catch (VcsException e) {
+            if (LOG.isEnabledFor(Level.ERROR)) {
+              LOG.error("Error loading revisions of " + file, e);
+            }
+          }
+        }
+      });
 
       IFile iFile = FileSystem.getInstance().getFile(file.getPath());
       String ext = file.getExtension();
       if (FilePerRootDataSource.isPerRootPersistenceFile(iFile)) {
         ext = MPSExtentions.MODEL;
       }
-      final SModel baseModel = loadModel(mergeData.ORIGINAL, ext);
-      final SModel mineModel = loadModel(mergeData.CURRENT, ext);
-      final SModel repoModel = loadModel(mergeData.LAST, ext);
+      final SModel baseModel = loadModel(mergeData[0].ORIGINAL, ext);
+      final SModel mineModel = loadModel(mergeData[0].CURRENT, ext);
+      final SModel repoModel = loadModel(mergeData[0].LAST, ext);
       if (baseModel == null || mineModel == null || repoModel == null) {
         if (LOG.isEnabledFor(Level.WARN)) {
           LOG.warn("Couldn't read model " + file.getPath());
@@ -166,7 +180,15 @@ public class ConflictingModelsUtil {
           final Wrappers._T<SModel> mineModel = new Wrappers._T<SModel>(null);
           final Wrappers._T<SModel> repoModel = new Wrappers._T<SModel>(null);
           if (PersistenceFacade.getInstance().getModelFactory(ext.value) != null) {
-            MergeData mergeData = loadRevisions(myProvider, file);
+            MergeData mergeData = null;
+            try {
+              mergeData = myProvider.loadRevisions(file);
+            } catch (VcsException e) {
+              if (LOG.isEnabledFor(Level.ERROR)) {
+                LOG.error("Error loading revisions to merge", e);
+              }
+            }
+
             if (mergeData != null) {
               baseModel.value = loadModel(mergeData.ORIGINAL, ext.value);
               mineModel.value = loadModel(mergeData.CURRENT, ext.value);
@@ -284,21 +306,5 @@ public class ConflictingModelsUtil {
     }
     SModel model = VCSPersistenceUtil.loadModel(bytes, ext);
     return (VCSPersistenceUtil.isModelFullyLoaded(model) ? model : null);
-  }
-  @Nullable
-  public static MergeData loadRevisions(final MergeProvider provider, final VirtualFile file) {
-    final Wrappers._T<MergeData> mergeData = new Wrappers._T<MergeData>(null);
-    ThreadUtils.runInUIThreadAndWait(new Runnable() {
-      public void run() {
-        try {
-          mergeData.value = provider.loadRevisions(file);
-        } catch (VcsException e) {
-          if (LOG.isEnabledFor(Level.ERROR)) {
-            LOG.error("Error loading revisions to merge", e);
-          }
-        }
-      }
-    });
-    return mergeData.value;
   }
 }
