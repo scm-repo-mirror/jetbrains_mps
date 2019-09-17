@@ -28,6 +28,7 @@
     <import index="mte5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.ide.findusages.model.scopes(MPS.Core/)" />
     <import index="mk8z" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.progress(MPS.Core/)" />
     <import index="lzb2" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui(MPS.IDEA/)" />
+    <import index="ddhc" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide(MPS.IDEA/)" />
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" implicit="true" />
   </imports>
   <registry>
@@ -1071,8 +1072,10 @@
       <node concept="3Tm1VV" id="DdPZ52JrPc" role="1B3o_S" />
       <node concept="17QB3L" id="DdPZ52JOAn" role="3clF45" />
       <node concept="3clFbS" id="DdPZ52JrPe" role="3clF47">
-        <node concept="3cpWs6" id="DdPZ52JrPf" role="3cqZAp">
-          <node concept="10Nm6u" id="DdPZ52JrPg" role="3cqZAk" />
+        <node concept="3clFbF" id="10t4ayE1bqr" role="3cqZAp">
+          <node concept="Xl_RD" id="10t4ayE1bqq" role="3clFbG">
+            <property role="Xl_RC" value="Not found" />
+          </node>
         </node>
       </node>
       <node concept="2AHcQZ" id="DdPZ52JrPh" role="2AJF6D">
@@ -1084,8 +1087,10 @@
       <node concept="3Tm1VV" id="DdPZ52JrPj" role="1B3o_S" />
       <node concept="17QB3L" id="DdPZ52JOAm" role="3clF45" />
       <node concept="3clFbS" id="DdPZ52JrPl" role="3clF47">
-        <node concept="3cpWs6" id="DdPZ52JrPm" role="3cqZAp">
-          <node concept="10Nm6u" id="DdPZ52JrPn" role="3cqZAk" />
+        <node concept="3clFbF" id="10t4ayE1dod" role="3cqZAp">
+          <node concept="Xl_RD" id="10t4ayE1doc" role="3clFbG">
+            <property role="Xl_RC" value="Not found" />
+          </node>
         </node>
       </node>
       <node concept="2AHcQZ" id="DdPZ52JrPo" role="2AJF6D">

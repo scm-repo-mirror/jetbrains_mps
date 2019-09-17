@@ -77,11 +77,11 @@ import org.jetbrains.annotations.NotNull;
   }
   @Override
   public String getNotInMessage() {
-    return null;
+    return "Not found";
   }
   @Override
   public String getNotFoundMessage() {
-    return null;
+    return "Not found";
   }
   @Override
   public String getCheckBoxName() {

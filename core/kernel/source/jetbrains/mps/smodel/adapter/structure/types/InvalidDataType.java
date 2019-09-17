@@ -18,7 +18,7 @@ package jetbrains.mps.smodel.adapter.structure.types;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SDataType;
-import org.jetbrains.mps.openapi.language.SEnumeration;
+import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
 import org.jetbrains.mps.openapi.language.SType;
 
 /**
@@ -43,7 +43,7 @@ public class InvalidDataType implements SDataType {
   @Nullable
   @Override
   public String toString(@Nullable Object value) {
-    return null;
+    return serializeReflectively(value);
   }
 
   @Override
@@ -60,5 +60,22 @@ public class InvalidDataType implements SDataType {
   @Override
   public String toString() {
     return "InvalidDataType{" + myName + "}";
+  }
+
+  /**
+   * Auxiliary to support property serialization for absent languages.
+   *
+   * If an instance of {@link InvalidDataType} is revealed (which means
+   * that either type or property that's of this type is not deployed) then
+   * propertyValue is serialized via lookup of propertyValue's java class.
+   */
+  private static String serializeReflectively(Object propertyValue) {
+    if (propertyValue instanceof String || propertyValue instanceof Integer || propertyValue instanceof Boolean) {
+      return propertyValue.toString();
+    }
+    if (propertyValue instanceof SEnumerationLiteral) {
+      return ((SEnumerationLiteral) propertyValue).getEnumeration().toString(propertyValue);
+    }
+    return null;
   }
 }

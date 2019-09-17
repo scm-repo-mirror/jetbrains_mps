@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-dlnwq5euiwwyhq26i4eu83fop06bk16">
+<product version="3" modelHash="-6i9yteee5em6kqokr3slwv4ju0devax">
   <files names="ConvertToNodeBuilder_Intention.java:CreateAntiquotation_Intention.java:CreateListAntiquotation_Intention.java:CreatePropertyAntiquotation_Intention.java:CreateReferenceAntiquotation_Intention.java:IntentionsDescriptor.java:QuotationConverter.java" />
 </product>
 
