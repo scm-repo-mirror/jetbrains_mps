@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,6 +41,7 @@ public class GeneratorDescriptor extends ModuleDescriptor {
   private boolean myGenerateTemplates = false;
   private String myGenOutputPath;
   private SModuleReference mySourceLanguage;
+  private boolean myStandaloneModule = false;
 
   public GeneratorDescriptor() {
     super();
@@ -124,6 +125,21 @@ public class GeneratorDescriptor extends ModuleDescriptor {
     return true;
   }
 
+  /**
+   * For a long time, Generator modules were part of Language declaration. Now we move towards full-fledged Generator
+   * modules and use this flag to tell Generator modules that are part of any language from modules on their on.
+   * Default value is {@code false} for compatibility with existing code that configures GD and doesn't know about this flag.
+   * Note, this attribute is deemed provisional as it's necessary at the moment, but its future is uncertain, don't use it unless truly necessary.
+   * @return {@code false} unless explicitly set by code that knows GD comes not as part of LanguageDescriptor.
+   */
+  public boolean isStandaloneModule() {
+    return myStandaloneModule;
+  }
+
+  public void standaloneModule(boolean value) {
+    myStandaloneModule = value;
+  }
+
   @Override
   protected int getHeaderMarker() {
     return 0x45459797;
@@ -178,6 +194,7 @@ public class GeneratorDescriptor extends ModuleDescriptor {
     copy.setSourceLanguage(getSourceLanguage());
     copy.getDepGenerators().addAll(getDepGenerators());
     copy.getPriorityRules().addAll(getPriorityRules().stream().map(MappingPriorityRule::copy).collect(toList()));
+    copy.standaloneModule(isStandaloneModule());
     return copy;
   }
 }

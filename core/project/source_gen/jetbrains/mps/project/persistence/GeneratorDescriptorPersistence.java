@@ -69,6 +69,7 @@ public class GeneratorDescriptorPersistence {
               final SModuleReference result_wk2vdq_a0a1a11a0a0a0a0h = PersistenceFacade.getInstance().createModuleReference(srcLang.getAttributeValue("module"));
               result_wk2vdq_a0a0a0a0h.setSourceLanguage(result_wk2vdq_a0a1a11a0a0a0a0h);
             }
+            result_wk2vdq_a0a0a0a0h.standaloneModule(true);
           }
 
           Element models = XmlUtil.first(generatorElement, "models");

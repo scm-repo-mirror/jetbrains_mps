@@ -1574,6 +1574,17 @@
                               </node>
                             </node>
                           </node>
+                          <node concept="3clFbF" id="4gdBWRzJ7QP" role="3cqZAp">
+                            <node concept="2OqwBi" id="4gdBWRzJ8j2" role="3clFbG">
+                              <node concept="1bf8Ab" id="4gdBWRzJp3u" role="2Oq$k0" />
+                              <node concept="liA8E" id="4gdBWRzJ8Bu" role="2OqNvi">
+                                <ref role="37wK5l" to="w0gx:~GeneratorDescriptor.standaloneModule(boolean)" resolve="standaloneModule" />
+                                <node concept="3clFbT" id="4gdBWRzJ8NM" role="37wK5m">
+                                  <property role="3clFbU" value="true" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
                         </node>
                         <node concept="3fqX7Q" id="5xfdnM7qbxN" role="3clFbw">
                           <node concept="37vLTw" id="5xfdnM7qbFi" role="3fr31v">
