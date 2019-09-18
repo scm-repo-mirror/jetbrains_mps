@@ -373,5 +373,53 @@
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
     </node>
   </node>
+  <node concept="1TIwiD" id="2g69lt1$JCp">
+    <property role="EcuMT" value="2595803291918203417" />
+    <property role="TrG5h" value="PatternBuilder" />
+    <property role="34LRSv" value="&gt;light pattern&lt;" />
+    <property role="3GE5qa" value="light" />
+    <node concept="1TJgyj" id="2g69lt1$Kgh" role="1TKVEi">
+      <property role="IQ2ns" value="2595803291918205969" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="builder" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" to="tp3r:4IP40Bi2$Ew" resolve="NodeBuilderNode" />
+    </node>
+    <node concept="PrWs8" id="2g69lt1__B5" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2g69lt1BJHK">
+    <property role="EcuMT" value="2595803291918990192" />
+    <property role="3GE5qa" value="light" />
+    <property role="TrG5h" value="PatternVariableNode" />
+    <property role="34LRSv" value="#variable" />
+    <ref role="1TJDcQ" to="tp3r:1o$2SUuutG0" resolve="NodeBuilderInitLinkValue" />
+    <node concept="PrWs8" id="2g69lt1BJHL" role="PzmwI">
+      <ref role="PrY4T" to="tp3r:7vKHTLu5SzY" resolve="NodeBuilderInitValueChild" />
+    </node>
+    <node concept="PrWs8" id="2g69lt1BLHS" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="53SOuJl2VUK">
+    <property role="EcuMT" value="5834644128080314032" />
+    <property role="3GE5qa" value="light" />
+    <property role="TrG5h" value="PatternBuilderClassifierMember" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="53SOuJl2VUN" role="1TKVEi">
+      <property role="IQ2ns" value="5834644128080314035" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <property role="20kJfa" value="pattern" />
+      <ref role="20lvS9" node="2g69lt1$JCp" resolve="PatternBuilder" />
+    </node>
+    <node concept="PrWs8" id="53SOuJl2VVl" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="PrWs8" id="53SOuJl2VUL" role="PzmwI">
+      <ref role="PrY4T" to="tpee:h9ngReX" resolve="ClassifierMember" />
+    </node>
+  </node>
 </model>
 

@@ -24,11 +24,14 @@ public final class LanguageConceptSwitch {
   public static final int OrPatternClause = 12;
   public static final int OrPatternVariableReference = 13;
   public static final int Pattern = 14;
-  public static final int PatternExpression = 15;
-  public static final int PatternVariableDeclaration = 16;
-  public static final int PatternVariableReference = 17;
-  public static final int PropertyPatternVariableDeclaration = 18;
-  public static final int WildcardPattern = 19;
+  public static final int PatternBuilder = 15;
+  public static final int PatternBuilderClassifierMember = 16;
+  public static final int PatternExpression = 17;
+  public static final int PatternVariableDeclaration = 18;
+  public static final int PatternVariableNode = 19;
+  public static final int PatternVariableReference = 20;
+  public static final int PropertyPatternVariableDeclaration = 21;
+  public static final int WildcardPattern = 22;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L);
@@ -47,8 +50,11 @@ public final class LanguageConceptSwitch {
     builder.put(0x4363a36537b0b250L, OrPatternClause);
     builder.put(0x3b2f5e7b070d317cL, OrPatternVariableReference);
     builder.put(0x108a9cb478fL, Pattern);
+    builder.put(0x240625574192fa19L, PatternBuilder);
+    builder.put(0x50f8d1ebd50bbeb0L, PatternBuilderClassifierMember);
     builder.put(0x108a9cb4791L, PatternExpression);
     builder.put(0x108a9cb4793L, PatternVariableDeclaration);
+    builder.put(0x24062557419efb70L, PatternVariableNode);
     builder.put(0x2b7df577ffbb6a85L, PatternVariableReference);
     builder.put(0x108a9cb4795L, PropertyPatternVariableDeclaration);
     builder.put(0x108a9cb4797L, WildcardPattern);

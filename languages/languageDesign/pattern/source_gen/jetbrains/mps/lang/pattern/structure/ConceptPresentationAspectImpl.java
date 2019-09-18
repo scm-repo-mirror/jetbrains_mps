@@ -24,8 +24,11 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_OrPatternClause;
   private ConceptPresentation props_OrPatternVariableReference;
   private ConceptPresentation props_Pattern;
+  private ConceptPresentation props_PatternBuilder;
+  private ConceptPresentation props_PatternBuilderClassifierMember;
   private ConceptPresentation props_PatternExpression;
   private ConceptPresentation props_PatternVariableDeclaration;
+  private ConceptPresentation props_PatternVariableNode;
   private ConceptPresentation props_PatternVariableReference;
   private ConceptPresentation props_PropertyPatternVariableDeclaration;
   private ConceptPresentation props_WildcardPattern;
@@ -139,6 +142,20 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Pattern = cpb.create();
         }
         return props_Pattern;
+      case LanguageConceptSwitch.PatternBuilder:
+        if (props_PatternBuilder == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation(">light pattern<");
+          props_PatternBuilder = cpb.create();
+        }
+        return props_PatternBuilder;
+      case LanguageConceptSwitch.PatternBuilderClassifierMember:
+        if (props_PatternBuilderClassifierMember == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_PatternBuilderClassifierMember = cpb.create();
+        }
+        return props_PatternBuilderClassifierMember;
       case LanguageConceptSwitch.PatternExpression:
         if (props_PatternExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -153,6 +170,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PatternVariableDeclaration = cpb.create();
         }
         return props_PatternVariableDeclaration;
+      case LanguageConceptSwitch.PatternVariableNode:
+        if (props_PatternVariableNode == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_PatternVariableNode = cpb.create();
+        }
+        return props_PatternVariableNode;
       case LanguageConceptSwitch.PatternVariableReference:
         if (props_PatternVariableReference == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
