@@ -818,30 +818,32 @@
               </node>
               <node concept="2OqwBi" id="7vEL9Rt9aTe" role="10QFUP">
                 <node concept="2ShNRf" id="7vEL9Rt99px" role="2Oq$k0">
-                  <node concept="1pGfFk" id="7vEL9Rt9aaO" role="2ShVmc">
-                    <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="ModuleRepositoryFacade" />
-                    <node concept="37vLTw" id="7vEL9Rt9avL" role="37wK5m">
-                      <ref role="3cqZAo" node="3WcIkZauaum" resolve="project" />
-                    </node>
+                  <node concept="1pGfFk" id="7R6Zz6Kgk$f" role="2ShVmc">
+                    <ref role="37wK5l" to="w1kc:~GeneralModuleFactory.&lt;init&gt;()" resolve="GeneralModuleFactory" />
                   </node>
                 </node>
                 <node concept="liA8E" id="7vEL9Rt9bsm" role="2OqNvi">
-                  <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.instantiateModule(jetbrains.mps.library.ModulesMiner$ModuleHandle,jetbrains.mps.smodel.MPSModuleOwner)" resolve="instantiateModule" />
-                  <node concept="2ShNRf" id="6Hfjuo1$qES" role="37wK5m">
-                    <node concept="1pGfFk" id="6Hfjuo1$rXK" role="2ShVmc">
-                      <ref role="37wK5l" to="32g5:~ModulesMiner$ModuleHandle.&lt;init&gt;(jetbrains.mps.vfs.IFile,jetbrains.mps.project.structure.modules.ModuleDescriptor)" resolve="ModulesMiner.ModuleHandle" />
-                      <node concept="37vLTw" id="6Hfjuo1$tTb" role="37wK5m">
-                        <ref role="3cqZAo" node="7vEL9Rt8tif" resolve="descriptorFile" />
-                      </node>
-                      <node concept="37vLTw" id="6Hfjuo1$tpi" role="37wK5m">
-                        <ref role="3cqZAo" node="1Yd98ZZnqFM" resolve="descriptor" />
-                      </node>
-                    </node>
+                  <ref role="37wK5l" to="w1kc:~GeneralModuleFactory.instantiate(jetbrains.mps.project.structure.modules.ModuleDescriptor,jetbrains.mps.vfs.IFile)" resolve="instantiate" />
+                  <node concept="37vLTw" id="6Hfjuo1$tpi" role="37wK5m">
+                    <ref role="3cqZAo" node="1Yd98ZZnqFM" resolve="descriptor" />
                   </node>
-                  <node concept="37vLTw" id="7vEL9Rt9csG" role="37wK5m">
-                    <ref role="3cqZAo" node="3WcIkZauaum" resolve="project" />
+                  <node concept="37vLTw" id="6Hfjuo1$tTb" role="37wK5m">
+                    <ref role="3cqZAo" node="7vEL9Rt8tif" resolve="descriptorFile" />
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="7vEL9Rt8uBD" role="3cqZAp">
+          <node concept="2OqwBi" id="7vEL9Rt8uUS" role="3clFbG">
+            <node concept="37vLTw" id="7vEL9Rt8uBB" role="2Oq$k0">
+              <ref role="3cqZAo" node="3WcIkZauaum" resolve="project" />
+            </node>
+            <node concept="liA8E" id="7vEL9Rt8voy" role="2OqNvi">
+              <ref role="37wK5l" to="z1c3:~ProjectBase.addModule(org.jetbrains.mps.openapi.module.SModule)" resolve="addModule" />
+              <node concept="37vLTw" id="7vEL9Rt8xCG" role="37wK5m">
+                <ref role="3cqZAo" node="7vEL9Rt8tTO" resolve="module" />
               </node>
             </node>
           </node>
@@ -874,20 +876,6 @@
             </node>
             <node concept="liA8E" id="7vEL9Rt8wNn" role="2OqNvi">
               <ref role="37wK5l" to="z1c3:~Solution.save()" resolve="save" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="6Hfjuo1$wpp" role="3cqZAp" />
-        <node concept="3clFbF" id="7vEL9Rt8uBD" role="3cqZAp">
-          <node concept="2OqwBi" id="7vEL9Rt8uUS" role="3clFbG">
-            <node concept="37vLTw" id="7vEL9Rt8uBB" role="2Oq$k0">
-              <ref role="3cqZAo" node="3WcIkZauaum" resolve="project" />
-            </node>
-            <node concept="liA8E" id="7vEL9Rt8voy" role="2OqNvi">
-              <ref role="37wK5l" to="z1c3:~ProjectBase.addModule(org.jetbrains.mps.openapi.module.SModule)" resolve="addModule" />
-              <node concept="37vLTw" id="7vEL9Rt8xCG" role="37wK5m">
-                <ref role="3cqZAo" node="7vEL9Rt8tTO" resolve="module" />
-              </node>
             </node>
           </node>
         </node>
@@ -1599,30 +1587,32 @@
               </node>
               <node concept="2OqwBi" id="7vEL9Rt8Y2g" role="10QFUP">
                 <node concept="2ShNRf" id="7vEL9Rt8Mo9" role="2Oq$k0">
-                  <node concept="1pGfFk" id="7vEL9Rt8XzV" role="2ShVmc">
-                    <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="ModuleRepositoryFacade" />
-                    <node concept="37vLTw" id="7vEL9Rt8XKN" role="37wK5m">
-                      <ref role="3cqZAo" node="7BBl3KIzvoJ" resolve="project" />
-                    </node>
+                  <node concept="1pGfFk" id="7R6Zz6Kgsiw" role="2ShVmc">
+                    <ref role="37wK5l" to="w1kc:~GeneralModuleFactory.&lt;init&gt;()" resolve="GeneralModuleFactory" />
                   </node>
                 </node>
                 <node concept="liA8E" id="7vEL9Rt8Ytf" role="2OqNvi">
-                  <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.instantiateModule(jetbrains.mps.library.ModulesMiner$ModuleHandle,jetbrains.mps.smodel.MPSModuleOwner)" resolve="instantiateModule" />
-                  <node concept="2ShNRf" id="6Hfjuo1$lxP" role="37wK5m">
-                    <node concept="1pGfFk" id="6Hfjuo1$mug" role="2ShVmc">
-                      <ref role="37wK5l" to="32g5:~ModulesMiner$ModuleHandle.&lt;init&gt;(jetbrains.mps.vfs.IFile,jetbrains.mps.project.structure.modules.ModuleDescriptor)" resolve="ModulesMiner.ModuleHandle" />
-                      <node concept="37vLTw" id="6Hfjuo1$mMy" role="37wK5m">
-                        <ref role="3cqZAo" node="7vEL9Rt8p8R" resolve="descriptorFile" />
-                      </node>
-                      <node concept="37vLTw" id="6Hfjuo1$noq" role="37wK5m">
-                        <ref role="3cqZAo" node="1Yd98ZZnqJv" resolve="descriptor" />
-                      </node>
-                    </node>
+                  <ref role="37wK5l" to="w1kc:~GeneralModuleFactory.instantiate(jetbrains.mps.project.structure.modules.ModuleDescriptor,jetbrains.mps.vfs.IFile)" resolve="instantiate" />
+                  <node concept="37vLTw" id="7R6Zz6KgtNj" role="37wK5m">
+                    <ref role="3cqZAo" node="1Yd98ZZnqJv" resolve="descriptor" />
                   </node>
-                  <node concept="37vLTw" id="7vEL9Rt8Zg2" role="37wK5m">
-                    <ref role="3cqZAo" node="7BBl3KIzvoJ" resolve="project" />
+                  <node concept="37vLTw" id="7R6Zz6KguKC" role="37wK5m">
+                    <ref role="3cqZAo" node="7vEL9Rt8p8R" resolve="descriptorFile" />
                   </node>
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="7vEL9Rt8p96" role="3cqZAp">
+          <node concept="2OqwBi" id="7vEL9Rt8p97" role="3clFbG">
+            <node concept="37vLTw" id="7vEL9Rt8p98" role="2Oq$k0">
+              <ref role="3cqZAo" node="7BBl3KIzvoJ" resolve="project" />
+            </node>
+            <node concept="liA8E" id="7vEL9Rt8p99" role="2OqNvi">
+              <ref role="37wK5l" to="z1c3:~ProjectBase.addModule(org.jetbrains.mps.openapi.module.SModule)" resolve="addModule" />
+              <node concept="37vLTw" id="7vEL9Rt8p9a" role="37wK5m">
+                <ref role="3cqZAo" node="7vEL9Rt8p8Y" resolve="module" />
               </node>
             </node>
           </node>
@@ -1634,20 +1624,6 @@
             </node>
             <node concept="liA8E" id="7vEL9Rt8p9e" role="2OqNvi">
               <ref role="37wK5l" to="z1c3:~DevKit.save()" resolve="save" />
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbH" id="6Hfjuo1$omn" role="3cqZAp" />
-        <node concept="3clFbF" id="7vEL9Rt8p96" role="3cqZAp">
-          <node concept="2OqwBi" id="7vEL9Rt8p97" role="3clFbG">
-            <node concept="37vLTw" id="7vEL9Rt8p98" role="2Oq$k0">
-              <ref role="3cqZAo" node="7BBl3KIzvoJ" resolve="project" />
-            </node>
-            <node concept="liA8E" id="7vEL9Rt8p99" role="2OqNvi">
-              <ref role="37wK5l" to="z1c3:~ProjectBase.addModule(org.jetbrains.mps.openapi.module.SModule)" resolve="addModule" />
-              <node concept="37vLTw" id="7vEL9Rt8p9a" role="37wK5m">
-                <ref role="3cqZAo" node="7vEL9Rt8p8Y" resolve="module" />
-              </node>
             </node>
           </node>
         </node>

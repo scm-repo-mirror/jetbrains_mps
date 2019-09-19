@@ -24,6 +24,7 @@ import jetbrains.mps.project.structure.project.ProjectDescriptor;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.MPSModuleRepository;
+import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
@@ -115,22 +116,32 @@ public abstract class ProjectBase extends Project {
    * There is no change in the descriptor and interaction with the loading/saving descriptor logic (ModuleLoader)
    *
    * @deprecated there is an intention to deduce virtual folders from the file system directly
+   *
+   * @return {@code true} if the module is top-level module that needs representation in descriptor file
    */
   @ToRemove(version = 3.5)
   @Deprecated
   @Internal
-  /*package*/ final void addModule0(@NotNull ModulePath path, @NotNull SModule module) {
+  /*package*/ final boolean addModule0(@NotNull ModulePath path, @NotNull SModule module) {
     if (myModuleToPathMap.containsKey(module.getModuleReference())) {
 //      throw new IllegalArgumentException(module + " is already in the " + this); todo enable after MPS-24400
       LOG.warn(module + " is already in " + this);
-      return;
+      return false;
     }
+    associateWithProjectRepo(module);
+    if (module instanceof Generator && !((Generator) module).getModuleDescriptor().isStandaloneModule()) {
+      return false;
+    }
+    myModuleToPathMap.put(module.getModuleReference(), path);
+    addRenameListener(module);
+    return true;
+  }
+
+  private void associateWithProjectRepo(SModule module) {
     SRepositoryExt repository = (SRepositoryExt) getRepository();
     // generally, module is already registered with a repo, as the primary mechanism to create a module instance, ModuleRepositoryFacade#instantiateModule,
     // automatically registers a module as well.
     repository.getModelAccess().runWriteAction(() -> repository.registerModule(module, this));
-    myModuleToPathMap.put(module.getModuleReference(), path);
-    addRenameListener(module);
   }
 
   /**
@@ -142,15 +153,22 @@ public abstract class ProjectBase extends Project {
    */
   @Override
   public final void addModule(@NotNull SModule module) {
-    IFile descriptorFile = getDescriptorFileChecked(module);
+    IFile descriptorFile = module instanceof AbstractModule ? ((AbstractModule) module).getDescriptorFile() : null;
     if (descriptorFile != null) {
-      if (module instanceof Generator && !((Generator) module).getModuleDescriptor().isStandaloneModule()) {
-        return;
-      }
       ModulePath path = new ModulePath(descriptorFile.getPath(), null);
-      addModule0(path, module);
-      myProjectDescriptor.addModulePath(path);
-      myModuleLoader.fireModuleLoaded(path, module);
+      // if file points to a file shared b/w language and generator, the it's Generator we are trying to add, addModule0 returns false so that we don't record
+      // the file more than once, or dispatch module loaded (though the latter is dubious)
+      if (addModule0(path, module)) {
+        myProjectDescriptor.addModulePath(path);
+        myModuleLoader.fireModuleLoaded(path, module);
+      }
+    } else {
+      // there are modules like JpsSolutionIdea that got no file, but we still need to register them with a project repo, and it's better
+      // to do it here rather than expose 'owner' knowledge outside of a project.
+      // FIXME I don't register them in a project as there's no ModulePath to associate them with, but perhaps we shall use some default MP for them,
+      //       (e.g. associated with a project root).
+      // XXX perhaps, shall keep record of modules added this way, e.g. to report them from Project.getProjectModules()
+      associateWithProjectRepo(module);
     }
   }
 
@@ -169,7 +187,16 @@ public abstract class ProjectBase extends Project {
   @Override
   public final void removeModule(@NotNull SModule module) {
     if (!myModuleToPathMap.containsKey(module.getModuleReference())) {
-      if (module instanceof Generator && !((Generator) module).getModuleDescriptor().isStandaloneModule()) {
+      final SRepositoryExt repo = (SRepositoryExt) getRepository();
+      final Boolean ownedByTheProject = new ModelAccessHelper(repo).runWriteAction(() -> {
+        if (repo.getOwners(module).contains(ProjectBase.this)) {
+          repo.unregisterModule(module, ProjectBase.this);
+          return true;
+        }
+        return false;
+      });
+      if (ownedByTheProject) {
+        // this covers modules without files as well as generator modules living under Language (GeneratorDescriptor.isStandaloneModule() == false)
         return;
       }
       LOG.warn("Module has not been registered in the project: " + module);
@@ -207,16 +234,6 @@ public abstract class ProjectBase extends Project {
       repository.unregisterModule(module, this);
     });
     return modulePath;
-  }
-
-  @Nullable
-  private IFile getDescriptorFileChecked(SModule module) {
-    IFile descriptorFile = ((AbstractModule) module).getDescriptorFile();
-    if (descriptorFile == null) {
-      LOG.warn("Descriptor file path is null in the module " + module);
-      return null;
-    }
-    return descriptorFile;
   }
 
   @NotNull

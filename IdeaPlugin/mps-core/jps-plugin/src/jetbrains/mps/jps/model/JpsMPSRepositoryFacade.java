@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package jetbrains.mps.jps.model;
 
 import jetbrains.mps.baseLanguage.search.MPSBaseLanguage;
@@ -43,10 +42,10 @@ import jetbrains.mps.smodel.BaseMPSModuleOwner;
 import jetbrains.mps.smodel.MPSModuleOwner;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.util.io.ModelInputStream;
-import jetbrains.mps.vfs.VFSManager;
-import jetbrains.mps.vfs.refresh.FileRefresh;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.VFSManager;
+import jetbrains.mps.vfs.refresh.FileRefresh;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.jps.incremental.CompileContext;
 import org.jetbrains.jps.incremental.messages.BuildMessage.Kind;
@@ -243,17 +242,12 @@ public class JpsMPSRepositoryFacade implements MPSModuleOwner {
       SolutionDescriptor descriptor = extension.getConfiguration().newSolutionDescriptor();
       descriptor.setNamespace(mod.getName());
       MPSCompilerUtil.debug(context, "UUID " + descriptor.getId());
-      // Commeted out. See SolutionIdea: solutions don't have foreign ids, rather regular
-//      descriptor.setId(ModuleId.foreign(mod.getName()));
 
       JpsSolutionIdea module = new JpsSolutionIdea(mod, descriptor, context);
-      JpsSolutionIdea solutionIdea = ((SRepositoryExt) myRepository).registerModule(module, myProject);
-      if (module == solutionIdea) {
-        solutionIdea.updateModelsSet();
-      }
-      myProject.addModule(solutionIdea);
+      myProject.addModule(module);
+      module.updateModelsSet();
 
-      myJpsToMpsModules.put(mod, solutionIdea);
+      myJpsToMpsModules.put(mod, module);
 
       // let's handle module sdkLib
       for (JpsLibrary sdk: getModuleSdks(mod, context)) {

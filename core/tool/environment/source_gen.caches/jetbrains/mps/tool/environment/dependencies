@@ -193,7 +193,12 @@
     <classNode dependClassName="java.lang.Runnable" />
     <classNode dependClassName="jetbrains.mps.library.ModulesMiner" />
     <classNode dependClassName="jetbrains.mps.project.Project" />
+    <classNode dependClassName="jetbrains.mps.project.structure.modules.ModuleDescriptor" />
+    <classNode dependClassName="jetbrains.mps.smodel.ModuleInstanceFactory" />
     <classNode dependClassName="jetbrains.mps.smodel.ModuleRepositoryFacade" />
+    <classNode dependClassName="org.apache.log4j.Level" />
+    <classNode dependClassName="org.apache.log4j.LogManager" />
+    <classNode dependClassName="org.apache.log4j.Logger" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
   </dependency>

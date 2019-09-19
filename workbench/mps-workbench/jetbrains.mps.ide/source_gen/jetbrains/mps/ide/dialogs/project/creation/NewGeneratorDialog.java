@@ -34,7 +34,6 @@ import org.apache.log4j.Level;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 
 public class NewGeneratorDialog extends DialogWrapper {
@@ -217,12 +216,12 @@ public class NewGeneratorDialog extends DialogWrapper {
     } else {
       IFile moduleFile = generatorModuleLocation.findChild(generatorDescriptor.getNamespace().replace("#", "") + MPSExtentions.DOT_GENERATOR);
       // FIXME would be nice not to cast here 
-      Generator gm = (Generator) repoFacade.instantiateModule(new ModulesMiner.ModuleHandle(moduleFile, generatorDescriptor), myProject);
+      Generator gm = (Generator) repoFacade.instantiate(generatorDescriptor, moduleFile);
+      // FIXME why there's no mechanism to add module with path? 
+      myProject.addModule(gm);
+      // if myProject instanceof StandaloneMpsProject then setVirtualFolder(that of owner language) 
       new VersionFixer(myProject, gm, false).updateImportVersions();
       gm.save();
-      // FIXME why there's no mechanism to add module with path? 
-      //        besides, need to fix instantiate/register logic (addModule registers the module which has been already registered by MRF.instantiateModule) 
-      myProject.addModule(gm);
       return gm;
     }
   }

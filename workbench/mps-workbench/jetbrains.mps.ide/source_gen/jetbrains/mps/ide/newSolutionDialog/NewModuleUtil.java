@@ -18,10 +18,11 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.structure.modules.SolutionDescriptor;
-import jetbrains.mps.smodel.ModuleRepositoryFacade;
-import jetbrains.mps.library.ModulesMiner;
+import jetbrains.mps.smodel.GeneralModuleFactory;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
+import jetbrains.mps.smodel.ModuleRepositoryFacade;
+import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.structure.modules.DevkitDescriptor;
@@ -103,11 +104,10 @@ public class NewModuleUtil {
     IFile descriptorFile = NewModuleUtil.getModuleFile(namespace, rootPath, MPSExtentions.DOT_SOLUTION);
     assert !(descriptorFile.exists());
     SolutionDescriptor descriptor = createNewSolutionDescriptor(namespace, descriptorFile);
-    Solution module = (Solution) new ModuleRepositoryFacade(project).instantiateModule(new ModulesMiner.ModuleHandle(descriptorFile, descriptor), project);
+    Solution module = (Solution) new GeneralModuleFactory().instantiate(descriptor, descriptorFile);
+    project.addModule(module);
     new VersionFixer(project, module, false).updateImportVersions();
     module.save();
-
-    project.addModule(module);
     return module;
   }
 
@@ -166,10 +166,9 @@ public class NewModuleUtil {
     IFile descriptorFile = NewModuleUtil.getModuleFile(namespace, rootPath, MPSExtentions.DOT_DEVKIT);
     assert !(descriptorFile.exists());
     DevkitDescriptor descriptor = createNewDevkitDescriptor(namespace);
-    DevKit module = (DevKit) new ModuleRepositoryFacade(project).instantiateModule(new ModulesMiner.ModuleHandle(descriptorFile, descriptor), project);
-    module.save();
-
+    DevKit module = (DevKit) new GeneralModuleFactory().instantiate(descriptor, descriptorFile);
     project.addModule(module);
+    module.save();
     project.save();
     return module;
   }

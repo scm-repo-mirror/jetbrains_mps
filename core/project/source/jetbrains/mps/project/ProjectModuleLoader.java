@@ -17,8 +17,8 @@ package jetbrains.mps.project;
 
 import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.library.ModulesMiner.ModuleHandle;
-import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.structure.project.ModulePath;
+import jetbrains.mps.smodel.ModuleInstanceFactory;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.vfs.FileSystems;
@@ -133,29 +133,25 @@ import java.util.regex.Matcher;
     int loadedModules = 0;
     // at the moment, MRF is not capable to register a generator sooner that its language. To make sure no generator comes first,
     // there's sorter in MM.
-    ModuleRepositoryFacade repoFacade = new ModuleRepositoryFacade(myProject);
+    ModuleInstanceFactory moduleFactory = new ModuleRepositoryFacade(myProject);
     // XXX This code resembles ProjectModulesFiller (ProjectStrategyBase). Do we need to keep them separate?
     for (ModuleHandle handle : modulesMiner.getCollectedModules()) {
       // I expect modulePath to be non null even for language-owned generators (they share same descriptor file)
       ModulePath modulePath = fileToPath.get(handle.getFile());
       if (handle.getDescriptor() != null) {
-        SModule module = repoFacade.instantiateModule(handle, myProject);
+        SModule module = moduleFactory.instantiate(handle.getDescriptor(), handle.getFile());
         // it's quite tempting, indeed, to move project update (i.e. addModule) into listener ProjectModuleLoadingListener.moduleLoaded
         // just need to sort out ModuleLoader and Project relationship.
 
-        final boolean langOwnedGenerator = handle.getDescriptor() instanceof GeneratorDescriptor && !((GeneratorDescriptor) handle.getDescriptor()).isStandaloneModule();
-        if (!langOwnedGenerator) {
-          // There are distinct handles mined for generator modules, Project implementation
-          // is ready to see only standalone generator modules. Note, Project.addModule() is capable to make the check itself
-          // while addModule0 we use here does not.
-          myProject.addModule0(modulePath, module);
+        if (myProject.addModule0(modulePath, module)) {
+          ++loadedModules;
+          // XXX Here, in ProjectModuleLoadingListener/ModuleFileChangeListener, we track language files only, and rely on regular
+          //     Language.reloadAfterDescriptorChange code to reflect changes in Generator modules
+          fireModuleLoaded(modulePath, module);
+          // Note, historically we didn't do ++loadedModules, nor fireModuleLoaded for Generator modules, beware of the change
+          // if there's existing code that did not account for generator modules. Note, we do this for standalone generators only (addModule0()
+          // returns false when module is not a top-level one)
         }
-        ++loadedModules;
-        // XXX Here, in ProjectModuleLoadingListener/ModuleFileChangeListener, we track language files only, and rely on regular
-        //     Language.reloadAfterDescriptorChange code to reflect changes in Generator modules
-        fireModuleLoaded(modulePath, module);
-        // Note, historically we didn't do ++loadedModules, nor fireModuleLoaded for Generator modules, beware of the change
-        // if there's existing code that didnot account for generator modules
       } else {
         error(String.format("Can't load module from %s. Unknown file type.", handle.getFile().getPath()));
         fireModuleTypeIsUnknown(modulePath);

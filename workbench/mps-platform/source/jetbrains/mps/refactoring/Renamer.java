@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,10 @@ import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.DescriptorTargetFileAlreadyExistsException;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.project.ProjectPathUtil;
+import jetbrains.mps.project.io.DescriptorIOFacade;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.smodel.Generator;
+import jetbrains.mps.smodel.ModuleInstanceFactory;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -39,6 +41,7 @@ import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -67,16 +70,18 @@ public final class Renamer {
           }
         }
 
-        ModulesMiner modulesMiner = new ModulesMiner();
-        ModuleRepositoryFacade repositoryFacade = new ModuleRepositoryFacade(project);
+        ModulesMiner modulesMiner = new ModulesMiner(Collections.emptySet(), project.getComponent(DescriptorIOFacade.class));
         assert moduleFolder.getChildren() != null;
         final String name = module.getDescriptorFile().getName();
         final IFile moduleFile = moduleFolder.getChildren().stream().filter(file -> file.getName().equals(name)).findFirst().get();
 
         // Load module from new location
         final Collection<ModuleHandle> collectedModules = modulesMiner.collectModules(moduleFile).getCollectedModules();
+        // see GeneralModuleFactory javadoc for reasons we use MRF as a factory.
+        ModuleInstanceFactory moduleFactory = new ModuleRepositoryFacade(project);
         for (ModuleHandle handle : collectedModules) {
-          SModule sModule = repositoryFacade.instantiateModule(handle, project);
+          assert handle.getDescriptor() != null : "mm.collectModules() doesn't produce handles with null MD";
+          SModule sModule = moduleFactory.instantiate(handle.getDescriptor(), handle.getFile());
           // Adding module back to project after reload
           project.addModule(sModule);
           if (sModule.getModuleName().equals(oldModuleName)) {

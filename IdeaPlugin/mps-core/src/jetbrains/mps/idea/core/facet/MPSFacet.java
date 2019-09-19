@@ -77,8 +77,7 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
         }
       }
 
-      ((SRepositoryExt) repository).registerModule(mySolution = solution, myMpsProject);
-      myMpsProject.addModule(mySolution);
+      myMpsProject.addModule(mySolution = solution);
 
       new VersionFixer(myMpsProject, mySolution, false).updateImportVersions();
       mySolution.save();

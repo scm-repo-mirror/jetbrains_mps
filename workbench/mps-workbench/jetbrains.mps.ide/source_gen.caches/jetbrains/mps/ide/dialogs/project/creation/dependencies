@@ -53,7 +53,6 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
     <classNode dependClassName="jetbrains.mps.ide.newSolutionDialog.NewModuleUtil" />
     <classNode dependClassName="jetbrains.mps.lang.migration.runtime.base.VersionFixer" />
-    <classNode dependClassName="jetbrains.mps.library.ModulesMiner" />
     <classNode dependClassName="jetbrains.mps.project.MPSExtentions" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.project.structure.modules.GeneratorDescriptor" />

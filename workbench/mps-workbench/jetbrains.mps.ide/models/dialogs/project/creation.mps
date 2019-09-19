@@ -44,7 +44,6 @@
     <import index="kxvg" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.ui.tree.module(MPS.Platform/)" />
     <import index="3a50" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide(MPS.Platform/)" />
     <import index="qqrq" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ui.components(MPS.IDEA/)" />
-    <import index="32g5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.library(MPS.Core/)" />
     <import index="6f4m" ref="528ff3b9-5fc4-40dd-931f-c6ce3650640e/r:f69c3fa1-0e30-4980-84e2-190ae44e4c3d(jetbrains.mps.lang.migration.runtime/jetbrains.mps.lang.migration.runtime.base)" />
   </imports>
   <registry>
@@ -3237,54 +3236,15 @@
                         <ref role="3cqZAo" node="4bjG1FhHvQX" resolve="repoFacade" />
                       </node>
                       <node concept="liA8E" id="4bjG1FhHJVO" role="2OqNvi">
-                        <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.instantiateModule(jetbrains.mps.library.ModulesMiner$ModuleHandle,jetbrains.mps.smodel.MPSModuleOwner)" resolve="instantiateModule" />
-                        <node concept="2ShNRf" id="4bjG1FhHJVP" role="37wK5m">
-                          <node concept="1pGfFk" id="4bjG1FhHJVQ" role="2ShVmc">
-                            <ref role="37wK5l" to="32g5:~ModulesMiner$ModuleHandle.&lt;init&gt;(jetbrains.mps.vfs.IFile,jetbrains.mps.project.structure.modules.ModuleDescriptor)" resolve="ModulesMiner.ModuleHandle" />
-                            <node concept="37vLTw" id="4bjG1FhHJVR" role="37wK5m">
-                              <ref role="3cqZAo" node="4bjG1FhHq_h" resolve="moduleFile" />
-                            </node>
-                            <node concept="37vLTw" id="4bjG1FhHJVS" role="37wK5m">
-                              <ref role="3cqZAo" node="eb0uW_lKwL" resolve="generatorDescriptor" />
-                            </node>
-                          </node>
+                        <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.instantiate(jetbrains.mps.project.structure.modules.ModuleDescriptor,jetbrains.mps.vfs.IFile)" resolve="instantiate" />
+                        <node concept="37vLTw" id="7R6Zz6KfUEL" role="37wK5m">
+                          <ref role="3cqZAo" node="eb0uW_lKwL" resolve="generatorDescriptor" />
                         </node>
-                        <node concept="37vLTw" id="4bjG1FhHJVT" role="37wK5m">
-                          <ref role="3cqZAo" node="7vEL9RtbpOb" resolve="myProject" />
+                        <node concept="37vLTw" id="7R6Zz6KfWpn" role="37wK5m">
+                          <ref role="3cqZAo" node="4bjG1FhHq_h" resolve="moduleFile" />
                         </node>
                       </node>
                     </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3clFbF" id="1bCZbzPSjy2" role="3cqZAp">
-                <node concept="2OqwBi" id="5pK7k4tcGJR" role="3clFbG">
-                  <node concept="2ShNRf" id="5pK7k4tcGJS" role="2Oq$k0">
-                    <node concept="1pGfFk" id="5pK7k4tcGJT" role="2ShVmc">
-                      <ref role="37wK5l" to="6f4m:5gIiJF05pI8" resolve="VersionFixer" />
-                      <node concept="37vLTw" id="4bjG1FhI5WA" role="37wK5m">
-                        <ref role="3cqZAo" node="7vEL9RtbpOb" resolve="myProject" />
-                      </node>
-                      <node concept="37vLTw" id="4bjG1FhI62Z" role="37wK5m">
-                        <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
-                      </node>
-                      <node concept="3clFbT" id="4yPMgAVkFmi" role="37wK5m">
-                        <property role="3clFbU" value="false" />
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="liA8E" id="5pK7k4tcGJY" role="2OqNvi">
-                    <ref role="37wK5l" to="6f4m:2V3ml1v0Uym" resolve="updateImportVersions" />
-                  </node>
-                </node>
-              </node>
-              <node concept="3clFbF" id="4bjG1FhHNvr" role="3cqZAp">
-                <node concept="2OqwBi" id="4bjG1FhHPJG" role="3clFbG">
-                  <node concept="37vLTw" id="4bjG1FhHNvp" role="2Oq$k0">
-                    <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
-                  </node>
-                  <node concept="liA8E" id="4bjG1FhHQD0" role="2OqNvi">
-                    <ref role="37wK5l" to="w1kc:~Generator.save()" resolve="save" />
                   </node>
                 </node>
               </node>
@@ -3322,82 +3282,6 @@
                   </node>
                 </node>
               </node>
-              <node concept="3SKdUt" id="4OMmlfV$o6s" role="3cqZAp">
-                <node concept="1PaTwC" id="4OMmlfV$o6t" role="3ndbpf">
-                  <node concept="3oM_SD" id="4OMmlfV$o6v" role="1PaTwD">
-                    <property role="3oM_SC" value="" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pIi" role="1PaTwD">
-                    <property role="3oM_SC" value="" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pIl" role="1PaTwD">
-                    <property role="3oM_SC" value="" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pIp" role="1PaTwD">
-                    <property role="3oM_SC" value="" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pIu" role="1PaTwD">
-                    <property role="3oM_SC" value="" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pIG" role="1PaTwD">
-                    <property role="3oM_SC" value="" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pIN" role="1PaTwD">
-                    <property role="3oM_SC" value="" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pIV" role="1PaTwD">
-                    <property role="3oM_SC" value="besides," />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pNy" role="1PaTwD">
-                    <property role="3oM_SC" value="need" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pNW" role="1PaTwD">
-                    <property role="3oM_SC" value="to" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pO7" role="1PaTwD">
-                    <property role="3oM_SC" value="fix" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pOr" role="1PaTwD">
-                    <property role="3oM_SC" value="instantiate/register" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pPw" role="1PaTwD">
-                    <property role="3oM_SC" value="logic" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pPY" role="1PaTwD">
-                    <property role="3oM_SC" value="(addModule" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pQl" role="1PaTwD">
-                    <property role="3oM_SC" value="registers" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pQH" role="1PaTwD">
-                    <property role="3oM_SC" value="the" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pQY" role="1PaTwD">
-                    <property role="3oM_SC" value="module" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pRg" role="1PaTwD">
-                    <property role="3oM_SC" value="which" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pRN" role="1PaTwD">
-                    <property role="3oM_SC" value="has" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pSn" role="1PaTwD">
-                    <property role="3oM_SC" value="been" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pTD" role="1PaTwD">
-                    <property role="3oM_SC" value="already" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pTZ" role="1PaTwD">
-                    <property role="3oM_SC" value="registered" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pUm" role="1PaTwD">
-                    <property role="3oM_SC" value="by" />
-                  </node>
-                  <node concept="3oM_SD" id="4OMmlfV$pUQ" role="1PaTwD">
-                    <property role="3oM_SC" value="MRF.instantiateModule)" />
-                  </node>
-                </node>
-              </node>
               <node concept="3clFbF" id="4OMmlfV$cUb" role="3cqZAp">
                 <node concept="2OqwBi" id="4OMmlfV$fot" role="3clFbG">
                   <node concept="37vLTw" id="4OMmlfV$cU9" role="2Oq$k0">
@@ -3408,6 +3292,68 @@
                     <node concept="37vLTw" id="4OMmlfV$gy4" role="37wK5m">
                       <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
                     </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3SKdUt" id="7R6Zz6Kg7Ik" role="3cqZAp">
+                <node concept="1PaTwC" id="7R6Zz6Kg7Il" role="3ndbpf">
+                  <node concept="3oM_SD" id="7R6Zz6Kg7In" role="1PaTwD">
+                    <property role="3oM_SC" value="if" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9Of" role="1PaTwD">
+                    <property role="3oM_SC" value="myProject" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9Oy" role="1PaTwD">
+                    <property role="3oM_SC" value="instanceof" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9OQ" role="1PaTwD">
+                    <property role="3oM_SC" value="StandaloneMpsProject" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9Pr" role="1PaTwD">
+                    <property role="3oM_SC" value="then" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9Px" role="1PaTwD">
+                    <property role="3oM_SC" value="setVirtualFolder(that" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9Q0" role="1PaTwD">
+                    <property role="3oM_SC" value="of" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9Qg" role="1PaTwD">
+                    <property role="3oM_SC" value="owner" />
+                  </node>
+                  <node concept="3oM_SD" id="7R6Zz6Kg9QL" role="1PaTwD">
+                    <property role="3oM_SC" value="language)" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3clFbF" id="1bCZbzPSjy2" role="3cqZAp">
+                <node concept="2OqwBi" id="5pK7k4tcGJR" role="3clFbG">
+                  <node concept="2ShNRf" id="5pK7k4tcGJS" role="2Oq$k0">
+                    <node concept="1pGfFk" id="5pK7k4tcGJT" role="2ShVmc">
+                      <ref role="37wK5l" to="6f4m:5gIiJF05pI8" resolve="VersionFixer" />
+                      <node concept="37vLTw" id="4bjG1FhI5WA" role="37wK5m">
+                        <ref role="3cqZAo" node="7vEL9RtbpOb" resolve="myProject" />
+                      </node>
+                      <node concept="37vLTw" id="4bjG1FhI62Z" role="37wK5m">
+                        <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
+                      </node>
+                      <node concept="3clFbT" id="4yPMgAVkFmi" role="37wK5m">
+                        <property role="3clFbU" value="false" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="5pK7k4tcGJY" role="2OqNvi">
+                    <ref role="37wK5l" to="6f4m:2V3ml1v0Uym" resolve="updateImportVersions" />
+                  </node>
+                </node>
+              </node>
+              <node concept="3clFbF" id="4bjG1FhHNvr" role="3cqZAp">
+                <node concept="2OqwBi" id="4bjG1FhHPJG" role="3clFbG">
+                  <node concept="37vLTw" id="4bjG1FhHNvp" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4bjG1FhHJVL" resolve="gm" />
+                  </node>
+                  <node concept="liA8E" id="4bjG1FhHQD0" role="2OqNvi">
+                    <ref role="37wK5l" to="w1kc:~Generator.save()" resolve="save" />
                   </node>
                 </node>
               </node>
