@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import java.util.Collection;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
+import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.lang.smodel.behavior.ModelReferenceExpression__BehaviorDescriptor;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -33,7 +35,8 @@ public final class ModelReference__BehaviorDescriptor extends BaseBHDescriptor {
   }
 
   /*package*/ static SModel getModel_id67MRmR$z8Z2(@NotNull SNode __thisNode__, SRepository repo) {
-    return new ModuleRepositoryFacade(repo).getModelByName(ModelReferenceExpression__BehaviorDescriptor.getFQName_id7K4mn_BeEzv.invoke(__thisNode__));
+    Collection<SModel> modelsByName = new ModuleRepositoryFacade(repo).getModelsByName(new SModelName(ModelReferenceExpression__BehaviorDescriptor.getFQName_id7K4mn_BeEzv.invoke(__thisNode__)));
+    return (modelsByName.isEmpty() ? null : modelsByName.iterator().next());
   }
 
   /*package*/ ModelReference__BehaviorDescriptor() {

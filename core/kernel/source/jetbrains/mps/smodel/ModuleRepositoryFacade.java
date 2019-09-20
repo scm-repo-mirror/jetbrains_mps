@@ -174,6 +174,7 @@ public final class ModuleRepositoryFacade implements CoreComponent, ModuleInstan
    * @deprecated there could be more than 1 model with the same name, use {@link #getModelsByName(SModelName)} and pick the one you need.
    * This is provisional API to keep all uses of SModelRepository.getModelDescriptor(String) in a single, controlled place.
    * I could had had created ModelRepositoryFacade, similar to this class, however, it seems just too much for a single method that we shall drop anyway.
+   * This method is in use from template of ModelReferenceExpression (see lang.smodel generator), which is in active use in mbeddr.
    * @param modelQualifiedName
    * @return named model
    */

@@ -34,12 +34,11 @@
     <import index="tp24" ref="r:00000000-0000-4000-0000-011c89590300(jetbrains.mps.lang.smodel.scripts)" />
     <import index="2k9e" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter.structure(MPS.Core/)" />
     <import index="tpeh" ref="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)" />
-    <import index="mg3u" ref="r:0799ed23-f21a-4dba-ac61-5b80d66bec13(jetbrains.mps.lang.behavior.plugin)" />
     <import index="z1c3" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
     <import index="yf86" ref="r:33eabb60-7192-4d12-ba46-11dacf966b3e(jetbrains.mps.lang.structure.migration)" />
-    <import index="tp3r" ref="r:00000000-0000-4000-0000-011c8959034b(jetbrains.mps.lang.quotation.structure)" />
     <import index="1i04" ref="r:3270011d-8b2d-4938-8dff-d256a759e017(jetbrains.mps.lang.behavior.structure)" implicit="true" />
+    <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" implicit="true" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
     <import index="tp2q" ref="r:00000000-0000-4000-0000-011c8959032e(jetbrains.mps.baseLanguage.collections.structure)" implicit="true" />
   </imports>
@@ -5292,22 +5291,31 @@
                       <node concept="3clFbS" id="5C3R$hJn_Nk" role="1bW5cS">
                         <node concept="3clFbF" id="5C3R$hJn_Vz" role="3cqZAp">
                           <node concept="1Wc70l" id="5C3R$hJnGIC" role="3clFbG">
-                            <node concept="3y3z36" id="5C3R$hJnQmN" role="3uHU7w">
-                              <node concept="10Nm6u" id="5C3R$hJnQ_n" role="3uHU7w" />
-                              <node concept="2OqwBi" id="5C3R$hJnOqD" role="3uHU7B">
-                                <node concept="37vLTw" id="5C3R$hJnO6k" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5C3R$hJnI0B" resolve="mrf" />
-                                </node>
-                                <node concept="liA8E" id="5C3R$hJnOUh" role="2OqNvi">
-                                  <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.getModelByName(java.lang.String)" resolve="getModelByName" />
-                                  <node concept="2OqwBi" id="5C3R$hJnPpC" role="37wK5m">
-                                    <node concept="37vLTw" id="5C3R$hJnP5k" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5C3R$hJn_Nl" resolve="it" />
-                                    </node>
-                                    <node concept="2qgKlT" id="5C3R$hJnQ3v" role="2OqNvi">
-                                      <ref role="37wK5l" to="tpeu:7K4mn_BeEzv" resolve="getFQName" />
+                            <node concept="3fqX7Q" id="4TrT43ie_j0" role="3uHU7w">
+                              <node concept="2OqwBi" id="4TrT43ie_j2" role="3fr31v">
+                                <node concept="2OqwBi" id="4TrT43ie_j3" role="2Oq$k0">
+                                  <node concept="37vLTw" id="4TrT43ie_j4" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="5C3R$hJnI0B" resolve="mrf" />
+                                  </node>
+                                  <node concept="liA8E" id="4TrT43ie_j5" role="2OqNvi">
+                                    <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.getModelsByName(org.jetbrains.mps.openapi.model.SModelName)" resolve="getModelsByName" />
+                                    <node concept="2ShNRf" id="4TrT43ie_j6" role="37wK5m">
+                                      <node concept="1pGfFk" id="4TrT43ie_j7" role="2ShVmc">
+                                        <ref role="37wK5l" to="mhbf:~SModelName.&lt;init&gt;(java.lang.String)" resolve="SModelName" />
+                                        <node concept="2OqwBi" id="4TrT43ie_j8" role="37wK5m">
+                                          <node concept="37vLTw" id="4TrT43ie_j9" role="2Oq$k0">
+                                            <ref role="3cqZAo" node="5C3R$hJn_Nl" resolve="it" />
+                                          </node>
+                                          <node concept="2qgKlT" id="4TrT43ie_ja" role="2OqNvi">
+                                            <ref role="37wK5l" to="tpeu:7K4mn_BeEzv" resolve="getFQName" />
+                                          </node>
+                                        </node>
+                                      </node>
                                     </node>
                                   </node>
+                                </node>
+                                <node concept="liA8E" id="4TrT43ie_jb" role="2OqNvi">
+                                  <ref role="37wK5l" to="33ny:~Collection.isEmpty()" resolve="isEmpty" />
                                 </node>
                               </node>
                             </node>
@@ -5383,20 +5391,35 @@
                               <node concept="37vLTw" id="5C3R$hJo4wA" role="37wK5m">
                                 <ref role="3cqZAo" node="5C3R$hJnZ3F" resolve="where" />
                               </node>
-                              <node concept="2OqwBi" id="5C3R$hJo4wB" role="37wK5m">
-                                <node concept="37vLTw" id="5C3R$hJo4wC" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="5C3R$hJnI0B" resolve="mrf" />
-                                </node>
-                                <node concept="liA8E" id="5C3R$hJo4wD" role="2OqNvi">
-                                  <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.getModelByName(java.lang.String)" resolve="getModelByName" />
-                                  <node concept="2OqwBi" id="5C3R$hJo4wE" role="37wK5m">
-                                    <node concept="37vLTw" id="5C3R$hJo4wF" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="5C3R$hJnRbN" resolve="it" />
+                              <node concept="2OqwBi" id="4TrT43ieGXo" role="37wK5m">
+                                <node concept="2OqwBi" id="4TrT43ieEVn" role="2Oq$k0">
+                                  <node concept="2OqwBi" id="5C3R$hJo4wB" role="2Oq$k0">
+                                    <node concept="37vLTw" id="5C3R$hJo4wC" role="2Oq$k0">
+                                      <ref role="3cqZAo" node="5C3R$hJnI0B" resolve="mrf" />
                                     </node>
-                                    <node concept="2qgKlT" id="5C3R$hJo4wG" role="2OqNvi">
-                                      <ref role="37wK5l" to="tpeu:7K4mn_BeEzv" resolve="getFQName" />
+                                    <node concept="liA8E" id="5C3R$hJo4wD" role="2OqNvi">
+                                      <ref role="37wK5l" to="w1kc:~ModuleRepositoryFacade.getModelsByName(org.jetbrains.mps.openapi.model.SModelName)" resolve="getModelsByName" />
+                                      <node concept="2ShNRf" id="4TrT43ieA3v" role="37wK5m">
+                                        <node concept="1pGfFk" id="4TrT43ieA3w" role="2ShVmc">
+                                          <ref role="37wK5l" to="mhbf:~SModelName.&lt;init&gt;(java.lang.String)" resolve="SModelName" />
+                                          <node concept="2OqwBi" id="4TrT43ieA3x" role="37wK5m">
+                                            <node concept="37vLTw" id="4TrT43ieA3y" role="2Oq$k0">
+                                              <ref role="3cqZAo" node="5C3R$hJnRbN" resolve="it" />
+                                            </node>
+                                            <node concept="2qgKlT" id="4TrT43ieA3z" role="2OqNvi">
+                                              <ref role="37wK5l" to="tpeu:7K4mn_BeEzv" resolve="getFQName" />
+                                            </node>
+                                          </node>
+                                        </node>
+                                      </node>
                                     </node>
                                   </node>
+                                  <node concept="liA8E" id="4TrT43ieG69" role="2OqNvi">
+                                    <ref role="37wK5l" to="33ny:~Collection.iterator()" resolve="iterator" />
+                                  </node>
+                                </node>
+                                <node concept="liA8E" id="4TrT43ieHzN" role="2OqNvi">
+                                  <ref role="37wK5l" to="33ny:~Iterator.next()" resolve="next" />
                                 </node>
                               </node>
                             </node>

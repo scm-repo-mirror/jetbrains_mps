@@ -13,6 +13,7 @@ import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import org.jetbrains.mps.openapi.model.SModelName;
 import jetbrains.mps.lang.smodel.behavior.ModelReferenceExpression__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -52,13 +53,13 @@ public class MigrateModelReferenceExprWithRepo extends MigrationScriptBase {
       final ModuleRepositoryFacade mrf = new ModuleRepositoryFacade(m.getRepository());
       CollectionSequence.fromCollection(CommandUtil.instances(CommandUtil.selectScope(null, context), CONCEPTS.ModelReferenceExpression$tG, false)).where(new IWhereFilter<SNode>() {
         public boolean accept(SNode it) {
-          return (SLinkOperations.getTarget(it, LINKS.repo$s903) != null) && mrf.getModelByName(ModelReferenceExpression__BehaviorDescriptor.getFQName_id7K4mn_BeEzv.invoke(it)) != null;
+          return (SLinkOperations.getTarget(it, LINKS.repo$s903) != null) && !(mrf.getModelsByName(new SModelName(ModelReferenceExpression__BehaviorDescriptor.getFQName_id7K4mn_BeEzv.invoke(it))).isEmpty());
         }
       }).visitAll(new IVisitor<SNode>() {
         public void visit(SNode it) {
           final SModel where = SNodeOperations.getModel(it);
           SNode newRef = SModelOperations.createNewNode(where, null, CONCEPTS.ModelPointerExpression$P_);
-          SLinkOperations.setTarget(newRef, LINKS.modelRef$RfYQ, ModelPointer__BehaviorDescriptor.create_id_GDk1qZ2JP.invoke(SNodeOperations.asSConcept(CONCEPTS.ModelPointer$rg), where, mrf.getModelByName(ModelReferenceExpression__BehaviorDescriptor.getFQName_id7K4mn_BeEzv.invoke(it))));
+          SLinkOperations.setTarget(newRef, LINKS.modelRef$RfYQ, ModelPointer__BehaviorDescriptor.create_id_GDk1qZ2JP.invoke(SNodeOperations.asSConcept(CONCEPTS.ModelPointer$rg), where, mrf.getModelsByName(new SModelName(ModelReferenceExpression__BehaviorDescriptor.getFQName_id7K4mn_BeEzv.invoke(it))).iterator().next()));
 
           final SNode repoAccessExpr = SLinkOperations.getTarget(it, LINKS.repo$s903);
           SNode imco = SModelOperations.createNewNode(where, null, CONCEPTS.InstanceMethodCallOperation$1G);
