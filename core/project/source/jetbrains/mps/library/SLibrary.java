@@ -21,6 +21,7 @@ import jetbrains.mps.library.ModuleFileTracker.Delta;
 import jetbrains.mps.library.ModulesMiner.ModuleHandle;
 import jetbrains.mps.library.contributor.LibDescriptor;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.smodel.MPSModuleOwner;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.vfs.IFile;
@@ -214,14 +215,20 @@ public class SLibrary implements MPSModuleOwner, Comparable<SLibrary> {
     List<SModule> loaded = new ArrayList<>(moduleHandles.size());
     Set<IFile> uniqueFiles = new THashSet<>();
     for (ModuleHandle moduleHandle : moduleHandles) {
-      SModule module = mrf.instantiateModule(moduleHandle, this);
-      loaded.add(module);
-      IFile file = moduleHandle.getFile();
-      if (file.isInArchive()) {
-        file = file.getBundleHome();
+      try {
+        SModule module = mrf.instantiateModule(moduleHandle, this);
+        loaded.add(module);
+        IFile file = moduleHandle.getFile();
+        if (file.isInArchive()) {
+          file = file.getBundleHome();
+        }
+        myFileTracker.track(file, module);
+        uniqueFiles.add(file);
+      } catch (Exception ex) {
+        String m = "Failed to load module %s from file %s";
+        final ModuleDescriptor md = moduleHandle.getDescriptor();
+        LOG.error(String.format(m, md == null ? "<unknown>" : md.getNamespace(), moduleHandle.getFile()), ex);
       }
-      myFileTracker.track(file, module);
-      uniqueFiles.add(file);
     }
     for (SModule module : loaded) {
       if (module instanceof AbstractModule) {
