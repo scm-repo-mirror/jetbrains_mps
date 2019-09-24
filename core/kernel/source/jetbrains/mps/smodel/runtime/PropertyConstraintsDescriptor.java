@@ -38,19 +38,7 @@ public interface PropertyConstraintsDescriptor {
   @ToRemove(version = 2019.2)
   boolean validateValue(SNode node, String value);
 
-  @Deprecated
-  @ToRemove(version = 2019.2)
-  default boolean validateValue(SNode node, String value, CheckingNodeContext checkingNodeContext) {
-    return validateValue(node, value, checkingNodeContext);
-  }
-
   boolean validateValue(SNode node, Object value, CheckingNodeContext checkingNodeContext);
-
-  @Deprecated
-  @ToRemove(version = 2019.2)
-  default boolean validateValue(SNode node, Object value) {
-    return validateValue(node, value, null);
-  }
 
   boolean isReadOnly();
 }

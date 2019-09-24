@@ -21,6 +21,7 @@ import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import javax.swing.JOptionPane;
 import jetbrains.mps.ide.platform.refactoring.RenameDialog;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.refactoring.participant.RefactoringProcessor;
 import jetbrains.mps.ide.refactoring.platform.plugin.RenameRefactoringBody;
 import jetbrains.mps.ide.refactoring.platform.plugin.DefaultRefactoringUI;
@@ -101,11 +102,22 @@ public class RenameNode_Action extends BaseAction {
       JOptionPane.showMessageDialog(((Frame) MapSequence.fromMap(_params).get("frame")), "Nodes with getter and without setter for the \"name\" property can't be renamed", "Read-only property", JOptionPane.INFORMATION_MESSAGE);
       return;
     }
-    final String newName = RenameDialog.getNewName(((MPSProject) MapSequence.fromMap(_params).get("project")).getProject(), oldName.value, "node");
+    RenameDialog dialog = new RenameDialog(((MPSProject) MapSequence.fromMap(_params).get("project")).getProject(), oldName.value, "node") {
+      @Nullable
+      @Override
+      protected String checkValue() {
+        if (!(RenameNode_Action.this.validateValue(getCurrentValue(), _params))) {
+          return "Not a valid name";
+        }
+        return super.checkValue();
+      }
+    };
+    dialog.show();
+    final String newName = dialog.getResultValue();
+
     if (newName == null) {
       return;
     }
-
     RefactoringProcessor.RefactoringBody refactoringBody = new RenameRefactoringBody("Rename node", ((SNode) MapSequence.fromMap(_params).get("target")), newName, ((MPSProject) MapSequence.fromMap(_params).get("project")));
     RefactoringProcessor.performRefactoringInProject(((MPSProject) MapSequence.fromMap(_params).get("project")), new DefaultRefactoringUI(((MPSProject) MapSequence.fromMap(_params).get("project"))), refactoringBody);
   }
@@ -121,6 +133,12 @@ public class RenameNode_Action extends BaseAction {
       return false;
     }
     return !(propertyConstraint.isReadOnly());
+  }
+  private boolean validateValue(String newValue, final Map<String, Object> _params) {
+    SAbstractConcept concept = SNodeOperations.getConcept(((SNode) MapSequence.fromMap(_params).get("target")));
+    ConstraintsDescriptor cd = ConceptRegistry.getInstance().getConstraintsDescriptor(concept);
+    PropertyConstraintsDescriptor propertyConstraints = cd.getProperty(PROPS.name$tAp1);
+    return propertyConstraints.validateValue(((SNode) MapSequence.fromMap(_params).get("target")), newValue, null);
   }
 
   private static final class CONCEPTS {
