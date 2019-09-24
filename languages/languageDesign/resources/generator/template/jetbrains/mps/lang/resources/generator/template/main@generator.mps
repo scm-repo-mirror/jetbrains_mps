@@ -240,6 +240,7 @@
     <language id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal">
       <concept id="1238251434034" name="jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantExpression" flags="ng" index="1dyn4i">
         <property id="1238251449050" name="fieldName" index="1dyqJU" />
+        <property id="8835849473318867199" name="makeUnique" index="1zomUR" />
         <child id="1238251454130" name="expression" index="1dyrYi" />
       </concept>
       <concept id="1173990517731" name="jetbrains.mps.baseLanguageInternal.structure.InternalStaticMethodCall" flags="nn" index="1niqFM">
@@ -1829,6 +1830,7 @@
           <node concept="3clFbF" id="46nPloexL6a" role="3cqZAp">
             <node concept="1dyn4i" id="46nPloexL66" role="3clFbG">
               <property role="1dyqJU" value="HELP_URL" />
+              <property role="1zomUR" value="true" />
               <node concept="raruj" id="46nPloexOGH" role="lGtFl" />
               <node concept="3cpWs3" id="46nPloeyd_$" role="1dyrYi">
                 <node concept="1niqFM" id="46nPloe$fZn" role="3uHU7B">
