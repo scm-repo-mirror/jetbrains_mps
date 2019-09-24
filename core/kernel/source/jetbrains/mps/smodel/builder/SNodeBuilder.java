@@ -34,6 +34,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Runtime support for jetbrains.mps.lang.quotations
+ */
 public class SNodeBuilder implements AbstractNodeBuilder {
 
   private SModel myModel;

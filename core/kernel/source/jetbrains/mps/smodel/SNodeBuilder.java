@@ -30,7 +30,9 @@ import org.jetbrains.mps.openapi.model.SNodeId;
  * Last but not least, this class helps to keep quotation templates concise and clean
  * @author Artem Tikhomirov
  * @since 2019.2
+ * @deprecated use {@link jetbrains.mps.smodel.builder.SNodeBuilder} instead
  */
+@Deprecated
 public final class SNodeBuilder {
   private final SNode myNode;
 
