@@ -17,6 +17,7 @@ package jetbrains.mps.smodel.builder;
 
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SReference;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -92,8 +93,10 @@ public class SNodeBuilder implements AbstractNodeBuilder {
     if (node == null && !allowNull) {
       throw new NullPointerException("null node initializers are not allowed");
     }
-    myNode = SNodeOperations.copyIfNecessary(castTo == null ? node : SNodeOperations.cast(node, castTo));
-    attachNode();
+    if (node != null) {
+      myNode = SNodeOperations.copyIfNecessary(castTo == null ? node : SNodeOperations.cast(node, castTo));
+      attachNode();
+    }
     return this;
   }
 
@@ -130,8 +133,18 @@ public class SNodeBuilder implements AbstractNodeBuilder {
   }
 
   @Override
-  public void setReference(SReferenceLink link, SNodeReference value) {
-    myNode.setReference(link, SReference.create(link, myNode, value, null));
+  public void setReference(SReferenceLink link, @Nullable SNodeReference value) {
+    if (value != null) {
+      myNode.setReference(link, SReference.create(link, myNode, value, null));
+    }
+  }
+
+  @Override
+  public void setReferenceTarget(SReferenceLink link, @Nullable SNode target) {
+    if (target != null) {
+      // cannot set via node pointer because there might be cases with immature references
+      myNode.setReferenceTarget(link, target);
+    }
   }
 
   private Set<SContainmentLink> childrenInitialized = new HashSet<>();

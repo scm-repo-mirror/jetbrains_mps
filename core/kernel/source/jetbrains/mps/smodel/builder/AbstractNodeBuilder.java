@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.smodel.builder;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -28,11 +30,9 @@ public interface AbstractNodeBuilder {
 
   void setProperty(SProperty property, String value);
 
-  void setReference(SReferenceLink link, SNodeReference target);
+  void setReference(SReferenceLink link, @Nullable SNodeReference target);
 
-  default void setReferenceTarget(SReferenceLink link, SNode target) {
-    setReference(link, target.getReference());
-  }
+  void setReferenceTarget(SReferenceLink link, @Nullable SNode target);
 
   AbstractNodeBuilder forChild(SContainmentLink link);
 
