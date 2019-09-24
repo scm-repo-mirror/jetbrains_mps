@@ -13,7 +13,6 @@ import jetbrains.mps.smodel.Language;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
-import jetbrains.mps.workbench.MPSDataKeys;
 import jetbrains.mps.ide.dialogs.project.creation.NewGeneratorDialog;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.Computable;
@@ -59,17 +58,13 @@ public class NewGenerator_Action extends BaseAction {
         return false;
       }
     }
-    {
-      String p = event.getData(MPSDataKeys.NAMESPACE);
-      MapSequence.fromMap(_params).put("namespace", p);
-    }
     return true;
   }
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     NewGeneratorDialog dialog = new ModelAccessHelper(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getModelAccess()).runReadAction(new Computable<NewGeneratorDialog>() {
       public NewGeneratorDialog compute() {
-        return new NewGeneratorDialog(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), (Language) ((SModule) MapSequence.fromMap(_params).get("module")), ((String) MapSequence.fromMap(_params).get("namespace")));
+        return new NewGeneratorDialog(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")), (Language) ((SModule) MapSequence.fromMap(_params).get("module")));
       }
     });
     dialog.show();

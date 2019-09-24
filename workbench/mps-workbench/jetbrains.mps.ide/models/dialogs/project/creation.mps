@@ -1254,15 +1254,6 @@
           <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
         </node>
       </node>
-      <node concept="37vLTG" id="15bf9of6I_P" role="3clF46">
-        <property role="TrG5h" value="virtualFolder" />
-        <node concept="3uibUv" id="15bf9of6Jrl" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-        </node>
-        <node concept="2AHcQZ" id="15bf9of6KEx" role="2AJF6D">
-          <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-        </node>
-      </node>
       <node concept="3clFbS" id="1pyYjDPRak3" role="3clF47">
         <node concept="XkiVB" id="5Kh0XTSxgRW" role="3cqZAp">
           <ref role="37wK5l" to="jkm4:~DialogWrapper.&lt;init&gt;(com.intellij.openapi.project.Project)" resolve="DialogWrapper" />
@@ -1480,8 +1471,34 @@
             <node concept="37vLTw" id="15bf9of7$5F" role="37vLTJ">
               <ref role="3cqZAo" node="15bf9of7$5y" resolve="myVirtualFolder" />
             </node>
-            <node concept="37vLTw" id="15bf9of7$5G" role="37vLTx">
-              <ref role="3cqZAo" node="15bf9of6I_P" resolve="virtualFolder" />
+            <node concept="3K4zz7" id="4XeAu5No1Co" role="37vLTx">
+              <node concept="2OqwBi" id="4XeAu5No26h" role="3K4E3e">
+                <node concept="1eOMI4" id="4XeAu5No1DK" role="2Oq$k0">
+                  <node concept="10QFUN" id="4XeAu5No1DH" role="1eOMHV">
+                    <node concept="3uibUv" id="4XeAu5No1HU" role="10QFUM">
+                      <ref role="3uigEE" to="z1c5:~StandaloneMPSProject" resolve="StandaloneMPSProject" />
+                    </node>
+                    <node concept="37vLTw" id="4XeAu5No1Iu" role="10QFUP">
+                      <ref role="3cqZAo" node="1pyYjDPRajZ" resolve="project" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="liA8E" id="4XeAu5No2lV" role="2OqNvi">
+                  <ref role="37wK5l" to="z1c5:~StandaloneMPSProject.getFolderFor(org.jetbrains.mps.openapi.module.SModule)" resolve="getFolderFor" />
+                  <node concept="37vLTw" id="4XeAu5No2mZ" role="37wK5m">
+                    <ref role="3cqZAo" node="1pyYjDPRak1" resolve="sourceLanguage" />
+                  </node>
+                </node>
+              </node>
+              <node concept="10Nm6u" id="4XeAu5No2tg" role="3K4GZi" />
+              <node concept="2ZW3vV" id="4XeAu5No1db" role="3K4Cdx">
+                <node concept="3uibUv" id="4XeAu5No1t6" role="2ZW6by">
+                  <ref role="3uigEE" to="z1c5:~StandaloneMPSProject" resolve="StandaloneMPSProject" />
+                </node>
+                <node concept="37vLTw" id="4XeAu5No0Oj" role="2ZW6bz">
+                  <ref role="3cqZAo" node="1pyYjDPRajZ" resolve="project" />
+                </node>
+              </node>
             </node>
           </node>
         </node>

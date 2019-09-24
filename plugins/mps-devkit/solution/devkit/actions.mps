@@ -2954,12 +2954,6 @@
                               <ref role="3uigEE" to="w1kc:~Language" resolve="Language" />
                             </node>
                           </node>
-                          <node concept="2OqwBi" id="15bf9of6M0d" role="37wK5m">
-                            <node concept="2WthIp" id="15bf9of6M0g" role="2Oq$k0" />
-                            <node concept="1DTwFV" id="15bf9of6M0i" role="2OqNvi">
-                              <ref role="2WH_rO" node="7LEQOWrr$rH" resolve="namespace" />
-                            </node>
-                          </node>
                         </node>
                       </node>
                     </node>
@@ -3056,10 +3050,6 @@
       <property role="TrG5h" value="module" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MODULE" resolve="MODULE" />
       <node concept="1oajcY" id="7HZe2EwZDns" role="1oa70y" />
-    </node>
-    <node concept="1DS2jV" id="7LEQOWrr$rH" role="1NuT2Z">
-      <property role="TrG5h" value="namespace" />
-      <ref role="1DUlNI" to="3s15:~MPSDataKeys.NAMESPACE" resolve="NAMESPACE" />
     </node>
     <node concept="1QGGSu" id="77nRokVQ1JK" role="3Uehp1">
       <node concept="10M0yZ" id="77nRokVQuVi" role="3xaMm5">
@@ -11490,52 +11480,6 @@
           <node concept="3clFbH" id="2erTeUVF2hm" role="3cqZAp" />
           <node concept="3clFbJ" id="2erTeUVF2hu" role="3cqZAp">
             <node concept="3clFbS" id="2erTeUVF2hv" role="3clFbx">
-              <node concept="3cpWs8" id="4jABU7YPtX" role="3cqZAp">
-                <node concept="3cpWsn" id="4jABU7YPtY" role="3cpWs9">
-                  <property role="TrG5h" value="virtualFolder" />
-                  <node concept="3uibUv" id="4jABU7YPtZ" role="1tU5fm">
-                    <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-                  </node>
-                  <node concept="10Nm6u" id="4jABU7YRfJ" role="33vP2m" />
-                </node>
-              </node>
-              <node concept="3clFbJ" id="4jABU7YSnq" role="3cqZAp">
-                <node concept="3clFbS" id="4jABU7YSns" role="3clFbx">
-                  <node concept="3clFbF" id="4jABU7Z3h_" role="3cqZAp">
-                    <node concept="37vLTI" id="4jABU7Z4e7" role="3clFbG">
-                      <node concept="37vLTw" id="4jABU7Z3hz" role="37vLTJ">
-                        <ref role="3cqZAo" node="4jABU7YPtY" resolve="virtualFolder" />
-                      </node>
-                      <node concept="2OqwBi" id="4jABU7Z2f6" role="37vLTx">
-                        <node concept="1eOMI4" id="4jABU7Z2f7" role="2Oq$k0">
-                          <node concept="10QFUN" id="4jABU7Z2f8" role="1eOMHV">
-                            <node concept="3uibUv" id="4jABU7Z2f9" role="10QFUM">
-                              <ref role="3uigEE" to="z1c4:~StandaloneMPSProject" resolve="StandaloneMPSProject" />
-                            </node>
-                            <node concept="37vLTw" id="4jABU7Z2fa" role="10QFUP">
-                              <ref role="3cqZAo" node="2erTeUVF2gO" resolve="mpsProject" />
-                            </node>
-                          </node>
-                        </node>
-                        <node concept="liA8E" id="4jABU7Z2fb" role="2OqNvi">
-                          <ref role="37wK5l" to="z1c4:~StandaloneMPSProject.getFolderFor(org.jetbrains.mps.openapi.module.SModule)" resolve="getFolderFor" />
-                          <node concept="37vLTw" id="4jABU7Z2fc" role="37wK5m">
-                            <ref role="3cqZAo" node="2erTeUVF2h5" resolve="language" />
-                          </node>
-                        </node>
-                      </node>
-                    </node>
-                  </node>
-                </node>
-                <node concept="2ZW3vV" id="4jABU7YUdv" role="3clFbw">
-                  <node concept="3uibUv" id="4jABU7YVfu" role="2ZW6by">
-                    <ref role="3uigEE" to="z1c4:~StandaloneMPSProject" resolve="StandaloneMPSProject" />
-                  </node>
-                  <node concept="37vLTw" id="4jABU7YTpe" role="2ZW6bz">
-                    <ref role="3cqZAo" node="2erTeUVF2gO" resolve="mpsProject" />
-                  </node>
-                </node>
-              </node>
               <node concept="3cpWs8" id="2erTeUVF2hw" role="3cqZAp">
                 <node concept="3cpWsn" id="2erTeUVF2hx" role="3cpWs9">
                   <property role="TrG5h" value="dialog" />
@@ -11550,9 +11494,6 @@
                       </node>
                       <node concept="37vLTw" id="3GM_nagT_cU" role="37wK5m">
                         <ref role="3cqZAo" node="2erTeUVF2h5" resolve="language" />
-                      </node>
-                      <node concept="37vLTw" id="4jABU7Z6jf" role="37wK5m">
-                        <ref role="3cqZAo" node="4jABU7YPtY" resolve="virtualFolder" />
                       </node>
                     </node>
                   </node>

@@ -13,10 +13,11 @@ import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.vfs.IFileSystem;
-import org.jetbrains.annotations.Nullable;
 import java.awt.HeadlessException;
 import java.awt.GridLayout;
 import java.awt.Dimension;
+import jetbrains.mps.project.StandaloneMPSProject;
+import org.jetbrains.annotations.Nullable;
 import javax.swing.JComponent;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.openapi.fileChooser.FileChooserDescriptor;
@@ -34,7 +35,6 @@ import org.apache.log4j.Level;
 import jetbrains.mps.smodel.ModuleRepositoryFacade;
 import jetbrains.mps.project.structure.modules.LanguageDescriptor;
 import jetbrains.mps.project.MPSExtentions;
-import jetbrains.mps.project.StandaloneMPSProject;
 import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 
 public class NewGeneratorDialog extends DialogWrapper {
@@ -49,7 +49,7 @@ public class NewGeneratorDialog extends DialogWrapper {
   private final IFileSystem myProjectFS;
   private final String myVirtualFolder;
 
-  public NewGeneratorDialog(MPSProject project, Language sourceLanguage, @Nullable String virtualFolder) throws HeadlessException {
+  public NewGeneratorDialog(MPSProject project, Language sourceLanguage) throws HeadlessException {
     super(project.getProject());
     myProject = project;
     setTitle("New Generator");
@@ -62,7 +62,7 @@ public class NewGeneratorDialog extends DialogWrapper {
     initContentPane();
     init();
     startTrackingValidation();
-    myVirtualFolder = virtualFolder;
+    myVirtualFolder = (project instanceof StandaloneMPSProject ? ((StandaloneMPSProject) project).getFolderFor(sourceLanguage) : null);
   }
 
   @Nullable
