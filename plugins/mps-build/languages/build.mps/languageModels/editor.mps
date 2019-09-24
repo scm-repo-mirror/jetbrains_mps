@@ -15,7 +15,6 @@
     <import index="3ior" ref="r:e9081cad-d8c3-45f2-b4ad-1dabd5ff82af(jetbrains.mps.build.structure)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="ot6o" ref="r:1267752b-a233-4432-a848-3e68e0ea0db1(jetbrains.mps.build.workflow.editor)" />
-    <import index="fyhk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps(MPS.Core/)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
   <registry>
@@ -158,11 +157,6 @@
       <concept id="414384289274424754" name="jetbrains.mps.lang.editor.structure.SubstituteMenuPart_AddConcept" flags="ng" index="3ft5Ry">
         <reference id="697754674827630451" name="concept" index="4PJHt" />
       </concept>
-      <concept id="414384289274418283" name="jetbrains.mps.lang.editor.structure.SubstituteMenuPart_Group" flags="ng" index="3ft6gV">
-        <child id="414384289274424750" name="condition" index="3ft5RY" />
-        <child id="414384289274424751" name="parts" index="3ft5RZ" />
-      </concept>
-      <concept id="414384289274418284" name="jetbrains.mps.lang.editor.structure.QueryFunction_SubstituteMenu_Condition" flags="ig" index="3ft6gW" />
       <concept id="1139535219966" name="jetbrains.mps.lang.editor.structure.CellActionMapDeclaration" flags="ig" index="1h_SRR">
         <reference id="1139535219968" name="applicableConcept" index="1h_SK9" />
         <child id="1139535219969" name="item" index="1h_SK8" />
@@ -5690,20 +5684,8 @@
   </node>
   <node concept="3p36aQ" id="1wEcoXjJzai">
     <ref role="aqKnT" to="kdzh:4LHG7OIlEyO" resolve="BuildMps_Generator" />
-    <node concept="3ft6gV" id="3pC4$4uEDvm" role="3ft7WO">
-      <node concept="3ft5Ry" id="3pC4$4uEDvo" role="3ft5RZ">
-        <ref role="4PJHt" to="kdzh:4LHG7OIlEyO" resolve="BuildMps_Generator" />
-      </node>
-      <node concept="3ft6gW" id="3pC4$4uEDvq" role="3ft5RY">
-        <node concept="3clFbS" id="3pC4$4uEDvr" role="2VODD2">
-          <node concept="3clFbF" id="3pC4$4uELdr" role="3cqZAp">
-            <node concept="2YIFZM" id="3pC4$4uELhz" role="3clFbG">
-              <ref role="37wK5l" to="fyhk:~RuntimeFlags.manyGeneratorsPerLanguage()" resolve="manyGeneratorsPerLanguage" />
-              <ref role="1Pybhc" to="fyhk:~RuntimeFlags" resolve="RuntimeFlags" />
-            </node>
-          </node>
-        </node>
-      </node>
+    <node concept="3ft5Ry" id="3pC4$4uEDvo" role="3ft7WO">
+      <ref role="4PJHt" to="kdzh:4LHG7OIlEyO" resolve="BuildMps_Generator" />
     </node>
   </node>
   <node concept="3p36aQ" id="1wEcoXjJzaj">

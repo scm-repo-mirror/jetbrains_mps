@@ -30,7 +30,6 @@ public final class RuntimeFlags {
   private static Boolean ourUseInterpretedLanguages = null;
   private static boolean ourMergeDriverMode = false;
   private static Boolean ourCastException = null;
-  private static Boolean ourManyGeneratorsPerLanguage = null;
 
   private RuntimeFlags() {
   }
@@ -103,12 +102,5 @@ public final class RuntimeFlags {
       ourCastException = !Boolean.getBoolean("mps.disableNodeCastExceptions");
     }
     return ourCastException;
-  }
-
-  public static boolean manyGeneratorsPerLanguage() {
-    if (ourManyGeneratorsPerLanguage == null) {
-      ourManyGeneratorsPerLanguage = isInternalMode() || Boolean.getBoolean("mps.manyGeneratorsPerLanguage");
-    }
-    return ourManyGeneratorsPerLanguage;
   }
 }
