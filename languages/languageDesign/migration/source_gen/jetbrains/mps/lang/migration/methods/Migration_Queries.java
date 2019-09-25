@@ -9,12 +9,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModuleOperations;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.smodel.ModelImports;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.lang.migration.behavior.IMigrationUnit__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SProperty;
@@ -33,7 +34,11 @@ public class Migration_Queries {
       lang.setLanguageVersion(currentVersion + 1);
     }
 
-    SLinkOperations.setTarget(SLinkOperations.setNewChild(c, LINKS.superclass$_pqe, CONCEPTS.ClassifierType$IZ), LINKS.classifier$pQ_R, SNodeOperations.getNode("90746344-04fd-4286-97d5-b46ae6a81709/r:52a3d974-bd4f-4651-ba6e-a2de5e336d95(jetbrains.mps.lang.migration/jetbrains.mps.lang.migration.methods)", "6807933448469658100"));
+    // XXX this reference is vital only at design time, to facilitate code like this.getReference() inside Migration code (see fea36a37).  
+    // Migration classes get generated with extends to MigrationScriptBase (which has own getReference() method, unrelated to one in HasMigrationScriptReference) 
+    // Therefore, it's ok to keep this class in accessory model with no code generated for it. 
+    //  OTOH, no idea why not honest MigrationScriptBase as superclass here 
+    SLinkOperations.setPointer(SLinkOperations.setNewChild(c, LINKS.superclass$_pqe, CONCEPTS.ClassifierType$IZ), LINKS.classifier$pQ_R, new SNodePointer("90746344-04fd-4286-97d5-b46ae6a81709/r:52a3d974-bd4f-4651-ba6e-a2de5e336d95(jetbrains.mps.lang.migration/jetbrains.mps.lang.migration.methods)", "6807933448469658100"));
 
     ModelImports m = new ModelImports(futureModel);
     AbstractModule mod = (AbstractModule) module;
