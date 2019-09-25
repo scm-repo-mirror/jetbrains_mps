@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)">
+<model ref="r:421d64ed-8024-497f-aeab-8bddeb389dd2(jetbrains.mps.lang.extension.methods)" doNotGenerate="true">
   <persistence version="9" />
   <languages>
     <use id="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67" name="jetbrains.mps.baseLanguage.lightweightdsl" version="1" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
-    <import index="oubp" ref="c7d5b9dd-a05f-4be2-bc73-f2e16994cc67/r:7cc2086d-c7d0-49c7-811c-ebbaf40d9195(jetbrains.mps.lang.classLike/jetbrains.mps.baseLanguage.lightweightdsl.structure)" />
     <import index="v54s" ref="r:2a0fe383-d602-4f5b-813c-e41afdbbb97e(jetbrains.mps.lang.extension.structure)" implicit="true" />
   </imports>
   <registry>
@@ -43,6 +42,7 @@
       <concept id="3751132065236767072" name="jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLDescriptor" flags="ng" index="q3mft">
         <reference id="1825613483881131410" name="preferredConcept" index="2qG0Lo" />
         <child id="8264762413010642120" name="classLikeMember" index="QNr5C" />
+        <child id="4507527286374037522" name="implModel" index="1xeoKX" />
       </concept>
       <concept id="3751132065236767068" name="jetbrains.mps.baseLanguage.lightweightdsl.structure.DependentTypeDescriptor" flags="ig" index="q3mfx">
         <child id="3751132065236767069" name="getter" index="q3mfw" />
@@ -54,6 +54,15 @@
       </concept>
       <concept id="8264762413010642119" name="jetbrains.mps.baseLanguage.lightweightdsl.structure.DSLClassMember" flags="ng" index="QNr5B">
         <child id="3402736933911577960" name="modifier" index="2IRzpu" />
+      </concept>
+    </language>
+    <language id="446c26eb-2b7b-4bf0-9b35-f83fa582753e" name="jetbrains.mps.lang.modelapi">
+      <concept id="361130699826193248" name="jetbrains.mps.lang.modelapi.structure.ModelPointer" flags="ng" index="1dCxOl">
+        <property id="1863527487546097494" name="modelId" index="1XweGQ" />
+        <child id="679099339649067980" name="name" index="1j$8Uc" />
+      </concept>
+      <concept id="679099339649053840" name="jetbrains.mps.lang.modelapi.structure.ModelName" flags="ng" index="1j_P7g">
+        <property id="679099339649053841" name="value" index="1j_P7h" />
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -134,6 +143,12 @@
             </node>
           </node>
         </node>
+      </node>
+    </node>
+    <node concept="1dCxOl" id="2CO_L5IgpRj" role="1xeoKX">
+      <property role="1XweGQ" value="r:e79e8e68-ae7e-4662-ac9f-fd969fd55a7f" />
+      <node concept="1j_P7g" id="2CO_L5IgpRk" role="1j$8Uc">
+        <property role="1j_P7h" value="jetbrains.mps.lang.extension.util" />
       </node>
     </node>
   </node>
