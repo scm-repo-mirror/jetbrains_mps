@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-4yq42y2qv3ritasackemge1nwas7d2t">
-  <files names="MigrationsCheckUtil.java:NodeReferenceUtil.java" />
+<product version="3" modelHash="7gpcslbrio9w91f4f9llzimdps5lzps">
+  <files names="Migration_Queries.java:MigrationsCheckUtil.java:NodeReferenceUtil.java" />
 </product>
 
