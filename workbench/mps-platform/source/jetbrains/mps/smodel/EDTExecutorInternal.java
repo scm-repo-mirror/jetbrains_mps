@@ -118,8 +118,10 @@ final class EDTExecutorInternal implements Disposable {
   private void checkTheContract() {
     if (!myTaskQueue.isEmpty()) {
       if (!myFlushIsScheduled.get()) {
-        LOG.error("Flush was not scheduled while the queue was not empty", new Throwable());
-        scheduleFlushInEDT();
+        if (myTasks2RunCount.get() > 1000) {
+          LOG.error("Flush was not scheduled while the size of the task queue is more than 1000", new Throwable());
+          scheduleFlushInEDT();
+        }
       }
     }
   }
