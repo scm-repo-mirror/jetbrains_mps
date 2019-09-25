@@ -12,7 +12,7 @@
   </languages>
   <imports>
     <import index="5nvm" ref="r:27bc780b-59b2-4d26-9db5-a38b63c35884(jetbrains.mps.refactoring.participant)" />
-    <import index="4gtq" ref="r:c23388fc-ded9-445e-8669-8dcbb1750447(jetbrains.mps.ide.refactoring.platform.plugin)" />
+    <import index="lfzw" ref="r:cc08a4fa-e4f1-443c-b8f2-4a41972141bb(jetbrains.mps.ide.refactoring.platform.plugin)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -76,8 +76,8 @@
   </node>
   <node concept="vrV6u" id="1F5g4zQqSPo">
     <property role="TrG5h" value="MoveNodesActionEP" />
-    <node concept="3uibUv" id="1F5g4zQwWpf" role="luc8K">
-      <ref role="3uigEE" to="4gtq:1F5g4zQqSPt" resolve="MoveNodesAction" />
+    <node concept="3uibUv" id="5ErAoTCkxhZ" role="luc8K">
+      <ref role="3uigEE" to="lfzw:1F5g4zQqSPt" resolve="MoveNodesAction" />
     </node>
   </node>
 </model>
