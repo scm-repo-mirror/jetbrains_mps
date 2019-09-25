@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -182,7 +182,7 @@ public class LanguageValidator {
             return;
           } else {
             // just a model to generate some code, not the best way to utilize accessory models
-            if (!myProcessor.process(new ModuleValidationProblem(myLanguage, MessageStatus.WARNING, String.format("Accessory models are deemed design-time facility and generally shall be marked as 'do not generate': %s", accModel.getName())))) {
+            if (!myProcessor.process(new ModuleValidationProblem(myLanguage, MessageStatus.ERROR, String.format("Accessory models are deemed design-time facility and generally shall be marked as 'do not generate': %s", accModel.getName())))) {
               return;
             }
           }
