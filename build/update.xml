@@ -249,39 +249,43 @@
     </channel>
 
     <channel id="MPS191EAP" name="MPS 2019.1" status="eap"
-             url="https://www.jetbrains.com/mps/download"
+             url="https://confluence.jetbrains.com/display/MPS/JetBrains+MPS+2019.1+Download+Page"
              feedback="http://youtrack.jetbrains.net"
              majorVersion="2019" minorVersoin="1">
-      <build number="191.1384" version="2019.1">
-        <message>JetBrains MPS 2019.1 is now available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>      </build>
+      <build number="191.1593" version="2019.1.5">
+        <message>JetBrains MPS 2019.1.5 is now available.</message>
+        <button name="Download" url="https://confluence.jetbrains.com/display/MPS/JetBrains+MPS+2019.1+Download+Page" download="true"/>
+      </build>
     </channel>
 
     <channel id="MPS191" name="MPS 2019.1" status="release"
-             url="https://www.jetbrains.com/mps/download"
+             url="https://confluence.jetbrains.com/display/MPS/JetBrains+MPS+2019.1+Download+Page"
              feedback="http://youtrack.jetbrains.net"
              majorVersion="2019" minorVersoin="1">
       <build number="191.1593" version="2019.1.5">
         <message>JetBrains MPS 2019.1.5 is available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>      </build>
+        <button name="Download" url="https://confluence.jetbrains.com/display/MPS/JetBrains+MPS+2019.1+Download+Page" download="true"/>
+      </build>
     </channel>
 
     <channel id="MPS192EAP" name="MPS 2019.2" status="eap"
-             url="https://confluence.jetbrains.com/display/MPS/JetBrains+MPS+2019.2+EAP+Download+Page"
+             url="https://www.jetbrains.com/mps/download"
              feedback="http://youtrack.jetbrains.net"
              majorVersion="2019" minorVersoin="2">
-      <build number="192.1960" version="2019.2 RC1">
-        <message>JetBrains MPS 2019.2 RC1 is now available.</message>
-        <button name="Download" url="https://confluence.jetbrains.com/display/MPS/JetBrains+MPS+2019.2+EAP+Download+Page" download="true"/>      </build>
+      <build number="192.2288" version="2019.2.2">
+        <message>JetBrains MPS 2019.2.2 is now available.</message>
+        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
+      </build>
     </channel>
 
     <channel id="MPS192" name="MPS 2019.2" status="release"
              url="https://www.jetbrains.com/mps/download"
              feedback="http://youtrack.jetbrains.net"
              majorVersion="2019" minorVersoin="2">
-      <build number="192.2176" version="2019.2.1">
-        <message>JetBrains MPS 2019.2.1 is available.</message>
-        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>      </build>
+      <build number="192.2288" version="2019.2.2">
+        <message>JetBrains MPS 2019.2.2 is available.</message>
+        <button name="Download" url="https://www.jetbrains.com/mps/download" download="true"/>
+      </build>
     </channel>
   </product>
 </products>
