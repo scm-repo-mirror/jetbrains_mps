@@ -35,7 +35,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -81,6 +80,25 @@ public abstract class AbstractNodeSubstituteInfo implements SubstituteInfo {
   protected abstract List<SubstituteAction> createActions();
 
   @Override
+  public void buildActions() {
+    if (myCachedActionList == null) {
+      try {
+        myEditorContext.getRepository().getModelAccess().runReadAction(() -> {
+          myCachedActionList = createActions();
+        });
+      } catch (Throwable th) {
+        LOG.error("Exception while creating substitute actions in " + this.getClass(), th);
+        myCachedActionList = new ArrayList<>();
+      }
+    }
+  }
+
+  private List<SubstituteAction> getActionsFromCache() {
+    buildActions();
+    return myCachedActionList;
+  }
+
+  @Override
   public void invalidateActions() {
     myCachedActionList = null;
   }
@@ -89,7 +107,7 @@ public abstract class AbstractNodeSubstituteInfo implements SubstituteInfo {
   public boolean hasExactlyNActions(final String pattern, final boolean strictMatching, final int n) {
     return new ModelAccessHelper(myEditorContext.getRepository()).runReadAction(() -> {
       int count = 0;
-      for (SubstituteAction action : getActions()) {
+      for (SubstituteAction action : getActionsFromCache()) {
         if (shouldAddItem(action, pattern, strictMatching)) {
           count++;
         }
@@ -155,7 +173,7 @@ public abstract class AbstractNodeSubstituteInfo implements SubstituteInfo {
   @Override
   public List<SubstituteAction> getMatchingActions(final String pattern, final boolean strictMatching) {
     return new ModelAccessHelper(myEditorContext.getRepository()).runReadAction((Computable<List<SubstituteAction>>) () -> {
-      List<SubstituteAction> actionsFromCache = getActions();
+      List<SubstituteAction> actionsFromCache = getActionsFromCache();
       ArrayList<SubstituteAction> result = new ArrayList<>(actionsFromCache.size());
       for (SubstituteAction item : actionsFromCache) {
         try {
@@ -177,17 +195,5 @@ public abstract class AbstractNodeSubstituteInfo implements SubstituteInfo {
     } else {
       return item.canSubstitute(pattern);
     }
-  }
-
-  private List<SubstituteAction> getActions() {
-    if (myCachedActionList == null) {
-      try {
-        myCachedActionList = createActions();
-      } catch (Throwable th) {
-        LOG.error("Exception while creating substitute actions in " + this.getClass(), th);
-        return new LinkedList<>();
-      }
-    }
-    return myCachedActionList;
   }
 }
