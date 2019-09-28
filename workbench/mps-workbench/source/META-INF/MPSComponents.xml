@@ -73,9 +73,6 @@
       <implementation-class>jetbrains.mps.ide.refactoring.RefactoringAccessImpl</implementation-class>
     </component>
     <component>
-      <implementation-class>jetbrains.mps.workbench.findusages.StubModelsIndexer</implementation-class>
-    </component>
-    <component>
       <implementation-class>jetbrains.mps.workbench.findusages.StubModelsFastFindSupport</implementation-class>
     </component>
     <component>
@@ -201,6 +198,9 @@
     <fileEditorProvider implementation="jetbrains.mps.workbench.editors.MPSLanguageEditorProvider"/>
 
     <virtualFileSystem implementationClass="jetbrains.mps.workbench.languagesFs.MPSLanguagesVirtualFileSystem" key="mpslang" physical="true"/>
+
+    <fileType extensions="class" name="CLASS" fieldName="INSTANCE" implementationClass="com.intellij.ide.highlighter.JavaClassFileType"/>
+    <idIndexer filetype="CLASS" implementationClass="jetbrains.mps.workbench.findusages.JavaStubIdIndexer"/>
   </extensions>
 
   <extensions defaultExtensionNs="jetbrains.mps">
