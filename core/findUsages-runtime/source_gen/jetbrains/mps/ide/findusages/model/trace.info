@@ -457,6 +457,94 @@
       <unit id="847291649006544485" at="22,0,108,0" name="jetbrains.mps.ide.findusages.model.SearchQuery" />
     </file>
   </root>
+  <root nodeRef="r:d98d04fb-4a60-4106-81cf-6cb40b67de4d(jetbrains.mps.ide.findusages.model)/8568892084424439935">
+    <file name="SearchObjectResolver.java">
+      <node id="8568892084424440073" at="60,60,61,55" concept="7" />
+      <node id="8568892084424440077" at="61,55,62,82" concept="7" />
+      <node id="8568892084424440090" at="62,82,63,65" concept="8" />
+      <node id="8568892084424440105" at="65,60,66,62" concept="8" />
+      <node id="8568892084424440116" at="68,66,69,53" concept="8" />
+      <node id="8568892084424439939" at="77,0,78,0" concept="3" trace="myRepository" />
+      <node id="8568892084424439949" at="78,59,79,32" concept="2" />
+      <node id="8568892084424439961" at="83,63,84,45" concept="8" />
+      <node id="8568892084424439973" at="88,65,89,45" concept="8" />
+      <node id="8568892084424439985" at="93,61,94,45" concept="8" />
+      <node id="8568892084424439994" at="104,0,105,0" concept="3" trace="myScope" />
+      <node id="8568892084424440003" at="105,53,106,22" concept="2" />
+      <node id="8568892084424440015" at="110,63,111,40" concept="8" />
+      <node id="8568892084424440027" at="115,65,116,40" concept="8" />
+      <node id="8568892084424440039" at="120,61,121,40" concept="8" />
+      <node id="8568892084424440046" at="41,0,43,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/model/SModelReference;)Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="8568892084424440055" at="50,0,52,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/module/SModuleReference;)Lorg/jetbrains/mps/openapi/module/SModule;" />
+      <node id="8568892084424440100" at="65,0,68,0" concept="11" trace="forNode#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/ide/findusages/model/SearchObjectResolver;" />
+      <node id="8568892084424440111" at="68,0,71,0" concept="11" trace="forModule#(Lorg/jetbrains/mps/openapi/module/SModule;)Ljetbrains/mps/ide/findusages/model/SearchObjectResolver;" />
+      <node id="8568892084424439943" at="78,0,81,0" concept="1" trace="BasicResolver#(Lorg/jetbrains/mps/openapi/module/SRepository;)V" />
+      <node id="8568892084424439998" at="105,0,108,0" concept="1" trace="CompatibilityResolver#(Lorg/jetbrains/mps/openapi/module/SearchScope;)V" />
+      <node id="8568892084424439954" at="81,0,86,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/model/SModelReference;)Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="8568892084424439966" at="86,0,91,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/module/SModuleReference;)Lorg/jetbrains/mps/openapi/module/SModule;" />
+      <node id="8568892084424439978" at="91,0,96,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/model/SNodeReference;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="8568892084424440008" at="108,0,113,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/model/SModelReference;)Lorg/jetbrains/mps/openapi/model/SModel;" />
+      <node id="8568892084424440020" at="113,0,118,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/module/SModuleReference;)Lorg/jetbrains/mps/openapi/module/SModule;" />
+      <node id="8568892084424440032" at="118,0,123,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/model/SNodeReference;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="8568892084424440064" at="59,0,65,0" concept="6" trace="resolve#(Lorg/jetbrains/mps/openapi/model/SNodeReference;)Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <scope id="8568892084424440104" at="65,60,66,62" />
+      <scope id="8568892084424440115" at="68,66,69,53" />
+      <scope id="8568892084424439948" at="78,59,79,32" />
+      <scope id="8568892084424439960" at="83,63,84,45" />
+      <scope id="8568892084424439972" at="88,65,89,45" />
+      <scope id="8568892084424439984" at="93,61,94,45" />
+      <scope id="8568892084424440002" at="105,53,106,22" />
+      <scope id="8568892084424440014" at="110,63,111,40" />
+      <scope id="8568892084424440026" at="115,65,116,40" />
+      <scope id="8568892084424440038" at="120,61,121,40" />
+      <scope id="8568892084424440046" at="41,0,43,0">
+        <var name="reference" id="8568892084424440049" />
+      </scope>
+      <scope id="8568892084424440055" at="50,0,52,0">
+        <var name="reference" id="8568892084424440058" />
+      </scope>
+      <scope id="8568892084424440071" at="60,60,63,65">
+        <var name="m" id="8568892084424440076" />
+        <var name="mr" id="8568892084424440072" />
+      </scope>
+      <scope id="8568892084424440100" at="65,0,68,0">
+        <var name="node" id="8568892084424440101" />
+      </scope>
+      <scope id="8568892084424440111" at="68,0,71,0">
+        <var name="module" id="8568892084424440112" />
+      </scope>
+      <scope id="8568892084424439943" at="78,0,81,0">
+        <var name="repository" id="8568892084424439945" />
+      </scope>
+      <scope id="8568892084424439998" at="105,0,108,0">
+        <var name="scope" id="8568892084424440000" />
+      </scope>
+      <scope id="8568892084424439954" at="81,0,86,0">
+        <var name="reference" id="8568892084424439957" />
+      </scope>
+      <scope id="8568892084424439966" at="86,0,91,0">
+        <var name="reference" id="8568892084424439969" />
+      </scope>
+      <scope id="8568892084424439978" at="91,0,96,0">
+        <var name="reference" id="8568892084424439981" />
+      </scope>
+      <scope id="8568892084424440008" at="108,0,113,0">
+        <var name="reference" id="8568892084424440011" />
+      </scope>
+      <scope id="8568892084424440020" at="113,0,118,0">
+        <var name="reference" id="8568892084424440023" />
+      </scope>
+      <scope id="8568892084424440032" at="118,0,123,0">
+        <var name="reference" id="8568892084424440035" />
+      </scope>
+      <scope id="8568892084424440064" at="59,0,65,0">
+        <var name="reference" id="8568892084424440068" />
+      </scope>
+      <unit id="8568892084424439937" at="76,0,97,0" name="jetbrains.mps.ide.findusages.model.SearchObjectResolver$BasicResolver" />
+      <unit id="8568892084424439992" at="103,0,124,0" name="jetbrains.mps.ide.findusages.model.SearchObjectResolver$CompatibilityResolver" />
+      <unit id="8568892084424439935" at="33,0,125,0" name="jetbrains.mps.ide.findusages.model.SearchObjectResolver" />
+    </file>
+  </root>
   <root nodeRef="r:d98d04fb-4a60-4106-81cf-6cb40b67de4d(jetbrains.mps.ide.findusages.model)/8821602715297203211">
     <file name="SearchTask.java">
       <node id="8821602715297203788" at="15,0,16,0" concept="6" trace="canExecute#()Z" />
