@@ -14007,7 +14007,6 @@
     <javac2 destdir="${build.tmp}/java/out/aux-runtimes" fork="false" encoding="utf8" includeantruntime="false" debug="true">
       <compilerarg value="-Xlint:none" />
       <src>
-        <pathelement path="${mps_home}/core/findUsages-runtime/source" />
         <pathelement path="${mps_home}/core/findUsages-runtime/source_gen" />
         <pathelement path="${mps_home}/core/squery-runtime/source_gen" />
         <pathelement path="${mps_home}/core/refactoring/source_gen" />
@@ -14043,7 +14042,6 @@
       </classpath>
     </javac2>
     <copy todir="${build.tmp}/java/out/aux-runtimes">
-      <fileset dir="${mps_home}/core/findUsages-runtime/source" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info, META-INF/services/**/*" />
       <fileset dir="${mps_home}/core/findUsages-runtime/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info, META-INF/services/**/*" />
       <fileset dir="${mps_home}/core/squery-runtime/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info, META-INF/services/**/*" />
       <fileset dir="${mps_home}/core/refactoring/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info, META-INF/services/**/*" />

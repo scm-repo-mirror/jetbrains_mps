@@ -694,10 +694,6 @@
             </node>
           </node>
         </node>
-        <node concept="nFU4i" id="1FaKCGJSzFx" role="nFU4p">
-          <property role="nFU4j" value="source" />
-          <property role="3LZaj6" value="source" />
-        </node>
         <node concept="nFU4i" id="1FaKCGJSzFy" role="nFU4p">
           <property role="nFU4j" value="source_gen" />
           <property role="3LZaj6" value="source" />
