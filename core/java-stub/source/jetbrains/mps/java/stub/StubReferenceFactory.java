@@ -161,13 +161,15 @@ public final class StubReferenceFactory implements ReferenceFactory {
   /**
    * Allows to avoid deadlock
    *
-   * The problem is that: if two models A and B referencing each other, and we try to load A first, then the B.getNode(SNodeId)
-   * will cause B to load, in turn requiring A to be loaded. So, we have a cycle which should be resolved somehow. In the time
-   * of creating this class it ended up with a deadlock.
+   * The problem is that: suppose there are two models A and B referencing each other. We try to load A first. When loading A,
+   * a reference to B is found and needs to be resolved. So, B.getNode(SNodeId) is called resulting in "full load" of B,
+   * in turn requiring A to be loaded. So, we have a cycle which should be resolved somehow. At the time of creating this
+   * class it ended up with a deadlock.
    *
-   * So, the solution is to have a separate map for each model we reference {id->root node} containing only root nodes. As Java
-   * root nodes do not contain references (luckily), we won't end up with a cycle. However, this could change if we change
-   * baseLanguage's structure.
+   * One of the possible solutions is to have a separate map for each model we reference {id->root node} containing only roots.
+   * As Java root nodes in current implementation of baseLanguage do not contain references (luckily), we won't end up with a
+   * cycle.
+   * NB! This could change if we change baseLanguage's structure.
    * NB! There are rare cases when there's a reference to non-root class, in this case, the class will not be "resolved" and a
    * dynamic reference will be created. We don't care much.
    *
