@@ -5,8 +5,6 @@ package jetbrains.mps.tool.environment;
 import com.intellij.openapi.Disposable;
 import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
-import com.intellij.idea.IdeaTestApplication;
-import com.intellij.idea.CommandLineApplication;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.util.annotation.Hack;
@@ -19,8 +17,9 @@ import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import com.intellij.openapi.application.ApplicationManager;
 import java.awt.GraphicsEnvironment;
+import com.intellij.idea.IdeaTestApplication;
 import com.intellij.util.PlatformUtils;
-import com.intellij.ide.plugins.PluginManagerCore;
+import com.intellij.openapi.application.impl.ApplicationImpl;
 import com.intellij.openapi.application.ex.ApplicationManagerEx;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.RuntimeFlags;
@@ -55,8 +54,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
   private static final String IDEA_LOAD_PLUGINS_ID = "idea.load.plugins.id";
   public static final String CREATE_PLUGIN_CLASSLOADERS = "idea.run.tests.with.bundled.plugins";
 
-  private IdeaTestApplication myIdeaTestApplication;
-  private CommandLineApplication myCommandLineApplication;
+  private Disposable myIdeaApplication;
   private final boolean myUnitTestMode;
 
   static {
@@ -181,19 +179,19 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
       // Force GraphicsEnvironment to cache headless false state before IdeaTestApplication resets it to true 
       System.setProperty("java.awt.headless", Boolean.FALSE.toString());
       GraphicsEnvironment.isHeadless();
-      myIdeaTestApplication = IdeaTestApplication.getInstance();
+      myIdeaApplication = IdeaTestApplication.getInstance();
     } else {
-      myCommandLineApplication = createCommandLineApplication0();
+      myIdeaApplication = createCommandLineApplication0();
     }
   }
 
-  private CommandLineApplication createCommandLineApplication0() {
+  private Disposable createCommandLineApplication0() {
     // copied from IdeaTestApplication.getInstance(String) 
     // next line is shorthand for PlatformTestCase.doAutodetectPlatformPrefix() 
     System.setProperty(PlatformUtils.PLATFORM_PREFIX_KEY, PlatformUtils.IDEA_CE_PREFIX);
-    CommandLineApplication rv = new CommandLineApplication(true, false, true) {};
-    PluginManagerCore.getPlugins();
-    ApplicationManagerEx.getApplicationEx().load(null);
+    // Prior 2019.3, there used to be  CommandLineApplication class that served as inspiration for the next lines 
+    ApplicationImpl rv = new ApplicationImpl(true, false, true, true, ApplicationManagerEx.IDEA_APPLICATION);
+    rv.load(null);
     return rv;
   }
 
@@ -253,14 +251,9 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
         final Application application = ApplicationManager.getApplication();
         application.runWriteAction(new Runnable() {
           public void run() {
-            if (myUnitTestMode) {
-              myIdeaTestApplication.dispose();
-            } else {
-              // that's what IdeaTestApplication.dispose() does 
-              Disposer.dispose(application);
-            }
-            myIdeaTestApplication = null;
-            myCommandLineApplication = null;
+            // for IdeaTestApplication case (myUnitTestMode == true) dispose() eventually clears DTA.ourInstance field 
+            Disposer.dispose(myIdeaApplication);
+            myIdeaApplication = null;
           }
         });
       }
@@ -274,7 +267,7 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
       LibraryContributorHelper helper = new LibraryContributorHelper();
       libInitializer.load(Collections.singletonList(helper.createLibContributorForLibs(myConfig.getLibs(), getRootClassLoader())));
     }
-    // modules from IDEA plugins are loaded with regular plafrom component mechanism (ext points, PluginLibraryContributor and RepositoryInitializingComponent) 
+    // modules from IDEA plugins are loaded with regular platform component mechanism (ext points, PluginLibraryContributor and RepositoryInitializingComponent) 
   }
 
   private File createDummyProjectFile() {
