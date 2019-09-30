@@ -668,10 +668,16 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     final String gotoPrefix = "goto_";
     for (SLanguage langProblem : Sequence.fromIterable(sortedProblems).take(treshold)) {
       sb.append(space + space + "-");
-      sb.append("<a href=\"").append(gotoPrefix).append(langProblem.getSourceModuleReference().toString()).append("\">");
-      sb.append(NameUtil.compactNamespace(langProblem.getQualifiedName()));
-      sb.append("</a>");
-      sb.append(" (" + ((langProblem.getSourceModule() == null ? "absent" : "dependency problem")) + ")");
+      boolean absent = langProblem.getSourceModule() == null;
+      String langName = NameUtil.compactNamespace(langProblem.getQualifiedName());
+      if (absent) {
+        sb.append(langName);
+      } else {
+        sb.append("<a href=\"").append(gotoPrefix).append(langProblem.getSourceModuleReference().toString()).append("\">");
+        sb.append(langName);
+        sb.append("</a>");
+      }
+      sb.append(" (" + ((absent ? "absent" : "dependency problem")) + ")");
       sb.append("<br>");
     }
 
