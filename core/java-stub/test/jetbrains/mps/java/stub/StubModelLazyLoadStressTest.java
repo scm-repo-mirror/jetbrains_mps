@@ -26,6 +26,7 @@ import jetbrains.mps.tool.environment.Environment;
 import jetbrains.mps.tool.environment.EnvironmentAware;
 import jetbrains.mps.util.PathManager;
 import jetbrains.mps.vfs.iofs.jar.JarIoFileSystem;
+import jetbrains.mps.vfs.util.PathUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
@@ -72,7 +73,7 @@ public class StubModelLazyLoadStressTest implements EnvironmentAware {
     SModelReference modelRef = new JavaPackageNameStub("gnu.trove").asModelReference(moduleRef);
     FolderSetDataSource dataSource = new FolderSetDataSource();
     // any har with JavaClassStubModelDescriptor would do. Used to be java.util, which uses dedicated model root (JDKStubsModelRoot) since Java 11
-    String path = PathManager.getLibPath() + "/trove4j.jar!/gnu/trove";
+    String path = PathUtil.toSystemIndependent(PathManager.getLibPath()) + "/trove4j.jar!/gnu/trove";
     dataSource.addPath(JarIoFileSystem.getInstance().getFile(path), null);
     JavaClassStubModelDescriptor model = new JavaClassStubModelDescriptor(modelRef, dataSource) {
       @Override
