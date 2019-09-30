@@ -159,13 +159,23 @@ public final class StubReferenceFactory implements ReferenceFactory {
   }
 
   /**
-   * In addition to model, keep its root ids, to avoid deadlock when
-   * two models in parallel reads simultaneously are in update model and resolve references to each other with getNode().
-   * Since all we need is to check presence of top classifier, and not interested in full model load, we just cache
-   * known classifiers and proceed gracefully if no match found.
-   * <p/>
-   * Indeed, this is sort of a hack, were we rely on hidden knowledge java stub models are loaded (or could be safely loaded
-   * under given state) at least to the level of top classifiers.
+   * Allows to avoid deadlock
+   *
+   * The problem is that: if two models A and B referencing each other, and we try to load A first, then the B.getNode(SNodeId)
+   * will cause B to load, in turn requiring A to be loaded. So, we have a cycle which should be resolved somehow. In the time
+   * of creating this class it ended up with a deadlock.
+   *
+   * So, the solution is to have a separate map for each model we reference {id->root node} containing only root nodes. As Java
+   * root nodes do not contain references (luckily), we won't end up with a cycle. However, this could change if we change
+   * baseLanguage's structure.
+   * NB! There are rare cases when there's a reference to non-root class, in this case, the class will not be "resolved" and a
+   * dynamic reference will be created. We don't care much.
+   *
+   * Not thread safe. Currently each VisibleModel is used by a single thread
+   *
+   * todo [MM]: check that not sharing this cache does not affect performance. In contrast to what said in comment above,
+   * todo [MM]: I have seen a huge performance loss due to usage of old version of VisibleModel on a SDK with ~250Mb jars
+   * todo [MM]: Maybe libraries used for testing mentioned above was not large enough. We need to recheck this
    */
   private static class VisibleModel {
     private final SModel myModel;
