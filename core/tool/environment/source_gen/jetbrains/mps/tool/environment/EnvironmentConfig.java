@@ -14,7 +14,6 @@ import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.LinkedHashMap;
 import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.Level;
 import jetbrains.mps.util.PathManager;
 
@@ -28,7 +27,6 @@ public class EnvironmentConfig {
   private final Set<PluginData> myPlugins = SetSequence.fromSet(new LinkedHashSet<PluginData>());
   private final Map<String, File> myMacros = MapSequence.fromMap(new LinkedHashMap<String, File>(16, (float) 0.75, false));
   private final Set<String> myLibs = SetSequence.fromSet(new LinkedHashSet<String>());
-  private final Set<String> myPluginClassPath = SetSequence.fromSet(new LinkedHashSet<String>());
 
   /**
    * due to the support in IDEA we are able to support it in MPS
@@ -54,16 +52,6 @@ public class EnvironmentConfig {
 
   public boolean doesCreatePluginClassLoaders() {
     return myCreatePluginClassLoaders;
-  }
-
-  /**
-   * 
-   * @deprecated unused, no reason to keep
-   */
-  @Deprecated
-  @ToRemove(version = 2019.1)
-  public Set<String> getPluginClassPath() {
-    return myPluginClassPath;
   }
 
   public EnvironmentConfig addPlugin(String path, String id) {
@@ -92,16 +80,6 @@ public class EnvironmentConfig {
   public EnvironmentConfig setCreatePluginClassLoaders(boolean value) {
     myCreatePluginClassLoaders = value;
     return this;
-  }
-
-  /**
-   * 
-   * @deprecated unused value, just drop uses
-   */
-  @Deprecated
-  @ToRemove(version = 2019.1)
-  public void addPluginClassPath(String cp) {
-    SetSequence.fromSet(myPluginClassPath).addElement(cp);
   }
 
   public EnvironmentConfig withDefaultSamples() {
