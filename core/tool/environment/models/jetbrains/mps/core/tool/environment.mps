@@ -5201,6 +5201,14 @@
             <node concept="3cpWs6" id="2BGPXkEw7fy" role="3cqZAp">
               <node concept="1rXfSq" id="2BGPXkEw8mf" role="3cqZAk">
                 <ref role="37wK5l" node="2BGPXkEw7SQ" resolve="construct" />
+                <node concept="2OqwBi" id="25EyDezdY0J" role="37wK5m">
+                  <node concept="37vLTw" id="25EyDezdXK$" role="2Oq$k0">
+                    <ref role="3cqZAo" node="2BGPXkEwEdb" resolve="env" />
+                  </node>
+                  <node concept="liA8E" id="25EyDezdY$u" role="2OqNvi">
+                    <ref role="37wK5l" node="8Pnvxgloc_" resolve="getPlatform" />
+                  </node>
+                </node>
                 <node concept="37vLTw" id="2BGPXkEwK_d" role="37wK5m">
                   <ref role="3cqZAo" node="2BGPXkEwKmC" resolve="emptyProject" />
                 </node>
@@ -5254,6 +5262,15 @@
       </node>
       <node concept="2AHcQZ" id="2BGPXkEw8fi" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="37vLTG" id="25EyDezdFL1" role="3clF46">
+        <property role="TrG5h" value="mpsPlatform" />
+        <node concept="3uibUv" id="25EyDezdLyv" role="1tU5fm">
+          <ref role="3uigEE" to="wyuk:~ComponentHost" resolve="ComponentHost" />
+        </node>
+        <node concept="2AHcQZ" id="25EyDezdX41" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
       </node>
       <node concept="37vLTG" id="2BGPXkEwE2c" role="3clF46">
         <property role="TrG5h" value="emptyProject" />

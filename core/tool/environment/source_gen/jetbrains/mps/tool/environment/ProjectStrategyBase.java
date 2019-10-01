@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.components.ComponentHost;
 import java.util.Collection;
 import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.make.MPSCompilationResult;
@@ -32,13 +33,13 @@ public abstract class ProjectStrategyBase implements ProjectStrategy {
   public Project create(@NotNull Environment env) {
     if (isApplicable()) {
       Project emptyProject = env.createEmptyProject();
-      return construct(emptyProject);
+      return construct(env.getPlatform(), emptyProject);
     }
     throw new IllegalStateException("Strategy " + this + " is not applicable -- cannot create project");
   }
 
   @NotNull
-  protected abstract Project construct(@NotNull Project emptyProject);
+  protected abstract Project construct(@NotNull ComponentHost mpsPlatform, @NotNull Project emptyProject);
 
   @NotNull
   protected Project loadProjectFromModuleHandles(@NotNull Project emptyProject, Collection<ModulesMiner.ModuleHandle> moduleHandles) {

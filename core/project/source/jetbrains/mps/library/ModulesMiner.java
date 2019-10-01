@@ -708,7 +708,7 @@ public final class ModulesMiner {
     }
   }
 
-  public void saveHandle(@NotNull ModuleHandle handle, ModelOutputStream stream) throws IOException {
+  public static void saveHandle(@NotNull ModuleHandle handle, ModelOutputStream stream) throws IOException {
     stream.writeShort(0x1be0);
     stream.writeString(handle.getFile().getPath());
     ModuleDescriptor descriptor = handle.getDescriptor();
@@ -730,7 +730,7 @@ public final class ModulesMiner {
     descriptor.save(stream);
   }
 
-  public ModuleHandle loadHandle(ModelInputStream stream) throws IOException {
+  public static ModuleHandle loadHandle(ModelInputStream stream) throws IOException {
     if (stream.readShort() != 0x1be0) throw new IOException("bad stream: no start marker");
     String file = stream.readString();
     ModuleDescriptor descriptor;

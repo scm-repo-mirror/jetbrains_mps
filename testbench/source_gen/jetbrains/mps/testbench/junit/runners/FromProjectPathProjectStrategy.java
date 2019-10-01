@@ -9,6 +9,7 @@ import jetbrains.mps.project.Project;
 import jetbrains.mps.tool.environment.Environment;
 import java.io.File;
 import jetbrains.mps.tool.environment.EnvironmentBase;
+import jetbrains.mps.components.ComponentHost;
 
 public class FromProjectPathProjectStrategy extends ProjectStrategyBase {
   private static final String PROJECT_PATH_PROPERTY = "mps.junit.project";
@@ -28,7 +29,7 @@ public class FromProjectPathProjectStrategy extends ProjectStrategyBase {
   public Project create(@NotNull Environment env) {
     if (isApplicable()) {
       Project newProject = openProjectIfNotAlreadyOpened(env);
-      return construct(newProject);
+      return construct(env.getPlatform(), newProject);
     }
     throw new IllegalStateException("Strategy is not applicable -- cannot create project");
   }
@@ -47,7 +48,7 @@ public class FromProjectPathProjectStrategy extends ProjectStrategyBase {
 
   @NotNull
   @Override
-  public Project construct(@NotNull Project project) {
+  public Project construct(@NotNull ComponentHost mpsPlatform, @NotNull Project project) {
     // do nothing 
     return project;
   }

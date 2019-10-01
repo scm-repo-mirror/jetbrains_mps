@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package jetbrains.mps.idea.core.module;
 
 import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
@@ -59,7 +58,7 @@ public class CachedModuleData {
 
   public void save(ModelOutputStream stream) throws IOException {
     stream.writeByte(27);
-    new ModulesMiner().saveHandle(myHandle, stream);
+    ModulesMiner.saveHandle(myHandle, stream);
 
     Set<Entry<String, List<CachedModelData>>> entries = myModels.entrySet();
     stream.writeInt(entries.size());
@@ -77,7 +76,7 @@ public class CachedModuleData {
 
   public static CachedModuleData load(ModelInputStream stream) throws IOException {
     if (stream.readByte() != 27) throw new IOException("bad stream: no module start marker");
-    ModuleHandle moduleHandle = new ModulesMiner().loadHandle(stream);
+    ModuleHandle moduleHandle = ModulesMiner.loadHandle(stream);
 
     Map<String, List<CachedModelData>> modelsByPath = new HashMap<String, List<CachedModelData>>();
     for (int size = stream.readInt(); size > 0; size--) {

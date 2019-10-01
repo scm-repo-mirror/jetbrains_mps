@@ -6,10 +6,13 @@ import jetbrains.mps.tool.environment.ProjectStrategyBase;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.components.ComponentHost;
 import java.io.File;
+import jetbrains.mps.vfs.IFileSystem;
+import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.vfs.impl.IoFileSystem;
+import jetbrains.mps.vfs.util.PathUtil;
 
 /**
  * todo: merge with "modules collected from dir", or specify here paths to msd/mpl files
@@ -28,13 +31,13 @@ public class FromModulesListProjectStrategy extends ProjectStrategyBase {
 
   @NotNull
   @Override
-  public Project construct(@NotNull Project emptyProject) {
+  public Project construct(@NotNull ComponentHost mpsPlatform, @NotNull Project emptyProject) {
     final String[] modules = myModulesPath.split(File.pathSeparator);
     TestRootAccessInsight.allowTestRootAccessForModuleFolders(modules);
-    // FIXME either pass ComponentHost as cons argument or take one from emptyProject (though would need to cast to ProjectBase) 
-    ModulesMiner mm = new ModulesMiner();
+    IFileSystem localFS = mpsPlatform.findComponent(VFSManager.class).getFileSystem(VFSManager.FILE_FS);
+    ModulesMiner mm = new ModulesMiner(mpsPlatform);
     for (String modulePath : modules) {
-      IFile fileByPath = IoFileSystem.INSTANCE.getFile(modulePath);
+      IFile fileByPath = localFS.getFile(PathUtil.toSystemIndependent(modulePath));
       mm.collectModules(fileByPath);
     }
     return loadProjectFromModuleHandles(emptyProject, mm.getCollectedModules());
