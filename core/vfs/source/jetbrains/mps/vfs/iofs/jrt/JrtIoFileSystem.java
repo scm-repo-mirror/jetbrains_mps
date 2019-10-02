@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,16 +18,13 @@ package jetbrains.mps.vfs.iofs.jrt;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.util.PathFormatChecker;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * See jetbrains.mps.vfs package info to get familiar with file format requirements
  */
-public class JrtIoFileSystem implements IFileSystem {
-  private static final Logger LOG = LogManager.getLogger(JrtIoFileSystem.class);
+public final class JrtIoFileSystem implements IFileSystem {
   private static final JrtIoFileSystem INSTANCE = new JrtIoFileSystem();
   public static final String JDK_PATH_SEPARATOR = "!";
 
@@ -49,17 +46,6 @@ public class JrtIoFileSystem implements IFileSystem {
   @Override
   public boolean isFileIgnored(@NotNull String name) {
     return false;
-  }
-
-  @Override
-  public boolean runWriteTransaction(@NotNull Runnable r) {
-    try {
-      r.run();
-    } catch (Exception e) {
-      LOG.error(null, e);
-      return false;
-    }
-    return true;
   }
 
   public JrtIoFile getFile(@NotNull String jdkPath, @Nullable String module, @Nullable String pathInJDK) {

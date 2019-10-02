@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.jetbrains.mps.annotations.Internal;
 
 import java.io.File;
 
-public class JarIoFileSystem implements IFileSystem {
+public final class JarIoFileSystem implements IFileSystem {
   public static final String JAR_SEPARATOR = "!";
   private static final Logger LOG = LogManager.getLogger(JarIoFileSystem.class);
 
@@ -72,16 +72,5 @@ public class JarIoFileSystem implements IFileSystem {
   @Override
   public boolean isFileIgnored(@NotNull String name) {
     return false;
-  }
-
-  @Override
-  public boolean runWriteTransaction(@NotNull Runnable r) {
-    try {
-      r.run();
-    } catch (Exception e) {
-      LOG.error(null, e);
-      return false;
-    }
-    return true;
   }
 }

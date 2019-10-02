@@ -17,6 +17,7 @@ package jetbrains.mps.vfs;
 
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.vfs.util.PathUtil;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -46,5 +47,13 @@ public interface IFileSystem {
    * @param r code to execute within platform write lock
    * @return <code>false</code> if an exception was encountered
    */
-  boolean runWriteTransaction(@NotNull Runnable r);
+  default boolean runWriteTransaction(@NotNull Runnable r) {
+    try {
+      r.run();
+    } catch (Exception e) {
+      Logger.getLogger(getClass()).error("IFileSystem.runWriteTransaction() failed", e);
+      return false;
+    }
+    return true;
+  }
 }
