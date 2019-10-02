@@ -11,12 +11,14 @@ import javax.swing.JPanel;
 import java.util.List;
 import com.intellij.openapi.ui.ComboBox;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.nodeEditor.UIEditorComponent;
+import jetbrains.mps.nodeEditor.EditorComponent;
 import javax.swing.JLabel;
 import org.jetbrains.annotations.Nullable;
 import com.intellij.openapi.ui.popup.JBPopup;
 import java.util.ArrayList;
 import com.intellij.ui.CollectionComboBoxModel;
+import jetbrains.mps.nodeEditor.NodeEditorComponent;
+import jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder;
 import java.awt.BorderLayout;
 import javax.swing.BorderFactory;
 import com.intellij.ui.IdeBorderFactory;
@@ -74,7 +76,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
   @NotNull
   private final Project myProject;
   @NotNull
-  private final UIEditorComponent myUIEditorComponent;
+  private final EditorComponent myUIEditorComponent;
   @NotNull
   private final JLabel myLocationLabel = new JLabel("");
   @NotNull
@@ -87,7 +89,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
     myImplNodes = new ArrayList<ImplementationNode>();
     myNodeChooser = new ComboBox<ImplementationNode>(new CollectionComboBoxModel<ImplementationNode>(myImplNodes, null));
     myProject = project;
-    myUIEditorComponent = new UIEditorComponent(project.getRepository(), null);
+    myUIEditorComponent = new NodeEditorComponent(project.getRepository(), new EditorConfigurationBuilder().showLeftHighlighter(false));
 
     configurePermanentUI();
     configureBehaviour();
@@ -95,7 +97,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
 
   private void configurePermanentUI() {
     myPanel.setLayout(new BorderLayout());
-    myPanel.add(myUIEditorComponent, BorderLayout.CENTER);
+    myPanel.add(myUIEditorComponent.getExternalComponent(), BorderLayout.CENTER);
 
     JPanel northPanel = new JPanel(new BorderLayout(2, 0));
     northPanel.setBorder(BorderFactory.createCompoundBorder(IdeBorderFactory.createBorder(SideBorder.BOTTOM), JBUI.Borders.emptyRight(5)));

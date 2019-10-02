@@ -29,17 +29,20 @@ public class EditorConfiguration {
   public final CaretManager caretManager;
 
   public final boolean showErrorsGutter;
+  public final boolean showLeftHighlighter;
   public final boolean rightToLeft;
   public final boolean withUI;
 
   protected EditorConfiguration(
       boolean rightToLeft,
       boolean showErrorsGutter,
+      boolean showLeftHighlighter,
       boolean withUI,
       EditorPanelManager editorPanelManager,
       @NotNull CaretManager caretManager) {
     this.rightToLeft = rightToLeft;
     this.showErrorsGutter = showErrorsGutter;
+    this.showLeftHighlighter = showLeftHighlighter;
     this.withUI = withUI;
     this.editorPanelManager = editorPanelManager;
     this.caretManager = caretManager;

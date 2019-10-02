@@ -198,8 +198,9 @@
     <import index="hfuk" ref="r:b25dd364-bc3f-4a66-97d1-262009610c5e(jetbrains.mps.make)" />
     <import index="ncw5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.annotation(MPS.Core/)" />
     <import index="al1t" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.diagnostic(MPS.IDEA/)" />
-    <import index="8bnf" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.favoritesTreeView.actions(MPS.IDEA/)" />
     <import index="rcv5" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.util.treeView(MPS.IDEA/)" />
+    <import index="8bnf" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.favoritesTreeView.actions(MPS.IDEA/)" />
+    <import index="7oz1" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.nodeEditor.configuration(MPS.Editor/)" />
     <import index="22ra" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.update(MPS.Editor/)" implicit="true" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
   </imports>
@@ -23359,7 +23360,7 @@
         <ref role="tCJdB" node="4npc6Q0okO0" resolve="CopyNodeReference" />
       </node>
       <node concept="tCFHf" id="NhBpYUS3BV" role="ftvYc">
-        <ref role="tCJdB" node="hGnMLrO" resolve="CloneRoot" />
+        <ref role="tCJdB" node="hGnMLrO" />
       </node>
       <node concept="10WQ6h" id="4h0_rmDolOA" role="ftvYc">
         <property role="TrG5h" value="copy" />
@@ -23468,7 +23469,7 @@
       </node>
       <node concept="2a7GMi" id="miYJQAr2Un" role="ftvYc" />
       <node concept="tCFHf" id="miYJQAr2Uw" role="ftvYc">
-        <ref role="tCJdB" node="hZikFSU" resolve="CopyModuleName" />
+        <ref role="tCJdB" node="hZikFSU" />
       </node>
       <node concept="2a7GMi" id="4NOAcpcU2C$" role="ftvYc" />
       <node concept="10WQ6h" id="miYJQAr2Uo" role="ftvYc">
@@ -39355,11 +39356,11 @@
       <property role="TrG5h" value="myUIEditorComponent" />
       <property role="3TUv4t" value="true" />
       <node concept="3Tm6S6" id="3qrPRT3_mwX" role="1B3o_S" />
-      <node concept="3uibUv" id="3qrPRT3_Vi3" role="1tU5fm">
-        <ref role="3uigEE" to="exr9:~UIEditorComponent" resolve="UIEditorComponent" />
-      </node>
       <node concept="2AHcQZ" id="3qrPRT3_zwp" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+      </node>
+      <node concept="3uibUv" id="37C4XYdg0lf" role="1tU5fm">
+        <ref role="3uigEE" to="exr9:~EditorComponent" resolve="EditorComponent" />
       </node>
     </node>
     <node concept="312cEg" id="_dGddVVXv0" role="jymVt">
@@ -39499,7 +39500,7 @@
           <node concept="37vLTI" id="3qrPRT3_Akg" role="3clFbG">
             <node concept="2ShNRf" id="3qrPRT3_AxL" role="37vLTx">
               <node concept="1pGfFk" id="3qrPRT3_DNZ" role="2ShVmc">
-                <ref role="37wK5l" to="exr9:~UIEditorComponent.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.nodeEditor.inspector.InspectorEditorComponent)" resolve="UIEditorComponent" />
+                <ref role="37wK5l" to="exr9:~NodeEditorComponent.&lt;init&gt;(org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.nodeEditor.configuration.EditorConfigurationBuilder)" resolve="NodeEditorComponent" />
                 <node concept="2OqwBi" id="3qrPRT3_EW2" role="37wK5m">
                   <node concept="37vLTw" id="3qrPRT3_Exy" role="2Oq$k0">
                     <ref role="3cqZAo" node="_dGddVVXvH" resolve="project" />
@@ -39508,7 +39509,17 @@
                     <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
                   </node>
                 </node>
-                <node concept="10Nm6u" id="3qrPRT3_FZ_" role="37wK5m" />
+                <node concept="2OqwBi" id="3rY1IQ9ZYQ8" role="37wK5m">
+                  <node concept="2ShNRf" id="3rY1IQ9ZhNY" role="2Oq$k0">
+                    <node concept="1pGfFk" id="3rY1IQ9ZYDv" role="2ShVmc">
+                      <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.&lt;init&gt;()" resolve="EditorConfigurationBuilder" />
+                    </node>
+                  </node>
+                  <node concept="liA8E" id="3rY1IQ9ZZ7F" role="2OqNvi">
+                    <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showLeftHighlighter(boolean)" resolve="showLeftHighlighter" />
+                    <node concept="3clFbT" id="3rY1IQ9ZZiW" role="37wK5m" />
+                  </node>
+                </node>
               </node>
             </node>
             <node concept="37vLTw" id="3qrPRT3__lC" role="37vLTJ">
@@ -39558,8 +39569,13 @@
             </node>
             <node concept="liA8E" id="3qrPRT3_NST" role="2OqNvi">
               <ref role="37wK5l" to="z60i:~Container.add(java.awt.Component,java.lang.Object)" resolve="add" />
-              <node concept="37vLTw" id="3qrPRT3A25A" role="37wK5m">
-                <ref role="3cqZAo" node="3qrPRT3_rKz" resolve="myUIEditorComponent" />
+              <node concept="2OqwBi" id="1O0$f_LWsJ2" role="37wK5m">
+                <node concept="37vLTw" id="3qrPRT3A25A" role="2Oq$k0">
+                  <ref role="3cqZAo" node="3qrPRT3_rKz" resolve="myUIEditorComponent" />
+                </node>
+                <node concept="liA8E" id="1O0$f_LWvg4" role="2OqNvi">
+                  <ref role="37wK5l" to="exr9:~EditorComponent.getExternalComponent()" resolve="getExternalComponent" />
+                </node>
               </node>
               <node concept="10M0yZ" id="3qrPRT3_ScR" role="37wK5m">
                 <ref role="3cqZAo" to="z60i:~BorderLayout.CENTER" resolve="CENTER" />
@@ -40840,7 +40856,7 @@
               <ref role="3cqZAo" node="3qrPRT3_rKz" resolve="myUIEditorComponent" />
             </node>
             <node concept="liA8E" id="3qrPRT3ApXc" role="2OqNvi">
-              <ref role="37wK5l" to="exr9:~UIEditorComponent.dispose()" resolve="dispose" />
+              <ref role="37wK5l" to="exr9:~EditorComponent.dispose()" resolve="dispose" />
             </node>
           </node>
         </node>

@@ -612,29 +612,31 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
       });
     }
     myLeftHighlighter = new LeftEditorHighlighter(this, editorConfiguration.rightToLeft);
-    myLeftHighlighter.addMouseListener(new MouseAdapter() {
-      @Override
-      public void mousePressed(MouseEvent e) {
-        for (LeftMarginMouseListener listener : new ArrayList<>(myLeftMarginPressListeners)) {
-          listener.mousePressed(e, EditorComponent.this);
+    if (editorConfiguration.showLeftHighlighter) {
+      myLeftHighlighter.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mousePressed(MouseEvent e) {
+          for (LeftMarginMouseListener listener : new ArrayList<>(myLeftMarginPressListeners)) {
+            listener.mousePressed(e, EditorComponent.this);
+          }
         }
-      }
 
-      @Override
-      public void mouseReleased(MouseEvent e) {
-        for (LeftMarginMouseListener listener : new ArrayList<>(myLeftMarginPressListeners)) {
-          listener.mouseReleased(e, EditorComponent.this);
+        @Override
+        public void mouseReleased(MouseEvent e) {
+          for (LeftMarginMouseListener listener : new ArrayList<>(myLeftMarginPressListeners)) {
+            listener.mouseReleased(e, EditorComponent.this);
+          }
         }
-      }
 
-      @Override
-      public void mouseClicked(MouseEvent e) {
-        for (LeftMarginMouseListener listener : new ArrayList<>(myLeftMarginPressListeners)) {
-          listener.mouseClicked(e, EditorComponent.this);
+        @Override
+        public void mouseClicked(MouseEvent e) {
+          for (LeftMarginMouseListener listener : new ArrayList<>(myLeftMarginPressListeners)) {
+            listener.mouseClicked(e, EditorComponent.this);
+          }
         }
-      }
-    });
-    myScrollPane.setRowHeaderView(myLeftHighlighter);
+      });
+      myScrollPane.setRowHeaderView(myLeftHighlighter);
+    }
 
     myIntentionsSupport = new IntentionsSupport(this);
 

@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 public class EditorConfigurationBuilder {
   private boolean myRightToLeft;
   private boolean myShowErrorsGutter;
+  private boolean myShowLeftHighlighter = true;
   private boolean myWithUI = true;
   private EditorPanelManager myEditorPanelManager;
   private CaretManager myCaretManager = CaretManager.getInstance();
@@ -41,6 +42,11 @@ public class EditorConfigurationBuilder {
 
   public EditorConfigurationBuilder showErrorsGutter(boolean show) {
     myShowErrorsGutter = show;
+    return this;
+  }
+
+  public EditorConfigurationBuilder showLeftHighlighter(boolean show) {
+    myShowLeftHighlighter = show;
     return this;
   }
 
@@ -63,6 +69,7 @@ public class EditorConfigurationBuilder {
     return new EditorConfiguration(
         myRightToLeft,
         myShowErrorsGutter,
+        myShowLeftHighlighter,
         myWithUI,
         myEditorPanelManager,
         myCaretManager);
