@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 package jetbrains.mps.repository;
 
-import com.intellij.openapi.components.ApplicationComponent;
+import com.intellij.openapi.components.BaseComponent;
 import com.intellij.openapi.vfs.newvfs.persistent.PersistentFS;
 import jetbrains.mps.InternalFlag;
 import jetbrains.mps.ide.MPSCoreComponents;
@@ -23,11 +23,9 @@ import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.library.LibraryInitializer;
 import jetbrains.mps.library.contributor.LibraryContributor;
 import jetbrains.mps.util.PathManager;
-import jetbrains.mps.vfs.FileSystem;
-import jetbrains.mps.vfs.FileSystemExtPoint;
-import jetbrains.mps.vfs.impl.IoFileSystem;
+import jetbrains.mps.vfs.IFileSystem;
+import jetbrains.mps.vfs.iofs.file.LocalIoFileSystem;
 import jetbrains.mps.workbench.action.ApplicationPluginHolder;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,9 +35,9 @@ import java.util.List;
  * Inits all mps distribution modules
  * When on sources {@link InternalFlag#isInternalMode()} almost the same happens
  */
-public class RepositoryInitializingComponentBase implements ApplicationComponent {
+public class RepositoryInitializingComponentBase implements BaseComponent {
   private final LibraryInitializer myLibraryInitializer;
-  private final FileSystem myFS;
+  private final IFileSystem myFS;
   private final List<LibraryContributor> myContributors = new ArrayList<>();
 
   /**
@@ -62,24 +60,23 @@ public class RepositoryInitializingComponentBase implements ApplicationComponent
                                              PersistentFS filesystem //see MPS-22970
   ) {
     myLibraryInitializer = coreComponents.getLibraryInitializer();
-    myFS = PathManager.isFromSources() ? FileSystemExtPoint.getFS() : IoFileSystem.INSTANCE;
+    // FIXME I'd prefer to use VFSManager.getFileSystem to obtrain FS instance, just have no idea how to make sure I get the one with java.io backend
+    //       perhaps, shall register dedicated key, "local-file", that is the same as "file" in pure MPS but different in IDEA environment (latter
+    //       refers to VirtualFile-backed IDEA FS)
+    myFS = PathManager.isFromSources() ? fs : LocalIoFileSystem.getInstance();
   }
 
-  protected boolean addContributor(LibraryContributor c) {
-    return myContributors.add(c);
+  protected final void addContributor(LibraryContributor c) {
+    myContributors.add(c);
   }
 
-  protected FileSystem getFS() {
+  protected final IFileSystem getFS() {
     return myFS;
   }
 
   @Override
   public void initComponent() {
-    if (PathManager.isFromSources()) {
-      load();
-    } else {
-      load();
-    }
+    load();
   }
 
   private void load() {
@@ -91,11 +88,5 @@ public class RepositoryInitializingComponentBase implements ApplicationComponent
     List<LibraryContributor> contributors = new ArrayList<>(myContributors);
     Collections.reverse(contributors);
     myLibraryInitializer.unload(contributors);
-  }
-
-  @NotNull
-  @Override
-  public String getComponentName() {
-    return getClass().getSimpleName();
   }
 }

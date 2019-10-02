@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,10 @@
  */
 package jetbrains.mps.library.contributor;
 
+import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.PathManager;
-import jetbrains.mps.vfs.FileSystem;
+import jetbrains.mps.vfs.IFileSystem;
+import jetbrains.mps.vfs.util.PathUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
@@ -29,9 +31,9 @@ import java.util.Set;
  *       These jars are likely (need to check) loaded by IDEA platform and here we just need to expose them as MPS modules.
  */
 public final class BootstrapLibraryContributor implements LibraryContributor {
-  private final FileSystem myFileSystem;
+  private final IFileSystem myFileSystem;
 
-  public BootstrapLibraryContributor(FileSystem fileSystem) {
+  public BootstrapLibraryContributor(IFileSystem fileSystem) {
     myFileSystem = fileSystem;
   }
 
@@ -47,7 +49,7 @@ public final class BootstrapLibraryContributor implements LibraryContributor {
 
   @NotNull
   private LibDescriptor createLibDescriptor(String path) {
-    return new LibDescriptor(myFileSystem.getFile(path));
+    return new LibDescriptor(myFileSystem.getFile(PathUtil.toSystemIndependent(FileUtil.getCanonicalPath(path))));
   }
 
 

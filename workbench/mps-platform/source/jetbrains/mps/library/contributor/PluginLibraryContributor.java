@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,8 @@ import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.extensions.PluginId;
 import jetbrains.mps.LanguageLibrary;
-import jetbrains.mps.vfs.FileSystem;
+import jetbrains.mps.vfs.IFileSystem;
+import jetbrains.mps.vfs.util.PathUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -34,9 +35,9 @@ import java.util.Set;
  */
 public final class PluginLibraryContributor implements LibraryContributor {
   private static final Logger LOG = LogManager.getLogger(PluginLibraryContributor.class);
-  private final FileSystem myFileSystem;
+  private final IFileSystem myFileSystem;
 
-  public PluginLibraryContributor(FileSystem fileSystem) {
+  public PluginLibraryContributor(IFileSystem fileSystem) {
     myFileSystem = fileSystem;
   }
 
@@ -51,7 +52,8 @@ public final class PluginLibraryContributor implements LibraryContributor {
       throw new IllegalStateException("Plugin could not be found: plugin=" + pluginId.getIdString());
     }
     final String libraryPath = new File(plugin.getPath(), library.dir).getCanonicalPath();
-    return new LibDescriptor(myFileSystem.getFile(libraryPath), plugin.getPluginClassLoader());
+    // FIXME introduce IFileSystem.getFile(java.io.File)
+    return new LibDescriptor(myFileSystem.getFile(PathUtil.toSystemIndependent(libraryPath)), plugin.getPluginClassLoader());
   }
 
   @Override
