@@ -32,10 +32,15 @@ public class QueriesGenerated extends QueryProviderBase {
     SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.MissingChildInConceptProblem$bi);
     return (SNode) MissingChildInConceptProblem__BehaviorDescriptor.getConcept_id224Bjf9ukOx.invoke(node0);
   }
+  public static Object referenceMacro_GetReferent_0_2(final ReferenceMacroContext _context) {
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.MissingChildInConceptProblem$bi);
+    return (SNode) MissingChildInConceptProblem__BehaviorDescriptor.getConcept_id224Bjf9ukOx.invoke(node0);
+  }
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
   {
     rtqMethods.put("6341931782024059299", new RTQ(0, "BaseConcept"));
     rtqMethods.put("1592627013225768459", new RTQ(1, "BaseConcept"));
+    rtqMethods.put("7228848023208844733", new RTQ(2, "BaseConcept"));
   }
   @NotNull
   @Override
@@ -59,6 +64,8 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.referenceMacro_GetReferent_0_0(ctx);
         case 1:
           return QueriesGenerated.referenceMacro_GetReferent_0_1(ctx);
+        case 2:
+          return QueriesGenerated.referenceMacro_GetReferent_0_2(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }

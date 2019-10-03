@@ -23,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 public enum PredefinedStructureProblemKind implements ProblemKindAlsoProblem, ProblemId, LegacyProblemKind {
@@ -51,6 +52,21 @@ public enum PredefinedStructureProblemKind implements ProblemKindAlsoProblem, Pr
       SContainmentLink link = ((MissingChildContext) context).getLink();
       String conceptName = ((MissingChildContext) context).getNode().getConcept().getName();
       return String.format("Child in the role %s.%s does not belong to the concept %s",
+                           link.getOwner().getName(),
+                           link.getName(),
+                           conceptName);
+    }
+  },
+  MISSING_REF() {
+    @NotNull
+    @Override
+    public String getDefaultMessage(@NotNull Context context) {
+      if (!(context instanceof MissingRefContext)) {
+        throw new IllegalArgumentException("Received illegal context " + context);
+      }
+      SReferenceLink link = ((MissingRefContext) context).getLink();
+      String conceptName = ((MissingRefContext) context).getNode().getConcept().getName();
+      return String.format("The reference in the role %s.%s does not belong to the concept %s",
                            link.getOwner().getName(),
                            link.getName(),
                            conceptName);

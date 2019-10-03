@@ -93,5 +93,27 @@
       </node>
     </node>
   </node>
+  <node concept="1Gj5c1" id="1r2xYYzYTw6">
+    <property role="TrG5h" value="MissingRef" />
+    <node concept="1GjLv3" id="1r2xYYzYTw7" role="1GjqVN">
+      <node concept="1DMZdT" id="1r2xYYzYTw8" role="3QpnaF">
+        <property role="TrG5h" value="node" />
+        <ref role="1DMZsr" node="1r2xYYzYTwd" resolve="C" />
+      </node>
+      <node concept="3RXm0x" id="1r2xYYzYTw9" role="3QpnaF">
+        <property role="TrG5h" value="refTarget" />
+        <node concept="3Tqbb2" id="1r2xYYzYTwa" role="3RXm0y" />
+      </node>
+      <node concept="3RXm0x" id="1r2xYYzYTwb" role="3QpnaF">
+        <property role="TrG5h" value="link" />
+        <node concept="3uibUv" id="1r2xYYzYTwe" role="3RXm0y">
+          <ref role="3uigEE" to="c17a:~SReferenceLink" resolve="SReferenceLink" />
+        </node>
+      </node>
+      <node concept="3RW26_" id="1r2xYYzYTwd" role="2Sp0rL">
+        <property role="TrG5h" value="C" />
+      </node>
+    </node>
+  </node>
 </model>
 

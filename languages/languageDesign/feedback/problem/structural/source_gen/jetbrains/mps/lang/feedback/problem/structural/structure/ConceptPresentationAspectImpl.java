@@ -11,6 +11,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_MissingChildInConceptProblem;
   private ConceptPresentation props_MissingPropertyInConceptProblem;
+  private ConceptPresentation props_MissingRefInConceptProblem;
 
   @Override
   @Nullable
@@ -31,6 +32,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_MissingPropertyInConceptProblem = cpb.create();
         }
         return props_MissingPropertyInConceptProblem;
+      case LanguageConceptSwitch.MissingRefInConceptProblem:
+        if (props_MissingRefInConceptProblem == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("when reference is not defined in concept");
+          props_MissingRefInConceptProblem = cpb.create();
+        }
+        return props_MissingRefInConceptProblem;
     }
     return null;
   }

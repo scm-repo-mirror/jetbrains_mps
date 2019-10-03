@@ -11,11 +11,13 @@ public final class LanguageConceptSwitch {
   private final LanguageConceptIndex myIndex;
   public static final int MissingChildInConceptProblem = 0;
   public static final int MissingPropertyInConceptProblem = 1;
+  public static final int MissingRefInConceptProblem = 2;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x7127d40929f043e8L, 0x917ff016ea288944L);
     builder.put(0x2372fa56cc4ea3f4L, MissingChildInConceptProblem);
     builder.put(0x4f7007d340049b31L, MissingPropertyInConceptProblem);
+    builder.put(0x4f7007d340049b31L, MissingRefInConceptProblem);
     myIndex = builder.seal();
   }
 

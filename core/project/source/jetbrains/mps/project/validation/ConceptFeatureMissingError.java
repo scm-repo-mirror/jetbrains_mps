@@ -25,15 +25,9 @@ import org.jetbrains.mps.openapi.language.SNamedElement;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.model.SNodeReference;
 
 public class ConceptFeatureMissingError extends LanguageFeatureMissingError implements NodeFeatureReportItem {
   private final SConceptFeature myConceptFeature;
-
-  public ConceptFeatureMissingError(SNodeReference node, SConceptFeature feature, String message) {
-    super(MessageStatus.ERROR, node, message);
-    myConceptFeature = feature;
-  }
 
   public ConceptFeatureMissingError(SNode node, SProperty p, @NotNull String msg) {
     super(MessageStatus.ERROR, node.getReference(), msg);
@@ -45,8 +39,8 @@ public class ConceptFeatureMissingError extends LanguageFeatureMissingError impl
     myConceptFeature = l;
   }
 
-  public ConceptFeatureMissingError(SNode node, SReferenceLink r) {
-    super(MessageStatus.ERROR, node.getReference(), String.format("Reference with role %s.%s doesn't belong to concept %s", r.getOwner().getName(), r.getName(), node.getConcept().getName()));
+  public ConceptFeatureMissingError(SNode node, SReferenceLink r, @NotNull String msg) {
+    super(MessageStatus.ERROR, node.getReference(), msg);
     myConceptFeature = r;
   }
 

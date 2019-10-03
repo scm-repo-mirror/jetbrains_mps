@@ -21,11 +21,13 @@ public class ActionAspectDescriptorImpl extends BaseActionAspectDescriptor imple
           return Collections.<NodeFactory>singletonList(new Default.NodeFactory_2554379189374330335());
         case 1:
           return Collections.<NodeFactory>singletonList(new Default.NodeFactory_7716791493892398447());
+        case 2:
+          return Collections.<NodeFactory>singletonList(new Default.NodeFactory_1640022677634389055());
         default:
       }
     }
     return Collections.<NodeFactory>emptyList();
   }
 
-  private static final String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"MissingChildInConceptProblem", "MissingPropertyInConceptProblem"};
+  private static final String[] stringSwitchCases_tpto26_a0a0a0c = new String[]{"MissingChildInConceptProblem", "MissingPropertyInConceptProblem", "MissingRefInConceptProblem"};
 }

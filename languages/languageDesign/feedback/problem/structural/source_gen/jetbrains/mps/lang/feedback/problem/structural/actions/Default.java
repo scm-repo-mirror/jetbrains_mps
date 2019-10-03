@@ -29,6 +29,14 @@ public class Default {
       importer.execute();
     }
   }
+  public static class NodeFactory_1640022677634389055 implements NodeFactory {
+    public void setup(SNode newNode, SNode sampleNode, SNode enclosingNode, SModel model) {
+      SLinkOperations.setPointer(newNode, LINKS.kind$Wl20, new SNodePointer("r:63ce0387-25e9-4762-bec1-dac3eb032399(jetbrains.mps.lang.feedback.problem.structural.feedback)", "2554379189374330908"));
+      ModelImporter importer = new ModelImporter(model);
+      importer.prepare(PersistenceFacade.getInstance().createModelReference("r:63ce0387-25e9-4762-bec1-dac3eb032399(jetbrains.mps.lang.feedback.problem.structural.feedback)"));
+      importer.execute();
+    }
+  }
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink kind$Wl20 = MetaAdapterFactory.getReferenceLink(0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL, 0x6b178cfa773dc73bL, "kind");

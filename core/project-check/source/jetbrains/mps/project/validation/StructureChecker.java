@@ -22,6 +22,8 @@ import jetbrains.mps.checkers.MessagesFacade;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.core.aspects.feedback.api.FeedbackAspectRegistry;
 import jetbrains.mps.core.aspects.feedback.messages.MissingChildInConceptProblem;
+import jetbrains.mps.core.aspects.feedback.messages.MissingRefContext;
+import jetbrains.mps.core.aspects.feedback.messages.MissingRefInConceptProblem;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.errors.item.IssueKindReportItem.CheckerCategory;
 import jetbrains.mps.errors.item.LanguageAbsentInRepoProblem;
@@ -140,13 +142,20 @@ public class StructureChecker extends AbstractNodeCheckerInEditor implements ICh
   }
 
   private void checkMissingRefs(SNode node, LanguageErrorsCollector errorsCollector, SConcept concept) {
-    List<SReferenceLink> refs = IterableUtil.asList(concept.getReferenceLinks());
-    for (SReference r : node.getReferences()) {
-      SReferenceLink l = r.getLink();
-      if (refs.contains(l)) {
-        continue;
+    List<SReferenceLink> definedLinks = IterableUtil.asList(concept.getReferenceLinks());
+    for (SReference reference : node.getReferences()) {
+      SReferenceLink link = reference.getLink();
+      MissingRefInConceptProblem problem = new MissingRefInConceptProblem(node.getConcept(), null);
+      MissingRefContext context = new MissingRefContext(node, reference.getTargetNode(), link);
+      if (!definedLinks.contains(link)) {
+        assert link != null : "non-root node is supposed to have proper aggregation";
+        FeedbackAspectRegistry registry = getFeedbackAspectRegistry();
+        MessagesFacade facade = new MessagesFacade(registry);
+        List<String> messages = facade.findTextMessagesForProblem(concept, problem, context);
+        for (String message : messages) {
+          errorsCollector.addError(new ConceptFeatureMissingError(node, link, message));
+        }
       }
-      errorsCollector.addError(new ConceptFeatureMissingError(node, l));
     }
   }
 

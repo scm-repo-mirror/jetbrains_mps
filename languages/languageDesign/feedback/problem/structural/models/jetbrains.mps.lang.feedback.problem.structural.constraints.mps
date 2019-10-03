@@ -2,11 +2,11 @@
 <model ref="r:44de6cb2-b6eb-47d2-bf88-1577a328d3f6(jetbrains.mps.lang.feedback.problem.structural.constraints)">
   <persistence version="9" />
   <languages>
-    <use id="134c38d4-e3af-4d9e-b069-1c7df0a4005d" name="jetbrains.mps.lang.constraints.rules.skeleton" version="0" />
-    <use id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints" version="6" />
-    <use id="ea3159bf-f48e-4720-bde2-86dba75f0d34" name="jetbrains.mps.lang.context.defs" version="0" />
-    <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="0" />
-    <use id="033598a4-76a9-47e1-ac89-a300c0fceab8" name="jetbrains.mps.lang.feedback.problem" version="0" />
+    <use id="134c38d4-e3af-4d9e-b069-1c7df0a4005d" name="jetbrains.mps.lang.constraints.rules.skeleton" version="-1" />
+    <use id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints" version="-1" />
+    <use id="ea3159bf-f48e-4720-bde2-86dba75f0d34" name="jetbrains.mps.lang.context.defs" version="-1" />
+    <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="-1" />
+    <use id="033598a4-76a9-47e1-ac89-a300c0fceab8" name="jetbrains.mps.lang.feedback.problem" version="-1" />
     <devkit ref="00000000-0000-4000-0000-5604ebd4f22c(jetbrains.mps.devkit.aspect.constraints)" />
   </languages>
   <imports>
@@ -200,6 +200,58 @@
                   <node concept="3Tqbb2" id="2dMY_rcjEQT" role="2HTBi0" />
                   <node concept="37vLTw" id="2dMY_rcjEQU" role="2HTEbv">
                     <ref role="3cqZAo" node="2dMY_rcjEQD" resolve="concrete" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="1r2xYYzYTDK">
+    <ref role="1M2myG" to="uj7v:1r2xYYzYSCS" resolve="MissingRefInConceptProblem" />
+    <node concept="1N5Pfh" id="1r2xYYzYTDL" role="1Mr941">
+      <ref role="1N5Vy1" to="sis7:6GnzfDRfssV" resolve="kind" />
+      <node concept="3dgokm" id="1r2xYYzYTDM" role="1N6uqs">
+        <node concept="3clFbS" id="1r2xYYzYTDN" role="2VODD2">
+          <node concept="3cpWs8" id="1r2xYYzYTDO" role="3cqZAp">
+            <node concept="3cpWsn" id="1r2xYYzYTDP" role="3cpWs9">
+              <property role="TrG5h" value="concrete" />
+              <node concept="3Tqbb2" id="1r2xYYzYTDQ" role="1tU5fm">
+                <ref role="ehGHo" to="sis7:1mFJTG6JRZ" resolve="ProblemKind" />
+              </node>
+              <node concept="2OqwBi" id="1r2xYYzYTDR" role="33vP2m">
+                <node concept="2tJFMh" id="1r2xYYzYTDS" role="2Oq$k0">
+                  <node concept="ZC_QK" id="1r2xYYzYTL8" role="2tJFKM">
+                    <ref role="2aWVGs" to="qzsv:1r2xYYzYTw6" resolve="MissingRef" />
+                  </node>
+                </node>
+                <node concept="Vyspw" id="1r2xYYzYTDU" role="2OqNvi">
+                  <node concept="2OqwBi" id="1r2xYYzYTDV" role="Vysub">
+                    <node concept="2JrnkZ" id="1r2xYYzYTDW" role="2Oq$k0">
+                      <node concept="2OqwBi" id="1r2xYYzYTDX" role="2JrQYb">
+                        <node concept="2rP1CM" id="1r2xYYzYTDY" role="2Oq$k0" />
+                        <node concept="I4A8Y" id="1r2xYYzYTDZ" role="2OqNvi" />
+                      </node>
+                    </node>
+                    <node concept="liA8E" id="1r2xYYzYTE0" role="2OqNvi">
+                      <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWs6" id="1r2xYYzYTE1" role="3cqZAp">
+            <node concept="2YIFZM" id="1r2xYYzYTE2" role="3cqZAk">
+              <ref role="1Pybhc" to="o8zo:4IP40Bi3e_R" resolve="ListScope" />
+              <ref role="37wK5l" to="o8zo:3jEbQoczdCs" resolve="forResolvableElements" />
+              <node concept="2ShNRf" id="1r2xYYzYTE3" role="37wK5m">
+                <node concept="2HTt$P" id="1r2xYYzYTE4" role="2ShVmc">
+                  <node concept="3Tqbb2" id="1r2xYYzYTE5" role="2HTBi0" />
+                  <node concept="37vLTw" id="1r2xYYzYTE6" role="2HTEbv">
+                    <ref role="3cqZAo" node="1r2xYYzYTDP" resolve="concrete" />
                   </node>
                 </node>
               </node>

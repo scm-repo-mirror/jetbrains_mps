@@ -15,6 +15,7 @@ import jetbrains.mps.smodel.runtime.impl.ConceptDescriptorBuilder2;
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptMissingChildInConceptProblem = createDescriptorForMissingChildInConceptProblem();
   /*package*/ final ConceptDescriptor myConceptMissingPropertyInConceptProblem = createDescriptorForMissingPropertyInConceptProblem();
+  /*package*/ final ConceptDescriptor myConceptMissingRefInConceptProblem = createDescriptorForMissingRefInConceptProblem();
   private final LanguageConceptSwitch myIndexSwitch;
 
   public StructureAspectDescriptor() {
@@ -29,7 +30,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptMissingChildInConceptProblem, myConceptMissingPropertyInConceptProblem);
+    return Arrays.asList(myConceptMissingChildInConceptProblem, myConceptMissingPropertyInConceptProblem, myConceptMissingRefInConceptProblem);
   }
 
   @Override
@@ -40,6 +41,8 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
         return myConceptMissingChildInConceptProblem;
       case LanguageConceptSwitch.MissingPropertyInConceptProblem:
         return myConceptMissingPropertyInConceptProblem;
+      case LanguageConceptSwitch.MissingRefInConceptProblem:
+        return myConceptMissingRefInConceptProblem;
       default:
         return null;
     }
@@ -70,6 +73,15 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.origin("r:270d7173-b5a9-45a3-a074-68571d20064c(jetbrains.mps.lang.feedback.problem.structural.structure)/5724083730281438001");
     b.version(2);
     b.alias("when property is not defined in concept");
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForMissingRefInConceptProblem() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.feedback.problem.structural", "MissingRefInConceptProblem", 0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L);
+    b.class_(true, false, false);
+    b.super_("jetbrains.mps.lang.feedback.problem.structure.ProblemPointsToKindRoot", 0x33598a476a947e1L, 0xac89a300c0fceab8L, 0x6b178cfa773dc73aL);
+    b.origin("r:270d7173-b5a9-45a3-a074-68571d20064c(jetbrains.mps.lang.feedback.problem.structural.structure)/1640022677634386488");
+    b.version(2);
+    b.alias("when reference is not defined in concept");
     return b.create();
   }
 }

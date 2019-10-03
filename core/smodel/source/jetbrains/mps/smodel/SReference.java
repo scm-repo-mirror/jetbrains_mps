@@ -36,6 +36,7 @@ import java.util.Set;
 public abstract class SReference implements org.jetbrains.mps.openapi.model.SReference {
   public static final SReference[] EMPTY_ARRAY = new SReference[0];
   private static final Set<SReference> ourErrorReportedRefs = new WeakSet<>();
+
   private final static ThreadLocal<Boolean> ourLoggingOff = new ThreadLocal<Boolean>() {
     @Override
     protected Boolean initialValue() {
@@ -43,7 +44,7 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
     }
   };
   protected final SNode mySourceNode; // made protected only for assert in DynamicReference
-  private SReferenceLink myRoleId;
+  private final SReferenceLink myRoleId;
   private volatile String myResolveInfo;
 
   /**
@@ -56,7 +57,7 @@ public abstract class SReference implements org.jetbrains.mps.openapi.model.SRef
     myRoleId = ((ConceptMetaInfoConverter) sourceNode.getConcept()).convertAssociation(role);
   }
 
-  protected SReference(SReferenceLink role, SNode sourceNode) {
+  protected SReference(@NotNull SReferenceLink role, SNode sourceNode) {
     myRoleId = role;
     mySourceNode = sourceNode;
   }
