@@ -31,9 +31,6 @@ import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.vcspersistence.VCSPersistenceUtil;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.smodel.SModelFileTracker;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.Computable;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
@@ -175,28 +172,18 @@ public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
 
   @Nullable
   private static Tuples._2<SModel, SNodeId> getModelAndRoot(Project mpsProject, DiffContent content, FileType type) {
-    final Wrappers._T<SModel> model = new Wrappers._T<SModel>(null);
-    // first try to find model in repository 
-    IFile file = getFileByContent(content);
-    if (file != null) {
-      model.value = SModelFileTracker.getInstance(mpsProject.getRepository()).findModel(file.getParent());
-    }
-    if (model.value == null) {
-      model.value = readModel(content, type);
-    }
-    if (model.value == null) {
-      return null;
-    }
+    // first read model from file and get root id 
+    SModel model = readModel(content, type);
+    // there should be no more than one root in the model from this file 
+    SNodeId rootId = ListSequence.fromList(SModelOperations.roots(model, null)).first().getNodeId();
 
-    SNodeId nodeId = new ModelAccessHelper(mpsProject.getModelAccess()).runReadAction(new Computable<SNodeId>() {
-      public SNodeId compute() {
-        // todo: find root for models in repository by filename (important when new root added int per-root persistence) 
-        if (ListSequence.fromList(SModelOperations.roots(model.value, null)).count() == 1) {
-          return ListSequence.fromList(SModelOperations.roots(model.value, null)).getElement(0).getNodeId();
-        }
-        return null;
+    // try to find the model in the repository 
+    if (content instanceof FileContent) {
+      IFile file = getFileByContent(content);
+      if (file != null) {
+        model = SModelFileTracker.getInstance(mpsProject.getRepository()).findModel(file.getParent());
       }
-    });
-    return MultiTuple.<SModel,SNodeId>from(model.value, nodeId);
+    }
+    return MultiTuple.<SModel,SNodeId>from(model, rootId);
   }
 }
