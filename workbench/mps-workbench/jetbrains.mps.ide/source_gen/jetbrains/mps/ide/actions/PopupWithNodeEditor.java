@@ -24,7 +24,7 @@ public abstract class PopupWithNodeEditor {
 
   public PopupWithNodeEditor(@NotNull final Project project) {
     myUI = new PopupWithNodeEditorUI(project);
-    final ComponentPopupBuilder pb = JBPopupFactory.getInstance().createComponentPopupBuilder(myUI.getPanel(), myUI.getPreferredFocusableComponent()).setRequestFocus(false).setMovable(true).setResizable(true).setCancelCallback(new Computable<Boolean>() {
+    final ComponentPopupBuilder pb = JBPopupFactory.getInstance().createComponentPopupBuilder(myUI.getPanel(), myUI.getPreferredFocusableComponent()).setRequestFocus(true).setMovable(true).setResizable(true).setCancelCallback(new Computable<Boolean>() {
       public Boolean compute() {
         myUI.dispose();
         return true;
@@ -34,7 +34,7 @@ public abstract class PopupWithNodeEditor {
       public void beforeShown(@NotNull LightweightWindowEvent event) {
         beforePopupShown(event);
       }
-    }).setTitle("stub: to be updated later");
+    }).setTitle("Definition");
     myPopup = pb.createPopup();
     myUI.setPopup(myPopup);
   }

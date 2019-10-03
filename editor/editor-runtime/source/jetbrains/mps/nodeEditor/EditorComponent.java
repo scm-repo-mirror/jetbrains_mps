@@ -293,7 +293,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
     }
   };
 
-  private boolean myReadOnly = false;
+  private boolean myReadOnly;
   private String myLastWrittenStatus = "";
 
   @NotNull
@@ -370,6 +370,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
   protected EditorComponent(@NotNull SRepository repository, @NotNull EditorConfiguration configuration) {
     myRepository = repository;
     myEditorConfiguration = configuration;
+    myReadOnly = myEditorConfiguration.readOnly;
     myCommandContext = createCommandContext();
     myUpdater = createUpdater(myCommandContext);
     myHighlightManager = new NodeHighlightManager(this);
@@ -1041,7 +1042,7 @@ public abstract class EditorComponent extends JComponent implements Scrollable, 
         SModel model = node.getModel();
         assert model != null : "Can't edit a node that is not registered in a model";
         setEditorContext(model, myRepository);
-        myReadOnly = model.isReadOnly();
+        myReadOnly = myEditorConfiguration.readOnly || model.isReadOnly();
       } else {
         myNodePointer = null;
         setEditorContext(null, myRepository);

@@ -89,7 +89,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
     myImplNodes = new ArrayList<ImplementationNode>();
     myNodeChooser = new ComboBox<ImplementationNode>(new CollectionComboBoxModel<ImplementationNode>(myImplNodes, null));
     myProject = project;
-    myUIEditorComponent = new NodeEditorComponent(project.getRepository(), new EditorConfigurationBuilder().showLeftHighlighter(false));
+    myUIEditorComponent = new NodeEditorComponent(project.getRepository(), new EditorConfigurationBuilder().showLeftHighlighter(false).readOnly(true));
 
     configurePermanentUI();
     configureBehaviour();
@@ -212,7 +212,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
 
   @NotNull
   public JComponent getPreferredFocusableComponent() {
-    return myNodeChooser;
+    return myUIEditorComponent;
   }
 
   private boolean isDisposed = false;

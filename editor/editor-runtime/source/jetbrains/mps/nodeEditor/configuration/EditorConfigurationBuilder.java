@@ -28,6 +28,7 @@ public class EditorConfigurationBuilder {
   private boolean myShowErrorsGutter;
   private boolean myShowLeftHighlighter = true;
   private boolean myWithUI = true;
+  private boolean myReadOnly;
   private EditorPanelManager myEditorPanelManager;
   private CaretManager myCaretManager = CaretManager.getInstance();
 
@@ -55,6 +56,11 @@ public class EditorConfigurationBuilder {
     return this;
   }
 
+  public EditorConfigurationBuilder readOnly(boolean readOnly) {
+    myReadOnly = readOnly;
+    return this;
+  }
+
   public EditorConfigurationBuilder editorPanelManager(EditorPanelManager editorPanelManager) {
     myEditorPanelManager = editorPanelManager;
     return this;
@@ -71,6 +77,7 @@ public class EditorConfigurationBuilder {
         myShowErrorsGutter,
         myShowLeftHighlighter,
         myWithUI,
+        myReadOnly,
         myEditorPanelManager,
         myCaretManager);
   }

@@ -91,6 +91,7 @@ public class ShowDefinitionInMenu_Action extends BaseAction {
 
       @Override
       protected void beforePopupShown(@NotNull final LightweightWindowEvent windowEvent) {
+        myPopup.setRequestFocus(false);
         final NodeSubstituteChooser chooser = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getNodeSubstituteChooser();
         if (!(chooser.isVisible())) {
           return;
