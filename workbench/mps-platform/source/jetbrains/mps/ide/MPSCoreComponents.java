@@ -49,9 +49,9 @@ public class MPSCoreComponents implements Disposable {
   private Platform myPlatform;
 
   public MPSCoreComponents() {
-    ManagingFS fs = ManagingFS.getInstance();
-    ModelAccess access = ApplicationManager.getApplication().getComponent(ModelAccess.class);
-    UndoHandler handler = ApplicationManager.getApplication().getComponent(UndoHandler.class);
+    @NotNull ManagingFS fs = ManagingFS.getInstance();
+    @NotNull ModelAccess access = ApplicationManager.getApplication().getComponent(ModelAccess.class);
+    @NotNull UndoHandler handler = ApplicationManager.getApplication().getComponent(UndoHandler.class);
     myPlatform = PlatformFactory.initPlatform(PlatformOptionsBuilder.ALL);
     myBaseLanguage = new MPSBaseLanguage();
     myBaseLanguage.init();

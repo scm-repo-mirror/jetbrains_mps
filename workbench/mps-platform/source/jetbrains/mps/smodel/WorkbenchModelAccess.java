@@ -37,7 +37,7 @@ import static java.math.BigDecimal.valueOf;
  * We access IDEA locking mechanism here in order to prevent different way of acquiring locks
  * We always first acquire IDEA's lock and only then acquire MPS's lock
  */
-public final class WorkbenchModelAccess extends ModelAccess implements Disposable, ApplicationComponent {
+public final class WorkbenchModelAccess extends ModelAccess implements Disposable {
   private static final int WAIT_FOR_WRITE_LOCK_MILLIS = 200;
   private static final String IDEA_WRITE_LOCK_FAIL = "Failed to acquire the IDEA write lock after having waited for %.3f s";
 
@@ -47,6 +47,9 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
   private final CancellableReadsManager myCancellableReads;
 
   public WorkbenchModelAccess() {
+    // not allowing to substitute alien model accesses here
+    assert instance() instanceof DefaultModelAccess;
+    setInstance(this);
     myUndoHandler = (WorkbenchUndoHandler) ApplicationManager.getApplication().getComponent(UndoHandler.class);
     myPlatformWriteHelper = new TryRunPlatformWriteHelper();
     myCancellableReads = new CancellableReadsManager();
@@ -61,6 +64,7 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
 
   @Override
   public void dispose() {
+    setInstance(new DefaultModelAccess());
   }
 
   @Override
@@ -307,25 +311,6 @@ public final class WorkbenchModelAccess extends ModelAccess implements Disposabl
   public boolean hasScheduledWrites() {
     return myPlatformWriteHelper.hasScheduledWrites() || super.hasScheduledWrites();
   }
-
-  @Override
-  public void initComponent() {
-    // not allowing to substitute alien model accesses here
-    assert instance() instanceof DefaultModelAccess;
-    setInstance(this);
-  }
-
-  @Override
-  public void disposeComponent() {
-    setInstance(new DefaultModelAccess());
-  }
-
-  @NotNull
-  @Override
-  public String getComponentName() {
-    return getClass().getSimpleName();
-  }
-
 
   /**
    * Bears 'TOP' in the name to stress we don't expect nested command here.
