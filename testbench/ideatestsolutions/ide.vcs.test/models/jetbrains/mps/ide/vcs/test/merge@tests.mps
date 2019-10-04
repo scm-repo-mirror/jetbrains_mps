@@ -12073,20 +12073,21 @@
       <node concept="3Tm1VV" id="56cvcsnFHfB" role="1B3o_S" />
       <node concept="3cqZAl" id="xjl$fQQZd6" role="3clF45" />
       <node concept="3clFbS" id="xjl$fQQZd7" role="3clF47">
-        <node concept="3clFbF" id="4g0Mut8_eq$" role="3cqZAp">
-          <node concept="2OqwBi" id="4g0Mut8_mMN" role="3clFbG">
-            <node concept="2OqwBi" id="4g0Mut8_eOo" role="2Oq$k0">
-              <node concept="37vLTw" id="4g0Mut8_eqz" role="2Oq$k0">
-                <ref role="3cqZAo" node="56cvcsnEV9K" resolve="myProject" />
+        <node concept="3clFbF" id="4EFFxri_s13" role="3cqZAp">
+          <node concept="2OqwBi" id="4EFFxri_t2r" role="3clFbG">
+            <node concept="2OqwBi" id="4EFFxri_srB" role="2Oq$k0">
+              <node concept="2YIFZM" id="4EFFxri_s6s" role="2Oq$k0">
+                <ref role="37wK5l" to="bd8o:~ApplicationManager.getApplication()" resolve="getApplication" />
+                <ref role="1Pybhc" to="bd8o:~ApplicationManager" resolve="ApplicationManager" />
               </node>
-              <node concept="liA8E" id="4g0Mut8_mqA" role="2OqNvi">
+              <node concept="liA8E" id="4EFFxri_sH_" role="2OqNvi">
                 <ref role="37wK5l" to="1m72:~ComponentManager.getComponent(java.lang.Class)" resolve="getComponent" />
                 <node concept="3VsKOn" id="4g0Mut8_mCf" role="37wK5m">
                   <ref role="3VsUkX" to="2eq1:491od_XJZeq" resolve="ReloadManager" />
                 </node>
               </node>
             </node>
-            <node concept="liA8E" id="4g0Mut8_vyH" role="2OqNvi">
+            <node concept="liA8E" id="4EFFxri_tcE" role="2OqNvi">
               <ref role="37wK5l" to="2eq1:4SUKy4FU8kE" resolve="flush" />
             </node>
           </node>

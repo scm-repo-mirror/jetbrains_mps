@@ -56,6 +56,7 @@
     <classNode extendsClassName="jetbrains.mps.ide.vcs.test.merge.ChangesTestBase" />
   </dependency>
   <dependency className="jetbrains.mps.ide.vcs.test.merge.ChangesManagerTestWaitHelper">
+    <classNode dependClassName="com.intellij.openapi.application.ApplicationManager" />
     <classNode dependClassName="com.intellij.openapi.project.Project" />
     <classNode dependClassName="com.intellij.openapi.vcs.FileStatus" />
     <classNode dependClassName="com.intellij.openapi.vcs.FileStatusListener" />
