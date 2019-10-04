@@ -33,6 +33,7 @@
       <concept id="1207318242772" name="jetbrains.mps.lang.plugin.structure.KeyMapKeystroke" flags="ng" index="pLAjd">
         <property id="1207318242773" name="modifiers" index="pLAjc" />
         <property id="1207318242774" name="keycode" index="pLAjf" />
+        <property id="6785623076777470797" name="change" index="3hacHL" />
       </concept>
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
@@ -82,6 +83,7 @@
       </concept>
       <concept id="1562714432501166197" name="jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration" flags="ng" index="Zd50a">
         <property id="8646726056720906098" name="isPluginXmlKeymap" index="Z2u3V" />
+        <property id="1562714432501166281" name="keymap" index="Zd52Q" />
         <child id="1562714432501166199" name="shortcutChange" index="Zd508" />
       </concept>
       <concept id="6193305307616715384" name="jetbrains.mps.lang.plugin.structure.ShortcutChange" flags="lg" index="1bYyw_">
@@ -461,6 +463,12 @@
       <node concept="2zDLo0" id="76n_52h2Vx2" role="2zDLrY">
         <ref role="2zDLo1" node="7nWAV$2o8vd" resolve="Console_Default" />
       </node>
+      <node concept="2zDLo0" id="10GFfN5Vfr4" role="2zDLrY">
+        <ref role="2zDLo1" node="10GFfN5Vfr3" resolve="MacOSX" />
+      </node>
+      <node concept="2zDLo0" id="10GFfN5Vfr8" role="2zDLrY">
+        <ref role="2zDLo1" node="10GFfN5Vfr7" resolve="MacOSX105" />
+      </node>
     </node>
   </node>
   <node concept="tC5Ba" id="2ONldtgyeTV">
@@ -821,25 +829,33 @@
         <property role="pLAjf" value="VK_ENTER" />
       </node>
     </node>
+    <node concept="Zd509" id="6QZWsVD_ITr" role="Zd508">
+      <ref role="1bYAoF" node="6QZWsVD$rO8" />
+      <node concept="pLAjd" id="6QZWsVD_ITs" role="Zd501">
+        <property role="pLAjc" value="ctrl" />
+        <property role="pLAjf" value="VK_BACK_SPACE" />
+      </node>
+    </node>
     <node concept="Zd509" id="6QZWsVD$rNI" role="Zd508">
       <ref role="1bYAoF" node="6QZWsVDzQaJ" resolve="ConsolePrev" />
       <node concept="pLAjd" id="6QZWsVD$rNJ" role="Zd501">
-        <property role="pLAjc" value="ctrl" />
+        <property role="pLAjc" value="ctrl+alt" />
         <property role="pLAjf" value="VK_UP" />
+      </node>
+      <node concept="pLAjd" id="10GFfN5VfqD" role="Zd501">
+        <property role="pLAjc" value="ctrl" />
+        <property role="pLAjf" value="VK_PAGE_UP" />
       </node>
     </node>
     <node concept="Zd509" id="6QZWsVD$rNR" role="Zd508">
       <ref role="1bYAoF" node="6QZWsVDzvm_" resolve="ConsoleNext" />
       <node concept="pLAjd" id="6QZWsVD$rNS" role="Zd501">
-        <property role="pLAjc" value="ctrl" />
+        <property role="pLAjc" value="ctrl+alt" />
         <property role="pLAjf" value="VK_DOWN" />
       </node>
-    </node>
-    <node concept="Zd509" id="6QZWsVD_ITr" role="Zd508">
-      <ref role="1bYAoF" node="6QZWsVD$rO8" resolve="ConsoleClear" />
-      <node concept="pLAjd" id="6QZWsVD_ITs" role="Zd501">
+      <node concept="pLAjd" id="10GFfN5VfqP" role="Zd501">
         <property role="pLAjc" value="ctrl" />
-        <property role="pLAjf" value="VK_BACK_SPACE" />
+        <property role="pLAjf" value="VK_PAGE_DOWN" />
       </node>
     </node>
   </node>
@@ -1081,6 +1097,62 @@
       <property role="TrG5h" value="tab" />
       <ref role="1DUlNI" to="qgo0:7nWAV$2m10H" resolve="CONSOLE_TAB" />
       <node concept="1oajcY" id="6QZWsVD$rOD" role="1oa70y" />
+    </node>
+  </node>
+  <node concept="Zd50a" id="10GFfN5Vfr7">
+    <property role="TrG5h" value="MacOSX105" />
+    <property role="Zd52Q" value="2HiVo5PakU7/Mac_OS_X_Plus" />
+    <property role="Z2u3V" value="true" />
+    <node concept="Zd509" id="10GFfN5VzkE" role="Zd508">
+      <ref role="1bYAoF" node="791RMwCQSU4" resolve="ConsoleExecute" />
+      <node concept="pLAjd" id="10GFfN5VzkF" role="Zd501">
+        <property role="pLAjf" value="VK_ENTER" />
+        <property role="pLAjc" value="meta" />
+      </node>
+    </node>
+    <node concept="Zd509" id="10GFfN5VzkG" role="Zd508">
+      <ref role="1bYAoF" node="6QZWsVD$rO8" resolve="ConsoleClear" />
+      <node concept="pLAjd" id="10GFfN5VzkH" role="Zd501">
+        <property role="pLAjf" value="VK_BACK_SPACE" />
+        <property role="pLAjc" value="meta" />
+      </node>
+    </node>
+    <node concept="Zd509" id="10GFfN5Vrgz" role="Zd508">
+      <ref role="1bYAoF" node="6QZWsVDzQaJ" resolve="ConsolePrev" />
+      <node concept="pLAjd" id="10GFfN5Vrg$" role="Zd501">
+        <property role="pLAjc" value="meta" />
+        <property role="pLAjf" value="VK_UP" />
+        <property role="3hacHL" value="5SFo3Mf0QpD/replace_all" />
+      </node>
+    </node>
+    <node concept="Zd509" id="10GFfN5VrgA" role="Zd508">
+      <ref role="1bYAoF" node="6QZWsVDzvm_" resolve="ConsoleNext" />
+      <node concept="pLAjd" id="10GFfN5VrgB" role="Zd501">
+        <property role="pLAjf" value="VK_DOWN" />
+        <property role="pLAjc" value="meta" />
+        <property role="3hacHL" value="5SFo3Mf0QpD/replace_all" />
+      </node>
+    </node>
+  </node>
+  <node concept="Zd50a" id="10GFfN5Vfr3">
+    <property role="TrG5h" value="MacOSX" />
+    <property role="Zd52Q" value="1mJS7WEAV1T/Mac_OS_X" />
+    <property role="Z2u3V" value="true" />
+    <node concept="Zd509" id="10GFfN5Vrgb" role="Zd508">
+      <ref role="1bYAoF" node="6QZWsVDzQaJ" resolve="ConsolePrev" />
+      <node concept="pLAjd" id="10GFfN5Vrgc" role="Zd501">
+        <property role="pLAjc" value="meta" />
+        <property role="pLAjf" value="VK_UP" />
+        <property role="3hacHL" value="5SFo3Mf0QpD/replace_all" />
+      </node>
+    </node>
+    <node concept="Zd509" id="10GFfN5Vrge" role="Zd508">
+      <ref role="1bYAoF" node="6QZWsVDzvm_" resolve="ConsoleNext" />
+      <node concept="pLAjd" id="10GFfN5Vrgf" role="Zd501">
+        <property role="pLAjc" value="meta" />
+        <property role="pLAjf" value="VK_DOWN" />
+        <property role="3hacHL" value="5SFo3Mf0QpD/replace_all" />
+      </node>
     </node>
   </node>
 </model>

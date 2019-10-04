@@ -56,6 +56,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     setCellContext(editorCell);
     Style style = new StyleImpl();
     style.set(StyleAttributes.READ_ONLY, true);
+    style.set(StyleAttributes.SELECTABLE, false);
     editorCell.getStyle().putAll(style);
     CommandHolder_Actions.setCellActions(editorCell, myNode, getEditorContext());
     editorCell.addEditorCell(createConstant_0());

@@ -7,8 +7,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Objects;
 import jetbrains.mps.nodeEditor.selection.SelectUpUtil;
-import java.util.function.BooleanSupplier;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import java.util.function.BooleanSupplier;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
@@ -34,13 +35,30 @@ public class CommandHolder_Actions {
 
     };
   }
+  /*package*/ static AbstractCellAction createAction_SELECT_UP(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+        // do not select command holder or root 
+      }
+      @Override
+      public boolean canExecute(EditorContext editorContext) {
+        return this.canExecute_internal(editorContext, node);
+      }
+      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
+        return SelectUpUtil.canExecute(editorContext) && SNodeOperations.hasRole(node, LINKS.commandHolder$4VSX) && editorContext.getSelectionManager().getSelection().getSelectedNodes().get(0) == SLinkOperations.getTarget(node, LINKS.command$pL9$);
+      }
+
+    };
+  }
   /*package*/ static AbstractCellAction createAction_SELECT_ALL(final SNode node) {
     return new AbstractCellAction() {
       public void execute(EditorContext editorContext) {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(final EditorContext editorContext, final SNode node) {
-
         SelectUpUtil.executeWhile(editorContext, new BooleanSupplier() {
           public boolean getAsBoolean() {
             return !(Objects.equals(editorContext.getSelectionManager().getSelection().getSelectedNodes().get(0), SLinkOperations.getTarget(node, LINKS.command$pL9$)));
@@ -52,7 +70,7 @@ public class CommandHolder_Actions {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return SelectUpUtil.canExecute(editorContext) && (SLinkOperations.getTarget(node, LINKS.command$pL9$) != null);
+        return SNodeOperations.hasRole(node, LINKS.commandHolder$4VSX) && SelectUpUtil.canExecute(editorContext) && (SLinkOperations.getTarget(node, LINKS.command$pL9$) != null);
       }
 
     };
@@ -80,6 +98,7 @@ public class CommandHolder_Actions {
 
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.COMMENT, createAction_COMMENT(node));
+    editorCell.setAction(CellActionType.SELECT_UP, createAction_SELECT_UP(node));
     editorCell.setAction(CellActionType.SELECT_ALL, createAction_SELECT_ALL(node));
 
   }
@@ -92,12 +111,16 @@ public class CommandHolder_Actions {
     if (Objects.equals(actionType, CellActionType.COMMENT)) {
       editorCell.setAction(actionType, createAction_COMMENT(node));
     }
+    if (Objects.equals(actionType, CellActionType.SELECT_UP)) {
+      editorCell.setAction(actionType, createAction_SELECT_UP(node));
+    }
     if (Objects.equals(actionType, CellActionType.SELECT_ALL)) {
       editorCell.setAction(actionType, createAction_SELECT_ALL(node));
     }
   }
 
   private static final class LINKS {
+    /*package*/ static final SContainmentLink commandHolder$4VSX = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL, 0x15fb34051f725bb1L, "commandHolder");
     /*package*/ static final SContainmentLink command$pL9$ = MetaAdapterFactory.getContainmentLink(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL, 0x4e27160acb44924L, "command");
   }
 }
