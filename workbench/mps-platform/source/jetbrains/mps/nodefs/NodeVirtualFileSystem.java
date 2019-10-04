@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,7 +70,11 @@ public final class NodeVirtualFileSystem extends VirtualFileSystem implements Di
     return (NodeVirtualFileSystem) VirtualFileManager.getInstance().getFileSystem(NodeVirtualFileSystem.PROTOCOL);
   }
 
-  public static final String PROTOCOL = "mps";
+  public static boolean isFromNodeFileSystem(VFileEvent event) {
+    return PROTOCOL.equals(event.getFileSystem().getProtocol());
+  }
+
+  private static final String PROTOCOL = "mps";
 
   private final Map<VirtualFileListener, VirtualFileListener> myListenerWrappers = ContainerUtil.newConcurrentMap();
 

@@ -17,11 +17,9 @@ package jetbrains.mps.ide.vfs;
 
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VfsUtil;
-import com.intellij.openapi.vfs.VfsUtilCore;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.newvfs.events.VFileEvent;
 import jetbrains.mps.util.FileUtil;
-import jetbrains.mps.util.Reference;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.FileSystem;
@@ -140,16 +138,6 @@ public final class VirtualFileUtils {
 
   private static void refreshSynchronouslyAndRecursively(VirtualFile file) {
     file.refresh(false, true);
-  }
-
-  @NotNull
-  private static Reference<Integer> estimateFilesNumber(VirtualFile file) {
-    Reference<Integer> count = new Reference<>(0);
-    VfsUtilCore.processFilesRecursively(file, virtualFile -> {
-      count.set(count.get() + 1);
-      return true;
-    });
-    return count;
   }
 
   /**

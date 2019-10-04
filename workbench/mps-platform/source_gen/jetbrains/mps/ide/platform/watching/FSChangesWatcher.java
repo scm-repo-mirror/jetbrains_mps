@@ -20,6 +20,7 @@ import com.intellij.openapi.application.Application;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
+import jetbrains.mps.nodefs.NodeVirtualFileSystem;
 import java.util.function.Supplier;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import com.intellij.openapi.vfs.newvfs.events.VFileContentChangeEvent;
@@ -98,7 +99,7 @@ public class FSChangesWatcher implements ApplicationComponent {
       }
       final List<VFileEvent> eventsOfInterest = ListSequence.fromList(events).where(new IWhereFilter<VFileEvent>() {
         public boolean accept(VFileEvent it) {
-          return !(VirtualFileUtils.isFileEventFromMPS(it));
+          return !(VirtualFileUtils.isFileEventFromMPS(it)) && !(NodeVirtualFileSystem.isFromNodeFileSystem(it));
         }
       }).ofType(VFileEvent.class).toListSequence();
       if (ListSequence.fromList(eventsOfInterest).isEmpty()) {

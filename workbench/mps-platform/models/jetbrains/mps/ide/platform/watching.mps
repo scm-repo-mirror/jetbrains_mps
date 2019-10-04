@@ -48,6 +48,7 @@
     <import index="7nyy" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.refresh(MPS.Core/)" />
     <import index="eurq" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs.path(MPS.Core/)" />
     <import index="v23q" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi(MPS.IDEA/)" />
+    <import index="kip1" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.nodefs(MPS.Platform/)" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -1781,12 +1782,23 @@
                       <node concept="1bVj0M" id="2CbzOko6mZa" role="23t8la">
                         <node concept="3clFbS" id="2CbzOko6mZb" role="1bW5cS">
                           <node concept="3clFbF" id="2CbzOko6nbs" role="3cqZAp">
-                            <node concept="3fqX7Q" id="2CbzOko6nbq" role="3clFbG">
-                              <node concept="2YIFZM" id="2CbzOko6nj8" role="3fr31v">
-                                <ref role="37wK5l" to="4hrd:~VirtualFileUtils.isFileEventFromMPS(com.intellij.openapi.vfs.newvfs.events.VFileEvent)" resolve="isFileEventFromMPS" />
-                                <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
-                                <node concept="37vLTw" id="2CbzOko6nj9" role="37wK5m">
-                                  <ref role="3cqZAo" node="2CbzOko6mZc" resolve="it" />
+                            <node concept="1Wc70l" id="22sDcpIXaee" role="3clFbG">
+                              <node concept="3fqX7Q" id="2CbzOko6nbq" role="3uHU7B">
+                                <node concept="2YIFZM" id="2CbzOko6nj8" role="3fr31v">
+                                  <ref role="37wK5l" to="4hrd:~VirtualFileUtils.isFileEventFromMPS(com.intellij.openapi.vfs.newvfs.events.VFileEvent)" resolve="isFileEventFromMPS" />
+                                  <ref role="1Pybhc" to="4hrd:~VirtualFileUtils" resolve="VirtualFileUtils" />
+                                  <node concept="37vLTw" id="2CbzOko6nj9" role="37wK5m">
+                                    <ref role="3cqZAo" node="2CbzOko6mZc" resolve="it" />
+                                  </node>
+                                </node>
+                              </node>
+                              <node concept="3fqX7Q" id="22sDcpIXgVE" role="3uHU7w">
+                                <node concept="2YIFZM" id="22sDcpIXikw" role="3fr31v">
+                                  <ref role="37wK5l" to="kip1:~NodeVirtualFileSystem.isFromNodeFileSystem(com.intellij.openapi.vfs.newvfs.events.VFileEvent)" resolve="isFromNodeFileSystem" />
+                                  <ref role="1Pybhc" to="kip1:~NodeVirtualFileSystem" resolve="NodeVirtualFileSystem" />
+                                  <node concept="37vLTw" id="22sDcpIXiy6" role="37wK5m">
+                                    <ref role="3cqZAo" node="2CbzOko6mZc" resolve="it" />
+                                  </node>
                                 </node>
                               </node>
                             </node>
