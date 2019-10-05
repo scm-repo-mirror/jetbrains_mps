@@ -30,10 +30,10 @@ import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.actions.MPSCommonDataKeys;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.make.MakeServiceComponent;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.UndoRunnable;
-import jetbrains.mps.util.Computable;
 import jetbrains.mps.workbench.ActionPlace;
+import jetbrains.mps.workbench.action.ActionAccess.CommandProjectAccess;
+import jetbrains.mps.workbench.action.ActionAccess.EmptyAccess;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -48,9 +48,16 @@ import java.util.Set;
 
 public abstract class BaseAction extends AnAction {
   private boolean myIsAlwaysVisible = true;
-  private boolean myExecuteOutsideCommand = false;
+  private ActionAccess myActionAccess = null;
   private boolean myDisableOnNoProject = true;
   private Set<ActionPlace> myPlaces = null;
+
+  public ActionAccess getActionAccess() {
+    if (myActionAccess == null) {
+      myActionAccess = new CommandProjectAccess();
+    }
+    return myActionAccess;
+  }
 
   public BaseAction() {
     this(null, null, null);
@@ -66,7 +73,7 @@ public abstract class BaseAction extends AnAction {
   }
 
   public void setExecuteOutsideCommand(boolean executeOutsideCommand) {
-    myExecuteOutsideCommand = executeOutsideCommand;
+    myActionAccess = executeOutsideCommand ? new EmptyAccess() : new CommandProjectAccess();
   }
 
   public void setIsAlwaysVisible(boolean isAlwaysVisible) {
@@ -141,7 +148,7 @@ public abstract class BaseAction extends AnAction {
 
   @Override
   public final void actionPerformed(final AnActionEvent event) {
-    if (!myExecuteOutsideCommand && isMakeSessionActive()) {
+    if (!getActionAccess().isMakeCompatible() && isMakeSessionActive()) {
       notifyNoCommandDuringMake(event);
       return;
     }
@@ -163,21 +170,7 @@ public abstract class BaseAction extends AnAction {
         }
       }
     };
-    if (myExecuteOutsideCommand) {
-      r.run();
-    } else {
-      Project project = getEventProject(event);
-      if (project != null) {
-        // XXX project != null shall become assert once we've found all actions that require command but run without project
-        getModelAccess(event).executeCommand(r);
-      } else {
-        Logger.getLogger(BaseAction.class).error(String.format("Action %s needs a command but is executed without project.", getClass().getName()));
-        // it's odd to have an action that runs without a project, but still wants a command.
-        // Present implementation of openapi.ModelAccess in global repository doesn't support commands,
-        // thus we run it as a mere write action
-        getModelAccess(event).runWriteAction(r);
-      }
-    }
+    getActionAccess().runWithAccess(event, r);
   }
 
   protected final ModelAccess getModelAccess(AnActionEvent event) {
