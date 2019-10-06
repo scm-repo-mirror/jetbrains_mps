@@ -25,11 +25,28 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.smodel.UndoRunnable;
 import org.apache.log4j.Logger;
 
+/**
+ * This interface is responsible for getting proper model access for the action.
+ */
 public interface ActionAccess {
+  /**
+   * @param execute callback performing collectActionData() and execute()
+   */
   void runWithAccess(AnActionEvent event, UndoRunnable execute);
+
+  /**
+   * @return whether the action is compatible with make (actually, means that it requires command)
+   */
   boolean isMakeCompatible();
+  /**
+   * @return whether event contains all data necessary for getting proper access (e.g. project or editor)
+   */
   boolean collectAccessData(AnActionEvent event);
 
+  /**
+   * No access needed. Action gets all needed access by itself.
+   * The problem with this option is that collectActionData is invoked with read access and nodes collected there might expire when used.
+   */
   class EmptyAccess implements ActionAccess {
     @Override
     public void runWithAccess(AnActionEvent event, UndoRunnable execute) {
@@ -60,6 +77,9 @@ public interface ActionAccess {
     }
   }
 
+  /**
+   * Actions requiring command that can be executed outside of any project (should never exist)
+   */
   class CommandGlobalAccess implements ActionAccess {
     @Override
     public void runWithAccess(AnActionEvent event, UndoRunnable execute) {
@@ -85,6 +105,9 @@ public interface ActionAccess {
     }
   }
 
+  /**
+   * Read access
+   */
   class ReadProjectAccess implements ActionAccess {
     @Override
     public void runWithAccess(AnActionEvent event, UndoRunnable execute) {

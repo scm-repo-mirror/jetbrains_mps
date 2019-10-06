@@ -153,11 +153,13 @@ public abstract class BaseAction extends AnAction {
       return;
     }
 
+    // todo: move undoRunnable into ActionAccess
     final UndoRunnable r = new UndoRunnable.Base(getTemplatePresentation().getText(), null) {
       @Override
       public void run() {
         try {
           Map<String, Object> params = new THashMap<>();
+          // read action here is redundant always except ActionAccess.EmptyAccess
           getModelAccess(event).runReadAction(() -> collectActionData(event, params));
           doExecute(event, params);
         } catch (RuntimeException ex) {
