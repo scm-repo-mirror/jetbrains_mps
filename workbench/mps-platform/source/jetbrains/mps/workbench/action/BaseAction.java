@@ -50,6 +50,7 @@ import java.util.Set;
 public abstract class BaseAction extends AnAction {
   private boolean myIsAlwaysVisible = true;
   private ActionAccess myActionAccess = null;
+  private boolean myExplicitActionAccess = false;
   private boolean myExecuteOutsideCommand = false;
   private boolean myDisableOnNoProject = true;
   private Set<ActionPlace> myPlaces = null;
@@ -73,15 +74,32 @@ public abstract class BaseAction extends AnAction {
 
   public void setExecuteOutsideCommand(boolean executeOutsideCommand) {
     myExecuteOutsideCommand = executeOutsideCommand;
-    myActionAccess = null;
+    resetActionAccess();
   }
 
   public void setDisableOnNoProject(boolean disableOnNoProject) {
     myDisableOnNoProject = disableOnNoProject;
-    myActionAccess = null;
+    resetActionAccess();
   }
 
-  public ActionAccess getActionAccess() {
+  private void resetActionAccess() {
+    if (myExplicitActionAccess) {
+      Logger.getLogger(BaseAction.class).error(String.format("Action %s does not follow setActionAccess() contract.", getClass().getName()));
+    } else {
+      myActionAccess = null;
+    }
+  }
+
+  /**
+   * This method replaces {@code setDisableOnNoProject} and {@code setExecuteOutsideCommand} flags.
+   * Either those flag setters should be called or this method. Not both.
+   */
+  public void setActionAccess(ActionAccess actionAccess) {
+    myExplicitActionAccess = true;
+    myActionAccess = actionAccess;
+  }
+
+  protected ActionAccess getActionAccess() {
     if (myActionAccess == null) {
       myActionAccess = myExecuteOutsideCommand ? new EmptyAccess() : myDisableOnNoProject ? new CommandProjectAccess() : new CommandGlobalAccess();
     }
