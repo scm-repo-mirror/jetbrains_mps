@@ -3363,7 +3363,6 @@
   </dependency>
   <dependency className="jetbrains.mps.ide.actions.ShowDefinitionInMenu_Action">
     <classNode dependClassName="com.intellij.openapi.actionSystem.AnActionEvent" />
-    <classNode dependClassName="com.intellij.openapi.actionSystem.PlatformDataKeys" />
     <classNode dependClassName="com.intellij.openapi.ui.popup.JBPopup" />
     <classNode dependClassName="com.intellij.openapi.ui.popup.LightweightWindowEvent" />
     <classNode dependClassName="com.intellij.ui.popup.PopupPositionManager" />
@@ -3383,13 +3382,10 @@
     <classNode dependClassName="jetbrains.mps.ide.actions.PopupWithNodeEditor" />
     <classNode dependClassName="jetbrains.mps.ide.actions.PopupWithNodeEditorUI" />
     <classNode dependClassName="jetbrains.mps.ide.editor.MPSEditorDataKeys" />
+    <classNode dependClassName="jetbrains.mps.ide.editor.actions.FindDeclarationUtils" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.MapSequence" />
-    <classNode dependClassName="jetbrains.mps.lang.editor.menus.transformation.CompletionActionItemUtil" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.EditorComponent" />
-    <classNode dependClassName="jetbrains.mps.nodeEditor.cellMenu.CompletionActionItemAsSubstituteAction" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.cellMenu.NodeSubstituteChooser" />
-    <classNode dependClassName="jetbrains.mps.openapi.editor.cells.SubstituteAction" />
-    <classNode dependClassName="jetbrains.mps.openapi.editor.menus.transformation.CompletionActionItem" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />

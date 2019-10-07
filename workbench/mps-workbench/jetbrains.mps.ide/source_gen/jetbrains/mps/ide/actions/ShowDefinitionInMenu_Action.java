@@ -19,11 +19,7 @@ import com.intellij.openapi.ui.popup.LightweightWindowEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 import org.jetbrains.mps.openapi.model.SNode;
-import com.intellij.openapi.actionSystem.PlatformDataKeys;
-import jetbrains.mps.nodeEditor.cellMenu.CompletionActionItemAsSubstituteAction;
-import jetbrains.mps.openapi.editor.menus.transformation.CompletionActionItem;
-import jetbrains.mps.lang.editor.menus.transformation.CompletionActionItemUtil;
-import jetbrains.mps.openapi.editor.cells.SubstituteAction;
+import jetbrains.mps.ide.editor.actions.FindDeclarationUtils;
 import com.intellij.openapi.ui.popup.JBPopup;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import java.util.Collections;
@@ -112,21 +108,7 @@ public class ShowDefinitionInMenu_Action extends BaseAction {
     popupWithNodeEditor.show();
   }
   private SNode findMenuItemDeclaration(final Map<String, Object> _params) {
-    Object selectedItem = ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getData(PlatformDataKeys.SELECTED_ITEM.getName());
-
-    if (selectedItem instanceof CompletionActionItemAsSubstituteAction) {
-      CompletionActionItem item = ((CompletionActionItemAsSubstituteAction) selectedItem).getItem();
-      return CompletionActionItemUtil.getReferentNode(item);
-    }
-
-    // dirty-dirty hack that allows to find static members' declarations as well 
-    if (selectedItem instanceof SubstituteAction) {
-      SubstituteAction item = (SubstituteAction) selectedItem;
-      if (item.isReferentPresentation() && item.getParameterObject() instanceof SNode) {
-        return (SNode) item.getParameterObject();
-      }
-    }
-    return null;
+    return FindDeclarationUtils.findDeclarationFromMenu(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")));
   }
   private void updateUI(JBPopup popup, PopupWithNodeEditorUI ui, final Map<String, Object> _params) {
     final SNode declaration = ShowDefinitionInMenu_Action.this.findMenuItemDeclaration(_params);
