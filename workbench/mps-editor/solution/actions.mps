@@ -115,6 +115,7 @@
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1215865999894" name="mnemonic" index="ngHcd" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -1523,6 +1524,7 @@
     <property role="3GE5qa" value="EditMenuActions" />
     <property role="2uzpH1" value="Duplicate Node" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="tnohg" id="3M9DpEEa3zM" role="tncku">
       <node concept="3clFbS" id="3M9DpEEa3zN" role="2VODD2">
         <node concept="3clFbF" id="6q3Z_tb_xrg" role="3cqZAp">
@@ -1953,6 +1955,7 @@
     <property role="3GE5qa" value="EditMenuActions" />
     <property role="2uzpH1" value="Delete Line" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="3hypUcHYaIW" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
@@ -2310,6 +2313,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="2uzpH1" value="Insert New Element" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="6KwcZ1G3Pjo" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
@@ -2509,6 +2513,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="2uzpH1" value="Insert New Element before Current" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="6KwcZ1G3Pkr" role="1NuT2Z">
       <property role="TrG5h" value="editorCell" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CELL" resolve="EDITOR_CELL" />
@@ -2924,6 +2929,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="2uzpH1" value="Move Caret to Next Word with Selection" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="1DS2jV" id="6KwcZ1G3Pl_" role="1NuT2Z">
       <property role="TrG5h" value="editorCell" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CELL" resolve="EDITOR_CELL" />
@@ -2933,11 +2939,6 @@
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
       <node concept="1oajcY" id="7HZe2EwZDo5" role="1oa70y" />
-    </node>
-    <node concept="1DS2jV" id="6KwcZ1G3PlB" role="1NuT2Z">
-      <property role="TrG5h" value="editorContext" />
-      <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CONTEXT" resolve="EDITOR_CONTEXT" />
-      <node concept="1oajcY" id="7HZe2EwZDpk" role="1oa70y" />
     </node>
     <node concept="tnohg" id="6KwcZ1G3PlC" role="tncku">
       <node concept="3clFbS" id="6KwcZ1G3PlD" role="2VODD2">
@@ -3025,6 +3026,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="2uzpH1" value="Move Caret to Previous Word with Selection" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="1DS2jV" id="6KwcZ1G3PmO" role="1NuT2Z">
       <property role="TrG5h" value="editorCell" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CELL" resolve="EDITOR_CELL" />
@@ -3034,11 +3036,6 @@
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
       <node concept="1oajcY" id="7HZe2EwZDkf" role="1oa70y" />
-    </node>
-    <node concept="1DS2jV" id="6KwcZ1G3PmQ" role="1NuT2Z">
-      <property role="TrG5h" value="editorContext" />
-      <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CONTEXT" resolve="EDITOR_CONTEXT" />
-      <node concept="1oajcY" id="7HZe2EwZDmk" role="1oa70y" />
     </node>
     <node concept="tnohg" id="6KwcZ1G3PmR" role="tncku">
       <node concept="3clFbS" id="6KwcZ1G3PmS" role="2VODD2">
@@ -11465,6 +11462,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="TrG5h" value="Comment" />
     <property role="2uzpH1" value="Comment" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="4yOeMfyPfEI" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
@@ -11864,6 +11862,7 @@
     <property role="TrG5h" value="ShowReflectiveEditor" />
     <property role="2uzpH1" value="Show Reflective Editor" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="tkhdA" id="3Qgx5JLFdo_" role="tmbBb">
       <node concept="3clFbS" id="3Qgx5JLFdoN" role="2VODD2">
         <node concept="3clFbF" id="3Qgx5JLFduI" role="3cqZAp">
@@ -12037,6 +12036,7 @@
     <property role="TrG5h" value="ShowRegularEditor" />
     <property role="2uzpH1" value="Show Regular Editor" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="tkhdA" id="3Qgx5JLFkll" role="tmbBb">
       <node concept="3clFbS" id="3Qgx5JLFklz" role="2VODD2">
         <node concept="3clFbF" id="3Qgx5JLFkru" role="3cqZAp">
@@ -12292,6 +12292,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="2uzpH1" value="Insert Placeholder" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="3emwrjqk66K" role="1NuT2Z">
       <property role="TrG5h" value="editorComponent" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
@@ -15558,6 +15559,7 @@
     <property role="TrG5h" value="ShowReflectiveEditorsForSubtree" />
     <property role="2uzpH1" value="Show Reflective Editors for Subtree" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="1DS2jV" id="1wo9YwOHLtC" role="1NuT2Z">
       <property role="TrG5h" value="selectedNodes" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.NODES" resolve="NODES" />

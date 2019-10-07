@@ -75,6 +75,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -1682,6 +1683,7 @@
     <property role="3GE5qa" value="breakpoints" />
     <property role="2uzpH1" value="Toggle Breakpoint" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="tnohg" id="68aArIS9HJP" role="tncku">
       <node concept="3clFbS" id="68aArIS9HJQ" role="2VODD2">
         <node concept="3clFbF" id="68aArIS9HJR" role="3cqZAp">
@@ -1713,11 +1715,6 @@
       <property role="TrG5h" value="selectedCell" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CELL" resolve="EDITOR_CELL" />
       <node concept="1oajcY" id="7HZe2EwZDlU" role="1oa70y" />
-    </node>
-    <node concept="1DS2jV" id="68aArIS9HK4" role="1NuT2Z">
-      <property role="TrG5h" value="editorComponent" />
-      <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_COMPONENT" resolve="EDITOR_COMPONENT" />
-      <node concept="1oajcY" id="7HZe2EwZDpe" role="1oa70y" />
     </node>
     <node concept="1DS2jV" id="68aArIS9HK5" role="1NuT2Z">
       <property role="TrG5h" value="project" />

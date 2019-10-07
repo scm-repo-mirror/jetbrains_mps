@@ -233,6 +233,7 @@
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1215865999894" name="mnemonic" index="ngHcd" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="394857668356997869" name="places" index="med8o" />
@@ -13101,6 +13102,7 @@
     <property role="2uzpH1" value="Highlight Instances" />
     <property role="3GE5qa" value="Menu.MainMenu.SearchActions" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="tnohg" id="cAZ8XCabSH" role="tncku">
       <node concept="3clFbS" id="cAZ8XCabSI" role="2VODD2">
         <node concept="3cpWs8" id="cAZ8XCabSJ" role="3cqZAp">

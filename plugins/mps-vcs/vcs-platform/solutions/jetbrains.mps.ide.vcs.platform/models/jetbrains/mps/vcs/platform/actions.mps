@@ -75,6 +75,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -410,6 +411,7 @@
     <property role="TrG5h" value="RollbackChanges" />
     <property role="2uzpH1" value="Rollback" />
     <property role="3GE5qa" value="Actions" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="3w_vEw9Kvmm" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -843,6 +845,7 @@
     <property role="TrG5h" value="CopyOldNodes" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Copy Old Code" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="1DS2jV" id="3w_vEw9KYqP" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -2655,6 +2658,7 @@
     <property role="TrG5h" value="Annotate" />
     <property role="2uzpH1" value="Annotate" />
     <property role="3GE5qa" value="Actions" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="tnohg" id="3WCIgQv3c7U" role="tncku">
       <node concept="3clFbS" id="3WCIgQv3c7V" role="2VODD2">
         <node concept="3clFbF" id="13$TqNLJytt" role="3cqZAp">

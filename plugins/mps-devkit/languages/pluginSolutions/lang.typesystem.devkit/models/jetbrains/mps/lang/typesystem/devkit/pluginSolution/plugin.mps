@@ -54,6 +54,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
@@ -829,6 +830,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Go to Rule Which Caused Error" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="tnohg" id="4vCqlNf_CxV" role="tncku">
       <node concept="3clFbS" id="4vCqlNf_CxW" role="2VODD2">
         <node concept="3cpWs8" id="2PIlT5T$_Pj" role="3cqZAp">
@@ -1537,6 +1539,7 @@
     <property role="3GE5qa" value="Actions" />
     <property role="TrG5h" value="HighlightSuppressor" />
     <property role="2uzpH1" value="Show Suppressor Node" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="2XrIbr" id="1Is$QHiIOxA" role="32lrUH">
       <property role="TrG5h" value="getSuppressor" />
       <node concept="3uibUv" id="1Is$QHiIRKl" role="3clF45">

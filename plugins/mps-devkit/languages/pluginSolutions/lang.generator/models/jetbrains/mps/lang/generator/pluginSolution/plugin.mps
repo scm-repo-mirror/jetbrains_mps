@@ -62,6 +62,7 @@
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
@@ -436,6 +437,7 @@
   <node concept="sE7Ow" id="nMe5u0Dxd8">
     <property role="TrG5h" value="AttachMappingLabel" />
     <property role="2uzpH1" value="Attach Mapping Label" />
+    <property role="2YLI8m" value="6u2MFnph2yg/read" />
     <node concept="1DS2jV" id="nMe5u0Dxdi" role="1NuT2Z">
       <property role="TrG5h" value="nodeSelected" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.NODE" resolve="NODE" />

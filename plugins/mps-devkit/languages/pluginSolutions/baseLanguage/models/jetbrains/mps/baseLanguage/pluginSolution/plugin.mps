@@ -150,6 +150,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
@@ -882,6 +883,7 @@
   <node concept="sE7Ow" id="5GUyf6ofMdg">
     <property role="TrG5h" value="CreateMethodDeclaration" />
     <property role="2uzpH1" value="Create Method Declaration" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="2XrIbr" id="5GUyf6ogdAd" role="32lrUH">
       <property role="TrG5h" value="getMethodName" />
       <node concept="17QB3L" id="5GUyf6ogdDq" role="3clF45" />

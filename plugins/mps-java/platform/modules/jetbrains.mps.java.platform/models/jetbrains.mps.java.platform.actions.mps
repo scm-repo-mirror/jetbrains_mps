@@ -93,6 +93,7 @@
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
         <property id="1215865999894" name="mnemonic" index="ngHcd" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <child id="1203083196627" name="updateBlock" index="tmbBb" />
         <child id="1203083461638" name="executeFunction" index="tncku" />
@@ -829,16 +830,11 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Paste as Java Class Content" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="2vs9_ygEfbf" role="1NuT2Z">
       <property role="TrG5h" value="anchorNode" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.NODE" resolve="NODE" />
       <node concept="1oajcY" id="7HZe2EwZDil" role="1oa70y" />
-    </node>
-    <node concept="1DS2jV" id="34D$71tXqRe" role="1NuT2Z">
-      <property role="TrG5h" value="model" />
-      <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.CONTEXT_MODEL" resolve="CONTEXT_MODEL" />
-      <node concept="1oajcY" id="34D$71tXqRf" role="1oa70y" />
-      <node concept="3dZWAM" id="34D$71tXqRg" role="1oa70y" />
     </node>
     <node concept="1DS2jV" id="MCyGswqxby" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
@@ -943,16 +939,11 @@
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Paste as Java Statements" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="1DS2jV" id="2vs9_ygEfbw" role="1NuT2Z">
       <property role="TrG5h" value="anchorNode" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.NODE" resolve="NODE" />
       <node concept="1oajcY" id="7HZe2EwZDoj" role="1oa70y" />
-    </node>
-    <node concept="1DS2jV" id="34D$71tXqRa" role="1NuT2Z">
-      <property role="TrG5h" value="model" />
-      <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.CONTEXT_MODEL" resolve="CONTEXT_MODEL" />
-      <node concept="1oajcY" id="34D$71tXqRb" role="1oa70y" />
-      <node concept="3dZWAM" id="34D$71tXqRd" role="1oa70y" />
     </node>
     <node concept="1DS2jV" id="MCyGswqxbO" role="1NuT2Z">
       <property role="TrG5h" value="mpsProject" />
@@ -7986,6 +7977,7 @@
     <property role="2uzpH1" value="main(Strings[] args)" />
     <property role="3GE5qa" value="generate" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="2XrIbr" id="6G8o$3CDLMw" role="32lrUH">
       <property role="TrG5h" value="getClassConcept" />
       <node concept="3clFbS" id="6G8o$3CDLMx" role="3clF47">

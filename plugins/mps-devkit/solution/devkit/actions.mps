@@ -174,6 +174,7 @@
         <property id="1207149998849" name="isAlwaysVisible" index="fJN8o" />
         <property id="1215865999894" name="mnemonic" index="ngHcd" />
         <property id="1205250923097" name="caption" index="2uzpH1" />
+        <property id="7458746815261976739" name="requiredAccess" index="2YLI8m" />
         <property id="997079742910640235" name="fillActionContext" index="1teQrl" />
         <property id="1213273179528" name="description" index="1WHSii" />
         <child id="394857668356997869" name="places" index="med8o" />
@@ -13231,6 +13232,7 @@
     <property role="2uzpH1" value="Generate Default Editor (Expression-like)" />
     <property role="3GE5qa" value="Intentions" />
     <property role="1teQrl" value="true" />
+    <property role="2YLI8m" value="6u2MFnph2yk/editorCommand" />
     <node concept="2S4$dB" id="nMe5u0CZfZ" role="1NuT2Z">
       <property role="TrG5h" value="selectedNode" />
       <node concept="1oajcY" id="nMe5u0CZg0" role="1oa70y" />
