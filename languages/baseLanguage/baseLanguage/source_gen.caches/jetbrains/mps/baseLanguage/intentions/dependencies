@@ -633,6 +633,7 @@
     <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.intentions.SelectSuperConstructorsDialog" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.scopes.DefaultConstructorUtils" />
     <classNode dependClassName="jetbrains.mps.intentions.AbstractIntentionExecutable" />

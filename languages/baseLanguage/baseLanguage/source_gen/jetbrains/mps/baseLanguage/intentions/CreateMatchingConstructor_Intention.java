@@ -23,6 +23,7 @@ import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.baseLanguage.behavior.ClassConcept__BehaviorDescriptor;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -76,7 +77,6 @@ public final class CreateMatchingConstructor_Intention extends AbstractIntention
         return;
       }
       ApplicationManager.getApplication().invokeLater(new Runnable() {
-        @Override
         public void run() {
           Iterable<SNode> selectedSuperConstructors;
           if (ListSequence.fromList(visibleSuperConstructors).count() > 1) {
@@ -105,7 +105,6 @@ public final class CreateMatchingConstructor_Intention extends AbstractIntention
           final Iterable<SNode> selectedSuperConstructorsFinal = selectedSuperConstructors;
 
           editorContext.getRepository().getModelAccess().executeCommand(new Runnable() {
-            @Override
             public void run() {
               Sequence.fromIterable(selectedSuperConstructorsFinal).visitAll(new IVisitor<SNode>() {
                 public void visit(SNode superConstructor) {
@@ -117,7 +116,7 @@ public final class CreateMatchingConstructor_Intention extends AbstractIntention
                     SNode arg = SLinkOperations.addNewChild(superCall, LINKS.actualArgument$$A7L, CONCEPTS.VariableReference$sQ);
                     SLinkOperations.setTarget(arg, LINKS.variableDeclaration$2ky6, param);
                   }
-                  ListSequence.fromList(SLinkOperations.getChildren(thisClass, LINKS.member$oYX5)).addElement(currentSuperConstructorCopy);
+                  ClassConcept__BehaviorDescriptor.addConstructor_id32Td0Ia9Mgr.invoke(thisClass, currentSuperConstructorCopy);
                 }
               });
             }
@@ -147,6 +146,5 @@ public final class CreateMatchingConstructor_Intention extends AbstractIntention
     /*package*/ static final SContainmentLink actualArgument$$A7L = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301aeL, "actualArgument");
     /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
     /*package*/ static final SContainmentLink parameter$WIkZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
-    /*package*/ static final SContainmentLink member$oYX5 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, 0x4a9a46de59132803L, "member");
   }
 }
