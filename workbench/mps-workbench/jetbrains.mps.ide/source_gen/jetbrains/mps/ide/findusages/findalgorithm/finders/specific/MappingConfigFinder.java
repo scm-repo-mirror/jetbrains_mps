@@ -42,7 +42,7 @@ public class MappingConfigFinder implements IFinder {
     Iterable<SModel> ownTemplateModels = myGenerator.getOwnTemplateModels();
     Iterable<SNode> mappingConfigs = Sequence.fromIterable(ownTemplateModels).translate(new ITranslator2<SModel, SNode>() {
       public Iterable<SNode> translate(SModel it) {
-        return SModelOperations.roots(it, CONCEPTS.MappingConfiguration$rB);
+        return SModelOperations.roots(((SModel) it), CONCEPTS.MappingConfiguration$rB);
       }
     });
     List<SNode> nodesToCheck = new ArrayList<SNode>();

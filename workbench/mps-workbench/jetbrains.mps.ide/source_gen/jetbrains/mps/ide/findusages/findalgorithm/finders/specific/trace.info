@@ -23,7 +23,7 @@
       <node id="1937421445114086377" at="35,34,36,29" concept="9" />
       <node id="6056923343037305765" at="40,80,41,77" concept="8" />
       <node id="8056901375583862275" at="41,77,42,76" concept="8" />
-      <node id="8056901375583889423" at="44,51,45,76" concept="9" />
+      <node id="8056901375583889423" at="44,51,45,87" concept="9" />
       <node id="6056923343037305780" at="47,7,48,54" concept="8" />
       <node id="6056923343037305812" at="50,125,51,31" concept="3" />
       <node id="6056923343037305819" at="51,31,52,74" concept="3" />
@@ -54,7 +54,7 @@
       <node id="6056923343037305887" at="67,0,77,0" concept="7" trace="collectChildrenThatMayHaveReferenceOnTemplate#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/util/List;)V" />
       <node id="6056923343037305756" at="38,0,67,0" concept="7" trace="find#(Ljetbrains/mps/ide/findusages/model/SearchQuery;Lorg/jetbrains/mps/openapi/util/ProgressMonitor;)Ljetbrains/mps/ide/findusages/model/SearchResults;" />
       <scope id="1937421445114082223" at="35,34,36,29" />
-      <scope id="8056901375583889422" at="44,51,45,76" />
+      <scope id="8056901375583889422" at="44,51,45,87" />
       <scope id="6056923343037305915" at="70,77,71,17" />
       <scope id="6056923343037305747" at="30,75,32,42" />
       <scope id="6056923343037305811" at="50,125,52,74" />

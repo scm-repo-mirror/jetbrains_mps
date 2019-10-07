@@ -138,6 +138,7 @@
     <import index="mqj2" ref="r:1d4f6f82-1219-47a2-a4fa-ac3ba14c9fd5(jetbrains.mps.lang.constraints.rules.skeleton.structure)" />
     <import index="m5dg" ref="r:cc9efe31-86c5-4ceb-80d1-8a8efeb255e0(jetbrains.mps.lang.feedback.skeleton.plugin)" />
     <import index="zce0" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.smodel.action(MPS.Editor/)" />
+    <import index="zumq" ref="r:3cb1700d-933a-4e99-ae78-290ebea08948(jetbrains.mps.ide.findusages.view)" />
     <import index="wff5" ref="r:2ac18004-8536-478a-bf05-03a0f407633f(jetbrains.mps.lang.feedback.skeleton.structure)" implicit="true" />
     <import index="1ctc" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util.stream(JDK/)" implicit="true" />
   </imports>
@@ -5208,8 +5209,8 @@
               </node>
             </node>
             <node concept="2YIFZM" id="25sHNDqAn9z" role="37wK5m">
-              <ref role="1Pybhc" to="ngmm:~FindUtils" resolve="FindUtils" />
-              <ref role="37wK5l" to="ngmm:~FindUtils.makeProvider(jetbrains.mps.ide.findusages.findalgorithm.finders.IFinder...)" resolve="makeProvider" />
+              <ref role="1Pybhc" to="zumq:7rEOvdELALn" resolve="FindUtils" />
+              <ref role="37wK5l" to="zumq:7rEOvdELAPC" resolve="makeProvider" />
               <node concept="37vLTw" id="3GM_nagTxBg" role="37wK5m">
                 <ref role="3cqZAo" node="25sHNDqAn9b" resolve="finder" />
               </node>
@@ -14506,8 +14507,8 @@
                   <ref role="3cqZAo" node="6gJrPYfVXeG" resolve="provider" />
                 </node>
                 <node concept="2YIFZM" id="5m8mBG1j6g2" role="37vLTx">
-                  <ref role="1Pybhc" to="ngmm:~FindUtils" resolve="FindUtils" />
-                  <ref role="37wK5l" to="ngmm:~FindUtils.makeProvider(jetbrains.mps.ide.findusages.findalgorithm.finders.IFinder...)" resolve="makeProvider" />
+                  <ref role="1Pybhc" to="zumq:7rEOvdELALn" resolve="FindUtils" />
+                  <ref role="37wK5l" to="zumq:7rEOvdELAPC" resolve="makeProvider" />
                   <node concept="2ShNRf" id="5m8mBG1j6g3" role="37wK5m">
                     <node concept="1pGfFk" id="5m8mBG1j6g4" role="2ShVmc">
                       <ref role="37wK5l" to="kkd6:3_o1C0wGpEX" resolve="ModuleUsagesFinder" />
@@ -14535,8 +14536,8 @@
               <node concept="3clFbF" id="5m8mBG1iS89" role="3cqZAp">
                 <node concept="37vLTI" id="5m8mBG1iS8b" role="3clFbG">
                   <node concept="2YIFZM" id="6gJrPYfVYU$" role="37vLTx">
-                    <ref role="1Pybhc" to="ngmm:~FindUtils" resolve="FindUtils" />
-                    <ref role="37wK5l" to="ngmm:~FindUtils.makeProvider(jetbrains.mps.ide.findusages.findalgorithm.finders.IFinder...)" resolve="makeProvider" />
+                    <ref role="1Pybhc" to="zumq:7rEOvdELALn" resolve="FindUtils" />
+                    <ref role="37wK5l" to="zumq:7rEOvdELAPC" resolve="makeProvider" />
                     <node concept="2ShNRf" id="6gJrPYfVYU_" role="37wK5m">
                       <node concept="1pGfFk" id="6gJrPYfVYUA" role="2ShVmc">
                         <ref role="37wK5l" to="kkd6:3_o1C0wGpEX" resolve="ModuleUsagesFinder" />

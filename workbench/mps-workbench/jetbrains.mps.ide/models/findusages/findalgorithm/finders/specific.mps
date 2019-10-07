@@ -1748,7 +1748,9 @@
           <node concept="3cpWsn" id="6ZfRhOy23S4" role="3cpWs9">
             <property role="TrG5h" value="ownTemplateModels" />
             <node concept="A3Dl8" id="6ZfRhOy26j3" role="1tU5fm">
-              <node concept="H_c77" id="6ZfRhOy29z7" role="A3Ik2" />
+              <node concept="3uibUv" id="32Td0IaiK0T" role="A3Ik2">
+                <ref role="3uigEE" to="mhbf:~SModel" resolve="SModel" />
+              </node>
             </node>
             <node concept="2OqwBi" id="6ZfRhOy23S5" role="33vP2m">
               <node concept="37vLTw" id="6ZfRhOy23S6" role="2Oq$k0">
@@ -1777,8 +1779,13 @@
                   <node concept="3clFbS" id="6ZfRhOy2awe" role="1bW5cS">
                     <node concept="3clFbF" id="6ZfRhOy2awf" role="3cqZAp">
                       <node concept="2OqwBi" id="6ZfRhOy2awg" role="3clFbG">
-                        <node concept="37vLTw" id="6ZfRhOy2awh" role="2Oq$k0">
-                          <ref role="3cqZAo" node="6ZfRhOy2awj" resolve="it" />
+                        <node concept="1eOMI4" id="32Td0IaiKkC" role="2Oq$k0">
+                          <node concept="10QFUN" id="32Td0IaiKkB" role="1eOMHV">
+                            <node concept="37vLTw" id="32Td0IaiKkA" role="10QFUP">
+                              <ref role="3cqZAo" node="6ZfRhOy2awj" resolve="it" />
+                            </node>
+                            <node concept="H_c77" id="32Td0IaiKFP" role="10QFUM" />
+                          </node>
                         </node>
                         <node concept="2RRcyG" id="6ZfRhOy2awi" role="2OqNvi">
                           <ref role="2RRcyH" to="tpf8:fWbUwhP" resolve="MappingConfiguration" />
@@ -2104,7 +2111,7 @@
         </node>
       </node>
     </node>
-    <node concept="3uibUv" id="4Cga4ZG_$5E" role="EKbjA">
+    <node concept="3uibUv" id="32Td0IaiCWd" role="EKbjA">
       <ref role="3uigEE" to="b2d5:7aWSXuXO6mS" resolve="IFinder" />
     </node>
   </node>
