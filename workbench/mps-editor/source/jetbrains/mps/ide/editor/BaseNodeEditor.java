@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.openapi.editor.EditorState;
 import jetbrains.mps.openapi.editor.extensions.EditorExtensionUtil;
 import jetbrains.mps.project.Project;
-import jetbrains.mps.util.EqualUtil;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jdom.Element;
@@ -50,6 +49,7 @@ import java.awt.BorderLayout;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public abstract class BaseNodeEditor implements Editor {
   private static final Logger LOG = LogManager.getLogger(BaseNodeEditor.class);
@@ -419,7 +419,7 @@ public abstract class BaseNodeEditor implements Editor {
       }
 
       BaseEditorState that = (BaseEditorState) o;
-      return EqualUtil.equals(that.memento, memento) && EqualUtil.equals(that.inspectorMemento, inspectorMemento) &&
+      return Objects.equals(that.memento, memento) && Objects.equals(that.inspectorMemento, inspectorMemento) &&
              that.isEditorFocused == isEditorFocused && that.isInspectorFocused == isInspectorFocused;
     }
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
@@ -92,11 +93,11 @@ public class NameUtil {
 
   // ------ Naming policy methods --------
   public static boolean satisfiesNamingPolicy(String s) {
-    return EqualUtil.equals(captionWithNamingPolicy(s), s);
+    return Objects.equals(captionWithNamingPolicy(s), s);
   }
 
   public static boolean satisfiesPartNamingPolicy(String s) {
-    return EqualUtil.equals(captionPartWithNamingPolicy(s), s);
+    return Objects.equals(captionPartWithNamingPolicy(s), s);
   }
 
   public static String captionWithNamingPolicy(String s) {

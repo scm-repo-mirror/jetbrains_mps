@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,10 @@
  */
 package jetbrains.mps.migration.global;
 
-import jetbrains.mps.util.EqualUtil;
-
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import java.util.Collection;
+import java.util.Objects;
 
 public interface ProjectMigrationWithOptions extends ProjectMigration {
 
@@ -39,7 +38,7 @@ public interface ProjectMigrationWithOptions extends ProjectMigration {
         return false;
       }
       Option option = (Option) o;
-      return EqualUtil.equals(option.id, id);
+      return Objects.equals(option.id, id);
     }
     @Override
     public int hashCode() {

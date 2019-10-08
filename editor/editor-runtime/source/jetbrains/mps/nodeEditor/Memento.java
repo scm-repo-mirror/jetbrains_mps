@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import jetbrains.mps.openapi.editor.cells.optional.WithCaret;
 import jetbrains.mps.openapi.editor.selection.Selection;
 import jetbrains.mps.openapi.editor.selection.SelectionInfo;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.Pair;
 import org.jdom.Attribute;
 import org.jdom.Element;
@@ -46,6 +45,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -262,11 +262,11 @@ class Memento implements EditorComponentState {
     }
     if (object instanceof Memento) {
       Memento m = (Memento) object;
-      return EqualUtil.equals(mySelectionStack, m.mySelectionStack) && EqualUtil.equals(myCollectionsWithEnabledBraces, m.myCollectionsWithEnabledBraces) &&
-             EqualUtil.equals(myFoldableStates, m.myFoldableStates) && EqualUtil.equals(myInitiallyCollapsedStates, m.myInitiallyCollapsedStates) &&
-             EqualUtil.equals(myRestoreAlwaysStates, m.myRestoreAlwaysStates) && EqualUtil.equals(myErrors, m.myErrors) &&
-             EqualUtil.equals(myTransactionalProperties, m.myTransactionalProperties) && EqualUtil.equals(myViewPosition, m.myViewPosition) &&
-             Arrays.equals(myEnabledHints, m.myEnabledHints) && EqualUtil.equals(myEditedNodeReference, m.myEditedNodeReference);
+      return Objects.equals(mySelectionStack, m.mySelectionStack) && Objects.equals(myCollectionsWithEnabledBraces, m.myCollectionsWithEnabledBraces) &&
+             Objects.equals(myFoldableStates, m.myFoldableStates) && Objects.equals(myInitiallyCollapsedStates, m.myInitiallyCollapsedStates) &&
+             Objects.equals(myRestoreAlwaysStates, m.myRestoreAlwaysStates) && Objects.equals(myErrors, m.myErrors) &&
+             Objects.equals(myTransactionalProperties, m.myTransactionalProperties) && Objects.equals(myViewPosition, m.myViewPosition) &&
+             Arrays.equals(myEnabledHints, m.myEnabledHints) && Objects.equals(myEditedNodeReference, m.myEditedNodeReference);
     }
     return false;
   }
@@ -483,7 +483,7 @@ class Memento implements EditorComponentState {
         return false;
       }
       EditorCell_Property cellProperty = (EditorCell_Property) cell;
-      if (EqualUtil.equals(myModelText, cellProperty.getLastModelText()) && canRestoreText(cellProperty)) {
+      if (Objects.equals(myModelText, cellProperty.getLastModelText()) && canRestoreText(cellProperty)) {
         cellProperty.changeText(myText);
         return true;
       }
@@ -491,7 +491,7 @@ class Memento implements EditorComponentState {
     }
 
     private boolean canRestoreText(EditorCell_Label cellLabel) {
-      return !EqualUtil.equals(cellLabel.getText(), myText) && !cellLabel.isValidText(myText);
+      return !Objects.equals(cellLabel.getText(), myText) && !cellLabel.isValidText(myText);
     }
 
     public void save(Element errorMarkers) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,9 @@
 package jetbrains.mps.progress;
 
 import com.intellij.openapi.progress.ProgressIndicator;
-import jetbrains.mps.util.EqualUtil;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 /**
  * Evgeny Gryaznov, 9/30/11
@@ -44,7 +45,7 @@ public class ProgressMonitorAdapter extends ProgressMonitorBase {
       name = null;
     }
     final String oldText = myIndicator.getText();
-    if (!EqualUtil.equals(name, oldText)) {
+    if (!Objects.equals(name, oldText)) {
       myIndicator.setText(name);
     }
   }
@@ -55,7 +56,7 @@ public class ProgressMonitorAdapter extends ProgressMonitorBase {
       description = null;
     }
     final String oldText = myIndicator.getText2();
-    if (!EqualUtil.equals(description, oldText)) {
+    if (!Objects.equals(description, oldText)) {
       myIndicator.setText2(description);
     }
   }

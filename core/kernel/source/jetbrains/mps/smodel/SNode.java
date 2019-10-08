@@ -17,8 +17,6 @@ package jetbrains.mps.smodel;
 
 import jetbrains.mps.logging.Logger;
 import jetbrains.mps.smodel.legacy.ConceptMetaInfoConverter;
-import jetbrains.mps.util.EqualUtil;
-import jetbrains.mps.util.InternUtil;
 import jetbrains.mps.util.containers.EmptyIterable;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
@@ -37,6 +35,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import static jetbrains.mps.util.SNodeOperations.getDebugText;
 
@@ -419,7 +418,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
   //----------------------------------------------------------
 
   public void setId(@Nullable org.jetbrains.mps.openapi.model.SNodeId id) {
-    if (EqualUtil.equals(id, myId)) return;
+    if (Objects.equals(id, myId)) return;
 
     if (myOwner.getModel() == null) {
       myId = id;
@@ -624,7 +623,7 @@ public class SNode implements org.jetbrains.mps.openapi.model.SNode {
 
     int index = getPropertyIndex(property);
     final String oldValue = index == -1 ? null : (String) myProperties[index + 1];
-    if (EqualUtil.equals(oldValue, propertyValue)) return;
+    if (Objects.equals(oldValue, propertyValue)) return;
 
     if (propertyValue == null) {
       Object[] oldProperties = myProperties;

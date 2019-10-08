@@ -29,8 +29,6 @@ import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleFacetDescriptor;
 import jetbrains.mps.scope.VisibleDepsSearchScope;
 import jetbrains.mps.smodel.SModelInternal;
-import jetbrains.mps.smodel.SuspiciousModelHandler;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -69,6 +67,7 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import static org.jetbrains.mps.openapi.module.FacetsFacade.FacetFactory;
@@ -356,7 +355,7 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
       return null;
     }
     for (Dependency dep : descriptor.getDependencies()) {
-      if (!EqualUtil.equals(dep.getModuleRef(), moduleRef)) {
+      if (!Objects.equals(dep.getModuleRef(), moduleRef)) {
         continue;
       }
 

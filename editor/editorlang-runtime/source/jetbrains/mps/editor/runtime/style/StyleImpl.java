@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2013 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.openapi.editor.style.StyleAttribute;
 import jetbrains.mps.openapi.editor.style.StyleChangeEvent;
 import jetbrains.mps.openapi.editor.style.StyleListener;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.containers.EmptyIterator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -33,6 +32,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -291,7 +291,7 @@ public class StyleImpl implements Style {
         }
         IntPair<Object> newValue = newIterator.next();
         IntPair<Object> oldValue = oldIterator.next();
-        if (newValue.index != oldValue.index || !EqualUtil.equals(newValue.value, oldValue.value)) {
+        if (newValue.index != oldValue.index || !Objects.equals(newValue.value, oldValue.value)) {
           changedAttributes.add(attribute);
           break;
         }

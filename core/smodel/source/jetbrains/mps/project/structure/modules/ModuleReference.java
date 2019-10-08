@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 package jetbrains.mps.project.structure.modules;
 
 import jetbrains.mps.project.ModuleId;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.InternUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -101,7 +100,7 @@ public final class ModuleReference implements SModuleReference {
       return ref1 != ref2;
     }
     // both not null
-    return !(EqualUtil.equals(ref1.getModuleId(), ref2.getModuleId()) && EqualUtil.equals(ref1.getModuleName(), ref2.getModuleName()));
+    return !(Objects.equals(ref1.getModuleId(), ref2.getModuleId()) && Objects.equals(ref1.getModuleName(), ref2.getModuleName()));
   }
 }
 

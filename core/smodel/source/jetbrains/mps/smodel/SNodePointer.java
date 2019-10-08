@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 package jetbrains.mps.smodel;
 
 import jetbrains.mps.smodel.references.UnregisteredNodes;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -29,6 +28,8 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade.IncorrectNodeIdFormatException;
+
+import java.util.Objects;
 
 @Immutable
 public class SNodePointer implements SNodeReference {
@@ -94,7 +95,7 @@ public class SNodePointer implements SNodeReference {
     if (!(o instanceof SNodePointer)) return false;
 
     SNodePointer np = (SNodePointer) o;
-    return EqualUtil.equals(myModelReference, np.myModelReference) && EqualUtil.equals(myNodeId, np.myNodeId);
+    return Objects.equals(myModelReference, np.myModelReference) && Objects.equals(myNodeId, np.myNodeId);
   }
 
   public int hashCode() {

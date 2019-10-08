@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,13 @@
 package jetbrains.mps.nodeEditor;
 
 import jetbrains.mps.nodeEditor.memory.MemoryAnalyzer;
-import jetbrains.mps.util.EqualUtil;
-import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 // TODO: move to jetbrains.mps.nodeEditor.updater package, make package-local
 public class ReferencedNodeContext {
@@ -107,18 +106,18 @@ public class ReferencedNodeContext {
   }
 
   public int hashCode() {
-    return EqualUtil.hashCode(myNode) +
-        31 * (EqualUtil.hashCode(myContextRefererNodes) +
-            31 * EqualUtil.hashCode(myContextRoles));
+    return Objects.hashCode(myNode) +
+        31 * (Objects.hashCode(myContextRefererNodes) +
+            31 * Objects.hashCode(myContextRoles));
   }
 
   public boolean equals(Object obj) {
     if (obj == this) return true;
     if (obj instanceof ReferencedNodeContext) {
       ReferencedNodeContext o = (ReferencedNodeContext) obj;
-      return EqualUtil.equals(myNode, o.myNode)
-          && EqualUtil.equals(myContextRoles, o.myContextRoles)
-          && EqualUtil.equals(myContextRefererNodes, o.myContextRefererNodes)
+      return Objects.equals(myNode, o.myNode)
+          && Objects.equals(myContextRoles, o.myContextRoles)
+          && Objects.equals(myContextRefererNodes, o.myContextRefererNodes)
           && myIsNodeAttribute == o.myIsNodeAttribute;
     } else {
       return false;

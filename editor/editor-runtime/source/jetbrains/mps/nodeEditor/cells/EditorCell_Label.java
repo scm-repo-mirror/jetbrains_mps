@@ -44,7 +44,6 @@ import jetbrains.mps.smodel.SNodeUndoableAction;
 import jetbrains.mps.smodel.UndoHelper;
 import jetbrains.mps.smodel.UndoRunnable;
 import jetbrains.mps.typesystem.inference.TypeContextManager;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.NameUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -57,6 +56,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 
 public abstract class EditorCell_Label extends EditorCell_Basic implements jetbrains.mps.openapi.editor.cells.EditorCell_Label, WithCaret {
   protected boolean myNoTextSet;
@@ -605,7 +605,7 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
   }
 
   private void updateVfsTimestamp(String text, String oldText) {
-    if (EqualUtil.equals(oldText, text) || isValidText(text)) {
+    if (Objects.equals(oldText, text) || isValidText(text)) {
       return;
     }
     if (CommandProcessor.getInstance().getCurrentCommand() == null) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2016 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ import jetbrains.mps.plugins.projectplugins.ProjectPluginManager;
 import jetbrains.mps.plugins.relations.RelationDescriptor;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.SNodeUtil;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.workbench.MPSDataKeys;
@@ -56,6 +55,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class ProjectPaneDnDListener implements DropTargetListener {
   private static final Logger LOG = LogManager.getLogger(ProjectPaneDnDListener.class);
@@ -211,9 +211,9 @@ public class ProjectPaneDnDListener implements DropTargetListener {
       SNode snode = node.o1.resolve(repo);
 
       if (snode == null) continue;
-      if (EqualUtil.equals(virtualPackage + node.o2, getVirtualPackage(snode))) continue;
+      if (Objects.equals(virtualPackage + node.o2, getVirtualPackage(snode))) continue;
       SModel sourceModel = snode.getModel();
-      if (EqualUtil.equals(sourceModel, targetModel)) {
+      if (Objects.equals(sourceModel, targetModel)) {
         result.add(new Pair<>(snode, node.o2));
       }
     }

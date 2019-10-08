@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2013 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package jetbrains.mps.lang.pattern.util;
 
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.util.EqualUtil;
 import jetbrains.mps.util.IterableUtil;
 import org.apache.log4j.LogManager;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -31,6 +30,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 // FIXME seems to be the only class in patternRuntime to use [kernel], not [openapi]. Perhaps, worth moving into [kernel]?
@@ -72,7 +72,7 @@ public class MatchingUtil {
           propertyValue2 = dataType.fromString(stringValue2);
         }
       }
-      if (!EqualUtil.equals(propertyValue1, propertyValue2)) return false;
+      if (!Objects.equals(propertyValue1, propertyValue2)) return false;
     }
 
     //-- matching references
