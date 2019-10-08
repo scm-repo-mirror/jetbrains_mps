@@ -10,13 +10,11 @@ import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
-import jetbrains.mps.smodel.IOperationContext;
-import jetbrains.mps.smodel.runtime.ReferencePresentationContext;
-import jetbrains.mps.lang.structure.behavior.AttributeDesignTimeOperations;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
 import jetbrains.mps.scope.ListScope;
+import jetbrains.mps.lang.structure.behavior.AttributeDesignTimeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
@@ -40,16 +38,8 @@ public class PropertyAttributeQualifier_Constraints extends BaseConstraintsDescr
       public ReferenceScopeProvider getScopeProvider() {
         return new BaseScopeProvider() {
           @Override
-          public boolean hasPresentation() {
-            return true;
-          }
-          @Override
-          public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return AttributeDesignTimeOperations.getAttributeRoleSafe(_context.getParameterNode());
-          }
-          @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_s2rzt9_a0a2a0a0a1a0a0a0c;
+            return breakingNode_s2rzt9_a0a0a0a0a1a0a0a0c;
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
@@ -62,7 +52,7 @@ public class PropertyAttributeQualifier_Constraints extends BaseConstraintsDescr
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static final SNodePointer breakingNode_s2rzt9_a0a2a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "6836281137582797692");
+  private static final SNodePointer breakingNode_s2rzt9_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902fb(jetbrains.mps.lang.smodel.constraints)", "6836281137582797692");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept PropertyAttributeQualifier$oD = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x58ea5217b045c9b9L, "jetbrains.mps.lang.smodel.structure.PropertyAttributeQualifier");

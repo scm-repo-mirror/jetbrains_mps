@@ -10,9 +10,6 @@ import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
-import jetbrains.mps.smodel.IOperationContext;
-import jetbrains.mps.smodel.runtime.ReferencePresentationContext;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
@@ -21,7 +18,6 @@ import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDescriptor {
   public BuildSourceMacroRelativePath_Constraints() {
@@ -40,16 +36,8 @@ public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDes
       public ReferenceScopeProvider getScopeProvider() {
         return new BaseScopeProvider() {
           @Override
-          public boolean hasPresentation() {
-            return true;
-          }
-          @Override
-          public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return (!(_context.getSmartReference()) ? SPropertyOperations.getString(_context.getParameterNode(), PROPS.name$tAp1) : "$" + SPropertyOperations.getString(_context.getParameterNode(), PROPS.name$tAp1));
-          }
-          @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_6szw9x_a0a2a0a0a1a0a0a0c;
+            return breakingNode_6szw9x_a0a0a0a0a1a0a0a0c;
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
@@ -63,7 +51,7 @@ public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDes
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static final SNodePointer breakingNode_6szw9x_a0a2a0a0a1a0a0a0c = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "7389400916848182175");
+  private static final SNodePointer breakingNode_6szw9x_a0a0a0a0a1a0a0a0c = new SNodePointer("r:5076fdb3-19c3-4563-aa26-7ace7591e78d(jetbrains.mps.build.constraints)", "7389400916848182175");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept BuildSourceMacroRelativePath$C$ = MetaAdapterFactory.getConcept(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, "jetbrains.mps.build.structure.BuildSourceMacroRelativePath");
@@ -72,9 +60,5 @@ public class BuildSourceMacroRelativePath_Constraints extends BaseConstraintsDes
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink macro$p38a = MetaAdapterFactory.getReferenceLink(0x798100da4f0a421aL, 0xb99171f8c50ce5d2L, 0x668c6cfbafae121dL, 0x668c6cfbafae122aL, "macro");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
   }
 }

@@ -10,9 +10,6 @@ import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
-import jetbrains.mps.smodel.IOperationContext;
-import jetbrains.mps.smodel.runtime.ReferencePresentationContext;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
@@ -25,7 +22,6 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class AdvanceWorkStatement_Constraints extends BaseConstraintsDescriptor {
   public AdvanceWorkStatement_Constraints() {
@@ -44,16 +40,8 @@ public class AdvanceWorkStatement_Constraints extends BaseConstraintsDescriptor 
       public ReferenceScopeProvider getScopeProvider() {
         return new BaseScopeProvider() {
           @Override
-          public boolean hasPresentation() {
-            return true;
-          }
-          @Override
-          public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return SPropertyOperations.getString(_context.getParameterNode(), PROPS.workName$ILmr);
-          }
-          @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_vuepmh_a0a2a0a0a1a0a0a0c;
+            return breakingNode_vuepmh_a0a0a0a0a1a0a0a0c;
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
@@ -66,7 +54,7 @@ public class AdvanceWorkStatement_Constraints extends BaseConstraintsDescriptor 
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static final SNodePointer breakingNode_vuepmh_a0a2a0a0a1a0a0a0c = new SNodePointer("r:56325792-0540-48ec-8d52-897a8821cc64(jetbrains.mps.make.script.constraints)", "6836281137582794566");
+  private static final SNodePointer breakingNode_vuepmh_a0a0a0a0a1a0a0a0c = new SNodePointer("r:56325792-0540-48ec-8d52-897a8821cc64(jetbrains.mps.make.script.constraints)", "6836281137582794566");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept AdvanceWorkStatement$CY = MetaAdapterFactory.getConcept(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, "jetbrains.mps.make.script.structure.AdvanceWorkStatement");
@@ -77,9 +65,5 @@ public class AdvanceWorkStatement_Constraints extends BaseConstraintsDescriptor 
   private static final class LINKS {
     /*package*/ static final SReferenceLink workStatement$zf60 = MetaAdapterFactory.getReferenceLink(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6984L, 0x97a1ce11862bf5aL, "workStatement");
     /*package*/ static final SContainmentLink body$pTP2 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x108bbca0f48L, 0x108bbd29b4aL, "body");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty workName$ILmr = MetaAdapterFactory.getProperty(0x95f8a3e6f9944ca0L, 0xa65e763c9bae2d3bL, 0x29929a95c9e6982L, 0x97a1ce11865e911L, "workName");
   }
 }

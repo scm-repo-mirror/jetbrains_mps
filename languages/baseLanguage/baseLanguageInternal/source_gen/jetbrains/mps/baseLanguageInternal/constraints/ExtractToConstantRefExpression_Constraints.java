@@ -10,9 +10,6 @@ import jetbrains.mps.smodel.runtime.base.BaseReferenceConstraintsDescriptor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.smodel.runtime.ReferenceScopeProvider;
 import jetbrains.mps.smodel.runtime.base.BaseScopeProvider;
-import jetbrains.mps.smodel.IOperationContext;
-import jetbrains.mps.smodel.runtime.ReferencePresentationContext;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.scope.Scope;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsContext;
@@ -23,7 +20,6 @@ import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsDescriptor {
   public ExtractToConstantRefExpression_Constraints() {
@@ -42,16 +38,8 @@ public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsD
       public ReferenceScopeProvider getScopeProvider() {
         return new BaseScopeProvider() {
           @Override
-          public boolean hasPresentation() {
-            return true;
-          }
-          @Override
-          public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return SPropertyOperations.getString(_context.getParameterNode(), PROPS.fieldName$SVPF);
-          }
-          @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_o7daap_a0a2a0a0a1a0a0a0c;
+            return breakingNode_o7daap_a0a0a0a0a1a0a0a0c;
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
@@ -64,7 +52,7 @@ public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsD
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static final SNodePointer breakingNode_o7daap_a0a2a0a0a1a0a0a0c = new SNodePointer("r:1ce54900-c35b-4aa5-b24f-b47c871a6d6f(jetbrains.mps.baseLanguageInternal.constraints)", "6836281137582645545");
+  private static final SNodePointer breakingNode_o7daap_a0a0a0a0a1a0a0a0c = new SNodePointer("r:1ce54900-c35b-4aa5-b24f-b47c871a6d6f(jetbrains.mps.baseLanguageInternal.constraints)", "6836281137582645545");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept ExtractToConstantRefExpression$sl = MetaAdapterFactory.getConcept(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, "jetbrains.mps.baseLanguageInternal.structure.ExtractToConstantRefExpression");
@@ -73,9 +61,5 @@ public class ExtractToConstantRefExpression_Constraints extends BaseConstraintsD
 
   private static final class LINKS {
     /*package*/ static final SReferenceLink original$N4_w = MetaAdapterFactory.getReferenceLink(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x162724dabcdc671L, 0x162724dabcdc672L, "original");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty fieldName$SVPF = MetaAdapterFactory.getProperty(0xdf345b11b8c74213L, 0xac6648d2a9b75d88L, 0x1204d897032L, 0x1204d89aadaL, "fieldName");
   }
 }

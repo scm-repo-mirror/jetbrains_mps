@@ -17,101 +17,81 @@
   </root>
   <root nodeRef="r:a2a452cd-a0b4-4774-9b7e-00f9c8226bfa(jetbrains.mps.core.xml.sax.constraints)/2264311582634140674">
     <file name="XMLSAXAttributeReference_Constraints.java">
-      <node id="2264311582634140674" at="35,49,36,48" concept="9" />
-      <node id="2264311582634140674" at="43,127,44,128" concept="4" />
-      <node id="2264311582634140674" at="44,128,45,0" concept="6" />
-      <node id="2264311582634140674" at="46,55,47,71" concept="1" />
-      <node id="2264311582634140674" at="48,9,49,0" concept="6" />
-      <node id="2264311582634140674" at="49,0,50,22" concept="5" />
-      <node id="2264311582634140675" at="58,44,59,20" concept="5" />
-      <node id="2264311582634140675" at="66,44,67,24" concept="5" />
-      <node id="4720003541459916917" at="71,176,72,134" concept="4" />
-      <node id="4720003541460414959" at="72,134,73,199" concept="5" />
-      <node id="4720003541460239564" at="74,13,75,95" concept="5" />
-      <node id="2264311582634140675" at="78,63,79,57" concept="5" />
-      <node id="2264311582634140675" at="82,80,83,156" concept="4" />
-      <node id="2264311582634140675" at="83,156,84,62" concept="5" />
-      <node id="2264311582634140674" at="88,6,89,131" concept="4" />
-      <node id="2264311582634140675" at="89,131,90,42" concept="1" />
-      <node id="2264311582634140674" at="90,42,91,22" concept="5" />
-      <node id="1227128029536581179" at="93,128,94,104" concept="5" />
-      <node id="2264311582634140674" at="96,0,97,0" concept="7" trace="canBeChildBreakingPoint" />
-      <node id="2264311582634140674" at="97,0,98,0" concept="7" trace="breakingNode_4osf4s_a0a2a0a0a1a0a0a0d" />
-      <node id="2264311582634140674" at="100,0,101,0" concept="7" trace="XMLSAXAttributeReference$J3" />
-      <node id="2264311582634140674" at="101,0,102,0" concept="7" trace="XMLSAXNodeRule$AV" />
-      <node id="2264311582634140674" at="102,0,103,0" concept="7" trace="XMLSAXAttributeRule$K1" />
-      <node id="2264311582634140674" at="103,0,104,0" concept="7" trace="XMLSAXParser$Sn" />
-      <node id="2264311582634140674" at="107,0,108,0" concept="7" trace="attribute$YvIw" />
-      <node id="2264311582634140674" at="111,0,112,0" concept="7" trace="name$tAp1" />
-      <node id="2264311582634140674" at="35,0,38,0" concept="0" trace="XMLSAXAttributeReference_Constraints#()V" />
-      <node id="2264311582634140674" at="45,0,48,9" concept="2" />
-      <node id="2264311582634140674" at="93,0,96,0" concept="8" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
-      <node id="2264311582634140675" at="57,0,61,0" concept="3" trace="hasOwnScopeProvider#()Z" />
-      <node id="2264311582634140675" at="65,0,69,0" concept="3" trace="hasPresentation#()Z" />
-      <node id="4720003541460272430" at="70,128,74,13" concept="2" />
-      <node id="2264311582634140675" at="77,0,81,0" concept="3" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="2264311582634140675" at="81,0,86,0" concept="3" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
-      <node id="2264311582634140675" at="69,0,77,0" concept="3" trace="getPresentation#(Ljetbrains/mps/smodel/IOperationContext;Ljetbrains/mps/smodel/runtime/ReferencePresentationContext;)Ljava/lang/String;" />
-      <node id="2264311582634140674" at="42,0,52,0" concept="3" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
-      <node id="2264311582634140674" at="40,103,52,6" concept="5" />
-      <node id="2264311582634140674" at="39,0,54,0" concept="3" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
-      <node id="2264311582634140675" at="63,56,86,10" concept="5" />
-      <node id="2264311582634140675" at="61,0,88,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <node id="2264311582634140675" at="55,90,88,6" concept="4" />
-      <node id="2264311582634140674" at="54,0,93,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="2264311582634140674" at="35,49,36,48" />
-      <scope id="2264311582634140674" at="46,55,47,71" />
-      <scope id="2264311582634140675" at="58,44,59,20" />
-      <scope id="2264311582634140675" at="66,44,67,24" />
-      <scope id="2264311582634140675" at="78,63,79,57" />
-      <scope id="1227128029536581178" at="93,128,94,104" />
-      <scope id="4720003541460272433" at="71,176,73,199">
-        <var name="nodeRule" id="4720003541459916918" />
-      </scope>
-      <scope id="2264311582634140675" at="82,80,84,62">
+      <node id="2264311582634140674" at="31,49,32,48" concept="9" />
+      <node id="2264311582634140674" at="39,127,40,128" concept="4" />
+      <node id="2264311582634140674" at="40,128,41,0" concept="6" />
+      <node id="2264311582634140674" at="42,55,43,71" concept="1" />
+      <node id="2264311582634140674" at="44,9,45,0" concept="6" />
+      <node id="2264311582634140674" at="45,0,46,22" concept="5" />
+      <node id="2264311582634140675" at="54,44,55,20" concept="5" />
+      <node id="2264311582634140675" at="62,63,63,57" concept="5" />
+      <node id="2264311582634140675" at="66,80,67,156" concept="4" />
+      <node id="2264311582634140675" at="67,156,68,62" concept="5" />
+      <node id="2264311582634140674" at="72,6,73,131" concept="4" />
+      <node id="2264311582634140675" at="73,131,74,42" concept="1" />
+      <node id="2264311582634140674" at="74,42,75,22" concept="5" />
+      <node id="1227128029536581179" at="77,128,78,104" concept="5" />
+      <node id="2264311582634140674" at="80,0,81,0" concept="7" trace="canBeChildBreakingPoint" />
+      <node id="2264311582634140674" at="81,0,82,0" concept="7" trace="breakingNode_4osf4s_a0a0a0a0a1a0a0a0d" />
+      <node id="2264311582634140674" at="84,0,85,0" concept="7" trace="XMLSAXAttributeReference$J3" />
+      <node id="2264311582634140674" at="85,0,86,0" concept="7" trace="XMLSAXAttributeRule$K1" />
+      <node id="2264311582634140674" at="86,0,87,0" concept="7" trace="XMLSAXParser$Sn" />
+      <node id="2264311582634140674" at="90,0,91,0" concept="7" trace="attribute$YvIw" />
+      <node id="2264311582634140674" at="31,0,34,0" concept="0" trace="XMLSAXAttributeReference_Constraints#()V" />
+      <node id="2264311582634140674" at="41,0,44,9" concept="2" />
+      <node id="2264311582634140674" at="77,0,80,0" concept="8" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
+      <node id="2264311582634140675" at="53,0,57,0" concept="3" trace="hasOwnScopeProvider#()Z" />
+      <node id="2264311582634140675" at="61,0,65,0" concept="3" trace="getSearchScopeValidatorNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="2264311582634140675" at="65,0,70,0" concept="3" trace="createScope#(Ljetbrains/mps/smodel/runtime/ReferenceConstraintsContext;)Ljetbrains/mps/scope/Scope;" />
+      <node id="2264311582634140674" at="38,0,48,0" concept="3" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
+      <node id="2264311582634140675" at="59,56,70,10" concept="5" />
+      <node id="2264311582634140674" at="36,103,48,6" concept="5" />
+      <node id="2264311582634140674" at="35,0,50,0" concept="3" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
+      <node id="2264311582634140675" at="57,0,72,0" concept="3" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
+      <node id="2264311582634140675" at="51,90,72,6" concept="4" />
+      <node id="2264311582634140674" at="50,0,77,0" concept="3" trace="getSpecifiedReferences#()Ljava/util/Map;" />
+      <scope id="2264311582634140674" at="31,49,32,48" />
+      <scope id="2264311582634140674" at="42,55,43,71" />
+      <scope id="2264311582634140675" at="54,44,55,20" />
+      <scope id="2264311582634140675" at="62,63,63,57" />
+      <scope id="1227128029536581178" at="77,128,78,104" />
+      <scope id="2264311582634140675" at="66,80,68,62">
         <var name="scope" id="2264311582634140675" />
       </scope>
-      <scope id="2264311582634140674" at="35,0,38,0" />
-      <scope id="2264311582634140674" at="93,0,96,0">
+      <scope id="2264311582634140674" at="31,0,34,0" />
+      <scope id="2264311582634140674" at="77,0,80,0">
         <var name="childConcept" id="2264311582634140674" />
         <var name="link" id="2264311582634140674" />
         <var name="node" id="2264311582634140674" />
         <var name="parentNode" id="2264311582634140674" />
       </scope>
-      <scope id="2264311582634140675" at="57,0,61,0" />
-      <scope id="2264311582634140675" at="65,0,69,0" />
-      <scope id="2264311582634140675" at="77,0,81,0" />
-      <scope id="4720003541460204268" at="70,128,75,95" />
-      <scope id="2264311582634140675" at="81,0,86,0">
+      <scope id="2264311582634140675" at="53,0,57,0" />
+      <scope id="2264311582634140675" at="61,0,65,0" />
+      <scope id="2264311582634140675" at="65,0,70,0">
         <var name="_context" id="2264311582634140675" />
       </scope>
-      <scope id="2264311582634140674" at="43,127,50,22">
+      <scope id="2264311582634140674" at="39,127,46,22">
         <var name="result" id="2264311582634140674" />
       </scope>
-      <scope id="2264311582634140675" at="69,0,77,0">
-        <var name="_context" id="2264311582634140675" />
-        <var name="operationContext" id="2264311582634140675" />
-      </scope>
-      <scope id="2264311582634140674" at="42,0,52,0">
+      <scope id="2264311582634140674" at="38,0,48,0">
         <var name="checkingNodeContext" id="2264311582634140674" />
         <var name="context" id="2264311582634140674" />
       </scope>
-      <scope id="2264311582634140674" at="40,103,52,6" />
-      <scope id="2264311582634140674" at="39,0,54,0" />
-      <scope id="2264311582634140675" at="63,56,86,10" />
-      <scope id="2264311582634140675" at="61,0,88,0" />
-      <scope id="2264311582634140674" at="55,90,91,22">
+      <scope id="2264311582634140675" at="59,56,70,10" />
+      <scope id="2264311582634140674" at="36,103,48,6" />
+      <scope id="2264311582634140674" at="35,0,50,0" />
+      <scope id="2264311582634140675" at="57,0,72,0" />
+      <scope id="2264311582634140674" at="51,90,75,22">
         <var name="d0" id="2264311582634140675" />
         <var name="references" id="2264311582634140674" />
       </scope>
-      <scope id="2264311582634140674" at="54,0,93,0" />
-      <unit id="2264311582634140674" at="106,0,109,0" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$LINKS" />
-      <unit id="2264311582634140674" at="110,0,113,0" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$PROPS" />
-      <unit id="2264311582634140674" at="99,0,105,0" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$CONCEPTS" />
-      <unit id="2264311582634140674" at="41,15,52,5" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$1" />
-      <unit id="2264311582634140675" at="64,19,86,9" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$2$1" />
-      <unit id="2264311582634140675" at="56,48,88,5" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$2" />
-      <unit id="2264311582634140674" at="34,0,114,0" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints" />
+      <scope id="2264311582634140674" at="50,0,77,0" />
+      <unit id="2264311582634140674" at="89,0,92,0" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$LINKS" />
+      <unit id="2264311582634140674" at="83,0,88,0" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$CONCEPTS" />
+      <unit id="2264311582634140675" at="60,19,70,9" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$2$1" />
+      <unit id="2264311582634140674" at="37,15,48,5" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$1" />
+      <unit id="2264311582634140675" at="52,48,72,5" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints$2" />
+      <unit id="2264311582634140674" at="30,0,93,0" name="jetbrains.mps.core.xml.sax.constraints.XMLSAXAttributeReference_Constraints" />
     </file>
   </root>
   <root nodeRef="r:a2a452cd-a0b4-4774-9b7e-00f9c8226bfa(jetbrains.mps.core.xml.sax.constraints)/2264311582634140739">

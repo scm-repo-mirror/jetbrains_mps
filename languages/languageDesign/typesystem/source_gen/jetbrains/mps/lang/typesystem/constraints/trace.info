@@ -1236,55 +1236,26 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)/7857223919215948959">
     <file name="InequationReference_Constraints.java">
-      <node id="7857223919215948959" at="24,44,25,43" concept="13" />
-      <node id="7857223919215948960" at="36,44,37,24" concept="9" />
-      <node id="7857223919215949539" at="41,113,42,195" concept="9" />
-      <node id="7857223919215949562" at="43,20,44,110" concept="9" />
-      <node id="7857223919215948959" at="49,6,50,131" concept="8" />
-      <node id="7857223919215948960" at="50,131,51,42" concept="3" />
-      <node id="7857223919215948959" at="51,42,52,22" concept="9" />
-      <node id="7857223919215949536" at="54,55,55,43" concept="9" />
-      <node id="7857223919215948959" at="59,0,60,0" concept="11" trace="InequationReference$XM" />
-      <node id="7857223919215948959" at="63,0,64,0" concept="11" trace="inequation$LOB0" />
-      <node id="7857223919215948959" at="67,0,68,0" concept="11" trace="label$ndJm" />
-      <node id="7857223919215949560" at="43,18,45,13" concept="0" />
-      <node id="7857223919215948959" at="24,0,27,0" concept="2" trace="InequationReference_Constraints#()V" />
-      <node id="7857223919215949536" at="54,0,57,0" concept="12" trace="isNotEmptyString#(Ljava/lang/String;)Z" />
-      <node id="7857223919215948960" at="35,0,39,0" concept="7" trace="hasPresentation#()Z" />
-      <node id="7857223919215949531" at="40,128,45,13" concept="6" />
-      <node id="7857223919215948960" at="39,0,47,0" concept="7" trace="getPresentation#(Ljetbrains/mps/smodel/IOperationContext;Ljetbrains/mps/smodel/runtime/ReferencePresentationContext;)Ljava/lang/String;" />
-      <node id="7857223919215948960" at="33,56,47,10" concept="9" />
-      <node id="7857223919215948960" at="31,0,49,0" concept="7" trace="getScopeProvider#()Ljetbrains/mps/smodel/runtime/ReferenceScopeProvider;" />
-      <node id="7857223919215948960" at="29,90,49,6" concept="8" />
-      <node id="7857223919215948959" at="28,0,54,0" concept="7" trace="getSpecifiedReferences#()Ljava/util/Map;" />
-      <scope id="7857223919215948959" at="24,44,25,43" />
-      <scope id="7857223919215948960" at="36,44,37,24" />
-      <scope id="7857223919215949537" at="41,113,42,195" />
-      <scope id="7857223919215949561" at="43,20,44,110" />
-      <scope id="7857223919215949536" at="54,55,55,43" />
-      <scope id="7857223919215948959" at="24,0,27,0" />
-      <scope id="7857223919215949536" at="54,0,57,0">
-        <var name="str" id="7857223919215949536" />
-      </scope>
-      <scope id="7857223919215948960" at="35,0,39,0" />
-      <scope id="7857223919215948962" at="40,128,45,13" />
-      <scope id="7857223919215948960" at="39,0,47,0">
-        <var name="_context" id="7857223919215948960" />
-        <var name="operationContext" id="7857223919215948960" />
-      </scope>
-      <scope id="7857223919215948960" at="33,56,47,10" />
-      <scope id="7857223919215948960" at="31,0,49,0" />
-      <scope id="7857223919215948959" at="29,90,52,22">
+      <node id="7857223919215948959" at="15,44,16,43" concept="13" />
+      <node id="7857223919215948960" at="20,90,21,115" concept="8" />
+      <node id="7857223919215948959" at="21,115,22,131" concept="8" />
+      <node id="7857223919215948960" at="22,131,23,42" concept="3" />
+      <node id="7857223919215948959" at="23,42,24,22" concept="9" />
+      <node id="7857223919215948959" at="28,0,29,0" concept="11" trace="InequationReference$XM" />
+      <node id="7857223919215948959" at="32,0,33,0" concept="11" trace="inequation$LOB0" />
+      <node id="7857223919215948959" at="15,0,18,0" concept="2" trace="InequationReference_Constraints#()V" />
+      <node id="7857223919215948959" at="19,0,26,0" concept="7" trace="getSpecifiedReferences#()Ljava/util/Map;" />
+      <scope id="7857223919215948959" at="15,44,16,43" />
+      <scope id="7857223919215948959" at="15,0,18,0" />
+      <scope id="7857223919215948959" at="20,90,24,22">
         <var name="d0" id="7857223919215948960" />
         <var name="references" id="7857223919215948959" />
       </scope>
-      <scope id="7857223919215948959" at="28,0,54,0" />
-      <unit id="7857223919215948959" at="58,0,61,0" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$CONCEPTS" />
-      <unit id="7857223919215948959" at="62,0,65,0" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$LINKS" />
-      <unit id="7857223919215948959" at="66,0,69,0" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$PROPS" />
-      <unit id="7857223919215948960" at="34,19,47,9" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$1$1" />
-      <unit id="7857223919215948960" at="30,48,49,5" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$1" />
-      <unit id="7857223919215948959" at="23,0,70,0" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints" />
+      <scope id="7857223919215948959" at="19,0,26,0" />
+      <unit id="7857223919215948960" at="21,48,21,114" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$1" />
+      <unit id="7857223919215948959" at="27,0,30,0" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$CONCEPTS" />
+      <unit id="7857223919215948959" at="31,0,34,0" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints$LINKS" />
+      <unit id="7857223919215948959" at="14,0,35,0" name="jetbrains.mps.lang.typesystem.constraints.InequationReference_Constraints" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902ae(jetbrains.mps.lang.typesystem.constraints)/8090891477833132962">

@@ -19,9 +19,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.scope.EmptyScope;
 import jetbrains.mps.lang.scopes.runtime.NamedElementsScope;
 import jetbrains.mps.baseLanguage.scopes.Members;
-import jetbrains.mps.smodel.IOperationContext;
-import jetbrains.mps.smodel.runtime.ReferencePresentationContext;
-import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.baseLanguage.scopes.ClassifierScopes;
 import java.util.HashMap;
 import jetbrains.mps.smodel.SNodePointer;
@@ -69,16 +66,8 @@ public class StaticFieldReference_Constraints extends BaseConstraintsDescriptor 
       public ReferenceScopeProvider getScopeProvider() {
         return new BaseScopeProvider() {
           @Override
-          public boolean hasPresentation() {
-            return true;
-          }
-          @Override
-          public String getPresentation(final IOperationContext operationContext, final ReferencePresentationContext _context) {
-            return (String) Classifier__BehaviorDescriptor.getNestedNameInContext_id7q4lzBFjvF8.invoke(_context.getParameterNode(), _context.getContextNode());
-          }
-          @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_amrbnf_a0a2a0a0a1a0a0b0c;
+            return breakingNode_amrbnf_a0a0a0a0a1a0a0b0c;
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
@@ -93,7 +82,7 @@ public class StaticFieldReference_Constraints extends BaseConstraintsDescriptor 
     return references;
   }
   private static final SNodePointer breakingNode_amrbnf_a0a0a0a0a1a0a0a0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582644007");
-  private static final SNodePointer breakingNode_amrbnf_a0a2a0a0a1a0a0b0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582644031");
+  private static final SNodePointer breakingNode_amrbnf_a0a0a0a0a1a0a0b0c = new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "6836281137582644031");
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept StaticFieldReference$K8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940c80846L, "jetbrains.mps.baseLanguage.structure.StaticFieldReference");

@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="134c38d4-e3af-4d9e-b069-1c7df0a4005d" name="jetbrains.mps.lang.constraints.rules.skeleton" version="0" />
-    <use id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints" version="5" />
+    <use id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints" version="6" />
     <use id="ea3159bf-f48e-4720-bde2-86dba75f0d34" name="jetbrains.mps.lang.context.defs" version="0" />
     <use id="774bf8a0-62e5-41e1-af63-f4812e60e48b" name="jetbrains.mps.baseLanguage.checkedDots" version="0" />
     <use id="033598a4-76a9-47e1-ac89-a300c0fceab8" name="jetbrains.mps.lang.feedback.problem" version="0" />
@@ -115,7 +115,7 @@
             <node concept="3cpWsn" id="6GnzfDRdDSD" role="3cpWs9">
               <property role="TrG5h" value="concrete" />
               <node concept="3Tqbb2" id="6GnzfDRdDRV" role="1tU5fm">
-                <ref role="ehGHo" to="sis7:1mFJTG6JRZ" resolve="ProblemKindRoot" />
+                <ref role="ehGHo" to="sis7:1mFJTG6JRZ" resolve="ProblemKind" />
               </node>
               <node concept="2OqwBi" id="6GnzfDRdDSE" role="33vP2m">
                 <node concept="2tJFMh" id="6GnzfDRdDSF" role="2Oq$k0">
@@ -167,7 +167,7 @@
             <node concept="3cpWsn" id="2dMY_rcjEQD" role="3cpWs9">
               <property role="TrG5h" value="concrete" />
               <node concept="3Tqbb2" id="2dMY_rcjEQE" role="1tU5fm">
-                <ref role="ehGHo" to="sis7:1mFJTG6JRZ" resolve="ProblemKindRoot" />
+                <ref role="ehGHo" to="sis7:1mFJTG6JRZ" resolve="ProblemKind" />
               </node>
               <node concept="2OqwBi" id="2dMY_rcjEQF" role="33vP2m">
                 <node concept="2tJFMh" id="2dMY_rcjEQG" role="2Oq$k0">

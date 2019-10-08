@@ -153,11 +153,8 @@
     </language>
     <language id="3f4bc5f5-c6c1-4a28-8b10-c83066ffa4a1" name="jetbrains.mps.lang.constraints">
       <concept id="6702802731807351367" name="jetbrains.mps.lang.constraints.structure.ConstraintFunction_CanBeAChild" flags="in" index="9S07l" />
-      <concept id="6358186717179259582" name="jetbrains.mps.lang.constraints.structure.RefPresentationMigrated" flags="ng" index="2dbRIv" />
       <concept id="1202989658459" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_parentNode" flags="nn" index="nLn13" />
       <concept id="8966504967485224688" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_contextNode" flags="nn" index="2rP1CM" />
-      <concept id="3906442776579556545" name="jetbrains.mps.lang.constraints.structure.ConstraintFunction_ReferentSearchScope_Presentation" flags="in" index="Bn3R3" />
-      <concept id="3906442776579549644" name="jetbrains.mps.lang.constraints.structure.ConstraintFunctionParameter_parameterNode" flags="nn" index="Bn53e" />
       <concept id="1147467115080" name="jetbrains.mps.lang.constraints.structure.NodePropertyConstraint" flags="ng" index="EnEH3">
         <reference id="1147467295099" name="applicableProperty" index="EomxK" />
         <child id="1147468630220" name="propertyGetter" index="EtsB7" />
@@ -174,7 +171,6 @@
       </concept>
       <concept id="1148687176410" name="jetbrains.mps.lang.constraints.structure.NodeReferentConstraint" flags="ng" index="1N5Pfh">
         <reference id="1148687202698" name="applicableLink" index="1N5Vy1" />
-        <child id="3906442776579556548" name="presentation" index="Bn3R6" />
         <child id="1148687345559" name="searchScopeFactory" index="1N6uqs" />
       </concept>
     </language>
@@ -2250,18 +2246,6 @@
           </node>
         </node>
       </node>
-      <node concept="Bn3R3" id="62qhzb6TNks" role="Bn3R6">
-        <node concept="3clFbS" id="62qhzb6TNkt" role="2VODD2">
-          <node concept="3clFbF" id="4HG1OVl5h7U" role="3cqZAp">
-            <node concept="2YIFZM" id="4HG1OVl5h7V" role="3clFbG">
-              <ref role="37wK5l" to="tpcn:4HG1OVl5bFd" resolve="getAttributeRoleSafe" />
-              <ref role="1Pybhc" to="tpcn:6_gUeuqI_Vn" resolve="AttributeDesignTimeOperations" />
-              <node concept="Bn53e" id="4HG1OVl5h7W" role="37wK5m" />
-            </node>
-          </node>
-        </node>
-        <node concept="2dbRIv" id="5E451QuqBkj" role="lGtFl" />
-      </node>
     </node>
   </node>
   <node concept="1M2fIO" id="2qM$EmJL255">
@@ -2305,18 +2289,6 @@
           </node>
         </node>
       </node>
-      <node concept="Bn3R3" id="62qhzb6UjsQ" role="Bn3R6">
-        <node concept="3clFbS" id="62qhzb6UjsR" role="2VODD2">
-          <node concept="3clFbF" id="4HG1OVl5gTs" role="3cqZAp">
-            <node concept="2YIFZM" id="4HG1OVl5gTt" role="3clFbG">
-              <ref role="37wK5l" to="tpcn:4HG1OVl5bFd" resolve="getAttributeRoleSafe" />
-              <ref role="1Pybhc" to="tpcn:6_gUeuqI_Vn" resolve="AttributeDesignTimeOperations" />
-              <node concept="Bn53e" id="4HG1OVl5gTu" role="37wK5m" />
-            </node>
-          </node>
-        </node>
-        <node concept="2dbRIv" id="5E451QuqBki" role="lGtFl" />
-      </node>
     </node>
   </node>
   <node concept="1M2fIO" id="2qM$EmJL2nC">
@@ -2359,18 +2331,6 @@
             </node>
           </node>
         </node>
-      </node>
-      <node concept="Bn3R3" id="62qhzb6Ujs$" role="Bn3R6">
-        <node concept="3clFbS" id="62qhzb6Ujs_" role="2VODD2">
-          <node concept="3clFbF" id="4HG1OVl5hmn" role="3cqZAp">
-            <node concept="2YIFZM" id="4HG1OVl5hmo" role="3clFbG">
-              <ref role="37wK5l" to="tpcn:4HG1OVl5bFd" resolve="getAttributeRoleSafe" />
-              <ref role="1Pybhc" to="tpcn:6_gUeuqI_Vn" resolve="AttributeDesignTimeOperations" />
-              <node concept="Bn53e" id="4HG1OVl5hmp" role="37wK5m" />
-            </node>
-          </node>
-        </node>
-        <node concept="2dbRIv" id="5E451QuqBkl" role="lGtFl" />
       </node>
     </node>
   </node>
@@ -2780,18 +2740,6 @@
             </node>
           </node>
         </node>
-      </node>
-      <node concept="Bn3R3" id="4NfTi62PaXv" role="Bn3R6">
-        <node concept="3clFbS" id="4NfTi62PaXw" role="2VODD2">
-          <node concept="3clFbF" id="4HG1OVl5fPF" role="3cqZAp">
-            <node concept="2YIFZM" id="4HG1OVl5geX" role="3clFbG">
-              <ref role="37wK5l" to="tpcn:4HG1OVl5bFd" resolve="getAttributeRoleSafe" />
-              <ref role="1Pybhc" to="tpcn:6_gUeuqI_Vn" resolve="AttributeDesignTimeOperations" />
-              <node concept="Bn53e" id="4HG1OVl5gr1" role="37wK5m" />
-            </node>
-          </node>
-        </node>
-        <node concept="2dbRIv" id="5E451QuqBkk" role="lGtFl" />
       </node>
     </node>
   </node>
