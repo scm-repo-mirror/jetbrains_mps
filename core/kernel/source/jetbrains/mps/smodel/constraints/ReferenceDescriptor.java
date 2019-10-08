@@ -17,12 +17,10 @@ package jetbrains.mps.smodel.constraints;
 
 import jetbrains.mps.kernel.model.SModelUtil;
 import jetbrains.mps.logging.Logger;
-import jetbrains.mps.project.GlobalOperationContext;
 import jetbrains.mps.scope.ErrorScope;
 import jetbrains.mps.scope.FilteringByConceptScope;
 import jetbrains.mps.scope.ModelPlusImportedScope;
 import jetbrains.mps.scope.Scope;
-import jetbrains.mps.smodel.IOperationContext;
 import jetbrains.mps.smodel.adapter.MetaAdapterByDeclaration;
 import jetbrains.mps.smodel.language.ConceptRegistryUtil;
 import jetbrains.mps.smodel.runtime.ReferenceConstraintsDescriptor;
@@ -146,7 +144,7 @@ public abstract class ReferenceDescriptor {
 
       try {
         if (myScopeProvider != null) {
-          Scope searchScope = myScopeProvider.createScope(getOperationContext(getModule()), context);
+          Scope searchScope = myScopeProvider.createScope(context);
           if (searchScope != null) {
             return new FilteringByConceptScope(searchScope, myLinkTarget);
           }
@@ -168,11 +166,10 @@ public abstract class ReferenceDescriptor {
         return null;
       }
 
-      return myScopeProvider.getPresentation(
-          getOperationContext(getModule()),
+      final PresentationReferentConstraintsContextImpl c =
           new PresentationReferentConstraintsContextImpl(myContextNode, myContainmentLink, myPosition, myReferenceNode, myLinkTarget,
-                                                         targetNode, visible, smartRef, inEditor)
-      );
+                                                         targetNode, visible, smartRef, inEditor);
+      return myScopeProvider.getPresentation(null, c);
     }
 
     @Override
@@ -226,11 +223,5 @@ public abstract class ReferenceDescriptor {
       }
       return model.getModule();
     }
-  }
-
-  @NotNull
-  private static IOperationContext getOperationContext(@Nullable SModule module) {
-    // TODO: remove usages of this method as much as can!
-    return module != null ? new ConstraintsOperationContext(module) : new GlobalOperationContext();
   }
 }
