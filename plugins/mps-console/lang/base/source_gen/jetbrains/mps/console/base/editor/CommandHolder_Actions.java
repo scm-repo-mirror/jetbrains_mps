@@ -6,9 +6,9 @@ import jetbrains.mps.editor.runtime.cells.AbstractCellAction;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.EditorContext;
 import java.util.Objects;
-import jetbrains.mps.nodeEditor.selection.SelectUpUtil;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.nodeEditor.selection.SelectUpUtil;
 import java.util.function.BooleanSupplier;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.cells.CellAction;
@@ -48,7 +48,7 @@ public class CommandHolder_Actions {
         return this.canExecute_internal(editorContext, node);
       }
       public boolean canExecute_internal(EditorContext editorContext, SNode node) {
-        return SelectUpUtil.canExecute(editorContext) && SNodeOperations.hasRole(node, LINKS.commandHolder$4VSX) && editorContext.getSelectionManager().getSelection().getSelectedNodes().get(0) == SLinkOperations.getTarget(node, LINKS.command$pL9$);
+        return SNodeOperations.hasRole(node, LINKS.commandHolder$4VSX) && (SLinkOperations.getTarget(node, LINKS.command$pL9$) == null || editorContext.getSelectionManager().getSelection().isExactlyCoveringCell(editorContext.getEditorComponent().findNodeCell(SLinkOperations.getTarget(node, LINKS.command$pL9$))));
       }
 
     };
