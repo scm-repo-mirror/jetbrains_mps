@@ -168,6 +168,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
         myUIEditorComponent.setBackground(new JBColor(new Color(255, 255, 225), StyleRegistry.getInstance().getEditorBackground()));
         myUIEditorComponent.repaint();
         myNodeChooser.updateUI();
+        myPopup.setCaption("Definition of " + node.myNode.getPresentation());
       }
     });
   }

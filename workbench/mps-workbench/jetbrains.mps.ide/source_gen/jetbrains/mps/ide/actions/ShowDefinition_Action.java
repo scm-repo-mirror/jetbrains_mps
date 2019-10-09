@@ -81,14 +81,12 @@ public class ShowDefinition_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final Wrappers._T<SNode> declaration = new Wrappers._T<SNode>();
-    final Wrappers._T<String> title = new Wrappers._T<String>();
     ((MPSProject) MapSequence.fromMap(_params).get("project")).getModelAccess().runReadAction(new Runnable() {
       public void run() {
         declaration.value = Objects.requireNonNull(ShowDefinition_Action.this.findNodeDeclaration(_params), "By contract node should have a declaration, i.e findNodeDeclaration() != null");
-        title.value = "Definition of " + ((SNode) MapSequence.fromMap(_params).get("node")).getPresentation();
       }
     });
-    PopupWithNodeEditor popupWithNodeEditor = new SimplePopupWithNodeEditor(((MPSProject) MapSequence.fromMap(_params).get("project")), ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")), title.value, Collections.singletonList(declaration.value));
+    PopupWithNodeEditor popupWithNodeEditor = new SimplePopupWithNodeEditor(((MPSProject) MapSequence.fromMap(_params).get("project")), ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")), Collections.singletonList(declaration.value));
     popupWithNodeEditor.show();
   }
   /*package*/ SNode findNodeDeclaration(final Map<String, Object> _params) {

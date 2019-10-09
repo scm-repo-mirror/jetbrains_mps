@@ -17,13 +17,11 @@ import java.awt.Point;
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/3538501397189789300", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public final class SimplePopupWithNodeEditor extends PopupWithNodeEditor {
   private final EditorComponent myEditorComponent;
-  private final String myTitle;
   private final List<SNode> myNodes;
 
-  public SimplePopupWithNodeEditor(final Project project, final EditorComponent editorComponent, final String title, final List<SNode> nodes) {
+  public SimplePopupWithNodeEditor(final Project project, final EditorComponent editorComponent, final List<SNode> nodes) {
     super(project);
     myEditorComponent = editorComponent;
-    myTitle = title;
     myNodes = nodes;
   }
 
@@ -39,7 +37,6 @@ public final class SimplePopupWithNodeEditor extends PopupWithNodeEditor {
   @Override
   protected void beforePopupShown(@NotNull final LightweightWindowEvent ignored) {
     myUI.update(myNodes);
-    myPopup.setCaption(myTitle);
   }
 
   @Nullable

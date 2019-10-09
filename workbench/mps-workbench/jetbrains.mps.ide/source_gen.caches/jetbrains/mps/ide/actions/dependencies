@@ -3369,7 +3369,6 @@
     <classNode dependClassName="java.awt.Component" />
     <classNode dependClassName="java.lang.Object" />
     <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.Runnable" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.Collections" />
     <classNode dependClassName="java.util.Map" />
@@ -3377,7 +3376,6 @@
     <classNode dependClassName="javax.swing.event.ListSelectionEvent" />
     <classNode dependClassName="javax.swing.event.ListSelectionListener" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.Wrappers" />
     <classNode dependClassName="jetbrains.mps.ide.actions.MPSCommonDataKeys" />
     <classNode dependClassName="jetbrains.mps.ide.actions.PopupWithNodeEditor" />
     <classNode dependClassName="jetbrains.mps.ide.actions.PopupWithNodeEditorUI" />
@@ -3646,7 +3644,6 @@
     <classNode dependClassName="com.intellij.ui.awt.RelativePoint" />
     <classNode dependClassName="java.awt.Point" />
     <classNode dependClassName="java.lang.Override" />
-    <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.List" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.nodeEditor.EditorComponent" />

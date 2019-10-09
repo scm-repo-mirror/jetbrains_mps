@@ -21,7 +21,6 @@ import javax.swing.event.ListSelectionEvent;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.ide.editor.actions.FindDeclarationUtils;
 import com.intellij.openapi.ui.popup.JBPopup;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import java.util.Collections;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/8348041782507834008", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
@@ -111,17 +110,10 @@ public class ShowDefinitionInMenu_Action extends BaseAction {
     return FindDeclarationUtils.findDeclarationFromMenu(((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")));
   }
   private void updateUI(JBPopup popup, PopupWithNodeEditorUI ui, final Map<String, Object> _params) {
-    final SNode declaration = ShowDefinitionInMenu_Action.this.findMenuItemDeclaration(_params);
+    SNode declaration = ShowDefinitionInMenu_Action.this.findMenuItemDeclaration(_params);
     if (declaration == null) {
       return;
     }
-    final Wrappers._T<String> title = new Wrappers._T<String>();
-    ((MPSProject) MapSequence.fromMap(_params).get("project")).getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        title.value = "Definition of " + declaration.getPresentation();
-      }
-    });
-    popup.setCaption(title.value);
     ui.update(Collections.singletonList(declaration));
   }
 }

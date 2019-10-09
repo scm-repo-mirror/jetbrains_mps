@@ -92,14 +92,12 @@ public class ShowImplementations_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     final Wrappers._T<List<SNode>> nodes = new Wrappers._T<List<SNode>>();
-    final Wrappers._T<String> title = new Wrappers._T<String>();
     ((MPSProject) MapSequence.fromMap(_params).get("project")).getModelAccess().runReadAction(new Runnable() {
       public void run() {
         nodes.value = ShowImplementations_Action.this.findImplementations(_params);
-        title.value = "Definition of " + ((SNode) MapSequence.fromMap(_params).get("node")).getPresentation();
       }
     });
-    PopupWithNodeEditor popupWithNodeEditor = new SimplePopupWithNodeEditor(((MPSProject) MapSequence.fromMap(_params).get("project")), ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")), title.value, nodes.value);
+    PopupWithNodeEditor popupWithNodeEditor = new SimplePopupWithNodeEditor(((MPSProject) MapSequence.fromMap(_params).get("project")), ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")), nodes.value);
     popupWithNodeEditor.show();
   }
   /*package*/ List<SNode> findImplementations(final Map<String, Object> _params) {
