@@ -43,7 +43,7 @@ public final class VirtualFileUtils {
 
   @Nullable
   public static VirtualFile getVirtualFile(String path) {
-    return getVirtualFile(FileSystem.getInstance().getFile(path));
+    return getVirtualFile(FileSystem.getInstance().findExistingFile(path));
   }
 
   /**
