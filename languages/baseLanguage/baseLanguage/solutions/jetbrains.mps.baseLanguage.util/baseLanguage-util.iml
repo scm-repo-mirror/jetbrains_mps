@@ -23,5 +23,6 @@
     <orderEntry type="module" module-name="behavior-runtime" />
     <orderEntry type="module" module-name="typechecking" />
     <orderEntry type="module" module-name="pattern-runtime" />
+    <orderEntry type="module" module-name="startup-util" />
   </component>
 </module>
