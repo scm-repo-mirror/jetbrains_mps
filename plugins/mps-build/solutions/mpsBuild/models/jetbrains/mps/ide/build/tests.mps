@@ -1965,16 +1965,6 @@
             <ref role="3bR37D" to="ffeo:1TaHNgiIbIQ" resolve="MPS.Core" />
           </node>
         </node>
-        <node concept="1SiIV0" id="4R0dWbem89S" role="3bR37C">
-          <node concept="3bR9La" id="4R0dWbem89T" role="1SiIV1">
-            <ref role="3bR37D" to="ffeo:ymnOULAU0H" resolve="jetbrains.mps.lang.test" />
-          </node>
-        </node>
-        <node concept="1SiIV0" id="4R0dWbem89U" role="3bR37C">
-          <node concept="3bR9La" id="4R0dWbem89V" role="1SiIV1">
-            <ref role="3bR37D" to="ffeo:7Kfy9QB6L9O" resolve="jetbrains.mps.lang.smodel" />
-          </node>
-        </node>
         <node concept="1SiIV0" id="4yhXPMGT63v" role="3bR37C">
           <node concept="3bR9La" id="4yhXPMGT63w" role="1SiIV1">
             <ref role="3bR37D" to="ffeo:1TaHNgiIbJ$" resolve="jetbrains.mps.ide.editor" />
@@ -1988,6 +1978,11 @@
         <node concept="1SiIV0" id="4bFTWqF6BF0" role="3bR37C">
           <node concept="3bR9La" id="4bFTWqF6BF1" role="1SiIV1">
             <ref role="3bR37D" to="ffeo:7Kfy9QB6KYK" resolve="jetbrains.mps.baseLanguage.util" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="3de6X9F5Hme" role="3bR37C">
+          <node concept="3bR9La" id="3de6X9F5Hmf" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:7Kfy9QB6Lfd" resolve="jetbrains.mps.findUsages.runtime" />
           </node>
         </node>
       </node>
