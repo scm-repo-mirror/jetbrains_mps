@@ -28,7 +28,7 @@ import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 
-public class DeployWarning {
+/*package*/ class DeployWarning {
   public static final MigrationBlock.BlockCause NOT_DEPLOYED = new MigrationBlock.BlockCause("some languages are not deployed");
 
   private Consumer<Iterable<SModuleReference>> myRebuildHandler = null;

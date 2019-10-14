@@ -8,7 +8,7 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.LinkedHashSet;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 
-public class MigrationBlock {
+/*package*/ class MigrationBlock {
   private MigrationTrigger myMigrationTrigger;
   private Set<BlockCause> myBlocks = Collections.synchronizedSet(SetSequence.fromSet(new LinkedHashSet<BlockCause>()));
 

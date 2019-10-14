@@ -18,11 +18,13 @@ import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.migration.global.MigrationProperties;
 import com.intellij.openapi.application.ApplicationManager;
+import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
+import org.jetbrains.mps.openapi.module.SModule;
+import java.util.List;
 import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.RuntimeFlags;
 import com.intellij.openapi.startup.StartupManager;
-import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
@@ -32,21 +34,18 @@ import java.util.Set;
 import java.util.LinkedHashSet;
 import java.util.Collection;
 import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
-import jetbrains.mps.smodel.RepoListenerRegistrar;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.lang.migration.runtime.base.MigrationModuleUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
-import java.util.List;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.NotificationListener;
 import javax.swing.event.HyperlinkEvent;
@@ -64,20 +63,9 @@ import com.intellij.util.WaitForProgressToShow;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
 import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.ide.platform.watching.ReloadListener;
-import org.jetbrains.mps.openapi.module.SRepositoryContentAdapter;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.smodel.event.SModelEventVisitor;
-import jetbrains.mps.smodel.event.SModelEventVisitorAdapter;
-import jetbrains.mps.smodel.event.SModelLanguageEvent;
-import jetbrains.mps.smodel.event.SModelDevKitEvent;
-import jetbrains.mps.smodel.ModelsEventsCollector;
-import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.smodel.event.SModelEvent;
-import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.ide.migration.wizard.MigrationSession;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.migration.global.ProjectMigration;
 
 /**
  * At the first startup, migration is not required
@@ -103,7 +91,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
 
   private final ProjectMigrationProperties myProperties;
 
-  private final MyRepoListener myRepoListener = new MyRepoListener();
+  private final SilentModuleVersionUpdater myVersionUpdater;
   private final MyReloadListener myReloadListener = new MyReloadListener();
   private final MyPropertiesListener myPropertiesListener = new MyPropertiesListener();
   private final LanguageRegistryListener myLanguageDeployListener = new MyLangDeployListener();
@@ -124,6 +112,20 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     myLanguageRegistry = mpsCore.getPlatform().findComponent(LanguageRegistry.class);
     myReloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
     myDeployWarn = new DeployWarning(ideaProject, p, myLanguageRegistry);
+    this.myVersionUpdater = new SilentModuleVersionUpdater(myMpsProject, new _FunctionTypes._return_P0_E0<Boolean>() {
+      public Boolean invoke() {
+        return myReloadListener.isIsUnderReload();
+      }
+    }, new _FunctionTypes._void_P1_E0<SModule>() {
+      public void invoke(SModule m) {
+        myMigrationRegistry.doUpdateImportVersions(m);
+      }
+    }) {
+      @Override
+      protected void checkMigrationNeeded(List<SModule> toUpdate) {
+        checkMigrationNeededOnModuleChange(toUpdate);
+      }
+    };
   }
 
   public void setRebuildHandler(Consumer<Iterable<SModuleReference>> rebuildHandler) {
@@ -211,7 +213,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   private void addListeners() {
     myListenersAdded = true;
     myLanguageRegistry.addRegistryListener(myLanguageDeployListener);
-    new RepoListenerRegistrar(myMpsProject.getRepository(), myRepoListener).attach();
+    myVersionUpdater.attach();
     myProperties.addListener(myPropertiesListener);
     myReloadManager.addReloadListener(myReloadListener);
   }
@@ -221,7 +223,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
       return true;
     }
     myProperties.removeListener(myPropertiesListener);
-    new RepoListenerRegistrar(myMpsProject.getRepository(), myRepoListener).detach();
+    myVersionUpdater.detach();
     myReloadManager.removeReloadListener(myReloadListener);
     myLanguageRegistry.removeRegistryListener(myLanguageDeployListener);
     return false;
@@ -322,8 +324,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
             if (myPostponedState.get() == null || forceAssistant) {
               boolean hasSomethingToApply = newState.value.hasSomethingToApply();
               if (hasSomethingToApply) {
-                boolean migrate = CollectionSequence.fromCollection(newState.value.scripts).isNotEmpty() || CollectionSequence.fromCollection(newState.value.projectMigrations).isNotEmpty();
-                if (runMigration(newState.value.versionUpdate, migrate)) {
+                if (runMigration(newState.value.hasVersionUpdate(), newState.value.hasMigrations())) {
                   myPostponedState.set(newState.value);
                 }
               } else if (forceAssistant) {
@@ -359,7 +360,6 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
         }, ModalityState.NON_MODAL);
       }
     });
-
   }
 
   /**
@@ -441,117 +441,6 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     }
   }
 
-  private boolean isProjectMigrateableModule(@NotNull SModule module) {
-    return myMpsProject.getProjectModulesWithGenerators().contains(module) && MigrationModuleUtil.isModuleMigrateable(module);
-  }
-
-  private class MyRepoListener extends SRepositoryContentAdapter {
-    private class ModuleBatchUpdater implements Runnable {
-      public Set<SModule> modulesTouched = SetSequence.fromSet(new HashSet<SModule>());
-      private boolean touchedUnderReload = false;
-      public void run() {
-        myTask = null;
-        List<SModule> toUpdate = SetSequence.fromSet(modulesTouched).distinct().where(new IWhereFilter<SModule>() {
-          public boolean accept(SModule it) {
-            return isProjectMigrateableModule(it);
-          }
-        }).toListSequence();
-        if (!(touchedUnderReload)) {
-          for (SModule m : ListSequence.fromList(toUpdate)) {
-            updateSingleModuleDescriptorSilently(m);
-          }
-        }
-        checkMigrationNeededOnModuleChange(toUpdate);
-      }
-    }
-    private MyRepoListener.ModuleBatchUpdater myTask = null;
-
-    private void updateSingleModuleDescriptorSilently(SModule module) {
-      if (!(isProjectMigrateableModule(module))) {
-        return;
-      }
-      myMigrationRegistry.doUpdateImportVersions(module);
-    }
-    private void triggerOnModuleChanged(SModule module) {
-      if (myTask == null) {
-        myTask = new MyRepoListener.ModuleBatchUpdater();
-        myMpsProject.getModelAccess().executeCommandInEDT(myTask);
-      }
-      SetSequence.fromSet(myTask.modulesTouched).addElement(module);
-      if (myReloadListener.isIsUnderReload()) {
-        myTask.touchedUnderReload = true;
-      }
-    }
-    private SModelEventVisitor myVisitor = new SModelEventVisitorAdapter() {
-      @Override
-      public void visitLanguageEvent(SModelLanguageEvent event) {
-        updateSingleModuleDescriptorSilently(event.getModel().getModule());
-      }
-      @Override
-      public void visitDevKitEvent(SModelDevKitEvent event) {
-        updateSingleModuleDescriptorSilently(event.getModel().getModule());
-      }
-    };
-    private ModelsEventsCollector myModelListener;
-
-
-    @Override
-    public void startListening(@NotNull SRepository repository) {
-      // Here we imply MyRepoListener is attached to a single repository. Otherwise, 
-      // each next repo it starts listening to would override myModelListener value 
-      assert myModelListener == null;
-      myModelListener = new ModelsEventsCollector(repository.getModelAccess()) {
-        @Override
-        protected void eventsHappened(List<SModelEvent> events) {
-          ListSequence.fromList(events).visitAll(new IVisitor<SModelEvent>() {
-            public void visit(SModelEvent it) {
-              it.accept(myVisitor);
-            }
-          });
-        }
-      };
-      super.startListening(repository);
-    }
-    @Override
-    public void stopListening(@NotNull SRepository repository) {
-      super.stopListening(repository);
-      myModelListener.dispose();
-      myModelListener = null;
-    }
-
-    @Override
-    public void moduleAdded(@NotNull SModule module) {
-      super.moduleAdded(module);
-      // here we do not filter out non-project modules because this method is called from 'New Language' action 
-      // before module is attached to project 
-      if (MigrationModuleUtil.isModuleMigrateable(module)) {
-        triggerOnModuleChanged(module);
-      }
-    }
-
-    @Override
-    public void moduleChanged(@NotNull SModule module) {
-      super.moduleChanged(module);
-      if (MigrationModuleUtil.isModuleMigrateable(module)) {
-        triggerOnModuleChanged(module);
-      }
-    }
-    @Override
-    protected void startListening(SModel model) {
-      super.startListening(model);
-      if (isProjectMigrateableModule(model.getModule())) {
-        myModelListener.startListeningToModel(model);
-      }
-    }
-    @Override
-    protected void stopListening(SModel model) {
-      super.stopListening(model);
-      if (isProjectMigrateableModule(model.getModule())) {
-        myModelListener.stopListeningToModel(model);
-      }
-    }
-  }
-
   private class MyPropertiesListener implements ProjectMigrationProperties.MigrationPropertiesReloadListener {
     @Override
     public void onReload() {
@@ -612,40 +501,6 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     public void beforeLanguagesUnloaded(Iterable<LanguageRuntime> iterable) {
       // languages are still loaded when this notification comes, no way we can notice any change here, therefore we don't 
       // check for changed conditions, e.g. with checkNotDeployedLanguages() 
-    }
-  }
-
-  public static class PostponedState {
-    private boolean versionUpdate;
-    private Collection<ScriptApplied> scripts;
-    private Collection<ProjectMigration> projectMigrations;
-
-    public boolean hasSomethingToApply() {
-      return versionUpdate || CollectionSequence.fromCollection(scripts).isNotEmpty() || CollectionSequence.fromCollection(projectMigrations).isNotEmpty();
-    }
-
-    public PostponedState substract(PostponedState state) {
-      PostponedState res = new PostponedState();
-      res.versionUpdate = !(state.versionUpdate) && versionUpdate;
-      res.scripts = CollectionSequence.fromCollection(scripts).subtract(CollectionSequence.fromCollection(state.scripts)).toListSequence();
-      res.projectMigrations = CollectionSequence.fromCollection(projectMigrations).subtract(CollectionSequence.fromCollection(state.projectMigrations)).toListSequence();
-      return res;
-    }
-
-    public PostponedState add(PostponedState state) {
-      PostponedState res = new PostponedState();
-      res.versionUpdate = state.versionUpdate || versionUpdate;
-      res.scripts = CollectionSequence.fromCollection(scripts).union(CollectionSequence.fromCollection(state.scripts)).toListSequence();
-      res.projectMigrations = CollectionSequence.fromCollection(projectMigrations).union(CollectionSequence.fromCollection(state.projectMigrations)).toListSequence();
-      return res;
-    }
-
-    public static PostponedState current(MigrationRegistry mr, Iterable<SModule> modules) {
-      PostponedState current = new PostponedState();
-      current.versionUpdate = mr.importVersionsUpdateRequired(modules);
-      current.scripts = mr.getModuleMigrations(modules);
-      current.projectMigrations = mr.getProjectMigrations();
-      return current;
     }
   }
 }
