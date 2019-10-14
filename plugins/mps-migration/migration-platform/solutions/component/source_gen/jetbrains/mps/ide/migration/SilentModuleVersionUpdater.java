@@ -26,7 +26,7 @@ import jetbrains.mps.smodel.event.SModelEvent;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
 import org.jetbrains.mps.openapi.model.SModel;
 
-public abstract class SilentModuleVersionUpdater {
+/*package*/ abstract class SilentModuleVersionUpdater {
   private final MPSProject myMpsProject;
   private ModuleBatchUpdater myTask = null;
   private SRepositoryListener myRepoListener = new MyRepositoryContentListener();

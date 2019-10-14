@@ -6,14 +6,13 @@ import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
 import com.intellij.openapi.components.StoragePathMacros;
 import com.intellij.openapi.components.AbstractProjectComponent;
-import jetbrains.mps.smodel.language.LanguageRegistry;
-import jetbrains.mps.migration.global.MigrationOptions;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.ide.platform.watching.ReloadManager;
+import jetbrains.mps.smodel.language.LanguageRegistry;
+import jetbrains.mps.migration.global.MigrationOptions;
 import jetbrains.mps.migration.global.ProjectMigrationProperties;
 import jetbrains.mps.smodel.language.LanguageRegistryListener;
 import java.util.concurrent.atomic.AtomicReference;
-import com.intellij.notification.Notification;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.migration.global.MigrationProperties;
@@ -41,15 +40,10 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import com.intellij.notification.NotificationType;
-import com.intellij.notification.NotificationListener;
-import javax.swing.event.HyperlinkEvent;
-import com.intellij.notification.Notifications;
 import java.util.function.BinaryOperator;
 import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.ide.migration.wizard.MigrationWizard;
@@ -82,13 +76,12 @@ import jetbrains.mps.internal.collections.runtime.ISelector;
 @State(name = "MigrationTrigger", storages = @Storage(value = StoragePathMacros.WORKSPACE_FILE)
 )
 public class MigrationTrigger extends AbstractProjectComponent implements IStartupMigrationExecutor {
-  private final LanguageRegistry myLanguageRegistry;
-  private final MigrationOptions myOptions = new MigrationOptions();
-
   private final MPSProject myMpsProject;
   private final MigrationRegistry myMigrationRegistry;
   private final ReloadManager myReloadManager;
+  private final LanguageRegistry myLanguageRegistry;
 
+  private final MigrationOptions myOptions = new MigrationOptions();
   private final ProjectMigrationProperties myProperties;
 
   private final SilentModuleVersionUpdater myVersionUpdater;
@@ -98,11 +91,10 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   private boolean myListenersAdded = false;
 
   private final MigrationBlock myMigrationBlock = new MigrationBlock(this);
-
   private final AtomicReference<PostponedState> myPostponedState = new AtomicReference<PostponedState>();
 
-  private Notification myLastNotification = null;
   private DeployWarning myDeployWarn;
+  private MigrationNotifications myNotifications;
 
   public MigrationTrigger(Project ideaProject, MPSProject p, MigrationRegistry migrationManager, MPSCoreComponents mpsCore) {
     super(ideaProject);
@@ -112,6 +104,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     myLanguageRegistry = mpsCore.getPlatform().findComponent(LanguageRegistry.class);
     myReloadManager = ApplicationManager.getApplication().getComponent(ReloadManager.class);
     myDeployWarn = new DeployWarning(ideaProject, p, myLanguageRegistry);
+    myNotifications = new MigrationNotifications(myProject);
     this.myVersionUpdater = new SilentModuleVersionUpdater(myMpsProject, new _FunctionTypes._return_P0_E0<Boolean>() {
       public Boolean invoke() {
         return myReloadListener.isIsUnderReload();
@@ -288,8 +281,7 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
   public synchronized void scheduleMigration(final boolean forceAssistant) {
     if (myMigrationBlock.isMigrationForbidden()) {
       if (forceAssistant) {
-        String cause = (myMigrationBlock.getMigrationForbiddenMessage() == null ? "" : " as " + myMigrationBlock.getMigrationForbiddenMessage());
-        Messages.showMessageDialog(myProject, "The migration can not be run" + cause + ".\n" + "Migration assistant will not be started.", "Migration can't start", null);
+        myNotifications.showCantStart(myMigrationBlock.getMigrationForbiddenMessage());
       } else if (!(myMigrationBlock.isMigrationForbiddenExcept(Sequence.<MigrationBlock.BlockCause>singleton(DeployWarning.NOT_DEPLOYED)))) {
         myDeployWarn.notifyDeployWarn();
       }
@@ -328,26 +320,18 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
                   myPostponedState.set(newState.value);
                 }
               } else if (forceAssistant) {
-                Messages.showMessageDialog(myProject, "Project doesn't need to be migrated.\n" + "Migration assistant will not be started.", "Migration Not Required", null);
+                myNotifications.showNotRequired();
               }
             } else {
-              if (myLastNotification != null && !(myLastNotification.isExpired())) {
+              if (!(myNotifications.showRequired(new _FunctionTypes._void_P0_E0() {
+                public void invoke() {
+                  myPostponedState.set(null);
+                  scheduleMigration(true);
+                }
+              }))) {
                 return;
               }
-              myLastNotification = new Notification("Migration", "Migration required", "<p>This project requires migration.</p><p><a href=\"migrate\">Migrate</a></p>", NotificationType.INFORMATION, new NotificationListener() {
-                @Override
-                public void hyperlinkUpdate(@NotNull Notification notification, @NotNull HyperlinkEvent e) {
-                  if (e.getEventType() != HyperlinkEvent.EventType.ACTIVATED) {
-                    return;
-                  }
-                  if ("migrate".equals(e.getDescription())) {
-                    myPostponedState.set(null);
-                    scheduleMigration(true);
-                  }
-                  notification.expire();
-                }
-              });
-              Notifications.Bus.notify(myLastNotification, myProject);
+
               myPostponedState.accumulateAndGet(newState.value, new BinaryOperator<PostponedState>() {
                 @Override
                 public PostponedState apply(PostponedState current, PostponedState additional) {
