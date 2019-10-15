@@ -21,8 +21,8 @@
     <import index="q7tw" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:org.apache.log4j(MPS.Core/)" />
     <import index="o3n2" ref="r:26eadcf0-f275-4e90-be37-e4432772a74d(jetbrains.mps.build.util)" />
     <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
+    <import index="2txq" ref="r:2c8fa2a8-11a0-4729-bd56-47f702d30278(jetbrains.mps.build.mps.behavior)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
-    <import index="2txq" ref="r:2c8fa2a8-11a0-4729-bd56-47f702d30278(jetbrains.mps.build.mps.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -356,10 +356,6 @@
       <concept id="1204796164442" name="jetbrains.mps.baseLanguage.collections.structure.InternalSequenceOperation" flags="nn" index="23sCx2">
         <child id="1204796294226" name="closure" index="23t8la" />
       </concept>
-      <concept id="1176903168877" name="jetbrains.mps.baseLanguage.collections.structure.UnionOperation" flags="nn" index="4Tj9Z" />
-      <concept id="1176906603202" name="jetbrains.mps.baseLanguage.collections.structure.BinaryOperation" flags="nn" index="56pJg">
-        <child id="1176906787974" name="rightExpression" index="576Qk" />
-      </concept>
       <concept id="540871147943773365" name="jetbrains.mps.baseLanguage.collections.structure.SingleArgumentSequenceOperation" flags="nn" index="25WWJ4">
         <child id="540871147943773366" name="argument" index="25WWJ7" />
       </concept>
@@ -402,6 +398,7 @@
       <concept id="1202120902084" name="jetbrains.mps.baseLanguage.collections.structure.WhereOperation" flags="nn" index="3zZkjj" />
       <concept id="1176501494711" name="jetbrains.mps.baseLanguage.collections.structure.IsNotEmptyOperation" flags="nn" index="3GX2aA" />
       <concept id="1172254888721" name="jetbrains.mps.baseLanguage.collections.structure.ContainsOperation" flags="nn" index="3JPx81" />
+      <concept id="31378964227347002" name="jetbrains.mps.baseLanguage.collections.structure.SelectNotNullOperation" flags="ng" index="1KnU$U" />
       <concept id="5686963296372573083" name="jetbrains.mps.baseLanguage.collections.structure.AbstractContainerType" flags="in" index="3O5elB">
         <child id="5686963296372573084" name="elementType" index="3O5elw" />
       </concept>
@@ -2181,24 +2178,26 @@
           </node>
         </node>
       </node>
-      <node concept="3cpWs8" id="14TUqehugYG" role="3cqZAp">
-        <node concept="3cpWsn" id="14TUqehugYH" role="3cpWs9">
+      <node concept="3cpWs8" id="4JJgtNkEHRI" role="3cqZAp">
+        <node concept="3cpWsn" id="4JJgtNkEHRJ" role="3cpWs9">
           <property role="TrG5h" value="moduleDeps" />
-          <node concept="2I9FWS" id="14TUqehugYw" role="1tU5fm">
-            <ref role="2I9WkF" to="kdzh:4zCbl23d1MR" resolve="BuildMps_ModuleDependency" />
+          <node concept="A3Dl8" id="4JJgtNkEEAI" role="1tU5fm">
+            <node concept="3Tqbb2" id="4JJgtNkEEAL" role="A3Ik2">
+              <ref role="ehGHo" to="kdzh:4zCbl23d1MR" resolve="BuildMps_ModuleDependency" />
+            </node>
           </node>
-          <node concept="2OqwBi" id="14TUqehugYI" role="33vP2m">
-            <node concept="1PxgMI" id="14TUqehugYJ" role="2Oq$k0">
+          <node concept="2OqwBi" id="4JJgtNkEHRK" role="33vP2m">
+            <node concept="2qgKlT" id="4JJgtNkEHRL" role="2OqNvi">
+              <ref role="37wK5l" to="2txq:3QtfwKhgryb" resolve="getDependenciesUnwrapped" />
+            </node>
+            <node concept="1PxgMI" id="4JJgtNkEHRM" role="2Oq$k0">
               <property role="1BlNFB" value="true" />
-              <node concept="chp4Y" id="14TUqehugYK" role="3oSUPX">
+              <node concept="chp4Y" id="4JJgtNkEHRN" role="3oSUPX">
                 <ref role="cht4Q" to="kdzh:4zCbl23cpcc" resolve="BuildMps_Module" />
               </node>
-              <node concept="37vLTw" id="14TUqehugYL" role="1m5AlR">
+              <node concept="37vLTw" id="4JJgtNkEHRO" role="1m5AlR">
                 <ref role="3cqZAo" node="14TUqehtZIe" resolve="module" />
               </node>
-            </node>
-            <node concept="3Tsc0h" id="14TUqehugYM" role="2OqNvi">
-              <ref role="3TtcxE" to="kdzh:4zCbl23d1MS" resolve="dependencies" />
             </node>
           </node>
         </node>
@@ -2210,27 +2209,8 @@
         <node concept="2OqwBi" id="14TUqehuwCk" role="3clFbw">
           <node concept="2OqwBi" id="14TUqehuw9L" role="2Oq$k0">
             <node concept="2OqwBi" id="14TUqehuhwY" role="2Oq$k0">
-              <node concept="2OqwBi" id="14TUqehugKb" role="2Oq$k0">
-                <node concept="2OqwBi" id="14TUqehug9I" role="2Oq$k0">
-                  <node concept="2OqwBi" id="14TUqehu6I2" role="2Oq$k0">
-                    <node concept="37vLTw" id="14TUqehugYN" role="2Oq$k0">
-                      <ref role="3cqZAo" node="14TUqehugYH" resolve="moduleDeps" />
-                    </node>
-                    <node concept="v3k3i" id="14TUqehu8XJ" role="2OqNvi">
-                      <node concept="chp4Y" id="14TUqehufVh" role="v3oSu">
-                        <ref role="cht4Q" to="kdzh:6iXh2SsXUFI" resolve="BuildMps_ExtractedModuleDependency" />
-                      </node>
-                    </node>
-                  </node>
-                  <node concept="13MTOL" id="14TUqehugtK" role="2OqNvi">
-                    <ref role="13MTZf" to="kdzh:6iXh2SsXUFJ" resolve="dependency" />
-                  </node>
-                </node>
-                <node concept="4Tj9Z" id="14TUqehuhkG" role="2OqNvi">
-                  <node concept="37vLTw" id="14TUqehuhlv" role="576Qk">
-                    <ref role="3cqZAo" node="14TUqehugYH" resolve="moduleDeps" />
-                  </node>
-                </node>
+              <node concept="37vLTw" id="4JJgtNkEHRP" role="2Oq$k0">
+                <ref role="3cqZAo" node="4JJgtNkEHRJ" resolve="moduleDeps" />
               </node>
               <node concept="v3k3i" id="6sXV9450riV" role="2OqNvi">
                 <node concept="chp4Y" id="6sXV9450syU" role="v3oSu">
@@ -2269,6 +2249,56 @@
           </node>
         </node>
       </node>
+      <node concept="3clFbJ" id="4JJgtNkEIpD" role="3cqZAp">
+        <node concept="3clFbS" id="4JJgtNkEIpE" role="3clFbx">
+          <node concept="3cpWs6" id="4JJgtNkEIpF" role="3cqZAp" />
+        </node>
+        <node concept="2OqwBi" id="4JJgtNkEIpG" role="3clFbw">
+          <node concept="2OqwBi" id="4JJgtNkEJIx" role="2Oq$k0">
+            <node concept="2OqwBi" id="4JJgtNkEIpH" role="2Oq$k0">
+              <node concept="2OqwBi" id="4JJgtNkEIpI" role="2Oq$k0">
+                <node concept="37vLTw" id="4JJgtNkEIpJ" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4JJgtNkEHRJ" resolve="moduleDeps" />
+                </node>
+                <node concept="v3k3i" id="4JJgtNkEIpK" role="2OqNvi">
+                  <node concept="chp4Y" id="4JJgtNkEIz1" role="v3oSu">
+                    <ref role="cht4Q" to="kdzh:2L4pT56gYzV" resolve="BuildMps_ModuleDependencyOnJavaModule" />
+                  </node>
+                </node>
+              </node>
+              <node concept="13MTOL" id="4JJgtNkEJlZ" role="2OqNvi">
+                <ref role="13MTZf" to="kdzh:6mTG60y20x2" resolve="javaLibLocation" />
+              </node>
+            </node>
+            <node concept="1KnU$U" id="4JJgtNkEK0U" role="2OqNvi" />
+          </node>
+          <node concept="2HwmR7" id="4JJgtNkEIpN" role="2OqNvi">
+            <node concept="1bVj0M" id="4JJgtNkEIpO" role="23t8la">
+              <node concept="3clFbS" id="4JJgtNkEIpP" role="1bW5cS">
+                <node concept="3clFbF" id="4JJgtNkEIpQ" role="3cqZAp">
+                  <node concept="17R0WA" id="4JJgtNkEIpR" role="3clFbG">
+                    <node concept="2OqwBi" id="4JJgtNkEIpS" role="3uHU7B">
+                      <node concept="37vLTw" id="4JJgtNkEIpT" role="2Oq$k0">
+                        <ref role="3cqZAo" node="4JJgtNkEIpW" resolve="it" />
+                      </node>
+                      <node concept="2qgKlT" id="4JJgtNkEIpU" role="2OqNvi">
+                        <ref role="37wK5l" to="vbkb:4Kip2_918YF" resolve="getRelativePath" />
+                      </node>
+                    </node>
+                    <node concept="37vLTw" id="4JJgtNkEIpV" role="3uHU7w">
+                      <ref role="3cqZAo" node="14TUqehuC9A" resolve="expectedPath" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="Rh6nW" id="4JJgtNkEIpW" role="1bW2Oz">
+                <property role="TrG5h" value="it" />
+                <node concept="2jxLKc" id="4JJgtNkEIpX" role="1tU5fm" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
       <node concept="a7r0C" id="14TUqehvdts" role="3cqZAp">
         <node concept="1YBJjd" id="14TUqehverp" role="2OEOjV">
           <ref role="1YBMHb" node="14TUqehtZ2C" resolve="jarLoc" />
@@ -2277,7 +2307,7 @@
           <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
           <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
           <node concept="Xl_RD" id="14TUqehuFMJ" role="37wK5m">
-            <property role="Xl_RC" value="Module %s doesn't depend on jar %s, mapping doesn't make sense." />
+            <property role="Xl_RC" value="Module %s doesn't depend on %s, mapping doesn't make sense." />
           </node>
           <node concept="2OqwBi" id="14TUqehuIrZ" role="37wK5m">
             <node concept="37vLTw" id="14TUqehuIdz" role="2Oq$k0">

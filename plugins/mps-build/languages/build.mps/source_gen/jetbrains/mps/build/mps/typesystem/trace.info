@@ -37,73 +37,82 @@
       <node id="1241280061046794496" at="38,79,39,13" concept="9" />
       <node id="1241280061046948453" at="40,5,41,157" concept="8" />
       <node id="1241280061046890376" at="41,157,42,100" concept="10" />
-      <node id="1241280061046853548" at="42,100,43,139" concept="8" />
+      <node id="5471664488995020270" at="42,100,43,172" concept="8" />
       <node id="1241280061046919232" at="45,39,46,122" concept="9" />
       <node id="1241280061046958728" at="48,9,49,13" concept="9" />
-      <node id="1241280061047101276" at="51,5,52,64" concept="8" />
-      <node id="1241280061047101276" at="52,64,53,358" concept="8" />
-      <node id="1241280061046780069" at="56,50,57,66" concept="9" />
-      <node id="1241280061046780069" at="59,68,60,102" concept="9" />
-      <node id="1241280061046780069" at="62,30,63,17" concept="9" />
-      <node id="1241280061046780069" at="67,0,68,0" concept="12" trace="BuildMpsLayout_ModuleJars$mB" />
-      <node id="1241280061046780069" at="68,0,69,0" concept="12" trace="BuildMpsLayout_ModuleXml$8Q" />
-      <node id="1241280061046780069" at="69,0,70,0" concept="12" trace="BuildMps_Module$j$" />
-      <node id="1241280061046780069" at="70,0,71,0" concept="12" trace="BuildMps_ExtractedModuleDependency$LK" />
-      <node id="1241280061046780069" at="71,0,72,0" concept="12" trace="BuildMps_ModuleDependencyJar$qY" />
-      <node id="1241280061046780069" at="72,0,73,0" concept="12" trace="BuildMpsLayout_ModuleXml_CustomJarLocation$Ef" />
-      <node id="1241280061046780069" at="76,0,77,0" concept="12" trace="module$5MWZ" />
-      <node id="1241280061046780069" at="77,0,78,0" concept="12" trace="module$Fu50" />
-      <node id="1241280061046780069" at="78,0,79,0" concept="12" trace="path$TJ8w" />
-      <node id="1241280061046780069" at="79,0,80,0" concept="12" trace="dependencies$Pit_" />
-      <node id="1241280061046780069" at="80,0,81,0" concept="12" trace="dependency$6b80" />
-      <node id="1241280061046780069" at="81,0,82,0" concept="12" trace="path$PN10" />
-      <node id="1241280061046780069" at="85,0,86,0" concept="12" trace="name$tAp1" />
+      <node id="5471664488995022454" at="52,39,53,122" concept="9" />
+      <node id="5471664488995022443" at="55,9,56,13" concept="9" />
+      <node id="1241280061047101276" at="58,5,59,64" concept="8" />
+      <node id="1241280061047101276" at="59,64,60,354" concept="8" />
+      <node id="1241280061046780069" at="63,50,64,66" concept="9" />
+      <node id="1241280061046780069" at="66,68,67,102" concept="9" />
+      <node id="1241280061046780069" at="69,30,70,17" concept="9" />
+      <node id="1241280061046780069" at="74,0,75,0" concept="12" trace="BuildMpsLayout_ModuleJars$mB" />
+      <node id="1241280061046780069" at="75,0,76,0" concept="12" trace="BuildMpsLayout_ModuleXml$8Q" />
+      <node id="1241280061046780069" at="76,0,77,0" concept="12" trace="BuildMps_Module$j$" />
+      <node id="1241280061046780069" at="77,0,78,0" concept="12" trace="BuildMps_ModuleDependencyJar$qY" />
+      <node id="1241280061046780069" at="78,0,79,0" concept="12" trace="BuildMps_ModuleDependencyOnJavaModule$mo" />
+      <node id="1241280061046780069" at="79,0,80,0" concept="12" trace="BuildMpsLayout_ModuleXml_CustomJarLocation$Ef" />
+      <node id="1241280061046780069" at="83,0,84,0" concept="12" trace="module$5MWZ" />
+      <node id="1241280061046780069" at="84,0,85,0" concept="12" trace="module$Fu50" />
+      <node id="1241280061046780069" at="85,0,86,0" concept="12" trace="path$TJ8w" />
+      <node id="1241280061046780069" at="86,0,87,0" concept="12" trace="path$PN10" />
+      <node id="1241280061046780069" at="87,0,88,0" concept="12" trace="javaLibLocation$VgPH" />
+      <node id="1241280061046780069" at="91,0,92,0" concept="12" trace="name$tAp1" />
       <node id="1241280061046780069" at="30,0,32,0" concept="1" trace="check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule#()V" />
       <node id="1241280061046782901" at="34,158,37,5" concept="6" />
       <node id="1241280061046793532" at="37,5,40,5" concept="6" />
       <node id="1241280061046918827" at="45,0,48,0" concept="7" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="1241280061046780069" at="56,0,59,0" concept="7" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="1241280061046780069" at="59,0,62,0" concept="7" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
-      <node id="1241280061046780069" at="62,0,65,0" concept="7" trace="overrides#()Z" />
-      <node id="1241280061047101276" at="50,5,54,5" concept="0" />
-      <node id="1241280061046956955" at="43,139,50,5" concept="6" />
-      <node id="1241280061046780069" at="32,0,56,0" concept="7" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
+      <node id="5471664488995022452" at="52,0,55,0" concept="7" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="1241280061046780069" at="63,0,66,0" concept="7" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="1241280061046780069" at="66,0,69,0" concept="7" trace="isApplicableAndPattern#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;" />
+      <node id="1241280061046780069" at="69,0,72,0" concept="7" trace="overrides#()Z" />
+      <node id="1241280061047101276" at="57,5,61,5" concept="0" />
+      <node id="1241280061046956955" at="43,172,50,5" concept="6" />
+      <node id="5471664488995022441" at="50,5,57,5" concept="6" />
+      <node id="1241280061046780069" at="32,0,63,0" concept="7" trace="applyRule#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/typesystem/inference/TypeCheckingContext;Ljetbrains/mps/lang/typesystem/runtime/IsApplicableStatus;)V" />
       <scope id="1241280061046780069" at="30,79,30,79" />
       <scope id="1241280061046782903" at="35,25,36,153" />
       <scope id="1241280061046793534" at="38,79,39,13" />
       <scope id="1241280061046918828" at="45,39,46,122" />
       <scope id="1241280061046956957" at="48,9,49,13" />
-      <scope id="1241280061046780069" at="56,50,57,66" />
-      <scope id="1241280061046780069" at="59,68,60,102" />
-      <scope id="1241280061046780069" at="62,30,63,17" />
+      <scope id="5471664488995022453" at="52,39,53,122" />
+      <scope id="5471664488995022442" at="55,9,56,13" />
+      <scope id="1241280061046780069" at="63,50,64,66" />
+      <scope id="1241280061046780069" at="66,68,67,102" />
+      <scope id="1241280061046780069" at="69,30,70,17" />
       <scope id="1241280061046780069" at="30,0,32,0" />
-      <scope id="1241280061047101276" at="51,5,53,358">
+      <scope id="1241280061047101276" at="58,5,60,354">
         <var name="_reporter_2309309498" id="1241280061047101276" />
         <var name="errorTarget" id="1241280061047101276" />
       </scope>
       <scope id="1241280061046918827" at="45,0,48,0">
         <var name="it" id="1241280061046918827" />
       </scope>
-      <scope id="1241280061046780069" at="56,0,59,0" />
-      <scope id="1241280061046780069" at="59,0,62,0">
+      <scope id="5471664488995022452" at="52,0,55,0">
+        <var name="it" id="5471664488995022452" />
+      </scope>
+      <scope id="1241280061046780069" at="63,0,66,0" />
+      <scope id="1241280061046780069" at="66,0,69,0">
         <var name="argument" id="1241280061046780069" />
       </scope>
-      <scope id="1241280061046780069" at="62,0,65,0" />
-      <scope id="1241280061046780070" at="32,119,54,5">
+      <scope id="1241280061046780069" at="69,0,72,0" />
+      <scope id="1241280061046780070" at="32,119,61,5">
         <var name="expectedPath" id="1241280061046948454" />
         <var name="module" id="1241280061046782862" />
-        <var name="moduleDeps" id="1241280061046853549" />
+        <var name="moduleDeps" id="5471664488995020271" />
       </scope>
-      <scope id="1241280061046780069" at="32,0,56,0">
+      <scope id="1241280061046780069" at="32,0,63,0">
         <var name="jarLoc" id="1241280061046780069" />
         <var name="status" id="1241280061046780069" />
         <var name="typeCheckingContext" id="1241280061046780069" />
       </scope>
-      <unit id="1241280061046780069" at="84,0,87,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$PROPS" />
-      <unit id="1241280061046918827" at="44,348,48,5" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$1" />
-      <unit id="1241280061046780069" at="66,0,74,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$CONCEPTS" />
-      <unit id="1241280061046780069" at="75,0,83,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$LINKS" />
-      <unit id="1241280061046780069" at="29,0,88,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule" />
+      <unit id="1241280061046780069" at="90,0,93,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$PROPS" />
+      <unit id="1241280061046918827" at="44,161,48,5" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$1" />
+      <unit id="5471664488995022452" at="51,220,55,5" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$2" />
+      <unit id="1241280061046780069" at="82,0,89,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$LINKS" />
+      <unit id="1241280061046780069" at="73,0,81,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule$CONCEPTS" />
+      <unit id="1241280061046780069" at="29,0,94,0" name="jetbrains.mps.build.mps.typesystem.check_BuildMpsLayout_ModuleXml_CustomJarLocation_NonTypesystemRule" />
     </file>
   </root>
   <root nodeRef="r:473be7a1-ec10-4475-89b9-397d2558ecb0(jetbrains.mps.build.mps.typesystem)/1392391688313307201">
