@@ -39,6 +39,10 @@ import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.migration.global.ProjectMigration;
+import jetbrains.mps.migration.global.CleanupProjectMigration;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
@@ -255,42 +259,50 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
       return;
     }
 
-    Set<SModule> modules2Check = SetSequence.fromSetWithValues(new HashSet<SModule>(), modules);
-    if (isMigrationRequired(modules2Check)) {
+    if (myMigrationBlock.isMigrationForbidden()) {
+      // the "not deployed" languages case 
+      myDeployWarn.notifyDeployWarn(CollectionSequence.fromCollection(myMigrationRegistry.getProjectMigrations()).any(new IWhereFilter<ProjectMigration>() {
+        public boolean accept(ProjectMigration it) {
+          return it instanceof CleanupProjectMigration;
+        }
+      }));
+      return;
+    }
+
+    if (getNewMigrations(modules).hasSomethingToApply()) {
       scheduleMigration(false);
     }
   }
 
-  private boolean isMigrationRequired(Iterable<SModule> modules2Check) {
+  private PostponedState getNewMigrations(Iterable<SModule> modules2Check) {
     PostponedState current = PostponedState.current(myMigrationRegistry, modules2Check);
     PostponedState saved = myPostponedState.get();
     if (saved != null) {
       current = current.substract(saved);
     }
-    return current.hasSomethingToApply();
+    return current;
   }
 
-  public synchronized void scheduleMigration(final boolean forceAssistant) {
-    if (myMigrationBlock.isMigrationForbidden()) {
-      if (forceAssistant) {
-        myNotifications.showCantStart(myMigrationBlock.getMigrationForbiddenMessage());
-      } else if (!(myMigrationBlock.isMigrationForbiddenWithout(DeployWarning.NOT_DEPLOYED))) {
-        myDeployWarn.notifyDeployWarn();
-      }
+  /**
+   * 
+   * @param force means the user explicitly invoked migration
+   */
+  public synchronized void scheduleMigration(final boolean force) {
+    if (force && myMigrationBlock.isMigrationForbiddenWithout(DeployWarning.NOT_DEPLOYED)) {
+      myNotifications.showCantStart(myMigrationBlock.getMigrationForbiddenMessage());
       return;
     }
 
-    final Project ideaProject = myProject;
     final MigrationBlock.BlockCause scheduledBlockCause = new MigrationBlock.BlockCause("migration is already scheduled");
     myMigrationBlock.blockMigrationsCheck(scheduledBlockCause);
 
     // wait until project is fully loaded (if not yet) 
-    StartupManager.getInstance(ideaProject).runWhenProjectIsInitialized(new Runnable() {
+    StartupManager.getInstance(myProject).runWhenProjectIsInitialized(new Runnable() {
       public void run() {
         // as we use ui, postpone to EDT 
         ApplicationManager.getApplication().invokeLater(new Runnable() {
           public void run() {
-            ProgressManager.getInstance().run(new Task.Modal(ideaProject, "Synchronizing Files...", false) {
+            ProgressManager.getInstance().run(new Task.Modal(myProject, "Synchronizing Files...", false) {
               public void run(@NotNull ProgressIndicator pi) {
                 pi.setIndeterminate(true);
                 myReloadManager.flush();
@@ -305,13 +317,13 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
               }
             });
 
-            if (myPostponedState.get() == null || forceAssistant) {
+            if (myPostponedState.get() == null || force) {
               boolean hasSomethingToApply = newState.value.hasSomethingToApply();
               if (hasSomethingToApply) {
                 if (runMigration(newState.value.hasVersionUpdate(), newState.value.hasMigrations())) {
                   myPostponedState.set(newState.value);
                 }
-              } else if (forceAssistant) {
+              } else if (force) {
                 myNotifications.showNotRequired();
               }
             } else {

@@ -4,7 +4,6 @@ package jetbrains.mps.ide.migration;
 
 import java.util.function.Consumer;
 import org.jetbrains.mps.openapi.module.SModuleReference;
-import com.intellij.notification.Notification;
 import com.intellij.openapi.project.Project;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.smodel.language.LanguageRegistry;
@@ -20,19 +19,21 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.smodel.language.LanguageRuntime;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.util.NameUtil;
+import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.NotificationListener;
 import org.jetbrains.annotations.NotNull;
 import javax.swing.event.HyperlinkEvent;
-import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 
 /*package*/ class DeployWarning {
   public static final MigrationBlock.BlockCause NOT_DEPLOYED = new MigrationBlock.BlockCause("some languages are not deployed");
+  public static final String GOTO_PREFIX = "goto_";
 
   private Consumer<Iterable<SModuleReference>> myRebuildHandler = null;
-  private Notification myLastDeployWarning = null;
+  private MigrationSuspendedNotification myLastDeployWarning = null;
   private Project myIdeaProject;
   private MPSProject myMpsProject;
   private LanguageRegistry myLangRegistry;
@@ -47,11 +48,11 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
     myRebuildHandler = rebuildHandler;
   }
 
-  public void notifyDeployWarn() {
+  public void notifyDeployWarn(boolean hasCleanups) {
     Set<SLanguage> problems = getNotDeployedUsedLanguages();
 
-    if (myLastDeployWarning != null && myLastDeployWarning.getBalloon() != null) {
-      // migrations already blocked, warning is showing 
+    if (myLastDeployWarning != null && myLastDeployWarning.getBalloon() != null && myLastDeployWarning.myHasCleanups == hasCleanups) {
+      // migrations already blocked, warning is showing and has same "cleanup" status 
       return;
     }
 
@@ -60,7 +61,7 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
       myLastDeployWarning.expire();
     }
 
-    myLastDeployWarning = createDeployWarn(problems);
+    myLastDeployWarning = createDeployWarn(problems, hasCleanups);
     Notifications.Bus.notify(myLastDeployWarning, myIdeaProject);
   }
 
@@ -89,7 +90,7 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
     return allUsedLanguages;
   }
 
-  private Notification createDeployWarn(final Set<SLanguage> problems) {
+  private MigrationSuspendedNotification createDeployWarn(final Set<SLanguage> problems, boolean hasCleanups) {
     final int treshold = 20;
     Iterable<SLanguage> sortedProblems = SetSequence.fromSet(problems).sort(new ISelector<SLanguage, String>() {
       public String select(SLanguage it) {
@@ -107,7 +108,6 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
     sb.append("<p>");
 
     final String space = "&nbsp;";
-    final String gotoPrefix = "goto_";
     for (SLanguage langProblem : Sequence.fromIterable(sortedProblems).take(treshold)) {
       sb.append(space + space + "-");
       boolean absent = langProblem.getSourceModule() == null;
@@ -115,7 +115,7 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
       if (absent) {
         sb.append(langName);
       } else {
-        sb.append("<a href=\"").append(gotoPrefix).append(langProblem.getSourceModuleReference().toString()).append("\">");
+        sb.append("<a href=\"").append(GOTO_PREFIX).append(langProblem.getSourceModuleReference().toString()).append("\">");
         sb.append(langName);
         sb.append("</a>");
       }
@@ -127,26 +127,33 @@ import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
       sb.append("<br><p><a href=\"rebuild\">Rebuild and deploy listed languages</a></p>");
     }
 
-    return new Notification("Migration", "Migration suspended", sb.toString(), NotificationType.WARNING, new NotificationListener() {
-      @Override
-      public void hyperlinkUpdate(@NotNull Notification notification, @NotNull HyperlinkEvent e) {
-        if (e.getEventType() != HyperlinkEvent.EventType.ACTIVATED) {
-          return;
-        }
-        if ("rebuild".equals(e.getDescription())) {
-          myRebuildHandler.accept(SetSequence.fromSet(problems).select(new ISelector<SLanguage, SModuleReference>() {
-            public SModuleReference select(SLanguage it) {
-              return it.getSourceModuleReference();
-            }
-          }).where(new NotNullWhereFilter<SModuleReference>()));
-        }
-        if (e.getDescription().startsWith(gotoPrefix)) {
-          String ref = e.getDescription().substring(gotoPrefix.length());
-          SModuleReference module = ModuleReference.parseReference(ref);
-          new ProjectPaneNavigator(myMpsProject).shallFocus(true).select(module);
-        }
+    return new MigrationSuspendedNotification(sb.toString(), hasCleanups, SetSequence.fromSet(problems).select(new ISelector<SLanguage, SModuleReference>() {
+      public SModuleReference select(SLanguage it) {
+        return it.getSourceModuleReference();
       }
-    });
+    }).where(new NotNullWhereFilter<SModuleReference>()));
   }
 
+  private class MigrationSuspendedNotification extends Notification {
+    /*package*/ boolean myHasCleanups;
+    public MigrationSuspendedNotification(String title, boolean hasCleanups, final Iterable<SModuleReference> problemModules) {
+      super("Migration", "Migration suspended", title, NotificationType.WARNING, new NotificationListener() {
+        @Override
+        public void hyperlinkUpdate(@NotNull Notification notification, @NotNull HyperlinkEvent e) {
+          if (e.getEventType() != HyperlinkEvent.EventType.ACTIVATED) {
+            return;
+          }
+          if ("rebuild".equals(e.getDescription())) {
+            myRebuildHandler.accept(problemModules);
+          }
+          if (e.getDescription().startsWith(GOTO_PREFIX)) {
+            String ref = e.getDescription().substring(GOTO_PREFIX.length());
+            SModuleReference module = ModuleReference.parseReference(ref);
+            new ProjectPaneNavigator(myMpsProject).shallFocus(true).select(module);
+          }
+        }
+      });
+      myHasCleanups = hasCleanups;
+    }
+  }
 }
