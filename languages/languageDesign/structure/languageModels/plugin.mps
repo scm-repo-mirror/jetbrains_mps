@@ -136,7 +136,7 @@
       <ref role="2vPcib" node="264$spPfYX1" resolve="MPSAspects" />
     </node>
     <node concept="1sEMCm" id="46nPloex5BB" role="1fTXyH">
-      <property role="1sEMCp" value="/Structure" />
+      <property role="1sEMCp" value="/structure.html" />
       <ref role="1fZFei" node="46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>

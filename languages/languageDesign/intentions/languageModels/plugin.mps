@@ -59,7 +59,7 @@
       <ref role="2vPcib" to="tpcc:264$spPfYX1" resolve="MPSAspects" />
     </node>
     <node concept="1sEMCm" id="46nPloex5Bt" role="1fTXyH">
-      <property role="1sEMCp" value="/Intentions" />
+      <property role="1sEMCp" value="/mps-intentions.html" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>

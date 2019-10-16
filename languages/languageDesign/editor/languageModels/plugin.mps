@@ -64,7 +64,7 @@
       <ref role="2vPcib" to="tpcc:264$spPfYX1" resolve="MPSAspects" />
     </node>
     <node concept="1sEMCm" id="46nPloex5Bp" role="1fTXyH">
-      <property role="1sEMCp" value="/Editor" />
+      <property role="1sEMCp" value="/editor.html" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>

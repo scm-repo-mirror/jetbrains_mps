@@ -96,7 +96,7 @@
       <ref role="2vPcib" to="tpcc:264$spPfYX1" resolve="MPSAspects" />
     </node>
     <node concept="1sEMCm" id="46nPloex5Bl" role="1fTXyH">
-      <property role="1sEMCp" value="/Constraints" />
+      <property role="1sEMCp" value="/constraints.html" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
     <node concept="T9mpH" id="6GnzfDRiiE6" role="TkT64">

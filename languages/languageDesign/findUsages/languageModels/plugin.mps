@@ -57,7 +57,7 @@
       <ref role="2vPcib" to="tpcc:264$spPfYX1" resolve="MPSAspects" />
     </node>
     <node concept="1sEMCm" id="46nPloex5Br" role="1fTXyH">
-      <property role="1sEMCp" value="/Find+usages" />
+      <property role="1sEMCp" value="/find-usages.html" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>

@@ -59,7 +59,7 @@
       <ref role="2vPcib" to="tpcc:264$spPfYX1" resolve="MPSAspects" />
     </node>
     <node concept="1sEMCm" id="46nPloex5BD" role="1fTXyH">
-      <property role="1sEMCp" value="/TextGen" />
+      <property role="1sEMCp" value="/textgen.html" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>

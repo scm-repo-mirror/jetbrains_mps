@@ -102,5 +102,5 @@ public class LanguageAspectsEP_extension extends Extension.Default<LanguageAspec
 
     };
   }
-  private static final String HELP_URL_ecu8yf_a0a7a0a0a1 = URLFunction_ConfluenceDocUrl.getUrl() + "/TextGen";
+  private static final String HELP_URL_ecu8yf_a0a7a0a0a1 = URLFunction_ConfluenceDocUrl.getUrl() + "/textgen.html";
 }
