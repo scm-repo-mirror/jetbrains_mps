@@ -25,7 +25,6 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ListSequence" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
-    <classNode dependClassName="jetbrains.mps.lang.structure.plugin.URLFunction_ConfluenceDocUrl" />
     <classNode dependClassName="jetbrains.mps.project.SModuleOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.Language" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
@@ -33,6 +32,7 @@
     <classNode dependClassName="jetbrains.mps.smodel.language.LanguageAspectGenerator" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.IconResource" />
     <classNode dependClassName="jetbrains.mps.vcs.mergehints.plugin.IconContainer" />
+    <classNode dependClassName="jetbrains.mps.vcs.mergehints.plugin.URLFunction_HelpCenterDocUrl" />
     <classNode dependClassName="jetbrains.mps.vcs.mergehints.plugin.vcs_Order" />
     <classNode dependClassName="org.jetbrains.annotations.NotNull" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />

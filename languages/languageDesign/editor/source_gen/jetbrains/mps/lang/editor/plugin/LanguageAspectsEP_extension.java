@@ -26,7 +26,6 @@ import jetbrains.mps.lang.structure.plugin.MPSAspects_Order;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import org.jetbrains.mps.openapi.persistence.ModelRoot;
 import jetbrains.mps.project.SModuleOperations;
-import jetbrains.mps.lang.structure.plugin.URLFunction_ConfluenceDocUrl;
 
 public class LanguageAspectsEP_extension extends Extension.Default<LanguageAspectDescriptor> {
   public LanguageAspectsEP_extension() {
@@ -106,5 +105,5 @@ public class LanguageAspectsEP_extension extends Extension.Default<LanguageAspec
 
     };
   }
-  private static final String HELP_URL_ecu8yf_a0a8a0a0a1 = URLFunction_ConfluenceDocUrl.getUrl() + "/editor.html";
+  private static final String HELP_URL_ecu8yf_a0a8a0a0a1 = URLFunction_HelpCenterDocUrl.getUrl() + "/editor.html";
 }

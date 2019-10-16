@@ -7,7 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
-import jetbrains.mps.lang.structure.plugin.URLFunction_ConfluenceDocUrl;
+import jetbrains.mps.lang.structure.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractConceptDeclaration;
@@ -301,9 +301,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL_lpa09p_a0a3a0a5b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a6b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a61b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a62b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "structure.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a92b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a3a0a5b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a6b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a61b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a62b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a92b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "structure.html";
 }

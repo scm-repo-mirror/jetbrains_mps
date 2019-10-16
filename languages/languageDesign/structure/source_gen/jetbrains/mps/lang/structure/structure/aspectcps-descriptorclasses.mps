@@ -1149,7 +1149,7 @@
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="5G" role="37wK5m">
                           <property role="1sEMCp" value="structure.html" />
-                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <node concept="cd27G" id="5H" role="lGtFl">
                             <node concept="3u3nmq" id="5I" role="cd27D">
                               <property role="3u3nmv" value="1181761116875817936" />
@@ -1254,7 +1254,7 @@
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="6l" role="37wK5m">
                           <property role="1sEMCp" value="structure.html" />
-                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <node concept="cd27G" id="6m" role="lGtFl">
                             <node concept="3u3nmq" id="6n" role="cd27D">
                               <property role="3u3nmv" value="6615282340041216528" />
@@ -2216,7 +2216,7 @@
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="cb" role="37wK5m">
                           <property role="1sEMCp" value="structure.html" />
-                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <node concept="cd27G" id="cc" role="lGtFl">
                             <node concept="3u3nmq" id="cd" role="cd27D">
                               <property role="3u3nmv" value="6615282340041216532" />
@@ -2917,7 +2917,7 @@
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="gs" role="37wK5m">
                           <property role="1sEMCp" value="structure.html" />
-                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <node concept="cd27G" id="gt" role="lGtFl">
                             <node concept="3u3nmq" id="gu" role="cd27D">
                               <property role="3u3nmv" value="6615282340041216589" />
@@ -3230,7 +3230,7 @@
                         <ref role="37wK5l" to="ze1i:~ConceptPresentationBuilder.helpUrl(java.lang.String)" resolve="helpUrl" />
                         <node concept="1sEMCm" id="im" role="37wK5m">
                           <property role="1sEMCp" value="structure.html" />
-                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+                          <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="HelpCenterDocUrl" />
                           <node concept="cd27G" id="in" role="lGtFl">
                             <node concept="3u3nmq" id="io" role="cd27D">
                               <property role="3u3nmv" value="6615282340041216592" />

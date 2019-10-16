@@ -137,7 +137,7 @@
     </node>
     <node concept="1sEMCm" id="46nPloex5BB" role="1fTXyH">
       <property role="1sEMCp" value="/structure.html" />
-      <ref role="1fZFei" node="46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" node="46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="2vPdvu" id="264$spPfYX1">
@@ -186,7 +186,7 @@
     </node>
   </node>
   <node concept="1fZFc0" id="46nPloez0vX">
-    <property role="TrG5h" value="ConfluenceDocUrl" />
+    <property role="TrG5h" value="HelpCenterDocUrl" />
     <node concept="1bVj0M" id="46nPloeztvN" role="1fZFc1">
       <property role="3yWfEV" value="true" />
       <node concept="3clFbS" id="46nPloeztvO" role="1bW5cS">

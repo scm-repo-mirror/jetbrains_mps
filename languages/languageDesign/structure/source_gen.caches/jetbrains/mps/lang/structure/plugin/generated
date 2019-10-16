@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="7e33hc85cohnkbr3ez46ysgd9pn1zi9">
-  <files names="ExtensionDescriptor.java:IconContainer.java:LanguageAspectsEP_extension.java:MPSAspects_Order.java:URLFunction_ConfluenceDocUrl.java" />
+<product version="3" modelHash="59hxvp6te49znva9mmlzagm1lc20xu">
+  <files names="ExtensionDescriptor.java:IconContainer.java:LanguageAspectsEP_extension.java:MPSAspects_Order.java:URLFunction_HelpCenterDocUrl.java" />
 </product>
 

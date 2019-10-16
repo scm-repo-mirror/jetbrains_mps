@@ -94,7 +94,7 @@
     </node>
     <node concept="1sEMCm" id="46nPloex5Bv" role="1fTXyH">
       <property role="1sEMCp" value="/migrations.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" node="46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
     <node concept="T9mpH" id="4frscTR3lsn" role="TkT64">
       <property role="T9mpF" value="2787ae0c-1f54-4fbf-b0b7-caf2b5beecbc" />

@@ -5,7 +5,7 @@ package jetbrains.mps.lang.structure.plugin;
 import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import jetbrains.mps.help.HelpURLProvider;
 
-public final class URLFunction_ConfluenceDocUrl {
+public final class URLFunction_HelpCenterDocUrl {
   public static String getUrl() {
     return new _FunctionTypes._return_P0_E0<String>() {
       public String invoke() {

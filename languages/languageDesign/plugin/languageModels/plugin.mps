@@ -767,7 +767,7 @@
     </node>
     <node concept="1sEMCm" id="46nPloex5Bx" role="1fTXyH">
       <property role="1sEMCp" value="/plugin.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" node="46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1fZFc0" id="46nPloez0vX">
