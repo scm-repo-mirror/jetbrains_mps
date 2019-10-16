@@ -978,8 +978,20 @@
       <node concept="nCB5N" id="SHPhCCYGWO" role="nCB5Z">
         <ref role="nCB5Y" node="SHPhCCYnUi" resolve="messages-api" />
       </node>
+      <node concept="nCB5N" id="4lexA4iV50P" role="nCB5Z">
+        <ref role="nCB5Y" node="5RhptgddDxG" resolve="feedback-api" />
+      </node>
+      <node concept="nCB5N" id="4lexA4iV5yR" role="nCB5Z">
+        <ref role="nCB5Y" node="SHPhCCYooj" resolve="constraints-runtime" />
+      </node>
       <node concept="nCB5N" id="SHPhCCYH35" role="nCB5Z">
         <ref role="nCB5Y" node="SHPhCCYo5m" resolve="messages-for-structure" />
+      </node>
+      <node concept="nCB5N" id="4lexA4iV5ca" role="nCB5Z">
+        <ref role="nCB5Y" node="SHPhCCYnZA" resolve="messages-for-rules" />
+      </node>
+      <node concept="nCB5N" id="4lexA4iV5nw" role="nCB5Z">
+        <ref role="nCB5Y" node="SHPhCCYuJN" resolve="messages-for-legacy-constraints" />
       </node>
       <node concept="398b2D" id="6UWbfHq6ZHf" role="398b2p">
         <node concept="398BVA" id="6UWbfHq6ZHY" role="398b2C">
@@ -1713,6 +1725,9 @@
       </node>
       <node concept="nCB5N" id="5vs0A7T1Xe2" role="nCB5Z">
         <ref role="nCB5Y" node="4_qKb05xiaz" resolve="aux-runtimes" />
+      </node>
+      <node concept="nCB5N" id="4lexA4iV4JS" role="nCB5Z">
+        <ref role="nCB5Y" node="6UWbfHq6Ys7" resolve="mps-project-check" />
       </node>
       <node concept="398b2D" id="16Vg0jOdbWa" role="398b2p">
         <node concept="nFU4i" id="16Vg0jOdbWf" role="nFU4p">
@@ -22074,6 +22089,9 @@
       <node concept="nCB5N" id="1nJh0raVm5f" role="nCB5Z">
         <ref role="nCB5Y" node="2eDSGe9d1oD" resolve="mps-workbench" />
       </node>
+      <node concept="nCB5N" id="4lexA4iV4$t" role="nCB5Z">
+        <ref role="nCB5Y" node="6UWbfHq6Ys7" resolve="mps-project-check" />
+      </node>
     </node>
     <node concept="1E1JtA" id="4IP11oWmB07" role="3989C9">
       <property role="BnDLt" value="true" />
@@ -38958,6 +38976,7 @@
         <ref role="nCB5Y" node="5RhptgddDKp" resolve="context" />
       </node>
       <node concept="nCB5N" id="6e4RFSGTM4s" role="nCB5Z">
+        <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="SHPhCCYob1" resolve="problem" />
       </node>
       <node concept="nCB5N" id="SHPhCCYoii" role="nCB5Z">
@@ -39203,16 +39222,6 @@
       <node concept="nCB5N" id="SHPhCCYz9W" role="nCB5Z">
         <property role="1Sh$E4" value="true" />
         <ref role="nCB5Y" node="SHPhCCYooj" resolve="constraints-runtime" />
-      </node>
-      <node concept="nCB5N" id="1vxgdUOrFdC" role="nCB5Z">
-        <property role="1Sh$E4" value="true" />
-        <ref role="nCB5Y" node="5RhptgddDxG" resolve="feedback-api" />
-      </node>
-      <node concept="nCB5N" id="1vxgdUOrFec" role="nCB5Z">
-        <ref role="nCB5Y" node="SHPhCCYnUi" resolve="messages-api" />
-      </node>
-      <node concept="nCB5N" id="1vxgdUOrFeM" role="nCB5Z">
-        <ref role="nCB5Y" node="SHPhCCYnZA" resolve="messages-for-rules" />
       </node>
       <node concept="nCB5N" id="1vxgdUOrFfq" role="nCB5Z">
         <ref role="nCB5Y" node="SHPhCCYuJN" resolve="messages-for-legacy-constraints" />

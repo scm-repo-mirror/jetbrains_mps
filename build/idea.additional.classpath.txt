@@ -4,7 +4,6 @@ core/openapi/classes
 core/aspects/behavior/behavior-runtime/classes
 core/aspects/behavior/behavior-api/classes
 core/aspects/constraints/constraints-runtime/classes
-core/aspects/constraints/constraints-api/classes
 core/aspects/feedback/feedback-api/classes
 core/aspects/feedback/context/classes
 core/aspects/feedback/messages-for-legacy-constraints/classes

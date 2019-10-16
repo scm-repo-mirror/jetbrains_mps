@@ -808,8 +808,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-runtime.jar" />
@@ -862,8 +860,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-runtime.jar" />
@@ -916,8 +912,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-runtime.jar" />
@@ -971,8 +965,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-runtime.jar" />
@@ -1025,8 +1017,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-persistence.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-project-check.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-textgen.jar" />
@@ -1086,8 +1076,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-persistence.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-project-check.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-textgen.jar" />
@@ -1141,8 +1129,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-runtime.jar" />
@@ -1197,8 +1183,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-runtime.jar" />
@@ -1253,8 +1237,6 @@
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-boot-util.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-context.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-constraints-runtime.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-problem.jar" />
-        <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-feedback-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-api.jar" />
         <fileset file="${artifacts.mpsPlugin}/mps-core/lib/mps-editor-runtime.jar" />
