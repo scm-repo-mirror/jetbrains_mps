@@ -7,7 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
-import jetbrains.mps.lang.structure.plugin.URLFunction_ConfluenceDocUrl;
+import jetbrains.mps.lang.editor.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractCellIdScopeProviderNodeOperation;
@@ -3624,22 +3624,22 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
-  private static final String HELP_URL_lpa09p_a0a2a0a91b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor-actions.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a92b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a54b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a121b0br = URLFunction_ConfluenceDocUrl.getUrl() + "/editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a221b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a321b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a851b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a832b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a363b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a563b0br = URLFunction_ConfluenceDocUrl.getUrl() + "editor.html";
-  private static final String HELP_URL_lpa09p_a0a1a0a473b0br = URLFunction_ConfluenceDocUrl.getUrl() + "transformation-menu-language.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a793b0br = URLFunction_ConfluenceDocUrl.getUrl() + "transformation-menu-language.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a893b0br = URLFunction_ConfluenceDocUrl.getUrl() + "transformation-menu-language.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a993b0br = URLFunction_ConfluenceDocUrl.getUrl() + "transformation-menu-language.html";
-  private static final String HELP_URL_lpa09p_a0a1a0a814b0br = URLFunction_ConfluenceDocUrl.getUrl() + "/transformation-menu-language.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a914b0br = URLFunction_ConfluenceDocUrl.getUrl() + "transformation-menu-language.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a734b0br = URLFunction_ConfluenceDocUrl.getUrl() + "transformation-menu-language.html";
-  private static final String HELP_URL_lpa09p_a0a2a0a834b0br = URLFunction_ConfluenceDocUrl.getUrl() + "transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a91b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a92b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a54b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a121b0br = URLFunction_HelpCenterDocUrl.getUrl() + "/editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a221b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a321b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a851b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a832b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a363b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a563b0br = URLFunction_HelpCenterDocUrl.getUrl() + "editor.html";
+  private static final String HELP_URL_lpa09p_a0a1a0a473b0br = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a793b0br = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a893b0br = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a993b0br = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a1a0a814b0br = URLFunction_HelpCenterDocUrl.getUrl() + "/transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a914b0br = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a734b0br = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a834b0br = URLFunction_HelpCenterDocUrl.getUrl() + "transformation-menu-language.html";
 }

@@ -5,5 +5,5 @@ package jetbrains.mps.lang.feedback.skeleton.structure;
 import jetbrains.mps.smodel.runtime.IconResource;
 
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a3a0a0b0d = new IconResource("feedback.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a4a0a0b0d = new IconResource("feedback.png", IconContainer.class);
 }

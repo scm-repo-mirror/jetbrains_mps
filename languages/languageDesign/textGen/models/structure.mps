@@ -8,10 +8,15 @@
   <imports>
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
+    <import index="h8lr" ref="r:60e7ad77-a9db-453a-a2df-fed6c145c654(jetbrains.mps.lang.textGen.plugin)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
+      <concept id="5177162104569058199" name="jetbrains.mps.lang.resources.structure.HelpURL" flags="ng" index="1sEMCm">
+        <property id="5177162104569058200" name="url" index="1sEMCp" />
+        <reference id="4726480899534317252" name="baseURL" index="1fZFei" />
+      </concept>
       <concept id="8974276187400029883" name="jetbrains.mps.lang.resources.structure.FileIcon" flags="ng" index="1QGGSu">
         <property id="2756621024541341363" name="file" index="1iqoE4" />
       </concept>
@@ -26,6 +31,7 @@
         <property id="4628067390765956807" name="final" index="R5$K2" />
         <property id="4628067390765956802" name="abstract" index="R5$K7" />
         <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
+        <child id="1780177113170204155" name="helpURL" index="bvy1s" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
@@ -126,6 +132,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJRj" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/textGen.png" />
     </node>
+    <node concept="1sEMCm" id="5wIG6OxYQAk" role="bvy1s">
+      <property role="1sEMCp" value="textgen.html" />
+      <ref role="1fZFei" to="h8lr:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="hX17ltF">
     <property role="R5$K7" value="false" />
@@ -219,6 +229,10 @@
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJRk" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/textGenComponent.png" />
+    </node>
+    <node concept="1sEMCm" id="74zDxsVSxnM" role="bvy1s">
+      <property role="1sEMCp" value="textgen.html" />
+      <ref role="1fZFei" to="h8lr:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="hXbweBj">

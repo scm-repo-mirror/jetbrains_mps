@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.dataFlow.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AfterPosition;
@@ -98,7 +99,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_DataFlowBuilderDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a7b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a7b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a7b0jb);
           props_DataFlowBuilderDeclaration = cpb.create();
         }
         return props_DataFlowBuilderDeclaration;
@@ -284,4 +286,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a7b0jb = URLFunction_HelpCenterDocUrl.getUrl() + "data-flow.html";
 }

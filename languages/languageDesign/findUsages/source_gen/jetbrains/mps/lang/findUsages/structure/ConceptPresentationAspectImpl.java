@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.findUsages.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractFinderDeclaration;
@@ -88,7 +89,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_FinderDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a7b0v);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a7b0v);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a7b0v);
           props_FinderDeclaration = cpb.create();
         }
         return props_FinderDeclaration;
@@ -180,4 +182,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a7b0v = URLFunction_HelpCenterDocUrl.getUrl() + "find-usages.html";
 }

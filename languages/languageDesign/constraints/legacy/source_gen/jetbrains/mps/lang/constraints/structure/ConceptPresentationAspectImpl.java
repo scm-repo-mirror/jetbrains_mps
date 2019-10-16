@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.constraints.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_ConceptConstraints;
@@ -66,7 +67,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0x3f4bc5f5c6c14a28L, 0x8b10c83066ffa4a1L, 0x11a7208faaeL);
           cpb.deprecateAggregation(0x341b038f9307e5d8L, "alternativeIcon");
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a0b0vb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a3a0a0b0vb);
+          cpb.icon(IconContainer.RESOURCE_a0a4a0a0b0vb);
           props_ConceptConstraints = cpb.create();
         }
         return props_ConceptConstraints;
@@ -427,4 +429,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a3a0a0b0vb = URLFunction_HelpCenterDocUrl.getUrl() + "constraints.html";
 }

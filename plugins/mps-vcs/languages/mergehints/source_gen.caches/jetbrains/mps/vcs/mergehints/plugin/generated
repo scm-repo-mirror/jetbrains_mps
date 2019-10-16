@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="7j3atm8q6p4pssgx7n8p3m3a25xj0ig">
-  <files names="ExtensionDescriptor.java:IconContainer.java:LanguageAspectsEP_extension.java:vcs_Order.java" />
+<product version="3" modelHash="aa56q84opw8t2mjfpfva9km7tznc38b">
+  <files names="ExtensionDescriptor.java:IconContainer.java:LanguageAspectsEP_extension.java:URLFunction_HelpCenterDocUrl.java:vcs_Order.java" />
 </product>
 

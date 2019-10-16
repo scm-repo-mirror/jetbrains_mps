@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.script.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractClassifierSpecification;
@@ -99,7 +100,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           cpb.deprecateProperty(0x118d28c5944L, "migrationFromBuild");
           cpb.deprecateProperty(0x118d28cf5b3L, "category");
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a4a0a9b0s);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a4a0a9b0s);
+          cpb.icon(IconContainer.RESOURCE_a0a5a0a9b0s);
           props_MigrationScript = cpb.create();
         }
         return props_MigrationScript;
@@ -154,4 +156,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a4a0a9b0s = URLFunction_HelpCenterDocUrl.getUrl() + "scripts.html";
 }

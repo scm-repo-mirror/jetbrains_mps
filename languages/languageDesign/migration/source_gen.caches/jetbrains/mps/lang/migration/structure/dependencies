@@ -2,6 +2,8 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.lang.migration.structure.ConceptPresentationAspectImpl">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.lang.migration.plugin.URLFunction_HelpCenterDocUrl" />
     <classNode dependClassName="jetbrains.mps.lang.migration.structure.IconContainer" />
     <classNode dependClassName="jetbrains.mps.lang.migration.structure.LanguageConceptSwitch" />
     <classNode dependClassName="jetbrains.mps.lang.migration.structure.StructureAspectDescriptor" />

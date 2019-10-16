@@ -5,7 +5,7 @@ package jetbrains.mps.lang.generator.structure;
 import jetbrains.mps.smodel.runtime.IconResource;
 
 public class IconContainer {
-  protected static IconResource RESOURCE_a0a2a0a54b0be = new IconResource("mappingConf.png", IconContainer.class);
+  protected static IconResource RESOURCE_a0a3a0a54b0be = new IconResource("mappingConf.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a2a0a84b0be = new IconResource("generatorScript.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a2a0a97b0be = new IconResource("templateFragment.png", IconContainer.class);
   protected static IconResource RESOURCE_a0a2a0a09b0be = new IconResource("switch.png", IconContainer.class);

@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.actions.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_ConceptFunctionParameter_nodeToCopyPreProcess;
@@ -77,6 +78,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_CopyPasteHandlers == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a4b0fb);
           props_CopyPasteHandlers = cpb.create();
         }
         return props_CopyPasteHandlers;
@@ -180,7 +182,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_NodeFactories == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a81b0fb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a81b0fb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a81b0fb);
           props_NodeFactories = cpb.create();
         }
         return props_NodeFactories;
@@ -248,7 +251,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_PasteWrappers == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a72b0fb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a72b0fb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a72b0fb);
           props_PasteWrappers = cpb.create();
         }
         return props_PasteWrappers;
@@ -270,4 +274,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a4b0fb = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a81b0fb = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a72b0fb = URLFunction_HelpCenterDocUrl.getUrl() + "editor-actions.html";
 }

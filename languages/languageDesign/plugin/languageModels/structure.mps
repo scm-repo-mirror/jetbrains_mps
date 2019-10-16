@@ -12,7 +12,7 @@
     <import index="tp2c" ref="r:00000000-0000-4000-0000-011c89590338(jetbrains.mps.baseLanguage.closures.structure)" />
     <import index="1oap" ref="r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)" />
     <import index="4j10" ref="r:31be9f37-1a76-49a2-a444-bd006ff675c1(jetbrains.mps.lang.checkedName.structure)" />
-    <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
+    <import index="bgxn" ref="r:01d327ba-040c-402c-a2b6-8832116588df(jetbrains.mps.lang.plugin.plugin)" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -133,6 +133,10 @@
       <property role="IQ2ns" value="1214307129846" />
       <ref role="20lvS9" node="hEUmK70" resolve="GetComponentBlock" />
     </node>
+    <node concept="1sEMCm" id="2bBdqPb0rjJ" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#tools" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="hwtkh9Y">
     <property role="R5$K7" value="false" />
@@ -232,6 +236,10 @@
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJPP" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/actionGroupNew.png" />
+    </node>
+    <node concept="1sEMCm" id="6wTagIKXlR9" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#actionsandactiongroups" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="hwtCFDn">
@@ -371,6 +379,10 @@
       <property role="IQ2ns" value="1207148993063" />
       <ref role="20lvS9" node="h$ftmJ5" resolve="ElementListContents" />
       <ref role="20ksaX" node="h$ftENW" resolve="contents" />
+    </node>
+    <node concept="1sEMCm" id="7stNrpfGUmR" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#bootstrapgroups" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="PlHQZ" id="hxFjmRv">
@@ -691,6 +703,10 @@
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJPM" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/preferences.png" />
+    </node>
+    <node concept="1sEMCm" id="7stNrpfGUn4" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#preferencescomponents" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="hB4jfOQ">
@@ -1118,6 +1134,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJPO" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/keymapChangesDeclaration.png" />
     </node>
+    <node concept="1sEMCm" id="7stNrpfGUmU" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#keymapchanges" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1mJS7WEAV1Q">
     <property role="R5$K7" value="false" />
@@ -1319,6 +1339,10 @@
     <property role="34LRSv" value="Tabbed Tool" />
     <property role="EcuMT" value="5896642449625981893" />
     <ref role="1TJDcQ" node="5FstybB4bRs" resolve="BaseToolDeclaration" />
+    <node concept="1sEMCm" id="7stNrpfGUn7" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#preferencescomponents" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="57l5h3LszuS">
     <property role="R5$K7" value="false" />
@@ -1551,6 +1575,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJPR" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/ideaPluginDeclaration.png" />
     </node>
+    <node concept="1sEMCm" id="7stNrpfGRlp" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="7Du95iZNqOk">
     <property role="R5$K7" value="false" />
@@ -1679,6 +1707,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJPL" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/tabbedEditor.png" />
     </node>
+    <node concept="1sEMCm" id="6wTagIKXlRc" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#tabbedtools" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="PlHQZ" id="3fOKOapZL7y">
     <property role="TrG5h" value="NodesBlock" />
@@ -1738,6 +1770,10 @@
     </node>
     <node concept="PrWs8" id="1DIqCfTgDpb" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+    <node concept="1sEMCm" id="7stNrpfGUn1" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#editortabs" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="283lDAXPS5b">
@@ -1877,8 +1913,8 @@
       <property role="1iqoE4" value="${module}/icons/actionNew.png" />
     </node>
     <node concept="1sEMCm" id="1yOtqsjRMt1" role="bvy1s">
-      <property role="1sEMCp" value="/Plugin#Plugin-actionsandactiongroups" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <property role="1sEMCp" value="plugin.html#actionsandactiongroups" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="1InOx6V0wuJ">
@@ -2119,6 +2155,10 @@
       <property role="IQ2ns" value="3205778618063718748" />
       <ref role="20lvS9" node="ioJBUBfUsu" resolve="IdeaActionsDescriptor" />
     </node>
+    <node concept="1sEMCm" id="6wTagIKXlRf" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="UjtgkvXiu1">
     <property role="R5$K7" value="false" />
@@ -2171,6 +2211,10 @@
     </node>
     <node concept="PrWs8" id="1LJzqOWiarl" role="PzmwI">
       <ref role="PrY4T" to="tpee:hCUYCKd" resolve="IValidIdentifier" />
+    </node>
+    <node concept="1sEMCm" id="7stNrpfGUmX" role="bvy1s">
+      <property role="1sEMCp" value="plugin.html#nondumbawareactions" />
+      <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="1jWAYEV8xjv">

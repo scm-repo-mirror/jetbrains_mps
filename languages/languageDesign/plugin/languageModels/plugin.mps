@@ -16,6 +16,7 @@
     <import index="tpcq" ref="r:00000000-0000-4000-0000-011c89590286(jetbrains.mps.lang.core.plugin)" />
     <import index="fy8e" ref="r:89c0fb70-0977-7777-a076-5906f9d8630f(jetbrains.mps.make.facets)" />
     <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
+    <import index="smjb" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.help(MPS.Core/)" />
     <import index="yyf4" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.util(MPS.OpenAPI/)" implicit="true" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" implicit="true" />
   </imports>
@@ -33,6 +34,9 @@
       </concept>
     </language>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
+      <concept id="4726480899534317142" name="jetbrains.mps.lang.resources.structure.BaseURLFunction" flags="ng" index="1fZFc0">
+        <child id="4726480899534317143" name="calculator" index="1fZFc1" />
+      </concept>
       <concept id="5177162104569058199" name="jetbrains.mps.lang.resources.structure.HelpURL" flags="ng" index="1sEMCm">
         <property id="5177162104569058200" name="url" index="1sEMCp" />
         <reference id="4726480899534317252" name="baseURL" index="1fZFei" />
@@ -181,6 +185,12 @@
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
       <concept id="1170345865475" name="jetbrains.mps.baseLanguage.structure.AnonymousClass" flags="ig" index="1Y3b0j">
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
+      </concept>
+    </language>
+    <language id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures">
+      <concept id="1199569711397" name="jetbrains.mps.baseLanguage.closures.structure.ClosureLiteral" flags="nn" index="1bVj0M">
+        <property id="890797661671409019" name="forceMultiLine" index="3yWfEV" />
+        <child id="1199569916463" name="body" index="1bW5cS" />
       </concept>
     </language>
     <language id="696c1165-4a59-463b-bc5d-902caab85dd0" name="jetbrains.mps.make.facet">
@@ -758,6 +768,25 @@
     <node concept="1sEMCm" id="46nPloex5Bx" role="1fTXyH">
       <property role="1sEMCp" value="/plugin.html" />
       <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+    </node>
+  </node>
+  <node concept="1fZFc0" id="46nPloez0vX">
+    <property role="TrG5h" value="HelpCenterDocUrl" />
+    <node concept="1bVj0M" id="46nPloeztvN" role="1fZFc1">
+      <property role="3yWfEV" value="true" />
+      <node concept="3clFbS" id="46nPloeztvO" role="1bW5cS">
+        <node concept="3clFbF" id="36aT086Whqu" role="3cqZAp">
+          <node concept="2OqwBi" id="36aT086Whxs" role="3clFbG">
+            <node concept="2YIFZM" id="36aT086Whro" role="2Oq$k0">
+              <ref role="37wK5l" to="smjb:~HelpURLProvider.getInstance()" resolve="getInstance" />
+              <ref role="1Pybhc" to="smjb:~HelpURLProvider" resolve="HelpURLProvider" />
+            </node>
+            <node concept="liA8E" id="36aT086WhCA" role="2OqNvi">
+              <ref role="37wK5l" to="smjb:~HelpURLProvider.getURL()" resolve="getURL" />
+            </node>
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.vcs.mergehints.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_ConceptVCSDescriptor;
@@ -74,10 +75,12 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_VCSHints == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a7b0j);
           props_VCSHints = cpb.create();
         }
         return props_VCSHints;
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a7b0j = URLFunction_HelpCenterDocUrl.getUrl() + "mergehints.html";
 }

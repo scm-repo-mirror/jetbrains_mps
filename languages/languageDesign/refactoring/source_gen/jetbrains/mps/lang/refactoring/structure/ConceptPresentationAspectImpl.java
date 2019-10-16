@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.refactoring.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractMoveExpression;
@@ -313,7 +314,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_Refactoring == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a53b0xb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a53b0xb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a53b0xb);
           props_Refactoring = cpb.create();
         }
         return props_Refactoring;
@@ -400,4 +402,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a53b0xb = URLFunction_HelpCenterDocUrl.getUrl() + "mps-refactoring.html";
 }

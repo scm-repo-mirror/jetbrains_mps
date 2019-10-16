@@ -12,7 +12,7 @@
     <import index="tpcw" ref="r:00000000-0000-4000-0000-011c895902bc(jetbrains.mps.lang.sharedConcepts.structure)" />
     <import index="tp25" ref="r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)" />
     <import index="tp4f" ref="r:00000000-0000-4000-0000-011c89590373(jetbrains.mps.baseLanguage.classifiers.structure)" />
-    <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
+    <import index="9anm" ref="r:6f374023-1b4e-4a80-8bf6-2cc3148faa52(jetbrains.mps.lang.editor.plugin)" />
     <import index="dvox" ref="r:9dfd3567-3b1f-4edb-85a0-3981ca2bfd8c(jetbrains.mps.lang.modelapi.structure)" implicit="true" />
   </imports>
   <registry>
@@ -168,7 +168,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJ9HKD" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="fBEYTCT">
@@ -593,7 +593,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8Ae" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="fGPMmym">
@@ -698,7 +698,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8_E" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="fPiCG$y">
@@ -1007,8 +1007,8 @@
       <ref role="20lvS9" node="g_hA7BD" resolve="CellActionMapItem" />
     </node>
     <node concept="1sEMCm" id="11Atn_WK8fg" role="bvy1s">
-      <property role="1sEMCp" value="editor-actions.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <property role="1sEMCp" value="editor.html" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="g_hA7BD">
@@ -1710,7 +1710,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8_I" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="gXXtyFs">
@@ -2017,7 +2017,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJ9HKF" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="hgV6hR6">
@@ -3057,7 +3057,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8Hd" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="6DBCLBe1ESf">
@@ -3444,7 +3444,7 @@
     </node>
     <node concept="1sEMCm" id="1pfhW8h7fW_" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="33FxyQ70GUZ">
@@ -3510,7 +3510,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8Aa" role="bvy1s">
       <property role="1sEMCp" value="editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="59ZEGVP3g_u">
@@ -4268,7 +4268,7 @@
     </node>
     <node concept="1sEMCm" id="1pfhW8hfZFL" role="bvy1s">
       <property role="1sEMCp" value="transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="4VZjoGvneVh">
@@ -4309,7 +4309,7 @@
     </node>
     <node concept="1sEMCm" id="1pfhW8hfHGR" role="bvy1s">
       <property role="1sEMCp" value="transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="5OVd5tVffW9">
@@ -4396,7 +4396,7 @@
     </node>
     <node concept="1sEMCm" id="1pfhW8hfHGV" role="bvy1s">
       <property role="1sEMCp" value="transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="3xbeilB7DBJ">
@@ -4440,7 +4440,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJ9HLc" role="bvy1s">
       <property role="1sEMCp" value="/transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="1oFY2ohYO0M">
@@ -4902,7 +4902,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJ9HLa" role="bvy1s">
       <property role="1sEMCp" value="transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="h6sCaJPi0t">
@@ -5284,7 +5284,7 @@
     </node>
     <node concept="1sEMCm" id="1pfhW8hfHGT" role="bvy1s">
       <property role="1sEMCp" value="transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="7Nx4mSUbw5N">
@@ -5480,7 +5480,7 @@
     </node>
     <node concept="1sEMCm" id="1pfhW8hfZFH" role="bvy1s">
       <property role="1sEMCp" value="transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="h8ucgLt">
@@ -5529,7 +5529,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJ9HKH" role="bvy1s">
       <property role="1sEMCp" value="transformation-menu-language.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="20vEJZ2AULf">
@@ -6347,7 +6347,7 @@
     </node>
     <node concept="1sEMCm" id="5Jed3OJg8A7" role="bvy1s">
       <property role="1sEMCp" value="/editor.html" />
-      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+      <ref role="1fZFei" to="9anm:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="6iw7UxkrgbU">

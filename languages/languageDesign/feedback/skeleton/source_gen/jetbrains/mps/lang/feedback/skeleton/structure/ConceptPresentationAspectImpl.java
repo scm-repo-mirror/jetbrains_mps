@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.structure.plugin.URLFunction_ConfluenceDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_FeedbackPerConceptRoot;
@@ -22,7 +23,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.shortDesc("provides feedback for different problems");
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a0b0d);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a3a0a0b0d);
+          cpb.icon(IconContainer.RESOURCE_a0a4a0a0b0d);
           props_FeedbackPerConceptRoot = cpb.create();
         }
         return props_FeedbackPerConceptRoot;
@@ -35,4 +37,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a3a0a0b0d = URLFunction_ConfluenceDocUrl.getUrl() + "feedback.html";
 }

@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.intentions.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_BaseIntentionDeclaration;
@@ -96,7 +97,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_Intention == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a8b0u);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a8b0u);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a8b0u);
           props_Intention = cpb.create();
         }
         return props_Intention;
@@ -170,11 +172,14 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_SurroundWithIntentionDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a81b0u);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a81b0u);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a81b0u);
           props_SurroundWithIntentionDeclaration = cpb.create();
         }
         return props_SurroundWithIntentionDeclaration;
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a8b0u = URLFunction_HelpCenterDocUrl.getUrl() + "mps-intentions.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a81b0u = URLFunction_HelpCenterDocUrl.getUrl() + "mps-intentions.html";
 }

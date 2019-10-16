@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.generator.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbandonInput_RuleConsequence;
@@ -446,7 +447,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_MappingConfiguration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a54b0be);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a54b0be);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a54b0be);
           props_MappingConfiguration = cpb.create();
         }
         return props_MappingConfiguration;
@@ -868,4 +870,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a54b0be = URLFunction_HelpCenterDocUrl.getUrl() + "mps-generator.html";
 }

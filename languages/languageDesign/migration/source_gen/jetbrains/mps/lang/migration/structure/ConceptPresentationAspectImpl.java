@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.migration.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractNodeReference;
@@ -157,7 +158,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_MigrationScript == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a41b0rb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a41b0rb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a41b0rb);
           props_MigrationScript = cpb.create();
         }
         return props_MigrationScript;
@@ -351,4 +353,5 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a41b0rb = URLFunction_HelpCenterDocUrl.getUrl() + "migrations.html";
 }

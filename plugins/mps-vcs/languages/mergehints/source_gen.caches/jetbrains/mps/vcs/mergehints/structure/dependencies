@@ -2,9 +2,11 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.vcs.mergehints.structure.ConceptPresentationAspectImpl">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.ConceptPresentation" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.ConceptPresentationBuilder" />
     <classNode dependClassName="jetbrains.mps.smodel.runtime.StructureAspectDescriptor" />
+    <classNode dependClassName="jetbrains.mps.vcs.mergehints.plugin.URLFunction_HelpCenterDocUrl" />
     <classNode dependClassName="jetbrains.mps.vcs.mergehints.structure.LanguageConceptSwitch" />
     <classNode dependClassName="jetbrains.mps.vcs.mergehints.structure.StructureAspectDescriptor" />
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />

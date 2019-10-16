@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.textGen.plugin.URLFunction_HelpCenterDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractAppendPart;
@@ -108,7 +109,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_ConceptTextGenDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a7b0pb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a7b0pb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a7b0pb);
           props_ConceptTextGenDeclaration = cpb.create();
         }
         return props_ConceptTextGenDeclaration;
@@ -230,7 +232,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_LanguageTextGenDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a42b0pb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a42b0pb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a42b0pb);
           props_LanguageTextGenDeclaration = cpb.create();
         }
         return props_LanguageTextGenDeclaration;
@@ -348,4 +351,6 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a2a0a7b0pb = URLFunction_HelpCenterDocUrl.getUrl() + "textgen.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a42b0pb = URLFunction_HelpCenterDocUrl.getUrl() + "textgen.html";
 }
