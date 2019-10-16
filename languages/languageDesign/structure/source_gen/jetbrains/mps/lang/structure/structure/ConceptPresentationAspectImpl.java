@@ -7,6 +7,7 @@ import jetbrains.mps.smodel.runtime.ConceptPresentation;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
+import jetbrains.mps.lang.structure.plugin.URLFunction_ConfluenceDocUrl;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AbstractConceptDeclaration;
@@ -89,7 +90,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L);
           cpb.deprecateProperty(0x10e328118ddL, "iconPath");
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a3a0a5b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a3a0a5b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a4a0a5b0jb);
           props_ConceptDeclaration = cpb.create();
         }
         return props_ConceptDeclaration;
@@ -97,7 +99,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_ConstrainedDataTypeDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a6b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a6b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a6b0jb);
           props_ConstrainedDataTypeDeclaration = cpb.create();
         }
         return props_ConstrainedDataTypeDeclaration;
@@ -169,7 +172,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_EnumerationDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a61b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a61b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a61b0jb);
           props_EnumerationDeclaration = cpb.create();
         }
         return props_EnumerationDeclaration;
@@ -237,7 +241,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_InterfaceConceptDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a62b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a62b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a62b0jb);
           props_InterfaceConceptDeclaration = cpb.create();
         }
         return props_InterfaceConceptDeclaration;
@@ -260,7 +265,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
         if (props_PrimitiveDataTypeDeclaration == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByName();
-          cpb.icon(IconContainer.RESOURCE_a0a2a0a92b0jb);
+          cpb.helpUrl(HELP_URL_lpa09p_a0a2a0a92b0jb);
+          cpb.icon(IconContainer.RESOURCE_a0a3a0a92b0jb);
           props_PrimitiveDataTypeDeclaration = cpb.create();
         }
         return props_PrimitiveDataTypeDeclaration;
@@ -295,4 +301,9 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
     }
     return null;
   }
+  private static final String HELP_URL_lpa09p_a0a3a0a5b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "/structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a6b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "/structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a61b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "/structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a62b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "/structure.html";
+  private static final String HELP_URL_lpa09p_a0a2a0a92b0jb = URLFunction_ConfluenceDocUrl.getUrl() + "/structure.html";
 }

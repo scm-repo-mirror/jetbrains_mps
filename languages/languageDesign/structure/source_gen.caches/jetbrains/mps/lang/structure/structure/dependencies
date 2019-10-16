@@ -2,6 +2,8 @@
 <dependenciesRoot>
   <dependency className="jetbrains.mps.lang.structure.structure.ConceptPresentationAspectImpl">
     <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="jetbrains.mps.lang.structure.plugin.URLFunction_ConfluenceDocUrl" />
     <classNode dependClassName="jetbrains.mps.lang.structure.structure.IconContainer" />
     <classNode dependClassName="jetbrains.mps.lang.structure.structure.LanguageConceptSwitch" />
     <classNode dependClassName="jetbrains.mps.lang.structure.structure.StructureAspectDescriptor" />

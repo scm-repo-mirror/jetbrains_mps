@@ -8,9 +8,14 @@
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="1oap" ref="r:03d44d4c-3d65-461c-9085-0f48e9569e59(jetbrains.mps.lang.resources.structure)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
+    <import index="tpcc" ref="r:00000000-0000-4000-0000-011c89590290(jetbrains.mps.lang.structure.plugin)" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
+      <concept id="5177162104569058199" name="jetbrains.mps.lang.resources.structure.HelpURL" flags="ng" index="1sEMCm">
+        <property id="5177162104569058200" name="url" index="1sEMCp" />
+        <reference id="4726480899534317252" name="baseURL" index="1fZFei" />
+      </concept>
       <concept id="8974276187400029883" name="jetbrains.mps.lang.resources.structure.FileIcon" flags="ng" index="1QGGSu">
         <property id="2756621024541341363" name="file" index="1iqoE4" />
       </concept>
@@ -75,6 +80,7 @@
         <property id="4628067390765956807" name="final" index="R5$K2" />
         <property id="4628067390765956802" name="abstract" index="R5$K7" />
         <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
+        <child id="1780177113170204155" name="helpURL" index="bvy1s" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
@@ -254,6 +260,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJRF" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/constrainedTD.png" />
     </node>
+    <node concept="1sEMCm" id="5Jed3OJ4_8g" role="bvy1s">
+      <property role="1sEMCp" value="/structure.html" />
+      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="fKM4N6M">
     <property role="TrG5h" value="EnumerationMemberDeclaration_Old" />
@@ -291,6 +301,10 @@
     <ref role="1TJDcQ" node="fKAxPRU" resolve="DataTypeDeclaration" />
     <node concept="1QGGSu" id="4Q8sAA5iJRL" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/primitiveTD.png" />
+    </node>
+    <node concept="1sEMCm" id="5Jed3OJ4_9g" role="bvy1s">
+      <property role="1sEMCp" value="/structure.html" />
+      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="h0PkWnZ">
@@ -399,6 +413,10 @@
     </node>
     <node concept="1QGGSu" id="4Q8sAA5iJRK" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/interfaceStructure.png" />
+    </node>
+    <node concept="1sEMCm" id="5Jed3OJ4_9d" role="bvy1s">
+      <property role="1sEMCp" value="/structure.html" />
+      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="h0PrWoo">
@@ -729,6 +747,10 @@
     <node concept="1QGGSu" id="4Q8sAA5iJRI" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/structure.png" />
     </node>
+    <node concept="1sEMCm" id="11Atn_WK8fg" role="bvy1s">
+      <property role="1sEMCp" value="/structure.html" />
+      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2TR3acGo7Lv">
     <property role="EcuMT" value="3348158742936976479" />
@@ -755,6 +777,10 @@
     </node>
     <node concept="1QGGSu" id="VFd4X$JQVc" role="rwd14">
       <property role="1iqoE4" value="${module}/icons/enum.png" />
+    </node>
+    <node concept="1sEMCm" id="5Jed3OJ4_8k" role="bvy1s">
+      <property role="1sEMCp" value="/structure.html" />
+      <ref role="1fZFei" to="tpcc:46nPloez0vX" resolve="ConfluenceDocUrl" />
     </node>
   </node>
   <node concept="1TIwiD" id="2TR3acGo7Lw">
