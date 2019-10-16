@@ -976,32 +976,6 @@
       <unit id="7390982340086718154" at="19,0,55,0" name="jetbrains.mps.checkers.TargetConceptChecker" />
     </file>
   </root>
-  <root nodeRef="r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/7390982340086718297">
-    <file name="RefScopeCheckerOld.java">
-      <node id="6140047665459902353" at="15,0,16,0" concept="6" trace="myDelegate" />
-      <node id="6140047665459906105" at="18,31,19,43" concept="5" />
-      <node id="6140047665459918530" at="23,60,24,36" concept="11" />
-      <node id="6140047665459938842" at="28,74,29,38" concept="11" />
-      <node id="6140047665459947731" at="33,110,34,68" concept="5" />
-      <node id="7390982340086718299" at="17,0,21,0" concept="3" trace="RefScopeCheckerOld#()V" />
-      <node id="250369351434904903" at="22,0,26,0" concept="9" trace="getCategory#()Ljetbrains/mps/errors/item/IssueKindReportItem/CheckerCategory;" />
-      <node id="3494917438986484712" at="27,0,31,0" concept="9" trace="skipCondition#()Ljetbrains/mps/checkers/IChecker/AbstractNodeChecker/ErrorSkipCondition;" />
-      <node id="7390982340086718304" at="32,0,36,0" concept="9" trace="checkNodeInEditor#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/checkers/LanguageErrorsCollector;Lorg/jetbrains/mps/openapi/module/SRepository;)V" />
-      <scope id="7390982340086718302" at="18,31,19,43" />
-      <scope id="250369351434904910" at="23,60,24,36" />
-      <scope id="3494917438986484715" at="28,74,29,38" />
-      <scope id="7390982340086718313" at="33,110,34,68" />
-      <scope id="7390982340086718299" at="17,0,21,0" />
-      <scope id="250369351434904903" at="22,0,26,0" />
-      <scope id="3494917438986484712" at="27,0,31,0" />
-      <scope id="7390982340086718304" at="32,0,36,0">
-        <var name="errorsCollector" id="7390982340086718309" />
-        <var name="node" id="7390982340086718307" />
-        <var name="repository" id="3678491607201772361" />
-      </scope>
-      <unit id="7390982340086718297" at="13,0,37,0" name="jetbrains.mps.checkers.RefScopeCheckerOld" />
-    </file>
-  </root>
   <root nodeRef="r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/7390982340086718486">
     <file name="LanguageErrorsComponent.java">
       <node id="6424963521598656841" at="60,0,61,0" concept="6" trace="myFullCheckIterator" />
@@ -1483,32 +1457,6 @@
       <unit id="7390982340086719259" at="343,47,362,7" name="jetbrains.mps.checkers.LanguageErrorsComponent$5" />
       <unit id="7390982340086718487" at="374,0,397,0" name="jetbrains.mps.checkers.LanguageErrorsComponent$MyModelChangeListener" />
       <unit id="7390982340086718486" at="45,0,415,0" name="jetbrains.mps.checkers.LanguageErrorsComponent" />
-    </file>
-  </root>
-  <root nodeRef="r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/7390982340086720127">
-    <file name="ConstraintsCheckerOld.java">
-      <node id="6140047665459797306" at="15,0,16,0" concept="6" trace="myDelegate" />
-      <node id="6140047665459802062" at="18,34,19,46" concept="5" />
-      <node id="250369351434943442" at="23,60,24,36" concept="11" />
-      <node id="3494917438986471103" at="28,74,29,38" concept="11" />
-      <node id="6140047665459852768" at="33,110,34,68" concept="5" />
-      <node id="7390982340086720568" at="17,0,21,0" concept="3" trace="ConstraintsCheckerOld#()V" />
-      <node id="250369351434938551" at="22,0,26,0" concept="9" trace="getCategory#()Ljetbrains/mps/errors/item/IssueKindReportItem/CheckerCategory;" />
-      <node id="3494917438986462549" at="27,0,31,0" concept="9" trace="skipCondition#()Ljetbrains/mps/checkers/IChecker/AbstractNodeChecker/ErrorSkipCondition;" />
-      <node id="7390982340086720128" at="32,0,36,0" concept="9" trace="checkNodeInEditor#(Lorg/jetbrains/mps/openapi/model/SNode;Ljetbrains/mps/checkers/LanguageErrorsCollector;Lorg/jetbrains/mps/openapi/module/SRepository;)V" />
-      <scope id="7390982340086720571" at="18,34,19,46" />
-      <scope id="250369351434938558" at="23,60,24,36" />
-      <scope id="3494917438986462562" at="28,74,29,38" />
-      <scope id="7390982340086720131" at="33,110,34,68" />
-      <scope id="7390982340086720568" at="17,0,21,0" />
-      <scope id="250369351434938551" at="22,0,26,0" />
-      <scope id="3494917438986462549" at="27,0,31,0" />
-      <scope id="7390982340086720128" at="32,0,36,0">
-        <var name="errorsCollector" id="7390982340086720563" />
-        <var name="node" id="7390982340086720561" />
-        <var name="repository" id="4525171225383442279" />
-      </scope>
-      <unit id="7390982340086720127" at="13,0,37,0" name="jetbrains.mps.checkers.ConstraintsCheckerOld" />
     </file>
   </root>
   <root nodeRef="r:ba41e9c6-15ca-4a47-95f2-6a81c2318547(jetbrains.mps.checkers)/7390982340086720780">
