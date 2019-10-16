@@ -2441,9 +2441,16 @@
             <ref role="L2wRA" node="1TaHNgiHrmy" resolve="jetbrains.mps.java.stub" />
             <node concept="3yLZsm" id="3fmo8W2LORo" role="3yL2VB">
               <property role="3yLZsk" value="/lib/mps-persistence.jar" />
-              <node concept="55IIr" id="3fmo8W2LORp" role="3yLZsn">
-                <node concept="2Ry0Ak" id="3fmo8W2LORq" role="iGT6I">
-                  <property role="2Ry0Am" value="mps-persistence.jar" />
+              <node concept="398BVA" id="29nTRW1kPM0" role="3yLZsn">
+                <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+                <node concept="2Ry0Ak" id="29nTRW1kPRF" role="iGT6I">
+                  <property role="2Ry0Am" value="core" />
+                  <node concept="2Ry0Ak" id="29nTRW1kPXl" role="2Ry0An">
+                    <property role="2Ry0Am" value="java-stub" />
+                    <node concept="2Ry0Ak" id="29nTRW1kPXo" role="2Ry0An">
+                      <property role="2Ry0Am" value="classes" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
@@ -5297,14 +5304,20 @@
             <ref role="3bR37D" node="7iiyGQ7dLQL" resolve="jetbrains.mps.baseLanguage.jdk8" />
           </node>
         </node>
-        <node concept="1BurEX" id="3fmo8W2LOKO" role="3bR37C">
-          <node concept="55IIr" id="3fmo8W2LOL4" role="1BurEY">
-            <node concept="2Ry0Ak" id="3fmo8W2LOLN" role="iGT6I">
-              <property role="2Ry0Am" value="mps-persistence.jar" />
+        <node concept="1E1SXE" id="29nTRW1kOYZ" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="3dkXFAFkSFA" resolve="mps-persistence" />
+          <node concept="398BVA" id="29nTRW1kPau" role="17Grwy">
+            <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="29nTRW1kPg7" role="iGT6I">
+              <property role="2Ry0Am" value="core" />
+              <node concept="2Ry0Ak" id="29nTRW1kPrm" role="2Ry0An">
+                <property role="2Ry0Am" value="java-stub" />
+                <node concept="2Ry0Ak" id="29nTRW1kPx0" role="2Ry0An">
+                  <property role="2Ry0Am" value="classes" />
+                </node>
+              </node>
             </node>
-          </node>
-          <node concept="3yrxFa" id="3fmo8W2LOMy" role="2gdwQb">
-            <ref role="3yrxFb" node="3fmo8W2LOl8" resolve="mps-persistence.jar" />
           </node>
         </node>
         <node concept="398BVA" id="6wK_PpNA8Bq" role="3LF7KH">

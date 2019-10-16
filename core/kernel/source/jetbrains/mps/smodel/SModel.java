@@ -363,7 +363,13 @@ public class SModel implements SModelData, UpdateModeSupport {
 
   private void checkNotDisposed() {
     if (myDisposed) {
-      LOG.error(new IllegalModelAccessError("accessing disposed model"));
+      final IllegalModelAccessError ex = new IllegalModelAccessError("accessing disposed model");
+      LOG.error(String.format("Model %s is disposed", myReference), ex);
+      if (myDisposedStacktrace != null) {
+        final Throwable d = new Throwable();
+        d.setStackTrace(myDisposedStacktrace);
+        LOG.error(String.format("The model %s has been disposed from ", myReference), d);
+      }
     }
   }
 
