@@ -249,8 +249,8 @@
         <path location="${basedir}/jetbrains.mps.build.mps.runner.test.test2/source_gen" />
       </src>
       <classpath>
-        <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps.runner.test.test1" />
         <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <pathelement path="${build.tmp}/java/out/jetbrains.mps.build.mps.runner.test.test1" />
       </classpath>
     </javac>
   </target>

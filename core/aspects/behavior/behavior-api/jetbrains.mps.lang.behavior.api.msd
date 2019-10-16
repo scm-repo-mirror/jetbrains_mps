@@ -5,6 +5,9 @@
     <modelRoot contentPath="${module}" type="java_classes">
       <sourceRoot location="classes" />
     </modelRoot>
+    <modelRoot contentPath="${platform_lib}" type="java_classes">
+      <sourceRoot location="mps-behavior-api.jar" />
+    </modelRoot>
   </models>
   <facets>
     <facet pluginId="com.intellij" type="ideaPlugin" />

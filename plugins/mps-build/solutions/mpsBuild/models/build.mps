@@ -341,7 +341,6 @@
         <child id="2355727383336213970" name="copyrightStar" index="3fQQh0" />
       </concept>
       <concept id="1265949165890536423" name="jetbrains.mps.build.mps.structure.BuildMpsLayout_ModuleJars" flags="ng" index="L2wRC">
-        <property id="3335207478148060173" name="customContent" index="3PtdQa" />
         <reference id="1265949165890536425" name="module" index="L2wRA" />
         <child id="4356762679305730677" name="jarLocations" index="3yL2VB" />
         <child id="3335207478148056905" name="deployedJar" index="3PtcVe" />
@@ -2710,53 +2709,84 @@
               </node>
             </node>
           </node>
-          <node concept="L2wRC" id="3ost_8TyLRx" role="39821P">
-            <property role="3PtdQa" value="true" />
-            <ref role="L2wRA" node="3qkjbZn808a" resolve="jetbrains.mps.lang.constraints.rules.runtime" />
-            <node concept="3PtdJl" id="3ost_8TyVym" role="3PtcVe">
-              <node concept="3ygNvl" id="3ost_8TyV$n" role="39821P">
-                <ref role="3ygNvj" node="5RhptgddDoa" resolve="mps-constraints-runtime.jar" />
-              </node>
-            </node>
-          </node>
           <node concept="3_J27D" id="3ost_8TyKYB" role="Nbhlr">
             <node concept="3Mxwew" id="3ost_8TyL5j" role="3MwsjC">
               <property role="3MwjfP" value="runtimes" />
             </node>
           </node>
-          <node concept="L2wRC" id="wKi8DpCCoi" role="39821P">
-            <property role="3PtdQa" value="true" />
-            <ref role="L2wRA" node="2Tl9xCDWpd" resolve="jetbrains.mps.lang.behavior.api" />
-            <node concept="3yLZsm" id="wKi8DpCCGH" role="3yL2VB">
-              <property role="3yLZsk" value="/lib/mps-behavior-api.jar" />
-              <node concept="55IIr" id="wKi8DpCCHs" role="3yLZsn">
-                <node concept="2Ry0Ak" id="wKi8DpCCIb" role="iGT6I">
-                  <property role="2Ry0Am" value="mps-behavior-api.jar" />
+          <node concept="L2wRC" id="6OGItEzJKLA" role="39821P">
+            <ref role="L2wRA" node="3qkjbZn808a" resolve="jetbrains.mps.lang.constraints.rules.runtime" />
+            <node concept="3yLZsm" id="6OGItEzJKYn" role="3yL2VB">
+              <property role="3yLZsk" value="/lib/mps-constraints-runtime.jar" />
+              <node concept="398BVA" id="6OGItEzJLfa" role="3yLZsn">
+                <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+                <node concept="2Ry0Ak" id="6OGItEzJLkN" role="iGT6I">
+                  <property role="2Ry0Am" value="core" />
+                  <node concept="2Ry0Ak" id="6OGItEzJLkS" role="2Ry0An">
+                    <property role="2Ry0Am" value="aspects" />
+                    <node concept="2Ry0Ak" id="6OGItEzJLkX" role="2Ry0An">
+                      <property role="2Ry0Am" value="constraints" />
+                      <node concept="2Ry0Ak" id="6OGItEzJLl2" role="2Ry0An">
+                        <property role="2Ry0Am" value="constraints-runtime" />
+                        <node concept="2Ry0Ak" id="6OGItEzJLl5" role="2Ry0An">
+                          <property role="2Ry0Am" value="classes" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                 </node>
-              </node>
-            </node>
-            <node concept="3PtdJl" id="wKi8DpCCL$" role="3PtcVe">
-              <node concept="3ygNvl" id="wKi8DpCCMh" role="39821P">
-                <ref role="3ygNvj" node="wKi8DpgB$b" resolve="mps-behavior-api.jar" />
               </node>
             </node>
           </node>
-          <node concept="L2wRC" id="wKi8DpCCSJ" role="39821P">
-            <property role="3PtdQa" value="true" />
-            <ref role="L2wRA" node="bOvjGOUy$U" resolve="jetbrains.mps.lang.behavior.runtime" />
-            <node concept="3yLZsm" id="wKi8DpCD0C" role="3yL2VB">
-              <property role="3yLZsk" value="/lib/mps-behavior-runtime.jar" />
-              <node concept="55IIr" id="wKi8DpCD1n" role="3yLZsn">
-                <node concept="2Ry0Ak" id="wKi8DpCD1r" role="iGT6I">
-                  <property role="2Ry0Am" value="mps-behavior-runtime.jar" />
+          <node concept="L2wRC" id="wKi8DpCCoi" role="39821P">
+            <ref role="L2wRA" node="2Tl9xCDWpd" resolve="jetbrains.mps.lang.behavior.api" />
+            <node concept="3yLZsm" id="wKi8DpCCGH" role="3yL2VB">
+              <property role="3yLZsk" value="/lib/mps-behavior-api.jar" />
+              <node concept="398BVA" id="6OGItEzJxPX" role="3yLZsn">
+                <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+                <node concept="2Ry0Ak" id="6OGItEzJxVC" role="iGT6I">
+                  <property role="2Ry0Am" value="core" />
+                  <node concept="2Ry0Ak" id="6OGItEzJy1i" role="2Ry0An">
+                    <property role="2Ry0Am" value="aspects" />
+                    <node concept="2Ry0Ak" id="6OGItEzJy1n" role="2Ry0An">
+                      <property role="2Ry0Am" value="behavior" />
+                      <node concept="2Ry0Ak" id="6OGItEzJy1s" role="2Ry0An">
+                        <property role="2Ry0Am" value="behavior-api" />
+                        <node concept="2Ry0Ak" id="6OGItEzJy1x" role="2Ry0An">
+                          <property role="2Ry0Am" value="classes" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
-            <node concept="3PtdJl" id="wKi8DpCCWR" role="3PtcVe">
-              <node concept="3ygNvl" id="wKi8DpgG7z" role="39821P">
-                <ref role="3ygNvj" node="wKi8DpgBx5" resolve="mps-behavior-runtime.jar" />
+            <node concept="3PtdJl" id="wKi8DpCCL$" role="3PtcVe" />
+          </node>
+          <node concept="L2wRC" id="wKi8DpCCSJ" role="39821P">
+            <ref role="L2wRA" node="bOvjGOUy$U" resolve="jetbrains.mps.lang.behavior.runtime" />
+            <node concept="3yLZsm" id="wKi8DpCD0C" role="3yL2VB">
+              <property role="3yLZsk" value="/lib/mps-behavior-runtime.jar" />
+              <node concept="398BVA" id="6OGItEzJy1z" role="3yLZsn">
+                <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+                <node concept="2Ry0Ak" id="6OGItEzJy1$" role="iGT6I">
+                  <property role="2Ry0Am" value="core" />
+                  <node concept="2Ry0Ak" id="6OGItEzJy1_" role="2Ry0An">
+                    <property role="2Ry0Am" value="aspects" />
+                    <node concept="2Ry0Ak" id="6OGItEzJy1A" role="2Ry0An">
+                      <property role="2Ry0Am" value="behavior" />
+                      <node concept="2Ry0Ak" id="6OGItEzJyo3" role="2Ry0An">
+                        <property role="2Ry0Am" value="behavior-runtime" />
+                        <node concept="2Ry0Ak" id="6OGItEzJyo6" role="2Ry0An">
+                          <property role="2Ry0Am" value="classes" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
               </node>
             </node>
+            <node concept="3PtdJl" id="wKi8DpCCWR" role="3PtcVe" />
           </node>
           <node concept="L2wRC" id="4Gy9vLL29rh" role="39821P">
             <ref role="L2wRA" node="7Kfy9QB6Lh2" resolve="jetbrains.mps.refactoring.runtime" />
@@ -5864,14 +5894,26 @@
             <ref role="3bR37D" node="1TaHNgiIbIQ" resolve="MPS.Core" />
           </node>
         </node>
-        <node concept="1BurEX" id="wKi8DpCCu8" role="3bR37C">
-          <node concept="55IIr" id="wKi8DpCCuX" role="1BurEY">
-            <node concept="2Ry0Ak" id="wKi8DpCCv1" role="iGT6I">
-              <property role="2Ry0Am" value="mps-behavior-api.jar" />
+        <node concept="1E1SXE" id="6OGItEzJvh0" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="6e4RFSGTIz7" resolve="mps-behavior-api" />
+          <node concept="398BVA" id="6OGItEzJvsj" role="17Grwy">
+            <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="6OGItEzJvxY" role="iGT6I">
+              <property role="2Ry0Am" value="core" />
+              <node concept="2Ry0Ak" id="6OGItEzJvBC" role="2Ry0An">
+                <property role="2Ry0Am" value="aspects" />
+                <node concept="2Ry0Ak" id="6OGItEzJvMR" role="2Ry0An">
+                  <property role="2Ry0Am" value="behavior" />
+                  <node concept="2Ry0Ak" id="6OGItEzJvY6" role="2Ry0An">
+                    <property role="2Ry0Am" value="behavior-api" />
+                    <node concept="2Ry0Ak" id="6OGItEzJw3K" role="2Ry0An">
+                      <property role="2Ry0Am" value="classes" />
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
-          </node>
-          <node concept="3yrxFa" id="wKi8DpCCwr" role="2gdwQb">
-            <ref role="3yrxFb" node="wKi8DpgB$b" resolve="mps-behavior-api.jar" />
           </node>
         </node>
       </node>
@@ -5914,14 +5956,26 @@
             <ref role="3bR37D" node="2Tl9xCDWpd" resolve="jetbrains.mps.lang.behavior.api" />
           </node>
         </node>
-        <node concept="1BurEX" id="wKi8DpCCCZ" role="3bR37C">
-          <node concept="55IIr" id="wKi8DpCCDQ" role="1BurEY">
-            <node concept="2Ry0Ak" id="wKi8DpCCE_" role="iGT6I">
-              <property role="2Ry0Am" value="mps-behavior-runtime.jar" />
+        <node concept="1E1SXE" id="6OGItEzJwf8" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="6e4RFSGTAMz" resolve="mps-behavior-runtime" />
+          <node concept="398BVA" id="6OGItEzJww6" role="17Grwy">
+            <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="6OGItEzJww7" role="iGT6I">
+              <property role="2Ry0Am" value="core" />
+              <node concept="2Ry0Ak" id="6OGItEzJww8" role="2Ry0An">
+                <property role="2Ry0Am" value="aspects" />
+                <node concept="2Ry0Ak" id="6OGItEzJww9" role="2Ry0An">
+                  <property role="2Ry0Am" value="behavior" />
+                  <node concept="2Ry0Ak" id="6OGItEzJwL1" role="2Ry0An">
+                    <property role="2Ry0Am" value="behavior-runtime" />
+                    <node concept="2Ry0Ak" id="6OGItEzJwL4" role="2Ry0An">
+                      <property role="2Ry0Am" value="classes" />
+                    </node>
+                  </node>
+                </node>
+              </node>
             </node>
-          </node>
-          <node concept="3yrxFa" id="wKi8DpCCFk" role="2gdwQb">
-            <ref role="3yrxFb" node="wKi8DpgBx5" resolve="mps-behavior-runtime.jar" />
           </node>
         </node>
       </node>
@@ -5965,6 +6019,28 @@
           <node concept="3bR9La" id="3qkjbZn80QF" role="1SiIV1">
             <property role="3bR36h" value="true" />
             <ref role="3bR37D" node="1TaHNgiIbIQ" resolve="MPS.Core" />
+          </node>
+        </node>
+        <node concept="1E1SXE" id="6OGItEzJuDq" role="3bR37C">
+          <property role="1E1SXH" value="true" />
+          <ref role="1E1SXG" node="SHPhCCYooj" resolve="constraints-runtime" />
+          <node concept="398BVA" id="6OGItEzJuOJ" role="17Grwy">
+            <ref role="398BVh" node="16Vg0jOco3V" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="6OGItEzJuOK" role="iGT6I">
+              <property role="2Ry0Am" value="core" />
+              <node concept="2Ry0Ak" id="6OGItEzJuOL" role="2Ry0An">
+                <property role="2Ry0Am" value="aspects" />
+                <node concept="2Ry0Ak" id="6OGItEzJuOM" role="2Ry0An">
+                  <property role="2Ry0Am" value="constraints" />
+                  <node concept="2Ry0Ak" id="6OGItEzJuON" role="2Ry0An">
+                    <property role="2Ry0Am" value="constraints-runtime" />
+                    <node concept="2Ry0Ak" id="6OGItEzJv05" role="2Ry0An">
+                      <property role="2Ry0Am" value="classes" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
           </node>
         </node>
       </node>
