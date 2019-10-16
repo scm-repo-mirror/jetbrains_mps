@@ -64,16 +64,16 @@ public abstract class BaseAction extends AnAction {
     setEnabledInModalContext(true);
   }
 
-  public void setIsAlwaysVisible(boolean isAlwaysVisible) {
+  public final void setIsAlwaysVisible(boolean isAlwaysVisible) {
     myIsAlwaysVisible = isAlwaysVisible;
   }
 
-  public void setExecuteOutsideCommand(boolean executeOutsideCommand) {
+  public final void setExecuteOutsideCommand(boolean executeOutsideCommand) {
     myExecuteOutsideCommand = executeOutsideCommand;
     resetActionAccess();
   }
 
-  public void setDisableOnNoProject(boolean disableOnNoProject) {
+  public final void setDisableOnNoProject(boolean disableOnNoProject) {
     myDisableOnNoProject = disableOnNoProject;
     resetActionAccess();
   }
@@ -90,7 +90,7 @@ public abstract class BaseAction extends AnAction {
    * This method replaces {@code setDisableOnNoProject} and {@code setExecuteOutsideCommand} flags.
    * Either those flag setters should be called or this method. Not both.
    */
-  public void setActionAccess(ActionAccess actionAccess) {
+  public final void setActionAccess(ActionAccess actionAccess) {
     myExplicitActionAccess = true;
     myActionAccess = actionAccess;
   }
@@ -106,7 +106,7 @@ public abstract class BaseAction extends AnAction {
     return false;
   }
 
-  public void setMnemonic(char mnemonic) {
+  public final void setMnemonic(char mnemonic) {
     String text = getTemplatePresentation().getText();
     int pos = text.indexOf(Character.toUpperCase(mnemonic));
     if (pos == -1) {
@@ -216,7 +216,7 @@ public abstract class BaseAction extends AnAction {
     }
   }
 
-  public void addPlace(ActionPlace place) {
+  public final void addPlace(ActionPlace place) {
     if (myPlaces == null) {
       myPlaces = new HashSet<>(8);
     }
