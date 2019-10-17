@@ -21,7 +21,7 @@ public class SelectLocalHome_Action extends BaseAction {
   public SelectLocalHome_Action() {
     super("Move Caret to Previous Word with Selection", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setActionAccess(ActionAccess.READ_PROJECT);
+    this.setActionAccess(ActionAccess.NONE);
   }
   @Override
   public boolean isDumbAware() {

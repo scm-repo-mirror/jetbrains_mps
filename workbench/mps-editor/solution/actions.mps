@@ -2929,7 +2929,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="2uzpH1" value="Move Caret to Next Word with Selection" />
     <property role="1teQrl" value="true" />
-    <property role="2YLI8m" value="6u2MFnph2yg/read" />
+    <property role="2YLI8m" value="6u2MFnph2wS/none" />
     <node concept="1DS2jV" id="6KwcZ1G3Pl_" role="1NuT2Z">
       <property role="TrG5h" value="editorCell" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CELL" resolve="EDITOR_CELL" />
@@ -2965,25 +2965,6 @@
                 <node concept="2WthIp" id="5OMo51zINwv" role="2Oq$k0" />
                 <node concept="1DTwFV" id="5OMo51zINwx" role="2OqNvi">
                   <ref role="2WH_rO" node="6KwcZ1G3PlA" resolve="editorComponent" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="3clFbF" id="4DbpfM1UsMR" role="3cqZAp">
-          <node concept="2OqwBi" id="4DbpfM1UsMS" role="3clFbG">
-            <node concept="2OqwBi" id="4DbpfM1UsMT" role="2Oq$k0">
-              <node concept="2WthIp" id="4DbpfM1UsMU" role="2Oq$k0" />
-              <node concept="1DTwFV" id="4DbpfM1UsMV" role="2OqNvi">
-                <ref role="2WH_rO" node="6KwcZ1G3PlA" resolve="editorComponent" />
-              </node>
-            </node>
-            <node concept="liA8E" id="4DbpfM1UsMW" role="2OqNvi">
-              <ref role="37wK5l" to="exr9:~EditorComponent.scrollToCell(jetbrains.mps.openapi.editor.cells.EditorCell)" resolve="scrollToCell" />
-              <node concept="2OqwBi" id="4DbpfM1UsMX" role="37wK5m">
-                <node concept="2WthIp" id="4DbpfM1UsMY" role="2Oq$k0" />
-                <node concept="1DTwFV" id="4DbpfM1UsMZ" role="2OqNvi">
-                  <ref role="2WH_rO" node="6KwcZ1G3Pl_" resolve="editorCell" />
                 </node>
               </node>
             </node>
@@ -3026,7 +3007,7 @@
     <property role="3GE5qa" value="EditorActions" />
     <property role="2uzpH1" value="Move Caret to Previous Word with Selection" />
     <property role="1teQrl" value="true" />
-    <property role="2YLI8m" value="6u2MFnph2yg/read" />
+    <property role="2YLI8m" value="6u2MFnph2wS/none" />
     <node concept="1DS2jV" id="6KwcZ1G3PmO" role="1NuT2Z">
       <property role="TrG5h" value="editorCell" />
       <ref role="1DUlNI" to="k3nr:~MPSEditorDataKeys.EDITOR_CELL" resolve="EDITOR_CELL" />

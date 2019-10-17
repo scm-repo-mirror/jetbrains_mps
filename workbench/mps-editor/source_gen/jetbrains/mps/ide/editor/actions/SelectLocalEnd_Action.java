@@ -21,7 +21,7 @@ public class SelectLocalEnd_Action extends BaseAction {
   public SelectLocalEnd_Action() {
     super("Move Caret to Next Word with Selection", "", ICON);
     this.setIsAlwaysVisible(false);
-    this.setActionAccess(ActionAccess.READ_PROJECT);
+    this.setActionAccess(ActionAccess.NONE);
   }
   @Override
   public boolean isDumbAware() {
@@ -62,6 +62,5 @@ public class SelectLocalEnd_Action extends BaseAction {
   @Override
   public void doExecute(@NotNull final AnActionEvent event, final Map<String, Object> _params) {
     ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).getActionHandler().executeAction(((EditorCell) MapSequence.fromMap(_params).get("editorCell")), CellActionType.SELECT_LOCAL_END);
-    ((EditorComponent) MapSequence.fromMap(_params).get("editorComponent")).scrollToCell(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
   }
 }
