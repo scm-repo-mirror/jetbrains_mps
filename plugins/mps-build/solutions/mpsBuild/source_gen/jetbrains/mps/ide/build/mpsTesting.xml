@@ -947,9 +947,6 @@
         <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/test-util">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.baseLanguage.unitTest" depends="fetchDependencies">
@@ -1005,9 +1002,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.unitTest">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/baseLanguage/unitTest/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.baseLanguage.unitTest#1171932017138" depends="java.compile.jetbrains.mps.baseLanguage.unitTest, fetchDependencies">
@@ -1060,9 +1054,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.unitTest#1171932017138">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/baseLanguage/unitTest/generator/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.test.generator" depends="java.compile.jetbrains.mps.baseLanguage.unitTest, java.compile.jetbrains.mps.lang.test, java.compile.jetbrains.mps.lang.test.runtime, fetchDependencies">
@@ -1121,9 +1112,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.test.generator">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.test.generator#01" depends="java.compile.jetbrains.mps.baseLanguage.unitTest, java.compile.jetbrains.mps.lang.test, java.compile.jetbrains.mps.lang.test.generator, java.compile.jetbrains.mps.lang.test.runtime, fetchDependencies">
@@ -1182,9 +1170,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.test.generator#01">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/generator/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.test.generator.rt" depends="java.compile.jetbrains.mps.lang.test.matcher, fetchDependencies">
@@ -1228,9 +1213,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.plan.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.test.generator.rt">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest.rt/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.test.matcher" depends="fetchDependencies">
@@ -1248,9 +1230,6 @@
         <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.test.matcher">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.matcher/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.java.modules.cycle.1" depends="java.compile.jetbrains.mps.baseLanguage.unitTest, java.compile.jetbrains.mps.lang.test.matcher, fetchDependencies">
@@ -1410,9 +1389,6 @@
         <pathelement path="${build.tmp}/java.modules.cycle.1" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.test">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.test#1210261198005" depends="java.compile.jetbrains.mps.baseLanguage.unitTest, java.compile.jetbrains.mps.lang.test, java.compile.jetbrains.mps.lang.test.matcher, java.compile.jetbrains.mps.lang.test.runtime, fetchDependencies">
@@ -1484,9 +1460,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.test#1210261198005">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/generator/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.test.runtime" depends="java.compile.jetbrains.mps.baseLanguage.unitTest, java.compile.jetbrains.mps.lang.test.matcher, java.compile.java.modules.cycle.1, fetchDependencies">
@@ -1543,9 +1516,6 @@
         <pathelement path="${build.tmp}/java.modules.cycle.1" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.test.runtime">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.runtime/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="java.compile.jetbrains.mps.lang.smodelTests" depends="fetchDependencies">
@@ -1592,9 +1562,6 @@
         <fileset file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
       </classpath>
     </javac>
-    <copy todir="${build.tmp}/java/out/jetbrains.mps.lang.smodelTests">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/smodelTests/source_gen" excludes="**/*.java" />
-    </copy>
   </target>
   
   <target name="cleanSources">
