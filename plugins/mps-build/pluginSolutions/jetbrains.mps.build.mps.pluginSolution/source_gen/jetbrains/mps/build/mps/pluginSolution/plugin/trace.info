@@ -1648,60 +1648,61 @@
       <node id="8722937377469658212" at="23,24,24,28" concept="4" />
       <node id="9155551433208577998" at="24,28,25,0" concept="13" />
       <node id="9155551433208578000" at="25,0,26,17" concept="4" />
-      <node id="8722937377469658102" at="30,29,31,16" concept="11" />
-      <node id="8722937377469658109" at="35,44,36,49" concept="10" />
-      <node id="8722937377469658113" at="36,49,37,25" concept="0" />
-      <node id="8722937377469658117" at="37,25,38,21" concept="4" />
-      <node id="8722937377469658121" at="38,21,39,17" concept="11" />
-      <node id="1417540733158087717" at="43,33,44,54" concept="11" />
-      <node id="8722937377469658157" at="48,31,49,23" concept="4" />
-      <node id="8722937377469658159" at="49,23,50,27" concept="4" />
-      <node id="8722937377469658229" at="53,28,54,79" concept="10" />
-      <node id="8722937377469658243" at="54,79,55,75" concept="10" />
-      <node id="3606213998577119644" at="55,75,56,74" concept="10" />
-      <node id="8722937377469658257" at="56,74,57,83" concept="10" />
-      <node id="8722937377469658271" at="57,83,58,24" concept="4" />
-      <node id="8722937377469658276" at="58,24,59,23" concept="4" />
-      <node id="3606213998577119655" at="59,23,60,28" concept="4" />
-      <node id="8722937377469658281" at="60,28,61,27" concept="4" />
-      <node id="8722937377469658286" at="61,27,62,11" concept="4" />
+      <node id="1187332813349085050" at="30,29,31,0" concept="13" />
+      <node id="8722937377469658102" at="31,0,32,31" concept="11" />
+      <node id="8722937377469658109" at="36,44,37,49" concept="10" />
+      <node id="8722937377469658113" at="37,49,38,25" concept="0" />
+      <node id="8722937377469658117" at="38,25,39,21" concept="4" />
+      <node id="8722937377469658121" at="39,21,40,17" concept="11" />
+      <node id="1417540733158087717" at="44,33,45,54" concept="11" />
+      <node id="8722937377469658157" at="49,31,50,23" concept="4" />
+      <node id="8722937377469658159" at="50,23,51,27" concept="4" />
+      <node id="8722937377469658229" at="54,28,55,79" concept="10" />
+      <node id="8722937377469658243" at="55,79,56,75" concept="10" />
+      <node id="3606213998577119644" at="56,75,57,74" concept="10" />
+      <node id="8722937377469658257" at="57,74,58,83" concept="10" />
+      <node id="8722937377469658271" at="58,83,59,24" concept="4" />
+      <node id="8722937377469658276" at="59,24,60,23" concept="4" />
+      <node id="3606213998577119655" at="60,23,61,28" concept="4" />
+      <node id="8722937377469658281" at="61,28,62,27" concept="4" />
+      <node id="8722937377469658286" at="62,27,63,11" concept="4" />
       <node id="8722937377469658181" at="15,0,19,0" concept="9" trace="setErrorText#(Ljava/lang/String;)V" />
-      <node id="8722937377469658099" at="29,0,33,0" concept="9" trace="getHelpID#()Ljava/lang/String;" />
-      <node id="1417540733158087710" at="42,0,46,0" concept="9" trace="canFinish#()Z" />
-      <node id="8722937377469658153" at="47,0,52,0" concept="9" trace="doOKAction#()V" />
+      <node id="1417540733158087710" at="43,0,47,0" concept="9" trace="canFinish#()Z" />
+      <node id="8722937377469658099" at="29,0,34,0" concept="9" trace="getHelpID#()Ljava/lang/String;" />
+      <node id="8722937377469658153" at="48,0,53,0" concept="9" trace="doOKAction#()V" />
       <node id="8722937377469658174" at="14,0,20,0" concept="5" trace="myErrorHandler" />
       <node id="8722937377469658193" at="21,0,28,0" concept="2" trace="GenerateBuildWizard#(Ljava/lang/String;Ljetbrains/mps/project/Project;Ljetbrains/mps/build/mps/pluginSolution/plugin/AbstractBuildGenerator;)V" />
-      <node id="8722937377469658105" at="34,0,41,0" concept="9" trace="createCenterPanel#()Ljavax/swing/JComponent;" />
-      <node id="8722937377469658225" at="53,0,64,0" concept="9" trace="initWizard#()V" />
+      <node id="8722937377469658105" at="35,0,42,0" concept="9" trace="createCenterPanel#()Ljavax/swing/JComponent;" />
+      <node id="8722937377469658225" at="54,0,65,0" concept="9" trace="initWizard#()V" />
       <scope id="8722937377469658186" at="16,43,17,50" />
-      <scope id="8722937377469658101" at="30,29,31,16" />
-      <scope id="1417540733158087714" at="43,33,44,54" />
-      <scope id="8722937377469658156" at="48,31,50,27" />
+      <scope id="1417540733158087714" at="44,33,45,54" />
+      <scope id="8722937377469658101" at="30,29,32,31" />
+      <scope id="8722937377469658156" at="49,31,51,27" />
       <scope id="8722937377469658181" at="15,0,19,0">
         <var name="text" id="8722937377469658184" />
       </scope>
-      <scope id="8722937377469658099" at="29,0,33,0" />
-      <scope id="8722937377469658108" at="35,44,39,17">
+      <scope id="8722937377469658108" at="36,44,40,17">
         <var name="panel" id="8722937377469658110" />
       </scope>
-      <scope id="1417540733158087710" at="42,0,46,0" />
+      <scope id="1417540733158087710" at="43,0,47,0" />
       <scope id="8722937377469658196" at="21,95,26,17" />
-      <scope id="8722937377469658153" at="47,0,52,0" />
+      <scope id="8722937377469658099" at="29,0,34,0" />
+      <scope id="8722937377469658153" at="48,0,53,0" />
       <scope id="8722937377469658193" at="21,0,28,0">
         <var name="generator" id="8722937377469658222" />
         <var name="project" id="8722937377469658220" />
         <var name="title" id="8722937377469658218" />
       </scope>
-      <scope id="8722937377469658105" at="34,0,41,0" />
-      <scope id="8722937377469658228" at="53,28,62,11">
+      <scope id="8722937377469658105" at="35,0,42,0" />
+      <scope id="8722937377469658228" at="54,28,63,11">
         <var name="dependencyStep" id="3606213998577119645" />
         <var name="languagesStep" id="8722937377469658258" />
         <var name="modelStep" id="8722937377469658244" />
         <var name="moduleStep" id="8722937377469658230" />
       </scope>
-      <scope id="8722937377469658225" at="53,0,64,0" />
+      <scope id="8722937377469658225" at="54,0,65,0" />
       <unit id="8722937377469658179" at="14,47,19,3" name="jetbrains.mps.build.mps.pluginSolution.plugin.GenerateBuildWizard$1" />
-      <unit id="8722937377469658098" at="11,0,65,0" name="jetbrains.mps.build.mps.pluginSolution.plugin.GenerateBuildWizard" />
+      <unit id="8722937377469658098" at="11,0,66,0" name="jetbrains.mps.build.mps.pluginSolution.plugin.GenerateBuildWizard" />
     </file>
   </root>
   <root nodeRef="r:f9ed10bf-2cd1-4bab-a5dd-e89f55ef9fd1(jetbrains.mps.build.mps.pluginSolution.plugin)/8722937377469658290">

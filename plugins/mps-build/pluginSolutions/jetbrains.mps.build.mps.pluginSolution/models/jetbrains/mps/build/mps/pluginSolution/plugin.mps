@@ -9584,8 +9584,11 @@
       <property role="TrG5h" value="getHelpID" />
       <node concept="3Tm1VV" id="7$e6lgA3BfO" role="1B3o_S" />
       <node concept="3clFbS" id="7$e6lgA3BfP" role="3clF47">
+        <node concept="3clFbH" id="11UgesDP_XU" role="3cqZAp" />
         <node concept="3cpWs6" id="7$e6lgA3BfQ" role="3cqZAp">
-          <node concept="10Nm6u" id="7$e6lgA3BfR" role="3cqZAk" />
+          <node concept="Xl_RD" id="11UgesDOQ8v" role="3cqZAk">
+            <property role="Xl_RC" value="BuildScriptWizard" />
+          </node>
         </node>
       </node>
       <node concept="17QB3L" id="7$e6lgA3BfS" role="3clF45" />
