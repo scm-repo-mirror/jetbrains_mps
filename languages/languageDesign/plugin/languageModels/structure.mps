@@ -1916,6 +1916,9 @@
       <property role="1sEMCp" value="plugin.html#actionsandactiongroups" />
       <ref role="1fZFei" to="bgxn:46nPloez0vX" resolve="HelpCenterDocUrl" />
     </node>
+    <node concept="PrWs8" id="5uz$l7tj0Qw" role="PzmwI">
+      <ref role="PrY4T" to="tpck:2WmWrdnSpX2" resolve="ICanSuppressErrors" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1InOx6V0wuJ">
     <property role="R5$K7" value="false" />

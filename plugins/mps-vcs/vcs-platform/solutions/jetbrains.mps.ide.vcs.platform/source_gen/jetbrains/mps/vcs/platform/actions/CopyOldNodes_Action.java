@@ -21,7 +21,7 @@ public class CopyOldNodes_Action extends BaseAction {
   public CopyOldNodes_Action() {
     super("Copy Old Code", "", ICON);
     this.setIsAlwaysVisible(true);
-    this.setActionAccess(ActionAccess.READ_PROJECT);
+    this.setActionAccess(ActionAccess.UNDO_PROJECT);
   }
   @Override
   public boolean isDumbAware() {
