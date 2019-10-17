@@ -53,7 +53,6 @@ import org.jetbrains.mps.openapi.module.SModule;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
-import jetbrains.mps.openapi.navigation.ProjectPaneNavigator;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -290,7 +289,8 @@ public final class PopupWithNodeEditorUI implements Disposable {
   }
 
   private class ShowSourceAction extends AnAction {
-    private boolean myClosePopup;
+    private final boolean myClosePopup;
+
     public ShowSourceAction(String name, Icon icon, boolean closePopup) {
       super(name, null, icon);
       myClosePopup = closePopup;
@@ -307,7 +307,6 @@ public final class PopupWithNodeEditorUI implements Disposable {
         return;
       }
       new EditorNavigator(myProject).shallFocus(true).shallSelect(true).open(selectedNode);
-      new ProjectPaneNavigator(myProject).select(selectedNode);
       if (myClosePopup && myPopup != null) {
         myPopup.cancel();
       }

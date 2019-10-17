@@ -41561,10 +41561,11 @@
         <property role="34CwA1" value="false" />
         <property role="eg7rD" value="false" />
         <property role="TrG5h" value="myClosePopup" />
-        <property role="3TUv4t" value="false" />
+        <property role="3TUv4t" value="true" />
         <node concept="10P_77" id="_dGddVVXty" role="1tU5fm" />
         <node concept="3Tm6S6" id="_dGddVVXtz" role="1B3o_S" />
       </node>
+      <node concept="2tJIrI" id="5nyWdd_3Wm4" role="jymVt" />
       <node concept="3clFbW" id="_dGddVVXt$" role="jymVt">
         <property role="DiZV1" value="false" />
         <property role="od$2w" value="false" />
@@ -41719,24 +41720,6 @@
               <node concept="liA8E" id="6ETkb2hmwZK" role="2OqNvi">
                 <ref role="37wK5l" to="kz9k:~EditorNavigator.open(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="open" />
                 <node concept="37vLTw" id="6ETkb2hmOIY" role="37wK5m">
-                  <ref role="3cqZAo" node="_dGddVVXuh" resolve="selectedNode" />
-                </node>
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbF" id="6ETkb2hmXCX" role="3cqZAp">
-            <node concept="2OqwBi" id="6ETkb2hnn$4" role="3clFbG">
-              <node concept="2ShNRf" id="6ETkb2hmXCT" role="2Oq$k0">
-                <node concept="1pGfFk" id="6ETkb2hn6qL" role="2ShVmc">
-                  <ref role="37wK5l" to="kz9k:~ProjectPaneNavigator.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="ProjectPaneNavigator" />
-                  <node concept="37vLTw" id="6ETkb2hneJ1" role="37wK5m">
-                    <ref role="3cqZAo" node="_dGddVVXvq" resolve="myProject" />
-                  </node>
-                </node>
-              </node>
-              <node concept="liA8E" id="6ETkb2hnvLB" role="2OqNvi">
-                <ref role="37wK5l" to="kz9k:~ProjectPaneNavigator.select(org.jetbrains.mps.openapi.model.SNodeReference)" resolve="select" />
-                <node concept="37vLTw" id="6ETkb2hnBE6" role="37wK5m">
                   <ref role="3cqZAo" node="_dGddVVXuh" resolve="selectedNode" />
                 </node>
               </node>

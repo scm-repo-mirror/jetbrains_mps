@@ -4542,6 +4542,18 @@
       <ref role="AX2Wp" node="6bA$I9q25JZ" resolve="_BinNumberValue" />
     </node>
   </node>
+  <node concept="1TIwiD" id="5KMblwQ9nms">
+    <property role="TrG5h" value="StubInitializer" />
+    <property role="34LRSv" value="stub statement list" />
+    <property role="EcuMT" value="6643422257213699484" />
+    <ref role="1TJDcQ" node="fz3vP1J" resolve="Expression" />
+    <node concept="PrWs8" id="5KMblwQ9nmt" role="PzmwI">
+      <ref role="PrY4T" to="tpck:2WmWrdnSpX3" resolve="ISuppressErrors" />
+    </node>
+    <node concept="PrWs8" id="5KMblwQ9nmu" role="PzmwI">
+      <ref role="PrY4T" to="tpck:8AYOKVCAP5" resolve="IStubForAnotherConcept" />
+    </node>
+  </node>
   <node concept="1TIwiD" id="U1YUeQjazS">
     <property role="TrG5h" value="OctalIntegerLiteral" />
     <property role="2_RsDV" value="4G1g3fIR8JG/none" />
@@ -4565,18 +4577,6 @@
     <property role="3F6X1D" value="7126544961231150079" />
     <property role="TrG5h" value="_BinNumberValue" />
     <property role="FLfZY" value="[0|1]+" />
-  </node>
-  <node concept="1TIwiD" id="5KMblwQ9nms">
-    <property role="TrG5h" value="StubInitializer" />
-    <property role="34LRSv" value="stub statement list" />
-    <property role="EcuMT" value="6643422257213699484" />
-    <ref role="1TJDcQ" node="fz3vP1J" resolve="Expression" />
-    <node concept="PrWs8" id="5KMblwQ9nmt" role="PzmwI">
-      <ref role="PrY4T" to="tpck:2WmWrdnSpX3" resolve="ISuppressErrors" />
-    </node>
-    <node concept="PrWs8" id="5KMblwQ9nmu" role="PzmwI">
-      <ref role="PrY4T" to="tpck:8AYOKVCAP5" resolve="IStubForAnotherConcept" />
-    </node>
   </node>
 </model>
 
