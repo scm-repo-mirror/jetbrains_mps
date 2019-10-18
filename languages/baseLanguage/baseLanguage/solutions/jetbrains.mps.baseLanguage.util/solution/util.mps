@@ -383,7 +383,6 @@
         <child id="1151689745422" name="elementType" index="A3Ik2" />
       </concept>
       <concept id="1151702311717" name="jetbrains.mps.baseLanguage.collections.structure.ToListOperation" flags="nn" index="ANE8D" />
-      <concept id="6126991172893676625" name="jetbrains.mps.baseLanguage.collections.structure.ContainsAllOperation" flags="nn" index="BjQpj" />
       <concept id="1153943597977" name="jetbrains.mps.baseLanguage.collections.structure.ForEachStatement" flags="nn" index="2Gpval">
         <child id="1153944400369" name="variable" index="2Gsz3X" />
         <child id="1153944424730" name="inputSequence" index="2GsD0m" />
@@ -405,7 +404,7 @@
       <concept id="1160612413312" name="jetbrains.mps.baseLanguage.collections.structure.AddElementOperation" flags="nn" index="TSZUe" />
       <concept id="1160666733551" name="jetbrains.mps.baseLanguage.collections.structure.AddAllElementsOperation" flags="nn" index="X8dFx" />
       <concept id="1240217271293" name="jetbrains.mps.baseLanguage.collections.structure.LinkedHashSetCreator" flags="nn" index="32HrFt" />
-      <concept id="1240325842691" name="jetbrains.mps.baseLanguage.collections.structure.AsSequenceOperation" flags="nn" index="39bAoz" />
+      <concept id="1201792049884" name="jetbrains.mps.baseLanguage.collections.structure.TranslateOperation" flags="nn" index="3goQfb" />
       <concept id="1173946412755" name="jetbrains.mps.baseLanguage.collections.structure.RemoveAllElementsOperation" flags="nn" index="1kEaZ2" />
       <concept id="1201872418428" name="jetbrains.mps.baseLanguage.collections.structure.GetKeysOperation" flags="nn" index="3lbrtF" />
       <concept id="1197683403723" name="jetbrains.mps.baseLanguage.collections.structure.MapType" flags="in" index="3rvAFt">
@@ -2936,6 +2935,35 @@
       </node>
       <node concept="3Tm1VV" id="1WmYFrECoBo" role="1B3o_S" />
       <node concept="3clFbS" id="1WmYFrECoBp" role="3clF47">
+        <node concept="3cpWs8" id="4iSzFIzzVGe" role="3cqZAp">
+          <node concept="3cpWsn" id="4iSzFIzzVGf" role="3cpWs9">
+            <property role="TrG5h" value="javaFacet" />
+            <node concept="3uibUv" id="4iSzFIzzVEO" role="1tU5fm">
+              <ref role="3uigEE" to="b0pz:~JavaModuleFacet" resolve="JavaModuleFacet" />
+            </node>
+            <node concept="2OqwBi" id="4iSzFIzzVGg" role="33vP2m">
+              <node concept="2OqwBi" id="4iSzFIzzVGh" role="2Oq$k0">
+                <node concept="2JrnkZ" id="4iSzFIzzVGi" role="2Oq$k0">
+                  <node concept="2OqwBi" id="4iSzFIzzVGj" role="2JrQYb">
+                    <node concept="37vLTw" id="4iSzFIzzVGk" role="2Oq$k0">
+                      <ref role="3cqZAo" node="1WmYFrECpc9" resolve="nodeClassifier" />
+                    </node>
+                    <node concept="I4A8Y" id="4iSzFIzzVGl" role="2OqNvi" />
+                  </node>
+                </node>
+                <node concept="liA8E" id="4iSzFIzzVGm" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SModel.getModule()" resolve="getModule" />
+                </node>
+              </node>
+              <node concept="liA8E" id="4iSzFIzzVGn" role="2OqNvi">
+                <ref role="37wK5l" to="lui2:~SModule.getFacet(java.lang.Class)" resolve="getFacet" />
+                <node concept="3VsKOn" id="4iSzFIzzVGo" role="37wK5m">
+                  <ref role="3VsUkX" to="b0pz:~JavaModuleFacet" resolve="JavaModuleFacet" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="1IX8Z5ZYD95" role="3cqZAp">
           <node concept="3cpWsn" id="1IX8Z5ZYD98" role="3cpWs9">
             <property role="TrG5h" value="result" />
@@ -2949,6 +2977,31 @@
                 <node concept="3Tqbb2" id="1IX8Z5ZYORk" role="HW$YZ">
                   <ref role="ehGHo" to="tpee:g7pOWCK" resolve="Classifier" />
                 </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="4iSzFIzzKU3" role="3cqZAp">
+          <node concept="3clFbS" id="4iSzFIzzKU5" role="3clFbx">
+            <node concept="3cpWs6" id="4iSzFIzzXzs" role="3cqZAp">
+              <node concept="37vLTw" id="4iSzFIzzZrG" role="3cqZAk">
+                <ref role="3cqZAo" node="1IX8Z5ZYD98" resolve="result" />
+              </node>
+            </node>
+          </node>
+          <node concept="22lmx$" id="4iSzFIz$2u$" role="3clFbw">
+            <node concept="3clFbC" id="4iSzFIz$6wH" role="3uHU7B">
+              <node concept="10Nm6u" id="4iSzFIz$6x9" role="3uHU7w" />
+              <node concept="37vLTw" id="4iSzFIz$5Qg" role="3uHU7B">
+                <ref role="3cqZAo" node="4iSzFIzzVGf" resolve="javaFacet" />
+              </node>
+            </node>
+            <node concept="2OqwBi" id="4iSzFIzzWT3" role="3uHU7w">
+              <node concept="37vLTw" id="4iSzFIzzVGp" role="2Oq$k0">
+                <ref role="3cqZAo" node="4iSzFIzzVGf" resolve="javaFacet" />
+              </node>
+              <node concept="liA8E" id="4iSzFIzzXxV" role="2OqNvi">
+                <ref role="37wK5l" to="b0pz:~JavaModuleFacet.isCompileInMps()" resolve="isCompileInMps" />
               </node>
             </node>
           </node>
@@ -3906,129 +3959,278 @@
               </node>
             </node>
           </node>
-          <node concept="3cpWs6" id="2PjkGjmTKLz" role="3cqZAp">
-            <node concept="2OqwBi" id="2PjkGjmTKL$" role="3cqZAk">
-              <node concept="2OqwBi" id="7WGkZNepo$w" role="2Oq$k0">
-                <node concept="2OqwBi" id="2PjkGjmTKLA" role="2Oq$k0">
-                  <node concept="2OqwBi" id="2PjkGjmTMtX" role="2Oq$k0">
-                    <node concept="2OqwBi" id="2PjkGjmTKLB" role="2Oq$k0">
-                      <node concept="uiWXb" id="2PjkGjmTKLC" role="2Oq$k0">
-                        <ref role="uiZuM" to="18ew:~ClassType" resolve="ClassType" />
-                      </node>
-                      <node concept="39bAoz" id="2PjkGjmTKLD" role="2OqNvi" />
+          <node concept="3cpWs6" id="4iSzFIz$Ioq" role="3cqZAp">
+            <node concept="2OqwBi" id="4iSzFIz$Ior" role="3cqZAk">
+              <node concept="2OqwBi" id="4iSzFIz$Ios" role="2Oq$k0">
+                <node concept="2OqwBi" id="4iSzFIz$Iot" role="2Oq$k0">
+                  <node concept="2OqwBi" id="4iSzFIz$Iou" role="2Oq$k0">
+                    <node concept="37vLTw" id="4iSzFIz$Iov" role="2Oq$k0">
+                      <ref role="3cqZAo" node="7$LYU9aurKW" resolve="classesPaths" />
                     </node>
-                    <node concept="3zZkjj" id="2PjkGjmTNhh" role="2OqNvi">
-                      <node concept="1bVj0M" id="2PjkGjmTNhj" role="23t8la">
-                        <node concept="3clFbS" id="2PjkGjmTNhk" role="1bW5cS">
-                          <node concept="3cpWs8" id="7$LYU9autyW" role="3cqZAp">
-                            <node concept="3cpWsn" id="7$LYU9autyX" role="3cpWs9">
-                              <property role="TrG5h" value="classTypePaths" />
-                              <node concept="_YKpA" id="7$LYU9auty5" role="1tU5fm">
-                                <node concept="3uibUv" id="3DQ7pVWFVow" role="_ZDj9">
-                                  <ref role="3uigEE" to="3ju5:~QualifiedPath" resolve="QualifiedPath" />
-                                </node>
-                              </node>
-                              <node concept="2YIFZM" id="3DQ7pVWG0lu" role="33vP2m">
-                                <ref role="1Pybhc" to="zkib:~CommonPaths" resolve="CommonPaths" />
-                                <ref role="37wK5l" to="zkib:~CommonPaths.getPaths(jetbrains.mps.util.ClassType)" resolve="getPaths" />
-                                <node concept="37vLTw" id="3DQ7pVWG0lv" role="37wK5m">
-                                  <ref role="3cqZAo" node="2PjkGjmTNhl" resolve="classType" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                          <node concept="3cpWs6" id="2PjkGjmTW0K" role="3cqZAp">
-                            <node concept="2OqwBi" id="7$LYU9aur2Q" role="3cqZAk">
-                              <node concept="2OqwBi" id="7WGkZNeoUuL" role="2Oq$k0">
-                                <node concept="37vLTw" id="7$LYU9auuc4" role="2Oq$k0">
-                                  <ref role="3cqZAo" node="7$LYU9autyX" resolve="classTypePaths" />
-                                </node>
-                                <node concept="3$u5V9" id="7WGkZNeoVkQ" role="2OqNvi">
-                                  <node concept="1bVj0M" id="7WGkZNeoVkS" role="23t8la">
-                                    <node concept="3clFbS" id="7WGkZNeoVkT" role="1bW5cS">
-                                      <node concept="3clFbF" id="7WGkZNeoVEo" role="3cqZAp">
-                                        <node concept="2OqwBi" id="7WGkZNeoVXa" role="3clFbG">
-                                          <node concept="37vLTw" id="7WGkZNeoVEn" role="2Oq$k0">
-                                            <ref role="3cqZAo" node="7WGkZNeoVkU" resolve="it" />
-                                          </node>
-                                          <node concept="liA8E" id="7WGkZNeoWkY" role="2OqNvi">
-                                            <ref role="37wK5l" to="3ju5:~QualifiedPath.getPath()" resolve="getPath" />
-                                          </node>
-                                        </node>
-                                      </node>
-                                    </node>
-                                    <node concept="Rh6nW" id="7WGkZNeoVkU" role="1bW2Oz">
-                                      <property role="TrG5h" value="it" />
-                                      <node concept="2jxLKc" id="7WGkZNeoVkV" role="1tU5fm" />
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
-                              <node concept="BjQpj" id="7$LYU9auvpu" role="2OqNvi">
-                                <node concept="2OqwBi" id="7WGkZNeoXaE" role="25WWJ7">
-                                  <node concept="37vLTw" id="7$LYU9auvpw" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="7$LYU9aurKW" resolve="classesPaths" />
-                                  </node>
-                                  <node concept="3$u5V9" id="7WGkZNeoXCr" role="2OqNvi">
-                                    <node concept="1bVj0M" id="7WGkZNeoXCt" role="23t8la">
-                                      <node concept="3clFbS" id="7WGkZNeoXCu" role="1bW5cS">
-                                        <node concept="3clFbF" id="7WGkZNeoXY_" role="3cqZAp">
-                                          <node concept="2OqwBi" id="7WGkZNeoYjn" role="3clFbG">
-                                            <node concept="37vLTw" id="7WGkZNeoXY$" role="2Oq$k0">
-                                              <ref role="3cqZAo" node="7WGkZNeoXCv" resolve="it" />
-                                            </node>
-                                            <node concept="liA8E" id="7WGkZNeoYHw" role="2OqNvi">
-                                              <ref role="37wK5l" to="3ju5:~QualifiedPath.getPath()" resolve="getPath" />
-                                            </node>
-                                          </node>
-                                        </node>
-                                      </node>
-                                      <node concept="Rh6nW" id="7WGkZNeoXCv" role="1bW2Oz">
-                                        <property role="TrG5h" value="it" />
-                                        <node concept="2jxLKc" id="7WGkZNeoXCw" role="1tU5fm" />
-                                      </node>
-                                    </node>
-                                  </node>
-                                </node>
+                    <node concept="3goQfb" id="4iSzFIz$Iow" role="2OqNvi">
+                      <node concept="1bVj0M" id="4iSzFIz$Iox" role="23t8la">
+                        <node concept="3clFbS" id="4iSzFIz$Ioy" role="1bW5cS">
+                          <node concept="3clFbF" id="4iSzFIz$Ioz" role="3cqZAp">
+                            <node concept="1rXfSq" id="4iSzFIz$Io$" role="3clFbG">
+                              <ref role="37wK5l" node="4iSzFIz$ldw" resolve="getClassTypeForPath" />
+                              <node concept="37vLTw" id="4iSzFIz$Io_" role="37wK5m">
+                                <ref role="3cqZAo" node="4iSzFIz$IoA" resolve="it" />
                               </node>
                             </node>
                           </node>
                         </node>
-                        <node concept="Rh6nW" id="2PjkGjmTNhl" role="1bW2Oz">
-                          <property role="TrG5h" value="classType" />
-                          <node concept="2jxLKc" id="2PjkGjmTNhm" role="1tU5fm" />
+                        <node concept="Rh6nW" id="4iSzFIz$IoA" role="1bW2Oz">
+                          <property role="TrG5h" value="it" />
+                          <node concept="2jxLKc" id="4iSzFIz$IoB" role="1tU5fm" />
                         </node>
                       </node>
                     </node>
                   </node>
-                  <node concept="3$u5V9" id="2PjkGjmTKLE" role="2OqNvi">
-                    <node concept="1bVj0M" id="2PjkGjmTKLF" role="23t8la">
-                      <node concept="3clFbS" id="2PjkGjmTKLG" role="1bW5cS">
-                        <node concept="3clFbF" id="2PjkGjmTKLH" role="3cqZAp">
-                          <node concept="2YIFZM" id="2PjkGjmTKLI" role="3clFbG">
-                            <ref role="1Pybhc" to="cttk:4pBxc6EfAk4" resolve="BootstrapLanguages" />
+                  <node concept="3$u5V9" id="4iSzFIz$IoC" role="2OqNvi">
+                    <node concept="1bVj0M" id="4iSzFIz$IoD" role="23t8la">
+                      <node concept="3clFbS" id="4iSzFIz$IoE" role="1bW5cS">
+                        <node concept="3clFbF" id="4iSzFIz$IoF" role="3cqZAp">
+                          <node concept="2YIFZM" id="4iSzFIz$IoG" role="3clFbG">
                             <ref role="37wK5l" to="cttk:7HISxkF83eF" resolve="bootstrapSolutionRef" />
-                            <node concept="37vLTw" id="2PjkGjmTKLJ" role="37wK5m">
-                              <ref role="3cqZAo" node="2PjkGjmTKLK" resolve="classType" />
+                            <ref role="1Pybhc" to="cttk:4pBxc6EfAk4" resolve="BootstrapLanguages" />
+                            <node concept="37vLTw" id="4iSzFIz$IoH" role="37wK5m">
+                              <ref role="3cqZAo" node="4iSzFIz$IoI" resolve="classType" />
                             </node>
                           </node>
                         </node>
                       </node>
-                      <node concept="Rh6nW" id="2PjkGjmTKLK" role="1bW2Oz">
+                      <node concept="Rh6nW" id="4iSzFIz$IoI" role="1bW2Oz">
                         <property role="TrG5h" value="classType" />
-                        <node concept="2jxLKc" id="2PjkGjmTKLL" role="1tU5fm" />
+                        <node concept="2jxLKc" id="4iSzFIz$IoJ" role="1tU5fm" />
                       </node>
                     </node>
                   </node>
                 </node>
-                <node concept="1KnU$U" id="7WGkZNeppck" role="2OqNvi" />
+                <node concept="1KnU$U" id="4iSzFIz$IoK" role="2OqNvi" />
               </node>
-              <node concept="ANE8D" id="2PjkGjmTKLV" role="2OqNvi" />
+              <node concept="ANE8D" id="4iSzFIz$IoL" role="2OqNvi" />
             </node>
           </node>
         </node>
         <node concept="2AHcQZ" id="7$LYU9arHTl" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+        </node>
+      </node>
+      <node concept="Wx3nA" id="5gMyNouoKEP" role="jymVt">
+        <property role="TrG5h" value="myClassTypesForPath" />
+        <node concept="3rvAFt" id="4iSzFIz$mYj" role="1tU5fm">
+          <node concept="17QB3L" id="4iSzFIz$n2w" role="3rvQeY" />
+          <node concept="_YKpA" id="4iSzFIz$n6I" role="3rvSg0">
+            <node concept="3uibUv" id="4iSzFIz$n6J" role="_ZDj9">
+              <ref role="3uigEE" to="18ew:~ClassType" resolve="ClassType" />
+            </node>
+          </node>
+        </node>
+        <node concept="3Tm6S6" id="4iSzFIz$mQS" role="1B3o_S" />
+      </node>
+      <node concept="3clFb_" id="4iSzFIz$ldw" role="jymVt">
+        <property role="TrG5h" value="getClassTypeForPath" />
+        <node concept="37vLTG" id="4iSzFIz$mhy" role="3clF46">
+          <property role="TrG5h" value="path" />
+          <node concept="3uibUv" id="4iSzFIz$mEK" role="1tU5fm">
+            <ref role="3uigEE" to="3ju5:~QualifiedPath" resolve="QualifiedPath" />
+          </node>
+        </node>
+        <node concept="_YKpA" id="4iSzFIz$DID" role="3clF45">
+          <node concept="3uibUv" id="4iSzFIz$Eg6" role="_ZDj9">
+            <ref role="3uigEE" to="18ew:~ClassType" resolve="ClassType" />
+          </node>
+        </node>
+        <node concept="3Tm1VV" id="4iSzFIz$ldz" role="1B3o_S" />
+        <node concept="3clFbS" id="4iSzFIz$ld$" role="3clF47">
+          <node concept="3clFbJ" id="4iSzFIz$niZ" role="3cqZAp">
+            <node concept="3clFbC" id="4iSzFIz$nHq" role="3clFbw">
+              <node concept="10Nm6u" id="4iSzFIz$nI2" role="3uHU7w" />
+              <node concept="37vLTw" id="5gMyNouoLFi" role="3uHU7B">
+                <ref role="3cqZAo" node="5gMyNouoKEP" resolve="myClassTypesForPath" />
+              </node>
+            </node>
+            <node concept="3clFbS" id="4iSzFIz$nj1" role="3clFbx">
+              <node concept="3cpWs8" id="4iSzFIz$oMW" role="3cqZAp">
+                <node concept="3cpWsn" id="4iSzFIz$oMZ" role="3cpWs9">
+                  <property role="TrG5h" value="classTypesForPath" />
+                  <node concept="3rvAFt" id="4iSzFIz$oMQ" role="1tU5fm">
+                    <node concept="17QB3L" id="4iSzFIz$oPC" role="3rvQeY" />
+                    <node concept="_YKpA" id="4iSzFIz$oQf" role="3rvSg0">
+                      <node concept="3uibUv" id="4iSzFIz$oR2" role="_ZDj9">
+                        <ref role="3uigEE" to="18ew:~ClassType" resolve="ClassType" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2ShNRf" id="4iSzFIz$p3g" role="33vP2m">
+                    <node concept="3rGOSV" id="4iSzFIz$p2z" role="2ShVmc">
+                      <node concept="17QB3L" id="4iSzFIz$p2$" role="3rHrn6" />
+                      <node concept="_YKpA" id="4iSzFIz$p2_" role="3rHtpV">
+                        <node concept="3uibUv" id="4iSzFIz$p2A" role="_ZDj9">
+                          <ref role="3uigEE" to="18ew:~ClassType" resolve="ClassType" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2Gpval" id="4iSzFIz$kP5" role="3cqZAp">
+                <node concept="2GrKxI" id="4iSzFIz$kP6" role="2Gsz3X">
+                  <property role="TrG5h" value="classType" />
+                </node>
+                <node concept="3clFbS" id="4iSzFIz$kP7" role="2LFqv$">
+                  <node concept="3cpWs8" id="4iSzFIz$kP8" role="3cqZAp">
+                    <node concept="3cpWsn" id="4iSzFIz$kP9" role="3cpWs9">
+                      <property role="TrG5h" value="classTypePaths" />
+                      <node concept="_YKpA" id="4iSzFIz$kPa" role="1tU5fm">
+                        <node concept="3uibUv" id="4iSzFIz$kPb" role="_ZDj9">
+                          <ref role="3uigEE" to="3ju5:~QualifiedPath" resolve="QualifiedPath" />
+                        </node>
+                      </node>
+                      <node concept="2YIFZM" id="4iSzFIz$kPc" role="33vP2m">
+                        <ref role="37wK5l" to="zkib:~CommonPaths.getPaths(jetbrains.mps.util.ClassType)" resolve="getPaths" />
+                        <ref role="1Pybhc" to="zkib:~CommonPaths" resolve="CommonPaths" />
+                        <node concept="2GrUjf" id="4iSzFIz$kPd" role="37wK5m">
+                          <ref role="2Gs0qQ" node="4iSzFIz$kP6" resolve="classType" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2Gpval" id="4iSzFIz$onG" role="3cqZAp">
+                    <node concept="2GrKxI" id="4iSzFIz$onI" role="2Gsz3X">
+                      <property role="TrG5h" value="classTypePath" />
+                    </node>
+                    <node concept="37vLTw" id="4iSzFIz$oqx" role="2GsD0m">
+                      <ref role="3cqZAo" node="4iSzFIz$kP9" resolve="classTypePaths" />
+                    </node>
+                    <node concept="3clFbS" id="4iSzFIz$onM" role="2LFqv$">
+                      <node concept="3clFbJ" id="4iSzFIz$rTW" role="3cqZAp">
+                        <node concept="3fqX7Q" id="4iSzFIz$uPw" role="3clFbw">
+                          <node concept="2OqwBi" id="4iSzFIz$uPy" role="3fr31v">
+                            <node concept="37vLTw" id="4iSzFIz$uPz" role="2Oq$k0">
+                              <ref role="3cqZAo" node="4iSzFIz$oMZ" resolve="classTypesForPath" />
+                            </node>
+                            <node concept="2Nt0df" id="4iSzFIz$uP$" role="2OqNvi">
+                              <node concept="2OqwBi" id="4iSzFIz$uP_" role="38cxEo">
+                                <node concept="2GrUjf" id="4iSzFIz$uPA" role="2Oq$k0">
+                                  <ref role="2Gs0qQ" node="4iSzFIz$onI" resolve="classTypePath" />
+                                </node>
+                                <node concept="liA8E" id="4iSzFIz$uPB" role="2OqNvi">
+                                  <ref role="37wK5l" to="3ju5:~QualifiedPath.getPath()" resolve="getPath" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3clFbS" id="4iSzFIz$rTY" role="3clFbx">
+                          <node concept="3clFbF" id="4iSzFIz$uU4" role="3cqZAp">
+                            <node concept="37vLTI" id="4iSzFIz$w9y" role="3clFbG">
+                              <node concept="2ShNRf" id="4iSzFIz$wg0" role="37vLTx">
+                                <node concept="Tc6Ow" id="4iSzFIz$wfr" role="2ShVmc">
+                                  <node concept="3uibUv" id="4iSzFIz$wfs" role="HW$YZ">
+                                    <ref role="3uigEE" to="18ew:~ClassType" resolve="ClassType" />
+                                  </node>
+                                </node>
+                              </node>
+                              <node concept="3EllGN" id="4iSzFIz$vy9" role="37vLTJ">
+                                <node concept="37vLTw" id="4iSzFIz$uU3" role="3ElQJh">
+                                  <ref role="3cqZAo" node="4iSzFIz$oMZ" resolve="classTypesForPath" />
+                                </node>
+                                <node concept="2OqwBi" id="4iSzFIz$v_5" role="3ElVtu">
+                                  <node concept="2GrUjf" id="4iSzFIz$v_6" role="2Oq$k0">
+                                    <ref role="2Gs0qQ" node="4iSzFIz$onI" resolve="classTypePath" />
+                                  </node>
+                                  <node concept="liA8E" id="4iSzFIz$v_7" role="2OqNvi">
+                                    <ref role="37wK5l" to="3ju5:~QualifiedPath.getPath()" resolve="getPath" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3clFbJ" id="4iSzFIz$wnl" role="3cqZAp">
+                        <node concept="3clFbS" id="4iSzFIz$wnn" role="3clFbx">
+                          <node concept="3clFbF" id="4iSzFIz$yED" role="3cqZAp">
+                            <node concept="2OqwBi" id="4iSzFIz$zgP" role="3clFbG">
+                              <node concept="3EllGN" id="4iSzFIz$yEF" role="2Oq$k0">
+                                <node concept="37vLTw" id="4iSzFIz$yEG" role="3ElQJh">
+                                  <ref role="3cqZAo" node="4iSzFIz$oMZ" resolve="classTypesForPath" />
+                                </node>
+                                <node concept="2OqwBi" id="4iSzFIz$yEH" role="3ElVtu">
+                                  <node concept="2GrUjf" id="4iSzFIz$yEI" role="2Oq$k0">
+                                    <ref role="2Gs0qQ" node="4iSzFIz$onI" resolve="classTypePath" />
+                                  </node>
+                                  <node concept="liA8E" id="4iSzFIz$yEJ" role="2OqNvi">
+                                    <ref role="37wK5l" to="3ju5:~QualifiedPath.getPath()" resolve="getPath" />
+                                  </node>
+                                </node>
+                              </node>
+                              <node concept="TSZUe" id="4iSzFIz$$0I" role="2OqNvi">
+                                <node concept="2GrUjf" id="4iSzFIz$$pm" role="25WWJ7">
+                                  <ref role="2Gs0qQ" node="4iSzFIz$kP6" resolve="classType" />
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="3fqX7Q" id="4iSzFIz$yvu" role="3clFbw">
+                          <node concept="2OqwBi" id="4iSzFIz$yvw" role="3fr31v">
+                            <node concept="3EllGN" id="4iSzFIz$yvx" role="2Oq$k0">
+                              <node concept="37vLTw" id="4iSzFIz$yvy" role="3ElQJh">
+                                <ref role="3cqZAo" node="4iSzFIz$oMZ" resolve="classTypesForPath" />
+                              </node>
+                              <node concept="2OqwBi" id="4iSzFIz$yvz" role="3ElVtu">
+                                <node concept="2GrUjf" id="4iSzFIz$yv$" role="2Oq$k0">
+                                  <ref role="2Gs0qQ" node="4iSzFIz$onI" resolve="classTypePath" />
+                                </node>
+                                <node concept="liA8E" id="4iSzFIz$yv_" role="2OqNvi">
+                                  <ref role="37wK5l" to="3ju5:~QualifiedPath.getPath()" resolve="getPath" />
+                                </node>
+                              </node>
+                            </node>
+                            <node concept="3JPx81" id="4iSzFIz$yvA" role="2OqNvi">
+                              <node concept="2GrUjf" id="4iSzFIz$yvB" role="25WWJ7">
+                                <ref role="2Gs0qQ" node="4iSzFIz$kP6" resolve="classType" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="uiWXb" id="4iSzFIz$kPx" role="2GsD0m">
+                  <ref role="uiZuM" to="18ew:~ClassType" resolve="ClassType" />
+                </node>
+              </node>
+              <node concept="3clFbF" id="4iSzFIz$pGh" role="3cqZAp">
+                <node concept="37vLTI" id="4iSzFIz$q6h" role="3clFbG">
+                  <node concept="37vLTw" id="4iSzFIz$qcp" role="37vLTx">
+                    <ref role="3cqZAo" node="4iSzFIz$oMZ" resolve="classTypesForPath" />
+                  </node>
+                  <node concept="37vLTw" id="5gMyNouoLIw" role="37vLTJ">
+                    <ref role="3cqZAo" node="5gMyNouoKEP" resolve="myClassTypesForPath" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3cpWs6" id="4iSzFIz$B0d" role="3cqZAp">
+            <node concept="3EllGN" id="4iSzFIz$C5w" role="3cqZAk">
+              <node concept="2OqwBi" id="4iSzFIz$CRK" role="3ElVtu">
+                <node concept="37vLTw" id="4iSzFIz$Cq2" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4iSzFIz$mhy" resolve="path" />
+                </node>
+                <node concept="liA8E" id="4iSzFIz$DnW" role="2OqNvi">
+                  <ref role="37wK5l" to="3ju5:~QualifiedPath.getPath()" resolve="getPath" />
+                </node>
+              </node>
+              <node concept="37vLTw" id="5gMyNouoMdC" role="3ElQJh">
+                <ref role="3cqZAo" node="5gMyNouoKEP" resolve="myClassTypesForPath" />
+              </node>
+            </node>
+          </node>
         </node>
       </node>
       <node concept="3Tm1VV" id="7$LYU9arHMb" role="1B3o_S" />

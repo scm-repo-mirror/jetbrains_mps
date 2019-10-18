@@ -5,10 +5,11 @@ package jetbrains.mps.baseLanguage.util;
 import jetbrains.mps.annotations.GeneratedClass;
 import java.util.List;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.project.facets.JavaModuleFacet;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SModule;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.smodel.behaviour.BHReflection;
@@ -30,18 +31,20 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.smodel.SModelStereotype;
 import java.util.Collection;
-import jetbrains.mps.project.facets.JavaModuleFacet;
 import java.util.Set;
 import jetbrains.mps.vfs.QualifiedPath;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.vfs.VFSManager;
 import jetbrains.mps.vfs.util.PathUtil;
-import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.util.ClassType;
-import jetbrains.mps.reloading.CommonPaths;
 import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import java.util.Map;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.HashMap;
+import jetbrains.mps.reloading.CommonPaths;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -59,8 +62,12 @@ public class StubClassifierCorrespondenceHelper {
   }
 
   public List<SNode> findStubClassifiers(SNode nodeClassifier) {
+    JavaModuleFacet javaFacet = SNodeOperations.getModel(nodeClassifier).getModule().getFacet(JavaModuleFacet.class);
     List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
-    SModule mpsModule = check_79n3t7_a0b0f(SNodeOperations.getModel(nodeClassifier));
+    if (javaFacet == null || javaFacet.isCompileInMps()) {
+      return result;
+    }
+    SModule mpsModule = check_79n3t7_a0d0f(SNodeOperations.getModel(nodeClassifier));
     if (mpsModule == null) {
       return null;
     }
@@ -143,23 +150,14 @@ public class StubClassifierCorrespondenceHelper {
         return null;
       }
       Set<String> classesPathsStrings = javaFacet.getLibraryClassPath();
-      final List<QualifiedPath> classesPaths = SetSequence.fromSet(classesPathsStrings).select(new ISelector<String, QualifiedPath>() {
+      List<QualifiedPath> classesPaths = SetSequence.fromSet(classesPathsStrings).select(new ISelector<String, QualifiedPath>() {
         public QualifiedPath select(String it) {
           return new QualifiedPath(VFSManager.FILE_FS, PathUtil.toSystemIndependent(it));
         }
       }).toListSequence();
-      return Sequence.fromIterable(Sequence.fromArray(ClassType.values())).where(new IWhereFilter<ClassType>() {
-        public boolean accept(ClassType classType) {
-          List<QualifiedPath> classTypePaths = CommonPaths.getPaths(classType);
-          return ListSequence.fromList(classTypePaths).select(new ISelector<QualifiedPath, String>() {
-            public String select(QualifiedPath it) {
-              return it.getPath();
-            }
-          }).containsSequence(ListSequence.fromList(classesPaths).select(new ISelector<QualifiedPath, String>() {
-            public String select(QualifiedPath it) {
-              return it.getPath();
-            }
-          }));
+      return ListSequence.fromList(classesPaths).translate(new ITranslator2<QualifiedPath, ClassType>() {
+        public Iterable<ClassType> translate(QualifiedPath it) {
+          return getClassTypeForPath(it);
         }
       }).select(new ISelector<ClassType, SModuleReference>() {
         public SModuleReference select(ClassType classType) {
@@ -167,9 +165,28 @@ public class StubClassifierCorrespondenceHelper {
         }
       }).where(new NotNullWhereFilter<SModuleReference>()).toListSequence();
     }
+    private static Map<String, List<ClassType>> myClassTypesForPath;
+    public List<ClassType> getClassTypeForPath(QualifiedPath path) {
+      if (myClassTypesForPath == null) {
+        Map<String, List<ClassType>> classTypesForPath = MapSequence.fromMap(new HashMap<String, List<ClassType>>());
+        for (ClassType classType : ClassType.values()) {
+          List<QualifiedPath> classTypePaths = CommonPaths.getPaths(classType);
+          for (QualifiedPath classTypePath : ListSequence.fromList(classTypePaths)) {
+            if (!(MapSequence.fromMap(classTypesForPath).containsKey(classTypePath.getPath()))) {
+              MapSequence.fromMap(classTypesForPath).put(classTypePath.getPath(), ListSequence.fromList(new ArrayList<ClassType>()));
+            }
+            if (!(ListSequence.fromList(MapSequence.fromMap(classTypesForPath).get(classTypePath.getPath())).contains(classType))) {
+              ListSequence.fromList(MapSequence.fromMap(classTypesForPath).get(classTypePath.getPath())).addElement(classType);
+            }
+          }
+        }
+        myClassTypesForPath = classTypesForPath;
+      }
+      return MapSequence.fromMap(myClassTypesForPath).get(path.getPath());
+    }
   }
 
-  private static SModule check_79n3t7_a0b0f(SModel checkedDotOperand) {
+  private static SModule check_79n3t7_a0d0f(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }
