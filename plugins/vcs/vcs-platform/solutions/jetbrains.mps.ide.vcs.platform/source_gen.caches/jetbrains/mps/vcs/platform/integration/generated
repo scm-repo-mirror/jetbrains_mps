@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="4w32fds3sq7xh4dexx5hdtgygc7lqns">
+<product version="3" modelHash="bhh2k87d2sg16nyq09iryi7ast5cu24">
   <files names="ConflictingModelsUtil.java:ConflictingModelsWarnings.java:MPSVcsHelper.java:ModelDiffContent.java:ModelDiffTool.java:ModelDiffViewer.java:ModelMergeTool.java:ModelMergeViewer.java:ModelStorageProblemsListener.java:OptimizeImportsCheckinHandler.java:PluginVCSManager.java" />
 </product>
 

@@ -51,13 +51,13 @@ public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
       Tuples._2<SModel, SNodeId> oldModel = getModelAndRoot(mpsProject, contents.get(0), type);
       Tuples._2<SModel, SNodeId> newModel = getModelAndRoot(mpsProject, contents.get(1), type);
       SNodeId rootId = (newModel._1() != null ? newModel._1() : oldModel._1());
-      myViewer = new ModelDifferenceViewer(mpsProject, oldModel._0(), newModel._0(), rootId, false);
+      myViewer = new ModelDifferenceViewer(mpsProject, oldModel._0(), newModel._0(), rootId, false, true);
     } else {
       SModel oldModel = ModelDiffViewer.getModel(mpsProject, contents.get(0), type);
       SModel newModel = ModelDiffViewer.getModel(mpsProject, contents.get(1), type);
       //  show one root only if requested 
       SNodeId rootId = request.getUserData(DIFF_SHOW_ROOTID);
-      myViewer = new ModelDifferenceViewer(mpsProject, oldModel, newModel, rootId, true);
+      myViewer = new ModelDifferenceViewer(mpsProject, oldModel, newModel, rootId, true, false);
       // navigate to specific place in editor if requested 
       Bounds scrollTo = request.getUserData(DIFF_NAVIGATE_TO);
       if (scrollTo != null) {
