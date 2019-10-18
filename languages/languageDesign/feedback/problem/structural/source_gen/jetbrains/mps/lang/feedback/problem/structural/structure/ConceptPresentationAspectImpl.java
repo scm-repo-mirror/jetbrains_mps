@@ -9,15 +9,25 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
+  private ConceptPresentation props_InConceptProblem;
   private ConceptPresentation props_MissingChildInConceptProblem;
   private ConceptPresentation props_MissingPropertyInConceptProblem;
   private ConceptPresentation props_MissingRefInConceptProblem;
+  private ConceptPresentation props_MultipleChildrenInSingleRoleProblem;
+  private ConceptPresentation props_NoChildInObligatoryRoleProblem;
+  private ConceptPresentation props_NoRefInObligatoryRoleProblem;
 
   @Override
   @Nullable
   public ConceptPresentation getDescriptor(SAbstractConcept c) {
     StructureAspectDescriptor structureDescriptor = (StructureAspectDescriptor) myLanguageRuntime.getAspect(jetbrains.mps.smodel.runtime.StructureAspectDescriptor.class);
     switch (structureDescriptor.internalIndex(c)) {
+      case LanguageConceptSwitch.InConceptProblem:
+        if (props_InConceptProblem == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_InConceptProblem = cpb.create();
+        }
+        return props_InConceptProblem;
       case LanguageConceptSwitch.MissingChildInConceptProblem:
         if (props_MissingChildInConceptProblem == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -39,6 +49,27 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_MissingRefInConceptProblem = cpb.create();
         }
         return props_MissingRefInConceptProblem;
+      case LanguageConceptSwitch.MultipleChildrenInSingleRoleProblem:
+        if (props_MultipleChildrenInSingleRoleProblem == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("when there are multiple children in role with single cardinality");
+          props_MultipleChildrenInSingleRoleProblem = cpb.create();
+        }
+        return props_MultipleChildrenInSingleRoleProblem;
+      case LanguageConceptSwitch.NoChildInObligatoryRoleProblem:
+        if (props_NoChildInObligatoryRoleProblem == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("when there is no child in role with nonzero cardinality");
+          props_NoChildInObligatoryRoleProblem = cpb.create();
+        }
+        return props_NoChildInObligatoryRoleProblem;
+      case LanguageConceptSwitch.NoRefInObligatoryRoleProblem:
+        if (props_NoRefInObligatoryRoleProblem == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("when there is no ref in role with nonzero cardinality");
+          props_NoRefInObligatoryRoleProblem = cpb.create();
+        }
+        return props_NoRefInObligatoryRoleProblem;
     }
     return null;
   }

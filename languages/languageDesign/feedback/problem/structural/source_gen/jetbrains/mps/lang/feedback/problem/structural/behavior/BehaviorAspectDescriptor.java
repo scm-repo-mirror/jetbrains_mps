@@ -12,8 +12,7 @@ import jetbrains.mps.lang.smodel.ConceptSwitchIndexBuilder;
 import jetbrains.mps.smodel.adapter.ids.MetaIdFactory;
 
 public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor {
-  private final BHDescriptor myMissingChildInConceptProblem__BehaviorDescriptor = new MissingChildInConceptProblem__BehaviorDescriptor();
-  private final BHDescriptor myMissingPropertyInConceptProblem__BehaviorDescriptor = new MissingPropertyInConceptProblem__BehaviorDescriptor();
+  private final BHDescriptor myInConceptProblem__BehaviorDescriptor = new InConceptProblem__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
   }
@@ -23,12 +22,10 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return myMissingChildInConceptProblem__BehaviorDescriptor;
-      case 1:
-        return myMissingPropertyInConceptProblem__BehaviorDescriptor;
+        return myInConceptProblem__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x2372fa56cc4ea3f4L), MetaIdFactory.conceptId(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0x7127d40929f043e8L, 0x917ff016ea288944L, 0xfc25ab98e2a2611L)).seal();
 }

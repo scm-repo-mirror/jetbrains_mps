@@ -7,8 +7,7 @@ import jetbrains.mps.generator.impl.query.QueryProviderBase;
 import jetbrains.mps.generator.template.ReferenceMacroContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.feedback.problem.structural.behavior.MissingPropertyInConceptProblem__BehaviorDescriptor;
-import jetbrains.mps.lang.feedback.problem.structural.behavior.MissingChildInConceptProblem__BehaviorDescriptor;
+import jetbrains.mps.lang.feedback.problem.structural.behavior.InConceptProblem__BehaviorDescriptor;
 import java.util.Map;
 import jetbrains.mps.generator.impl.query.ReferenceTargetQuery;
 import java.util.HashMap;
@@ -16,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.generator.impl.query.QueryKey;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.generator.impl.GenerationFailureException;
-import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 @Generated
@@ -25,22 +24,37 @@ public class QueriesGenerated extends QueryProviderBase {
     super(1);
   }
   public static Object referenceMacro_GetReferent_0_0(final ReferenceMacroContext _context) {
-    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.MissingPropertyInConceptProblem$UF);
-    return (SNode) MissingPropertyInConceptProblem__BehaviorDescriptor.getConcept_id224Bjf9ui32.invoke(node0);
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.InConceptProblem$ln);
+    return (SNode) InConceptProblem__BehaviorDescriptor.getConcept_idZ2mFAeayoS.invoke(node0);
   }
   public static Object referenceMacro_GetReferent_0_1(final ReferenceMacroContext _context) {
-    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.MissingChildInConceptProblem$bi);
-    return (SNode) MissingChildInConceptProblem__BehaviorDescriptor.getConcept_id224Bjf9ukOx.invoke(node0);
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.InConceptProblem$ln);
+    return (SNode) InConceptProblem__BehaviorDescriptor.getConcept_idZ2mFAeayoS.invoke(node0);
   }
   public static Object referenceMacro_GetReferent_0_2(final ReferenceMacroContext _context) {
-    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.MissingChildInConceptProblem$bi);
-    return (SNode) MissingChildInConceptProblem__BehaviorDescriptor.getConcept_id224Bjf9ukOx.invoke(node0);
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.InConceptProblem$ln);
+    return (SNode) InConceptProblem__BehaviorDescriptor.getConcept_idZ2mFAeayoS.invoke(node0);
+  }
+  public static Object referenceMacro_GetReferent_0_3(final ReferenceMacroContext _context) {
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.InConceptProblem$ln);
+    return (SNode) InConceptProblem__BehaviorDescriptor.getConcept_idZ2mFAeayoS.invoke(node0);
+  }
+  public static Object referenceMacro_GetReferent_0_4(final ReferenceMacroContext _context) {
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.InConceptProblem$ln);
+    return (SNode) InConceptProblem__BehaviorDescriptor.getConcept_idZ2mFAeayoS.invoke(node0);
+  }
+  public static Object referenceMacro_GetReferent_0_5(final ReferenceMacroContext _context) {
+    SNode node0 = SNodeOperations.cast(_context.getOriginalCopiedInputNode(_context.getNode()), CONCEPTS.InConceptProblem$ln);
+    return (SNode) InConceptProblem__BehaviorDescriptor.getConcept_idZ2mFAeayoS.invoke(node0);
   }
   private final Map<String, ReferenceTargetQuery> rtqMethods = new HashMap<String, ReferenceTargetQuery>();
   {
     rtqMethods.put("6341931782024059299", new RTQ(0, "BaseConcept"));
-    rtqMethods.put("1592627013225768459", new RTQ(1, "BaseConcept"));
-    rtqMethods.put("7228848023208844733", new RTQ(2, "BaseConcept"));
+    rtqMethods.put("1135569809051367479", new RTQ(1, "BaseConcept"));
+    rtqMethods.put("1135569809051368259", new RTQ(2, "BaseConcept"));
+    rtqMethods.put("1135569809051368524", new RTQ(3, "BaseConcept"));
+    rtqMethods.put("1135569809051369566", new RTQ(4, "BaseConcept"));
+    rtqMethods.put("1135569809051369803", new RTQ(5, "BaseConcept"));
   }
   @NotNull
   @Override
@@ -66,6 +80,12 @@ public class QueriesGenerated extends QueryProviderBase {
           return QueriesGenerated.referenceMacro_GetReferent_0_1(ctx);
         case 2:
           return QueriesGenerated.referenceMacro_GetReferent_0_2(ctx);
+        case 3:
+          return QueriesGenerated.referenceMacro_GetReferent_0_3(ctx);
+        case 4:
+          return QueriesGenerated.referenceMacro_GetReferent_0_4(ctx);
+        case 5:
+          return QueriesGenerated.referenceMacro_GetReferent_0_5(ctx);
         default:
           throw new GenerationFailureException(String.format("Inconsistent QueriesGenerated: there's no method for query %s (key: #%d)", ctx.getTemplateReference(), methodKey));
       }
@@ -73,7 +93,6 @@ public class QueriesGenerated extends QueryProviderBase {
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept MissingPropertyInConceptProblem$UF = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x4f7007d340049b31L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingPropertyInConceptProblem");
-    /*package*/ static final SConcept MissingChildInConceptProblem$bi = MetaAdapterFactory.getConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0x2372fa56cc4ea3f4L, "jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem");
+    /*package*/ static final SInterfaceConcept InConceptProblem$ln = MetaAdapterFactory.getInterfaceConcept(0x7127d40929f043e8L, 0x917ff016ea288944L, 0xfc25ab98e2a2611L, "jetbrains.mps.lang.feedback.problem.structural.structure.InConceptProblem");
   }
 }

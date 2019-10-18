@@ -24,6 +24,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 public enum PredefinedStructureProblemKind implements ProblemKindAlsoProblem, ProblemId, LegacyProblemKind {
@@ -70,6 +71,39 @@ public enum PredefinedStructureProblemKind implements ProblemKindAlsoProblem, Pr
                            link.getOwner().getName(),
                            link.getName(),
                            conceptName);
+    }
+  },
+  NO_CHILD_IN_OBLIGATORY_ROLE() {
+    @NotNull
+    @Override
+    public String getDefaultMessage(@NotNull Context context) {
+      if (!(context instanceof ChildCardinalityContext)) {
+        throw new IllegalArgumentException("Received illegal context " + context);
+      }
+      SContainmentLink link = ((ChildCardinalityContext) context).getLink();
+      return String.format("No child in the obligatory role '%s'", link.getName());
+    }
+  },
+  ONLY_ONE_CHILD_CAN_BE_IN_ROLE() {
+    @NotNull
+    @Override
+    public String getDefaultMessage(@NotNull Context context) {
+      if (!(context instanceof ChildCardinalityContext)) {
+        throw new IllegalArgumentException("Received illegal context " + context);
+      }
+      SContainmentLink link = ((ChildCardinalityContext) context).getLink();
+      return String.format("Only one child is allowed in the role '%s'", link.getName());
+    }
+  },
+  NO_REF_IN_OBLIGATORY_ROLE() {
+    @NotNull
+    @Override
+    public String getDefaultMessage(@NotNull Context context) {
+      if (!(context instanceof RefCardinalityContext)) {
+        throw new IllegalArgumentException("Received illegal context " + context);
+      }
+      SReferenceLink link = ((RefCardinalityContext) context).getLink();
+      return String.format("No reference in the obligatory role '%s'", link.getName());
     }
   };
 

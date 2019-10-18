@@ -129,7 +129,7 @@
       <node concept="gft3U" id="1mFJTG6WRj" role="1lVwrX">
         <node concept="2ShNRf" id="1mFJTG6WRq" role="gfFT$">
           <node concept="1pGfFk" id="1mFJTG6WRr" role="2ShVmc">
-            <ref role="37wK5l" to="j809:~MissingFeatureInConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="MissingFeatureInConceptProblemId" />
+            <ref role="37wK5l" to="j809:~InConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="InConceptProblemId" />
             <node concept="35c_gC" id="5w34lFhj4d1" role="37wK5m">
               <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
               <node concept="1ZhdrF" id="5w34lFhjtAz" role="lGtFl">
@@ -141,11 +141,11 @@
                       <node concept="3cpWsn" id="3ost_8W_XJe" role="3cpWs9">
                         <property role="TrG5h" value="node0" />
                         <node concept="3Tqbb2" id="3ost_8W_XJf" role="1tU5fm">
-                          <ref role="ehGHo" to="uj7v:4XK1Xd019GL" resolve="MissingPropertyInConceptProblem" />
+                          <ref role="ehGHo" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
                         </node>
                         <node concept="1PxgMI" id="3ost_8W_XJg" role="33vP2m">
-                          <node concept="chp4Y" id="3ost_8W_XTs" role="3oSUPX">
-                            <ref role="cht4Q" to="uj7v:4XK1Xd019GL" resolve="MissingPropertyInConceptProblem" />
+                          <node concept="chp4Y" id="Z2mFAeazr9" role="3oSUPX">
+                            <ref role="cht4Q" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
                           </node>
                           <node concept="2OqwBi" id="3ost_8W_XJi" role="1m5AlR">
                             <node concept="1iwH7S" id="3ost_8W_XJj" role="2Oq$k0" />
@@ -159,7 +159,7 @@
                     <node concept="3clFbF" id="3ost_8W_XJm" role="3cqZAp">
                       <node concept="2OqwBi" id="3ost_8W_XJn" role="3clFbG">
                         <node concept="2qgKlT" id="3ost_8W_XJo" role="2OqNvi">
-                          <ref role="37wK5l" to="7pjr:224Bjf9ui32" resolve="getConcept" />
+                          <ref role="37wK5l" to="7pjr:Z2mFAeayoS" resolve="getConcept" />
                         </node>
                         <node concept="37vLTw" id="3ost_8W_XJp" role="2Oq$k0">
                           <ref role="3cqZAo" node="3ost_8W_XJe" resolve="node0" />
@@ -184,40 +184,40 @@
       <node concept="gft3U" id="1oq9tin0Qo7" role="1lVwrX">
         <node concept="2ShNRf" id="1oq9tin0Qo8" role="gfFT$">
           <node concept="1pGfFk" id="1oq9tin0Qo9" role="2ShVmc">
-            <ref role="37wK5l" to="j809:~MissingFeatureInConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="MissingFeatureInConceptProblemId" />
-            <node concept="35c_gC" id="1oq9tin0Qoa" role="37wK5m">
+            <ref role="37wK5l" to="j809:~InConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="InConceptProblemId" />
+            <node concept="35c_gC" id="Z2mFAeazwQ" role="37wK5m">
               <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
-              <node concept="1ZhdrF" id="1oq9tin0Qob" role="lGtFl">
+              <node concept="1ZhdrF" id="Z2mFAeazwR" role="lGtFl">
                 <property role="2qtEX8" value="conceptDeclaration" />
                 <property role="P3scX" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1/2644386474300074836/2644386474300074837" />
-                <node concept="3$xsQk" id="1oq9tin0Qoc" role="3$ytzL">
-                  <node concept="3clFbS" id="1oq9tin0Qod" role="2VODD2">
-                    <node concept="3cpWs8" id="3ost_8W_Uub" role="3cqZAp">
-                      <node concept="3cpWsn" id="3ost_8W_Uuc" role="3cpWs9">
+                <node concept="3$xsQk" id="Z2mFAeazwS" role="3$ytzL">
+                  <node concept="3clFbS" id="Z2mFAeazwT" role="2VODD2">
+                    <node concept="3cpWs8" id="Z2mFAeazwU" role="3cqZAp">
+                      <node concept="3cpWsn" id="Z2mFAeazwV" role="3cpWs9">
                         <property role="TrG5h" value="node0" />
-                        <node concept="3Tqbb2" id="3ost_8W_Us8" role="1tU5fm">
-                          <ref role="ehGHo" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
+                        <node concept="3Tqbb2" id="Z2mFAeazwW" role="1tU5fm">
+                          <ref role="ehGHo" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
                         </node>
-                        <node concept="1PxgMI" id="3ost_8W_Xuq" role="33vP2m">
-                          <node concept="chp4Y" id="3ost_8W_Xzr" role="3oSUPX">
-                            <ref role="cht4Q" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
+                        <node concept="1PxgMI" id="Z2mFAeazwX" role="33vP2m">
+                          <node concept="chp4Y" id="Z2mFAeazwY" role="3oSUPX">
+                            <ref role="cht4Q" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
                           </node>
-                          <node concept="2OqwBi" id="3ost_8W_Uud" role="1m5AlR">
-                            <node concept="1iwH7S" id="3ost_8W_Uue" role="2Oq$k0" />
-                            <node concept="12$id9" id="3ost_8W_Uuf" role="2OqNvi">
-                              <node concept="30H73N" id="3ost_8W_Uug" role="12$y8L" />
+                          <node concept="2OqwBi" id="Z2mFAeazwZ" role="1m5AlR">
+                            <node concept="1iwH7S" id="Z2mFAeazx0" role="2Oq$k0" />
+                            <node concept="12$id9" id="Z2mFAeazx1" role="2OqNvi">
+                              <node concept="30H73N" id="Z2mFAeazx2" role="12$y8L" />
                             </node>
                           </node>
                         </node>
                       </node>
                     </node>
-                    <node concept="3clFbF" id="1oq9tin0Qoe" role="3cqZAp">
-                      <node concept="2OqwBi" id="1oq9tin0Qof" role="3clFbG">
-                        <node concept="2qgKlT" id="224Bjf9ulY4" role="2OqNvi">
-                          <ref role="37wK5l" to="7pjr:224Bjf9ukOx" resolve="getConcept" />
+                    <node concept="3clFbF" id="Z2mFAeazx3" role="3cqZAp">
+                      <node concept="2OqwBi" id="Z2mFAeazx4" role="3clFbG">
+                        <node concept="2qgKlT" id="Z2mFAeazx5" role="2OqNvi">
+                          <ref role="37wK5l" to="7pjr:Z2mFAeayoS" resolve="getConcept" />
                         </node>
-                        <node concept="37vLTw" id="3ost_8W_UCw" role="2Oq$k0">
-                          <ref role="3cqZAo" node="3ost_8W_Uuc" resolve="node0" />
+                        <node concept="37vLTw" id="Z2mFAeazx6" role="2Oq$k0">
+                          <ref role="3cqZAo" node="Z2mFAeazwV" resolve="node0" />
                         </node>
                       </node>
                     </node>
@@ -239,40 +239,40 @@
       <node concept="gft3U" id="6hi1JCuDtQT" role="1lVwrX">
         <node concept="2ShNRf" id="6hi1JCuDtQU" role="gfFT$">
           <node concept="1pGfFk" id="6hi1JCuDtQV" role="2ShVmc">
-            <ref role="37wK5l" to="j809:~MissingFeatureInConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="MissingFeatureInConceptProblemId" />
-            <node concept="35c_gC" id="6hi1JCuDtQW" role="37wK5m">
+            <ref role="37wK5l" to="j809:~InConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="InConceptProblemId" />
+            <node concept="35c_gC" id="Z2mFAeazH2" role="37wK5m">
               <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
-              <node concept="1ZhdrF" id="6hi1JCuDtQX" role="lGtFl">
+              <node concept="1ZhdrF" id="Z2mFAeazH3" role="lGtFl">
                 <property role="2qtEX8" value="conceptDeclaration" />
                 <property role="P3scX" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1/2644386474300074836/2644386474300074837" />
-                <node concept="3$xsQk" id="6hi1JCuDtQY" role="3$ytzL">
-                  <node concept="3clFbS" id="6hi1JCuDtQZ" role="2VODD2">
-                    <node concept="3cpWs8" id="6hi1JCuDtR0" role="3cqZAp">
-                      <node concept="3cpWsn" id="6hi1JCuDtR1" role="3cpWs9">
+                <node concept="3$xsQk" id="Z2mFAeazH4" role="3$ytzL">
+                  <node concept="3clFbS" id="Z2mFAeazH5" role="2VODD2">
+                    <node concept="3cpWs8" id="Z2mFAeazH6" role="3cqZAp">
+                      <node concept="3cpWsn" id="Z2mFAeazH7" role="3cpWs9">
                         <property role="TrG5h" value="node0" />
-                        <node concept="3Tqbb2" id="6hi1JCuDtR2" role="1tU5fm">
-                          <ref role="ehGHo" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
+                        <node concept="3Tqbb2" id="Z2mFAeazH8" role="1tU5fm">
+                          <ref role="ehGHo" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
                         </node>
-                        <node concept="1PxgMI" id="6hi1JCuDtR3" role="33vP2m">
-                          <node concept="chp4Y" id="6hi1JCuDtR4" role="3oSUPX">
-                            <ref role="cht4Q" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
+                        <node concept="1PxgMI" id="Z2mFAeazH9" role="33vP2m">
+                          <node concept="chp4Y" id="Z2mFAeazHa" role="3oSUPX">
+                            <ref role="cht4Q" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
                           </node>
-                          <node concept="2OqwBi" id="6hi1JCuDtR5" role="1m5AlR">
-                            <node concept="1iwH7S" id="6hi1JCuDtR6" role="2Oq$k0" />
-                            <node concept="12$id9" id="6hi1JCuDtR7" role="2OqNvi">
-                              <node concept="30H73N" id="6hi1JCuDtR8" role="12$y8L" />
+                          <node concept="2OqwBi" id="Z2mFAeazHb" role="1m5AlR">
+                            <node concept="1iwH7S" id="Z2mFAeazHc" role="2Oq$k0" />
+                            <node concept="12$id9" id="Z2mFAeazHd" role="2OqNvi">
+                              <node concept="30H73N" id="Z2mFAeazHe" role="12$y8L" />
                             </node>
                           </node>
                         </node>
                       </node>
                     </node>
-                    <node concept="3clFbF" id="6hi1JCuDtR9" role="3cqZAp">
-                      <node concept="2OqwBi" id="6hi1JCuDtRa" role="3clFbG">
-                        <node concept="2qgKlT" id="6hi1JCuDtRb" role="2OqNvi">
-                          <ref role="37wK5l" to="7pjr:224Bjf9ukOx" resolve="getConcept" />
+                    <node concept="3clFbF" id="Z2mFAeazHf" role="3cqZAp">
+                      <node concept="2OqwBi" id="Z2mFAeazHg" role="3clFbG">
+                        <node concept="2qgKlT" id="Z2mFAeazHh" role="2OqNvi">
+                          <ref role="37wK5l" to="7pjr:Z2mFAeayoS" resolve="getConcept" />
                         </node>
-                        <node concept="37vLTw" id="6hi1JCuDtRc" role="2Oq$k0">
-                          <ref role="3cqZAo" node="6hi1JCuDtR1" resolve="node0" />
+                        <node concept="37vLTw" id="Z2mFAeazHi" role="2Oq$k0">
+                          <ref role="3cqZAo" node="Z2mFAeazH7" resolve="node0" />
                         </node>
                       </node>
                     </node>
@@ -282,6 +282,171 @@
             </node>
             <node concept="Rm8GO" id="6hi1JCuDvoP" role="37wK5m">
               <ref role="Rm8GQ" to="j809:~PredefinedStructureProblemKind.MISSING_REF" resolve="MISSING_REF" />
+              <ref role="1Px2BO" to="j809:~PredefinedStructureProblemKind" resolve="PredefinedStructureProblemKind" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="4YJfwn3Bryw" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:4YJfwn3Bnk4" resolve="MultipleChildrenInSingleRoleProblem" />
+      <node concept="gft3U" id="4YJfwn3Bryx" role="1lVwrX">
+        <node concept="2ShNRf" id="4YJfwn3Bryy" role="gfFT$">
+          <node concept="1pGfFk" id="4YJfwn3Bryz" role="2ShVmc">
+            <ref role="37wK5l" to="j809:~InConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="InConceptProblemId" />
+            <node concept="35c_gC" id="Z2mFAeazLb" role="37wK5m">
+              <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
+              <node concept="1ZhdrF" id="Z2mFAeazLc" role="lGtFl">
+                <property role="2qtEX8" value="conceptDeclaration" />
+                <property role="P3scX" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1/2644386474300074836/2644386474300074837" />
+                <node concept="3$xsQk" id="Z2mFAeazLd" role="3$ytzL">
+                  <node concept="3clFbS" id="Z2mFAeazLe" role="2VODD2">
+                    <node concept="3cpWs8" id="Z2mFAeazLf" role="3cqZAp">
+                      <node concept="3cpWsn" id="Z2mFAeazLg" role="3cpWs9">
+                        <property role="TrG5h" value="node0" />
+                        <node concept="3Tqbb2" id="Z2mFAeazLh" role="1tU5fm">
+                          <ref role="ehGHo" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
+                        </node>
+                        <node concept="1PxgMI" id="Z2mFAeazLi" role="33vP2m">
+                          <node concept="chp4Y" id="Z2mFAeazLj" role="3oSUPX">
+                            <ref role="cht4Q" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
+                          </node>
+                          <node concept="2OqwBi" id="Z2mFAeazLk" role="1m5AlR">
+                            <node concept="1iwH7S" id="Z2mFAeazLl" role="2Oq$k0" />
+                            <node concept="12$id9" id="Z2mFAeazLm" role="2OqNvi">
+                              <node concept="30H73N" id="Z2mFAeazLn" role="12$y8L" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbF" id="Z2mFAeazLo" role="3cqZAp">
+                      <node concept="2OqwBi" id="Z2mFAeazLp" role="3clFbG">
+                        <node concept="2qgKlT" id="Z2mFAeazLq" role="2OqNvi">
+                          <ref role="37wK5l" to="7pjr:Z2mFAeayoS" resolve="getConcept" />
+                        </node>
+                        <node concept="37vLTw" id="Z2mFAeazLr" role="2Oq$k0">
+                          <ref role="3cqZAo" node="Z2mFAeazLg" resolve="node0" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="Rm8GO" id="4YJfwn3BsJW" role="37wK5m">
+              <ref role="Rm8GQ" to="j809:~PredefinedStructureProblemKind.ONLY_ONE_CHILD_CAN_BE_IN_ROLE" resolve="ONLY_ONE_CHILD_CAN_BE_IN_ROLE" />
+              <ref role="1Px2BO" to="j809:~PredefinedStructureProblemKind" resolve="PredefinedStructureProblemKind" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="4YJfwn3Br$e" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:2e3ANUBpdXU" resolve="NoChildInObligatoryRoleProblem" />
+      <node concept="gft3U" id="4YJfwn3Br$f" role="1lVwrX">
+        <node concept="2ShNRf" id="4YJfwn3Br$g" role="gfFT$">
+          <node concept="1pGfFk" id="4YJfwn3Br$h" role="2ShVmc">
+            <ref role="37wK5l" to="j809:~InConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="InConceptProblemId" />
+            <node concept="35c_gC" id="Z2mFAea$1t" role="37wK5m">
+              <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
+              <node concept="1ZhdrF" id="Z2mFAea$1u" role="lGtFl">
+                <property role="2qtEX8" value="conceptDeclaration" />
+                <property role="P3scX" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1/2644386474300074836/2644386474300074837" />
+                <node concept="3$xsQk" id="Z2mFAea$1v" role="3$ytzL">
+                  <node concept="3clFbS" id="Z2mFAea$1w" role="2VODD2">
+                    <node concept="3cpWs8" id="Z2mFAea$1x" role="3cqZAp">
+                      <node concept="3cpWsn" id="Z2mFAea$1y" role="3cpWs9">
+                        <property role="TrG5h" value="node0" />
+                        <node concept="3Tqbb2" id="Z2mFAea$1z" role="1tU5fm">
+                          <ref role="ehGHo" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
+                        </node>
+                        <node concept="1PxgMI" id="Z2mFAea$1$" role="33vP2m">
+                          <node concept="chp4Y" id="Z2mFAea$1_" role="3oSUPX">
+                            <ref role="cht4Q" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
+                          </node>
+                          <node concept="2OqwBi" id="Z2mFAea$1A" role="1m5AlR">
+                            <node concept="1iwH7S" id="Z2mFAea$1B" role="2Oq$k0" />
+                            <node concept="12$id9" id="Z2mFAea$1C" role="2OqNvi">
+                              <node concept="30H73N" id="Z2mFAea$1D" role="12$y8L" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbF" id="Z2mFAea$1E" role="3cqZAp">
+                      <node concept="2OqwBi" id="Z2mFAea$1F" role="3clFbG">
+                        <node concept="2qgKlT" id="Z2mFAea$1G" role="2OqNvi">
+                          <ref role="37wK5l" to="7pjr:Z2mFAeayoS" resolve="getConcept" />
+                        </node>
+                        <node concept="37vLTw" id="Z2mFAea$1H" role="2Oq$k0">
+                          <ref role="3cqZAo" node="Z2mFAea$1y" resolve="node0" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="Rm8GO" id="4YJfwn3Bss0" role="37wK5m">
+              <ref role="Rm8GQ" to="j809:~PredefinedStructureProblemKind.NO_CHILD_IN_OBLIGATORY_ROLE" resolve="NO_CHILD_IN_OBLIGATORY_ROLE" />
+              <ref role="1Px2BO" to="j809:~PredefinedStructureProblemKind" resolve="PredefinedStructureProblemKind" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="4YJfwn3BrEN" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:4YJfwn3Bnk3" resolve="NoRefInObligatoryRoleProblem" />
+      <node concept="gft3U" id="4YJfwn3BrEO" role="1lVwrX">
+        <node concept="2ShNRf" id="4YJfwn3BrEP" role="gfFT$">
+          <node concept="1pGfFk" id="4YJfwn3BrEQ" role="2ShVmc">
+            <ref role="37wK5l" to="j809:~InConceptProblemId.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept,jetbrains.mps.core.aspects.feedback.problem.ProblemKind)" resolve="InConceptProblemId" />
+            <node concept="35c_gC" id="Z2mFAea$5a" role="37wK5m">
+              <ref role="35c_gD" to="tpck:gw2VY9q" resolve="BaseConcept" />
+              <node concept="1ZhdrF" id="Z2mFAea$5b" role="lGtFl">
+                <property role="2qtEX8" value="conceptDeclaration" />
+                <property role="P3scX" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1/2644386474300074836/2644386474300074837" />
+                <node concept="3$xsQk" id="Z2mFAea$5c" role="3$ytzL">
+                  <node concept="3clFbS" id="Z2mFAea$5d" role="2VODD2">
+                    <node concept="3cpWs8" id="Z2mFAea$5e" role="3cqZAp">
+                      <node concept="3cpWsn" id="Z2mFAea$5f" role="3cpWs9">
+                        <property role="TrG5h" value="node0" />
+                        <node concept="3Tqbb2" id="Z2mFAea$5g" role="1tU5fm">
+                          <ref role="ehGHo" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
+                        </node>
+                        <node concept="1PxgMI" id="Z2mFAea$5h" role="33vP2m">
+                          <node concept="chp4Y" id="Z2mFAea$5i" role="3oSUPX">
+                            <ref role="cht4Q" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
+                          </node>
+                          <node concept="2OqwBi" id="Z2mFAea$5j" role="1m5AlR">
+                            <node concept="1iwH7S" id="Z2mFAea$5k" role="2Oq$k0" />
+                            <node concept="12$id9" id="Z2mFAea$5l" role="2OqNvi">
+                              <node concept="30H73N" id="Z2mFAea$5m" role="12$y8L" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="3clFbF" id="Z2mFAea$5n" role="3cqZAp">
+                      <node concept="2OqwBi" id="Z2mFAea$5o" role="3clFbG">
+                        <node concept="2qgKlT" id="Z2mFAea$5p" role="2OqNvi">
+                          <ref role="37wK5l" to="7pjr:Z2mFAeayoS" resolve="getConcept" />
+                        </node>
+                        <node concept="37vLTw" id="Z2mFAea$5q" role="2Oq$k0">
+                          <ref role="3cqZAo" node="Z2mFAea$5f" resolve="node0" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="Rm8GO" id="4YJfwn3BscY" role="37wK5m">
+              <ref role="Rm8GQ" to="j809:~PredefinedStructureProblemKind.NO_REF_IN_OBLIGATORY_ROLE" resolve="NO_REF_IN_OBLIGATORY_ROLE" />
               <ref role="1Px2BO" to="j809:~PredefinedStructureProblemKind" resolve="PredefinedStructureProblemKind" />
             </node>
           </node>
@@ -322,6 +487,33 @@
       <node concept="gft3U" id="1r2xYYzYTRn" role="1lVwrX">
         <node concept="3uibUv" id="6hi1JCuDtQP" role="gfFT$">
           <ref role="3uigEE" to="j809:~MissingRefContext" resolve="MissingRefContext" />
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="2e3ANUBpeJh" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:2e3ANUBpdXU" resolve="NoChildInObligatoryRoleProblem" />
+      <node concept="gft3U" id="2e3ANUBpeJi" role="1lVwrX">
+        <node concept="3uibUv" id="4YJfwn3BpdI" role="gfFT$">
+          <ref role="3uigEE" to="j809:~ChildCardinalityContext" resolve="ChildCardinalityContext" />
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="4YJfwn3Bpd7" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:4YJfwn3Bnk3" resolve="NoRefInObligatoryRoleProblem" />
+      <node concept="gft3U" id="4YJfwn3Bpd8" role="1lVwrX">
+        <node concept="3uibUv" id="4YJfwn3BpdO" role="gfFT$">
+          <ref role="3uigEE" to="j809:~RefCardinalityContext" resolve="RefCardinalityContext" />
+        </node>
+      </node>
+    </node>
+    <node concept="3aamgX" id="4YJfwn3Bpdp" role="3aUrZf">
+      <property role="36QftV" value="true" />
+      <ref role="30HIoZ" to="uj7v:4YJfwn3Bnk4" resolve="MultipleChildrenInSingleRoleProblem" />
+      <node concept="gft3U" id="4YJfwn3Bpdq" role="1lVwrX">
+        <node concept="3uibUv" id="4YJfwn3BpdL" role="gfFT$">
+          <ref role="3uigEE" to="j809:~ChildCardinalityContext" resolve="ChildCardinalityContext" />
         </node>
       </node>
     </node>

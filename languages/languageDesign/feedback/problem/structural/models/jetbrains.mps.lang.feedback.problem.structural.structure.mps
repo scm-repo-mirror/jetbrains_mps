@@ -16,8 +16,15 @@
         <property id="4628067390765956807" name="final" index="R5$K2" />
         <property id="5092175715804935370" name="conceptAlias" index="34LRSv" />
       </concept>
+      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ">
+        <child id="1169127546356" name="extends" index="PrDN$" />
+      </concept>
+      <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
+        <reference id="1169127628841" name="intfc" index="PrY4T" />
+      </concept>
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
         <reference id="1071489389519" name="extends" index="1TJDcQ" />
+        <child id="1169129564478" name="implements" index="PzmwI" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
@@ -32,6 +39,9 @@
     <property role="34LRSv" value="when property is not defined in concept" />
     <property role="R5$K2" value="true" />
     <ref role="1TJDcQ" to="sis7:6GnzfDRfssU" resolve="ProblemPointsToKindRoot" />
+    <node concept="PrWs8" id="Z2mFAeaWY4" role="PzmwI">
+      <ref role="PrY4T" node="Z2mFAeayoh" resolve="InConceptProblem" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2dMY_rcjEfO">
     <property role="EcuMT" value="2554379189374329844" />
@@ -39,6 +49,9 @@
     <property role="34LRSv" value="when child is not defined in concept" />
     <property role="R5$K2" value="true" />
     <ref role="1TJDcQ" to="sis7:6GnzfDRfssU" resolve="ProblemPointsToKindRoot" />
+    <node concept="PrWs8" id="Z2mFAeaysr" role="PzmwI">
+      <ref role="PrY4T" node="Z2mFAeayoh" resolve="InConceptProblem" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1r2xYYzYSCS">
     <property role="EcuMT" value="1640022677634386488" />
@@ -46,11 +59,46 @@
     <property role="34LRSv" value="when reference is not defined in concept" />
     <property role="R5$K2" value="true" />
     <ref role="1TJDcQ" to="sis7:6GnzfDRfssU" resolve="ProblemPointsToKindRoot" />
+    <node concept="PrWs8" id="Z2mFAeayst" role="PzmwI">
+      <ref role="PrY4T" node="Z2mFAeayoh" resolve="InConceptProblem" />
+    </node>
   </node>
   <node concept="1TIwiD" id="2e3ANUBpdXU">
     <property role="EcuMT" value="2559059706675257210" />
     <property role="TrG5h" value="NoChildInObligatoryRoleProblem" />
+    <property role="R5$K2" value="true" />
+    <property role="34LRSv" value="when there is no child in role with nonzero cardinality" />
     <ref role="1TJDcQ" to="sis7:6GnzfDRfssU" resolve="ProblemPointsToKindRoot" />
+    <node concept="PrWs8" id="Z2mFAeaysv" role="PzmwI">
+      <ref role="PrY4T" node="Z2mFAeayoh" resolve="InConceptProblem" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4YJfwn3Bnk3">
+    <property role="EcuMT" value="5741876244398306563" />
+    <property role="TrG5h" value="NoRefInObligatoryRoleProblem" />
+    <property role="R5$K2" value="true" />
+    <property role="34LRSv" value="when there is no ref in role with nonzero cardinality" />
+    <ref role="1TJDcQ" to="sis7:6GnzfDRfssU" resolve="ProblemPointsToKindRoot" />
+    <node concept="PrWs8" id="Z2mFAeb0dL" role="PzmwI">
+      <ref role="PrY4T" node="Z2mFAeayoh" resolve="InConceptProblem" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="4YJfwn3Bnk4">
+    <property role="EcuMT" value="5741876244398306564" />
+    <property role="TrG5h" value="MultipleChildrenInSingleRoleProblem" />
+    <property role="R5$K2" value="true" />
+    <property role="34LRSv" value="when there are multiple children in role with single cardinality" />
+    <ref role="1TJDcQ" to="sis7:6GnzfDRfssU" resolve="ProblemPointsToKindRoot" />
+    <node concept="PrWs8" id="Z2mFAeb0dJ" role="PzmwI">
+      <ref role="PrY4T" node="Z2mFAeayoh" resolve="InConceptProblem" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="Z2mFAeayoh">
+    <property role="EcuMT" value="1135569809051362833" />
+    <property role="TrG5h" value="InConceptProblem" />
+    <node concept="PrWs8" id="Z2mFAeaysp" role="PrDN$">
+      <ref role="PrY4T" to="sis7:5sUTrySMJsG" resolve="Problem" />
+    </node>
   </node>
 </model>
 

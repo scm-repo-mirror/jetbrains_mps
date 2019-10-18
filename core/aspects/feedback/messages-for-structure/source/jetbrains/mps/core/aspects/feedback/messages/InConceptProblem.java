@@ -22,25 +22,24 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 @Immutable
-public final class MissingPropertyInConceptProblem implements Problem {
+public final class InConceptProblem implements Problem {
   private final ProblemId myId;
   private final SNodeReference mySourceNode;
-  private static final ProblemKind KIND = PredefinedStructureProblemKind.MISSING_PROPERTY;
+  private final ProblemKind myKind;
 
-  public MissingPropertyInConceptProblem(@NotNull SAbstractConcept concept,
-                                         @Nullable SNodeReference sourceNode) {
+  public InConceptProblem(@NotNull SAbstractConcept concept, @NotNull ProblemKind kind, @Nullable SNodeReference sourceNode) {
     mySourceNode = sourceNode;
-    myId = new MissingFeatureInConceptProblemId(concept, KIND);
+    myKind = kind;
+    myId = new InConceptProblemId(concept, kind);
   }
 
   @NotNull
   @Override
   public ProblemKind getKind() {
-    return KIND;
+    return myKind;
   }
 
   @NotNull
@@ -54,5 +53,4 @@ public final class MissingPropertyInConceptProblem implements Problem {
   public SNodeReference getProblemSource() {
     return mySourceNode;
   }
-
 }

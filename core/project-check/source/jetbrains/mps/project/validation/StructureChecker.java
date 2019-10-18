@@ -21,9 +21,11 @@ import jetbrains.mps.checkers.LanguageErrorsCollector;
 import jetbrains.mps.checkers.MessagesFacade;
 import jetbrains.mps.components.ComponentHost;
 import jetbrains.mps.core.aspects.feedback.api.FeedbackAspectRegistry;
-import jetbrains.mps.core.aspects.feedback.messages.MissingChildInConceptProblem;
+import jetbrains.mps.core.aspects.feedback.messages.ChildCardinalityContext;
 import jetbrains.mps.core.aspects.feedback.messages.MissingRefContext;
-import jetbrains.mps.core.aspects.feedback.messages.MissingRefInConceptProblem;
+import jetbrains.mps.core.aspects.feedback.messages.InConceptProblem;
+import jetbrains.mps.core.aspects.feedback.messages.PredefinedStructureProblemKind;
+import jetbrains.mps.core.aspects.feedback.messages.RefCardinalityContext;
 import jetbrains.mps.errors.item.IssueKindReportItem;
 import jetbrains.mps.errors.item.IssueKindReportItem.CheckerCategory;
 import jetbrains.mps.errors.item.LanguageAbsentInRepoProblem;
@@ -33,7 +35,6 @@ import jetbrains.mps.errors.item.UnresolvedReferenceReportItem;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.core.aspects.feedback.messages.MissingChildContext;
 import jetbrains.mps.core.aspects.feedback.messages.MissingPropertyContext;
-import jetbrains.mps.core.aspects.feedback.messages.MissingPropertyInConceptProblem;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -45,7 +46,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 
-import java.util.Collection;
 import java.util.List;
 
 public class StructureChecker extends AbstractNodeCheckerInEditor implements IChecker<SNode, NodeReportItem> {
@@ -98,21 +98,37 @@ public class StructureChecker extends AbstractNodeCheckerInEditor implements ICh
   }
 
   private void checkCardinalities(SNode node, LanguageErrorsCollector errorsCollector) {
+    FeedbackAspectRegistry registry = getFeedbackAspectRegistry();
+    MessagesFacade facade = new MessagesFacade(registry);
     SConcept concept = node.getConcept();
     for (SContainmentLink link : concept.getContainmentLinks()) {
-      Collection<? extends SNode> children = IterableUtil.asCollection(node.getChildren(link));
+      List<SNode> children = IterableUtil.asList(node.getChildren(link));
+      ChildCardinalityContext context = new ChildCardinalityContext(node, link, children);
       if (!link.isOptional() && children.isEmpty()) {
-        errorsCollector.addError(new ConceptFeatureCardinalityError(node.getReference(), link, String.format("No child in obligatory role %s", link.getName())));
+        InConceptProblem problem =  new InConceptProblem(concept, PredefinedStructureProblemKind.NO_CHILD_IN_OBLIGATORY_ROLE, null);
+        List<String> messages = facade.findTextMessagesForProblem(concept, problem, context);
+        for (String message : messages) {
+          errorsCollector.addError(new ConceptFeatureCardinalityError(node.getReference(), link, message));
+        }
       }
       if (!link.isMultiple() && children.size() > 1) {
-        errorsCollector.addError(new ConceptFeatureCardinalityError(node.getReference(), link, String.format("Only one child is allowed in role %s", link.getName())));
+        InConceptProblem problem =  new InConceptProblem(concept, PredefinedStructureProblemKind.ONLY_ONE_CHILD_CAN_BE_IN_ROLE, null);
+        List<String> messages = facade.findTextMessagesForProblem(concept, problem, context);
+        for (String message : messages) {
+          errorsCollector.addError(new ConceptFeatureCardinalityError(node.getReference(), link, message));
+        }
       }
     }
     for (SReferenceLink refLink : concept.getReferenceLinks()) {
       SReference reference = node.getReference(refLink);
       if (!refLink.isOptional()) {
         if (reference == null) {
-          errorsCollector.addError(new ConceptFeatureCardinalityError(node.getReference(), refLink, String.format("No reference in obligatory role %s", refLink.getName())));
+          RefCardinalityContext context = new RefCardinalityContext(node, refLink);
+          InConceptProblem problem =  new InConceptProblem(concept, PredefinedStructureProblemKind.NO_REF_IN_OBLIGATORY_ROLE, null);
+          List<String> messages = facade.findTextMessagesForProblem(concept, problem, context);
+          for (String message : messages) {
+            errorsCollector.addError(new ConceptFeatureCardinalityError(node.getReference(), refLink, message));
+          }
         }
       }
     }
@@ -145,7 +161,7 @@ public class StructureChecker extends AbstractNodeCheckerInEditor implements ICh
     List<SReferenceLink> definedLinks = IterableUtil.asList(concept.getReferenceLinks());
     for (SReference reference : node.getReferences()) {
       SReferenceLink link = reference.getLink();
-      MissingRefInConceptProblem problem = new MissingRefInConceptProblem(node.getConcept(), null);
+      InConceptProblem problem = new InConceptProblem(node.getConcept(), PredefinedStructureProblemKind.MISSING_REF, null);
       MissingRefContext context = new MissingRefContext(node, reference.getTargetNode(), link);
       if (!definedLinks.contains(link)) {
         assert link != null : "non-root node is supposed to have proper aggregation";
@@ -163,7 +179,7 @@ public class StructureChecker extends AbstractNodeCheckerInEditor implements ICh
     List<SContainmentLink> definedLinks = IterableUtil.asList(concept.getContainmentLinks());
     for (SNode child : node.getChildren()) {
       SContainmentLink link = child.getContainmentLink();
-      MissingChildInConceptProblem problem = new MissingChildInConceptProblem(node.getConcept(), null);
+      InConceptProblem problem = new InConceptProblem(node.getConcept(), PredefinedStructureProblemKind.MISSING_CHILD, null);
       MissingChildContext context = new MissingChildContext(node, child, link);
       if (!definedLinks.contains(link)) {
         assert link != null : "non-root node is supposed to have proper aggregation";
@@ -181,7 +197,7 @@ public class StructureChecker extends AbstractNodeCheckerInEditor implements ICh
     // in case of props, refs, links, list should be better than set
     List<SProperty> props = IterableUtil.asList(concept.getProperties());
     for (SProperty property : node.getProperties()) {
-      MissingPropertyInConceptProblem problem = new MissingPropertyInConceptProblem(concept, null);
+      InConceptProblem problem = new InConceptProblem(concept, PredefinedStructureProblemKind.MISSING_PROPERTY, null);
       MissingPropertyContext context = new MissingPropertyContext(node, property);
       if (!props.contains(property)) {
         FeedbackAspectRegistry registry = getFeedbackAspectRegistry();

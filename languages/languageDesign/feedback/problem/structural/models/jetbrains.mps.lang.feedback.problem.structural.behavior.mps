@@ -68,68 +68,36 @@
       </concept>
     </language>
   </registry>
-  <node concept="13h7C7" id="224Bjf9ue1T">
-    <ref role="13h7C2" to="uj7v:2dMY_rcjEfO" resolve="MissingChildInConceptProblem" />
-    <node concept="13i0hz" id="224Bjf9ukOx" role="13h7CS">
+  <node concept="13h7C7" id="Z2mFAeayoH">
+    <ref role="13h7C2" to="uj7v:Z2mFAeayoh" resolve="InConceptProblem" />
+    <node concept="13i0hz" id="Z2mFAeayoS" role="13h7CS">
       <property role="TrG5h" value="getConcept" />
-      <node concept="3Tm1VV" id="224Bjf9ukOy" role="1B3o_S" />
-      <node concept="3Tqbb2" id="224Bjf9ukOz" role="3clF45">
+      <node concept="3Tm1VV" id="Z2mFAeayoT" role="1B3o_S" />
+      <node concept="3Tqbb2" id="Z2mFAeayoU" role="3clF45">
         <ref role="ehGHo" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
       </node>
-      <node concept="3clFbS" id="224Bjf9ukO$" role="3clF47">
-        <node concept="3clFbF" id="224Bjf9ukO_" role="3cqZAp">
-          <node concept="2OqwBi" id="224Bjf9ukOA" role="3clFbG">
-            <node concept="2OqwBi" id="224Bjf9ukOB" role="2Oq$k0">
-              <node concept="13iPFW" id="224Bjf9ukOC" role="2Oq$k0" />
-              <node concept="2Xjw5R" id="224Bjf9ukOD" role="2OqNvi">
-                <node concept="1xMEDy" id="224Bjf9ukOE" role="1xVPHs">
-                  <node concept="chp4Y" id="224Bjf9ukOF" role="ri$Ld">
+      <node concept="3clFbS" id="Z2mFAeayoV" role="3clF47">
+        <node concept="3clFbF" id="Z2mFAeayoW" role="3cqZAp">
+          <node concept="2OqwBi" id="Z2mFAeayoX" role="3clFbG">
+            <node concept="2OqwBi" id="Z2mFAeayoY" role="2Oq$k0">
+              <node concept="13iPFW" id="Z2mFAeayoZ" role="2Oq$k0" />
+              <node concept="2Xjw5R" id="Z2mFAeayp0" role="2OqNvi">
+                <node concept="1xMEDy" id="Z2mFAeayp1" role="1xVPHs">
+                  <node concept="chp4Y" id="Z2mFAeayp2" role="ri$Ld">
                     <ref role="cht4Q" to="wff5:6kKc3mjFxo7" resolve="FeedbackPerConceptRoot" />
                   </node>
                 </node>
               </node>
             </node>
-            <node concept="3TrEf2" id="224Bjf9ukOG" role="2OqNvi">
+            <node concept="3TrEf2" id="Z2mFAeayp3" role="2OqNvi">
               <ref role="3Tt5mk" to="wff5:6f2WQqsTmPt" resolve="concept" />
             </node>
           </node>
         </node>
       </node>
     </node>
-    <node concept="13hLZK" id="224Bjf9ue1U" role="13h7CW">
-      <node concept="3clFbS" id="224Bjf9ue1V" role="2VODD2" />
-    </node>
-  </node>
-  <node concept="13h7C7" id="224Bjf9ui2R">
-    <ref role="13h7C2" to="uj7v:4XK1Xd019GL" resolve="MissingPropertyInConceptProblem" />
-    <node concept="13i0hz" id="224Bjf9ui32" role="13h7CS">
-      <property role="TrG5h" value="getConcept" />
-      <node concept="3Tm1VV" id="224Bjf9ui33" role="1B3o_S" />
-      <node concept="3Tqbb2" id="224Bjf9ui3i" role="3clF45">
-        <ref role="ehGHo" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-      </node>
-      <node concept="3clFbS" id="224Bjf9ui35" role="3clF47">
-        <node concept="3clFbF" id="224Bjf9ui3Q" role="3cqZAp">
-          <node concept="2OqwBi" id="224Bjf9uiG8" role="3clFbG">
-            <node concept="2OqwBi" id="224Bjf9uif6" role="2Oq$k0">
-              <node concept="13iPFW" id="224Bjf9ui3P" role="2Oq$k0" />
-              <node concept="2Xjw5R" id="224Bjf9uiqP" role="2OqNvi">
-                <node concept="1xMEDy" id="224Bjf9uiqR" role="1xVPHs">
-                  <node concept="chp4Y" id="224Bjf9uiuG" role="ri$Ld">
-                    <ref role="cht4Q" to="wff5:6kKc3mjFxo7" resolve="FeedbackPerConceptRoot" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3TrEf2" id="224Bjf9uiQI" role="2OqNvi">
-              <ref role="3Tt5mk" to="wff5:6f2WQqsTmPt" resolve="concept" />
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="13hLZK" id="224Bjf9ui2S" role="13h7CW">
-      <node concept="3clFbS" id="224Bjf9ui2T" role="2VODD2" />
+    <node concept="13hLZK" id="Z2mFAeayoI" role="13h7CW">
+      <node concept="3clFbS" id="Z2mFAeayoJ" role="2VODD2" />
     </node>
   </node>
 </model>

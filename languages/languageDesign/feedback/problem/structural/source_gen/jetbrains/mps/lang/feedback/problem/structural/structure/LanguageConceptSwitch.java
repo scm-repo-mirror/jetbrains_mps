@@ -9,15 +9,23 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public final class LanguageConceptSwitch {
   private final LanguageConceptIndex myIndex;
-  public static final int MissingChildInConceptProblem = 0;
-  public static final int MissingPropertyInConceptProblem = 1;
-  public static final int MissingRefInConceptProblem = 2;
+  public static final int InConceptProblem = 0;
+  public static final int MissingChildInConceptProblem = 1;
+  public static final int MissingPropertyInConceptProblem = 2;
+  public static final int MissingRefInConceptProblem = 3;
+  public static final int MultipleChildrenInSingleRoleProblem = 4;
+  public static final int NoChildInObligatoryRoleProblem = 5;
+  public static final int NoRefInObligatoryRoleProblem = 6;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0x7127d40929f043e8L, 0x917ff016ea288944L);
+    builder.put(0xfc25ab98e2a2611L, InConceptProblem);
     builder.put(0x2372fa56cc4ea3f4L, MissingChildInConceptProblem);
     builder.put(0x4f7007d340049b31L, MissingPropertyInConceptProblem);
     builder.put(0x16c287efa3fb8a38L, MissingRefInConceptProblem);
+    builder.put(0x4faf3e05c39d7504L, MultipleChildrenInSingleRoleProblem);
+    builder.put(0x23839b3ea764df7aL, NoChildInObligatoryRoleProblem);
+    builder.put(0x4faf3e05c39d7503L, NoRefInObligatoryRoleProblem);
     myIndex = builder.seal();
   }
 

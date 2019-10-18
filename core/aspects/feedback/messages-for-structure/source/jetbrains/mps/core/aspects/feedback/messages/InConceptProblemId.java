@@ -15,43 +15,35 @@
  */
 package jetbrains.mps.core.aspects.feedback.messages;
 
-import jetbrains.mps.core.aspects.feedback.problem.Problem;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemKind;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.model.SNodeReference;
+
+import java.util.Objects;
 
 @Immutable
-public final class MissingRefInConceptProblem implements Problem {
-  private static final ProblemKind KIND = PredefinedStructureProblemKind.MISSING_REF;
-  private final ProblemId myId;
-  private final SNodeReference mySourceNode;
+public final class InConceptProblemId implements ProblemId {
+  private final SAbstractConcept myConcept;
+  private final ProblemKind myKind;
 
-  public MissingRefInConceptProblem(@NotNull SAbstractConcept concept,
-                                    @Nullable SNodeReference sourceNode) {
-    mySourceNode = sourceNode;
-    myId = new MissingFeatureInConceptProblemId(concept, KIND);
+  public InConceptProblemId(@NotNull SAbstractConcept concept, @NotNull ProblemKind kind) {
+    myConcept = concept;
+    myKind = kind;
   }
 
-  @NotNull
   @Override
-  public ProblemKind getKind() {
-    return KIND;
+  public int hashCode() {
+    return Objects.hash(myConcept, myKind);
   }
 
-  @NotNull
   @Override
-  public ProblemId getId() {
-    return myId;
+  public boolean equals(Object obj) {
+    if (obj instanceof InConceptProblemId) {
+      return Objects.equals(((InConceptProblemId) obj).myConcept, myConcept) &&
+             Objects.equals(((InConceptProblemId) obj).myKind, myKind);
+    }
+    return false;
   }
-
-  @Nullable
-  @Override
-  public SNodeReference getProblemSource() {
-    return mySourceNode;
-  }
-
 }
