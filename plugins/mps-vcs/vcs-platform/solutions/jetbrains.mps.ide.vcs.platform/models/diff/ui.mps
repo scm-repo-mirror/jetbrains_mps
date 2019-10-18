@@ -6341,6 +6341,10 @@
         <property role="TrG5h" value="showTree" />
         <node concept="10P_77" id="5zPLqcHJYdK" role="1tU5fm" />
       </node>
+      <node concept="37vLTG" id="5u75OIaAYv2" role="3clF46">
+        <property role="TrG5h" value="fixReferences" />
+        <node concept="10P_77" id="5u75OIaB0aH" role="1tU5fm" />
+      </node>
       <node concept="3clFbS" id="5zPLqcHJBao" role="3clF47">
         <node concept="3clFbF" id="5zPLqcHJBar" role="3cqZAp">
           <node concept="37vLTI" id="5zPLqcHJBas" role="3clFbG">
@@ -6455,8 +6459,8 @@
                       <node concept="Xl_RD" id="5zPLqcHJBbg" role="37wK5m">
                         <property role="Xl_RC" value="new" />
                       </node>
-                      <node concept="3clFbT" id="6CqwT3OILEZ" role="37wK5m">
-                        <property role="3clFbU" value="true" />
+                      <node concept="37vLTw" id="5u75OIaB19L" role="37wK5m">
+                        <ref role="3cqZAo" node="5u75OIaAYv2" resolve="fixReferences" />
                       </node>
                     </node>
                   </node>
@@ -6481,8 +6485,8 @@
                       <node concept="Xl_RD" id="5zPLqcHJBbo" role="37wK5m">
                         <property role="Xl_RC" value="old" />
                       </node>
-                      <node concept="3clFbT" id="6CqwT3OINqs" role="37wK5m">
-                        <property role="3clFbU" value="true" />
+                      <node concept="37vLTw" id="5u75OIaB1vb" role="37wK5m">
+                        <ref role="3cqZAo" node="5u75OIaAYv2" resolve="fixReferences" />
                       </node>
                     </node>
                   </node>

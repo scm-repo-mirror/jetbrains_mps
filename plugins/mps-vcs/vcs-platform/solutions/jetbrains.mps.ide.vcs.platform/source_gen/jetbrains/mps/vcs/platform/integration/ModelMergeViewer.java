@@ -56,10 +56,10 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
 
   private MergeModelsPanel myPanel;
 
-  public ModelMergeViewer(MergeContext context, TextMergeRequest request, SModel base, SModel mine, SModel repo) {
+  public ModelMergeViewer(MergeContext context, TextMergeRequest request, SModel base, SModel mine, SModel repo, boolean fixReferences) {
     myMergeContext = context;
     myMergeRequest = request;
-    myPanel = new MergeModelsPanel(context.getProject(), base, mine, repo, request);
+    myPanel = new MergeModelsPanel(context.getProject(), base, mine, repo, request, fixReferences);
   }
 
   @Nullable
@@ -73,7 +73,8 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
       final File backupFile = MergeBackupUtil.zipModel(byteContents, file);
 
       final String ext;
-      if (FilePerRootDataSource.isPerRootPersistenceFile(FileSystem.getInstance().getFile(file.getPath()))) {
+      boolean perRootPersistenceFile = FilePerRootDataSource.isPerRootPersistenceFile(FileSystem.getInstance().getFile(file.getPath()));
+      if (perRootPersistenceFile) {
         // load model partially from per-root persistence with "normal" persistence loading 
         ext = MPSExtentions.MODEL;
       } else {
@@ -83,7 +84,7 @@ public class ModelMergeViewer implements MergeTool.MergeViewer {
       SModel mineModel = loadModel(byteContents[MergeConstants.CURRENT], ext);
       SModel newModel = loadModel(byteContents[MergeConstants.LAST_REVISION], ext);
       if (baseModel != null && mineModel != null && newModel != null) {
-        final ModelMergeViewer viewer = new ModelMergeViewer(context, textRequest, baseModel, mineModel, newModel);
+        final ModelMergeViewer viewer = new ModelMergeViewer(context, textRequest, baseModel, mineModel, newModel, perRootPersistenceFile);
 
         ISaveMergedModel saver = new ISaveMergedModel() {
           public boolean save(MergeModelsPanel parent, final SModel resultModel) {

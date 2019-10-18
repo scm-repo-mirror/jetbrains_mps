@@ -786,13 +786,13 @@
       <node id="6410246949269566080" at="66,0,67,0" concept="5" trace="myEditable" />
       <node id="6410246949269566083" at="67,0,68,0" concept="5" trace="myOldRegistered" />
       <node id="6410246949269566086" at="68,0,69,0" concept="5" trace="myNewRegistered" />
-      <node id="6410246949269566107" at="70,132,71,24" concept="4" />
+      <node id="6410246949269566107" at="70,161,71,24" concept="4" />
       <node id="6410246949269566111" at="71,24,72,61" concept="4" />
       <node id="6410246949269566116" at="72,61,73,61" concept="4" />
       <node id="6410246949269566121" at="73,61,74,71" concept="4" />
       <node id="6410246949269699090" at="74,71,75,58" concept="12" />
-      <node id="6410246949269566157" at="78,33,79,70" concept="4" />
-      <node id="6410246949269566165" at="81,33,82,70" concept="4" />
+      <node id="6410246949269566157" at="78,33,79,79" concept="4" />
+      <node id="6410246949269566165" at="81,33,82,79" concept="4" />
       <node id="6410246949269566210" at="87,25,88,80" concept="4" />
       <node id="6410246949269566220" at="92,25,93,101" concept="10" />
       <node id="6410246949269566227" at="93,101,94,96" concept="10" />
@@ -963,9 +963,9 @@
       <node id="6410246949269566958" at="278,23,310,11" concept="4" />
       <node id="6410246949269566955" at="277,0,311,7" concept="8" />
       <node id="6410246949269566945" at="274,0,314,0" concept="9" trace="getRootActions#()Ljava/lang/Iterable;" />
-      <node id="6410246949269566090" at="70,0,126,0" concept="2" trace="ModelDifferenceViewer#(Ljetbrains/mps/project/MPSProject;Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/model/SNodeId;Z)V" />
-      <scope id="6410246949269566156" at="78,33,79,70" />
-      <scope id="6410246949269566164" at="81,33,82,70" />
+      <node id="6410246949269566090" at="70,0,126,0" concept="2" trace="ModelDifferenceViewer#(Ljetbrains/mps/project/MPSProject;Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/model/SModel;Lorg/jetbrains/mps/openapi/model/SNodeId;ZZ)V" />
+      <scope id="6410246949269566156" at="78,33,79,79" />
+      <scope id="6410246949269566164" at="81,33,82,79" />
       <scope id="6410246949269566204" at="87,25,88,80" />
       <scope id="456758165253807090" at="111,27,112,31" />
       <scope id="6410246949269759370" at="114,12,115,29" />
@@ -1111,10 +1111,11 @@
         <var name="actions" id="6410246949269566948" />
       </scope>
       <scope id="6410246949269566945" at="274,0,314,0" />
-      <scope id="6410246949269566104" at="70,132,124,5">
+      <scope id="6410246949269566104" at="70,161,124,5">
         <var name="size" id="6410246949269680275" />
       </scope>
       <scope id="6410246949269566090" at="70,0,126,0">
+        <var name="fixReferences" id="6307035416371128258" />
         <var name="newModel" id="6410246949269566095" />
         <var name="oldModel" id="6410246949269566093" />
         <var name="project" id="6410246949269566091" />

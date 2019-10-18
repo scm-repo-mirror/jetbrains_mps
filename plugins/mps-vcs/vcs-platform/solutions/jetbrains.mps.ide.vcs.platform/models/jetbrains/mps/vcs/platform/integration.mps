@@ -8458,6 +8458,9 @@
                     <node concept="37vLTw" id="1vsKl3K0ziF" role="37wK5m">
                       <ref role="3cqZAo" node="1vsKl3K0xFt" resolve="showTree" />
                     </node>
+                    <node concept="3clFbT" id="5u75OIaB7Hd" role="37wK5m">
+                      <property role="3clFbU" value="true" />
+                    </node>
                   </node>
                 </node>
                 <node concept="37vLTw" id="Tzj6YXEMTs" role="37vLTJ">
@@ -8635,6 +8638,7 @@
                       <node concept="37vLTw" id="1vsKl3K0xre" role="37wK5m">
                         <ref role="3cqZAo" node="1vsKl3K0vFg" resolve="showTree" />
                       </node>
+                      <node concept="3clFbT" id="5u75OIaB7Zr" role="37wK5m" />
                     </node>
                   </node>
                   <node concept="37vLTw" id="5zPLqcHLMi5" role="37vLTJ">
@@ -10794,6 +10798,9 @@
                 <node concept="37vLTw" id="4qk_0lIsgz0" role="37wK5m">
                   <ref role="3cqZAo" node="4qk_0lIs91X" resolve="request" />
                 </node>
+                <node concept="37vLTw" id="5u75OIaAKat" role="37wK5m">
+                  <ref role="3cqZAo" node="5u75OIaAziW" resolve="fixReferences" />
+                </node>
               </node>
             </node>
             <node concept="37vLTw" id="4qk_0lIrpK0" role="37vLTJ">
@@ -10825,6 +10832,10 @@
       <node concept="37vLTG" id="4qk_0lIrqRc" role="3clF46">
         <property role="TrG5h" value="repo" />
         <node concept="H_c77" id="4qk_0lIrqYj" role="1tU5fm" />
+      </node>
+      <node concept="37vLTG" id="5u75OIaAziW" role="3clF46">
+        <property role="TrG5h" value="fixReferences" />
+        <node concept="10P_77" id="5u75OIaABDR" role="1tU5fm" />
       </node>
     </node>
     <node concept="2tJIrI" id="4qk_0lIro_N" role="jymVt" />
@@ -10974,6 +10985,33 @@
                 <node concept="17QB3L" id="4qk_0lIxhmp" role="1tU5fm" />
               </node>
             </node>
+            <node concept="3cpWs8" id="5u75OIaAKmH" role="3cqZAp">
+              <node concept="3cpWsn" id="5u75OIaAKmI" role="3cpWs9">
+                <property role="TrG5h" value="perRootPersistenceFile" />
+                <node concept="10P_77" id="5u75OIaAIRy" role="1tU5fm" />
+                <node concept="2YIFZM" id="5u75OIaAKmJ" role="33vP2m">
+                  <ref role="1Pybhc" to="pa15:~FilePerRootDataSource" resolve="FilePerRootDataSource" />
+                  <ref role="37wK5l" to="pa15:~FilePerRootDataSource.isPerRootPersistenceFile(jetbrains.mps.vfs.IFile)" resolve="isPerRootPersistenceFile" />
+                  <node concept="2OqwBi" id="5u75OIaAKmK" role="37wK5m">
+                    <node concept="2YIFZM" id="5u75OIaAKmL" role="2Oq$k0">
+                      <ref role="1Pybhc" to="3ju5:~FileSystem" resolve="FileSystem" />
+                      <ref role="37wK5l" to="3ju5:~FileSystem.getInstance()" resolve="getInstance" />
+                    </node>
+                    <node concept="liA8E" id="5u75OIaAKmM" role="2OqNvi">
+                      <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
+                      <node concept="2OqwBi" id="5u75OIaAKmN" role="37wK5m">
+                        <node concept="37vLTw" id="5u75OIaAKmO" role="2Oq$k0">
+                          <ref role="3cqZAo" node="4qk_0lIxhm5" resolve="file" />
+                        </node>
+                        <node concept="liA8E" id="5u75OIaAKmP" role="2OqNvi">
+                          <ref role="37wK5l" to="jlff:~VirtualFile.getPath()" resolve="getPath" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
             <node concept="3clFbJ" id="4qk_0lIxhmt" role="3cqZAp">
               <node concept="3clFbS" id="4qk_0lIxhmu" role="3clFbx">
                 <node concept="3SKdUt" id="4qk_0lIxhmv" role="3cqZAp">
@@ -11022,26 +11060,8 @@
                   </node>
                 </node>
               </node>
-              <node concept="2YIFZM" id="4qk_0lIxhm_" role="3clFbw">
-                <ref role="1Pybhc" to="pa15:~FilePerRootDataSource" resolve="FilePerRootDataSource" />
-                <ref role="37wK5l" to="pa15:~FilePerRootDataSource.isPerRootPersistenceFile(jetbrains.mps.vfs.IFile)" resolve="isPerRootPersistenceFile" />
-                <node concept="2OqwBi" id="4qk_0lIxhmA" role="37wK5m">
-                  <node concept="2YIFZM" id="4qk_0lIxhmB" role="2Oq$k0">
-                    <ref role="1Pybhc" to="3ju5:~FileSystem" resolve="FileSystem" />
-                    <ref role="37wK5l" to="3ju5:~FileSystem.getInstance()" resolve="getInstance" />
-                  </node>
-                  <node concept="liA8E" id="4qk_0lIxhmC" role="2OqNvi">
-                    <ref role="37wK5l" to="3ju5:~FileSystem.getFile(java.lang.String)" resolve="getFile" />
-                    <node concept="2OqwBi" id="4qk_0lIxhmD" role="37wK5m">
-                      <node concept="37vLTw" id="4qk_0lIxhmE" role="2Oq$k0">
-                        <ref role="3cqZAo" node="4qk_0lIxhm5" resolve="file" />
-                      </node>
-                      <node concept="liA8E" id="4qk_0lIxhmF" role="2OqNvi">
-                        <ref role="37wK5l" to="jlff:~VirtualFile.getPath()" resolve="getPath" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
+              <node concept="37vLTw" id="5u75OIaAKmQ" role="3clFbw">
+                <ref role="3cqZAo" node="5u75OIaAKmI" resolve="perRootPersistenceFile" />
               </node>
               <node concept="9aQIb" id="6pjhMZUQIlX" role="9aQIa">
                 <node concept="3clFbS" id="6pjhMZUQIlY" role="9aQI4">
@@ -11156,6 +11176,9 @@
                         </node>
                         <node concept="37vLTw" id="4qk_0lIxhnf" role="37wK5m">
                           <ref role="3cqZAo" node="4qk_0lIxhmX" resolve="newModel" />
+                        </node>
+                        <node concept="37vLTw" id="5u75OIaAOdn" role="37wK5m">
+                          <ref role="3cqZAo" node="5u75OIaAKmI" resolve="perRootPersistenceFile" />
                         </node>
                       </node>
                     </node>

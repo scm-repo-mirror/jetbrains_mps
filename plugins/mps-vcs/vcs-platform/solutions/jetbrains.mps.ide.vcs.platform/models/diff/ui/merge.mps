@@ -5589,8 +5589,8 @@
                   <node concept="Xl_RD" id="2v$NtEHog2G" role="37wK5m">
                     <property role="Xl_RC" value="base" />
                   </node>
-                  <node concept="3clFbT" id="6CqwT3OJ3cj" role="37wK5m">
-                    <property role="3clFbU" value="true" />
+                  <node concept="37vLTw" id="5u75OIaAvM4" role="37wK5m">
+                    <ref role="3cqZAo" node="5u75OIaAp4o" resolve="fixReferences" />
                   </node>
                 </node>
               </node>
@@ -5609,8 +5609,8 @@
                   <node concept="Xl_RD" id="2v$NtEHoD2l" role="37wK5m">
                     <property role="Xl_RC" value="mine" />
                   </node>
-                  <node concept="3clFbT" id="6CqwT3OJ3Vx" role="37wK5m">
-                    <property role="3clFbU" value="true" />
+                  <node concept="37vLTw" id="5u75OIaAwEZ" role="37wK5m">
+                    <ref role="3cqZAo" node="5u75OIaAp4o" resolve="fixReferences" />
                   </node>
                 </node>
               </node>
@@ -5629,8 +5629,8 @@
                   <node concept="Xl_RD" id="2v$NtEHoMS$" role="37wK5m">
                     <property role="Xl_RC" value="repo" />
                   </node>
-                  <node concept="3clFbT" id="6CqwT3OJ4Aa" role="37wK5m">
-                    <property role="3clFbU" value="true" />
+                  <node concept="37vLTw" id="5u75OIaAxzf" role="37wK5m">
+                    <ref role="3cqZAo" node="5u75OIaAp4o" resolve="fixReferences" />
                   </node>
                 </node>
               </node>
@@ -5649,8 +5649,8 @@
                   <node concept="Xl_RD" id="2v$NtEHoWtD" role="37wK5m">
                     <property role="Xl_RC" value="result" />
                   </node>
-                  <node concept="3clFbT" id="6CqwT3OJ5gj" role="37wK5m">
-                    <property role="3clFbU" value="true" />
+                  <node concept="37vLTw" id="5u75OIaAys8" role="37wK5m">
+                    <ref role="3cqZAo" node="5u75OIaAp4o" resolve="fixReferences" />
                   </node>
                 </node>
               </node>
@@ -5931,6 +5931,10 @@
         <node concept="3uibUv" id="4qk_0lIrKH$" role="1tU5fm">
           <ref role="3uigEE" to="o8e1:~TextMergeRequest" resolve="TextMergeRequest" />
         </node>
+      </node>
+      <node concept="37vLTG" id="5u75OIaAp4o" role="3clF46">
+        <property role="TrG5h" value="fixReferences" />
+        <node concept="10P_77" id="5u75OIaArwZ" role="1tU5fm" />
       </node>
     </node>
     <node concept="2tJIrI" id="4qk_0lIpwJb" role="jymVt" />
