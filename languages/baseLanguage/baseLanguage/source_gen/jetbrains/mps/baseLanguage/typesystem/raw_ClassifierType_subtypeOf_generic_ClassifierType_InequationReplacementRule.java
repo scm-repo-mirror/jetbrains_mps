@@ -5,6 +5,7 @@ package jetbrains.mps.baseLanguage.typesystem;
 import jetbrains.mps.lang.typesystem.runtime.AbstractInequationReplacementRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicable2Status;
+import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.typesystem.inference.EquationInfo;
@@ -25,7 +26,7 @@ public class raw_ClassifierType_subtypeOf_generic_ClassifierType_InequationRepla
   public raw_ClassifierType_subtypeOf_generic_ClassifierType_InequationReplacementRule() {
   }
   public boolean isApplicableCustom(SNode subtype, SNode supertype, IsApplicable2Status status) {
-    return SLinkOperations.getTarget(subtype, LINKS.classifier$pQ_R) == SLinkOperations.getTarget(supertype, LINKS.classifier$pQ_R) && ListSequence.fromList(SLinkOperations.getChildren(subtype, LINKS.parameter$dQne)).isEmpty() && ListSequence.fromList(SLinkOperations.getChildren(supertype, LINKS.parameter$dQne)).isNotEmpty();
+    return (boolean) Classifier__BehaviorDescriptor.isSame_id4dzXPK1BpyE.invoke(SLinkOperations.getTarget(subtype, LINKS.classifier$pQ_R), SLinkOperations.getTarget(supertype, LINKS.classifier$pQ_R)) && ListSequence.fromList(SLinkOperations.getChildren(subtype, LINKS.parameter$dQne)).isEmpty() && ListSequence.fromList(SLinkOperations.getChildren(supertype, LINKS.parameter$dQne)).isNotEmpty();
   }
   public void processInequation(final SNode subtype, final SNode supertype, final EquationInfo equationInfo, final TypeCheckingContext typeCheckingContext, IsApplicable2Status status, final boolean inequalityIsWeak, final boolean inequalityIsLessThan) {
     // normally this is an unchecked cast warning 

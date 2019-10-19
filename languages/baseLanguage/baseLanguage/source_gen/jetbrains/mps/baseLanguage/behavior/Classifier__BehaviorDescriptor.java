@@ -42,8 +42,8 @@ import jetbrains.mps.scope.EmptyScope;
 import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
-import jetbrains.mps.smodel.SModelStereotype;
-import jetbrains.mps.smodel.LanguageID;
+import java.util.Objects;
+import jetbrains.mps.baseLanguage.util.StubClassifierCorrespondenceHelper;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
@@ -63,8 +63,6 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.SReference;
-import org.jetbrains.mps.openapi.model.SModelName;
-import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNodeAccessUtil;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
@@ -98,7 +96,7 @@ public final class Classifier__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Boolean> checkLoops_id3sXyOQUqKq0 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkLoops").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3sXyOQUqKq0").build();
   public static final SMethod<Boolean> isDescendant_id6dL7A1DpKo1 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDescendant").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6dL7A1DpKo1").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> isDescendant_checkLoops_id6dL7A1DpKoA = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isDescendant_checkLoops").modifiers(SModifiersImpl.create(8, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("6dL7A1DpKoA").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
-  public static final SMethod<Boolean> isSame_id4dzXPK1BpyE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSame").modifiers(SModifiersImpl.create(0, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("4dzXPK1BpyE").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
+  public static final SMethod<Boolean> isSame_id4dzXPK1BpyE = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isSame").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("4dzXPK1BpyE").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> checkLoops_id3sXyOQUqKq5 = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("checkLoops").modifiers(SModifiersImpl.create(8, AccessPrivileges.PROTECTED)).concept(CONCEPT).id("3sXyOQUqKq5").build(SMethodBuilder.createJavaParameter((Class<Set<SNode>>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> canInstantiateIn_id610WLfjPjne = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("canInstantiateIn").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("610WLfjPjne").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<List<SNode>> getOwnMethods_id1DPgsAlM_WC = new SMethodBuilder<List<SNode>>(new SJavaCompoundTypeImpl((Class<List<SNode>>) ((Class) Object.class))).name("getOwnMethods").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1DPgsAlM_WC").build();
@@ -400,15 +398,15 @@ public final class Classifier__BehaviorDescriptor extends BaseBHDescriptor {
     return false;
   }
   /*package*/ static boolean isSame_id4dzXPK1BpyE(@NotNull SNode __thisNode__, SNode that) {
-    if (SNodeOperations.getConcept(__thisNode__) != SNodeOperations.getConcept(that)) {
+    if (__thisNode__ == that) {
+      return true;
+    }
+    if (!(Objects.equals(SNodeOperations.getConcept(__thisNode__), SNodeOperations.getConcept(that)))) {
       return false;
     }
-    // ignore model defferences for java_stub models 
-    String javastub = SModelStereotype.getStubStereotypeForId(LanguageID.JAVA);
-    if (javastub.equals(check_qw8l7c_a0a0d0x(check_qw8l7c_a0a0a3a32(SNodeOperations.getModel(__thisNode__)))) && javastub.equals(check_qw8l7c_a0a0d0x_0(check_qw8l7c_a0a0a3a32_0(SNodeOperations.getModel(that))))) {
-      return INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(__thisNode__).equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(that));
-    }
-    return __thisNode__ == that;
+    List<SNode> thisMirrors = new StubClassifierCorrespondenceHelper(new StubClassifierCorrespondenceHelper.StubModuleCorrespondenceImpl()).findCompatibleClassifiers(__thisNode__);
+    List<SNode> thatMirrors = new StubClassifierCorrespondenceHelper(new StubClassifierCorrespondenceHelper.StubModuleCorrespondenceImpl()).findCompatibleClassifiers(that);
+    return ListSequence.fromList(thisMirrors).contains(that) || ListSequence.fromList(thatMirrors).contains(__thisNode__) || Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(__thisNode__), INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(that));
   }
   /*package*/ static boolean checkLoops_id3sXyOQUqKq5(@NotNull SNode __thisNode__, Set<SNode> visited) {
     return false;
@@ -849,30 +847,6 @@ public final class Classifier__BehaviorDescriptor extends BaseBHDescriptor {
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object")));
     return quotedNode_1;
-  }
-  private static String check_qw8l7c_a0a0d0x(SModelName checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getStereotype();
-    }
-    return null;
-  }
-  private static SModelName check_qw8l7c_a0a0a3a32(SModel checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getName();
-    }
-    return null;
-  }
-  private static String check_qw8l7c_a0a0d0x_0(SModelName checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getStereotype();
-    }
-    return null;
-  }
-  private static SModelName check_qw8l7c_a0a0a3a32_0(SModel checkedDotOperand) {
-    if (null != checkedDotOperand) {
-      return checkedDotOperand.getName();
-    }
-    return null;
   }
   private static SNode _quotation_createNode_qw8l7c_a0b0a0a0db(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();

@@ -19,8 +19,10 @@ import jetbrains.mps.util.ClassPathReader;
 import jetbrains.mps.util.ClassType;
 import jetbrains.mps.util.PathManager;
 import jetbrains.mps.util.annotation.ToRemove;
+import jetbrains.mps.vfs.IFileSystem;
 import jetbrains.mps.vfs.QualifiedPath;
 import jetbrains.mps.vfs.VFSManager;
+import jetbrains.mps.vfs.util.PathUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -184,7 +186,7 @@ public final class CommonPaths {
 
   private static void addIfExists(Collection<QualifiedPath> item, String path) {
     for (String basePath : PathManager.getHomePaths()) {
-      String fullPath = basePath + File.separator + path;
+      String fullPath = PathUtil.toSystemIndependent(basePath) + IFileSystem.SEPARATOR + path;
       if (new File(fullPath).exists()) {
         item.add(new QualifiedPath(path.endsWith(".jar") ? VFSManager.JAR_FS : VFSManager.FILE_FS, fullPath));
       }

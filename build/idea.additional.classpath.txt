@@ -50,6 +50,7 @@ languages/baseLanguage/collections/runtime/classes
 languages/baseLanguage/closures/runtime/classes
 languages/baseLanguage/tuples/runtime/classes
 languages/baseLanguage/references/runtime/classes
+languages/baseLanguage/annotations/runtime/classes
 :editor
 editor/editor-api/classes
 editor/editorlang-runtime/classes
