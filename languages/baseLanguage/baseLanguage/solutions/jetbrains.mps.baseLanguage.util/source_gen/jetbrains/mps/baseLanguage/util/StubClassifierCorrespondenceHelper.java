@@ -41,6 +41,10 @@ import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.util.ClassType;
 import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
+import jetbrains.mps.internal.collections.runtime.Sequence;
+import java.util.Collections;
+import java.util.HashSet;
+import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import java.util.Map;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
@@ -155,7 +159,8 @@ public class StubClassifierCorrespondenceHelper {
           return new QualifiedPath(VFSManager.FILE_FS, PathUtil.toSystemIndependent(it));
         }
       }).toListSequence();
-      return ListSequence.fromList(classesPaths).translate(new ITranslator2<QualifiedPath, ClassType>() {
+      List<SModuleReference> result = ListSequence.fromList(new ArrayList<SModuleReference>());
+      ListSequence.fromList(result).addSequence(ListSequence.fromList(classesPaths).translate(new ITranslator2<QualifiedPath, ClassType>() {
         public Iterable<ClassType> translate(QualifiedPath it) {
           return getClassTypeForPath(it);
         }
@@ -163,7 +168,26 @@ public class StubClassifierCorrespondenceHelper {
         public SModuleReference select(ClassType classType) {
           return BootstrapLanguages.bootstrapSolutionRef(classType);
         }
-      }).where(new NotNullWhereFilter<SModuleReference>()).toListSequence();
+      }).where(new NotNullWhereFilter<SModuleReference>()));
+      if (ListSequence.fromList(result).isEmpty()) {
+        List<SModuleReference> bootstrapSolutions = Sequence.fromIterable(Sequence.fromArray(ClassType.values())).select(new ISelector<ClassType, SModuleReference>() {
+          public SModuleReference select(ClassType it) {
+            return BootstrapLanguages.bootstrapSolutionRef(it);
+          }
+        }).toListSequence();
+        Collections.reverse(bootstrapSolutions);
+        final Collection<SModuleReference> deps = CollectionSequence.fromCollectionWithValues(new HashSet<SModuleReference>(), Sequence.fromIterable(((Iterable<SModule>) new GlobalModuleDependenciesManager(mpsModule).getModules(GlobalModuleDependenciesManager.Deptype.COMPILE))).select(new ISelector<SModule, SModuleReference>() {
+          public SModuleReference select(SModule it) {
+            return it.getModuleReference();
+          }
+        }));
+        ListSequence.fromList(result).addElement(ListSequence.fromList(bootstrapSolutions).where(new IWhereFilter<SModuleReference>() {
+          public boolean accept(SModuleReference it) {
+            return CollectionSequence.fromCollection(deps).contains(it);
+          }
+        }).first());
+      }
+      return result;
     }
     private static Map<String, List<ClassType>> myClassTypesForPath;
     public List<ClassType> getClassTypeForPath(QualifiedPath path) {

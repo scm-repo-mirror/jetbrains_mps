@@ -79,7 +79,7 @@ public class QueriesGenerated extends QueryProviderBase {
       public SModuleReference select(SModule it) {
         return it.getModuleReference();
       }
-    }).contains(PersistenceFacade.getInstance().createModuleReference("8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)")))) {
+    }).contains(PersistenceFacade.getInstance().createModuleReference("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)")))) {
       return false;
     }
     return SNodeOperations.getParent(_context.getNode()) == null && !(Sequence.fromIterable(SLinkOperations.collect(SLinkOperations.getChildren(_context.getNode(), LINKS.annotation$oVP4), LINKS.annotation$zNxu)).contains(SNodeOperations.getNode("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass")));
