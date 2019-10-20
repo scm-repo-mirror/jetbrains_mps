@@ -17,6 +17,7 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myModifiedCommandHistoryItem__BehaviorDescriptor = new ModifiedCommandHistoryItem__BehaviorDescriptor();
   private final BHDescriptor myProjectExpression__BehaviorDescriptor = new ProjectExpression__BehaviorDescriptor();
   private final BHDescriptor myNodeWithClosure__BehaviorDescriptor = new NodeWithClosure__BehaviorDescriptor();
+  private final BHDescriptor myConsoleRoot__BehaviorDescriptor = new ConsoleRoot__BehaviorDescriptor();
   private final BHDescriptor myInterpretedCommand__BehaviorDescriptor = new InterpretedCommand__BehaviorDescriptor();
   private final BHDescriptor myGeneratedCommand__BehaviorDescriptor = new GeneratedCommand__BehaviorDescriptor();
   private final BHDescriptor myNodeReferenceString__BehaviorDescriptor = new NodeReferenceString__BehaviorDescriptor();
@@ -49,34 +50,36 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
       case 4:
         return myCommandHolder__BehaviorDescriptor;
       case 5:
-        return myExceptionHolder__BehaviorDescriptor;
+        return myConsoleRoot__BehaviorDescriptor;
       case 6:
-        return myGeneratedCommand__BehaviorDescriptor;
+        return myExceptionHolder__BehaviorDescriptor;
       case 7:
-        return myHelpCommand__BehaviorDescriptor;
+        return myGeneratedCommand__BehaviorDescriptor;
       case 8:
-        return myIActionHolder__BehaviorDescriptor;
+        return myHelpCommand__BehaviorDescriptor;
       case 9:
-        return myINodeWithReference__BehaviorDescriptor;
+        return myIActionHolder__BehaviorDescriptor;
       case 10:
-        return myInterpretedCommand__BehaviorDescriptor;
+        return myINodeWithReference__BehaviorDescriptor;
       case 11:
-        return myModifiedCommandHistoryItem__BehaviorDescriptor;
+        return myInterpretedCommand__BehaviorDescriptor;
       case 12:
-        return myNodeReferencePresentation__BehaviorDescriptor;
+        return myModifiedCommandHistoryItem__BehaviorDescriptor;
       case 13:
-        return myNodeReferenceString__BehaviorDescriptor;
+        return myNodeReferencePresentation__BehaviorDescriptor;
       case 14:
-        return myNodeWithClosure__BehaviorDescriptor;
+        return myNodeReferenceString__BehaviorDescriptor;
       case 15:
-        return myPastedNodeReference__BehaviorDescriptor;
+        return myNodeWithClosure__BehaviorDescriptor;
       case 16:
-        return myPrintExpression__BehaviorDescriptor;
+        return myPastedNodeReference__BehaviorDescriptor;
       case 17:
+        return myPrintExpression__BehaviorDescriptor;
+      case 18:
         return myProjectExpression__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6c8954f469a7c420L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4bd43869e610f3e9L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6a40a3596560a9d9L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f1fb64db424879fL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5b02f032bc93b714L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x188f8efcef689c71L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x690b986730a1f80L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x7633e0214d3a5856L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x188f8efcef689c65L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x9992dadc6de20a7L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bbb600cL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53ba81265L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xf6d4d958ec2f2c6L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6979f0787b2a9377L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa721a59126bb908L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6c8954f469a7c420L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4bd43869e610f3e9L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6a40a3596560a9d9L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f1fb64db424879fL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4e27160acb4484bL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5b02f032bc93b714L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x188f8efcef689c71L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x690b986730a1f80L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x7633e0214d3a5856L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x36ac6f29ae8c1fb5L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x188f8efcef689c65L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x9992dadc6de20a7L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53bbb600cL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x2095ece53ba81265L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xf6d4d958ec2f2c6L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x51132a123c89fa7eL), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x6979f0787b2a9377L), MetaIdFactory.conceptId(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa721a59126bb908L)).seal();
 }

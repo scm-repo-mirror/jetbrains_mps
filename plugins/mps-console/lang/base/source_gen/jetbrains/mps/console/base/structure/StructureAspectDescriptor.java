@@ -227,6 +227,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   private static ConceptDescriptor createDescriptorForConsoleRoot() {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.console.base", "ConsoleRoot", 0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x15fb34051f725a2cL);
     b.class_(false, false, true);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L);
     b.origin("r:359b1d2b-77c4-46df-9bf2-b25cbea32254(jetbrains.mps.console.base.structure)/1583916890557930028");
     b.version(2);
     b.aggregate("history", 0x15fb34051f725bafL).target(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0xa835f28c1aa02beL).optional(false).ordered(true).multiple(false).origin("1583916890557930415").done();

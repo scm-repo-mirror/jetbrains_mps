@@ -259,6 +259,9 @@
       <property role="20kJfa" value="hiddenCommand" />
       <ref role="20lvS9" node="jysm2GH4xb" resolve="CommandHolder" />
     </node>
+    <node concept="PrWs8" id="3A3g2XgqUIk" role="PzmwI">
+      <ref role="PrY4T" to="tpck:2WmWrdnSpX3" resolve="ISuppressErrors" />
+    </node>
   </node>
   <node concept="1TIwiD" id="4SV0P5LDrC2">
     <property role="3GE5qa" value="response" />
