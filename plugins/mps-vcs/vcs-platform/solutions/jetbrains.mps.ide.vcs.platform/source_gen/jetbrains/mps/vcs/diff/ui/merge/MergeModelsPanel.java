@@ -93,7 +93,7 @@ public class MergeModelsPanel extends JPanel {
   private String[] myContentTitles = new String[0];
   private Set<ModelChange> myAppliedMetadataChanges = SetSequence.fromSet(new HashSet<ModelChange>());
 
-  public MergeModelsPanel(Project project, final SModel baseModel, final SModel mineModel, final SModel repoModel, TextMergeRequest request) {
+  public MergeModelsPanel(Project project, final SModel baseModel, final SModel mineModel, final SModel repoModel, TextMergeRequest request, final boolean fixReferences) {
     super(new BorderLayout());
     myProject = project;
     myContentTitles = request.getContentTitles().toArray(myContentTitles);
@@ -112,10 +112,10 @@ public class MergeModelsPanel extends JPanel {
     });
     myProjectRepository.getModelAccess().runWriteAction(new Runnable() {
       public void run() {
-        DiffModelUtil.renameModelAndRegister(myMergeSession.getBaseModel(), "base");
-        DiffModelUtil.renameModelAndRegister(myMergeSession.getMyModel(), "mine");
-        DiffModelUtil.renameModelAndRegister(myMergeSession.getRepositoryModel(), "repo");
-        DiffModelUtil.renameModelAndRegister(myMergeSession.getResultModel(), "result");
+        DiffModelUtil.renameModelAndRegister(myMergeSession.getBaseModel(), "base", fixReferences);
+        DiffModelUtil.renameModelAndRegister(myMergeSession.getMyModel(), "mine", fixReferences);
+        DiffModelUtil.renameModelAndRegister(myMergeSession.getRepositoryModel(), "repo", fixReferences);
+        DiffModelUtil.renameModelAndRegister(myMergeSession.getResultModel(), "result", fixReferences);
       }
     });
     if (ListSequence.fromList(myMergeSession.getMetadataChanges()).isNotEmpty()) {

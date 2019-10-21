@@ -69,7 +69,7 @@ public class ModelDifferenceViewer implements DataProvider {
   private boolean myOldRegistered;
   private boolean myNewRegistered;
 
-  public ModelDifferenceViewer(MPSProject project, final SModel oldModel, final SModel newModel, SNodeId rootId, boolean showTree) {
+  public ModelDifferenceViewer(MPSProject project, final SModel oldModel, final SModel newModel, SNodeId rootId, boolean showTree, final boolean fixReferences) {
     myProject = project;
     myOldRegistered = SNodeOperations.isRegistered(oldModel);
     myNewRegistered = SNodeOperations.isRegistered(newModel);
@@ -78,10 +78,10 @@ public class ModelDifferenceViewer implements DataProvider {
     project.getRepository().getModelAccess().runWriteAction(new Runnable() {
       public void run() {
         if (!(myNewRegistered)) {
-          DiffModelUtil.renameModelAndRegister(newModel, "new");
+          DiffModelUtil.renameModelAndRegister(newModel, "new", fixReferences);
         }
         if (!(myOldRegistered)) {
-          DiffModelUtil.renameModelAndRegister(oldModel, "old");
+          DiffModelUtil.renameModelAndRegister(oldModel, "old", fixReferences);
         }
       }
     });
