@@ -48,14 +48,16 @@ import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.progress.ProgressIndicator;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
+import jetbrains.mps.ide.migration.wizard.MigrationError;
+import jetbrains.mps.errors.item.IssueKindReportItem;
+import jetbrains.mps.migration.global.MigrationProblemHandler;
 import java.util.function.BinaryOperator;
 import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.ide.migration.wizard.MigrationWizard;
-import jetbrains.mps.ide.migration.wizard.MigrationError;
-import com.intellij.openapi.project.ex.ProjectManagerEx;
-import jetbrains.mps.errors.item.IssueKindReportItem;
-import java.util.ArrayList;
-import jetbrains.mps.migration.global.MigrationProblemHandler;
+import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
+import org.jetbrains.mps.openapi.module.SRepository;
+import org.jetbrains.mps.openapi.model.SModel;
 import com.intellij.openapi.application.Application;
 import com.intellij.util.WaitForProgressToShow;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
@@ -329,8 +331,33 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
             if (myPostponedState.get() == null || force) {
               boolean hasSomethingToApply = newState.value.hasSomethingToApply();
               if (hasSomethingToApply) {
-                if (runMigration(newState.value.hasVersionUpdate(), newState.value.hasMigrations())) {
+                final Tuples._2<MigrationResult, MigrationError> result = runMigration(newState.value.hasVersionUpdate(), newState.value.hasMigrations());
+                if (result._0() == MigrationResult.POSTPONED) {
                   myPostponedState.set(newState.value);
+                } else if (result._0() == MigrationResult.FINISHED_WITH_ERRORS) {
+                  ProgressManager.getInstance().run(new Task.Modal(myProject, "Collecting Errors", false) {
+                    public void run(@NotNull final ProgressIndicator progressIndicator) {
+                      myMpsProject.getRepository().getModelAccess().runReadAction(new Runnable() {
+                        public void run() {
+                          Iterable<IssueKindReportItem> problems = result._1().getProblems(progressIndicator);
+                          myProject.getComponent(MigrationProblemHandler.class).showProblems(Sequence.fromIterable(problems).toListSequence());
+                        }
+                      });
+                    }
+                  });
+                  myPostponedState.set(newState.value);
+                  myNotifications.showRequired(new _FunctionTypes._void_P0_E0() {
+                    public void invoke() {
+                      myPostponedState.set(null);
+                      scheduleMigration(true);
+                    }
+                  });
+                  cleanup();
+                } else if (result._0() == MigrationResult.FINISHED) {
+                  myPostponedState.set(null);
+                  cleanup();
+                } else {
+                  throw new IllegalStateException("Unknown result: " + result);
                 }
               } else if (force) {
                 myNotifications.showNotRequired();
@@ -359,53 +386,42 @@ public class MigrationTrigger extends AbstractProjectComponent implements IStart
     });
   }
 
-  /**
-   * 
-   * @return whether migration was postponed
-   */
-  private boolean runMigration(boolean update, boolean migrate) {
+  private enum MigrationResult {
+    POSTPONED(),
+    FINISHED_WITH_ERRORS(),
+    FINISHED()
+  }
+
+  private Tuples._2<MigrationResult, MigrationError> runMigration(boolean update, boolean migrate) {
     MigrationSessionImpl session = new MigrationSessionImpl(myMpsProject, myMigrationRegistry, update, migrate);
     final MigrationWizard wizard = new MigrationWizard(myProject, session);
     boolean finished = wizard.showAndGet();
-    final MigrationError errors = session.getError();
+    MigrationError errors = session.getError();
+    MigrationResult state;
     if (!(finished) && errors == null) {
       // user has postponed migration 
-      return true;
-    }
-
-    if (errors == null) {
-      ApplicationManager.getApplication().runWriteAction(new Runnable() {
-        public void run() {
-          ProjectManagerEx.getInstance().reloadProject(myProject);
-        }
-      });
+      state = MigrationResult.POSTPONED;
+    } else if (errors != null) {
+      state = MigrationResult.FINISHED;
     } else {
-      StartupManager.getInstance(myProject).runWhenProjectIsInitialized(new Runnable() {
-        public void run() {
-          final Wrappers._T<List<IssueKindReportItem>> problems = new Wrappers._T<List<IssueKindReportItem>>();
-          ProgressManager.getInstance().run(new Task.Modal(myProject, "Collecting Errors", false) {
-            public void run(@NotNull final ProgressIndicator progressIndicator) {
-              myMpsProject.getRepository().getModelAccess().runReadAction(new Runnable() {
-                public void run() {
-                  problems.value = ListSequence.fromListWithValues(new ArrayList<IssueKindReportItem>(), errors.getProblems(progressIndicator));
-                }
-              });
-            }
-          });
-          ApplicationManager.getApplication().invokeLater(new Runnable() {
-            public void run() {
-              myMpsProject.getRepository().getModelAccess().runReadAction(new Runnable() {
-                public void run() {
-                  myProject.getComponent(MigrationProblemHandler.class).showProblems(problems.value);
-                }
-              });
-            }
-          }, ModalityState.NON_MODAL);
-        }
-      });
+      state = MigrationResult.FINISHED_WITH_ERRORS;
     }
 
-    return false;
+    return MultiTuple.<MigrationResult,MigrationError>from(state, errors);
+  }
+
+  private void cleanup() {
+    final SRepository repository = myMpsProject.getRepository();
+    repository.getModelAccess().runWriteAction(new Runnable() {
+      public void run() {
+        // here all the models accessible from project's repo should be unloaded 
+        for (SModule module : Sequence.fromIterable(repository.getModules())) {
+          for (SModel model : Sequence.fromIterable(module.getModels())) {
+            model.unload();
+          }
+        }
+      }
+    });
   }
 
   private void syncRefresh() {
