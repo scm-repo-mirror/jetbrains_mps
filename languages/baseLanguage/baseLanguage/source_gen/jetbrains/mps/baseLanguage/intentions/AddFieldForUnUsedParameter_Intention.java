@@ -23,6 +23,9 @@ import jetbrains.mps.smodel.action.SNodeFactoryOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
+import java.util.ArrayList;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -89,7 +92,7 @@ public final class AddFieldForUnUsedParameter_Intention extends AbstractIntentio
       if ((lastFieldDecl != null)) {
         ListSequence.fromList(SLinkOperations.getChildren(clazz, LINKS.member$oYX5)).insertElement(ListSequence.fromList(SLinkOperations.getChildren(clazz, LINKS.member$oYX5)).lastIndexOf(lastFieldDecl) + 1, field);
       } else {
-        ListSequence.fromList(SLinkOperations.getChildren(clazz, LINKS.member$oYX5)).addElement(field);
+        Classifier__BehaviorDescriptor.addMember_id32Td0IabBk_.invoke(clazz, field, ListSequence.fromListAndArray(new ArrayList<SAbstractConcept>(), CONCEPTS.ConstructorDeclaration$5U, CONCEPTS.BaseMethodDeclaration$RR));
       }
       SNode newStatement = SNodeFactoryOperations.createNewNode(CONCEPTS.ExpressionStatement$nm, null);
       SNode expr = SNodeFactoryOperations.createNewNode(CONCEPTS.AssignmentExpression$rS, null);
@@ -125,6 +128,7 @@ public final class AddFieldForUnUsedParameter_Intention extends AbstractIntentio
     /*package*/ static final SConcept ThisExpression$7A = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d4da00cL, "jetbrains.mps.baseLanguage.structure.ThisExpression");
     /*package*/ static final SConcept FieldReferenceOperation$N8 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x116b483d77aL, "jetbrains.mps.baseLanguage.structure.FieldReferenceOperation");
     /*package*/ static final SConcept FieldDeclaration$Ps = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c108ca68L, "jetbrains.mps.baseLanguage.structure.FieldDeclaration");
+    /*package*/ static final SConcept ConstructorDeclaration$5U = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b204L, "jetbrains.mps.baseLanguage.structure.ConstructorDeclaration");
     /*package*/ static final SConcept ExpressionStatement$nm = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, "jetbrains.mps.baseLanguage.structure.ExpressionStatement");
     /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
   }

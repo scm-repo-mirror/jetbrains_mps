@@ -8844,19 +8844,26 @@
           </node>
           <node concept="9aQIb" id="1nctWZUT_dg" role="9aQIa">
             <node concept="3clFbS" id="1nctWZUT_dh" role="9aQI4">
-              <node concept="3clFbF" id="hO6a9yo" role="3cqZAp">
-                <node concept="2OqwBi" id="hO6abLi" role="3clFbG">
-                  <node concept="2OqwBi" id="hO6a9Mh" role="2Oq$k0">
-                    <node concept="37vLTw" id="3GM_nagTw8e" role="2Oq$k0">
-                      <ref role="3cqZAo" node="hO69KzI" resolve="clazz" />
-                    </node>
-                    <node concept="3Tsc0h" id="hO6abcD" role="2OqNvi">
-                      <ref role="3TtcxE" to="tpee:4EqhHTp4Mw3" resolve="member" />
-                    </node>
+              <node concept="3clFbF" id="1PWosLovRwO" role="3cqZAp">
+                <node concept="2OqwBi" id="1PWosLovT47" role="3clFbG">
+                  <node concept="37vLTw" id="1PWosLovRwM" role="2Oq$k0">
+                    <ref role="3cqZAo" node="hO69KzI" resolve="clazz" />
                   </node>
-                  <node concept="TSZUe" id="2fLCP33ElQZ" role="2OqNvi">
-                    <node concept="37vLTw" id="3GM_nagTw8T" role="25WWJ7">
+                  <node concept="2qgKlT" id="1PWosLovTNL" role="2OqNvi">
+                    <ref role="37wK5l" to="tpek:32Td0IabBk_" resolve="addMember" />
+                    <node concept="37vLTw" id="1PWosLovU1L" role="37wK5m">
                       <ref role="3cqZAo" node="hO69WBq" resolve="field" />
+                    </node>
+                    <node concept="2ShNRf" id="1PWosLowOug" role="37wK5m">
+                      <node concept="Tc6Ow" id="1PWosLox9Y_" role="2ShVmc">
+                        <node concept="35c_gC" id="1PWosLoxaVp" role="HW$Y0">
+                          <ref role="35c_gD" to="tpee:fzclF84" resolve="ConstructorDeclaration" />
+                        </node>
+                        <node concept="35c_gC" id="1PWosLoxbpk" role="HW$Y0">
+                          <ref role="35c_gD" to="tpee:fzclF7W" resolve="BaseMethodDeclaration" />
+                        </node>
+                        <node concept="3bZ5Sz" id="1PWosLoxbRK" role="HW$YZ" />
+                      </node>
                     </node>
                   </node>
                 </node>
