@@ -62,7 +62,7 @@ public class ThreadWatcher implements Output {
       builder.append("|(BaseDataReader: output stream of .*git(\\.exe)?.*)");
 
       // com.intellij.execution.process.ProcessIOExecutorService 
-      builder.append("|(Process I/O pool [0-9]+)");
+      builder.append("|(I/O pool [0-9]+)");
 
       // com.intellij.psi.impl.DocumentCommitThread 
       builder.append("|(Document Committing Pool)");
