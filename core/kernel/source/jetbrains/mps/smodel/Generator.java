@@ -169,11 +169,20 @@ public class Generator extends ReloadableModuleBase {
   @Override
   protected void doSetModuleDescriptor(ModuleDescriptor moduleDescriptor) {
     assert moduleDescriptor instanceof GeneratorDescriptor;
+    if (false == moduleDescriptor instanceof GeneratorDescriptor) {
+      return;
+    }
+    final GeneratorDescriptor generatorDescriptor = (GeneratorDescriptor) moduleDescriptor;
+    myGeneratorDescriptor = generatorDescriptor;
+    if (generatorDescriptor.isStandaloneModule()) {
+      // base setModuleDescriptor() does reloadAfterDescriptorChange()
+      return;
+    }
     LanguageDescriptor languageDescriptor = getSourceLanguage().getModuleDescriptor();
     int index = languageDescriptor.getGenerators().indexOf(getModuleDescriptor());
     if (index != -1) {
       languageDescriptor.getGenerators().remove(index);
-      languageDescriptor.getGenerators().add(index, (GeneratorDescriptor) moduleDescriptor);
+      languageDescriptor.getGenerators().add(index, generatorDescriptor);
     }
     // Beware, we don't need to do setModuleDescriptor() for source language, its MD has not been changed (doing otherwise would be a hack).
     // We still need language to reload its generators (Language.revalidateGenerators()), and as long as revalidateGenerators does this for ALL
