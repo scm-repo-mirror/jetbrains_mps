@@ -10,7 +10,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242878:jetbrains.mps.baseLanguage.structure.ReturnStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1076505808687:jetbrains.mps.baseLanguage.structure.WhileStatement" />
-  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests)/1353467374625228509">
+  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests@tests)/1353467374625228509">
     <file name="Escaping_Test.java">
       <node id="1353467374625228614" at="10,55,11,74" concept="2" />
       <node id="1353467374625327703" at="11,74,12,74" concept="2" />
@@ -121,7 +121,7 @@
       <unit id="1353467374625228509" at="9,0,86,0" name="tests.Escaping_Test" />
     </file>
   </root>
-  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests)/3796137614137404062">
+  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests@tests)/3796137614137404062">
     <file name="PerlReplace_Test.java">
       <node id="3796137614137404073" at="10,46,11,41" concept="6" />
       <node id="3796137614137404079" at="11,41,12,91" concept="2" />
@@ -193,7 +193,7 @@
       <unit id="3796137614137404062" at="9,0,70,0" name="tests.PerlReplace_Test" />
     </file>
   </root>
-  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests)/6129327962763155569">
+  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests@tests)/6129327962763155569">
     <file name="Replace_Test.java">
       <node id="6129327962763155612" at="11,48,12,129" concept="6" />
       <node id="6129327962763155619" at="12,129,13,52" concept="2" />
@@ -232,7 +232,7 @@
       <unit id="6129327962763155583" at="8,0,23,0" name="tests._Replacer_55w9mm_a0a0a0" />
     </file>
   </root>
-  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests)/6129327962764348634">
+  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests@tests)/6129327962764348634">
     <file name="Match_Test.java">
       <node id="6129327962764368469" at="13,44,14,74" concept="2" />
       <node id="6129327962764368494" at="14,74,15,74" concept="2" />
@@ -319,7 +319,7 @@
       <unit id="6129327962764348634" at="12,0,74,0" name="tests.Match_Test" />
     </file>
   </root>
-  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests)/6799940379546332953">
+  <root nodeRef="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests@tests)/6799940379546332953">
     <file name="Statements_Test.java">
       <node id="6799940379546332980" at="11,47,12,38" concept="6" />
       <node id="6799940379546332987" at="12,38,13,28" concept="6" />

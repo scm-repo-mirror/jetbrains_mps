@@ -2046,6 +2046,15 @@
       <node concept="22LTRF" id="1y5ThBEPjcA" role="22LTRK">
         <ref role="22LTRG" node="1y5ThBEPhLi" resolve="reference-tests" />
       </node>
+      <node concept="22LTRF" id="5toIiGVJthb" role="22LTRK">
+        <ref role="22LTRG" node="5toIiGVJtfm" resolve="baseLanguageInternal-tests" />
+      </node>
+      <node concept="22LTRF" id="5toIiGVJtGc" role="22LTRK">
+        <ref role="22LTRG" node="5toIiGVJtEe" resolve="doubleDispatch-tests" />
+      </node>
+      <node concept="22LTRF" id="5toIiGVJvi0" role="22LTRK">
+        <ref role="22LTRG" node="5toIiGVJuWM" resolve="regexp-tests" />
+      </node>
     </node>
     <node concept="2G$12M" id="QtAfUFXwu" role="3989C9">
       <property role="TrG5h" value="closures-tests" />
@@ -2179,6 +2188,85 @@
         </node>
       </node>
     </node>
+    <node concept="2G$12M" id="5toIiGVJtfm" role="3989C9">
+      <property role="TrG5h" value="baseLanguageInternal-tests" />
+      <node concept="1E1JtA" id="5toIiGVJtgF" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="jetbrains.mps.baseLanguageInternal.test" />
+        <property role="3LESm3" value="4831e627-794e-416a-983a-50889cae21f8" />
+        <property role="aoJFB" value="eYcmk9QOls/tests" />
+        <node concept="55IIr" id="5toIiGVJtgG" role="3LF7KH">
+          <node concept="2Ry0Ak" id="5toIiGVJtgM" role="iGT6I">
+            <property role="2Ry0Am" value="testbench" />
+            <node concept="2Ry0Ak" id="5toIiGVJtgU" role="2Ry0An">
+              <property role="2Ry0Am" value="testsolutions" />
+              <node concept="2Ry0Ak" id="5toIiGVJtgZ" role="2Ry0An">
+                <property role="2Ry0Am" value="bl.internal.test" />
+                <node concept="2Ry0Ak" id="5toIiGVJth4" role="2Ry0An">
+                  <property role="2Ry0Am" value="jetbrains.mps.baseLanguageInternal.test.msd" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2G$12M" id="5toIiGVJtEe" role="3989C9">
+      <property role="TrG5h" value="doubleDispatch-tests" />
+      <node concept="1E1JtA" id="5toIiGVJtEf" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="jetbrains.mps.baseLanguage.doubleDispatch.test" />
+        <property role="3LESm3" value="0528d773-6535-46f8-89a2-16a3751e6ab5" />
+        <property role="aoJFB" value="eYcmk9QOls/tests" />
+        <node concept="55IIr" id="5toIiGVJtEg" role="3LF7KH">
+          <node concept="2Ry0Ak" id="5toIiGVJtEh" role="iGT6I">
+            <property role="2Ry0Am" value="testbench" />
+            <node concept="2Ry0Ak" id="5toIiGVJtEi" role="2Ry0An">
+              <property role="2Ry0Am" value="testsolutions" />
+              <node concept="2Ry0Ak" id="5toIiGVJtEj" role="2Ry0An">
+                <property role="2Ry0Am" value="bl.doubleDispatch.test" />
+                <node concept="2Ry0Ak" id="5toIiGVJtFP" role="2Ry0An">
+                  <property role="2Ry0Am" value="jetbrains.mps.baseLanguage.doubleDispatch.test.msd" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="2G$12M" id="5toIiGVJuWM" role="3989C9">
+      <property role="TrG5h" value="regexp-tests" />
+      <node concept="1E1JtA" id="5toIiGVJuWN" role="2G$12L">
+        <property role="BnDLt" value="true" />
+        <property role="TrG5h" value="jetbrains.mps.baseLanguage.regexp.unittest" />
+        <property role="3LESm3" value="19cb79b5-ebc3-43ce-9f4c-d4bdce7013ab" />
+        <property role="aoJFB" value="eYcmk9QOls/tests" />
+        <node concept="55IIr" id="5toIiGVJuWO" role="3LF7KH">
+          <node concept="2Ry0Ak" id="5toIiGVJuWP" role="iGT6I">
+            <property role="2Ry0Am" value="testbench" />
+            <node concept="2Ry0Ak" id="5toIiGVJuWQ" role="2Ry0An">
+              <property role="2Ry0Am" value="testsolutions" />
+              <node concept="2Ry0Ak" id="5toIiGVJuWR" role="2Ry0An">
+                <property role="2Ry0Am" value="regexp.unittest" />
+                <node concept="2Ry0Ak" id="5toIiGVJvh9" role="2Ry0An">
+                  <property role="2Ry0Am" value="jetbrains.mps.baseLanguage.regexp.unittest.msd" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1SiIV0" id="5toIiGVJvhb" role="3bR37C">
+          <node concept="3bR9La" id="5toIiGVJvhc" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
+        <node concept="1SiIV0" id="5toIiGVJvhd" role="3bR37C">
+          <node concept="3bR9La" id="5toIiGVJvhe" role="1SiIV1">
+            <ref role="3bR37D" to="ffeo:1YAozCvot2o" resolve="jetbrains.mps.baseLanguage.regexp.runtime" />
+          </node>
+        </node>
+      </node>
+    </node>
     <node concept="55IIr" id="6gfB34Bldfk" role="auvoZ">
       <node concept="2Ry0Ak" id="6gfB34Bldfl" role="iGT6I">
         <property role="2Ry0Am" value="build" />
@@ -2199,6 +2287,15 @@
       </node>
       <node concept="L2wRC" id="1y5ThBEPiqT" role="39821P">
         <ref role="L2wRA" node="1y5ThBEPi7n" resolve="jetbrains.mps.baseLanguage.testRefs.testLang" />
+      </node>
+      <node concept="L2wRC" id="5toIiGVJthn" role="39821P">
+        <ref role="L2wRA" node="5toIiGVJtgF" resolve="jetbrains.mps.baseLanguageInternal.test" />
+      </node>
+      <node concept="L2wRC" id="5toIiGVJtFY" role="39821P">
+        <ref role="L2wRA" node="5toIiGVJtEf" resolve="jetbrains.mps.baseLanguage.doubleDispatch.test" />
+      </node>
+      <node concept="L2wRC" id="5toIiGVJvhx" role="39821P">
+        <ref role="L2wRA" node="5toIiGVJuWN" resolve="jetbrains.mps.baseLanguage.regexp.unittest" />
       </node>
     </node>
     <node concept="10PD9b" id="6gfB34Bldfq" role="10PD9s" />

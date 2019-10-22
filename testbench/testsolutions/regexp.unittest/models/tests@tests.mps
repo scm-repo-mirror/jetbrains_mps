@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests)">
+<model ref="r:710bb5ca-133c-4e34-80eb-4be42af51339(tests@tests)">
   <persistence version="9" />
   <languages>
     <use id="daafa647-f1f7-4b0b-b096-69cd7c8408c0" name="jetbrains.mps.baseLanguage.regexp" version="0" />

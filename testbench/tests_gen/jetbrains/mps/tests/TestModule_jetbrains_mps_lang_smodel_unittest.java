@@ -6,7 +6,7 @@ import jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite;
 import org.junit.runner.RunWith;
 import jetbrains.mps.annotations.GeneratedClass;
 
-@ModuleSymbolicSuite.ModuleClassSymbols(classes = {"jetbrains.mps.lang.smodel.test.InsertPrevSiblingOperation_Focus_Test"}, tests = {"test_InsertPrevSiblingOperation_Focus"})
+@ModuleSymbolicSuite.ModuleClassSymbols(classes = {"jetbrains.mps.lang.smodel.test.InsertPrevSiblingOperation_Focus_Test", "jetbrains.mps.lang.smodel.test.SModelExpressionsDataFlow_Test"}, tests = {"test_InsertPrevSiblingOperation_Focus", "test_ErrorMessagesCheck931754141965267346,test_ErrorMessagesCheck3016266886293102695,test_ErrorMessagesCheck2201735946499155433,test_ErrorMessagesCheck2201735946499165976,test_ErrorMessagesCheck2201735946499167109,test_ErrorMessagesCheck2201735946499171707,test_ErrorMessagesCheck2201735946499174525,test_ErrorMessagesCheck2201735946499178993,test_ErrorMessagesCheck2201735946499190158,test_ErrorMessagesCheck3564379068314712774,test_ErrorMessagesCheck3564379068314715334"})
 @ModuleSymbolicSuite.ModuleReference("d51c8d2d-7b6e-4d93-9eee-b55b04c5886b(jetbrains.mps.lang.smodel.unittest)")
 @RunWith(ModuleSymbolicSuite.class)
 @GeneratedClass(node = "r:a549252a-5f7e-4e74-9e76-a86827f191ff(jetbrains.mps.tests)/2712670354707847876", model = "r:a549252a-5f7e-4e74-9e76-a86827f191ff(jetbrains.mps.tests)")

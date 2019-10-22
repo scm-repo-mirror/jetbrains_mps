@@ -8,8 +8,14 @@ import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Rule;
 import jetbrains.mps.lang.test.runtime.RunWithCommand;
+import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.ArrayList;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
 
 @MPSLaunch
 public class InternalClassifier_Test extends BaseTransformationTest {
@@ -22,6 +28,10 @@ public class InternalClassifier_Test extends BaseTransformationTest {
     super(ourParamCache);
   }
 
+  @Test
+  public void test_ErrorMessagesCheck6293984074587251910() throws Throwable {
+    new TestBody(this).test_ErrorMessagesCheck6293984074587251910();
+  }
 
   /*package*/ static class TestBody extends BaseTestBody {
 
@@ -30,6 +40,11 @@ public class InternalClassifier_Test extends BaseTransformationTest {
     }
 
 
+    public void test_ErrorMessagesCheck6293984074587251910() throws Exception {
+      SNode nodeToCheck = getRealNodeById("1293230950168439296");
+      SNode operation = getRealNodeById("6293984074587251910");
+      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageAction>())).run();
+    }
 
   }
 }
