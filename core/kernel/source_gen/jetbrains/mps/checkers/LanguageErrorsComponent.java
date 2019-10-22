@@ -138,6 +138,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     Set<SNode> checkedNodes = SetSequence.fromSet(new HashSet<SNode>());
     for (SNode dep : SetSequence.fromSet(dependencies)) {
       SetSequence.fromSet(checkedNodes).addSequence(SetSequence.fromSet(myDependenciesToNodesAndViceVersa.getByFirst(dep)));
+      SetSequence.fromSet(checkedNodes).addElement(dep);
     }
     for (SNode node : checkedNodes) {
       // avoid searching for _already_removed_ node later in check() 

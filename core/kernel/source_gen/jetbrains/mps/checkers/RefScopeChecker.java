@@ -58,7 +58,6 @@ public class RefScopeChecker extends AbstractNodeCheckerInEditor implements IChe
       // don't check unresolved and broken references, they should already have an error message 
       // do we need all these additional dependencies? mb. it's better to use .runcheckingAction() instead? The reason not to use runCheckingAction is memory consumption, see https://youtrack.jetbrains.com/issue/MPS-19776, commit 88c5a52d 
       errorsCollector.addDependency(target);
-      errorsCollector.addDependency(SNodeOperations.getParent(target));
       ReferenceDescriptor refDescriptor = ModelConstraints.getReferenceDescriptor(ref);
       Scope refScope = refDescriptor.getScope();
       if (refScope instanceof ErrorScope) {
