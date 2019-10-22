@@ -34,12 +34,10 @@ import java.io.IOException;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.ide.vfs.IdeaFileSystem;
 import jetbrains.mps.smodel.SModelFileTracker;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
-import jetbrains.mps.smodel.ModelAccessHelper;
-import jetbrains.mps.util.Computable;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
+import org.jetbrains.mps.openapi.model.SNode;
 
 public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
   public static final Key<SNodeId> DIFF_SHOW_ROOTID = new Key<SNodeId>("MPS.diff.rootid");
@@ -59,14 +57,14 @@ public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
       Tuples._2<SModel, SNodeId> newModel = getModelAndRoot(mpsProject, contents.get(1), type);
       SNodeId rootId = (newModel._1() != null ? newModel._1() : oldModel._1());
       final boolean showTree = DIFF_SHOW_TREE.get(request, false);
-      myViewer = new ModelDifferenceViewer(mpsProject, oldModel._0(), newModel._0(), rootId, showTree);
+      myViewer = new ModelDifferenceViewer(mpsProject, oldModel._0(), newModel._0(), rootId, showTree, true);
     } else {
       SModel oldModel = ModelDiffViewer.getModel(mpsProject, contents.get(0), type);
       SModel newModel = ModelDiffViewer.getModel(mpsProject, contents.get(1), type);
       //  show one root only if requested 
       SNodeId rootId = request.getUserData(DIFF_SHOW_ROOTID);
       final boolean showTree = DIFF_SHOW_TREE.get(request, true);
-      myViewer = new ModelDifferenceViewer(mpsProject, oldModel, newModel, rootId, showTree);
+      myViewer = new ModelDifferenceViewer(mpsProject, oldModel, newModel, rootId, showTree, false);
       // navigate to specific place in editor if requested 
       Bounds scrollTo = request.getUserData(DIFF_NAVIGATE_TO);
       if (scrollTo != null) {
@@ -189,31 +187,28 @@ public class ModelDiffViewer implements FrameDiffTool.DiffViewer {
 
   @Nullable
   private static Tuples._2<SModel, SNodeId> getModelAndRoot(MPSProject mpsProject, DiffContent content, FileType type) {
-    final Wrappers._T<SModel> model = new Wrappers._T<SModel>(null);
-    // first try to find model in repository 
+    // first read model from file and get root Id 
+    SModel model = readModel(content, type);
+    // there should be no more than one root in the model from this file  
+    SNodeId rootId = check_qg7y9c_a0d0x(ListSequence.fromList(SModelOperations.roots(model, null)).first());
+
+    // try to find model in repository 
     if (content instanceof FileContent) {
       VirtualFile file = ((FileContent) content).getFile().getParent();
       IdeaFileSystem fs = mpsProject.getFileSystem();
       if (fs.canConvert(file)) {
-        model.value = SModelFileTracker.getInstance(mpsProject.getRepository()).findModel(fs.fromVirtualFile(file));
-      }
-    }
-    if (model.value == null) {
-      model.value = readModel(content, type);
-    }
-    if (model.value == null) {
-      return null;
-    }
-
-    SNodeId nodeId = new ModelAccessHelper(mpsProject.getModelAccess()).runReadAction(new Computable<SNodeId>() {
-      public SNodeId compute() {
-        // todo: find root for models in repository by filename (important when new root added int per-root persistence) 
-        if (ListSequence.fromList(SModelOperations.roots(model.value, null)).count() == 1) {
-          return ListSequence.fromList(SModelOperations.roots(model.value, null)).getElement(0).getNodeId();
+        SModel repoModel = SModelFileTracker.getInstance(mpsProject.getRepository()).findModel(fs.fromVirtualFile(file));
+        if (repoModel != null) {
+          model = repoModel;
         }
-        return null;
       }
-    });
-    return MultiTuple.<SModel,SNodeId>from(model.value, nodeId);
+    }
+    return MultiTuple.<SModel,SNodeId>from(model, rootId);
+  }
+  private static SNodeId check_qg7y9c_a0d0x(SNode checkedDotOperand) {
+    if (null != checkedDotOperand) {
+      return checkedDotOperand.getNodeId();
+    }
+    return null;
   }
 }

@@ -6341,6 +6341,10 @@
         <property role="TrG5h" value="showTree" />
         <node concept="10P_77" id="5zPLqcHJYdK" role="1tU5fm" />
       </node>
+      <node concept="37vLTG" id="5u75OIaAYv2" role="3clF46">
+        <property role="TrG5h" value="fixReferences" />
+        <node concept="10P_77" id="5u75OIaB0aH" role="1tU5fm" />
+      </node>
       <node concept="3clFbS" id="5zPLqcHJBao" role="3clF47">
         <node concept="3clFbF" id="5zPLqcHJBar" role="3cqZAp">
           <node concept="37vLTI" id="5zPLqcHJBas" role="3clFbG">
@@ -6447,13 +6451,16 @@
                 <node concept="3clFbS" id="5zPLqcHJBbc" role="3clFbx">
                   <node concept="3clFbF" id="5zPLqcHJBbd" role="3cqZAp">
                     <node concept="2YIFZM" id="5zPLqcHJBbe" role="3clFbG">
-                      <ref role="37wK5l" to="hdhb:2v$NtEHjiFm" resolve="renameModelAndRegister" />
                       <ref role="1Pybhc" to="hdhb:42hl10VHaSb" resolve="DiffModelUtil" />
+                      <ref role="37wK5l" to="hdhb:6o37A5sInP5" resolve="renameModelAndRegister" />
                       <node concept="37vLTw" id="5zPLqcHJBbf" role="37wK5m">
                         <ref role="3cqZAo" node="5zPLqcHJBaf" resolve="newModel" />
                       </node>
                       <node concept="Xl_RD" id="5zPLqcHJBbg" role="37wK5m">
                         <property role="Xl_RC" value="new" />
+                      </node>
+                      <node concept="37vLTw" id="5u75OIaB19L" role="37wK5m">
+                        <ref role="3cqZAo" node="5u75OIaAYv2" resolve="fixReferences" />
                       </node>
                     </node>
                   </node>
@@ -6470,13 +6477,16 @@
                 <node concept="3clFbS" id="5zPLqcHJBbk" role="3clFbx">
                   <node concept="3clFbF" id="5zPLqcHJBbl" role="3cqZAp">
                     <node concept="2YIFZM" id="5zPLqcHJBbm" role="3clFbG">
-                      <ref role="37wK5l" to="hdhb:2v$NtEHjiFm" resolve="renameModelAndRegister" />
                       <ref role="1Pybhc" to="hdhb:42hl10VHaSb" resolve="DiffModelUtil" />
+                      <ref role="37wK5l" to="hdhb:6o37A5sInP5" resolve="renameModelAndRegister" />
                       <node concept="37vLTw" id="5zPLqcHJBbn" role="37wK5m">
                         <ref role="3cqZAo" node="5zPLqcHJBad" resolve="oldModel" />
                       </node>
                       <node concept="Xl_RD" id="5zPLqcHJBbo" role="37wK5m">
                         <property role="Xl_RC" value="old" />
+                      </node>
+                      <node concept="37vLTw" id="5u75OIaB1vb" role="37wK5m">
+                        <ref role="3cqZAo" node="5u75OIaAYv2" resolve="fixReferences" />
                       </node>
                     </node>
                   </node>
