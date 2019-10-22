@@ -181,6 +181,10 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     for (SNode dep : dependencies) {
       // here, we query by dependency, utilizing the fact the map is in fact bi-directional, the moment we recorded checked node->its dependency, we've also recorded dependency->checked node 
       SetSequence.fromSet(checkedNodes).addSequence(SetSequence.fromSet(myDependenciesToNodesAndViceVersa.getByFirst(dep)));
+      // changed properties and references record the node to myDependenciesToInvalidate only, but these could be changes of a checked node itself 
+      // perhaps, we shall do it right away in the respective processEvent(). Besides, not clear whether I shall match source nodes against  
+      // myDependenciesToNodesAndViceVersa.getBySecond set to filter out events from 'checked' nodes 
+      SetSequence.fromSet(checkedNodes).addElement(dep);
     }
     for (SNode node : checkedNodes) {
       // avoid searching for _already_removed_ node later in check() 
@@ -289,6 +293,7 @@ public class LanguageErrorsComponent extends LanguageErrorsCollector {
     }
     try {
       myCurrentNode = node;
+      // keep addDependency(myCurrentNode) here, it's not about dependency per se, the method also adds model listener to track changes 
       addDependency(node);
       for (AbstractNodeCheckerInEditor checker : checkers) {
         checker.checkNodeInEditor(node, this, repository);
