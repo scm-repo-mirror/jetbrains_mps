@@ -116,7 +116,6 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.runtime.Tuples" />
-    <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.shared.GlobalSharedPair" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Bool" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Data" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.ISample" />
@@ -124,6 +123,7 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Pair" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Record" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.test.Sample" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.tuples.util.SharedPair" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ArrayUtils" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISequenceClosure" />

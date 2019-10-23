@@ -8,7 +8,6 @@
   <sourcePath />
   <dependencies>
     <dependency reexport="false">6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)</dependency>
-    <dependency reexport="false">02f6bdf3-0540-48d1-8551-1d3619454f47(jetbrains.mps.baseLanguage.tuples.shared)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" version="9" />

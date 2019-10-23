@@ -8,7 +8,7 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import jetbrains.mps.baseLanguage.tuples.shared.GlobalSharedPair;
+import jetbrains.mps.baseLanguage.tuples.util.SharedPair;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
@@ -117,7 +117,7 @@ public class NamedTuples_Test extends TestCase {
     Assert.assertEquals("a=A, b=B, c=C", string);
   }
   public void test_vararg3() throws Exception {
-    String string = this.getString(new GlobalSharedPair<String, String>("a", "A"), new GlobalSharedPair<String, String>("b", "B"), new GlobalSharedPair<String, String>("c", "C"));
+    String string = this.getString(new SharedPair<String, String>("a", "A"), new SharedPair<String, String>("b", "B"), new SharedPair<String, String>("c", "C"));
     Assert.assertEquals("a=A, b=B, c=C", string);
   }
   public void test_listOfTuples() throws Exception {
@@ -179,9 +179,9 @@ public class NamedTuples_Test extends TestCase {
       }
     }), ", ");
   }
-  public String getString(GlobalSharedPair<String, String>... tuples) {
-    return IterableUtils.join(Sequence.fromIterable(Sequence.fromArray(tuples)).select(new ISelector<GlobalSharedPair<String, String>, String>() {
-      public String select(GlobalSharedPair<String, String> t) {
+  public String getString(SharedPair<String, String>... tuples) {
+    return IterableUtils.join(Sequence.fromIterable(Sequence.fromArray(tuples)).select(new ISelector<SharedPair<String, String>, String>() {
+      public String select(SharedPair<String, String> t) {
         return t.first() + "=" + t.second();
       }
     }), ", ");

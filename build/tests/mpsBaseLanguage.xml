@@ -152,6 +152,47 @@
       <zipfileset file="${basedir}/testbench/testsolutions/bl.closures.unittest/jetbrains.mps.baseLanguage.closures.unittest.msd" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.closures.unittest-jetbrains" prefix="module/jetbrains" />
     </jar>
+    <mkdir dir="${build.tmp}/default/closures.test.jar" />
+    <mkdir dir="${build.tmp}/default/closures.test.jar/META-INF" />
+    <echoxml file="${build.tmp}/default/closures.test.jar/META-INF/module.xml">
+      <module namespace="closures.test" type="solution" uuid="7a0c7a21-43a3-4bb4-b898-a819ebed44a5">
+        <dependencies>
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="rt" />
+          <module ref="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt" />
+          <module ref="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt" />
+          <module ref="a3e4657f-a76c-45bb-bbda-c764596ecc65(jetbrains.mps.baseLanguage.logging.runtime)" kind="rt" />
+          <module ref="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="cl" />
+          <module ref="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="cl" />
+          <module ref="fd392034-7849-419d-9071-12563d152375(jetbrains.mps.baseLanguage.closures)" kind="cl" />
+        </dependencies>
+        <uses>
+          <language id="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
+          <language id="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" />
+          <language id="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
+          <language id="l:760a0a8c-eabb-4521-8bfd-65db761a9ba3:jetbrains.mps.baseLanguage.logging" />
+          <language id="l:f61473f9-130f-42f6-b98d-6c438812c2f6:jetbrains.mps.baseLanguage.unitTest" />
+          <language id="l:df345b11-b8c7-4213-ac66-48d2a9b75d88:jetbrains.mps.baseLanguageInternal" />
+        </uses>
+        <classpath>
+          <entry path="." />
+        </classpath>
+        <sources jar="closures.test-src.jar" descriptor="closures.test.msd" />
+      </module>
+    </echoxml>
+    <jar destfile="${build.layout}/closures.test.jar" duplicate="preserve">
+      <fileset dir="${build.tmp}/java/out/closures.test" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.closures.unittest" includes="icons/**, resources/**" />
+      <fileset dir="${build.tmp}/default/closures.test.jar" />
+    </jar>
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-closures.test-jetbrains">
+      <fileset dir="${basedir}/testbench/testsolutions/closures.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+    </copyModels>
+    <jar destfile="${build.layout}/closures.test-src.jar" duplicate="preserve">
+      <zipfileset file="${basedir}/testbench/testsolutions/closures.test/closures.test.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-closures.test-jetbrains" prefix="module/jetbrains" />
+    </jar>
     <mkdir dir="${build.tmp}/default/jetbrains.mps.baseLanguage.testRefs.jar" />
     <mkdir dir="${build.tmp}/default/jetbrains.mps.baseLanguage.testRefs.jar/META-INF" />
     <echoxml file="${build.tmp}/default/jetbrains.mps.baseLanguage.testRefs.jar/META-INF/module.xml">
@@ -428,6 +469,204 @@
       <zipfileset file="${basedir}/testbench/testsolutions/regexp.unittest/jetbrains.mps.baseLanguage.regexp.unittest.msd" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-regexp.unittest-models" prefix="module/models" />
     </jar>
+    <mkdir dir="${build.tmp}/default/jetbrains.mps.baseLanguage.tuples.test.jar" />
+    <mkdir dir="${build.tmp}/default/jetbrains.mps.baseLanguage.tuples.test.jar/META-INF" />
+    <echoxml file="${build.tmp}/default/jetbrains.mps.baseLanguage.tuples.test.jar/META-INF/module.xml">
+      <module namespace="jetbrains.mps.baseLanguage.tuples.test" type="solution" uuid="993e3b08-9f44-43cf-b983-e474ac66855b">
+        <dependencies>
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="rt" />
+          <module ref="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt" />
+          <module ref="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt" />
+          <module ref="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
+          <module ref="d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)" kind="rt" />
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="cl" />
+        </dependencies>
+        <uses>
+          <language id="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
+          <language id="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" />
+          <language id="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
+          <language id="l:a247e09e-2435-45ba-b8d2-07e93feba96a:jetbrains.mps.baseLanguage.tuples" />
+          <language id="l:f61473f9-130f-42f6-b98d-6c438812c2f6:jetbrains.mps.baseLanguage.unitTest" />
+          <language id="l:ceab5195-25ea-4f22-9b92-103b95ca8c0c:jetbrains.mps.lang.core" />
+        </uses>
+        <classpath>
+          <entry path="." />
+        </classpath>
+        <sources jar="jetbrains.mps.baseLanguage.tuples.test-src.jar" descriptor="jetbrains.mps.baseLanguage.tuples.test.msd" />
+      </module>
+    </echoxml>
+    <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.tuples.test.jar" duplicate="preserve">
+      <fileset dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples.test" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
+      <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.tuples.test.jar" />
+    </jar>
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.tuples.test-jetbrains">
+      <fileset dir="${basedir}/testbench/testsolutions/bl.tuples.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+    </copyModels>
+    <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.tuples.test-src.jar" duplicate="preserve">
+      <fileset dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen">
+        <exclude name="**/trace.info" />
+        <exclude name="**/exports" />
+        <exclude name="**/checkpoints" />
+        <exclude name="**/*.mps" />
+      </fileset>
+      <zipfileset file="${basedir}/testbench/testsolutions/bl.tuples.test/jetbrains.mps.baseLanguage.tuples.test.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.tuples.test-jetbrains" prefix="module/jetbrains" />
+    </jar>
+    <mkdir dir="${build.tmp}/default/collections_unittest.jar" />
+    <mkdir dir="${build.tmp}/default/collections_unittest.jar/META-INF" />
+    <echoxml file="${build.tmp}/default/collections_unittest.jar/META-INF/module.xml">
+      <module namespace="collections_unittest" type="solution" uuid="39a1a79d-8ae2-4e54-a86a-8f7b9e17e2fe">
+        <dependencies>
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="rt" />
+          <module ref="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt" />
+          <module ref="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt" />
+          <module ref="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="cl" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="cl" />
+          <module ref="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="cl" />
+        </dependencies>
+        <uses>
+          <language id="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
+          <language id="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" />
+          <language id="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
+          <language id="l:f61473f9-130f-42f6-b98d-6c438812c2f6:jetbrains.mps.baseLanguage.unitTest" />
+        </uses>
+        <classpath>
+          <entry path="." />
+        </classpath>
+        <sources jar="collections_unittest-src.jar" descriptor="collections_unittest.msd" />
+      </module>
+    </echoxml>
+    <jar destfile="${build.layout}/collections_unittest.jar" duplicate="preserve">
+      <fileset dir="${build.tmp}/java/out/collections_unittest" />
+      <fileset dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
+      <fileset dir="${build.tmp}/default/collections_unittest.jar" />
+    </jar>
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-collections_unittest-models">
+      <fileset dir="${basedir}/testbench/testsolutions/collections_unittest/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+    </copyModels>
+    <jar destfile="${build.layout}/collections_unittest-src.jar" duplicate="preserve">
+      <fileset dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen">
+        <exclude name="**/trace.info" />
+        <exclude name="**/exports" />
+        <exclude name="**/checkpoints" />
+        <exclude name="**/*.mps" />
+      </fileset>
+      <zipfileset file="${basedir}/testbench/testsolutions/collections_unittest/collections_unittest.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-collections_unittest-models" prefix="module/models" />
+    </jar>
+    <mkdir dir="${build.tmp}/default/internalCollections.test.jar" />
+    <mkdir dir="${build.tmp}/default/internalCollections.test.jar/META-INF" />
+    <echoxml file="${build.tmp}/default/internalCollections.test.jar/META-INF/module.xml">
+      <module namespace="internalCollections.test" type="solution" uuid="b5660d3a-8a0d-4815-881b-7c884f61c9c7">
+        <dependencies>
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="rt" />
+          <module ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea(MPS.Core)" kind="rt" />
+          <module ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)" kind="rt" />
+          <module ref="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt" />
+          <module ref="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt" />
+          <module ref="a3e4657f-a76c-45bb-bbda-c764596ecc65(jetbrains.mps.baseLanguage.logging.runtime)" kind="rt" />
+          <module ref="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
+          <module ref="d44dab97-aaac-44cb-9745-8a14db674c03(jetbrains.mps.baseLanguage.tuples.runtime)" kind="rt" />
+          <module ref="d936855b-48da-4812-a8a0-2bfddd633ac5(jetbrains.mps.lang.behavior.api)" kind="rt" />
+          <module ref="d936855b-48da-4812-a8a0-2bfddd633ac4(jetbrains.mps.lang.behavior.runtime)" kind="rt" />
+          <module ref="e55e6749-03cb-4ea7-9695-2322bab791c1(jetbrains.mps.lang.test.matcher)" kind="rt" />
+          <module ref="707c4fde-f79a-44b5-b3d7-b5cef8844ccf(jetbrains.mps.lang.test.runtime)" kind="rt" />
+          <module ref="9a4afe51-f114-4595-b5df-048ce3c596be(jetbrains.mps.runtime)" kind="rt" />
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="cl" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="cl" />
+          <module ref="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="cl" />
+          <module ref="2d3c70e9-aab2-4870-8d8d-6036800e4103(jetbrains.mps.kernel)" kind="cl" />
+          <module ref="707c4fde-f79a-44b5-b3d7-b5cef8844ccf(jetbrains.mps.lang.test.runtime)" kind="cl" />
+          <module ref="20c6e580-bdc5-4067-8049-d7e3265a86de(jetbrains.mps.typesystemEngine)" kind="cl" />
+        </dependencies>
+        <uses>
+          <language id="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
+          <language id="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" />
+          <language id="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
+          <language id="l:f2801650-65d5-424e-bb1b-463a8781b786:jetbrains.mps.baseLanguage.javadoc" />
+          <language id="l:760a0a8c-eabb-4521-8bfd-65db761a9ba3:jetbrains.mps.baseLanguage.logging" />
+          <language id="l:a247e09e-2435-45ba-b8d2-07e93feba96a:jetbrains.mps.baseLanguage.tuples" />
+          <language id="l:f61473f9-130f-42f6-b98d-6c438812c2f6:jetbrains.mps.baseLanguage.unitTest" />
+          <language id="l:df345b11-b8c7-4213-ac66-48d2a9b75d88:jetbrains.mps.baseLanguageInternal" />
+          <language id="l:3a13115c-633c-4c5c-bbcc-75c4219e9555:jetbrains.mps.lang.quotation" />
+          <language id="l:7866978e-a0f0-4cc7-81bc-4d213d9375e1:jetbrains.mps.lang.smodel" />
+          <language id="l:8585453e-6bfb-4d80-98de-b16074f1d86c:jetbrains.mps.lang.test" />
+          <language id="l:c7fb639f-be78-4307-89b0-b5959c3fa8c8:jetbrains.mps.lang.text" />
+        </uses>
+        <classpath>
+          <entry path="." />
+        </classpath>
+        <sources jar="internalCollections.test-src.jar" descriptor="internalCollections.test.msd" />
+      </module>
+    </echoxml>
+    <jar destfile="${build.layout}/internalCollections.test.jar" duplicate="preserve">
+      <fileset dir="${build.tmp}/java/out/internalCollections.test" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
+      <fileset dir="${build.tmp}/default/internalCollections.test.jar" />
+    </jar>
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.internalCollections.test-jetbrains">
+      <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+    </copyModels>
+    <jar destfile="${build.layout}/internalCollections.test-src.jar" duplicate="preserve">
+      <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen">
+        <exclude name="**/trace.info" />
+        <exclude name="**/exports" />
+        <exclude name="**/checkpoints" />
+        <exclude name="**/*.mps" />
+      </fileset>
+      <zipfileset file="${basedir}/testbench/testsolutions/bl.internalCollections.test/internalCollections.test.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.internalCollections.test-jetbrains" prefix="module/jetbrains" />
+    </jar>
+    <mkdir dir="${build.tmp}/default/collections_trove.test.jar" />
+    <mkdir dir="${build.tmp}/default/collections_trove.test.jar/META-INF" />
+    <echoxml file="${build.tmp}/default/collections_trove.test.jar/META-INF/module.xml">
+      <module namespace="collections_trove.test" type="solution" uuid="fb186431-2788-490b-9e84-c2b84ef0ca77">
+        <dependencies>
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="rt" />
+          <module ref="49808fad-9d41-4b96-83fa-9231640f6b2b(JUnit)" kind="rt" />
+          <module ref="4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)" kind="rt" />
+          <module ref="9b80526e-f0bf-4992-bdf5-cee39c1833f3(collections.runtime)" kind="rt" />
+          <module ref="134ef213-c518-42b0-b12c-c109aa13d320(collections_trove.runtime)" kind="rt" />
+          <module ref="52b81ac7-93fd-4e9e-b972-4995882da6d4(jetbrains.mps.baseLanguage.references.runtime)" kind="rt" />
+          <module ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" kind="cl" />
+          <module ref="b5660d3a-8a0d-4815-881b-7c884f61c9c7(internalCollections.test)" kind="cl" />
+        </dependencies>
+        <uses>
+          <language id="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
+          <language id="l:fd392034-7849-419d-9071-12563d152375:jetbrains.mps.baseLanguage.closures" />
+          <language id="l:83888646-71ce-4f1c-9c53-c54016f6ad4f:jetbrains.mps.baseLanguage.collections" />
+          <language id="l:73736c50-f124-433b-b789-2828a15a0adc:jetbrains.mps.baseLanguage.collections.trove" />
+          <language id="l:f61473f9-130f-42f6-b98d-6c438812c2f6:jetbrains.mps.baseLanguage.unitTest" />
+        </uses>
+        <classpath>
+          <entry path="." />
+        </classpath>
+        <sources jar="collections_trove.test-src.jar" descriptor="collections_trove.test.msd" />
+      </module>
+    </echoxml>
+    <jar destfile="${build.layout}/collections_trove.test.jar" duplicate="preserve">
+      <fileset dir="${build.tmp}/java/out/collections_trove.test" />
+      <fileset dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" includes="**/trace.info, **/exports, **/*.mps, **/checkpoints" />
+      <fileset dir="${build.tmp}/default/collections_trove.test.jar" />
+    </jar>
+    <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-collections_trove.test-jetbrains">
+      <fileset dir="${basedir}/testbench/testsolutions/collections_trove.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+    </copyModels>
+    <jar destfile="${build.layout}/collections_trove.test-src.jar" duplicate="preserve">
+      <fileset dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen">
+        <exclude name="**/trace.info" />
+        <exclude name="**/exports" />
+        <exclude name="**/checkpoints" />
+        <exclude name="**/*.mps" />
+      </fileset>
+      <zipfileset file="${basedir}/testbench/testsolutions/collections_trove.test/collections_trove.test.msd" prefix="module" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-collections_trove.test-jetbrains" prefix="module/jetbrains" />
+    </jar>
     <echo file="${build.layout}/build.properties">mpsBaseLanguage.mps.junit.haltonfailure=${mps.junit.haltonfailure}${line.separator}mps.build.number=${mps.build.number}${line.separator}mps.date=${mps.date}${line.separator}mps.build.vcs.number=${mps.build.vcs.number}${line.separator}mps.teamcity.buildConfName=${mps.teamcity.buildConfName}${line.separator}mps.idea.platform.build.number=${mps.idea.platform.build.number}${line.separator}mps.mps.build.counter=${mps.mps.build.counter}${line.separator}mpsBootstrapCore.version=${mpsBootstrapCore.version}</echo>
   </target>
   
@@ -444,7 +683,7 @@
     <delete dir="${build.layout}" />
   </target>
   
-  <target name="compileJava" depends="java.compile.jetbrains.mps.baseLanguage.unittest, java.compile.jetbrains.mps.baseLanguage.closures.unittest, java.compile.jetbrains.mps.baseLanguage.testRefs, java.compile.jetbrains.mps.baseLanguage.testRefs.testLang, java.compile.jetbrains.mps.baseLanguage.testRefs.testLang#01, java.compile.jetbrains.mps.baseLanguageInternal.test, java.compile.jetbrains.mps.baseLanguage.doubleDispatch.test, java.compile.jetbrains.mps.baseLanguage.regexp.unittest" />
+  <target name="compileJava" depends="java.compile.jetbrains.mps.baseLanguage.unittest, java.compile.jetbrains.mps.baseLanguage.closures.unittest, java.compile.closures.test, java.compile.jetbrains.mps.baseLanguage.testRefs, java.compile.jetbrains.mps.baseLanguage.testRefs.testLang, java.compile.jetbrains.mps.baseLanguage.testRefs.testLang#01, java.compile.jetbrains.mps.baseLanguageInternal.test, java.compile.jetbrains.mps.baseLanguage.doubleDispatch.test, java.compile.jetbrains.mps.baseLanguage.regexp.unittest, java.compile.jetbrains.mps.baseLanguage.tuples.test, java.compile.collections_unittest, java.compile.internalCollections.test, java.compile.collections_trove.test" />
   
   <target name="processResources" />
   
@@ -459,6 +698,7 @@
     <generate strictMode="true" parallelMode="true" parallelThreads="8" useInplaceTransform="false" hideWarnings="false" createStaticRefs="true" fork="true" skipUnmodifiedModels="${mps.generator.skipUnmodifiedModels}">
       <plugin path="${artifacts.mps}/plugins/mps-core" />
       <plugin path="${artifacts.mps}/plugins/mps-testing" />
+      <plugin path="${artifacts.mps}/plugins/mps-trove" />
       <library file="${artifacts.mps}/languages/baseLanguage/closures.runtime.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/collections.runtime.jar" />
       <library file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.blTypes.jar" />
@@ -556,12 +796,19 @@
       <library file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.jar" />
       <library file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.matcher.jar" />
       <library file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.runtime.jar" />
+      <library file="${artifacts.mps}/plugins/mps-trove/languages/collections_trove.runtime.jar" />
+      <library file="${artifacts.mps}/plugins/mps-trove/languages/jetbrains.mps.baseLanguage.collections.trove.jar" />
       <chunk>
+        <module file="${basedir}/testbench/testsolutions/closures.test/closures.test.msd" />
+        <module file="${basedir}/testbench/testsolutions/collections_trove.test/collections_trove.test.msd" />
+        <module file="${basedir}/testbench/testsolutions/collections_unittest/collections_unittest.msd" />
+        <module file="${basedir}/testbench/testsolutions/bl.internalCollections.test/internalCollections.test.msd" />
         <module file="${basedir}/testbench/testsolutions/bl.closures.unittest/jetbrains.mps.baseLanguage.closures.unittest.msd" />
         <module file="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/jetbrains.mps.baseLanguage.doubleDispatch.test.msd" />
         <module file="${basedir}/testbench/testsolutions/regexp.unittest/jetbrains.mps.baseLanguage.regexp.unittest.msd" />
         <module file="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs/jetbrains.mps.baseLanguage.testRefs.msd" />
         <module file="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/jetbrains.mps.baseLanguage.testRefs.testLang.mpl" />
+        <module file="${basedir}/testbench/testsolutions/bl.tuples.test/jetbrains.mps.baseLanguage.tuples.test.msd" />
         <module file="${basedir}/testbench/testsolutions/bl.unittest/jetbrains.mps.baseLanguage.unittest.msd" />
         <module file="${basedir}/testbench/testsolutions/bl.internal.test/jetbrains.mps.baseLanguageInternal.test.msd" />
       </chunk>
@@ -693,6 +940,52 @@
     </javac2>
     <copy todir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.closures.unittest">
       <fileset dir="${basedir}/testbench/testsolutions/bl.closures.unittest/test_gen/" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+    </copy>
+  </target>
+  
+  <target name="java.compile.closures.test" depends="fetchDependencies">
+    <mkdir dir="${build.tmp}/java/out/closures.test" />
+    <javac2 destdir="${build.tmp}/java/out/closures.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src path="${basedir}/testbench/testsolutions/closures.test/test_gen/" />
+      <classpath>
+        <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-context.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-tuples.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-persistence.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
+        <fileset file="${artifacts.IDEA}/lib/hamcrest-core-1.3.jar" />
+        <fileset file="${artifacts.IDEA}/lib/junit-4.12.jar" />
+        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
+        <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
+        <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
+        <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.closures.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
+        <path refid="path.jdk.classpath" />
+      </classpath>
+    </javac2>
+    <copy todir="${build.tmp}/java/out/closures.test">
+      <fileset dir="${basedir}/testbench/testsolutions/closures.test/test_gen/" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
     </copy>
   </target>
   
@@ -994,6 +1287,167 @@
     </copy>
   </target>
   
+  <target name="java.compile.jetbrains.mps.baseLanguage.tuples.test" depends="fetchDependencies">
+    <mkdir dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" />
+    <mkdir dir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples.test" />
+    <javac2 destdir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" />
+      </src>
+      <classpath>
+        <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-tuples.jar" />
+        <fileset file="${artifacts.IDEA}/lib/hamcrest-core-1.3.jar" />
+        <fileset file="${artifacts.IDEA}/lib/junit-4.12.jar" />
+        <path refid="path.jdk.classpath" />
+      </classpath>
+    </javac2>
+    <copy todir="${build.tmp}/java/out/jetbrains.mps.baseLanguage.tuples.test">
+      <fileset dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+    </copy>
+  </target>
+  
+  <target name="java.compile.collections_unittest" depends="fetchDependencies">
+    <mkdir dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" />
+    <mkdir dir="${build.tmp}/java/out/collections_unittest" />
+    <javac2 destdir="${build.tmp}/java/out/collections_unittest" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" />
+      </src>
+      <classpath>
+        <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <fileset file="${artifacts.IDEA}/lib/hamcrest-core-1.3.jar" />
+        <fileset file="${artifacts.IDEA}/lib/junit-4.12.jar" />
+        <path refid="path.jdk.classpath" />
+      </classpath>
+    </javac2>
+    <copy todir="${build.tmp}/java/out/collections_unittest">
+      <fileset dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+    </copy>
+  </target>
+  
+  <target name="java.compile.internalCollections.test" depends="fetchDependencies">
+    <mkdir dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" />
+    <mkdir dir="${build.tmp}/java/out/internalCollections.test" />
+    <javac2 destdir="${build.tmp}/java/out/internalCollections.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" />
+        <pathelement path="${basedir}/testbench/testsolutions/bl.internalCollections.test/test_gen/" />
+      </src>
+      <classpath>
+        <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-context.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-tuples.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-persistence.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-test.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
+        <fileset file="${artifacts.IDEA}/lib/ant/lib/ant.jar" />
+        <fileset file="${artifacts.IDEA}/lib/hamcrest-core-1.3.jar" />
+        <fileset file="${artifacts.IDEA}/lib/junit-4.12.jar" />
+        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
+        <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
+        <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
+        <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
+        <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.classifiers.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.logging.runtime.jar" />
+        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.matcher.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.runtime.jar" />
+        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.traceable.jar" />
+        <path refid="path.jdk.classpath" />
+      </classpath>
+    </javac2>
+    <copy todir="${build.tmp}/java/out/internalCollections.test">
+      <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/test_gen/" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+    </copy>
+  </target>
+  
+  <target name="java.compile.collections_trove.test" depends="java.compile.internalCollections.test, fetchDependencies">
+    <mkdir dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" />
+    <mkdir dir="${build.tmp}/java/out/collections_trove.test" />
+    <javac2 destdir="${build.tmp}/java/out/collections_trove.test" fork="false" encoding="utf8" includeantruntime="false" debug="true">
+      <compilerarg value="-Xlint:none" />
+      <src>
+        <path location="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" />
+      </src>
+      <classpath>
+        <fileset file="${artifacts.mps}/lib/mps-core.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-annotations.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-openapi.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-context.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-platform.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-behavior-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-closures.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-collections.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-logging.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-tuples.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-references.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-messaging.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-boot-util.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-constraints-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-api.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-editor-runtime.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-environment.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-generator.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-persistence.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-project-check.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-test.jar" />
+        <fileset file="${artifacts.mps}/lib/mps-textgen.jar" />
+        <pathelement path="${build.tmp}/java/out/internalCollections.test" />
+        <fileset file="${artifacts.IDEA}/lib/hamcrest-core-1.3.jar" />
+        <fileset file="${artifacts.IDEA}/lib/junit-4.12.jar" />
+        <fileset file="${artifacts.IDEA}/lib/annotations.jar" />
+        <fileset dir="${artifacts.IDEA}/lib" includes="*.jar" />
+        <fileset file="${artifacts.IDEA}/lib/log4j.jar" />
+        <fileset file="${artifacts.IDEA}/lib/jdom.jar" />
+        <fileset file="${artifacts.IDEA}/lib/trove4j.jar" />
+        <fileset file="${artifacts.IDEA}/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-trove/languages/collections_trove.runtime.jar" />
+        <fileset file="${artifacts.mps}/plugins/mps-trove/languages/trove-2.1.0.jar" />
+        <path refid="path.jdk.classpath" />
+      </classpath>
+    </javac2>
+    <copy todir="${build.tmp}/java/out/collections_trove.test">
+      <fileset dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" includes="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+    </copy>
+  </target>
+  
   <target name="test.baseLanguage" depends="assemble">
     <path id="mps.libraries.path">
       <pathelement location="${artifacts.mps}/languages/baseLanguage/closures.runtime.jar" />
@@ -1092,20 +1546,28 @@
       <pathelement location="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.matcher.jar" />
       <pathelement location="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.runtime.jar" />
+      <pathelement location="${artifacts.mps}/plugins/mps-trove/languages/collections_trove.runtime.jar" />
+      <pathelement location="${artifacts.mps}/plugins/mps-trove/languages/jetbrains.mps.baseLanguage.collections.trove.jar" />
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.libraries.path.string" refid="mps.libraries.path" />
     <path id="mps.plugins.path">
       <pathelement location="${artifacts.mps}/plugins/mps-core" />
       <pathelement location="${artifacts.mps}/plugins/mps-testing" />
+      <pathelement location="${artifacts.mps}/plugins/mps-trove" />
     </path>
     <pathconvert pathsep="${path.separator}" property="mps.plugins.path.string" refid="mps.plugins.path" />
     <path id="mps.tests.path">
+      <pathelement location="${build.layout}/closures.test.jar" />
+      <pathelement location="${build.layout}/collections_trove.test.jar" />
+      <pathelement location="${build.layout}/collections_unittest.jar" />
+      <pathelement location="${build.layout}/internalCollections.test.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.closures.unittest.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.doubleDispatch.test.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.regexp.unittest.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.testRefs.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.testRefs.testLang-generator.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.testRefs.testLang.jar" />
+      <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.tuples.test.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguage.unittest.jar" />
       <pathelement location="${build.layout}/jetbrains.mps.baseLanguageInternal.test.jar" />
     </path>
@@ -1161,8 +1623,14 @@
   </target>
   
   <target name="cleanSources">
+    <delete dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen" />
     <delete dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/source_gen" />
     <delete dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/generator/source_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/closures.test/test_gen" />
+    <delete dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/test_gen" />
     <delete dir="${basedir}/testbench/testsolutions/bl.closures.unittest/test_gen" />
     <delete dir="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/test_gen" />
     <delete dir="${basedir}/testbench/testsolutions/regexp.unittest/test_gen" />

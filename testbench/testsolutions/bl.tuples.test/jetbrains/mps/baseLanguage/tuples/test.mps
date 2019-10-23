@@ -11,7 +11,6 @@
   </languages>
   <imports>
     <import index="digr" ref="r:f52cb0e4-0aa9-419b-85cb-0e6e9e8071aa(jetbrains.mps.baseLanguage.tuples.util)" />
-    <import index="xz5j" ref="r:26fc506c-44aa-4c44-b7bf-9712d972460d(jetbrains.mps.baseLanguage.tuples.shared)" />
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
   </imports>
   <registry>
@@ -2150,7 +2149,7 @@
         <property role="TrG5h" value="tuples" />
         <node concept="8X2XB" id="i3LWnj5" role="1tU5fm">
           <node concept="2pR195" id="i3LWnjC" role="8Xvag">
-            <ref role="3uigEE" to="xz5j:i3LVjGK" resolve="GlobalSharedPair" />
+            <ref role="3uigEE" to="digr:i3HpwpE" resolve="SharedPair" />
             <node concept="17QB3L" id="i3LWCWM" role="11_B2D" />
             <node concept="17QB3L" id="i3LWDgH" role="11_B2D" />
           </node>
@@ -2177,7 +2176,7 @@
                             <ref role="3cqZAo" node="i3LWnju" resolve="t" />
                           </node>
                           <node concept="2sxana" id="_7gEVukPk4" role="2OqNvi">
-                            <ref role="2sxfKC" to="xz5j:i3LVyta" resolve="second" />
+                            <ref role="2sxfKC" to="digr:i3Hp$qI" resolve="second" />
                           </node>
                         </node>
                         <node concept="3cpWs3" id="_7gEVukPjg" role="3uHU7B">
@@ -2186,7 +2185,7 @@
                               <ref role="3cqZAo" node="i3LWnju" resolve="t" />
                             </node>
                             <node concept="2sxana" id="_7gEVukPjL" role="2OqNvi">
-                              <ref role="2sxfKC" to="xz5j:i3LVxKD" resolve="first" />
+                              <ref role="2sxfKC" to="digr:i3HpxsS" resolve="first" />
                             </node>
                           </node>
                           <node concept="Xl_RD" id="_7gEVukPjl" role="3uHU7w">
@@ -3375,45 +3374,45 @@
                 <node concept="liA8E" id="i3LWFBK" role="2OqNvi">
                   <ref role="37wK5l" node="i3LWnj3" resolve="getString" />
                   <node concept="2ry78W" id="i3LWFBL" role="37wK5m">
-                    <ref role="2ryb1Q" to="xz5j:i3LVjGK" resolve="GlobalSharedPair" />
+                    <ref role="2ryb1Q" to="digr:i3HpwpE" resolve="SharedPair" />
                     <node concept="2r$n1x" id="i3LWFBM" role="2r_Bvh">
-                      <ref role="2r$qp6" to="xz5j:i3LVxKD" resolve="first" />
+                      <ref role="2r$qp6" to="digr:i3HpxsS" resolve="first" />
                       <node concept="Xl_RD" id="i3LWFBN" role="2r_lH1">
                         <property role="Xl_RC" value="a" />
                       </node>
                     </node>
                     <node concept="2r$n1x" id="i3LWFBO" role="2r_Bvh">
-                      <ref role="2r$qp6" to="xz5j:i3LVyta" resolve="second" />
+                      <ref role="2r$qp6" to="digr:i3Hp$qI" resolve="second" />
                       <node concept="Xl_RD" id="i3LWFBP" role="2r_lH1">
                         <property role="Xl_RC" value="A" />
                       </node>
                     </node>
                   </node>
                   <node concept="2ry78W" id="i3LWFBQ" role="37wK5m">
-                    <ref role="2ryb1Q" to="xz5j:i3LVjGK" resolve="GlobalSharedPair" />
+                    <ref role="2ryb1Q" to="digr:i3HpwpE" resolve="SharedPair" />
                     <node concept="2r$n1x" id="i3LWFBR" role="2r_Bvh">
-                      <ref role="2r$qp6" to="xz5j:i3LVxKD" resolve="first" />
+                      <ref role="2r$qp6" to="digr:i3HpxsS" resolve="first" />
                       <node concept="Xl_RD" id="i3LWFBS" role="2r_lH1">
                         <property role="Xl_RC" value="b" />
                       </node>
                     </node>
                     <node concept="2r$n1x" id="i3LWFBT" role="2r_Bvh">
-                      <ref role="2r$qp6" to="xz5j:i3LVyta" resolve="second" />
+                      <ref role="2r$qp6" to="digr:i3Hp$qI" resolve="second" />
                       <node concept="Xl_RD" id="i3LWFBU" role="2r_lH1">
                         <property role="Xl_RC" value="B" />
                       </node>
                     </node>
                   </node>
                   <node concept="2ry78W" id="i3LWFBV" role="37wK5m">
-                    <ref role="2ryb1Q" to="xz5j:i3LVjGK" resolve="GlobalSharedPair" />
+                    <ref role="2ryb1Q" to="digr:i3HpwpE" resolve="SharedPair" />
                     <node concept="2r$n1x" id="i3LWFBW" role="2r_Bvh">
-                      <ref role="2r$qp6" to="xz5j:i3LVxKD" resolve="first" />
+                      <ref role="2r$qp6" to="digr:i3HpxsS" resolve="first" />
                       <node concept="Xl_RD" id="i3LWFBX" role="2r_lH1">
                         <property role="Xl_RC" value="c" />
                       </node>
                     </node>
                     <node concept="2r$n1x" id="i3LWFBY" role="2r_Bvh">
-                      <ref role="2r$qp6" to="xz5j:i3LVyta" resolve="second" />
+                      <ref role="2r$qp6" to="digr:i3Hp$qI" resolve="second" />
                       <node concept="Xl_RD" id="i3LWFBZ" role="2r_lH1">
                         <property role="Xl_RC" value="C" />
                       </node>

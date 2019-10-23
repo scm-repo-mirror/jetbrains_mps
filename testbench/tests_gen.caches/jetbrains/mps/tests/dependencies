@@ -1,36 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dependenciesRoot>
-  <dependency className="jetbrains.mps.tests.TestModule_closures_test">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_collections_trove_test">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_collections_unittest">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_internalCollections_test">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
   <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_baseLanguage_math_tests">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_baseLanguage_tuples_test">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_lang_editor_forms_tests">
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
     <classNode dependClassName="org.junit.runner.RunWith" />
@@ -41,11 +11,6 @@
     <classNode dependClassName="org.junit.runner.RunWith" />
   </dependency>
   <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_lang_pattern_test">
-    <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
-    <classNode dependClassName="org.junit.runner.RunWith" />
-  </dependency>
-  <dependency className="jetbrains.mps.tests.TestModule_jetbrains_mps_lang_smodel_unittest">
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
     <classNode dependClassName="jetbrains.mps.testbench.junit.runners.ModuleSymbolicSuite" />
     <classNode dependClassName="org.junit.runner.RunWith" />

@@ -16,16 +16,9 @@
 
 import jetbrains.mps.testbench.junit.runners.PushEnvironmentRunnerBuilder;
 import jetbrains.mps.testbench.junit.suites.BaseMpsSuite;
-import jetbrains.mps.tests.TestModule_closures_test;
-import jetbrains.mps.tests.TestModule_collections_trove_test;
-import jetbrains.mps.tests.TestModule_collections_unittest;
-import jetbrains.mps.tests.TestModule_internalCollections_test;
 import jetbrains.mps.tests.TestModule_jetbrains_mps_baseLanguage_math_tests;
-import jetbrains.mps.tests.TestModule_jetbrains_mps_baseLanguage_tuples_test;
-import jetbrains.mps.tests.TestModule_jetbrains_mps_lang_editor_forms_tests;
 import jetbrains.mps.tests.TestModule_jetbrains_mps_lang_extension_tests;
 import jetbrains.mps.tests.TestModule_jetbrains_mps_lang_pattern_test;
-import jetbrains.mps.tests.TestModule_jetbrains_mps_lang_smodel_unittest;
 import jetbrains.mps.tests.TestModule_jetbrains_mps_make_tests;
 import jetbrains.mps.tests.TestModule_jetbrains_mps_traceInfo_test;
 import jetbrains.mps.tests.TestModule_jetbrains_mps_transformation_test_inputModels;
@@ -48,16 +41,9 @@ import org.junit.runners.model.RunnerBuilder;
 @RunWith(ModuleTestSuite.class)
 @Suite.SuiteClasses({
                         // this list should be kept in sync with the list in module j.m.testbench.make
-                        TestModule_closures_test.class,
-                        TestModule_collections_trove_test.class,
-                        TestModule_collections_unittest.class,
-                        TestModule_internalCollections_test.class,
                         TestModule_jetbrains_mps_baseLanguage_math_tests.class,
-                        TestModule_jetbrains_mps_baseLanguage_tuples_test.class,
-                        TestModule_jetbrains_mps_lang_editor_forms_tests.class,
                         TestModule_jetbrains_mps_lang_extension_tests.class,
                         TestModule_jetbrains_mps_lang_pattern_test.class,
-                        TestModule_jetbrains_mps_lang_smodel_unittest.class,
                         TestModule_jetbrains_mps_make_tests.class,
                         // TODO: fix or remove TestModule_jetbrains_mps_testActions test
                         // TestModule_jetbrains_mps_testActions.class,
