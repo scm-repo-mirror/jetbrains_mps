@@ -4,7 +4,6 @@ package jetbrains.mps.samples.Kaja.generator.template.main;
 
 import jetbrains.mps.generator.runtime.Generated;
 import jetbrains.mps.generator.runtime.TemplateModelBase;
-import jetbrains.mps.generator.runtime.TemplateModel2;
 import java.util.Collection;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
 import jetbrains.mps.generator.runtime.TemplateSwitchMapping;
@@ -19,7 +18,7 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.smodel.SNodePointer;
 
 @Generated
-public class TemplateModelImpl extends TemplateModelBase implements TemplateModel2 {
+public class TemplateModelImpl extends TemplateModelBase {
   private final Collection<TemplateMappingConfiguration> mappings;
   private final Collection<TemplateSwitchMapping> switches;
   private final SModelReference model;

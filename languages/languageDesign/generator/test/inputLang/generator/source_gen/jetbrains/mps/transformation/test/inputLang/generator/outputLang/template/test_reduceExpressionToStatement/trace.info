@@ -22,7 +22,7 @@
       <unit at="18,0,42,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.QueriesGenerated" />
     </file>
     <file name="TemplateModelImpl.java">
-      <unit at="21,0,58,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.TemplateModelImpl" />
+      <unit at="20,0,57,0" name="jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement.TemplateModelImpl" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895905f8(jetbrains.mps.transformation.test.inputLang.generator.outputLang.template.test_reduceExpressionToStatement@generator)/1209150022679">
@@ -136,9 +136,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1209150125542" at="52,221,53,38" concept="8" />
-      <node id="1209150125542" at="51,56,54,5" concept="5" />
-      <scope id="1209150125542" at="52,221,53,38" />
+      <node id="1209150125542" at="51,221,52,38" concept="8" />
+      <node id="1209150125542" at="50,56,53,5" concept="5" />
+      <scope id="1209150125542" at="51,221,52,38" />
     </file>
     <file name="Template_out_class.java">
       <node id="1209150125542" at="30,43,31,32" concept="8" />

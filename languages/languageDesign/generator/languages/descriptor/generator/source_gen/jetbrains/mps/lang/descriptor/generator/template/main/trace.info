@@ -24,7 +24,7 @@
       <unit at="48,0,462,0" name="jetbrains.mps.lang.descriptor.generator.template.main.QueriesGenerated" />
     </file>
     <file name="TemplateModelImpl.java">
-      <unit at="21,0,73,0" name="jetbrains.mps.lang.descriptor.generator.template.main.TemplateModelImpl" />
+      <unit at="20,0,72,0" name="jetbrains.mps.lang.descriptor.generator.template.main.TemplateModelImpl" />
     </file>
   </root>
   <root nodeRef="r:1dfaf07d-c77a-451e-91d3-b6f80f0f8508(jetbrains.mps.lang.descriptor.generator.template.main@generator)/1066600152715734036">
@@ -218,9 +218,9 @@
       <unit id="1066600152716010868" at="412,24,418,5" name="jetbrains.mps.lang.descriptor.generator.template.main.QueriesGenerated$17" />
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1066600152715734036" at="64,174,65,66" concept="9" />
-      <node id="1066600152715734036" at="63,5,66,5" concept="6" />
-      <scope id="1066600152715734036" at="64,174,65,66" />
+      <node id="1066600152715734036" at="63,174,64,66" concept="9" />
+      <node id="1066600152715734036" at="62,5,65,5" concept="6" />
+      <scope id="1066600152715734036" at="63,174,64,66" />
     </file>
     <file name="Template_InterpretedGeneratorRuntimeDescriptor.java">
       <node id="1066600152715734036" at="40,43,41,32" concept="9" />
@@ -3132,9 +3132,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1698302279987411125" at="58,174,59,48" concept="9" />
-      <node id="1698302279987411125" at="57,5,60,5" concept="6" />
-      <scope id="1698302279987411125" at="58,174,59,48" />
+      <node id="1698302279987411125" at="57,174,58,48" concept="9" />
+      <node id="1698302279987411125" at="56,5,59,5" concept="6" />
+      <scope id="1698302279987411125" at="57,174,58,48" />
     </file>
     <file name="Template_language_descriptor.java">
       <node id="1698302279987411125" at="30,43,31,32" concept="9" />
@@ -3263,9 +3263,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="263208052639692929" at="61,173,62,36" concept="9" />
-      <node id="263208052639692929" at="60,5,63,5" concept="6" />
-      <scope id="263208052639692929" at="61,173,62,36" />
+      <node id="263208052639692929" at="60,173,61,36" concept="9" />
+      <node id="263208052639692929" at="59,5,62,5" concept="6" />
+      <scope id="263208052639692929" at="60,173,61,36" />
     </file>
     <file name="Template_GDClass.java">
       <node id="263208052639692929" at="24,43,25,32" concept="9" />
@@ -3528,9 +3528,9 @@
       <unit id="263208052639706942" at="386,24,392,5" name="jetbrains.mps.lang.descriptor.generator.template.main.QueriesGenerated$15" />
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="263208052639697475" at="52,173,53,45" concept="9" />
-      <node id="263208052639697475" at="51,56,54,5" concept="6" />
-      <scope id="263208052639697475" at="52,173,53,45" />
+      <node id="263208052639697475" at="51,173,52,45" concept="9" />
+      <node id="263208052639697475" at="50,56,53,5" concept="6" />
+      <scope id="263208052639697475" at="51,173,52,45" />
     </file>
     <file name="Template_GeneratorRuntime.java">
       <node id="263208052639697475" at="41,43,42,157" concept="9" />
@@ -5574,9 +5574,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="7568285956000709565" at="67,174,68,49" concept="9" />
-      <node id="7568285956000709565" at="66,5,69,5" concept="6" />
-      <scope id="7568285956000709565" at="67,174,68,49" />
+      <node id="7568285956000709565" at="66,174,67,49" concept="9" />
+      <node id="7568285956000709565" at="65,5,68,5" concept="6" />
+      <scope id="7568285956000709565" at="66,174,67,49" />
     </file>
     <file name="Template_generator_descriptor.java">
       <node id="7568285956000709565" at="30,43,31,32" concept="9" />
@@ -6477,9 +6477,9 @@
       <unit id="2030416617761803648" at="251,23,256,5" name="jetbrains.mps.lang.descriptor.generator.template.main.QueriesGenerated$6" />
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="9020561928507177266" at="55,174,56,37" concept="9" />
-      <node id="9020561928507177266" at="54,5,57,5" concept="6" />
-      <scope id="9020561928507177266" at="55,174,56,37" />
+      <node id="9020561928507177266" at="54,174,55,37" concept="9" />
+      <node id="9020561928507177266" at="53,5,56,5" concept="6" />
+      <scope id="9020561928507177266" at="54,174,55,37" />
     </file>
     <file name="Template_Language.java">
       <node id="9020561928507177266" at="44,43,45,32" concept="9" />

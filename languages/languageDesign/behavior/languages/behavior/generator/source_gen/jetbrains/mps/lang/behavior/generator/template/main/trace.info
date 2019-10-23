@@ -23,7 +23,7 @@
       <unit at="42,0,443,0" name="jetbrains.mps.lang.behavior.generator.template.main.QueriesGenerated" />
     </file>
     <file name="TemplateModelImpl.java">
-      <unit at="21,0,82,0" name="jetbrains.mps.lang.behavior.generator.template.main.TemplateModelImpl" />
+      <unit at="20,0,81,0" name="jetbrains.mps.lang.behavior.generator.template.main.TemplateModelImpl" />
     </file>
   </root>
   <root nodeRef="r:229ce18d-2bb0-4d5b-a7cd-cec65841e459(jetbrains.mps.lang.behavior.generator.template.main@generator)/1225195370950">
@@ -214,9 +214,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1225195370956" at="52,166,53,55" concept="9" />
-      <node id="1225195370956" at="51,56,54,5" concept="6" />
-      <scope id="1225195370956" at="52,166,53,55" />
+      <node id="1225195370956" at="51,166,52,55" concept="9" />
+      <node id="1225195370956" at="50,56,53,5" concept="6" />
+      <scope id="1225195370956" at="51,166,52,55" />
     </file>
     <file name="Template_reduce_SuperNodeExpression.java">
       <node id="1225195370956" at="35,43,36,150" concept="9" />
@@ -373,9 +373,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1225195370966" at="55,166,56,54" concept="9" />
-      <node id="1225195370966" at="54,5,57,5" concept="6" />
-      <scope id="1225195370966" at="55,166,56,54" />
+      <node id="1225195370966" at="54,166,55,54" concept="9" />
+      <node id="1225195370966" at="53,5,56,5" concept="6" />
+      <scope id="1225195370966" at="54,166,55,54" />
     </file>
     <file name="Template_reduce_ThisNodeExpression.java">
       <node id="1225195370966" at="35,43,36,150" concept="9" />
@@ -517,9 +517,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1703835097132695306" at="67,172,68,57" concept="9" />
-      <node id="1703835097132695306" at="66,5,69,5" concept="6" />
-      <scope id="1703835097132695306" at="67,172,68,57" />
+      <node id="1703835097132695306" at="66,172,67,57" concept="9" />
+      <node id="1703835097132695306" at="65,5,68,5" concept="6" />
+      <scope id="1703835097132695306" at="66,172,67,57" />
     </file>
     <file name="Template_reduce_ThisConceptExpression.java">
       <node id="1703835097132695306" at="31,43,32,156" concept="9" />
@@ -656,9 +656,9 @@
       <unit id="7385785963573074879" at="382,104,386,5" name="jetbrains.mps.lang.behavior.generator.template.main.QueriesGenerated$2" />
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="2056529430201890935" at="73,172,74,53" concept="9" />
-      <node id="2056529430201890935" at="72,5,75,5" concept="6" />
-      <scope id="2056529430201890935" at="73,172,74,53" />
+      <node id="2056529430201890935" at="72,172,73,53" concept="9" />
+      <node id="2056529430201890935" at="71,5,74,5" concept="6" />
+      <scope id="2056529430201890935" at="72,172,73,53" />
     </file>
     <file name="Template_BehaviorAspectDescriptor.java">
       <node id="2056529430201890935" at="38,43,39,32" concept="9" />
@@ -1811,9 +1811,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="4547736967710372412" at="61,172,62,52" concept="9" />
-      <node id="4547736967710372412" at="60,5,63,5" concept="6" />
-      <scope id="4547736967710372412" at="61,172,62,52" />
+      <node id="4547736967710372412" at="60,172,61,52" concept="9" />
+      <node id="4547736967710372412" at="59,5,62,5" concept="6" />
+      <scope id="4547736967710372412" at="60,172,61,52" />
     </file>
     <file name="Template_reduce_MethodInvocation.java">
       <node id="4547736967710372412" at="39,43,40,156" concept="9" />
@@ -2181,9 +2181,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="4598718932037121729" at="64,172,65,67" concept="9" />
-      <node id="4598718932037121729" at="63,5,66,5" concept="6" />
-      <scope id="4598718932037121729" at="64,172,65,67" />
+      <node id="4598718932037121729" at="63,172,64,67" concept="9" />
+      <node id="4598718932037121729" at="62,5,65,5" concept="6" />
+      <scope id="4598718932037121729" at="63,172,64,67" />
     </file>
     <file name="Template_reduce_LocalBehaviorMethodCallWithCast.java">
       <node id="4598718932037121729" at="32,43,33,156" concept="9" />
@@ -2653,9 +2653,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="4731970554580093575" at="58,172,59,59" concept="9" />
-      <node id="4731970554580093575" at="57,5,60,5" concept="6" />
-      <scope id="4731970554580093575" at="58,172,59,59" />
+      <node id="4731970554580093575" at="57,172,58,59" concept="9" />
+      <node id="4731970554580093575" at="56,5,59,5" concept="6" />
+      <scope id="4731970554580093575" at="57,172,58,59" />
     </file>
     <file name="Template_reduce_LocalBehaviorMethodCall.java">
       <node id="4731970554580093575" at="42,43,43,156" concept="9" />
@@ -3303,9 +3303,9 @@
       <unit id="6123852159202780104" at="365,111,369,5" name="jetbrains.mps.lang.behavior.generator.template.main.QueriesGenerated$1" />
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="7385785963572922999" at="76,172,77,47" concept="9" />
-      <node id="7385785963572922999" at="75,5,78,5" concept="6" />
-      <scope id="7385785963572922999" at="76,172,77,47" />
+      <node id="7385785963572922999" at="75,172,76,47" concept="9" />
+      <node id="7385785963572922999" at="74,5,77,5" concept="6" />
+      <scope id="7385785963572922999" at="75,172,76,47" />
     </file>
     <file name="Template_BehaviorDescriptor.java">
       <node id="7385785963572922999" at="40,43,41,32" concept="9" />
@@ -6603,9 +6603,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="7613853987897918834" at="70,172,71,58" concept="9" />
-      <node id="7613853987897918834" at="69,5,72,5" concept="6" />
-      <scope id="7613853987897918834" at="70,172,71,58" />
+      <node id="7613853987897918834" at="69,172,70,58" concept="9" />
+      <node id="7613853987897918834" at="68,5,71,5" concept="6" />
+      <scope id="7613853987897918834" at="69,172,70,58" />
     </file>
     <file name="Template_reduce_SuperConceptExpression.java">
       <node id="7613853987897918834" at="31,43,32,156" concept="9" />

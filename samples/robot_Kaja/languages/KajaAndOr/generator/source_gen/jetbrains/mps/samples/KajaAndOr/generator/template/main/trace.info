@@ -20,7 +20,7 @@
       <unit at="12,0,32,0" name="jetbrains.mps.samples.KajaAndOr.generator.template.main.QueriesGenerated" />
     </file>
     <file name="TemplateModelImpl.java">
-      <unit at="21,0,61,0" name="jetbrains.mps.samples.KajaAndOr.generator.template.main.TemplateModelImpl" />
+      <unit at="20,0,60,0" name="jetbrains.mps.samples.KajaAndOr.generator.template.main.TemplateModelImpl" />
     </file>
   </root>
   <root nodeRef="r:68ff4d81-c742-4f6c-8cc1-cdf3e94f2c2e(jetbrains.mps.samples.KajaAndOr.generator.template.main@generator)/1904811872814327578">
@@ -91,9 +91,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1904811872814327603" at="52,176,53,39" concept="8" />
-      <node id="1904811872814327603" at="51,56,54,5" concept="5" />
-      <scope id="1904811872814327603" at="52,176,53,39" />
+      <node id="1904811872814327603" at="51,176,52,39" concept="8" />
+      <node id="1904811872814327603" at="50,56,53,5" concept="5" />
+      <scope id="1904811872814327603" at="51,176,52,39" />
     </file>
     <file name="Template_reduce_And.java">
       <node id="1904811872814327603" at="31,43,32,160" concept="8" />
@@ -228,9 +228,9 @@
       </scope>
     </file>
     <file name="TemplateModelImpl.java">
-      <node id="1904811872814327665" at="55,176,56,38" concept="8" />
-      <node id="1904811872814327665" at="54,5,57,5" concept="5" />
-      <scope id="1904811872814327665" at="55,176,56,38" />
+      <node id="1904811872814327665" at="54,176,55,38" concept="8" />
+      <node id="1904811872814327665" at="53,5,56,5" concept="5" />
+      <scope id="1904811872814327665" at="54,176,55,38" />
     </file>
     <file name="Template_reduce_Or.java">
       <node id="1904811872814327665" at="31,43,32,160" concept="8" />
