@@ -1050,36 +1050,6 @@
     <property role="EcuMT" value="1184792613450" />
     <ref role="1TJDcQ" to="tpee:g76ryKb" resolve="ConceptFunctionParameter" />
   </node>
-  <node concept="1TIwiD" id="hoxERsl">
-    <property role="R5$K7" value="false" />
-    <property role="R5$K2" value="false" />
-    <property role="R4oN_" value="include template macro (deprecated)" />
-    <property role="TrG5h" value="IncludeMacro" />
-    <property role="2_RsDV" value="4G1g3fIR8JG/none" />
-    <property role="3GE5qa" value="macro" />
-    <property role="34LRSv" value="$INCLUDE$" />
-    <property role="EcuMT" value="1194565793557" />
-    <ref role="1TJDcQ" node="gZJkJnJ" resolve="SourceSubstituteMacro" />
-    <node concept="M6xJ_" id="6_gUeuqOeTa" role="lGtFl">
-      <property role="Hh88m" value="" />
-    </node>
-    <node concept="asaX9" id="za$VMviYjJ" role="lGtFl">
-      <property role="YLQ7P" value="Replace with $CALL$ which supports templates with parameters" />
-      <property role="YLPcu" value="2018.3" />
-    </node>
-    <node concept="1TJgyj" id="hoxH3iB" role="1TKVEi">
-      <property role="20kJfa" value="includeTemplate" />
-      <property role="20lbJX" value="fLJekj4/1" />
-      <property role="IQ2ns" value="1194566366375" />
-      <ref role="20lvS9" node="fT3MO7g" resolve="TemplateDeclaration" />
-    </node>
-    <node concept="1TJgyj" id="hoxEYIP" role="1TKVEi">
-      <property role="20lmBu" value="fLJjDmT/aggregation" />
-      <property role="20kJfa" value="sourceNodeQuery" />
-      <property role="IQ2ns" value="1194565823413" />
-      <ref role="20lvS9" node="gZNFfDO" resolve="SourceSubstituteMacro_SourceNodeQuery" />
-    </node>
-  </node>
   <node concept="1TIwiD" id="hp4YyVu">
     <property role="R5$K7" value="false" />
     <property role="R5$K2" value="false" />

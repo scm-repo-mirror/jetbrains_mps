@@ -61,9 +61,6 @@ public final class QueriesUtil {
     if (SNodeOperations.isInstanceOf(macro, CONCEPTS.LoopMacro$md)) {
       return SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.LoopMacro$md), LINKS.sourceNodesQuery$5jjY);
     }
-    if (SNodeOperations.isInstanceOf(macro, CONCEPTS.IncludeMacro$ly)) {
-      return SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.IncludeMacro$ly), LINKS.sourceNodeQuery$I9qE);
-    }
     if (SNodeOperations.isInstanceOf(macro, CONCEPTS.TemplateCallMacro$Iu)) {
       return SLinkOperations.getTarget(SNodeOperations.cast(macro, CONCEPTS.TemplateCallMacro$Iu), LINKS.sourceNodeQuery$v2vo);
     }
@@ -86,7 +83,6 @@ public final class QueriesUtil {
     /*package*/ static final SConcept MapSrcNodeMacro$Hp = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10759372d78L, "jetbrains.mps.lang.generator.structure.MapSrcNodeMacro");
     /*package*/ static final SConcept MapSrcListMacro$vC = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x107ce4fbf98L, "jetbrains.mps.lang.generator.structure.MapSrcListMacro");
     /*package*/ static final SConcept LoopMacro$md = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047ce009c3L, "jetbrains.mps.lang.generator.structure.LoopMacro");
-    /*package*/ static final SConcept IncludeMacro$ly = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11621ab7715L, "jetbrains.mps.lang.generator.structure.IncludeMacro");
     /*package*/ static final SConcept TemplateCallMacro$Iu = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, "jetbrains.mps.lang.generator.structure.TemplateCallMacro");
   }
 
@@ -103,7 +99,6 @@ public final class QueriesUtil {
     /*package*/ static final SContainmentLink sourceNodeQuery$mDr3 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10759372d78L, 0x11003064fa9L, "sourceNodeQuery");
     /*package*/ static final SContainmentLink sourceNodesQuery$K2SG = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x107ce4fbf98L, 0x11003977640L, "sourceNodesQuery");
     /*package*/ static final SContainmentLink sourceNodesQuery$5jjY = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x1047ce009c3L, 0x10fef5e42d7L, "sourceNodesQuery");
-    /*package*/ static final SContainmentLink sourceNodeQuery$I9qE = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11621ab7715L, 0x11621abebb5L, "sourceNodeQuery");
     /*package*/ static final SContainmentLink sourceNodeQuery$v2vo = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, 0x14f7f8a311b93f35L, "sourceNodeQuery");
   }
 }

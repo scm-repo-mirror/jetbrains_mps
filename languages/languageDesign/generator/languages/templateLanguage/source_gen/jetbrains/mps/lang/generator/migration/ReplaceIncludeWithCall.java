@@ -5,21 +5,8 @@ package jetbrains.mps.lang.generator.migration;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptBase;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.model.SModel;
-import jetbrains.mps.smodel.SModelStereotype;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
-import java.util.Objects;
 import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SReferenceLink;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
 
 public class ReplaceIncludeWithCall extends MigrationScriptBase {
   private final String description = "Replace $INCLUDE$ macro with $CALL$";
@@ -35,53 +22,10 @@ public class ReplaceIncludeWithCall extends MigrationScriptBase {
     return null;
   }
   public void doExecute(final SModule m) {
-    for (SModel model : m.getModels()) {
-      if (!(SModelStereotype.isGeneratorModel(model))) {
-        continue;
-      }
-      for (SNode includeMacro : SModelOperations.nodes(((SModel) model), CONCEPTS.IncludeMacro$ly)) {
-        SNode containingTemplate = SNodeOperations.getNodeAncestor(includeMacro, CONCEPTS.TemplateDeclaration$q0, false, false);
-        SNode callMacro = SNodeOperations.replaceWithNewChild(includeMacro, CONCEPTS.TemplateCallMacro$Iu);
-        SLinkOperations.setTarget(callMacro, LINKS.template$yiTA, SLinkOperations.getTarget(includeMacro, LINKS.includeTemplate$5YqC));
-        SLinkOperations.setTarget(callMacro, LINKS.mappingLabel$yUiS, SLinkOperations.getTarget(includeMacro, LINKS.mappingLabel$yUiS));
-        SLinkOperations.setTarget(callMacro, LINKS.sourceNodeQuery$v2vo, SLinkOperations.getTarget(includeMacro, LINKS.sourceNodeQuery$I9qE));
-        SPropertyOperations.assign(callMacro, PROPS.comment$Mo0J, SPropertyOperations.getString(includeMacro, PROPS.comment$Mo0J));
-        // see check_IncludeMacro for details regarding argument processing logic of included templates 
-        for (final SNode pd : SLinkOperations.getChildren(SLinkOperations.getTarget(includeMacro, LINKS.includeTemplate$5YqC), LINKS.parameter$AB01)) {
-          SNode argExpr = SLinkOperations.addNewChild(callMacro, LINKS.actualArgument$yh2s, CONCEPTS.TemplateArgumentParameterExpression$SR);
-          SLinkOperations.setTarget(argExpr, LINKS.parameter$5XOw, ListSequence.fromList(SLinkOperations.getChildren(containingTemplate, LINKS.parameter$AB01)).findFirst(new IWhereFilter<SNode>() {
-            public boolean accept(SNode it) {
-              return Objects.equals(SPropertyOperations.getString(it, PROPS.name$tAp1), SPropertyOperations.getString(pd, PROPS.name$tAp1));
-            }
-          }));
-        }
-      }
-    }
+    // NO-OP, IncludeMacro gone, migration kept just to satisfy MigrationDescriptor template, which fails generation in case there's hole in migration numbering 
   }
   public MigrationScriptReference getDescriptor() {
     return new MigrationScriptReference(MetaAdapterFactory.getLanguage(0xb401a68083254110L, 0x8fd384331ff25befL, "jetbrains.mps.lang.generator"), 1);
   }
 
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept TemplateDeclaration$q0 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfe43cb41d0L, "jetbrains.mps.lang.generator.structure.TemplateDeclaration");
-    /*package*/ static final SConcept TemplateCallMacro$Iu = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, "jetbrains.mps.lang.generator.structure.TemplateCallMacro");
-    /*package*/ static final SConcept TemplateArgumentParameterExpression$SR = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x457655815a794e79L, "jetbrains.mps.lang.generator.structure.TemplateArgumentParameterExpression");
-    /*package*/ static final SConcept IncludeMacro$ly = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11621ab7715L, "jetbrains.mps.lang.generator.structure.IncludeMacro");
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SReferenceLink template$yiTA = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3173L, "template");
-    /*package*/ static final SReferenceLink includeTemplate$5YqC = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11621ab7715L, 0x11621b434a7L, "includeTemplate");
-    /*package*/ static final SReferenceLink mappingLabel$yUiS = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, 0x1179bf24befL, "mappingLabel");
-    /*package*/ static final SContainmentLink sourceNodeQuery$v2vo = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x14f7f8a311b8f14fL, 0x14f7f8a311b93f35L, "sourceNodeQuery");
-    /*package*/ static final SContainmentLink sourceNodeQuery$I9qE = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11621ab7715L, 0x11621abebb5L, "sourceNodeQuery");
-    /*package*/ static final SContainmentLink actualArgument$yh2s = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x17e941d108ce3120L, 0x17e941d108ce3125L, "actualArgument");
-    /*package*/ static final SReferenceLink parameter$5XOw = MetaAdapterFactory.getReferenceLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0x457655815a794e79L, 0x457655815a794e7aL, "parameter");
-    /*package*/ static final SContainmentLink parameter$AB01 = MetaAdapterFactory.getContainmentLink(0xb401a68083254110L, 0x8fd384331ff25befL, 0xda3dc6e5137e9b1L, 0xda3dc6e5137ea56L, "parameter");
-  }
-
-  private static final class PROPS {
-    /*package*/ static final SProperty comment$Mo0J = MetaAdapterFactory.getProperty(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11dc0f7933bL, 0x2d521c90e9601e88L, "comment");
-    /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
-  }
 }

@@ -189,7 +189,6 @@ public final class TemplateProcessor implements ITemplateProcessor {
       macroImplMap.put(RuleUtil.concept_MapSrcNodeMacro, 9);
       macroImplMap.put(RuleUtil.concept_MapSrcListMacro, 10);
       macroImplMap.put(RuleUtil.concept_TemplateSwitchMacro, 12);
-      macroImplMap.put(RuleUtil.concept_IncludeMacro, 13);
       macroImplMap.put(RuleUtil.concept_TemplateCallMacro, 14);
       macroImplMap.put(RuleUtil.concept_TraceMacro, 15);
       macroImplMap.put(RuleUtil.concept_VarMacro2, 16);
@@ -214,7 +213,6 @@ public final class TemplateProcessor implements ITemplateProcessor {
         case 9 : return new MapSrcMacros(macro, templateNode, next, myTemplateProcessor, true);
         case 10 : return new MapSrcMacros(macro, templateNode, next, myTemplateProcessor, false);
         case 12 : return new SwitchMacro(macro, templateNode, next, myTemplateProcessor);
-        case 13 : return new IncludeMacro(macro, templateNode, next, myTemplateProcessor);
         case 14 : return new CallMacro(macro, templateNode, next, myTemplateProcessor);
         case 15 : return new TraceMacro(macro, templateNode, next, myTemplateProcessor);
         case 16 : return new VarMacro2(macro, templateNode, next, myTemplateProcessor);
@@ -776,28 +774,30 @@ public final class TemplateProcessor implements ITemplateProcessor {
     }
   }
 
-  // subclass is responsible to initialize myInvokedTemplate field
-  private static abstract class InvokeTemplateMacro extends MacroWithInput {
-    private final String myName;
-    protected SNode myInvokedTemplate;
+  // $CALL$
+  private static class CallMacro extends MacroWithInput {
+    private final SNode myInvokedTemplate;
     private volatile TemplateDeclaration myTemplateRT;
+    private volatile TemplateCall myCallProcessor;
 
-    protected InvokeTemplateMacro(@NotNull SNode macro, @NotNull TemplateNode templateNode, @Nullable MacroNode next, @NotNull TemplateProcessor templateProcessor, String macroName) {
+    protected CallMacro(@NotNull SNode macro, @NotNull TemplateNode templateNode, @Nullable MacroNode next, @NotNull TemplateProcessor templateProcessor) {
       super(macro, templateNode, next, templateProcessor);
-      myName = macroName;
+      myInvokedTemplate = RuleUtil.getCallMacro_Template(macro);
     }
 
     // shall return argument if does nothing. templateContext != null.
-    protected abstract TemplateContext prepareArguments(TemplateContext templateContext) throws GenerationFailureException;
-
-    /*
-    FIXME introduce a mechanism to access template declaration instance without need to evaluate actual arguments first
-          in fact, at this moment, would be sufficient to know only SNodeReference for template declaration node, not node<>
-          OTOH, here, we are in interpreted template model and have node<TemplateDeclaration> anyway.
-    private TemplateDeclaration getTemplate(TemplateExecutionEnvironment env) {
-      return env.loadTemplate(myInvokedTemplate.getReference());
+    private TemplateContext prepareArguments(TemplateContext templateContext) throws GenerationFailureException {
+      TemplateCall tc = myCallProcessor;
+      if (tc == null) {
+        tc = new TemplateCall(macro);
+        if (tc.argumentsMismatch()) {
+          getLogger().error(getMacroNodeRef(), "number of arguments doesn't match template", GeneratorUtil.describeInput(templateContext));
+          // fall-through
+        }
+        myCallProcessor = tc;
+      }
+      return tc.prepareCallContext(templateContext);
     }
-    */
 
     @NotNull
     @Override
@@ -814,9 +814,8 @@ public final class TemplateProcessor implements ITemplateProcessor {
         // I don't mind double initialization of the field from parallel threads, hence no guard. Perhaps, would need to change this
         // once TemplateDeclaration runtime classes are decorated (e.g. with a trace) and have a state to care about.
         // There's pretty much identical code in WEAVE, btw.
-        SNode invokedTemplate = myInvokedTemplate;
-        if (invokedTemplate == null) {
-          throw new TemplateProcessingFailureException(macro, String.format("error processing %s : no template to invoke", myName));
+        if (myInvokedTemplate == null) {
+          throw new TemplateProcessingFailureException(macro, "error processing $CALL$ : no template to invoke");
         }
         // myInvokedTemplate may come from a template model that has generated source code, have to access proper TemplateModel
         // implementation and proper TemplateDeclaration instance. Use of TemplateContainer here would imply we interpret any CALL/INCLUDE template.
@@ -827,6 +826,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
       // XXX here, arguments are evaluated with 'outer' context, with no respect to input node coming from 'mapped node' query method
       //     while in reduction rule, context for arguments would include input node. I don't know if we have to deal with this small discrepancy,
       //     just a note we are aware of it.
+      // XXX this code is similar to SwitchMacro, can I refactor to avoid duplication?
       TemplateContext tcInput = prepareArguments(templateContext).subContext(newInputNode);
 
       try {
@@ -839,57 +839,6 @@ public final class TemplateProcessor implements ITemplateProcessor {
       } catch (GenerationException ex) {
         throw new GenerationFailureException(ex);
       }
-    }
-  }
-
-  // $INCLUDE$
-  private static class IncludeMacro extends InvokeTemplateMacro {
-
-    protected IncludeMacro(@NotNull SNode macro, @NotNull TemplateNode templateNode, @Nullable MacroNode next, @NotNull TemplateProcessor templateProcessor) {
-      super(macro, templateNode, next, templateProcessor, "$INCLUDE$");
-      myInvokedTemplate = RuleUtil.getIncludeMacro_Template(macro);
-    }
-
-    @Override
-    protected TemplateContext prepareArguments(TemplateContext templateContext) {
-      final String[] parameterNames = RuleUtil.getTemplateDeclarationParameterNames(myInvokedTemplate);
-      if (parameterNames == null) {
-        getLogger().error(getMacroNodeRef(), "error processing $INCLUDE$: target template is broken", GeneratorUtil.describeInput(templateContext));
-        return null;
-      }
-
-      for (String name : parameterNames) {
-        if (!templateContext.hasVariable(name)) {
-          getLogger().error(getMacroNodeRef(), String.format("error processing $INCLUDE$: parameter '%s' is missing", name),
-              GeneratorUtil.describeInput(templateContext));
-        }
-      }
-      // $INCLUDE$ doesn't pass arguments per se (the macro has no mechanism to specify them), merely uses values of outer context
-      return templateContext;
-    }
-  }
-
-  // $CALL$
-  private static class CallMacro extends InvokeTemplateMacro {
-    private volatile TemplateCall myCallProcessor;
-
-    protected CallMacro(@NotNull SNode macro, @NotNull TemplateNode templateNode, @Nullable MacroNode next, @NotNull TemplateProcessor templateProcessor) {
-      super(macro, templateNode, next, templateProcessor, "$CALL$");
-      myInvokedTemplate = RuleUtil.getCallMacro_Template(macro);
-    }
-
-    @Override
-    protected TemplateContext prepareArguments(TemplateContext templateContext) throws GenerationFailureException {
-      TemplateCall tc = myCallProcessor;
-      if (tc == null) {
-        tc = new TemplateCall(macro);
-        if (tc.argumentsMismatch()) {
-          getLogger().error(getMacroNodeRef(), "number of arguments doesn't match template", GeneratorUtil.describeInput(templateContext));
-          // fall-through
-        }
-        myCallProcessor = tc;
-      }
-      return tc.prepareCallContext(templateContext);
     }
   }
 
