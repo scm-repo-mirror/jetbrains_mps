@@ -20,7 +20,7 @@ import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
 @MPSLaunch
 public class GenericCollections_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(GenericCollections_Test.class, "${mps_home}/languages/baseLanguage/collections/solutions/internalCollections.test/internalCollections.test.mpr", "r:3b93a80b-8267-4154-a2f6-29cf728da0a5(jetbrains.mps.internalCollections.test.types)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(GenericCollections_Test.class, "${mps_home}", "r:3b93a80b-8267-4154-a2f6-29cf728da0a5(jetbrains.mps.internalCollections.test.types)", false);
   @Rule
   public final RunWithCommand myWithCommandRule = new RunWithCommand(this);
 

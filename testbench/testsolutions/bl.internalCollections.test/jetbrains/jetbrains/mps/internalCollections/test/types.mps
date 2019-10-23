@@ -131,7 +131,7 @@
     </language>
   </registry>
   <node concept="2XOHcx" id="3OoQx0EryB$">
-    <property role="2XOHcw" value="${mps_home}/languages/baseLanguage/collections/solutions/internalCollections.test/internalCollections.test.mpr" />
+    <property role="2XOHcw" value="${mps_home}" />
   </node>
   <node concept="1lH9Xt" id="5NS7ww3zaxl">
     <property role="TrG5h" value="GenericCollections" />
