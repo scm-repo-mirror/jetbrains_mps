@@ -62,7 +62,6 @@
   </dependency>
   <dependency className="jetbrains.mps.vcs.platform.util.PluginUtil">
     <classNode dependClassName="com.intellij.ide.plugins.IdeaPluginDescriptor" />
-    <classNode dependClassName="com.intellij.ide.plugins.IdeaPluginDescriptorImpl" />
     <classNode dependClassName="com.intellij.ide.plugins.PluginManager" />
     <classNode dependClassName="com.intellij.openapi.extensions.PluginId" />
     <classNode dependClassName="java.lang.String" />
