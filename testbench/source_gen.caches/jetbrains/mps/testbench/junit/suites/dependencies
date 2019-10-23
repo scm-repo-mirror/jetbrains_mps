@@ -184,9 +184,7 @@
   <dependency className="jetbrains.mps.testbench.junit.suites.MPSAuditTypesystem">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.annotations.GeneratedClass" />
-    <classNode dependClassName="jetbrains.mps.smodel.Generator" />
     <classNode dependClassName="org.jetbrains.mps.openapi.module.SModule" />
-    <classNode dependClassName="org.junit.Assume" />
     <classNode dependClassName="org.junit.Test" />
     <classNode extendsClassName="jetbrains.mps.testbench.junit.suites.AuditTypeSystem" />
   </dependency>

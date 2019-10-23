@@ -4395,23 +4395,6 @@
       <node concept="3Tm1VV" id="3612dezLQxb" role="1B3o_S" />
       <node concept="3cqZAl" id="3612dezLQxc" role="3clF45" />
       <node concept="3clFbS" id="3612dezLQxd" role="3clF47">
-        <node concept="3clFbF" id="EQtaUN5DCY" role="3cqZAp">
-          <node concept="2YIFZM" id="EQtaUN5E7r" role="3clFbG">
-            <ref role="1Pybhc" to="rjhg:~Assume" resolve="Assume" />
-            <ref role="37wK5l" to="rjhg:~Assume.assumeFalse(java.lang.String,boolean)" resolve="assumeFalse" />
-            <node concept="Xl_RD" id="XJHGRPvUrJ" role="37wK5m">
-              <property role="Xl_RC" value="typesystem checking is disabled for generators" />
-            </node>
-            <node concept="2ZW3vV" id="EQtaUN5F31" role="37wK5m">
-              <node concept="3uibUv" id="EQtaUN5F6Z" role="2ZW6by">
-                <ref role="3uigEE" to="w1kc:~Generator" resolve="Generator" />
-              </node>
-              <node concept="37vLTw" id="EQtaUN5E$S" role="2ZW6bz">
-                <ref role="3cqZAo" node="7X3$Ctw3Yta" resolve="myModule" />
-              </node>
-            </node>
-          </node>
-        </node>
         <node concept="3clFbF" id="3612dezLSnb" role="3cqZAp">
           <node concept="3nyPlj" id="3612dezLSn9" role="3clFbG">
             <ref role="37wK5l" node="7X3$Ctw9fkk" resolve="checkTypeSystem" />
