@@ -46,7 +46,7 @@ public class subtyping_classifier_SubtypingRule extends SubtypingRule_Runtime im
     if (ListSequence.fromList(supertypes).isEmpty()) {
       ListSequence.fromList(result).addElement(_quotation_createNode_pgdy8e_a0a0a6a1());
     }
-    List<SNode> mirrors = new StubClassifierCorrespondenceHelper(new StubClassifierCorrespondenceHelper.StubModuleCorrespondenceImpl()).findCompatibleClassifiers(classifier);
+    List<SNode> mirrors = new StubClassifierCorrespondenceHelper().findCompatibleClassifiers(classifier);
     for (SNode mirror : ListSequence.fromList(mirrors)) {
       SNode mirrorType = SNodeOperations.copyNode(clt);
       SLinkOperations.setTarget(mirrorType, LINKS.classifier$pQ_R, mirror);

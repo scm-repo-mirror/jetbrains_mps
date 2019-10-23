@@ -10,17 +10,15 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SModuleReference;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.smodel.behaviour.BHReflection;
 import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.util.JavaNameUtil;
-import org.jetbrains.mps.openapi.module.SRepository;
 import org.jetbrains.mps.openapi.model.SModelId;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.smodel.LanguageID;
-import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.java.stub.JavaPackageNameStub;
 import org.jetbrains.mps.openapi.model.SNodeId;
+import org.jetbrains.mps.openapi.model.SModel;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
+import jetbrains.mps.smodel.SModelRepository;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import java.util.Objects;
@@ -30,25 +28,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import jetbrains.mps.persistence.PersistenceRegistry;
 import jetbrains.mps.smodel.SModelStereotype;
-import java.util.Collection;
-import java.util.Set;
-import jetbrains.mps.vfs.QualifiedPath;
-import jetbrains.mps.internal.collections.runtime.SetSequence;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.vfs.VFSManager;
-import jetbrains.mps.vfs.util.PathUtil;
-import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import jetbrains.mps.util.ClassType;
-import jetbrains.mps.smodel.BootstrapLanguages;
-import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import java.util.Collections;
-import java.util.HashSet;
-import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
-import java.util.Map;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
-import java.util.HashMap;
-import jetbrains.mps.reloading.CommonPaths;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -59,35 +38,23 @@ import org.jetbrains.mps.openapi.language.SProperty;
 @GeneratedClass(node = "r:2a308ea0-c7e3-4fa5-a624-ad74ee5cfab5(jetbrains.mps.baseLanguage.util)/8733037826900131627", model = "r:2a308ea0-c7e3-4fa5-a624-ad74ee5cfab5(jetbrains.mps.baseLanguage.util)")
 public class StubClassifierCorrespondenceHelper {
 
-  private StubModuleCorrespondence myModuleCorrespondence;
-
-  public StubClassifierCorrespondenceHelper(StubModuleCorrespondence moduleCorrespondence) {
-    myModuleCorrespondence = moduleCorrespondence;
-  }
-
   public List<SNode> findStubClassifiers(SNode nodeClassifier) {
-    JavaModuleFacet javaFacet = check_79n3t7_a0a0f(check_79n3t7_a0a0a5(SNodeOperations.getModel(nodeClassifier)));
+    JavaModuleFacet javaFacet = check_79n3t7_a0a0b(check_79n3t7_a0a0a1(SNodeOperations.getModel(nodeClassifier)));
     List<SNode> result = ListSequence.fromList(new ArrayList<SNode>());
     if (javaFacet == null || javaFacet.isCompileInMps()) {
       return result;
     }
-    SModule mpsModule = check_79n3t7_a0d0f(SNodeOperations.getModel(nodeClassifier));
+    SModule mpsModule = check_79n3t7_a0d0b(SNodeOperations.getModel(nodeClassifier));
     if (mpsModule == null) {
       return null;
     }
-    List<SModuleReference> stubModules = ListSequence.fromListAndArray(new ArrayList<SModuleReference>(), mpsModule.getModuleReference());
-    ListSequence.fromList(stubModules).addSequence(CollectionSequence.fromCollection(myModuleCorrespondence.getModuleToSearchStubs(mpsModule)));
     String fqName = ((String) BHReflection.invoke0(nodeClassifier, CONCEPTS.INamedConcept$nV, SMethodTrimmedId.create("getFqName", null, "hEwIO9y")));
     String packageName = JavaNameUtil.packageName(SNodeOperations.getModel(nodeClassifier));
     String nestedShortName = fqName.substring(packageName.length() + 1).replace('.', '$');
-    SRepository repository = mpsModule.getRepository();
-    for (SModuleReference stubModule : ListSequence.fromList(stubModules)) {
-      SModelId stubModelId = PersistenceFacade.getInstance().createModelId(LanguageID.JAVA + ':' + packageName);
-      SModel stubModel = PersistenceFacade.getInstance().createModelReference(stubModule, stubModelId, stubModelId.getModelName()).resolve(repository);
-      if (stubModel == null) {
-        continue;
-      }
-      SNodeId nodeId = new jetbrains.mps.smodel.SNodeId.Foreign(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + nestedShortName);
+    SModelId stubModelId = new JavaPackageNameStub(JavaNameUtil.packageName(SNodeOperations.getModel(nodeClassifier))).asModelId();
+    SNodeId nodeId = new jetbrains.mps.smodel.SNodeId.Foreign(jetbrains.mps.smodel.SNodeId.Foreign.ID_PREFIX + nestedShortName);
+
+    for (SModel stubModel : CollectionSequence.fromCollection(SModelRepository.getInstance(mpsModule.getRepository()).findModels(stubModelId))) {
       SNode stubClass = stubModel.getNode(nodeId);
       if (stubClass != null) {
         ListSequence.fromList(result).addElement(SNodeOperations.cast(stubClass, CONCEPTS.Classifier$hJ));
@@ -108,7 +75,7 @@ public class StubClassifierCorrespondenceHelper {
     }
     SNode generatedAnnotation = ListSequence.fromList(SLinkOperations.getChildren(stubClassifier, LINKS.annotation$oVP4)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(check_79n3t7_a0a0a0a0a1a7(SLinkOperations.getTarget(it, LINKS.annotation$zNxu)), new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass").getNodeId());
+        return Objects.equals(check_79n3t7_a0a0a0a0a1a3(SLinkOperations.getTarget(it, LINKS.annotation$zNxu)), new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass").getNodeId());
       }
     }).first();
     if (generatedAnnotation == null) {
@@ -116,7 +83,7 @@ public class StubClassifierCorrespondenceHelper {
     }
     String nodeParameter = SPropertyOperations.getString(SNodeOperations.as(SLinkOperations.getTarget(ListSequence.fromList(SLinkOperations.getChildren(generatedAnnotation, LINKS.value$EXfF)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return Objects.equals(check_79n3t7_a0a0a0a0a0a0d0h(SLinkOperations.getTarget(it, LINKS.key$y5Ln)), new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass.node()").getNodeId());
+        return Objects.equals(check_79n3t7_a0a0a0a0a0a0d0d(SLinkOperations.getTarget(it, LINKS.key$y5Ln)), new SNodePointer("6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.annotations(MPS.Core/)", "~GeneratedClass.node()").getNodeId());
       }
     }).first(), LINKS.value$Bis), CONCEPTS.StringLiteral$4G), PROPS.value$kiE0);
     if (nodeParameter == null) {
@@ -142,99 +109,31 @@ public class StubClassifierCorrespondenceHelper {
     return result;
   }
 
-  public interface StubModuleCorrespondence {
-    Collection<SModuleReference> getModuleToSearchStubs(SModule mpsModule);
-  }
-
-  public static class StubModuleCorrespondenceImpl implements StubModuleCorrespondence {
-    @Override
-    public Collection<SModuleReference> getModuleToSearchStubs(SModule mpsModule) {
-      JavaModuleFacet javaFacet = mpsModule.getFacet(JavaModuleFacet.class);
-      if (javaFacet == null || javaFacet.isCompileInMps()) {
-        return null;
-      }
-      Set<String> classesPathsStrings = javaFacet.getLibraryClassPath();
-      List<QualifiedPath> classesPaths = SetSequence.fromSet(classesPathsStrings).select(new ISelector<String, QualifiedPath>() {
-        public QualifiedPath select(String it) {
-          return new QualifiedPath(VFSManager.FILE_FS, PathUtil.toSystemIndependent(it));
-        }
-      }).toListSequence();
-      List<SModuleReference> result = ListSequence.fromList(new ArrayList<SModuleReference>());
-      ListSequence.fromList(result).addSequence(ListSequence.fromList(classesPaths).translate(new ITranslator2<QualifiedPath, ClassType>() {
-        public Iterable<ClassType> translate(QualifiedPath it) {
-          return getClassTypeForPath(it);
-        }
-      }).select(new ISelector<ClassType, SModuleReference>() {
-        public SModuleReference select(ClassType classType) {
-          return BootstrapLanguages.bootstrapSolutionRef(classType);
-        }
-      }).where(new NotNullWhereFilter<SModuleReference>()));
-      if (ListSequence.fromList(result).isEmpty()) {
-        List<SModuleReference> bootstrapSolutions = Sequence.fromIterable(Sequence.fromArray(ClassType.values())).select(new ISelector<ClassType, SModuleReference>() {
-          public SModuleReference select(ClassType it) {
-            return BootstrapLanguages.bootstrapSolutionRef(it);
-          }
-        }).toListSequence();
-        Collections.reverse(bootstrapSolutions);
-        final Collection<SModuleReference> deps = CollectionSequence.fromCollectionWithValues(new HashSet<SModuleReference>(), Sequence.fromIterable(((Iterable<SModule>) new GlobalModuleDependenciesManager(mpsModule).getModules(GlobalModuleDependenciesManager.Deptype.COMPILE))).select(new ISelector<SModule, SModuleReference>() {
-          public SModuleReference select(SModule it) {
-            return it.getModuleReference();
-          }
-        }));
-        ListSequence.fromList(result).addElement(ListSequence.fromList(bootstrapSolutions).where(new IWhereFilter<SModuleReference>() {
-          public boolean accept(SModuleReference it) {
-            return CollectionSequence.fromCollection(deps).contains(it);
-          }
-        }).first());
-      }
-      return result;
-    }
-    private static Map<String, List<ClassType>> myClassTypesForPath;
-    public List<ClassType> getClassTypeForPath(QualifiedPath path) {
-      if (myClassTypesForPath == null) {
-        Map<String, List<ClassType>> classTypesForPath = MapSequence.fromMap(new HashMap<String, List<ClassType>>());
-        for (ClassType classType : ClassType.values()) {
-          List<QualifiedPath> classTypePaths = CommonPaths.getPaths(classType);
-          for (QualifiedPath classTypePath : ListSequence.fromList(classTypePaths)) {
-            if (!(MapSequence.fromMap(classTypesForPath).containsKey(classTypePath.getPath()))) {
-              MapSequence.fromMap(classTypesForPath).put(classTypePath.getPath(), ListSequence.fromList(new ArrayList<ClassType>()));
-            }
-            if (!(ListSequence.fromList(MapSequence.fromMap(classTypesForPath).get(classTypePath.getPath())).contains(classType))) {
-              ListSequence.fromList(MapSequence.fromMap(classTypesForPath).get(classTypePath.getPath())).addElement(classType);
-            }
-          }
-        }
-        myClassTypesForPath = classTypesForPath;
-      }
-      return MapSequence.fromMap(myClassTypesForPath).get(path.getPath());
-    }
-  }
-
-  private static JavaModuleFacet check_79n3t7_a0a0f(SModule checkedDotOperand) {
+  private static JavaModuleFacet check_79n3t7_a0a0b(SModule checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getFacet(JavaModuleFacet.class);
     }
     return null;
   }
-  private static SModule check_79n3t7_a0a0a5(SModel checkedDotOperand) {
+  private static SModule check_79n3t7_a0a0a1(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }
     return null;
   }
-  private static SModule check_79n3t7_a0d0f(SModel checkedDotOperand) {
+  private static SModule check_79n3t7_a0d0b(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }
     return null;
   }
-  private static SNodeId check_79n3t7_a0a0a0a0a1a7(SNode checkedDotOperand) {
+  private static SNodeId check_79n3t7_a0a0a0a0a1a3(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getNodeId();
     }
     return null;
   }
-  private static SNodeId check_79n3t7_a0a0a0a0a0a0d0h(SNode checkedDotOperand) {
+  private static SNodeId check_79n3t7_a0a0a0a0a0a0d0d(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getNodeId();
     }
