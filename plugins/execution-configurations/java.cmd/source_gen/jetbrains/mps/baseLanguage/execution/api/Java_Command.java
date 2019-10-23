@@ -145,13 +145,13 @@ public class Java_Command {
       try {
         JarManifestBuilder jmb = new JarManifestBuilder();
         File jar = jmb.withMainClass(className).withFilesClassPath(classPath).toTempFile();
-        return new ProcessHandlerBuilder().append(java).append(myVirtualMachineParameter_ProcessBuilderCommandPart).append(myDebuggerSettings_String).append(new KeyValueCommandPart("-" + "jar", jar.getAbsolutePath())).append(programParameter).build(myWorkingDirectory_File);
+        return new ProcessHandlerBuilder().cmdline(java, myVirtualMachineParameter_ProcessBuilderCommandPart, myDebuggerSettings_String, new KeyValueCommandPart("-" + "jar", jar.getAbsolutePath()), programParameter).build(myWorkingDirectory_File);
       } catch (IOException e) {
         throw new ExecutionException("Could not create temporary file for program parameters and class path.", e);
       }
     } else {
       CommandPart classPathPart = new KeyValueCommandPart("-" + "classpath", new ListCommandPart(classPath, File.pathSeparator));
-      return new ProcessHandlerBuilder().append(java).append(myVirtualMachineParameter_ProcessBuilderCommandPart).append(myDebuggerSettings_String).append(classPathPart).append(className).append(programParameter).build(myWorkingDirectory_File);
+      return new ProcessHandlerBuilder().cmdline(java, myVirtualMachineParameter_ProcessBuilderCommandPart, myDebuggerSettings_String, classPathPart, className, programParameter).build(myWorkingDirectory_File);
     }
   }
   public ProcessHandler createProcess(final SNodeReference nodePointer, final SRepository repository) throws ExecutionException {
