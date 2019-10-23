@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,25 +16,16 @@
 package jetbrains.mps.generator.runtime;
 
 import jetbrains.mps.util.annotation.ToRemove;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.model.SNodeReference;
 
 /**
  * New method to get injected {@link TemplateModel} interface.
  * Kept separate for transition period so that 2018.3 could tell old generated templates from new.
  * New are capable to load templates without actual arguments
+ * FIXME remove once 2019.3 is out (there's code generated with MPS 2019.2 that references this interface directly (TemplateModelImpl implements TM2)
  * @author Artem Tikhomirov
  * @since 2018.3
  */
 @ToRemove(version = 2018.3)
 public interface TemplateModel2 extends TemplateModel {
 
-  /**
-   * This method is to replace {@link TemplateModel#loadTemplate(SNodeReference, Object...)}.
-   * TemplateModel implementation is advised though not required to cache supplied TemplateDeclaration instances.
-   * @param tdKey identity of template declaration to load
-   * @return null if no template with the supplied identity found
-   */
-  @Nullable
-  TemplateDeclaration loadTemplate(TemplateDeclarationKey tdKey);
 }

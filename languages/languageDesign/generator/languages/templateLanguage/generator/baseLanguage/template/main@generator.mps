@@ -27988,9 +27988,6 @@
     </node>
     <node concept="3Tm1VV" id="2ELICwm$CKm" role="1B3o_S" />
     <node concept="n94m4" id="2ELICwm$CKr" role="lGtFl" />
-    <node concept="3uibUv" id="4gyOCG_MM$i" role="EKbjA">
-      <ref role="3uigEE" to="r99j:~TemplateModel2" resolve="TemplateModel2" />
-    </node>
     <node concept="3uibUv" id="6ZtaW$qQYqi" role="1zkMxy">
       <ref role="3uigEE" to="r99j:~TemplateModelBase" resolve="TemplateModelBase" />
     </node>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import jetbrains.mps.generator.impl.query.GeneratorQueryProvider;
 import jetbrains.mps.generator.runtime.TemplateDeclaration;
 import jetbrains.mps.generator.runtime.TemplateDeclarationKey;
 import jetbrains.mps.generator.runtime.TemplateMappingConfiguration;
-import jetbrains.mps.generator.runtime.TemplateModel2;
 import jetbrains.mps.generator.runtime.TemplateModelBase;
 import jetbrains.mps.generator.runtime.TemplateModule;
 import jetbrains.mps.generator.runtime.TemplateSwitchMapping;
@@ -40,7 +39,7 @@ import java.util.Collections;
  *
  * Evgeny Gryaznov, Nov 29, 2010
  */
-public class TemplateModelInterpreted extends TemplateModelBase implements TemplateModel2 {
+public class TemplateModelInterpreted extends TemplateModelBase {
 
   private final SModel myModel;
   private final Class<? extends GeneratorQueryProvider> myQueryProviderClass;
@@ -125,8 +124,8 @@ public class TemplateModelInterpreted extends TemplateModelBase implements Templ
   @Override
   public GeneratorQueryProvider getQueryProvider() {
     try {
-      return myQueryProviderClass.newInstance();
-    } catch (InstantiationException | IllegalAccessException ex) {
+      return myQueryProviderClass.getDeclaredConstructor().newInstance();
+    } catch (Exception ex) {
       String msg = String.format("Failed to instantiate class with generated queries: %s", myQueryProviderClass.getName());
       Logger.getLogger(TemplateModelInterpreted.class).error(msg, ex);
       return null;

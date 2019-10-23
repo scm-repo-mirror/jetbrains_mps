@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2018 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -98,10 +97,7 @@ public final class NodeWeaveSupport implements NodeWeaveFacility {
   public Collection<SNode> weaveTemplate(@NotNull SNodeReference templateDeclaration, Object... args) throws GenerationException {
     // XXX we get here only when a pre-2018.3 generated template invokes a cross-generator template (which I doubt ever was a case)
     //     here, it can face new TD (expects args in TC) and legacy TD that does not (arguments are injected as cons args)
-    TemplateDeclaration templateDeclarationInstance = myEnv.loadTemplateDeclaration(templateDeclaration, myTemplateNode, myTemplateContext, args);
-    if (templateDeclarationInstance == null) {
-      return Collections.emptyList();
-    }
+    TemplateDeclaration templateDeclarationInstance = myEnv.findTemplate(TemplateIdentity.fromPointer(templateDeclaration, null), myTemplateNode);
     // templateDeclarationInstance either comes from TemplateModel2 and expects arguments in TC, or from an old generated TM.loadTemplate()
     // that populates arguments through TD cons. If it's a former, get TC ready.
     if (templateDeclarationInstance instanceof TemplateDeclaration2) {

@@ -35,7 +35,6 @@ import jetbrains.mps.generator.runtime.TemplateDeclaration2;
 import jetbrains.mps.generator.runtime.TemplateDeclarationKey;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
 import jetbrains.mps.generator.runtime.TemplateModel;
-import jetbrains.mps.generator.runtime.TemplateModel2;
 import jetbrains.mps.generator.runtime.TemplateReductionRule;
 import jetbrains.mps.generator.runtime.TemplateRuleWithCondition;
 import jetbrains.mps.generator.runtime.TemplateSwitchMapping;
@@ -242,10 +241,7 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
     //           i.e. need to tell old TD from a new one. An interface with getParameterNames():String[] as indicator?
     //           mangle TC with names and values
     //     (b) invoked template declaration is old (means cross-compiled-generator template call) and expects args at construction time, changes TC itself
-    TemplateDeclaration templateDeclarationInstance = loadTemplateDeclaration(templateDeclaration, templateNode, context, arguments);
-    if (templateDeclarationInstance == null) {
-      return Collections.emptyList();
-    }
+    TemplateDeclaration templateDeclarationInstance = findTemplate(TemplateIdentity.fromPointer(templateDeclaration, null), templateNode);
     if (templateDeclarationInstance instanceof TemplateDeclaration2) {
       TemplateCall callSite = new TemplateCall(((TemplateDeclaration2) templateDeclarationInstance).getParameterNames(), arguments);
       if (callSite.argumentsMismatch()) {
@@ -303,70 +299,13 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
       String m = "Template model %s not found. Cannot apply template declaration, try to check & regenerate affected generators";
       return new BadTemplateDeclaration(String.format(m, templateDeclaration.getSourceModel().getName()));
     }
-    final TemplateDeclaration templateInstance;
-    final boolean legacyTD;
-    if (templateModel instanceof TemplateModel2) {
-      templateInstance = ((TemplateModel2) templateModel).loadTemplate(templateDeclaration);
-      legacyTD = false;
-    } else {
-      // XXX here I expect no template would have more than 10 arguments. In legacy generated templates, there's code
-      //     that access arguments by index, therefore I can't use empty array here
-      Object[] fakeEmptyArgs = new Object[10];
-      templateInstance = templateModel.loadTemplate(templateDeclaration.getSourceNode(), fakeEmptyArgs);
-      legacyTD = true;
-    }
+    final TemplateDeclaration templateInstance = templateModel.loadTemplate(templateDeclaration);
     if (templateInstance == null) {
       String m = "Could not find '%s'. Cannot apply template declaration, try to check & regenerate affected generators";
       return new BadTemplateDeclaration(String.format(m, templateDeclaration.describe()));
     }
 
-    if (!legacyTD) {
-      // XXX may want to wrap with a tracing decorator
-      return templateInstance;
-    }
-    return new TemplateDeclaration() {
-      @Override
-      public SNodeReference getTemplateNode() {
-        return templateDeclaration.getSourceNode();
-      }
-
-      @Override
-      public Collection<SNode> apply(@NotNull TemplateExecutionEnvironment environment, @NotNull TemplateContext context) throws GenerationException {
-        if (context instanceof DefaultTemplateContext) {
-          ((DefaultTemplateContext) context).engageIgnoreNullVariablesHack();
-        }
-        return templateInstance.apply(environment, context);
-      }
-
-      @Override
-      public Collection<SNode> weave(@NotNull WeaveContext context, @NotNull NodeWeaveFacility weaveFacility) throws GenerationException {
-        // FWIW, I believe there were no cross-model weaving calls, and interpreted templates never used TD.weave() but had interpreted nodes directly.
-        // Besides, weaving of templates with arguments seems to be of elusive probability
-        // Here we are in new API, i.e. invoked from the code that had never before weaved any external template, therefore, we shall never get here with MPS code
-        // Nevertheless, for a small chance of an clients interpreted generator that weaves cross-model generated template and use this with 2018.3 without
-        // regeneration of a code (e.g. mbeddr client on 2018.3 with interpreted generator (i.e. new API in use) weaves a compiled template from 2018.2-built mbeddr distro)
-        // we still have this support
-        TemplateContext tc = weaveFacility.getTemplateContext();
-        if (tc instanceof DefaultTemplateContext) {
-          ((DefaultTemplateContext) tc).engageIgnoreNullVariablesHack();
-        }
-       return templateInstance.weave(context, weaveFacility);
-      }
-    };
-  }
-
-  /*package*/ TemplateDeclaration loadTemplateDeclaration(@NotNull SNodeReference templateDeclaration, @NotNull SNodeReference templateNode, @NotNull TemplateContext context, Object... arguments) {
-    TemplateModel templateModel = generator.getGenerationPlan().getTemplateModel(templateDeclaration.getModelReference());
-    TemplateDeclaration templateDeclarationInstance = templateModel == null ? null : templateModel.loadTemplate(templateDeclaration, arguments);
-    if (templateModel == null || templateDeclarationInstance == null) {
-      String msg = "%s not found: cannot apply template declaration, try to check & regenerate affected generators";
-      getLogger().error(templateNode, String.format(msg, templateModel == null ? "template model" : "declaration"),
-          GeneratorUtil.describeIfExists(context.getInput(), "input"),
-          GeneratorUtil.describe(templateNode, "template"),
-          GeneratorUtil.describe(templateDeclaration, "template declaration"));
-      return null;
-    }
-    return templateDeclarationInstance;
+    return templateInstance;
   }
 
   @Override
