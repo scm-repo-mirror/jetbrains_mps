@@ -30,7 +30,7 @@
       <reference ref="jetbrains.mps.console.actions.PasteOriginalNode_Action" />
       <add-to-group group-id="EditorPopup_ActionGrouppaste" anchor="last" />
     </group>
-    <group id="jetbrains.mps.console.actions.ConsoleTabActions_ActionGroup" text="Console" popup="true">
+    <group id="jetbrains.mps.console.actions.ConsoleTabActions_ActionGroup" class="com.intellij.ide.actions.NonEmptyActionGroup" text="Console" popup="true">
       <reference ref="jetbrains.mps.console.actions.ConsoleExecute_Action" />
       <reference ref="jetbrains.mps.console.actions.ConsoleNext_Action" />
       <reference ref="jetbrains.mps.console.actions.ConsolePrev_Action" />

@@ -57,6 +57,8 @@
     <import index="tp4o" ref="r:00000000-0000-4000-0000-011c89590364(jetbrains.mps.lang.plugin.typesystem)" />
     <import index="y8j6" ref="r:d226432d-2ab7-4e39-8f05-f0fb5c65285d(jetbrains.mps.lang.plugin.enumMigration)" />
     <import index="wzm8" ref="r:c38b095a-620d-449b-83bf-eebdb57fa62c(jetbrains.mps.lang.plugin.generator.util)" />
+    <import index="tqbz" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.actions(MPS.IDEA/)" />
+    <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources">
@@ -611,6 +613,9 @@
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
       </concept>
       <concept id="1144146199828" name="jetbrains.mps.lang.smodel.structure.Node_CopyOperation" flags="nn" index="1$rogu" />
+      <concept id="1219352745532" name="jetbrains.mps.lang.smodel.structure.NodeRefExpression" flags="nn" index="3B5_sB">
+        <reference id="1219352800908" name="referentNode" index="3B5MYn" />
+      </concept>
       <concept id="1140131837776" name="jetbrains.mps.lang.smodel.structure.Node_ReplaceWithAnotherOperation" flags="nn" index="1P9Npp">
         <child id="1140131861877" name="replacementNode" index="1P9ThW" />
       </concept>
@@ -15008,6 +15013,44 @@
                               <ref role="37wK5l" to="tp4s:hEwJa8g" resolve="getGeneratedClassFQName" />
                             </node>
                           </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="2pNUuL" id="3LUzNgisath" role="2pNNFR">
+                <property role="2pNUuO" value="class" />
+                <node concept="2pMdtt" id="3LUzNgisati" role="2pMdts">
+                  <property role="2pMdty" value="com.intellij.ide.actions.NonEmptyActionGroup" />
+                  <node concept="17Uvod" id="3LUzNgisoXl" role="lGtFl">
+                    <property role="2qtEX9" value="text" />
+                    <property role="P4ACc" value="479c7a8c-02f9-43b5-9139-d910cb22f298/6666499814681541919/6666499814681541920" />
+                    <node concept="3zFVjK" id="3LUzNgisoXm" role="3zH0cK">
+                      <node concept="3clFbS" id="3LUzNgisoXn" role="2VODD2">
+                        <node concept="3clFbF" id="3LUzNgisqxT" role="3cqZAp">
+                          <node concept="2OqwBi" id="3LUzNgisA2a" role="3clFbG">
+                            <node concept="3B5_sB" id="3LUzNgisBtp" role="2Oq$k0">
+                              <ref role="3B5MYn" to="tqbz:~NonEmptyActionGroup" resolve="NonEmptyActionGroup" />
+                            </node>
+                            <node concept="2qgKlT" id="3LUzNgisCeE" role="2OqNvi">
+                              <ref role="37wK5l" to="tpcu:hEwIO9y" resolve="getFqName" />
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+                <node concept="1W57fq" id="3LUzNgitTqn" role="lGtFl">
+                  <node concept="3IZrLx" id="3LUzNgitTqq" role="3IZSJc">
+                    <node concept="3clFbS" id="3LUzNgitTqr" role="2VODD2">
+                      <node concept="3clFbF" id="3LUzNgitTqx" role="3cqZAp">
+                        <node concept="2OqwBi" id="3LUzNgitTqs" role="3clFbG">
+                          <node concept="3TrcHB" id="3LUzNgitTRD" role="2OqNvi">
+                            <ref role="3TsBF5" to="tp4k:hHrdrIt" resolve="isInvisibleWhenDisabled" />
+                          </node>
+                          <node concept="30H73N" id="3LUzNgitTqw" role="2Oq$k0" />
                         </node>
                       </node>
                     </node>
