@@ -35,7 +35,7 @@
       <reference ref="jetbrains.mps.console.actions.ConsoleNext_Action" />
       <reference ref="jetbrains.mps.console.actions.ConsolePrev_Action" />
       <reference ref="jetbrains.mps.console.actions.ConsoleClear_Action" />
-      <add-to-group group-id="EditorPopup_ActionGroupgoto" anchor="last" />
+      <add-to-group group-id="EditorPopup_ActionGrouptool" anchor="last" />
     </group>
   </actions>
 </components>

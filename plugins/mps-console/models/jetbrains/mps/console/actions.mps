@@ -801,7 +801,7 @@
     <property role="3OnEW4" value="true" />
     <node concept="tT9cl" id="5fvQoxlIYzz" role="2f5YQi">
       <ref role="tU$_T" to="ekwn:1xsN4xJX8VI" resolve="EditorPopup" />
-      <ref role="2f8Tey" to="ekwn:1xsN4xJX8VT" resolve="goto" />
+      <ref role="2f8Tey" to="ekwn:3S145BCCcM5" resolve="tool" />
     </node>
     <node concept="ftmFs" id="4jCHWPgrzPC" role="ftER_">
       <node concept="tCFHf" id="6QZWsVDxPlL" role="ftvYc">
@@ -830,7 +830,7 @@
       </node>
     </node>
     <node concept="Zd509" id="6QZWsVD_ITr" role="Zd508">
-      <ref role="1bYAoF" node="6QZWsVD$rO8" />
+      <ref role="1bYAoF" node="6QZWsVD$rO8" resolve="ConsoleClear" />
       <node concept="pLAjd" id="6QZWsVD_ITs" role="Zd501">
         <property role="pLAjc" value="ctrl" />
         <property role="pLAjf" value="VK_BACK_SPACE" />

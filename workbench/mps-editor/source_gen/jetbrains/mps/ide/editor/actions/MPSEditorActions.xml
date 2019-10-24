@@ -236,6 +236,7 @@
     <group id="EditorPopup_ActionGroupdebug" />
     <group id="EditorPopup_ActionGroupfind" />
     <group id="EditorPopup_ActionGrouprefactoring" />
+    <group id="EditorPopup_ActionGrouptool" />
     <group id="EditorPopup_ActionGroupvcs" />
     <group id="EditorPopup_ActionGrouphints" />
     <group id="EditorPopup_ActionGroupreflective" />
@@ -323,6 +324,7 @@
       <separator />
       <reference ref="EditorPopup_ActionGroupfind" />
       <reference ref="EditorPopup_ActionGrouprefactoring" />
+      <reference ref="EditorPopup_ActionGrouptool" />
       <separator />
       <reference ref="EditorPopup_ActionGroupvcs" />
       <separator />

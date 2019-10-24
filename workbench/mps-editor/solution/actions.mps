@@ -6718,6 +6718,9 @@
       <node concept="10WQ6h" id="4p0Cg4vBaan" role="ftvYc">
         <property role="TrG5h" value="refactoring" />
       </node>
+      <node concept="10WQ6h" id="3S145BCCcM5" role="ftvYc">
+        <property role="TrG5h" value="tool" />
+      </node>
       <node concept="2a7GMi" id="1xsN4xJX8W1" role="ftvYc" />
       <node concept="10WQ6h" id="1xsN4xJX8W2" role="ftvYc">
         <property role="TrG5h" value="vcs" />
