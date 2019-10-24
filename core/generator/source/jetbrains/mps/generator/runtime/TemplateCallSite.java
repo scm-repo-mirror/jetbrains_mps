@@ -23,6 +23,7 @@ import java.util.Collection;
 /**
  * Instance of a particular location in a template that delegates execution flow to another template.
  * Generally a {@code $CALL$} or a rule consequence with a reference to a template.
+ * Gives a level of indirection when invoking templates to better control/augment what's going on along with template processing.
  *
  * @author Artem Tikhomirov
  * @since 2019.3

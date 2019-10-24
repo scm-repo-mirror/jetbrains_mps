@@ -311,13 +311,13 @@ public class TemplateExecutionEnvironmentImpl implements TemplateExecutionEnviro
   public TemplateCallSite callSite(@NotNull TemplateDeclaration templateDeclaration, @NotNull SNodeReference callSite) {
     // XXX here comes the code that may give another call site, capable of whatever else needed to get accomplished along with template invocation
     // e.g. trace or breakpoints
-    return new CallSiteImpl(this, templateDeclaration);
+    return new CallSiteImpl(this, templateDeclaration, callSite);
   }
 
   @NotNull
   @Override
   public TemplateCallSite callSite(@NotNull TemplateDeclarationKey templateIdentityKey, @NotNull SNodeReference callSite) {
-    return new CallSiteImpl(this, findTemplate(templateIdentityKey, callSite));
+    return new CallSiteImpl(this, findTemplate(templateIdentityKey, callSite), callSite);
   }
 
   @Override

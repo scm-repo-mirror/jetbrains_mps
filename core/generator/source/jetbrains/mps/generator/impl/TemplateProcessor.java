@@ -378,6 +378,7 @@ public final class TemplateProcessor implements ITemplateProcessor {
         TracingUtil.deriveOriginalNode(newInputNode, _outputNodes, false);
         outputNodes.addAll(_outputNodes);
         i++;
+        // FIXME $LOOP$ in generated templates is not recorded into trace
         trace.trace(newInputNode.getNodeId(), GenerationTracerUtil.translateOutput(_outputNodes), getMacroNodeRef());
       }
       return outputNodes;
@@ -830,6 +831,9 @@ public final class TemplateProcessor implements ITemplateProcessor {
       TemplateContext tcInput = prepareArguments(templateContext).subContext(newInputNode);
 
       try {
+        // XXX in fact, shall use env.callSite().apply(), but would like to save CallSiteImpl instantiation here
+        //     which is not good, as I have to duplicate logic for all the extra stuff around template processing, like tracing
+        //     Once BP support is in place, likely would switch to env.callSite anyway
         Collection<SNode> rv = myTemplateRT.apply(env, tcInput);
         env.getTrace().trace(newInputNode.getNodeId(), GenerationTracerUtil.translateOutput(rv), getMacroNodeRef());
         // FIXME stick to same API, e.g. List<SNode>, do not mix the two.

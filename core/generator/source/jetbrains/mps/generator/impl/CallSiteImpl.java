@@ -15,30 +15,38 @@
  */
 package jetbrains.mps.generator.impl;
 
+import jetbrains.mps.generator.GenerationTracerUtil;
 import jetbrains.mps.generator.runtime.GenerationException;
 import jetbrains.mps.generator.runtime.TemplateCallSite;
 import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.TemplateDeclaration;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.Collection;
 
 /**
  * @author Artem Tikhomirov
  */
-public class CallSiteImpl implements TemplateCallSite {
+final class CallSiteImpl implements TemplateCallSite {
   private final TemplateExecutionEnvironmentImpl myEnvironment;
   private final TemplateDeclaration myTemplateDeclaration;
+  private final SNodeReference myCallSite;
 
-  public CallSiteImpl(@NotNull TemplateExecutionEnvironmentImpl environment, @NotNull TemplateDeclaration templateDeclaration) {
-
+  // all args are not null
+  public CallSiteImpl(TemplateExecutionEnvironmentImpl environment, TemplateDeclaration templateDeclaration, SNodeReference callSite) {
     myEnvironment = environment;
     myTemplateDeclaration = templateDeclaration;
+    myCallSite = callSite;
   }
 
   @Override
   public Collection<SNode> apply(@NotNull TemplateContext context) throws GenerationException {
-    return myTemplateDeclaration.apply(myEnvironment, context);
+    final Collection<SNode> rv = myTemplateDeclaration.apply(myEnvironment, context);
+    final SNode input = context.getInput();
+    // create root rule doesn't have an input, yet it's a regular call site
+    myEnvironment.getTrace().trace(input == null ? null : input.getNodeId(), GenerationTracerUtil.translateOutput(rv), myCallSite);
+    return rv;
   }
 }
