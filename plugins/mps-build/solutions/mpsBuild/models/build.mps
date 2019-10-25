@@ -36552,14 +36552,14 @@
           </node>
         </node>
       </node>
-      <node concept="1SiIV0" id="3E9C6pCX_EP" role="3bR37C">
-        <node concept="3bR9La" id="3E9C6pCX_EQ" role="1SiIV1">
-          <ref role="3bR37D" node="2eDSGe9d1qi" resolve="jetbrains.mps.ide" />
-        </node>
-      </node>
       <node concept="1SiIV0" id="6EJHIrmNI9s" role="3bR37C">
         <node concept="3bR9La" id="6EJHIrmNI9t" role="1SiIV1">
           <ref role="3bR37D" node="7Kfy9QB6LaO" resolve="jetbrains.mps.lang.structure" />
+        </node>
+      </node>
+      <node concept="1SiIV0" id="2QHLnxqM_HZ" role="3bR37C">
+        <node concept="3bR9La" id="2QHLnxqM_I0" role="1SiIV1">
+          <ref role="3bR37D" node="1TaHNgiIbJb" resolve="MPS.Platform" />
         </node>
       </node>
     </node>
