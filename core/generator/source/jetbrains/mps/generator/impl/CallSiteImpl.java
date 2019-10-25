@@ -60,6 +60,11 @@ final class CallSiteImpl implements TemplateCallSite {
     final NodeWeaveFacility nwf = myEnvironment.prepareWeave(wc, myCallSite);
     final Collection<SNode> weaved = myTemplateDeclaration.weave(wc, nwf);
     if (weaved != null && !weaved.isEmpty()) {
+      if (context.getInputName() != null) {
+        // this is to replace code that used to be in generated WeavingRule classes (took td.weave() result and associated ML with it)
+        // XXX seems that I could introduce tc.registerLabel(outputNodes) that would interally look into inputName!= null and use internal env to do the same.
+        myEnvironment.registerLabel(context.getInput(), weaved, context.getInputName());
+      }
       myEnvironment.getTrace().trace(context.getInput().getNodeId(), GenerationTracerUtil.translateOutput(weaved), myCallSite);
       return true;
     }
