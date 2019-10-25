@@ -186,7 +186,8 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
   void postProcess(@NotNull NodePostProcessor postProcessor);
 
   /**
-   * FIXME to get replaced with appropriate method in {@link TemplateCallSite}, whether it would be weave(contextNode, TC) or whatever else
+   * @deprecated replaced with {@link TemplateCallSite#weave(TemplateContext, SNode, WeavingWithAnchor)} and {@link #callSite(TemplateDeclaration, SNodeReference)}
+   * MPS 2019.2 generates code that uses this API, MPS 2019.3 uses {@link TemplateCallSite}
    *
    * @param context knows where to put weaved nodes (parent/context and anchor function)
    * @param templateNode call site for the weave (for target template to apply, see {@code NodeWeaveFacility#weaveTemplate(SNodeReference, Object...)}
@@ -194,6 +195,8 @@ public interface TemplateExecutionEnvironment extends GeneratorQueryProvider.Sou
    * @since 3.3
    */
   @NotNull
+  @Deprecated
+  @ToRemove(version = 2019.3)
   NodeWeaveFacility prepareWeave(@NotNull WeaveContext context, @NotNull SNodeReference templateNode);
 
   // I

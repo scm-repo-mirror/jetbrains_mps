@@ -16,6 +16,7 @@
 package jetbrains.mps.generator.runtime;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 
 import java.util.Collection;
@@ -31,10 +32,20 @@ import java.util.Collection;
 public interface TemplateCallSite {
 
   /**
-   * @param context instance of template to invoke, generally compiled as part of the same template model
+   * @param context template evaluation values stack
    * @return outcome of {@link TemplateDeclaration#apply(TemplateExecutionEnvironment, TemplateContext)}
+   * @throws GenerationException in case anything goes wrong
    */
   Collection<SNode> apply(@NotNull TemplateContext context) throws GenerationException;
+
+  /**
+   * @param context template evaluation values stack
+   * @param outputContextNode parent in output model to receive new children
+   * @param anchorQuery optional function to tell exact placement of a newly added nodes inside {@code outputContextNode}
+   * @return {@code true} if any node has been added
+   * @throws GenerationException in case anything goes wrong
+   */
+  boolean weave(@NotNull TemplateContext context, @NotNull SNode outputContextNode, @Nullable WeavingWithAnchor anchorQuery) throws GenerationException;
 
 
 //  /**

@@ -17,10 +17,13 @@ package jetbrains.mps.generator.impl;
 
 import jetbrains.mps.generator.GenerationTracerUtil;
 import jetbrains.mps.generator.runtime.GenerationException;
+import jetbrains.mps.generator.runtime.NodeWeaveFacility;
 import jetbrains.mps.generator.runtime.TemplateCallSite;
 import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.TemplateDeclaration;
+import jetbrains.mps.generator.runtime.WeavingWithAnchor;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
@@ -48,5 +51,18 @@ final class CallSiteImpl implements TemplateCallSite {
     // create root rule doesn't have an input, yet it's a regular call site
     myEnvironment.getTrace().trace(input == null ? null : input.getNodeId(), GenerationTracerUtil.translateOutput(rv), myCallSite);
     return rv;
+  }
+
+  @Override
+  public boolean weave(@NotNull TemplateContext context, @NotNull SNode outputContextNode, @Nullable WeavingWithAnchor anchorQuery) throws GenerationException {
+    // FIXME have to use WeaveContext+NodeWeaveFacility as long as TemplateDeclarationWeavingAware2.weave requires these
+    WeaveContextImpl wc = new WeaveContextImpl(outputContextNode, context, anchorQuery);
+    final NodeWeaveFacility nwf = myEnvironment.prepareWeave(wc, myCallSite);
+    final Collection<SNode> weaved = myTemplateDeclaration.weave(wc, nwf);
+    if (weaved != null && !weaved.isEmpty()) {
+      myEnvironment.getTrace().trace(context.getInput().getNodeId(), GenerationTracerUtil.translateOutput(weaved), myCallSite);
+      return true;
+    }
+    return false;
   }
 }

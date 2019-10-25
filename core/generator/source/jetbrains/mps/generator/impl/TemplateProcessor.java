@@ -36,8 +36,7 @@ import jetbrains.mps.generator.impl.query.VariableValueQuery;
 import jetbrains.mps.generator.impl.query.WeaveAnchorQuery;
 import jetbrains.mps.generator.impl.template.QueryExecutor;
 import jetbrains.mps.generator.runtime.GenerationException;
-import jetbrains.mps.generator.runtime.NodeWeaveFacility;
-import jetbrains.mps.generator.runtime.NodeWeaveFacility.WeaveContext;
+import jetbrains.mps.generator.runtime.TemplateCallSite;
 import jetbrains.mps.generator.runtime.TemplateContext;
 import jetbrains.mps.generator.runtime.TemplateDeclaration;
 import jetbrains.mps.generator.runtime.TemplateExecutionEnvironment;
@@ -493,14 +492,13 @@ public final class TemplateProcessor implements ITemplateProcessor {
 
       final SNode contextNode = _outputNodes.get(0);
       final TemplateContext tcWithArgs = myCallProcessor.prepareCallContext(templateContext);
+      final TemplateCallSite callSite = templateContext.getEnvironment().callSite(myTemplateRT, getMacroNodeRef());
 
       for (SNode node : getNewInputNodes(templateContext)) {
-        WeaveContext wc = new WeaveContextImpl(contextNode, tcWithArgs.subContext(node), this);
-        NodeWeaveFacility nwf = templateContext.getEnvironment().prepareWeave(wc, getMacroNodeRef());
         try {
           // XXX would be great to have something like next code, instead
           // td.apply(new WeaveSink(), templateContext);
-          myTemplateRT.weave(wc, nwf);
+          callSite.weave(tcWithArgs.subContext(node), contextNode, this);
           // XXX exception handling shall match that of WeavingProcessor.ArmedWeavingRule
         } catch (GenerationFailureException | GenerationCanceledException ex) {
           throw ex;

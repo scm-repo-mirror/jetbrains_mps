@@ -61,7 +61,6 @@
     <classNode dependClassName="jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.core.behavior.LinkAttribute__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.core.behavior.PropertyAttribute__BehaviorDescriptor" />
-    <classNode dependClassName="jetbrains.mps.lang.generator.behavior.BaseMappingRule__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.behavior.IGeneratorParameter__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.behavior.LoopMacro__BehaviorDescriptor" />
     <classNode dependClassName="jetbrains.mps.lang.generator.behavior.NodeMacro__BehaviorDescriptor" />
