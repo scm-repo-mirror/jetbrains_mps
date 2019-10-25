@@ -97,7 +97,9 @@ public abstract class EditableSModelBase extends SModelBase implements EditableS
 
   @Override
   public final void unload() {
-    save();
+    if (isChanged()) {
+      save();
+    }
     if (needsReloading()) {
       throw new IllegalStateException("cannot unload model in a conflicting state");
     }
