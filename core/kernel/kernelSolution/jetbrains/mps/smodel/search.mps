@@ -10,7 +10,6 @@
   <imports>
     <import index="18ew" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util(MPS.Core/)" />
     <import index="8x9o" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.cache(MPS.Core/)" />
-    <import index="k6ay" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.search(MPS.Core/)" />
     <import index="o8zo" ref="r:314576fc-3aee-4386-a0a5-a38348ac317d(jetbrains.mps.scope)" />
     <import index="w1kc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel(MPS.Core/)" />
     <import index="iwwu" ref="r:2c4d9270-b6d6-44af-aecd-e01a223680db(jetbrains.mps.kernel.model)" />
@@ -25,9 +24,7 @@
     <import index="wyt6" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)" />
     <import index="j9co" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.event(MPS.Core/)" />
     <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
-    <import index="ncw5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.annotation(MPS.Core/)" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" implicit="true" />
-    <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -54,14 +51,9 @@
       </concept>
       <concept id="1188207840427" name="jetbrains.mps.baseLanguage.structure.AnnotationInstance" flags="nn" index="2AHcQZ">
         <reference id="1188208074048" name="annotation" index="2AI5Lk" />
-        <child id="1188214630783" name="value" index="2B76xF" />
       </concept>
       <concept id="1188208481402" name="jetbrains.mps.baseLanguage.structure.HasAnnotation" flags="ng" index="2AJDlI">
         <child id="1188208488637" name="annotation" index="2AJF6D" />
-      </concept>
-      <concept id="1188214545140" name="jetbrains.mps.baseLanguage.structure.AnnotationInstanceValue" flags="ng" index="2B6LJw">
-        <reference id="1188214555875" name="key" index="2B6OnR" />
-        <child id="1188214607812" name="value" index="2B70Vg" />
       </concept>
       <concept id="1154032098014" name="jetbrains.mps.baseLanguage.structure.AbstractLoopStatement" flags="nn" index="2LF5Ji">
         <child id="1154032183016" name="body" index="2LFqv$" />
@@ -125,9 +117,6 @@
       <concept id="1225271408483" name="jetbrains.mps.baseLanguage.structure.IsNotEmptyOperation" flags="nn" index="17RvpY" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
-      </concept>
-      <concept id="1111509017652" name="jetbrains.mps.baseLanguage.structure.FloatingPointConstant" flags="nn" index="3b6qkQ">
-        <property id="1113006610751" name="value" index="$nhwW" />
       </concept>
       <concept id="1068580123132" name="jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration" flags="ng" index="3clF44">
         <property id="4276006055363816570" name="isSynchronized" index="od$2w" />
@@ -258,30 +247,18 @@
       <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
         <child id="2667874559098216723" name="text" index="3HnX3l" />
       </concept>
-      <concept id="6612597108003615641" name="jetbrains.mps.baseLanguage.javadoc.structure.HTMLElement" flags="ng" index="2U$1Ah">
-        <property id="6612597108003615642" name="name" index="2U$1Ai" />
-      </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
       </concept>
       <concept id="2068944020170241612" name="jetbrains.mps.baseLanguage.javadoc.structure.ClassifierDocComment" flags="ng" index="3UR2Jj" />
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
-      <concept id="1177026924588" name="jetbrains.mps.lang.smodel.structure.RefConcept_Reference" flags="nn" index="chp4Y">
-        <reference id="1177026940964" name="conceptDeclaration" index="cht4Q" />
-      </concept>
-      <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
-      <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
-        <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
-        <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
-      </concept>
       <concept id="1145404486709" name="jetbrains.mps.lang.smodel.structure.SemanticDowncastExpression" flags="nn" index="2JrnkZ">
         <child id="1145404616321" name="leftExpression" index="2JrQYb" />
       </concept>
       <concept id="1219352745532" name="jetbrains.mps.lang.smodel.structure.NodeRefExpression" flags="nn" index="3B5_sB">
         <reference id="1219352800908" name="referentNode" index="3B5MYn" />
       </concept>
-      <concept id="1140137987495" name="jetbrains.mps.lang.smodel.structure.SNodeTypeCastExpression" flags="nn" index="1PxgMI" />
       <concept id="1138055754698" name="jetbrains.mps.lang.smodel.structure.SNodeType" flags="in" index="3Tqbb2">
         <reference id="1138405853777" name="concept" index="ehGHo" />
       </concept>
@@ -332,318 +309,6 @@
           <node concept="1dT_AC" id="4KI3VLZ$3In" role="1dT_Ay">
             <property role="1dT_AB" value="* Finds node by referenceInfo and optional targetModelReference." />
           </node>
-        </node>
-      </node>
-    </node>
-  </node>
-  <node concept="312cEu" id="56UUNV69Eac">
-    <property role="TrG5h" value="SModelSearchUtil" />
-    <property role="1sVAO0" value="false" />
-    <property role="1EXbeo" value="false" />
-    <node concept="3Tm1VV" id="56UUNV69Ead" role="1B3o_S" />
-    <node concept="3clFbW" id="56UUNV69Ech" role="jymVt">
-      <node concept="3Tm1VV" id="56UUNV69Eci" role="1B3o_S" />
-      <node concept="3cqZAl" id="56UUNV69Ecj" role="3clF45" />
-      <node concept="3clFbS" id="56UUNV69Eck" role="3clF47" />
-    </node>
-    <node concept="2YIFZL" id="56UUNV69Edg" role="jymVt">
-      <property role="TrG5h" value="findLinkDeclaration" />
-      <property role="DiZV1" value="false" />
-      <node concept="3Tm1VV" id="56UUNV69Edh" role="1B3o_S" />
-      <node concept="3uibUv" id="56UUNV69Edi" role="3clF45">
-        <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-      </node>
-      <node concept="37vLTG" id="56UUNV69Edj" role="3clF46">
-        <property role="TrG5h" value="conceptDeclaration" />
-        <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="56UUNV69Edk" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="56UUNV69Edl" role="3clF46">
-        <property role="TrG5h" value="role" />
-        <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="56UUNV69Edm" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="56UUNV69Edn" role="3clF47">
-        <node concept="3clFbJ" id="56UUNV69Edo" role="3cqZAp">
-          <node concept="3clFbC" id="56UUNV69Edp" role="3clFbw">
-            <node concept="37vLTw" id="2BHiRxgmaBk" role="3uHU7B">
-              <ref role="3cqZAo" node="56UUNV69Edl" resolve="role" />
-            </node>
-            <node concept="10Nm6u" id="56UUNV69Edr" role="3uHU7w" />
-          </node>
-          <node concept="3clFbS" id="56UUNV69Eds" role="3clFbx">
-            <node concept="3cpWs6" id="56UUNV69Edt" role="3cqZAp">
-              <node concept="10Nm6u" id="56UUNV69Edu" role="3cqZAk" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="14eTo0LY90g" role="3cqZAp">
-          <node concept="2OqwBi" id="5j5ScoAXYOJ" role="3cqZAk">
-            <node concept="1PxgMI" id="5j5ScoAXYER" role="2Oq$k0">
-              <node concept="chp4Y" id="5j5ScoAXYF0" role="3oSUPX">
-                <ref role="cht4Q" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-              </node>
-              <node concept="37vLTw" id="5j5ScoAXYyX" role="1m5AlR">
-                <ref role="3cqZAo" node="56UUNV69Edj" resolve="conceptDeclaration" />
-              </node>
-            </node>
-            <node concept="2qgKlT" id="5j5ScoAXZgb" role="2OqNvi">
-              <ref role="37wK5l" to="tpcn:hEwILKz" resolve="findLinkDeclaration" />
-              <node concept="37vLTw" id="5j5ScoAXZqS" role="37wK5m">
-                <ref role="3cqZAo" node="56UUNV69Edl" resolve="role" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="P$JXv" id="5j5ScoAXYok" role="lGtFl">
-        <node concept="TZ5HA" id="5j5ScoAXYwF" role="TZ5H$">
-          <node concept="1dT_AC" id="5j5ScoAXYwG" role="1dT_Ay">
-            <property role="1dT_AB" value="use node" />
-          </node>
-          <node concept="2U$1Ah" id="5j5ScoAXYwH" role="1dT_Ay">
-            <property role="2U$1Ai" value="ACD" />
-          </node>
-          <node concept="1dT_AC" id="5j5ScoAXYwI" role="1dT_Ay">
-            <property role="1dT_AB" value=".finLinkDeclaration()" />
-          </node>
-          <node concept="1dT_AC" id="5j5ScoAXYwJ" role="1dT_Ay">
-            <property role="1dT_AB" value="" />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAXYon" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAXYpr" role="2AJF6D">
-        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-        <node concept="2B6LJw" id="5j5ScoAXYrG" role="2B76xF">
-          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-          <node concept="3b6qkQ" id="5j5ScoAXYwg" role="2B70Vg">
-            <property role="$nhwW" value="2018.1" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2YIFZL" id="56UUNV69EdY" role="jymVt">
-      <property role="TrG5h" value="getLinkDeclarations" />
-      <property role="DiZV1" value="false" />
-      <node concept="3Tm1VV" id="56UUNV69EdZ" role="1B3o_S" />
-      <node concept="3uibUv" id="56UUNV69Ee0" role="3clF45">
-        <ref role="3uigEE" to="33ny:~List" resolve="List" />
-        <node concept="3uibUv" id="56UUNV69Ee1" role="11_B2D">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="56UUNV69Ee2" role="3clF46">
-        <property role="TrG5h" value="concept" />
-        <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="56UUNV69Ee3" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="56UUNV69Ee4" role="3clF47">
-        <node concept="3clFbF" id="5j5ScoAXRF1" role="3cqZAp">
-          <node concept="2OqwBi" id="5j5ScoAXRZz" role="3clFbG">
-            <node concept="1PxgMI" id="5j5ScoAXRMN" role="2Oq$k0">
-              <node concept="chp4Y" id="5j5ScoAXRNg" role="3oSUPX">
-                <ref role="cht4Q" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-              </node>
-              <node concept="37vLTw" id="5j5ScoAXRF0" role="1m5AlR">
-                <ref role="3cqZAo" node="56UUNV69Ee2" resolve="concept" />
-              </node>
-            </node>
-            <node concept="2qgKlT" id="5j5ScoAXSe1" role="2OqNvi">
-              <ref role="37wK5l" to="tpcn:hEwILKK" resolve="getLinkDeclarations" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="P$JXv" id="5j5ScoAXSy1" role="lGtFl">
-        <node concept="TZ5HA" id="5j5ScoAXY4I" role="TZ5H$">
-          <node concept="1dT_AC" id="5j5ScoAXY4J" role="1dT_Ay">
-            <property role="1dT_AB" value="use node" />
-          </node>
-          <node concept="2U$1Ah" id="5j5ScoAXY67" role="1dT_Ay">
-            <property role="2U$1Ai" value="ACD" />
-          </node>
-          <node concept="1dT_AC" id="5j5ScoAXY66" role="1dT_Ay">
-            <property role="1dT_AB" value=".getLinkDeclarations()" />
-          </node>
-          <node concept="1dT_AC" id="5j5ScoAXY5t" role="1dT_Ay">
-            <property role="1dT_AB" value="" />
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAXSy4" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAXSCD" role="2AJF6D">
-        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-        <node concept="2B6LJw" id="5j5ScoAXXGo" role="2B76xF">
-          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-          <node concept="3b6qkQ" id="5j5ScoAXXKW" role="2B70Vg">
-            <property role="$nhwW" value="2018.1" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2YIFZL" id="56UUNV69EfA" role="jymVt">
-      <property role="TrG5h" value="getPropertyDeclarations" />
-      <property role="DiZV1" value="false" />
-      <node concept="3Tm1VV" id="56UUNV69EfB" role="1B3o_S" />
-      <node concept="3uibUv" id="56UUNV69EfC" role="3clF45">
-        <ref role="3uigEE" to="33ny:~List" resolve="List" />
-        <node concept="3uibUv" id="56UUNV69EfD" role="11_B2D">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="56UUNV69EfE" role="3clF46">
-        <property role="TrG5h" value="concept" />
-        <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="56UUNV69EfF" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="56UUNV69EfG" role="3clF47">
-        <node concept="3SKdUt" id="7viyBeYJRff" role="3cqZAp">
-          <node concept="1PaTwC" id="ATZLwXo5YM" role="3ndbpf">
-            <node concept="3oM_SD" id="ATZLwXo5YN" role="1PaTwD">
-              <property role="3oM_SC" value="uses" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXo5YO" role="1PaTwD">
-              <property role="3oM_SC" value="in" />
-            </node>
-            <node concept="3oM_SD" id="ATZLwXo5YP" role="1PaTwD">
-              <property role="3oM_SC" value="mbeddr" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="56UUNV69EfH" role="3cqZAp">
-          <node concept="2OqwBi" id="5j5ScoAYxHs" role="3cqZAk">
-            <node concept="1PxgMI" id="5j5ScoAYxwL" role="2Oq$k0">
-              <node concept="chp4Y" id="5j5ScoAYxwU" role="3oSUPX">
-                <ref role="cht4Q" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-              </node>
-              <node concept="37vLTw" id="5j5ScoAYxoM" role="1m5AlR">
-                <ref role="3cqZAo" node="56UUNV69EfE" resolve="concept" />
-              </node>
-            </node>
-            <node concept="2qgKlT" id="5j5ScoAYy8T" role="2OqNvi">
-              <ref role="37wK5l" to="tpcn:hEwILLM" resolve="getPropertyDeclarations" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAY0fX" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAY0hp" role="2AJF6D">
-        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-        <node concept="2B6LJw" id="5j5ScoAY0hq" role="2B76xF">
-          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-          <node concept="3b6qkQ" id="5j5ScoAY0hr" role="2B70Vg">
-            <property role="$nhwW" value="2018.1" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="2YIFZL" id="56UUNV69EfN" role="jymVt">
-      <property role="TrG5h" value="findPropertyDeclaration" />
-      <property role="DiZV1" value="false" />
-      <node concept="3Tm1VV" id="56UUNV69EfO" role="1B3o_S" />
-      <node concept="3uibUv" id="56UUNV69EfP" role="3clF45">
-        <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-      </node>
-      <node concept="37vLTG" id="56UUNV69EfQ" role="3clF46">
-        <property role="TrG5h" value="concept" />
-        <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="56UUNV69EfR" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
-        </node>
-      </node>
-      <node concept="37vLTG" id="56UUNV69EfS" role="3clF46">
-        <property role="TrG5h" value="propertyName" />
-        <property role="3TUv4t" value="false" />
-        <node concept="3uibUv" id="56UUNV69EfT" role="1tU5fm">
-          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
-        </node>
-      </node>
-      <node concept="3clFbS" id="56UUNV69EfU" role="3clF47">
-        <node concept="3clFbJ" id="56UUNV69EfV" role="3cqZAp">
-          <node concept="22lmx$" id="56UUNV69EfW" role="3clFbw">
-            <node concept="3clFbC" id="56UUNV69EfX" role="3uHU7B">
-              <node concept="37vLTw" id="2BHiRxglB5X" role="3uHU7B">
-                <ref role="3cqZAo" node="56UUNV69EfQ" resolve="concept" />
-              </node>
-              <node concept="10Nm6u" id="56UUNV69EfZ" role="3uHU7w" />
-            </node>
-            <node concept="3clFbC" id="56UUNV69Eg0" role="3uHU7w">
-              <node concept="37vLTw" id="2BHiRxgl1z_" role="3uHU7B">
-                <ref role="3cqZAo" node="56UUNV69EfS" resolve="propertyName" />
-              </node>
-              <node concept="10Nm6u" id="56UUNV69Eg2" role="3uHU7w" />
-            </node>
-          </node>
-          <node concept="3clFbS" id="56UUNV69Eg3" role="3clFbx">
-            <node concept="3cpWs6" id="56UUNV69Eg4" role="3cqZAp">
-              <node concept="10Nm6u" id="56UUNV69Eg5" role="3cqZAk" />
-            </node>
-          </node>
-        </node>
-        <node concept="3cpWs6" id="56UUNV69Eg6" role="3cqZAp">
-          <node concept="2OqwBi" id="5j5ScoAYzGv" role="3cqZAk">
-            <node concept="1PxgMI" id="5j5ScoAYzyv" role="2Oq$k0">
-              <node concept="chp4Y" id="5j5ScoAYzyC" role="3oSUPX">
-                <ref role="cht4Q" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
-              </node>
-              <node concept="37vLTw" id="5j5ScoAYzqt" role="1m5AlR">
-                <ref role="3cqZAo" node="56UUNV69EfQ" resolve="concept" />
-              </node>
-            </node>
-            <node concept="2qgKlT" id="5j5ScoAY$83" role="2OqNvi">
-              <ref role="37wK5l" to="tpcn:hK3S4A1" resolve="findPropertyDeclaration" />
-              <node concept="37vLTw" id="5j5ScoAY$iY" role="37wK5m">
-                <ref role="3cqZAo" node="56UUNV69EfS" resolve="propertyName" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="56UUNV69Egd" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAY0k0" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-      </node>
-      <node concept="2AHcQZ" id="5j5ScoAY0ll" role="2AJF6D">
-        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-        <node concept="2B6LJw" id="5j5ScoAY0lm" role="2B76xF">
-          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-          <node concept="3b6qkQ" id="5j5ScoAY0ln" role="2B70Vg">
-            <property role="$nhwW" value="2018.1" />
-          </node>
-        </node>
-      </node>
-    </node>
-    <node concept="3UR2Jj" id="5j5ScoAY05Q" role="lGtFl">
-      <node concept="TZ5HI" id="5j5ScoAY05R" role="3nqlJM">
-        <node concept="TZ5HA" id="5j5ScoAY05S" role="3HnX3l" />
-      </node>
-    </node>
-    <node concept="2AHcQZ" id="5j5ScoAY05T" role="2AJF6D">
-      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-    </node>
-    <node concept="2AHcQZ" id="5j5ScoAY06v" role="2AJF6D">
-      <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
-      <node concept="2B6LJw" id="5j5ScoAY07O" role="2B76xF">
-        <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
-        <node concept="3b6qkQ" id="5j5ScoAY0fM" role="2B70Vg">
-          <property role="$nhwW" value="2018.1" />
         </node>
       </node>
     </node>
@@ -1095,6 +760,13 @@
           <property role="1dT_AB" value="* Should be thread safe." />
         </node>
       </node>
+      <node concept="TZ5HI" id="5pJ0_ZVqnr4" role="3nqlJM">
+        <node concept="TZ5HA" id="5pJ0_ZVqnr5" role="3HnX3l">
+          <node concept="1dT_AC" id="5pJ0_ZVqnTp" role="1dT_Ay">
+            <property role="1dT_AB" value="uses outdated model listeners; complicated code with no justification for existence (does this caching saves anything?) " />
+          </node>
+        </node>
+      </node>
     </node>
     <node concept="Wx3nA" id="7mY9WXbe7BN" role="jymVt">
       <property role="TrG5h" value="keyProducer" />
@@ -1399,12 +1071,12 @@
               <node concept="1rXfSq" id="4hiugqyyYmm" role="10QFUP">
                 <ref role="37wK5l" to="8x9o:~AbstractCache.getDataSet(java.lang.String,jetbrains.mps.cache.AbstractCache$DataSetCreator)" resolve="getDataSet" />
                 <node concept="10M0yZ" id="7mY9WXbe7Fr" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets$ConceptsDataSet" resolve="Datasets.ConceptsDataSet" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets$ConceptsDataSet.ID" resolve="ID" />
+                  <ref role="1PxDUh" node="7mY9WXbe9ie" resolve="Datasets.ConceptsDataSet" />
+                  <ref role="3cqZAo" node="7mY9WXbe9ik" resolve="ID" />
                 </node>
-                <node concept="10M0yZ" id="7mY9WXbe7Fs" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets" resolve="Datasets" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets.CONCEPTS_CACHE_CREATOR" resolve="CONCEPTS_CACHE_CREATOR" />
+                <node concept="10M0yZ" id="6qmr$L1MY3R" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9B0" resolve="CONCEPTS_CACHE_CREATOR" />
+                  <ref role="1PxDUh" node="7mY9WXbe9if" resolve="Datasets" />
                 </node>
               </node>
               <node concept="3uibUv" id="7mY9WXbhlQa" role="10QFUM">
@@ -1445,23 +1117,23 @@
           <node concept="3cpWsn" id="7mY9WXbe7FD" role="3cpWs9">
             <property role="TrG5h" value="dataSet" />
             <property role="3TUv4t" value="false" />
-            <node concept="3uibUv" id="7mY9WXbe7FE" role="1tU5fm">
-              <ref role="3uigEE" to="k6ay:~Datasets$PropertyDeclarationsDataSet" resolve="Datasets.PropertyDeclarationsDataSet" />
+            <node concept="3uibUv" id="6qmr$L1N36Z" role="1tU5fm">
+              <ref role="3uigEE" node="7mY9WXbe9ig" resolve="Datasets.PropertyDeclarationsDataSet" />
             </node>
             <node concept="10QFUN" id="7mY9WXbe7FF" role="33vP2m">
               <node concept="1rXfSq" id="4hiugqyzf8I" role="10QFUP">
                 <ref role="37wK5l" to="8x9o:~AbstractCache.getDataSet(java.lang.String,jetbrains.mps.cache.AbstractCache$DataSetCreator)" resolve="getDataSet" />
-                <node concept="10M0yZ" id="7mY9WXbe7FH" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets$PropertyDeclarationsDataSet" resolve="Datasets.PropertyDeclarationsDataSet" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets$PropertyDeclarationsDataSet.ID" resolve="ID" />
+                <node concept="10M0yZ" id="6qmr$L1N8ih" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9l$" resolve="ID" />
+                  <ref role="1PxDUh" node="7mY9WXbe9ig" resolve="Datasets.PropertyDeclarationsDataSet" />
                 </node>
-                <node concept="10M0yZ" id="7mY9WXbe7FI" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets" resolve="Datasets" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets.PROPDECL_CACHE_CREATOR" resolve="PROPDECL_CACHE_CREATOR" />
+                <node concept="10M0yZ" id="6qmr$L1MJvb" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9Bh" resolve="PROPDECL_CACHE_CREATOR" />
+                  <ref role="1PxDUh" node="7mY9WXbe9if" resolve="Datasets" />
                 </node>
               </node>
-              <node concept="3uibUv" id="7mY9WXbe7FJ" role="10QFUM">
-                <ref role="3uigEE" to="k6ay:~Datasets$PropertyDeclarationsDataSet" resolve="Datasets.PropertyDeclarationsDataSet" />
+              <node concept="3uibUv" id="6qmr$L1MWR_" role="10QFUM">
+                <ref role="3uigEE" node="7mY9WXbe9ig" resolve="Datasets.PropertyDeclarationsDataSet" />
               </node>
             </node>
           </node>
@@ -1472,7 +1144,7 @@
               <ref role="3cqZAo" node="7mY9WXbe7FD" resolve="dataSet" />
             </node>
             <node concept="liA8E" id="7mY9WXbe7FN" role="2OqNvi">
-              <ref role="37wK5l" to="k6ay:~Datasets$PropertyDeclarationsDataSet.getPropertyDeclarationByName(java.lang.String)" resolve="getPropertyDeclarationByName" />
+              <ref role="37wK5l" node="7mY9WXbe9m8" resolve="getPropertyDeclarationByName" />
               <node concept="37vLTw" id="2BHiRxgmG4E" role="37wK5m">
                 <ref role="3cqZAo" node="7mY9WXbe7F_" resolve="name" />
               </node>
@@ -1497,23 +1169,23 @@
           <node concept="3cpWsn" id="7mY9WXbe7FV" role="3cpWs9">
             <property role="TrG5h" value="dataSet" />
             <property role="3TUv4t" value="false" />
-            <node concept="3uibUv" id="7mY9WXbe7FW" role="1tU5fm">
-              <ref role="3uigEE" to="k6ay:~Datasets$PropertyDeclarationsDataSet" resolve="Datasets.PropertyDeclarationsDataSet" />
+            <node concept="3uibUv" id="6qmr$L1N3Wr" role="1tU5fm">
+              <ref role="3uigEE" node="7mY9WXbe9ig" resolve="Datasets.PropertyDeclarationsDataSet" />
             </node>
             <node concept="10QFUN" id="7mY9WXbe7FX" role="33vP2m">
               <node concept="1rXfSq" id="4hiugqyyHUj" role="10QFUP">
                 <ref role="37wK5l" to="8x9o:~AbstractCache.getDataSet(java.lang.String,jetbrains.mps.cache.AbstractCache$DataSetCreator)" resolve="getDataSet" />
-                <node concept="10M0yZ" id="7mY9WXbe7FZ" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets$PropertyDeclarationsDataSet" resolve="Datasets.PropertyDeclarationsDataSet" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets$PropertyDeclarationsDataSet.ID" resolve="ID" />
+                <node concept="10M0yZ" id="6qmr$L1N7NK" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9l$" resolve="ID" />
+                  <ref role="1PxDUh" node="7mY9WXbe9ig" resolve="Datasets.PropertyDeclarationsDataSet" />
                 </node>
-                <node concept="10M0yZ" id="7mY9WXbe7G0" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets" resolve="Datasets" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets.PROPDECL_CACHE_CREATOR" resolve="PROPDECL_CACHE_CREATOR" />
+                <node concept="10M0yZ" id="6qmr$L1MJY$" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9Bh" resolve="PROPDECL_CACHE_CREATOR" />
+                  <ref role="1PxDUh" node="7mY9WXbe9if" resolve="Datasets" />
                 </node>
               </node>
-              <node concept="3uibUv" id="7mY9WXbe7G1" role="10QFUM">
-                <ref role="3uigEE" to="k6ay:~Datasets$PropertyDeclarationsDataSet" resolve="Datasets.PropertyDeclarationsDataSet" />
+              <node concept="3uibUv" id="6qmr$L1MVdb" role="10QFUM">
+                <ref role="3uigEE" node="7mY9WXbe9ig" resolve="Datasets.PropertyDeclarationsDataSet" />
               </node>
             </node>
           </node>
@@ -1524,7 +1196,7 @@
               <ref role="3cqZAo" node="7mY9WXbe7FV" resolve="dataSet" />
             </node>
             <node concept="liA8E" id="7mY9WXbe7G5" role="2OqNvi">
-              <ref role="37wK5l" to="k6ay:~Datasets$PropertyDeclarationsDataSet.getPropertyDeclarations()" resolve="getPropertyDeclarations" />
+              <ref role="37wK5l" node="7mY9WXbe9mo" resolve="getPropertyDeclarations" />
             </node>
           </node>
         </node>
@@ -1550,23 +1222,23 @@
           <node concept="3cpWsn" id="7mY9WXbe7Gd" role="3cpWs9">
             <property role="TrG5h" value="dataSet" />
             <property role="3TUv4t" value="false" />
-            <node concept="3uibUv" id="7mY9WXbe7Ge" role="1tU5fm">
-              <ref role="3uigEE" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
+            <node concept="3uibUv" id="6qmr$L1N4LL" role="1tU5fm">
+              <ref role="3uigEE" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
             </node>
             <node concept="10QFUN" id="7mY9WXbe7Gf" role="33vP2m">
               <node concept="1rXfSq" id="4hiugqyz8WJ" role="10QFUP">
                 <ref role="37wK5l" to="8x9o:~AbstractCache.getDataSet(java.lang.String,jetbrains.mps.cache.AbstractCache$DataSetCreator)" resolve="getDataSet" />
-                <node concept="10M0yZ" id="7mY9WXbe7Gh" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets$LinkDeclarationsDataSet.ID" resolve="ID" />
+                <node concept="10M0yZ" id="6qmr$L1N8Z_" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9qa" resolve="ID" />
+                  <ref role="1PxDUh" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
                 </node>
                 <node concept="10M0yZ" id="7mY9WXbe7Gi" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets" resolve="Datasets" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets.LINKDECL_CACHE_CREATOR" resolve="LINKDECL_CACHE_CREATOR" />
+                  <ref role="1PxDUh" node="7mY9WXbe9if" resolve="Datasets" />
+                  <ref role="3cqZAo" node="7mY9WXbe9By" resolve="LINKDECL_CACHE_CREATOR" />
                 </node>
               </node>
-              <node concept="3uibUv" id="7mY9WXbe7Gj" role="10QFUM">
-                <ref role="3uigEE" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
+              <node concept="3uibUv" id="6qmr$L1MVzS" role="10QFUM">
+                <ref role="3uigEE" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
               </node>
             </node>
           </node>
@@ -1577,7 +1249,7 @@
               <ref role="3cqZAo" node="7mY9WXbe7Gd" resolve="dataSet" />
             </node>
             <node concept="liA8E" id="7mY9WXbe7Gn" role="2OqNvi">
-              <ref role="37wK5l" to="k6ay:~Datasets$LinkDeclarationsDataSet.getLinkDeclarationByRole(java.lang.String)" resolve="getLinkDeclarationByRole" />
+              <ref role="37wK5l" node="7mY9WXbe9qO" resolve="getLinkDeclarationByRole" />
               <node concept="37vLTw" id="2BHiRxgmuaV" role="37wK5m">
                 <ref role="3cqZAo" node="7mY9WXbe7G9" resolve="role" />
               </node>
@@ -1606,23 +1278,23 @@
           <node concept="3cpWsn" id="7mY9WXbe7Gw" role="3cpWs9">
             <property role="TrG5h" value="dataSet" />
             <property role="3TUv4t" value="false" />
-            <node concept="3uibUv" id="7mY9WXbe7Gx" role="1tU5fm">
-              <ref role="3uigEE" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
+            <node concept="3uibUv" id="6qmr$L1N5vn" role="1tU5fm">
+              <ref role="3uigEE" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
             </node>
             <node concept="10QFUN" id="7mY9WXbe7Gy" role="33vP2m">
               <node concept="1rXfSq" id="4hiugqyz8wR" role="10QFUP">
                 <ref role="37wK5l" to="8x9o:~AbstractCache.getDataSet(java.lang.String,jetbrains.mps.cache.AbstractCache$DataSetCreator)" resolve="getDataSet" />
-                <node concept="10M0yZ" id="7mY9WXbe7G$" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets$LinkDeclarationsDataSet.ID" resolve="ID" />
+                <node concept="10M0yZ" id="6qmr$L1N9O$" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9qa" resolve="ID" />
+                  <ref role="1PxDUh" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
                 </node>
                 <node concept="10M0yZ" id="7mY9WXbe7G_" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets" resolve="Datasets" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets.LINKDECL_CACHE_CREATOR" resolve="LINKDECL_CACHE_CREATOR" />
+                  <ref role="1PxDUh" node="7mY9WXbe9if" resolve="Datasets" />
+                  <ref role="3cqZAo" node="7mY9WXbe9By" resolve="LINKDECL_CACHE_CREATOR" />
                 </node>
               </node>
-              <node concept="3uibUv" id="7mY9WXbe7GA" role="10QFUM">
-                <ref role="3uigEE" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
+              <node concept="3uibUv" id="6qmr$L1MW2i" role="10QFUM">
+                <ref role="3uigEE" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
               </node>
             </node>
           </node>
@@ -1633,7 +1305,7 @@
               <ref role="3cqZAo" node="7mY9WXbe7Gw" resolve="dataSet" />
             </node>
             <node concept="liA8E" id="7mY9WXbe7GE" role="2OqNvi">
-              <ref role="37wK5l" to="k6ay:~Datasets$LinkDeclarationsDataSet.getMostSpecificLinkDeclarationByRole(java.lang.String)" resolve="getMostSpecificLinkDeclarationByRole" />
+              <ref role="37wK5l" node="7mY9WXbe9r4" resolve="getMostSpecificLinkDeclarationByRole" />
               <node concept="37vLTw" id="2BHiRxglJXL" role="37wK5m">
                 <ref role="3cqZAo" node="7mY9WXbe7Gs" resolve="role" />
               </node>
@@ -1658,23 +1330,23 @@
           <node concept="3cpWsn" id="7mY9WXbe7GM" role="3cpWs9">
             <property role="TrG5h" value="dataSet" />
             <property role="3TUv4t" value="false" />
-            <node concept="3uibUv" id="7mY9WXbe7GN" role="1tU5fm">
-              <ref role="3uigEE" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
+            <node concept="3uibUv" id="6qmr$L1N6wn" role="1tU5fm">
+              <ref role="3uigEE" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
             </node>
             <node concept="10QFUN" id="7mY9WXbe7GO" role="33vP2m">
               <node concept="1rXfSq" id="4hiugqyyHT7" role="10QFUP">
                 <ref role="37wK5l" to="8x9o:~AbstractCache.getDataSet(java.lang.String,jetbrains.mps.cache.AbstractCache$DataSetCreator)" resolve="getDataSet" />
-                <node concept="10M0yZ" id="7mY9WXbe7GQ" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets$LinkDeclarationsDataSet.ID" resolve="ID" />
+                <node concept="10M0yZ" id="6qmr$L1MMml" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9qa" resolve="ID" />
+                  <ref role="1PxDUh" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
                 </node>
-                <node concept="10M0yZ" id="7mY9WXbe7GR" role="37wK5m">
-                  <ref role="1PxDUh" to="k6ay:~Datasets" resolve="Datasets" />
-                  <ref role="3cqZAo" to="k6ay:~Datasets.LINKDECL_CACHE_CREATOR" resolve="LINKDECL_CACHE_CREATOR" />
+                <node concept="10M0yZ" id="6qmr$L1MQlp" role="37wK5m">
+                  <ref role="3cqZAo" node="7mY9WXbe9By" resolve="LINKDECL_CACHE_CREATOR" />
+                  <ref role="1PxDUh" node="7mY9WXbe9if" resolve="Datasets" />
                 </node>
               </node>
-              <node concept="3uibUv" id="7mY9WXbe7GS" role="10QFUM">
-                <ref role="3uigEE" to="k6ay:~Datasets$LinkDeclarationsDataSet" resolve="Datasets.LinkDeclarationsDataSet" />
+              <node concept="3uibUv" id="6qmr$L1MWp5" role="10QFUM">
+                <ref role="3uigEE" node="7mY9WXbe9ih" resolve="Datasets.LinkDeclarationsDataSet" />
               </node>
             </node>
           </node>
@@ -1685,7 +1357,7 @@
               <ref role="3cqZAo" node="7mY9WXbe7GM" resolve="dataSet" />
             </node>
             <node concept="liA8E" id="7mY9WXbe7GW" role="2OqNvi">
-              <ref role="37wK5l" to="k6ay:~Datasets$LinkDeclarationsDataSet.getLinkDeclarationsExcludingOverridden()" resolve="getLinkDeclarationsExcludingOverridden" />
+              <ref role="37wK5l" node="7mY9WXbe9rH" resolve="getLinkDeclarationsExcludingOverridden" />
             </node>
           </node>
         </node>
@@ -1759,7 +1431,7 @@
                 </node>
               </node>
             </node>
-            <node concept="3uibUv" id="7mY9WXbe7C_" role="10QFUM">
+            <node concept="3uibUv" id="6qmr$L1N6kN" role="10QFUM">
               <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
             </node>
           </node>
@@ -1767,6 +1439,9 @@
       </node>
     </node>
     <node concept="3Tm1VV" id="14eTo0LYgy7" role="1B3o_S" />
+    <node concept="2AHcQZ" id="5pJ0_ZVqnr6" role="2AJF6D">
+      <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+    </node>
   </node>
   <node concept="312cEu" id="7mY9WXbe9if">
     <property role="TrG5h" value="Datasets" />
@@ -1778,7 +1453,7 @@
       <node concept="3uibUv" id="7mY9WXbe9B1" role="1tU5fm">
         <ref role="3uigEE" to="8x9o:~AbstractCache$DataSetCreator" resolve="AbstractCache.DataSetCreator" />
         <node concept="3uibUv" id="7mY9WXbe9B2" role="11_B2D">
-          <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+          <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
         </node>
       </node>
       <node concept="2ShNRf" id="7mY9WXbe9B3" role="33vP2m">
@@ -1789,7 +1464,7 @@
             <ref role="1Y3XeK" to="8x9o:~AbstractCache$DataSetCreator" resolve="AbstractCache.DataSetCreator" />
             <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
             <node concept="3uibUv" id="7mY9WXbe9B6" role="2Ghqu4">
-              <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+              <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
             </node>
             <node concept="3clFb_" id="7mY9WXbe9B7" role="jymVt">
               <property role="1EzhhJ" value="false" />
@@ -1803,7 +1478,7 @@
                 <property role="TrG5h" value="ownerCache" />
                 <property role="3TUv4t" value="false" />
                 <node concept="3uibUv" id="7mY9WXbe9Bb" role="1tU5fm">
-                  <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+                  <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
                 </node>
               </node>
               <node concept="3clFbS" id="7mY9WXbe9Bc" role="3clF47">
@@ -1832,7 +1507,7 @@
       <node concept="3uibUv" id="7mY9WXbe9Bi" role="1tU5fm">
         <ref role="3uigEE" to="8x9o:~AbstractCache$DataSetCreator" resolve="AbstractCache.DataSetCreator" />
         <node concept="3uibUv" id="7mY9WXbe9Bj" role="11_B2D">
-          <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+          <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
         </node>
       </node>
       <node concept="2ShNRf" id="7mY9WXbe9Bk" role="33vP2m">
@@ -1843,7 +1518,7 @@
             <ref role="1Y3XeK" to="8x9o:~AbstractCache$DataSetCreator" resolve="AbstractCache.DataSetCreator" />
             <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
             <node concept="3uibUv" id="7mY9WXbe9Bn" role="2Ghqu4">
-              <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+              <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
             </node>
             <node concept="3clFb_" id="7mY9WXbe9Bo" role="jymVt">
               <property role="1EzhhJ" value="false" />
@@ -1857,7 +1532,7 @@
                 <property role="TrG5h" value="ownerCache" />
                 <property role="3TUv4t" value="false" />
                 <node concept="3uibUv" id="7mY9WXbe9Bs" role="1tU5fm">
-                  <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+                  <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
                 </node>
               </node>
               <node concept="3clFbS" id="7mY9WXbe9Bt" role="3clF47">
@@ -1886,7 +1561,7 @@
       <node concept="3uibUv" id="7mY9WXbe9Bz" role="1tU5fm">
         <ref role="3uigEE" to="8x9o:~AbstractCache$DataSetCreator" resolve="AbstractCache.DataSetCreator" />
         <node concept="3uibUv" id="7mY9WXbe9B$" role="11_B2D">
-          <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+          <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
         </node>
       </node>
       <node concept="2ShNRf" id="7mY9WXbe9B_" role="33vP2m">
@@ -1897,7 +1572,7 @@
             <ref role="1Y3XeK" to="8x9o:~AbstractCache$DataSetCreator" resolve="AbstractCache.DataSetCreator" />
             <ref role="37wK5l" to="wyt6:~Object.&lt;init&gt;()" resolve="Object" />
             <node concept="3uibUv" id="7mY9WXbe9BC" role="2Ghqu4">
-              <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+              <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
             </node>
             <node concept="3clFb_" id="7mY9WXbe9BD" role="jymVt">
               <property role="1EzhhJ" value="false" />
@@ -1911,7 +1586,7 @@
                 <property role="TrG5h" value="ownerCache" />
                 <property role="3TUv4t" value="false" />
                 <node concept="3uibUv" id="7mY9WXbe9BH" role="1tU5fm">
-                  <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+                  <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
                 </node>
               </node>
               <node concept="3clFbS" id="7mY9WXbe9BI" role="3clF47">
@@ -2380,7 +2055,7 @@
           <property role="TrG5h" value="ownerCache" />
           <property role="3TUv4t" value="false" />
           <node concept="3uibUv" id="7mY9WXbe9iB" role="1tU5fm">
-            <ref role="3uigEE" to="k6ay:~ConceptAndSuperConceptsCache" resolve="ConceptAndSuperConceptsCache" />
+            <ref role="3uigEE" node="7mY9WXbe7BL" resolve="ConceptAndSuperConceptsCache" />
           </node>
         </node>
         <node concept="3clFbS" id="7mY9WXbe9iC" role="3clF47">
@@ -2407,7 +2082,7 @@
                   <ref role="3cqZAo" node="7mY9WXbe9iA" resolve="ownerCache" />
                 </node>
                 <node concept="liA8E" id="7mY9WXbe9iM" role="2OqNvi">
-                  <ref role="37wK5l" to="k6ay:~ConceptAndSuperConceptsCache.getTopConcept()" resolve="getTopConcept" />
+                  <ref role="37wK5l" node="7mY9WXbe7Fb" resolve="getTopConcept" />
                 </node>
               </node>
             </node>

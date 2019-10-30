@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2015 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +15,10 @@
  */
 package jetbrains.mps.smodel;
 
-import jetbrains.mps.smodel.search.SModelSearchUtil;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /**
  * Wrap of SNode with methods utilized by legacy code.
@@ -41,27 +41,13 @@ public final class SNodeLegacy {
     return myNode.getConcept().getDeclarationNode();
   }
 
-  public org.jetbrains.mps.openapi.model.SNode getPropertyDeclaration(String propertyName) {
-    LogManager.getLogger(getClass()).error("SNodeLegacy class is scheduled for removal, refactor your code", new Throwable());
-    return SModelSearchUtil.findPropertyDeclaration(getConceptDeclarationNode(), propertyName);
-  }
-
-  //--------private-------
-
-  public org.jetbrains.mps.openapi.model.SNode getLinkDeclaration(String role) {
-    LogManager.getLogger(getClass()).error("SNodeLegacy class is scheduled for removal, refactor your code", new Throwable());
-    return SModelSearchUtil.findLinkDeclaration(getConceptDeclarationNode(), role);
-  }
-
   public org.jetbrains.mps.openapi.model.SNode getRoleLink() {
-    final String roleInParent = myNode.getRoleInParent();
+    // uses in mbeddr, de.slisson.mps.tables
+    final SContainmentLink roleInParent = myNode.getContainmentLink();
     if (roleInParent == null) {
       return null;
     }
-    final SNode parent = myNode.getParent();
-    if (parent == null) {
-      return null;
-    }
-    return new SNodeLegacy(parent).getLinkDeclaration(roleInParent);
+    LogManager.getLogger(getClass()).error("SNodeLegacy class is scheduled for removal, refactor your code", new Throwable());
+    return roleInParent.getDeclarationNode();
   }
 }

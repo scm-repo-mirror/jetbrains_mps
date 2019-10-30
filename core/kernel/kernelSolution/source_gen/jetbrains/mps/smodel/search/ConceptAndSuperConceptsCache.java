@@ -17,7 +17,10 @@ import java.util.List;
 
 /**
  * * Should be thread safe.
+ * 
+ * @deprecated uses outdated model listeners; complicated code with no justification for existence (does this caching saves anything?) 
  */
+@Deprecated
 @GeneratedClass(node = "r:22db907b-8239-4180-8797-e91cea0b9573(jetbrains.mps.smodel.search)/8484262519286299121", model = "r:22db907b-8239-4180-8797-e91cea0b9573(jetbrains.mps.smodel.search)")
 public class ConceptAndSuperConceptsCache extends AbstractCache {
   private static final KeyProducer keyProducer = new KeyProducer();
@@ -30,6 +33,7 @@ public class ConceptAndSuperConceptsCache extends AbstractCache {
   };
   @NotNull
   private SNode myTopConcept;
+  @Deprecated
   protected ConceptAndSuperConceptsCache(Object key, SNode topConcept) {
     super(key);
     myTopConcept = topConcept;
