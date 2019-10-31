@@ -66,7 +66,8 @@ public class DiffEditor implements EditorMessageOwner {
     });
 
     myTopComponent = new JPanel(new BorderLayout());
-    myTitle = new JLabel(contentTitle);
+    myTitle = new JLabel();
+    setTitle(contentTitle);
     myTitle.setToolTipText(contentTitle);
     myTopComponent.add(myTitle, BorderLayout.NORTH);
     myTopComponent.add(myMainEditorComponent.getExternalComponent(), BorderLayout.CENTER);
@@ -74,7 +75,7 @@ public class DiffEditor implements EditorMessageOwner {
   }
 
   public void setTitle(String title) {
-    myTitle.setText(title);
+    myTitle.setText(((title == null || title.length() == 0) ? " " : title));
   }
 
   public SNode getEditedNode() {
