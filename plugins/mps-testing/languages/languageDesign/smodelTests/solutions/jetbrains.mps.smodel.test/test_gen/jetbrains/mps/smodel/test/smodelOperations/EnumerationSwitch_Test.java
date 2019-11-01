@@ -11,12 +11,17 @@ import jetbrains.mps.lang.test.runtime.RunWithCommand;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
+import junit.framework.Assert;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
 import jetbrains.mps.lang.test.runtime.CheckTypesAction;
+import org.jetbrains.mps.openapi.language.SEnumerationLiteral;
+import jetbrains.mps.lang.smodel.EnumerationLiteralsIndex;
 
 @MPSLaunch
 public class EnumerationSwitch_Test extends BaseTransformationTest {
@@ -29,6 +34,22 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
     super(ourParamCache);
   }
 
+  @Test
+  public void test_switchInStatement() throws Throwable {
+    new TestBody(this).test_switchInStatement();
+  }
+  @Test
+  public void test_switchInReturn() throws Throwable {
+    new TestBody(this).test_switchInReturn();
+  }
+  @Test
+  public void test_switchInAssignment() throws Throwable {
+    new TestBody(this).test_switchInAssignment();
+  }
+  @Test
+  public void test_switchInLVD() throws Throwable {
+    new TestBody(this).test_switchInLVD();
+  }
   @Test
   public void test_ErrorMessagesCheck7978163097786003032() throws Throwable {
     new TestBody(this).test_ErrorMessagesCheck7978163097786003032();
@@ -64,6 +85,78 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       super(owner);
     }
 
+    public void test_switchInStatement() throws Exception {
+      addNodeById("7978163097785993303");
+      addNodeById("7978163097786003045");
+      addNodeById("2877673685762481368");
+      addNodeById("2877673685762709492");
+      addNodeById("2877673685762713705");
+      addNodeById("2877673685762489194");
+      addNodeById("2877673685762690939");
+      Assert.assertEquals(this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+      Assert.assertEquals(this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+      Assert.assertEquals(this.testSwitchInStatement(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+      try {
+        this.testSwitchInStatement(null);
+        Assert.fail("null");
+      } catch (IllegalArgumentException e) {
+        // expected exception 
+      }
+    }
+    public void test_switchInReturn() throws Exception {
+      addNodeById("7978163097785993303");
+      addNodeById("7978163097786003045");
+      addNodeById("2877673685762481368");
+      addNodeById("2877673685762709492");
+      addNodeById("2877673685762713705");
+      addNodeById("2877673685762489194");
+      addNodeById("2877673685762690939");
+      Assert.assertEquals(this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+      Assert.assertEquals(this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+      Assert.assertEquals(this.testSwitchInReturn(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+      try {
+        this.testSwitchInReturn(null);
+        Assert.fail("null");
+      } catch (IllegalArgumentException e) {
+        // expected exception 
+      }
+    }
+    public void test_switchInAssignment() throws Exception {
+      addNodeById("7978163097785993303");
+      addNodeById("7978163097786003045");
+      addNodeById("2877673685762481368");
+      addNodeById("2877673685762709492");
+      addNodeById("2877673685762713705");
+      addNodeById("2877673685762489194");
+      addNodeById("2877673685762690939");
+      Assert.assertEquals(this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+      Assert.assertEquals(this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+      Assert.assertEquals(this.testSwitchInAssignment(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+      try {
+        this.testSwitchInAssignment(null);
+        Assert.fail("null");
+      } catch (IllegalArgumentException e) {
+        // expected exception 
+      }
+    }
+    public void test_switchInLVD() throws Exception {
+      addNodeById("7978163097785993303");
+      addNodeById("7978163097786003045");
+      addNodeById("2877673685762481368");
+      addNodeById("2877673685762709492");
+      addNodeById("2877673685762713705");
+      addNodeById("2877673685762489194");
+      addNodeById("2877673685762690939");
+      Assert.assertEquals(this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c113L, "option1")), 2);
+      Assert.assertEquals(this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c114L, "option2")), 4);
+      Assert.assertEquals(this.testSwitchInLVD(SEnumOperations.getMember(MetaAdapterFactory.getEnumeration(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, "jetbrains.mps.lang.smodelTests.structure.TestEnum_Switch"), 0x6eb821113ba9c117L, "option3")), 3);
+      try {
+        this.testSwitchInLVD(null);
+        Assert.fail("null");
+      } catch (IllegalArgumentException e) {
+        // expected exception 
+      }
+    }
 
     public void test_ErrorMessagesCheck7978163097786003032() throws Exception {
       SNode nodeToCheck = getRealNodeById("7978163097785996348");
@@ -105,5 +198,87 @@ public class EnumerationSwitch_Test extends BaseTransformationTest {
       new CheckTypesAction.CheckComputedType(nodeToCheck).checkTypeIs(getNodeById("2877673685762770626"));
     }
 
+    public int testSwitchInStatement(SEnumerationLiteral testMember) {
+      int x = 0;
+      switch (enumSwitchIndex_cs17f_a0b0q71.indexNullable(testMember)) {
+        case 0:
+          x = 1;
+          break;
+        case 1:
+          x = 2;
+          break;
+        case 2:
+          return 3;
+        default:
+          throw new IllegalArgumentException("null");
+      }
+      return x * 2;
+    }
+    public int testSwitchInReturn(SEnumerationLiteral testMember) {
+      switch (enumSwitchIndex_cs17f_a0a0r71.indexNullable(testMember)) {
+        case 0:
+          return 2;
+        case 1:
+          return 4;
+        case 2:
+          return 3;
+        default:
+          throw new IllegalArgumentException("null");
+      }
+    }
+    public int testSwitchInAssignment(SEnumerationLiteral testMember) {
+      int i;
+      switch (enumSwitchIndex_cs17f_a0b0s71.indexNullable(testMember)) {
+        case 0:
+          i = 1;
+          break;
+        case 1:
+          i = 2;
+          break;
+        case 2:
+          return 3;
+        default:
+          throw new IllegalArgumentException("null");
+      }
+      return i * 2;
+    }
+    public int testSwitchInLVD(SEnumerationLiteral testMember) {
+      int i;
+      switch (enumSwitchIndex_cs17f_a0b0t71.indexNullable(testMember)) {
+        case 0:
+          i = 1;
+          break;
+        case 1:
+          i = 2;
+          break;
+        case 2:
+          return 3;
+        default:
+          throw new IllegalArgumentException("null");
+      }
+      return i * 2;
+    }
+    public int testNonExhaustive(SEnumerationLiteral testMember) {
+      switch (enumSwitchIndex_cs17f_a0a0u71.indexNullable(testMember)) {
+        case 0:
+          return 1;
+        default:
+          return -1;
+      }
+    }
+    public int testNonExhaustiveDefault(SEnumerationLiteral testMember) {
+      switch (enumSwitchIndex_cs17f_a0a0v71.indexNullable(testMember)) {
+        case 0:
+          return 1;
+        default:
+          return 0;
+      }
+    }
   }
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0q71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0r71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0s71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0b0t71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L, 0x6eb821113ba9c114L, 0x6eb821113ba9c117L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0u71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L);
+  private static final EnumerationLiteralsIndex enumSwitchIndex_cs17f_a0a0v71 = EnumerationLiteralsIndex.build(0xb02ae39f4c164545L, 0x8dfa88df16804e7eL, 0x6eb821113ba9c112L, 0x6eb821113ba9c113L);
 }
