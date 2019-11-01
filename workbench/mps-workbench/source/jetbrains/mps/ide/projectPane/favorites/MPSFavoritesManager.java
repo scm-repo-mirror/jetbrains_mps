@@ -15,17 +15,15 @@
  */
 package jetbrains.mps.ide.projectPane.favorites;
 
+import com.intellij.ide.favoritesTreeView.FavoriteNodeProvider;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
 import com.intellij.openapi.components.StoragePathMacros;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.DefaultJDOMExternalizer;
-import com.intellij.openapi.util.InvalidDataException;
-import com.intellij.openapi.util.JDOMExternalizable;
-import com.intellij.openapi.util.WriteExternalException;
 import com.intellij.util.ArrayUtil;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -41,6 +39,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @deprecated It is not used anymore. Use {@link FavoriteNodeProvider} instead.
+ */
+@Deprecated
+@ToRemove(version = 2019.3)
 @State(
     name = "FavoritesManager",
     storages = @Storage(StoragePathMacros.WORKSPACE_FILE)
@@ -54,12 +57,6 @@ public class MPSFavoritesManager implements ProjectComponent, PersistentStateCom
   private final Map<String, List<Object>> myName2FavoritesRoots = new LinkedHashMap<>();
   private final Project myProject;
   private List<MPSFavoritesListener> myListeners = new ArrayList<>();
-
-  // Do not delete this attribute!!
-  // It was added here to save at least some information into XML element inside writeExternal() method.
-  // Without this HACK new IDEA platform will remove misc.xml file (nothing to save there)
-  // and later fail with the exception: misc.xml file not found.
-  public boolean keepMe = true;
 
   public interface MPSFavoritesListener {
     void rootsChanged(String listName);

@@ -25,7 +25,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
 
   public void createGroups() {
     // actions w/o parameters 
-    addAction(new AddToNewFavoritesList_Action());
     addAction(new AnalyzeModuleDependencies_Action());
     addAction(new AnalyzeStacktrace_Action());
     addAction(new CalcClassifiersInRootsStatistic_Action());
@@ -41,7 +40,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new CopyNodeReference_Action());
     addAction(new CopyNode_Action());
     addAction(new CutNode_Action());
-    addAction(new DeleteFavoritesList_Action());
     addAction(new DeleteModules_Action());
     addAction(new DeleteNode_Action());
     addAction(new DeletePropertyAction_Action());
@@ -83,9 +81,7 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new PasteNode_Action());
     addAction(new PrintNodePosition_Action());
     addAction(new RemoveAllBookmarks_Action());
-    addAction(new RemoveFromFavorites_Action());
     addAction(new RemoveTransientModels_Action());
-    addAction(new RenameFavoritesList_Action());
     addAction(new RenameFileOrDirectory_Action());
     addAction(new RenameModel_Action());
     addAction(new RenameModule_Action());
@@ -116,7 +112,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new SubmitToTracker_Action());
     // groups 
     addGroup(new AbstractFileActions_ActionGroup(this));
-    addGroup(new AddToFavoritesGroup_ActionGroup(this));
     addGroup(new AnalyzeModule_ActionGroup(this));
     addGroup(new Analyze_ActionGroup(this));
     addGroup(new BehaviourPopup_ActionGroup(this));
@@ -132,8 +127,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     addGroup(new EditorInternal_ActionGroup(this));
     addGroup(new EditorPopupEx_ActionGroup(this));
     addGroup(new EditorPopup_Show_ActionGroup(this));
-    addGroup(new FavoritesPopupWrapper_ActionGroup(this));
-    addGroup(new FavoritesPopup_ActionGroup(this));
     addGroup(new Favorites_ActionGroup(this));
     addGroup(new FileActions_ActionGroup(this));
     addGroup(new FileSystemNewActions_ActionGroup(this));
@@ -207,7 +200,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     insertInterfaceGroupIntoAnother("jetbrains.mps.ide.platform.actions.NodeRefactoring_ActionGroup", NodeActions_ActionGroup.ID, NodeActions_ActionGroup.LABEL_ID_refactoring);
   }
   public void adjustRegularGroups() {
-    insertGroupIntoAnother(FavoritesPopup_ActionGroup.ID, FavoritesPopupWrapper_ActionGroup.ID, null);
     insertGroupIntoAnother(AnalyzeModule_ActionGroup.ID, CommonModuleActions_ActionGroup.ID, CommonModuleActions_ActionGroup.LABEL_ID_analyze);
     insertGroupIntoAnother(Bookmarks_ActionGroup.ID, "EditMenu", null);
     insertGroupIntoAnother(Build_ActionGroup.ID, "BuildMenu", null);
@@ -258,7 +250,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(EditorPopup_Show_ActionGroup.ID, "EditorPopup_ActionGroupshowIn", null);
     insertGroupIntoAnother(EditorPopupEx_ActionGroup.ID, "EditorPopup_ActionGroupnew", null);
     insertGroupIntoAnother(FindModelUsages_ActionGroup.ID, ModelActions_ActionGroup.ID, ModelActions_ActionGroup.LABEL_ID_modelUsages);
-    insertGroupIntoAnother(AddToFavoritesGroup_ActionGroup.ID, FavoritesPopup_ActionGroup.ID, FavoritesPopup_ActionGroup.LABEL_ID_addToFavorites);
     insertGroupIntoAnother(TouchBarDefault_alt_ActionGroup.ID, "TouchBarDefault_alt", null);
     insertGroupIntoAnother(TouchBarDefault_cmd_ActionGroup.ID, "TouchBarDefault_cmd", null);
     insertGroupIntoAnother(TouchBarDefault_cmd_alt_ActionGroup.ID, "TouchBarDefault_cmd.alt", null);
@@ -272,7 +263,6 @@ public class Ide_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(NamespaceMakeActions_ActionGroup.ID, FlyingActions_ActionGroup.ID, null);
     insertGroupIntoAnother(PrintNodePosition_Addition_ActionGroup.ID, EditorInternal_ActionGroup.ID, null);
     insertGroupIntoAnother(Search_ActionGroup.ID, "FindMenuGroup", null);
-    insertGroupIntoAnother(FavoritesPopupWrapper_ActionGroup.ID, Favorites_ActionGroup.ID, Favorites_ActionGroup.LABEL_ID_popup);
     insertGroupIntoAnother(Favorites_ActionGroup.ID, CommonModuleActions_ActionGroup.ID, CommonModuleActions_ActionGroup.LABEL_ID_favorites);
     insertGroupIntoAnother(Favorites_ActionGroup.ID, ModelActions_ActionGroup.ID, ModelActions_ActionGroup.LABEL_ID_favorites);
     insertGroupIntoAnother(Favorites_ActionGroup.ID, NodeActions_ActionGroup.ID, NodeActions_ActionGroup.LABEL_ID_favorites);

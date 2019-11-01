@@ -15,11 +15,13 @@
  */
 package jetbrains.mps.ide.projectPane.favorites;
 
+import com.intellij.ide.favoritesTreeView.FavoriteNodeProvider;
 import jetbrains.mps.extapi.model.TransientSModel;
 import jetbrains.mps.extapi.module.TransientSModule;
 import jetbrains.mps.ide.ui.tree.module.ProjectModuleTreeNode;
 import jetbrains.mps.ide.ui.tree.smodel.SModelTreeNode;
 import jetbrains.mps.ide.ui.tree.smodel.SNodeTreeNode;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -34,7 +36,11 @@ import java.util.List;
  * Configurable to filter out particular elements (e.g. coming from transient models)
  * @author Artem Tikhomirov
  * @since 3.4
+ *
+ * @deprecated It is not used anymore. Use {@link FavoriteNodeProvider} instead.
  */
+@Deprecated
+@ToRemove(version = 2019.3)
 public class TreeNodeValueExtractor {
   private boolean myAcceptTransients = false;
 

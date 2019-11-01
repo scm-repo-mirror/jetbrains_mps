@@ -6,35 +6,16 @@ import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.plugins.actions.GeneratedActionGroup;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.workbench.action.ApplicationPlugin;
-import jetbrains.mps.plugins.actions.LabelledAnchor;
-import com.intellij.openapi.actionSystem.ex.ActionManagerEx;
-import com.intellij.openapi.extensions.PluginId;
+import com.intellij.openapi.actionSystem.ActionManager;
 
 @GeneratedClass(node = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)/8243555296290550439", model = "r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)")
 public class Favorites_ActionGroup extends GeneratedActionGroup {
   public static final String ID = "jetbrains.mps.ide.actions.Favorites_ActionGroup";
-  public static final String LABEL_ID_generate = ID + "generate";
-  public static final String LABEL_ID_popup = ID + "popup";
 
   public Favorites_ActionGroup(@Nullable ApplicationPlugin plugin) {
     super("Favorites", ID, plugin);
     setIsInternal(false);
     setPopup(false);
-    {
-      LabelledAnchor action = new LabelledAnchor(Favorites_ActionGroup.LABEL_ID_generate);
-      ActionManagerEx manager = ActionManagerEx.getInstanceEx();
-      manager.registerAction(action.getId(), action, PluginId.getId("jetbrains.mps.ide"));
-      Favorites_ActionGroup.this.addAction(action);
-    }
-    Favorites_ActionGroup.this.addSeparator();
-    Favorites_ActionGroup.this.addAction("jetbrains.mps.ide.actions.RenameFavoritesList_Action");
-    Favorites_ActionGroup.this.addAction("jetbrains.mps.ide.actions.RemoveFromFavorites_Action");
-    Favorites_ActionGroup.this.addAction("jetbrains.mps.ide.actions.DeleteFavoritesList_Action");
-    {
-      LabelledAnchor action = new LabelledAnchor(Favorites_ActionGroup.LABEL_ID_popup);
-      ActionManagerEx manager = ActionManagerEx.getInstanceEx();
-      manager.registerAction(action.getId(), action, PluginId.getId("jetbrains.mps.ide"));
-      Favorites_ActionGroup.this.addAction(action);
-    }
+    Favorites_ActionGroup.this.addAction(ActionManager.getInstance().getAction("AddToFavorites"));
   }
 }

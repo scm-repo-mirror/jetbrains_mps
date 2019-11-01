@@ -15,10 +15,17 @@
  */
 package jetbrains.mps.ide.projectPane.favorites;
 
+import com.intellij.ide.favoritesTreeView.FavoriteNodeProvider;
 import com.intellij.ide.projectView.ProjectView;
 import com.intellij.ide.projectView.impl.AbstractProjectViewPane;
 import com.intellij.openapi.project.Project;
+import jetbrains.mps.util.annotation.ToRemove;
 
+/**
+ * @deprecated It is not used anymore. Use {@link FavoriteNodeProvider} instead.
+ */
+@Deprecated
+@ToRemove(version = 2019.3)
 public class FavoritesUtil {
   public static FavoritesProjectPane getCurrentPane(Project project) {
     if (project == null) return null;

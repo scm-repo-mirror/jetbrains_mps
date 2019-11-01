@@ -15,24 +15,24 @@
  */
 package jetbrains.mps.ide.projectPane.favorites.root;
 
+import com.intellij.ide.favoritesTreeView.FavoriteNodeProvider;
 import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.project.Project;
 import jetbrains.mps.util.annotation.ToRemove;
-import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
-import org.jetbrains.mps.openapi.model.SNodeReference;
-import org.jetbrains.mps.openapi.module.SModuleReference;
 
 import java.util.List;
 
+/**
+ * @deprecated It is not used anymore. Use {@link FavoriteNodeProvider} instead.
+ */
+@Deprecated
+@ToRemove(version = 2019.3)
 public abstract class FavoritesRoot<T> {
   protected final Project myProject;
   private T myValue;
 
   public static FavoritesRoot createForValue(Project project, Object value) {
-    if (value instanceof SNodeReference) return new NodeFavoritesRoot(project, (SNodeReference) value);
-    if (value instanceof SModelReference) return new ModelFavoritesRoot(project, (SModelReference) value);
-    if (value instanceof SModuleReference) return new ModuleFavoritesRoot(project, (SModuleReference) value);
     return null;
   }
 

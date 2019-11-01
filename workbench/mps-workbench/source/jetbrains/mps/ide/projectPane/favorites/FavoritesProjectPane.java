@@ -17,6 +17,7 @@ package jetbrains.mps.ide.projectPane.favorites;
 
 import com.intellij.icons.AllIcons.Toolwindows;
 import com.intellij.ide.SelectInTarget;
+import com.intellij.ide.favoritesTreeView.FavoriteNodeProvider;
 import com.intellij.ide.projectView.ProjectView;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionPlaces;
@@ -39,6 +40,7 @@ import jetbrains.mps.ide.ui.tree.MPSTreeNode;
 import jetbrains.mps.ide.ui.tree.TextTreeNode;
 import jetbrains.mps.ide.ui.tree.smodel.NodeTargetProvider;
 import jetbrains.mps.openapi.navigation.EditorNavigator;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNodeReference;
@@ -51,6 +53,11 @@ import javax.swing.tree.TreeNode;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @deprecated It is not used anymore. Use {@link FavoriteNodeProvider} instead.
+ */
+@Deprecated
+@ToRemove(version = 2019.3)
 public class FavoritesProjectPane extends BaseLogicalViewProjectPane {
   public static final String ID = "Favorites";
   private MPSFavoritesManager myFavoritesManager;

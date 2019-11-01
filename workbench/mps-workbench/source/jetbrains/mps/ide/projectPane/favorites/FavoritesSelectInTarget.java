@@ -16,14 +16,21 @@
 package jetbrains.mps.ide.projectPane.favorites;
 
 import com.intellij.ide.SelectInContext;
+import com.intellij.ide.favoritesTreeView.FavoriteNodeProvider;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import jetbrains.mps.ide.projectPane.AbstractProjectViewSelectInTarget;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 
 import java.util.List;
 
+/**
+ * @deprecated It is not used anymore. Use {@link FavoriteNodeProvider} instead.
+ */
+@Deprecated
+@ToRemove(version = 2019.3)
 public class FavoritesSelectInTarget extends AbstractProjectViewSelectInTarget {
   private final FavoritesProjectPane myFavoritesPane;
 
