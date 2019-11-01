@@ -185,6 +185,9 @@
       <concept id="1167756080639" name="jetbrains.mps.lang.generator.structure.PropertyMacro_GetPropertyValue" flags="in" index="3zFVjK" />
       <concept id="1167770111131" name="jetbrains.mps.lang.generator.structure.ReferenceMacro_GetReferent" flags="in" index="3$xsQk" />
       <concept id="1167945743726" name="jetbrains.mps.lang.generator.structure.IfMacro_Condition" flags="in" index="3IZrLx" />
+      <concept id="8900764248744213868" name="jetbrains.mps.lang.generator.structure.InlineTemplateWithContext_RuleConsequence" flags="lg" index="1Koe21">
+        <child id="8900764248744213871" name="contentNode" index="1Koe22" />
+      </concept>
       <concept id="1168024337012" name="jetbrains.mps.lang.generator.structure.SourceSubstituteMacro_SourceNodeQuery" flags="in" index="3NFfHV" />
       <concept id="1118773211870" name="jetbrains.mps.lang.generator.structure.IfMacro" flags="ln" index="1W57fq">
         <child id="1194989344771" name="alternativeConsequence" index="UU_$l" />
@@ -888,15 +891,32 @@
               </node>
             </node>
           </node>
-          <node concept="gft3U" id="1eJUWaJfCQf" role="150oIE">
-            <node concept="3clFbF" id="1eJUWaJfCQg" role="gfFT$">
-              <node concept="37vLTI" id="1eJUWaJfCQh" role="3clFbG">
-                <node concept="33vP2n" id="1eJUWaJfCQi" role="37vLTJ">
-                  <node concept="5jKBG" id="za$VMvkOS1" role="lGtFl">
-                    <ref role="v9R2y" node="i09H96F" resolve="MathSymbolResultReference" />
+          <node concept="1Koe21" id="2mrwa9l1jXZ" role="150oIE">
+            <node concept="9aQIb" id="2mrwa9l1k2N" role="1Koe22">
+              <node concept="3clFbS" id="2mrwa9l1k2O" role="9aQI4">
+                <node concept="3cpWs8" id="2mrwa9l1k2P" role="3cqZAp">
+                  <node concept="3cpWsn" id="2mrwa9l1k2Q" role="3cpWs9">
+                    <property role="TrG5h" value="o" />
+                    <node concept="3uibUv" id="2mrwa9l1k2R" role="1tU5fm">
+                      <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+                    </node>
+                    <node concept="Xl_RD" id="2mrwa9l1k2S" role="33vP2m">
+                      <property role="Xl_RC" value="" />
+                    </node>
                   </node>
                 </node>
-                <node concept="10Nm6u" id="1eJUWaJfCQA" role="37vLTx" />
+                <node concept="3clFbF" id="2mrwa9l1k2T" role="3cqZAp">
+                  <node concept="37vLTI" id="2mrwa9l1k2U" role="3clFbG">
+                    <node concept="10Nm6u" id="2mrwa9l1k2V" role="37vLTx" />
+                    <node concept="37vLTw" id="2mrwa9l1k2W" role="37vLTJ">
+                      <ref role="3cqZAo" node="2mrwa9l1k2Q" resolve="o" />
+                      <node concept="5jKBG" id="2mrwa9l1k2Y" role="lGtFl">
+                        <ref role="v9R2y" node="i09H96F" resolve="MathSymbolResultReference" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="raruj" id="2mrwa9lga3U" role="lGtFl" />
+                </node>
               </node>
             </node>
           </node>
@@ -911,10 +931,10 @@
               </node>
               <node concept="10QFUN" id="1eJUWaJfC$7" role="37vLTx">
                 <node concept="3SilvC" id="1eJUWaJfC$8" role="10QFUM">
-                  <property role="TrG5h" value="b1" />
-                  <node concept="29HgVG" id="1eJUWaJfC$9" role="lGtFl">
-                    <node concept="3NFfHV" id="1eJUWaJfC$a" role="3NFExx">
-                      <node concept="3clFbS" id="1eJUWaJfC$b" role="2VODD2">
+                  <property role="TrG5h" value="int" />
+                  <node concept="29HgVG" id="2mrwa9lgHl1" role="lGtFl">
+                    <node concept="3NFfHV" id="2mrwa9lgHl2" role="3NFExx">
+                      <node concept="3clFbS" id="2mrwa9lgHl3" role="2VODD2">
                         <node concept="3clFbF" id="1eJUWaJfC$c" role="3cqZAp">
                           <node concept="2OqwBi" id="1eJUWaJfC$d" role="3clFbG">
                             <node concept="2OqwBi" id="1eJUWaJfC$e" role="2Oq$k0">
@@ -960,15 +980,32 @@
               </node>
             </node>
           </node>
-          <node concept="gft3U" id="1eJUWaJfCQY" role="150oIE">
-            <node concept="3clFbF" id="1eJUWaJfCQZ" role="gfFT$">
-              <node concept="37vLTI" id="1eJUWaJfCR0" role="3clFbG">
-                <node concept="33vP2n" id="1eJUWaJfCR1" role="37vLTJ">
-                  <node concept="5jKBG" id="za$VMvkOS3" role="lGtFl">
-                    <ref role="v9R2y" node="i09H96F" resolve="MathSymbolResultReference" />
+          <node concept="1Koe21" id="2mrwa9l1jEL" role="150oIE">
+            <node concept="9aQIb" id="2mrwa9l1jJ_" role="1Koe22">
+              <node concept="3clFbS" id="2mrwa9l1jJA" role="9aQI4">
+                <node concept="3cpWs8" id="2mrwa9l1jKg" role="3cqZAp">
+                  <node concept="3cpWsn" id="2mrwa9l1jKh" role="3cpWs9">
+                    <property role="TrG5h" value="o" />
+                    <node concept="3uibUv" id="2mrwa9l1jKi" role="1tU5fm">
+                      <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+                    </node>
+                    <node concept="Xl_RD" id="2mrwa9l1jKD" role="33vP2m">
+                      <property role="Xl_RC" value="" />
+                    </node>
                   </node>
                 </node>
-                <node concept="10Nm6u" id="1eJUWaJfCRf" role="37vLTx" />
+                <node concept="3clFbF" id="2mrwa9l1jLM" role="3cqZAp">
+                  <node concept="37vLTI" id="2mrwa9l1jQm" role="3clFbG">
+                    <node concept="10Nm6u" id="2mrwa9l1jQB" role="37vLTx" />
+                    <node concept="37vLTw" id="2mrwa9l1jLK" role="37vLTJ">
+                      <ref role="3cqZAo" node="2mrwa9l1jKh" resolve="o" />
+                      <node concept="5jKBG" id="2mrwa9l1jRL" role="lGtFl">
+                        <ref role="v9R2y" node="i09H96F" resolve="MathSymbolResultReference" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="raruj" id="2mrwa9lgaob" role="lGtFl" />
+                </node>
               </node>
             </node>
           </node>
@@ -983,10 +1020,10 @@
               </node>
               <node concept="10QFUN" id="1eJUWaJfCQI" role="37vLTx">
                 <node concept="3SilvC" id="1eJUWaJfCQJ" role="10QFUM">
-                  <property role="TrG5h" value="b1" />
-                  <node concept="29HgVG" id="1eJUWaJfCQK" role="lGtFl">
-                    <node concept="3NFfHV" id="1eJUWaJfCQL" role="3NFExx">
-                      <node concept="3clFbS" id="1eJUWaJfCQM" role="2VODD2">
+                  <property role="TrG5h" value="int" />
+                  <node concept="29HgVG" id="2mrwa9lgHLi" role="lGtFl">
+                    <node concept="3NFfHV" id="2mrwa9lgHLj" role="3NFExx">
+                      <node concept="3clFbS" id="2mrwa9lgHLk" role="2VODD2">
                         <node concept="3clFbF" id="1eJUWaJfCQN" role="3cqZAp">
                           <node concept="2OqwBi" id="1eJUWaJfCQO" role="3clFbG">
                             <node concept="2OqwBi" id="1eJUWaJfCQP" role="2Oq$k0">

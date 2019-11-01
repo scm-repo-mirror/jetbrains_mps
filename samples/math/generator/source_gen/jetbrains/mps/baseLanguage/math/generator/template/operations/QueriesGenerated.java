@@ -203,8 +203,8 @@ public class QueriesGenerated extends QueryProviderBase {
     snqMethods.put("1237112127021", new SNQ(i++));
     snqMethods.put("3415580819641901421", new SNQ(i++));
     snqMethods.put("1237112602212", new SNQ(i++));
-    snqMethods.put("1418611629041289482", new SNQ(i++));
-    snqMethods.put("1418611629041290673", new SNQ(i++));
+    snqMethods.put("2709901035496985922", new SNQ(i++));
+    snqMethods.put("2709901035496987731", new SNQ(i++));
     snqMethods.put("1237123277187", new SNQ(i++));
     snqMethods.put("1237123277200", new SNQ(i++));
     snqMethods.put("1237192405705", new SNQ(i++));

@@ -1478,11 +1478,11 @@ public class QueriesGenerated extends QueryProviderBase {
     snqMethods.put("4253775830168296030", new SNQ(i++));
     snqMethods.put("6217769856310494670", new SNQ(i++));
     snqMethods.put("6217769856310494681", new SNQ(i++));
-    snqMethods.put("6217769856310494688", new SNQ(i++));
+    snqMethods.put("2709901035495580496", new SNQ(i++));
     snqMethods.put("1331994661796617596", new SNQ(i++));
     snqMethods.put("6217769856310494724", new SNQ(i++));
     snqMethods.put("6217769856310494735", new SNQ(i++));
-    snqMethods.put("6217769856310494742", new SNQ(i++));
+    snqMethods.put("2709901035495611794", new SNQ(i++));
     snqMethods.put("6217769856310494774", new SNQ(i++));
     snqMethods.put("6217769856310494794", new SNQ(i++));
     snqMethods.put("4615859720716287920", new SNQ(i++));
@@ -1641,10 +1641,10 @@ public class QueriesGenerated extends QueryProviderBase {
     snqMethods.put("4615859720716273444", new SNQ(i++));
     snqMethods.put("1238345359863", new SNQ(i++));
     snqMethods.put("1238407491631", new SNQ(i++));
-    snqMethods.put("1418611629042732113", new SNQ(i++));
+    snqMethods.put("2709901035493612154", new SNQ(i++));
     snqMethods.put("1418611629042732130", new SNQ(i++));
     snqMethods.put("1418611629042732085", new SNQ(i++));
-    snqMethods.put("1418611629042732058", new SNQ(i++));
+    snqMethods.put("2709901035493627762", new SNQ(i++));
   }
   @NotNull
   @Override
