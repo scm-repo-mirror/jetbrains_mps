@@ -3941,23 +3941,6 @@
     <property role="3GE5qa" value="Menu.EditorPopup.Actions" />
     <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
-    <node concept="2ScWuX" id="1JrqbHumQt5" role="tmbBb">
-      <node concept="3clFbS" id="1JrqbHumQt6" role="2VODD2">
-        <node concept="3clFbF" id="1JrqbHumQAp" role="3cqZAp">
-          <node concept="2ZW3vV" id="1JrqbHumQAr" role="3clFbG">
-            <node concept="3uibUv" id="1JrqbHumQAs" role="2ZW6by">
-              <ref role="3uigEE" to="zyr2:~InspectorEditorComponent" resolve="InspectorEditorComponent" />
-            </node>
-            <node concept="2OqwBi" id="1JrqbHumQAt" role="2ZW6bz">
-              <node concept="2WthIp" id="1JrqbHumQAu" role="2Oq$k0" />
-              <node concept="1DTwFV" id="1JrqbHumQAv" role="2OqNvi">
-                <ref role="2WH_rO" node="hHNVdXR" resolve="editor" />
-              </node>
-            </node>
-          </node>
-        </node>
-      </node>
-    </node>
     <node concept="tnohg" id="hGAImS0" role="tncku">
       <node concept="3clFbS" id="hGAImS1" role="2VODD2">
         <node concept="3clFbJ" id="1JP$BLmX5VU" role="3cqZAp">

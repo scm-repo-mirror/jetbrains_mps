@@ -49,6 +49,7 @@
       <concept id="1207318242772" name="jetbrains.mps.lang.plugin.structure.KeyMapKeystroke" flags="ng" index="pLAjd">
         <property id="1207318242773" name="modifiers" index="pLAjc" />
         <property id="1207318242774" name="keycode" index="pLAjf" />
+        <property id="6785623076777470797" name="change" index="3hacHL" />
       </concept>
       <concept id="1203071646776" name="jetbrains.mps.lang.plugin.structure.ActionDeclaration" flags="ng" index="sE7Ow">
         <property id="1211298967294" name="outsideCommandExecution" index="72QZ$" />
@@ -78,6 +79,7 @@
         <child id="1562714432501166206" name="keystroke" index="Zd501" />
       </concept>
       <concept id="1562714432501166197" name="jetbrains.mps.lang.plugin.structure.KeymapChangesDeclaration" flags="ng" index="Zd50a">
+        <property id="1562714432501166281" name="keymap" index="Zd52Q" />
         <child id="1562714432501166199" name="shortcutChange" index="Zd508" />
       </concept>
       <concept id="6193305307616715384" name="jetbrains.mps.lang.plugin.structure.ShortcutChange" flags="lg" index="1bYyw_">
@@ -844,7 +846,7 @@
     <node concept="Zd509" id="4KDfkUwMaH8" role="Zd508">
       <ref role="1bYAoF" node="4KDfkUwMaBK" resolve="ShowNodeType" />
       <node concept="pLAjd" id="4KDfkUwMaH9" role="Zd501">
-        <property role="pLAjf" value="VK_T" />
+        <property role="pLAjf" value="VK_P" />
         <property role="pLAjc" value="ctrl+shift" />
       </node>
     </node>
@@ -1171,6 +1173,30 @@
     </node>
     <node concept="tT9cl" id="1um9r$LUDmH" role="2f5YQi">
       <ref role="tU$_T" to="ekwn:5YEoTZrFokU" resolve="ActionsAsIntentions" />
+    </node>
+  </node>
+  <node concept="Zd50a" id="6PR583oCiD$">
+    <property role="TrG5h" value="MacOSX" />
+    <property role="Zd52Q" value="1mJS7WEAV1T/Mac_OS_X" />
+    <node concept="Zd509" id="6PR583oCiD_" role="Zd508">
+      <ref role="1bYAoF" node="4KDfkUwMaBK" resolve="ShowNodeType" />
+      <node concept="pLAjd" id="6PR583oCiDZ" role="Zd501">
+        <property role="pLAjf" value="VK_P" />
+        <property role="pLAjc" value="ctrl+shift" />
+        <property role="3hacHL" value="5SFo3Mf0QpD/replace_all" />
+      </node>
+    </node>
+  </node>
+  <node concept="Zd50a" id="6PR583oCiDB">
+    <property role="TrG5h" value="MacOSX105" />
+    <property role="Zd52Q" value="2HiVo5PakU7/Mac_OS_X_Plus" />
+    <node concept="Zd509" id="6PR583oCiDC" role="Zd508">
+      <ref role="1bYAoF" node="4KDfkUwMaBK" resolve="ShowNodeType" />
+      <node concept="pLAjd" id="6PR583oCiE6" role="Zd501">
+        <property role="pLAjf" value="VK_P" />
+        <property role="pLAjc" value="ctrl+shift" />
+        <property role="3hacHL" value="5SFo3Mf0QpD/replace_all" />
+      </node>
     </node>
   </node>
 </model>

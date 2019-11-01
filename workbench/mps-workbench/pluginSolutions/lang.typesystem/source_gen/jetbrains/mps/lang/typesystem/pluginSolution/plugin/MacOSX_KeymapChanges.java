@@ -7,15 +7,16 @@ import com.intellij.openapi.actionSystem.Shortcut;
 import com.intellij.openapi.actionSystem.KeyboardShortcut;
 import javax.swing.KeyStroke;
 
-public class Default_KeymapChanges extends BaseKeymapChanges {
-  public Default_KeymapChanges() {
+public class MacOSX_KeymapChanges extends BaseKeymapChanges {
+  public MacOSX_KeymapChanges() {
     // simple 
-    addSimpleShortcut("jetbrains.mps.lang.typesystem.pluginSolution.plugin.ShowNodeType_Action", getShortcut("ctrl shift P"));
+    // simple with remove/replace 
+    addSimpleShortcut("jetbrains.mps.lang.typesystem.pluginSolution.plugin.ShowNodeType_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl shift P"), false, true));
     // simple parameterized 
     // complex 
   }
   public String getScheme() {
-    return "$default";
+    return "Mac OS X";
   }
   public static Shortcut getShortcut(String stroke) {
     return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);

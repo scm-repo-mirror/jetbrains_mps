@@ -61,7 +61,7 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
   private FileEditor myFileEditor;
 
   public InspectorTool(Project project) {
-    super(project, ID, shortcutsFromNumber(2), IdeIcons.INSPECTOR_ICON, ToolWindowAnchor.BOTTOM, true, false);
+    super(project, ID, null, IdeIcons.INSPECTOR_ICON, ToolWindowAnchor.BOTTOM, true, false);
   }
 
   @Override
