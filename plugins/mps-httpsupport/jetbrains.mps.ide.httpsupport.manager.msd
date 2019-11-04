@@ -8,6 +8,9 @@
   </models>
   <facets>
     <facet type="ideaPlugin" pluginId="jetbrains.mps.ide.httpsupport" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${module}/classes" />

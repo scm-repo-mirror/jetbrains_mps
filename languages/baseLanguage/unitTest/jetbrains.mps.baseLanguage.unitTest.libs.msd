@@ -7,6 +7,9 @@
   </models>
   <facets>
     <facet pluginId="com.intellij" type="ideaPlugin" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${module}/lib/hamcrest-library-1.3-sources.jar" />

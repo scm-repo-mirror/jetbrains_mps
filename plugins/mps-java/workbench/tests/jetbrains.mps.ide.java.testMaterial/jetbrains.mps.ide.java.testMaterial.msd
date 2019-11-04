@@ -9,6 +9,9 @@
   </models>
   <facets>
     <facet pluginId="jetbrains.mps.ide.java" type="ideaPlugin" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <sourcePath />
   <dependencies>

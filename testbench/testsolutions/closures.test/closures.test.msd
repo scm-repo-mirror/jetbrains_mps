@@ -5,6 +5,11 @@
       <sourceRoot location="jetbrains" />
     </modelRoot>
   </models>
+  <facets>
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
+  </facets>
   <sourcePath />
   <dependencies>
     <dependency reexport="true">4c6a28d1-2c60-478d-b36e-db9b3cbb21fb(closures.runtime)</dependency>

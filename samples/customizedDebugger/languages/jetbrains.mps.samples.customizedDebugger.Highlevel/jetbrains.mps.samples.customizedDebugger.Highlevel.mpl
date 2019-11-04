@@ -5,6 +5,11 @@
       <sourceRoot location="models" />
     </modelRoot>
   </models>
+  <facets>
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
+  </facets>
   <accessoryModels />
   <generators>
     <generator namespace="jetbrains.mps.samples.customizedDebugger.Highlevel#8203012558887843487" uuid="f652334e-24c4-48f8-8f16-4b69c6aa9b9e">
@@ -13,6 +18,11 @@
           <sourceRoot location="generator/template" />
         </modelRoot>
       </models>
+      <facets>
+        <facet type="java">
+          <classes generated="true" path="${module}/generator/classes_gen" />
+        </facet>
+      </facets>
       <external-templates />
       <dependencies>
         <dependency reexport="false">3f028972-a290-4cf2-a87e-9b8f7e56076b(jetbrains.mps.samples.customizedDebugger.Bottomline)</dependency>

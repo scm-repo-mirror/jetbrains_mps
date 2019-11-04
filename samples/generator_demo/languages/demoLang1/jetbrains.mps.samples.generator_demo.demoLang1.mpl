@@ -5,6 +5,11 @@
       <sourceRoot location="languageModels" />
     </modelRoot>
   </models>
+  <facets>
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
+  </facets>
   <accessoryModels />
   <generators>
     <generator alias="swing" namespace="jetbrains.mps.samples.generator_demo.demoLang1####1228430287736" uuid="db87040c-49b4-458d-a4a2-44812b4083f5">
@@ -13,6 +18,11 @@
           <sourceRoot location="generator/template" />
         </modelRoot>
       </models>
+      <facets>
+        <facet type="java">
+          <classes generated="true" path="${module}/generator/classes_gen" />
+        </facet>
+      </facets>
       <external-templates />
       <dependencies>
         <dependency reexport="false">772f6dcd-8c0d-48f7-869c-908e036f7c8e(jetbrains.mps.sampleXML)</dependency>

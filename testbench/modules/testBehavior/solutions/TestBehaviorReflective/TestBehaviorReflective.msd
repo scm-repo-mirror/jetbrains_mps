@@ -7,6 +7,9 @@
   </models>
   <facets>
     <facet pluginId="test.behavior.plugin" type="ideaPlugin" />
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
   </facets>
   <sourcePath />
   <dependencies>

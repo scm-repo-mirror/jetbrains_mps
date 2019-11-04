@@ -8,6 +8,9 @@
   </models>
   <facets>
     <facet type="ideaPlugin" pluginId="jetbrains.mps.ide.migration.workbench" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <sourcePath />
   <dependencies>

@@ -5,6 +5,11 @@
       <sourceRoot location="models" />
     </modelRoot>
   </models>
+  <facets>
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
+  </facets>
   <sourcePath />
   <dependencies>
     <dependency reexport="false">14676325-ef8e-4fcf-b902-937f5612d1ba(jetbrains.mps.samples.LightweightDSL.plugin)</dependency>

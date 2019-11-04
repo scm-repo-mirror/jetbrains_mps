@@ -8,6 +8,9 @@
   </models>
   <facets>
     <facet pluginId="jetbrains.mps.ide.java" type="ideaPlugin" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${mps_home}/plugins/mps-java/lib/java-workbench.jar" />

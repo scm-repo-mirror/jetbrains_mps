@@ -8,6 +8,9 @@
   </models>
   <facets>
     <facet pluginId="com.intellij" type="ideaPlugin" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <sourcePath />
   <dependencies>

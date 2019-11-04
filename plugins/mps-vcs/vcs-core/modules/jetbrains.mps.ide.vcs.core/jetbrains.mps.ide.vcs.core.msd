@@ -8,6 +8,9 @@
   </models>
   <facets>
     <facet type="ideaPlugin" pluginId="jetbrains.mps.vcs" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${mps_home}/plugins/mps-vcs/lib/vcs-core.jar" />

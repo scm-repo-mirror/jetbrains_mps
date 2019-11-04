@@ -9,6 +9,11 @@
       <sourceRoot location="lib/trove-2.1.0.jar" />
     </modelRoot>
   </models>
+  <facets>
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
+  </facets>
   <stubModelEntries>
     <stubModelEntry path="${module}/lib/trove-2.1.0.jar" />
   </stubModelEntries>

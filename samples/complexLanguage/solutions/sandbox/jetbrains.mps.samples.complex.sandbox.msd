@@ -5,6 +5,11 @@
       <sourceRoot location="jetbrains" />
     </modelRoot>
   </models>
+  <facets>
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
+  </facets>
   <sourcePath />
   <dependencies>
     <dependency reexport="true">ff24ab03-965e-4d15-9aed-52dc276658f4(jetbrains.mps.samples.complex)</dependency>

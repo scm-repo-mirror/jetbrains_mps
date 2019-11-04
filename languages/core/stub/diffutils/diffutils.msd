@@ -7,6 +7,9 @@
   </models>
   <facets>
     <facet pluginId="com.intellij" type="ideaPlugin" />
+    <facet type="java">
+      <classes generated="true" />
+    </facet>
   </facets>
   <stubModelEntries>
     <stubModelEntry path="${lib_ext}/diffutils-1.2.1.jar" />

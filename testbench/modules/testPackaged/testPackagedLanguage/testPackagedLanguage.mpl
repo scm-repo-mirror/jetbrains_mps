@@ -8,6 +8,11 @@
       <sourceRoot location="lib/dummy.jar" />
     </modelRoot>
   </models>
+  <facets>
+    <facet type="java">
+      <classes generated="true" path="${module}/classes_gen" />
+    </facet>
+  </facets>
   <accessoryModels />
   <stubModelEntries>
     <stubModelEntry path="${module}/lib/dummy.jar" />
