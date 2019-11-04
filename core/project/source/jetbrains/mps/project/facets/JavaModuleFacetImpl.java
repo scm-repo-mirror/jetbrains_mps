@@ -172,9 +172,22 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   @Override
   public void save(Memento memento) {
     super.save(memento);
-    final Memento m = memento.createChild(CLASSES_KEY);
-    m.put(GENERATED_KEY, Boolean.toString(true));
-    m.put(PATH_KEY, myGeneratedClassesLocation != null ? myGeneratedClassesLocation.getPath() : null);
+    // FIXME On one hand, it looks stupid to account for existing values in the memento, a lot of ugly code
+    //       on the other, we might not want to save each and every setting inside an instance field.
+    //       Check FileBasedModelRoot.save(), which doesn't account for existing values; the way it's invoked (with clear memento in AM.save())
+    //       helps to to keep its save() straightforward. Have to come up with clear contract for the method!
+    Memento toUpdate = null;
+    for (Memento m : memento.getChildren(CLASSES_KEY)) {
+      if (Boolean.parseBoolean(m.get(GENERATED_KEY))) {
+        toUpdate = m;
+        break;
+      }
+    }
+    if (toUpdate == null) {
+      toUpdate = memento.createChild(CLASSES_KEY);
+      toUpdate.put(GENERATED_KEY, Boolean.toString(true));
+    }
+    toUpdate.put(PATH_KEY, myGeneratedClassesLocation != null ? myGeneratedClassesLocation.getPath() : null);
   }
 
   @Override
