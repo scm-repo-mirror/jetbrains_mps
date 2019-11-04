@@ -17,14 +17,17 @@ package jetbrains.mps.project.facets;
 
 import jetbrains.mps.extapi.module.ModuleFacetBase;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.MementoWithFS;
 import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.vfs.IFile;
+import jetbrains.mps.vfs.openapi.FileSystem;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.openapi.persistence.Memento;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -36,6 +39,18 @@ import java.util.Set;
  */
 public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFacet {
   private static final Logger LOG = LogManager.getLogger(JavaModuleFacetImpl.class);
+  private static final String CLASSES_KEY = "classes";
+  // just an indicator this entry describes classes derived from generated source code. Not sure I ever get to other entries,
+  // though eventually I'd like to move everything Java-related stuff out of MD to this facet (e.g. Java libraries)
+  private static final String GENERATED_KEY = "generated";
+  // there's hardcoded knowledge in ModuleDescriptorPersistence that 'path' attributes are FS location and
+  // has to be piped though MacroHelper to get expanded/shrunken
+  private static final String PATH_KEY = "path";
+
+  // XXX perhaps, shall keep String and translate to IFile the moment asked. However, feel right to use IFile (well, *not String*) for FS locations
+  //     and shall rather deal with String uses for files in MD. Uses of the value suggest we can use java.io.File (this is a location we
+  //     unlikely need IDEA VFS services for)
+  private IFile myGeneratedClassesLocation = null;
 
   public JavaModuleFacetImpl() {
     super(FACET_TYPE);
@@ -65,27 +80,7 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   @Override
   @Nullable
   public IFile getClassesGen() {
-    if (getModule().isPackaged()) {
-      return null;
-    }
-    ModuleDescriptor moduleDescriptor = getModule().getModuleDescriptor();
-    if (moduleDescriptor == null) {
-      // this facet implementation doesn't know how to handle modules not based on ModuleDescriptor
-      return null;
-    }
-    if (moduleDescriptor.getDeploymentDescriptor() != null) {
-      // in fact, this is what isPackaged() shall check (according to its javadoc), but at the moment it cares about
-      // module source dir not being in archive, which is not exactly the same, hence extra check here.
-      return null;
-    }
-    // XXX there's same code in MM, shall refactor, likely move to ModuleDescriptor
-    String sourceGenPath = ProjectPathUtil.getGeneratorOutputPath(moduleDescriptor);
-    if (sourceGenPath == null) {
-      // a kind of a module without generated sources, no classes_gen then.
-      return null;
-    }
-    // XXX would adore IFile from ModuleDescriptor, not String.
-    return getModule().getFileSystem().getFile(sourceGenPath).getParent().findChild(AbstractModule.CLASSES_GEN);
+    return myGeneratedClassesLocation;
   }
 
   @Override
@@ -175,5 +170,61 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
     }
 
     return new HashSet<>(moduleDescriptor.getSourcePaths());
+  }
+
+  @Override
+  public void save(Memento memento) {
+    super.save(memento);
+    final Memento m = memento.createChild(CLASSES_KEY);
+    m.put(GENERATED_KEY, Boolean.toString(true));
+    m.put(PATH_KEY, myGeneratedClassesLocation != null ? myGeneratedClassesLocation.getPath() : null);
+  }
+
+  @Override
+  public void load(Memento memento) {
+    super.load(memento);
+    FileSystem fs = memento instanceof MementoWithFS ? ((MementoWithFS) memento).getFileSystem() : getModule().getFileSystem();
+    boolean hasClassesGenSerialized = false;
+    for (Memento m : memento.getChildren(CLASSES_KEY)) {
+      if (Boolean.parseBoolean(m.get(GENERATED_KEY))) {
+        hasClassesGenSerialized = true;
+        final String v = m.get(PATH_KEY);
+        myGeneratedClassesLocation = v == null ? null : fs.getFile(v);
+        break;
+      }
+    }
+    if (!hasClassesGenSerialized) {
+      myGeneratedClassesLocation = legacyClassesGenLocation(fs);
+    }
+  }
+
+  // fallback for legacy module descriptors that don't keep the setting
+  private IFile legacyClassesGenLocation(FileSystem fs) {
+    if (getModule().isPackaged()) {
+      return null;
+    }
+    ModuleDescriptor moduleDescriptor = getModule().getModuleDescriptor();
+    if (moduleDescriptor == null) {
+      // this facet implementation doesn't know how to handle modules not based on ModuleDescriptor
+      return null;
+    }
+    if (moduleDescriptor.getDeploymentDescriptor() != null) {
+      // in fact, this is what isPackaged() shall check (according to its javadoc), but at the moment it cares about
+      // module source dir not being in archive, which is not exactly the same, hence extra check here.
+      return null;
+    }
+    if (!moduleDescriptor.getCompileInMPS()) {
+      // Though MPS used to answer getClassesGen() for modules with !compileInMPS, I see no reason to keep this value
+      // Why would anyone care to find out classes_gen for a module that is compiled outside of MPS?
+      return null;
+    }
+    // XXX there's same code in MM, shall refactor, likely move to ModuleDescriptor
+    String sourceGenPath = ProjectPathUtil.getGeneratorOutputPath(moduleDescriptor);
+    if (sourceGenPath == null) {
+      // a kind of a module without generated sources, no classes_gen then.
+      return null;
+    }
+    // XXX would adore IFile from ModuleDescriptor, not String.
+    return fs.getFile(sourceGenPath).getParent().findChild(AbstractModule.CLASSES_GEN);
   }
 }

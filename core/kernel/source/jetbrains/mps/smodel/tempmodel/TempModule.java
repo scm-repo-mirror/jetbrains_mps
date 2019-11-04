@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2017 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,6 +50,7 @@ public class TempModule extends ReloadableModuleBase implements SModule, MPSModu
     SModuleId id = ModuleId.regular();
     SModuleReference reference = new ModuleReference("TempModule" + id, id);
     setModuleReference(reference);
+    // FIXME who cares to have MD for a temp module?
     myDescriptor = new ModuleDescriptor();
     myDescriptor.getModelRootDescriptors().addAll(modelRoots);
     dependenciesChanged();
@@ -71,6 +72,12 @@ public class TempModule extends ReloadableModuleBase implements SModule, MPSModu
   @Override
   public boolean isReadOnly() {
     return false;
+  }
+
+  @Override
+  public void save() {
+    // no-op. There's some MD mangling code in superclass we are not interested in.
+    // FIXME In fact, there should be no MD at all in this TempModule
   }
 
   @NotNull
