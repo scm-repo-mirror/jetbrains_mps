@@ -64,7 +64,7 @@ public class AttachMappingLabel_Action extends BaseAction {
       return false;
     }
     //  in root template - ok 
-    if (AttributeOperations.getAttribute(node, new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8)) != null) {
+    if (AttributeOperations.getAttribute(SNodeOperations.getContainingRoot(node), new IAttributeDescriptor.NodeAttribute(CONCEPTS.RootTemplateAnnotation$u8)) != null) {
       return true;
     }
     //  in in-line template - ok 
