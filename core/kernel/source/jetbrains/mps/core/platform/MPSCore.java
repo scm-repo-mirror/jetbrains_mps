@@ -35,7 +35,6 @@ import jetbrains.mps.project.structure.DescriptorModelComponent;
 import jetbrains.mps.project.structure.GeneratorDescriptorModelProvider;
 import jetbrains.mps.project.structure.GenericDescriptorModelProvider;
 import jetbrains.mps.project.structure.LanguageDescriptorModelProvider;
-import jetbrains.mps.project.structure.ProjectStructureModule;
 import jetbrains.mps.resolve.ResolverComponent;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.smodel.DebugRegistry;
@@ -150,7 +149,6 @@ public final class MPSCore extends ComponentPlugin implements ComponentHost {
                                       new GeneratorDescriptorModelProvider(),
                                       new GenericDescriptorModelProvider()));
     init(new TypeRegistry());
-    init(new ProjectStructureModule(myModuleRepository, myPersistenceFacade));
 
     init(new ResolverComponent());
     init(new ValidationSettings());

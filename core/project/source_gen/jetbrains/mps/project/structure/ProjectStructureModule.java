@@ -4,53 +4,12 @@ package jetbrains.mps.project.structure;
 
 import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.annotations.GeneratedClass;
-import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.components.CoreComponent;
-import java.util.Map;
-import org.jetbrains.mps.openapi.model.SModelId;
-import java.util.concurrent.ConcurrentHashMap;
-import jetbrains.mps.smodel.MPSModuleOwner;
-import jetbrains.mps.smodel.BaseMPSModuleOwner;
-import jetbrains.mps.extapi.module.SRepositoryExt;
-import org.jetbrains.mps.openapi.module.SModuleListener;
-import org.jetbrains.mps.openapi.module.SModuleListenerBase;
-import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.model.SModel;
-import org.jetbrains.mps.openapi.model.SModelReference;
-import org.jetbrains.mps.openapi.module.SRepositoryListener;
-import org.jetbrains.mps.openapi.module.SRepositoryListenerBase;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.SRepository;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
-import jetbrains.mps.smodel.Generator;
-import jetbrains.mps.project.Solution;
-import jetbrains.mps.smodel.Language;
-import jetbrains.mps.project.DevKit;
-import java.util.List;
-import java.util.Set;
-import org.jetbrains.mps.openapi.language.SLanguage;
-import java.util.Collections;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import jetbrains.mps.extapi.model.SModelBase;
-import org.jetbrains.mps.openapi.module.SModuleId;
-import org.jetbrains.mps.openapi.model.SModelName;
-import jetbrains.mps.smodel.SModelStereotype;
-import java.util.ArrayList;
-import jetbrains.mps.smodel.RegularModelDescriptor;
-import org.jetbrains.mps.openapi.persistence.NullDataSource;
-import jetbrains.mps.smodel.ModelLoadResult;
-import jetbrains.mps.smodel.SnapshotModelData;
-import jetbrains.mps.smodel.nodeidmap.StringBasedNodeIdMap;
-import jetbrains.mps.project.structure.modules.ModuleDescriptor;
-import jetbrains.mps.vfs.IFile;
-import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.project.structure.stub.ProjectStructureBuilder;
-import jetbrains.mps.util.SModuleNameComparator;
-import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.smodel.loading.ModelLoadingState;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.apache.log4j.Logger;
+import org.jetbrains.mps.openapi.model.SModel;
+import org.jetbrains.mps.openapi.module.SModule;
 
 /**
  * There seems to be little value in stateful collection of nodes that describe repository modules - we have to keep them up to date on 
@@ -63,64 +22,29 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
  * registration lazily (i.e. getModelByModule() may come when there's no write lock for a repository, can't add respective node on demand).
  * Alternative is to keep SModule non registered, though associated with a repo, so that we can change it at will.
  * 
- * FIXME Before removing, have to fix FindInPriorityRules finder in lang.generator!
- * 
  * @deprecated there seems to be no justification for stateless PSM. Tell MPS team (Artem) if you got any. Otherwise, the code will cease to exist soon.
  */
 @Deprecated
 @ToRemove(version = 2019.1)
 @GeneratedClass(node = "r:63fa72b1-408f-44a1-b93f-c39e3d542904(jetbrains.mps.project.structure)/4897777221271893724", model = "r:63fa72b1-408f-44a1-b93f-c39e3d542904(jetbrains.mps.project.structure)")
-public class ProjectStructureModule extends AbstractModule implements CoreComponent {
-  private static final String MODULE_REF = "642f71f8-327a-425b-84f9-44ad58786d27(jetbrains.mps.lang.project.modules)";
-  private Map<SModelId, ProjectStructureSModelDescriptor> myModels = new ConcurrentHashMap<SModelId, ProjectStructureSModelDescriptor>();
-  private static ProjectStructureModule INSTANCE;
-  private final MPSModuleOwner myOwner = new BaseMPSModuleOwner();
-  private final SRepositoryExt myRepository;
-  private final SModuleListener myModuleListener = new SModuleListenerBase() {
-    @Override
-    public void modelAdded(SModule module, SModel model) {
-      refreshModule(module, false);
-    }
-
-    @Override
-    public void modelRemoved(SModule module, SModelReference reference) {
-      refreshModule(module, false);
-    }
-
-    @Override
-    public void moduleChanged(SModule module) {
-      refreshModule(module, false);
-    }
-  };
-
-  private final SRepositoryListener myListener = new SRepositoryListenerBase() {
-    @Override
-    public void moduleAdded(@NotNull SModule module) {
-      refreshModule(module, false);
-      module.addModuleListener(myModuleListener);
-    }
-
-    @Override
-    public void beforeModuleRemoved(@NotNull SModule module) {
-      module.removeModuleListener(myModuleListener);
-      refreshModule(module, true);
-    }
-  };
-
+public class ProjectStructureModule {
   /**
    * 
-   * @deprecated use {@link jetbrains.mps.project.structure.ProjectStructureModule#getInstance(SRepository) } instead
+   * @deprecated don't use this class
    */
   @Deprecated
   @ToRemove(version = 3.3)
   public static ProjectStructureModule getInstance() {
-    return INSTANCE;
+    return new ProjectStructureModule();
   }
 
   /**
-   * There's single ProjectStructureModule per project, thus if you use Project.getRepository(), you are guaranteed to get an instance. 
+   * 
+   * @deprecated there ain't no such thing as {@code ProjectStructureModule} any longer
    */
   @Nullable
+  @Deprecated
+  @ToRemove(version = 2019.3)
   public static ProjectStructureModule getInstance(@NotNull SRepository repo) {
     // FIXME likely, shall do it with myModuleRef.resolve(mpsProject.getRepository) 
     // Generally, I'd prefer plain SModule as return value, however exact instance of the class are needed to access #getModelByModule. 
@@ -129,187 +53,21 @@ public class ProjectStructureModule extends AbstractModule implements CoreCompon
   }
 
   @Deprecated
-  public ProjectStructureModule(@NotNull SRepositoryExt repository, @NotNull PersistenceFacade persistenceFacade) {
-    myRepository = repository;
-    setModuleReference(persistenceFacade.createModuleReference(MODULE_REF));
+  private ProjectStructureModule() {
+    Logger.getLogger(getClass()).warn("ProjectStructureModule is no-op, don't use", new Throwable());
   }
 
-  private void refreshModule(SModule module, boolean isDeleted) {
-    assertCanChange();
-    if (module instanceof Generator) {
-      // workaround for https://youtrack.jetbrains.com/issue/MPS-28974 
-      // Instead, shall cease being a global module, construct node<Module> on demand and don't bother with update 
-      module = ((Generator) module).getSourceLanguage();
-    }
-
-    if (!((module instanceof Solution || module instanceof Language || module instanceof DevKit))) {
-      return;
-    }
-    SModelReference ref = getSModelReference(module);
-    if (isDeleted) {
-      ProjectStructureSModelDescriptor descriptor = myModels.get(ref.getModelId());
-      if (descriptor != null) {
-        removeModel(descriptor);
-      }
-    } else
-    if (myModels.containsKey(ref.getModelId())) {
-      ProjectStructureSModelDescriptor descriptor = myModels.get(ref.getModelId());
-      descriptor.originalModuleChanged();
-    } else {
-      createModel(module);
-    }
-  }
 
   @Nullable
   public SModel getModelByModule(@Nullable SModule module) {
-    myRepository.getModelAccess().checkReadAccess();
-    if (module == null) {
-      return null;
-    }
-    SModelReference ref = getSModelReference(module);
-    ProjectStructureSModelDescriptor descriptor = myModels.get(ref.getModelId());
-    return descriptor;
+    return null;
   }
 
-  @Override
-  public void init() {
-    if (INSTANCE != null) {
-      throw new IllegalStateException("double initialization");
-    }
-    INSTANCE = this;
-    myRepository.addRepositoryListener(myListener);
-    myRepository.getModelAccess().runWriteAction(new Runnable() {
-      @Override
-      public void run() {
-        myRepository.registerModule(ProjectStructureModule.this, myOwner);
-      }
-    });
-  }
-
-  @Override
-  public void dispose() {
-    // it is disposed as CoreComponent 
-    if (INSTANCE == null) {
-      return;
-    }
-    INSTANCE = null;
-    clearAll();
-    myRepository.getModelAccess().runWriteAction(new Runnable() {
-      @Override
-      public void run() {
-        myRepository.unregisterModule(ProjectStructureModule.this, myOwner);
-      }
-    });
-    myRepository.removeRepositoryListener(myListener);
-  }
-
-  public void clearAll() {
-    myRepository.getModelAccess().runWriteAction(new Runnable() {
-      @Override
-      public void run() {
-        removeAll();
-        dependenciesChanged();
-        myModels.clear();
-      }
-    });
-  }
-
-  private void removeAll() {
-    List<SModel> models = getProjectStructureModels();
-    for (SModel model : models) {
-      removeModel(model);
-    }
-  }
-
-  @Override
-  public Set<SLanguage> getUsedLanguages() {
-    return Collections.singleton(MetaAdapterFactory.getLanguage(0x86ef829012bb4ca7L, 0x947f093788f263a9L, "jetbrains.mps.lang.project"));
-  }
-
-  private void removeModel(SModel md) {
-    if (myModels.remove(md.getReference().getModelId()) != null) {
-      md.unload();
-      unregisterModel((SModelBase) md);
-    }
-  }
-
-  public ProjectStructureSModelDescriptor createModel(SModule module) {
-    ProjectStructureSModelDescriptor result = new ProjectStructureSModelDescriptor(getSModelReference(module), module);
-    myModels.put(getSModelReference(module).getModelId(), result);
-    registerModel(result);
-    return result;
-  }
-
-  private SModelReference getSModelReference(SModule module) {
-    SModuleId moduleId = module.getModuleReference().getModuleId();
-    SModelId id = jetbrains.mps.smodel.SModelId.foreign("project", moduleId.toString());
-    final PersistenceFacade pf = PersistenceFacade.getInstance();
-    String mn = module.getModuleName();
-    if (mn == null || mn.isEmpty()) {
-      mn = "<none>";
-    } else {
-      mn = mn.replace('@', '_');
-      if (mn.charAt(mn.length() - 1) == '.') {
-        mn = mn.substring(0, mn.length() - 1) + '_';
-      }
-    }
-    return pf.createModelReference(this.getModuleReference(), id, new SModelName("module." + mn + '@' + SModelStereotype.getStubStereotypeForId("project")));
-  }
-
-  public String toString() {
-    return getModuleName();
-  }
-  private List<SModel> getProjectStructureModels() {
-    return new ArrayList<SModel>(myModels.values());
-  }
-
-  @Override
-  protected void collectMandatoryFacetTypes(Set<String> set) {
-    // none 
-  }
-
-  public class ProjectStructureSModelDescriptor extends RegularModelDescriptor {
-    private final SModule myModule;
-    private ProjectStructureSModelDescriptor(SModelReference ref, SModule module) {
-      super(ref, new NullDataSource());
-      myModule = module;
-    }
-    @Override
-    @NotNull
-    protected ModelLoadResult<jetbrains.mps.smodel.SModel> createModel() {
-      final SnapshotModelData modelData = new SnapshotModelData(getReference(), new StringBasedNodeIdMap());
-      final ModuleDescriptor moduleDescriptor = ((AbstractModule) myModule).getModuleDescriptor();
-      final IFile file = ((AbstractModule) myModule).getDescriptorFile();
-      if (file != null && moduleDescriptor != null) {
-        if (myModule instanceof Language) {
-          SNode langNode = new ProjectStructureBuilder((AbstractModule) myModule, this).convertLanguage();
-          ArrayList<Generator> generators = new ArrayList<Generator>(((Language) myModule).getOwnedGenerators());
-          // I'd like to have predictable order in project model iteration, as well as generated code, that's why I sort here, not in templates. 
-          Collections.sort(generators, new SModuleNameComparator());
-          for (Generator g : generators) {
-            ListSequence.fromList(SLinkOperations.getChildren(langNode, LINKS.generator$8rqk)).addElement(new ProjectStructureBuilder(g, this).convertGenerator());
-          }
-          modelData.addRootNode(langNode);
-        } else {
-          SNode root = new ProjectStructureBuilder((AbstractModule) myModule, this).convert();
-          modelData.addRootNode(root);
-        }
-      }
-      return new ModelLoadResult<jetbrains.mps.smodel.SModel>(modelData, ModelLoadingState.FULLY_LOADED);
-    }
-    /*package*/ void originalModuleChanged() {
-      jetbrains.mps.smodel.SModel oldModel = getCurrentModelInternal();
-      if (oldModel == null) {
-        return;
-      }
-      // since we know the module is still there (just has been changed), tell those not caring about unload 
-      // that the content of the model is new (instead of a MLResult with null, could pass createModel() but see no reason 
-      // to read module file unless needed) 
-      replace(new ModelLoadResult<jetbrains.mps.smodel.SModel>(null, ModelLoadingState.NOT_LOADED));
-    }
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink generator$8rqk = MetaAdapterFactory.getContainmentLink(0x86ef829012bb4ca7L, 0x947f093788f263a9L, 0x5869770da61dfe1fL, 0x5869770da61dfe37L, "generator");
+  /**
+   * 
+   * @deprecated 
+   */
+  @Deprecated
+  public abstract class ProjectStructureSModelDescriptor implements SModel {
   }
 }

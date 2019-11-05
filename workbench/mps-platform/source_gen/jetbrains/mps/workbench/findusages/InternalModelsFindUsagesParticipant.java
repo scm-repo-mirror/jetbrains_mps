@@ -12,12 +12,9 @@ import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.util.Consumer;
 import org.jetbrains.mps.openapi.model.SReference;
-import jetbrains.mps.project.structure.ProjectStructureModule;
 import jetbrains.mps.extapi.model.TransientSModel;
 import jetbrains.mps.project.structure.LanguageDescriptorModelProvider;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import org.jetbrains.mps.openapi.language.SLanguage;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.model.SModelReference;
 
 /**
@@ -32,29 +29,23 @@ public class InternalModelsFindUsagesParticipant implements Disposable, FindUsag
 
   @Override
   public void findUsages(Collection<SModel> scope, Set<SNode> nodes, Consumer<SReference> consumer, Consumer<SModel> processedConsumer) {
-    boolean hasProjectModels = false;
     boolean hasTransientModels = false;
     for (SNode n : nodes) {
       SModel model = n.getModel();
-      if (model instanceof ProjectStructureModule.ProjectStructureSModelDescriptor) {
-        hasProjectModels = true;
-      }
       if (model instanceof TransientSModel) {
         hasTransientModels = true;
+        break;
       }
     }
     for (SModel model : scope) {
-      if (model instanceof ProjectStructureModule.ProjectStructureSModelDescriptor) {
-        if (!(hasProjectModels)) {
-          processedConsumer.consume(model);
-        }
-      } else
       if (model instanceof TransientSModel) {
         if (!(hasTransientModels)) {
           processedConsumer.consume(model);
         }
       } else
       if (model instanceof LanguageDescriptorModelProvider.LanguageModelDescriptor) {
+        // FIXME why on earth do we consume descriptor model here? Though it's internal model indeed, why there's assumption it's empty and what's wrong with an empty model 
+        //        not processed by a general 'walk-it' mechanism? What's that "optimization" (5fa1980f) was about? 
         // language descriptor models are empty 
         processedConsumer.consume(model);
       }
@@ -63,38 +54,24 @@ public class InternalModelsFindUsagesParticipant implements Disposable, FindUsag
 
   @Override
   public void findInstances(Collection<SModel> scope, Set<SAbstractConcept> concepts, Consumer<SNode> consumer, Consumer<SModel> processedConsumer) {
-    boolean hasProjectLanguageConcepts = false;
-    SLanguage langProject = MetaAdapterFactory.getLanguage(0x86ef829012bb4ca7L, 0x947f093788f263a9L, "jetbrains.mps.lang.project");
-    for (SAbstractConcept n : concepts) {
-      if (langProject.equals(n.getLanguage())) {
-        hasProjectLanguageConcepts = true;
-        break;
-      }
-    }
     for (SModel model : scope) {
-      if (model instanceof ProjectStructureModule.ProjectStructureSModelDescriptor) {
-        if (!(hasProjectLanguageConcepts)) {
-          processedConsumer.consume(model);
-        }
-      } else
       if (model instanceof LanguageDescriptorModelProvider.LanguageModelDescriptor) {
+        // FIXME see above 
         // language descriptor models are empty 
         processedConsumer.consume(model);
       }
+
     }
   }
 
   @Override
   public void findModelUsages(Collection<SModel> scope, Set<SModelReference> modelReferences, Consumer<SModel> consumer, Consumer<SModel> processedConsumer) {
     for (SModel model : scope) {
-      if (model instanceof ProjectStructureModule.ProjectStructureSModelDescriptor) {
-        // project structure models have no imports 
-        processedConsumer.consume(model);
-      } else
       if (model instanceof LanguageDescriptorModelProvider.LanguageModelDescriptor) {
         // language descriptor models are empty 
         processedConsumer.consume(model);
       }
+
     }
   }
 
