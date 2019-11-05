@@ -156,8 +156,7 @@ public class GeneratorDescriptorModelProvider extends DescriptorModelProvider {
       if (hash != null) {
         return hash;
       }
-      Element element = new Element("gd"); // there's little value in this element, but if I remove it, I suspect a lot of 'generated' files would change
-      element.addContent(new GeneratorDescriptorPersistence(MacrosFactory.forModule((SModule) myModule), true).save(myModule.getModuleDescriptor()));
+      Element element = new GeneratorDescriptorPersistence(MacrosFactory.forModule((SModule) myModule), true).save(myModule.getModuleDescriptor());
       StringWriter out = new StringWriter();
       try {
         JDOMUtil.writeDocument(new Document(element), out);
