@@ -274,6 +274,8 @@ public class ClassifierUpdater {
             } else if (value instanceof String) {
               SLinkOperations.setTarget(decl, LINKS.initializer$KgD, _quotation_createNode_ol94f8_a0a0a1a1a4a0d0a0w((String) value));
             }
+          } else {
+            SLinkOperations.setTarget(decl, LINKS.initializer$KgD, _quotation_createNode_ol94f8_a0a0a1a4a0d0a0w());
           }
         }
 
@@ -767,6 +769,12 @@ public class ClassifierUpdater {
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf93d565d10L, "StringLiteral")).getResult();
     SNodeAccessUtil.setPropertyValue(quotedNode_2, MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf93d565d10L, 0xf93d565d11L, "value"), (String) parameter_1);
     return quotedNode_2;
+  }
+  private static SNode _quotation_createNode_ol94f8_a0a0a1a4a0d0a0w() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode quotedNode_1 = null;
+    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x5c322d583625759cL, "StubInitializer")).getResult();
+    return quotedNode_1;
   }
   private static SNode _quotation_createNode_ol94f8_a0b0d0a0w(Object parameter_1, Object parameter_2, Object parameter_3) {
     PersistenceFacade facade = PersistenceFacade.getInstance();

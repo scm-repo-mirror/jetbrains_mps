@@ -260,6 +260,7 @@
       <concept id="1144230876926" name="jetbrains.mps.baseLanguage.structure.AbstractForStatement" flags="nn" index="1DupvO">
         <child id="1144230900587" name="variable" index="1Duv9x" />
       </concept>
+      <concept id="6643422257213699484" name="jetbrains.mps.baseLanguage.structure.StubInitializer" flags="ig" index="1E5Pz4" />
       <concept id="1163668896201" name="jetbrains.mps.baseLanguage.structure.TernaryOperatorExpression" flags="nn" index="3K4zz7">
         <child id="1163668914799" name="condition" index="3K4Cdx" />
         <child id="1163668922816" name="ifTrue" index="3K4E3e" />
@@ -6007,6 +6008,25 @@
                           </node>
                           <node concept="liA8E" id="4sm8lF4ovv1" role="2OqNvi">
                             <ref role="37wK5l" to="45y3:1jHuztQB8r1" resolve="hasValue" />
+                          </node>
+                        </node>
+                        <node concept="9aQIb" id="5KMblwQem41" role="9aQIa">
+                          <node concept="3clFbS" id="5KMblwQem42" role="9aQI4">
+                            <node concept="3clFbF" id="5KMblwQemai" role="3cqZAp">
+                              <node concept="37vLTI" id="5KMblwQenxV" role="3clFbG">
+                                <node concept="2c44tf" id="5KMblwQenLw" role="37vLTx">
+                                  <node concept="1E5Pz4" id="5KMblwQenQ$" role="2c44tc" />
+                                </node>
+                                <node concept="2OqwBi" id="5KMblwQemvz" role="37vLTJ">
+                                  <node concept="37vLTw" id="5KMblwQemah" role="2Oq$k0">
+                                    <ref role="3cqZAo" node="4sm8lF4ovt1" resolve="decl" />
+                                  </node>
+                                  <node concept="3TrEf2" id="5KMblwQen4f" role="2OqNvi">
+                                    <ref role="3Tt5mk" to="tpee:fz3vP1I" resolve="initializer" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
                           </node>
                         </node>
                       </node>
