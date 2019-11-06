@@ -370,12 +370,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     }
     private EditorCell createConstant_6() {
-      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "<<concept methods>>");
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
       editorCell.setCellId("Constant_cuxtnd_a3b1a");
       Style style = new StyleImpl();
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.lightGray));
       editorCell.getStyle().putAll(style);
-      editorCell.setDefaultText("");
+      editorCell.setDefaultText("<<concept methods>>");
       return editorCell;
     }
   }
