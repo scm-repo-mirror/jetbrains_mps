@@ -65,9 +65,6 @@
       <node concept="3EZMnI" id="66ZZ2RilY8w" role="b$u42">
         <node concept="3F0ifn" id="66ZZ2RilY8x" role="3EZMnx">
           <property role="3F0ifm" value="VCS Hints" />
-          <node concept="VPM3Z" id="66ZZ2RilY8y" role="3F10Kt">
-            <property role="VOm3f" value="false" />
-          </node>
         </node>
         <node concept="3F0A7n" id="66ZZ2RilY8z" role="3EZMnx">
           <property role="1$x2rV" value="&lt;no name&gt;" />
