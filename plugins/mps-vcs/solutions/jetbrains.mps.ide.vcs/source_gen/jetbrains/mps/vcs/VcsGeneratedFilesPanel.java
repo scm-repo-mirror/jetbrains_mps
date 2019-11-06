@@ -10,9 +10,15 @@ import java.awt.BorderLayout;
 import com.intellij.ui.IdeBorderFactory;
 import javax.swing.JComponent;
 
+/**
+ * 
+ * @deprecated 
+ */
+@Deprecated
 public class VcsGeneratedFilesPanel extends JPanel implements ProjectPrefsExtraPanel {
   private JCheckBox myIgnoreGeneratedFilesCheckBox = new JCheckBox("Do not store generated files in repository");
   private Project myProject;
+  @Deprecated
   public VcsGeneratedFilesPanel(Project project) {
     myProject = project;
     setLayout(new BorderLayout());

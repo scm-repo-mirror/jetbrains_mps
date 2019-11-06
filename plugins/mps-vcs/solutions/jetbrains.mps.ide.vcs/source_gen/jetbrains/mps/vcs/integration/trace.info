@@ -108,45 +108,45 @@
   </root>
   <root nodeRef="r:eec25685-8f1e-47c9-a9de-4a7ef6b504ec(jetbrains.mps.vcs.integration)/4093906047203397429">
     <file name="GeneratedFilesExcludePolicy.java">
-      <node id="5073871145919042527" at="20,0,21,0" concept="2" trace="myMPSProject" />
-      <node id="2268652670082095270" at="21,0,22,0" concept="2" trace="myProjectConfig" />
-      <node id="4093906047203397439" at="23,134,24,19" concept="10" />
-      <node id="5073871145919042531" at="24,19,25,30" concept="1" />
-      <node id="2268652670082095274" at="25,30,26,29" concept="1" />
-      <node id="4093906047203397453" at="31,54,32,35" concept="7" />
-      <node id="4093906047203397455" at="33,5,34,56" concept="6" />
-      <node id="5073871145919103477" at="36,64,37,69" concept="6" />
-      <node id="5073871145919125589" at="38,27,39,26" concept="1" />
-      <node id="4093906047203397531" at="42,5,43,17" concept="7" />
-      <node id="4093906047203397446" at="30,51,33,5" concept="4" />
-      <node id="5073871145919104707" at="37,69,40,9" concept="4" />
-      <node id="4093906047203397432" at="23,0,28,0" concept="0" trace="GeneratedFilesExcludePolicy#(Lcom/intellij/openapi/project/Project;Ljetbrains/mps/project/MPSProject;Ljetbrains/mps/vcs/MPSVcsProjectConfiguration;)V" />
-      <node id="5073871145919060437" at="35,75,41,7" concept="3" />
-      <node id="5073871145919053270" at="34,56,42,5" concept="3" />
-      <node id="4093906047203397441" at="28,0,45,0" concept="5" trace="getAllExcludeRoots#()Ljava/util/Set;" />
-      <scope id="4093906047203397452" at="31,54,32,35" />
-      <scope id="5073871145919104709" at="38,27,39,26" />
-      <scope id="4093906047203397438" at="23,134,26,29" />
-      <scope id="5073871145919060439" at="36,64,40,9">
+      <node id="5073871145919042527" at="25,0,26,0" concept="2" trace="myMPSProject" />
+      <node id="2268652670082095270" at="26,0,27,0" concept="2" trace="myProjectConfig" />
+      <node id="4093906047203397439" at="29,134,30,19" concept="10" />
+      <node id="5073871145919042531" at="30,19,31,30" concept="1" />
+      <node id="2268652670082095274" at="31,30,32,29" concept="1" />
+      <node id="4093906047203397453" at="37,54,38,35" concept="7" />
+      <node id="4093906047203397455" at="39,5,40,56" concept="6" />
+      <node id="5073871145919103477" at="42,64,43,69" concept="6" />
+      <node id="5073871145919125589" at="44,27,45,26" concept="1" />
+      <node id="4093906047203397531" at="48,5,49,17" concept="7" />
+      <node id="4093906047203397446" at="36,51,39,5" concept="4" />
+      <node id="5073871145919104707" at="43,69,46,9" concept="4" />
+      <node id="4093906047203397432" at="28,0,34,0" concept="0" trace="GeneratedFilesExcludePolicy#(Lcom/intellij/openapi/project/Project;Ljetbrains/mps/project/MPSProject;Ljetbrains/mps/vcs/MPSVcsProjectConfiguration;)V" />
+      <node id="5073871145919060437" at="41,75,47,7" concept="3" />
+      <node id="5073871145919053270" at="40,56,48,5" concept="3" />
+      <node id="4093906047203397441" at="34,0,51,0" concept="5" trace="getAllExcludeRoots#()Ljava/util/Set;" />
+      <scope id="4093906047203397452" at="37,54,38,35" />
+      <scope id="5073871145919104709" at="44,27,45,26" />
+      <scope id="4093906047203397438" at="29,134,32,29" />
+      <scope id="5073871145919060439" at="42,64,46,9">
         <var name="root" id="5073871145919103478" />
       </scope>
-      <scope id="4093906047203397432" at="23,0,28,0">
+      <scope id="4093906047203397432" at="28,0,34,0">
         <var name="config" id="2268652670082058581" />
         <var name="mpsProject" id="5073871145919012309" />
         <var name="project" id="4093906047203397435" />
       </scope>
-      <scope id="5073871145919053272" at="35,75,41,7" />
-      <scope id="5073871145919060437" at="35,75,41,7">
+      <scope id="5073871145919053272" at="41,75,47,7" />
+      <scope id="5073871145919060437" at="41,75,47,7">
         <var name="f" id="5073871145919060441" />
       </scope>
-      <scope id="5073871145919053270" at="34,56,42,5">
+      <scope id="5073871145919053270" at="40,56,48,5">
         <var name="module" id="5073871145919053273" />
       </scope>
-      <scope id="4093906047203397445" at="30,51,43,17">
+      <scope id="4093906047203397445" at="36,51,49,17">
         <var name="roots" id="4093906047203397456" />
       </scope>
-      <scope id="4093906047203397441" at="28,0,45,0" />
-      <unit id="4093906047203397429" at="19,0,46,0" name="jetbrains.mps.vcs.integration.GeneratedFilesExcludePolicy" />
+      <scope id="4093906047203397441" at="34,0,51,0" />
+      <unit id="4093906047203397429" at="23,0,52,0" name="jetbrains.mps.vcs.integration.GeneratedFilesExcludePolicy" />
     </file>
   </root>
   <root nodeRef="r:eec25685-8f1e-47c9-a9de-4a7ef6b504ec(jetbrains.mps.vcs.integration)/6203974263416579308">

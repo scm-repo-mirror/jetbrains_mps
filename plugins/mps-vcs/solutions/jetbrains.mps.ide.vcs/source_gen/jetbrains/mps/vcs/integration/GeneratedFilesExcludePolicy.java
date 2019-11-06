@@ -16,10 +16,16 @@ import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.project.SModuleOperations;
 import jetbrains.mps.ide.vfs.VirtualFileUtils;
 
+/**
+ * 
+ * @deprecated 
+ */
+@Deprecated
 public class GeneratedFilesExcludePolicy extends BaseDirectoryIndexExcludePolicy {
   private final MPSProject myMPSProject;
   private final MPSVcsProjectConfiguration myProjectConfig;
 
+  @Deprecated
   protected GeneratedFilesExcludePolicy(@NotNull Project project, @NotNull MPSProject mpsProject, MPSVcsProjectConfiguration config) {
     super(project);
     myMPSProject = mpsProject;

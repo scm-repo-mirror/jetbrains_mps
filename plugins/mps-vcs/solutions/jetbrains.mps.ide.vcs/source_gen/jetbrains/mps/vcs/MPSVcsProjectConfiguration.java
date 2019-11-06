@@ -14,10 +14,16 @@ import com.intellij.openapi.roots.impl.ModuleRootEventImpl;
 import com.intellij.openapi.vfs.VirtualFileManager;
 import com.intellij.openapi.vcs.changes.VcsDirtyScopeManager;
 
-@State(name = "MPSVcsConfiguration", storages = @Storage(value = StoragePathMacros.WORKSPACE_FILE)
+/**
+ * 
+ * @deprecated 
+ */
+@State(name = "MPSVcsConfiguration", storages = @Storage(value = StoragePathMacros.WORKSPACE_FILE, deprecated = true)
 )
+@Deprecated
 public class MPSVcsProjectConfiguration extends AbstractProjectComponent implements PersistentStateComponent<MPSVcsProjectConfiguration.MyState> {
   private MyState myState = new MyState();
+  @Deprecated
   protected MPSVcsProjectConfiguration(Project project) {
     super(project);
   }
