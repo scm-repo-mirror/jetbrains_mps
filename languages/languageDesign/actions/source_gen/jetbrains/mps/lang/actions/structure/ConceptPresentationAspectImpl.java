@@ -92,7 +92,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.CopyPreProcessor:
         if (props_CopyPreProcessor == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("paste pre processor");
+          cpb.rawPresentation("copy pre processor");
           props_CopyPreProcessor = cpb.create();
         }
         return props_CopyPreProcessor;

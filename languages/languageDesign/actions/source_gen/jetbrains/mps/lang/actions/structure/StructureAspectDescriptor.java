@@ -215,7 +215,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.version(2);
     b.associate("concept", 0x528ba37dd3317b8dL).target(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL).optional(false).origin("5948027493682346893").done();
     b.aggregate("preProcessFunction", 0x528ba37dd33127d9L).target(0xaee9cad2acd44608L, 0xaef20004f6a1cdbdL, 0x528ba37dd3317b9fL).optional(false).ordered(true).multiple(false).origin("5948027493682325465").done();
-    b.alias("paste pre processor");
+    b.alias("copy pre processor");
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForICouldBeAnnotatedWithMigrateManually() {

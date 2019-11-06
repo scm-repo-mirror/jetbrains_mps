@@ -642,8 +642,8 @@
     <file name="ConceptPresentationAspectImpl.java">
       <node id="5948027493682321734" at="19,0,20,0" concept="2" trace="props_CopyPreProcessor" />
       <node id="5948027493682321734" at="93,45,94,76" concept="5" />
-      <node id="5948027493682321734" at="94,76,95,53" concept="1" />
-      <node id="5948027493682321734" at="95,53,96,48" concept="1" />
+      <node id="5948027493682321734" at="94,76,95,52" concept="1" />
+      <node id="5948027493682321734" at="95,52,96,48" concept="1" />
       <node id="5948027493682321734" at="97,9,98,38" concept="6" />
       <node id="5948027493682321734" at="92,50,97,9" concept="3" />
       <scope id="5948027493682321734" at="93,45,96,48">
@@ -664,8 +664,8 @@
       <node id="5948027493682321734" at="214,113,215,17" concept="1" />
       <node id="5948027493682346893" at="215,17,216,166" concept="1" />
       <node id="5948027493682325465" at="216,166,217,212" concept="1" />
-      <node id="5948027493682321734" at="217,212,218,35" concept="1" />
-      <node id="5948027493682321734" at="218,35,219,22" concept="6" />
+      <node id="5948027493682321734" at="217,212,218,34" concept="1" />
+      <node id="5948027493682321734" at="218,34,219,22" concept="6" />
       <node id="5948027493682321734" at="211,0,221,0" concept="8" trace="createDescriptorForCopyPreProcessor#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="5948027493682321734" at="87,50,88,41" />
       <scope id="5948027493682321734" at="211,74,219,22">
