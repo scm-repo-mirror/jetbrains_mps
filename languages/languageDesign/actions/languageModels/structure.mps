@@ -295,7 +295,7 @@
     <property role="R5$K2" value="false" />
     <property role="TrG5h" value="CopyPreProcessor" />
     <property role="3GE5qa" value="copyPaste" />
-    <property role="34LRSv" value="paste pre processor" />
+    <property role="34LRSv" value="copy pre processor" />
     <property role="EcuMT" value="5948027493682321734" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1TJgyj" id="5abCRRjcnId" role="1TKVEi">
