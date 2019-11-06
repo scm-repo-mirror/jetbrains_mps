@@ -86,7 +86,7 @@ public class SModelOperations {
   }
 
   @Nullable
-  public static SNode getRootByName(SModel model, @NotNull String name) {
+  public static SNode getRootByName(@NotNull SModel model, @NotNull String name) {
     for (SNode root : model.getRootNodes()) {
       if (name.equals(root.getName())) return root;
     }
@@ -109,7 +109,7 @@ public class SModelOperations {
     return FastNodeFinderManager.get(model).getNodes(concept, true);
   }
 
-  public static boolean isReadOnly(SModel model) {
+  public static boolean isReadOnly(@NotNull SModel model) {
     return model.isReadOnly();
   }
 
@@ -143,7 +143,7 @@ public class SModelOperations {
    */
   @Deprecated
   @ToRemove(version = 2018.3)
-  public static List<SModel> allImportedModels(SModel model) {
+  public static List<SModel> allImportedModels(@NotNull SModel model) {
     // no uses in mbeddr
     SRepository repo = model.getRepository();
     if (repo == null) {
@@ -162,7 +162,7 @@ public class SModelOperations {
 
   //todo rewrite using iterators
   @NotNull
-  public static List<SModelReference> getImportedModelUIDs(SModel sModel) {
+  public static List<SModelReference> getImportedModelUIDs(@NotNull SModel sModel) {
     return new ArrayList<>(new ModelImports(sModel).getImportedModels());
   }
 
