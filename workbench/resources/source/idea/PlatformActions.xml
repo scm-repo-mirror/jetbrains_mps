@@ -668,9 +668,7 @@
           <group id="ToggleFullScreenGroup">
             <separator/>
             <action id="TogglePresentationMode" class="com.intellij.ide.actions.TogglePresentationModeAction"/>
-            <!-- TODO: Enable DistractionFreeMode after implementation mock DaemonCodeAnalyzerSettings (MPSLangExtensions.xml) or InspectionProfileManager (add to IdeaPlugin.xml)
             <action id="ToggleDistractionFreeMode" class="com.intellij.ide.actions.ToggleDistractionFreeModeAction"/>
-            -->
             <action id="ToggleFullScreen" class="com.intellij.ide.actions.ToggleFullScreenAction"/>
           </group>
           <group id="UIToggleActions">
