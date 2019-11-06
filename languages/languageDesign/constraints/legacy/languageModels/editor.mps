@@ -110,6 +110,7 @@
         <child id="1073389446424" name="childCellModel" index="3EZMnx" />
       </concept>
       <concept id="1073389577006" name="jetbrains.mps.lang.editor.structure.CellModel_Constant" flags="sn" stub="3610246225209162225" index="3F0ifn">
+        <property id="1082639509531" name="nullText" index="ilYzB" />
         <property id="1073389577007" name="text" index="3F0ifm" />
       </concept>
       <concept id="1073389658414" name="jetbrains.mps.lang.editor.structure.CellModel_Property" flags="sg" stub="730538219796134133" index="3F0A7n" />
@@ -778,6 +779,7 @@
             </node>
           </node>
           <node concept="3F0ifn" id="1P_b4lPRMiH" role="3EZMnx">
+            <node concept="VPM3Z" id="23C0l7wOP9A" role="3F10Kt" />
             <node concept="ljvvj" id="1P_b4lPRMiI" role="3F10Kt">
               <property role="VOm3f" value="true" />
             </node>
@@ -958,13 +960,14 @@
             <node concept="ljvvj" id="3gr0SYj1Yn8" role="3F10Kt">
               <property role="VOm3f" value="true" />
             </node>
+            <node concept="VPM3Z" id="23C0l7wOONv" role="3F10Kt" />
           </node>
           <node concept="l2Vlx" id="3gr0SYj1Yn9" role="2iSdaV" />
         </node>
         <node concept="3F2HdR" id="1P_b4lPRMjc" role="3EZMnx">
           <ref role="1NtTu8" to="tp1t:hDMhHKX" resolve="property" />
           <node concept="3F0ifn" id="1P_b4lPRMjd" role="2czzBI">
-            <property role="3F0ifm" value="&lt;&lt;property constraints&gt;&gt;" />
+            <property role="ilYzB" value="&lt;&lt;property constraints&gt;&gt;" />
             <node concept="VechU" id="1P_b4lPRMje" role="3F10Kt">
               <property role="Vb096" value="fLJRk5A/lightGray" />
             </node>
@@ -988,7 +991,7 @@
         <node concept="3F2HdR" id="1P_b4lPRMjl" role="3EZMnx">
           <ref role="1NtTu8" to="tp1t:hDMr90r" resolve="referent" />
           <node concept="3F0ifn" id="1P_b4lPRMjm" role="2czzBI">
-            <property role="3F0ifm" value="&lt;&lt;referent constraints&gt;&gt;" />
+            <property role="ilYzB" value="&lt;&lt;referent constraints&gt;&gt;" />
             <node concept="VechU" id="1P_b4lPRMjn" role="3F10Kt">
               <property role="Vb096" value="fLJRk5A/lightGray" />
             </node>

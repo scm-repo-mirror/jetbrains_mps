@@ -507,6 +507,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
     editorCell.setCellId("Constant_g00aa7_c4d0");
     Style style = new StyleImpl();
+    style.set(StyleAttributes.SELECTABLE, false);
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
@@ -836,6 +837,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     editorCell.setCellId("Constant_g00aa7_d11d0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, true);
+    style.set(StyleAttributes.SELECTABLE, false);
     editorCell.getStyle().putAll(style);
     editorCell.setDefaultText("");
     return editorCell;
@@ -902,12 +904,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     }
     private EditorCell createConstant_15() {
-      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "<<property constraints>>");
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
       editorCell.setCellId("Constant_g00aa7_a21d0");
       Style style = new StyleImpl();
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.lightGray));
       editorCell.getStyle().putAll(style);
-      editorCell.setDefaultText("");
+      editorCell.setDefaultText("<<property constraints>>");
       return editorCell;
     }
   }
@@ -983,12 +985,12 @@ import org.jetbrains.mps.openapi.language.SConcept;
       }
     }
     private EditorCell createConstant_17() {
-      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "<<referent constraints>>");
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), myNode, "");
       editorCell.setCellId("Constant_g00aa7_a41d0");
       Style style = new StyleImpl();
       style.set(StyleAttributes.TEXT_COLOR, StyleRegistry.getInstance().getSimpleColor(MPSColors.lightGray));
       editorCell.getStyle().putAll(style);
-      editorCell.setDefaultText("");
+      editorCell.setDefaultText("<<referent constraints>>");
       return editorCell;
     }
   }
