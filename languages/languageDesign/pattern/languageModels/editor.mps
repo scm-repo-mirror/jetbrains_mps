@@ -1788,6 +1788,7 @@
         <ref role="1NtTu8" to="tp3t:7U87j6$6nB5" resolve="childLinkDeclaration" />
         <node concept="1sVBvm" id="7U87j6$6prg" role="1sWHZn">
           <node concept="3F0A7n" id="7U87j6$6prh" role="2wV5jI">
+            <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="tpce:fA0kJcN" resolve="role" />
           </node>
         </node>

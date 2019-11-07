@@ -46,6 +46,7 @@
       <concept id="1219226236603" name="jetbrains.mps.lang.editor.structure.DrawBracketsStyleClassItem" flags="ln" index="3vyZuw" />
       <concept id="1139848536355" name="jetbrains.mps.lang.editor.structure.CellModel_WithRole" flags="ng" index="1$h60E">
         <property id="1139852716018" name="noTargetText" index="1$x2rV" />
+        <property id="1140017977771" name="readOnly" index="1Intyy" />
         <property id="1140114345053" name="allowEmptyText" index="1O74Pk" />
         <reference id="1140103550593" name="relationDeclaration" index="1NtTu8" />
       </concept>
@@ -385,6 +386,7 @@
         <ref role="1NtTu8" to="tpm0:2S48fJgAlSa" resolve="method" />
         <node concept="1sVBvm" id="2S48fJgAlSi" role="1sWHZn">
           <node concept="3F0A7n" id="2S48fJgAlSj" role="2wV5jI">
+            <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
           </node>
         </node>
@@ -409,6 +411,7 @@
         <ref role="1NtTu8" to="tpm0:2S48fJgAlS8" resolve="declaration" />
         <node concept="1sVBvm" id="2S48fJgAlSt" role="1sWHZn">
           <node concept="3F0A7n" id="2S48fJgAlSu" role="2wV5jI">
+            <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
           </node>
         </node>
@@ -439,6 +442,7 @@
         <ref role="1NtTu8" to="tpm0:2S48fJgAlRX" resolve="extends" />
         <node concept="1sVBvm" id="2S48fJgAlSH" role="1sWHZn">
           <node concept="3F0A7n" id="2S48fJgAlSI" role="2wV5jI">
+            <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
           </node>
         </node>

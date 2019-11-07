@@ -233,7 +233,7 @@
     </node>
   </node>
   <node concept="1M2fIO" id="4jBMNo5WcNQ">
-    <ref role="1M2myG" to="68nn:4jBMNo5V404" resolve="NotEditableVaraileReference" />
+    <ref role="1M2myG" to="68nn:4jBMNo5V404" resolve="NotEditableVarableReference" />
     <node concept="1N5Pfh" id="4jBMNo5WcNR" role="1Mr941">
       <ref role="1N5Vy1" to="68nn:4jBMNo5V405" resolve="variableDeclaration" />
       <node concept="3dgokm" id="5Vvmn_Ql2gJ" role="1N6uqs">

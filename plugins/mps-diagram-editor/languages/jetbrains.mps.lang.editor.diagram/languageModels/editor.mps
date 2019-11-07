@@ -461,6 +461,7 @@
       <ref role="1NtTu8" to="gbdf:WK6Z46D_sj" resolve="figure" />
       <node concept="1sVBvm" id="WK6Z46DXy4" role="1sWHZn">
         <node concept="3F0A7n" id="WK6Z46DXy6" role="2wV5jI">
+          <property role="1Intyy" value="true" />
           <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
         </node>
       </node>

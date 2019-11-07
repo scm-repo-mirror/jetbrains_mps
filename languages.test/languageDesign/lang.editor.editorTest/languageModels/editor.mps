@@ -164,7 +164,6 @@
         <property id="1186414551515" name="flag" index="VOm3f" />
         <child id="1223387335081" name="query" index="3n$kyP" />
       </concept>
-      <concept id="1186414860679" name="jetbrains.mps.lang.editor.structure.EditableStyleClassItem" flags="ln" index="VPxyj" />
       <concept id="1186414928363" name="jetbrains.mps.lang.editor.structure.SelectableStyleSheetItem" flags="ln" index="VPM3Z" />
       <concept id="1186414999511" name="jetbrains.mps.lang.editor.structure.UnderlinedStyleClassItem" flags="ln" index="VQ3r3">
         <property id="1214316229833" name="underlined" index="2USNnj" />
@@ -849,18 +848,15 @@
     </node>
   </node>
   <node concept="24kQdi" id="4jBMNo5V406">
-    <ref role="1XX52x" to="68nn:4jBMNo5V404" resolve="NotEditableVaraileReference" />
+    <ref role="1XX52x" to="68nn:4jBMNo5V404" resolve="NotEditableVarableReference" />
     <node concept="1iCGBv" id="4jBMNo5V408" role="2wV5jI">
       <ref role="1NtTu8" to="68nn:4jBMNo5V405" resolve="variableDeclaration" />
       <node concept="1sVBvm" id="4jBMNo5V409" role="1sWHZn">
         <node concept="3F0A7n" id="4jBMNo5V40b" role="2wV5jI">
-          <property role="1Intyy" value="false" />
+          <property role="1Intyy" value="true" />
           <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
           <node concept="30gYXW" id="4jBMNo5VpJR" role="3F10Kt">
             <property role="Vb096" value="fLwANPt/cyan" />
-          </node>
-          <node concept="VPxyj" id="6xmMsQAV98n" role="3F10Kt">
-            <property role="VOm3f" value="false" />
           </node>
         </node>
       </node>

@@ -337,6 +337,7 @@
         <ref role="1ERwB7" node="2o8jHTO_BzB" resolve="InsertMemberAfterRuleBlock" />
         <node concept="1sVBvm" id="1BFxp3HHhvI" role="1sWHZn">
           <node concept="3F0A7n" id="1BFxp3HHhvJ" role="2wV5jI">
+            <property role="1Intyy" value="true" />
             <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
             <ref role="1k5W1q" to="tpd3:hLjqlx3" resolve="ReferenceOnConceptualFeature" />
             <node concept="VPxyj" id="1BFxp3HHhvK" role="3F10Kt" />

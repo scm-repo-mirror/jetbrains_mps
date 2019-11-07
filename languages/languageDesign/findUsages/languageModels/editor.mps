@@ -293,6 +293,7 @@
           <ref role="1NtTu8" to="tp3b:hJgKJ91" resolve="forConcept" />
           <node concept="1sVBvm" id="hJh91Lz" role="1sWHZn">
             <node concept="3F0A7n" id="hJh91L$" role="2wV5jI">
+              <property role="1Intyy" value="true" />
               <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
             </node>
           </node>
