@@ -6961,5 +6961,157 @@
       <ref role="1YaFvo" to="tpc2:g_h_SNY" resolve="CellActionMapDeclaration" />
     </node>
   </node>
+  <node concept="1YbPZF" id="7W$v8cTzOjj">
+    <property role="TrG5h" value="check_CellModel_RefCell_NotEditable" />
+    <node concept="3clFbS" id="7W$v8cTzOjk" role="18ibNy">
+      <node concept="3cpWs8" id="7W$v8cTzRoP" role="3cqZAp">
+        <node concept="3cpWsn" id="7W$v8cTzRoQ" role="3cpWs9">
+          <property role="TrG5h" value="innerCell" />
+          <node concept="3Tqbb2" id="7W$v8cTzQWM" role="1tU5fm">
+            <ref role="ehGHo" to="tpc2:fBEYTCT" resolve="EditorCellModel" />
+          </node>
+          <node concept="2OqwBi" id="7W$v8cTzRoR" role="33vP2m">
+            <node concept="2OqwBi" id="7W$v8cTzRoS" role="2Oq$k0">
+              <node concept="1YBJjd" id="7W$v8cTzRoT" role="2Oq$k0">
+                <ref role="1YBMHb" node="7W$v8cTzOjt" resolve="refCell" />
+              </node>
+              <node concept="3TrEf2" id="7W$v8cTzRoU" role="2OqNvi">
+                <ref role="3Tt5mk" to="tpc2:fPsWHWE" resolve="editorComponent" />
+              </node>
+            </node>
+            <node concept="3TrEf2" id="7W$v8cTzRoV" role="2OqNvi">
+              <ref role="3Tt5mk" to="tpc2:fIwV5gl" resolve="cellModel" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbJ" id="7W$v8cTzOTx" role="3cqZAp">
+        <node concept="3fqX7Q" id="7W$v8cT$8A1" role="3clFbw">
+          <node concept="2OqwBi" id="7W$v8cT$8A2" role="3fr31v">
+            <node concept="37vLTw" id="7W$v8cT$8A3" role="2Oq$k0">
+              <ref role="3cqZAo" node="7W$v8cTzRoQ" resolve="innerCell" />
+            </node>
+            <node concept="1mIQ4w" id="7W$v8cT$8A4" role="2OqNvi">
+              <node concept="chp4Y" id="7W$v8cT$8A5" role="cj9EA">
+                <ref role="cht4Q" to="tpc2:fBF0A4I" resolve="CellModel_Property" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbS" id="7W$v8cT$8A8" role="3clFbx">
+          <node concept="3cpWs6" id="7W$v8cT$92i" role="3cqZAp" />
+        </node>
+      </node>
+      <node concept="3clFbH" id="7W$v8cT$95G" role="3cqZAp" />
+      <node concept="3cpWs8" id="7W$v8cT$7bk" role="3cqZAp">
+        <node concept="3cpWsn" id="7W$v8cT$7bl" role="3cpWs9">
+          <property role="TrG5h" value="propCell" />
+          <node concept="3Tqbb2" id="7W$v8cT$4y_" role="1tU5fm">
+            <ref role="ehGHo" to="tpc2:fBF0A4I" resolve="CellModel_Property" />
+          </node>
+          <node concept="1PxgMI" id="7W$v8cT$7bm" role="33vP2m">
+            <node concept="chp4Y" id="7W$v8cT$7bn" role="3oSUPX">
+              <ref role="cht4Q" to="tpc2:fBF0A4I" resolve="CellModel_Property" />
+            </node>
+            <node concept="37vLTw" id="7W$v8cT$7bo" role="1m5AlR">
+              <ref role="3cqZAo" node="7W$v8cTzRoQ" resolve="innerCell" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbJ" id="7W$v8cT$7N6" role="3cqZAp">
+        <node concept="3clFbS" id="7W$v8cT$7N8" role="3clFbx">
+          <node concept="3cpWs6" id="7W$v8cT$9Fy" role="3cqZAp" />
+        </node>
+        <node concept="2OqwBi" id="7W$v8cTzTEQ" role="3clFbw">
+          <node concept="37vLTw" id="7W$v8cT$7bq" role="2Oq$k0">
+            <ref role="3cqZAo" node="7W$v8cT$7bl" resolve="propCell" />
+          </node>
+          <node concept="3TrcHB" id="7W$v8cTzTEU" role="2OqNvi">
+            <ref role="3TsBF5" to="tpc2:g_IntAF" resolve="readOnly" />
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbH" id="7W$v8cT$95Y" role="3cqZAp" />
+      <node concept="a7r0C" id="7W$v8cTzTJU" role="3cqZAp">
+        <node concept="3Cnw8n" id="7W$v8cT$4lE" role="2OEOjU">
+          <ref role="QpYPw" node="7W$v8cT$3xl" resolve="FixRefCellReadOnly" />
+          <node concept="3CnSsL" id="7W$v8cT$6Z2" role="3Coj4f">
+            <ref role="QkamJ" node="7W$v8cT$5i$" resolve="propCell" />
+            <node concept="37vLTw" id="7W$v8cT$7H$" role="3CoRuB">
+              <ref role="3cqZAo" node="7W$v8cT$7bl" resolve="propCell" />
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs3" id="7W$v8cTzVsI" role="a7wSD">
+          <node concept="Xl_RD" id="7W$v8cTzVRi" role="3uHU7w">
+            <property role="Xl_RC" value=" of the referenced node using this cell. In most cases it's not the desired behavior." />
+          </node>
+          <node concept="3cpWs3" id="7W$v8cTzUDJ" role="3uHU7B">
+            <node concept="Xl_RD" id="7W$v8cTzTRZ" role="3uHU7B">
+              <property role="Xl_RC" value="It will be possible to change property " />
+            </node>
+            <node concept="2OqwBi" id="7W$v8cTzWYY" role="3uHU7w">
+              <node concept="2OqwBi" id="7W$v8cTzWc9" role="2Oq$k0">
+                <node concept="37vLTw" id="7W$v8cT$7bp" role="2Oq$k0">
+                  <ref role="3cqZAo" node="7W$v8cT$7bl" resolve="propCell" />
+                </node>
+                <node concept="3TrEf2" id="7W$v8cTzWBc" role="2OqNvi">
+                  <ref role="3Tt5mk" to="tpc2:fBF1KQc" resolve="propertyDeclaration" />
+                </node>
+              </node>
+              <node concept="3TrcHB" id="7W$v8cTzXjh" role="2OqNvi">
+                <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="1YBJjd" id="7W$v8cTzTQf" role="2OEOjV">
+          <ref role="1YBMHb" node="7W$v8cTzOjt" resolve="refCell" />
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="7W$v8cTzOjt" role="1YuTPh">
+      <property role="TrG5h" value="refCell" />
+      <ref role="1YaFvo" to="tpc2:fPiCG$y" resolve="CellModel_RefCell" />
+    </node>
+  </node>
+  <node concept="Q5z_Y" id="7W$v8cT$3xl">
+    <property role="TrG5h" value="FixRefCellReadOnly" />
+    <node concept="Q6JDH" id="7W$v8cT$5i$" role="Q6Id_">
+      <property role="TrG5h" value="propCell" />
+      <node concept="3Tqbb2" id="7W$v8cT$5iC" role="Q6QK4">
+        <ref role="ehGHo" to="tpc2:fBF0A4I" resolve="CellModel_Property" />
+      </node>
+    </node>
+    <node concept="Q5ZZ6" id="7W$v8cT$3xm" role="Q6x$H">
+      <node concept="3clFbS" id="7W$v8cT$3xn" role="2VODD2">
+        <node concept="3clFbF" id="7W$v8cT$5lJ" role="3cqZAp">
+          <node concept="37vLTI" id="7W$v8cT$6$T" role="3clFbG">
+            <node concept="3clFbT" id="7W$v8cT$6_n" role="37vLTx">
+              <property role="3clFbU" value="true" />
+            </node>
+            <node concept="2OqwBi" id="7W$v8cT$5vm" role="37vLTJ">
+              <node concept="QwW4i" id="7W$v8cT$5lI" role="2Oq$k0">
+                <ref role="QwW4h" node="7W$v8cT$5i$" resolve="propCell" />
+              </node>
+              <node concept="3TrcHB" id="7W$v8cT$6dZ" role="2OqNvi">
+                <ref role="3TsBF5" to="tpc2:g_IntAF" resolve="readOnly" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="QznSV" id="7W$v8cT$6Ea" role="QzAvj">
+      <node concept="3clFbS" id="7W$v8cT$6Eb" role="2VODD2">
+        <node concept="3clFbF" id="7W$v8cT$6JL" role="3cqZAp">
+          <node concept="Xl_RD" id="7W$v8cT$6JK" role="3clFbG">
+            <property role="Xl_RC" value="Make Read-Only" />
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
 </model>
 
