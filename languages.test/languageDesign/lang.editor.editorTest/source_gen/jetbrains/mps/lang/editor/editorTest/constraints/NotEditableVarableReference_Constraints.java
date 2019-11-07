@@ -24,9 +24,9 @@ import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
-public class NotEditableVaraileReference_Constraints extends BaseConstraintsDescriptor {
-  public NotEditableVaraileReference_Constraints() {
-    super(CONCEPTS.NotEditableVaraileReference$fC);
+public class NotEditableVarableReference_Constraints extends BaseConstraintsDescriptor {
+  public NotEditableVarableReference_Constraints() {
+    super(CONCEPTS.NotEditableVarableReference$fC);
   }
 
   @Override
@@ -42,7 +42,7 @@ public class NotEditableVaraileReference_Constraints extends BaseConstraintsDesc
         return new BaseScopeProvider() {
           @Override
           public SNodeReference getSearchScopeValidatorNode() {
-            return breakingNode_5rh4qw_a0a0a0a0a1a0a0a0c;
+            return breakingNode_9n3scc_a0a0a0a0a1a0a0a0c;
           }
           @Override
           public Scope createScope(final ReferenceConstraintsContext _context) {
@@ -63,10 +63,10 @@ public class NotEditableVaraileReference_Constraints extends BaseConstraintsDesc
     references.put(d0.getReference(), d0);
     return references;
   }
-  private static final SNodePointer breakingNode_5rh4qw_a0a0a0a0a1a0a0a0c = new SNodePointer("r:94b1feee-20bf-48e9-9677-814a5fdcaf90(jetbrains.mps.lang.editor.editorTest.constraints)", "6836281137582842927");
+  private static final SNodePointer breakingNode_9n3scc_a0a0a0a0a1a0a0a0c = new SNodePointer("r:94b1feee-20bf-48e9-9677-814a5fdcaf90(jetbrains.mps.lang.editor.editorTest.constraints)", "6836281137582842927");
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept NotEditableVaraileReference$fC = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x44e7cb3605ec4004L, "jetbrains.mps.lang.editor.editorTest.structure.NotEditableVaraileReference");
+    /*package*/ static final SConcept NotEditableVarableReference$fC = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x44e7cb3605ec4004L, "jetbrains.mps.lang.editor.editorTest.structure.NotEditableVarableReference");
     /*package*/ static final SConcept VariableDeclarationBlock$uo = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x2444dad137f90ed1L, "jetbrains.mps.lang.editor.editorTest.structure.VariableDeclarationBlock");
     /*package*/ static final SConcept TestBlockList$U1 = MetaAdapterFactory.getConcept(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x3361ce1b17d62dbbL, "jetbrains.mps.lang.editor.editorTest.structure.TestBlockList");
   }

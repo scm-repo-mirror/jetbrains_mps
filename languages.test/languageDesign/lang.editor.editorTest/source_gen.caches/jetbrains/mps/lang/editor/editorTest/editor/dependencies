@@ -1404,8 +1404,8 @@
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.MenuTraceTransformationChild_SubstituteMenu" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.MenuTraceTransformationChild_TransformationMenu" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.NonEmptyProperty_Editor" />
-    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVaraileReference_Editor" />
-    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVaraileReference_SubstituteMenu" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVarableReference_Editor" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVarableReference_SubstituteMenu" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.PlaceholderChildAttribute_Editor" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.PlaceholderChild_Editor" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.PlaceholderParent_Editor" />
@@ -2473,14 +2473,14 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
   </dependency>
-  <dependency className="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVaraileReference_Editor">
-    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVaraileReference_EditorBuilder_a" />
+  <dependency className="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVarableReference_Editor">
+    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVarableReference_EditorBuilder_a" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.EditorContext" />
     <classNode dependClassName="jetbrains.mps.openapi.editor.cells.EditorCell" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.nodeEditor.DefaultNodeEditor" />
   </dependency>
-  <dependency className="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVaraileReference_EditorBuilder_a">
+  <dependency className="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVarableReference_EditorBuilder_a">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
@@ -2523,7 +2523,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.editor.runtime.descriptor.AbstractEditorBuilder" />
   </dependency>
-  <dependency className="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVaraileReference_SubstituteMenu">
+  <dependency className="jetbrains.mps.lang.editor.editorTest.editor.NotEditableVarableReference_SubstituteMenu">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
     <classNode dependClassName="java.util.ArrayList" />

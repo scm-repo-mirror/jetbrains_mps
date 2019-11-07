@@ -25,7 +25,7 @@ public class ConstraintsAspectDescriptor extends BaseConstraintsAspectDescriptor
       case 2:
         return new DelTestChildWithUsualReference_Constraints();
       case 3:
-        return new NotEditableVaraileReference_Constraints();
+        return new NotEditableVarableReference_Constraints();
       case 4:
         return new SmartCompletionParent_Constraints();
       case 5:

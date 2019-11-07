@@ -1954,7 +1954,7 @@
   </root>
   <root nodeRef="r:1a7fc406-f263-498c-a126-51036fe6a9da(jetbrains.mps.lang.editor.editorTest.structure)/4965160547087302660">
     <file name="ConceptPresentationAspectImpl.java">
-      <node id="4965160547087302660" at="88,0,89,0" concept="2" trace="props_NotEditableVaraileReference" />
+      <node id="4965160547087302660" at="88,0,89,0" concept="2" trace="props_NotEditableVarableReference" />
       <node id="4965160547087302660" at="674,56,675,76" concept="5" />
       <node id="4965160547087302660" at="675,76,676,168" concept="1" />
       <node id="4965160547087302660" at="676,168,677,59" concept="1" />
@@ -1966,11 +1966,11 @@
       <scope id="4965160547087302660" at="673,61,679,49" />
     </file>
     <file name="LanguageConceptSwitch.java">
-      <node id="4965160547087302660" at="88,0,89,0" concept="7" trace="NotEditableVaraileReference" />
+      <node id="4965160547087302660" at="88,0,89,0" concept="7" trace="NotEditableVarableReference" />
       <node id="4965160547087302660" at="219,61,220,66" concept="1" />
     </file>
     <file name="StructureAspectDescriptor.java">
-      <node id="4965160547087302660" at="95,0,96,0" concept="2" trace="myConceptNotEditableVaraileReference" />
+      <node id="4965160547087302660" at="95,0,96,0" concept="2" trace="myConceptNotEditableVarableReference" />
       <node id="4965160547087302660" at="325,61,326,52" concept="6" />
       <node id="4965160547087302660" at="1098,85,1099,198" concept="5" />
       <node id="4965160547087302660" at="1099,198,1100,34" concept="1" />
@@ -1978,7 +1978,7 @@
       <node id="4965160547087302660" at="1102,123,1103,17" concept="1" />
       <node id="4965160547087302661" at="1103,17,1104,183" concept="1" />
       <node id="4965160547087302660" at="1104,183,1105,22" concept="6" />
-      <node id="4965160547087302660" at="1098,0,1107,0" concept="8" trace="createDescriptorForNotEditableVaraileReference#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
+      <node id="4965160547087302660" at="1098,0,1107,0" concept="8" trace="createDescriptorForNotEditableVarableReference#()Ljetbrains/mps/smodel/runtime/ConceptDescriptor;" />
       <scope id="4965160547087302660" at="325,61,326,52" />
       <scope id="4965160547087302660" at="1098,85,1105,22">
         <var name="b" id="4965160547087302660" />

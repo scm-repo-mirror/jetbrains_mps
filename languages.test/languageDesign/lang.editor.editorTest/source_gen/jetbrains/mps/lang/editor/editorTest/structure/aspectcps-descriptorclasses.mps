@@ -1002,7 +1002,7 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="false" />
-      <property role="TrG5h" value="props_NotEditableVaraileReference" />
+      <property role="TrG5h" value="props_NotEditableVarableReference" />
       <node concept="3uibUv" id="4u" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptPresentation" resolve="ConceptPresentation" />
       </node>
@@ -7156,7 +7156,7 @@
                         </node>
                       </node>
                       <node concept="37vLTw" id="EF" role="37vLTJ">
-                        <ref role="3cqZAo" node="1e" resolve="props_NotEditableVaraileReference" />
+                        <ref role="3cqZAo" node="1e" resolve="props_NotEditableVarableReference" />
                       </node>
                     </node>
                   </node>
@@ -7164,19 +7164,19 @@
                 <node concept="3clFbC" id="E7" role="3clFbw">
                   <node concept="10Nm6u" id="EI" role="3uHU7w" />
                   <node concept="37vLTw" id="EJ" role="3uHU7B">
-                    <ref role="3cqZAo" node="1e" resolve="props_NotEditableVaraileReference" />
+                    <ref role="3cqZAo" node="1e" resolve="props_NotEditableVarableReference" />
                   </node>
                 </node>
               </node>
               <node concept="3cpWs6" id="E5" role="3cqZAp">
                 <node concept="37vLTw" id="EK" role="3cqZAk">
-                  <ref role="3cqZAo" node="1e" resolve="props_NotEditableVaraileReference" />
+                  <ref role="3cqZAo" node="1e" resolve="props_NotEditableVarableReference" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="E3" role="3Kbmr1">
               <ref role="1PxDUh" node="1gh" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="1hv" resolve="NotEditableVaraileReference" />
+              <ref role="3cqZAo" node="1hv" resolve="NotEditableVarableReference" />
             </node>
           </node>
           <node concept="3KbdKl" id="7C" role="3KbHQx">
@@ -14204,7 +14204,7 @@
       <property role="2dlcS1" value="false" />
       <property role="2dld4O" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="NotEditableVaraileReference" />
+      <property role="TrG5h" value="NotEditableVarableReference" />
       <node concept="3Tm1VV" id="1m1" role="1B3o_S" />
       <node concept="10Oyi0" id="1m2" role="1tU5fm" />
       <node concept="3cmrfG" id="1m3" role="33vP2m">
@@ -16034,7 +16034,7 @@
                 <property role="1adDun" value="0x44e7cb3605ec4004L" />
               </node>
               <node concept="37vLTw" id="1wG" role="37wK5m">
-                <ref role="3cqZAo" node="1hv" resolve="NotEditableVaraileReference" />
+                <ref role="3cqZAo" node="1hv" resolve="NotEditableVarableReference" />
               </node>
             </node>
           </node>
@@ -17864,12 +17864,12 @@
       <property role="eg7rD" value="false" />
       <property role="34CwA1" value="false" />
       <property role="3TUv4t" value="true" />
-      <property role="TrG5h" value="myConceptNotEditableVaraileReference" />
+      <property role="TrG5h" value="myConceptNotEditableVarableReference" />
       <node concept="3uibUv" id="1FR" role="1tU5fm">
         <ref role="3uigEE" to="ze1i:~ConceptDescriptor" resolve="ConceptDescriptor" />
       </node>
       <node concept="1rXfSq" id="1FS" role="33vP2m">
-        <ref role="37wK5l" node="1CE" resolve="createDescriptorForNotEditableVaraileReference" />
+        <ref role="37wK5l" node="1CE" resolve="createDescriptorForNotEditableVarableReference" />
       </node>
     </node>
     <node concept="312cEg" id="1Ao" role="jymVt">
@@ -18867,7 +18867,7 @@
               <ref role="3cqZAo" node="1Am" resolve="myConceptNonSelectableContainer" />
             </node>
             <node concept="37vLTw" id="1Ju" role="37wK5m">
-              <ref role="3cqZAo" node="1An" resolve="myConceptNotEditableVaraileReference" />
+              <ref role="3cqZAo" node="1An" resolve="myConceptNotEditableVarableReference" />
             </node>
             <node concept="37vLTw" id="1Jv" role="37wK5m">
               <ref role="3cqZAo" node="1Ao" resolve="myConceptPlaceholderChild" />
@@ -20046,13 +20046,13 @@
             <node concept="3clFbS" id="1Rf" role="3Kbo56">
               <node concept="3cpWs6" id="1Rh" role="3cqZAp">
                 <node concept="37vLTw" id="1Ri" role="3cqZAk">
-                  <ref role="3cqZAo" node="1An" resolve="myConceptNotEditableVaraileReference" />
+                  <ref role="3cqZAo" node="1An" resolve="myConceptNotEditableVarableReference" />
                 </node>
               </node>
             </node>
             <node concept="10M0yZ" id="1Rg" role="3Kbmr1">
               <ref role="1PxDUh" node="1gh" resolve="LanguageConceptSwitch" />
-              <ref role="3cqZAo" node="1hv" resolve="NotEditableVaraileReference" />
+              <ref role="3cqZAo" node="1hv" resolve="NotEditableVarableReference" />
             </node>
           </node>
           <node concept="3KbdKl" id="1LD" role="3KbHQx">
@@ -32267,7 +32267,7 @@
       <property role="od$2w" value="false" />
       <property role="DiZV1" value="false" />
       <property role="2aFKle" value="false" />
-      <property role="TrG5h" value="createDescriptorForNotEditableVaraileReference" />
+      <property role="TrG5h" value="createDescriptorForNotEditableVarableReference" />
       <node concept="3clFbS" id="2YR" role="3clF47">
         <node concept="3cpWs8" id="2YU" role="3cqZAp">
           <node concept="3cpWsn" id="2Z1" role="3cpWs9">
@@ -32282,7 +32282,7 @@
                   <property role="Xl_RC" value="jetbrains.mps.lang.editor.editorTest" />
                 </node>
                 <node concept="Xl_RD" id="2Z6" role="37wK5m">
-                  <property role="Xl_RC" value="NotEditableVaraileReference" />
+                  <property role="Xl_RC" value="NotEditableVarableReference" />
                 </node>
                 <node concept="1adDum" id="2Z7" role="37wK5m">
                   <property role="1adDun" value="0x81f0abb8d71e4d13L" />

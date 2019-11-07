@@ -5,7 +5,7 @@
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.Container_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.DelTestChildWithSmartReference_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.DelTestChildWithUsualReference_Constraints" />
-    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.NotEditableVaraileReference_Constraints" />
+    <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.NotEditableVarableReference_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.SmartCompletionParent_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.SmartCompletionSimpleRef_Constraints" />
     <classNode dependClassName="jetbrains.mps.lang.editor.editorTest.constraints.SmartCompletionSmartRef_Constraints" />
@@ -63,7 +63,7 @@
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeReference" />
     <classNode extendsClassName="jetbrains.mps.smodel.runtime.base.BaseConstraintsDescriptor" />
   </dependency>
-  <dependency className="jetbrains.mps.lang.editor.editorTest.constraints.NotEditableVaraileReference_Constraints">
+  <dependency className="jetbrains.mps.lang.editor.editorTest.constraints.NotEditableVarableReference_Constraints">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.util.ArrayList" />
     <classNode dependClassName="java.util.HashMap" />

@@ -85,7 +85,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_MenuTraceTransformationChildWithEnum;
   private ConceptPresentation props_NonEmptyProperty;
   private ConceptPresentation props_NonSelectableContainer;
-  private ConceptPresentation props_NotEditableVaraileReference;
+  private ConceptPresentation props_NotEditableVarableReference;
   private ConceptPresentation props_PlaceholderChild;
   private ConceptPresentation props_PlaceholderChildAttribute;
   private ConceptPresentation props_PlaceholderParent;
@@ -670,13 +670,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_NonSelectableContainer = cpb.create();
         }
         return props_NonSelectableContainer;
-      case LanguageConceptSwitch.NotEditableVaraileReference:
-        if (props_NotEditableVaraileReference == null) {
+      case LanguageConceptSwitch.NotEditableVarableReference:
+        if (props_NotEditableVarableReference == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           cpb.presentationByReference(0x81f0abb8d71e4d13L, 0xa0c1d2291fbb28b7L, 0x44e7cb3605ec4004L, 0x44e7cb3605ec4005L, "variableDeclaration", "{", "} not editable");
-          props_NotEditableVaraileReference = cpb.create();
+          props_NotEditableVarableReference = cpb.create();
         }
-        return props_NotEditableVaraileReference;
+        return props_NotEditableVarableReference;
       case LanguageConceptSwitch.PlaceholderChild:
         if (props_PlaceholderChild == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

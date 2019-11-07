@@ -306,7 +306,7 @@
             <node concept="3clFbS" id="x" role="1pnPq1">
               <node concept="3cpWs6" id="z" role="3cqZAp">
                 <node concept="1nCR9W" id="$" role="3cqZAk">
-                  <property role="1nD$Q0" value="jetbrains.mps.lang.editor.editorTest.constraints.NotEditableVaraileReference_Constraints" />
+                  <property role="1nD$Q0" value="jetbrains.mps.lang.editor.editorTest.constraints.NotEditableVarableReference_Constraints" />
                   <node concept="3uibUv" id="_" role="2lIhxL">
                     <ref role="3uigEE" to="ze1i:~ConstraintsDescriptor" resolve="ConstraintsDescriptor" />
                   </node>
@@ -314,7 +314,7 @@
               </node>
             </node>
             <node concept="3gn64h" id="y" role="1pnPq6">
-              <ref role="3gnhBz" to="68nn:4jBMNo5V404" resolve="NotEditableVaraileReference" />
+              <ref role="3gnhBz" to="68nn:4jBMNo5V404" resolve="NotEditableVarableReference" />
             </node>
           </node>
           <node concept="1pnPoh" id="k" role="1_3QMm">
@@ -2439,7 +2439,7 @@
     </node>
   </node>
   <node concept="312cEu" id="dd">
-    <property role="TrG5h" value="NotEditableVaraileReference_Constraints" />
+    <property role="TrG5h" value="NotEditableVarableReference_Constraints" />
     <node concept="3Tm1VV" id="de" role="1B3o_S">
       <node concept="cd27G" id="dk" role="lGtFl">
         <node concept="3u3nmq" id="dl" role="cd27D">
@@ -2468,7 +2468,7 @@
           <ref role="37wK5l" to="79pl:~BaseConstraintsDescriptor.&lt;init&gt;(org.jetbrains.mps.openapi.language.SAbstractConcept)" resolve="BaseConstraintsDescriptor" />
           <node concept="1BaE9c" id="dw" role="37wK5m">
             <property role="1ouuDV" value="CONCEPTS" />
-            <property role="1BaxDp" value="NotEditableVaraileReference$fC" />
+            <property role="1BaxDp" value="NotEditableVarableReference$fC" />
             <node concept="2YIFZM" id="dy" role="1Bazha">
               <ref role="1Pybhc" to="2k9e:~MetaAdapterFactory" resolve="MetaAdapterFactory" />
               <ref role="37wK5l" to="2k9e:~MetaAdapterFactory.getConcept(long,long,long,java.lang.String)" resolve="getConcept" />
@@ -2497,7 +2497,7 @@
                 </node>
               </node>
               <node concept="Xl_RD" id="dB" role="37wK5m">
-                <property role="Xl_RC" value="jetbrains.mps.lang.editor.editorTest.structure.NotEditableVaraileReference" />
+                <property role="Xl_RC" value="jetbrains.mps.lang.editor.editorTest.structure.NotEditableVarableReference" />
                 <node concept="cd27G" id="dJ" role="lGtFl">
                   <node concept="3u3nmq" id="dK" role="cd27D">
                     <property role="3u3nmv" value="4965160547087600886" />

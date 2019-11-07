@@ -85,7 +85,7 @@ public final class LanguageConceptSwitch {
   public static final int MenuTraceTransformationChildWithEnum = 73;
   public static final int NonEmptyProperty = 74;
   public static final int NonSelectableContainer = 75;
-  public static final int NotEditableVaraileReference = 76;
+  public static final int NotEditableVarableReference = 76;
   public static final int PlaceholderChild = 77;
   public static final int PlaceholderChildAttribute = 78;
   public static final int PlaceholderParent = 79;
@@ -217,7 +217,7 @@ public final class LanguageConceptSwitch {
     builder.put(0x326616b1fdb24fd3L, MenuTraceTransformationChildWithEnum);
     builder.put(0x4e2db2c9f6d76026L, NonEmptyProperty);
     builder.put(0x6c1b61fd2cd1eefcL, NonSelectableContainer);
-    builder.put(0x44e7cb3605ec4004L, NotEditableVaraileReference);
+    builder.put(0x44e7cb3605ec4004L, NotEditableVarableReference);
     builder.put(0x5f4994bb9f207829L, PlaceholderChild);
     builder.put(0x34450358999d2201L, PlaceholderChildAttribute);
     builder.put(0x5f4994bb9f207828L, PlaceholderParent);

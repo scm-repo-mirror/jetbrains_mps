@@ -133,7 +133,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase imple
       case 52:
         return Collections.<ConceptEditor>singletonList(new NonEmptyProperty_Editor());
       case 53:
-        return Collections.<ConceptEditor>singletonList(new NotEditableVaraileReference_Editor());
+        return Collections.<ConceptEditor>singletonList(new NotEditableVarableReference_Editor());
       case 54:
         return Collections.<ConceptEditor>singletonList(new PlaceholderChild_Editor());
       case 55:
@@ -307,7 +307,7 @@ public class EditorAspectDescriptorImpl extends EditorAspectDescriptorBase imple
       case 5:
         return Collections.<SubstituteMenu>singletonList(new MenuTraceTransformationChild_SubstituteMenu());
       case 6:
-        return Collections.<SubstituteMenu>singletonList(new NotEditableVaraileReference_SubstituteMenu());
+        return Collections.<SubstituteMenu>singletonList(new NotEditableVarableReference_SubstituteMenu());
       case 7:
         return Collections.<SubstituteMenu>singletonList(new SmartCompletionSmartRef_SubstituteMenu());
       case 8:
