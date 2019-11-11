@@ -108,8 +108,11 @@ class MPSModuleCollector {
 
         String srcPath = ProjectPathUtil.getGeneratorOutputPath(sd);
         de.addSourcePath(getCanonicalPath(srcPath));
-        String testPath = TestsFacetImpl.getTestsOutputPath(sd, moduleIFile).getPath();
-        de.addSourcePath(getCanonicalPath(testPath));
+        final IFile testsOutputPath = TestsFacetImpl.getTestsOutputPath(sd, moduleIFile);
+        if (testsOutputPath != null) {
+          String testPath = testsOutputPath.getPath();
+          de.addSourcePath(getCanonicalPath(testPath));
+        }
         de.addClassGenPath(classesGenDir);
         myResult.add(de);
       } else if (md instanceof LanguageDescriptor) {
