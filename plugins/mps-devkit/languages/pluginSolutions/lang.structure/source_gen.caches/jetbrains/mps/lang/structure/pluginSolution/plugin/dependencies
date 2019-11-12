@@ -296,6 +296,26 @@
     <classNode extendsClassName="jetbrains.mps.refactoring.participant.RecursiveParticipant" />
     <classNode extendsClassName="jetbrains.mps.refactoring.participant.RefactoringParticipantBase" />
   </dependency>
+  <dependency className="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveConceptDialog">
+    <classNode dependClassName="com.intellij.ide.util.gotoByName.ChooseByNamePopupComponent" />
+    <classNode dependClassName="com.intellij.openapi.application.ModalityState" />
+    <classNode dependClassName="com.intellij.openapi.util.Disposer" />
+    <classNode dependClassName="java.lang.Iterable" />
+    <classNode dependClassName="java.lang.Object" />
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="javax.swing.JComponent" />
+    <classNode dependClassName="jetbrains.mps.project.MPSProject" />
+    <classNode dependClassName="jetbrains.mps.workbench.choose.ChooseByNameData" />
+    <classNode dependClassName="jetbrains.mps.workbench.choose.ModelsPresentation" />
+    <classNode dependClassName="jetbrains.mps.workbench.goTo.ui.ChooseByNamePanel" />
+    <classNode dependClassName="jetbrains.mps.workbench.goTo.ui.MpsPopupFactory" />
+    <classNode dependClassName="org.jetbrains.annotations.NonNls" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SModelReference" />
+    <classNode extendsClassName="jetbrains.mps.ide.platform.refactoring.RefactoringDialog" />
+  </dependency>
   <dependency className="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveConceptUtil">
     <classNode dependClassName="java.lang.Iterable" />
     <classNode dependClassName="java.util.HashMap" />
@@ -331,7 +351,6 @@
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime.Wrappers" />
     <classNode dependClassName="jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes" />
     <classNode dependClassName="jetbrains.mps.ide.platform.refactoring.NodeLocation" />
-    <classNode dependClassName="jetbrains.mps.ide.ui.dialogs.properties.choosers.CommonChoosers" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.ISelector" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IVisitor" />
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.IWhereFilter" />
@@ -340,6 +359,7 @@
     <classNode dependClassName="jetbrains.mps.internal.collections.runtime.Sequence" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.lang.structure.behavior.AbstractConceptDeclaration__BehaviorDescriptor" />
+    <classNode dependClassName="jetbrains.mps.lang.structure.pluginSolution.plugin.MoveConceptDialog" />
     <classNode dependClassName="jetbrains.mps.lang.structure.pluginSolution.plugin._Adapters" />
     <classNode dependClassName="jetbrains.mps.project.MPSProject" />
     <classNode dependClassName="jetbrains.mps.refactoring.participant.plugin.MoveNodesUtil" />

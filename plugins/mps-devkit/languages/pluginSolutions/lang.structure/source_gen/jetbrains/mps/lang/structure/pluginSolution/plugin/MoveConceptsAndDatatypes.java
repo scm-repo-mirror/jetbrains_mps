@@ -21,7 +21,6 @@ import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.ide.ui.dialogs.properties.choosers.CommonChoosers;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
@@ -99,7 +98,7 @@ public class MoveConceptsAndDatatypes extends AbstractLanguageMove implements Mo
         }).toListSequence();
       }
     }));
-    final SModelReference targetModelRef = CommonChoosers.showModelChooser(project, name, structureModels.value);
+    final SModelReference targetModelRef = new MoveConceptDialog(project, name, structureModels.value).showAndGetSelected();
     if (targetModelRef == null) {
       return;
     }
@@ -113,7 +112,6 @@ public class MoveConceptsAndDatatypes extends AbstractLanguageMove implements Mo
 
     MoveNodesUtil.moveTo(project, name, MapSequence.<MoveNodesUtil.NodeProcessor, List<SNode>>fromMapAndKeysArray(new HashMap<MoveNodesUtil.NodeProcessor, List<SNode>>(), new MoveNodesUtil.NodeCreatingProcessor(new NodeLocation.NodeLocationRoot(targetModel.value), project)).withValues(nodesToMove));
   }
-
   private static String chooseName(final List<SNode> conceptsToMove, final List<SNode> datatypesToMove) {
     int size = ListSequence.fromList(conceptsToMove).count() + ListSequence.fromList(datatypesToMove).count();
     if (size > 1) {
