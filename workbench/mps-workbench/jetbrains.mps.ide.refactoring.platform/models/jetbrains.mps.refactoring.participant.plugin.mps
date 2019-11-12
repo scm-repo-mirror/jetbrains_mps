@@ -4787,10 +4787,26 @@
         </node>
       </node>
     </node>
-    <node concept="2tJIrI" id="6msDcinOJzU" role="jymVt" />
     <node concept="3Tm1VV" id="6msDcinOaKv" role="1B3o_S" />
     <node concept="3uibUv" id="6msDcinObII" role="1zkMxy">
       <ref role="3uigEE" to="u42p:1t_LRy89k3m" resolve="RefactoringDialog" />
+    </node>
+    <node concept="3clFb_" id="4_ns_JESo9B" role="jymVt">
+      <property role="TrG5h" value="getHelpId" />
+      <node concept="3Tmbuc" id="4_ns_JESo9C" role="1B3o_S" />
+      <node concept="3uibUv" id="4_ns_JESo9F" role="3clF45">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="3clFbS" id="4_ns_JESo9H" role="3clF47">
+        <node concept="3cpWs6" id="4_ns_JESq5g" role="3cqZAp">
+          <node concept="Xl_RD" id="4_ns_JESr3r" role="3cqZAk">
+            <property role="Xl_RC" value="dialog.selectParticipants" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="4_ns_JESo9I" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
     </node>
   </node>
   <node concept="312cEu" id="1knX_y6ngEo">
