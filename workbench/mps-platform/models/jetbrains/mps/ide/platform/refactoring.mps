@@ -3761,6 +3761,23 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="3clFb_" id="5r7NrS5qfl9" role="jymVt">
+      <property role="TrG5h" value="getHelpId" />
+      <node concept="3Tmbuc" id="5r7NrS5qfla" role="1B3o_S" />
+      <node concept="3uibUv" id="5r7NrS5qflb" role="3clF45">
+        <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+      </node>
+      <node concept="3clFbS" id="5r7NrS5qflc" role="3clF47">
+        <node concept="3clFbF" id="5r7NrS5qfld" role="3cqZAp">
+          <node concept="Xl_RD" id="5r7NrS5qfle" role="3clFbG">
+            <property role="Xl_RC" value="dialog.moveNodes" />
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="5r7NrS5qflf" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
     <node concept="2tJIrI" id="7gAlRPb90kA" role="jymVt" />
     <node concept="312cEu" id="5zhJtEaVUO$" role="jymVt">
       <property role="TrG5h" value="Filter" />
@@ -4049,9 +4066,6 @@
       <node concept="3uibUv" id="5zhJtEaVXGZ" role="3clF45">
         <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
       </node>
-      <node concept="2AHcQZ" id="5zhJtEaVXH0" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
       <node concept="3clFbS" id="5zhJtEaVXH1" role="3clF47">
         <node concept="3clFbF" id="5zhJtEaVXH2" role="3cqZAp">
           <node concept="37vLTI" id="5zhJtEaVXH3" role="3clFbG">
@@ -4168,9 +4182,6 @@
       <property role="DiZV1" value="false" />
       <node concept="3Tmbuc" id="3UdhnxHuqUQ" role="1B3o_S" />
       <node concept="17QB3L" id="3UdhnxHuqUR" role="3clF45" />
-      <node concept="2AHcQZ" id="3UdhnxHuqUS" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
       <node concept="2AHcQZ" id="3UdhnxHuqUT" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
       </node>
@@ -4881,9 +4892,6 @@
       <property role="DiZV1" value="false" />
       <node concept="3Tmbuc" id="5IeSloJ1$va" role="1B3o_S" />
       <node concept="17QB3L" id="5IeSloJ1$vb" role="3clF45" />
-      <node concept="2AHcQZ" id="5IeSloJ1$vc" role="2AJF6D">
-        <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
-      </node>
       <node concept="2AHcQZ" id="5IeSloJ1$vd" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~NonNls" resolve="NonNls" />
       </node>
