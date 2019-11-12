@@ -950,7 +950,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.build/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence.ideaPlugin/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/source_gen" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../samples/xmlPersistence/languages/jetbrains.mps.samples.xmlPersistence/test_gen" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/generator/classes_gen" />
       <excludeFolder url="file://$MODULE_DIR$/../../samples/CustomTestCases/languages/jetbrains.mps.samples.CustomTestCases/sandbox/classes_gen" />
@@ -1168,8 +1167,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage2/generator/source_gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage2/source_gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage/classes_gen" />
-      <excludeFolder url="file://$MODULE_DIR$/../../testbench/modules/migrationLocalHist/languages/NewLanguage2/classes_gen" />
     </content>
     <content url="file://$MODULE_DIR$/../../testbench/modules/simpleProject">
       <sourceFolder url="file://$MODULE_DIR$/../../testbench/modules/simpleProject/solutions/simpleProject/source_gen" isTestSource="false" />
