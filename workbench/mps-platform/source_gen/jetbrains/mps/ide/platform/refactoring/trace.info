@@ -775,6 +775,91 @@
       <unit id="4792031542972815559" at="17,0,55,0" name="jetbrains.mps.ide.platform.refactoring.ConceptAncestorsProvider" />
     </file>
   </root>
+  <root nodeRef="r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)/5284818426851121720">
+    <file name="ChooserRefactoringDialog.java">
+      <node id="5284818426851121721" at="20,0,21,0" concept="3" trace="myMpsProject" />
+      <node id="5284818426851121724" at="21,0,22,0" concept="3" trace="myVariants" />
+      <node id="5284818426851322734" at="22,0,23,0" concept="3" trace="myElementClass" />
+      <node id="5284818426851121728" at="23,0,24,0" concept="3" trace="myChooser" />
+      <node id="5284818426851121731" at="24,0,25,0" concept="3" trace="result" />
+      <node id="5284818426851121740" at="25,124,26,41" concept="13" />
+      <node id="5284818426851121745" at="26,41,27,20" concept="2" />
+      <node id="5284818426851121748" at="27,20,28,30" concept="2" />
+      <node id="5284818426851121752" at="28,30,29,24" concept="2" />
+      <node id="5284818426851337580" at="29,24,30,34" concept="2" />
+      <node id="5284818426851121771" at="33,39,34,21" concept="2" />
+      <node id="5284818426851121777" at="34,21,35,18" concept="8" />
+      <node id="5284818426851121779" at="36,5,37,17" concept="8" />
+      <node id="5284818426851121787" at="39,32,40,18" concept="8" />
+      <node id="5284818426851121795" at="43,22,44,11" concept="2" />
+      <node id="5284818426851121813" at="48,30,49,63" concept="2" />
+      <node id="5284818426851121823" at="52,69,53,17" concept="2" />
+      <node id="5284818426851121830" at="55,33,56,11" concept="2" />
+      <node id="5284818426851121832" at="56,11,57,31" concept="8" />
+      <node id="5284818426851253399" at="59,0,60,0" concept="6" trace="createChooseData#()Ljetbrains/mps/workbench/choose/ChooseByNameData;" />
+      <node id="5284818426851121839" at="62,44,63,54" concept="7" />
+      <node id="5284818426851121871" at="63,54,64,82" concept="2" />
+      <node id="5284818426851121878" at="64,82,65,50" concept="2" />
+      <node id="5284818426851121882" at="65,50,66,32" concept="8" />
+      <node id="5284818426851121893" at="70,53,71,34" concept="2" />
+      <node id="5284818426851121901" at="72,12,73,29" concept="2" />
+      <node id="5284818426851121908" at="77,52,78,52" concept="8" />
+      <node id="5284818426851121919" at="83,45,84,32" concept="8" />
+      <node id="5284818426851121899" at="72,10,74,5" concept="0" />
+      <node id="5284818426851121785" at="39,0,42,0" concept="6" trace="getSelectedObject#()null" />
+      <node id="5284818426851121811" at="47,43,50,9" concept="5" />
+      <node id="5284818426851121766" at="32,44,36,5" concept="5" />
+      <node id="5284818426851121826" at="55,0,59,0" concept="6" trace="showAndGetSelected#()null" />
+      <node id="5284818426851121904" at="76,0,80,0" concept="6" trace="getPreferredFocusedComponent#()Ljavax/swing/JComponent;" />
+      <node id="5284818426851121891" at="69,40,74,5" concept="5" />
+      <node id="5284818426851121914" at="81,0,86,0" concept="6" trace="getDimensionServiceKey#()Ljava/lang/String;" />
+      <node id="5284818426851121805" at="46,0,52,0" concept="6" trace="elementChosen#(Ljava/lang/Object;)V" />
+      <node id="5284818426851121736" at="25,0,32,0" concept="1" trace="ChooserRefactoringDialog#(Ljetbrains/mps/project/MPSProject;Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/Class;)V" />
+      <node id="5284818426851121764" at="32,0,39,0" concept="6" trace="acceptResult#(Ljava/lang/Object;)Z" />
+      <node id="5284818426851121797" at="44,11,52,69" concept="2" />
+      <node id="5284818426851121834" at="60,0,68,0" concept="6" trace="createCenterPanel#()Ljavax/swing/JComponent;" />
+      <node id="5284818426851121887" at="68,0,76,0" concept="6" trace="doRefactoringAction#()V" />
+      <node id="5284818426851121791" at="42,0,55,0" concept="6" trace="show#()V" />
+      <scope id="5284818426851121786" at="39,32,40,18" />
+      <scope id="5284818426851121812" at="48,30,49,63" />
+      <scope id="5284818426851253399" at="59,0,60,0" />
+      <scope id="5284818426851121892" at="70,53,71,34" />
+      <scope id="5284818426851121900" at="72,12,73,29" />
+      <scope id="5284818426851121907" at="77,52,78,52" />
+      <scope id="5284818426851121918" at="83,45,84,32" />
+      <scope id="5284818426851121770" at="33,39,35,18" />
+      <scope id="5284818426851121829" at="55,33,57,31" />
+      <scope id="5284818426851121785" at="39,0,42,0" />
+      <scope id="5284818426851121810" at="47,43,50,9" />
+      <scope id="5284818426851121826" at="55,0,59,0" />
+      <scope id="5284818426851121838" at="62,44,66,32">
+        <var name="gotoData" id="5284818426851121840" />
+      </scope>
+      <scope id="5284818426851121904" at="76,0,80,0" />
+      <scope id="5284818426851121739" at="25,124,30,34" />
+      <scope id="5284818426851121765" at="32,44,37,17" />
+      <scope id="5284818426851121890" at="69,40,74,5" />
+      <scope id="5284818426851121914" at="81,0,86,0" />
+      <scope id="5284818426851121805" at="46,0,52,0">
+        <var name="o" id="5284818426851121808" />
+      </scope>
+      <scope id="5284818426851121736" at="25,0,32,0">
+        <var name="elementClass" id="5284818426851313962" />
+        <var name="models" id="5284818426851121761" />
+        <var name="mpsProject" id="5284818426851121756" />
+        <var name="title" id="5284818426851121759" />
+      </scope>
+      <scope id="5284818426851121764" at="32,0,39,0">
+        <var name="r" id="5284818426851121783" />
+      </scope>
+      <scope id="5284818426851121834" at="60,0,68,0" />
+      <scope id="5284818426851121887" at="68,0,76,0" />
+      <scope id="5284818426851121794" at="43,22,53,17" />
+      <scope id="5284818426851121791" at="42,0,55,0" />
+      <unit id="5284818426851121803" at="45,25,52,5" name="jetbrains.mps.ide.platform.refactoring.ChooserRefactoringDialog$1" />
+      <unit id="5284818426851121720" at="18,0,88,0" name="jetbrains.mps.ide.platform.refactoring.ChooserRefactoringDialog" />
+    </file>
+  </root>
   <root nodeRef="r:986938bb-bdb1-4307-b062-e4647a4db0f9(jetbrains.mps.ide.platform.refactoring)/5814231631271705710">
     <file name="ModelElementTargetChooser.java">
       <node id="5814231631271710671" at="11,0,12,0" concept="6" trace="getComponent#()Ljavax/swing/JComponent;" />
