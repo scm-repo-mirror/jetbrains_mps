@@ -22395,9 +22395,12 @@
       <node concept="398BVA" id="5lGJ4TaqfBE" role="I30fb">
         <ref role="398BVh" node="5lGJ4TaqfAJ" resolve="plugin_home" />
         <node concept="2Ry0Ak" id="5lGJ4TaqfD0" role="iGT6I">
-          <property role="2Ry0Am" value="META-INF" />
-          <node concept="2Ry0Ak" id="5lGJ4TaqfDv" role="2Ry0An">
-            <property role="2Ry0Am" value="plugin.xml" />
+          <property role="2Ry0Am" value="mps-modelchecker" />
+          <node concept="2Ry0Ak" id="42kMDMFt4ZP" role="2Ry0An">
+            <property role="2Ry0Am" value="META-INF" />
+            <node concept="2Ry0Ak" id="42kMDMFt50U" role="2Ry0An">
+              <property role="2Ry0Am" value="plugin.xml" />
+            </node>
           </node>
         </node>
       </node>
@@ -22416,6 +22419,61 @@
       </node>
       <node concept="m$_yC" id="5lGJ4TaqfOv" role="m$_yJ">
         <ref role="m$_y1" node="4k71ibbKLe8" resolve="jetbrains.mps.core" />
+      </node>
+    </node>
+    <node concept="398b33" id="42kMDMFt6h4" role="3989C9">
+      <property role="TrG5h" value="mps-memmanagement" />
+      <node concept="2GAZfH" id="42kMDMFt6h5" role="398b2p">
+        <node concept="TIC1d" id="42kMDMFt6h6" role="2GAZfG">
+          <node concept="398BVA" id="42kMDMFt6h7" role="TIC6M">
+            <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
+            <node concept="2Ry0Ak" id="42kMDMFt6h8" role="iGT6I">
+              <property role="2Ry0Am" value="plugins" />
+              <node concept="2Ry0Ak" id="42kMDMFt6h9" role="2Ry0An">
+                <property role="2Ry0Am" value="mps-memmanagement" />
+                <node concept="2Ry0Ak" id="42kMDMFt6ha" role="2Ry0An">
+                  <property role="2Ry0Am" value="source" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="nCB5N" id="42kMDMFt6hb" role="nCB5Z">
+        <ref role="nCB5Y" node="2eDSGe9d1oD" resolve="mps-workbench" />
+      </node>
+    </node>
+    <node concept="m$_wf" id="42kMDMFt4A2" role="3989C9">
+      <property role="m$_wk" value="jetbrains.mps.ide.memmanagement" />
+      <node concept="3_J27D" id="42kMDMFt4A3" role="m$_yQ">
+        <node concept="3Mxwew" id="42kMDMFt4A4" role="3MwsjC">
+          <property role="3MwjfP" value="Memory Management" />
+        </node>
+      </node>
+      <node concept="3_J27D" id="42kMDMFt4A5" role="m_cZH">
+        <node concept="3Mxwew" id="42kMDMFt4A6" role="3MwsjC">
+          <property role="3MwjfP" value="mps-memmanagement" />
+        </node>
+      </node>
+      <node concept="3_J27D" id="42kMDMFt4A7" role="m$_w8">
+        <node concept="3Mxwew" id="42kMDMFt4A8" role="3MwsjC">
+          <property role="3MwjfP" value="&lt;empty&gt;" />
+        </node>
+      </node>
+      <node concept="m$_yC" id="42kMDMFt4Ag" role="m$_yJ">
+        <ref role="m$_y1" node="4k71ibbKLe8" resolve="jetbrains.mps.core" />
+      </node>
+      <node concept="398BVA" id="42kMDMFt5bW" role="I30fb">
+        <ref role="398BVh" node="5lGJ4TaqfAJ" resolve="plugin_home" />
+        <node concept="2Ry0Ak" id="42kMDMFt5bX" role="iGT6I">
+          <property role="2Ry0Am" value="mps-memmanagement" />
+          <node concept="2Ry0Ak" id="42kMDMFt5bY" role="2Ry0An">
+            <property role="2Ry0Am" value="META-INF" />
+            <node concept="2Ry0Ak" id="42kMDMFt5bZ" role="2Ry0An">
+              <property role="2Ry0Am" value="plugin.xml" />
+            </node>
+          </node>
+        </node>
       </node>
     </node>
     <node concept="398b33" id="1nJh0raW9Ox" role="3989C9">
@@ -22453,9 +22511,6 @@
         <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
         <node concept="2Ry0Ak" id="5lGJ4TaqfAL" role="iGT6I">
           <property role="2Ry0Am" value="plugins" />
-          <node concept="2Ry0Ak" id="5lGJ4TaqfBe" role="2Ry0An">
-            <property role="2Ry0Am" value="mps-modelchecker" />
-          </node>
         </node>
       </node>
     </node>
@@ -22523,6 +22578,51 @@
           <node concept="3_J27D" id="5peYeZGo8WK" role="Nbhlr">
             <node concept="3Mxwew" id="5peYeZGo8WL" role="3MwsjC">
               <property role="3MwjfP" value="languages" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="m$_wl" id="42kMDMFt6RQ" role="39821P">
+        <ref role="m_rDy" node="42kMDMFt4A2" resolve="jetbrains.mps.ide.memmanagement" />
+        <node concept="pUk6w" id="42kMDMFt6RR" role="pUk7w" />
+        <node concept="398223" id="42kMDMFt6RW" role="39821P">
+          <node concept="28jJK3" id="42kMDMFt6RX" role="39821P">
+            <node concept="398BVA" id="42kMDMFt6RY" role="28jJRO">
+              <ref role="398BVh" node="5yMuYWFN8P8" resolve="mps_home" />
+              <node concept="2Ry0Ak" id="42kMDMFt6RZ" role="iGT6I">
+                <property role="2Ry0Am" value="plugins" />
+                <node concept="2Ry0Ak" id="42kMDMFt6S0" role="2Ry0An">
+                  <property role="2Ry0Am" value="mps-memmanagement" />
+                  <node concept="2Ry0Ak" id="42kMDMFt6S1" role="2Ry0An">
+                    <property role="2Ry0Am" value="META-INF" />
+                    <node concept="2Ry0Ak" id="42kMDMFt6S2" role="2Ry0An">
+                      <property role="2Ry0Am" value="plugin.xml" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3_J27D" id="42kMDMFt6S3" role="Nbhlr">
+            <node concept="3Mxwew" id="42kMDMFt6S4" role="3MwsjC">
+              <property role="3MwjfP" value="META-INF" />
+            </node>
+          </node>
+        </node>
+        <node concept="398223" id="42kMDMFt6RS" role="39821P">
+          <node concept="3981dx" id="42kMDMFt6RT" role="39821P">
+            <node concept="3_J27D" id="42kMDMFt6RU" role="Nbhlr">
+              <node concept="3Mxwew" id="42kMDMFt6RV" role="3MwsjC">
+                <property role="3MwjfP" value="memmanagement.jar" />
+              </node>
+            </node>
+            <node concept="Saw0i" id="42kMDMFt6S5" role="39821P">
+              <ref role="Saw0g" node="42kMDMFt6h4" resolve="mps-memmanagement" />
+            </node>
+          </node>
+          <node concept="3_J27D" id="42kMDMFt6Sa" role="Nbhlr">
+            <node concept="3Mxwew" id="42kMDMFt6Sb" role="3MwsjC">
+              <property role="3MwjfP" value="lib" />
             </node>
           </node>
         </node>
