@@ -41,6 +41,7 @@ import static com.intellij.openapi.util.io.FileUtilRt.MEGABYTE;
 public class MemManager implements ProjectComponent {
   private static final Logger LOG = LogManager.getLogger(MemManager.class);
   public static final int DELAY = 5;
+  private static final int DELAY2 = DELAY * 2;
 
   private Project myProject;
   private MemoryUsagePanel myMemUsagePanel = null;
@@ -90,16 +91,24 @@ public class MemManager implements ProjectComponent {
     long timeAfter = System.currentTimeMillis();
     long usedMemAfter = getUsedMem();
     long modelsAfter = countModels(true);
-    LOG.info(String.format("Models unloaded: %d; Unloading time: %.2fs; GC time: %.2fs; Memory freed: %dmb ",
-                           modelsBefore - modelsAfter, (1.0 * timeAfterUnloading - timeBefore) / 1000, (1.0 * timeAfter - timeAfterUnloading) / 1000,
+    long modelsTotal = countModels(false);
+    LOG.info(String.format("Models unloaded: %d [total: %d, loaded: %d]; Unloading time: %.2fs; GC time: %.2fs; Memory freed: %dmb ",
+                           modelsBefore - modelsAfter, modelsTotal, modelsAfter, (1.0 * timeAfterUnloading - timeBefore) / 1000,
+                           (1.0 * timeAfter - timeAfterUnloading) / 1000,
                            usedMemBefore - usedMemAfter));
 
+    final long[] modelsLongAfter = new long[1];
     //let's see what happens not so long after
     myAlarm.addRequest(() -> {
-      long modelsLongAfter = countModels(true);
-      long modelsTotal = countModels(false);
-      LOG.info(String.format("[%ss]: Models reloaded: %d of total %d", DELAY, modelsLongAfter - modelsAfter, modelsTotal));
+      modelsLongAfter[0] = countModels(true);
+      LOG.info(String.format("[%ss]: Models reloaded: %d", DELAY, modelsLongAfter[0] - modelsAfter));
     }, DELAY * 1000);
+
+    //let's see what happens long after
+    myAlarm.addRequest(() -> {
+      long modelsLongLongAfter = countModels(true);
+      LOG.info(String.format("[%ss]: Models reloaded: %d", DELAY2, modelsLongLongAfter - modelsLongAfter[0]));
+    }, DELAY2 * 1000);
   }
 
   @NotNull
