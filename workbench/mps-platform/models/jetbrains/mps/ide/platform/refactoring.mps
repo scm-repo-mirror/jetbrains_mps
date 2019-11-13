@@ -6808,6 +6808,24 @@
         <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
       </node>
       <node concept="3clFbS" id="4_ns_JET_EI" role="3clF47">
+        <node concept="3cpWs8" id="2QwwhXqpgX4" role="3cqZAp">
+          <node concept="3cpWsn" id="2QwwhXqpgX5" role="3cpWs9">
+            <property role="TrG5h" value="result" />
+            <node concept="3uibUv" id="2QwwhXqpgX6" role="1tU5fm">
+              <ref role="3uigEE" to="qqrq:~JBPanel" resolve="JBPanel" />
+            </node>
+            <node concept="2ShNRf" id="2QwwhXqphIO" role="33vP2m">
+              <node concept="1pGfFk" id="2QwwhXqphH8" role="2ShVmc">
+                <ref role="37wK5l" to="qqrq:~JBPanel.&lt;init&gt;(java.awt.LayoutManager)" resolve="JBPanel" />
+                <node concept="2ShNRf" id="2QwwhXqphO_" role="37wK5m">
+                  <node concept="1pGfFk" id="2QwwhXqpuaz" role="2ShVmc">
+                    <ref role="37wK5l" to="z60i:~BorderLayout.&lt;init&gt;()" resolve="BorderLayout" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="4_ns_JET_EJ" role="3cqZAp">
           <node concept="3cpWsn" id="4_ns_JET_EK" role="3cpWs9">
             <property role="TrG5h" value="gotoData" />
@@ -6852,19 +6870,86 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="2QwwhXqpvmi" role="3cqZAp">
+          <node concept="2OqwBi" id="2QwwhXqpwjD" role="3clFbG">
+            <node concept="37vLTw" id="2QwwhXqpvmg" role="2Oq$k0">
+              <ref role="3cqZAo" node="2QwwhXqpgX5" resolve="result" />
+            </node>
+            <node concept="liA8E" id="2QwwhXqpxoN" role="2OqNvi">
+              <ref role="37wK5l" to="z60i:~Container.add(java.awt.Component,java.lang.Object)" resolve="add" />
+              <node concept="2OqwBi" id="2QwwhXqpxNl" role="37wK5m">
+                <node concept="37vLTw" id="2QwwhXqpxsi" role="2Oq$k0">
+                  <ref role="3cqZAo" node="4_ns_JET_D0" resolve="myChooser" />
+                </node>
+                <node concept="liA8E" id="2QwwhXqpy_8" role="2OqNvi">
+                  <ref role="37wK5l" to="1l1f:~ChooseByNamePanel.getPanel()" resolve="getPanel" />
+                </node>
+              </node>
+              <node concept="10M0yZ" id="2QwwhXqp$MD" role="37wK5m">
+                <ref role="3cqZAo" to="z60i:~BorderLayout.CENTER" resolve="CENTER" />
+                <ref role="1PxDUh" to="z60i:~BorderLayout" resolve="BorderLayout" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3cpWs8" id="2QwwhXqpBHw" role="3cqZAp">
+          <node concept="3cpWsn" id="2QwwhXqpBHx" role="3cpWs9">
+            <property role="TrG5h" value="notificationsPanel" />
+            <node concept="3uibUv" id="2QwwhXqpBaA" role="1tU5fm">
+              <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
+            </node>
+            <node concept="1rXfSq" id="2QwwhXqpBHy" role="33vP2m">
+              <ref role="37wK5l" node="2QwwhXqnvGr" resolve="createNotificationsPanel" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbJ" id="2QwwhXqpG3$" role="3cqZAp">
+          <node concept="3clFbS" id="2QwwhXqpG3A" role="3clFbx">
+            <node concept="3clFbF" id="2QwwhXqp_LN" role="3cqZAp">
+              <node concept="2OqwBi" id="2QwwhXqp_LO" role="3clFbG">
+                <node concept="37vLTw" id="2QwwhXqp_LP" role="2Oq$k0">
+                  <ref role="3cqZAo" node="2QwwhXqpgX5" resolve="result" />
+                </node>
+                <node concept="liA8E" id="2QwwhXqp_LQ" role="2OqNvi">
+                  <ref role="37wK5l" to="z60i:~Container.add(java.awt.Component,java.lang.Object)" resolve="add" />
+                  <node concept="37vLTw" id="2QwwhXqpBHz" role="37wK5m">
+                    <ref role="3cqZAo" node="2QwwhXqpBHx" resolve="notificationsPanel" />
+                  </node>
+                  <node concept="10M0yZ" id="2QwwhXqpAVp" role="37wK5m">
+                    <ref role="3cqZAo" to="z60i:~BorderLayout.SOUTH" resolve="SOUTH" />
+                    <ref role="1PxDUh" to="z60i:~BorderLayout" resolve="BorderLayout" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="3y3z36" id="2QwwhXqpHFx" role="3clFbw">
+            <node concept="10Nm6u" id="2QwwhXqpHY7" role="3uHU7w" />
+            <node concept="37vLTw" id="2QwwhXqpHdg" role="3uHU7B">
+              <ref role="3cqZAo" node="2QwwhXqpBHx" resolve="notificationsPanel" />
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs6" id="4_ns_JET_Fq" role="3cqZAp">
-          <node concept="2OqwBi" id="4_ns_JET_Fr" role="3cqZAk">
-            <node concept="37vLTw" id="4_ns_JET_Fs" role="2Oq$k0">
-              <ref role="3cqZAo" node="4_ns_JET_D0" resolve="myChooser" />
-            </node>
-            <node concept="liA8E" id="4_ns_JET_Ft" role="2OqNvi">
-              <ref role="37wK5l" to="1l1f:~ChooseByNamePanel.getPanel()" resolve="getPanel" />
-            </node>
+          <node concept="37vLTw" id="2QwwhXqpJb2" role="3cqZAk">
+            <ref role="3cqZAo" node="2QwwhXqpgX5" resolve="result" />
           </node>
         </node>
       </node>
       <node concept="2AHcQZ" id="4_ns_JET_Fu" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="3clFb_" id="2QwwhXqnvGr" role="jymVt">
+      <property role="TrG5h" value="createNotificationsPanel" />
+      <node concept="3uibUv" id="2QwwhXqnzmp" role="3clF45">
+        <ref role="3uigEE" to="dxuu:~JComponent" resolve="JComponent" />
+      </node>
+      <node concept="3Tmbuc" id="2QwwhXqpdzU" role="1B3o_S" />
+      <node concept="3clFbS" id="2QwwhXqnvGv" role="3clF47">
+        <node concept="3cpWs6" id="2QwwhXqpDEh" role="3cqZAp">
+          <node concept="10Nm6u" id="2QwwhXqpEx6" role="3cqZAk" />
+        </node>
       </node>
     </node>
     <node concept="3clFb_" id="4_ns_JET_Fv" role="jymVt">

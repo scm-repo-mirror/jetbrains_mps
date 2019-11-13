@@ -11,6 +11,8 @@ import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.workbench.choose.ChooseByNameData;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.JComponent;
+import com.intellij.ui.components.JBPanel;
+import java.awt.BorderLayout;
 import jetbrains.mps.workbench.goTo.ui.MpsPopupFactory;
 import com.intellij.openapi.util.Disposer;
 import org.jetbrains.annotations.NonNls;
@@ -60,10 +62,19 @@ public abstract class ChooserRefactoringDialog<T> extends RefactoringDialog {
   @Nullable
   @Override
   protected JComponent createCenterPanel() {
+    JBPanel result = new JBPanel(new BorderLayout());
     ChooseByNameData<T> gotoData = createChooseData();
     myChooser = MpsPopupFactory.createPanelForPackage(myProject, gotoData, false);
     Disposer.register(getDisposable(), myChooser);
-    return myChooser.getPanel();
+    result.add(myChooser.getPanel(), BorderLayout.CENTER);
+    JComponent notificationsPanel = createNotificationsPanel();
+    if (notificationsPanel != null) {
+      result.add(notificationsPanel, BorderLayout.SOUTH);
+    }
+    return result;
+  }
+  protected JComponent createNotificationsPanel() {
+    return null;
   }
   @Override
   protected void doRefactoringAction() {

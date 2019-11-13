@@ -6,10 +6,10 @@ import jetbrains.mps.refactoring.participant.MoveNodeRefactoringParticipant;
 import jetbrains.mps.baseLanguage.tuples.runtime.Tuples;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.util.annotation.ToRemove;
 import java.util.List;
 import jetbrains.mps.refactoring.participant.RefactoringParticipant;
 import org.jetbrains.mps.openapi.module.SRepository;
-import jetbrains.mps.util.annotation.ToRemove;
 
 public abstract class StructureSpecializationBase<T> implements StructureSpecialization<T, T>, MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<Tuples._2<T, SNodeReference>, Tuples._2<T, SNodeReference>> {
   public Tuples._2<T, SNodeReference> beforeMove(SNode nodeToMove) {
@@ -19,12 +19,12 @@ public abstract class StructureSpecializationBase<T> implements StructureSpecial
     return fetchState(movedNode, false);
   }
   public abstract Tuples._2<T, SNodeReference> fetchState(SNode movingNode, boolean filterOutInvalid);
-  public void confirm(List<RefactoringParticipant.Option> selectedOptions, Tuples._2<T, SNodeReference> initialState, Tuples._2<T, SNodeReference> finalState, SRepository repository, LanguageStructureMigrationParticipant.MigrationBuilder migrationBuilder, boolean updateModuleDependencies) {
-    confirm(initialState, finalState, repository, migrationBuilder);
-  }
   @Deprecated
-  @ToRemove(version = 3.5)
-  public void confirm(Tuples._2<T, SNodeReference> initialState, Tuples._2<T, SNodeReference> finalState, SRepository repository, LanguageStructureMigrationParticipant.MigrationBuilder migrationBuilder) {
+  @ToRemove(version = 2019.3)
+  public void confirm(List<RefactoringParticipant.Option> selectedOptions, Tuples._2<T, SNodeReference> initialState, Tuples._2<T, SNodeReference> finalState, SRepository repository, LanguageStructureMigrationParticipant.MigrationBuilder migrationBuilder, boolean updateModuleDependencies) {
+    confirm(selectedOptions, initialState._1(), finalState._1(), repository, migrationBuilder, updateModuleDependencies);
+  }
+  public void confirm(List<RefactoringParticipant.Option> selectedOptions, SNodeReference initialState, SNodeReference finalState, SRepository repository, LanguageStructureMigrationParticipant.MigrationBuilder migrationBuilder, boolean updateModuleDependencies) {
     throw new UnsupportedOperationException();
   }
 }

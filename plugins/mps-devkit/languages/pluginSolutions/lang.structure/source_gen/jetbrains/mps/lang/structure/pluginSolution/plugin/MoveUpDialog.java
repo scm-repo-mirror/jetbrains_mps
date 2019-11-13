@@ -15,6 +15,11 @@ import jetbrains.mps.util.Computable;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.annotations.Nullable;
 import javax.swing.JComponent;
+import com.intellij.ui.components.JBPanel;
+import java.awt.BorderLayout;
+import com.intellij.openapi.ui.VerticalFlowLayout;
+import com.intellij.ui.components.JBLabel;
+import com.intellij.util.ui.UIUtil;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -23,24 +28,31 @@ public class MoveUpDialog extends RefactoringDialog {
 
   private final MPSProject myProject;
   private SNode myTarget;
-  private NodeHierarchyChooser myPanel;
+  private NodeHierarchyChooser myChooser;
   private SNode myConcept;
-  private String myNodeType;
+  private String myConceptMemberKind;
+  private String mySourceConcept;
+  private boolean myNotDeployed;
 
-  public MoveUpDialog(@NotNull MPSProject mpsProject, SNode target, String nodeType) {
+  public MoveUpDialog(@NotNull MPSProject mpsProject, SNode target, String conceptMemberKind, String sourceConcept, boolean notDeployed) {
     super(mpsProject.getProject(), true);
     myProject = mpsProject;
     myTarget = target;
-    myNodeType = nodeType;
+    myConceptMemberKind = conceptMemberKind;
+    mySourceConcept = sourceConcept;
+    myNotDeployed = notDeployed;
+    setTitle(REFACTORING_NAME + " " + conceptMemberKind);
+  }
+  @Override
+  public void show() {
     init();
-    setTitle(REFACTORING_NAME + " " + nodeType);
-
+    super.show();
   }
   @Override
   protected void doRefactoringAction() {
-    final Object treeNode = myPanel.getSelectedObject();
+    final Object treeNode = myChooser.getSelectedObject();
     if (treeNode == null || !(treeNode instanceof ChildHierarchyTreeNode)) {
-      JOptionPane.showMessageDialog(this.myPanel, "Choose Concept or Interface", this.myNodeType + " can't be moved", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(this.myChooser, "Choose Concept or Interface", this.myConceptMemberKind + " can't be moved", JOptionPane.INFORMATION_MESSAGE);
       return;
     }
     myConcept = new ModelAccessHelper(myProject.getModelAccess()).runReadAction(new Computable<SNode>() {
@@ -53,21 +65,31 @@ public class MoveUpDialog extends RefactoringDialog {
   @Nullable
   @Override
   protected JComponent createCenterPanel() {
-    return myPanel = new NodeHierarchyChooser(myProject, myTarget);
+    JBPanel result = new JBPanel(new BorderLayout());
+    myChooser = new NodeHierarchyChooser(myProject, myTarget);
+    result.add(myChooser, BorderLayout.CENTER);
+    result.add(createNotificationsPanel(), BorderLayout.SOUTH);
+    return result;
   }
-
+  protected JComponent createNotificationsPanel() {
+    JBPanel result = new JBPanel(new VerticalFlowLayout());
+    if (myNotDeployed) {
+      result.add(new JBLabel(String.format("<html>Concept '%s' is not deployed.<br/>Refactoring will be continued without migrating instances.</html>", mySourceConcept), UIUtil.getWarningIcon(), JBLabel.LEFT));
+    }
+    return result;
+  }
   @Nullable
   @Override
   public JComponent getPreferredFocusedComponent() {
-    return myPanel.getPreferredFocusedComponent();
+    return myChooser.getPreferredFocusedComponent();
   }
   @Nullable
   @Override
   protected String getHelpId() {
     return "dialog.moveConceptMemberUp";
   }
-  public static SNode getConcept(@NotNull MPSProject project, SNode target, String nodeType) {
-    MoveUpDialog dialog = new MoveUpDialog(project, target, nodeType);
+  public static SNode getConcept(@NotNull MPSProject project, SNode target, String conceptMemberKind, String sourceConcept, boolean notDeployed) {
+    MoveUpDialog dialog = new MoveUpDialog(project, target, conceptMemberKind, sourceConcept, notDeployed);
     dialog.show();
     return dialog.myConcept;
   }

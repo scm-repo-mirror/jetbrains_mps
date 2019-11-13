@@ -170,6 +170,7 @@
     <classNode dependClassName="com.intellij.ui.components.JBLabel" />
     <classNode dependClassName="com.intellij.ui.components.JBPanel" />
     <classNode dependClassName="com.intellij.util.ui.UIUtil" />
+    <classNode dependClassName="java.awt.FlowLayout" />
     <classNode dependClassName="java.awt.HeadlessException" />
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.Runnable" />

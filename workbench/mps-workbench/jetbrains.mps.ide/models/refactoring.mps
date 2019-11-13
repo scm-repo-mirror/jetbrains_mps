@@ -2862,7 +2862,16 @@
           <node concept="37vLTI" id="7WXh3qIq4pc" role="3clFbG">
             <node concept="2ShNRf" id="7WXh3qIq4uo" role="37vLTx">
               <node concept="1pGfFk" id="7WXh3qIqbK4" role="2ShVmc">
-                <ref role="37wK5l" to="qqrq:~JBPanel.&lt;init&gt;()" resolve="JBPanel" />
+                <ref role="37wK5l" to="qqrq:~JBPanel.&lt;init&gt;(java.awt.LayoutManager)" resolve="JBPanel" />
+                <node concept="2ShNRf" id="5e7X3XCeEwi" role="37wK5m">
+                  <node concept="1pGfFk" id="5e7X3XCeG6B" role="2ShVmc">
+                    <ref role="37wK5l" to="z60i:~FlowLayout.&lt;init&gt;(int)" resolve="FlowLayout" />
+                    <node concept="10M0yZ" id="5e7X3XCeGu8" role="37wK5m">
+                      <ref role="3cqZAo" to="z60i:~FlowLayout.LEFT" resolve="LEFT" />
+                      <ref role="1PxDUh" to="z60i:~FlowLayout" resolve="FlowLayout" />
+                    </node>
+                  </node>
+                </node>
               </node>
             </node>
             <node concept="37vLTw" id="7WXh3qIq3L7" role="37vLTJ">

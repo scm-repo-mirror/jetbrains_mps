@@ -13,6 +13,7 @@ import jetbrains.mps.baseLanguage.tuples.runtime.MultiTuple;
 import java.util.List;
 import jetbrains.mps.refactoring.participant.RefactoringParticipant;
 import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPointerOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
@@ -53,9 +54,9 @@ public class MoveAbstractConceptSpecialization extends StructureSpecializationBa
     }
     return MultiTuple.<SAbstractConcept,SNodeReference>from(deployedConcept, SNodeOperations.getPointer(movingNode));
   }
-  public void confirm(List<RefactoringParticipant.Option> selectedOptions, Tuples._2<SAbstractConcept, SNodeReference> initialState, Tuples._2<SAbstractConcept, SNodeReference> finalState, SRepository repository, LanguageStructureMigrationParticipant.MigrationBuilder migrationBuilder, boolean updateModuleDependencies) {
-    SNode from = SNodeOperations.cast(initialState._1().resolve(repository), CONCEPTS.AbstractConceptDeclaration$UN);
-    SNode to = SNodeOperations.cast(finalState._1().resolve(repository), CONCEPTS.AbstractConceptDeclaration$UN);
+  public void confirm(List<RefactoringParticipant.Option> selectedOptions, SNodeReference initialState, SNodeReference finalState, SRepository repository, LanguageStructureMigrationParticipant.MigrationBuilder migrationBuilder, boolean updateModuleDependencies) {
+    SNode from = SNodeOperations.cast(SPointerOperations.resolveNode(initialState, repository), CONCEPTS.AbstractConceptDeclaration$UN);
+    SNode to = SNodeOperations.cast(SPointerOperations.resolveNode(finalState, repository), CONCEPTS.AbstractConceptDeclaration$UN);
     SPropertyOperations.plusAssignStringProp(from, PROPS.name$tAp1, "_old");
     AttributeOperations.setAttribute(from, new IAttributeDescriptor.NodeAttribute(CONCEPTS.DeprecatedNodeAnnotation$I8), createDeprecatedNodeAnnotation_c4c66o_a0d0b("The concept was moved to language \"" + SNodeOperations.getModel(to).getModule().getModuleName() + "\""));
     SPropertyOperations.assign(to, PROPS.conceptId$TMc5, ConceptIdHelper.generateConceptId(SNodeOperations.getModel(to), to) + "");
