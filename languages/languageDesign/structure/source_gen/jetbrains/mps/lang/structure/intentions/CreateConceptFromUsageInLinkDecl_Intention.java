@@ -14,14 +14,14 @@ import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 
-public final class CreateConceptFromUsage_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
+public final class CreateConceptFromUsageInLinkDecl_Intention extends AbstractIntentionDescriptor implements IntentionFactory {
   private Collection<IntentionExecutable> myCachedExecutable;
-  public CreateConceptFromUsage_Intention() {
-    super(Kind.ERROR, false, new SNodePointer("r:e5a8b5c7-85b5-4d59-9e4e-850a142e2560(jetbrains.mps.lang.structure.intentions)", "7590508941683838692"));
+  public CreateConceptFromUsageInLinkDecl_Intention() {
+    super(Kind.ERROR, false, new SNodePointer("r:e5a8b5c7-85b5-4d59-9e4e-850a142e2560(jetbrains.mps.lang.structure.intentions)", "6886053617682446476"));
   }
   @Override
   public String getPresentation() {
-    return "CreateConceptFromUsage";
+    return "CreateConceptFromUsageInLinkDecl";
   }
   @Override
   public boolean isApplicable(final SNode node, final EditorContext editorContext) {
@@ -48,6 +48,7 @@ public final class CreateConceptFromUsage_Intention extends AbstractIntentionDes
     }
     @Override
     public String getDescription(final SNode node, final EditorContext editorContext) {
+      // better to replace with 3x"forConcept" 
       CreateConceptFromUsageHelper helper = new CreateConceptFromUsageHelper(node, editorContext);
       return "Create Concept " + helper.getConceptName();
     }
@@ -57,7 +58,7 @@ public final class CreateConceptFromUsage_Intention extends AbstractIntentionDes
     }
     @Override
     public IntentionDescriptor getDescriptor() {
-      return CreateConceptFromUsage_Intention.this;
+      return CreateConceptFromUsageInLinkDecl_Intention.this;
     }
   }
 }
