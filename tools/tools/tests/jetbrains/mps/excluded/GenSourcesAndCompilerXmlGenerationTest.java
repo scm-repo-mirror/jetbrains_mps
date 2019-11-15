@@ -18,8 +18,12 @@ package jetbrains.mps.excluded;
 import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.core.platform.PlatformFactory;
 import jetbrains.mps.core.platform.PlatformOptionsBuilder;
+import jetbrains.mps.library.ModulesMiner;
+import jetbrains.mps.library.ModulesMiner.ModuleHandle;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.JDOMUtil;
+import jetbrains.mps.vfs.IFileSystem;
+import jetbrains.mps.vfs.VFSManager;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.ElementNameAndAttributeQualifier;
 import org.custommonkey.xmlunit.XMLAssert;
@@ -41,11 +45,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+//todo rename to ProjectConsistencyTest or something like that
 public class GenSourcesAndCompilerXmlGenerationTest {
   private static Platform ourPlatform;
 
@@ -76,6 +82,34 @@ public class GenSourcesAndCompilerXmlGenerationTest {
     Diff diff = new Diff(FileUtil.read(GeneratorsRunner.COMPILER_XML_FILE), previousCompilerXml);
     diff.overrideElementQualifier(new ElementNameAndAttributeQualifier());
     XMLAssert.assertXMLEqual("Regenerate compiler.xml. Run GeneratorsRunner run configuration.", diff, true);
+  }
+
+  @Test
+  public void testSamplesHaveAppropriateNames() throws JDOMException, IOException, SAXException {
+    File root = new File(".");
+    IFileSystem fs = ourPlatform.findComponent(VFSManager.class).getFileSystem(VFSManager.JAVA_IO_FILE_FS);
+    Collection<ModuleHandle> modules = new ModulesMiner(ourPlatform).collectModules(fs.getFile(root)).getCollectedModules();
+    Set<String> badModules = new HashSet<>();
+    for (ModuleHandle m : modules) {
+      if (!m.getFile().getPath().contains("/samples/")) {
+        continue;
+      }
+      String mName = m.getDescriptor().getModuleReference().getModuleName();
+      if(mName.startsWith("jetbrains.mps.samples.")){
+        continue;
+      }
+      badModules.add(mName);
+    }
+    Assert.assertEquals(createMsg(badModules), 0, badModules.size());
+  }
+
+  private String createMsg(Set<String> badModules) {
+    StringBuilder sb = new StringBuilder("Modules residing in samples folder should have their names starting with \"jetbrains.mps.samples.\".\n");
+    sb.append("The following modules break this contract:\n");
+    for(String module: badModules){
+      sb.append("  ").append(module).append("\n");
+    }
+    return sb.toString();
   }
 
   @Test
