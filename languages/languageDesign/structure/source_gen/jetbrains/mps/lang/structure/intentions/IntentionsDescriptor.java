@@ -34,9 +34,10 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
       case 0:
         if (true) {
           // concept 
-          intentions = new IntentionFactory[2];
+          intentions = new IntentionFactory[3];
           intentions[0] = new ForbidIncomingReferencesInSubconcepts_Intention();
           intentions[1] = new AddExperimentalApiAnnotation_Intention();
+          intentions[2] = new ConvertConceptAndInterface_Intention();
         }
         break;
       case 1:
@@ -95,7 +96,7 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
   @NotNull
   @Override
   public Collection<IntentionFactory> getAllIntentions() {
-    IntentionFactory[] rv = new IntentionFactory[13];
+    IntentionFactory[] rv = new IntentionFactory[14];
     rv[0] = new AddDeprecatedAnnotation_Intention();
     rv[1] = new MakeRootable_Intention();
     rv[2] = new MakeFinal_Intention();
@@ -109,6 +110,7 @@ public final class IntentionsDescriptor extends AbstractIntentionAspectDescripto
     rv[10] = new CreateConceptFromUsageInConcept_Intention();
     rv[11] = new CreateConceptFromUsageInLinkDecl_Intention();
     rv[12] = new CreateConceptFromUsageInIntfcRef_Intention();
+    rv[13] = new ConvertConceptAndInterface_Intention();
     return Arrays.asList(rv);
   }
   private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979ba0450L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0eaeL), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x6d1df6c2700b0ea9L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x11d2ea63881L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x110356fc618L), MetaIdFactory.conceptId(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0xf979bd086aL)).seal();
