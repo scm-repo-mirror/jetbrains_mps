@@ -153,10 +153,10 @@
       <fileset dir="${build.tmp}/default/org.jetbrains.mps.samples.Constants-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-Constants-languageModels">
-      <fileset dir="${project_home}/languages/Constants/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/Constants/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-Constants-generator-template">
-      <fileset dir="${project_home}/languages/Constants/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/Constants/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/SampleJavaExtensions/languages/groupedContent/org.jetbrains.mps.samples.Constants-src.jar" duplicate="preserve">
       <fileset dir="${project_home}/languages/Constants/generator/source_gen">
@@ -279,10 +279,10 @@
       <fileset dir="${build.tmp}/default/org.jetbrains.mps.samples.IfAndUnless-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-SampleExtensions-languageModels">
-      <fileset dir="${project_home}/languages/SampleExtensions/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/SampleExtensions/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-SampleExtensions-generator-template">
-      <fileset dir="${project_home}/languages/SampleExtensions/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/SampleExtensions/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/SampleJavaExtensions/languages/groupedContent/org.jetbrains.mps.samples.IfAndUnless-src.jar" duplicate="preserve">
       <fileset dir="${project_home}/languages/SampleExtensions/generator/source_gen">
@@ -331,7 +331,7 @@
       <fileset dir="${build.tmp}/default/org.jetbrains.mps.samples.MoneyRuntime.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/solutions-MoneyRuntime-models">
-      <fileset dir="${project_home}/solutions/MoneyRuntime/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/solutions/MoneyRuntime/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/SampleJavaExtensions/languages/groupedContent/org.jetbrains.mps.samples.MoneyRuntime-src.jar" duplicate="preserve">
       <fileset dir="${project_home}/solutions/MoneyRuntime/source_gen">
@@ -371,7 +371,7 @@
       <fileset dir="${build.tmp}/default/org.jetbrains.mps.samples.ParallelForUtils.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/solutions-ParallelForUtils-models">
-      <fileset dir="${project_home}/solutions/ParallelForUtils/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/solutions/ParallelForUtils/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/SampleJavaExtensions/languages/groupedContent/org.jetbrains.mps.samples.ParallelForUtils-src.jar" duplicate="preserve">
       <fileset dir="${project_home}/solutions/ParallelForUtils/source_gen">
@@ -488,10 +488,10 @@
       <fileset dir="${build.tmp}/default/org.jetbrains.mps.samples.Money-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-Money-languageModels">
-      <fileset dir="${project_home}/languages/Money/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/Money/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-Money-generator-template">
-      <fileset dir="${project_home}/languages/Money/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/Money/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/SampleJavaExtensions/languages/groupedContent/org.jetbrains.mps.samples.Money-src.jar" duplicate="preserve">
       <fileset dir="${project_home}/languages/Money/generator/source_gen">
@@ -621,10 +621,10 @@
       <fileset dir="${build.tmp}/default/org.jetbrains.mps.samples.ParallelFor-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-ParallelFor-languageModels">
-      <fileset dir="${project_home}/languages/ParallelFor/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/ParallelFor/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-ParallelFor-generator-template">
-      <fileset dir="${project_home}/languages/ParallelFor/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${project_home}/languages/ParallelFor/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/SampleJavaExtensions/languages/groupedContent/org.jetbrains.mps.samples.ParallelFor-src.jar" duplicate="preserve">
       <fileset dir="${project_home}/languages/ParallelFor/generator/source_gen">

@@ -94,7 +94,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.tests.sraMigration.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-jetbrains.mps.tests.sraMigration-models">
-      <fileset dir="${basedir}/testbench/testsolutions/jetbrains.mps.tests.sraMigration/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/jetbrains.mps.tests.sraMigration/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.tests.sraMigration-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/jetbrains.mps.tests.sraMigration/jetbrains.mps.tests.sraMigration.msd" prefix="module" />

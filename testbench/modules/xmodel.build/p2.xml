@@ -51,7 +51,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.generator.xmodel.test2.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-project.xmodel.test1-xmodel.test2-models">
-      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test2/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test2/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.generator.xmodel.test2-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test2/source_gen">

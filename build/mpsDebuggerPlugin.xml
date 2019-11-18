@@ -49,7 +49,7 @@
     </copy>
     <mkdir dir="${build.layout}/mps-execution-api/lib" />
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-execution-api-models">
-      <fileset dir="${mps_home}/plugins/execution-api/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/execution-api/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-execution-api/lib/execution-api.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/execution-api" />
@@ -180,10 +180,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.execution.settings-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-execution-api-languages-settings-languageModels">
-      <fileset dir="${mps_home}/plugins/execution-api/languages/settings/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/execution-api/languages/settings/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-execution-api-languages-settings-generator-template">
-      <fileset dir="${mps_home}/plugins/execution-api/languages/settings/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/execution-api/languages/settings/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-execution-api/languages/mps-execution-api/jetbrains.mps.execution.settings-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/execution-api/languages/settings/generator/source_gen">
@@ -260,7 +260,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.execution.common.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-execution-api-languages-common-languageModels">
-      <fileset dir="${mps_home}/plugins/execution-api/languages/common/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/execution-api/languages/common/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-execution-api/languages/mps-execution-api/jetbrains.mps.execution.common-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/execution-api/languages/common/source_gen">
@@ -279,10 +279,10 @@
     </copy>
     <mkdir dir="${build.layout}/mps-debugger-api/lib" />
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-api-api-jetbrains">
-      <fileset dir="${mps_home}/plugins/debugger-api/api/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-api/api/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-api-runtime-jetbrains">
-      <fileset dir="${mps_home}/plugins/debugger-api/runtime/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-api/runtime/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-debugger-api/lib/debugger-api.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/debugger-api" />
@@ -422,10 +422,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.debugger.api.lang-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-api-languages-jetbrains.mps.debugger.api.lang-languageModels">
-      <fileset dir="${mps_home}/plugins/debugger-api/languages/jetbrains.mps.debugger.api.lang/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-api/languages/jetbrains.mps.debugger.api.lang/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-api-languages-jetbrains.mps.debugger.api.lang-generator-template">
-      <fileset dir="${mps_home}/plugins/debugger-api/languages/jetbrains.mps.debugger.api.lang/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-api/languages/jetbrains.mps.debugger.api.lang/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-debugger-api/languages/mps-debugger-api/jetbrains.mps.debugger.api.lang-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/debugger-api/languages/jetbrains.mps.debugger.api.lang/generator/source_gen">
@@ -451,13 +451,13 @@
     </copy>
     <mkdir dir="${build.layout}/mps-debugger-java/lib" />
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-api-jetbrains">
-      <fileset dir="${mps_home}/plugins/debugger-java/api/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/api/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-runtime-models">
-      <fileset dir="${mps_home}/plugins/debugger-java/runtime/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/runtime/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-customViewers-models">
-      <fileset dir="${mps_home}/plugins/debugger-java/customViewers/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/customViewers/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-debugger-java/lib/debugger-java.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/debugger-java" />
@@ -542,7 +542,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.debugger.java.privateMembers.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-languages-privateMembers-languageModels">
-      <fileset dir="${mps_home}/plugins/debugger-java/languages/privateMembers/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/languages/privateMembers/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-debugger-java/languages/mps-debugger-java/jetbrains.mps.debugger.java.privateMembers-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/debugger-java/languages/privateMembers/source_gen">
@@ -701,10 +701,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.debugger.java.customViewers-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-languages-customViewers-languageModels">
-      <fileset dir="${mps_home}/plugins/debugger-java/languages/customViewers/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/languages/customViewers/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-languages-customViewers-generator-template">
-      <fileset dir="${mps_home}/plugins/debugger-java/languages/customViewers/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/languages/customViewers/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-debugger-java/languages/mps-debugger-java/jetbrains.mps.debugger.java.customViewers-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/debugger-java/languages/customViewers/generator/source_gen">
@@ -836,10 +836,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.debugger.java.evaluation-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-languages-evaluation-languageModels">
-      <fileset dir="${mps_home}/plugins/debugger-java/languages/evaluation/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/languages/evaluation/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-debugger-java-languages-evaluation-generator-template">
-      <fileset dir="${mps_home}/plugins/debugger-java/languages/evaluation/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/debugger-java/languages/evaluation/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-debugger-java/languages/mps-debugger-java/jetbrains.mps.debugger.java.evaluation-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/debugger-java/languages/evaluation/generator/source_gen">
@@ -941,7 +941,6 @@
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.editor.jar" />
-      <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.extension.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.findUsages.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.generationContext.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.jar" />

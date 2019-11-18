@@ -102,7 +102,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.java.tests.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-workbench-tests-jetbrains.mps.ide.java.tests-models">
-      <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.tests/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.tests/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.ide.java.tests-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.tests/source_gen">
@@ -133,10 +133,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.java.testMaterial.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-workbench-tests-jetbrains.mps.ide.java.testMaterial-java">
-      <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.testMaterial/java" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.testMaterial/java" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-workbench-tests-jetbrains.mps.ide.java.testMaterial-jetbrains">
-      <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.testMaterial/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.testMaterial/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.ide.java.testMaterial-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.testMaterial/resources/testData">
@@ -147,7 +147,7 @@
       </fileset>
       <zipfileset file="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.testMaterial/jetbrains.mps.ide.java.testMaterial.msd" prefix="module" />
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-workbench-tests-jetbrains.mps.ide.java.testMaterial-java" prefix="module/java" />
-      <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-workbench-tests-jetbrains.mps.ide.java.testMaterial-jetbrains" prefix="module/jetbrains" />
+      <zipfileset dir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-workbench-tests-jetbrains.mps.ide.java.testMaterial-jetbrains" prefix="module/java" />
       <zipfileset dir="${basedir}/plugins/mps-java/workbench/tests/jetbrains.mps.ide.java.testMaterial" prefix="module">
         <include name="resources/" />
       </zipfileset>

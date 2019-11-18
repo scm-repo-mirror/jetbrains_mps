@@ -79,7 +79,7 @@
       <fileset dir="${build.tmp}/default/messages.sandbox.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/samples-messagesCustomization-solutions-sandbox-models">
-      <fileset dir="${basedir}/samples/messagesCustomization/solutions/sandbox/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/samples/messagesCustomization/solutions/sandbox/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/solutions/messages.sandbox-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/samples/messagesCustomization/solutions/sandbox/source_gen">
@@ -160,7 +160,7 @@
       <fileset dir="${build.tmp}/default/messages.customization.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/samples-messagesCustomization-languages-messages.customization-models">
-      <fileset dir="${basedir}/samples/messagesCustomization/languages/messages.customization/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/samples/messagesCustomization/languages/messages.customization/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/languages/messages.customization-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/samples/messagesCustomization/languages/messages.customization/source_gen">

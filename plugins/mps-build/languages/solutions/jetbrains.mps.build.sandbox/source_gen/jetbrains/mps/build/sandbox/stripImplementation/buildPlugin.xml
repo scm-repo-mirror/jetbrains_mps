@@ -84,7 +84,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.build.sandbox.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/jetbrains.mps.build.sandbox-models">
-      <fileset dir="${basedir}/jetbrains.mps.build.sandbox/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/jetbrains.mps.build.sandbox/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/test1/languages/jetbrains.mps.build.sandbox-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/jetbrains.mps.build.sandbox/source_gen">
@@ -143,7 +143,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.build.tests.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/jetbrains.mps.build.tests-models">
-      <fileset dir="${basedir}/jetbrains.mps.build.tests/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/jetbrains.mps.build.tests/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/test1/languages/jetbrains.mps.build.tests-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/jetbrains.mps.build.tests/source_gen">

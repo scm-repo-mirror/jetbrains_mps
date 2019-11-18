@@ -92,7 +92,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.httpsupport.tests.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-httpsupport.test-models">
-      <fileset dir="${basedir}/testbench/testsolutions/httpsupport.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/httpsupport.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.ide.httpsupport.tests-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/testsolutions/httpsupport.test/source_gen">

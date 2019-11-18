@@ -7,7 +7,7 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/1545517825663017278">
     <file name="mpsVcs.xml">
-      <unit id="1545517825663017278" at="1,0,741,10" name="jetbrains.mps.ide.build.mpsVcs" />
+      <unit id="1545517825663017278" at="1,0,740,10" name="jetbrains.mps.ide.build.mpsVcs" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/2002671966457711287">
@@ -27,7 +27,7 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/2569834391839970845">
     <file name="mpsWorkbench.xml">
-      <unit id="2569834391839970845" at="1,0,1492,10" name="jetbrains.mps.ide.build.mpsWorkbench" />
+      <unit id="2569834391839970845" at="1,0,1490,10" name="jetbrains.mps.ide.build.mpsWorkbench" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/2849781404939735115">
@@ -52,7 +52,7 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/4218078887717256532">
     <file name="mpsConsolePlugin.xml">
-      <unit id="4218078887717256532" at="1,0,1887,10" name="jetbrains.mps.ide.build.mpsConsolePlugin" />
+      <unit id="4218078887717256532" at="1,0,1886,10" name="jetbrains.mps.ide.build.mpsConsolePlugin" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/4301118715654192646">
@@ -82,7 +82,7 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/6164334420696839314">
     <file name="mpsDebuggerPlugin.xml">
-      <unit id="6164334420696839314" at="1,0,1820,10" name="jetbrains.mps.ide.build.mpsDebuggerPlugin" />
+      <unit id="6164334420696839314" at="1,0,1819,10" name="jetbrains.mps.ide.build.mpsDebuggerPlugin" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/618786790401812237">
@@ -92,12 +92,12 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/6265574260762011003">
     <file name="mpsMakePlugin.xml">
-      <unit id="6265574260762011003" at="1,0,353,10" name="jetbrains.mps.ide.build.mpsMakePlugin" />
+      <unit id="6265574260762011003" at="1,0,352,10" name="jetbrains.mps.ide.build.mpsMakePlugin" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/6361939271669846483">
     <file name="mpsExecutionPlugin.xml">
-      <unit id="6361939271669846483" at="1,0,1987,10" name="jetbrains.mps.ide.build.mpsExecutionPlugin" />
+      <unit id="6361939271669846483" at="1,0,1986,10" name="jetbrains.mps.ide.build.mpsExecutionPlugin" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/6391307088354381121">
@@ -132,7 +132,7 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/7401958389406848608">
     <file name="mpsJavaPlatform.xml">
-      <unit id="7401958389406848608" at="1,0,295,10" name="jetbrains.mps.ide.build.mpsJavaPlatform" />
+      <unit id="7401958389406848608" at="1,0,294,10" name="jetbrains.mps.ide.build.mpsJavaPlatform" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/7759561396119470053">
@@ -147,7 +147,7 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/8006829063600512192">
     <file name="mpsJava.xml">
-      <unit id="8006829063600512192" at="1,0,304,10" name="jetbrains.mps.ide.build.mpsJava" />
+      <unit id="8006829063600512192" at="1,0,303,10" name="jetbrains.mps.ide.build.mpsJava" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/8214399919540084172">
@@ -162,7 +162,7 @@
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/8227093612176368028">
     <file name="mpsBuildUI.xml">
-      <unit id="8227093612176368028" at="1,0,616,10" name="jetbrains.mps.ide.build.mpsBuildUI" />
+      <unit id="8227093612176368028" at="1,0,612,10" name="jetbrains.mps.ide.build.mpsBuildUI" />
     </file>
   </root>
   <root nodeRef="r:874d959d-e3b4-4d04-b931-ca849af130dd(jetbrains.mps.ide.build)/8524659923334108558">

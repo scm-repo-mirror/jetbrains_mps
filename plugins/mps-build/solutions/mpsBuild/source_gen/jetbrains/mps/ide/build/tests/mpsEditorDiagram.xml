@@ -83,7 +83,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.editor.figures.sandbox.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-diagram-editor-test-jetbrains.mps.lang.editor.figures.sandbox-models">
-      <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.figures.sandbox/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.figures.sandbox/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/tests/jetbrains.mps.lang.editor.figures.sandbox-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.figures.sandbox/source_gen">
@@ -152,7 +152,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.editor.diagram.testLanguage.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-diagram-editor-test-jetbrains.mps.lang.editor.diagram.testLanguage-languageModels">
-      <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.testLanguage/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.testLanguage/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/tests/jetbrains.mps.lang.editor.diagram.testLanguage-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.testLanguage/source_gen">
@@ -190,7 +190,6 @@
           <module ref="5b1f863d-65a0-41a6-a801-33896be24202(jetbrains.mps.ide.editor)" kind="cl" />
           <module ref="5a283d13-799d-4cf6-a6a7-5c3e11d79dcb(jetbrains.mps.lang.editor.diagram.runtime)" kind="cl" />
           <module ref="050560c9-658e-49c5-b8e7-9e4db4c7e97f(jetbrains.mps.lang.editor.diagram.testLanguage)" kind="cl" />
-          <module ref="7866978e-a0f0-4cc7-81bc-4d213d9375e1(jetbrains.mps.lang.smodel)" kind="cl" />
         </dependencies>
         <uses>
           <language id="l:f3061a53-9226-4cc5-a443-f952ceaf5816:jetbrains.mps.baseLanguage" />
@@ -216,7 +215,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.editor.diagram.tests.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-diagram-editor-test-jetbrains.mps.lang.editor.diagram.tests-models">
-      <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.tests/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.tests/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/tests/jetbrains.mps.lang.editor.diagram.tests-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/plugins/mps-diagram-editor/test/jetbrains.mps.lang.editor.diagram.tests/jetbrains.mps.lang.editor.diagram.tests.msd" prefix="module" />
@@ -485,16 +484,11 @@
         <fileset file="${artifacts.IDEA}/plugins/java/lib/ecj-4.10.jar" />
         <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.jar" />
         <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.classifiers.jar" />
-        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.closures.jar" />
-        <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.collections.jar" />
         <fileset file="${artifacts.mps}/languages/baseLanguage/jetbrains.mps.baseLanguage.scopes.jar" />
         <fileset file="${artifacts.mps}/plugins/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.core.jar" />
         <fileset file="${artifacts.mps}/plugins/mps-diagram-editor/languages/jetbrains.mps.lang.editor.diagram.runtime.jar" />
-        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.modelapi.jar" />
         <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.scopes.runtime.jar" />
-        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.smodel.jar" />
-        <fileset file="${artifacts.mps}/languages/languageDesign/jetbrains.mps.lang.structure.jar" />
         <fileset file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.jar" />
         <fileset file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.matcher.jar" />
         <fileset file="${artifacts.mps}/plugins/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.runtime.jar" />

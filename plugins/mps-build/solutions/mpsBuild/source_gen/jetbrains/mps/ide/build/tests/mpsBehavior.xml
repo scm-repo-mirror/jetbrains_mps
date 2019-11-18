@@ -66,7 +66,7 @@
     </echoxml>
     <mkdir dir="${build.layout}/behavior-tests/test.behavior.plugin/lib" />
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-solutions-UtilSolution-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/solutions/UtilSolution/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/solutions/UtilSolution/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/lib/UtilSolution.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/UtilSolution" />
@@ -74,7 +74,7 @@
       <zipfileset dir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-solutions-UtilSolution-models" prefix="modules/UtilSolution/models" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-solutions-TestBehaviorReflective-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/solutions/TestBehaviorReflective/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/solutions/TestBehaviorReflective/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/lib/TestBehaviorReflective.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/TestBehaviorReflective" />
@@ -131,7 +131,7 @@
       <fileset dir="${build.tmp}/default/BHL1.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-languages-L1-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L1/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L1/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/languages/BHL1-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L1/source_gen">
@@ -191,7 +191,7 @@
       <fileset dir="${build.tmp}/default/BHL2.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-languages-L2-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L2/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L2/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/languages/BHL2-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L2/source_gen">
@@ -251,7 +251,7 @@
       <fileset dir="${build.tmp}/default/BHL3.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-languages-L3-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L3/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L3/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/languages/BHL3-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L3/source_gen">
@@ -312,7 +312,7 @@
       <fileset dir="${build.tmp}/default/BHL4.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-languages-L4-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L4/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L4/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/languages/BHL4-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L4/source_gen">
@@ -372,7 +372,7 @@
       <fileset dir="${build.tmp}/default/BHL5.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-languages-L5-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L5/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L5/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/languages/BHL5-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L5/source_gen">
@@ -433,7 +433,7 @@
       <fileset dir="${build.tmp}/default/BHL6.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-languages-L6-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L6/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L6/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/languages/BHL6-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L6/source_gen">
@@ -493,7 +493,7 @@
       <fileset dir="${build.tmp}/default/BHL7.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-languages-L7-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L7/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L7/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/test.behavior.plugin/languages/BHL7-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/languages/L7/source_gen">
@@ -559,7 +559,7 @@
       <fileset dir="${build.tmp}/default/TestBehavior.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testBehavior-solutions-TestBehavior-models">
-      <fileset dir="${basedir}/testbench/modules/testBehavior/solutions/TestBehavior/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testBehavior/solutions/TestBehavior/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/behavior-tests/nonReflectiveTest/TestBehavior-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testBehavior/solutions/TestBehavior/source_gen">

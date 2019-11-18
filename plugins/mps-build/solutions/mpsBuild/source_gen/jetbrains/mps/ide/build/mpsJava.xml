@@ -93,7 +93,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.java.workbench.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-workbench-modules-jetbrains.mps.java.workbench-models">
-      <fileset dir="${mps_home}/plugins/mps-java/workbench/modules/jetbrains.mps.java.workbench/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-java/workbench/modules/jetbrains.mps.java.workbench/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-java/modules/jetbrains.mps.java.workbench-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-java/workbench/modules/jetbrains.mps.java.workbench/source_gen">
@@ -188,7 +188,6 @@
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.editor.jar" />
-      <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.extension.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.findUsages.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.generationContext.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.jar" />

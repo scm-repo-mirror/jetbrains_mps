@@ -85,7 +85,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.text.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-text.test-models">
-      <fileset dir="${basedir}/testbench/testsolutions/text.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/text.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.lang.text.test-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/text.test/jetbrains.mps.lang.text.test.msd" prefix="module" />

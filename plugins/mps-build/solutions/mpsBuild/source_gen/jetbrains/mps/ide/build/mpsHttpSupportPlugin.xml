@@ -54,7 +54,7 @@
     </copy>
     <mkdir dir="${build.layout}/mps-httpsupport/lib" />
     <copyModels todir="${build.tmp}/customProcessors/copyModels/models">
-      <fileset dir="${plugin_home}/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${plugin_home}/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-httpsupport/lib/httpsupport.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/http-support" />
@@ -193,10 +193,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.httpsupport-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/language-models">
-      <fileset dir="${plugin_home}/language/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${plugin_home}/language/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/language-generator-template">
-      <fileset dir="${plugin_home}/language/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${plugin_home}/language/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-httpsupport/languages/jetbrains.mps.ide.httpsupport-src.jar" duplicate="preserve">
       <fileset dir="${plugin_home}/language/generator/source_gen">
@@ -269,7 +269,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.httpsupport.nodeaccess.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/solutions-nodeaccess-models">
-      <fileset dir="${plugin_home}/solutions/nodeaccess/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${plugin_home}/solutions/nodeaccess/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-httpsupport/solutions/jetbrains.mps.ide.httpsupport.nodeaccess-src.jar" duplicate="preserve">
       <fileset dir="${plugin_home}/solutions/nodeaccess/source_gen">
@@ -315,7 +315,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.httpsupport.runtime.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/solutions-runtime-models">
-      <fileset dir="${plugin_home}/solutions/runtime/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${plugin_home}/solutions/runtime/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-httpsupport/solutions/jetbrains.mps.ide.httpsupport.runtime-src.jar" duplicate="preserve">
       <fileset dir="${plugin_home}/solutions/runtime/source_gen">

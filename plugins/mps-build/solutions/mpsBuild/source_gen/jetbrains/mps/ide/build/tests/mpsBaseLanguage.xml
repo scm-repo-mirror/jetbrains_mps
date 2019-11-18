@@ -107,7 +107,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.unittest.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.unittest-jetbrains">
-      <fileset dir="${basedir}/testbench/testsolutions/bl.unittest/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.unittest/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.unittest-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/bl.unittest/jetbrains.mps.baseLanguage.unittest.msd" prefix="module" />
@@ -146,7 +146,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.closures.unittest.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.closures.unittest-jetbrains">
-      <fileset dir="${basedir}/testbench/testsolutions/bl.closures.unittest/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.closures.unittest/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.closures.unittest-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/bl.closures.unittest/jetbrains.mps.baseLanguage.closures.unittest.msd" prefix="module" />
@@ -187,7 +187,7 @@
       <fileset dir="${build.tmp}/default/closures.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-closures.test-jetbrains">
-      <fileset dir="${basedir}/testbench/testsolutions/closures.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/closures.test/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/closures.test-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/closures.test/closures.test.msd" prefix="module" />
@@ -226,7 +226,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.testRefs.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-jetbrains.mps.baseLanguage.testRefs-models">
-      <fileset dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.testRefs-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs/jetbrains.mps.baseLanguage.testRefs.msd" prefix="module" />
@@ -330,10 +330,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.testRefs.testLang-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-jetbrains.mps.baseLanguage.testRefs.testLang-models">
-      <fileset dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-jetbrains.mps.baseLanguage.testRefs.testLang-generator-template">
-      <fileset dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.testRefs.testLang-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/jetbrains.mps.baseLanguage.testRefs.testLang/generator/source_gen">
@@ -397,7 +397,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguageInternal.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.internal.test-models">
-      <fileset dir="${basedir}/testbench/testsolutions/bl.internal.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.internal.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguageInternal.test-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/bl.internal.test/jetbrains.mps.baseLanguageInternal.test.msd" prefix="module" />
@@ -430,7 +430,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.doubleDispatch.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.doubleDispatch.test-models">
-      <fileset dir="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.doubleDispatch.test-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/bl.doubleDispatch.test/jetbrains.mps.baseLanguage.doubleDispatch.test.msd" prefix="module" />
@@ -464,7 +464,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.regexp.unittest.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-regexp.unittest-models">
-      <fileset dir="${basedir}/testbench/testsolutions/regexp.unittest/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/regexp.unittest/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.regexp.unittest-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/testsolutions/regexp.unittest/jetbrains.mps.baseLanguage.regexp.unittest.msd" prefix="module" />
@@ -503,7 +503,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.tuples.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.tuples.test-jetbrains">
-      <fileset dir="${basedir}/testbench/testsolutions/bl.tuples.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.tuples.test/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.baseLanguage.tuples.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/testsolutions/bl.tuples.test/source_gen">
@@ -547,7 +547,7 @@
       <fileset dir="${build.tmp}/default/collections_unittest.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-collections_unittest-models">
-      <fileset dir="${basedir}/testbench/testsolutions/collections_unittest/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/collections_unittest/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/collections_unittest-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/testsolutions/collections_unittest/tests_gen">
@@ -611,7 +611,7 @@
       <fileset dir="${build.tmp}/default/internalCollections.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-bl.internalCollections.test-jetbrains">
-      <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/internalCollections.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/testsolutions/bl.internalCollections.test/source_gen">
@@ -656,7 +656,7 @@
       <fileset dir="${build.tmp}/default/collections_trove.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-collections_trove.test-jetbrains">
-      <fileset dir="${basedir}/testbench/testsolutions/collections_trove.test/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/collections_trove.test/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/collections_trove.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/testsolutions/collections_trove.test/source_gen">

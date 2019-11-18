@@ -70,7 +70,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.java.core.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-java-core-modules-jetbrains.mps.java.core-models">
-      <fileset dir="${mps_home}/plugins/mps-java/core/modules/jetbrains.mps.java.core/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-java/core/modules/jetbrains.mps.java.core/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/modules/jetbrains.mps.java.core-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-java/core/modules/jetbrains.mps.java.core/source_gen">

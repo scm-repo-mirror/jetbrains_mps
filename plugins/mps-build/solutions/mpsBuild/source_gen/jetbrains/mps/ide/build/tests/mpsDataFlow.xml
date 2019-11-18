@@ -93,7 +93,7 @@
       <fileset dir="${build.tmp}/default/analyzers.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testDataFlow-solutions-analyzers.test-models">
-      <fileset dir="${basedir}/testbench/modules/testDataFlow/solutions/analyzers.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testDataFlow/solutions/analyzers.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/solutions/analyzers.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testDataFlow/solutions/analyzers.test/source_gen">
@@ -166,7 +166,7 @@
       <fileset dir="${build.tmp}/default/testCustomAnalyzer.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testDataFlow-languages-testCustomAnalyzer-models">
-      <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testCustomAnalyzer/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testCustomAnalyzer/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/languages/testCustomAnalyzer-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testCustomAnalyzer/source_gen">
@@ -239,7 +239,7 @@
       <fileset dir="${build.tmp}/default/testExtendingAnalyzer.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testDataFlow-languages-testExtendingAnalyzer-languageModels">
-      <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testExtendingAnalyzer/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testExtendingAnalyzer/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/languages/testExtendingAnalyzer-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testExtendingAnalyzer/source_gen">
@@ -303,7 +303,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.testCustomDataFlow.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testDataFlow-languages-testCustomDataFlow-models">
-      <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testCustomDataFlow/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testCustomDataFlow/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/languages/jetbrains.mps.testCustomDataFlow-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testDataFlow/languages/testCustomDataFlow/source_gen">
@@ -359,7 +359,7 @@
       <fileset dir="${build.tmp}/default/analyzers.test.jar1" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testDataFlow-solutions-analyzers.test-models1">
-      <fileset dir="${basedir}/testbench/modules/testDataFlow/solutions/analyzers.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testDataFlow/solutions/analyzers.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/analyzers.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testDataFlow/solutions/analyzers.test/source_gen">

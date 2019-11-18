@@ -215,10 +215,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.vcs.mergehints-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-vcs-languages-mergehints-languageModels">
-      <fileset dir="${mps_home}/plugins/mps-vcs/languages/mergehints/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-vcs/languages/mergehints/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-vcs-languages-mergehints-generator-template">
-      <fileset dir="${mps_home}/plugins/mps-vcs/languages/mergehints/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-vcs/languages/mergehints/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-vcs/languages/jetbrains.mps.vcs.mergehints-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-vcs/languages/mergehints/generator/source_gen">
@@ -313,7 +313,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.ide.vcs.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-vcs-solutions-jetbrains.mps.ide.vcs-models">
-      <fileset dir="${mps_home}/plugins/mps-vcs/solutions/jetbrains.mps.ide.vcs/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-vcs/solutions/jetbrains.mps.ide.vcs/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-vcs/lib/jetbrains.mps.ide.vcs-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-vcs/solutions/jetbrains.mps.ide.vcs/source_gen">
@@ -437,7 +437,6 @@
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.aspects.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.descriptor.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.editor.jar" />
-      <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.extension.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.findUsages.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.generationContext.jar" />
       <library file="${artifacts.mpsBootstrapCore}/languages/languageDesign/jetbrains.mps.lang.generator.generationParameters.jar" />

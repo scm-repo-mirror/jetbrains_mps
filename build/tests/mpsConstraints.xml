@@ -78,7 +78,7 @@
       <fileset dir="${build.tmp}/default/TestConstraints.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testConstraints-solutions-TestConstraints-models">
-      <fileset dir="${basedir}/testbench/modules/testConstraints/solutions/TestConstraints/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testConstraints/solutions/TestConstraints/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/solutions/TestConstraints-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testConstraints/solutions/TestConstraints/source_gen">
@@ -120,7 +120,7 @@
       <fileset dir="${build.tmp}/default/TestRulesConstraints.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testConstraints-solutions-TestRulesConstraints-models">
-      <fileset dir="${basedir}/testbench/modules/testConstraints/solutions/TestRulesConstraints/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testConstraints/solutions/TestRulesConstraints/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/solutions/TestRulesConstraints-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testConstraints/solutions/TestRulesConstraints/source_gen">
@@ -200,7 +200,7 @@
       <fileset dir="${build.tmp}/default/constraints.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testConstraints-languages-constraints.test-models">
-      <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/languages/constraints.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.test/source_gen">
@@ -312,10 +312,10 @@
       <fileset dir="${build.tmp}/default/constraints.rules.test-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testConstraints-languages-constraints.rules.test-models">
-      <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.rules.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.rules.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testConstraints-languages-constraints.rules.test-generator-template">
-      <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.rules.test/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.rules.test/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/languages/constraints.rules.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testConstraints/languages/constraints.rules.test/generator/source_gen">

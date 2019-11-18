@@ -89,7 +89,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.typesystem.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-testsolutions-typesystem.test-jetbrains.mps.lang.typesystem.test-models">
-      <fileset dir="${basedir}/testbench/testsolutions/typesystem.test/jetbrains.mps.lang.typesystem.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/testsolutions/typesystem.test/jetbrains.mps.lang.typesystem.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/solutions/jetbrains.mps.lang.typesystem.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/testsolutions/typesystem.test/jetbrains.mps.lang.typesystem.test/source_gen">

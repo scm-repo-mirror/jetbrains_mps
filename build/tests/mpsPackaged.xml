@@ -98,7 +98,7 @@
       <fileset dir="${build.tmp}/default/testPackagedLanguage.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testPackaged-testPackagedLanguage.test-models">
-      <fileset dir="${basedir}/testbench/modules/testPackaged/testPackagedLanguage.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testPackaged/testPackagedLanguage.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/testPackagedLanguage.test-src.jar" duplicate="preserve">
       <zipfileset file="${basedir}/testbench/modules/testPackaged/testPackagedLanguage.test/testPackagedLanguage.test.msd" prefix="module" />
@@ -157,7 +157,7 @@
       <fileset dir="${build.tmp}/default/testPackagedLanguage.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/testbench-modules-testPackaged-testPackagedLanguage-languageModels">
-      <fileset dir="${basedir}/testbench/modules/testPackaged/testPackagedLanguage/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/testbench/modules/testPackaged/testPackagedLanguage/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/testPackagedLanguage-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/testbench/modules/testPackaged/testPackagedLanguage/source_gen">

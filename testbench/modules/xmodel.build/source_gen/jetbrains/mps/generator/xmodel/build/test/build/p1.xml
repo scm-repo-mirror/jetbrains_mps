@@ -119,10 +119,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.generator.test.xmodel.lang1-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-project.xmodel.test1-xmodel.lang1-models">
-      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-project.xmodel.test1-xmodel.lang1-generator-template">
-      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.generator.test.xmodel.lang1-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.lang1/generator/source_gen">
@@ -164,7 +164,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.generator.xmodel.test.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-languageDesign-generator-project.xmodel.test1-xmodel.test-models">
-      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/jetbrains.mps.generator.xmodel.test-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/languages/languageDesign/generator/project.xmodel.test1/xmodel.test/source_gen">

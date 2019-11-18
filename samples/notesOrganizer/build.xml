@@ -164,10 +164,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.samples.notesOrganizer-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-jetbrains.mps.samples.notesOrganizer-models">
-      <fileset dir="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-jetbrains.mps.samples.notesOrganizer-generator-template">
-      <fileset dir="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/notesOrganizer/languages/notesOrganizer/jetbrains.mps.samples.notesOrganizer-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/languages/jetbrains.mps.samples.notesOrganizer/generator/source_gen">

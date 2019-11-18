@@ -124,7 +124,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.migration.component.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/migration-platform-solutions-component-models">
-      <fileset dir="${plugin_home}/migration-platform/solutions/component/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${plugin_home}/migration-platform/solutions/component/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-migration/src/jetbrains.mps.migration.component-src.jar" duplicate="preserve">
       <fileset dir="${plugin_home}/migration-platform/solutions/component/source_gen">

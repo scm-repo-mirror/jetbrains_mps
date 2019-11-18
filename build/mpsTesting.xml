@@ -29,7 +29,7 @@
     </copy>
     <mkdir dir="${build.layout}/mps-testing/lib" />
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-test-solutions-jetbrains.mps.lang.test.util-models">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.util/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/lib/jetbrains.mps.lang.test.util.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/test-util" />
@@ -159,10 +159,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.baseLanguage.unitTest-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-baseLanguage-unitTest-languageModels">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/baseLanguage/unitTest/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/baseLanguage/unitTest/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-baseLanguage-unitTest-generator-baseLanguage-template">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/baseLanguage/unitTest/generator/baseLanguage/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/baseLanguage/unitTest/generator/baseLanguage/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/languages/baseLanguage/jetbrains.mps.baseLanguage.unitTest-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-testing/languages/baseLanguage/unitTest/generator/source_gen">
@@ -209,7 +209,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.test.matcher.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-test-solutions-jetbrains.mps.lang.test.matcher-models">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.matcher/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.matcher/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.matcher-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.matcher/source_gen">
@@ -397,10 +397,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.test-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-test-languageModels">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-test-generator-template">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/languages/languageDesign/jetbrains.mps.lang.test-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/generator/source_gen">
@@ -475,7 +475,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.test.runtime.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-test-solutions-jetbrains.mps.lang.test.runtime-jetbrains">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.runtime/jetbrains" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.runtime/jetbrains" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/languages/languageDesign/jetbrains.mps.lang.test.runtime-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/test/solutions/jetbrains.mps.lang.test.runtime/source_gen">
@@ -537,7 +537,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.smodelTests.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-languageDesign-smodelTests-languageModels">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/smodelTests/languageModels" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/smodelTests/languageModels" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/languages/languageDesign/jetbrains.mps.lang.smodelTests-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-testing/languages/languageDesign/smodelTests/source_gen">
@@ -671,10 +671,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.test.generator-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-gentest-models">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-gentest-generator-template">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/languages/gentest/jetbrains.mps.lang.test.generator-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest/generator/source_gen">
@@ -731,7 +731,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.lang.test.generator.rt.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-testing-languages-gentest.rt-models">
-      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest.rt/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest.rt/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-testing/languages/gentest/jetbrains.mps.lang.test.generator.rt-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-testing/languages/gentest.rt/source_gen">

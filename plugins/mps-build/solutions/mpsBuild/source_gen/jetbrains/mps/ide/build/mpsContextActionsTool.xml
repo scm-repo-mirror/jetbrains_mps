@@ -98,7 +98,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.editor.contextActionsTool.pluginSolution.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-context-actions-modules-pluginSolution-models">
-      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/pluginSolution/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/pluginSolution/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-context-actions/languages/mps-context-actions-tool/jetbrains.mps.editor.contextActionsTool.pluginSolution-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-context-actions/modules/pluginSolution/source_gen">
@@ -214,10 +214,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.editor.contextActionsTool.lang.menus-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-context-actions-modules-lang.menus-models">
-      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/lang.menus/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/lang.menus/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-context-actions-modules-lang.menus-generator-template">
-      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/lang.menus/generator/template" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/lang.menus/generator/template" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-context-actions/languages/mps-context-actions-tool/jetbrains.mps.editor.contextActionsTool.lang.menus-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-context-actions/modules/lang.menus/generator/source_gen">
@@ -261,7 +261,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.editor.contextActionsTool.lang.menus.runtime.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/plugins-mps-context-actions-modules-runtime-models">
-      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/runtime/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${mps_home}/plugins/mps-context-actions/modules/runtime/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.layout}/mps-context-actions/languages/mps-context-actions-tool/jetbrains.mps.editor.contextActionsTool.lang.menus.runtime-src.jar" duplicate="preserve">
       <fileset dir="${mps_home}/plugins/mps-context-actions/modules/runtime/source_gen">
