@@ -11,7 +11,6 @@ import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.refactoring.participant.RefactoringSession;
 import jetbrains.mps.smodel.Language;
 import java.util.Map;
@@ -24,6 +23,7 @@ import jetbrains.mps.smodel.LanguageAspect;
 import jetbrains.mps.smodel.SModelInternal;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.internal.collections.runtime.ISelector;
@@ -84,16 +84,8 @@ public class LanguageStructureMigrationParticipant<I, F> extends RefactoringPart
       return new LanguageStructureMigrationParticipant<SReferenceLink, SReferenceLink>(new MoveReferenceLinkSpecialization());
     }
   }
-  private MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<SNodeReference, SNodeReference> myDataCollector = new MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<SNodeReference, SNodeReference>() {
-    public SNodeReference beforeMove(SNode nodeToMove) {
-      return SNodeOperations.getPointer(nodeToMove);
-    }
-    public SNodeReference afterMove(SNode movedNode) {
-      return SNodeOperations.getPointer(movedNode);
-    }
-  };
   public MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<SNodeReference, SNodeReference> getDataCollector() {
-    return myDataCollector;
+    return myStructureSpecialization.getMigrationDataCollector();
   }
 
   public static class MigrationBuilder {
@@ -117,7 +109,7 @@ public class LanguageStructureMigrationParticipant<I, F> extends RefactoringPart
       final int languageVersion = language.getLanguageVersion();
       String refactoringName = session.getRefactoringName();
       String migrationScriptName = (refactoringName == null ? "MigrationScript" : "Migrate_" + NameUtil.toValidCamelIdentifier(refactoringName));
-      myRefactoringStep = createPureMigrationScript_kz6lmo_a0d0d11(languageVersion, migrationScriptName + "_" + languageVersion);
+      myRefactoringStep = createPureMigrationScript_kz6lmo_a0d0d01(languageVersion, migrationScriptName + "_" + languageVersion);
       session.registerChange(new Runnable() {
         public void run() {
           SModel migrationModel = LanguageAspect.MIGRATION.getOrCreate(language);
@@ -141,18 +133,18 @@ public class LanguageStructureMigrationParticipant<I, F> extends RefactoringPart
       });
     }
     public void addPart(@NotNull SNode initialStateNode, @NotNull SNode finalStateNode, SNode specialization) {
-      addPart(createMoveNodeMigrationPart_kz6lmo_a0a0e11(NodeReferenceUtil.makeReflection(initialStateNode), NodeReferenceUtil.makeReflection(finalStateNode), specialization));
+      addPart(createMoveNodeMigrationPart_kz6lmo_a0a0e01(NodeReferenceUtil.makeReflection(initialStateNode), NodeReferenceUtil.makeReflection(finalStateNode), specialization));
     }
     public void addPart(SNode migrationPart) {
       ListSequence.fromList(SLinkOperations.getChildren(myRefactoringStep, LINKS.part$x6zr)).addElement(migrationPart);
     }
-    private static SNode createPureMigrationScript_kz6lmo_a0d0d11(Object p0, Object p1) {
+    private static SNode createPureMigrationScript_kz6lmo_a0d0d01(Object p0, Object p1) {
       SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.PureMigrationScript$YW);
       rootBuilder1.setProperty(PROPS.fromVersion$jLy0, PROPS.fromVersion$jLy0.getType().toString(p0));
       rootBuilder1.setProperty(PROPS.name$tAp1, PROPS.name$tAp1.getType().toString(p1));
       return rootBuilder1.getResult();
     }
-    private static SNode createMoveNodeMigrationPart_kz6lmo_a0a0e11(SNode node0, SNode node1, SNode node2) {
+    private static SNode createMoveNodeMigrationPart_kz6lmo_a0a0e01(SNode node0, SNode node1, SNode node2) {
       SNodeBuilder rootBuilder1 = new SNodeBuilder().init(CONCEPTS.MoveNodeMigrationPart$gB);
       rootBuilder1.forChild(LINKS.fromNode$JVN3).initNode(node0, CONCEPTS.AbstractNodeReference$T6, true);
       rootBuilder1.forChild(LINKS.toNode$JVO1).initNode(node1, CONCEPTS.AbstractNodeReference$T6, true);
@@ -179,7 +171,7 @@ public class LanguageStructureMigrationParticipant<I, F> extends RefactoringPart
       return ListSequence.fromList(new ArrayList<RefactoringParticipant.Change<SNodeReference, SNodeReference>>());
     }
     final boolean updateModelImports = ListSequence.fromList(selectedOptions).contains(UpdateModelImports.OPTION);
-    final Language sourceModule = as_kz6lmo_a0a2a61(check_kz6lmo_a0a2a61(check_kz6lmo_a0a0c0q(SPointerOperations.resolveNode(initialState, repository))), Language.class);
+    final Language sourceModule = as_kz6lmo_a0a2a51(check_kz6lmo_a0a2a51(check_kz6lmo_a0a0c0p(SPointerOperations.resolveNode(initialState, repository))), Language.class);
 
     final SearchResults results = new SearchResults();
     if (sourceModule != null) {
@@ -196,8 +188,8 @@ public class LanguageStructureMigrationParticipant<I, F> extends RefactoringPart
         return RefactoringParticipant.KeepOldNodes.KEEP;
       }
       public void confirm(SNodeReference finalState, SRepository repository, RefactoringSession refactoringSession) {
-        Language sourceModule = as_kz6lmo_a0a0a2a0a0j0q(check_kz6lmo_a0a0a2a0a0j0q(check_kz6lmo_a0a0a0c0a0a9a61(SPointerOperations.resolveNode(initialState, repository))), Language.class);
-        Language targetModule = as_kz6lmo_a0a1a2a0a0j0q(check_kz6lmo_a0a1a2a0a0j0q(check_kz6lmo_a0a0b0c0a0a9a61(SPointerOperations.resolveNode(finalState, repository))), Language.class);
+        Language sourceModule = as_kz6lmo_a0a0a2a0a0j0p(check_kz6lmo_a0a0a2a0a0j0p(check_kz6lmo_a0a0a0c0a0a9a51(SPointerOperations.resolveNode(initialState, repository))), Language.class);
+        Language targetModule = as_kz6lmo_a0a1a2a0a0j0p(check_kz6lmo_a0a1a2a0a0j0p(check_kz6lmo_a0a0b0c0a0a9a51(SPointerOperations.resolveNode(finalState, repository))), Language.class);
         if (sourceModule != null) {
           MigrationBuilder logBuilder = MigrationBuilder.getBuilder(refactoringSession, sourceModule);
           myStructureSpecialization.confirm(selectedOptions, initialState, finalState, repository, logBuilder, updateModelImports);
@@ -206,49 +198,49 @@ public class LanguageStructureMigrationParticipant<I, F> extends RefactoringPart
     };
     return ListSequence.fromListAndArray(new ArrayList<RefactoringParticipant.Change<SNodeReference, SNodeReference>>(), change);
   }
-  private static SModule check_kz6lmo_a0a2a61(SModel checkedDotOperand) {
+  private static SModule check_kz6lmo_a0a2a51(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }
     return null;
   }
-  private static SModel check_kz6lmo_a0a0c0q(SNode checkedDotOperand) {
+  private static SModel check_kz6lmo_a0a0c0p(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModel();
     }
     return null;
   }
-  private static SModule check_kz6lmo_a0a0a2a0a0j0q(SModel checkedDotOperand) {
+  private static SModule check_kz6lmo_a0a0a2a0a0j0p(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }
     return null;
   }
-  private static SModel check_kz6lmo_a0a0a0c0a0a9a61(SNode checkedDotOperand) {
+  private static SModel check_kz6lmo_a0a0a0c0a0a9a51(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModel();
     }
     return null;
   }
-  private static SModule check_kz6lmo_a0a1a2a0a0j0q(SModel checkedDotOperand) {
+  private static SModule check_kz6lmo_a0a1a2a0a0j0p(SModel checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModule();
     }
     return null;
   }
-  private static SModel check_kz6lmo_a0a0b0c0a0a9a61(SNode checkedDotOperand) {
+  private static SModel check_kz6lmo_a0a0b0c0a0a9a51(SNode checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModel();
     }
     return null;
   }
-  private static <T> T as_kz6lmo_a0a2a61(Object o, Class<T> type) {
+  private static <T> T as_kz6lmo_a0a2a51(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_kz6lmo_a0a0a2a0a0j0q(Object o, Class<T> type) {
+  private static <T> T as_kz6lmo_a0a0a2a0a0j0p(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
-  private static <T> T as_kz6lmo_a0a1a2a0a0j0q(Object o, Class<T> type) {
+  private static <T> T as_kz6lmo_a0a1a2a0a0j0p(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 

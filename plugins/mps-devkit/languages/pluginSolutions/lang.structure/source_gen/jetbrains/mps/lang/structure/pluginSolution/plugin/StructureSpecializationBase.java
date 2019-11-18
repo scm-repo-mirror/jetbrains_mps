@@ -11,13 +11,38 @@ import java.util.List;
 import jetbrains.mps.refactoring.participant.RefactoringParticipant;
 import org.jetbrains.mps.openapi.module.SRepository;
 
-public abstract class StructureSpecializationBase<T> implements StructureSpecialization<T, T>, MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<Tuples._2<T, SNodeReference>, Tuples._2<T, SNodeReference>> {
-  public Tuples._2<T, SNodeReference> beforeMove(SNode nodeToMove) {
-    return fetchState(nodeToMove, true);
+public abstract class StructureSpecializationBase<T> implements StructureSpecialization<T, T> {
+  private MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<Tuples._2<T, SNodeReference>, Tuples._2<T, SNodeReference>> myDataCollector1 = new MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<Tuples._2<T, SNodeReference>, Tuples._2<T, SNodeReference>>() {
+    @Override
+    public Tuples._2<T, SNodeReference> beforeMove(SNode nodeToMove) {
+      return fetchState(nodeToMove, true);
+    }
+    @Override
+    public Tuples._2<T, SNodeReference> afterMove(SNode movedNode) {
+      return fetchState(movedNode, false);
+    }
+  };
+  @Override
+  public MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<Tuples._2<T, SNodeReference>, Tuples._2<T, SNodeReference>> getLocalInstancesDataCollector() {
+    return myDataCollector1;
   }
-  public Tuples._2<T, SNodeReference> afterMove(SNode movedNode) {
-    return fetchState(movedNode, false);
+  private MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<SNodeReference, SNodeReference> myDataCollector2 = new MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<SNodeReference, SNodeReference>() {
+    @Override
+    public SNodeReference beforeMove(SNode nodeToMove) {
+      Tuples._2<T, SNodeReference> result = fetchState(nodeToMove, false);
+      return (result == null ? null : result._1());
+    }
+    @Override
+    public SNodeReference afterMove(SNode movedNode) {
+      Tuples._2<T, SNodeReference> result = fetchState(movedNode, false);
+      return (result == null ? null : result._1());
+    }
+  };
+  @Override
+  public MoveNodeRefactoringParticipant.MoveNodeRefactoringDataCollector<SNodeReference, SNodeReference> getMigrationDataCollector() {
+    return myDataCollector2;
   }
+
   public abstract Tuples._2<T, SNodeReference> fetchState(SNode movingNode, boolean filterOutInvalid);
   @Deprecated
   @ToRemove(version = 2019.3)
