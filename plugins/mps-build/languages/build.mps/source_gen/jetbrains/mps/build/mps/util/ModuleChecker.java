@@ -150,6 +150,9 @@ public final class ModuleChecker {
       collectLocalDependencies();
     }
 
+    // in case of doFullImport/doPartialImport, collectSources has to go in front of checkGenerators(), which needs Language module already instantiated 
+    collectSources(type);
+
     if (SNodeOperations.isInstanceOf(module, CONCEPTS.BuildMps_Language$re)) {
       LanguageChecker lc = new LanguageChecker((LanguageDescriptor) myModuleDescriptor, SNodeOperations.cast(module, CONCEPTS.BuildMps_Language$re));
       lc.checkLanguageRuntime(type);
@@ -166,7 +169,6 @@ public final class ModuleChecker {
       processExtendedGenerators(type, previous);
     }
 
-    collectSources(type);
 
     if (type.doPartialImport) {
       ListSequence.fromList(SLinkOperations.getChildren(module, LINKS.dependencies$Pit_)).removeSequence(ListSequence.fromList(previous));
@@ -1120,8 +1122,8 @@ public final class ModuleChecker {
       }
       // use BuildFileIncludesSelector to mimic what contentOf_BuildMpsLayout_ModuleSources used to have 
       SNode selector = SLinkOperations.addNewChild(loc, LINKS.selectors$6oar, CONCEPTS.BuildFileIncludesSelector$LC);
-      // FIXME pattern value is just a tribute to template value we used to have, fix it with explicit commit 
-      SPropertyOperations.assign(selector, PROPS.pattern$Odcv, "**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model");
+      // pattern reflects what we know to be regular MPS models (single-file and per-root persistence) 
+      SPropertyOperations.assign(selector, PROPS.pattern$Odcv, "**/*.mps, **/*.mpsr, **/.model");
       SPropertyOperations.assign(mroot, PROPS.convert2binary$pdH4, true);
       SPropertyOperations.assign(mroot, PROPS.extracted$A3zL, true);
       return this;
