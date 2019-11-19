@@ -34,7 +34,7 @@ public class typeof_PatternVariableDeclaration_InferenceRule extends AbstractInf
       {
         SNode _nodeToCheck_1029348928467 = nodeToCheck;
         EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c89590343(jetbrains.mps.lang.pattern.typesystem)", "1202488496543", 0, null);
-        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590343(jetbrains.mps.lang.pattern.typesystem)", "1202488496552", true), (SNode) _quotation_createNode_6f7aax_a1a0c0b0a2a1(link.getTargetConcept().getDeclarationNode()), _info_12389875345);
+        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c89590343(jetbrains.mps.lang.pattern.typesystem)", "1202488496552", true), (SNode) _quotation_createNode_6f7aax_a1a0c0b0a2a1(SNodeOperations.cast(link.getTargetConcept().getDeclarationNode(), CONCEPTS.AbstractConceptDeclaration$UN)), _info_12389875345);
       }
     }
   }
@@ -62,6 +62,7 @@ public class typeof_PatternVariableDeclaration_InferenceRule extends AbstractInf
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept AbstractConceptDeclaration$UN = MetaAdapterFactory.getConcept(0xc72da2b97cce4447L, 0x8389f407dc1158b7L, 0x1103553c5ffL, "jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration");
     /*package*/ static final SConcept PatternVariableDeclaration$Ma = MetaAdapterFactory.getConcept(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L, "jetbrains.mps.lang.pattern.structure.PatternVariableDeclaration");
   }
 }

@@ -398,11 +398,7 @@ public class BuildGeneratorImpl extends AbstractBuildGenerator {
   }
 
   private SNode addStartupScripts(SModel targetSModel, SNode buildProject) {
-    SNode startupScript = _quotation_createNode_un708i_a0a0db(SPropertyOperations.getString(buildProject, PROPS.name$tAp1) + "Scripts", ListSequence.fromList(SLinkOperations.getChildren(buildProject, LINKS.parts$tgxg)).findFirst(new IWhereFilter<SNode>() {
-      public boolean accept(SNode it) {
-        return SNodeOperations.isInstanceOf(it, CONCEPTS.BuildMps_Branding$lC);
-      }
-    }));
+    SNode startupScript = _quotation_createNode_un708i_a0a0db(SPropertyOperations.getString(buildProject, PROPS.name$tAp1) + "Scripts", Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(buildProject, LINKS.parts$tgxg), CONCEPTS.BuildMps_Branding$lC)).first());
 
     SModelOperations.addRootNode(targetSModel, startupScript);
     return startupScript;
