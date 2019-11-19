@@ -1453,6 +1453,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("jetbrains.mps.lang.typesystem", "TypeOfExpression", 0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f0ad10aL);
     b.class_(false, false, false);
     b.super_("jetbrains.mps.baseLanguage.structure.Expression", 0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506fL);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x2f16f1b357e19f43L);
     b.origin("r:00000000-0000-4000-0000-011c895902b4(jetbrains.mps.lang.typesystem.structure)/1174657487114");
     b.version(2);
     b.property("skipDependencyOnCurrent", 0x1163f02bfe7L).type(PrimitiveTypeId.BOOLEAN).origin("1195058053095").done();

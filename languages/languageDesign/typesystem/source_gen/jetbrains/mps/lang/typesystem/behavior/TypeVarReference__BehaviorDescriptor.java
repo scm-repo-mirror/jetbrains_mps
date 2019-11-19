@@ -12,18 +12,18 @@ import jetbrains.mps.core.aspects.behaviour.SModifiersImpl;
 import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import jetbrains.mps.errors.item.NodeReportItem;
 import java.util.List;
+import jetbrains.mps.errors.item.RuleIdFlavouredItem;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.Objects;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collection;
-import jetbrains.mps.errors.item.RuleIdFlavouredItem;
-import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.model.SNodeReference;
 import java.util.ArrayList;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 import jetbrains.mps.internal.collections.runtime.ISelector;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
@@ -33,8 +33,9 @@ public final class TypeVarReference__BehaviorDescriptor extends BaseBHDescriptor
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7a5dda6291404668L, 0xab76d5ed1746f2b2L, 0x1117f90b04cL, "jetbrains.mps.lang.typesystem.structure.TypeVarReference");
 
   public static final SMethod<Boolean> suppress_id3612de_vrfV = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("suppress").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3612de_vrfV").build(SMethodBuilder.createJavaParameter(NodeReportItem.class, ""));
+  public static final SMethod<List<RuleIdFlavouredItem.TypesystemRuleId>> antiquotationSuppressRules_id2FXdWdhG0kq = new SMethodBuilder<List<RuleIdFlavouredItem.TypesystemRuleId>>(new SJavaCompoundTypeImpl((Class<List<RuleIdFlavouredItem.TypesystemRuleId>>) ((Class) Object.class))).name("antiquotationSuppressRules").modifiers(SModifiersImpl.create(1, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("2FXdWdhG0kq").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(suppress_id3612de_vrfV);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(suppress_id3612de_vrfV, antiquotationSuppressRules_id2FXdWdhG0kq);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -44,14 +45,17 @@ public final class TypeVarReference__BehaviorDescriptor extends BaseBHDescriptor
       return false;
     }
     Collection<RuleIdFlavouredItem.TypesystemRuleId> rules = RuleIdFlavouredItem.FLAVOUR_RULE_ID.getCollection(reportItem);
-    List<SNodeReference> suppressesRules = ListSequence.fromList(new ArrayList<SNodeReference>());
-    ListSequence.fromList(suppressesRules).addElement(new SNodePointer("r:00000000-0000-4000-0000-011c8959034a(jetbrains.mps.lang.quotation.typesystem)", "6019047980178724615"));
-    ListSequence.fromList(suppressesRules).addElement(new SNodePointer("r:00000000-0000-4000-0000-011c8959034a(jetbrains.mps.lang.quotation.typesystem)", "4649457259827193981"));
-    return CollectionSequence.fromCollection(rules).intersect(ListSequence.fromList(suppressesRules).select(new ISelector<SNodeReference, RuleIdFlavouredItem.TypesystemRuleId>() {
+    return CollectionSequence.fromCollection(rules).intersect(ListSequence.fromList(TypeVarReference__BehaviorDescriptor.antiquotationSuppressRules_id2FXdWdhG0kq.invoke(__thisNode__.getConcept()))).isNotEmpty();
+  }
+  /*package*/ static List<RuleIdFlavouredItem.TypesystemRuleId> antiquotationSuppressRules_id2FXdWdhG0kq(@NotNull SAbstractConcept __thisConcept__) {
+    List<SNodeReference> result = ListSequence.fromList(new ArrayList<SNodeReference>());
+    ListSequence.fromList(result).addElement(new SNodePointer("r:00000000-0000-4000-0000-011c8959034a(jetbrains.mps.lang.quotation.typesystem)", "6019047980178724615"));
+    ListSequence.fromList(result).addElement(new SNodePointer("r:00000000-0000-4000-0000-011c8959034a(jetbrains.mps.lang.quotation.typesystem)", "4649457259827193981"));
+    return ListSequence.fromList(result).select(new ISelector<SNodeReference, RuleIdFlavouredItem.TypesystemRuleId>() {
       public RuleIdFlavouredItem.TypesystemRuleId select(SNodeReference it) {
         return new RuleIdFlavouredItem.TypesystemRuleId(it);
       }
-    })).isNotEmpty();
+    }).toListSequence();
   }
 
   /*package*/ TypeVarReference__BehaviorDescriptor() {
@@ -83,6 +87,8 @@ public final class TypeVarReference__BehaviorDescriptor extends BaseBHDescriptor
       throw new BHMethodNotFoundException(this, method);
     }
     switch (methodIndex) {
+      case 1:
+        return (T) ((List<RuleIdFlavouredItem.TypesystemRuleId>) antiquotationSuppressRules_id2FXdWdhG0kq(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
