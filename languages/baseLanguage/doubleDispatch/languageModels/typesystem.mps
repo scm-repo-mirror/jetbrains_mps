@@ -191,13 +191,13 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -467,7 +467,7 @@
             <node concept="Xl_RD" id="20YUQaJ_lT0" role="2MkJ7o">
               <property role="Xl_RC" value="Dispatch method must have at least one parameter" />
             </node>
-            <node concept="1YBJjd" id="20YUQaJ_lSu" role="2OEOjV">
+            <node concept="1YBJjd" id="20YUQaJ_lSu" role="1urrMF">
               <ref role="1YBMHb" node="20YUQaJ$Z$N" resolve="method" />
             </node>
           </node>
@@ -598,7 +598,7 @@
               <node concept="Xl_RD" id="20YUQaJ_Upt" role="2MkJ7o">
                 <property role="Xl_RC" value="Dispatch parameter type must be specified" />
               </node>
-              <node concept="2OqwBi" id="20YUQaJ_Mq_" role="2OEOjV">
+              <node concept="2OqwBi" id="20YUQaJ_Mq_" role="1urrMF">
                 <node concept="1uHKPH" id="20YUQaJ_Ul0" role="2OqNvi" />
                 <node concept="2OqwBi" id="20YUQaJ_Hqa" role="2Oq$k0">
                   <node concept="3Tsc0h" id="20YUQaJ_HXJ" role="2OqNvi">
@@ -657,7 +657,7 @@
             <node concept="Xl_RD" id="20YUQaJAH_X" role="2MkJ7o">
               <property role="Xl_RC" value="Dispatch parameter must have class type" />
             </node>
-            <node concept="37vLTw" id="20YUQaJAH_G" role="2OEOjV">
+            <node concept="37vLTw" id="20YUQaJAH_G" role="1urrMF">
               <ref role="3cqZAo" node="20YUQaJAjke" resolve="paramType" />
             </node>
           </node>
@@ -3609,7 +3609,10 @@
                 </node>
                 <node concept="3clFbS" id="7mMqb2ZaVOX" role="2LFqv$">
                   <node concept="2MkqsV" id="6clv3_szD9l" role="3cqZAp">
-                    <node concept="2OqwBi" id="7mMqb2ZbVVg" role="2OEOjV">
+                    <node concept="37vLTw" id="7mMqb2ZaWAI" role="2MkJ7o">
+                      <ref role="3cqZAo" node="7mMqb2ZaWrb" resolve="msg" />
+                    </node>
+                    <node concept="2OqwBi" id="7mMqb2ZbVVg" role="1urrMF">
                       <node concept="1uHKPH" id="7mMqb2Zc3Il" role="2OqNvi" />
                       <node concept="2OqwBi" id="7mMqb2ZbQN_" role="2Oq$k0">
                         <node concept="3Tsc0h" id="7mMqb2ZbRqE" role="2OqNvi">
@@ -3619,9 +3622,6 @@
                           <ref role="2Gs0qQ" node="7mMqb2ZaVOT" resolve="m" />
                         </node>
                       </node>
-                    </node>
-                    <node concept="37vLTw" id="7mMqb2ZaWAI" role="2MkJ7o">
-                      <ref role="3cqZAo" node="7mMqb2ZaWrb" resolve="msg" />
                     </node>
                   </node>
                 </node>

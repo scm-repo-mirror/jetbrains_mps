@@ -215,10 +215,6 @@
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
       <concept id="1179832490862" name="jetbrains.mps.lang.typesystem.structure.CreateStrongLessThanInequationStatement" flags="nn" index="2NvLDW" />
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216391046856" name="descriptionBlock" index="QzAvj" />
@@ -260,6 +256,10 @@
       </concept>
       <concept id="1236165709895" name="jetbrains.mps.lang.typesystem.structure.OverloadedOpRulesContainer" flags="ng" index="3hdX5o">
         <child id="1236165725858" name="rule" index="3he0YX" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
@@ -4488,7 +4488,7 @@
                 <node concept="Xl_RD" id="5yEI9As_sEe" role="2MkJ7o">
                   <property role="Xl_RC" value=" invalid matrix dimensions" />
                 </node>
-                <node concept="2OqwBi" id="5yEI9As_sEf" role="2OEOjV">
+                <node concept="2OqwBi" id="5yEI9As_sEf" role="1urrMF">
                   <node concept="3622Ei" id="5yEI9As_sEg" role="2Oq$k0" />
                   <node concept="liA8E" id="5yEI9As_sEh" role="2OqNvi">
                     <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -4537,7 +4537,7 @@
                 <node concept="Xl_RD" id="5yEI9As_sEE" role="2MkJ7o">
                   <property role="Xl_RC" value=" invalid matrix dimensions" />
                 </node>
-                <node concept="2OqwBi" id="5yEI9As_sEF" role="2OEOjV">
+                <node concept="2OqwBi" id="5yEI9As_sEF" role="1urrMF">
                   <node concept="3622Ei" id="5yEI9As_sEG" role="2Oq$k0" />
                   <node concept="liA8E" id="5yEI9As_sEH" role="2OqNvi">
                     <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -4642,7 +4642,7 @@
                 <node concept="Xl_RD" id="6E96ydYPv7_" role="2MkJ7o">
                   <property role="Xl_RC" value=" invalid matrix dimensions" />
                 </node>
-                <node concept="2OqwBi" id="6E96ydYPv7A" role="2OEOjV">
+                <node concept="2OqwBi" id="6E96ydYPv7A" role="1urrMF">
                   <node concept="3622Ei" id="6E96ydYPv7B" role="2Oq$k0" />
                   <node concept="liA8E" id="6E96ydYPv7C" role="2OqNvi">
                     <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -4711,7 +4711,7 @@
                 <node concept="Xl_RD" id="6E96ydYPv81" role="2MkJ7o">
                   <property role="Xl_RC" value=" invalid matrix dimensions" />
                 </node>
-                <node concept="2OqwBi" id="6E96ydYPv82" role="2OEOjV">
+                <node concept="2OqwBi" id="6E96ydYPv82" role="1urrMF">
                   <node concept="3622Ei" id="6E96ydYPv83" role="2Oq$k0" />
                   <node concept="liA8E" id="6E96ydYPv84" role="2OqNvi">
                     <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -4939,7 +4939,7 @@
                           <node concept="Xl_RD" id="i1nZO9e" role="2MkJ7o">
                             <property role="Xl_RC" value="Arguments's type should be subtype of BigDecimal" />
                           </node>
-                          <node concept="1YBJjd" id="i1nZO9f" role="2OEOjV">
+                          <node concept="1YBJjd" id="i1nZO9f" role="1urrMF">
                             <ref role="1YBMHb" node="i1i8SRG" resolve="literal" />
                           </node>
                         </node>
@@ -4992,7 +4992,7 @@
                         <node concept="Xl_RD" id="i1nZNP7" role="2MkJ7o">
                           <property role="Xl_RC" value="Arguments's type should be subtype of BigDecimal" />
                         </node>
-                        <node concept="1YBJjd" id="i1nZNP8" role="2OEOjV">
+                        <node concept="1YBJjd" id="i1nZNP8" role="1urrMF">
                           <ref role="1YBMHb" node="i1i8SRG" resolve="literal" />
                         </node>
                       </node>
@@ -5081,7 +5081,7 @@
                 <node concept="Xl_RD" id="5yEI9As_H1P" role="2MkJ7o">
                   <property role="Xl_RC" value=" invalid vector dimensions" />
                 </node>
-                <node concept="2OqwBi" id="5yEI9As_H1Q" role="2OEOjV">
+                <node concept="2OqwBi" id="5yEI9As_H1Q" role="1urrMF">
                   <node concept="3622Ei" id="5yEI9As_H1R" role="2Oq$k0" />
                   <node concept="liA8E" id="5yEI9As_H1S" role="2OqNvi">
                     <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -5190,7 +5190,7 @@
             <node concept="Xl_RD" id="i1iqpJR" role="2MkJ7o">
               <property role="Xl_RC" value="There is no canonical way to cast from complex to real type" />
             </node>
-            <node concept="1YBJjd" id="i1iqAHv" role="2OEOjV">
+            <node concept="1YBJjd" id="i1iqAHv" role="1urrMF">
               <ref role="1YBMHb" node="i1ipZ_0" resolve="castExpression" />
             </node>
           </node>
@@ -5234,7 +5234,7 @@
             <node concept="Xl_RD" id="i1iqGyn" role="2MkJ7o">
               <property role="Xl_RC" value="There is no canonical way to cast from complex to real type" />
             </node>
-            <node concept="1YBJjd" id="i1iqGyo" role="2OEOjV">
+            <node concept="1YBJjd" id="i1iqGyo" role="1urrMF">
               <ref role="1YBMHb" node="i1ipZ_0" resolve="castExpression" />
             </node>
           </node>
@@ -5716,7 +5716,7 @@
                   <node concept="Xl_RD" id="i1j5o3A" role="2MkJ7o">
                     <property role="Xl_RC" value="Trigonometric functions are defined for subtypes of complex" />
                   </node>
-                  <node concept="1YBJjd" id="i1j5o3B" role="2OEOjV">
+                  <node concept="1YBJjd" id="i1j5o3B" role="1urrMF">
                     <ref role="1YBMHb" node="i1j5kd$" resolve="expression" />
                   </node>
                 </node>
@@ -6076,7 +6076,7 @@
                   <node concept="Xl_RD" id="i1iQVLA" role="2MkJ7o">
                     <property role="Xl_RC" value="Power base must be complex or big decimal number" />
                   </node>
-                  <node concept="1YBJjd" id="i1iR2zd" role="2OEOjV">
+                  <node concept="1YBJjd" id="i1iR2zd" role="1urrMF">
                     <ref role="1YBMHb" node="i1iIVqO" resolve="expression" />
                   </node>
                 </node>
@@ -6191,7 +6191,7 @@
                       <property role="Xl_RC" value="type should be subtype of numeral type or matrix type" />
                     </node>
                   </node>
-                  <node concept="1YBJjd" id="1eJUWaJiQ_w" role="2OEOjV">
+                  <node concept="1YBJjd" id="1eJUWaJiQ_w" role="1urrMF">
                     <ref role="1YBMHb" node="hZwU7ON" resolve="symbol" />
                   </node>
                 </node>
@@ -6355,7 +6355,7 @@
             <node concept="Xl_RD" id="5yEI9As_c_G" role="2MkJ7o">
               <property role="Xl_RC" value="Vector parameter type must be subtype of bigcomplex" />
             </node>
-            <node concept="1YBJjd" id="5yEI9As_c_K" role="2OEOjV">
+            <node concept="1YBJjd" id="5yEI9As_c_K" role="1urrMF">
               <ref role="1YBMHb" node="5yEI9As_c_x" resolve="vT" />
             </node>
           </node>
@@ -6632,7 +6632,7 @@
                       <node concept="Xl_RD" id="4DxSEe5dwZ$" role="2MkJ7o">
                         <property role="Xl_RC" value="Left side of the equation must have matrix type" />
                       </node>
-                      <node concept="2OqwBi" id="4DxSEe5dwZp" role="2OEOjV">
+                      <node concept="2OqwBi" id="4DxSEe5dwZp" role="1urrMF">
                         <node concept="1YBJjd" id="4DxSEe5dwZo" role="2Oq$k0">
                           <ref role="1YBMHb" node="1eJUWaJkBK_" resolve="op" />
                         </node>
@@ -6679,7 +6679,7 @@
                       <node concept="Xl_RD" id="4DxSEe5dwZ_" role="2MkJ7o">
                         <property role="Xl_RC" value="Right side of the equation must have matrix type" />
                       </node>
-                      <node concept="2OqwBi" id="4DxSEe5dwZv" role="2OEOjV">
+                      <node concept="2OqwBi" id="4DxSEe5dwZv" role="1urrMF">
                         <node concept="1YBJjd" id="4DxSEe5dwZu" role="2Oq$k0">
                           <ref role="1YBMHb" node="1eJUWaJkBK_" resolve="op" />
                         </node>
@@ -6799,7 +6799,7 @@
                 <node concept="Xl_RD" id="2UB4Uq8JzYk" role="2MkJ7o">
                   <property role="Xl_RC" value="Expression should have matrix or vector type" />
                 </node>
-                <node concept="1YBJjd" id="2UB4Uq8JzYl" role="2OEOjV">
+                <node concept="1YBJjd" id="2UB4Uq8JzYl" role="1urrMF">
                   <ref role="1YBMHb" node="E7RwTMKsia" resolve="norm" />
                 </node>
               </node>
@@ -7192,7 +7192,7 @@
             <node concept="Xl_RD" id="32cHlEWsu8j" role="2MkJ7o">
               <property role="Xl_RC" value="Matrix parameter type must be subtype of bigcomplex" />
             </node>
-            <node concept="1YBJjd" id="32cHlEWsu8k" role="2OEOjV">
+            <node concept="1YBJjd" id="32cHlEWsu8k" role="1urrMF">
               <ref role="1YBMHb" node="32cHlEWssfS" resolve="mT" />
             </node>
           </node>
@@ -7328,7 +7328,7 @@
             <node concept="Xl_RD" id="PzG_d7Lldr" role="2MkJ7o">
               <property role="Xl_RC" value="Illegal expression" />
             </node>
-            <node concept="1YBJjd" id="PzG_d7Llds" role="2OEOjV">
+            <node concept="1YBJjd" id="PzG_d7Llds" role="1urrMF">
               <ref role="1YBMHb" node="PzG_d7KtM5" resolve="mea" />
             </node>
           </node>
@@ -7653,14 +7653,14 @@
               <node concept="3clFbJ" id="7uaENRTeA2H" role="3cqZAp">
                 <node concept="3clFbS" id="7uaENRTeA2I" role="3clFbx">
                   <node concept="2MkqsV" id="7uaENRTeA45" role="3cqZAp">
-                    <node concept="1YBJjd" id="7uaENRTeA46" role="2OEOjV">
-                      <ref role="1YBMHb" node="i1QL3ky" resolve="oper" />
-                    </node>
-                    <node concept="3Cnw8n" id="7uaENRTeA47" role="2OEOjU">
-                      <ref role="QpYPw" node="i1QM52_" resolve="DeleteMathContext" />
-                    </node>
                     <node concept="37vLTw" id="3GM_nagT_Hp" role="2MkJ7o">
                       <ref role="3cqZAo" node="i1QZSnT" resolve="S" />
+                    </node>
+                    <node concept="1YBJjd" id="7uaENRTeA46" role="1urrMF">
+                      <ref role="1YBMHb" node="i1QL3ky" resolve="oper" />
+                    </node>
+                    <node concept="3Cnw8n" id="7uaENRTeA47" role="1urrFz">
+                      <ref role="QpYPw" node="i1QM52_" resolve="DeleteMathContext" />
                     </node>
                   </node>
                 </node>
@@ -7768,7 +7768,7 @@
                       <node concept="Xl_RD" id="7uaENRTe_Jt" role="2MkJ7o">
                         <property role="Xl_RC" value="operation can't be applied to these operands" />
                       </node>
-                      <node concept="37vLTw" id="3GM_nagT$MK" role="2OEOjV">
+                      <node concept="37vLTw" id="3GM_nagT$MK" role="1urrMF">
                         <ref role="3cqZAo" node="7uaENRTeA1h" resolve="op" />
                       </node>
                     </node>
@@ -9158,7 +9158,7 @@
           <node concept="Xl_RD" id="6E96ydYMk_e" role="2MkJ7o">
             <property role="Xl_RC" value="Invalid matrix dimensions" />
           </node>
-          <node concept="37vLTw" id="2BHiRxgm9bk" role="2OEOjV">
+          <node concept="37vLTw" id="2BHiRxgm9bk" role="1urrMF">
             <ref role="3cqZAo" node="6E96ydYMk_9" resolve="n" />
           </node>
         </node>
@@ -9292,7 +9292,7 @@
                 <node concept="Xl_RD" id="PzG_d7KcCs" role="2MkJ7o">
                   <property role="Xl_RC" value="Unexpected in left part of assignment" />
                 </node>
-                <node concept="2OqwBi" id="PzG_d7KcCQ" role="2OEOjV">
+                <node concept="2OqwBi" id="PzG_d7KcCQ" role="1urrMF">
                   <node concept="1YBJjd" id="PzG_d7KcCP" role="2Oq$k0">
                     <ref role="1YBMHb" node="PzG_d7Kb0P" resolve="me" />
                   </node>
@@ -9576,7 +9576,7 @@
                   <node concept="Xl_RD" id="625J1uA48tU" role="2MkJ7o">
                     <property role="Xl_RC" value="Expression should be subtype of matrix" />
                   </node>
-                  <node concept="2OqwBi" id="625J1uA48tP" role="2OEOjV">
+                  <node concept="2OqwBi" id="625J1uA48tP" role="1urrMF">
                     <node concept="1YBJjd" id="625J1uA48tO" role="2Oq$k0">
                       <ref role="1YBMHb" node="eAq2VF1wZw" resolve="determinant" />
                     </node>
@@ -9790,7 +9790,7 @@
                       <node concept="Xl_RD" id="1eJUWaJhTVQ" role="2MkJ7o">
                         <property role="Xl_RC" value="operation can't be applied to these operands" />
                       </node>
-                      <node concept="1YBJjd" id="1eJUWaJhUIL" role="2OEOjV">
+                      <node concept="1YBJjd" id="1eJUWaJhUIL" role="1urrMF">
                         <ref role="1YBMHb" node="i099fj6" resolve="fraction" />
                       </node>
                     </node>
@@ -9975,7 +9975,7 @@
                           <node concept="Xl_RD" id="5Elika$jsFE" role="2MkJ7o">
                             <property role="Xl_RC" value="These matrices cannot be multiplied with each other" />
                           </node>
-                          <node concept="1YBJjd" id="5Elika$jsFF" role="2OEOjV">
+                          <node concept="1YBJjd" id="5Elika$jsFF" role="1urrMF">
                             <ref role="1YBMHb" node="6E96ydYOZZm" resolve="binaryOperation" />
                           </node>
                         </node>
@@ -10074,7 +10074,7 @@
                   <node concept="Xl_RD" id="5Elika$jsI$" role="2MkJ7o">
                     <property role="Xl_RC" value="Invalid dimensions" />
                   </node>
-                  <node concept="1YBJjd" id="5Elika$jsI_" role="2OEOjV">
+                  <node concept="1YBJjd" id="5Elika$jsI_" role="1urrMF">
                     <ref role="1YBMHb" node="6E96ydYOZZm" resolve="binaryOperation" />
                   </node>
                 </node>
@@ -10103,7 +10103,7 @@
                   <node concept="Xl_RD" id="5Elika$jsIG" role="2MkJ7o">
                     <property role="Xl_RC" value="Invalid dimensions" />
                   </node>
-                  <node concept="1YBJjd" id="5Elika$jsIH" role="2OEOjV">
+                  <node concept="1YBJjd" id="5Elika$jsIH" role="1urrMF">
                     <ref role="1YBMHb" node="6E96ydYOZZm" resolve="binaryOperation" />
                   </node>
                 </node>
@@ -10255,7 +10255,7 @@
                     <node concept="Xl_RD" id="6q8VsiEzYxB" role="2MkJ7o">
                       <property role="Xl_RC" value="Inverse operation is undefined for non-square matrices" />
                     </node>
-                    <node concept="1YBJjd" id="6q8VsiEzYxC" role="2OEOjV">
+                    <node concept="1YBJjd" id="6q8VsiEzYxC" role="1urrMF">
                       <ref role="1YBMHb" node="1eJUWaJkBe8" resolve="op" />
                     </node>
                   </node>
@@ -10316,7 +10316,7 @@
                   <node concept="Xl_RD" id="7Ytc73CJQsQ" role="2MkJ7o">
                     <property role="Xl_RC" value="Inverse operation is defined for matrices only" />
                   </node>
-                  <node concept="1YBJjd" id="7Ytc73CJQsR" role="2OEOjV">
+                  <node concept="1YBJjd" id="7Ytc73CJQsR" role="1urrMF">
                     <ref role="1YBMHb" node="1eJUWaJkBe8" resolve="op" />
                   </node>
                 </node>
@@ -10577,7 +10577,7 @@
                   <node concept="Xl_RD" id="6q8VsiEzYtA" role="2MkJ7o">
                     <property role="Xl_RC" value="Operation defined for matrices/vectors only" />
                   </node>
-                  <node concept="1YBJjd" id="6q8VsiEzYtB" role="2OEOjV">
+                  <node concept="1YBJjd" id="6q8VsiEzYtB" role="1urrMF">
                     <ref role="1YBMHb" node="6q8VsiEzXD0" resolve="operation" />
                   </node>
                 </node>
@@ -10809,7 +10809,7 @@
                   <node concept="Xl_RD" id="6q8VsiEzYvF" role="2MkJ7o">
                     <property role="Xl_RC" value="Operation defined for matrices/vectors only" />
                   </node>
-                  <node concept="1YBJjd" id="6q8VsiEzYvG" role="2OEOjV">
+                  <node concept="1YBJjd" id="6q8VsiEzYvG" role="1urrMF">
                     <ref role="1YBMHb" node="6q8VsiEzYuq" resolve="operation" />
                   </node>
                 </node>
@@ -10822,7 +10822,7 @@
                 <node concept="Xl_RD" id="6q8VsiEzYwe" role="a7wSD">
                   <property role="Xl_RC" value="Usage of conjugation instead of transposition only makes sense for complex matrices" />
                 </node>
-                <node concept="1YBJjd" id="6q8VsiEzYwf" role="2OEOjV">
+                <node concept="1YBJjd" id="6q8VsiEzYwf" role="1urrMF">
                   <ref role="1YBMHb" node="6q8VsiEzYuq" resolve="operation" />
                 </node>
               </node>

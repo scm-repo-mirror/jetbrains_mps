@@ -278,10 +278,6 @@
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
       <concept id="1179832490862" name="jetbrains.mps.lang.typesystem.structure.CreateStrongLessThanInequationStatement" flags="nn" index="2NvLDW" />
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216391046856" name="descriptionBlock" index="QzAvj" />
@@ -303,6 +299,10 @@
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
       <concept id="1188811367543" name="jetbrains.mps.lang.typesystem.structure.ComparisonRule" flags="ig" index="3aFulz">
         <child id="1188820750135" name="anotherNode" index="3bfgSz" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
@@ -970,7 +970,7 @@
         <node concept="Xl_RD" id="hgAD9Nv" role="2MkJ7o">
           <property role="Xl_RC" value="couldn't define accessed property datatype" />
         </node>
-        <node concept="1YBJjd" id="hgAD9Nw" role="2OEOjV">
+        <node concept="1YBJjd" id="hgAD9Nw" role="1urrMF">
           <ref role="1YBMHb" node="h9nq4id" resolve="op" />
         </node>
       </node>
@@ -1108,7 +1108,7 @@
         <node concept="Xl_RD" id="hgACQMH" role="2MkJ7o">
           <property role="Xl_RC" value="couldn't define accessed property datatype" />
         </node>
-        <node concept="1YBJjd" id="hgACQMI" role="2OEOjV">
+        <node concept="1YBJjd" id="hgACQMI" role="1urrMF">
           <ref role="1YBMHb" node="h9nq4ie" resolve="op" />
         </node>
       </node>
@@ -1216,7 +1216,7 @@
                           <property role="Xl_RC" value="unknown property datatype: " />
                         </node>
                       </node>
-                      <node concept="1YBJjd" id="hgACQN$" role="2OEOjV">
+                      <node concept="1YBJjd" id="hgACQN$" role="1urrMF">
                         <ref role="1YBMHb" node="h9nq4ie" resolve="op" />
                       </node>
                     </node>
@@ -3804,9 +3804,6 @@
           <node concept="37vLTw" id="3GM_nagT_HS" role="2MkoU_">
             <ref role="3cqZAo" node="hgB6VWD" resolve="isGood" />
           </node>
-          <node concept="37vLTw" id="2BHiRxgmvLZ" role="2OEOjV">
-            <ref role="3cqZAo" node="h9nIkZ3" resolve="op" />
-          </node>
           <node concept="3cpWs3" id="h$Jl5f3" role="2MkJ7o">
             <node concept="37vLTw" id="3GM_nagTuOq" role="3uHU7w">
               <ref role="3cqZAo" node="hPRL3Qu" resolve="LeftType" />
@@ -3814,6 +3811,9 @@
             <node concept="Xl_RD" id="h$JkCog" role="3uHU7B">
               <property role="Xl_RC" value="operation is not applicable to " />
             </node>
+          </node>
+          <node concept="37vLTw" id="2BHiRxgmvLZ" role="1urrMF">
+            <ref role="3cqZAo" node="h9nIkZ3" resolve="op" />
           </node>
         </node>
       </node>
@@ -3945,7 +3945,7 @@
           <node concept="Xl_RD" id="hyvO5eV" role="2MkJ7o">
             <property role="Xl_RC" value="operation is only applicable to aggregation-link-access" />
           </node>
-          <node concept="37vLTw" id="2BHiRxglB2a" role="2OEOjV">
+          <node concept="37vLTw" id="2BHiRxglB2a" role="1urrMF">
             <ref role="3cqZAo" node="h9nq4jQ" resolve="op" />
           </node>
         </node>
@@ -4135,7 +4135,7 @@
           <node concept="Xl_RD" id="hTPAu$o" role="2MkJ7o">
             <property role="Xl_RC" value="operation is not applicable to reference-link-access" />
           </node>
-          <node concept="37vLTw" id="2BHiRxglK7j" role="2OEOjV">
+          <node concept="37vLTw" id="2BHiRxglK7j" role="1urrMF">
             <ref role="3cqZAo" node="hTPAu$q" resolve="op" />
           </node>
         </node>
@@ -4213,7 +4213,7 @@
               </node>
             </node>
           </node>
-          <node concept="37vLTw" id="2BHiRxgll9C" role="2OEOjV">
+          <node concept="37vLTw" id="2BHiRxgll9C" role="1urrMF">
             <ref role="3cqZAo" node="h9nq4k2" resolve="nodeToReportError" />
           </node>
         </node>
@@ -4317,7 +4317,7 @@
                   <node concept="Xl_RD" id="h9ohvFX" role="2MkJ7o">
                     <property role="Xl_RC" value="not applicable here" />
                   </node>
-                  <node concept="2GrUjf" id="h9ohzdE" role="2OEOjV">
+                  <node concept="2GrUjf" id="h9ohzdE" role="1urrMF">
                     <ref role="2Gs0qQ" node="h9oh7qs" resolve="parm" />
                   </node>
                 </node>
@@ -7021,11 +7021,11 @@
           <node concept="3clFbJ" id="hcLpUy$" role="3cqZAp">
             <node concept="3clFbS" id="hcLpUy_" role="3clFbx">
               <node concept="2MkqsV" id="hcLq0Ne" role="3cqZAp">
-                <node concept="37vLTw" id="3GM_nagTteo" role="2OEOjV">
-                  <ref role="3cqZAo" node="hbzU0hL" resolve="createdType" />
-                </node>
                 <node concept="Xl_RD" id="hcLq3GS" role="2MkJ7o">
                   <property role="Xl_RC" value="concrete node type is expected" />
+                </node>
+                <node concept="37vLTw" id="3GM_nagTteo" role="1urrMF">
+                  <ref role="3cqZAo" node="hbzU0hL" resolve="createdType" />
                 </node>
               </node>
               <node concept="3cpWs6" id="hcLq6Zo" role="3cqZAp" />
@@ -8200,7 +8200,7 @@
             </node>
           </node>
         </node>
-        <node concept="1YBJjd" id="hPRwPWx" role="2OEOjV">
+        <node concept="1YBJjd" id="hPRwPWx" role="1urrMF">
           <ref role="1YBMHb" node="hPRwCFg" resolve="op" />
         </node>
       </node>
@@ -8361,7 +8361,7 @@
             </node>
           </node>
         </node>
-        <node concept="1YBJjd" id="hQ8L4V0" role="2OEOjV">
+        <node concept="1YBJjd" id="hQ8L4V0" role="1urrMF">
           <ref role="1YBMHb" node="hQ8JWPN" resolve="expr" />
         </node>
       </node>
@@ -9945,7 +9945,7 @@
             <node concept="Xl_RD" id="59YAasRt5Q8" role="2MkJ7o">
               <property role="Xl_RC" value="Argument of concept switch should be of type concept&lt;&gt;" />
             </node>
-            <node concept="37vLTw" id="3GM_nagTyBc" role="2OEOjV">
+            <node concept="37vLTw" id="3GM_nagTyBc" role="1urrMF">
               <ref role="3cqZAo" node="2R$wlLKBoO1" resolve="arg" />
             </node>
           </node>
@@ -10686,7 +10686,7 @@
                 <node concept="Xl_RD" id="5q7UjaiXi2E" role="2MkJ7o">
                   <property role="Xl_RC" value="applicable only to concepts" />
                 </node>
-                <node concept="1YBJjd" id="5q7UjaiXi2F" role="2OEOjV">
+                <node concept="1YBJjd" id="5q7UjaiXi2F" role="1urrMF">
                   <ref role="1YBMHb" node="$lsh0Eh5xT" resolve="operation" />
                 </node>
               </node>
@@ -11331,7 +11331,7 @@
                 <node concept="Xl_RD" id="5q7UjaiX2Xy" role="2MkJ7o">
                   <property role="Xl_RC" value="applicable only to concepts" />
                 </node>
-                <node concept="1YBJjd" id="5q7UjaiX307" role="2OEOjV">
+                <node concept="1YBJjd" id="5q7UjaiX307" role="1urrMF">
                   <ref role="1YBMHb" node="$lsh0Ejol1" resolve="operation" />
                 </node>
               </node>
@@ -11538,7 +11538,7 @@
               <node concept="Xl_RD" id="5lV5P9FpEvf" role="2MkJ7o">
                 <property role="Xl_RC" value="OfConceptOperation should be child of DotExpression" />
               </node>
-              <node concept="1YBJjd" id="5lV5P9FpEvz" role="2OEOjV">
+              <node concept="1YBJjd" id="5lV5P9FpEvz" role="1urrMF">
                 <ref role="1YBMHb" node="3EurpdvY6K7" resolve="ofConceptOperation" />
               </node>
             </node>
@@ -12798,7 +12798,7 @@
                 <node concept="Xl_RD" id="5q7UjaiYXGn" role="2MkJ7o">
                   <property role="Xl_RC" value="applicable only to concepts" />
                 </node>
-                <node concept="1YBJjd" id="5q7UjaiYXGo" role="2OEOjV">
+                <node concept="1YBJjd" id="5q7UjaiYXGo" role="1urrMF">
                   <ref role="1YBMHb" node="hcLSTpu" resolve="operation" />
                 </node>
               </node>
@@ -13105,9 +13105,6 @@
             </node>
           </node>
           <node concept="2MkqsV" id="5WE35DbS_na" role="3cqZAp">
-            <node concept="1YBJjd" id="5WE35DbS_nm" role="2OEOjV">
-              <ref role="1YBMHb" node="5WE35DbSsVk" resolve="moduleRefExpr" />
-            </node>
             <node concept="3K4zz7" id="5WE35DbSA2c" role="2MkJ7o">
               <node concept="Xl_RD" id="5WE35DbSA54" role="3K4GZi">
                 <property role="Xl_RC" value="Couldn't find module" />
@@ -13126,6 +13123,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="1YBJjd" id="5WE35DbS_nm" role="1urrMF">
+              <ref role="1YBMHb" node="5WE35DbSsVk" resolve="moduleRefExpr" />
             </node>
           </node>
         </node>
@@ -13157,7 +13157,7 @@
             <node concept="Xl_RD" id="1eZSuKdSri_" role="a7wSD">
               <property role="Xl_RC" value="Shall specify repository to look up model at" />
             </node>
-            <node concept="1YBJjd" id="1eZSuKdSrii" role="2OEOjV">
+            <node concept="1YBJjd" id="1eZSuKdSrii" role="1urrMF">
               <ref role="1YBMHb" node="1eZSuKdSqLF" resolve="modelRefExpr" />
             </node>
           </node>
@@ -13374,11 +13374,11 @@
       <node concept="3clFbJ" id="4dU69VRppoi" role="3cqZAp">
         <node concept="3clFbS" id="4dU69VRppoj" role="3clFbx">
           <node concept="2MkqsV" id="4dU69VRpueG" role="3cqZAp">
-            <node concept="1YBJjd" id="4dU69VRpugR" role="2OEOjV">
-              <ref role="1YBMHb" node="4dU69VRppo5" resolve="node" />
-            </node>
             <node concept="Xl_RD" id="4dU69VRpueV" role="2MkJ7o">
               <property role="Xl_RC" value="link parameter must be specified" />
+            </node>
+            <node concept="1YBJjd" id="4dU69VRpugR" role="1urrMF">
+              <ref role="1YBMHb" node="4dU69VRppo5" resolve="node" />
             </node>
           </node>
         </node>
@@ -13824,10 +13824,10 @@
             <node concept="Xl_RD" id="6K4PaDW4KXJ" role="a7wSD">
               <property role="Xl_RC" value="Concepts are compared by reference" />
             </node>
-            <node concept="1YBJjd" id="6K4PaDW4KXK" role="2OEOjV">
+            <node concept="1YBJjd" id="6K4PaDW4KXK" role="1urrMF">
               <ref role="1YBMHb" node="28GJwOlsBhV" resolve="equalsExpression" />
             </node>
-            <node concept="3Cnw8n" id="6K4PaDW4KXL" role="2OEOjU">
+            <node concept="3Cnw8n" id="6K4PaDW4KXL" role="1urrFz">
               <ref role="QpYPw" node="6K4PaDT5nac" resolve="ConvertConceptEqualityToNPEEqualsExpression" />
             </node>
           </node>
@@ -13894,10 +13894,10 @@
             <node concept="Xl_RD" id="6K4PaDW4KRH" role="a7wSD">
               <property role="Xl_RC" value="Concept members are compared by reference" />
             </node>
-            <node concept="1YBJjd" id="6K4PaDW4KRI" role="2OEOjV">
+            <node concept="1YBJjd" id="6K4PaDW4KRI" role="1urrMF">
               <ref role="1YBMHb" node="28GJwOlsBhV" resolve="equalsExpression" />
             </node>
-            <node concept="3Cnw8n" id="6K4PaDW4KRJ" role="2OEOjU">
+            <node concept="3Cnw8n" id="6K4PaDW4KRJ" role="1urrFz">
               <ref role="QpYPw" node="6K4PaDT5nac" resolve="ConvertConceptEqualityToNPEEqualsExpression" />
             </node>
           </node>
@@ -13968,10 +13968,10 @@
             <node concept="Xl_RD" id="28GJwOlssby" role="a7wSD">
               <property role="Xl_RC" value="Node pointers are compared by reference" />
             </node>
-            <node concept="1YBJjd" id="28GJwOlssbz" role="2OEOjV">
+            <node concept="1YBJjd" id="28GJwOlssbz" role="1urrMF">
               <ref role="1YBMHb" node="28GJwOlsBhV" resolve="equalsExpression" />
             </node>
-            <node concept="3Cnw8n" id="28GJwOlssb$" role="2OEOjU">
+            <node concept="3Cnw8n" id="28GJwOlssb$" role="1urrFz">
               <ref role="QpYPw" node="6K4PaDT5nac" resolve="ConvertConceptEqualityToNPEEqualsExpression" />
             </node>
           </node>
@@ -15176,7 +15176,7 @@
                 <node concept="Xl_RD" id="6NUVIgrX2f8" role="2MkJ7o">
                   <property role="Xl_RC" value="Duplicated member entry in switch" />
                 </node>
-                <node concept="2GrUjf" id="6NUVIgrX2f9" role="2OEOjV">
+                <node concept="2GrUjf" id="6NUVIgrX2f9" role="1urrMF">
                   <ref role="2Gs0qQ" node="28aPEVvy8xj" resolve="memberReference" />
                 </node>
               </node>
@@ -15190,7 +15190,7 @@
             <node concept="Xl_RD" id="28aPEVvzpoj" role="a7wSD">
               <property role="Xl_RC" value="Switch is not exhaustive" />
             </node>
-            <node concept="1YBJjd" id="28aPEVvzpuk" role="2OEOjV">
+            <node concept="1YBJjd" id="28aPEVvzpuk" role="1urrMF">
               <ref role="1YBMHb" node="28aPEVvy7TL" resolve="enumSwitchExpression" />
             </node>
           </node>

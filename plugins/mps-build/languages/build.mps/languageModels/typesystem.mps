@@ -246,11 +246,6 @@
       <concept id="1227096620180" name="jetbrains.mps.lang.typesystem.structure.ReferenceMessageTarget" flags="ng" index="2OE7Q9">
         <reference id="1227096645744" name="linkDeclaration" index="2OEe5H" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216391046856" name="descriptionBlock" index="QzAvj" />
@@ -262,6 +257,11 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <property id="1216127910019" name="applyImmediately" index="ARO6o" />
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
@@ -472,7 +472,7 @@
             <node concept="Xl_RD" id="3HwLahs6nSG" role="2MkJ7o">
               <property role="Xl_RC" value="should end with .jar (or macro)" />
             </node>
-            <node concept="1YBJjd" id="3HwLahs6nSH" role="2OEOjV">
+            <node concept="1YBJjd" id="3HwLahs6nSH" role="1urrMF">
               <ref role="1YBMHb" node="3HwLahs6nSw" resolve="jarEntry" />
             </node>
           </node>
@@ -566,11 +566,11 @@
         </node>
         <node concept="3clFbS" id="2L4pT56hSK4" role="3clFbx">
           <node concept="2MkqsV" id="2cypSucdKwb" role="3cqZAp">
-            <node concept="1YBJjd" id="2cypSucdKwf" role="2OEOjV">
-              <ref role="1YBMHb" node="2cypSucdKpT" resolve="buildProject" />
-            </node>
             <node concept="Xl_RD" id="2cypSucdKwe" role="2MkJ7o">
               <property role="Xl_RC" value="working directory is unavailable" />
+            </node>
+            <node concept="1YBJjd" id="2cypSucdKwf" role="1urrMF">
+              <ref role="1YBMHb" node="2cypSucdKpT" resolve="buildProject" />
             </node>
           </node>
           <node concept="3cpWs6" id="2cypSucdKwp" role="3cqZAp" />
@@ -709,7 +709,7 @@
                                   <ref role="37wK5l" to="et5u:~IMessage.getText()" resolve="getText" />
                                 </node>
                               </node>
-                              <node concept="37vLTw" id="6cqWk79_G4z" role="2OEOjV">
+                              <node concept="37vLTw" id="6cqWk79_G4z" role="1urrMF">
                                 <ref role="3cqZAo" node="6cqWk79_FZV" resolve="location" />
                               </node>
                             </node>
@@ -753,7 +753,7 @@
                                     <ref role="37wK5l" to="et5u:~IMessage.getText()" resolve="getText" />
                                   </node>
                                 </node>
-                                <node concept="37vLTw" id="2rr9SDxztGH" role="2OEOjV">
+                                <node concept="37vLTw" id="2rr9SDxztGH" role="1urrMF">
                                   <ref role="3cqZAo" node="6cqWk79_FZV" resolve="location" />
                                 </node>
                               </node>
@@ -1036,11 +1036,11 @@
                     <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
                   </node>
                 </node>
-                <node concept="2GrUjf" id="1diLdO27Ycy" role="2OEOjV">
-                  <ref role="2Gs0qQ" node="1diLdO27Y1l" resolve="module" />
-                </node>
-                <node concept="2OE7Q9" id="1diLdO27Yd3" role="2OEWyd">
+                <node concept="2OE7Q9" id="1diLdO27Yd3" role="1urrC5">
                   <ref role="2OEe5H" to="kdzh:5HVSRHdUrJt" resolve="target" />
+                </node>
+                <node concept="2GrUjf" id="1diLdO27Ycy" role="1urrMF">
+                  <ref role="2Gs0qQ" node="1diLdO27Y1l" resolve="module" />
                 </node>
               </node>
             </node>
@@ -1151,16 +1151,16 @@
                     <ref role="37wK5l" to="wyt6:~StringBuilder.toString()" resolve="toString" />
                   </node>
                 </node>
-                <node concept="1PxgMI" id="1diLdO27YbX" role="2OEOjV">
+                <node concept="2OE7Q9" id="1diLdO27Yc2" role="1urrC5">
+                  <ref role="2OEe5H" to="kdzh:5HVSRHdUL82" resolve="group" />
+                </node>
+                <node concept="1PxgMI" id="1diLdO27YbX" role="1urrMF">
                   <node concept="2GrUjf" id="1diLdO27Yb5" role="1m5AlR">
                     <ref role="2Gs0qQ" node="1diLdO27Y1T" resolve="group" />
                   </node>
                   <node concept="chp4Y" id="714IaVdGYXc" role="3oSUPX">
                     <ref role="cht4Q" to="kdzh:5HVSRHdUL81" resolve="BuildMps_IdeaPluginGroup" />
                   </node>
-                </node>
-                <node concept="2OE7Q9" id="1diLdO27Yc2" role="2OEWyd">
-                  <ref role="2OEe5H" to="kdzh:5HVSRHdUL82" resolve="group" />
                 </node>
               </node>
             </node>
@@ -1734,7 +1734,7 @@
                 <node concept="Xl_RD" id="3Iy_$1rNJmL" role="a7wSD">
                   <property role="Xl_RC" value="Generation options are expected to be specified at most once per project" />
                 </node>
-                <node concept="1YBJjd" id="3Iy_$1rNJxd" role="2OEOjV">
+                <node concept="1YBJjd" id="3Iy_$1rNJxd" role="1urrMF">
                   <ref role="1YBMHb" node="3Iy_$1rNnDj" resolve="genOpts" />
                 </node>
               </node>
@@ -1858,17 +1858,17 @@
       <node concept="3clFbJ" id="7ndynavW9Xr" role="3cqZAp">
         <node concept="3clFbS" id="7ndynavW9Xt" role="3clFbx">
           <node concept="a7r0C" id="7ndynavWiNt" role="3cqZAp">
-            <node concept="3Cnw8n" id="7ndynavWwiv" role="2OEOjU">
-              <ref role="QpYPw" node="7ndynavWohJ" resolve="SetModuleJarClasspathEntry" />
-            </node>
             <node concept="Xl_RD" id="7ndynavWnBM" role="a7wSD">
               <property role="Xl_RC" value="Module descriptor inside a jar with compiled classes doesn't specify classpath" />
             </node>
-            <node concept="1YBJjd" id="7ndynavWnFo" role="2OEOjV">
+            <node concept="2OE7Q9" id="7ndynavWnSO" role="1urrC5">
+              <ref role="2OEe5H" to="kdzh:7ndynavQeWF" resolve="classpathEntries" />
+            </node>
+            <node concept="1YBJjd" id="7ndynavWnFo" role="1urrMF">
               <ref role="1YBMHb" node="7ndynavW9JX" resolve="n" />
             </node>
-            <node concept="2OE7Q9" id="7ndynavWnSO" role="2OEWyd">
-              <ref role="2OEe5H" to="kdzh:7ndynavQeWF" resolve="classpathEntries" />
+            <node concept="3Cnw8n" id="7ndynavWwiv" role="1urrFz">
+              <ref role="QpYPw" node="7ndynavWohJ" resolve="SetModuleJarClasspathEntry" />
             </node>
           </node>
         </node>
@@ -2300,9 +2300,6 @@
         </node>
       </node>
       <node concept="a7r0C" id="14TUqehvdts" role="3cqZAp">
-        <node concept="1YBJjd" id="14TUqehverp" role="2OEOjV">
-          <ref role="1YBMHb" node="14TUqehtZ2C" resolve="jarLoc" />
-        </node>
         <node concept="2YIFZM" id="14TUqehuFna" role="a7wSD">
           <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
           <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
@@ -2320,6 +2317,9 @@
           <node concept="37vLTw" id="14TUqehuK2f" role="37wK5m">
             <ref role="3cqZAo" node="14TUqehuC9A" resolve="expectedPath" />
           </node>
+        </node>
+        <node concept="1YBJjd" id="14TUqehverp" role="1urrMF">
+          <ref role="1YBMHb" node="14TUqehtZ2C" resolve="jarLoc" />
         </node>
       </node>
     </node>
@@ -2355,11 +2355,11 @@
             </node>
             <node concept="3clFbS" id="4Y6KxqRG1Aa" role="3clFbx">
               <node concept="a7r0C" id="4Y6KxqRG32U" role="3cqZAp">
-                <node concept="1YBJjd" id="4Y6KxqRG3gZ" role="2OEOjV">
-                  <ref role="1YBMHb" node="4Y6KxqRFYZ0" resolve="buildMps_TipsBundle" />
-                </node>
                 <node concept="Xl_RD" id="1HQQX4XUAYd" role="a7wSD">
                   <property role="Xl_RC" value="should end with .jar" />
+                </node>
+                <node concept="1YBJjd" id="4Y6KxqRG3gZ" role="1urrMF">
+                  <ref role="1YBMHb" node="4Y6KxqRFYZ0" resolve="buildMps_TipsBundle" />
                 </node>
               </node>
             </node>
@@ -2380,11 +2380,11 @@
       <node concept="3clFbJ" id="5_o80gNhmCP" role="3cqZAp">
         <node concept="3clFbS" id="5_o80gNhmCR" role="3clFbx">
           <node concept="a7r0C" id="5_o80gNhquJ" role="3cqZAp">
-            <node concept="1YBJjd" id="5_o80gNhquK" role="2OEOjV">
-              <ref role="1YBMHb" node="4Y6KxqRFYZ0" resolve="buildMps_TipsBundle" />
-            </node>
             <node concept="Xl_RD" id="5_o80gNhquL" role="a7wSD">
               <property role="Xl_RC" value="tips of should not be under jar" />
+            </node>
+            <node concept="1YBJjd" id="5_o80gNhquK" role="1urrMF">
+              <ref role="1YBMHb" node="4Y6KxqRFYZ0" resolve="buildMps_TipsBundle" />
             </node>
           </node>
           <node concept="3clFbH" id="5_o80gNhmCQ" role="3cqZAp" />
@@ -2466,7 +2466,7 @@
             <node concept="Xl_RD" id="8yBQgWkQ7O" role="a7wSD">
               <property role="Xl_RC" value="Duplicated imports from MPS generic distribution" />
             </node>
-            <node concept="1YBJjd" id="8yBQgWkQ9s" role="2OEOjV">
+            <node concept="1YBJjd" id="8yBQgWkQ9s" role="1urrMF">
               <ref role="1YBMHb" node="8yBQgWkN2N" resolve="buildMps_TipsMps" />
             </node>
           </node>
@@ -2499,7 +2499,7 @@
             <node concept="Xl_RD" id="6YEa3Ro5ZJx" role="2MkJ7o">
               <property role="Xl_RC" value="Empty link" />
             </node>
-            <node concept="1YBJjd" id="6YEa3Ro5ZJw" role="2OEOjV">
+            <node concept="1YBJjd" id="6YEa3Ro5ZJw" role="1urrMF">
               <ref role="1YBMHb" node="6YEa3Ro5j27" resolve="buildMps_TipsSolution" />
             </node>
           </node>
@@ -2522,7 +2522,7 @@
             <node concept="Xl_RD" id="6YEa3Ro5ZPH" role="2MkJ7o">
               <property role="Xl_RC" value="No path" />
             </node>
-            <node concept="1YBJjd" id="6YEa3Ro5ZPG" role="2OEOjV">
+            <node concept="1YBJjd" id="6YEa3Ro5ZPG" role="1urrMF">
               <ref role="1YBMHb" node="6YEa3Ro5j27" resolve="buildMps_TipsSolution" />
             </node>
           </node>
@@ -2546,7 +2546,7 @@
                 <node concept="Xl_RD" id="6mx7ef$B3Q1" role="2MkJ7o">
                   <property role="Xl_RC" value="Duplicate names of Tips &amp; Tricks" />
                 </node>
-                <node concept="1YBJjd" id="4Y6KxqRrORX" role="2OEOjV">
+                <node concept="1YBJjd" id="4Y6KxqRrORX" role="1urrMF">
                   <ref role="1YBMHb" node="6mx7ef$AIYR" resolve="mpsTips" />
                 </node>
               </node>
@@ -2648,7 +2648,7 @@
             <node concept="Xl_RD" id="5_o80gNgsxP" role="a7wSD">
               <property role="Xl_RC" value="No tips &amp; tricks imported" />
             </node>
-            <node concept="1YBJjd" id="5_o80gNgsyK" role="2OEOjV">
+            <node concept="1YBJjd" id="5_o80gNgsyK" role="1urrMF">
               <ref role="1YBMHb" node="6mx7ef$AIYR" resolve="mpsTips" />
             </node>
           </node>
@@ -2671,7 +2671,7 @@
             <node concept="Xl_RD" id="60F4CoOmqhM" role="Dpw9R">
               <property role="Xl_RC" value="Tips should be packaged to build layout" />
             </node>
-            <node concept="1YBJjd" id="60F4CoOmqi0" role="2OEOjV">
+            <node concept="1YBJjd" id="60F4CoOmqi0" role="1urrMF">
               <ref role="1YBMHb" node="6mx7ef$AIYR" resolve="mpsTips" />
             </node>
           </node>
@@ -2805,7 +2805,7 @@
         <node concept="Xl_RD" id="36cV00CbIuG" role="a7wSD">
           <property role="Xl_RC" value="The plugin is not found in the layout. It might cause problems for the dependencies of this plugin" />
         </node>
-        <node concept="1YBJjd" id="36cV00CbIB4" role="2OEOjV">
+        <node concept="1YBJjd" id="36cV00CbIB4" role="1urrMF">
           <ref role="1YBMHb" node="36cV00CbxrQ" resolve="ideaPlugin" />
         </node>
       </node>
@@ -3827,7 +3827,7 @@
                         <property role="Xl_RC" value="The module " />
                       </node>
                     </node>
-                    <node concept="2GrUjf" id="3wV6xYCedbo" role="2OEOjV">
+                    <node concept="2GrUjf" id="3wV6xYCedbo" role="1urrMF">
                       <ref role="2Gs0qQ" node="3wV6xYBZv8G" resolve="layoutModule" />
                     </node>
                   </node>
@@ -3945,7 +3945,7 @@
                         </node>
                       </node>
                     </node>
-                    <node concept="2GrUjf" id="5mxXXtgc3b3" role="2OEOjV">
+                    <node concept="2GrUjf" id="5mxXXtgc3b3" role="1urrMF">
                       <ref role="2Gs0qQ" node="5mxXXtgb7AU" resolve="element" />
                     </node>
                   </node>
@@ -4020,15 +4020,15 @@
         </node>
         <node concept="3clFbS" id="A39Wmmu2vi" role="3clFbx">
           <node concept="a7r0C" id="A39Wmmu4qz" role="3cqZAp">
-            <node concept="3Cnw8n" id="A39Wmmu8Pi" role="2OEOjU">
-              <property role="ARO6o" value="true" />
-              <ref role="QpYPw" node="A39Wmmu4so" resolve="SetPackagingTypeToAuto" />
-            </node>
             <node concept="Xl_RD" id="A39Wmmu4qP" role="a7wSD">
               <property role="Xl_RC" value="Packaging type is not set, please change it to auto" />
             </node>
-            <node concept="1YBJjd" id="A39Wmmu4rT" role="2OEOjV">
+            <node concept="1YBJjd" id="A39Wmmu4rT" role="1urrMF">
               <ref role="1YBMHb" node="A39Wmmu2n1" resolve="pluginLayout" />
+            </node>
+            <node concept="3Cnw8n" id="A39Wmmu8Pi" role="1urrFz">
+              <property role="ARO6o" value="true" />
+              <ref role="QpYPw" node="A39Wmmu4so" resolve="SetPackagingTypeToAuto" />
             </node>
           </node>
         </node>

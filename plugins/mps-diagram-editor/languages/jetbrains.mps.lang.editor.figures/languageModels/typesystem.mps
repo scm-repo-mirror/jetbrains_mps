@@ -91,13 +91,13 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -162,7 +162,7 @@
             <node concept="Xl_RD" id="7P3RaqS9EYc" role="2MkJ7o">
               <property role="Xl_RC" value="Non-public member specified as @FigureParemter" />
             </node>
-            <node concept="2OqwBi" id="7P3RaqS9DKZ" role="2OEOjV">
+            <node concept="2OqwBi" id="7P3RaqS9DKZ" role="1urrMF">
               <node concept="1YBJjd" id="7P3RaqS9DGX" role="2Oq$k0">
                 <ref role="1YBMHb" node="7P3RaqS9u$M" resolve="figureParameterAttribute" />
               </node>
@@ -210,7 +210,7 @@
             <node concept="Xl_RD" id="5GAS49Rx6rh" role="2MkJ7o">
               <property role="Xl_RC" value="Unsupported attributed field type, jetbrains.jetpad.model.property.Property expected." />
             </node>
-            <node concept="1YBJjd" id="5GAS49Rx6r_" role="2OEOjV">
+            <node concept="1YBJjd" id="5GAS49Rx6r_" role="1urrMF">
               <ref role="1YBMHb" node="5GAS49RwWdP" resolve="fieldAttribute" />
             </node>
           </node>
@@ -248,7 +248,7 @@
             <node concept="Xl_RD" id="7XqW7v9F15z" role="2MkJ7o">
               <property role="Xl_RC" value="Unsupported attributed method return type, jetbrains.jetpad.model.property.Property expected." />
             </node>
-            <node concept="1YBJjd" id="7XqW7v9F12C" role="2OEOjV">
+            <node concept="1YBJjd" id="7XqW7v9F12C" role="1urrMF">
               <ref role="1YBMHb" node="7XqW7v9ECyi" resolve="methodAttribute" />
             </node>
           </node>
@@ -286,7 +286,7 @@
             <node concept="Xl_RD" id="7XqW7v9GOLa" role="2MkJ7o">
               <property role="Xl_RC" value="Unsupported attributed static field type, jetbrains.jetpad.projectional.view.ViewPropertySpec expected." />
             </node>
-            <node concept="1YBJjd" id="7XqW7v9GOIB" role="2OEOjV">
+            <node concept="1YBJjd" id="7XqW7v9GOIB" role="1urrMF">
               <ref role="1YBMHb" node="7XqW7v9GGQ0" resolve="viewPropSpecificationAttribute" />
             </node>
           </node>
@@ -462,7 +462,7 @@
             <node concept="Xl_RD" id="7XqW7v9JCyj" role="2MkJ7o">
               <property role="Xl_RC" value="Unsupported ExternalViewFigureParameter field type, jetbrains.jetpad.model.property.Property expected." />
             </node>
-            <node concept="1YBJjd" id="7XqW7v9JCyk" role="2OEOjV">
+            <node concept="1YBJjd" id="7XqW7v9JCyk" role="1urrMF">
               <ref role="1YBMHb" node="7XqW7v9JCyC" resolve="externalViewFigureParameter" />
             </node>
           </node>

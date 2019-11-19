@@ -147,11 +147,6 @@
       <concept id="1227096498176" name="jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget" flags="ng" index="2ODE4t">
         <reference id="1227096521710" name="propertyDeclaration" index="2ODJFN" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216383476350" name="quickFixArgument" index="Q6Id_" />
@@ -170,6 +165,11 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <property id="1216127910019" name="applyImmediately" index="ARO6o" />
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
@@ -520,10 +520,10 @@
             <node concept="Xl_RD" id="hQYzVO4" role="2MkJ7o">
               <property role="Xl_RC" value="Method signature doesn't match signature in the base concept" />
             </node>
-            <node concept="1YBJjd" id="hQY$3Zy" role="2OEOjV">
+            <node concept="1YBJjd" id="hQY$3Zy" role="1urrMF">
               <ref role="1YBMHb" node="hQYzO9n" resolve="method" />
             </node>
-            <node concept="3Cnw8n" id="3kRslntA2oR" role="2OEOjU">
+            <node concept="3Cnw8n" id="3kRslntA2oR" role="1urrFz">
               <ref role="QpYPw" node="3kRslntA0ir" resolve="FixMethodSignature" />
               <node concept="3CnSsL" id="3kRslntA2oS" role="3Coj4f">
                 <ref role="QkamJ" node="3kRslntA0iu" resolve="conceptMethod" />
@@ -1115,7 +1115,7 @@
                 <node concept="37vLTw" id="3HZb3Xnhni" role="2MkJ7o">
                   <ref role="3cqZAo" node="3HZb3Xnhn6" resolve="msg" />
                 </node>
-                <node concept="1YBJjd" id="hsB0IGX" role="2OEOjV">
+                <node concept="1YBJjd" id="hsB0IGX" role="1urrMF">
                   <ref role="1YBMHb" node="hrWhnTt" resolve="nodeToCheck" />
                 </node>
               </node>
@@ -1123,7 +1123,7 @@
                 <node concept="37vLTw" id="3HZb3Xnhnj" role="2MkJ7o">
                   <ref role="3cqZAo" node="3HZb3Xnhn6" resolve="msg" />
                 </node>
-                <node concept="2OqwBi" id="3HZb3Xn4L2" role="2OEOjV">
+                <node concept="2OqwBi" id="3HZb3Xn4L2" role="1urrMF">
                   <node concept="1YBJjd" id="3HZb3Xn4ur" role="2Oq$k0">
                     <ref role="1YBMHb" node="hrWhnTt" resolve="nodeToCheck" />
                   </node>
@@ -1160,7 +1160,13 @@
             </node>
             <node concept="3clFbS" id="hsAZcZg" role="3clFbx">
               <node concept="2MkqsV" id="hsAZecL" role="3cqZAp">
-                <node concept="3Cnw8n" id="6WSEafdy3FE" role="2OEOjU">
+                <node concept="Xl_RD" id="6WSEafdx2mP" role="2MkJ7o">
+                  <property role="Xl_RC" value="Abstract method in non-abstract concept" />
+                </node>
+                <node concept="37vLTw" id="3GM_nagTBJx" role="1urrMF">
+                  <ref role="3cqZAo" node="hsAZ8V4" resolve="cmd" />
+                </node>
+                <node concept="3Cnw8n" id="6WSEafdy3FE" role="1urrFz">
                   <ref role="QpYPw" node="6WSEafdxV8X" resolve="MakeConceptAbstract" />
                   <node concept="3CnSsL" id="6WSEafdy3Hf" role="3Coj4f">
                     <ref role="QkamJ" node="6WSEafdxV8Y" resolve="conceptBehavior" />
@@ -1169,7 +1175,7 @@
                     </node>
                   </node>
                 </node>
-                <node concept="3Cnw8n" id="6WSEafdy3Jk" role="2OEOjU">
+                <node concept="3Cnw8n" id="6WSEafdy3Jk" role="1urrFz">
                   <ref role="QpYPw" node="6WSEafdy3KZ" resolve="RemoveAbstractFromTheMethod_add_method_body_description" />
                   <node concept="3CnSsL" id="6WSEafd_0OV" role="3Coj4f">
                     <ref role="QkamJ" node="6WSEafdy3L0" resolve="conceptMethod" />
@@ -1177,12 +1183,6 @@
                       <ref role="3cqZAo" node="hsAZ8V4" resolve="cmd" />
                     </node>
                   </node>
-                </node>
-                <node concept="Xl_RD" id="6WSEafdx2mP" role="2MkJ7o">
-                  <property role="Xl_RC" value="Abstract method in non-abstract concept" />
-                </node>
-                <node concept="37vLTw" id="3GM_nagTBJx" role="2OEOjV">
-                  <ref role="3cqZAo" node="hsAZ8V4" resolve="cmd" />
                 </node>
               </node>
             </node>
@@ -1234,16 +1234,16 @@
         </node>
         <node concept="3clFbS" id="6ONtaJUkPkf" role="3clFbx">
           <node concept="2MkqsV" id="6ONtaJUkXEm" role="3cqZAp">
-            <node concept="2ODE4t" id="PwqAP5k1wL" role="2OEWyd">
-              <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
-            </node>
             <node concept="Xl_RD" id="6ONtaJUkXEp" role="2MkJ7o">
               <property role="Xl_RC" value="Illegal combination of modifiers 'abstract' and 'final'" />
             </node>
-            <node concept="1YBJjd" id="6ONtaJUkXEq" role="2OEOjV">
+            <node concept="2ODE4t" id="PwqAP5k1wL" role="1urrC5">
+              <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
+            </node>
+            <node concept="1YBJjd" id="6ONtaJUkXEq" role="1urrMF">
               <ref role="1YBMHb" node="6ONtaJUkN12" resolve="conceptMethodDeclaration" />
             </node>
-            <node concept="3Cnw8n" id="6WSEafdvCFy" role="2OEOjU">
+            <node concept="3Cnw8n" id="6WSEafdvCFy" role="1urrFz">
               <ref role="QpYPw" node="6WSEafdvwOC" resolve="RemoveFinalFromTheMethod" />
               <node concept="3CnSsL" id="6WSEafdvCL6" role="3Coj4f">
                 <ref role="QkamJ" node="6WSEafdvy3h" resolve="conceptMethod" />
@@ -1252,7 +1252,7 @@
                 </node>
               </node>
             </node>
-            <node concept="3Cnw8n" id="6WSEafdwV8B" role="2OEOjU">
+            <node concept="3Cnw8n" id="6WSEafdwV8B" role="1urrFz">
               <ref role="QpYPw" node="6WSEafdwzGN" resolve="RemoveAbstractFromTheMethod" />
               <node concept="3CnSsL" id="6WSEafdwV8C" role="3Coj4f">
                 <ref role="QkamJ" node="6WSEafdwzGO" resolve="conceptMethod" />
@@ -1388,7 +1388,13 @@
         </node>
         <node concept="3clFbS" id="6WSEafdwp3l" role="3clFbx">
           <node concept="a7r0C" id="6WSEafdwrkt" role="3cqZAp">
-            <node concept="3Cnw8n" id="6WSEafdwzoo" role="2OEOjU">
+            <node concept="Xl_RD" id="6WSEafdwp3o" role="a7wSD">
+              <property role="Xl_RC" value="An abstract method ought to be virtual" />
+            </node>
+            <node concept="1YBJjd" id="6WSEafdwrl6" role="1urrMF">
+              <ref role="1YBMHb" node="6WSEafdwp3t" resolve="conceptMethodDeclaration" />
+            </node>
+            <node concept="3Cnw8n" id="6WSEafdwzoo" role="1urrFz">
               <property role="ARO6o" value="true" />
               <ref role="QpYPw" node="6WSEafdwrEA" resolve="MakeAbstractMethodVirtual" />
               <node concept="3CnSsL" id="6WSEafdwzuU" role="3Coj4f">
@@ -1397,12 +1403,6 @@
                   <ref role="1YBMHb" node="6WSEafdwp3t" resolve="conceptMethodDeclaration" />
                 </node>
               </node>
-            </node>
-            <node concept="1YBJjd" id="6WSEafdwrl6" role="2OEOjV">
-              <ref role="1YBMHb" node="6WSEafdwp3t" resolve="conceptMethodDeclaration" />
-            </node>
-            <node concept="Xl_RD" id="6WSEafdwp3o" role="a7wSD">
-              <property role="Xl_RC" value="An abstract method ought to be virtual" />
             </node>
           </node>
         </node>
@@ -1551,7 +1551,13 @@
         </node>
         <node concept="3clFbS" id="6WSEafdwUJQ" role="3clFbx">
           <node concept="a7r0C" id="6WSEafdwUJR" role="3cqZAp">
-            <node concept="3Cnw8n" id="6WSEafdwUJS" role="2OEOjU">
+            <node concept="Xl_RD" id="6WSEafdwUJW" role="a7wSD">
+              <property role="Xl_RC" value="The 'final' modifier does not make sense on the non-virtual method" />
+            </node>
+            <node concept="1YBJjd" id="6WSEafdwUJV" role="1urrMF">
+              <ref role="1YBMHb" node="6WSEafdwUJX" resolve="conceptMethodDeclaration" />
+            </node>
+            <node concept="3Cnw8n" id="6WSEafdwUJS" role="1urrFz">
               <property role="ARO6o" value="true" />
               <ref role="QpYPw" node="6WSEafdvwOC" resolve="RemoveFinalFromTheMethod" />
               <node concept="3CnSsL" id="6WSEafdwUJT" role="3Coj4f">
@@ -1560,12 +1566,6 @@
                   <ref role="1YBMHb" node="6WSEafdwUJX" resolve="conceptMethodDeclaration" />
                 </node>
               </node>
-            </node>
-            <node concept="1YBJjd" id="6WSEafdwUJV" role="2OEOjV">
-              <ref role="1YBMHb" node="6WSEafdwUJX" resolve="conceptMethodDeclaration" />
-            </node>
-            <node concept="Xl_RD" id="6WSEafdwUJW" role="a7wSD">
-              <property role="Xl_RC" value="The 'final' modifier does not make sense on the non-virtual method" />
             </node>
           </node>
         </node>
@@ -1827,7 +1827,7 @@
                         </node>
                       </node>
                     </node>
-                    <node concept="2GrUjf" id="172ROKPFHVH" role="2OEOjV">
+                    <node concept="2GrUjf" id="172ROKPFHVH" role="1urrMF">
                       <ref role="2Gs0qQ" node="172ROKPFhLC" resolve="method" />
                     </node>
                   </node>

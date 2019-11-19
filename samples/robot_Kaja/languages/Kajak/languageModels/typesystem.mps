@@ -141,10 +141,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216391046856" name="descriptionBlock" index="QzAvj" />
@@ -156,6 +152,10 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
       </concept>
@@ -435,7 +435,7 @@
             <node concept="Xl_RD" id="1DJg4Tz25WZ" role="2MkJ7o">
               <property role="Xl_RC" value="Routine names must be unique within a Script or a Library" />
             </node>
-            <node concept="1YBJjd" id="1DJg4Tz25X0" role="2OEOjV">
+            <node concept="1YBJjd" id="1DJg4Tz25X0" role="1urrMF">
               <ref role="1YBMHb" node="1DJg4Tz22kE" resolve="routineDefinition" />
             </node>
           </node>
@@ -578,7 +578,7 @@
             <node concept="Xl_RD" id="1DJg4Tz2fy2" role="2MkJ7o">
               <property role="Xl_RC" value="Script and Library names must be unique" />
             </node>
-            <node concept="1YBJjd" id="1DJg4Tz2fy3" role="2OEOjV">
+            <node concept="1YBJjd" id="1DJg4Tz2fy3" role="1urrMF">
               <ref role="1YBMHb" node="1DJg4Tz2fsH" resolve="script" />
             </node>
           </node>
@@ -758,7 +758,7 @@
             <node concept="Xl_RD" id="1DJg4Tz2fyN" role="2MkJ7o">
               <property role="Xl_RC" value="Script and Library names must be unique" />
             </node>
-            <node concept="1YBJjd" id="1DJg4Tz2fzg" role="2OEOjV">
+            <node concept="1YBJjd" id="1DJg4Tz2fzg" role="1urrMF">
               <ref role="1YBMHb" node="1DJg4Tz2fy9" resolve="library" />
             </node>
           </node>
@@ -860,7 +860,7 @@
                 <node concept="Xl_RD" id="5gPwU2XAv88" role="Dpw9R">
                   <property role="Xl_RC" value="This node is too complex too analyze by data flow algorithm" />
                 </node>
-                <node concept="2OqwBi" id="5gPwU2XAJ0M" role="2OEOjV">
+                <node concept="2OqwBi" id="5gPwU2XAJ0M" role="1urrMF">
                   <node concept="1YBJjd" id="5K3A7hVfyBi" role="2Oq$k0">
                     <ref role="1YBMHb" node="5K3A7hVdnnE" resolve="commandList" />
                   </node>
@@ -982,7 +982,7 @@
                     <node concept="Xl_RD" id="hNAEdLV" role="2MkJ7o">
                       <property role="Xl_RC" value="Unreachable command" />
                     </node>
-                    <node concept="37vLTw" id="5K3A7hVkN56" role="2OEOjV">
+                    <node concept="37vLTw" id="5K3A7hVkN56" role="1urrMF">
                       <ref role="3cqZAo" node="5K3A7hVkAPC" resolve="source" />
                     </node>
                   </node>
@@ -990,14 +990,14 @@
                 <node concept="9aQIb" id="5K3A7hVkP5V" role="9aQIa">
                   <node concept="3clFbS" id="5K3A7hVkP5W" role="9aQI4">
                     <node concept="2MkqsV" id="5K3A7hVkPqJ" role="3cqZAp">
-                      <node concept="2OqwBi" id="5K3A7hVkS37" role="2OEOjV">
+                      <node concept="Xl_RD" id="5K3A7hVkPIC" role="2MkJ7o">
+                        <property role="Xl_RC" value="Unreachable command" />
+                      </node>
+                      <node concept="2OqwBi" id="5K3A7hVkS37" role="1urrMF">
                         <node concept="1mfA1w" id="5K3A7hVkSKS" role="2OqNvi" />
                         <node concept="37vLTw" id="5K3A7hVkRBi" role="2Oq$k0">
                           <ref role="3cqZAo" node="5K3A7hVkAPC" resolve="source" />
                         </node>
-                      </node>
-                      <node concept="Xl_RD" id="5K3A7hVkPIC" role="2MkJ7o">
-                        <property role="Xl_RC" value="Unreachable command" />
                       </node>
                     </node>
                   </node>
@@ -1191,13 +1191,13 @@
             <node concept="Xl_RD" id="1rlDGctunIV" role="a7wSD">
               <property role="Xl_RC" value="Consider using repeat to avoid repetition" />
             </node>
-            <node concept="2OqwBi" id="1rlDGctuobI" role="2OEOjV">
+            <node concept="2OqwBi" id="1rlDGctuobI" role="1urrMF">
               <node concept="1YBJjd" id="1rlDGctuo8d" role="2Oq$k0">
                 <ref role="1YBMHb" node="1rlDGcttlXj" resolve="command" />
               </node>
               <node concept="YCak7" id="1rlDGctupSW" role="2OqNvi" />
             </node>
-            <node concept="3Cnw8n" id="1rlDGctuTaK" role="2OEOjU">
+            <node concept="3Cnw8n" id="1rlDGctuTaK" role="1urrFz">
               <ref role="QpYPw" node="1rlDGctuq0v" resolve="RemoveRepetition" />
             </node>
           </node>

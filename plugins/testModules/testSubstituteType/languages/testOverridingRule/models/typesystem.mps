@@ -63,15 +63,15 @@
       <concept id="1227096498176" name="jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget" flags="ng" index="2ODE4t">
         <reference id="1227096521710" name="propertyDeclaration" index="2ODJFN" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G">
         <child id="2329696648448631592" name="overridenRules" index="dp_RE" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
@@ -106,11 +106,11 @@
         <node concept="Xl_RD" id="7E$SATCtcER" role="2MkJ7o">
           <property role="Xl_RC" value="error from ConceptA" />
         </node>
-        <node concept="1YBJjd" id="7E$SATCtcFG" role="2OEOjV">
-          <ref role="1YBMHb" node="7E$SATCtcDI" resolve="conceptA" />
-        </node>
-        <node concept="2ODE4t" id="7E$SATCtyxx" role="2OEWyd">
+        <node concept="2ODE4t" id="7E$SATCtyxx" role="1urrC5">
           <ref role="2ODJFN" to="bxpv:7E$SATCtcDO" resolve="conceptAProp" />
+        </node>
+        <node concept="1YBJjd" id="7E$SATCtcFG" role="1urrMF">
+          <ref role="1YBMHb" node="7E$SATCtcDI" resolve="conceptA" />
         </node>
       </node>
     </node>
@@ -156,11 +156,11 @@
               <node concept="Xl_RD" id="7E$SATCtcHU" role="2MkJ7o">
                 <property role="Xl_RC" value="error from ConceptB" />
               </node>
-              <node concept="1YBJjd" id="7E$SATCw70b" role="2OEOjV">
-                <ref role="1YBMHb" node="7E$SATCw6Yb" resolve="conceptB" />
-              </node>
-              <node concept="2ODE4t" id="7E$SATCtyxh" role="2OEWyd">
+              <node concept="2ODE4t" id="7E$SATCtyxh" role="1urrC5">
                 <ref role="2ODJFN" to="bxpv:7E$SATCtcE_" resolve="conceptBProp" />
+              </node>
+              <node concept="1YBJjd" id="7E$SATCw70b" role="1urrMF">
+                <ref role="1YBMHb" node="7E$SATCw6Yb" resolve="conceptB" />
               </node>
             </node>
           </node>
@@ -211,11 +211,11 @@
               <node concept="Xl_RD" id="7E$SATCtcK$" role="2MkJ7o">
                 <property role="Xl_RC" value="error from ConceptC" />
               </node>
-              <node concept="1YBJjd" id="7E$SATCtvXi" role="2OEOjV">
-                <ref role="1YBMHb" node="7E$SATCtvRz" resolve="conceptC" />
-              </node>
-              <node concept="2ODE4t" id="7E$SATCtyuI" role="2OEWyd">
+              <node concept="2ODE4t" id="7E$SATCtyuI" role="1urrC5">
                 <ref role="2ODJFN" to="bxpv:7E$SATCtcEB" resolve="conceptCProp" />
+              </node>
+              <node concept="1YBJjd" id="7E$SATCtvXi" role="1urrMF">
+                <ref role="1YBMHb" node="7E$SATCtvRz" resolve="conceptC" />
               </node>
             </node>
           </node>

@@ -2,7 +2,7 @@
 <model ref="r:61c80a02-cc27-4085-b38d-beaf0fede70a(jetbrains.mps.lang.constraints.rules.typesystem)">
   <persistence version="9" />
   <languages>
-    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="4" />
+    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="5" />
     <use id="69b8a993-9b87-4d96-bf0c-3559f4bb0c63" name="jetbrains.mps.lang.slanguage" version="0" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
@@ -134,10 +134,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216383476350" name="quickFixArgument" index="Q6Id_" />
@@ -156,6 +152,10 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <property id="1216127910019" name="applyImmediately" index="ARO6o" />
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
@@ -287,10 +287,10 @@
                     <node concept="Xl_RD" id="2sxsDnZy$mQ" role="a7wSD">
                       <property role="Xl_RC" value="Node id and rule id differ" />
                     </node>
-                    <node concept="1YBJjd" id="hyoMxHJ0QZ" role="2OEOjV">
+                    <node concept="1YBJjd" id="hyoMxHJ0QZ" role="1urrMF">
                       <ref role="1YBMHb" node="hyoMxHIWh5" resolve="rule" />
                     </node>
-                    <node concept="3Cnw8n" id="hyoMxHJssk" role="2OEOjU">
+                    <node concept="3Cnw8n" id="hyoMxHJssk" role="1urrFz">
                       <property role="ARO6o" value="true" />
                       <ref role="QpYPw" node="hyoMxHJssh" resolve="correct_RuleId" />
                       <node concept="3CnSsL" id="hyoMxHJw_q" role="3Coj4f">
@@ -377,7 +377,13 @@
               </node>
               <node concept="3clFbS" id="4H96pIbEkgX" role="3clFbx">
                 <node concept="2MkqsV" id="4H96pIbEtDM" role="3cqZAp">
-                  <node concept="3Cnw8n" id="hyoMxHJwm_" role="2OEOjU">
+                  <node concept="Xl_RD" id="4H96pIbEtDT" role="2MkJ7o">
+                    <property role="Xl_RC" value="Duplicate rule id" />
+                  </node>
+                  <node concept="1YBJjd" id="hyoMxHIZh$" role="1urrMF">
+                    <ref role="1YBMHb" node="hyoMxHIWh5" resolve="rule" />
+                  </node>
+                  <node concept="3Cnw8n" id="hyoMxHJwm_" role="1urrFz">
                     <property role="ARO6o" value="true" />
                     <ref role="QpYPw" node="hyoMxHJssh" resolve="correct_RuleId" />
                     <node concept="3CnSsL" id="hyoMxHJwtC" role="3Coj4f">
@@ -386,12 +392,6 @@
                         <ref role="1YBMHb" node="hyoMxHIWh5" resolve="rule" />
                       </node>
                     </node>
-                  </node>
-                  <node concept="1YBJjd" id="hyoMxHIZh$" role="2OEOjV">
-                    <ref role="1YBMHb" node="hyoMxHIWh5" resolve="rule" />
-                  </node>
-                  <node concept="Xl_RD" id="4H96pIbEtDT" role="2MkJ7o">
-                    <property role="Xl_RC" value="Duplicate rule id" />
                   </node>
                 </node>
               </node>
@@ -411,13 +411,13 @@
         </node>
         <node concept="3clFbS" id="1o9qxtfa_CI" role="3clFbx">
           <node concept="2MkqsV" id="1o9qxtfaAuy" role="3cqZAp">
-            <node concept="1YBJjd" id="hyoMxHIXwA" role="2OEOjV">
-              <ref role="1YBMHb" node="hyoMxHIWh5" resolve="rule" />
-            </node>
             <node concept="Xl_RD" id="1o9qxtfaLgL" role="2MkJ7o">
               <property role="Xl_RC" value="Rule id is not defined" />
             </node>
-            <node concept="3Cnw8n" id="hyoMxHJwhV" role="2OEOjU">
+            <node concept="1YBJjd" id="hyoMxHIXwA" role="1urrMF">
+              <ref role="1YBMHb" node="hyoMxHIWh5" resolve="rule" />
+            </node>
+            <node concept="3Cnw8n" id="hyoMxHJwhV" role="1urrFz">
               <property role="ARO6o" value="true" />
               <ref role="QpYPw" node="hyoMxHJssh" resolve="correct_RuleId" />
               <node concept="3CnSsL" id="hyoMxHJwu1" role="3Coj4f">
@@ -839,7 +839,7 @@
                                   </node>
                                 </node>
                               </node>
-                              <node concept="37vLTw" id="2mL_UKGa_Ht" role="2OEOjV">
+                              <node concept="37vLTw" id="2mL_UKGa_Ht" role="1urrMF">
                                 <ref role="3cqZAo" node="2mL_UKGavj8" resolve="def" />
                               </node>
                             </node>

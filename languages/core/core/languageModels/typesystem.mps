@@ -141,11 +141,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1227107461373" name="jetbrains.mps.lang.typesystem.structure.ReferenceRoleTarget" flags="ng" index="2PjuBw">
         <child id="1227107481107" name="referenceRole" index="2Pjzse" />
       </concept>
@@ -167,6 +162,11 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
         <child id="1210784493590" name="actualArgument" index="3Coj4f" />
@@ -297,9 +297,6 @@
           <node concept="3clFbJ" id="hP431vn" role="3cqZAp">
             <node concept="3clFbS" id="hP431vo" role="3clFbx">
               <node concept="a7r0C" id="hP43qbL" role="3cqZAp">
-                <node concept="1YBJjd" id="hP43uIO" role="2OEOjV">
-                  <ref role="1YBMHb" node="hP3YzWm" resolve="baseConcept" />
-                </node>
                 <node concept="2OqwBi" id="hP43qbN" role="a7wSD">
                   <node concept="1PxgMI" id="hP43sfQ" role="2Oq$k0">
                     <node concept="chp4Y" id="714IaVdGYBl" role="3oSUPX">
@@ -313,7 +310,7 @@
                     <ref role="37wK5l" to="tpcu:hP43_8K" resolve="getMessage" />
                   </node>
                 </node>
-                <node concept="2PjuBw" id="hQPoSjU" role="2OEWyd">
+                <node concept="2PjuBw" id="hQPoSjU" role="1urrC5">
                   <node concept="2OqwBi" id="2CzzCrtMH0o" role="2Pjzse">
                     <node concept="37vLTw" id="3GM_nagTA2z" role="2Oq$k0">
                       <ref role="3cqZAo" node="hP3Zr33" resolve="ref" />
@@ -322,6 +319,9 @@
                       <ref role="37wK5l" to="mhbf:~SReference.getLink()" resolve="getLink" />
                     </node>
                   </node>
+                </node>
+                <node concept="1YBJjd" id="hP43uIO" role="1urrMF">
+                  <ref role="1YBMHb" node="hP3YzWm" resolve="baseConcept" />
                 </node>
               </node>
             </node>
@@ -416,9 +416,6 @@
         </node>
         <node concept="3clFbS" id="7pc8UomoMzI" role="3clFbx">
           <node concept="a7r0C" id="7pc8UomoMzJ" role="3cqZAp">
-            <node concept="1YBJjd" id="7pc8UomoMzK" role="2OEOjV">
-              <ref role="1YBMHb" node="7pc8UomoMzY" resolve="node" />
-            </node>
             <node concept="3cpWs3" id="7pc8UomoMzL" role="a7wSD">
               <node concept="Xl_RD" id="7pc8UomoMzM" role="3uHU7w">
                 <property role="Xl_RC" value="' is an instance of deprecated concept" />
@@ -436,6 +433,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="1YBJjd" id="7pc8UomoMzK" role="1urrMF">
+              <ref role="1YBMHb" node="7pc8UomoMzY" resolve="node" />
             </node>
           </node>
         </node>
@@ -656,7 +656,7 @@
                 </node>
               </node>
             </node>
-            <node concept="1YBJjd" id="6klo$89LFB_" role="2OEOjV">
+            <node concept="1YBJjd" id="6klo$89LFB_" role="1urrMF">
               <ref role="1YBMHb" node="6klo$89LENp" resolve="baseConcept" />
             </node>
           </node>
@@ -678,10 +678,10 @@
             <node concept="Xl_RD" id="5gACAVB$6XP" role="2MkJ7o">
               <property role="Xl_RC" value="Property attribute should have property id" />
             </node>
-            <node concept="1YBJjd" id="5gACAVB$6XQ" role="2OEOjV">
+            <node concept="1YBJjd" id="5gACAVB$6XQ" role="1urrMF">
               <ref role="1YBMHb" node="4Fsfm22LURj" resolve="propertyAttribute" />
             </node>
-            <node concept="3Cnw8n" id="5gACAVB$6XR" role="2OEOjU">
+            <node concept="3Cnw8n" id="5gACAVB$6XR" role="1urrFz">
               <ref role="QpYPw" node="7yp37p9$vdt" resolve="add_PropertyAttribute_id" />
             </node>
           </node>
@@ -778,9 +778,6 @@
             <node concept="3clFbJ" id="5j9sOBs2vOT" role="3cqZAp">
               <node concept="3clFbS" id="5j9sOBs2vOV" role="3clFbx">
                 <node concept="2MkqsV" id="5gACAVB$4gf" role="3cqZAp">
-                  <node concept="1YBJjd" id="5gACAVB$4gg" role="2OEOjV">
-                    <ref role="1YBMHb" node="4Fsfm22LURj" resolve="propertyAttribute" />
-                  </node>
                   <node concept="3cpWs3" id="5gACAVB$4go" role="2MkJ7o">
                     <node concept="Xl_RD" id="5gACAVB$4gp" role="3uHU7w">
                       <property role="Xl_RC" value=")" />
@@ -809,7 +806,10 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3Cnw8n" id="5gACAVB$4gC" role="2OEOjU">
+                  <node concept="1YBJjd" id="5gACAVB$4gg" role="1urrMF">
+                    <ref role="1YBMHb" node="4Fsfm22LURj" resolve="propertyAttribute" />
+                  </node>
+                  <node concept="3Cnw8n" id="5gACAVB$4gC" role="1urrFz">
                     <ref role="QpYPw" node="4Fsfm22QbFU" resolve="RemoveUndeclaredPropertyAttribute" />
                   </node>
                 </node>
@@ -831,10 +831,10 @@
                         <property role="Xl_RC" value="Incorrect property name: " />
                       </node>
                     </node>
-                    <node concept="1YBJjd" id="5gACAVB$672" role="2OEOjV">
+                    <node concept="1YBJjd" id="5gACAVB$672" role="1urrMF">
                       <ref role="1YBMHb" node="4Fsfm22LURj" resolve="propertyAttribute" />
                     </node>
-                    <node concept="3Cnw8n" id="5gACAVB$678" role="2OEOjU">
+                    <node concept="3Cnw8n" id="5gACAVB$678" role="1urrFz">
                       <ref role="QpYPw" node="4Fsfm22PsEm" resolve="fix_PropertyAttribute_name" />
                     </node>
                   </node>
@@ -967,10 +967,10 @@
             <node concept="Xl_RD" id="5gACAVBwddT" role="2MkJ7o">
               <property role="Xl_RC" value="Link attribute should have link id" />
             </node>
-            <node concept="1YBJjd" id="5gACAVBwddU" role="2OEOjV">
+            <node concept="1YBJjd" id="5gACAVBwddU" role="1urrMF">
               <ref role="1YBMHb" node="4Fsfm22PmWV" resolve="linkAttribute" />
             </node>
-            <node concept="3Cnw8n" id="5gACAVBwddV" role="2OEOjU">
+            <node concept="3Cnw8n" id="5gACAVBwddV" role="1urrFz">
               <ref role="QpYPw" node="7yp37p9$qEx" resolve="add_LinkAttribute_id" />
             </node>
           </node>
@@ -1069,9 +1069,6 @@
             <node concept="3clFbJ" id="5j9sOBs2DC0" role="3cqZAp">
               <node concept="3clFbS" id="5j9sOBs2DC2" role="3clFbx">
                 <node concept="2MkqsV" id="4Fsfm22PCXv" role="3cqZAp">
-                  <node concept="1YBJjd" id="4Fsfm22PDo3" role="2OEOjV">
-                    <ref role="1YBMHb" node="4Fsfm22PmWV" resolve="linkAttribute" />
-                  </node>
                   <node concept="3cpWs3" id="4Fsfm22PQyL" role="2MkJ7o">
                     <node concept="Xl_RD" id="4Fsfm22PQN3" role="3uHU7w">
                       <property role="Xl_RC" value=")" />
@@ -1100,7 +1097,10 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3Cnw8n" id="4Fsfm22QrEV" role="2OEOjU">
+                  <node concept="1YBJjd" id="4Fsfm22PDo3" role="1urrMF">
+                    <ref role="1YBMHb" node="4Fsfm22PmWV" resolve="linkAttribute" />
+                  </node>
+                  <node concept="3Cnw8n" id="4Fsfm22QrEV" role="1urrFz">
                     <ref role="QpYPw" node="4Fsfm22QngW" resolve="RemoveUndeclaredLinkAttribute" />
                   </node>
                 </node>
@@ -1122,10 +1122,10 @@
                         <property role="Xl_RC" value="Incorrect reference link name: " />
                       </node>
                     </node>
-                    <node concept="1YBJjd" id="5gACAVBwe6v" role="2OEOjV">
+                    <node concept="1YBJjd" id="5gACAVBwe6v" role="1urrMF">
                       <ref role="1YBMHb" node="4Fsfm22PmWV" resolve="linkAttribute" />
                     </node>
-                    <node concept="3Cnw8n" id="5gACAVBwe6z" role="2OEOjU">
+                    <node concept="3Cnw8n" id="5gACAVBwe6z" role="1urrFz">
                       <ref role="QpYPw" node="4Fsfm22PSqk" resolve="fix_LinkAttribute_name" />
                     </node>
                   </node>
@@ -1510,10 +1510,10 @@
             <node concept="Xl_RD" id="5gACAVBzent" role="2MkJ7o">
               <property role="Xl_RC" value="Child attribute should have link id" />
             </node>
-            <node concept="1YBJjd" id="5gACAVBzenu" role="2OEOjV">
+            <node concept="1YBJjd" id="5gACAVBzenu" role="1urrMF">
               <ref role="1YBMHb" node="BpxLfMirQs" resolve="childAttribute" />
             </node>
-            <node concept="3Cnw8n" id="5gACAVBzenv" role="2OEOjU">
+            <node concept="3Cnw8n" id="5gACAVBzenv" role="1urrFz">
               <ref role="QpYPw" node="43t9AOL1_Sn" resolve="add_ChildAttribute_id" />
             </node>
           </node>
@@ -1610,9 +1610,6 @@
             <node concept="3clFbJ" id="5j9sOBs2OmI" role="3cqZAp">
               <node concept="3clFbS" id="5j9sOBs2OmK" role="3clFbx">
                 <node concept="2MkqsV" id="BpxLfMirQX" role="3cqZAp">
-                  <node concept="1YBJjd" id="BpxLfMitTm" role="2OEOjV">
-                    <ref role="1YBMHb" node="BpxLfMirQs" resolve="childAttribute" />
-                  </node>
                   <node concept="3cpWs3" id="BpxLfMirR6" role="2MkJ7o">
                     <node concept="Xl_RD" id="BpxLfMirR7" role="3uHU7w">
                       <property role="Xl_RC" value=")" />
@@ -1641,7 +1638,10 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="3Cnw8n" id="BpxLfMirRm" role="2OEOjU">
+                  <node concept="1YBJjd" id="BpxLfMitTm" role="1urrMF">
+                    <ref role="1YBMHb" node="BpxLfMirQs" resolve="childAttribute" />
+                  </node>
+                  <node concept="3Cnw8n" id="BpxLfMirRm" role="1urrFz">
                     <ref role="QpYPw" node="4Fsfm22QngW" resolve="RemoveUndeclaredLinkAttribute" />
                   </node>
                 </node>
@@ -1663,10 +1663,10 @@
                         <property role="Xl_RC" value="Incorrect aggregation link name: " />
                       </node>
                     </node>
-                    <node concept="1YBJjd" id="5gACAVB$9p0" role="2OEOjV">
+                    <node concept="1YBJjd" id="5gACAVB$9p0" role="1urrMF">
                       <ref role="1YBMHb" node="BpxLfMirQs" resolve="childAttribute" />
                     </node>
-                    <node concept="3Cnw8n" id="5gACAVB$9p4" role="2OEOjU">
+                    <node concept="3Cnw8n" id="5gACAVB$9p4" role="1urrFz">
                       <ref role="QpYPw" node="5gACAVBzia$" resolve="fix_ChildAttribute_name" />
                     </node>
                   </node>
@@ -1879,10 +1879,10 @@
               <node concept="Xl_RD" id="3jFdd0h1G6A" role="2MkJ7o">
                 <property role="Xl_RC" value="invalid suppressing predicate" />
               </node>
-              <node concept="1YBJjd" id="3jFdd0h1GdY" role="2OEOjV">
+              <node concept="1YBJjd" id="3jFdd0h1GdY" role="1urrMF">
                 <ref role="1YBMHb" node="3jFdd0h1Et6" resolve="suppressErrorsAnnotation" />
               </node>
-              <node concept="3Cnw8n" id="3jFdd0h1K5w" role="2OEOjU">
+              <node concept="3Cnw8n" id="3jFdd0h1K5w" role="1urrFz">
                 <ref role="QpYPw" node="3jFdd0h1GhA" resolve="DoNotSuppressError" />
                 <node concept="3CnSsL" id="3jFdd0h1Kao" role="3Coj4f">
                   <ref role="QkamJ" node="3jFdd0h1GhV" resolve="annotation" />
@@ -1947,7 +1947,7 @@
           <node concept="Xl_RD" id="7s1FVdAzyGX" role="2MkJ7o">
             <property role="Xl_RC" value="suppress error annotation without message" />
           </node>
-          <node concept="1YBJjd" id="7s1FVdAzyTQ" role="2OEOjV">
+          <node concept="1YBJjd" id="7s1FVdAzyTQ" role="1urrMF">
             <ref role="1YBMHb" node="3jFdd0h1Et6" resolve="suppressErrorsAnnotation" />
           </node>
         </node>
@@ -2060,9 +2060,6 @@
         </node>
         <node concept="3clFbS" id="6PxdI1Hsppu" role="3clFbx">
           <node concept="Dpp1Q" id="6PxdI1HssR9" role="3cqZAp">
-            <node concept="1YBJjd" id="6PxdI1Hstgb" role="2OEOjV">
-              <ref role="1YBMHb" node="6PxdI1HsppC" resolve="node" />
-            </node>
             <node concept="3cpWs3" id="6PxdI1Hsppx" role="Dpw9R">
               <node concept="Xl_RD" id="6PxdI1Hsppy" role="3uHU7w">
                 <property role="Xl_RC" value="' is an instance of concept marked with API.Experimental attribute" />
@@ -2080,6 +2077,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="1YBJjd" id="6PxdI1Hstgb" role="1urrMF">
+              <ref role="1YBMHb" node="6PxdI1HsppC" resolve="node" />
             </node>
           </node>
         </node>

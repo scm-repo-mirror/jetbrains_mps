@@ -157,11 +157,6 @@
       <concept id="1227096498176" name="jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget" flags="ng" index="2ODE4t">
         <reference id="1227096521710" name="propertyDeclaration" index="2ODJFN" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216383476350" name="quickFixArgument" index="Q6Id_" />
@@ -180,6 +175,11 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
         <child id="1210784493590" name="actualArgument" index="3Coj4f" />
@@ -468,10 +468,10 @@
             <node concept="Xl_RD" id="6DMiG0xrgpt" role="a7wSD">
               <property role="Xl_RC" value="unused java module" />
             </node>
-            <node concept="2ODE4t" id="6DMiG0xrgpx" role="2OEWyd">
+            <node concept="2ODE4t" id="6DMiG0xrgpx" role="1urrC5">
               <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
             </node>
-            <node concept="37vLTw" id="3GM_nagTB$y" role="2OEOjV">
+            <node concept="37vLTw" id="3GM_nagTB$y" role="1urrMF">
               <ref role="3cqZAo" node="6DMiG0xrgIp" resolve="unused" />
             </node>
           </node>
@@ -522,7 +522,7 @@
             <node concept="Xl_RD" id="5KZfyKsVhws" role="2MkJ7o">
               <property role="Xl_RC" value="java library cannot be used in project without java plugin" />
             </node>
-            <node concept="1YBJjd" id="5KZfyKsVhwM" role="2OEOjV">
+            <node concept="1YBJjd" id="5KZfyKsVhwM" role="1urrMF">
               <ref role="1YBMHb" node="5KZfyKsVhwh" resolve="jl" />
             </node>
           </node>
@@ -605,7 +605,7 @@
             <node concept="Xl_RD" id="15RAxQX0l4S" role="2MkJ7o">
               <property role="Xl_RC" value="should end with .jar (or macro)" />
             </node>
-            <node concept="1YBJjd" id="15RAxQX0l4T" role="2OEOjV">
+            <node concept="1YBJjd" id="15RAxQX0l4T" role="1urrMF">
               <ref role="1YBMHb" node="15RAxQX0ku9" resolve="jarEntry" />
             </node>
           </node>
@@ -667,7 +667,7 @@
             <node concept="Xl_RD" id="IFRVVI6aju" role="2MkJ7o">
               <property role="Xl_RC" value="string is empty" />
             </node>
-            <node concept="1YBJjd" id="IFRVVI6ajv" role="2OEOjV">
+            <node concept="1YBJjd" id="IFRVVI6ajv" role="1urrMF">
               <ref role="1YBMHb" node="IFRVVI6aiB" resolve="str" />
             </node>
           </node>
@@ -774,7 +774,7 @@
                     <node concept="Xl_RD" id="B4taqEA51N" role="2MkJ7o">
                       <property role="Xl_RC" value="define $idea_home macro to use IntelliJ compiler" />
                     </node>
-                    <node concept="1YBJjd" id="B4taqEA51O" role="2OEOjV">
+                    <node concept="1YBJjd" id="B4taqEA51O" role="1urrMF">
                       <ref role="1YBMHb" node="B4taqEA4L3" resolve="opts" />
                     </node>
                   </node>
@@ -911,15 +911,6 @@
       <node concept="3clFbJ" id="1HQQX4XU$t0" role="3cqZAp">
         <node concept="3clFbS" id="1HQQX4XU$t1" role="3clFbx">
           <node concept="a7r0C" id="1HQQX4XU$uC" role="3cqZAp">
-            <node concept="3Cnw8n" id="1HQQX4XU_TR" role="2OEOjU">
-              <ref role="QpYPw" node="1HQQX4XU_TL" resolve="fixContainerName" />
-              <node concept="3CnSsL" id="1HQQX4XU_Ua" role="3Coj4f">
-                <ref role="QkamJ" node="1HQQX4XU_TO" resolve="newExtension" />
-                <node concept="37vLTw" id="3GM_nagTwqS" role="3CoRuB">
-                  <ref role="3cqZAo" node="1HQQX4XU$qd" resolve="ext" />
-                </node>
-              </node>
-            </node>
             <node concept="3cpWs3" id="1HQQX4XU$vm" role="a7wSD">
               <node concept="3cpWs3" id="1HQQX4XU$vi" role="3uHU7B">
                 <node concept="Xl_RD" id="1HQQX4XU$uF" role="3uHU7B">
@@ -933,12 +924,21 @@
                 <property role="Xl_RC" value="'" />
               </node>
             </node>
-            <node concept="2OqwBi" id="1HQQX4XU$v1" role="2OEOjV">
+            <node concept="2OqwBi" id="1HQQX4XU$v1" role="1urrMF">
               <node concept="1YBJjd" id="1HQQX4XU$uG" role="2Oq$k0">
                 <ref role="1YBMHb" node="1HQQX4XU$oz" resolve="tarArchive" />
               </node>
               <node concept="3TrEf2" id="1HQQX4XU$v7" role="2OqNvi">
                 <ref role="3Tt5mk" to="3ior:3NagsOfTPim" resolve="containerName" />
+              </node>
+            </node>
+            <node concept="3Cnw8n" id="1HQQX4XU_TR" role="1urrFz">
+              <ref role="QpYPw" node="1HQQX4XU_TL" resolve="fixContainerName" />
+              <node concept="3CnSsL" id="1HQQX4XU_Ua" role="3Coj4f">
+                <ref role="QkamJ" node="1HQQX4XU_TO" resolve="newExtension" />
+                <node concept="37vLTw" id="3GM_nagTwqS" role="3CoRuB">
+                  <ref role="3cqZAo" node="1HQQX4XU$qd" resolve="ext" />
+                </node>
               </node>
             </node>
           </node>
@@ -1206,24 +1206,24 @@
       <node concept="3clFbJ" id="1HQQX4XUAHn" role="3cqZAp">
         <node concept="3clFbS" id="1HQQX4XUAHo" role="3clFbx">
           <node concept="a7r0C" id="1HQQX4XUAHp" role="3cqZAp">
-            <node concept="3Cnw8n" id="1HQQX4XUAHq" role="2OEOjU">
+            <node concept="Xl_RD" id="1HQQX4XUAHv" role="a7wSD">
+              <property role="Xl_RC" value="should end with `.zip'" />
+            </node>
+            <node concept="2OqwBi" id="1HQQX4XUAHy" role="1urrMF">
+              <node concept="1YBJjd" id="1HQQX4XUAHQ" role="2Oq$k0">
+                <ref role="1YBMHb" node="1HQQX4XUAGK" resolve="zipArchive" />
+              </node>
+              <node concept="3TrEf2" id="1HQQX4XUAH$" role="2OqNvi">
+                <ref role="3Tt5mk" to="3ior:3NagsOfTPim" resolve="containerName" />
+              </node>
+            </node>
+            <node concept="3Cnw8n" id="1HQQX4XUAHq" role="1urrFz">
               <ref role="QpYPw" node="1HQQX4XU_TL" resolve="fixContainerName" />
               <node concept="3CnSsL" id="1HQQX4XUAHr" role="3Coj4f">
                 <ref role="QkamJ" node="1HQQX4XU_TO" resolve="newExtension" />
                 <node concept="Xl_RD" id="1HQQX4XUAHR" role="3CoRuB">
                   <property role="Xl_RC" value=".zip" />
                 </node>
-              </node>
-            </node>
-            <node concept="Xl_RD" id="1HQQX4XUAHv" role="a7wSD">
-              <property role="Xl_RC" value="should end with `.zip'" />
-            </node>
-            <node concept="2OqwBi" id="1HQQX4XUAHy" role="2OEOjV">
-              <node concept="1YBJjd" id="1HQQX4XUAHQ" role="2Oq$k0">
-                <ref role="1YBMHb" node="1HQQX4XUAGK" resolve="zipArchive" />
-              </node>
-              <node concept="3TrEf2" id="1HQQX4XUAH$" role="2OqNvi">
-                <ref role="3Tt5mk" to="3ior:3NagsOfTPim" resolve="containerName" />
               </node>
             </node>
           </node>
@@ -1295,20 +1295,6 @@
       <node concept="3clFbJ" id="1HQQX4XUAY7" role="3cqZAp">
         <node concept="3clFbS" id="1HQQX4XUAY8" role="3clFbx">
           <node concept="a7r0C" id="1HQQX4XUAY9" role="3cqZAp">
-            <node concept="3Cnw8n" id="1HQQX4XUAYa" role="2OEOjU">
-              <ref role="QpYPw" node="1HQQX4XU_TL" resolve="fixContainerName" />
-              <node concept="3CnSsL" id="1HQQX4XUAYb" role="3Coj4f">
-                <ref role="QkamJ" node="1HQQX4XU_TO" resolve="newExtension" />
-                <node concept="2OqwBi" id="62K_yvYRECm" role="3CoRuB">
-                  <node concept="1YBJjd" id="62K_yvYREC1" role="2Oq$k0">
-                    <ref role="1YBMHb" node="1HQQX4XUAXX" resolve="jarArchive" />
-                  </node>
-                  <node concept="2qgKlT" id="62K_yvYRECs" role="2OqNvi">
-                    <ref role="37wK5l" to="vbkb:62K_yvYRytT" resolve="getExpectedExtension" />
-                  </node>
-                </node>
-              </node>
-            </node>
             <node concept="3cpWs3" id="62K_yvYREBW" role="a7wSD">
               <node concept="3cpWs3" id="62K_yvYREBk" role="3uHU7B">
                 <node concept="Xl_RD" id="1HQQX4XUAYd" role="3uHU7B">
@@ -1327,12 +1313,26 @@
                 <property role="Xl_RC" value="'" />
               </node>
             </node>
-            <node concept="2OqwBi" id="1HQQX4XUAYe" role="2OEOjV">
+            <node concept="2OqwBi" id="1HQQX4XUAYe" role="1urrMF">
               <node concept="1YBJjd" id="1HQQX4XUAYv" role="2Oq$k0">
                 <ref role="1YBMHb" node="1HQQX4XUAXX" resolve="jarArchive" />
               </node>
               <node concept="3TrEf2" id="1HQQX4XUAYg" role="2OqNvi">
                 <ref role="3Tt5mk" to="3ior:3NagsOfTPim" resolve="containerName" />
+              </node>
+            </node>
+            <node concept="3Cnw8n" id="1HQQX4XUAYa" role="1urrFz">
+              <ref role="QpYPw" node="1HQQX4XU_TL" resolve="fixContainerName" />
+              <node concept="3CnSsL" id="1HQQX4XUAYb" role="3Coj4f">
+                <ref role="QkamJ" node="1HQQX4XU_TO" resolve="newExtension" />
+                <node concept="2OqwBi" id="62K_yvYRECm" role="3CoRuB">
+                  <node concept="1YBJjd" id="62K_yvYREC1" role="2Oq$k0">
+                    <ref role="1YBMHb" node="1HQQX4XUAXX" resolve="jarArchive" />
+                  </node>
+                  <node concept="2qgKlT" id="62K_yvYRECs" role="2OqNvi">
+                    <ref role="37wK5l" to="vbkb:62K_yvYRytT" resolve="getExpectedExtension" />
+                  </node>
+                </node>
               </node>
             </node>
           </node>
@@ -1422,11 +1422,11 @@
             <node concept="Xl_RD" id="4gSHdTptNCG" role="a7wSD">
               <property role="Xl_RC" value="extension should be .xml" />
             </node>
-            <node concept="1YBJjd" id="4gSHdTptNCH" role="2OEOjV">
-              <ref role="1YBMHb" node="4gSHdTptNAb" resolve="project" />
-            </node>
-            <node concept="2ODE4t" id="4gSHdTptNCK" role="2OEWyd">
+            <node concept="2ODE4t" id="4gSHdTptNCK" role="1urrC5">
               <ref role="2ODJFN" to="3ior:4gSHdTpggUW" resolve="fileName" />
+            </node>
+            <node concept="1YBJjd" id="4gSHdTptNCH" role="1urrMF">
+              <ref role="1YBMHb" node="4gSHdTptNAb" resolve="project" />
             </node>
           </node>
         </node>
@@ -1447,11 +1447,11 @@
             <node concept="Xl_RD" id="5HVSRHdUotZ" role="2MkJ7o">
               <property role="Xl_RC" value="exclude selector cannot contain spaces or comma: use excludes" />
             </node>
-            <node concept="1YBJjd" id="5HVSRHdUou0" role="2OEOjV">
-              <ref role="1YBMHb" node="5HVSRHdTUi9" resolve="ex" />
-            </node>
-            <node concept="2ODE4t" id="5HVSRHdUou3" role="2OEWyd">
+            <node concept="2ODE4t" id="5HVSRHdUou3" role="1urrC5">
               <ref role="2ODJFN" to="3ior:4zlO3QT9yYC" resolve="pattern" />
+            </node>
+            <node concept="1YBJjd" id="5HVSRHdUou0" role="1urrMF">
+              <ref role="1YBMHb" node="5HVSRHdTUi9" resolve="ex" />
             </node>
           </node>
         </node>
@@ -1569,11 +1569,11 @@
             <node concept="Xl_RD" id="5HVSRHdUoua" role="2MkJ7o">
               <property role="Xl_RC" value="include selector cannot contain spaces or comma" />
             </node>
-            <node concept="1YBJjd" id="5HVSRHdUouI" role="2OEOjV">
-              <ref role="1YBMHb" node="5HVSRHdUou6" resolve="inc" />
-            </node>
-            <node concept="2ODE4t" id="5HVSRHdUouc" role="2OEWyd">
+            <node concept="2ODE4t" id="5HVSRHdUouc" role="1urrC5">
               <ref role="2ODJFN" to="3ior:4zlO3QT9yYt" resolve="pattern" />
+            </node>
+            <node concept="1YBJjd" id="5HVSRHdUouI" role="1urrMF">
+              <ref role="1YBMHb" node="5HVSRHdUou6" resolve="inc" />
             </node>
           </node>
         </node>
@@ -1649,16 +1649,16 @@
         </node>
         <node concept="3clFbS" id="7N6lJotW6kp" role="3clFbx">
           <node concept="a7r0C" id="7N6lJotW6mo" role="3cqZAp">
-            <node concept="2OqwBi" id="7N6lJotW6mL" role="2OEOjV">
+            <node concept="Xl_RD" id="7N6lJotW6mr" role="a7wSD">
+              <property role="Xl_RC" value="Jar manifest name will be ignored." />
+            </node>
+            <node concept="2OqwBi" id="7N6lJotW6mL" role="1urrMF">
               <node concept="1YBJjd" id="7N6lJotW6ms" role="2Oq$k0">
                 <ref role="1YBMHb" node="7N6lJotW6km" resolve="manifest" />
               </node>
               <node concept="3TrEf2" id="7N6lJotW6mQ" role="2OqNvi">
                 <ref role="3Tt5mk" to="3ior:6uJjF_N$tZ1" resolve="name" />
               </node>
-            </node>
-            <node concept="Xl_RD" id="7N6lJotW6mr" role="a7wSD">
-              <property role="Xl_RC" value="Jar manifest name will be ignored." />
             </node>
           </node>
         </node>

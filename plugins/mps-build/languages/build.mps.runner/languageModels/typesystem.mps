@@ -103,14 +103,14 @@
       <concept id="1227096620180" name="jetbrains.mps.lang.typesystem.structure.ReferenceMessageTarget" flags="ng" index="2OE7Q9">
         <reference id="1227096645744" name="linkDeclaration" index="2OEe5H" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -330,9 +330,6 @@
       <node concept="3clFbJ" id="5AcmpEOhZta" role="3cqZAp">
         <node concept="3clFbS" id="5AcmpEOhZtc" role="3clFbx">
           <node concept="2MkqsV" id="5AcmpEOi0lO" role="3cqZAp">
-            <node concept="1YBJjd" id="5AcmpEOi0lP" role="2OEOjV">
-              <ref role="1YBMHb" node="6rDosczLWA$" resolve="buildSolutionRunner" />
-            </node>
             <node concept="3cpWs3" id="5AcmpEOi0lQ" role="2MkJ7o">
               <node concept="2OqwBi" id="5AcmpEOi0lR" role="3uHU7w">
                 <node concept="37vLTw" id="7L2U3nU1poy" role="2Oq$k0">
@@ -346,8 +343,11 @@
                 <property role="Xl_RC" value="Cannot find solution " />
               </node>
             </node>
-            <node concept="2OE7Q9" id="5AcmpEOi0m5" role="2OEWyd">
+            <node concept="2OE7Q9" id="5AcmpEOi0m5" role="1urrC5">
               <ref role="2OEe5H" to="as3y:5iKxrmkn6qh" resolve="solution" />
+            </node>
+            <node concept="1YBJjd" id="5AcmpEOi0lP" role="1urrMF">
+              <ref role="1YBMHb" node="6rDosczLWA$" resolve="buildSolutionRunner" />
             </node>
           </node>
           <node concept="3cpWs6" id="5AcmpEOi0wT" role="3cqZAp" />
@@ -548,9 +548,6 @@
         </node>
       </node>
       <node concept="2MkqsV" id="6rDosczM6No" role="3cqZAp">
-        <node concept="1YBJjd" id="6rDosczM8H$" role="2OEOjV">
-          <ref role="1YBMHb" node="6rDosczLWA$" resolve="buildSolutionRunner" />
-        </node>
         <node concept="3cpWs3" id="6rDosczM7ae" role="2MkJ7o">
           <node concept="2OqwBi" id="6rDosczM7V$" role="3uHU7w">
             <node concept="37vLTw" id="7L2U3nU1r59" role="2Oq$k0">
@@ -584,8 +581,11 @@
             </node>
           </node>
         </node>
-        <node concept="2OE7Q9" id="6rDosczM8Qn" role="2OEWyd">
+        <node concept="2OE7Q9" id="6rDosczM8Qn" role="1urrC5">
           <ref role="2OEe5H" to="as3y:5iKxrmkn6qh" resolve="solution" />
+        </node>
+        <node concept="1YBJjd" id="6rDosczM8H$" role="1urrMF">
+          <ref role="1YBMHb" node="6rDosczLWA$" resolve="buildSolutionRunner" />
         </node>
       </node>
     </node>

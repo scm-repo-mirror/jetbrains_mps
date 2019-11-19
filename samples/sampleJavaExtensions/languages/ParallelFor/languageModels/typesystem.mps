@@ -149,10 +149,6 @@
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
       <concept id="1179832490862" name="jetbrains.mps.lang.typesystem.structure.CreateStrongLessThanInequationStatement" flags="nn" index="2NvLDW" />
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216391046856" name="descriptionBlock" index="QzAvj" />
@@ -164,6 +160,10 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
       </concept>
@@ -496,14 +496,14 @@
                 </node>
                 <node concept="3clFbS" id="6KBb0wH6DQK" role="3clFbx">
                   <node concept="2MkqsV" id="6KBb0wH6HFf" role="3cqZAp">
-                    <node concept="3Cnw8n" id="6KBb0wH6KQl" role="2OEOjU">
-                      <ref role="QpYPw" node="6KBb0wH6KPO" resolve="MakeDeclarationFinal" />
-                    </node>
-                    <node concept="1YBJjd" id="6KBb0wH6HFj" role="2OEOjV">
-                      <ref role="1YBMHb" node="6KBb0wH6DQs" resolve="variableReference" />
-                    </node>
                     <node concept="Xl_RD" id="6KBb0wH6HFi" role="2MkJ7o">
                       <property role="Xl_RC" value="Cannot refer non-final variables and parameters from within concurrent code" />
+                    </node>
+                    <node concept="1YBJjd" id="6KBb0wH6HFj" role="1urrMF">
+                      <ref role="1YBMHb" node="6KBb0wH6DQs" resolve="variableReference" />
+                    </node>
+                    <node concept="3Cnw8n" id="6KBb0wH6KQl" role="1urrFz">
+                      <ref role="QpYPw" node="6KBb0wH6KPO" resolve="MakeDeclarationFinal" />
                     </node>
                   </node>
                 </node>
@@ -715,11 +715,11 @@
               <node concept="3clFbJ" id="4ERQEDB1o4O" role="3cqZAp">
                 <node concept="3clFbS" id="4ERQEDB1o4P" role="3clFbx">
                   <node concept="2MkqsV" id="4ERQEDB1o5B" role="3cqZAp">
-                    <node concept="1YBJjd" id="4ERQEDB1o5F" role="2OEOjV">
-                      <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
-                    </node>
                     <node concept="Xl_RD" id="4ERQEDB1o5E" role="2MkJ7o">
                       <property role="Xl_RC" value="Calling a method on a non-thread-safe class" />
+                    </node>
+                    <node concept="1YBJjd" id="4ERQEDB1o5F" role="1urrMF">
+                      <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
                     </node>
                   </node>
                 </node>
@@ -741,11 +741,11 @@
                     <node concept="3clFbJ" id="34zgNsMI$gE" role="3cqZAp">
                       <node concept="3clFbS" id="34zgNsMI$gF" role="3clFbx">
                         <node concept="a7r0C" id="4ERQEDB1o5I" role="3cqZAp">
-                          <node concept="1YBJjd" id="4ERQEDB1o5M" role="2OEOjV">
-                            <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
-                          </node>
                           <node concept="Xl_RD" id="4ERQEDB1o5L" role="a7wSD">
                             <property role="Xl_RC" value="Calling a method on a potentially non-thread-safe class" />
+                          </node>
+                          <node concept="1YBJjd" id="4ERQEDB1o5M" role="1urrMF">
+                            <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
                           </node>
                         </node>
                       </node>
@@ -943,11 +943,11 @@
                 <node concept="3clFbJ" id="4ERQEDB1AMY" role="3cqZAp">
                   <node concept="3clFbS" id="4ERQEDB1AMZ" role="3clFbx">
                     <node concept="2MkqsV" id="4ERQEDB1ANj" role="3cqZAp">
-                      <node concept="1YBJjd" id="4ERQEDB1ANk" role="2OEOjV">
-                        <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
-                      </node>
                       <node concept="Xl_RD" id="4ERQEDB1ANl" role="2MkJ7o">
                         <property role="Xl_RC" value="Calling a method on a non-thread-safe shared object" />
+                      </node>
+                      <node concept="1YBJjd" id="4ERQEDB1ANk" role="1urrMF">
+                        <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
                       </node>
                     </node>
                   </node>
@@ -974,11 +974,11 @@
                   </node>
                 </node>
                 <node concept="a7r0C" id="4ERQEDB1o9R" role="3cqZAp">
-                  <node concept="1YBJjd" id="4ERQEDB1o9S" role="2OEOjV">
-                    <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
-                  </node>
                   <node concept="Xl_RD" id="4ERQEDB1o9T" role="a7wSD">
                     <property role="Xl_RC" value="Calling a method on a potentially non-thread-safe shared object" />
+                  </node>
+                  <node concept="1YBJjd" id="4ERQEDB1o9S" role="1urrMF">
+                    <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
                   </node>
                 </node>
                 <node concept="3cpWs6" id="4ERQEDB1o9V" role="3cqZAp" />
@@ -1120,11 +1120,11 @@
                 <node concept="3clFbJ" id="4ERQEDB1AMG" role="3cqZAp">
                   <node concept="3clFbS" id="4ERQEDB1AMH" role="3clFbx">
                     <node concept="2MkqsV" id="4ERQEDB1AMV" role="3cqZAp">
-                      <node concept="1YBJjd" id="4ERQEDB1AMW" role="2OEOjV">
-                        <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
-                      </node>
                       <node concept="Xl_RD" id="4ERQEDB1AMX" role="2MkJ7o">
                         <property role="Xl_RC" value="Calling a method on a non-thread-safe classifier" />
+                      </node>
+                      <node concept="1YBJjd" id="4ERQEDB1AMW" role="1urrMF">
+                        <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
                       </node>
                     </node>
                   </node>
@@ -1151,11 +1151,11 @@
                   </node>
                 </node>
                 <node concept="a7r0C" id="4ERQEDB1oc0" role="3cqZAp">
-                  <node concept="1YBJjd" id="4ERQEDB1oc1" role="2OEOjV">
-                    <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
-                  </node>
                   <node concept="Xl_RD" id="4ERQEDB1oc2" role="a7wSD">
                     <property role="Xl_RC" value="Calling a method on a potentially non-thread-safe classifier" />
+                  </node>
+                  <node concept="1YBJjd" id="4ERQEDB1oc1" role="1urrMF">
+                    <ref role="1YBMHb" node="4ERQEDB1fUZ" resolve="baseMethodCall" />
                   </node>
                 </node>
               </node>
@@ -1231,10 +1231,10 @@
                   <node concept="Xl_RD" id="44JMKrMiuYZ" role="2MkJ7o">
                     <property role="Xl_RC" value="Cannot return from within a parallel for loop using a return statement. Use continue instead" />
                   </node>
-                  <node concept="37vLTw" id="2BHiRxgha6c" role="2OEOjV">
+                  <node concept="37vLTw" id="2BHiRxgha6c" role="1urrMF">
                     <ref role="3cqZAo" node="44JMKrMiuYU" resolve="it" />
                   </node>
-                  <node concept="3Cnw8n" id="44JMKrMiUby" role="2OEOjU">
+                  <node concept="3Cnw8n" id="44JMKrMiUby" role="1urrFz">
                     <ref role="QpYPw" node="44JMKrMiUaW" resolve="TurnReturnToContinue" />
                   </node>
                 </node>
@@ -1304,7 +1304,7 @@
                   <node concept="Xl_RD" id="44JMKrMiFui" role="2MkJ7o">
                     <property role="Xl_RC" value="Hush! Can't break from within a concurrently run branch of the computation." />
                   </node>
-                  <node concept="37vLTw" id="2BHiRxglnVj" role="2OEOjV">
+                  <node concept="37vLTw" id="2BHiRxglnVj" role="1urrMF">
                     <ref role="3cqZAo" node="44JMKrMiFud" resolve="it" />
                   </node>
                 </node>
@@ -1483,7 +1483,7 @@
                         <node concept="Xl_RD" id="34zgNsMItMy" role="2MkJ7o">
                           <property role="Xl_RC" value="Calling a method on a non-thread-safe shared object" />
                         </node>
-                        <node concept="2OqwBi" id="34zgNsMItMz" role="2OEOjV">
+                        <node concept="2OqwBi" id="34zgNsMItMz" role="1urrMF">
                           <node concept="1YBJjd" id="34zgNsMItM$" role="2Oq$k0">
                             <ref role="1YBMHb" node="34zgNsMI5Vs" resolve="dotExpression" />
                           </node>
@@ -1515,7 +1515,7 @@
                         <node concept="Xl_RD" id="34zgNsMIuIs" role="a7wSD">
                           <property role="Xl_RC" value="Calling a method on a potentially non-thread-safe shared object" />
                         </node>
-                        <node concept="2OqwBi" id="34zgNsMIuIt" role="2OEOjV">
+                        <node concept="2OqwBi" id="34zgNsMIuIt" role="1urrMF">
                           <node concept="1YBJjd" id="34zgNsMIuIu" role="2Oq$k0">
                             <ref role="1YBMHb" node="34zgNsMI5Vs" resolve="dotExpression" />
                           </node>
@@ -1739,7 +1739,7 @@
                             <node concept="Xl_RD" id="34zgNsMI5Wk" role="2MkJ7o">
                               <property role="Xl_RC" value="Calling a method on a non-thread-safe shared object" />
                             </node>
-                            <node concept="2OqwBi" id="34zgNsMI5Wl" role="2OEOjV">
+                            <node concept="2OqwBi" id="34zgNsMI5Wl" role="1urrMF">
                               <node concept="1YBJjd" id="34zgNsMI5Y6" role="2Oq$k0">
                                 <ref role="1YBMHb" node="34zgNsMI5Vs" resolve="dotExpression" />
                               </node>
@@ -1783,7 +1783,7 @@
                         <node concept="Xl_RD" id="34zgNsMI5X4" role="a7wSD">
                           <property role="Xl_RC" value="Calling a method on a potentially non-thread-safe shared object" />
                         </node>
-                        <node concept="2OqwBi" id="34zgNsMI5X5" role="2OEOjV">
+                        <node concept="2OqwBi" id="34zgNsMI5X5" role="1urrMF">
                           <node concept="1YBJjd" id="34zgNsMI5Y7" role="2Oq$k0">
                             <ref role="1YBMHb" node="34zgNsMI5Vs" resolve="dotExpression" />
                           </node>

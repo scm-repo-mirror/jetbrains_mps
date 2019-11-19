@@ -198,9 +198,6 @@
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
       <concept id="1179832490862" name="jetbrains.mps.lang.typesystem.structure.CreateStrongLessThanInequationStatement" flags="nn" index="2NvLDW" />
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1205762105978" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableDeclaration" flags="ng" index="2X1qdy" />
       <concept id="1205762656241" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableReference" flags="nn" index="2X3wrD">
         <reference id="1205762683928" name="whenConcreteVar" index="2X3Bk0" />
@@ -217,6 +214,9 @@
       </concept>
       <concept id="1188811367543" name="jetbrains.mps.lang.typesystem.structure.ComparisonRule" flags="ig" index="3aFulz">
         <child id="1188820750135" name="anotherNode" index="3bfgSz" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1176558773329" name="jetbrains.mps.lang.typesystem.structure.CoerceStatement" flags="nn" index="3Knyl0">
         <child id="1220447035659" name="elseClause" index="CjY0n" />
@@ -506,7 +506,7 @@
         <node concept="Xl_RD" id="i1LuVPG" role="2MkJ7o">
           <property role="Xl_RC" value="Member types count don't match" />
         </node>
-        <node concept="2OqwBi" id="i1L_6ei" role="2OEOjV">
+        <node concept="2OqwBi" id="i1L_6ei" role="1urrMF">
           <node concept="3622Ei" id="i1L_5YE" role="2Oq$k0" />
           <node concept="liA8E" id="i1L_7YK" role="2OqNvi">
             <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -582,7 +582,7 @@
             <ref role="37wK5l" to="tpek:i1LOPRp" resolve="isCompileTimeConstant" />
           </node>
         </node>
-        <node concept="1YBJjd" id="i1M1DGB" role="2OEOjV">
+        <node concept="1YBJjd" id="i1M1DGB" role="1urrMF">
           <ref role="1YBMHb" node="i1LFI92" resolve="mae" />
         </node>
       </node>
@@ -719,7 +719,7 @@
                         <node concept="Xl_RD" id="i1M473d" role="2MkJ7o">
                           <property role="Xl_RC" value="Index value out of range" />
                         </node>
-                        <node concept="1YBJjd" id="i1M49G8" role="2OEOjV">
+                        <node concept="1YBJjd" id="i1M49G8" role="1urrMF">
                           <ref role="1YBMHb" node="i1LFI92" resolve="mae" />
                         </node>
                       </node>
@@ -796,7 +796,7 @@
                         <node concept="Xl_RD" id="2gNzb_Vv3CK" role="2MkJ7o">
                           <property role="Xl_RC" value="Indexed tuple expected" />
                         </node>
-                        <node concept="1YBJjd" id="2gNzb_Vv3zJ" role="2OEOjV">
+                        <node concept="1YBJjd" id="2gNzb_Vv3zJ" role="1urrMF">
                           <ref role="1YBMHb" node="i1LFI92" resolve="mae" />
                         </node>
                       </node>
@@ -940,7 +940,7 @@
         <node concept="Xl_RD" id="i2sF5xV" role="2MkJ7o">
           <property role="Xl_RC" value="Invalid components number" />
         </node>
-        <node concept="1YBJjd" id="i2sFcez" role="2OEOjV">
+        <node concept="1YBJjd" id="i2sFcez" role="1urrMF">
           <ref role="1YBMHb" node="i2sEQr5" resolve="literal" />
         </node>
       </node>
@@ -1250,7 +1250,7 @@
             <node concept="Xl_RD" id="i2NSQkW" role="2MkJ7o">
               <property role="Xl_RC" value="Parameter types counts don't match" />
             </node>
-            <node concept="2OqwBi" id="i2NSZV2" role="2OEOjV">
+            <node concept="2OqwBi" id="i2NSZV2" role="1urrMF">
               <node concept="3622Ei" id="i2NSZV3" role="2Oq$k0" />
               <node concept="liA8E" id="i2NSZV4" role="2OqNvi">
                 <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -1349,7 +1349,7 @@
               <node concept="Xl_RD" id="1URWj4UG5GH" role="2MkJ7o">
                 <property role="Xl_RC" value="Incompatible named closure" />
               </node>
-              <node concept="1YBJjd" id="1URWj4UG5GI" role="2OEOjV">
+              <node concept="1YBJjd" id="1URWj4UG5GI" role="1urrMF">
                 <ref role="1YBMHb" node="i2sGDM9" resolve="right" />
               </node>
             </node>
@@ -2001,9 +2001,6 @@
     <property role="3GE5qa" value="checks" />
     <node concept="3clFbS" id="i2IG7r$" role="18ibNy">
       <node concept="2Mj0R9" id="i2IGdkU" role="3cqZAp">
-        <node concept="1YBJjd" id="i2IGdkV" role="2OEOjV">
-          <ref role="1YBMHb" node="i2IG9P6" resolve="ntt" />
-        </node>
         <node concept="Xl_RD" id="i2IGdkW" role="2MkJ7o">
           <property role="Xl_RC" value="Invalid parameter types count" />
         </node>
@@ -2048,6 +2045,9 @@
               <node concept="34oBXx" id="3IxUQxtPlko" role="2OqNvi" />
             </node>
           </node>
+        </node>
+        <node concept="1YBJjd" id="i2IGdkV" role="1urrMF">
+          <ref role="1YBMHb" node="i2IG9P6" resolve="ntt" />
         </node>
       </node>
     </node>
@@ -2158,7 +2158,7 @@
             <node concept="Xl_RD" id="773fP$ysFnJ" role="2MkJ7o">
               <property role="Xl_RC" value="tuple component is out of scope" />
             </node>
-            <node concept="37vLTw" id="3GM_nagTu5a" role="2OEOjV">
+            <node concept="37vLTw" id="3GM_nagTu5a" role="1urrMF">
               <ref role="3cqZAo" node="773fP$ysF5y" resolve="ref" />
             </node>
           </node>
@@ -2417,16 +2417,16 @@
                 </node>
               </node>
             </node>
-            <node concept="2OqwBi" id="hTULY9s6fG" role="2OEOjV">
+            <node concept="Xl_RD" id="6oXoKz3Tl6M" role="2MkJ7o">
+              <property role="Xl_RC" value="circular extends relation" />
+            </node>
+            <node concept="2OqwBi" id="hTULY9s6fG" role="1urrMF">
               <node concept="1YBJjd" id="hTULY9s6fH" role="2Oq$k0">
                 <ref role="1YBMHb" node="6oXoKz3Td8H" resolve="ntd" />
               </node>
               <node concept="3TrEf2" id="hTULY9s6fI" role="2OqNvi">
                 <ref role="3Tt5mk" to="cx9y:hTULY9rUh4" resolve="extended" />
               </node>
-            </node>
-            <node concept="Xl_RD" id="6oXoKz3Tl6M" role="2MkJ7o">
-              <property role="Xl_RC" value="circular extends relation" />
             </node>
           </node>
           <node concept="2Gpval" id="6oXoKz3Tl74" role="3cqZAp">
@@ -2507,7 +2507,7 @@
                     <node concept="Xl_RD" id="6oXoKz3Tl8a" role="2MkJ7o">
                       <property role="Xl_RC" value="duplicate component name" />
                     </node>
-                    <node concept="2GrUjf" id="6oXoKz3Tl8b" role="2OEOjV">
+                    <node concept="2GrUjf" id="6oXoKz3Tl8b" role="1urrMF">
                       <ref role="2Gs0qQ" node="6oXoKz3Tl75" resolve="cmp" />
                     </node>
                   </node>

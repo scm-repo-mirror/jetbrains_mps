@@ -237,11 +237,6 @@
       <concept id="1227096620180" name="jetbrains.mps.lang.typesystem.structure.ReferenceMessageTarget" flags="ng" index="2OE7Q9">
         <reference id="1227096645744" name="linkDeclaration" index="2OEe5H" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216383476350" name="quickFixArgument" index="Q6Id_" />
@@ -263,6 +258,11 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <property id="1216127910019" name="applyImmediately" index="ARO6o" />
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
@@ -501,7 +501,7 @@
                 </node>
               </node>
             </node>
-            <node concept="2OqwBi" id="2VRROcY6CSI" role="2OEOjV">
+            <node concept="2OqwBi" id="2VRROcY6CSI" role="1urrMF">
               <node concept="1YBJjd" id="2VRROcY6CSJ" role="2Oq$k0">
                 <ref role="1YBMHb" node="1_lSsE3UMqS" resolve="cld" />
               </node>
@@ -969,7 +969,13 @@
       <node concept="3clFbJ" id="50H9TEDlria" role="3cqZAp">
         <node concept="3clFbS" id="50H9TEDlric" role="3clFbx">
           <node concept="2MkqsV" id="50H9TEDlpRY" role="3cqZAp">
-            <node concept="3Cnw8n" id="50H9TEDlpWB" role="2OEOjU">
+            <node concept="Xl_RD" id="50H9TEDlpSf" role="2MkJ7o">
+              <property role="Xl_RC" value="Method is not in sync with its declaration" />
+            </node>
+            <node concept="1YBJjd" id="50H9TEDlpUV" role="1urrMF">
+              <ref role="1YBMHb" node="3m06JgsoYZb" resolve="method" />
+            </node>
+            <node concept="3Cnw8n" id="50H9TEDlpWB" role="1urrFz">
               <property role="ARO6o" value="true" />
               <ref role="QpYPw" node="OxL7Od7yW5" resolve="FixMethodAutomatically" />
               <node concept="3CnSsL" id="50H9TEDlpYq" role="3Coj4f">
@@ -978,12 +984,6 @@
                   <ref role="1YBMHb" node="3m06JgsoYZb" resolve="method" />
                 </node>
               </node>
-            </node>
-            <node concept="1YBJjd" id="50H9TEDlpUV" role="2OEOjV">
-              <ref role="1YBMHb" node="3m06JgsoYZb" resolve="method" />
-            </node>
-            <node concept="Xl_RD" id="50H9TEDlpSf" role="2MkJ7o">
-              <property role="Xl_RC" value="Method is not in sync with its declaration" />
             </node>
           </node>
           <node concept="3cpWs6" id="50H9TEDlpQp" role="3cqZAp" />
@@ -1002,12 +1002,6 @@
       <node concept="3clFbJ" id="50H9TEDlrB8" role="3cqZAp">
         <node concept="3clFbS" id="50H9TEDlrB9" role="3clFbx">
           <node concept="2MkqsV" id="50H9TEDlqcZ" role="3cqZAp">
-            <node concept="3Cnw8n" id="50H9TEDlqd0" role="2OEOjU">
-              <ref role="QpYPw" node="EaAe82wBgI" resolve="fix_SignatureMismatch" />
-            </node>
-            <node concept="1YBJjd" id="50H9TEDlrVd" role="2OEOjV">
-              <ref role="1YBMHb" node="3m06JgsoYZb" resolve="method" />
-            </node>
             <node concept="3cpWs3" id="50H9TEDlqd2" role="2MkJ7o">
               <node concept="Xl_RD" id="50H9TEDlqd4" role="3uHU7B">
                 <property role="Xl_RC" value="Wrong method signature. Can't repair automatically. " />
@@ -1020,6 +1014,12 @@
                   <ref role="37wK5l" node="50H9TEDltOt" resolve="getErrorMessage" />
                 </node>
               </node>
+            </node>
+            <node concept="1YBJjd" id="50H9TEDlrVd" role="1urrMF">
+              <ref role="1YBMHb" node="3m06JgsoYZb" resolve="method" />
+            </node>
+            <node concept="3Cnw8n" id="50H9TEDlqd0" role="1urrFz">
+              <ref role="QpYPw" node="EaAe82wBgI" resolve="fix_SignatureMismatch" />
             </node>
           </node>
           <node concept="3cpWs6" id="50H9TEDlrBg" role="3cqZAp" />
@@ -1100,17 +1100,17 @@
       <node concept="3clFbJ" id="3m06JgsqMLN" role="3cqZAp">
         <node concept="3clFbS" id="3m06JgsqMLQ" role="3clFbx">
           <node concept="2MkqsV" id="3m06JgsqN2k" role="3cqZAp">
-            <node concept="1YBJjd" id="3m06JgsqN2Y" role="2OEOjV">
-              <ref role="1YBMHb" node="3m06Jgsp0Uy" resolve="property" />
-            </node>
             <node concept="Xl_RD" id="3m06JgsqN2E" role="2MkJ7o">
               <property role="Xl_RC" value="Property type is not the same as in descriptor" />
             </node>
-            <node concept="3Cnw8n" id="3m06JgsqN3_" role="2OEOjU">
-              <ref role="QpYPw" node="EaAe82wBgI" resolve="fix_SignatureMismatch" />
-            </node>
-            <node concept="2ODE4t" id="3m06JgsqN9d" role="2OEWyd">
+            <node concept="2ODE4t" id="3m06JgsqN9d" role="1urrC5">
               <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
+            </node>
+            <node concept="1YBJjd" id="3m06JgsqN2Y" role="1urrMF">
+              <ref role="1YBMHb" node="3m06Jgsp0Uy" resolve="property" />
+            </node>
+            <node concept="3Cnw8n" id="3m06JgsqN3_" role="1urrFz">
+              <ref role="QpYPw" node="EaAe82wBgI" resolve="fix_SignatureMismatch" />
             </node>
           </node>
         </node>
@@ -1187,9 +1187,6 @@
                     </node>
                     <node concept="3clFbS" id="2gzehMflZYy" role="2LFqv$">
                       <node concept="2MkqsV" id="2gzehMflZJy" role="3cqZAp">
-                        <node concept="2GrUjf" id="2gzehMfm1oy" role="2OEOjV">
-                          <ref role="2Gs0qQ" node="2gzehMflZYw" resolve="member" />
-                        </node>
                         <node concept="3cpWs3" id="5zDW7Nr$xjp" role="2MkJ7o">
                           <node concept="3cpWs3" id="2gzehMflZVm" role="3uHU7B">
                             <node concept="Xl_RD" id="2gzehMflZJM" role="3uHU7B">
@@ -1202,6 +1199,9 @@
                           <node concept="Xl_RD" id="5zDW7Nr$xG7" role="3uHU7w">
                             <property role="Xl_RC" value="'" />
                           </node>
+                        </node>
+                        <node concept="2GrUjf" id="2gzehMfm1oy" role="1urrMF">
+                          <ref role="2Gs0qQ" node="2gzehMflZYw" resolve="member" />
                         </node>
                       </node>
                     </node>
@@ -1311,9 +1311,6 @@
                     </node>
                   </node>
                 </node>
-                <node concept="1YBJjd" id="2gzehMflUZG" role="2OEOjV">
-                  <ref role="1YBMHb" node="2gzehMfi13O" resolve="classLike" />
-                </node>
                 <node concept="2OqwBi" id="2gzehMflQWq" role="2MkoU_">
                   <node concept="2OqwBi" id="2gzehMflPa$" role="2Oq$k0">
                     <node concept="2GrUjf" id="2gzehMflP9y" role="2Oq$k0">
@@ -1327,6 +1324,9 @@
                     </node>
                   </node>
                   <node concept="3GX2aA" id="2gzehMflRuM" role="2OqNvi" />
+                </node>
+                <node concept="1YBJjd" id="2gzehMflUZG" role="1urrMF">
+                  <ref role="1YBMHb" node="2gzehMfi13O" resolve="classLike" />
                 </node>
               </node>
             </node>
@@ -1437,11 +1437,11 @@
               <property role="Xl_RC" value="custom member should be a subconcept of " />
             </node>
           </node>
-          <node concept="37vLTw" id="5KZRo2km8bv" role="2OEOjV">
-            <ref role="3cqZAo" node="5KZRo2km7KH" resolve="toCheck" />
-          </node>
-          <node concept="2OE7Q9" id="5KZRo2kmlcf" role="2OEWyd">
+          <node concept="2OE7Q9" id="5KZRo2kmlcf" role="1urrC5">
             <ref role="2OEe5H" to="oubp:7aMlq14w5Qv" resolve="cncpt" />
+          </node>
+          <node concept="37vLTw" id="5KZRo2km8bv" role="1urrMF">
+            <ref role="3cqZAo" node="5KZRo2km7KH" resolve="toCheck" />
           </node>
         </node>
       </node>
@@ -3362,7 +3362,7 @@
             <node concept="Xl_RD" id="3UdX2XvIJNm" role="2MkJ7o">
               <property role="Xl_RC" value="Referenced Descriptor shall specify this model as its implementation one" />
             </node>
-            <node concept="1YBJjd" id="3UdX2XvIJFe" role="2OEOjV">
+            <node concept="1YBJjd" id="3UdX2XvIJFe" role="1urrMF">
               <ref role="1YBMHb" node="3UdX2XvIIqy" resolve="n" />
             </node>
           </node>
@@ -3427,7 +3427,7 @@
               <node concept="Xl_RD" id="3UdX2XvIM1t" role="2MkJ7o">
                 <property role="Xl_RC" value="Referenced Descriptor specifies model other this one as its implementation" />
               </node>
-              <node concept="1YBJjd" id="3UdX2XvIM1u" role="2OEOjV">
+              <node concept="1YBJjd" id="3UdX2XvIM1u" role="1urrMF">
                 <ref role="1YBMHb" node="3UdX2XvIIqy" resolve="n" />
               </node>
             </node>

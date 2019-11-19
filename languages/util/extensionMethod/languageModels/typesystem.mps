@@ -137,9 +137,6 @@
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
       <concept id="1179832490862" name="jetbrains.mps.lang.typesystem.structure.CreateStrongLessThanInequationStatement" flags="nn" index="2NvLDW" />
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1205762105978" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableDeclaration" flags="ng" index="2X1qdy" />
       <concept id="1205762656241" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableReference" flags="nn" index="2X3wrD">
         <reference id="1205762683928" name="whenConcreteVar" index="2X3Bk0" />
@@ -147,6 +144,9 @@
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
@@ -1166,9 +1166,6 @@
         </node>
       </node>
       <node concept="2Mj0R9" id="7PtaNzTZWAn" role="3cqZAp">
-        <node concept="1YBJjd" id="7PtaNzTZYjD" role="2OEOjV">
-          <ref role="1YBMHb" node="6EBM_lhz9pZ" resolve="lexmcall" />
-        </node>
         <node concept="Xl_RD" id="7PtaNzTZY6k" role="2MkJ7o">
           <property role="Xl_RC" value="invalid operand type" />
         </node>
@@ -1182,6 +1179,9 @@
           <node concept="37vLTw" id="7PtaNzTZWM6" role="2Oq$k0">
             <ref role="3cqZAo" node="2W0rjiHmGxT" resolve="exclass" />
           </node>
+        </node>
+        <node concept="1YBJjd" id="7PtaNzTZYjD" role="1urrMF">
+          <ref role="1YBMHb" node="6EBM_lhz9pZ" resolve="lexmcall" />
         </node>
       </node>
       <node concept="3clFbJ" id="7PtaNzTZJj1" role="3cqZAp">

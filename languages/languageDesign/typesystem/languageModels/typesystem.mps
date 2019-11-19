@@ -199,10 +199,6 @@
       <concept id="1227096498176" name="jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget" flags="ng" index="2ODE4t">
         <reference id="1227096521710" name="propertyDeclaration" index="2ODJFN" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1201607707634" name="jetbrains.mps.lang.typesystem.structure.InequationReplacementRule" flags="ig" index="35pCF_">
         <child id="1201607798918" name="supertypeNode" index="35pZ6h" />
         <child id="3592071576955708909" name="isApplicableClause" index="1xSnZW" />
@@ -214,6 +210,10 @@
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
       <concept id="1188811367543" name="jetbrains.mps.lang.typesystem.structure.ComparisonRule" flags="ig" index="3aFulz">
         <child id="1188820750135" name="anotherNode" index="3bfgSz" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="3592071576955708904" name="jetbrains.mps.lang.typesystem.structure.IsReplacementRuleApplicable_ConceptFunction" flags="in" index="1xSnZT" />
       <concept id="1176543928247" name="jetbrains.mps.lang.typesystem.structure.IsSubtypeExpression" flags="nn" index="3JuTUA">
@@ -1380,7 +1380,7 @@
         <node concept="Xl_RD" id="hp8vZlh" role="2MkJ7o">
           <property role="Xl_RC" value="TYPEOF should be used only within inference rules" />
         </node>
-        <node concept="1YBJjd" id="hp8wkQv" role="2OEOjV">
+        <node concept="1YBJjd" id="hp8wkQv" role="1urrMF">
           <ref role="1YBMHb" node="hp8vEEb" resolve="typeOfExpression" />
         </node>
       </node>
@@ -1405,7 +1405,7 @@
         <node concept="Xl_RD" id="hy4B6M4" role="2MkJ7o">
           <property role="Xl_RC" value="type of a type has little sense" />
         </node>
-        <node concept="1YBJjd" id="hy4BcWB" role="2OEOjV">
+        <node concept="1YBJjd" id="hy4BcWB" role="1urrMF">
           <ref role="1YBMHb" node="hp8vEEb" resolve="typeOfExpression" />
         </node>
       </node>
@@ -1430,7 +1430,7 @@
         <node concept="Xl_RD" id="hp8wzsq" role="2MkJ7o">
           <property role="Xl_RC" value="type equations should be used only within inference rules" />
         </node>
-        <node concept="1YBJjd" id="hp8wAjk" role="2OEOjV">
+        <node concept="1YBJjd" id="hp8wAjk" role="1urrMF">
           <ref role="1YBMHb" node="hp8wo$m" resolve="abstractEquationStatement" />
         </node>
       </node>
@@ -1454,7 +1454,7 @@
         <node concept="Xl_RD" id="hp8SeIi" role="2MkJ7o">
           <property role="Xl_RC" value="WHEN CONCRETE should be used only within inference rules" />
         </node>
-        <node concept="1YBJjd" id="hp8Sk4v" role="2OEOjV">
+        <node concept="1YBJjd" id="hp8Sk4v" role="1urrMF">
           <ref role="1YBMHb" node="hp8RZbt" resolve="whenConcreteStatement" />
         </node>
       </node>
@@ -1472,9 +1472,6 @@
         <node concept="Xl_RD" id="hpX49PO" role="2MkJ7o">
           <property role="Xl_RC" value="don't use infer type operation within inference rules" />
         </node>
-        <node concept="1YBJjd" id="hpX49fu" role="2OEOjV">
-          <ref role="1YBMHb" node="hpX3NRT" resolve="operation" />
-        </node>
         <node concept="3fqX7Q" id="hq1JF3Y" role="2MkoU_">
           <node concept="2YIFZM" id="hq1JF3Z" role="3fr31v">
             <ref role="37wK5l" node="hq1J4IC" resolve="withinInferenceItem" />
@@ -1483,6 +1480,9 @@
               <ref role="1YBMHb" node="hpX3NRT" resolve="operation" />
             </node>
           </node>
+        </node>
+        <node concept="1YBJjd" id="hpX49fu" role="1urrMF">
+          <ref role="1YBMHb" node="hpX3NRT" resolve="operation" />
         </node>
       </node>
     </node>
@@ -1509,7 +1509,7 @@
                 <node concept="Xl_RD" id="hq1MfWo" role="2MkJ7o">
                   <property role="Xl_RC" value="inference method should be called only within inference rules" />
                 </node>
-                <node concept="1YBJjd" id="hq1MnEl" role="2OEOjV">
+                <node concept="1YBJjd" id="hq1MnEl" role="1urrMF">
                   <ref role="1YBMHb" node="hq1LP6B" resolve="baseMethodCall" />
                 </node>
               </node>
@@ -1543,7 +1543,7 @@
                   <node concept="Xl_RD" id="4yPc1wMu$4x" role="2MkJ7o">
                     <property role="Xl_RC" value="checking method should be called only within checking methods and inference rules" />
                   </node>
-                  <node concept="1YBJjd" id="4yPc1wMu$4y" role="2OEOjV">
+                  <node concept="1YBJjd" id="4yPc1wMu$4y" role="1urrMF">
                     <ref role="1YBMHb" node="hq1LP6B" resolve="baseMethodCall" />
                   </node>
                 </node>
@@ -1670,7 +1670,7 @@
         <node concept="Xl_RD" id="hv62Iq7" role="2MkJ7o">
           <property role="Xl_RC" value="error info expression allowed only inside replacement rules" />
         </node>
-        <node concept="1YBJjd" id="hv62JcE" role="2OEOjV">
+        <node concept="1YBJjd" id="hv62JcE" role="1urrMF">
           <ref role="1YBMHb" node="hv62yaa" resolve="errorInfoExpression" />
         </node>
       </node>
@@ -1889,7 +1889,7 @@
                 <node concept="Xl_RD" id="hzsWAKt" role="2MkJ7o">
                   <property role="Xl_RC" value="inference method should not return a value" />
                 </node>
-                <node concept="2OqwBi" id="hzsWPDx" role="2OEOjV">
+                <node concept="2OqwBi" id="hzsWPDx" role="1urrMF">
                   <node concept="1YBJjd" id="hzsWPoS" role="2Oq$k0">
                     <ref role="1YBMHb" node="hzsWu_n" resolve="baseMethodDeclaration" />
                   </node>
@@ -2824,11 +2824,11 @@
             <ref role="1YBMHb" node="4ojslYmi1yp" resolve="messageStatement" />
           </node>
         </node>
-        <node concept="1YBJjd" id="4ojslYmi25E" role="2OEOjV">
-          <ref role="1YBMHb" node="4ojslYmi1yp" resolve="messageStatement" />
-        </node>
         <node concept="Xl_RD" id="4ojslYmi25D" role="2MkJ7o">
           <property role="Xl_RC" value="this statement should be used only within checking and inference rules" />
+        </node>
+        <node concept="1YBJjd" id="4ojslYmi25E" role="1urrMF">
+          <ref role="1YBMHb" node="4ojslYmi1yp" resolve="messageStatement" />
         </node>
       </node>
     </node>
@@ -2917,7 +2917,7 @@
             <node concept="Xl_RD" id="TuRZ74$n2b" role="2MkJ7o">
               <property role="Xl_RC" value="QuickFix that is not applied immediately will be shown in intentions menu. It must have a description." />
             </node>
-            <node concept="1YBJjd" id="TuRZ74$n25" role="2OEOjV">
+            <node concept="1YBJjd" id="TuRZ74$n25" role="1urrMF">
               <ref role="1YBMHb" node="TuRZ74$lk4" resolve="typesystemIntention" />
             </node>
           </node>
@@ -2937,9 +2937,6 @@
         <node concept="Xl_RD" id="5x0erXP9TMa" role="2MkJ7o">
           <property role="Xl_RC" value="don't use typeOperation within inference rules" />
         </node>
-        <node concept="1YBJjd" id="5x0erXP9TMb" role="2OEOjV">
-          <ref role="1YBMHb" node="5x0erXP9TMf" resolve="node_TypeOperation" />
-        </node>
         <node concept="3fqX7Q" id="5x0erXP9TMc" role="2MkoU_">
           <node concept="2YIFZM" id="5x0erXP9TMd" role="3fr31v">
             <ref role="37wK5l" node="hq1J4IC" resolve="withinInferenceItem" />
@@ -2949,13 +2946,13 @@
             </node>
           </node>
         </node>
+        <node concept="1YBJjd" id="5x0erXP9TMb" role="1urrMF">
+          <ref role="1YBMHb" node="5x0erXP9TMf" resolve="node_TypeOperation" />
+        </node>
       </node>
       <node concept="2Mj0R9" id="Z3KWg1iMOf" role="3cqZAp">
         <node concept="Xl_RD" id="Z3KWg1iMOg" role="2MkJ7o">
           <property role="Xl_RC" value="don't use typeOperation within such rules" />
-        </node>
-        <node concept="1YBJjd" id="Z3KWg1iMOh" role="2OEOjV">
-          <ref role="1YBMHb" node="5x0erXP9TMf" resolve="node_TypeOperation" />
         </node>
         <node concept="3fqX7Q" id="Z3KWg1iMOi" role="2MkoU_">
           <node concept="2YIFZM" id="Z3KWg1iMOl" role="3fr31v">
@@ -2965,6 +2962,9 @@
               <ref role="1YBMHb" node="5x0erXP9TMf" resolve="node_TypeOperation" />
             </node>
           </node>
+        </node>
+        <node concept="1YBJjd" id="Z3KWg1iMOh" role="1urrMF">
+          <ref role="1YBMHb" node="5x0erXP9TMf" resolve="node_TypeOperation" />
         </node>
       </node>
     </node>
@@ -3062,7 +3062,7 @@
                     <node concept="Xl_RD" id="3Gqh$cxtz8v" role="2MkJ7o">
                       <property role="Xl_RC" value="can't apply immediately if there are multiple quick fixes" />
                     </node>
-                    <node concept="37vLTw" id="3GM_nagTA86" role="2OEOjV">
+                    <node concept="37vLTw" id="3GM_nagTA86" role="1urrMF">
                       <ref role="3cqZAo" node="3Gqh$cxtz8e" resolve="intention" />
                     </node>
                   </node>
@@ -3135,7 +3135,7 @@
                     <node concept="Xl_RD" id="3Gqh$cxtz8O" role="2MkJ7o">
                       <property role="Xl_RC" value="can't apply immediately if there are multiple quick fixes" />
                     </node>
-                    <node concept="37vLTw" id="3GM_nagTtPS" role="2OEOjV">
+                    <node concept="37vLTw" id="3GM_nagTtPS" role="1urrMF">
                       <ref role="3cqZAo" node="3Gqh$cxtz8T" resolve="intention" />
                     </node>
                   </node>
@@ -3422,9 +3422,6 @@
                 <node concept="Xl_RD" id="7ZyHj74XL92" role="2MkJ7o">
                   <property role="Xl_RC" value="variable is used inside WHEN CONCRETE block. should be declared final" />
                 </node>
-                <node concept="1YBJjd" id="7ZyHj74XL93" role="2OEOjV">
-                  <ref role="1YBMHb" node="7ZyHj74XL9k" resolve="variableReference" />
-                </node>
                 <node concept="2OqwBi" id="7ZyHj74XL94" role="2MkoU_">
                   <node concept="37vLTw" id="3GM_nagTyfT" role="2Oq$k0">
                     <ref role="3cqZAo" node="7ZyHj74XL8I" resolve="variableDeclaration" />
@@ -3432,6 +3429,9 @@
                   <node concept="3TrcHB" id="7ZyHj74XL96" role="2OqNvi">
                     <ref role="3TsBF5" to="tpee:h7TUv0c" resolve="isFinal" />
                   </node>
+                </node>
+                <node concept="1YBJjd" id="7ZyHj74XL93" role="1urrMF">
+                  <ref role="1YBMHb" node="7ZyHj74XL9k" resolve="variableReference" />
                 </node>
               </node>
             </node>
@@ -3508,11 +3508,11 @@
             <node concept="Xl_RD" id="7k8A8aD93vl" role="2MkJ7o">
               <property role="Xl_RC" value="Duplicated name of the typesystem rule" />
             </node>
-            <node concept="1YBJjd" id="7k8A8aD93vm" role="2OEOjV">
-              <ref role="1YBMHb" node="1lzwuy2Uw_W" resolve="abstractRule" />
-            </node>
-            <node concept="2ODE4t" id="7k8A8aD93vn" role="2OEWyd">
+            <node concept="2ODE4t" id="7k8A8aD93vn" role="1urrC5">
               <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
+            </node>
+            <node concept="1YBJjd" id="7k8A8aD93vm" role="1urrMF">
+              <ref role="1YBMHb" node="1lzwuy2Uw_W" resolve="abstractRule" />
             </node>
           </node>
         </node>
@@ -4377,9 +4377,6 @@
         <node concept="Xl_RD" id="6lCixFIaU33" role="2MkJ7o">
           <property role="Xl_RC" value="attributedNode is not available in this context" />
         </node>
-        <node concept="1YBJjd" id="6lCixFIaU34" role="2OEOjV">
-          <ref role="1YBMHb" node="25idkGdmGDT" resolve="ane" />
-        </node>
         <node concept="1Wc70l" id="6lCixFIaUCt" role="2MkoU_">
           <node concept="2OqwBi" id="6lCixFIaUKl" role="3uHU7B">
             <node concept="37vLTw" id="6lCixFIaUFz" role="2Oq$k0">
@@ -4395,6 +4392,9 @@
               <ref role="37wK5l" to="tpdd:6lCixFI9vx1" resolve="isAttributeRule" />
             </node>
           </node>
+        </node>
+        <node concept="1YBJjd" id="6lCixFIaU34" role="1urrMF">
+          <ref role="1YBMHb" node="25idkGdmGDT" resolve="ane" />
         </node>
       </node>
     </node>
@@ -4431,9 +4431,6 @@
         <node concept="Xl_RD" id="6lCixFIb3ss" role="2MkJ7o">
           <property role="Xl_RC" value="not applicable in this context" />
         </node>
-        <node concept="1YBJjd" id="6lCixFIb3zQ" role="2OEOjV">
-          <ref role="1YBMHb" node="6lCixFIb3ow" resolve="sce" />
-        </node>
         <node concept="1Wc70l" id="6lCixFIb3su" role="2MkoU_">
           <node concept="2OqwBi" id="6lCixFIb3sv" role="3uHU7B">
             <node concept="37vLTw" id="6lCixFIb3sw" role="2Oq$k0">
@@ -4449,6 +4446,9 @@
               <ref role="37wK5l" to="tpdd:6lCixFI9vx1" resolve="isAttributeRule" />
             </node>
           </node>
+        </node>
+        <node concept="1YBJjd" id="6lCixFIb3zQ" role="1urrMF">
+          <ref role="1YBMHb" node="6lCixFIb3ow" resolve="sce" />
         </node>
       </node>
     </node>
@@ -4467,7 +4467,7 @@
             <node concept="Xl_RD" id="e2eVnzJhVZ" role="a7wSD">
               <property role="Xl_RC" value="Pattern rules are deprecated" />
             </node>
-            <node concept="2OqwBi" id="e2eVnzJhW0" role="2OEOjV">
+            <node concept="2OqwBi" id="e2eVnzJhW0" role="1urrMF">
               <node concept="1YBJjd" id="e2eVnzJhW1" role="2Oq$k0">
                 <ref role="1YBMHb" node="e2eVnzJ06T" resolve="nonTypesystemRule" />
               </node>
@@ -4510,9 +4510,6 @@
             <node concept="Xl_RD" id="e2eVnzJ7qE" role="2MkJ7o">
               <property role="Xl_RC" value="Overriding is not supported for pattern rules" />
             </node>
-            <node concept="2GrUjf" id="e2eVnzJ7uu" role="2OEOjV">
-              <ref role="2Gs0qQ" node="e2eVnzJ44i" resolve="overriden" />
-            </node>
             <node concept="1Wc70l" id="e2eVnzJqIh" role="2MkoU_">
               <node concept="2OqwBi" id="e2eVnzJ68v" role="3uHU7w">
                 <node concept="2OqwBi" id="e2eVnzJ68w" role="2Oq$k0">
@@ -4549,6 +4546,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="2GrUjf" id="e2eVnzJ7uu" role="1urrMF">
+              <ref role="2Gs0qQ" node="e2eVnzJ44i" resolve="overriden" />
             </node>
           </node>
         </node>

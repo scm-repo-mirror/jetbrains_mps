@@ -131,11 +131,11 @@
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
       <concept id="1179832490862" name="jetbrains.mps.lang.typesystem.structure.CreateStrongLessThanInequationStatement" flags="nn" index="2NvLDW" />
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
@@ -905,11 +905,11 @@
           <node concept="3clFbJ" id="63yBSeEXxH8" role="3cqZAp">
             <node concept="3clFbS" id="63yBSeEXxH9" role="3clFbx">
               <node concept="2MkqsV" id="63yBSeEXxHa" role="3cqZAp">
-                <node concept="1YBJjd" id="63yBSeEXxHb" role="2OEOjV">
-                  <ref role="1YBMHb" node="63yBSeEXxHI" resolve="configurationTemplateInitializer" />
-                </node>
                 <node concept="Xl_RD" id="63yBSeEXxHc" role="2MkJ7o">
                   <property role="Xl_RC" value="Incompatible number of parameters" />
+                </node>
+                <node concept="1YBJjd" id="63yBSeEXxHb" role="1urrMF">
+                  <ref role="1YBMHb" node="63yBSeEXxHI" resolve="configurationTemplateInitializer" />
                 </node>
               </node>
               <node concept="3cpWs6" id="63yBSeEXxHd" role="3cqZAp" />
@@ -1157,11 +1157,11 @@
           <node concept="3clFbJ" id="63yBSeEXxIB" role="3cqZAp">
             <node concept="3clFbS" id="63yBSeEXxIC" role="3clFbx">
               <node concept="2MkqsV" id="63yBSeEXxID" role="3cqZAp">
-                <node concept="1YBJjd" id="63yBSeEXxIE" role="2OEOjV">
-                  <ref role="1YBMHb" node="63yBSeEXxJc" resolve="editorOperation" />
-                </node>
                 <node concept="Xl_RD" id="63yBSeEXxIF" role="2MkJ7o">
                   <property role="Xl_RC" value="Incompatible number of parameters" />
+                </node>
+                <node concept="1YBJjd" id="63yBSeEXxIE" role="1urrMF">
+                  <ref role="1YBMHb" node="63yBSeEXxJc" resolve="editorOperation" />
                 </node>
               </node>
               <node concept="3cpWs6" id="63yBSeEXxIG" role="3cqZAp" />
@@ -1302,7 +1302,7 @@
             <node concept="Xl_RD" id="63yBSeEY95X" role="2MkJ7o">
               <property role="Xl_RC" value="Incompatible number of parameters" />
             </node>
-            <node concept="1YBJjd" id="63yBSeEY95Y" role="2OEOjV">
+            <node concept="1YBJjd" id="63yBSeEY95Y" role="1urrMF">
               <ref role="1YBMHb" node="63yBSeEXxJc" resolve="editorOperation" />
             </node>
           </node>

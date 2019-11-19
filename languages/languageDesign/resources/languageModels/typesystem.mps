@@ -139,14 +139,14 @@
       <concept id="1227096498176" name="jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget" flags="ng" index="2ODE4t">
         <reference id="1227096521710" name="propertyDeclaration" index="2ODJFN" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -369,11 +369,11 @@
                 <node concept="Xl_RD" id="1BguvjG4bHm" role="2MkJ7o">
                   <property role="Xl_RC" value="duplicate ID" />
                 </node>
-                <node concept="2GrUjf" id="1BguvjG4bGN" role="2OEOjV">
-                  <ref role="2Gs0qQ" node="1BguvjG3Pr$" resolve="ti" />
-                </node>
-                <node concept="2ODE4t" id="1BguvjG4gMR" role="2OEWyd">
+                <node concept="2ODE4t" id="1BguvjG4gMR" role="1urrC5">
                   <ref role="2ODJFN" to="1oap:1brHjIQHw0T" resolve="iconId" />
+                </node>
+                <node concept="2GrUjf" id="1BguvjG4bGN" role="1urrMF">
+                  <ref role="2Gs0qQ" node="1BguvjG3Pr$" resolve="ti" />
                 </node>
               </node>
               <node concept="3zACq4" id="1BguvjG4bGv" role="3cqZAp" />
@@ -570,11 +570,11 @@
         <node concept="3clFbJ" id="4voYo4ruSbO" role="3cqZAp">
           <node concept="3clFbS" id="4voYo4ruSbQ" role="3clFbx">
             <node concept="2MkqsV" id="4voYo4ruT1x" role="3cqZAp">
-              <node concept="37vLTw" id="46nPloernTc" role="2OEOjV">
-                <ref role="3cqZAo" node="46nPloeqDee" resolve="node" />
-              </node>
               <node concept="Xl_RD" id="4voYo4ruT1B" role="2MkJ7o">
                 <property role="Xl_RC" value="Help URL should start with http:// or https://" />
+              </node>
+              <node concept="37vLTw" id="46nPloernTc" role="1urrMF">
+                <ref role="3cqZAo" node="46nPloeqDee" resolve="node" />
               </node>
             </node>
           </node>
@@ -624,9 +624,6 @@
                 <node concept="TDmWw" id="4voYo4rte8$" role="TEbGg">
                   <node concept="3clFbS" id="4voYo4rte8A" role="TDEfX">
                     <node concept="2MkqsV" id="4voYo4rtebx" role="3cqZAp">
-                      <node concept="37vLTw" id="46nPloeqDv_" role="2OEOjV">
-                        <ref role="3cqZAo" node="46nPloeqDee" resolve="node" />
-                      </node>
                       <node concept="3cpWs3" id="4voYo4rtefu" role="2MkJ7o">
                         <node concept="2OqwBi" id="4voYo4rtehi" role="3uHU7w">
                           <node concept="37vLTw" id="4voYo4rtefx" role="2Oq$k0">
@@ -639,6 +636,9 @@
                         <node concept="Xl_RD" id="4voYo4rtebL" role="3uHU7B">
                           <property role="Xl_RC" value="Malformed URL: " />
                         </node>
+                      </node>
+                      <node concept="37vLTw" id="46nPloeqDv_" role="1urrMF">
+                        <ref role="3cqZAo" node="46nPloeqDee" resolve="node" />
                       </node>
                     </node>
                   </node>

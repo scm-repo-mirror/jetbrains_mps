@@ -111,14 +111,14 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -444,11 +444,11 @@
             <node concept="Xl_RD" id="40BYgsZYbS0" role="2MkJ7o">
               <property role="Xl_RC" value="All required parameters should be initialized" />
             </node>
-            <node concept="1YBJjd" id="40BYgsZYbTZ" role="2OEOjV">
-              <ref role="1YBMHb" node="40BYgsZXPvp" resolve="requestURIBuilderExpression" />
-            </node>
             <node concept="37vLTw" id="40BYgsZYbRD" role="2MkoU_">
               <ref role="3cqZAo" node="40BYgsZYaoc" resolve="allRequiredParams" />
+            </node>
+            <node concept="1YBJjd" id="40BYgsZYbTZ" role="1urrMF">
+              <ref role="1YBMHb" node="40BYgsZXPvp" resolve="requestURIBuilderExpression" />
             </node>
           </node>
         </node>
@@ -466,9 +466,6 @@
       <node concept="2Mj0R9" id="40BYgsZYq9p" role="3cqZAp">
         <node concept="Xl_RD" id="40BYgsZYDlQ" role="2MkJ7o">
           <property role="Xl_RC" value="duplicate query parameter" />
-        </node>
-        <node concept="1YBJjd" id="40BYgsZYDrc" role="2OEOjV">
-          <ref role="1YBMHb" node="40BYgsZYnvF" resolve="queryParameter" />
         </node>
         <node concept="2OqwBi" id="40BYgsZYoEE" role="2MkoU_">
           <node concept="2OqwBi" id="40BYgsZYnA9" role="2Oq$k0">
@@ -517,6 +514,9 @@
               </node>
             </node>
           </node>
+        </node>
+        <node concept="1YBJjd" id="40BYgsZYDrc" role="1urrMF">
+          <ref role="1YBMHb" node="40BYgsZYnvF" resolve="queryParameter" />
         </node>
       </node>
     </node>
@@ -583,7 +583,7 @@
         <node concept="Xl_RD" id="xSXmQZuWH6" role="2MkJ7o">
           <property role="Xl_RC" value="duplicate reference to parameter" />
         </node>
-        <node concept="1YBJjd" id="xSXmQZuWPu" role="2OEOjV">
+        <node concept="1YBJjd" id="xSXmQZuWPu" role="1urrMF">
           <ref role="1YBMHb" node="xSXmQZuKG2" resolve="parameterInitializer" />
         </node>
       </node>
@@ -664,7 +664,7 @@
             <node concept="Xl_RD" id="5fiBL1fFshk" role="a7wSD">
               <property role="Xl_RC" value="Empty segmnet" />
             </node>
-            <node concept="1YBJjd" id="5fiBL1fFsn1" role="2OEOjV">
+            <node concept="1YBJjd" id="5fiBL1fFsn1" role="1urrMF">
               <ref role="1YBMHb" node="5fiBL1fFpun" resolve="querySegment" />
             </node>
           </node>
@@ -808,11 +808,11 @@
       <node concept="3clFbJ" id="wgkxgTug9M" role="3cqZAp">
         <node concept="3clFbS" id="wgkxgTug9O" role="3clFbx">
           <node concept="2MkqsV" id="wgkxgTugv$" role="3cqZAp">
-            <node concept="1YBJjd" id="wgkxgTugEw" role="2OEOjV">
-              <ref role="1YBMHb" node="wgkxgTua2L" resolve="requestHandler" />
-            </node>
             <node concept="Xl_RD" id="wgkxgTug0l" role="2MkJ7o">
               <property role="Xl_RC" value="Request Handler instances must be in plugin model" />
+            </node>
+            <node concept="1YBJjd" id="wgkxgTugEw" role="1urrMF">
+              <ref role="1YBMHb" node="wgkxgTua2L" resolve="requestHandler" />
             </node>
           </node>
         </node>

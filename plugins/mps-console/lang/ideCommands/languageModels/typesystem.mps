@@ -136,9 +136,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1205762105978" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableDeclaration" flags="ng" index="2X1qdy" />
       <concept id="1205762656241" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableReference" flags="nn" index="2X3wrD">
         <reference id="1205762683928" name="whenConcreteVar" index="2X3Bk0" />
@@ -147,6 +144,9 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -257,7 +257,7 @@
             <node concept="Xl_RD" id="4xqDcS7CatC" role="2MkJ7o">
               <property role="Xl_RC" value="Use of deprecated model specification" />
             </node>
-            <node concept="2OqwBi" id="4xqDcS7C9H2" role="2OEOjV">
+            <node concept="2OqwBi" id="4xqDcS7C9H2" role="1urrMF">
               <node concept="1YBJjd" id="4xqDcS7C9z1" role="2Oq$k0">
                 <ref role="1YBMHb" node="7Q$BpsAOSVl" resolve="showGenPlan" />
               </node>
@@ -376,19 +376,19 @@
                   <node concept="Xl_RD" id="7Q$BpsAP0Un" role="2MkJ7o">
                     <property role="Xl_RC" value="model should be generatable" />
                   </node>
-                  <node concept="2OqwBi" id="7Q$BpsAOYQ1" role="2OEOjV">
-                    <node concept="1YBJjd" id="7Q$BpsAOYEA" role="2Oq$k0">
-                      <ref role="1YBMHb" node="7Q$BpsAOSVl" resolve="showGenPlan" />
-                    </node>
-                    <node concept="3TrEf2" id="4xqDcS7ChVQ" role="2OqNvi">
-                      <ref role="3Tt5mk" to="caxt:73IzULxmOWN" resolve="targetModel" />
-                    </node>
-                  </node>
                   <node concept="2YIFZM" id="7Q$BpsAOV5x" role="2MkoU_">
                     <ref role="1Pybhc" to="unno:1NYD3hytmTa" resolve="SNodeOperations" />
                     <ref role="37wK5l" to="unno:54ElNE$imKq" resolve="isGeneratable" />
                     <node concept="37vLTw" id="bxo68MxF0F" role="37wK5m">
                       <ref role="3cqZAo" node="bxo68MxEVf" resolve="model" />
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="7Q$BpsAOYQ1" role="1urrMF">
+                    <node concept="1YBJjd" id="7Q$BpsAOYEA" role="2Oq$k0">
+                      <ref role="1YBMHb" node="7Q$BpsAOSVl" resolve="showGenPlan" />
+                    </node>
+                    <node concept="3TrEf2" id="4xqDcS7ChVQ" role="2OqNvi">
+                      <ref role="3Tt5mk" to="caxt:73IzULxmOWN" resolve="targetModel" />
                     </node>
                   </node>
                 </node>
@@ -553,11 +553,11 @@
         <node concept="9aQIb" id="4PRmqZe_ovH" role="9aQIa">
           <node concept="3clFbS" id="4PRmqZe_ovI" role="9aQI4">
             <node concept="2MkqsV" id="4PRmqZe_ovJ" role="3cqZAp">
-              <node concept="1YBJjd" id="4PRmqZe_ovK" role="2OEOjV">
-                <ref role="1YBMHb" node="4PRmqZe_ovM" resolve="actionCallParameter" />
-              </node>
               <node concept="Xl_RD" id="4PRmqZe_ovL" role="2MkJ7o">
                 <property role="Xl_RC" value="Only DataKey&lt;...&gt; type is allowed" />
+              </node>
+              <node concept="1YBJjd" id="4PRmqZe_ovK" role="1urrMF">
+                <ref role="1YBMHb" node="4PRmqZe_ovM" resolve="actionCallParameter" />
               </node>
             </node>
           </node>
@@ -744,7 +744,7 @@
                         <property role="Xl_RC" value="Duplicated parameter: " />
                       </node>
                     </node>
-                    <node concept="2GrUjf" id="4PRmqZe_ox3" role="2OEOjV">
+                    <node concept="2GrUjf" id="4PRmqZe_ox3" role="1urrMF">
                       <ref role="2Gs0qQ" node="4PRmqZe_owJ" resolve="other" />
                     </node>
                   </node>
@@ -950,7 +950,7 @@
                 </node>
               </node>
             </node>
-            <node concept="1YBJjd" id="4PRmqZe_oyp" role="2OEOjV">
+            <node concept="1YBJjd" id="4PRmqZe_oyp" role="1urrMF">
               <ref role="1YBMHb" node="4PRmqZe_oyt" resolve="callAction" />
             </node>
           </node>
@@ -1264,14 +1264,6 @@
                 <property role="Xl_RC" value="#show is applicable only to sequences of " />
               </node>
             </node>
-            <node concept="2OqwBi" id="6VxvX4sdmBl" role="2OEOjV">
-              <node concept="1YBJjd" id="6VxvX4sdmtE" role="2Oq$k0">
-                <ref role="1YBMHb" node="6_TW7xV9do1" resolve="showExpression" />
-              </node>
-              <node concept="3TrEf2" id="6VxvX4sdmYX" role="2OqNvi">
-                <ref role="3Tt5mk" to="caxt:6_TW7xVwuxP" resolve="object" />
-              </node>
-            </node>
             <node concept="3y3z36" id="6VxvX4sdmrY" role="2MkoU_">
               <node concept="10Nm6u" id="6VxvX4sdmsC" role="3uHU7w" />
               <node concept="2YIFZM" id="6VxvX4sj2O6" role="3uHU7B">
@@ -1280,6 +1272,14 @@
                 <node concept="2X3wrD" id="6VxvX4sdjXH" role="37wK5m">
                   <ref role="2X3Bk0" node="6VxvX4scKEM" resolve="argType" />
                 </node>
+              </node>
+            </node>
+            <node concept="2OqwBi" id="6VxvX4sdmBl" role="1urrMF">
+              <node concept="1YBJjd" id="6VxvX4sdmtE" role="2Oq$k0">
+                <ref role="1YBMHb" node="6_TW7xV9do1" resolve="showExpression" />
+              </node>
+              <node concept="3TrEf2" id="6VxvX4sdmYX" role="2OqNvi">
+                <ref role="3Tt5mk" to="caxt:6_TW7xVwuxP" resolve="object" />
               </node>
             </node>
           </node>

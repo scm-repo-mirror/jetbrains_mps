@@ -225,11 +225,6 @@
       <concept id="1227096620180" name="jetbrains.mps.lang.typesystem.structure.ReferenceMessageTarget" flags="ng" index="2OE7Q9">
         <reference id="1227096645744" name="linkDeclaration" index="2OEe5H" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216383476350" name="quickFixArgument" index="Q6Id_" />
@@ -248,6 +243,11 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
         <child id="1210784493590" name="actualArgument" index="3Coj4f" />
@@ -756,7 +756,7 @@
         <node concept="Xl_RD" id="haKwQe6" role="2MkJ7o">
           <property role="Xl_RC" value="couldn't define concept of child node" />
         </node>
-        <node concept="1YBJjd" id="haKwSZa" role="2OEOjV">
+        <node concept="1YBJjd" id="haKwSZa" role="1urrMF">
           <ref role="1YBMHb" node="haJ$PGi" resolve="node" />
         </node>
       </node>
@@ -926,7 +926,7 @@
         <node concept="Xl_RD" id="hbec97k" role="2MkJ7o">
           <property role="Xl_RC" value="multiple cardinality link is not applicable" />
         </node>
-        <node concept="1YBJjd" id="hbecdnW" role="2OEOjV">
+        <node concept="1YBJjd" id="hbecdnW" role="1urrMF">
           <ref role="1YBMHb" node="hbebCFv" resolve="refCell" />
         </node>
       </node>
@@ -974,7 +974,7 @@
         <node concept="Xl_RD" id="hbedAQk" role="2MkJ7o">
           <property role="Xl_RC" value="aggregation link expected" />
         </node>
-        <node concept="1YBJjd" id="hbedF_a" role="2OEOjV">
+        <node concept="1YBJjd" id="hbedF_a" role="1urrMF">
           <ref role="1YBMHb" node="hbedkq7" resolve="refNode" />
         </node>
       </node>
@@ -990,7 +990,7 @@
         <node concept="Xl_RD" id="hbeed5H" role="2MkJ7o">
           <property role="Xl_RC" value="single cardinality expected" />
         </node>
-        <node concept="1YBJjd" id="hbeem7z" role="2OEOjV">
+        <node concept="1YBJjd" id="hbeem7z" role="1urrMF">
           <ref role="1YBMHb" node="hbedkq7" resolve="refNode" />
         </node>
       </node>
@@ -1038,16 +1038,13 @@
         <node concept="Xl_RD" id="hbf5Sqa" role="2MkJ7o">
           <property role="Xl_RC" value="aggregation link expected" />
         </node>
-        <node concept="1YBJjd" id="hbf5Sqb" role="2OEOjV">
+        <node concept="1YBJjd" id="hbf5Sqb" role="1urrMF">
           <ref role="1YBMHb" node="hbf5D_D" resolve="refNodeList" />
         </node>
       </node>
       <node concept="2Mj0R9" id="hbf5Sqc" role="3cqZAp">
         <node concept="Xl_RD" id="hbf5Sqq" role="2MkJ7o">
           <property role="Xl_RC" value="multiple cardinality expected" />
-        </node>
-        <node concept="1YBJjd" id="hbf5Sqr" role="2OEOjV">
-          <ref role="1YBMHb" node="hbf5D_D" resolve="refNodeList" />
         </node>
         <node concept="3fqX7Q" id="3D$KJ68cQ5X" role="2MkoU_">
           <node concept="2OqwBi" id="3D$KJ68cQ5Z" role="3fr31v">
@@ -1058,6 +1055,9 @@
               <ref role="37wK5l" to="tpcn:hEwIfAt" resolve="isSingular" />
             </node>
           </node>
+        </node>
+        <node concept="1YBJjd" id="hbf5Sqr" role="1urrMF">
+          <ref role="1YBMHb" node="hbf5D_D" resolve="refNodeList" />
         </node>
       </node>
     </node>
@@ -1244,13 +1244,13 @@
             </node>
             <node concept="3clFbS" id="3Y17zSSbZHL" role="3clFbx">
               <node concept="2MkqsV" id="3Y17zSSbZIm" role="3cqZAp">
-                <node concept="1YBJjd" id="3Y17zSSbZIp" role="2OEOjV">
-                  <ref role="1YBMHb" node="3Y17zSSbWpM" resolve="editorCellModel" />
-                </node>
                 <node concept="Xl_RD" id="3Y17zSSbZIq" role="2MkJ7o">
                   <property role="Xl_RC" value="Braces shouldn't be used with indent layout." />
                 </node>
-                <node concept="3Cnw8n" id="2Rjnwer$x2E" role="2OEOjU">
+                <node concept="1YBJjd" id="3Y17zSSbZIp" role="1urrMF">
+                  <ref role="1YBMHb" node="3Y17zSSbWpM" resolve="editorCellModel" />
+                </node>
+                <node concept="3Cnw8n" id="2Rjnwer$x2E" role="1urrFz">
                   <ref role="QpYPw" node="2Rjnwer$x2B" resolve="fix_Braces" />
                   <node concept="3CnSsL" id="2Rjnwer$xyi" role="3Coj4f">
                     <ref role="QkamJ" node="2Rjnwer$xyl" resolve="collectionCell" />
@@ -1320,11 +1320,11 @@
             </node>
             <node concept="3clFbS" id="3Y17zSSbZII" role="3clFbx">
               <node concept="2MkqsV" id="3Y17zSSbZIJ" role="3cqZAp">
-                <node concept="1YBJjd" id="3Y17zSSbZIK" role="2OEOjV">
-                  <ref role="1YBMHb" node="3Y17zSSbWpM" resolve="editorCellModel" />
-                </node>
                 <node concept="Xl_RD" id="3Y17zSSbZIL" role="2MkJ7o">
                   <property role="Xl_RC" value="Braces shouldn't be used with indent layout." />
+                </node>
+                <node concept="1YBJjd" id="3Y17zSSbZIK" role="1urrMF">
+                  <ref role="1YBMHb" node="3Y17zSSbWpM" resolve="editorCellModel" />
                 </node>
               </node>
             </node>
@@ -1369,11 +1369,11 @@
         </node>
         <node concept="3clFbS" id="1Dzw8XsAubR" role="3clFbx">
           <node concept="a7r0C" id="7ZyHj753eIn" role="3cqZAp">
-            <node concept="1YBJjd" id="7ZyHj753eIr" role="2OEOjV">
-              <ref role="1YBMHb" node="1Dzw8XsAtHq" resolve="cellActionMapItem" />
-            </node>
             <node concept="Xl_RD" id="7ZyHj753eIq" role="a7wSD">
               <property role="Xl_RC" value="Right transform in action map is deprecated." />
+            </node>
+            <node concept="1YBJjd" id="7ZyHj753eIr" role="1urrMF">
+              <ref role="1YBMHb" node="1Dzw8XsAtHq" resolve="cellActionMapItem" />
             </node>
           </node>
         </node>
@@ -1441,7 +1441,7 @@
             <node concept="Xl_RD" id="5fS9zWWUaVQ" role="2MkJ7o">
               <property role="Xl_RC" value="Wrong number of arguments" />
             </node>
-            <node concept="1YBJjd" id="5fS9zWWUaVR" role="2OEOjV">
+            <node concept="1YBJjd" id="5fS9zWWUaVR" role="1urrMF">
               <ref role="1YBMHb" node="5fS9zWWUar_" resolve="operation" />
             </node>
           </node>
@@ -2045,10 +2045,10 @@
                 <property role="Xl_RC" value="Invalid keymap keycode: " />
               </node>
             </node>
-            <node concept="2ODE4t" id="19wSTnY7n$B" role="2OEWyd">
+            <node concept="2ODE4t" id="19wSTnY7n$B" role="1urrC5">
               <ref role="2ODJFN" to="tpc2:gyPWKEK" resolve="keycode" />
             </node>
-            <node concept="1YBJjd" id="19wSTnY7nrk" role="2OEOjV">
+            <node concept="1YBJjd" id="19wSTnY7nrk" role="1urrMF">
               <ref role="1YBMHb" node="19wSTnY6VL3" resolve="cellKeyMapKeystroke" />
             </node>
           </node>
@@ -2102,10 +2102,10 @@
                 <property role="Xl_RC" value="Invalide keymap modifiers: " />
               </node>
             </node>
-            <node concept="2ODE4t" id="19wSTnY7t49" role="2OEWyd">
+            <node concept="2ODE4t" id="19wSTnY7t49" role="1urrC5">
               <ref role="2ODJFN" to="tpc2:gyPWKEJ" resolve="modifiers" />
             </node>
-            <node concept="1YBJjd" id="19wSTnY7t4a" role="2OEOjV">
+            <node concept="1YBJjd" id="19wSTnY7t4a" role="1urrMF">
               <ref role="1YBMHb" node="19wSTnY6VL3" resolve="cellKeyMapKeystroke" />
             </node>
           </node>
@@ -2241,11 +2241,11 @@
             <node concept="Xl_RD" id="5qKdWqI7ixp" role="2MkJ7o">
               <property role="Xl_RC" value="Default editor for the concept cannot be defined in the editor aspect of the language extending concept's language" />
             </node>
-            <node concept="1YBJjd" id="5qKdWqI7dfg" role="2OEOjV">
-              <ref role="1YBMHb" node="5qKdWqHXYYR" resolve="editorDeclaration" />
-            </node>
-            <node concept="2OE7Q9" id="5qKdWqI8Rf4" role="2OEWyd">
+            <node concept="2OE7Q9" id="5qKdWqI8Rf4" role="1urrC5">
               <ref role="2OEe5H" to="tpc2:gXXX56I" resolve="conceptDeclaration" />
+            </node>
+            <node concept="1YBJjd" id="5qKdWqI7dfg" role="1urrMF">
+              <ref role="1YBMHb" node="5qKdWqHXYYR" resolve="editorDeclaration" />
             </node>
           </node>
           <node concept="3cpWs6" id="5qKdWqI79DI" role="3cqZAp" />
@@ -2804,10 +2804,10 @@
                     </node>
                   </node>
                 </node>
-                <node concept="2OE7Q9" id="5qKdWqI5X5N" role="2OEWyd">
+                <node concept="2OE7Q9" id="5qKdWqI5X5N" role="1urrC5">
                   <ref role="2OEe5H" to="tpc2:gXXX56I" resolve="conceptDeclaration" />
                 </node>
-                <node concept="1YBJjd" id="5qKdWqI5zdC" role="2OEOjV">
+                <node concept="1YBJjd" id="5qKdWqI5zdC" role="1urrMF">
                   <ref role="1YBMHb" node="5qKdWqHXYYR" resolve="editorDeclaration" />
                 </node>
               </node>
@@ -2893,11 +2893,11 @@
                     <property role="Xl_RC" value="Editor hint with such ID was already defined in this language: " />
                   </node>
                 </node>
-                <node concept="1YBJjd" id="59ZEGVQLKpF" role="2OEOjV">
-                  <ref role="1YBMHb" node="59ZEGVQL3gd" resolve="conceptEditorHintDeclaration" />
-                </node>
-                <node concept="2ODE4t" id="59ZEGVQLKU0" role="2OEWyd">
+                <node concept="2ODE4t" id="59ZEGVQLKU0" role="1urrC5">
                   <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
+                </node>
+                <node concept="1YBJjd" id="59ZEGVQLKpF" role="1urrMF">
+                  <ref role="1YBMHb" node="59ZEGVQL3gd" resolve="conceptEditorHintDeclaration" />
                 </node>
               </node>
             </node>
@@ -3000,11 +3000,11 @@
         </node>
         <node concept="3clFbS" id="xLfwuvU4XY" role="3clFbx">
           <node concept="2MkqsV" id="xLfwuvUk2w" role="3cqZAp">
-            <node concept="1YBJjd" id="xLfwuvUk3q" role="2OEOjV">
-              <ref role="1YBMHb" node="xLfwuvTZDc" resolve="reference" />
-            </node>
             <node concept="Xl_RD" id="xLfwuvUk3e" role="2MkJ7o">
               <property role="Xl_RC" value="Overriden EditorComponent is overriding another editor component. It's possible to override only main editor component directly." />
+            </node>
+            <node concept="1YBJjd" id="xLfwuvUk3q" role="1urrMF">
+              <ref role="1YBMHb" node="xLfwuvTZDc" resolve="reference" />
             </node>
           </node>
         </node>
@@ -3036,9 +3036,6 @@
         </node>
         <node concept="3clFbS" id="glcH4dLsjQ" role="3clFbx">
           <node concept="2Mj0R9" id="8awHi_DbmR" role="3cqZAp">
-            <node concept="1YBJjd" id="8awHi_DeuF" role="2OEOjV">
-              <ref role="1YBMHb" node="glcH4dL8dJ" resolve="editorComponentDeclaration" />
-            </node>
             <node concept="3y3z36" id="8awHi_DdlW" role="2MkoU_">
               <node concept="10Nm6u" id="8awHi_Ddm7" role="3uHU7w" />
               <node concept="2OqwBi" id="8awHi_DbsI" role="3uHU7B">
@@ -3053,8 +3050,11 @@
             <node concept="Xl_RD" id="8awHi_DeqV" role="2MkJ7o">
               <property role="Xl_RC" value="Concept declaration should be specified" />
             </node>
-            <node concept="2OE7Q9" id="8awHi_DeyH" role="2OEWyd">
+            <node concept="2OE7Q9" id="8awHi_DeyH" role="1urrC5">
               <ref role="2OEe5H" to="tpc2:gXXX56I" resolve="conceptDeclaration" />
+            </node>
+            <node concept="1YBJjd" id="8awHi_DeuF" role="1urrMF">
+              <ref role="1YBMHb" node="glcH4dL8dJ" resolve="editorComponentDeclaration" />
             </node>
           </node>
           <node concept="3clFbJ" id="8awHi_Eq1l" role="3cqZAp">
@@ -3071,9 +3071,6 @@
             </node>
             <node concept="3clFbS" id="8awHi_Eq1o" role="3clFbx">
               <node concept="2Mj0R9" id="8awHi_Ew_V" role="3cqZAp">
-                <node concept="1YBJjd" id="8awHi_EOxZ" role="2OEOjV">
-                  <ref role="1YBMHb" node="glcH4dL8dJ" resolve="editorComponentDeclaration" />
-                </node>
                 <node concept="Xl_RD" id="8awHi_EOoP" role="2MkJ7o">
                   <property role="Xl_RC" value="Either additional \&quot;applicable in context\&quot; condition or more specific \&quot; applicable concept\&quot; should be specified in overriding editor component" />
                 </node>
@@ -3088,8 +3085,11 @@
                     </node>
                   </node>
                 </node>
-                <node concept="2OE7Q9" id="8awHi_ETlM" role="2OEWyd">
+                <node concept="2OE7Q9" id="8awHi_ETlM" role="1urrC5">
                   <ref role="2OEe5H" to="tpc2:6nWbOYo69_Q" resolve="contextHints" />
+                </node>
+                <node concept="1YBJjd" id="8awHi_EOxZ" role="1urrMF">
+                  <ref role="1YBMHb" node="glcH4dL8dJ" resolve="editorComponentDeclaration" />
                 </node>
               </node>
             </node>
@@ -3136,12 +3136,6 @@
             <node concept="Xl_RD" id="glcH4dN_BY" role="2MkJ7o">
               <property role="Xl_RC" value="Specified applicable concept is not subconcept of applicable concept specified in overriden editor" />
             </node>
-            <node concept="1YBJjd" id="glcH4dN$_R" role="2OEOjV">
-              <ref role="1YBMHb" node="glcH4dL8dJ" resolve="editorComponentDeclaration" />
-            </node>
-            <node concept="2OE7Q9" id="glcH4dN_7u" role="2OEWyd">
-              <ref role="2OEe5H" to="tpc2:gXXX56I" resolve="conceptDeclaration" />
-            </node>
             <node concept="2OqwBi" id="73yVtVm029E" role="2MkoU_">
               <node concept="2OqwBi" id="27AGqGE_2Lh" role="2Oq$k0">
                 <node concept="3TrEf2" id="27AGqGE_2Li" role="2OqNvi">
@@ -3157,6 +3151,12 @@
                   <ref role="3cqZAo" node="glcH4dNyW6" resolve="overridenEditorConceptDeclaration" />
                 </node>
               </node>
+            </node>
+            <node concept="2OE7Q9" id="glcH4dN_7u" role="1urrC5">
+              <ref role="2OEe5H" to="tpc2:gXXX56I" resolve="conceptDeclaration" />
+            </node>
+            <node concept="1YBJjd" id="glcH4dN$_R" role="1urrMF">
+              <ref role="1YBMHb" node="glcH4dL8dJ" resolve="editorComponentDeclaration" />
             </node>
           </node>
         </node>
@@ -3184,14 +3184,14 @@
         </node>
         <node concept="3clFbS" id="glcH4dM$L9" role="3clFbx">
           <node concept="2MkqsV" id="glcH4dM$La" role="3cqZAp">
-            <node concept="1YBJjd" id="glcH4dM$Lb" role="2OEOjV">
-              <ref role="1YBMHb" node="glcH4dM$L1" resolve="conceptEditorDeclaration" />
-            </node>
             <node concept="Xl_RD" id="glcH4dM$Lc" role="2MkJ7o">
               <property role="Xl_RC" value="Concept declaration should be specified" />
             </node>
-            <node concept="2OE7Q9" id="glcH4dM$Ld" role="2OEWyd">
+            <node concept="2OE7Q9" id="glcH4dM$Ld" role="1urrC5">
               <ref role="2OEe5H" to="tpc2:gXXX56I" resolve="conceptDeclaration" />
+            </node>
+            <node concept="1YBJjd" id="glcH4dM$Lb" role="1urrMF">
+              <ref role="1YBMHb" node="glcH4dM$L1" resolve="conceptEditorDeclaration" />
             </node>
           </node>
         </node>
@@ -3319,11 +3319,11 @@
       <node concept="3clFbJ" id="2airAaTnR__" role="3cqZAp">
         <node concept="3clFbS" id="2airAaTnR_A" role="3clFbx">
           <node concept="2MkqsV" id="2airAaTnR_B" role="3cqZAp">
-            <node concept="1YBJjd" id="2airAaTnR_C" role="2OEOjV">
-              <ref role="1YBMHb" node="1F_pHBExE9Z" resolve="stylePriorityGroup" />
-            </node>
             <node concept="Xl_RD" id="2airAaTnR_D" role="2MkJ7o">
               <property role="Xl_RC" value="Cyclic priority group inheritance" />
+            </node>
+            <node concept="1YBJjd" id="2airAaTnR_C" role="1urrMF">
+              <ref role="1YBMHb" node="1F_pHBExE9Z" resolve="stylePriorityGroup" />
             </node>
           </node>
         </node>
@@ -3339,11 +3339,11 @@
       <node concept="3clFbJ" id="3RZrWpN8J4O" role="3cqZAp">
         <node concept="3clFbS" id="3RZrWpN8J4R" role="3clFbx">
           <node concept="2MkqsV" id="3RZrWpN8Lly" role="3cqZAp">
-            <node concept="1YBJjd" id="3RZrWpN8Llz" role="2OEOjV">
-              <ref role="1YBMHb" node="1F_pHBExE9Z" resolve="stylePriorityGroup" />
-            </node>
             <node concept="Xl_RD" id="3RZrWpN8Ll$" role="2MkJ7o">
               <property role="Xl_RC" value="Cyclic style application" />
+            </node>
+            <node concept="1YBJjd" id="3RZrWpN8Llz" role="1urrMF">
+              <ref role="1YBMHb" node="1F_pHBExE9Z" resolve="stylePriorityGroup" />
             </node>
           </node>
         </node>
@@ -3384,7 +3384,7 @@
             <node concept="Xl_RD" id="7daiLdpEKPc" role="2MkJ7o">
               <property role="Xl_RC" value="Attribute of primitive type should have default value" />
             </node>
-            <node concept="1YBJjd" id="7daiLdpEL1$" role="2OEOjV">
+            <node concept="1YBJjd" id="7daiLdpEL1$" role="1urrMF">
               <ref role="1YBMHb" node="7daiLdpEHqi" resolve="declaration" />
             </node>
           </node>
@@ -3489,7 +3489,7 @@
             </node>
           </node>
         </node>
-        <node concept="1YBJjd" id="2Jr$Le9Jq$1" role="2OEOjV">
+        <node concept="1YBJjd" id="2Jr$Le9Jq$1" role="1urrMF">
           <ref role="1YBMHb" node="7daiLdpEHqi" resolve="declaration" />
         </node>
       </node>
@@ -3735,7 +3735,7 @@
             <node concept="Xl_RD" id="5Sx2dSMGHMk" role="Dpw9R">
               <property role="Xl_RC" value="Action map unused in its containing model" />
             </node>
-            <node concept="1YBJjd" id="5Sx2dSMGHMl" role="2OEOjV">
+            <node concept="1YBJjd" id="5Sx2dSMGHMl" role="1urrMF">
               <ref role="1YBMHb" node="6SUBcAgb1QD" resolve="cellActionMapDeclaration" />
             </node>
           </node>
@@ -3757,7 +3757,7 @@
             <node concept="Xl_RD" id="6SUBcAgbkPe" role="a7wSD">
               <property role="Xl_RC" value="Unused key map" />
             </node>
-            <node concept="1YBJjd" id="6SUBcAgblpP" role="2OEOjV">
+            <node concept="1YBJjd" id="6SUBcAgblpP" role="1urrMF">
               <ref role="1YBMHb" node="6SUBcAgbk_H" resolve="cellKeyMapDeclaration" />
             </node>
           </node>
@@ -3864,11 +3864,11 @@
                 <node concept="3clFbJ" id="6yxxNaAuGpY" role="3cqZAp">
                   <node concept="3clFbS" id="6yxxNaAuGpZ" role="3clFbx">
                     <node concept="a7r0C" id="6yxxNaAuKjW" role="3cqZAp">
-                      <node concept="37vLTw" id="6yxxNaAuKqI" role="2OEOjV">
-                        <ref role="3cqZAo" node="6yxxNaAuGnW" resolve="it" />
-                      </node>
                       <node concept="Xl_RD" id="6yxxNaAuKnn" role="a7wSD">
                         <property role="Xl_RC" value="Using this cell as empty may prevent user from adding child node" />
+                      </node>
+                      <node concept="37vLTw" id="6yxxNaAuKqI" role="1urrMF">
+                        <ref role="3cqZAo" node="6yxxNaAuGnW" resolve="it" />
                       </node>
                     </node>
                   </node>
@@ -3965,11 +3965,11 @@
                     <property role="Xl_RC" value="Duplicate menu or contribution defined: " />
                   </node>
                 </node>
-                <node concept="1YBJjd" id="fSn6kMM6jo" role="2OEOjV">
-                  <ref role="1YBMHb" node="fSn6kMM5Sl" resolve="node" />
-                </node>
-                <node concept="2ODE4t" id="fSn6kMM5Ys" role="2OEWyd">
+                <node concept="2ODE4t" id="fSn6kMM5Ys" role="1urrC5">
                   <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
+                </node>
+                <node concept="1YBJjd" id="fSn6kMM6jo" role="1urrMF">
+                  <ref role="1YBMHb" node="fSn6kMM5Sl" resolve="node" />
                 </node>
               </node>
             </node>
@@ -4114,11 +4114,11 @@
       <node concept="3clFbJ" id="fSn6kMLNrx" role="3cqZAp">
         <node concept="3clFbS" id="fSn6kMLNrz" role="3clFbx">
           <node concept="2MkqsV" id="fSn6kMLOEW" role="3cqZAp">
-            <node concept="1YBJjd" id="fSn6kMLOH6" role="2OEOjV">
-              <ref role="1YBMHb" node="fSn6kMLHPD" resolve="node" />
-            </node>
             <node concept="Xl_RD" id="fSn6kMLOFb" role="2MkJ7o">
               <property role="Xl_RC" value="Default menu for a concept can only be defined in the concept's language" />
+            </node>
+            <node concept="1YBJjd" id="fSn6kMLOH6" role="1urrMF">
+              <ref role="1YBMHb" node="fSn6kMLHPD" resolve="node" />
             </node>
           </node>
         </node>
@@ -4409,10 +4409,10 @@
                 <property role="Xl_RC" value="Missing feature(s): " />
               </node>
             </node>
-            <node concept="1YBJjd" id="6V0bp$oM8nJ" role="2OEOjV">
+            <node concept="1YBJjd" id="6V0bp$oM8nJ" role="1urrMF">
               <ref role="1YBMHb" node="4sA1wzjtZew" resolve="part" />
             </node>
-            <node concept="3Cnw8n" id="4sA1wzjy2Ek" role="2OEOjU">
+            <node concept="3Cnw8n" id="4sA1wzjy2Ek" role="1urrFz">
               <ref role="QpYPw" node="4sA1wzjvWy5" resolve="fix_MissingFeaturesForOneLocation" />
             </node>
           </node>
@@ -4522,7 +4522,7 @@
                   <node concept="Xl_RD" id="5qocf8PzezI" role="2MkJ7o">
                     <property role="Xl_RC" value="duplicated location" />
                   </node>
-                  <node concept="37vLTw" id="5qocf8PzezJ" role="2OEOjV">
+                  <node concept="37vLTw" id="5qocf8PzezJ" role="1urrMF">
                     <ref role="3cqZAo" node="5qocf8PzezK" resolve="it" />
                   </node>
                 </node>
@@ -4566,7 +4566,7 @@
                   <node concept="Xl_RD" id="5qocf8PzdWn" role="2MkJ7o">
                     <property role="Xl_RC" value="duplicated feature" />
                   </node>
-                  <node concept="37vLTw" id="5qocf8PzetV" role="2OEOjV">
+                  <node concept="37vLTw" id="5qocf8PzetV" role="1urrMF">
                     <ref role="3cqZAo" node="5qocf8Pzdep" resolve="it" />
                   </node>
                 </node>
@@ -4698,7 +4698,7 @@
                       <node concept="Xl_RD" id="5qocf8PAm66" role="2MkJ7o">
                         <property role="Xl_RC" value="this feature is not allowed here" />
                       </node>
-                      <node concept="37vLTw" id="5qocf8PAm67" role="2OEOjV">
+                      <node concept="37vLTw" id="5qocf8PAm67" role="1urrMF">
                         <ref role="3cqZAo" node="5qocf8PAfNX" resolve="it" />
                       </node>
                     </node>
@@ -4778,11 +4778,11 @@
                 <property role="Xl_RC" value=" is not defined. Implicit default menu will be used." />
               </node>
             </node>
-            <node concept="1YBJjd" id="1RxYXnW1B1H" role="2OEOjV">
-              <ref role="1YBMHb" node="1RxYXnW0U3n" resolve="ref" />
-            </node>
-            <node concept="2OE7Q9" id="1RxYXnW1Cn8" role="2OEWyd">
+            <node concept="2OE7Q9" id="1RxYXnW1Cn8" role="1urrC5">
               <ref role="2OEe5H" to="tpc2:1quYWAD543u" resolve="concept" />
+            </node>
+            <node concept="1YBJjd" id="1RxYXnW1B1H" role="1urrMF">
+              <ref role="1YBMHb" node="1RxYXnW0U3n" resolve="ref" />
             </node>
           </node>
         </node>
@@ -4960,7 +4960,7 @@
             <ref role="3cqZAo" node="5ZcqSl_UxiS" resolve="destinationMenuConcept" />
           </node>
         </node>
-        <node concept="2OqwBi" id="5ZcqSl_U_cU" role="2OEOjV">
+        <node concept="2OqwBi" id="5ZcqSl_U_cU" role="1urrMF">
           <node concept="1YBJjd" id="5ZcqSl_U_1b" role="2Oq$k0">
             <ref role="1YBMHb" node="5ZcqSl_UibZ" resolve="part" />
           </node>
@@ -5000,7 +5000,7 @@
                   <node concept="Xl_RD" id="3u7HG8D$wvL" role="2MkJ7o">
                     <property role="Xl_RC" value="duplicated feature" />
                   </node>
-                  <node concept="37vLTw" id="3u7HG8D$wvM" role="2OEOjV">
+                  <node concept="37vLTw" id="3u7HG8D$wvM" role="1urrMF">
                     <ref role="3cqZAo" node="3u7HG8D$wvN" resolve="it" />
                   </node>
                 </node>
@@ -5072,11 +5072,11 @@
                 <property role="Xl_RC" value=" is not defined. Implicit default menu will be used." />
               </node>
             </node>
-            <node concept="1YBJjd" id="3u7HG8D$su8" role="2OEOjV">
-              <ref role="1YBMHb" node="3u7HG8D$sue" resolve="ref" />
-            </node>
-            <node concept="2OE7Q9" id="3u7HG8D$su9" role="2OEWyd">
+            <node concept="2OE7Q9" id="3u7HG8D$su9" role="1urrC5">
               <ref role="2OEe5H" to="tpc2:1quYWAD543u" resolve="concept" />
+            </node>
+            <node concept="1YBJjd" id="3u7HG8D$su8" role="1urrMF">
+              <ref role="1YBMHb" node="3u7HG8D$sue" resolve="ref" />
             </node>
           </node>
         </node>
@@ -5260,7 +5260,7 @@
             <ref role="3cqZAo" node="7Bgcg3wf8S1" resolve="destinationMenuConcept" />
           </node>
         </node>
-        <node concept="2OqwBi" id="7Bgcg3wf8Sp" role="2OEOjV">
+        <node concept="2OqwBi" id="7Bgcg3wf8Sp" role="1urrMF">
           <node concept="1YBJjd" id="7Bgcg3wf8Sq" role="2Oq$k0">
             <ref role="1YBMHb" node="7Bgcg3wf8Ss" resolve="part" />
           </node>
@@ -5429,7 +5429,7 @@
             <ref role="3cqZAo" node="7Bgcg3wk9Yd" resolve="destinationMenuConcept" />
           </node>
         </node>
-        <node concept="2OqwBi" id="7Bgcg3wk9YX" role="2OEOjV">
+        <node concept="2OqwBi" id="7Bgcg3wk9YX" role="1urrMF">
           <node concept="1YBJjd" id="7Bgcg3wk9YY" role="2Oq$k0">
             <ref role="1YBMHb" node="7Bgcg3wk9Z0" resolve="part" />
           </node>
@@ -5523,7 +5523,7 @@
             <node concept="Xl_RD" id="7$8NXlZphPP" role="2MkJ7o">
               <property role="Xl_RC" value="Contribution to a menu must be defined in a different language from the menu being contributed to" />
             </node>
-            <node concept="1YBJjd" id="7$8NXlZphRr" role="2OEOjV">
+            <node concept="1YBJjd" id="7$8NXlZphRr" role="1urrMF">
               <ref role="1YBMHb" node="7$8NXlZpe8u" resolve="contribution" />
             </node>
           </node>
@@ -5722,21 +5722,6 @@
       <node concept="3clFbJ" id="hYjRJRO" role="3cqZAp">
         <node concept="3clFbS" id="hYjRJRP" role="3clFbx">
           <node concept="2MkqsV" id="hYjRU9R" role="3cqZAp">
-            <node concept="3Cnw8n" id="2BhfHtuWIba" role="2OEOjU">
-              <ref role="QpYPw" node="2BhfHtuWIb6" resolve="AddExtendedLanguage" />
-              <node concept="3CnSsL" id="Zr7fahY7gc" role="3Coj4f">
-                <ref role="QkamJ" node="2BhfHtuWIbq" resolve="extLang" />
-                <node concept="37vLTw" id="Zr7fahY7Ms" role="3CoRuB">
-                  <ref role="3cqZAo" node="hYjRD2$" resolve="ecLanguage" />
-                </node>
-              </node>
-              <node concept="3CnSsL" id="1_pmkPdyop9" role="3Coj4f">
-                <ref role="QkamJ" node="2BhfHtuWIbx" resolve="lang" />
-                <node concept="37vLTw" id="3GM_nagTAl0" role="3CoRuB">
-                  <ref role="3cqZAo" node="hYjR2Jc" resolve="language" />
-                </node>
-              </node>
-            </node>
             <node concept="3cpWs3" id="hYjSzt8" role="2MkJ7o">
               <node concept="2OqwBi" id="hYjS_2y" role="3uHU7w">
                 <node concept="37vLTw" id="3GM_nagTtER" role="2Oq$k0">
@@ -5785,8 +5770,23 @@
                 </node>
               </node>
             </node>
-            <node concept="1YBJjd" id="Zr7fahY4sH" role="2OEOjV">
+            <node concept="1YBJjd" id="Zr7fahY4sH" role="1urrMF">
               <ref role="1YBMHb" node="Zr7fahXKeR" resolve="cmc" />
+            </node>
+            <node concept="3Cnw8n" id="2BhfHtuWIba" role="1urrFz">
+              <ref role="QpYPw" node="2BhfHtuWIb6" resolve="AddExtendedLanguage" />
+              <node concept="3CnSsL" id="Zr7fahY7gc" role="3Coj4f">
+                <ref role="QkamJ" node="2BhfHtuWIbq" resolve="extLang" />
+                <node concept="37vLTw" id="Zr7fahY7Ms" role="3CoRuB">
+                  <ref role="3cqZAo" node="hYjRD2$" resolve="ecLanguage" />
+                </node>
+              </node>
+              <node concept="3CnSsL" id="1_pmkPdyop9" role="3Coj4f">
+                <ref role="QkamJ" node="2BhfHtuWIbx" resolve="lang" />
+                <node concept="37vLTw" id="3GM_nagTAl0" role="3CoRuB">
+                  <ref role="3cqZAo" node="hYjR2Jc" resolve="language" />
+                </node>
+              </node>
             </node>
           </node>
         </node>
@@ -5858,7 +5858,7 @@
             <node concept="Xl_RD" id="2BboR8QSkBu" role="2MkJ7o">
               <property role="Xl_RC" value="Target concept should be defined" />
             </node>
-            <node concept="2OqwBi" id="2BboR8QSkK_" role="2OEOjV">
+            <node concept="2OqwBi" id="2BboR8QSkK_" role="1urrMF">
               <node concept="1YBJjd" id="2BboR8QSkD4" role="2Oq$k0">
                 <ref role="1YBMHb" node="2BboR8QSgzr" resolve="node" />
               </node>
@@ -5929,7 +5929,7 @@
             <node concept="Xl_RD" id="2BboR8QSREE" role="2MkJ7o">
               <property role="Xl_RC" value="Target concept should be defined" />
             </node>
-            <node concept="37vLTw" id="2BboR8QSTLD" role="2OEOjV">
+            <node concept="37vLTw" id="2BboR8QSTLD" role="1urrMF">
               <ref role="3cqZAo" node="2BboR8QST4a" resolve="menuReference" />
             </node>
           </node>
@@ -6382,7 +6382,7 @@
             <node concept="Xl_RD" id="V1I2dTBxgU" role="2MkJ7o">
               <property role="Xl_RC" value="Concept should be specified" />
             </node>
-            <node concept="2OqwBi" id="V1I2dTBxXY" role="2OEOjV">
+            <node concept="2OqwBi" id="V1I2dTBxXY" role="1urrMF">
               <node concept="1YBJjd" id="V1I2dTBxPg" role="2Oq$k0">
                 <ref role="1YBMHb" node="V1I2dTBqz$" resolve="node" />
               </node>
@@ -6447,7 +6447,7 @@
             <node concept="Xl_RD" id="V1I2dTBDCI" role="2MkJ7o">
               <property role="Xl_RC" value="Concept should be specified" />
             </node>
-            <node concept="2OqwBi" id="V1I2dTBDCJ" role="2OEOjV">
+            <node concept="2OqwBi" id="V1I2dTBDCJ" role="1urrMF">
               <node concept="1YBJjd" id="V1I2dTBDCK" role="2Oq$k0">
                 <ref role="1YBMHb" node="V1I2dTBDtA" resolve="node" />
               </node>
@@ -6498,7 +6498,7 @@
             <node concept="Xl_RD" id="6hgzQ4Z7caw" role="a7wSD">
               <property role="Xl_RC" value="The font is not available" />
             </node>
-            <node concept="1YBJjd" id="6hgzQ4Z7cax" role="2OEOjV">
+            <node concept="1YBJjd" id="6hgzQ4Z7cax" role="1urrMF">
               <ref role="1YBMHb" node="6hgzQ4Z7cam" resolve="node" />
             </node>
           </node>
@@ -6610,7 +6610,7 @@
                 </node>
               </node>
             </node>
-            <node concept="1YBJjd" id="6eKAVO7WMN6" role="2OEOjV">
+            <node concept="1YBJjd" id="6eKAVO7WMN6" role="1urrMF">
               <ref role="1YBMHb" node="6eKAVO7W_S1" resolve="node" />
             </node>
           </node>
@@ -6680,7 +6680,7 @@
             <node concept="Xl_RD" id="3wNUq1k0OGx" role="Dpw9R">
               <property role="Xl_RC" value="This action will also be used for BACKSPACE, unless BACKSPACE is defined or imported." />
             </node>
-            <node concept="37vLTw" id="3wNUq1k0RIL" role="2OEOjV">
+            <node concept="37vLTw" id="3wNUq1k0RIL" role="1urrMF">
               <ref role="3cqZAo" node="3wNUq1k0R08" resolve="deleteItem" />
             </node>
           </node>
@@ -6799,7 +6799,7 @@
                     </node>
                   </node>
                 </node>
-                <node concept="37vLTw" id="2lc36UC6EJn" role="2OEOjV">
+                <node concept="37vLTw" id="2lc36UC6EJn" role="1urrMF">
                   <ref role="3cqZAo" node="2lc36UC36EE" resolve="imp" />
                 </node>
               </node>
@@ -6876,9 +6876,6 @@
       <node concept="3clFbJ" id="2pg2GNQgrj_" role="3cqZAp">
         <node concept="3clFbS" id="2pg2GNQgrjB" role="3clFbx">
           <node concept="a7r0C" id="2pg2GNQgtqF" role="3cqZAp">
-            <node concept="1YBJjd" id="2pg2GNQgvlk" role="2OEOjV">
-              <ref role="1YBMHb" node="2pg2GNQgaRH" resolve="cellActionMapImport" />
-            </node>
             <node concept="3cpWs3" id="40UAa_eVp3n" role="a7wSD">
               <node concept="Xl_RD" id="40UAa_eVpbQ" role="3uHU7B">
                 <property role="Xl_RC" value="Import has no effect: " />
@@ -6891,6 +6888,9 @@
                   <ref role="37wK5l" to="tpcb:3XXPjz_qwwf" resolve="getMessage" />
                 </node>
               </node>
+            </node>
+            <node concept="1YBJjd" id="2pg2GNQgvlk" role="1urrMF">
+              <ref role="1YBMHb" node="2pg2GNQgaRH" resolve="cellActionMapImport" />
             </node>
           </node>
         </node>
@@ -6937,7 +6937,7 @@
                       <property role="Xl_RC" value="Cycle in imports: " />
                     </node>
                   </node>
-                  <node concept="2OqwBi" id="5Sx2dSLZI3b" role="2OEOjV">
+                  <node concept="2OqwBi" id="5Sx2dSLZI3b" role="1urrMF">
                     <node concept="37vLTw" id="5Sx2dSLZI3c" role="2Oq$k0">
                       <ref role="3cqZAo" node="5Sx2dSLZHkC" resolve="cycle" />
                     </node>
@@ -7034,15 +7034,6 @@
       </node>
       <node concept="3clFbH" id="7W$v8cT$95Y" role="3cqZAp" />
       <node concept="a7r0C" id="7W$v8cTzTJU" role="3cqZAp">
-        <node concept="3Cnw8n" id="7W$v8cT$4lE" role="2OEOjU">
-          <ref role="QpYPw" node="7W$v8cT$3xl" resolve="FixRefCellReadOnly" />
-          <node concept="3CnSsL" id="7W$v8cT$6Z2" role="3Coj4f">
-            <ref role="QkamJ" node="7W$v8cT$5i$" resolve="propCell" />
-            <node concept="37vLTw" id="7W$v8cT$7H$" role="3CoRuB">
-              <ref role="3cqZAo" node="7W$v8cT$7bl" resolve="propCell" />
-            </node>
-          </node>
-        </node>
         <node concept="3cpWs3" id="7W$v8cTzVsI" role="a7wSD">
           <node concept="Xl_RD" id="7W$v8cTzVRi" role="3uHU7w">
             <property role="Xl_RC" value=" of the referenced node using this cell. In most cases it's not the desired behavior." />
@@ -7066,8 +7057,17 @@
             </node>
           </node>
         </node>
-        <node concept="1YBJjd" id="7W$v8cTzTQf" role="2OEOjV">
+        <node concept="1YBJjd" id="7W$v8cTzTQf" role="1urrMF">
           <ref role="1YBMHb" node="7W$v8cTzOjt" resolve="refCell" />
+        </node>
+        <node concept="3Cnw8n" id="7W$v8cT$4lE" role="1urrFz">
+          <ref role="QpYPw" node="7W$v8cT$3xl" resolve="FixRefCellReadOnly" />
+          <node concept="3CnSsL" id="7W$v8cT$6Z2" role="3Coj4f">
+            <ref role="QkamJ" node="7W$v8cT$5i$" resolve="propCell" />
+            <node concept="37vLTw" id="7W$v8cT$7H$" role="3CoRuB">
+              <ref role="3cqZAo" node="7W$v8cT$7bl" resolve="propCell" />
+            </node>
+          </node>
         </node>
       </node>
     </node>

@@ -3,7 +3,7 @@
   <persistence version="9" />
   <languages>
     <use id="83888646-71ce-4f1c-9c53-c54016f6ad4f" name="jetbrains.mps.baseLanguage.collections" version="-1" />
-    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="4" />
+    <use id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem" version="5" />
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="9" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
@@ -224,11 +224,6 @@
       <concept id="1227096620180" name="jetbrains.mps.lang.typesystem.structure.ReferenceMessageTarget" flags="ng" index="2OE7Q9">
         <reference id="1227096645744" name="linkDeclaration" index="2OEe5H" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802791" name="helginsIntention" index="2OEOjU" />
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216383476350" name="quickFixArgument" index="Q6Id_" />
@@ -248,6 +243,11 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246643221" name="helginsIntention" index="1urrFz" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1210784285454" name="jetbrains.mps.lang.typesystem.structure.TypesystemIntention" flags="ng" index="3Cnw8n">
         <reference id="1216388525179" name="quickFix" index="QpYPw" />
         <child id="1210784493590" name="actualArgument" index="3Coj4f" />
@@ -529,11 +529,11 @@
           <node concept="3clFbJ" id="1vDgt48NGOx" role="3cqZAp">
             <node concept="3clFbS" id="1vDgt48NGOy" role="3clFbx">
               <node concept="2MkqsV" id="1vDgt48NGOz" role="3cqZAp">
-                <node concept="1YBJjd" id="1vDgt48NGPs" role="2OEOjV">
-                  <ref role="1YBMHb" node="h9BOXJf" resolve="iTemplateCall" />
-                </node>
                 <node concept="Xl_RD" id="1vDgt48NGO_" role="2MkJ7o">
                   <property role="Xl_RC" value="wrong number of parameters" />
+                </node>
+                <node concept="1YBJjd" id="1vDgt48NGPs" role="1urrMF">
+                  <ref role="1YBMHb" node="h9BOXJf" resolve="iTemplateCall" />
                 </node>
               </node>
             </node>
@@ -1929,7 +1929,7 @@
             <node concept="Xl_RD" id="hpvp0eP" role="2MkJ7o">
               <property role="Xl_RC" value="pre-processing script kind is expected" />
             </node>
-            <node concept="2GrUjf" id="hpvp8xB" role="2OEOjV">
+            <node concept="2GrUjf" id="hpvp8xB" role="1urrMF">
               <ref role="2Gs0qQ" node="hpvoDJY" resolve="scriptReference" />
             </node>
           </node>
@@ -1979,7 +1979,7 @@
             <node concept="Xl_RD" id="hpvpbYM" role="2MkJ7o">
               <property role="Xl_RC" value="post-processing script kind is expected" />
             </node>
-            <node concept="2GrUjf" id="hpvpbYN" role="2OEOjV">
+            <node concept="2GrUjf" id="hpvpbYN" role="1urrMF">
               <ref role="2Gs0qQ" node="hpvpbYB" resolve="scriptReference" />
             </node>
           </node>
@@ -2055,7 +2055,7 @@
                 <node concept="Xl_RD" id="hwT$1A9" role="2MkJ7o">
                   <property role="Xl_RC" value="Label has incorrect type" />
                 </node>
-                <node concept="1YBJjd" id="hwT$1Aa" role="2OEOjV">
+                <node concept="1YBJjd" id="hwT$1Aa" role="1urrMF">
                   <ref role="1YBMHb" node="husvyg6" resolve="nodeToCheck" />
                 </node>
               </node>
@@ -2153,7 +2153,7 @@
             <node concept="Xl_RD" id="5Wn7$dQZiK_" role="2MkJ7o">
               <property role="Xl_RC" value="Rule has no input, can't use mapping label with typed source" />
             </node>
-            <node concept="1YBJjd" id="5Wn7$dQZi8q" role="2OEOjV">
+            <node concept="1YBJjd" id="5Wn7$dQZi8q" role="1urrMF">
               <ref role="1YBMHb" node="husC_rA" resolve="nodeToCheck" />
             </node>
           </node>
@@ -2453,7 +2453,7 @@
                 <node concept="Xl_RD" id="hPJutmU" role="2MkJ7o">
                   <property role="Xl_RC" value="Macro is outside a Template Fragment" />
                 </node>
-                <node concept="1YBJjd" id="hPJuzv1" role="2OEOjV">
+                <node concept="1YBJjd" id="hPJuzv1" role="1urrMF">
                   <ref role="1YBMHb" node="hPJouj0" resolve="macro" />
                 </node>
               </node>
@@ -2514,7 +2514,7 @@
                 <node concept="Xl_RD" id="hQ7VN0t" role="2MkJ7o">
                   <property role="Xl_RC" value="Macro is outside a Template Fragment" />
                 </node>
-                <node concept="1YBJjd" id="hQ7VN0u" role="2OEOjV">
+                <node concept="1YBJjd" id="hQ7VN0u" role="1urrMF">
                   <ref role="1YBMHb" node="hQ7VN0G" resolve="macro" />
                 </node>
               </node>
@@ -2575,7 +2575,7 @@
                 <node concept="Xl_RD" id="hQ7VYiv" role="2MkJ7o">
                   <property role="Xl_RC" value="Macro is outside a Template Fragment" />
                 </node>
-                <node concept="1YBJjd" id="hQ7VYiw" role="2OEOjV">
+                <node concept="1YBJjd" id="hQ7VYiw" role="1urrMF">
                   <ref role="1YBMHb" node="hQ7VYiI" resolve="macro" />
                 </node>
               </node>
@@ -2655,7 +2655,7 @@
             <node concept="Xl_RD" id="uktU6AWHeo" role="2MkJ7o">
               <property role="Xl_RC" value="No template" />
             </node>
-            <node concept="1YBJjd" id="uktU6AWHP2" role="2OEOjV">
+            <node concept="1YBJjd" id="uktU6AWHP2" role="1urrMF">
               <ref role="1YBMHb" node="hQqS6Vc" resolve="weaveEach" />
             </node>
           </node>
@@ -2763,7 +2763,7 @@
                       <property role="Xl_RC" value="template is not applicable to " />
                     </node>
                   </node>
-                  <node concept="1YBJjd" id="uktU6AWHQ0" role="2OEOjV">
+                  <node concept="1YBJjd" id="uktU6AWHQ0" role="1urrMF">
                     <ref role="1YBMHb" node="hQqS6Vc" resolve="weaveEach" />
                   </node>
                 </node>
@@ -2889,7 +2889,7 @@
                 <node concept="Xl_RD" id="i3Mqy7x" role="2MkJ7o">
                   <property role="Xl_RC" value="Weaving Template can't include Template Fragment as root" />
                 </node>
-                <node concept="2OqwBi" id="i3MrCAu" role="2OEOjV">
+                <node concept="2OqwBi" id="i3MrCAu" role="1urrMF">
                   <node concept="1YBJjd" id="i3Mqxs3" role="2Oq$k0">
                     <ref role="1YBMHb" node="i3MpUh6" resolve="rule" />
                   </node>
@@ -3003,7 +3003,7 @@
                 <node concept="Xl_RD" id="1$dcvTE6OHq" role="2MkJ7o">
                   <property role="Xl_RC" value="Label has incorrect type" />
                 </node>
-                <node concept="1YBJjd" id="1$dcvTE731f" role="2OEOjV">
+                <node concept="1YBJjd" id="1$dcvTE731f" role="1urrMF">
                   <ref role="1YBMHb" node="1$dcvTE6OH1" resolve="rule" />
                 </node>
               </node>
@@ -3146,7 +3146,7 @@
                         </node>
                       </node>
                     </node>
-                    <node concept="1YBJjd" id="1vDgt48NGQc" role="2OEOjV">
+                    <node concept="1YBJjd" id="1vDgt48NGQc" role="1urrMF">
                       <ref role="1YBMHb" node="1vDgt48NGP$" resolve="templateDeclRef" />
                     </node>
                   </node>
@@ -3338,7 +3338,7 @@
                     <property role="Xl_RC" value=")" />
                   </node>
                 </node>
-                <node concept="1YBJjd" id="WXiImLvEJM" role="2OEOjV">
+                <node concept="1YBJjd" id="WXiImLvEJM" role="1urrMF">
                   <ref role="1YBMHb" node="6C$BydUUvYw" resolve="loopMacro" />
                 </node>
               </node>
@@ -3501,7 +3501,7 @@
             <node concept="Xl_RD" id="6TsFynOh$Id" role="2MkJ7o">
               <property role="Xl_RC" value="No template fragments found" />
             </node>
-            <node concept="2OqwBi" id="58$__1noXir" role="2OEOjV">
+            <node concept="2OqwBi" id="58$__1noXir" role="1urrMF">
               <node concept="1YBJjd" id="6TsFynOh$Ie" role="2Oq$k0">
                 <ref role="1YBMHb" node="6TsFynOhsd2" resolve="td" />
               </node>
@@ -3675,15 +3675,15 @@
                 <node concept="3clFbJ" id="4fnTrxcpvad" role="3cqZAp">
                   <node concept="3clFbS" id="4fnTrxcpvae" role="3clFbx">
                     <node concept="2MkqsV" id="4fnTrxcpvaf" role="3cqZAp">
-                      <node concept="37vLTw" id="4fnTrxcpvag" role="2OEOjV">
-                        <ref role="3cqZAo" node="4fnTrxcpva$" resolve="tf" />
-                      </node>
                       <node concept="2YIFZM" id="4fnTrxcpvah" role="2MkJ7o">
                         <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                         <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                         <node concept="Xl_RD" id="4fnTrxcpvai" role="37wK5m">
                           <property role="Xl_RC" value="Template Fragments shall reside under same parent node" />
                         </node>
+                      </node>
+                      <node concept="37vLTw" id="4fnTrxcpvag" role="1urrMF">
+                        <ref role="3cqZAo" node="4fnTrxcpva$" resolve="tf" />
                       </node>
                     </node>
                   </node>
@@ -3702,15 +3702,15 @@
                 <node concept="3clFbJ" id="4fnTrxcpvao" role="3cqZAp">
                   <node concept="3clFbS" id="4fnTrxcpvap" role="3clFbx">
                     <node concept="2MkqsV" id="4fnTrxcpvaq" role="3cqZAp">
-                      <node concept="37vLTw" id="4fnTrxcpvar" role="2OEOjV">
-                        <ref role="3cqZAo" node="4fnTrxcpva$" resolve="tf" />
-                      </node>
                       <node concept="2YIFZM" id="4fnTrxcpvas" role="2MkJ7o">
                         <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                         <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                         <node concept="Xl_RD" id="4fnTrxcpvat" role="37wK5m">
                           <property role="Xl_RC" value="Template Fragments shall use same same containment link" />
                         </node>
+                      </node>
+                      <node concept="37vLTw" id="4fnTrxcpvar" role="1urrMF">
+                        <ref role="3cqZAo" node="4fnTrxcpva$" resolve="tf" />
                       </node>
                     </node>
                   </node>
@@ -3820,7 +3820,7 @@
                 <node concept="Xl_RD" id="6TsFynOhEoN" role="2MkJ7o">
                   <property role="Xl_RC" value="No template fragments found in referenced template declaration" />
                 </node>
-                <node concept="1YBJjd" id="6TsFynOhEoP" role="2OEOjV">
+                <node concept="1YBJjd" id="6TsFynOhEoP" role="1urrMF">
                   <ref role="1YBMHb" node="6TsFynOhEnK" resolve="tdr" />
                 </node>
               </node>
@@ -3875,11 +3875,11 @@
             <node concept="Xl_RD" id="2sTGsLqhm5A" role="a7wSD">
               <property role="Xl_RC" value="Transformation of an attribute may end up with hard to explain outcome" />
             </node>
-            <node concept="1YBJjd" id="2sTGsLqhn4Y" role="2OEOjV">
-              <ref role="1YBMHb" node="2VIsbeKiNJM" resolve="bmr" />
-            </node>
-            <node concept="2OE7Q9" id="2sTGsLqhm5C" role="2OEWyd">
+            <node concept="2OE7Q9" id="2sTGsLqhm5C" role="1urrC5">
               <ref role="2OEe5H" to="tpf8:gZ0HIsK" resolve="applicableConcept" />
+            </node>
+            <node concept="1YBJjd" id="2sTGsLqhn4Y" role="1urrMF">
+              <ref role="1YBMHb" node="2VIsbeKiNJM" resolve="bmr" />
             </node>
           </node>
         </node>
@@ -3905,7 +3905,7 @@
             <node concept="Xl_RD" id="2VIsbeKj09t" role="a7wSD">
               <property role="Xl_RC" value="Rule for an abstract concept with disabled inheritors won't apply ever. Pick non-abstract concept or enable rule for concept inheritors as well" />
             </node>
-            <node concept="1YBJjd" id="2VIsbeKj05C" role="2OEOjV">
+            <node concept="1YBJjd" id="2VIsbeKj05C" role="1urrMF">
               <ref role="1YBMHb" node="2VIsbeKiNJM" resolve="bmr" />
             </node>
           </node>
@@ -4000,7 +4000,7 @@
             <node concept="Xl_RD" id="6j1nfBdBOJ1" role="2MkJ7o">
               <property role="Xl_RC" value="No template" />
             </node>
-            <node concept="1YBJjd" id="6j1nfBdBOJ2" role="2OEOjV">
+            <node concept="1YBJjd" id="6j1nfBdBOJ2" role="1urrMF">
               <ref role="1YBMHb" node="6j1nfBdBOJ6" resolve="macro" />
             </node>
           </node>
@@ -4066,11 +4066,11 @@
                       </node>
                     </node>
                     <node concept="2MkqsV" id="6j1nfBdCgDT" role="3cqZAp">
-                      <node concept="1YBJjd" id="6j1nfBdCgKk" role="2OEOjV">
-                        <ref role="1YBMHb" node="6j1nfBdBOJ6" resolve="macro" />
-                      </node>
                       <node concept="37vLTw" id="6j1nfBdCgWg" role="2MkJ7o">
                         <ref role="3cqZAo" node="6j1nfBdCgWe" resolve="msg" />
+                      </node>
+                      <node concept="1YBJjd" id="6j1nfBdCgKk" role="1urrMF">
+                        <ref role="1YBMHb" node="6j1nfBdBOJ6" resolve="macro" />
                       </node>
                     </node>
                   </node>
@@ -4229,7 +4229,7 @@
                             <property role="Xl_RC" value="'" />
                           </node>
                         </node>
-                        <node concept="1YBJjd" id="6j1nfBdBP1Z" role="2OEOjV">
+                        <node concept="1YBJjd" id="6j1nfBdBP1Z" role="1urrMF">
                           <ref role="1YBMHb" node="6j1nfBdBP2i" resolve="rule" />
                         </node>
                       </node>
@@ -4274,15 +4274,6 @@
             <node concept="9aQIb" id="6lTMuI_3xcS" role="9aQIa">
               <node concept="3clFbS" id="6lTMuI_3xcT" role="9aQI4">
                 <node concept="a7r0C" id="6lTMuI_3xhd" role="3cqZAp">
-                  <node concept="3Cnw8n" id="6lTMuI_4lAK" role="2OEOjU">
-                    <ref role="QpYPw" node="6lTMuI_4lqL" resolve="FixRootTemplateAnnotation" />
-                    <node concept="3CnSsL" id="6lTMuI_4m6Q" role="3Coj4f">
-                      <ref role="QkamJ" node="6lTMuI_4lPD" resolve="rule" />
-                      <node concept="1YBJjd" id="6lTMuI_4m73" role="3CoRuB">
-                        <ref role="1YBMHb" node="6j1nfBdBP2i" resolve="rule" />
-                      </node>
-                    </node>
-                  </node>
                   <node concept="2YIFZM" id="6lTMuI_3xUV" role="a7wSD">
                     <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                     <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
@@ -4323,11 +4314,20 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="1YBJjd" id="6lTMuI_4j52" role="2OEOjV">
+                  <node concept="2OE7Q9" id="6lTMuI_4j7c" role="1urrC5">
+                    <ref role="2OEe5H" to="tpf8:gZlhOrt" resolve="template" />
+                  </node>
+                  <node concept="1YBJjd" id="6lTMuI_4j52" role="1urrMF">
                     <ref role="1YBMHb" node="6j1nfBdBP2i" resolve="rule" />
                   </node>
-                  <node concept="2OE7Q9" id="6lTMuI_4j7c" role="2OEWyd">
-                    <ref role="2OEe5H" to="tpf8:gZlhOrt" resolve="template" />
+                  <node concept="3Cnw8n" id="6lTMuI_4lAK" role="1urrFz">
+                    <ref role="QpYPw" node="6lTMuI_4lqL" resolve="FixRootTemplateAnnotation" />
+                    <node concept="3CnSsL" id="6lTMuI_4m6Q" role="3Coj4f">
+                      <ref role="QkamJ" node="6lTMuI_4lPD" resolve="rule" />
+                      <node concept="1YBJjd" id="6lTMuI_4m73" role="3CoRuB">
+                        <ref role="1YBMHb" node="6j1nfBdBP2i" resolve="rule" />
+                      </node>
+                    </node>
                   </node>
                 </node>
               </node>
@@ -4347,11 +4347,11 @@
             <node concept="Xl_RD" id="2sTGsLqhkS$" role="a7wSD">
               <property role="Xl_RC" value="Attributes are unlikely to be roots of a model" />
             </node>
-            <node concept="1YBJjd" id="2sTGsLqhkS_" role="2OEOjV">
-              <ref role="1YBMHb" node="6j1nfBdBP2i" resolve="rule" />
-            </node>
-            <node concept="2OE7Q9" id="2sTGsLqhkSA" role="2OEWyd">
+            <node concept="2OE7Q9" id="2sTGsLqhkSA" role="1urrC5">
               <ref role="2OEe5H" to="tpf8:gZ0HIsK" resolve="applicableConcept" />
+            </node>
+            <node concept="1YBJjd" id="2sTGsLqhkS_" role="1urrMF">
+              <ref role="1YBMHb" node="6j1nfBdBP2i" resolve="rule" />
             </node>
           </node>
         </node>
@@ -4405,11 +4405,11 @@
       <node concept="3clFbJ" id="3lJIBUNcgRF" role="3cqZAp">
         <node concept="3clFbS" id="3lJIBUNcgRG" role="3clFbx">
           <node concept="2MkqsV" id="3lJIBUNck6$" role="3cqZAp">
-            <node concept="1YBJjd" id="3lJIBUNck7g" role="2OEOjV">
-              <ref role="1YBMHb" node="3lJIBUNcgGT" resolve="macro" />
-            </node>
             <node concept="Xl_RD" id="3lJIBUNck6K" role="2MkJ7o">
               <property role="Xl_RC" value="No template" />
+            </node>
+            <node concept="1YBJjd" id="3lJIBUNck7g" role="1urrMF">
+              <ref role="1YBMHb" node="3lJIBUNcgGT" resolve="macro" />
             </node>
           </node>
         </node>
@@ -4474,11 +4474,11 @@
                       </node>
                     </node>
                     <node concept="2MkqsV" id="3lJIBUNck9F" role="3cqZAp">
-                      <node concept="1YBJjd" id="3lJIBUNck9G" role="2OEOjV">
-                        <ref role="1YBMHb" node="3lJIBUNcgGT" resolve="macro" />
-                      </node>
                       <node concept="37vLTw" id="3lJIBUNck9H" role="2MkJ7o">
                         <ref role="3cqZAo" node="3lJIBUNck9v" resolve="msg" />
+                      </node>
+                      <node concept="1YBJjd" id="3lJIBUNck9G" role="1urrMF">
+                        <ref role="1YBMHb" node="3lJIBUNcgGT" resolve="macro" />
                       </node>
                     </node>
                   </node>
@@ -4687,16 +4687,16 @@
       <node concept="3clFbJ" id="55eznTdMnaY" role="3cqZAp">
         <node concept="3clFbS" id="55eznTdMnb1" role="3clFbx">
           <node concept="2MkqsV" id="rez4bFFZq4" role="3cqZAp">
-            <node concept="1YBJjd" id="rez4bFFZqA" role="2OEOjV">
-              <ref role="1YBMHb" node="rez4bFFPXk" resolve="templateSwitch" />
-            </node>
             <node concept="Xl_RD" id="rez4bFFZqU" role="2MkJ7o">
               <property role="Xl_RC" value="Parameters count doesn't match that of modified switch" />
             </node>
-            <node concept="2OE7Q9" id="rez4bFGmO2" role="2OEWyd">
+            <node concept="2OE7Q9" id="rez4bFGmO2" role="1urrC5">
               <ref role="2OEe5H" to="tpf8:QzR6ThdYDm" resolve="parameter" />
             </node>
-            <node concept="3Cnw8n" id="rez4bFGrjP" role="2OEOjU">
+            <node concept="1YBJjd" id="rez4bFFZqA" role="1urrMF">
+              <ref role="1YBMHb" node="rez4bFFPXk" resolve="templateSwitch" />
+            </node>
+            <node concept="3Cnw8n" id="rez4bFGrjP" role="1urrFz">
               <ref role="QpYPw" node="rez4bFGqbP" resolve="fix_MatchParametersOfModifiedSwitch" />
             </node>
           </node>
@@ -4818,9 +4818,6 @@
                 </node>
               </node>
               <node concept="2MkqsV" id="rez4bFFZAr" role="3cqZAp">
-                <node concept="37vLTw" id="rez4bFFZBa" role="2OEOjV">
-                  <ref role="3cqZAo" node="dgwQoTuAbv" resolve="p1" />
-                </node>
                 <node concept="2YIFZM" id="rez4bFG2jN" role="2MkJ7o">
                   <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                   <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
@@ -4852,10 +4849,13 @@
                     </node>
                   </node>
                 </node>
-                <node concept="2ODE4t" id="rez4bFGlhh" role="2OEWyd">
+                <node concept="2ODE4t" id="rez4bFGlhh" role="1urrC5">
                   <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
                 </node>
-                <node concept="3Cnw8n" id="rez4bFGsg0" role="2OEOjU">
+                <node concept="37vLTw" id="rez4bFFZBa" role="1urrMF">
+                  <ref role="3cqZAo" node="dgwQoTuAbv" resolve="p1" />
+                </node>
+                <node concept="3Cnw8n" id="rez4bFGsg0" role="1urrFz">
                   <ref role="QpYPw" node="rez4bFGqbP" resolve="fix_MatchParametersOfModifiedSwitch" />
                 </node>
               </node>
@@ -5028,9 +5028,6 @@
           <node concept="3clFbJ" id="rez4bFGfr5" role="3cqZAp">
             <node concept="3clFbS" id="rez4bFGfr7" role="3clFbx">
               <node concept="2MkqsV" id="rez4bFGhxv" role="3cqZAp">
-                <node concept="37vLTw" id="rez4bFGhxI" role="2OEOjV">
-                  <ref role="3cqZAo" node="dgwQoTuAbv" resolve="p1" />
-                </node>
                 <node concept="2YIFZM" id="rez4bFGhTr" role="2MkJ7o">
                   <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                   <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
@@ -5046,10 +5043,13 @@
                     </node>
                   </node>
                 </node>
-                <node concept="2OE7Q9" id="rez4bFGl03" role="2OEWyd">
+                <node concept="2OE7Q9" id="rez4bFGl03" role="1urrC5">
                   <ref role="2OEe5H" to="tpf8:1$dcvTE2mFf" resolve="type" />
                 </node>
-                <node concept="3Cnw8n" id="rez4bFGsr3" role="2OEOjU">
+                <node concept="37vLTw" id="rez4bFGhxI" role="1urrMF">
+                  <ref role="3cqZAo" node="dgwQoTuAbv" resolve="p1" />
+                </node>
+                <node concept="3Cnw8n" id="rez4bFGsr3" role="1urrFz">
                   <ref role="QpYPw" node="rez4bFGqbP" resolve="fix_MatchParametersOfModifiedSwitch" />
                 </node>
               </node>
@@ -5186,32 +5186,6 @@
                     </node>
                   </node>
                   <node concept="2MkqsV" id="5p3LKWLwqfy" role="3cqZAp">
-                    <node concept="3Cnw8n" id="5p3LKWLwzB6" role="2OEOjU">
-                      <ref role="QpYPw" node="5p3LKWLwzvc" resolve="FixExtendsGenerator" />
-                      <node concept="3CnSsL" id="5p3LKWLw_bj" role="3Coj4f">
-                        <ref role="QkamJ" node="5p3LKWLwzya" resolve="extendingGenerator" />
-                        <node concept="10QFUN" id="5p3LKWLwEv3" role="3CoRuB">
-                          <node concept="3uibUv" id="5p3LKWLwEwG" role="10QFUM">
-                            <ref role="3uigEE" to="w1kc:~Generator" resolve="Generator" />
-                          </node>
-                          <node concept="37vLTw" id="5p3LKWLw_bG" role="10QFUP">
-                            <ref role="3cqZAo" node="5p3LKWLwaK5" resolve="module" />
-                          </node>
-                        </node>
-                      </node>
-                      <node concept="3CnSsL" id="5p3LKWLw_bz" role="3Coj4f">
-                        <ref role="QkamJ" node="5p3LKWLwzys" resolve="extendedGenerator" />
-                        <node concept="37vLTw" id="5p3LKWLw_c3" role="3CoRuB">
-                          <ref role="3cqZAo" node="5p3LKWLwgaA" resolve="generatorDependency" />
-                        </node>
-                      </node>
-                    </node>
-                    <node concept="1YBJjd" id="5p3LKWLwqfM" role="2OEOjV">
-                      <ref role="1YBMHb" node="rez4bFFPXk" resolve="templateSwitch" />
-                    </node>
-                    <node concept="2OE7Q9" id="5p3LKWLwqgI" role="2OEWyd">
-                      <ref role="2OEe5H" to="tpf8:gcphYgk" resolve="modifiedSwitch" />
-                    </node>
                     <node concept="2YIFZM" id="5p3LKWLwvAt" role="2MkJ7o">
                       <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                       <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
@@ -5232,6 +5206,32 @@
                         </node>
                         <node concept="3TrcHB" id="5p3LKWLwxR9" role="2OqNvi">
                           <ref role="3TsBF5" to="tpck:h0TrG11" resolve="name" />
+                        </node>
+                      </node>
+                    </node>
+                    <node concept="2OE7Q9" id="5p3LKWLwqgI" role="1urrC5">
+                      <ref role="2OEe5H" to="tpf8:gcphYgk" resolve="modifiedSwitch" />
+                    </node>
+                    <node concept="1YBJjd" id="5p3LKWLwqfM" role="1urrMF">
+                      <ref role="1YBMHb" node="rez4bFFPXk" resolve="templateSwitch" />
+                    </node>
+                    <node concept="3Cnw8n" id="5p3LKWLwzB6" role="1urrFz">
+                      <ref role="QpYPw" node="5p3LKWLwzvc" resolve="FixExtendsGenerator" />
+                      <node concept="3CnSsL" id="5p3LKWLw_bj" role="3Coj4f">
+                        <ref role="QkamJ" node="5p3LKWLwzya" resolve="extendingGenerator" />
+                        <node concept="10QFUN" id="5p3LKWLwEv3" role="3CoRuB">
+                          <node concept="3uibUv" id="5p3LKWLwEwG" role="10QFUM">
+                            <ref role="3uigEE" to="w1kc:~Generator" resolve="Generator" />
+                          </node>
+                          <node concept="37vLTw" id="5p3LKWLw_bG" role="10QFUP">
+                            <ref role="3cqZAo" node="5p3LKWLwaK5" resolve="module" />
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="3CnSsL" id="5p3LKWLw_bz" role="3Coj4f">
+                        <ref role="QkamJ" node="5p3LKWLwzys" resolve="extendedGenerator" />
+                        <node concept="37vLTw" id="5p3LKWLw_c3" role="3CoRuB">
+                          <ref role="3cqZAo" node="5p3LKWLwgaA" resolve="generatorDependency" />
                         </node>
                       </node>
                     </node>
@@ -5607,14 +5607,14 @@
       <node concept="3clFbJ" id="6uPxrhfjuPN" role="3cqZAp">
         <node concept="3clFbS" id="6uPxrhfjuPP" role="3clFbx">
           <node concept="2MkqsV" id="6uPxrhfjv3d" role="3cqZAp">
-            <node concept="1YBJjd" id="6uPxrhfjv3s" role="2OEOjV">
-              <ref role="1YBMHb" node="6uPxrhfjtI_" resolve="rule" />
-            </node>
             <node concept="Xl_RD" id="6uPxrhfjv5U" role="2MkJ7o">
               <property role="Xl_RC" value="Rule shall specify Attribute subconcept" />
             </node>
-            <node concept="2OE7Q9" id="6uPxrhfjv3K" role="2OEWyd">
+            <node concept="2OE7Q9" id="6uPxrhfjv3K" role="1urrC5">
               <ref role="2OEe5H" to="tpf8:6uPxrhfjpgY" resolve="applicableConcept" />
+            </node>
+            <node concept="1YBJjd" id="6uPxrhfjv3s" role="1urrMF">
+              <ref role="1YBMHb" node="6uPxrhfjtI_" resolve="rule" />
             </node>
           </node>
         </node>
@@ -5664,7 +5664,7 @@
             <node concept="Xl_RD" id="3lPtXx0ZZKm" role="2MkJ7o">
               <property role="Xl_RC" value="More than one template fragment for a node. Are there node attributes with template macros?" />
             </node>
-            <node concept="1YBJjd" id="3lPtXx0ZZxl" role="2OEOjV">
+            <node concept="1YBJjd" id="3lPtXx0ZZxl" role="1urrMF">
               <ref role="1YBMHb" node="3lPtXx0ZW3h" resolve="tf" />
             </node>
           </node>
@@ -5703,11 +5703,11 @@
             </node>
           </node>
           <node concept="2MkqsV" id="3lPtXx1012z" role="3cqZAp">
-            <node concept="37vLTw" id="3lPtXx101e8" role="2OEOjV">
-              <ref role="3cqZAo" node="3lPtXx101e3" resolve="fragmentNode" />
-            </node>
             <node concept="Xl_RD" id="3lPtXx101ut" role="2MkJ7o">
               <property role="Xl_RC" value="Node Attribute is a template fragment, and its attributed node is a template fragment as well. Generator doesn't support such templates" />
+            </node>
+            <node concept="37vLTw" id="3lPtXx101e8" role="1urrMF">
+              <ref role="3cqZAo" node="3lPtXx101e3" resolve="fragmentNode" />
             </node>
           </node>
         </node>
@@ -5862,9 +5862,6 @@
           <node concept="3clFbJ" id="5KqhIBTu3vO" role="3cqZAp">
             <node concept="3clFbS" id="5KqhIBTu3vP" role="3clFbx">
               <node concept="2MkqsV" id="5KqhIBTu3vQ" role="3cqZAp">
-                <node concept="1YBJjd" id="5KqhIBTu3BU" role="2OEOjV">
-                  <ref role="1YBMHb" node="5KqhIBTu39d" resolve="macro" />
-                </node>
                 <node concept="2YIFZM" id="5KqhIBTuGTA" role="2MkJ7o">
                   <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                   <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
@@ -5888,6 +5885,9 @@
                       <ref role="37wK5l" to="c17a:~SNamedElement.getName()" resolve="getName" />
                     </node>
                   </node>
+                </node>
+                <node concept="1YBJjd" id="5KqhIBTu3BU" role="1urrMF">
+                  <ref role="1YBMHb" node="5KqhIBTu39d" resolve="macro" />
                 </node>
               </node>
             </node>
@@ -6090,15 +6090,15 @@
                 <node concept="3clFbJ" id="4fnTrxcpsOP" role="3cqZAp">
                   <node concept="3clFbS" id="4fnTrxcpsOQ" role="3clFbx">
                     <node concept="2MkqsV" id="4fnTrxcpsVF" role="3cqZAp">
-                      <node concept="37vLTw" id="4fnTrxcpsWS" role="2OEOjV">
-                        <ref role="3cqZAo" node="4fnTrxcpplV" resolve="tf" />
-                      </node>
                       <node concept="2YIFZM" id="4fnTrxcpsWb" role="2MkJ7o">
                         <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                         <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                         <node concept="Xl_RD" id="4fnTrxcpsXJ" role="37wK5m">
                           <property role="Xl_RC" value="Template Fragments shall reside under same parent node" />
                         </node>
+                      </node>
+                      <node concept="37vLTw" id="4fnTrxcpsWS" role="1urrMF">
+                        <ref role="3cqZAo" node="4fnTrxcpplV" resolve="tf" />
                       </node>
                     </node>
                   </node>
@@ -6117,15 +6117,15 @@
                 <node concept="3clFbJ" id="4fnTrxcpti0" role="3cqZAp">
                   <node concept="3clFbS" id="4fnTrxcpti2" role="3clFbx">
                     <node concept="2MkqsV" id="4fnTrxcptuo" role="3cqZAp">
-                      <node concept="37vLTw" id="4fnTrxcptup" role="2OEOjV">
-                        <ref role="3cqZAo" node="4fnTrxcpplV" resolve="tf" />
-                      </node>
                       <node concept="2YIFZM" id="4fnTrxcptuq" role="2MkJ7o">
                         <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                         <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                         <node concept="Xl_RD" id="4fnTrxcptur" role="37wK5m">
                           <property role="Xl_RC" value="Template Fragments shall use same same containment link" />
                         </node>
+                      </node>
+                      <node concept="37vLTw" id="4fnTrxcptup" role="1urrMF">
+                        <ref role="3cqZAo" node="4fnTrxcpplV" resolve="tf" />
                       </node>
                     </node>
                   </node>
@@ -6396,7 +6396,7 @@
             <node concept="Xl_RD" id="5C_m7JvWhU2" role="a7wSD">
               <property role="Xl_RC" value="Classifier is not specified for ThisExpression that is not within the same template with corresponding classifier. This may lead to incorrect code generated in some cases." />
             </node>
-            <node concept="1YBJjd" id="5C_m7JvWhU1" role="2OEOjV">
+            <node concept="1YBJjd" id="5C_m7JvWhU1" role="1urrMF">
               <ref role="1YBMHb" node="5C_m7JvWfDC" resolve="expression" />
             </node>
           </node>

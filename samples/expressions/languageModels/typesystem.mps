@@ -88,9 +88,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1205762105978" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableDeclaration" flags="ng" index="2X1qdy" />
       <concept id="1205762656241" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableReference" flags="nn" index="2X3wrD">
         <reference id="1205762683928" name="whenConcreteVar" index="2X3Bk0" />
@@ -117,6 +114,9 @@
       </concept>
       <concept id="1236165709895" name="jetbrains.mps.lang.typesystem.structure.OverloadedOpRulesContainer" flags="ng" index="3hdX5o">
         <child id="1236165725858" name="rule" index="3he0YX" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1176543928247" name="jetbrains.mps.lang.typesystem.structure.IsSubtypeExpression" flags="nn" index="3JuTUA">
         <child id="1176543945045" name="subtypeExpression" index="3JuY14" />
@@ -521,9 +521,6 @@
                 <node concept="9aQIb" id="1d383CxV4OI" role="9aQIa">
                   <node concept="3clFbS" id="1d383CxV4OJ" role="9aQI4">
                     <node concept="2MkqsV" id="1d383CxV4OK" role="3cqZAp">
-                      <node concept="1YBJjd" id="1N6$leSfxk9" role="2OEOjV">
-                        <ref role="1YBMHb" node="1N6$leSbdE0" resolve="expression" />
-                      </node>
                       <node concept="3cpWs3" id="4rnzj9dp8nE" role="2MkJ7o">
                         <node concept="Xl_RD" id="4rnzj9dp8nH" role="3uHU7w">
                           <property role="Xl_RC" value="'" />
@@ -561,6 +558,9 @@
                             <ref role="2X3Bk0" node="1d383CxV4OR" resolve="rightType" />
                           </node>
                         </node>
+                      </node>
+                      <node concept="1YBJjd" id="1N6$leSfxk9" role="1urrMF">
+                        <ref role="1YBMHb" node="1N6$leSbdE0" resolve="expression" />
                       </node>
                     </node>
                   </node>

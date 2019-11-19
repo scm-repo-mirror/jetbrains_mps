@@ -134,9 +134,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1216383170661" name="jetbrains.mps.lang.typesystem.structure.TypesystemQuickFix" flags="ng" index="Q5z_Y">
         <child id="1216383424566" name="executeBlock" index="Q6x$H" />
         <child id="1216383476350" name="quickFixArgument" index="Q6Id_" />
@@ -154,6 +151,9 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -343,11 +343,11 @@
             <node concept="1bVj0M" id="1IkLLL1qEkY" role="23t8la">
               <node concept="3clFbS" id="1IkLLL1qEkZ" role="1bW5cS">
                 <node concept="2MkqsV" id="1IkLLL1qEo8" role="3cqZAp">
-                  <node concept="1YBJjd" id="1IkLLL1qGa3" role="2OEOjV">
-                    <ref role="1YBMHb" node="2T7ZPM5bRZf" resolve="iMigrationUnit" />
-                  </node>
                   <node concept="37vLTw" id="1IkLLL1qECt" role="2MkJ7o">
                     <ref role="3cqZAo" node="1IkLLL1qEl0" resolve="it" />
+                  </node>
+                  <node concept="1YBJjd" id="1IkLLL1qGa3" role="1urrMF">
+                    <ref role="1YBMHb" node="2T7ZPM5bRZf" resolve="iMigrationUnit" />
                   </node>
                 </node>
               </node>
@@ -498,11 +498,11 @@
             </node>
           </node>
         </node>
-        <node concept="1YBJjd" id="Czdt9t410f" role="2OEOjV">
-          <ref role="1YBMHb" node="Czdt9sZoIW" resolve="migrationScript" />
-        </node>
         <node concept="Xl_RD" id="Czdt9t417u" role="2MkJ7o">
           <property role="Xl_RC" value="Cyclic migration script dependency detected" />
+        </node>
+        <node concept="1YBJjd" id="Czdt9t410f" role="1urrMF">
+          <ref role="1YBMHb" node="Czdt9sZoIW" resolve="migrationScript" />
         </node>
       </node>
     </node>
@@ -838,9 +838,6 @@
         </node>
       </node>
       <node concept="2Mj0R9" id="6fethIfQxv" role="3cqZAp">
-        <node concept="1YBJjd" id="6fethIfRXi" role="2OEOjV">
-          <ref role="1YBMHb" node="2uZcAeY9SPR" resolve="nodeReference" />
-        </node>
         <node concept="3y3z36" id="6fethIfQAT" role="2MkoU_">
           <node concept="10Nm6u" id="6fethIfQBg" role="3uHU7w" />
           <node concept="37vLTw" id="6fethIfQAh" role="3uHU7B">
@@ -849,6 +846,9 @@
         </node>
         <node concept="Xl_RD" id="6fethIfQXo" role="2MkJ7o">
           <property role="Xl_RC" value="Invalid node reference" />
+        </node>
+        <node concept="1YBJjd" id="6fethIfRXi" role="1urrMF">
+          <ref role="1YBMHb" node="2uZcAeY9SPR" resolve="nodeReference" />
         </node>
       </node>
     </node>
@@ -869,7 +869,7 @@
                 <node concept="Xl_RD" id="2xiZ7_1zBaP" role="2MkJ7o">
                   <property role="Xl_RC" value="Cycle between migration scripts" />
                 </node>
-                <node concept="1YBJjd" id="2xiZ7_1zBdC" role="2OEOjV">
+                <node concept="1YBJjd" id="2xiZ7_1zBdC" role="1urrMF">
                   <ref role="1YBMHb" node="2xiZ7_1yvah" resolve="includeMigrationPart" />
                 </node>
               </node>
@@ -937,11 +937,11 @@
               <node concept="3clFbJ" id="7jfLc8WbpMR" role="3cqZAp">
                 <node concept="3clFbS" id="7jfLc8WbpMT" role="3clFbx">
                   <node concept="Dpp1Q" id="72nsGSZa5ti" role="3cqZAp">
-                    <node concept="1YBJjd" id="72nsGSZa5$e" role="2OEOjV">
-                      <ref role="1YBMHb" node="_BZ6vQXzqN" resolve="instancesExpression" />
-                    </node>
                     <node concept="Xl_RD" id="_BZ6vQX$r$" role="Dpw9R">
                       <property role="Xl_RC" value="Non-exact instances search" />
+                    </node>
+                    <node concept="1YBJjd" id="72nsGSZa5$e" role="1urrMF">
+                      <ref role="1YBMHb" node="_BZ6vQXzqN" resolve="instancesExpression" />
                     </node>
                   </node>
                 </node>
@@ -1089,9 +1089,6 @@
         <node concept="Xl_RD" id="5TUCQr2IBD7" role="2MkJ7o">
           <property role="Xl_RC" value="Produced data should be declared" />
         </node>
-        <node concept="1YBJjd" id="5TUCQr2IBul" role="2OEOjV">
-          <ref role="1YBMHb" node="5TUCQr2CKVU" resolve="putDataExpression" />
-        </node>
         <node concept="2OqwBi" id="5TUCQr2CRaI" role="2MkoU_">
           <node concept="2OqwBi" id="5TUCQr2CPZW" role="2Oq$k0">
             <node concept="2OqwBi" id="5TUCQr2CPxx" role="2Oq$k0">
@@ -1111,6 +1108,9 @@
             </node>
           </node>
           <node concept="3x8VRR" id="5TUCQr2CR$_" role="2OqNvi" />
+        </node>
+        <node concept="1YBJjd" id="5TUCQr2IBul" role="1urrMF">
+          <ref role="1YBMHb" node="5TUCQr2CKVU" resolve="putDataExpression" />
         </node>
       </node>
     </node>
@@ -1145,9 +1145,6 @@
             </node>
           </node>
           <node concept="2Mj0R9" id="5TUCQr2GGju" role="3cqZAp">
-            <node concept="2GrUjf" id="5TUCQr2GKcp" role="2OEOjV">
-              <ref role="2Gs0qQ" node="5TUCQr2GCe$" resolve="dep" />
-            </node>
             <node concept="2OqwBi" id="5TUCQr2GGGS" role="2MkoU_">
               <node concept="2OqwBi" id="5TUCQr2GFTJ" role="2Oq$k0">
                 <node concept="2OqwBi" id="5TUCQr2GF8k" role="2Oq$k0">
@@ -1186,6 +1183,9 @@
                   </node>
                 </node>
               </node>
+            </node>
+            <node concept="2GrUjf" id="5TUCQr2GKcp" role="1urrMF">
+              <ref role="2Gs0qQ" node="5TUCQr2GCe$" resolve="dep" />
             </node>
           </node>
         </node>
@@ -1345,7 +1345,7 @@
             <node concept="Xl_RD" id="4AMiyJgFIpc" role="2MkJ7o">
               <property role="Xl_RC" value="Migration script is declared to produce data but never uses putData()" />
             </node>
-            <node concept="2OqwBi" id="4AMiyJgFT66" role="2OEOjV">
+            <node concept="2OqwBi" id="4AMiyJgFT66" role="1urrMF">
               <node concept="37vLTw" id="4AMiyJgFSQm" role="2Oq$k0">
                 <ref role="3cqZAo" node="4AMiyJgFSfj" resolve="putDataDeclaration" />
               </node>

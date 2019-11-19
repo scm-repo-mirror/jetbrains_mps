@@ -200,16 +200,16 @@
       <concept id="1227096498176" name="jetbrains.mps.lang.typesystem.structure.PropertyMessageTarget" flags="ng" index="2ODE4t">
         <reference id="1227096521710" name="propertyDeclaration" index="2ODJFN" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G">
         <child id="2329696648448631592" name="overridenRules" index="dp_RE" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
@@ -716,7 +716,7 @@
             <node concept="Xl_RD" id="hHN_qUY" role="2MkJ7o">
               <property role="Xl_RC" value="Complex action parameters is not for getting classifier types" />
             </node>
-            <node concept="2OqwBi" id="hHN_s$u" role="2OEOjV">
+            <node concept="2OqwBi" id="hHN_s$u" role="1urrMF">
               <node concept="1YBJjd" id="hHN_sv$" role="2Oq$k0">
                 <ref role="1YBMHb" node="hHN_bis" resolve="parameter" />
               </node>
@@ -800,11 +800,11 @@
           <node concept="3clFbJ" id="hQK89hH" role="3cqZAp">
             <node concept="3clFbS" id="hQK89hI" role="3clFbx">
               <node concept="2MkqsV" id="hQK8cxU" role="3cqZAp">
-                <node concept="1YBJjd" id="hQK8cxV" role="2OEOjV">
-                  <ref role="1YBMHb" node="hQK5qzP" resolve="parameter" />
-                </node>
                 <node concept="Xl_RD" id="hQK8cxW" role="2MkJ7o">
                   <property role="Xl_RC" value="toString should be specified for parameters of non-primitive type" />
+                </node>
+                <node concept="1YBJjd" id="hQK8cxV" role="1urrMF">
+                  <ref role="1YBMHb" node="hQK5qzP" resolve="parameter" />
                 </node>
               </node>
             </node>
@@ -841,7 +841,7 @@
             <node concept="Xl_RD" id="hQKP1he" role="2MkJ7o">
               <property role="Xl_RC" value="number of parameters doesn't match" />
             </node>
-            <node concept="1YBJjd" id="hQKP5YI" role="2OEOjV">
+            <node concept="1YBJjd" id="hQKP5YI" role="1urrMF">
               <ref role="1YBMHb" node="hQKOKZL" resolve="instance" />
             </node>
           </node>
@@ -1413,11 +1413,11 @@
         </node>
       </node>
       <node concept="2MkqsV" id="1jgMklchB2I" role="3cqZAp">
-        <node concept="1YBJjd" id="1jgMklchB2O" role="2OEOjV">
-          <ref role="1YBMHb" node="283lDAXQHG6" resolve="c" />
-        </node>
         <node concept="Xl_RD" id="1jgMklchB2P" role="2MkJ7o">
           <property role="Xl_RC" value="order does not contain current tab" />
+        </node>
+        <node concept="1YBJjd" id="1jgMklchB2O" role="1urrMF">
+          <ref role="1YBMHb" node="283lDAXQHG6" resolve="c" />
         </node>
       </node>
     </node>
@@ -1715,7 +1715,7 @@
             <node concept="Xl_RD" id="3D0DuOpvMYP" role="a7wSD">
               <property role="Xl_RC" value="Action parameter is not in use" />
             </node>
-            <node concept="1YBJjd" id="3D0DuOpvMYq" role="2OEOjV">
+            <node concept="1YBJjd" id="3D0DuOpvMYq" role="1urrMF">
               <ref role="1YBMHb" node="3D0DuOpvwEB" resolve="actionParameter" />
             </node>
           </node>
@@ -1742,11 +1742,11 @@
             <node concept="Xl_RD" id="6pfW_jugHX1" role="2MkJ7o">
               <property role="Xl_RC" value="Incorrect output path speified. Only macro-relative output paths supported. e.g. \&quot;${module}/..\&quot;" />
             </node>
-            <node concept="1YBJjd" id="6pfW_jugHTi" role="2OEOjV">
-              <ref role="1YBMHb" node="6pfW_jugFXh" resolve="ideaConfigurationXml" />
-            </node>
-            <node concept="2ODE4t" id="6pfW_jugHTI" role="2OEWyd">
+            <node concept="2ODE4t" id="6pfW_jugHTI" role="1urrC5">
               <ref role="2ODJFN" to="tp4k:RJsmGEmaP_" resolve="outputPath" />
+            </node>
+            <node concept="1YBJjd" id="6pfW_jugHTi" role="1urrMF">
+              <ref role="1YBMHb" node="6pfW_jugFXh" resolve="ideaConfigurationXml" />
             </node>
           </node>
         </node>
@@ -1931,7 +1931,7 @@
             <node concept="Xl_RD" id="4qYinf8ta2z" role="a7wSD">
               <property role="Xl_RC" value="Adding 'remove' modificator for action is redundant if there is other action with 'replace all' modificator" />
             </node>
-            <node concept="1YBJjd" id="4qYinf8tb_p" role="2OEOjV">
+            <node concept="1YBJjd" id="4qYinf8tb_p" role="1urrMF">
               <ref role="1YBMHb" node="4qYinf8ta2s" resolve="keyMapKeystroke" />
             </node>
           </node>
@@ -2027,11 +2027,11 @@
             <node concept="37vLTw" id="57ZHG5kGxYg" role="2MkJ7o">
               <ref role="3cqZAo" node="57ZHG5kGwbL" resolve="err" />
             </node>
-            <node concept="1YBJjd" id="57ZHG5kGy2q" role="2OEOjV">
-              <ref role="1YBMHb" node="5YeG5fEoqNQ" resolve="a" />
-            </node>
-            <node concept="2ODE4t" id="57ZHG5kGy7f" role="2OEWyd">
+            <node concept="2ODE4t" id="57ZHG5kGy7f" role="1urrC5">
               <ref role="2ODJFN" to="tp4k:hGngH8m" resolve="mnemonic" />
+            </node>
+            <node concept="1YBJjd" id="57ZHG5kGy2q" role="1urrMF">
+              <ref role="1YBMHb" node="5YeG5fEoqNQ" resolve="a" />
             </node>
           </node>
         </node>
@@ -2193,11 +2193,11 @@
       <node concept="3clFbJ" id="15xzdwHyZOt" role="3cqZAp">
         <node concept="3clFbS" id="15xzdwHyZOv" role="3clFbx">
           <node concept="a7r0C" id="15xzdwHz09C" role="3cqZAp">
-            <node concept="1YBJjd" id="15xzdwHz0eY" role="2OEOjV">
-              <ref role="1YBMHb" node="15xzdwHynjW" resolve="group" />
-            </node>
             <node concept="Xl_RD" id="15xzdwHyQvt" role="a7wSD">
               <property role="Xl_RC" value="Action group is declared to be registered via plugin.xml, so will not be loaded instantly." />
+            </node>
+            <node concept="1YBJjd" id="15xzdwHz0eY" role="1urrMF">
+              <ref role="1YBMHb" node="15xzdwHynjW" resolve="group" />
             </node>
           </node>
         </node>
@@ -2355,11 +2355,11 @@
                 <node concept="Xl_RD" id="362V49ElkdZ" role="2MkJ7o">
                   <property role="Xl_RC" value="Action should have EDITOR_COMPONENT parameter" />
                 </node>
-                <node concept="1YBJjd" id="362V49Elkew" role="2OEOjV">
-                  <ref role="1YBMHb" node="362V49EkKfn" resolve="actionDeclaration" />
-                </node>
-                <node concept="2ODE4t" id="362V49Elkg2" role="2OEWyd">
+                <node concept="2ODE4t" id="362V49Elkg2" role="1urrC5">
                   <ref role="2ODJFN" to="tp4k:6u2MFnph2yz" resolve="requiredAccess" />
+                </node>
+                <node concept="1YBJjd" id="362V49Elkew" role="1urrMF">
+                  <ref role="1YBMHb" node="362V49EkKfn" resolve="actionDeclaration" />
                 </node>
               </node>
             </node>
@@ -2427,11 +2427,11 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="1YBJjd" id="362V49El_n$" role="2OEOjV">
-                    <ref role="1YBMHb" node="362V49EkKfn" resolve="actionDeclaration" />
-                  </node>
-                  <node concept="2ODE4t" id="362V49El_n_" role="2OEWyd">
+                  <node concept="2ODE4t" id="362V49El_n_" role="1urrC5">
                     <ref role="2ODJFN" to="tp4k:6u2MFnph2yz" resolve="requiredAccess" />
+                  </node>
+                  <node concept="1YBJjd" id="362V49El_n$" role="1urrMF">
+                    <ref role="1YBMHb" node="362V49EkKfn" resolve="actionDeclaration" />
                   </node>
                 </node>
               </node>
@@ -2444,11 +2444,11 @@
               <node concept="Xl_RD" id="362V49ElKJp" role="a7wSD">
                 <property role="Xl_RC" value="Action can get command from editor" />
               </node>
-              <node concept="1YBJjd" id="362V49ElKM0" role="2OEOjV">
-                <ref role="1YBMHb" node="362V49EkKfn" resolve="actionDeclaration" />
-              </node>
-              <node concept="2ODE4t" id="362V49ElKNy" role="2OEWyd">
+              <node concept="2ODE4t" id="362V49ElKNy" role="1urrC5">
                 <ref role="2ODJFN" to="tp4k:6u2MFnph2yz" resolve="requiredAccess" />
+              </node>
+              <node concept="1YBJjd" id="362V49ElKM0" role="1urrMF">
+                <ref role="1YBMHb" node="362V49EkKfn" resolve="actionDeclaration" />
               </node>
             </node>
           </node>

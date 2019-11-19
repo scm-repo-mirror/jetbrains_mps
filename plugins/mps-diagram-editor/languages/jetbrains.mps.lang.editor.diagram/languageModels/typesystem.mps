@@ -137,14 +137,14 @@
       <concept id="1227096620180" name="jetbrains.mps.lang.typesystem.structure.ReferenceMessageTarget" flags="ng" index="2OE7Q9">
         <reference id="1227096645744" name="linkDeclaration" index="2OEe5H" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -264,11 +264,11 @@
             <node concept="Xl_RD" id="1iN4mn3npSK" role="2MkJ7o">
               <property role="Xl_RC" value="figure parameter with this name was not found in specified figure" />
             </node>
-            <node concept="1YBJjd" id="1iN4mn3npK7" role="2OEOjV">
-              <ref role="1YBMHb" node="1iN4mn3neGj" resolve="node" />
-            </node>
-            <node concept="2ODE4t" id="1iN4mn3nyzU" role="2OEWyd">
+            <node concept="2ODE4t" id="1iN4mn3nyzU" role="1urrC5">
               <ref role="2ODJFN" to="tpck:h0TrG11" resolve="name" />
+            </node>
+            <node concept="1YBJjd" id="1iN4mn3npK7" role="1urrMF">
+              <ref role="1YBMHb" node="1iN4mn3neGj" resolve="node" />
             </node>
           </node>
         </node>
@@ -349,7 +349,7 @@
                 <node concept="Xl_RD" id="3yX4vo2bqhA" role="2MkJ7o">
                   <property role="Xl_RC" value="Parameter with this name was already specified" />
                 </node>
-                <node concept="2GrUjf" id="3yX4vo2bqsc" role="2OEOjV">
+                <node concept="2GrUjf" id="3yX4vo2bqsc" role="1urrMF">
                   <ref role="2Gs0qQ" node="3yX4vo2bftL" resolve="parameter" />
                 </node>
               </node>
@@ -411,7 +411,7 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="2GrUjf" id="3$rM_t$UXNc" role="2OEOjV">
+                  <node concept="2GrUjf" id="3$rM_t$UXNc" role="1urrMF">
                     <ref role="2Gs0qQ" node="3yX4vo2bftL" resolve="parameter" />
                   </node>
                 </node>
@@ -448,11 +448,11 @@
       <node concept="3clFbJ" id="3yX4vo2aWzW" role="3cqZAp">
         <node concept="3clFbS" id="3yX4vo2aWzZ" role="3clFbx">
           <node concept="a7r0C" id="3$rM_t$UJ0$" role="3cqZAp">
-            <node concept="1YBJjd" id="3$rM_t$UJ3Y" role="2OEOjV">
-              <ref role="1YBMHb" node="3yX4vo2aHlI" resolve="node" />
-            </node>
             <node concept="Xl_RD" id="3yX4vo2bf9w" role="a7wSD">
               <property role="Xl_RC" value="Some figure parameters were not mapperd" />
+            </node>
+            <node concept="1YBJjd" id="3$rM_t$UJ3Y" role="1urrMF">
+              <ref role="1YBMHb" node="3yX4vo2aHlI" resolve="node" />
             </node>
           </node>
         </node>
@@ -616,11 +616,11 @@
                       </node>
                     </node>
                   </node>
-                  <node concept="1YBJjd" id="18ftwC4dVS3" role="2OEOjV">
-                    <ref role="1YBMHb" node="7rLMM2UwNsO" resolve="abstractDiagramCreation" />
-                  </node>
-                  <node concept="2OE7Q9" id="18ftwC4dWfc" role="2OEWyd">
+                  <node concept="2OE7Q9" id="18ftwC4dWfc" role="1urrC5">
                     <ref role="2OEe5H" to="gbdf:18ftwC4erGL" resolve="concept" />
+                  </node>
+                  <node concept="1YBJjd" id="18ftwC4dVS3" role="1urrMF">
+                    <ref role="1YBMHb" node="7rLMM2UwNsO" resolve="abstractDiagramCreation" />
                   </node>
                 </node>
               </node>
@@ -681,7 +681,7 @@
             <node concept="Xl_RD" id="7rLMM2UwXFM" role="2MkJ7o">
               <property role="Xl_RC" value="Use DotExpression to point to the containment LinkDeclaration" />
             </node>
-            <node concept="2OqwBi" id="7rLMM2Ux0cr" role="2OEOjV">
+            <node concept="2OqwBi" id="7rLMM2Ux0cr" role="1urrMF">
               <node concept="3TrEf2" id="1R$Mpy$tBd7" role="2OqNvi">
                 <ref role="3Tt5mk" to="gbdf:18ftwC4erGF" resolve="query" />
               </node>
@@ -1048,7 +1048,7 @@
             <node concept="Xl_RD" id="3wXm3h1A1fh" role="a7wSD">
               <property role="Xl_RC" value="Usage of this cell in the editor will prevent diagram cell from being incrementally synchronized" />
             </node>
-            <node concept="2GrUjf" id="3wXm3h1A1fF" role="2OEOjV">
+            <node concept="2GrUjf" id="3wXm3h1A1fF" role="1urrMF">
               <ref role="2Gs0qQ" node="3wXm3h1_LBv" resolve="nonSynchronizeableCellModel" />
             </node>
           </node>
@@ -1110,7 +1110,7 @@
         <node concept="Xl_RD" id="5nQpa4tdeWq" role="a7wSD">
           <property role="Xl_RC" value="Palette is the experimental feature. Use it at your own discretion." />
         </node>
-        <node concept="1YBJjd" id="5nQpa4tdftY" role="2OEOjV">
+        <node concept="1YBJjd" id="5nQpa4tdftY" role="1urrMF">
           <ref role="1YBMHb" node="5nQpa4tdePU" resolve="palette" />
         </node>
       </node>

@@ -181,9 +181,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1205762105978" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableDeclaration" flags="ng" index="2X1qdy" />
       <concept id="1205762656241" name="jetbrains.mps.lang.typesystem.structure.WhenConcreteVariableReference" flags="nn" index="2X3wrD">
         <reference id="1205762683928" name="whenConcreteVar" index="2X3Bk0" />
@@ -192,6 +189,9 @@
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1176543928247" name="jetbrains.mps.lang.typesystem.structure.IsSubtypeExpression" flags="nn" index="3JuTUA">
         <child id="1176543945045" name="subtypeExpression" index="3JuY14" />
         <child id="1176543950311" name="supertypeExpression" index="3JuZjQ" />
@@ -540,9 +540,6 @@
           <node concept="3clFbJ" id="aRphP9WyIw" role="3cqZAp">
             <node concept="3clFbS" id="aRphP9WyIy" role="3clFbx">
               <node concept="2Mj0R9" id="aRphP9VFpM" role="3cqZAp">
-                <node concept="1YBJjd" id="aRphP9VIaa" role="2OEOjV">
-                  <ref role="1YBMHb" node="aRphP9VEJz" resolve="node" />
-                </node>
                 <node concept="3cpWs3" id="aRphP9VGYg" role="2MkJ7o">
                   <node concept="Xl_RD" id="aRphP9VGBK" role="3uHU7B">
                     <property role="Xl_RC" value="Duplicated name: " />
@@ -573,6 +570,9 @@
                       <ref role="37wK5l" to="w0jm:3vRuGRRXlj" resolve="getId" />
                     </node>
                   </node>
+                </node>
+                <node concept="1YBJjd" id="aRphP9VIaa" role="1urrMF">
+                  <ref role="1YBMHb" node="aRphP9VEJz" resolve="node" />
                 </node>
               </node>
             </node>
@@ -609,14 +609,6 @@
     <property role="3GE5qa" value="overlapping" />
     <node concept="3clFbS" id="1QReUKIFbxD" role="18ibNy">
       <node concept="2Mj0R9" id="1QReUKIFbxE" role="3cqZAp">
-        <node concept="2OqwBi" id="1QReUKIFbxF" role="2OEOjV">
-          <node concept="1YBJjd" id="1QReUKIFbxG" role="2Oq$k0">
-            <ref role="1YBMHb" node="1QReUKIFby6" resolve="extensionPoint" />
-          </node>
-          <node concept="3TrEf2" id="1QReUKIFc9D" role="2OqNvi">
-            <ref role="3Tt5mk" to="v54s:6XJvNHU5VOb" resolve="objectType" />
-          </node>
-        </node>
         <node concept="3fqX7Q" id="1QReUKIFbxI" role="2MkoU_">
           <node concept="yS_3z" id="1QReUKIFbxJ" role="3fr31v">
             <node concept="2OqwBi" id="1QReUKIFbxK" role="3JuY14">
@@ -641,6 +633,14 @@
         </node>
         <node concept="Xl_RD" id="1QReUKIFbxR" role="2MkJ7o">
           <property role="Xl_RC" value="primitive types not allowed" />
+        </node>
+        <node concept="2OqwBi" id="1QReUKIFbxF" role="1urrMF">
+          <node concept="1YBJjd" id="1QReUKIFbxG" role="2Oq$k0">
+            <ref role="1YBMHb" node="1QReUKIFby6" resolve="extensionPoint" />
+          </node>
+          <node concept="3TrEf2" id="1QReUKIFc9D" role="2OqNvi">
+            <ref role="3Tt5mk" to="v54s:6XJvNHU5VOb" resolve="objectType" />
+          </node>
         </node>
       </node>
     </node>
@@ -726,9 +726,6 @@
       <node concept="3clFbJ" id="15xzdwHypAB" role="3cqZAp">
         <node concept="3clFbS" id="15xzdwHypAC" role="3clFbx">
           <node concept="2Mj0R9" id="15xzdwHyT7S" role="3cqZAp">
-            <node concept="1YBJjd" id="15xzdwHyTrI" role="2OEOjV">
-              <ref role="1YBMHb" node="15xzdwHynjW" resolve="extension" />
-            </node>
             <node concept="2OqwBi" id="15xzdwHyqCx" role="2MkoU_">
               <node concept="37vLTw" id="15xzdwHyqCy" role="2Oq$k0">
                 <ref role="3cqZAo" node="15xzdwHyd$i" resolve="model" />
@@ -739,6 +736,9 @@
             </node>
             <node concept="Xl_RD" id="15xzdwHyqYF" role="2MkJ7o">
               <property role="Xl_RC" value="Extensions in languages are allowed only in plugin aspect" />
+            </node>
+            <node concept="1YBJjd" id="15xzdwHyTrI" role="1urrMF">
+              <ref role="1YBMHb" node="15xzdwHynjW" resolve="extension" />
             </node>
           </node>
         </node>
@@ -771,11 +771,11 @@
             <node concept="3clFbJ" id="15xzdwHyZOt" role="3cqZAp">
               <node concept="3clFbS" id="15xzdwHyZOv" role="3clFbx">
                 <node concept="a7r0C" id="15xzdwHz09C" role="3cqZAp">
-                  <node concept="1YBJjd" id="15xzdwHz0eY" role="2OEOjV">
-                    <ref role="1YBMHb" node="15xzdwHynjW" resolve="extension" />
-                  </node>
                   <node concept="Xl_RD" id="15xzdwHyQvt" role="a7wSD">
                     <property role="Xl_RC" value="Extension will not be registered automatically. Solution is not compiled in MPS." />
+                  </node>
+                  <node concept="1YBJjd" id="15xzdwHz0eY" role="1urrMF">
+                    <ref role="1YBMHb" node="15xzdwHynjW" resolve="extension" />
                   </node>
                 </node>
               </node>
@@ -806,7 +806,7 @@
                         <node concept="Xl_RD" id="15xzdwHyrHj" role="2MkJ7o">
                           <property role="Xl_RC" value="Extensions in solutions are allowed only with solution kinds CORE, EDITOR, OTHER" />
                         </node>
-                        <node concept="1YBJjd" id="15xzdwHyrHk" role="2OEOjV">
+                        <node concept="1YBJjd" id="15xzdwHyrHk" role="1urrMF">
                           <ref role="1YBMHb" node="15xzdwHynjW" resolve="extension" />
                         </node>
                       </node>
@@ -908,7 +908,7 @@
                               <node concept="Xl_RD" id="5ErAoTCrIyr" role="2MkJ7o">
                                 <property role="Xl_RC" value="Extensions in solutions are allowed only in model named $module_name$.plugin" />
                               </node>
-                              <node concept="1YBJjd" id="5ErAoTCrIys" role="2OEOjV">
+                              <node concept="1YBJjd" id="5ErAoTCrIys" role="1urrMF">
                                 <ref role="1YBMHb" node="15xzdwHynjW" resolve="extension" />
                               </node>
                             </node>
@@ -944,7 +944,7 @@
               <node concept="Xl_RD" id="15xzdwHyFPU" role="2MkJ7o">
                 <property role="Xl_RC" value="Extensions are allowed only in plugin solutions and plugin aspects" />
               </node>
-              <node concept="1YBJjd" id="15xzdwHyFZV" role="2OEOjV">
+              <node concept="1YBJjd" id="15xzdwHyFZV" role="1urrMF">
                 <ref role="1YBMHb" node="15xzdwHynjW" resolve="extension" />
               </node>
             </node>

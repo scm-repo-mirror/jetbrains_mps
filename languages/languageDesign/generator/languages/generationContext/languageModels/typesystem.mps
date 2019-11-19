@@ -144,14 +144,14 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <property id="1195213689297" name="overrides" index="18ip37" />
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1176543928247" name="jetbrains.mps.lang.typesystem.structure.IsSubtypeExpression" flags="nn" index="3JuTUA">
         <child id="1176543945045" name="subtypeExpression" index="3JuY14" />
         <child id="1176543950311" name="supertypeExpression" index="3JuZjQ" />
@@ -300,11 +300,11 @@
             </node>
           </node>
         </node>
-        <node concept="1YBJjd" id="hHi$4jq" role="2OEOjV">
-          <ref role="1YBMHb" node="hHi$4jO" resolve="op" />
-        </node>
         <node concept="Xl_RD" id="hHi$4jr" role="2MkJ7o">
           <property role="Xl_RC" value="operation is not applicable" />
+        </node>
+        <node concept="1YBJjd" id="hHi$4jq" role="1urrMF">
+          <ref role="1YBMHb" node="hHi$4jO" resolve="op" />
         </node>
       </node>
     </node>
@@ -729,7 +729,7 @@
         <node concept="Xl_RD" id="hLmpY9T" role="2MkJ7o">
           <property role="Xl_RC" value="such an operation may be used only inside ref.macro" />
         </node>
-        <node concept="1YBJjd" id="hLmquq1" role="2OEOjV">
+        <node concept="1YBJjd" id="hLmquq1" role="1urrMF">
           <ref role="1YBMHb" node="hLmpN5Y" resolve="op" />
         </node>
       </node>
@@ -1733,7 +1733,7 @@
         <node concept="Xl_RD" id="5Wn7$dQZMt$" role="2MkJ7o">
           <property role="Xl_RC" value="SModel type expected" />
         </node>
-        <node concept="2OqwBi" id="5Wn7$dQZM3g" role="2OEOjV">
+        <node concept="2OqwBi" id="5Wn7$dQZM3g" role="1urrMF">
           <node concept="1YBJjd" id="5Wn7$dQZLVI" role="2Oq$k0">
             <ref role="1YBMHb" node="5Wn7$dQZ92Q" resolve="op" />
           </node>

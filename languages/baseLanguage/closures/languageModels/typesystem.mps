@@ -226,9 +226,6 @@
       <concept id="1175517767210" name="jetbrains.mps.lang.typesystem.structure.ReportErrorStatement" flags="nn" index="2MkqsV">
         <child id="1175517851849" name="errorString" index="2MkJ7o" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-      </concept>
       <concept id="1188473524530" name="jetbrains.mps.lang.typesystem.structure.MeetType" flags="ng" index="2QyH0A">
         <child id="1188473537547" name="argument" index="2QyKkv" />
       </concept>
@@ -248,6 +245,9 @@
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
       <concept id="1188811367543" name="jetbrains.mps.lang.typesystem.structure.ComparisonRule" flags="ig" index="3aFulz">
         <child id="1188820750135" name="anotherNode" index="3bfgSz" />
+      </concept>
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
       </concept>
       <concept id="3592071576955708904" name="jetbrains.mps.lang.typesystem.structure.IsReplacementRuleApplicable_ConceptFunction" flags="in" index="1xSnZT" />
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
@@ -607,7 +607,7 @@
                       <ref role="37wK5l" to="wyt6:~Throwable.getMessage()" resolve="getMessage" />
                     </node>
                   </node>
-                  <node concept="1YBJjd" id="7xN1DhD__Sy" role="2OEOjV">
+                  <node concept="1YBJjd" id="7xN1DhD__Sy" role="1urrMF">
                     <ref role="1YBMHb" node="htaA$LC" resolve="invoke" />
                   </node>
                 </node>
@@ -661,7 +661,7 @@
         <node concept="Xl_RD" id="htkowWc" role="2MkJ7o">
           <property role="Xl_RC" value="Must be within ClosureLiteral" />
         </node>
-        <node concept="1YBJjd" id="htkozTv" role="2OEOjV">
+        <node concept="1YBJjd" id="htkozTv" role="1urrMF">
           <ref role="1YBMHb" node="htkokET" resolve="invoke" />
         </node>
       </node>
@@ -785,7 +785,7 @@
             <node concept="Xl_RD" id="hTgXLmg" role="2MkJ7o">
               <property role="Xl_RC" value="incompatible types" />
             </node>
-            <node concept="2OqwBi" id="hTgXO2c" role="2OEOjV">
+            <node concept="2OqwBi" id="hTgXO2c" role="1urrMF">
               <node concept="3622Ei" id="hTgXNRB" role="2Oq$k0" />
               <node concept="liA8E" id="hTgXOlN" role="2OqNvi">
                 <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -821,7 +821,7 @@
             <node concept="Xl_RD" id="hv64xH7" role="2MkJ7o">
               <property role="Xl_RC" value="different parameter numbers" />
             </node>
-            <node concept="2OqwBi" id="hzK17$q" role="2OEOjV">
+            <node concept="2OqwBi" id="hzK17$q" role="1urrMF">
               <node concept="3622Ei" id="hv64AYz" role="2Oq$k0" />
               <node concept="liA8E" id="hzK17$r" role="2OqNvi">
                 <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -2381,7 +2381,7 @@
             </node>
           </node>
         </node>
-        <node concept="2OqwBi" id="hzK26w7" role="2OEOjV">
+        <node concept="2OqwBi" id="hzK26w7" role="1urrMF">
           <node concept="3622Ei" id="hw929_P" role="2Oq$k0" />
           <node concept="liA8E" id="hzK26w8" role="2OqNvi">
             <ref role="37wK5l" to="u78q:~EquationInfo.getNodeWithError()" resolve="getNodeWithError" />
@@ -4379,7 +4379,7 @@
             <node concept="Xl_RD" id="hLFMn4l" role="2MkJ7o">
               <property role="Xl_RC" value="closure must either return or yield value" />
             </node>
-            <node concept="1YBJjd" id="hLFMn4m" role="2OEOjV">
+            <node concept="1YBJjd" id="hLFMn4m" role="1urrMF">
               <ref role="1YBMHb" node="hLFMn5u" resolve="closure" />
             </node>
           </node>
@@ -4958,7 +4958,7 @@
             <node concept="Xl_RD" id="5XsvXqyL7Ur" role="2MkJ7o">
               <property role="Xl_RC" value="runtime interface must have exactly one method" />
             </node>
-            <node concept="1YBJjd" id="5XsvXqyL7Us" role="2OEOjV">
+            <node concept="1YBJjd" id="5XsvXqyL7Us" role="1urrMF">
               <ref role="1YBMHb" node="5AcbUBc1j_" resolve="ft" />
             </node>
           </node>
@@ -5004,7 +5004,7 @@
                 <node concept="Xl_RD" id="5XsvXqyL9Ox" role="2MkJ7o">
                   <property role="Xl_RC" value="return type expected" />
                 </node>
-                <node concept="1YBJjd" id="5XsvXqyL9OI" role="2OEOjV">
+                <node concept="1YBJjd" id="5XsvXqyL9OI" role="1urrMF">
                   <ref role="1YBMHb" node="5AcbUBc1j_" resolve="ft" />
                 </node>
               </node>
@@ -5041,7 +5041,7 @@
                   <node concept="Xl_RD" id="5XsvXqyL9OG" role="2MkJ7o">
                     <property role="Xl_RC" value="void expected" />
                   </node>
-                  <node concept="1YBJjd" id="5XsvXqyL9OO" role="2OEOjV">
+                  <node concept="1YBJjd" id="5XsvXqyL9OO" role="1urrMF">
                     <ref role="1YBMHb" node="5AcbUBc1j_" resolve="ft" />
                   </node>
                 </node>
@@ -5076,7 +5076,7 @@
             <node concept="Xl_RD" id="5XsvXqyL9Pj" role="2MkJ7o">
               <property role="Xl_RC" value="wrong parameter number" />
             </node>
-            <node concept="1YBJjd" id="5XsvXqyL9Pk" role="2OEOjV">
+            <node concept="1YBJjd" id="5XsvXqyL9Pk" role="1urrMF">
               <ref role="1YBMHb" node="5AcbUBc1j_" resolve="ft" />
             </node>
           </node>
@@ -5186,7 +5186,7 @@
             <node concept="Xl_RD" id="hun2sss" role="2MkJ7o">
               <property role="Xl_RC" value="return is not allowed within closure literal" />
             </node>
-            <node concept="1YBJjd" id="hun2xv8" role="2OEOjV">
+            <node concept="1YBJjd" id="hun2xv8" role="1urrMF">
               <ref role="1YBMHb" node="hun2gCn" resolve="returnStatement" />
             </node>
           </node>

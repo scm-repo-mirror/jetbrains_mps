@@ -70,14 +70,14 @@
       <concept id="1227096620180" name="jetbrains.mps.lang.typesystem.structure.ReferenceMessageTarget" flags="ng" index="2OE7Q9">
         <reference id="1227096645744" name="linkDeclaration" index="2OEe5H" />
       </concept>
-      <concept id="1227096774658" name="jetbrains.mps.lang.typesystem.structure.MessageStatement" flags="ng" index="2OEH$v">
-        <child id="1227096802790" name="nodeToReport" index="2OEOjV" />
-        <child id="1227096836496" name="messageTarget" index="2OEWyd" />
-      </concept>
       <concept id="1195213580585" name="jetbrains.mps.lang.typesystem.structure.AbstractCheckingRule" flags="ig" index="18hYwZ">
         <child id="1195213635060" name="body" index="18ibNy" />
       </concept>
       <concept id="1195214364922" name="jetbrains.mps.lang.typesystem.structure.NonTypesystemRule" flags="ig" index="18kY7G" />
+      <concept id="3937244445246642777" name="jetbrains.mps.lang.typesystem.structure.AbstractReportStatement" flags="ng" index="1urrMJ">
+        <child id="3937244445246643443" name="messageTarget" index="1urrC5" />
+        <child id="3937244445246642781" name="nodeToReport" index="1urrMF" />
+      </concept>
       <concept id="1174642788531" name="jetbrains.mps.lang.typesystem.structure.ConceptReference" flags="ig" index="1YaCAy">
         <reference id="1174642800329" name="concept" index="1YaFvo" />
       </concept>
@@ -293,11 +293,11 @@
                 <property role="Xl_RC" value="Multiple hints are defined for concept " />
               </node>
             </node>
-            <node concept="1YBJjd" id="5FWxsE0D3Gu" role="2OEOjV">
-              <ref role="1YBMHb" node="5FWxsE0CD39" resolve="cd" />
-            </node>
-            <node concept="2OE7Q9" id="5FWxsE0D4HI" role="2OEWyd">
+            <node concept="2OE7Q9" id="5FWxsE0D4HI" role="1urrC5">
               <ref role="2OEe5H" to="6p:3_Ojf_lL$AP" resolve="cncpt" />
+            </node>
+            <node concept="1YBJjd" id="5FWxsE0D3Gu" role="1urrMF">
+              <ref role="1YBMHb" node="5FWxsE0CD39" resolve="cd" />
             </node>
           </node>
         </node>
@@ -426,11 +426,11 @@
                 <property role="Xl_RC" value="Multiple hints are defined for link " />
               </node>
             </node>
-            <node concept="1YBJjd" id="5FWxsE0DlAj" role="2OEOjV">
-              <ref role="1YBMHb" node="5FWxsE0DlAq" resolve="ld" />
-            </node>
-            <node concept="2OE7Q9" id="5FWxsE0DlAk" role="2OEWyd">
+            <node concept="2OE7Q9" id="5FWxsE0DlAk" role="1urrC5">
               <ref role="2OEe5H" to="6p:4WGKd_KDfxR" resolve="lnk" />
+            </node>
+            <node concept="1YBJjd" id="5FWxsE0DlAj" role="1urrMF">
+              <ref role="1YBMHb" node="5FWxsE0DlAq" resolve="ld" />
             </node>
           </node>
         </node>
@@ -559,11 +559,11 @@
                 <property role="Xl_RC" value="Multiple hints are defined for property " />
               </node>
             </node>
-            <node concept="1YBJjd" id="5FWxsE0DQSj" role="2OEOjV">
-              <ref role="1YBMHb" node="5FWxsE0DQSq" resolve="pd" />
-            </node>
-            <node concept="2OE7Q9" id="5FWxsE0DQSk" role="2OEWyd">
+            <node concept="2OE7Q9" id="5FWxsE0DQSk" role="1urrC5">
               <ref role="2OEe5H" to="6p:4WGKd_KDfBh" resolve="prop" />
+            </node>
+            <node concept="1YBJjd" id="5FWxsE0DQSj" role="1urrMF">
+              <ref role="1YBMHb" node="5FWxsE0DQSq" resolve="pd" />
             </node>
           </node>
         </node>
