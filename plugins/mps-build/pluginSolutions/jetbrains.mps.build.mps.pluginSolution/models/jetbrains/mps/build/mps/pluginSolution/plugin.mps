@@ -578,6 +578,9 @@
       <concept id="7400021826774799413" name="jetbrains.mps.lang.smodel.structure.NodePointerExpression" flags="ng" index="2tJFMh">
         <child id="7400021826774799510" name="ref" index="2tJFKM" />
       </concept>
+      <concept id="4693937538533521280" name="jetbrains.mps.lang.smodel.structure.OfConceptOperation" flags="ng" index="v3k3i">
+        <child id="4693937538533538124" name="requestedConcept" index="v3oSu" />
+      </concept>
       <concept id="1138757581985" name="jetbrains.mps.lang.smodel.structure.Link_SetNewChildOperation" flags="nn" index="zfrQC" />
       <concept id="2396822768958367367" name="jetbrains.mps.lang.smodel.structure.AbstractTypeCastExpression" flags="nn" index="$5XWr">
         <child id="6733348108486823193" name="leftExpression" index="1m5AlR" />
@@ -15020,36 +15023,22 @@
                   <property role="P3scX" value="d5033cee-f632-44b6-b308-89d4fbde34ff/3885435385580582152/3505522814897007561" />
                   <property role="2qtEX8" value="branding" />
                   <node concept="2OqwBi" id="2g$3PZUfbp7" role="2c44t1">
-                    <node concept="2OqwBi" id="2g$3PZUf9AM" role="2Oq$k0">
-                      <node concept="37vLTw" id="2g$3PZUf9lH" role="2Oq$k0">
-                        <ref role="3cqZAo" node="2g$3PZUc4VI" resolve="buildProject" />
-                      </node>
-                      <node concept="3Tsc0h" id="2g$3PZUf9RX" role="2OqNvi">
-                        <ref role="3TtcxE" to="3ior:6qcrfIJFfrM" resolve="parts" />
-                      </node>
-                    </node>
-                    <node concept="1z4cxt" id="2g$3PZUfdlI" role="2OqNvi">
-                      <node concept="1bVj0M" id="2g$3PZUfdlK" role="23t8la">
-                        <node concept="3clFbS" id="2g$3PZUfdlL" role="1bW5cS">
-                          <node concept="3clFbF" id="2g$3PZUfdUr" role="3cqZAp">
-                            <node concept="2OqwBi" id="2g$3PZUfehy" role="3clFbG">
-                              <node concept="37vLTw" id="2g$3PZUfdUq" role="2Oq$k0">
-                                <ref role="3cqZAo" node="2g$3PZUfdlM" resolve="it" />
-                              </node>
-                              <node concept="1mIQ4w" id="2g$3PZUfeHj" role="2OqNvi">
-                                <node concept="chp4Y" id="2g$3PZUfeRP" role="cj9EA">
-                                  <ref role="cht4Q" to="kdzh:6Iq8148eRud" resolve="BuildMps_Branding" />
-                                </node>
-                              </node>
-                            </node>
-                          </node>
+                    <node concept="2OqwBi" id="2FXdWdhFs_6" role="2Oq$k0">
+                      <node concept="2OqwBi" id="2g$3PZUf9AM" role="2Oq$k0">
+                        <node concept="37vLTw" id="2g$3PZUf9lH" role="2Oq$k0">
+                          <ref role="3cqZAo" node="2g$3PZUc4VI" resolve="buildProject" />
                         </node>
-                        <node concept="Rh6nW" id="2g$3PZUfdlM" role="1bW2Oz">
-                          <property role="TrG5h" value="it" />
-                          <node concept="2jxLKc" id="2g$3PZUfdlN" role="1tU5fm" />
+                        <node concept="3Tsc0h" id="2g$3PZUf9RX" role="2OqNvi">
+                          <ref role="3TtcxE" to="3ior:6qcrfIJFfrM" resolve="parts" />
+                        </node>
+                      </node>
+                      <node concept="v3k3i" id="2FXdWdhFvIg" role="2OqNvi">
+                        <node concept="chp4Y" id="2FXdWdhFvLE" role="v3oSu">
+                          <ref role="cht4Q" to="kdzh:6Iq8148eRud" resolve="BuildMps_Branding" />
                         </node>
                       </node>
                     </node>
+                    <node concept="1uHKPH" id="2FXdWdhFw9M" role="2OqNvi" />
                   </node>
                 </node>
               </node>

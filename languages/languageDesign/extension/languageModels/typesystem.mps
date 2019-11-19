@@ -454,7 +454,9 @@
           <node concept="3cpWs8" id="3tZJV06a3iu" role="3cqZAp">
             <node concept="3cpWsn" id="3tZJV06a3i$" role="3cpWs9">
               <property role="TrG5h" value="objectType" />
-              <node concept="3Tqbb2" id="3tZJV06a3lF" role="1tU5fm" />
+              <node concept="3Tqbb2" id="3tZJV06a3lF" role="1tU5fm">
+                <ref role="ehGHo" to="tpee:fz3vP1H" resolve="Type" />
+              </node>
               <node concept="10Nm6u" id="3tZJV06a4g1" role="33vP2m" />
             </node>
           </node>

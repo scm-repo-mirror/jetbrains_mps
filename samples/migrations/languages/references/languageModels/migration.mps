@@ -157,6 +157,10 @@
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
+      <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
+        <property id="8575328350543493365" name="message" index="huDt6" />
+        <property id="2423417345669755629" name="filter" index="1eyWvh" />
+      </concept>
     </language>
     <language id="90746344-04fd-4286-97d5-b46ae6a81709" name="jetbrains.mps.lang.migration">
       <concept id="8352104482584315555" name="jetbrains.mps.lang.migration.structure.MigrationScript" flags="ig" index="3SyAh_">
@@ -286,6 +290,10 @@
               <node concept="1bVj0M" id="5ggSOO4E4MJ" role="23t8la">
                 <node concept="3clFbS" id="5ggSOO4E4MK" role="1bW5cS">
                   <node concept="3cpWs8" id="5ggSOO4DUm_" role="3cqZAp">
+                    <node concept="15s5l7" id="2FXdWdhFW9u" role="lGtFl">
+                      <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type node&lt;OldComponent&gt; is not a subtype of node&lt;NewComponent&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c8959034a(jetbrains.mps.lang.quotation.typesystem)/4649457259827193981]&quot;;" />
+                      <property role="huDt6" value="Error: type node&lt;OldComponent&gt; is not a subtype of node&lt;NewComponent&gt;" />
+                    </node>
                     <node concept="3cpWsn" id="5ggSOO4DUmA" role="3cpWs9">
                       <property role="TrG5h" value="newNode" />
                       <node concept="3Tqbb2" id="5ggSOO4DUmB" role="1tU5fm">

@@ -362,14 +362,14 @@
       </node>
       <node concept="37vLTG" id="6jXjkltHGeI" role="3clF46">
         <property role="TrG5h" value="aspectClassParameter" />
-        <node concept="3uibUv" id="6jXjkltHGeJ" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+        <node concept="3Tqbb2" id="2FXdWdhFzhL" role="1tU5fm">
+          <ref role="ehGHo" to="tpee:fz3uBXI" resolve="VariableDeclaration" />
         </node>
       </node>
       <node concept="37vLTG" id="6j4BAERj8rZ" role="3clF46">
         <property role="TrG5h" value="castTo" />
-        <node concept="3uibUv" id="6j4BAERj8PH" role="1tU5fm">
-          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+        <node concept="3Tqbb2" id="2FXdWdhF$tq" role="1tU5fm">
+          <ref role="ehGHo" to="tpee:g96euPO" resolve="TypeVariableDeclaration" />
         </node>
       </node>
       <node concept="37vLTG" id="6jXjkltHGeK" role="3clF46">

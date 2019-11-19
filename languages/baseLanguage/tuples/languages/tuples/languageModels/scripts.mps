@@ -168,7 +168,9 @@
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
       <concept id="1179409122411" name="jetbrains.mps.lang.smodel.structure.Node_ConceptMethodCall" flags="nn" index="2qgKlT" />
-      <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS" />
+      <concept id="1145383075378" name="jetbrains.mps.lang.smodel.structure.SNodeListType" flags="in" index="2I9FWS">
+        <reference id="1145383142433" name="elementConcept" index="2I9WkF" />
+      </concept>
       <concept id="1145567426890" name="jetbrains.mps.lang.smodel.structure.SNodeListCreator" flags="nn" index="2T8Vx0">
         <child id="1145567471833" name="createdType" index="2T96Bj" />
       </concept>
@@ -245,10 +247,14 @@
                   <property role="TrG5h" value="typedecls" />
                   <node concept="2ShNRf" id="4V$BJAdTfVi" role="33vP2m">
                     <node concept="2T8Vx0" id="4V$BJAdTfV6" role="2ShVmc">
-                      <node concept="2I9FWS" id="4V$BJAdTfV7" role="2T96Bj" />
+                      <node concept="2I9FWS" id="4V$BJAdTfV7" role="2T96Bj">
+                        <ref role="2I9WkF" to="tpee:g96euPO" resolve="TypeVariableDeclaration" />
+                      </node>
                     </node>
                   </node>
-                  <node concept="2I9FWS" id="4V$BJAdTfUF" role="1tU5fm" />
+                  <node concept="2I9FWS" id="4V$BJAdTfUF" role="1tU5fm">
+                    <ref role="2I9WkF" to="tpee:g96euPO" resolve="TypeVariableDeclaration" />
+                  </node>
                 </node>
               </node>
               <node concept="1Dw8fO" id="4V$BJAdTfVE" role="3cqZAp">
@@ -308,10 +314,14 @@
                   <property role="TrG5h" value="typerefs" />
                   <node concept="2ShNRf" id="4V$BJAdTqDw" role="33vP2m">
                     <node concept="2T8Vx0" id="4V$BJAdTqDu" role="2ShVmc">
-                      <node concept="2I9FWS" id="4V$BJAdTqDv" role="2T96Bj" />
+                      <node concept="2I9FWS" id="4V$BJAdTqDv" role="2T96Bj">
+                        <ref role="2I9WkF" to="tpee:g96syBo" resolve="TypeVariableReference" />
+                      </node>
                     </node>
                   </node>
-                  <node concept="2I9FWS" id="4V$BJAdTqCn" role="1tU5fm" />
+                  <node concept="2I9FWS" id="4V$BJAdTqCn" role="1tU5fm">
+                    <ref role="2I9WkF" to="tpee:g96syBo" resolve="TypeVariableReference" />
+                  </node>
                 </node>
               </node>
               <node concept="1Dw8fO" id="4V$BJAdTJh8" role="3cqZAp">
