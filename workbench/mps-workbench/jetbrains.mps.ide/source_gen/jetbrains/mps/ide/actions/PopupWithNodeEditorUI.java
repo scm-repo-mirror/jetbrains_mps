@@ -97,7 +97,7 @@ public final class PopupWithNodeEditorUI implements Disposable {
     myNodeChooser = new ComboBox<ImplementationNode>(new CollectionComboBoxModel<ImplementationNode>(myImplNodes, null));
     myLabel = new JLabel();
     myProject = project;
-    myUIEditorComponent = new NodeEditorComponent(project.getRepository(), new EditorConfigurationBuilder().showLeftHighlighter(false).readOnly(true));
+    myUIEditorComponent = new NodeEditorComponent(project.getRepository(), new EditorConfigurationBuilder().showLeftHighlighter(false).readOnly(true).hasContextMenu(false));
 
     configurePermanentUI();
     configureBehaviour();

@@ -9254,9 +9254,6 @@
               <node concept="3clFbH" id="WTC1SLYJmW" role="3cqZAp" />
               <node concept="3clFbF" id="7l8SZlcT9j2" role="3cqZAp">
                 <node concept="37vLTI" id="7l8SZlcT9j4" role="3clFbG">
-                  <node concept="37vLTw" id="7l8SZlcT9j8" role="37vLTJ">
-                    <ref role="3cqZAo" node="7l8SZlcT8PQ" resolve="safeDelete" />
-                  </node>
                   <node concept="3clFbC" id="WTC1SLZW67" role="37vLTx">
                     <node concept="10M0yZ" id="WTC1SLZXv_" role="3uHU7w">
                       <ref role="3cqZAo" to="jkm4:~Messages.YES" resolve="YES" />
@@ -9265,6 +9262,9 @@
                     <node concept="37vLTw" id="WTC1SLZV2Q" role="3uHU7B">
                       <ref role="3cqZAo" node="WTC1SLZKL2" resolve="result" />
                     </node>
+                  </node>
+                  <node concept="37vLTw" id="7l8SZlcT9j8" role="37vLTJ">
+                    <ref role="3cqZAo" node="7l8SZlcT8PQ" resolve="safeDelete" />
                   </node>
                 </node>
               </node>
@@ -39885,23 +39885,29 @@
                     <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
                   </node>
                 </node>
-                <node concept="2OqwBi" id="4CcGleaTOZj" role="37wK5m">
-                  <node concept="2OqwBi" id="3rY1IQ9ZYQ8" role="2Oq$k0">
-                    <node concept="2ShNRf" id="3rY1IQ9ZhNY" role="2Oq$k0">
-                      <node concept="1pGfFk" id="3rY1IQ9ZYDv" role="2ShVmc">
-                        <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.&lt;init&gt;()" resolve="EditorConfigurationBuilder" />
+                <node concept="2OqwBi" id="1tCeV3eqyJv" role="37wK5m">
+                  <node concept="2OqwBi" id="4CcGleaTOZj" role="2Oq$k0">
+                    <node concept="2OqwBi" id="3rY1IQ9ZYQ8" role="2Oq$k0">
+                      <node concept="2ShNRf" id="3rY1IQ9ZhNY" role="2Oq$k0">
+                        <node concept="1pGfFk" id="3rY1IQ9ZYDv" role="2ShVmc">
+                          <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.&lt;init&gt;()" resolve="EditorConfigurationBuilder" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="3rY1IQ9ZZ7F" role="2OqNvi">
+                        <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showLeftHighlighter(boolean)" resolve="showLeftHighlighter" />
+                        <node concept="3clFbT" id="3rY1IQ9ZZiW" role="37wK5m" />
                       </node>
                     </node>
-                    <node concept="liA8E" id="3rY1IQ9ZZ7F" role="2OqNvi">
-                      <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.showLeftHighlighter(boolean)" resolve="showLeftHighlighter" />
-                      <node concept="3clFbT" id="3rY1IQ9ZZiW" role="37wK5m" />
+                    <node concept="liA8E" id="4CcGleaTPpp" role="2OqNvi">
+                      <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.readOnly(boolean)" resolve="readOnly" />
+                      <node concept="3clFbT" id="4CcGleaTPQ_" role="37wK5m">
+                        <property role="3clFbU" value="true" />
+                      </node>
                     </node>
                   </node>
-                  <node concept="liA8E" id="4CcGleaTPpp" role="2OqNvi">
-                    <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.readOnly(boolean)" resolve="readOnly" />
-                    <node concept="3clFbT" id="4CcGleaTPQ_" role="37wK5m">
-                      <property role="3clFbU" value="true" />
-                    </node>
+                  <node concept="liA8E" id="1tCeV3eqFsa" role="2OqNvi">
+                    <ref role="37wK5l" to="7oz1:~EditorConfigurationBuilder.hasContextMenu(boolean)" resolve="hasContextMenu" />
+                    <node concept="3clFbT" id="1tCeV3eqFJO" role="37wK5m" />
                   </node>
                 </node>
               </node>
