@@ -28,7 +28,7 @@ public class ShowDefinitionInMenu_Action extends BaseAction {
   private static final Icon ICON = null;
 
   public ShowDefinitionInMenu_Action() {
-    super("Show Definition", "", ICON);
+    super("Show Definition in Completion Menu", "", ICON);
     this.setIsAlwaysVisible(false);
     this.setExecuteOutsideCommand(true);
     this.addPlace(null);
