@@ -6,6 +6,7 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.extapi.persistence.FileDataSource;
+import jetbrains.mps.extapi.persistence.FolderDataSource;
 
 @GeneratedClass(node = "r:e74490a1-7013-47e5-9f40-14c310c80a86(jetbrains.mps.vcs.suspicious)/4093906047203396155", model = "r:e74490a1-7013-47e5-9f40-14c310c80a86(jetbrains.mps.vcs.suspicious)")
 public class ConflictableModelAdapter extends Conflictable {
@@ -21,7 +22,14 @@ public class ConflictableModelAdapter extends Conflictable {
   }
   @Override
   public IFile getFile() {
-    return ((FileDataSource) myModel.getSource()).getFile();
+    // FIXME uses of this method suggest it's plain wrong piece of API and is not worth to survive 
+    //        all the logic here is just to let it suffer a bit longer 
+    if (myModel.getSource() instanceof FileDataSource) {
+      return ((FileDataSource) myModel.getSource()).getFile();
+    } else if (myModel.getSource() instanceof FolderDataSource) {
+      return ((FolderDataSource) myModel.getSource()).getFolder();
+    }
+    return null;
   }
   @Override
   public void reloadFromDisk() {
