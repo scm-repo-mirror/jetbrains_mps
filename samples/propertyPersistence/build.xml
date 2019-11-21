@@ -70,7 +70,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.samples.propertyPersistenceDef.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/solutions-jetbrains.mps.samples.propertyPersistenceDef-models">
-      <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistenceDef/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistenceDef/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.tmp}/default/propertyPersistence.zip/mps-sample-property-persistence/lib/jetbrains.mps.samples.propertyPersistenceDef-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistenceDef/source_gen">
@@ -189,10 +189,10 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.samples.PropertyDefinition-generator.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-jetbrains.mps.samples.PropertyDefinition-models">
-      <fileset dir="${basedir}/languages/jetbrains.mps.samples.PropertyDefinition/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.PropertyDefinition/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/languages-jetbrains.mps.samples.PropertyDefinition-generator-templates">
-      <fileset dir="${basedir}/languages/jetbrains.mps.samples.PropertyDefinition/generator/templates" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/languages/jetbrains.mps.samples.PropertyDefinition/generator/templates" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.tmp}/default/propertyPersistence.zip/mps-sample-property-persistence/languages/jetbrains.mps.samples.PropertyDefinition-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/languages/jetbrains.mps.samples.PropertyDefinition/generator/source_gen">
@@ -231,7 +231,7 @@
       <fileset dir="${build.tmp}/default/jetbrains.mps.samples.propertyPersistence.ideaPlugin.jar" />
     </jar>
     <copyModels todir="${build.tmp}/customProcessors/copyModels/solutions-jetbrains.mps.samples.propertyPersistence.ideaPlugin-models">
-      <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistence.ideaPlugin/models" includes="**/*.mps, **/*.metadata, **/*.history, **/*.mpsr, **/.model" />
+      <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistence.ideaPlugin/models" includes="**/*.mps, **/*.mpsr, **/.model" />
     </copyModels>
     <jar destfile="${build.tmp}/default/propertyPersistence.zip/mps-sample-property-persistence/languages/jetbrains.mps.samples.propertyPersistence.ideaPlugin-src.jar" duplicate="preserve">
       <fileset dir="${basedir}/solutions/jetbrains.mps.samples.propertyPersistence.ideaPlugin/source_gen">
@@ -366,7 +366,7 @@
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.constraints.rules.runtime.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.feedback.api.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.feedback.context.jar" />
-      <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.feedback.problem.jar" />
+      <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.feedback.problem.rt.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.feedback.problem.rules.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.messages.api.jar" />
       <library file="${artifacts.mps}/languages/runtimes/jetbrains.mps.lang.migration.runtime.jar" />
