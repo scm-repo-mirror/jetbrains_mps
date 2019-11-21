@@ -51,11 +51,11 @@ public class IntentionTester {
   public void invokeMatchingIntention(final Condition<IntentionExecutable> intentionCondition) throws InterruptedException, InvocationTargetException {
     myEditorTest.runUndoableCommandInEDTAndWait(new Runnable() {
       public void run() {
-        SNode selectedNode = myEditorTest.getEditorContext().getSelectedNode();
-        if (selectedNode == null) {
+        List<SNode> selectedNodes = myEditorTest.getEditorContext().getSelectedNodes();
+        if (selectedNodes == null || selectedNodes.isEmpty()) {
           return;
         }
-        Pair<IntentionExecutable, SNode> singleMatch = getSingleMatchingIntention(selectedNode, intentionCondition);
+        Pair<IntentionExecutable, SNode> singleMatch = getSingleMatchingIntention(selectedNodes.get(0), intentionCondition);
         singleMatch.o1.execute(singleMatch.o2, myEditorTest.getEditorContext());
       }
     });

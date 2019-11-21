@@ -1383,10 +1383,10 @@
       <node id="592868908271081243" at="38,7,39,24" concept="12" />
       <node id="592868908271277238" at="44,25,45,108" concept="11" />
       <node id="592868908271277246" at="45,108,46,80" concept="6" />
-      <node id="897913670084641815" at="53,25,54,79" concept="11" />
-      <node id="897913670084655198" at="55,35,56,17" concept="12" />
-      <node id="897913670084555123" at="57,9,58,116" concept="11" />
-      <node id="897913670084555131" at="58,116,59,80" concept="6" />
+      <node id="7467383869379904342" at="53,25,54,87" concept="11" />
+      <node id="897913670084655198" at="55,63,56,17" concept="12" />
+      <node id="897913670084555123" at="57,9,58,124" concept="11" />
+      <node id="897913670084555131" at="58,124,59,80" concept="6" />
       <node id="592868908270592569" at="64,140,65,141" concept="11" />
       <node id="592868908270592591" at="65,141,66,0" concept="14" />
       <node id="592868908270592594" at="67,54,68,145" concept="20" />
@@ -1400,7 +1400,7 @@
       <node id="592868908270592635" at="86,42,87,112" concept="12" />
       <node id="592868908270586839" at="23,0,26,0" concept="3" trace="IntentionTester#(Ljetbrains/mps/lang/test/runtime/BaseEditorTestBody;)V" />
       <node id="592868908271271207" at="35,0,38,0" concept="10" trace="run#()V" />
-      <node id="897913670084643402" at="54,79,57,9" concept="9" />
+      <node id="897913670084643402" at="54,87,57,9" concept="9" />
       <node id="592868908270592592" at="66,0,69,5" concept="9" />
       <node id="592868908271299019" at="77,0,80,0" concept="10" trace="accept#(Ljetbrains/mps/util/Pair;)Z" />
       <node id="1227269295334156385" at="27,0,31,0" concept="3" trace="IntentionTester#(Ljetbrains/mps/lang/test/runtime/BaseEditorTestBody;Z)V" />
@@ -1418,7 +1418,7 @@
       <node id="897913670084555108" at="51,0,63,0" concept="10" trace="invokeMatchingIntention#(Lorg/jetbrains/mps/util/Condition;)V" />
       <scope id="592868908270586843" at="23,57,24,28" />
       <scope id="592868908271271208" at="35,25,36,115" />
-      <scope id="897913670084643404" at="55,35,56,17" />
+      <scope id="897913670084643404" at="55,63,56,17" />
       <scope id="592868908270592593" at="67,54,68,145" />
       <scope id="592868908271299020" at="77,66,78,36" />
       <scope id="1227269295334156389" at="27,79,29,34" />
@@ -1442,7 +1442,7 @@
       </scope>
       <scope id="592868908270592502" at="42,169,48,7" />
       <scope id="897913670084555115" at="53,25,59,80">
-        <var name="selectedNode" id="897913670084641816" />
+        <var name="selectedNodes" id="7467383869379904348" />
         <var name="singleMatch" id="897913670084555124" />
       </scope>
       <scope id="592868908271289527" at="74,136,80,7">

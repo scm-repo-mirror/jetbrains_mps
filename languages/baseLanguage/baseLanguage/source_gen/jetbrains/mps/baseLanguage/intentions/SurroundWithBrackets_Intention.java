@@ -17,6 +17,8 @@ import java.util.List;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.editor.runtime.selection.SelectionUtil;
+import jetbrains.mps.openapi.editor.selection.SelectionManager;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -60,7 +62,7 @@ public final class SurroundWithBrackets_Intention extends AbstractIntentionDescr
       for (SNode selectedNode : ListSequence.fromList(selectedNodes)) {
         ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(blockStatement, LINKS.statements$uqR0), LINKS.statement$WHn8)).addElement(SNodeOperations.getNodeAncestor(selectedNode, CONCEPTS.Statement$ok, true, false));
       }
-      editorContext.select(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(blockStatement, LINKS.statements$uqR0), LINKS.statement$WHn8)).last());
+      SelectionUtil.selectLabelCellAnSetCaret(editorContext, blockStatement, SelectionManager.LAST_CELL, -1);
     }
     @Override
     public IntentionDescriptor getDescriptor() {

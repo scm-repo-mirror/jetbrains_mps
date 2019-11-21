@@ -12877,23 +12877,26 @@
               <ref role="37wK5l" node="wUiM63ScWZ" resolve="runUndoableCommandInEDTAndWait" />
               <node concept="1bVj0M" id="LQ1VB0mR5E" role="37wK5m">
                 <node concept="3clFbS" id="LQ1VB0mR5F" role="1bW5cS">
-                  <node concept="3cpWs8" id="LQ1VB0ncgn" role="3cqZAp">
-                    <node concept="3cpWsn" id="LQ1VB0ncgo" role="3cpWs9">
-                      <property role="TrG5h" value="selectedNode" />
-                      <node concept="3uibUv" id="LQ1VB0ncgk" role="1tU5fm">
-                        <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+                  <node concept="3cpWs8" id="6uxux2RRKdm" role="3cqZAp">
+                    <node concept="3cpWsn" id="6uxux2RRKds" role="3cpWs9">
+                      <property role="TrG5h" value="selectedNodes" />
+                      <node concept="3uibUv" id="6uxux2RRKdu" role="1tU5fm">
+                        <ref role="3uigEE" to="33ny:~List" resolve="List" />
+                        <node concept="3uibUv" id="6uxux2RRKuu" role="11_B2D">
+                          <ref role="3uigEE" to="mhbf:~SNode" resolve="SNode" />
+                        </node>
                       </node>
-                      <node concept="2OqwBi" id="LQ1VB0ncgp" role="33vP2m">
-                        <node concept="2OqwBi" id="LQ1VB0ncgq" role="2Oq$k0">
-                          <node concept="37vLTw" id="LQ1VB0ncgr" role="2Oq$k0">
+                      <node concept="2OqwBi" id="6uxux2RRMAc" role="33vP2m">
+                        <node concept="2OqwBi" id="6uxux2RRLW6" role="2Oq$k0">
+                          <node concept="37vLTw" id="6uxux2RRLC_" role="2Oq$k0">
                             <ref role="3cqZAo" node="wUiM63PSGQ" resolve="myEditorTest" />
                           </node>
-                          <node concept="liA8E" id="LQ1VB0ncgs" role="2OqNvi">
+                          <node concept="liA8E" id="6uxux2RRMgS" role="2OqNvi">
                             <ref role="37wK5l" node="wUiM63Q2iD" resolve="getEditorContext" />
                           </node>
                         </node>
-                        <node concept="liA8E" id="LQ1VB0ncgt" role="2OqNvi">
-                          <ref role="37wK5l" to="cj4x:~EditorContext.getSelectedNode()" resolve="getSelectedNode" />
+                        <node concept="liA8E" id="6uxux2RRMVT" role="2OqNvi">
+                          <ref role="37wK5l" to="cj4x:~EditorContext.getSelectedNodes()" resolve="getSelectedNodes" />
                         </node>
                       </node>
                     </node>
@@ -12902,10 +12905,20 @@
                     <node concept="3clFbS" id="LQ1VB0ncDc" role="3clFbx">
                       <node concept="3cpWs6" id="LQ1VB0nfxu" role="3cqZAp" />
                     </node>
-                    <node concept="3clFbC" id="LQ1VB0nea4" role="3clFbw">
-                      <node concept="10Nm6u" id="LQ1VB0nepU" role="3uHU7w" />
-                      <node concept="37vLTw" id="LQ1VB0ndNb" role="3uHU7B">
-                        <ref role="3cqZAo" node="LQ1VB0ncgo" resolve="selectedNode" />
+                    <node concept="22lmx$" id="6uxux2RRNFD" role="3clFbw">
+                      <node concept="2OqwBi" id="6uxux2RRORG" role="3uHU7w">
+                        <node concept="37vLTw" id="6uxux2RRNVg" role="2Oq$k0">
+                          <ref role="3cqZAo" node="6uxux2RRKds" resolve="selectedNodes" />
+                        </node>
+                        <node concept="liA8E" id="6uxux2RRPYs" role="2OqNvi">
+                          <ref role="37wK5l" to="33ny:~List.isEmpty()" resolve="isEmpty" />
+                        </node>
+                      </node>
+                      <node concept="3clFbC" id="LQ1VB0nea4" role="3uHU7B">
+                        <node concept="37vLTw" id="6uxux2RRNw4" role="3uHU7B">
+                          <ref role="3cqZAo" node="6uxux2RRKds" resolve="selectedNodes" />
+                        </node>
+                        <node concept="10Nm6u" id="LQ1VB0nepU" role="3uHU7w" />
                       </node>
                     </node>
                   </node>
@@ -12923,8 +12936,16 @@
                       </node>
                       <node concept="1rXfSq" id="LQ1VB0mR5S" role="33vP2m">
                         <ref role="37wK5l" node="wUiM63PU8C" resolve="getSingleMatchingIntention" />
-                        <node concept="37vLTw" id="LQ1VB0nfUA" role="37wK5m">
-                          <ref role="3cqZAo" node="LQ1VB0ncgo" resolve="selectedNode" />
+                        <node concept="2OqwBi" id="6uxux2RRQDC" role="37wK5m">
+                          <node concept="37vLTw" id="6uxux2RRQf4" role="2Oq$k0">
+                            <ref role="3cqZAo" node="6uxux2RRKds" resolve="selectedNodes" />
+                          </node>
+                          <node concept="liA8E" id="6uxux2RRRyR" role="2OqNvi">
+                            <ref role="37wK5l" to="33ny:~List.get(int)" resolve="get" />
+                            <node concept="3cmrfG" id="6uxux2RRRTb" role="37wK5m">
+                              <property role="3cmrfH" value="0" />
+                            </node>
+                          </node>
                         </node>
                         <node concept="37vLTw" id="LQ1VB0mR5U" role="37wK5m">
                           <ref role="3cqZAo" node="LQ1VB0mR69" resolve="intentionCondition" />

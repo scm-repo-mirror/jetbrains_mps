@@ -4070,7 +4070,7 @@
         <var name="_params" id="1241020613337" />
         <var name="event" id="1241020613337" />
       </scope>
-      <unit id="7806690843619928587" at="47,221,51,5" name="jetbrains.mps.ide.actions.DeleteModules_Action$1" />
+      <unit id="7806690843619928587" at="47,144,51,5" name="jetbrains.mps.ide.actions.DeleteModules_Action$1" />
       <unit id="944342063932544488" at="111,150,115,5" name="jetbrains.mps.ide.actions.DeleteModules_Action$2" />
       <unit id="7806690843620217720" at="117,123,121,7" name="jetbrains.mps.ide.actions.DeleteModules_Action$3" />
       <unit id="7806690843620224809" at="121,22,125,7" name="jetbrains.mps.ide.actions.DeleteModules_Action$4" />
