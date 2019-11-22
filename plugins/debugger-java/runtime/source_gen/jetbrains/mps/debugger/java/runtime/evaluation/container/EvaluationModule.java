@@ -95,4 +95,10 @@ public final class EvaluationModule extends AbstractModule implements SModule {
   public boolean isReadOnly() {
     return false;
   }
+
+  @Override
+  protected void collectMandatoryFacetTypes(Set<String> types) {
+    // we don't need there standard java facet 
+  }
+
 }

@@ -144,6 +144,7 @@
       <node id="8739959356373913627" at="83,49,84,74" concept="9" />
       <node id="1688587517512101108" at="90,44,91,135" concept="9" />
       <node id="5179210942579094108" at="95,31,96,17" concept="9" />
+      <node id="1343924475237857265" at="100,64,101,47" concept="10" />
       <node id="540856970554443835" at="41,0,44,0" concept="13" trace="incCounter#()I" />
       <node id="4494890427014427190" at="66,138,69,7" concept="6" />
       <node id="4193790856865063896" at="79,0,82,0" concept="7" trace="accept#(Lorg/jetbrains/mps/openapi/module/SModule;)Z" />
@@ -152,6 +153,7 @@
       <node id="2482939380799863740" at="57,0,61,0" concept="7" trace="getModuleDescriptor#()Ljetbrains/mps/project/structure/modules/ModuleDescriptor;" />
       <node id="1688587517511981825" at="89,0,93,0" concept="7" trace="getUsedLanguages#()Ljava/util/Set;" />
       <node id="5179210942579094101" at="94,0,98,0" concept="7" trace="isReadOnly#()Z" />
+      <node id="1343924475237803988" at="99,0,103,0" concept="7" trace="collectMandatoryFacetTypes#(Ljava/util/Set;)V" />
       <node id="6417547869565145774" at="45,0,51,0" concept="1" trace="EvaluationModule#(Ljetbrains/mps/components/ComponentHost;)V" />
       <node id="1688587517512020483" at="77,61,86,33" concept="9" />
       <node id="1247371618987947294" at="62,45,72,5" concept="6" />
@@ -165,6 +167,7 @@
       <scope id="8739959356373909117" at="83,49,84,74" />
       <scope id="1688587517511981830" at="90,44,91,135" />
       <scope id="5179210942579094105" at="95,31,96,17" />
+      <scope id="1343924475237803995" at="100,64,101,47" />
       <scope id="540856970554443835" at="41,0,44,0" />
       <scope id="4193790856865063896" at="79,0,82,0">
         <var name="it" id="4193790856865063896" />
@@ -177,6 +180,9 @@
       <scope id="2482939380799863740" at="57,0,61,0" />
       <scope id="1688587517511981825" at="89,0,93,0" />
       <scope id="5179210942579094101" at="94,0,98,0" />
+      <scope id="1343924475237803988" at="99,0,103,0">
+        <var name="types" id="1343924475237803992" />
+      </scope>
       <scope id="6417547869565145774" at="45,0,51,0">
         <var name="mpsPlatform" id="359089172093527828" />
       </scope>
@@ -193,7 +199,7 @@
       <scope id="3203719742591653134" at="75,0,88,0" />
       <unit id="4193790856865063896" at="78,52,82,5" name="jetbrains.mps.debugger.java.runtime.evaluation.container.EvaluationModule$1" />
       <unit id="8739959356373909116" at="82,18,86,5" name="jetbrains.mps.debugger.java.runtime.evaluation.container.EvaluationModule$2" />
-      <unit id="846214144107996104" at="34,0,99,0" name="jetbrains.mps.debugger.java.runtime.evaluation.container.EvaluationModule" />
+      <unit id="846214144107996104" at="34,0,105,0" name="jetbrains.mps.debugger.java.runtime.evaluation.container.EvaluationModule" />
     </file>
   </root>
   <root nodeRef="r:f5448de3-0d76-42bb-afa7-00b3b32de849(jetbrains.mps.debugger.java.runtime.evaluation.container)/846214144107996118">

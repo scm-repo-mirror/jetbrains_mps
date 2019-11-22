@@ -1970,6 +1970,52 @@
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
     </node>
+    <node concept="2tJIrI" id="1aA_32nw96A" role="jymVt" />
+    <node concept="3clFb_" id="1aA_32nwavk" role="jymVt">
+      <property role="TrG5h" value="collectMandatoryFacetTypes" />
+      <node concept="3Tmbuc" id="1aA_32nwavl" role="1B3o_S" />
+      <node concept="3cqZAl" id="1aA_32nwavn" role="3clF45" />
+      <node concept="37vLTG" id="1aA_32nwavo" role="3clF46">
+        <property role="TrG5h" value="types" />
+        <node concept="3uibUv" id="1aA_32nwavp" role="1tU5fm">
+          <ref role="3uigEE" to="33ny:~Set" resolve="Set" />
+          <node concept="3uibUv" id="1aA_32nwavq" role="11_B2D">
+            <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+          </node>
+        </node>
+      </node>
+      <node concept="3clFbS" id="1aA_32nwavr" role="3clF47">
+        <node concept="3SKdUt" id="1aA_32nwnvL" role="3cqZAp">
+          <node concept="1PaTwC" id="1aA_32nwnvM" role="3ndbpf">
+            <node concept="3oM_SD" id="1aA_32nwnvO" role="1PaTwD">
+              <property role="3oM_SC" value="we" />
+            </node>
+            <node concept="3oM_SD" id="1aA_32nwnw1" role="1PaTwD">
+              <property role="3oM_SC" value="don't" />
+            </node>
+            <node concept="3oM_SD" id="1aA_32nwnwk" role="1PaTwD">
+              <property role="3oM_SC" value="need" />
+            </node>
+            <node concept="3oM_SD" id="1aA_32nwnww" role="1PaTwD">
+              <property role="3oM_SC" value="there" />
+            </node>
+            <node concept="3oM_SD" id="1aA_32nwnwH" role="1PaTwD">
+              <property role="3oM_SC" value="standard" />
+            </node>
+            <node concept="3oM_SD" id="1aA_32nwnxb" role="1PaTwD">
+              <property role="3oM_SC" value="java" />
+            </node>
+            <node concept="3oM_SD" id="1aA_32nwnxE" role="1PaTwD">
+              <property role="3oM_SC" value="facet" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="1aA_32nwavs" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="1aA_32nw9a5" role="jymVt" />
   </node>
   <node concept="312cEu" id="IYmOvntYfm">
     <property role="TrG5h" value="GeneratorUtil" />
