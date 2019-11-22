@@ -47,7 +47,7 @@ public class ClassLoadingBroadCaster {
   private final ModelAccess myModelAccess;
   private final ModuleClassLoaderDisposer myDisposer;
 
-  private final List<DisposeSession> mySessionsAlive = new LinkedList<>();
+  private final List<DisposeSession> mySessionsAlive = new LinkedList<>(); // updated only in EDT
 
   // reload handlers
   private final List<DeployListener> myDeployListeners = new CopyOnWriteArrayList<>();
@@ -78,7 +78,7 @@ public class ClassLoadingBroadCaster {
       monitor.start("Broadcasting Unload Events", 2 * myDeployListeners.size());
       DisposeSession session = myDisposer.createSession(modulesToUnload, mySessionsAlive::remove);
       if (mySessionsAlive.size() > MAX_SESSIONS_ALIVE) {
-        LOG.error("Possibly we are leaking class loaders: currently there are " + mySessionsAlive.size() + " alive");
+        LOG.error("Possible leaking classes : currently there are " + mySessionsAlive.size() + " sessions alive");
       }
       mySessionsAlive.add(session);
       ResourceTrackerCallback trackerCallback = session.getTrackerCallback();
