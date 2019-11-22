@@ -55,7 +55,7 @@ abstract class MPSFavoriteNodeBase<T> extends ProjectViewNode<T> {
     SNodeReference navigationTarget = myNavigationTarget;
     boolean isRoot = new ModelAccessHelper(project.getModelAccess()).runReadAction(() -> {
       SNode navigationNode = navigationTarget.resolve(project.getRepository());
-      return Objects.equals(navigationNode, navigationNode.getContainingRoot());
+      return navigationNode != null && Objects.equals(navigationNode, navigationNode.getContainingRoot());
     });
     navigator.shallFocus(true).shallSelect(!isRoot).open(navigationTarget);
   }
