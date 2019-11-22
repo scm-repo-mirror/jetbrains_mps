@@ -30,6 +30,7 @@ import org.jetbrains.mps.openapi.util.ProgressMonitor;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -40,10 +41,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class ClassLoadingBroadCaster {
   private static final Logger LOG = LogManager.getLogger(ClassLoadingBroadCaster.class);
+  private static final int MAX_SESSIONS_ALIVE = 2;
 
   private final LinkedHashSet<ReloadableModule> myLoadedModules = new LinkedHashSet<>();
   private final ModelAccess myModelAccess;
   private final ModuleClassLoaderDisposer myDisposer;
+
+  private final List<DisposeSession> mySessionsAlive = new LinkedList<>();
 
   // reload handlers
   private final List<DeployListener> myDeployListeners = new CopyOnWriteArrayList<>();
@@ -72,7 +76,11 @@ public class ClassLoadingBroadCaster {
 
     try {
       monitor.start("Broadcasting Unload Events", 2 * myDeployListeners.size());
-      DisposeSession session = myDisposer.createSession(modulesToUnload);
+      DisposeSession session = myDisposer.createSession(modulesToUnload, mySessionsAlive::remove);
+      if (mySessionsAlive.size() > MAX_SESSIONS_ALIVE) {
+        LOG.error("Possibly we are leaking class loaders: currently there are " + mySessionsAlive.size() + " alive");
+      }
+      mySessionsAlive.add(session);
       ResourceTrackerCallback trackerCallback = session.getTrackerCallback();
       for (DeployListener listener : myDeployListeners) {
         try {
@@ -84,7 +92,7 @@ public class ClassLoadingBroadCaster {
           LOG.error(String.format("Caught exception from the listener %s. Will continue.", listener), e);
         }
       }
-      session.disposeNowOrLater();
+      session.readyToDispose();
     } finally {
       monitor.done();
     }

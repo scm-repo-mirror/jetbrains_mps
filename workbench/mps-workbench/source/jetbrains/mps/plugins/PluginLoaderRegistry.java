@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.plugins;
 
+import com.intellij.configurationStore.JdomSerializer;
+import com.intellij.ide.ui.customization.CustomActionsSchema;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
@@ -24,8 +26,13 @@ import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.util.IconLoader;
+import com.intellij.openapi.wm.ex.WindowManagerEx;
+import com.intellij.openapi.wm.impl.IdeMenuBar;
+import com.intellij.openapi.wm.impl.ProjectFrameHelper;
 import com.intellij.util.WaitForProgressToShow;
+import com.intellij.util.xmlb.BeanBinding;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.DeployListener;
 import jetbrains.mps.core.platform.Platform;
@@ -61,7 +68,9 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Queue;
+import java.util.ServiceLoader;
 import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -356,15 +365,6 @@ public class PluginLoaderRegistry implements Disposable {
     runTask(task);
   }
 
-  private void unloadIdeaIconsGlobalCache(Set<ReloadableModule> modules) {
-    for (ReloadableModule module : modules) {
-//       some people might use the latter to load icons, who knows
-      IconLoader.detachClassLoader(module.getClassLoader0());
-      IconLoader.detachClassLoader(module.getClassLoader());
-    }
-    IconLoader.clearCache();
-  }
-
   private void reschedule() {
     Application application = ApplicationManager.getApplication();
     application.invokeLater(this::update, ModalityState.NON_MODAL, application.getDisposed());
@@ -420,14 +420,35 @@ public class PluginLoaderRegistry implements Disposable {
         myTaskInProgress = true;
         removeLoaders(monitor);
         removeContributors(monitor);
+        clearIDEMenusFromOurActionRefs();
         addLoaders(monitor);
         addIdeaExtPointPluginContributors(monitor);
         addContributors(monitor);
+      } catch (VirtualMachineError e) {
+        throw e;
+      } catch (Throwable t) {
+        LOG.error("Problem while reloading mps-plugins in EDT", t);
       } finally {
         myTaskInProgress = false;
         myPostRunnable.run();
       }
     }
+
+    private void clearIDEMenusFromOurActionRefs() {
+      WindowManagerEx windowManager = WindowManagerEx.getInstanceEx();
+      for (Project project : ProjectManager.getInstance().getOpenProjects()) {
+        ProjectFrameHelper frame = windowManager.getFrameHelper(project);
+        if (frame != null) {
+          frame.updateView();
+        }
+      }
+
+      ProjectFrameHelper frame = windowManager.getFrameHelper(null);
+      if (frame != null) {
+        frame.updateView();
+      }
+    }
+
 
     private void addContributors(ProgressMonitor monitor) {
       Set<PluginContributor> contributorsToAdd = new LinkedHashSet<>(myContributorsDelta.toLoad);
@@ -510,10 +531,27 @@ public class PluginLoaderRegistry implements Disposable {
   }
 
   private class SchedulingUpdateListener implements DeployListener {
+    private void unloadIdeaIconsGlobalCache(Set<ReloadableModule> modules) {
+      for (ReloadableModule module : modules) {
+//       some people might use the latter to load icons, who knows
+        IconLoader.detachClassLoader(module.getClassLoader0());
+        IconLoader.detachClassLoader(module.getClassLoader());
+      }
+      IconLoader.clearCache();
+    }
+
+    private void clearIDEACaches() {
+      Optional<JdomSerializer> jdomSerializer = ServiceLoader.load(JdomSerializer.class, JdomSerializer.class.getClassLoader()).findFirst();
+      jdomSerializer.ifPresent(JdomSerializer::clearSerializationCaches);
+      BeanBinding.clearSerializationCaches();
+    }
+
     @Override
     public void onUnloaded(@NotNull ResourceTrackerCallback callback, @NotNull ProgressMonitor monitor) {
       Set<ReloadableModule> unloadedModules = callback.acquire(PluginLoaderRegistry.this);
       unloadIdeaIconsGlobalCache(unloadedModules);
+      clearIDEACaches();
+
       myAccumulation.onUnload(unloadedModules);
       // hack for run configurations because of IDEA stupid API; @see RunConfigurationsStateManager
       myAccumulation.schedulePostRunnable(() ->

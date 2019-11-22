@@ -64,8 +64,8 @@ import static jetbrains.mps.classloading.ModulesWatcher.DefaultStatuses.VALID;
  *
  * Notice, that read action is required on every update.
  *
- * @see ClassLoaderManager#myLoadableCondition
- * @see ClassLoaderManager#myWatchableCondition
+ * @see {@code ClassLoaderManager#myLoadableCondition}
+ * @see {@code ClassLoaderManager#myWatchableCondition}
  */
 public class ModulesWatcher {
   private static final Logger LOG = LogManager.getLogger(ModulesWatcher.class);
@@ -169,8 +169,10 @@ public class ModulesWatcher {
         LOG.warn(message);
         print(invalidModules, LOG::warn);
       }
+
+      LOG.info("Totally " + allInvalidModules.size() + " modules are marked invalid for class loading" + (allInvalidModules.isEmpty() ? "."
+                                                                                                                                      : ":"));
       if (!allInvalidModules.isEmpty()) {
-        LOG.info("Totally " + allInvalidModules.size() + " modules are marked invalid for class loading:");
         print(allInvalidModules, LOG::info);
       }
 

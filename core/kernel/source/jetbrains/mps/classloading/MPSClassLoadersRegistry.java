@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.module.SModuleReference;
+import org.jetbrains.mps.openapi.util.Consumer;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -43,10 +44,10 @@ import java.util.stream.Collectors;
 /**
  * Note:
  * This class deals only with MPS-loadable modules
- * @see ClassLoaderManager#myMPSLoadableCondition
+ * @see {@code ClassLoaderManager#myMPSLoadableCondition}
  */
 class MPSClassLoadersRegistry {
-  private static final Logger LOG = LogManager.getLogger(ClassLoadersHolder.class);
+  private static final Logger LOG = LogManager.getLogger(MPSClassLoadersRegistry.class);
 
   private final Map<SModuleReference, ModuleClassLoader> myMPSClassLoaders = new HashMap<>();
   private final Map<SModuleReference, IDEADelegatingModuleClassLoader> myIDEAClassLoaders = new HashMap<>();
@@ -205,13 +206,13 @@ class MPSClassLoadersRegistry {
       myRegistry = registry;
     }
 
-    DisposeSession createSession(@NotNull Set<ReloadableModule> modulesToUnload) {
+    DisposeSession createSession(@NotNull Set<ReloadableModule> modulesToUnload, @Nullable Consumer<DisposeSession> onDisposed) {
       List<ModuleClassLoader> classLoaders = modulesToUnload.stream()
                                                             .map(myRegistry::doGetModuleClassLoader)
                                                             .filter(Objects::nonNull)
                                                             .collect(Collectors.toList());
 
-      return new DisposeSession(modulesToUnload, classLoaders);
+      return new DisposeSession(modulesToUnload, classLoaders, onDisposed);
     }
 
     public void destroy() {
@@ -226,8 +227,11 @@ class MPSClassLoadersRegistry {
       private final List<ModuleClassLoader> myModuleClassloaders2Dispose;
       private final ConcurrentMap<Object, Boolean> myBlockingRequestors = new ConcurrentHashMap<>();
       private final Instant myCreationTime;
-      private boolean myDisposeHappened = false;
+      @Nullable
+      private final Consumer<DisposeSession> myOnDisposed;
+      private volatile boolean myDisposeHappened = false;
       private volatile Instant myPlanningDisposalTime;
+      private volatile Instant myActualDisposalTime;
 
       private final ResourceTrackerCallback myTrackerCallback = new ResourceTrackerCallback() {
         @NotNull
@@ -248,13 +252,16 @@ class MPSClassLoadersRegistry {
         }
       };
 
-      public DisposeSession(@NotNull Set<ReloadableModule> modulesToUnload, @NotNull List<ModuleClassLoader> theirClassloaders) {
+      public DisposeSession(@NotNull Set<ReloadableModule> modulesToUnload,
+                            @NotNull List<ModuleClassLoader> theirClassloaders,
+                            @Nullable Consumer<DisposeSession> onDisposed) {
+        myOnDisposed = onDisposed;
         myCreationTime = Instant.now();
         myModulesToUnload = Collections.unmodifiableSet(modulesToUnload);
         myModuleClassloaders2Dispose = theirClassloaders;
       }
 
-      public synchronized void disposeNowOrLater() {
+      public synchronized void readyToDispose() {
         assert myCreationTime != null;
         assert myPlanningDisposalTime == null;
         myPlanningDisposalTime = Instant.now();
@@ -278,6 +285,10 @@ class MPSClassLoadersRegistry {
         }
       }
 
+      public synchronized boolean isDisposed() {
+        return myDisposeHappened;
+      }
+
       private synchronized void doDispose() {
         assert myCreationTime != null;
         assert myPlanningDisposalTime != null;
@@ -287,6 +298,11 @@ class MPSClassLoadersRegistry {
           classLoader.dispose();
         }
         myModuleClassloaders2Dispose.clear();
+        myActualDisposalTime = Instant.now();
+        myDisposeHappened = true;
+        if (myOnDisposed != null) {
+          myOnDisposed.consume(this);
+        }
       }
 
       @NotNull
