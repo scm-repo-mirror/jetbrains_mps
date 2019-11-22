@@ -16,12 +16,19 @@
 package jetbrains.mps.nodeEditor;
 
 import com.intellij.ide.DataManager;
+import com.intellij.ide.actions.ActivateToolWindowAction;
+import com.intellij.ide.favoritesTreeView.FavoritesProjectViewPane;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnAction;
+import com.intellij.openapi.actionSystem.KeyboardShortcut;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
+import com.intellij.openapi.actionSystem.Shortcut;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.fileEditor.FileEditor;
+import com.intellij.openapi.fileEditor.FileEditorProvider;
+import com.intellij.openapi.keymap.Keymap;
+import com.intellij.openapi.keymap.KeymapManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
@@ -49,11 +56,24 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.BiConsumer;
 
 public class InspectorTool extends BaseTool implements EditorInspector, ProjectComponent {
   public static final String ID = "Inspector";
+  // Check with component registered only in plugin
+  private static final boolean IS_IN_MPS_PLUGIN =
+      FileEditorProvider.EP_FILE_EDITOR_PROVIDER.getExtensionList().stream().anyMatch(
+          fileEditorProvider ->
+              "jetbrains.mps.idea.core.editor.ModelFileToRootDispatchingEditorProvider".equals(
+                  fileEditorProvider.getClass().getCanonicalName()
+              )
+      );
 
   private MyPanel myComponent;
   private InspectorEditorComponent myInspectorComponent;
@@ -61,7 +81,56 @@ public class InspectorTool extends BaseTool implements EditorInspector, ProjectC
   private FileEditor myFileEditor;
 
   public InspectorTool(Project project) {
-    super(project, ID, null, IdeIcons.INSPECTOR_ICON, ToolWindowAnchor.BOTTOM, true, false);
+    super(project, ID, getDefaultShortCuts(), IdeIcons.INSPECTOR_ICON, ToolWindowAnchor.BOTTOM, true, false);
+
+    hackFavoritesKeymap();
+  }
+
+  private static void hackFavoritesKeymap() {
+    if (IS_IN_MPS_PLUGIN) {
+      return;
+    }
+
+    BiConsumer<String, KeyStroke> removeDefaultKeyStroke = (keymapId, keyStroke) -> {
+      String favoritesViewId = ActivateToolWindowAction.getActionIdForToolWindow(FavoritesProjectViewPane.ID);
+      final Keymap keymap = KeymapManager.getInstance().getKeymap(keymapId);
+      if (keymap == null) {
+        return;
+      }
+      for (Shortcut shortcut : keymap.getShortcuts(favoritesViewId)) {
+        if (shortcut instanceof KeyboardShortcut && ((KeyboardShortcut) shortcut).getFirstKeyStroke().equals(keyStroke)) {
+          keymap.removeShortcut(favoritesViewId, shortcut);
+        }
+      }
+    };
+
+    final KeyStroke winKeyStroke = KeyStroke.getKeyStroke("alt 2");
+    removeDefaultKeyStroke.accept(KeymapManager.DEFAULT_IDEA_KEYMAP, winKeyStroke);
+
+    final KeyStroke macKeyStroke = KeyStroke.getKeyStroke("meta 2");
+    removeDefaultKeyStroke.accept(KeymapManager.MAC_OS_X_KEYMAP, macKeyStroke);
+    removeDefaultKeyStroke.accept(KeymapManager.MAC_OS_X_10_5_PLUS_KEYMAP, macKeyStroke);
+  }
+
+  private static Map<String, KeyStroke> getDefaultShortCuts() {
+    if (IS_IN_MPS_PLUGIN) {
+      return Collections.emptyMap();
+    }
+
+    final Map<String, KeyStroke> result = new HashMap<>(6);
+
+    BiConsumer<String, String> addKeyStroke = (keymapId, shortCut) -> {
+      final Keymap keymap = KeymapManager.getInstance().getKeymap(keymapId);
+      if (keymap != null) {
+        result.put(keymapId, KeyStroke.getKeyStroke(shortCut));
+      }
+    };
+
+    addKeyStroke.accept(KeymapManager.DEFAULT_IDEA_KEYMAP, "alt 2");
+    addKeyStroke.accept(KeymapManager.MAC_OS_X_KEYMAP, "meta 2");
+    addKeyStroke.accept(KeymapManager.MAC_OS_X_10_5_PLUS_KEYMAP, "meta 2");
+
+    return result;
   }
 
   @Override
