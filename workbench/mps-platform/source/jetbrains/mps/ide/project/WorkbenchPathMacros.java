@@ -20,16 +20,15 @@ import com.intellij.ide.DataManager;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationListener;
 import com.intellij.notification.NotificationType;
+import com.intellij.notification.Notifications;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.options.ShowSettingsUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.project.ProjectManagerListener;
-import com.intellij.openapi.startup.StartupManager;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.util.messages.MessageBusConnection;
 import jetbrains.mps.ide.MPSCoreComponents;
@@ -53,6 +52,7 @@ public class WorkbenchPathMacros implements Disposable, PathMacrosProvider {
 
   private final MessageBusConnection myConnection;
   private final NotificationListener myListener = (notification, event) -> {
+    notification.expire();
     if (event.getEventType() != EventType.ACTIVATED) {
       return;
     }
@@ -116,19 +116,9 @@ public class WorkbenchPathMacros implements Disposable, PathMacrosProvider {
 
   private void notifyAboutUndefinedMacros(@NotNull String macro) {
     String title = "Unknown macro(s) are detected";
-    String content = "MPS may work incorrectly.\n" +
-                     "<html><a href=''>Please define the macro '" + macro + "'.</a></html>";
+    String content = "<html>MPS may work incorrectly.<br><a href=''>Please define the macro '" + macro + "'.</a></html>";
     Notification notification = new Notification(SYSTEM_MESSAGES_GROUP_ID, title, content, NotificationType.ERROR, myListener);
-    Promise<DataContext> promise = DataManager.getInstance().getDataContextFromFocusAsync();
-    promise.onSuccess(context -> {
-      Project project = PlatformDataKeys.PROJECT.getData(context);
-      Runnable runnable = () -> notification.notify(project);
-      if (project != null) {
-        StartupManager.getInstance(project).runWhenProjectIsInitialized(runnable);
-      } else {
-        ApplicationManager.getApplication().invokeLater(runnable, ModalityState.defaultModalityState());
-      }
-    });
+    Notifications.Bus.notify(notification);
   }
 
   @NotNull
