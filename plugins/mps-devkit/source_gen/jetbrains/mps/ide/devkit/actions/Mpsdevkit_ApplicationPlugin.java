@@ -60,6 +60,7 @@ public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
     addAction(new NewRuntimeModule_Action());
     addAction(new OverrideBehaviorMethod_Action());
     addAction(new PrintNodeID_Action());
+    addAction(new PullGeneratorUpFromLanguage_Action());
     addAction(new ReloadAll_Action());
     addAction(new ShowCellInExplorer_Action());
     addAction(new ShowEditorMenuItemTrace_Action());
@@ -87,6 +88,7 @@ public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
     addGroup(new LanguageNewGenerator_ActionGroup(this));
     addGroup(new NamespaceNewActionsEx_ActionGroup(this));
     addGroup(new ProjectNewActionsEx_ActionGroup(this));
+    addGroup(new PullGeneratorUp_Contrib_ActionGroup(this));
     addGroup(new RuntimeFolderActions_ActionGroup(this));
     addGroup(new ShowNodeIn_ActionGroup(this));
     addGroup(new StructureAdditions_ActionGroup(this));
@@ -114,6 +116,7 @@ public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(ContributeModuleUsage_ActionGroup.ID, DevkitActions_ActionGroup.ID, DevkitActions_ActionGroup.LABEL_ID_find_usages);
     insertGroupIntoAnother(ContributeModuleUsage_ActionGroup.ID, GeneratorActions_ActionGroup.ID, GeneratorActions_ActionGroup.LABEL_ID_find_usages);
     insertGroupIntoAnother(ContributeModuleUsage_ActionGroup.ID, SolutionActions_ActionGroup.ID, SolutionActions_ActionGroup.LABEL_ID_find_usages);
+    insertGroupIntoAnother(PullGeneratorUp_Contrib_ActionGroup.ID, CommonModuleActions_ActionGroup.ID, CommonModuleActions_ActionGroup.LABEL_ID_refactoring);
     insertGroupIntoAnother(TraceActions_ActionGroup.ID, DebugActions_ActionGroup.ID, DebugActions_ActionGroup.LABEL_ID_trace);
     insertGroupIntoAnother(ShowNodeIn_ActionGroup.ID, NodeActions_ActionGroup.ID, NodeActions_ActionGroup.LABEL_ID_showIn);
     insertGroupIntoAnother(ShowNodeIn_ActionGroup.ID, "EditorPopup_ActionGroupshowIn", null);
