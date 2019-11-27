@@ -4306,11 +4306,16 @@
                                     <property role="P3scX" value="7866978e-a0f0-4cc7-81bc-4d213d9375e1/1177026924588/1177026940964" />
                                     <property role="2qtEX8" value="conceptDeclaration" />
                                     <property role="3hQQBS" value="RefConcept_Reference" />
-                                    <node concept="2OqwBi" id="4WYmcO4MbCb" role="2c44t1">
-                                      <node concept="37vLTw" id="3wbNjpjkAIg" role="2Oq$k0">
-                                        <ref role="3cqZAo" node="3wbNjpjkmNd" resolve="conceptRef" />
+                                    <node concept="10QFUN" id="2LDtYz_oPuT" role="2c44t1">
+                                      <node concept="2OqwBi" id="2LDtYz_oPuQ" role="10QFUP">
+                                        <node concept="37vLTw" id="2LDtYz_oPuR" role="2Oq$k0">
+                                          <ref role="3cqZAo" node="3wbNjpjkmNd" resolve="conceptRef" />
+                                        </node>
+                                        <node concept="2ZHEkA" id="2LDtYz_oPuS" role="2OqNvi" />
                                       </node>
-                                      <node concept="2ZHEkA" id="4WYmcO4Mc1$" role="2OqNvi" />
+                                      <node concept="3Tqbb2" id="2LDtYz_oPK5" role="10QFUM">
+                                        <ref role="ehGHo" to="tpce:h0PkWnZ" resolve="AbstractConceptDeclaration" />
+                                      </node>
                                     </node>
                                   </node>
                                 </node>

@@ -359,6 +359,9 @@
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
       </concept>
       <concept id="1144146199828" name="jetbrains.mps.lang.smodel.structure.Node_CopyOperation" flags="nn" index="1$rogu" />
+      <concept id="1219352745532" name="jetbrains.mps.lang.smodel.structure.NodeRefExpression" flags="nn" index="3B5_sB">
+        <reference id="1219352800908" name="referentNode" index="3B5MYn" />
+      </concept>
       <concept id="6407023681583040688" name="jetbrains.mps.lang.smodel.structure.AllAttributeQualifier" flags="ng" index="3CFTEB" />
       <concept id="6407023681583036853" name="jetbrains.mps.lang.smodel.structure.NodeAttributeQualifier" flags="ng" index="3CFYIy">
         <reference id="6407023681583036854" name="attributeConcept" index="3CFYIx" />
@@ -3892,9 +3895,10 @@
               <ref role="3Tt5mk" to="tpf8:gZ0HIsK" resolve="applicableConcept" />
             </node>
           </node>
-          <node concept="2Zo12i" id="2sTGsLqhm5H" role="2OqNvi">
-            <node concept="chp4Y" id="2sTGsLqhm5I" role="2Zo12j">
-              <ref role="cht4Q" to="tpck:4uZwTti3_$T" resolve="Attribute" />
+          <node concept="2qgKlT" id="2LDtYzAs9Ul" role="2OqNvi">
+            <ref role="37wK5l" to="tpcn:73yVtVlWOga" resolve="isSubconceptOf" />
+            <node concept="3B5_sB" id="2LDtYzAs9Zj" role="37wK5m">
+              <ref role="3B5MYn" to="tpck:4uZwTti3_$T" resolve="Attribute" />
             </node>
           </node>
         </node>
@@ -4364,9 +4368,10 @@
               <ref role="3Tt5mk" to="tpf8:gZ0HIsK" resolve="applicableConcept" />
             </node>
           </node>
-          <node concept="2Zo12i" id="2sTGsLqhk6n" role="2OqNvi">
-            <node concept="chp4Y" id="2sTGsLqhk7U" role="2Zo12j">
-              <ref role="cht4Q" to="tpck:4uZwTti3_$T" resolve="Attribute" />
+          <node concept="2qgKlT" id="2LDtYzAsb6k" role="2OqNvi">
+            <ref role="37wK5l" to="tpcn:73yVtVlWOga" resolve="isSubconceptOf" />
+            <node concept="3B5_sB" id="2LDtYzAsbbi" role="37wK5m">
+              <ref role="3B5MYn" to="tpck:4uZwTti3_$T" resolve="Attribute" />
             </node>
           </node>
         </node>
@@ -5533,9 +5538,7 @@
         <node concept="3cpWs8" id="6lTMuI_4mhH" role="3cqZAp">
           <node concept="3cpWsn" id="6lTMuI_4mhI" role="3cpWs9">
             <property role="TrG5h" value="template" />
-            <node concept="3Tqbb2" id="6lTMuI_4mhD" role="1tU5fm">
-              <ref role="ehGHo" to="tpck:h0TrEE$" resolve="INamedConcept" />
-            </node>
+            <node concept="3Tqbb2" id="6lTMuI_4mhD" role="1tU5fm" />
             <node concept="2OqwBi" id="6lTMuI_4mhJ" role="33vP2m">
               <node concept="QwW4i" id="6lTMuI_4mhK" role="2Oq$k0">
                 <ref role="QwW4h" node="6lTMuI_4lPD" resolve="rule" />
@@ -5628,9 +5631,10 @@
                 <ref role="3Tt5mk" to="tpf8:6uPxrhfjpgY" resolve="applicableConcept" />
               </node>
             </node>
-            <node concept="2Zo12i" id="6uPxrhfjv0T" role="2OqNvi">
-              <node concept="chp4Y" id="5fJDzf1B1Pu" role="2Zo12j">
-                <ref role="cht4Q" to="tpck:4uZwTti3_$T" resolve="Attribute" />
+            <node concept="2qgKlT" id="2LDtYzAsalU" role="2OqNvi">
+              <ref role="37wK5l" to="tpcn:73yVtVlWOga" resolve="isSubconceptOf" />
+              <node concept="3B5_sB" id="2LDtYzAsamh" role="37wK5m">
+                <ref role="3B5MYn" to="tpck:4uZwTti3_$T" resolve="Attribute" />
               </node>
             </node>
           </node>

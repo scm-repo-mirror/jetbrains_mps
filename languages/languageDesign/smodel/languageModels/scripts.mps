@@ -319,7 +319,10 @@
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
       </concept>
-      <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7" />
+      <concept id="4222318806802425298" name="jetbrains.mps.lang.core.structure.SuppressErrorsAnnotation" flags="ng" index="15s5l7">
+        <property id="8575328350543493365" name="message" index="huDt6" />
+        <property id="2423417345669755629" name="filter" index="1eyWvh" />
+      </concept>
     </language>
     <language id="c7fb639f-be78-4307-89b0-b5959c3fa8c8" name="jetbrains.mps.lang.text">
       <concept id="155656958578482948" name="jetbrains.mps.lang.text.structure.Word" flags="ng" index="3oM_SD">
@@ -2864,6 +2867,10 @@
       <property role="2aFKle" value="false" />
       <node concept="3clFbS" id="71Lc9uInEHR" role="3clF47">
         <node concept="3cpWs8" id="71Lc9uInEVc" role="3cqZAp">
+          <node concept="15s5l7" id="2LDtYz_oT1M" role="lGtFl">
+            <property role="1eyWvh" value="FLAVOUR_ISSUE_KIND=&quot;typesystem (typesystem)&quot;;FLAVOUR_MESSAGE=&quot;Error: type node&lt;IStatementListContainer&gt; is not a subtype of node&lt;IMethodLike&gt;&quot;;FLAVOUR_RULE_ID=&quot;[r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/554301099359820442]&quot;;" />
+            <property role="huDt6" value="Error: type node&lt;IStatementListContainer&gt; is not a subtype of node&lt;IMethodLike&gt;" />
+          </node>
           <node concept="3cpWsn" id="71Lc9uInEVf" role="3cpWs9">
             <property role="TrG5h" value="method" />
             <node concept="3Tqbb2" id="71Lc9uInEVb" role="1tU5fm">

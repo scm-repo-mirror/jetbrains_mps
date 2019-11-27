@@ -31,8 +31,8 @@
     <import index="dush" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.persistence(MPS.OpenAPI/)" />
     <import index="ncw5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.util.annotation(MPS.Core/)" />
     <import index="pjrh" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter(MPS.Core/)" />
+    <import index="xlb7" ref="r:cf42fd0a-68d2-493b-8b77-961658617704(jetbrains.mps.lang.modelapi.behavior)" />
     <import index="z1c3" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.project(MPS.Core/)" implicit="true" />
-    <import index="xlb7" ref="r:cf42fd0a-68d2-493b-8b77-961658617704(jetbrains.mps.lang.modelapi.behavior)" implicit="true" />
   </imports>
   <registry>
     <language id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior">
@@ -3053,7 +3053,7 @@
           <node concept="3cpWsn" id="i39Fa0y" role="3cpWs9">
             <property role="TrG5h" value="enumNode" />
             <node concept="3Tqbb2" id="i39Fa0z" role="1tU5fm">
-              <ref role="ehGHo" to="tpce:fKAxPRV" resolve="EnumerationDataTypeDeclaration_Old" />
+              <ref role="ehGHo" to="tpce:VFd4X$DyB_" resolve="IEnumeration" />
             </node>
             <node concept="2OqwBi" id="i39Fa0$" role="33vP2m">
               <node concept="13iPFW" id="i39Fa0_" role="2Oq$k0" />
@@ -7133,8 +7133,8 @@
     <node concept="13i0hz" id="nJmxU5cSUa" role="13h7CS">
       <property role="13i0iv" value="false" />
       <property role="13i0it" value="false" />
-      <property role="TrG5h" value="getModuleReference" />
-      <ref role="13i0hy" node="nJmxU5cSSU" resolve="getModuleReference" />
+      <property role="TrG5h" value="toModuleReference" />
+      <ref role="13i0hy" to="xlb7:1Bs_61$mqDd" resolve="toModuleReference" />
       <node concept="3Tm1VV" id="nJmxU5cSUb" role="1B3o_S" />
       <node concept="3clFbS" id="nJmxU5cSUe" role="3clF47">
         <node concept="3clFbJ" id="1t9Fffge5wt" role="3cqZAp">
@@ -7210,7 +7210,7 @@
       <node concept="2AHcQZ" id="1t9Fffge4Bf" role="2AJF6D">
         <ref role="2AI5Lk" to="mhfm:~Nullable" resolve="Nullable" />
       </node>
-      <node concept="3uibUv" id="nJmxU5cSUf" role="3clF45">
+      <node concept="3uibUv" id="2LDtYz_oLa$" role="3clF45">
         <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
       </node>
     </node>

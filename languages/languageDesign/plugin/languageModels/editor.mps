@@ -488,9 +488,6 @@
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
       </concept>
-      <concept id="1146253292180" name="jetbrains.mps.lang.smodel.structure.Property_HasValue_Simple" flags="nn" index="3y1jeu">
-        <child id="1146253292181" name="value" index="3y1jev" />
-      </concept>
       <concept id="1180636770613" name="jetbrains.mps.lang.smodel.structure.SNodeCreator" flags="nn" index="3zrR0B">
         <child id="1180636770616" name="createdType" index="3zrR0E" />
       </concept>
@@ -6728,9 +6725,7 @@
                       <ref role="3TsBF5" to="tp4k:5FstybB4cWH" resolve="number" />
                     </node>
                   </node>
-                  <node concept="3y1jeu" id="qbzkx3IPHj" role="2OqNvi">
-                    <node concept="10Nm6u" id="qbzkx3IPHk" role="3y1jev" />
-                  </node>
+                  <node concept="17RvpY" id="2LDtYzAsul3" role="2OqNvi" />
                 </node>
               </node>
             </node>
