@@ -60,6 +60,7 @@ public class ProjectCreationTest implements EnvironmentAware {
   private static final String PROJECT_NAME = "CreatedTestProject";
   private static final String LANGUAGE_NAMESPACE = "CreatedLanguage";
   private static final String SOLUTION_NAMESPACE = "CreatedSandbox";
+  private static final String DEVEKIT_NAMESPACE = "CreatedDevkit";
   private static final String PROJECT_PROPERTIES_DIR = PROJECT_NAME + "/.mps";
   private static final List<String> PROJECT_PROPERTIES_DIR_CONTENT = Arrays.asList(
       PROJECT_PROPERTIES_DIR + "/modules.xml",
@@ -72,6 +73,7 @@ public class ProjectCreationTest implements EnvironmentAware {
   private static final List<String> EMPTY_PROJECT_PATH_LIST_DB = PROJECT_PROPERTIES_DIR_CONTENT;
   static final String LANGUAGES_ROOT = "languages";
   static final String SOLUTIONS_ROOT = "solutions";
+  static final String DEVKIT_ROOT = "devkits";
   private static List<String> PROJECT_WITH_MODULES_PATH_LIST_FB;
   private static List<String> PROJECT_WITH_MODULES_PATH_LIST_DB;
 
@@ -79,6 +81,7 @@ public class ProjectCreationTest implements EnvironmentAware {
   private static final String PATH_IN_PROJECT = "%s/%s/%s/%s/%s.%s";
   private Environment myEnv;
 
+  @NotNull
   private static List<String> languageModels(String projectName, String languageNamespace) {
     final LanguageAspect[] aspects = new LanguageAspect[]{
         LanguageAspect.STRUCTURE, LanguageAspect.CONSTRAINTS, LanguageAspect.EDITOR, LanguageAspect.BEHAVIOR, LanguageAspect.TYPESYSTEM
@@ -92,6 +95,7 @@ public class ProjectCreationTest implements EnvironmentAware {
     return Arrays.asList(rv);
   }
 
+  @NotNull
   private static List<String> solutionModels(String projectName, String solutionNamespace) {
     return Collections.singletonList(
         String.format(PATH_IN_PROJECT, projectName, SOLUTIONS_ROOT, solutionNamespace, Solution.SOLUTION_MODELS, solutionNamespace + "." + "sandbox", MPSExtentions.MODEL));
@@ -110,8 +114,10 @@ public class ProjectCreationTest implements EnvironmentAware {
     List<String> template = new ArrayList<>();
     final String languageModule = PROJECT_NAME + "/" + LANGUAGES_ROOT + "/" + LANGUAGE_NAMESPACE + "/" + LANGUAGE_NAMESPACE + MPSExtentions.DOT_LANGUAGE;
     final String solutionModule = PROJECT_NAME + "/" + SOLUTIONS_ROOT + "/" + SOLUTION_NAMESPACE + "/" + SOLUTION_NAMESPACE + MPSExtentions.DOT_SOLUTION;
+    final String devkitModule = PROJECT_NAME + "/" + DEVKIT_ROOT + "/" + DEVEKIT_NAMESPACE + "/" + DEVEKIT_NAMESPACE + MPSExtentions.DOT_DEVKIT;
     template.add(languageModule);
     template.add(solutionModule);
+    template.add(devkitModule);
     template.addAll(languageModels(PROJECT_NAME, LANGUAGE_NAMESPACE));
     template.addAll(solutionModels(PROJECT_NAME, SOLUTION_NAMESPACE));
 
@@ -275,6 +281,10 @@ public class ProjectCreationTest implements EnvironmentAware {
       options.setSolutionNamespace(SOLUTION_NAMESPACE);
       options.setSolutionPath(projectDir.findChild(SOLUTIONS_ROOT).findChild(SOLUTION_NAMESPACE).getPath());
       options.setCreateModel(true);
+
+      options.setCreateNewDevkit(true);
+      options.setDevkitNamespace(DEVEKIT_NAMESPACE);
+      options.setDevkitPath(projectDir.findChild(DEVKIT_ROOT).findChild(DEVEKIT_NAMESPACE).getPath());
 
       return options;
     }

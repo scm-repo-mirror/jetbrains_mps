@@ -31,6 +31,7 @@ import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.ide.projectPane.ProjectPane;
 import jetbrains.mps.migration.global.ProjectMigration;
 import jetbrains.mps.migration.global.ProjectMigrationsRegistry;
+import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.MPSExtentions;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.SModuleOperations;
@@ -51,6 +52,7 @@ public class ProjectFactory {
 
   private Language myCreatedLanguage;
   private Solution myCreatedSolution;
+  private DevKit myCreatedDevkit;
 
   public ProjectFactory(ProjectOptions options) {
     myOptions = options;
@@ -106,6 +108,10 @@ public class ProjectFactory {
         myCreatedSolution = NewModuleUtil.createSolution(myOptions.getSolutionNamespace(), myOptions.getSolutionPath(), mpsProject);
       }
 
+      if (myOptions.getCreateNewDevkit()) {
+        myCreatedDevkit = NewModuleUtil.createDevKit(myOptions.getDevkitNamespace(), myOptions.getDevkitPath(), mpsProject);
+      }
+
       if (myCreatedSolution != null && myCreatedLanguage != null) {
         myCreatedSolution.save();
         if (myOptions.getCreateModel()) {
@@ -116,7 +122,7 @@ public class ProjectFactory {
           model.save();
         }
       }
-      if (myOptions.getCreateNewSolution() || myOptions.getCreateNewLanguage()) {
+      if (myOptions.getCreateNewSolution() || myOptions.getCreateNewLanguage() || myOptions.getCreateNewDevkit()) {
         ((StandaloneMPSProject) mpsProject).update();
       }
     }));
