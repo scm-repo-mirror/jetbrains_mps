@@ -13,9 +13,9 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.project.MPSProject;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.Editor;
 import jetbrains.mps.ide.hierarchy.HierarchyViewTool;
 import jetbrains.mps.nodeEditor.cells.APICellAdapter;
@@ -65,25 +65,19 @@ public class ShowConceptInHierarchy_Action extends BaseAction {
       }
     }
     {
-      EditorCell p = event.getData(MPSEditorDataKeys.EDITOR_CELL);
-      MapSequence.fromMap(_params).put("editorCell", p);
-      if (p == null) {
-        return false;
-      }
-    }
-    {
       SNode node = event.getData(MPSCommonDataKeys.NODE);
-      MapSequence.fromMap(_params).put("node", node);
+      MapSequence.fromMap(_params).put("selectedNode", node);
       if (node == null) {
         return false;
       }
     }
     {
+      EditorCell p = event.getData(MPSEditorDataKeys.EDITOR_CELL);
+      MapSequence.fromMap(_params).put("editorCell", p);
+    }
+    {
       Editor p = event.getData(MPSEditorDataKeys.MPS_EDITOR);
       MapSequence.fromMap(_params).put("editor", p);
-      if (p == null) {
-        return false;
-      }
     }
     return true;
   }
@@ -98,30 +92,35 @@ public class ShowConceptInHierarchy_Action extends BaseAction {
     tool.openToolLater(true);
   }
   private SNode getConceptNode(final Map<String, Object> _params) {
-    SNode refNode = APICellAdapter.getSNodeWRTReference(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
-    if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.AbstractConceptDeclaration$UN)) {
-      return SNodeOperations.cast(refNode, CONCEPTS.AbstractConceptDeclaration$UN);
-    }
-    if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.ConceptConstructorDeclaration$wi)) {
-      SNode concept = SNodeOperations.getNodeAncestor(refNode, CONCEPTS.AbstractConceptDeclaration$UN, false, false);
-      if (concept != null) {
-        return concept;
+
+    if (((EditorCell) MapSequence.fromMap(_params).get("editorCell")) != null) {
+      SNode refNode = APICellAdapter.getSNodeWRTReference(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
+      if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.AbstractConceptDeclaration$UN)) {
+        return SNodeOperations.cast(refNode, CONCEPTS.AbstractConceptDeclaration$UN);
+      }
+      if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.ConceptConstructorDeclaration$wi)) {
+        SNode concept = SNodeOperations.getNodeAncestor(refNode, CONCEPTS.AbstractConceptDeclaration$UN, false, false);
+        if (concept != null) {
+          return concept;
+        }
       }
     }
-    SNode outerConcept = SNodeOperations.getNodeAncestor(((SNode) MapSequence.fromMap(_params).get("node")), CONCEPTS.AbstractConceptDeclaration$UN, true, false);
+
+    SNode outerConcept = SNodeOperations.getNodeAncestor(((SNode) MapSequence.fromMap(_params).get("selectedNode")), CONCEPTS.AbstractConceptDeclaration$UN, true, false);
     if (outerConcept != null) {
       return outerConcept;
     }
 
-    if (!(((Editor) MapSequence.fromMap(_params).get("editor")) instanceof TabbedEditor)) {
-      return null;
+    if (((Editor) MapSequence.fromMap(_params).get("editor")) instanceof TabbedEditor) {
+      TabbedEditor tabbedEditor = (TabbedEditor) ((Editor) MapSequence.fromMap(_params).get("editor"));
+      SNode editedNode = tabbedEditor.getCurrentlyEditedNode().resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository());
+      if (!(SNodeOperations.isInstanceOf(editedNode, CONCEPTS.AbstractConceptDeclaration$UN))) {
+        return null;
+      }
+      return SNodeOperations.cast(editedNode, CONCEPTS.AbstractConceptDeclaration$UN);
     }
-    TabbedEditor tabbedEditor = (TabbedEditor) ((Editor) MapSequence.fromMap(_params).get("editor"));
-    SNode editedNode = tabbedEditor.getCurrentlyEditedNode().resolve(((MPSProject) MapSequence.fromMap(_params).get("mpsProject")).getRepository());
-    if (!(SNodeOperations.isInstanceOf(editedNode, CONCEPTS.AbstractConceptDeclaration$UN))) {
-      return null;
-    }
-    return SNodeOperations.cast(editedNode, CONCEPTS.AbstractConceptDeclaration$UN);
+
+    return null;
   }
 
   private static final class CONCEPTS {

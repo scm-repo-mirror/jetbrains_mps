@@ -10,9 +10,9 @@ import java.util.Map;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
+import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.ide.editor.MPSEditorDataKeys;
-import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.ide.hierarchy.BaseLanguageHierarchyViewTool;
 import jetbrains.mps.nodeEditor.cells.APICellAdapter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -54,18 +54,15 @@ public class ShowClassInHierarchy_Action extends BaseAction {
       }
     }
     {
-      EditorCell p = event.getData(MPSEditorDataKeys.EDITOR_CELL);
-      MapSequence.fromMap(_params).put("editorCell", p);
-      if (p == null) {
+      SNode node = event.getData(MPSCommonDataKeys.NODE);
+      MapSequence.fromMap(_params).put("selectedNode", node);
+      if (node == null) {
         return false;
       }
     }
     {
-      SNode node = event.getData(MPSCommonDataKeys.NODE);
-      MapSequence.fromMap(_params).put("node", node);
-      if (node == null) {
-        return false;
-      }
+      EditorCell p = event.getData(MPSEditorDataKeys.EDITOR_CELL);
+      MapSequence.fromMap(_params).put("editorCell", p);
     }
     return true;
   }
@@ -81,17 +78,21 @@ public class ShowClassInHierarchy_Action extends BaseAction {
     });
   }
   private SNode getContextClassifier(final Map<String, Object> _params) {
-    SNode refNode = APICellAdapter.getSNodeWRTReference(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
-    if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.Classifier$hJ)) {
-      return SNodeOperations.cast(refNode, CONCEPTS.Classifier$hJ);
-    }
-    if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.ConstructorDeclaration$5U)) {
-      SNode classifier = SNodeOperations.getNodeAncestor(refNode, CONCEPTS.Classifier$hJ, false, false);
-      if (classifier != null) {
-        return classifier;
+
+    if (((EditorCell) MapSequence.fromMap(_params).get("editorCell")) != null) {
+      SNode refNode = APICellAdapter.getSNodeWRTReference(((EditorCell) MapSequence.fromMap(_params).get("editorCell")));
+      if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.Classifier$hJ)) {
+        return SNodeOperations.cast(refNode, CONCEPTS.Classifier$hJ);
+      }
+      if (SNodeOperations.isInstanceOf(refNode, CONCEPTS.ConstructorDeclaration$5U)) {
+        SNode classifier = SNodeOperations.getNodeAncestor(refNode, CONCEPTS.Classifier$hJ, false, false);
+        if (classifier != null) {
+          return classifier;
+        }
       }
     }
-    SNode outerClass = SNodeOperations.cast(SNodeOperations.getNodeAncestorWhereConceptInList(((SNode) MapSequence.fromMap(_params).get("node")), new SAbstractConcept[]{CONCEPTS.ClassConcept$IY, CONCEPTS.Interface$Kp}, true, false), CONCEPTS.Classifier$hJ);
+
+    SNode outerClass = SNodeOperations.cast(SNodeOperations.getNodeAncestorWhereConceptInList(((SNode) MapSequence.fromMap(_params).get("selectedNode")), new SAbstractConcept[]{CONCEPTS.ClassConcept$IY, CONCEPTS.Interface$Kp}, true, false), CONCEPTS.Classifier$hJ);
     return outerClass;
   }
 
