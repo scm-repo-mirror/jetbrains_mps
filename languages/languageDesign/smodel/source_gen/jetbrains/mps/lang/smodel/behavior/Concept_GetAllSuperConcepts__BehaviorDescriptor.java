@@ -26,10 +26,9 @@ public final class Concept_GetAllSuperConcepts__BehaviorDescriptor extends BaseB
 
   public static final SMethod<Boolean> applicableToConcept_id1653mnvAgvQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvQ").build();
   public static final SMethod<Boolean> applicableToSConcept_id7E3Sw0HhwkZ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToSConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7E3Sw0HhwkZ").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
   public static final SMethod<List<SConcept>> getParameterConcepts_id6ALWH9fQysn = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6ALWH9fQysn").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToConcept_id1653mnvAgvQ, applicableToSConcept_id7E3Sw0HhwkZ, applicableToLink_id1653mnvAgvK, getParameterConcepts_id6ALWH9fQysn);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToConcept_id1653mnvAgvQ, applicableToSConcept_id7E3Sw0HhwkZ, getParameterConcepts_id6ALWH9fQysn);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -38,9 +37,6 @@ public final class Concept_GetAllSuperConcepts__BehaviorDescriptor extends BaseB
     return true;
   }
   /*package*/ static boolean applicableToSConcept_id7E3Sw0HhwkZ(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
   /*package*/ static List<SConcept> getParameterConcepts_id6ALWH9fQysn(@NotNull SAbstractConcept __thisConcept__) {
@@ -79,8 +75,6 @@ public final class Concept_GetAllSuperConcepts__BehaviorDescriptor extends BaseB
       case 1:
         return (T) ((Boolean) applicableToSConcept_id7E3Sw0HhwkZ(concept));
       case 2:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
-      case 3:
         return (T) ((List<SConcept>) getParameterConcepts_id6ALWH9fQysn(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

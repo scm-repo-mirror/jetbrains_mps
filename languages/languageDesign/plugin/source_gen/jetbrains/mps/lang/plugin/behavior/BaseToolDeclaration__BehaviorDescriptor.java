@@ -56,7 +56,7 @@ public final class BaseToolDeclaration__BehaviorDescriptor extends BaseBHDescrip
   @Deprecated
   @ToRemove(version = 3.5)
   /*package*/ static boolean hasNumber_id5FstybB4d8v(@NotNull SNode __thisNode__) {
-    return !(SPropertyOperations.hasValue(__thisNode__, PROPS.number$xWxm, null));
+    return !(isNotEmptyString(SPropertyOperations.getString(__thisNode__, PROPS.number$xWxm)));
   }
   /*package*/ static SNode createType_idhEwJimy(@NotNull SNode __thisNode__) {
     return _quotation_createNode_7ol7e8_a0a3(__thisNode__);
@@ -145,6 +145,9 @@ public final class BaseToolDeclaration__BehaviorDescriptor extends BaseBHDescrip
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x101de48bf9eL, "ClassifierType")).getResult();
     quotedNode_1.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101de48bf9eL, 0x101de490babL, "classifier"), quotedNode_1, facade.createModelReference("742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.tools(MPS.Platform/)"), facade.createNodeId("~BaseTool")));
     return quotedNode_1;
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
 
   private static final class PROPS {

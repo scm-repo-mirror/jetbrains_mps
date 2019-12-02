@@ -22,18 +22,14 @@ public final class Node_IsInstanceOfOperation__BehaviorDescriptor extends BaseBH
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x10956bb6029L, "jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation");
 
   public static final SMethod<Boolean> applicableToConcept_id1653mnvAgvQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvQ").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToConcept_id1653mnvAgvQ, applicableToLink_id1653mnvAgvK, applicableToNode_id1653mnvAgrs);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToConcept_id1653mnvAgvQ, applicableToNode_id1653mnvAgrs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static boolean applicableToConcept_id1653mnvAgvQ(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
   /*package*/ static boolean applicableToNode_id1653mnvAgrs(@NotNull SAbstractConcept __thisConcept__) {
@@ -70,8 +66,6 @@ public final class Node_IsInstanceOfOperation__BehaviorDescriptor extends BaseBH
       case 0:
         return (T) ((Boolean) applicableToConcept_id1653mnvAgvQ(concept));
       case 1:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
-      case 2:
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

@@ -81,7 +81,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     return editorCell;
   }
   private boolean nodeCondition_g0vxcd_a2a() {
-    return !(SPropertyOperations.hasValue(myNode, PROPS.number$xWxm, null));
+    return !(isNotEmptyString(SPropertyOperations.getString(myNode, PROPS.number$xWxm)));
   }
   private EditorCell createCollection_1() {
     EditorCell_Collection editorCell = new EditorCell_Collection(getEditorContext(), myNode, new CellLayout_Horizontal());
@@ -430,6 +430,9 @@ import org.jetbrains.mps.openapi.language.SConcept;
     } finally {
       getCellFactory().popCellContext();
     }
+  }
+  private static boolean isNotEmptyString(String str) {
+    return str != null && str.length() > 0;
   }
 
   private static final class PROPS {

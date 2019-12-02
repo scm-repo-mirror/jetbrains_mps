@@ -28,10 +28,9 @@ public final class SPropertyAccess__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<String> getVariableExpectedName_idhEwIP$B = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getVariableExpectedName").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIP$B").build();
   public static final SMethod<Boolean> lvalue_id1653mnvAgvW = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("lvalue").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvW").build();
   public static final SMethod<Boolean> applicableToConcept_id1653mnvAgvQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvQ").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariableExpectedName_idhEwIP$B, lvalue_id1653mnvAgvW, applicableToConcept_id1653mnvAgvQ, applicableToLink_id1653mnvAgvK, applicableToNode_id1653mnvAgrs);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getVariableExpectedName_idhEwIP$B, lvalue_id1653mnvAgvW, applicableToConcept_id1653mnvAgvQ, applicableToNode_id1653mnvAgrs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -43,9 +42,6 @@ public final class SPropertyAccess__BehaviorDescriptor extends BaseBHDescriptor 
     return true;
   }
   /*package*/ static boolean applicableToConcept_id1653mnvAgvQ(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
   /*package*/ static boolean applicableToNode_id1653mnvAgrs(@NotNull SAbstractConcept __thisConcept__) {
@@ -86,8 +82,6 @@ public final class SPropertyAccess__BehaviorDescriptor extends BaseBHDescriptor 
       case 2:
         return (T) ((Boolean) applicableToConcept_id1653mnvAgvQ(concept));
       case 3:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
-      case 4:
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

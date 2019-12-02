@@ -21,18 +21,14 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class Concept_IsSubConceptOfOperation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x112bf601180L, "jetbrains.mps.lang.smodel.structure.Concept_IsSubConceptOfOperation");
 
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
   public static final SMethod<Boolean> applicableToSConcept_id7E3Sw0HhwkZ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToSConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7E3Sw0HhwkZ").build();
   public static final SMethod<Boolean> applicableToConcept_id1653mnvAgvQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvQ").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToLink_id1653mnvAgvK, applicableToSConcept_id7E3Sw0HhwkZ, applicableToConcept_id1653mnvAgvQ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToSConcept_id7E3Sw0HhwkZ, applicableToConcept_id1653mnvAgvQ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
   /*package*/ static boolean applicableToSConcept_id7E3Sw0HhwkZ(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
@@ -68,10 +64,8 @@ public final class Concept_IsSubConceptOfOperation__BehaviorDescriptor extends B
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
-      case 1:
         return (T) ((Boolean) applicableToSConcept_id7E3Sw0HhwkZ(concept));
-      case 2:
+      case 1:
         return (T) ((Boolean) applicableToConcept_id1653mnvAgvQ(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

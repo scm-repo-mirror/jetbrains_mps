@@ -249,6 +249,9 @@
         <child id="1145567471833" name="createdType" index="2T96Bj" />
       </concept>
       <concept id="1171407110247" name="jetbrains.mps.lang.smodel.structure.Node_GetAncestorOperation" flags="nn" index="2Xjw5R" />
+      <concept id="1180031783296" name="jetbrains.mps.lang.smodel.structure.Concept_IsSubConceptOfOperation" flags="nn" index="2Zo12i">
+        <child id="1180031783297" name="conceptArgument" index="2Zo12j" />
+      </concept>
       <concept id="2644386474300074836" name="jetbrains.mps.lang.smodel.structure.ConceptIdRefExpression" flags="nn" index="35c_gC">
         <reference id="2644386474300074837" name="conceptDeclaration" index="35c_gD" />
       </concept>
@@ -8889,25 +8892,25 @@
             <node concept="3fqX7Q" id="O5" role="3uHU7B">
               <node concept="2OqwBi" id="O8" role="3fr31v">
                 <node concept="37vLTw" id="Oa" role="2Oq$k0">
-                  <ref role="3cqZAo" node="NS" resolve="node" />
+                  <ref role="3cqZAo" node="NU" resolve="childConcept" />
                   <node concept="cd27G" id="Od" role="lGtFl">
                     <node concept="3u3nmq" id="Oe" role="cd27D">
-                      <property role="3u3nmv" value="1227128029536562194" />
+                      <property role="3u3nmv" value="3200220852405783679" />
                     </node>
                   </node>
                 </node>
-                <node concept="1mIQ4w" id="Ob" role="2OqNvi">
-                  <node concept="chp4Y" id="Of" role="cj9EA">
+                <node concept="2Zo12i" id="Ob" role="2OqNvi">
+                  <node concept="chp4Y" id="Of" role="2Zo12j">
                     <ref role="cht4Q" to="tp4k:hwtC5zi" resolve="ActionGroupDeclaration" />
                     <node concept="cd27G" id="Oh" role="lGtFl">
                       <node concept="3u3nmq" id="Oi" role="cd27D">
-                        <property role="3u3nmv" value="1227128029536562196" />
+                        <property role="3u3nmv" value="3200220852405785514" />
                       </node>
                     </node>
                   </node>
                   <node concept="cd27G" id="Og" role="lGtFl">
                     <node concept="3u3nmq" id="Oj" role="cd27D">
-                      <property role="3u3nmv" value="1227128029536562195" />
+                      <property role="3u3nmv" value="3200220852405784961" />
                     </node>
                   </node>
                 </node>
@@ -8926,31 +8929,31 @@
             <node concept="3fqX7Q" id="O6" role="3uHU7w">
               <node concept="2OqwBi" id="Om" role="3fr31v">
                 <node concept="37vLTw" id="Oo" role="2Oq$k0">
-                  <ref role="3cqZAo" node="NS" resolve="node" />
+                  <ref role="3cqZAo" node="NU" resolve="childConcept" />
                   <node concept="cd27G" id="Or" role="lGtFl">
                     <node concept="3u3nmq" id="Os" role="cd27D">
-                      <property role="3u3nmv" value="1227128029536562199" />
+                      <property role="3u3nmv" value="3200220852405785835" />
                     </node>
                   </node>
                 </node>
-                <node concept="1mIQ4w" id="Op" role="2OqNvi">
-                  <node concept="chp4Y" id="Ot" role="cj9EA">
+                <node concept="2Zo12i" id="Op" role="2OqNvi">
+                  <node concept="chp4Y" id="Ot" role="2Zo12j">
                     <ref role="cht4Q" to="tp4k:hx0WQ29" resolve="GroupAnchor" />
                     <node concept="cd27G" id="Ov" role="lGtFl">
                       <node concept="3u3nmq" id="Ow" role="cd27D">
-                        <property role="3u3nmv" value="1227128029536562201" />
+                        <property role="3u3nmv" value="3200220852405786858" />
                       </node>
                     </node>
                   </node>
                   <node concept="cd27G" id="Ou" role="lGtFl">
                     <node concept="3u3nmq" id="Ox" role="cd27D">
-                      <property role="3u3nmv" value="1227128029536562200" />
+                      <property role="3u3nmv" value="3200220852405785836" />
                     </node>
                   </node>
                 </node>
                 <node concept="cd27G" id="Oq" role="lGtFl">
                   <node concept="3u3nmq" id="Oy" role="cd27D">
-                    <property role="3u3nmv" value="1227128029536562198" />
+                    <property role="3u3nmv" value="3200220852405785834" />
                   </node>
                 </node>
               </node>

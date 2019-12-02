@@ -58,7 +58,7 @@ public final class AddContext_Intention extends AbstractIntentionDescriptor impl
       SLinkOperations.setTarget(node, LINKS.templateNode$7wRg, null);
       SNode result = SNodeOperations.replaceWithNewChild(node, CONCEPTS.InlineTemplateWithContext_RuleConsequence$tA);
       if (SNodeOperations.isInstanceOf(tNode, CONCEPTS.Expression$TP)) {
-        SLinkOperations.setTarget(result, LINKS.contentNode$QBS9, _quotation_createNode_4m6r5j_a0a0d0a(tNode));
+        SLinkOperations.setTarget(result, LINKS.contentNode$QBS9, _quotation_createNode_4m6r5j_a0a0d0a(SNodeOperations.cast(tNode, CONCEPTS.Expression$TP)));
       } else {
         SLinkOperations.setTarget(result, LINKS.contentNode$QBS9, tNode);
       }

@@ -7,9 +7,11 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 
 public class TestUtilities {
   public static void assertEquals(Iterable expected, Iterable actual) {
-    Assert.assertEquals(Sequence.fromIterable(expected).count(), Sequence.fromIterable(actual).count());
-    for (Object object : expected) {
-      if (!(Sequence.fromIterable(actual).contains(object))) {
+    Iterable<Object> expected_ = (Iterable<Object>) expected;
+    Iterable<Object> actual_ = (Iterable<Object>) actual;
+    Assert.assertEquals(Sequence.fromIterable(expected_).count(), Sequence.fromIterable(actual_).count());
+    for (Object object : expected_) {
+      if (!(Sequence.fromIterable(actual_).contains(object))) {
         Assert.fail("there is no " + object + " in the resulting collection");
       }
     }

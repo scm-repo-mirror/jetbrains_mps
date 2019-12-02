@@ -22,9 +22,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.baseLanguage.behavior.IClassifier__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.baseLanguage.behavior.IClassifierType__BehaviorDescriptor;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.baseLanguage.scopes.Scopes;
 import jetbrains.mps.baseLanguage.scopes.MethodsScope;
 import jetbrains.mps.lang.scopes.runtime.ScopeUtils;
@@ -72,11 +70,7 @@ public final class ActionDeclaration__BehaviorDescriptor extends BaseBHDescripto
   /*package*/ static Scope getScope_id52_Geb4QDV$(@NotNull SNode __thisNode__, SAbstractConcept kind, SNode child) {
     if (SConceptOperations.isExactly(SNodeOperations.asSConcept(kind), CONCEPTS.MethodDeclaration$93)) {
       SNode baseActionType = IClassifier__BehaviorDescriptor.getThisType_id6r77ob2UWbY.invoke(SNodeOperations.getNode("742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.action(MPS.Platform/)", "~BaseAction"));
-      Iterable<SNode> methods = Sequence.fromIterable(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(baseActionType)).where(new IWhereFilter<SNode>() {
-        public boolean accept(SNode it) {
-          return SNodeOperations.isInstanceOf(it, CONCEPTS.InstanceMethodDeclaration$An);
-        }
-      });
+      Iterable<SNode> methods = SNodeOperations.ofConcept(IClassifierType__BehaviorDescriptor.getMembers_id6r77ob2V1Fr.invoke(baseActionType), CONCEPTS.InstanceMethodDeclaration$An);
       return Scopes.forMethods(kind, new MethodsScope(baseActionType, methods), ScopeUtils.lazyParentScope(__thisNode__, kind));
     }
     return ((Scope) ScopeProvider__BehaviorDescriptor.getScope_id52_Geb4QDV$.invoke0(__thisNode__, CONCEPTS.ScopeProvider$M8, kind, child));

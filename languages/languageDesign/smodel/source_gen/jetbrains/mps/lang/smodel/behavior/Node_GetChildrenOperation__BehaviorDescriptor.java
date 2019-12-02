@@ -27,10 +27,9 @@ public final class Node_GetChildrenOperation__BehaviorDescriptor extends BaseBHD
 
   public static final SMethod<SNode> getLinkQualifier_id30XARhxpW1K = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getLinkQualifier").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("30XARhxpW1K").build();
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
   public static final SMethod<List<SConcept>> getParameterConcepts_id6ALWH9fQysn = new SMethodBuilder<List<SConcept>>(new SJavaCompoundTypeImpl((Class<List<SConcept>>) ((Class) Object.class))).name("getParameterConcepts").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("6ALWH9fQysn").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getLinkQualifier_id30XARhxpW1K, applicableToNode_id1653mnvAgrs, applicableToLink_id1653mnvAgvK, getParameterConcepts_id6ALWH9fQysn);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getLinkQualifier_id30XARhxpW1K, applicableToNode_id1653mnvAgrs, getParameterConcepts_id6ALWH9fQysn);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -39,9 +38,6 @@ public final class Node_GetChildrenOperation__BehaviorDescriptor extends BaseBHD
     return SNodeOperations.cast(SNodeOperation__BehaviorDescriptor.getParameter_idhEwJdHG.invoke(__thisNode__, CONCEPTS.OperationParm_LinkQualifier$J2), CONCEPTS.OperationParm_LinkQualifier$J2);
   }
   /*package*/ static boolean applicableToNode_id1653mnvAgrs(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
   /*package*/ static List<SConcept> getParameterConcepts_id6ALWH9fQysn(@NotNull SAbstractConcept __thisConcept__) {
@@ -80,8 +76,6 @@ public final class Node_GetChildrenOperation__BehaviorDescriptor extends BaseBHD
       case 1:
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
       case 2:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
-      case 3:
         return (T) ((List<SConcept>) getParameterConcepts_id6ALWH9fQysn(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

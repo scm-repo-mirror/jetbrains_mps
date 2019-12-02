@@ -23,9 +23,8 @@ public final class Node_GetModelOperation__BehaviorDescriptor extends BaseBHDesc
 
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
   public static final SMethod<Boolean> applicableToConcept_id1653mnvAgvQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvQ").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToNode_id1653mnvAgrs, applicableToConcept_id1653mnvAgvQ, applicableToLink_id1653mnvAgvK);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToNode_id1653mnvAgrs, applicableToConcept_id1653mnvAgvQ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -34,9 +33,6 @@ public final class Node_GetModelOperation__BehaviorDescriptor extends BaseBHDesc
     return true;
   }
   /*package*/ static boolean applicableToConcept_id1653mnvAgvQ(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
 
@@ -71,8 +67,6 @@ public final class Node_GetModelOperation__BehaviorDescriptor extends BaseBHDesc
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
       case 1:
         return (T) ((Boolean) applicableToConcept_id1653mnvAgvQ(concept));
-      case 2:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

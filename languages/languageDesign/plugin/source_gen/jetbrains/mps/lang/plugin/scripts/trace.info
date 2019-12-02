@@ -17,71 +17,71 @@
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590367(jetbrains.mps.lang.plugin.scripts)/930311433812684751">
     <file name="FixDynamicReferences_MigrationScript.java">
-      <node id="930311433812684751" at="24,49,25,63" concept="9" />
-      <node id="930311433812696990" at="28,31,29,30" concept="7" />
-      <node id="930311433812696990" at="32,41,33,30" concept="7" />
-      <node id="930311433812696990" at="36,54,37,39" concept="7" />
-      <node id="930311433812780470" at="42,48,43,50" concept="7" />
-      <node id="930311433812810606" at="48,52,49,92" concept="6" />
-      <node id="930311433812859938" at="51,51,52,21" concept="1" />
-      <node id="930311433812860170" at="53,11,54,84" concept="2" />
-      <node id="930311433812929753" at="56,89,57,60" concept="2" />
-      <node id="930311433812696990" at="61,42,62,21" concept="7" />
-      <node id="930311433812684751" at="69,41,70,159" concept="7" />
-      <node id="930311433812684751" at="74,0,75,0" concept="8" trace="BaseConcept$Sz" />
-      <node id="930311433812780346" at="42,0,45,0" concept="5" trace="accept#(Lorg/jetbrains/mps/openapi/model/SReference;)Z" />
-      <node id="930311433812857460" at="50,76,53,11" concept="4" />
-      <node id="930311433812909827" at="55,9,58,9" concept="3" />
-      <node id="930311433812696990" at="27,0,31,0" concept="5" trace="getName#()Ljava/lang/String;" />
-      <node id="930311433812696990" at="31,0,35,0" concept="5" trace="getAdditionalInfo#()Ljava/lang/String;" />
-      <node id="930311433812696990" at="35,0,39,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="930311433812696990" at="60,0,64,0" concept="5" trace="isShowAsIntention#()Z" />
-      <node id="930311433812738525" at="40,59,45,11" concept="7" />
-      <node id="930311433812684751" at="67,0,72,0" concept="5" trace="getScriptNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
-      <node id="930311433812830323" at="49,92,55,9" concept="3" />
-      <node id="930311433812696990" at="39,0,47,0" concept="5" trace="isApplicableInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="930311433812696990" at="47,0,60,0" concept="5" trace="doUpdateInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
-      <node id="930311433812696990" at="25,63,64,7" concept="2" />
-      <node id="930311433812684751" at="24,0,66,0" concept="0" trace="FixDynamicReferences_MigrationScript#()V" />
-      <scope id="930311433812696990" at="28,31,29,30" />
-      <scope id="930311433812696990" at="32,41,33,30" />
-      <scope id="930311433812696990" at="36,54,37,39" />
-      <scope id="930311433812780347" at="42,48,43,50" />
-      <scope id="930311433812857462" at="51,51,52,21" />
-      <scope id="930311433812909833" at="56,89,57,60" />
-      <scope id="930311433812696990" at="61,42,62,21" />
-      <scope id="930311433812684751" at="69,41,70,159" />
-      <scope id="930311433812780346" at="42,0,45,0">
+      <node id="930311433812684751" at="25,49,26,63" concept="9" />
+      <node id="930311433812696990" at="29,31,30,30" concept="7" />
+      <node id="930311433812696990" at="33,41,34,30" concept="7" />
+      <node id="930311433812696990" at="37,54,38,39" concept="7" />
+      <node id="930311433812780470" at="43,48,44,50" concept="7" />
+      <node id="930311433812810606" at="49,52,50,108" concept="6" />
+      <node id="930311433812859938" at="52,51,53,21" concept="1" />
+      <node id="930311433812860170" at="54,11,55,84" concept="2" />
+      <node id="930311433812929753" at="57,97,58,60" concept="2" />
+      <node id="930311433812696990" at="62,42,63,21" concept="7" />
+      <node id="930311433812684751" at="70,41,71,159" concept="7" />
+      <node id="930311433812684751" at="75,0,76,0" concept="8" trace="BaseConcept$Sz" />
+      <node id="930311433812780346" at="43,0,46,0" concept="5" trace="accept#(Lorg/jetbrains/mps/openapi/model/SReference;)Z" />
+      <node id="930311433812857460" at="51,53,54,11" concept="4" />
+      <node id="930311433812909827" at="56,9,59,9" concept="3" />
+      <node id="930311433812696990" at="28,0,32,0" concept="5" trace="getName#()Ljava/lang/String;" />
+      <node id="930311433812696990" at="32,0,36,0" concept="5" trace="getAdditionalInfo#()Ljava/lang/String;" />
+      <node id="930311433812696990" at="36,0,40,0" concept="5" trace="getApplicableConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
+      <node id="930311433812696990" at="61,0,65,0" concept="5" trace="isShowAsIntention#()Z" />
+      <node id="930311433812738525" at="41,59,46,11" concept="7" />
+      <node id="930311433812684751" at="68,0,73,0" concept="5" trace="getScriptNode#()Lorg/jetbrains/mps/openapi/model/SNodeReference;" />
+      <node id="3200220852405794822" at="50,108,56,9" concept="3" />
+      <node id="930311433812696990" at="40,0,48,0" concept="5" trace="isApplicableInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="930311433812696990" at="48,0,61,0" concept="5" trace="doUpdateInstanceNode#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="930311433812696990" at="26,63,65,7" concept="2" />
+      <node id="930311433812684751" at="25,0,67,0" concept="0" trace="FixDynamicReferences_MigrationScript#()V" />
+      <scope id="930311433812696990" at="29,31,30,30" />
+      <scope id="930311433812696990" at="33,41,34,30" />
+      <scope id="930311433812696990" at="37,54,38,39" />
+      <scope id="930311433812780347" at="43,48,44,50" />
+      <scope id="930311433812857462" at="52,51,53,21" />
+      <scope id="930311433812909833" at="57,97,58,60" />
+      <scope id="930311433812696990" at="62,42,63,21" />
+      <scope id="930311433812684751" at="70,41,71,159" />
+      <scope id="930311433812780346" at="43,0,46,0">
         <var name="it" id="930311433812780346" />
       </scope>
-      <scope id="930311433812909827" at="55,9,58,9">
+      <scope id="930311433812909827" at="56,9,59,9">
         <var name="m" id="930311433812909829" />
       </scope>
-      <scope id="930311433812696990" at="27,0,31,0" />
-      <scope id="930311433812696990" at="31,0,35,0" />
-      <scope id="930311433812696990" at="35,0,39,0" />
-      <scope id="930311433812830329" at="50,76,54,84" />
-      <scope id="930311433812696990" at="60,0,64,0" />
-      <scope id="930311433812719397" at="40,59,45,11" />
-      <scope id="930311433812684751" at="67,0,72,0" />
-      <scope id="930311433812830323" at="49,92,55,9">
-        <var name="ref" id="930311433812830325" />
+      <scope id="930311433812696990" at="28,0,32,0" />
+      <scope id="930311433812696990" at="32,0,36,0" />
+      <scope id="930311433812696990" at="36,0,40,0" />
+      <scope id="930311433812830329" at="51,53,55,84" />
+      <scope id="930311433812696990" at="61,0,65,0" />
+      <scope id="930311433812719397" at="41,59,46,11" />
+      <scope id="930311433812684751" at="68,0,73,0" />
+      <scope id="3200220852405794822" at="50,108,56,9">
+        <var name="ref" id="3200220852405794857" />
       </scope>
-      <scope id="930311433812696990" at="39,0,47,0">
+      <scope id="930311433812696990" at="40,0,48,0">
         <var name="node" id="930311433812696990" />
       </scope>
-      <scope id="930311433812696994" at="48,52,58,9">
+      <scope id="930311433812696994" at="49,52,59,9">
         <var name="roleToTarget" id="930311433812810609" />
       </scope>
-      <scope id="930311433812696990" at="47,0,60,0">
+      <scope id="930311433812696990" at="48,0,61,0">
         <var name="node" id="930311433812696990" />
       </scope>
-      <scope id="930311433812684751" at="24,49,64,7" />
-      <scope id="930311433812684751" at="24,0,66,0" />
-      <unit id="930311433812684751" at="73,0,76,0" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript$CONCEPTS" />
-      <unit id="930311433812780346" at="41,92,45,9" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript$1$1" />
-      <unit id="930311433812696990" at="26,28,64,5" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript$1" />
-      <unit id="930311433812684751" at="23,0,77,0" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript" />
+      <scope id="930311433812684751" at="25,49,65,7" />
+      <scope id="930311433812684751" at="25,0,67,0" />
+      <unit id="930311433812684751" at="74,0,77,0" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript$CONCEPTS" />
+      <unit id="930311433812780346" at="42,92,46,9" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript$1$1" />
+      <unit id="930311433812696990" at="27,28,65,5" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript$1" />
+      <unit id="930311433812684751" at="24,0,78,0" name="jetbrains.mps.lang.plugin.scripts.FixDynamicReferences_MigrationScript" />
     </file>
     <file name="ScriptsDescriptor.java">
       <node id="930311433812684751" at="15,52,16,73" concept="2" />

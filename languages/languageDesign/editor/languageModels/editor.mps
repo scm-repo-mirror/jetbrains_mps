@@ -854,6 +854,7 @@
         <child id="3906496115198199033" name="conceptArgument" index="3oSUPX" />
       </concept>
       <concept id="7835263205327057228" name="jetbrains.mps.lang.smodel.structure.Node_GetChildrenAndChildAttributesOperation" flags="ng" index="Bykcj" />
+      <concept id="1761385620274348152" name="jetbrains.mps.lang.smodel.structure.SConceptTypeCastExpression" flags="nn" index="2CBFar" />
       <concept id="1143224066846" name="jetbrains.mps.lang.smodel.structure.Node_InsertNextSiblingOperation" flags="nn" index="HtI8k">
         <child id="1143224066849" name="insertedNode" index="HtI8F" />
       </concept>
@@ -21725,8 +21726,8 @@
                       <ref role="3bZ5Sy" to="tpc2:7L5lpRJH$EA" resolve="TransformationLocation" />
                     </node>
                   </node>
-                  <node concept="10QFUN" id="2LDtYzArG2G" role="33vP2m">
-                    <node concept="2YIFZM" id="2LDtYzArG2B" role="10QFUP">
+                  <node concept="2OqwBi" id="5zRhFwzKeLS" role="33vP2m">
+                    <node concept="2YIFZM" id="2LDtYzArG2B" role="2Oq$k0">
                       <ref role="37wK5l" to="tpca:5qocf8PzXrb" resolve="getSubconceptsWithCurrentChildConceptsExcluded" />
                       <ref role="1Pybhc" to="tpca:5qocf8PzXo6" resolve="TransformationMenuActionsUtil" />
                       <node concept="35c_gC" id="2LDtYzArG2C" role="37wK5m">
@@ -21739,9 +21740,24 @@
                       </node>
                       <node concept="1yR$tW" id="2LDtYzArG2F" role="37wK5m" />
                     </node>
-                    <node concept="A3Dl8" id="2LDtYzArG2_" role="10QFUM">
-                      <node concept="3bZ5Sz" id="2LDtYzArG2A" role="A3Ik2">
-                        <ref role="3bZ5Sy" to="tpc2:7L5lpRJH$EA" resolve="TransformationLocation" />
+                    <node concept="3$u5V9" id="5zRhFwzKfdt" role="2OqNvi">
+                      <node concept="1bVj0M" id="5zRhFwzKfdv" role="23t8la">
+                        <node concept="3clFbS" id="5zRhFwzKfdw" role="1bW5cS">
+                          <node concept="3clFbF" id="5zRhFwzKft3" role="3cqZAp">
+                            <node concept="2CBFar" id="5zRhFwzKgld" role="3clFbG">
+                              <node concept="chp4Y" id="5zRhFwzKgM7" role="3oSUPX">
+                                <ref role="cht4Q" to="tpc2:7L5lpRJH$EA" resolve="TransformationLocation" />
+                              </node>
+                              <node concept="37vLTw" id="5zRhFwzKft2" role="1m5AlR">
+                                <ref role="3cqZAo" node="5zRhFwzKfdx" resolve="it" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="Rh6nW" id="5zRhFwzKfdx" role="1bW2Oz">
+                          <property role="TrG5h" value="it" />
+                          <node concept="2jxLKc" id="5zRhFwzKfdy" role="1tU5fm" />
+                        </node>
                       </node>
                     </node>
                   </node>
@@ -24387,8 +24403,8 @@
                       <ref role="3bZ5Sy" to="tpc2:7L5lpRJH$E_" resolve="TransformationFeature" />
                     </node>
                   </node>
-                  <node concept="10QFUN" id="2LDtYzArEbe" role="33vP2m">
-                    <node concept="2YIFZM" id="2LDtYzArEb9" role="10QFUP">
+                  <node concept="2OqwBi" id="5zRhFwzHblJ" role="33vP2m">
+                    <node concept="2YIFZM" id="2LDtYzArEb9" role="2Oq$k0">
                       <ref role="1Pybhc" to="tpca:5qocf8PzXo6" resolve="TransformationMenuActionsUtil" />
                       <ref role="37wK5l" to="tpca:5qocf8PzXrb" resolve="getSubconceptsWithCurrentChildConceptsExcluded" />
                       <node concept="35c_gC" id="2LDtYzArEba" role="37wK5m">
@@ -24401,9 +24417,24 @@
                       </node>
                       <node concept="1yR$tW" id="2LDtYzArEbd" role="37wK5m" />
                     </node>
-                    <node concept="A3Dl8" id="2LDtYzArEb7" role="10QFUM">
-                      <node concept="3bZ5Sz" id="2LDtYzArEb8" role="A3Ik2">
-                        <ref role="3bZ5Sy" to="tpc2:7L5lpRJH$E_" resolve="TransformationFeature" />
+                    <node concept="3$u5V9" id="5zRhFwzHbEi" role="2OqNvi">
+                      <node concept="1bVj0M" id="5zRhFwzHbEk" role="23t8la">
+                        <node concept="3clFbS" id="5zRhFwzHbEl" role="1bW5cS">
+                          <node concept="3clFbF" id="5zRhFwzHbMQ" role="3cqZAp">
+                            <node concept="2CBFar" id="5zRhFwzHcs$" role="3clFbG">
+                              <node concept="chp4Y" id="5zRhFwzI1zf" role="3oSUPX">
+                                <ref role="cht4Q" to="tpc2:7L5lpRJH$E_" resolve="TransformationFeature" />
+                              </node>
+                              <node concept="37vLTw" id="5zRhFwzHbMP" role="1m5AlR">
+                                <ref role="3cqZAo" node="5zRhFwzHbEm" resolve="it" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                        <node concept="Rh6nW" id="5zRhFwzHbEm" role="1bW2Oz">
+                          <property role="TrG5h" value="it" />
+                          <node concept="2jxLKc" id="5zRhFwzHbEn" role="1tU5fm" />
+                        </node>
                       </node>
                     </node>
                   </node>

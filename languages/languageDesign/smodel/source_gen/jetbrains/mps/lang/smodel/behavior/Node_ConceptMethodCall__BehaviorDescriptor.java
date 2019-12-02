@@ -33,9 +33,8 @@ public final class Node_ConceptMethodCall__BehaviorDescriptor extends BaseBHDesc
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
   public static final SMethod<Boolean> applicableToConcept_id1653mnvAgvQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvQ").build();
   public static final SMethod<Boolean> applicableToSConcept_id7E3Sw0HhwkZ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToSConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("7E3Sw0HhwkZ").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isVirtualMethodCall_idhEwIWlZ, isSuperMethodCall_id1ks7HBvlL3z, getVirtualMethodDeclaration_idhEwIWm8, getVariableExpectedName_idhEwIP$B, applicableToNode_id1653mnvAgrs, applicableToConcept_id1653mnvAgvQ, applicableToSConcept_id7E3Sw0HhwkZ, applicableToLink_id1653mnvAgvK);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isVirtualMethodCall_idhEwIWlZ, isSuperMethodCall_id1ks7HBvlL3z, getVirtualMethodDeclaration_idhEwIWm8, getVariableExpectedName_idhEwIP$B, applicableToNode_id1653mnvAgrs, applicableToConcept_id1653mnvAgvQ, applicableToSConcept_id7E3Sw0HhwkZ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -75,9 +74,6 @@ public final class Node_ConceptMethodCall__BehaviorDescriptor extends BaseBHDesc
     return true;
   }
   /*package*/ static boolean applicableToSConcept_id7E3Sw0HhwkZ(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
 
@@ -122,8 +118,6 @@ public final class Node_ConceptMethodCall__BehaviorDescriptor extends BaseBHDesc
         return (T) ((Boolean) applicableToConcept_id1653mnvAgvQ(concept));
       case 6:
         return (T) ((Boolean) applicableToSConcept_id7E3Sw0HhwkZ(concept));
-      case 7:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

@@ -9,8 +9,8 @@
     <import index="tp25" ref="r:00000000-0000-4000-0000-011c89590301(jetbrains.mps.lang.smodel.structure)" />
     <import index="2gg1" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.errors(MPS.Core/)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" />
-    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="zavc" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.errors.messageTargets(MPS.Core/)" />
+    <import index="tpck" ref="r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)" />
     <import index="tpcn" ref="r:00000000-0000-4000-0000-011c8959028b(jetbrains.mps.lang.structure.behavior)" />
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" />
@@ -362,6 +362,9 @@
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
       </concept>
       <concept id="1144146199828" name="jetbrains.mps.lang.smodel.structure.Node_CopyOperation" flags="nn" index="1$rogu" />
+      <concept id="1219352745532" name="jetbrains.mps.lang.smodel.structure.NodeRefExpression" flags="nn" index="3B5_sB">
+        <reference id="1219352800908" name="referentNode" index="3B5MYn" />
+      </concept>
       <concept id="6407023681583040688" name="jetbrains.mps.lang.smodel.structure.AllAttributeQualifier" flags="ng" index="3CFTEB" />
       <concept id="6407023681583036853" name="jetbrains.mps.lang.smodel.structure.NodeAttributeQualifier" flags="ng" index="3CFYIy">
         <reference id="6407023681583036854" name="attributeConcept" index="3CFYIx" />
@@ -1123,7 +1126,6 @@
           <node concept="3cpWsn" id="4o" role="3cpWs9">
             <property role="TrG5h" value="template" />
             <node concept="3Tqbb2" id="4q" role="1tU5fm">
-              <ref role="ehGHo" to="tpck:h0TrEE$" resolve="INamedConcept" />
               <node concept="cd27G" id="4t" role="lGtFl">
                 <node concept="3u3nmq" id="4u" role="cd27D">
                   <property role="3u3nmv" value="7312097483936588905" />
@@ -9489,18 +9491,19 @@
                 </node>
               </node>
             </node>
-            <node concept="2Zo12i" id="P_" role="2OqNvi">
-              <node concept="chp4Y" id="PJ" role="2Zo12j">
-                <ref role="cht4Q" to="tpck:4uZwTti3_$T" resolve="Attribute" />
+            <node concept="2qgKlT" id="P_" role="2OqNvi">
+              <ref role="37wK5l" to="tpcn:73yVtVlWOga" resolve="isSubconceptOf" />
+              <node concept="3B5_sB" id="PJ" role="37wK5m">
+                <ref role="3B5MYn" to="tpck:4uZwTti3_$T" resolve="Attribute" />
                 <node concept="cd27G" id="PL" role="lGtFl">
                   <node concept="3u3nmq" id="PM" role="cd27D">
-                    <property role="3u3nmv" value="2826485732397637998" />
+                    <property role="3u3nmv" value="3200220852405706707" />
                   </node>
                 </node>
               </node>
               <node concept="cd27G" id="PK" role="lGtFl">
                 <node concept="3u3nmq" id="PN" role="cd27D">
-                  <property role="3u3nmv" value="2826485732397637997" />
+                  <property role="3u3nmv" value="3200220852405706389" />
                 </node>
               </node>
             </node>
@@ -11119,18 +11122,19 @@
                   </node>
                 </node>
               </node>
-              <node concept="2Zo12i" id="ZG" role="2OqNvi">
-                <node concept="chp4Y" id="ZQ" role="2Zo12j">
-                  <ref role="cht4Q" to="tpck:4uZwTti3_$T" resolve="Attribute" />
+              <node concept="2qgKlT" id="ZG" role="2OqNvi">
+                <ref role="37wK5l" to="tpcn:73yVtVlWOga" resolve="isSubconceptOf" />
+                <node concept="3B5_sB" id="ZQ" role="37wK5m">
+                  <ref role="3B5MYn" to="tpck:4uZwTti3_$T" resolve="Attribute" />
                   <node concept="cd27G" id="ZS" role="lGtFl">
                     <node concept="3u3nmq" id="ZT" role="cd27D">
-                      <property role="3u3nmv" value="6048235565803642206" />
+                      <property role="3u3nmv" value="3200220852405708177" />
                     </node>
                   </node>
                 </node>
                 <node concept="cd27G" id="ZR" role="lGtFl">
                   <node concept="3u3nmq" id="ZU" role="cd27D">
-                    <property role="3u3nmv" value="7473026166162321465" />
+                    <property role="3u3nmv" value="3200220852405708154" />
                   </node>
                 </node>
               </node>
@@ -16852,18 +16856,19 @@
                 </node>
               </node>
             </node>
-            <node concept="2Zo12i" id="1zq" role="2OqNvi">
-              <node concept="chp4Y" id="1z$" role="2Zo12j">
-                <ref role="cht4Q" to="tpck:4uZwTti3_$T" resolve="Attribute" />
+            <node concept="2qgKlT" id="1zq" role="2OqNvi">
+              <ref role="37wK5l" to="tpcn:73yVtVlWOga" resolve="isSubconceptOf" />
+              <node concept="3B5_sB" id="1z$" role="37wK5m">
+                <ref role="3B5MYn" to="tpck:4uZwTti3_$T" resolve="Attribute" />
                 <node concept="cd27G" id="1zA" role="lGtFl">
                   <node concept="3u3nmq" id="1zB" role="cd27D">
-                    <property role="3u3nmv" value="2826485732397629946" />
+                    <property role="3u3nmv" value="3200220852405711570" />
                   </node>
                 </node>
               </node>
               <node concept="cd27G" id="1z_" role="lGtFl">
                 <node concept="3u3nmq" id="1zC" role="cd27D">
-                  <property role="3u3nmv" value="2826485732397629847" />
+                  <property role="3u3nmv" value="3200220852405711252" />
                 </node>
               </node>
             </node>

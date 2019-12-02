@@ -402,22 +402,27 @@
   </root>
   <root nodeRef="r:8ac706c2-cfd2-4da3-8b63-a741ed2733d4(jetbrains.mps.smodel.test.reflection@tests)/3386205146662078802">
     <file name="TestUtilities.java">
-      <node id="3386205146662078820" at="9,71,10,104" concept="1" />
-      <node id="2906110183022290220" at="12,62,13,78" concept="1" />
-      <node id="2906110183022290213" at="11,36,14,7" concept="4" />
-      <node id="2906110183022290194" at="10,104,15,5" concept="3" />
-      <node id="3386205146662078808" at="9,0,17,0" concept="11" trace="assertEquals#(Ljava/lang/Iterable;Ljava/lang/Iterable;)V" />
-      <scope id="2906110183022290219" at="12,62,13,78" />
-      <scope id="2906110183022290195" at="11,36,14,7" />
-      <scope id="2906110183022290194" at="10,104,15,5">
+      <node id="3200220852388127058" at="9,71,10,61" concept="6" />
+      <node id="3200220852388133044" at="10,61,11,57" concept="6" />
+      <node id="3386205146662078820" at="11,57,12,106" concept="1" />
+      <node id="2906110183022290220" at="14,63,15,78" concept="1" />
+      <node id="2906110183022290213" at="13,37,16,7" concept="4" />
+      <node id="2906110183022290194" at="12,106,17,5" concept="3" />
+      <node id="3386205146662078808" at="9,0,19,0" concept="11" trace="assertEquals#(Ljava/lang/Iterable;Ljava/lang/Iterable;)V" />
+      <scope id="2906110183022290219" at="14,63,15,78" />
+      <scope id="2906110183022290195" at="13,37,16,7" />
+      <scope id="2906110183022290194" at="12,106,17,5">
         <var name="object" id="2906110183022290198" />
       </scope>
-      <scope id="3386205146662078811" at="9,71,15,5" />
-      <scope id="3386205146662078808" at="9,0,17,0">
+      <scope id="3386205146662078811" at="9,71,17,5">
+        <var name="actual_" id="3200220852388133045" />
+        <var name="expected_" id="3200220852388127059" />
+      </scope>
+      <scope id="3386205146662078808" at="9,0,19,0">
         <var name="actual" id="3386205146662078814" />
         <var name="expected" id="3386205146662078812" />
       </scope>
-      <unit id="3386205146662078802" at="8,0,18,0" name="jetbrains.mps.smodel.test.reflection.TestUtilities" />
+      <unit id="3386205146662078802" at="8,0,20,0" name="jetbrains.mps.smodel.test.reflection.TestUtilities" />
     </file>
   </root>
   <root nodeRef="r:8ac706c2-cfd2-4da3-8b63-a741ed2733d4(jetbrains.mps.smodel.test.reflection@tests)/8758390115028789531">

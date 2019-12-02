@@ -37,10 +37,9 @@ public final class AttributeAccess__BehaviorDescriptor extends BaseBHDescriptor 
   public static final SMethod<SNode> getTargetConcept_id3vpu_siOTrr = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getTargetConcept").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3vpu_siOTrr").build();
   public static final SMethod<SNode> getAttributeContainerType_id62qhzb6UOqI = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getAttributeContainerType").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("62qhzb6UOqI").build();
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
   public static final SMethod<Boolean> applicableToConcept_id1653mnvAgvQ = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToConcept").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvQ").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwIP$w, isSingularCardinality_id3vpu_siOTrf, isAggregation_id3vpu_siOTrm, getTargetConcept_id3vpu_siOTrr, getAttributeContainerType_id62qhzb6UOqI, applicableToNode_id1653mnvAgrs, applicableToLink_id1653mnvAgvK, applicableToConcept_id1653mnvAgvQ);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(isLValue_idhEwIP$w, isSingularCardinality_id3vpu_siOTrf, isAggregation_id3vpu_siOTrm, getTargetConcept_id3vpu_siOTrr, getAttributeContainerType_id62qhzb6UOqI, applicableToNode_id1653mnvAgrs, applicableToConcept_id1653mnvAgvQ);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -62,9 +61,6 @@ public final class AttributeAccess__BehaviorDescriptor extends BaseBHDescriptor 
     return ((result != null) && (SLinkOperations.getTarget(result, LINKS.concept$HWFQ) == null) ? _quotation_createNode_q663c8_a0b0e() : result);
   }
   /*package*/ static boolean applicableToNode_id1653mnvAgrs(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
   /*package*/ static boolean applicableToConcept_id1653mnvAgvQ(@NotNull SAbstractConcept __thisConcept__) {
@@ -111,8 +107,6 @@ public final class AttributeAccess__BehaviorDescriptor extends BaseBHDescriptor 
       case 5:
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
       case 6:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
-      case 7:
         return (T) ((Boolean) applicableToConcept_id1653mnvAgvQ(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

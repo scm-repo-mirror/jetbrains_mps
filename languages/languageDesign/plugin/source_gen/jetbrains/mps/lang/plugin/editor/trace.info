@@ -16701,7 +16701,7 @@
       <node id="1208950262040" at="78,5,79,51" concept="2" />
       <node id="2498620720770743987" at="79,51,80,51" concept="2" />
       <node id="471625927509493337" at="80,51,81,22" concept="8" />
-      <node id="471625927503613498" at="83,46,84,76" concept="8" />
+      <node id="471625927503613498" at="83,46,84,89" concept="8" />
       <node id="471625927509493337" at="86,43,87,122" concept="7" />
       <node id="471625927509493337" at="87,122,88,49" concept="2" />
       <node id="471625927509493337" at="88,49,89,34" concept="7" />
@@ -16911,12 +16911,13 @@
       <node id="2498620720770743994" at="426,89,427,145" concept="8" />
       <node id="2498620720770743994" at="428,12,429,24" concept="8" />
       <node id="2498620720770743994" at="430,15,431,40" concept="2" />
-      <node id="471625927509493337" at="436,0,437,0" concept="11" trace="number$xWxm" />
-      <node id="471625927509493337" at="437,0,438,0" concept="11" trace="caption$xPHq" />
-      <node id="471625927509493337" at="438,0,439,0" concept="11" trace="position$cXtb" />
-      <node id="471625927509493337" at="442,0,443,0" concept="11" trace="PropertyAttribute$jT" />
-      <node id="471625927509493337" at="446,0,447,0" concept="11" trace="shortcut$qnAW" />
-      <node id="471625927509493337" at="447,0,448,0" concept="11" trace="toolIcon$FprZ" />
+      <node id="3200220852405790019" at="434,55,435,43" concept="8" />
+      <node id="471625927509493337" at="439,0,440,0" concept="11" trace="number$xWxm" />
+      <node id="471625927509493337" at="440,0,441,0" concept="11" trace="caption$xPHq" />
+      <node id="471625927509493337" at="441,0,442,0" concept="11" trace="position$cXtb" />
+      <node id="471625927509493337" at="445,0,446,0" concept="11" trace="PropertyAttribute$jT" />
+      <node id="471625927509493337" at="449,0,450,0" concept="11" trace="shortcut$qnAW" />
+      <node id="471625927509493337" at="450,0,451,0" concept="11" trace="toolIcon$FprZ" />
       <node id="471625927509493337" at="50,0,52,0" concept="3" trace="myNode" />
       <node id="471625927509493337" at="154,0,156,0" concept="3" trace="myNode" />
       <node id="471625927509493337" at="339,0,341,0" concept="3" trace="myNode" />
@@ -16935,6 +16936,7 @@
       <node id="471625927509493337" at="366,7,369,7" concept="5" />
       <node id="471625927509493337" at="385,0,388,0" concept="6" trace="getNoTargetText#()Ljava/lang/String;" />
       <node id="2498620720770743994" at="421,0,424,0" concept="6" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
+      <node id="3200220852405790019" at="434,0,437,0" concept="12" trace="isNotEmptyString#(Ljava/lang/String;)Z" />
       <node id="471625927509493337" at="53,0,57,0" concept="1" trace="BaseToolDeclaration_Header_ComponentBuilder_a#(Ljetbrains/mps/openapi/editor/EditorContext;Lorg/jetbrains/mps/openapi/model/SNode;)V" />
       <node id="471625927509493337" at="149,0,153,0" concept="6" trace="createRefNode_0#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <node id="471625927509493337" at="157,0,161,0" concept="1" trace="shortcutSingleRoleHandler_g0vxcd_b1a#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SContainmentLink;Ljetbrains/mps/openapi/editor/EditorContext;)V" />
@@ -16983,7 +16985,7 @@
       <scope id="471625927509493337" at="60,26,61,18" />
       <scope id="471625927509493337" at="64,39,65,32" />
       <scope id="1208271608566" at="76,37,77,53" />
-      <scope id="471625927503611894" at="83,46,84,76" />
+      <scope id="471625927503611894" at="83,46,84,89" />
       <scope id="1208271608565" at="117,41,118,118" />
       <scope id="1208271608565" at="126,15,127,40" />
       <scope id="471625927509493337" at="164,28,165,20" />
@@ -17003,6 +17005,7 @@
       <scope id="471625927509493337" at="385,40,386,29" />
       <scope id="2498620720770743994" at="421,41,422,118" />
       <scope id="2498620720770743994" at="430,15,431,40" />
+      <scope id="3200220852405790019" at="434,55,435,43" />
       <scope id="471625927509493337" at="53,109,55,18" />
       <scope id="1208271608565" at="121,74,123,145">
         <var name="manager" id="1208271608565" />
@@ -17035,6 +17038,9 @@
       <scope id="471625927509493337" at="385,0,388,0" />
       <scope id="2498620720770743994" at="421,0,424,0">
         <var name="it" id="2498620720770743994" />
+      </scope>
+      <scope id="3200220852405790019" at="434,0,437,0">
+        <var name="str" id="3200220852405790019" />
       </scope>
       <scope id="471625927509493337" at="53,0,57,0">
         <var name="context" id="471625927509493337" />
@@ -17193,16 +17199,16 @@
       <scope id="1208271608565" at="105,0,130,0" />
       <scope id="1208271608568" at="230,0,255,0" />
       <scope id="2498620720770743994" at="409,0,434,0" />
-      <unit id="471625927509493337" at="441,0,444,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$CONCEPTS" />
+      <unit id="471625927509493337" at="444,0,447,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$CONCEPTS" />
       <unit id="1208271608565" at="116,102,120,7" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$1" />
       <unit id="1208271608568" at="241,102,245,7" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$2" />
       <unit id="1226062536878" at="288,88,292,5" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$3" />
       <unit id="2498620720770743994" at="420,102,424,7" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$4" />
-      <unit id="471625927509493337" at="445,0,449,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$LINKS" />
-      <unit id="471625927509493337" at="435,0,440,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$PROPS" />
+      <unit id="471625927509493337" at="448,0,452,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$LINKS" />
+      <unit id="471625927509493337" at="438,0,443,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$PROPS" />
       <unit id="471625927509493337" at="153,0,204,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$shortcutSingleRoleHandler_g0vxcd_b1a" />
       <unit id="471625927509493337" at="338,0,389,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a$toolIconSingleRoleHandler_g0vxcd_b3a" />
-      <unit id="471625927509493337" at="49,0,450,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a" />
+      <unit id="471625927509493337" at="49,0,453,0" name="jetbrains.mps.lang.plugin.editor.BaseToolDeclaration_Header_ComponentBuilder_a" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590363(jetbrains.mps.lang.plugin.editor)/485694842828666099">

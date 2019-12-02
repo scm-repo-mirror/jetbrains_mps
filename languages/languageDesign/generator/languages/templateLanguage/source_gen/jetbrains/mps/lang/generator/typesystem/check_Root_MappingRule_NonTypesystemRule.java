@@ -19,7 +19,6 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.errors.messageTargets.ReferenceMessageTarget;
 import jetbrains.mps.lang.core.behavior.BaseConcept__BehaviorDescriptor;
 import jetbrains.mps.errors.BaseQuickFixProvider;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -57,7 +56,7 @@ public class check_Root_MappingRule_NonTypesystemRule extends AbstractNonTypesys
         }
       }
     }
-    if (SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SLinkOperations.getTarget(rule, LINKS.applicableConcept$ljwo)), CONCEPTS.Attribute$RJ)) {
+    if ((boolean) AbstractConceptDeclaration__BehaviorDescriptor.isSubconceptOf_id73yVtVlWOga.invoke(SLinkOperations.getTarget(rule, LINKS.applicableConcept$ljwo), SNodeOperations.getNode("r:00000000-0000-4000-0000-011c89590288(jetbrains.mps.lang.core.structure)", "5169995583184591161"))) {
       {
         final MessageTarget errorTarget = new ReferenceMessageTarget(LINKS.applicableConcept$ljwo);
         IErrorReporter _reporter_2309309498 = typeCheckingContext.reportWarning(rule, "Attributes are unlikely to be roots of a model", "r:00000000-0000-4000-0000-011c895902e4(jetbrains.mps.lang.generator.typesystem)", "2826485732397633059", null, errorTarget);
@@ -83,7 +82,6 @@ public class check_Root_MappingRule_NonTypesystemRule extends AbstractNonTypesys
   private static final class CONCEPTS {
     /*package*/ static final SConcept RootTemplateAnnotation$u8 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x11017244494L, "jetbrains.mps.lang.generator.structure.RootTemplateAnnotation");
     /*package*/ static final SInterfaceConcept INamedConcept$nV = MetaAdapterFactory.getInterfaceConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, "jetbrains.mps.lang.core.structure.INamedConcept");
-    /*package*/ static final SConcept Attribute$RJ = MetaAdapterFactory.getConcept(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x47bf8397520e5939L, "jetbrains.mps.lang.core.structure.Attribute");
     /*package*/ static final SConcept Root_MappingRule$81 = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0x10fd54746dbL, "jetbrains.mps.lang.generator.structure.Root_MappingRule");
   }
 

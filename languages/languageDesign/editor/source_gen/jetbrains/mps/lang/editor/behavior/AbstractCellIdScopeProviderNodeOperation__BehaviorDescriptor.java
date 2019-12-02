@@ -39,9 +39,8 @@ public final class AbstractCellIdScopeProviderNodeOperation__BehaviorDescriptor 
   /*package*/ static final SMethod<Scope> getPropertyDeclarationScope_id3K0abI6bsqm = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getPropertyDeclarationScope").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("3K0abI6bsqm").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Scope> getEditorCellIdScope_id3K0abI6bXeJ = new SMethodBuilder<Scope>(new SJavaCompoundTypeImpl(Scope.class)).name("getEditorCellIdScope").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("3K0abI6bXeJ").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getScope_id52_Geb4QDV$, getPropertyDeclarationScope_id3K0abI6bsqm, getEditorCellIdScope_id3K0abI6bXeJ, applicableToNode_id1653mnvAgrs, applicableToLink_id1653mnvAgvK);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getScope_id52_Geb4QDV$, getPropertyDeclarationScope_id3K0abI6bsqm, getEditorCellIdScope_id3K0abI6bXeJ, applicableToNode_id1653mnvAgrs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -75,9 +74,6 @@ public final class AbstractCellIdScopeProviderNodeOperation__BehaviorDescriptor 
     return new EditorCellIdScope(SNodeOperations.getModel(__thisNode__), concept);
   }
   /*package*/ static boolean applicableToNode_id1653mnvAgrs(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
 
@@ -116,8 +112,6 @@ public final class AbstractCellIdScopeProviderNodeOperation__BehaviorDescriptor 
     switch (methodIndex) {
       case 3:
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
-      case 4:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

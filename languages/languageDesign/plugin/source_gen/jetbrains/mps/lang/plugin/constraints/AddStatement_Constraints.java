@@ -13,6 +13,7 @@ import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -56,7 +57,7 @@ public class AddStatement_Constraints extends BaseConstraintsDescriptor {
     return SNodeOperations.getNodeAncestorWhereConceptInList(parentNode, new SAbstractConcept[]{CONCEPTS.BuildGroupBlock$Uj, CONCEPTS.UpdateGroupFunction$iQ}, true, false) != null;
   }
   private static boolean staticCanBeAParent(SNode node, SNode childNode, SAbstractConcept childConcept, SContainmentLink link) {
-    return !(SNodeOperations.isInstanceOf(node, CONCEPTS.ActionGroupDeclaration$YL)) && !(SNodeOperations.isInstanceOf(node, CONCEPTS.GroupAnchor$MS));
+    return !(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.ActionGroupDeclaration$YL)) && !(SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(childConcept), CONCEPTS.GroupAnchor$MS));
   }
   private static final SNodePointer canBeChildBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590361(jetbrains.mps.lang.plugin.constraints)", "1227128029536562202");
   private static final SNodePointer canBeParentBreakingPoint = new SNodePointer("r:00000000-0000-4000-0000-011c89590361(jetbrains.mps.lang.plugin.constraints)", "1227128029536562188");

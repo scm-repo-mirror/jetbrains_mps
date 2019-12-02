@@ -22,17 +22,13 @@ public final class Node_GetContainingRoleOperation__BehaviorDescriptor extends B
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x1b35e18a1a3b2c9aL, "jetbrains.mps.lang.smodel.structure.Node_GetContainingRoleOperation");
 
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToNode_id1653mnvAgrs, applicableToLink_id1653mnvAgvK);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToNode_id1653mnvAgrs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static boolean applicableToNode_id1653mnvAgrs(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
 
@@ -65,8 +61,6 @@ public final class Node_GetContainingRoleOperation__BehaviorDescriptor extends B
     switch (methodIndex) {
       case 0:
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
-      case 1:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
       default:
         throw new BHMethodNotFoundException(this, method);
     }

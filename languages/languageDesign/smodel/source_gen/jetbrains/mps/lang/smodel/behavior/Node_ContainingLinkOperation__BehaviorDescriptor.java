@@ -21,17 +21,13 @@ import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 public final class Node_ContainingLinkOperation__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, 0x68251cf9dbe13ffcL, "jetbrains.mps.lang.smodel.structure.Node_ContainingLinkOperation");
 
-  public static final SMethod<Boolean> applicableToLink_id1653mnvAgvK = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToLink").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgvK").build();
   public static final SMethod<Boolean> applicableToNode_id1653mnvAgrs = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("applicableToNode").modifiers(SModifiersImpl.create(9, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1653mnvAgrs").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToLink_id1653mnvAgvK, applicableToNode_id1653mnvAgrs);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(applicableToNode_id1653mnvAgrs);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
-  /*package*/ static boolean applicableToLink_id1653mnvAgvK(@NotNull SAbstractConcept __thisConcept__) {
-    return true;
-  }
   /*package*/ static boolean applicableToNode_id1653mnvAgrs(@NotNull SAbstractConcept __thisConcept__) {
     return true;
   }
@@ -64,8 +60,6 @@ public final class Node_ContainingLinkOperation__BehaviorDescriptor extends Base
     }
     switch (methodIndex) {
       case 0:
-        return (T) ((Boolean) applicableToLink_id1653mnvAgvK(concept));
-      case 1:
         return (T) ((Boolean) applicableToNode_id1653mnvAgrs(concept));
       default:
         throw new BHMethodNotFoundException(this, method);

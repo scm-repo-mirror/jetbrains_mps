@@ -11,6 +11,7 @@ import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.smodel.DynamicReference;
 import java.util.Map;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import java.util.HashMap;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -46,14 +47,14 @@ public final class FixDynamicReferences_MigrationScript extends BaseMigrationScr
       }
       @Override
       public void doUpdateInstanceNode(SNode node) {
-        Map<String, SNode> roleToTarget = MapSequence.fromMap(new HashMap<String, SNode>());
-        for (SReference ref : Sequence.fromIterable(node.getReferences())) {
+        Map<SReferenceLink, SNode> roleToTarget = MapSequence.fromMap(new HashMap<SReferenceLink, SNode>());
+        for (SReference ref : node.getReferences()) {
           if (!(ref instanceof DynamicReference)) {
             continue;
           }
-          MapSequence.fromMap(roleToTarget).put(ref.getRole(), ref.getTargetNode());
+          MapSequence.fromMap(roleToTarget).put(ref.getLink(), ref.getTargetNode());
         }
-        for (Map.Entry<String, SNode> m : SetSequence.fromSet(roleToTarget.entrySet())) {
+        for (Map.Entry<SReferenceLink, SNode> m : SetSequence.fromSet(roleToTarget.entrySet())) {
           node.setReferenceTarget(m.getKey(), m.getValue());
         }
       }

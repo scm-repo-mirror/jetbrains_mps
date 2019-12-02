@@ -18,16 +18,18 @@ import java.util.Arrays;
 import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstituteMenuPartDecorator;
 import jetbrains.mps.lang.editor.menus.ConceptMenusPart;
 import java.util.Collection;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.lang.editor.actions.TransformationMenuActionsUtil;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.editor.menus.substitute.SimpleConceptSubstituteMenuPart;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
-import org.jetbrains.mps.openapi.language.SConcept;
 
 public class TransformationLocation_SubstituteMenu extends SubstituteMenuBase {
   @NotNull
@@ -101,7 +103,12 @@ public class TransformationLocation_SubstituteMenu extends SubstituteMenuBase {
       }
       public class SMP_Concepts_fvfxl9_a0a extends ConceptMenusPart<SubstituteMenuItem, SubstituteMenuContext> {
         protected Collection getConcepts(SubstituteMenuContext _context) {
-          return Sequence.fromIterable(TransformationMenuActionsUtil.getSubconceptsWithCurrentChildConceptsExcluded(CONCEPTS.TransformationLocation$2W, _context.getParentNode(), LINKS.locations$aTw0, _context.getCurrentTargetNode())).toListSequence();
+          Iterable<SConcept> result = Sequence.fromIterable(TransformationMenuActionsUtil.getSubconceptsWithCurrentChildConceptsExcluded(CONCEPTS.TransformationLocation$2W, _context.getParentNode(), LINKS.locations$aTw0, _context.getCurrentTargetNode())).select(new ISelector<SAbstractConcept, SConcept>() {
+            public SConcept select(SAbstractConcept it) {
+              return SNodeOperations.castConcept(it, CONCEPTS.TransformationLocation$2W);
+            }
+          });
+          return Sequence.fromIterable(result).toListSequence();
         }
 
         @NotNull

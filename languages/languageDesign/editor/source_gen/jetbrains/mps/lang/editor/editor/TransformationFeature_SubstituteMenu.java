@@ -25,9 +25,10 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
 import jetbrains.mps.lang.editor.behavior.TransformationLocation__BehaviorDescriptor;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
-import jetbrains.mps.lang.editor.actions.TransformationMenuActionsUtil;
 import jetbrains.mps.internal.collections.runtime.Sequence;
+import jetbrains.mps.lang.editor.actions.TransformationMenuActionsUtil;
+import jetbrains.mps.internal.collections.runtime.ISelector;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.editor.menus.substitute.SimpleConceptSubstituteMenuPart;
 import jetbrains.mps.smodel.ConceptDescendantsCache;
@@ -114,11 +115,15 @@ public class TransformationFeature_SubstituteMenu extends SubstituteMenuBase {
               return (Collection<SConcept>) TransformationLocation__BehaviorDescriptor.getAvailableFeatures_id1A4kJjlZ$rL.invoke(it);
             }
           });
-          Iterable<SAbstractConcept> concepts = TransformationMenuActionsUtil.getSubconceptsWithCurrentChildConceptsExcluded(CONCEPTS.TransformationFeature$2t, _context.getParentNode(), LINKS.features$645q, _context.getCurrentTargetNode());
+          Iterable<SConcept> concepts = Sequence.fromIterable(TransformationMenuActionsUtil.getSubconceptsWithCurrentChildConceptsExcluded(CONCEPTS.TransformationFeature$2t, _context.getParentNode(), LINKS.features$645q, _context.getCurrentTargetNode())).select(new ISelector<SAbstractConcept, SConcept>() {
+            public SConcept select(SAbstractConcept it) {
+              return SNodeOperations.castConcept(it, CONCEPTS.TransformationFeature$2t);
+            }
+          });
           if (section != null) {
-            concepts = Sequence.fromIterable(concepts).where(new IWhereFilter<SAbstractConcept>() {
-              public boolean accept(SAbstractConcept it) {
-                return Sequence.fromIterable(availableFeatures).contains(((SConcept) it));
+            concepts = Sequence.fromIterable(concepts).where(new IWhereFilter<SConcept>() {
+              public boolean accept(SConcept it) {
+                return Sequence.fromIterable(availableFeatures).contains(it);
               }
             });
           }
@@ -157,7 +162,7 @@ public class TransformationFeature_SubstituteMenu extends SubstituteMenuBase {
     public class SMP_Group_97h82d_b0 extends GroupMenuPart<SubstituteMenuItem, SubstituteMenuContext> {
       @Override
       protected boolean isApplicable(SubstituteMenuContext _context) {
-        return !((condition));
+        return !(condition);
       }
       @NotNull
       @Override
