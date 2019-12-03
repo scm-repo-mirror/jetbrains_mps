@@ -20,7 +20,6 @@ import jetbrains.mps.extapi.persistence.CopyableModelRoot;
 import jetbrains.mps.extapi.persistence.DefaultSourceRoot;
 import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.extapi.persistence.FileDataSource;
-import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.extapi.persistence.ModelFactoryRegistry;
 import jetbrains.mps.extapi.persistence.SourceRoot;
 import jetbrains.mps.extapi.persistence.SourceRootKind;
@@ -29,7 +28,7 @@ import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryFromName;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryFromURL;
 import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService;
 import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
-import jetbrains.mps.persistence.DataSourceFactoryBridge.CompositeResult;
+import jetbrains.mps.persistence.DataSourceFactoryBridge.DSourceAndOptions;
 import jetbrains.mps.project.structure.model.ModelRootDescriptor;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -45,8 +44,10 @@ import org.jetbrains.mps.openapi.persistence.DataSource;
 import org.jetbrains.mps.openapi.persistence.Memento;
 import org.jetbrains.mps.openapi.persistence.ModelCreationException;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
+import org.jetbrains.mps.openapi.persistence.MFProblem;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
+import org.jetbrains.mps.openapi.persistence.ModelLoadingOption;
 import org.jetbrains.mps.openapi.persistence.ModelRootFactory;
 import org.jetbrains.mps.openapi.persistence.datasource.DataSourceType;
 
@@ -56,6 +57,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
 
 /**
  * This model root is responsible for loading models from the source roots
@@ -175,8 +178,8 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
       return false;
     }
 
-    ModelFactory defaultModelFactory = myModelFactoryRegistry.getDefaultModelFactory(Defaults.DATA_SOURCE_TYPE);
-    if (defaultModelFactory == null) {
+    ModelFactory defaultMF = myModelFactoryRegistry.getDefaultModelFactory(Defaults.DATA_SOURCE_TYPE);
+    if (defaultMF == null) {
       return false;
     }
 
@@ -184,24 +187,15 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
       // XXX could iterate over all source roots to find the one capable to create a model, but the rest of MR API (namely, createModel) would need
       //     to figure out proper source root as well, which is not a task I'd like to tackle now. I'd use object return value instead of simple
       //     boolean here, which would keep all relevant data (model factory, source root) for model creation
-      CompositeResult<DataSource> result = getDataSourceFactoryBridge().create(new SModelName(modelName), Defaults.sourceRoot(this), Defaults.DATA_SOURCE_TYPE);
+      DSourceAndOptions<DataSource> result = getDataSourceFactoryBridge().create(new SModelName(modelName),
+                                                                                 Defaults.sourceRoot(this),
+                                                                                 Defaults.DATA_SOURCE_TYPE);
       DataSource dataSource = result.getDataSource();
-      return defaultModelFactory.supports(dataSource) && this.getModels().stream().allMatch(sModel -> dataSourcesCompatible(sModel.getSource(), dataSource));
+      ModelLoadingOption[] modelLoadingOptions = result.getOptions().convertToLoadingOptions();
+      return NO_PROBLEM == defaultMF.canCreate(dataSource, new SModelName(modelName), modelLoadingOptions);
     } catch (NoSourceRootsInModelRootException | DataSourceFactoryNotFoundException | SourceRootDoesNotExistException ignored) {
     }
     return false;
-  }
-
-  private boolean dataSourcesCompatible(DataSource a, DataSource b) {
-    if (a instanceof FileSystemBasedDataSource && b instanceof FileSystemBasedDataSource) {
-      Collection<IFile> bFiles = ((FileSystemBasedDataSource) b).getAffectedFiles();
-      for (IFile aFile : ((FileSystemBasedDataSource) a).getAffectedFiles()) {
-        if (bFiles.contains(aFile)) {
-          return false;
-        }
-      }
-    }
-    return true;
   }
 
   /**
@@ -317,13 +311,14 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
         throw new ModelFactoryNotFoundException(dataSourceType);
       }
     }
-    CompositeResult<DataSource> result = getDataSourceFactoryBridge().create(modelName, sourceRoot, dataSourceFactory);
+    DSourceAndOptions<DataSource> result = getDataSourceFactoryBridge().create(modelName, sourceRoot, dataSourceFactory);
     DataSource dataSource = result.getDataSource();
     ModelCreationOptions parameters = result.getOptions();
-    if (!modelFactory.supports(dataSource)) {
-      throw new FactoryCannotCreateModelException(modelFactory, dataSource);
+    MFProblem mfProblem = modelFactory.canCreate(dataSource, modelName, parameters.convertToLoadingOptions());
+    if (NO_PROBLEM != mfProblem) {
+      throw new FactoryCannotCreateModelException(modelFactory, dataSource, mfProblem);
     }
-    return createModel0(modelFactory, dataSource, parameters,true);
+    return createModel0(modelFactory, dataSource, parameters, true);
   }
 
   @NotNull
@@ -346,7 +341,7 @@ public final class DefaultModelRoot extends FileBasedModelRoot implements Copyab
   public void rename(FileDataSource dataSource, String newName) throws DataSourceFactoryNotFoundException, NoSourceRootsInModelRootException, SourceRootDoesNotExistException {
     IFile oldFile = dataSource.getFile();
     SourceRoot sourceRoot = findSourceRootOf(oldFile);
-    CompositeResult<DataSource> result = getDataSourceFactoryBridge().createFileDataSource(new SModelName(newName), sourceRoot);
+    DSourceAndOptions<DataSource> result = getDataSourceFactoryBridge().createFileDataSource(new SModelName(newName), sourceRoot);
     FileDataSource source = (FileDataSource) result.getDataSource();
     IFile newFile = source.getFile();
     if (!newFile.equals(oldFile)) {

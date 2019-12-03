@@ -208,7 +208,7 @@ public class FolderSetDataSource extends DataSourceBase implements DataSource, F
   }
 
   @Override
-  public void update(ProgressMonitor monitor, @NotNull FileSystemEvent event) {
+  public void update(@NotNull ProgressMonitor monitor, @NotNull FileSystemEvent event) {
     fireChanged(monitor);
   }
 
@@ -266,7 +266,7 @@ public class FolderSetDataSource extends DataSourceBase implements DataSource, F
     }
 
     @Override
-    public void update(ProgressMonitor monitor, @NotNull FileSystemEvent event) {
+    public void update(@NotNull ProgressMonitor monitor, @NotNull FileSystemEvent event) {
       event.notify(myDelegate);
     }
   }

@@ -18,6 +18,7 @@ package jetbrains.mps.persistence;
 import jetbrains.mps.extapi.model.GeneratableSModel;
 import jetbrains.mps.extapi.model.SModelBase;
 import jetbrains.mps.extapi.model.SModelData;
+import jetbrains.mps.extapi.persistence.FileSystemBasedDataSource;
 import jetbrains.mps.extapi.persistence.datasource.PreinstalledDataSourceTypes;
 import jetbrains.mps.generator.ModelDigestUtil;
 import jetbrains.mps.persistence.MetaModelInfoProvider.MetaInfoLoadingOption;
@@ -43,6 +44,8 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.persistence.DataSource;
+import org.jetbrains.mps.openapi.persistence.DataSourceNotSupportedProblem;
+import org.jetbrains.mps.openapi.persistence.MFProblem;
 import org.jetbrains.mps.openapi.persistence.ModelFactory;
 import org.jetbrains.mps.openapi.persistence.ModelFactoryType;
 import org.jetbrains.mps.openapi.persistence.ModelLoadException;
@@ -61,6 +64,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
 
 /**
  * Factory for models stored in .mps files.
@@ -89,6 +94,20 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
   @Override
   public boolean supports(@NotNull DataSource dataSource) {
     return dataSource instanceof StreamDataSource;
+  }
+
+  @NotNull
+  @Override
+  public MFProblem canCreate(@NotNull DataSource dataSource, @NotNull SModelName modelName, @NotNull ModelLoadingOption... options) {
+    if (!supports(dataSource)) {
+      return new DataSourceNotSupportedProblem(dataSource);
+    }
+    if (dataSource instanceof FileSystemBasedDataSource) {
+      if (((FileSystemBasedDataSource) dataSource).exists()) {
+        return () -> "Some of the data sources already exist";
+      }
+    }
+    return NO_PROBLEM;
   }
 
   @NotNull
@@ -204,20 +223,6 @@ public class DefaultModelPersistence implements ModelFactory, IndexAwareModelFac
     }
   }
 
-  @Override
-  public void upgrade(@NotNull DataSource dataSource) throws IOException {
-    if (!(dataSource instanceof StreamDataSource)) {
-      throw new UnsupportedDataSourceException(dataSource);
-    }
-
-    StreamDataSource source = (StreamDataSource) dataSource;
-    try {
-      DefaultSModel model = ModelPersistence.readModel(source, false);
-      ModelPersistence.saveModel(model, source, ModelPersistence.LAST_VERSION);
-    } catch (ModelReadException ex) {
-      throw new IOException(ex.getMessage(), ex);
-    }
-  }
 
   @Override
   public void save(@NotNull SModel model, @NotNull DataSource dataSource) throws IOException {

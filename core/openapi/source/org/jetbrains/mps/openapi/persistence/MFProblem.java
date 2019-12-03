@@ -28,31 +28,5 @@ import org.jetbrains.mps.openapi.model.SModelName;
 public interface MFProblem {
   MFProblem NO_PROBLEM = () -> "no problem";
 
-//  @NotNull ModelFactory getFactory();
-//
-//  @NotNull DataSource getDataSource();
-
   @NotNull String getDescription();
-
-//  abstract class MFProblemBase implements MFProblem {
-//    @NotNull private final ModelFactory myFactory;
-//    @NotNull private final DataSource myDataSource;
-//
-//    public MFProblemBase(@NotNull ModelFactory factory, @NotNull DataSource dataSource) {
-//      myFactory = factory;
-//      myDataSource = dataSource;
-//    }
-//
-//    @NotNull
-//    @Override
-//    public ModelFactory getFactory() {
-//      return myFactory;
-//    }
-//
-//    @NotNull
-//    @Override
-//    public DataSource getDataSource() {
-//      return myDataSource;
-//    }
-//  }
 }

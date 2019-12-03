@@ -37,7 +37,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-import static jetbrains.mps.persistence.DataSourceFactoryBridge.CompositeResult.build;
+import static jetbrains.mps.persistence.DataSourceFactoryBridge.DSourceAndOptions.build;
 
 /**
  * Creates data sources (folder and file based) for the {@link DefaultModelRoot}.
@@ -59,16 +59,16 @@ public final class DataSourceFactoryBridge {
   }
 
   @NotNull
-  public CompositeResult<DataSource> createFileDataSource(@NotNull SModelName modelName,
-                                                          @Nullable SourceRoot sourceRoot) throws DataSourceFactoryNotFoundException,
+  public DSourceAndOptions<DataSource> createFileDataSource(@NotNull SModelName modelName,
+                                                            @Nullable SourceRoot sourceRoot) throws DataSourceFactoryNotFoundException,
                                                                                                   NoSourceRootsInModelRootException,
                                                                                                   SourceRootDoesNotExistException {
     return create(modelName, sourceRoot, PreinstalledDataSourceTypes.MPS);
   }
 
   @NotNull
-  public CompositeResult<DataSource> createPerRootDataSource(@NotNull SModelName modelName,
-                                                             @Nullable SourceRoot sourceRoot) throws DataSourceFactoryNotFoundException,
+  public DSourceAndOptions<DataSource> createPerRootDataSource(@NotNull SModelName modelName,
+                                                               @Nullable SourceRoot sourceRoot) throws DataSourceFactoryNotFoundException,
                                                                                                      NoSourceRootsInModelRootException,
                                                                                                      SourceRootDoesNotExistException {
     return create(modelName, sourceRoot, PreinstalledDataSourceTypes.MODEL);
@@ -84,9 +84,9 @@ public final class DataSourceFactoryBridge {
    * @throws NoSourceRootsInModelRootException when there are no source roots at all in the model root
    */
   @NotNull
-  public CompositeResult<DataSource> create(@NotNull SModelName modelName,
-                                     @Nullable SourceRoot sourceRoot,
-                                     @NotNull DataSourceType dataSourceType) throws DataSourceFactoryNotFoundException,
+  public DSourceAndOptions<DataSource> create(@NotNull SModelName modelName,
+                                              @Nullable SourceRoot sourceRoot,
+                                              @NotNull DataSourceType dataSourceType) throws DataSourceFactoryNotFoundException,
                                                                                     SourceRootDoesNotExistException,
                                                                                     NoSourceRootsInModelRootException {
     DataSourceFactoryFromName factory = myDataSourceFactoryRuleService.getFactory(dataSourceType);
@@ -97,9 +97,9 @@ public final class DataSourceFactoryBridge {
   }
 
   @NotNull
-  public CompositeResult<DataSource> create(@NotNull SModelName modelName,
-                                            @Nullable SourceRoot sourceRoot,
-                                            @NotNull DataSourceFactoryFromName factory) throws SourceRootDoesNotExistException,
+  public DSourceAndOptions<DataSource> create(@NotNull SModelName modelName,
+                                              @Nullable SourceRoot sourceRoot,
+                                              @NotNull DataSourceFactoryFromName factory) throws SourceRootDoesNotExistException,
                                                                                                NoSourceRootsInModelRootException {
     if (sourceRoot == null) {
       sourceRoot = DefaultModelRoot.Defaults.sourceRoot(myModelRoot);
@@ -126,7 +126,7 @@ public final class DataSourceFactoryBridge {
    * data source itself.
    */
   @Nullable
-  CompositeResult<DataSource> create(@NotNull IFile file) {
+  DSourceAndOptions<DataSource> create(@NotNull IFile file) {
     assert !file.isDirectory();
     DataSource dataSource = null;
     try {
@@ -155,19 +155,19 @@ public final class DataSourceFactoryBridge {
    * Used as a result in the factory methods of the enclosing {@link DataSourceFactoryBridge}.
    */
   @Immutable
-  public static final class CompositeResult<T extends DataSource> {
+  public static final class DSourceAndOptions<T extends DataSource> {
     private final T source;
     private final ModelCreationOptions parameters;
 
-    private CompositeResult(T source0, ModelCreationOptions parameters0) {
+    private DSourceAndOptions(T source0, ModelCreationOptions parameters0) {
       this.source = source0;
       this.parameters = parameters0;
     }
 
     @NotNull
-    public static <T extends DataSource> CompositeResult<T> build(@NotNull T source,
-                                                                  @NotNull ModelCreationOptions parameters) {
-      return new CompositeResult<>(source, parameters);
+    public static <T extends DataSource> DSourceAndOptions<T> build(@NotNull T source,
+                                                                    @NotNull ModelCreationOptions parameters) {
+      return new DSourceAndOptions<>(source, parameters);
     }
 
     @NotNull

@@ -17,7 +17,7 @@ package jetbrains.mps.persistence;
 
 import jetbrains.mps.extapi.persistence.ModelFactoryRegistry;
 import jetbrains.mps.extapi.persistence.SourceRoot;
-import jetbrains.mps.persistence.DataSourceFactoryBridge.CompositeResult;
+import jetbrains.mps.persistence.DataSourceFactoryBridge.DSourceAndOptions;
 import jetbrains.mps.vfs.FileSystem;
 import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
@@ -98,7 +98,7 @@ final class ModelSourceRootWalker {
     public void onFileVisited(@NotNull ModelRootFileTreeLocus state) {
       IFile file = state.getFile();
       assert !file.isDirectory() : "a regular file is promised";
-      CompositeResult<DataSource> result = myDataSourceFactoryBridge.create(file);
+      DSourceAndOptions<DataSource> result = myDataSourceFactoryBridge.create(file);
       if (result != null) {
         DataSource dataSource = result.getDataSource();
         if (dataSource.getType() == null) {

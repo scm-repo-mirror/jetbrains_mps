@@ -431,7 +431,7 @@ public abstract class FileBasedModelRoot extends ModelRootBase implements FileEv
     }
 
     @Override
-    public void update(ProgressMonitor monitor, @NotNull FileSystemEvent event) {
+    public void update(@NotNull ProgressMonitor monitor, @NotNull FileSystemEvent event) {
       event.notify(FileBasedModelRoot.this);
     }
 

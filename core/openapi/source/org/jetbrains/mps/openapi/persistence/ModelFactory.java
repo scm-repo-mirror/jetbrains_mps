@@ -15,6 +15,7 @@
  */
 package org.jetbrains.mps.openapi.persistence;
 
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelName;
@@ -35,7 +36,7 @@ import static org.jetbrains.mps.openapi.persistence.MFProblem.NO_PROBLEM;
  *
  * creates/saves/loads models (instances of SModel) from data sources.
  *
- * @author apyshkin, some other people
+ * @author apyshkin, others
  */
 public interface ModelFactory {
   /**
@@ -49,7 +50,7 @@ public interface ModelFactory {
   /**
    * Some issues can arise when one tries to create a model onto some data source.
    * For instance, data source might be read-only or such model name already exists and data source does not support two different
-   * modles with the same names.
+   * models with the same names.
    *
    * Call it before #create invocation.
    *
@@ -57,7 +58,7 @@ public interface ModelFactory {
    * @param modelName the new model's name
    * @param options the additional options you will pass to {@link #create}
    * @return the problem from which you can extract some text presentation
-   * or {@link #NO_PROBLEM} if there is no problem
+   * or {@link MFProblem#NO_PROBLEM} if there is no problem
    */
   @NotNull
   default MFProblem canCreate(@NotNull DataSource dataSource,
@@ -148,5 +149,6 @@ public interface ModelFactory {
    *         For example each model file which ends with '.mps_binary' suffix would be associated with the
    *         corresponding data source type which in turn would be associated with 'MyBinaryModelFactory'.
    */
+  @ToRemove(version = 193)
   @NotNull List<DataSourceType> getPreferredDataSourceTypes();
 }

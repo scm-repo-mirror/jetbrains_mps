@@ -60,9 +60,6 @@ public final class FilePerRootDataSource extends FolderDataSource {
     return false;
   }
 
-  /**
-   * fixme exposes my internal notion -- better use {@link DataSourceFactoryFromURL#create(URI, ModelRoot)}
-   */
   @Internal
   public static boolean isPerRootPersistenceFile(@NotNull IFile file) {
     String fileName = file.getName();

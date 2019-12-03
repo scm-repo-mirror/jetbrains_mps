@@ -40,4 +40,12 @@ public interface FileSystemBasedDataSource extends DataSource, DisposableDataSou
    * 2. All the files in the directory could not be there (the parent directory as a whole would be returned instead)
    */
   @NotNull Collection<IFile> getAffectedFiles();
+
+  /**
+   * @return true if at least one of affected files exists
+   */
+  default boolean exists() {
+    return getAffectedFiles().stream()
+                             .anyMatch(IFile::exists);
+  }
 }

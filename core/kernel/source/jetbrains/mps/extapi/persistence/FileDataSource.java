@@ -15,8 +15,6 @@
  */
 package jetbrains.mps.extapi.persistence;
 
-import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryFromName;
-import jetbrains.mps.extapi.persistence.datasource.DataSourceFactoryRuleService;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.openapi.FileSystem;
@@ -56,9 +54,6 @@ public class FileDataSource extends DataSourceBase implements StreamDataSource, 
 
   private IFile myFile;
 
-  /**
-   * Do not instantiate directly, use {@link DataSourceFactoryRuleService#getFactory} AND {@link DataSourceFactoryFromName#create}
-   */
   public FileDataSource(@NotNull IFile file) {
     myFile = file;
   }
