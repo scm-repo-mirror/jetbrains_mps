@@ -33,6 +33,7 @@ import com.intellij.util.WaitForProgressToShow;
 import com.intellij.util.xmlb.BeanBinding;
 import jetbrains.mps.classloading.ClassLoaderManager;
 import jetbrains.mps.classloading.DeployListener;
+import jetbrains.mps.classloading.DeployListener.ResourceTrackerCallback;
 import jetbrains.mps.core.platform.Platform;
 import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.ThreadUtils;
@@ -66,12 +67,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Queue;
 import java.util.ServiceLoader;
 import java.util.Set;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static java.util.stream.Collectors.toCollection;
 
@@ -551,15 +551,25 @@ public class PluginLoaderRegistry implements Disposable {
       clearIDEACaches();
 
       myAccumulation.onUnload(unloadedModules);
-      // hack for run configurations because of IDEA stupid API; @see RunConfigurationsStateManager
-      myAccumulation.schedulePostRunnable(() ->
-                                              myAccumulation.schedulePostRunnable(() -> callback.release(PluginLoaderRegistry.this)));
+      scheduleClassLoadersRelease(callback);
     }
 
     @Override
     public void onLoaded(@NotNull Set<ReloadableModule> loadedModules, @NotNull ProgressMonitor monitor) {
       myAccumulation.onLoad(loadedModules);
       scheduleUpdate();
+    }
+  }
+
+  /**
+   * synchronized just in case
+   */
+  private synchronized void scheduleClassLoadersRelease(@NotNull ResourceTrackerCallback callback) {
+    // hack for run configurations because of IDEA stupid API; @see RunConfigurationsStateManager
+    @Nullable Runnable last = myAccumulation.setPostRunnable(() -> callback.release(PluginLoaderRegistry.this));
+    // here we assert that last is the release operation
+    if (last != null) {
+      last.run();
     }
   }
 
@@ -570,8 +580,7 @@ public class PluginLoaderRegistry implements Disposable {
 
   static class EventAccumulation {
     final Delta<ReloadableModule> myDelta = new Delta<>();
-    final Queue<Runnable> myPostRunnableQueue = new ConcurrentLinkedQueue<>();
-
+    final AtomicReference<Runnable> myPostRunnable = new AtomicReference<>();
 
     public void onUnload(Set<ReloadableModule> unloadedModules) {
       myDelta.unload(unloadedModules);
@@ -581,12 +590,16 @@ public class PluginLoaderRegistry implements Disposable {
       myDelta.load(loadedModules);
     }
 
-    public synchronized void schedulePostRunnable(@NotNull Runnable r) {
-      myPostRunnableQueue.add(r);
+    /**
+     * sets the new task instead of the last
+     * @return the last scheduled task
+     */
+    @Nullable
+    public Runnable setPostRunnable(@Nullable Runnable runnable) {
+      return myPostRunnable.getAndSet(runnable);
     }
 
     public EventAccumulation.Snapshot reset() {
-      List<Runnable> postRunnablesToRun = shapshotPostRunnables();
       Delta<ReloadableModule> delta0 = shapshotDelta();
       return new Snapshot() {
         @NotNull
@@ -597,8 +610,9 @@ public class PluginLoaderRegistry implements Disposable {
 
         @Override
         public void invokePostRunnables() {
-          for (Runnable r : postRunnablesToRun) {
-            r.run();
+          @Nullable Runnable postRunnableToRun = setPostRunnable(null);
+          if (postRunnableToRun != null) {
+            postRunnableToRun.run();
           }
         }
       };
@@ -609,15 +623,6 @@ public class PluginLoaderRegistry implements Disposable {
       return myDelta.reset();
     }
 
-    @NotNull
-    private synchronized List<Runnable> shapshotPostRunnables() {
-      List<Runnable> postRunnablesToRun = new ArrayList<>();
-      Runnable first;
-      while ((first = myPostRunnableQueue.poll()) != null) {
-        postRunnablesToRun.add(first);
-      }
-      return postRunnablesToRun;
-    }
 
     interface Snapshot {
       @NotNull Delta<ReloadableModule> getDelta();
