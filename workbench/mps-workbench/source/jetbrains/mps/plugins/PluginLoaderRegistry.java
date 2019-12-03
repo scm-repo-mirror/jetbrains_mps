@@ -16,7 +16,6 @@
 package jetbrains.mps.plugins;
 
 import com.intellij.configurationStore.JdomSerializer;
-import com.intellij.ide.ui.customization.CustomActionsSchema;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
@@ -29,7 +28,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.wm.ex.WindowManagerEx;
-import com.intellij.openapi.wm.impl.IdeMenuBar;
 import com.intellij.openapi.wm.impl.ProjectFrameHelper;
 import com.intellij.util.WaitForProgressToShow;
 import com.intellij.util.xmlb.BeanBinding;
@@ -49,7 +47,6 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.MPSModuleRepository;
-import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.JavaNameUtil;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -339,30 +336,31 @@ public class PluginLoaderRegistry implements Disposable {
       reschedule();
       return;
     }
-    LOG.debug("Updating");
-    Delta<PluginLoader> loadersDelta;
-    synchronized (myLoadersDeltaLock) {
-      loadersDelta = new Delta<>(myLoaderDelta);
-      myLoaderDelta.clear();
-    }
-    Snapshot snapshot = myAccumulation.reset();
-    Delta<ReloadableModule> moduleDelta = snapshot.getDelta();
-    myDirtyFlag.set(false);
+    myModelAccess.runReadAction(() -> { // this one helps us to #createPluginContributors AND to fix the classloaders (stop them from reloading)
+      LOG.debug("Updating");
+      Delta<PluginLoader> loadersDelta;
+      synchronized (myLoadersDeltaLock) {
+        loadersDelta = new Delta<>(myLoaderDelta);
+        myLoaderDelta.clear();
+      }
+      Snapshot snapshot = myAccumulation.reset();
+      Delta<ReloadableModule> moduleDelta = snapshot.getDelta();
+      myDirtyFlag.set(false);
 
-    if (loadersDelta.isEmpty() && moduleDelta.isEmpty()) {
-      LOG.debug("Nothing to do in update");
-      return;
-    }
-    assert !myTaskInProgress;
+      if (loadersDelta.isEmpty() && moduleDelta.isEmpty()) {
+        LOG.debug("Nothing to do in update");
+        return;
+      }
+      assert !myTaskInProgress;
 
-    Set<PluginContributor> toUnloadContributors = calcContributorsToUnload(myCurrentContributors, getPluginModules(moduleDelta.toUnload));
-    Set<PluginContributor> toLoadContributors =
-        new ModelAccessHelper(myModelAccess).runReadAction(() -> createPluginContributors(getPluginModules(moduleDelta.toLoad)));
-    Delta<PluginContributor> contributorDelta = new Delta<>(toLoadContributors, toUnloadContributors);
+      Set<PluginContributor> toUnloadContributors = calcContributorsToUnload(myCurrentContributors, getPluginModules(moduleDelta.toUnload));
+      Set<PluginContributor> toLoadContributors = createPluginContributors(getPluginModules(moduleDelta.toLoad));
+      Delta<PluginContributor> contributorDelta = new Delta<>(toLoadContributors, toUnloadContributors);
 
-    assert !myTaskInProgress;
-    UpdatingTask task = new UpdatingTask(null, loadersDelta, contributorDelta, snapshot::invokePostRunnables);
-    runTask(task);
+      assert !myTaskInProgress;
+      UpdatingTask task = new UpdatingTask(null, loadersDelta, contributorDelta, snapshot::invokePostRunnables);
+      runTask(task);
+    });
   }
 
   private void reschedule() {
@@ -583,7 +581,7 @@ public class PluginLoaderRegistry implements Disposable {
       myDelta.load(loadedModules);
     }
 
-    public void schedulePostRunnable(@NotNull Runnable r) {
+    public synchronized void schedulePostRunnable(@NotNull Runnable r) {
       myPostRunnableQueue.add(r);
     }
 
@@ -612,7 +610,7 @@ public class PluginLoaderRegistry implements Disposable {
     }
 
     @NotNull
-    private List<Runnable> shapshotPostRunnables() {
+    private synchronized List<Runnable> shapshotPostRunnables() {
       List<Runnable> postRunnablesToRun = new ArrayList<>();
       Runnable first;
       while ((first = myPostRunnableQueue.poll()) != null) {
