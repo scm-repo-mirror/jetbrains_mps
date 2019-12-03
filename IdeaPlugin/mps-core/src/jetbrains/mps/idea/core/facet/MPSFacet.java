@@ -69,7 +69,7 @@ public class MPSFacet extends Facet<MPSFacetConfiguration> {
           // Thus, the solution from the old one under the same module reference is still in the repo.
           // Deleting it here is dirty but likely safe, since MPSFacet is the only place that handles
           // creation/deletion of SolutionIdea instances.
-          ((SRepositoryExt) repository).unregisterModule(previousModule, myMpsProject);
+          myMpsProject.removeModule(previousModule);
         } else {
           // fixme this is too silent, we are just left with a broken facet where solution is null
           MessagesViewTool.log(project, MessageKind.ERROR, MPSBundle.message("facet.cannot.load.second.module", solutionDescriptor.getNamespace()));
