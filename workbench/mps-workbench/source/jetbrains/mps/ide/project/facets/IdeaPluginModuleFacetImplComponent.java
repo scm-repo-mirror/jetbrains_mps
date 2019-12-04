@@ -20,6 +20,7 @@ import com.intellij.openapi.components.ApplicationComponent;
 import jetbrains.mps.classloading.IdeaPluginModuleFacet;
 import jetbrains.mps.extapi.module.FacetsRegistry;
 import jetbrains.mps.ide.MPSCoreComponents;
+import jetbrains.mps.project.Solution;
 import jetbrains.mps.repository.IdeaPluginFacetComponent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.module.FacetsFacade.FacetFactory;
@@ -34,6 +35,11 @@ public final class IdeaPluginModuleFacetImplComponent implements IdeaPluginFacet
       final IdeaPluginModuleFacetImpl rv = new IdeaPluginModuleFacetImpl();
       rv.setModule(module);
       return rv;
+    }
+
+    @Override
+    public boolean isApplicable(@NotNull SModule module) {
+      return module instanceof Solution;
     }
   };
 
