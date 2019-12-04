@@ -74,6 +74,12 @@ public final class MpsEnvironment extends EnvironmentBase {
         rv.setModule(module);
         return rv;
       }
+
+      @NotNull
+      @Override
+      public String getPresentation() {
+        return "Idea Plugin";
+      }
     });
   }
 

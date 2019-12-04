@@ -43,6 +43,12 @@ public final class MPSGenerator extends ComponentPlugin implements ComponentHost
       rv.setModule(module);
       return rv;
     }
+
+    @NotNull
+    @Override
+    public String getPresentation() {
+      return "Custom Generation";
+    }
   };
   private ModelGenerationStatusManager myGenerationStatusManager;
   private GenerationSettingsProvider mySettingsProvider;

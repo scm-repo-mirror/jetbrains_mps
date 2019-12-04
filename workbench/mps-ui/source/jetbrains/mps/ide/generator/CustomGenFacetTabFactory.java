@@ -35,5 +35,4 @@ public class CustomGenFacetTabFactory implements TabFactory<CustomGenerationModu
   public FacetTab getTab(CustomGenerationModuleFacet moduleFacet) {
     return new CustomGenerationTab(myProject, moduleFacet);
   }
-
 }

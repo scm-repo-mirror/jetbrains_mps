@@ -15,7 +15,9 @@
  */
 package jetbrains.mps.extapi.module;
 
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.module.FacetsFacade.FacetFactory;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
 import org.jetbrains.mps.openapi.persistence.Memento;
@@ -38,6 +40,13 @@ public abstract class ModuleFacetBase implements SModuleFacet {
     return myFacetType;
   }
 
+  /**
+   * Is not used anymore.
+   *
+   * @deprecated implement {@link FacetFactory#getPresentation()} instead.
+   */
+  @Deprecated
+  @ToRemove(version = 2020.1)
   public String getFacetPresentation() {
     return getFacetType();
   }

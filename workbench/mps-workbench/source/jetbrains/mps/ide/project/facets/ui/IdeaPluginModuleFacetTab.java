@@ -37,7 +37,7 @@ public class IdeaPluginModuleFacetTab extends BaseTab implements FacetTab {
   private JTextField myTextField;
 
   public IdeaPluginModuleFacetTab(IdeaPluginModuleFacetImpl moduleFacet) {
-    super(moduleFacet.getFacetPresentation(), Nodes.Plugin, "Idea Plugin Properties");
+    super("Idea Plugin", Nodes.Plugin, "Idea Plugin Properties");
 
     myIdeaPluginModuleFacet = moduleFacet;
   }
