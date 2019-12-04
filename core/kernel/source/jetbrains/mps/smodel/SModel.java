@@ -681,6 +681,7 @@ public class SModel implements SModelData, UpdateModeSupport {
     }
 
     setLanguageVersionInternal(language, version);
+    fireLanguageAddedEvent(language);
   }
 
   public void setLanguageImportVersion(SLanguage language, int version) {
@@ -693,7 +694,6 @@ public class SModel implements SModelData, UpdateModeSupport {
 
   private void setLanguageVersionInternal(SLanguage language, int version) {
     myLanguagesIds.put(language, version);
-    fireLanguageAddedEvent(language);
     markChanged();
   }
 
