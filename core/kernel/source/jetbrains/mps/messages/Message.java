@@ -23,18 +23,20 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.module.SModule;
 
+import java.time.Instant;
+
 /**
  * @author Kostik
  */
 public class Message implements IMessage {
   private static final Logger LOG = LogManager.getLogger(Message.class);
 
-  private String mySender;
-  private MessageKind myKind;
-  private String myText;
+  private final String mySender;
+  private final MessageKind myKind;
+  private final String myText;
+  private final Instant myCreationTime = Instant.now();
   private Throwable myException;
   private String myHelpUrl;
-  private final long myCreationTime = System.currentTimeMillis();
   private Object myHintObject;
 
   public Message(MessageKind kind, @Nullable String sender, String text) {
@@ -95,7 +97,7 @@ public class Message implements IMessage {
 
   @Override
   public long getCreationTime() {
-    return myCreationTime;
+    return myCreationTime.toEpochMilli();
   }
 
   /**
