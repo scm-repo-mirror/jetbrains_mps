@@ -92,7 +92,6 @@ import jetbrains.mps.ide.ui.finders.ModelUsagesFinder;
 import jetbrains.mps.ide.ui.finders.ModuleUsagesFinder;
 import jetbrains.mps.lang.migration.runtime.base.VersionFixer;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.project.DescriptorTargetFileAlreadyExistsException;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.MPSProject;
 import jetbrains.mps.project.ModuleInstanceCondition;
@@ -552,11 +551,10 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
               public void run(@NotNull ProgressIndicator indicator) {
                 WaitForProgressToShow.runOrInvokeAndWaitAboveProgress(() -> {
                   myMPSProject.getModelAccess().executeCommand(() -> {
-                    try {
-                      Renamer.renameModuleWithSubModules(myModule, finalRenameTo, Renamer.getSubModules(myMPSProject.getRepository(), myModule), ModulePropertiesConfigurable.this.myMPSProject);
-                    } catch (DescriptorTargetFileAlreadyExistsException e) {
-                      LogManager.getLogger(MPSPropertiesConfigurable.class).error(e);
-                    }
+                    new Renamer().renameModuleWithSubModules(myModule,
+                                                             finalRenameTo,
+                                                             Renamer.getSubModules(myMPSProject.getRepository(), myModule),
+                                                             ModulePropertiesConfigurable.this.myMPSProject);
                   });
                 });
               }

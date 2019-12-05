@@ -41,13 +41,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class SModuleBase implements SModule {
   private static final Logger LOG = LogManager.getLogger(SModuleBase.class);
-  public static final Comparator<SModel> MODEL_BY_NAME_COMPARATOR = Comparator.comparing(m -> m.getName().getValue());
+  private static final Comparator<SModel> MODEL_BY_NAME_COMPARATOR = Comparator.comparing(m -> m.getName().getValue());
 
   private volatile SRepository myRepository = null;
 
-  private List<SModuleListener> myListeners = new CopyOnWriteArrayList<>();
+  private final List<SModuleListener> myListeners = new CopyOnWriteArrayList<>();
 
   private final Set<SModelBase> myModels = new LinkedHashSet<>();
+
   /**
    * Sorted (!) list of models we return from {@link #getModels}, discarded on any change to myModels.
    * This is a workaround for MPS-29587 to get old behavior (when @descriptor models come last in the list)

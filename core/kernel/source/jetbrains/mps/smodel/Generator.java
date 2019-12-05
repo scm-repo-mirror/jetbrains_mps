@@ -85,53 +85,6 @@ public class Generator extends ReloadableModuleBase {
     setModuleReference(myGeneratorDescriptor.getModuleReference());
   }
 
-  //models will be named like xxx.modelName, where xxx is a part of newName before sharp symbol
-  @Override
-  public void rename(@NotNull String newModuleName) {
-    assertCanChange();
-    final String oldModuleName = getModuleName();
-    final String oldModuleNameStem = nameUpToSharp(oldModuleName);
-    newModuleName = nameUpToSharp(newModuleName);
-    renameModels(oldModuleNameStem, newModuleName, false);
-
-    //see MPS-18743, need to save before setting descriptor
-    getRepository().saveAll();
-
-    // MPS-22787 - update generator id
-    int sharpIndexNew = newModuleName.indexOf('#');
-    if (sharpIndexNew > 0) {
-      // new name comes with a #suffix, no need to copy old one
-      myGeneratorDescriptor.setNamespace(newModuleName);
-    } else {
-      // keep old #suffix, if any.
-      // XXX in fact, I see no reason to do that. Instead, caller shall supply complete name.
-      // Kept for compatibility reasons (rename comes with owner language's name, and we don't want module names to be the same
-      // for language and its generator)
-      int sharpIndexOld = oldModuleName.indexOf('#');
-      assert sharpIndexNew < 0; // new name without '#'
-      myGeneratorDescriptor.setNamespace(sharpIndexOld > 0 ? newModuleName + oldModuleName.substring(sharpIndexOld) : newModuleName);
-    }
-    // FIXME why there's no fireModuleRenamed() as in super.rename()???
-    //       it seems that the only client of the notification, ProjectBase, assumes there are no generator modules coming in notification (IAE when
-    //       descriptor file is null)
-
-    final IFile moduleFolder = getModuleSourceDir();
-    // Only rename generation output path if we expect language folder rename (is equal to language name)
-    if (moduleFolder!= null && moduleFolder.getName().equals(oldModuleNameStem)) {
-      // TODO: remove, when generator will call super method
-      // Update output path for generated files
-      final String generatorOutputPath = ProjectPathUtil.getGeneratorOutputPath(myGeneratorDescriptor);
-      if (generatorOutputPath != null && generatorOutputPath.contains(oldModuleNameStem)) {
-        // FIXME this is not precise, would be better to reduce original name to ${module}/path and expand back with new ${module} value
-        // FIXME who's responsible to rename the fs folder?
-        ProjectPathUtil.setGeneratorOutputPath(myGeneratorDescriptor, generatorOutputPath.replace(oldModuleNameStem, nameUpToSharp(newModuleName)));
-      }
-    }
-    if (!isChanged()) {
-      setChanged();
-      fireChanged();
-    }
-  }
 
   @Override
   public void attach(@NotNull SRepository repository) {
@@ -286,16 +239,6 @@ public class Generator extends ReloadableModuleBase {
     myGeneratorDescriptor = generatorDescriptor;
     setModuleReference(myGeneratorDescriptor.getModuleReference());
     reloadAfterDescriptorChange();
-  }
-
-  /**
-   * For some obscure historical reasons, module name for generator uses `#` to keep two parts, left-hand expected to match
-   * source language, right-hand to be unique. We gradually move towards regular module names for generators as well, but
-   * have to support names with sharp as well.
-   */
-  private static String nameUpToSharp(String generatorModuleName) {
-    int sharp = generatorModuleName.indexOf("#");
-    return sharp < 0 ? generatorModuleName : generatorModuleName.substring(0, sharp);
   }
 
   public static class GeneratorModelsAutoImports extends AutoImportsContributor {

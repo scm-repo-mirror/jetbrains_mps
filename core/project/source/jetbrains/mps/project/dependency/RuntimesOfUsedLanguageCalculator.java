@@ -102,7 +102,7 @@ class RuntimesOfUsedLanguageCalculator {
       }
       Collection<Dependency> dependencies = descriptor.getDependencies();
       for (Dependency dependency : dependencies) {
-        if (SDependencyScope.RUNTIME.equals(dependency.getScope())) {
+        if (SDependencyScope.RUNTIME == dependency.getScope()) {
           result.add(dependency.getModuleRef());
         }
       }

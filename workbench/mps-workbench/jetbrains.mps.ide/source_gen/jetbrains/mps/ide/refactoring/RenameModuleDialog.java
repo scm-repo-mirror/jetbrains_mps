@@ -16,12 +16,12 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.refactoring.Renamer;
-import jetbrains.mps.project.DescriptorTargetFileAlreadyExistsException;
 import org.apache.log4j.Level;
 import javax.swing.JComponent;
 import com.intellij.ui.components.JBPanel;
 import java.awt.FlowLayout;
 import java.util.Collections;
+import java.util.List;
 import javax.swing.JLabel;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.util.ui.UIUtil;
@@ -32,7 +32,7 @@ public class RenameModuleDialog extends RenameDialog {
   private final AbstractModule myModule;
   private final MPSProject myProject;
   private JPanel myOptionsPanel;
-  private Collection<AbstractModule> mySubModules;
+  private List<AbstractModule> mySubModules;
 
   public RenameModuleDialog(MPSProject project, AbstractModule module) throws HeadlessException {
     super(project.getProject(), module.getModuleName(), "module");
@@ -71,13 +71,7 @@ public class RenameModuleDialog extends RenameDialog {
     myProject.getRepository().getModelAccess().executeCommand(new Runnable() {
       public void run() {
         final String newModuleName = getCurrentValue();
-        try {
-          Renamer.renameModuleWithSubModules(myModule, newModuleName, mySubModules, myProject);
-        } catch (DescriptorTargetFileAlreadyExistsException e) {
-          if (LOG.isEnabledFor(Level.ERROR)) {
-            LOG.error("", e);
-          }
-        }
+        new Renamer().renameModuleWithSubModules(myModule, newModuleName, mySubModules, myProject);
         RenameModuleDialog.super.doRefactoringAction();
       }
     });

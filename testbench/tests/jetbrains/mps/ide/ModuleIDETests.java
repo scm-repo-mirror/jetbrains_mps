@@ -20,7 +20,6 @@ import jetbrains.mps.extapi.persistence.FileBasedModelRoot;
 import jetbrains.mps.ide.newSolutionDialog.NewModuleUtil;
 import jetbrains.mps.module.ModuleDeleteHelper;
 import jetbrains.mps.project.AbstractModule;
-import jetbrains.mps.project.DescriptorTargetFileAlreadyExistsException;
 import jetbrains.mps.project.DevKit;
 import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.Solution;
@@ -46,6 +45,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -240,14 +240,9 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
       boolean mustBeMoved = module.getModuleName().equals(module.getModuleSourceDir().getName());
       final SModuleId moduleId = module.getModuleId();
 
-      try {
-        Renamer.renameModuleWithSubModules(module, newModuleName, subModules, myProject);
-      } catch (DescriptorTargetFileAlreadyExistsException e) {
-        throw new RuntimeException(e);
-      }
+      new Renamer().renameModuleWithSubModules(module, newModuleName, new ArrayList<>(subModules), myProject);
 
-      // Module is reloaded after rename, so need to update reference
-      // FIXME THIS IS SOOO WRONG
+      Assert.assertNull(module.getRepository());
       module = (AbstractModule) myProject.getRepository().getModule(moduleId);
       Assert.assertNotNull("Renamed module was not found in project repository by SModuleId", module);
 
@@ -301,6 +296,8 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
 
       // Check submodules
       for (AbstractModule subModule : subModules) {
+        Assert.assertNull(subModule.getRepository());
+        subModule = (AbstractModule) myProject.getRepository().getModule(subModule.getModuleId());
         Assert.assertTrue(subModule.getModuleSourceDir().isDescendant(module.getModuleSourceDir()));
 
         // Check that model roots content folder is updated
@@ -419,11 +416,7 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
     invokeInCommand(() -> langRef.set(NewModuleUtil.createLanguage(moduleName, getNewDirInProject(moduleName), myProject)));
     invokeInCommand(() -> {
       @NotNull Language lang = langRef.get();
-      try {
-        Renamer.renameModule(lang, newModuleName, myProject);
-      } catch (DescriptorTargetFileAlreadyExistsException e) {
-        throw new RuntimeException(e);
-      }
+      new Renamer().renameModule(lang, newModuleName, myProject);
       deleteModule(lang, deleteFiles);
       CachingFile descriptorFile = (CachingFile) lang.getDescriptorFile();
       Assert.assertNotNull(descriptorFile);
@@ -444,11 +437,7 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
       @NotNull Language lang = langRef.get();
       saveProjectInTest();
       projectBackup.doBackup();
-      try {
-        Renamer.renameModule(lang, newModuleName, myProject);
-      } catch (DescriptorTargetFileAlreadyExistsException e) {
-        throw new RuntimeException(e);
-      }
+      new Renamer().renameModule(lang, newModuleName, myProject);
 
       lang = (Language) myProject.getRepository().getModule(langRef.get().getModuleId());
       // FIXME THIS IS SOOO WRONG

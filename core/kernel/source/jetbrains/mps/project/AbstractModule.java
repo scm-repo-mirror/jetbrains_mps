@@ -39,6 +39,8 @@ import org.apache.log4j.Logger;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.mps.annotations.Immutable;
+import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
@@ -95,6 +97,7 @@ import static org.jetbrains.mps.openapi.module.FacetsFacade.FacetFactory;
  *
  * @see ModuleDescriptor for the details
  */
+@Immutable
 public abstract class AbstractModule extends SModuleBase implements EditableSModule {
   private static final Logger LOG = LogManager.getLogger(AbstractModule.class);
 
@@ -105,13 +108,17 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
   /**
    * All paths concerning a module must be either absolute or relative to this 'anchor' file.
    * This is a rational idea since keeping the same information twice does not make sense.
-   * Moreover moving or renaming a module gets just simpler
+   *
+   * please do not mutate the field
    */
-  @Nullable private IFile myDescriptorFile;
+  @Nullable
+  @Immutable
+  private final IFile myDescriptorFile;
+
   @NotNull private final FileSystem myFileSystem;
   private SModuleReference myModuleReference;
-  private Set<ModelRoot> mySModelRoots = new LinkedHashSet<>();
-  private Set<ModuleFacetBase> myFacets = new LinkedHashSet<>();
+  private final Set<ModelRoot> mySModelRoots = new LinkedHashSet<>();
+  private final Set<ModuleFacetBase> myFacets = new LinkedHashSet<>();
 
   private boolean myChanged = false;
 
@@ -541,67 +548,6 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
     return descriptor == null ? 0 : descriptor.getModuleVersion();
   }
 
-  // FIXME rename model roots
-  public void rename(@NotNull String newModuleName) throws DescriptorTargetFileAlreadyExistsException {
-    SModuleReference oldRef = getModuleReference();
-    final String oldModuleName = getModuleName();
-
-    save(); //see MPS-18743, need to save before setting descriptor
-
-    ModuleDescriptor descriptor = getModuleDescriptor();
-    IFile descriptorFile = getDescriptorFile();
-    if (descriptorFile != null) {
-      final String newDescriptorName = newModuleName + MPSExtentions.DOT + FileUtil.getExtension(descriptorFile.getName());
-
-        //noinspection ConstantConditions
-        if (descriptorFile.getParent().findChild(newDescriptorName).exists()) {
-          throw new DescriptorTargetFileAlreadyExistsException(descriptorFile, newDescriptorName);
-        }
-        String newNameWithExt = newModuleName + "." + FileUtil.getExtension(descriptorFile.getName());
-        descriptorFile.rename(newNameWithExt);
-        // update descriptor since IFile is immutable
-        myDescriptorFile = descriptorFile.getParent().findChild(newNameWithExt);
-    }
-
-    if (descriptor != null) {
-      descriptor.setNamespace(newModuleName);
-      setModuleDescriptor(descriptor);
-    }
-
-    // Rename models after module to ensure, that they will have short new name without module prefix
-    renameModels(oldModuleName, newModuleName, true);
-
-    fireModuleRenamed(oldRef);
-  }
-
-  /**
-   * Must be transferred to workbench or elsewhere as
-   * a separate listening mechanism. An induced contract is
-   * not part of the module/model api, it is our desire --
-   * I would rather move it to workbench
-   * [AP]
-   * Please do not use unless absolutely necessary
-   */
-  /*@Deprecated*/
-  public void renameModels(String oldName, String newName, boolean moveModels) {
-    //if module name is a prefix of it's model's name or they are equals - rename the model, too
-    Collection<SModel> models = new ArrayList<>(getModels());
-    for (SModel m : models) {
-      if (!m.isReadOnly()) {
-        SModelName oldModelName = m.getName();
-        if (oldModelName.getNamespace().startsWith(oldName) || oldModelName.getLongName().equals(oldName)) {
-          if (m instanceof EditableSModel) {
-            final String namespace = oldModelName.getLongName().equals(oldName)
-                                     ? newName.substring(0, newName.lastIndexOf("." + oldModelName.getSimpleName())) // handle equal module & model names
-                                     : newName + oldModelName.getNamespace().substring(oldName.length());
-            SModelName newModelName = new SModelName(namespace, oldModelName.getSimpleName(), oldModelName.getStereotype());
-            ((EditableSModel) m).rename(newModelName.getValue(), moveModels && m.getSource() instanceof FileDataSource);
-          }
-        }
-      }
-    }
-  }
-
   @NotNull
   public SearchScope getScope() {
     //    assertCanRead(); XXX There was no reason to guard access to the field, but now there's a class that initializes at construction time.
@@ -727,6 +673,9 @@ public abstract class AbstractModule extends SModuleBase implements EditableSMod
   // unlike similar method in SModel, doesn't take SRepository now
   // according to present use cases, we iterate modules of a repository and update them,
   // hence it's superficial  to pass repository in here (although might add one for consistency)
+  // TODO discuss: isn't it plain better to personally track all the dependency renames for each module (and model)?
+  //      or it could be #save where we re-resolve all the references in the descriptor
+  //  the current method exposes the persistence stuff of this module, which must be of noone's concern
   public void updateExternalReferences() {
     ModuleDescriptor moduleDescriptor = getModuleDescriptor();
     final SRepository repository = getRepository();

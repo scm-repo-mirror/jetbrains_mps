@@ -133,7 +133,6 @@ public abstract class ProjectBase extends Project {
       return false;
     }
     myModuleToPathMap.put(module.getModuleReference(), path);
-    addRenameListener(module);
     return true;
   }
 
@@ -169,15 +168,6 @@ public abstract class ProjectBase extends Project {
       //       (e.g. associated with a project root).
       // XXX perhaps, shall keep record of modules added this way, e.g. to report them from Project.getProjectModules()
       associateWithProjectRepo(module);
-    }
-  }
-
-  private void addRenameListener(@NotNull SModule module) {
-    if (module instanceof AbstractModule) {
-      // ModuleRenameListener doesn't tolerate anything but AbstractModule. Not well-mannered, imo.
-      ModuleRenameListener listener = new ModuleRenameListener();
-      myModulesListeners.put(module.getModuleReference(), listener);
-      module.addModuleListener(listener);
     }
   }
 
@@ -358,27 +348,5 @@ public abstract class ProjectBase extends Project {
 
   public final void removeListener(@NotNull ProjectModuleLoadingListener listener) {
     myModuleLoader.removeListener(listener);
-  }
-
-  // XXX use of SModule listener to detect renames smells wrong. I'd say Project shall deal with files, on a lower level than SRepository.
-  //     Perhaps, this comes along missing file rename event from FileListener?
-  // AP I think that there must be no rename listening at all. It is a pure UI clients' desire to have the *opened* projects
-  // updated to the renaming of the module
-  private class ModuleRenameListener extends SModuleListenerBase {
-    @Override
-    public void moduleRenamed(@NotNull SModule module, @NotNull SModuleReference oldRef) {
-      // why exceptions, why so intolerable? Just because we added the listener to a module with file?
-      if (!(module instanceof AbstractModule)) {
-        throw new IllegalArgumentException("Support only abstract module here " + module);
-      }
-      ModulePath oldPath = myModuleToPathMap.remove(module.getModuleReference());
-      IFile descriptorFile = ((AbstractModule) module).getDescriptorFile();
-      if (descriptorFile == null) {
-        throw new IllegalArgumentException("The descriptor file is null " + module);
-      }
-      ModulePath newPath = new ModulePath(descriptorFile.getPath(), oldPath.getVirtualFolder());
-      myProjectDescriptor.replacePath(oldPath, newPath);
-      myModuleToPathMap.put(module.getModuleReference(), newPath);
-    }
   }
 }

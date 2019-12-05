@@ -87,11 +87,15 @@ public class ModelDeleteHelper {
       // e.g. IdeCommandUtil is more careful when executing #removeGenSources console command
       if (modelOutput != null) {
         possiblyEmptyDirsToPrune.add(modelOutput.getParent());
-        modelOutput.delete();
+        if (modelOutput.exists()) {
+          modelOutput.delete();
+        }
       }
       if (modelCaches != null) {
         possiblyEmptyDirsToPrune.add(modelCaches.getParent());
-        modelCaches.delete();
+        if (modelCaches.exists()) {
+          modelCaches.delete();
+        }
       }
     }
 

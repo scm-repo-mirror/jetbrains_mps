@@ -19,8 +19,6 @@ import jetbrains.mps.extapi.module.SRepositoryExt;
 import jetbrains.mps.module.ReloadableModule;
 import jetbrains.mps.module.ReloadableModuleBase;
 import jetbrains.mps.module.SDependencyImpl;
-import jetbrains.mps.project.DescriptorTargetFileAlreadyExistsException;
-import jetbrains.mps.project.facets.TestsFacet;
 import jetbrains.mps.project.io.DescriptorIO;
 import jetbrains.mps.project.io.DescriptorIOFacade;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
@@ -297,14 +295,6 @@ public class Language extends ReloadableModuleBase implements ReloadableModule {
   public Collection<Generator> getOwnedGenerators() {
     Set<SModuleReference> ownedGenerators = getModuleDescriptor().getGenerators().stream().map(ModuleDescriptor::getModuleReference).collect(Collectors.toSet());
     return getGenerators().stream().filter(g -> ownedGenerators.contains(g.getModuleReference())).collect(Collectors.toList());
-  }
-
-  @Override
-  public void rename(@NotNull String newModuleName) throws DescriptorTargetFileAlreadyExistsException {
-    for (Generator g : getOwnedGenerators()) {
-      g.rename(newModuleName);
-    }
-    super.rename(newModuleName);
   }
 
   /**
