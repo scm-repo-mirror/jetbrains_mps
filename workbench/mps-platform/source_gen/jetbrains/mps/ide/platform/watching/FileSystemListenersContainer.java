@@ -11,6 +11,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
+
+import jetbrains.mps.vfs.refresh.FileSystemListener;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.util.FileUtil;
@@ -27,12 +29,17 @@ import java.util.Collections;
 public class FileSystemListenersContainer {
   private final ReadWriteLock myLock = new ReentrantReadWriteLock();
   private final Node myRootNode = new Node(null, null);
-  private final ConcurrentMap<FileSystemListener, String> myListener2Path = new ConcurrentHashMap<FileSystemListener, String>();
+  private final ConcurrentMap<FileSystemListener, String> myListener2Path = new ConcurrentHashMap<>();
 
-  /*package*/ static class ListenersForPath {
+
+  public static class ListenersForPath {
     /*package*/ final List<FileSystemListener> ancestorListeners = ListSequence.fromList(new ArrayList<FileSystemListener>());
     /*package*/ final List<FileSystemListener> concretePathListeners = ListSequence.fromList(new ArrayList<FileSystemListener>());
     /*package*/ final List<FileSystemListener> descendantsListeners = ListSequence.fromList(new ArrayList<FileSystemListener>());
+
+    public List<FileSystemListener> getMeAndDescendants() {
+      return ListSequence.fromList(concretePathListeners).union(ListSequence.fromList(descendantsListeners)).toListSequence();
+    }
   }
 
   public FileSystemListenersContainer() {
@@ -137,7 +144,7 @@ public class FileSystemListenersContainer {
     @Nullable
     private List<FileSystemListener> myListeners;
     private final String myPathPart;
-    private final List<Node> myChildren = new ArrayList<Node>(4);
+    private final List<Node> myChildren = new ArrayList<Node>();
     @Nullable
     private final Node myParent;
 
@@ -207,7 +214,7 @@ public class FileSystemListenersContainer {
 
     /*package*/ void addListener(@NotNull FileSystemListener l) {
       if (myListeners == null) {
-        myListeners = new ArrayList<FileSystemListener>(4);
+        myListeners = new ArrayList<FileSystemListener>();
       }
       myListeners.add(l);
     }
