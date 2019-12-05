@@ -18,7 +18,6 @@ package jetbrains.mps.ide.vfs;
 import com.intellij.openapi.Disposable;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
-import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.fileTypes.FileTypeManager;
 import com.intellij.openapi.util.io.StreamUtil;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -35,6 +34,8 @@ import jetbrains.mps.vfs.refresh.CachingContext;
 import jetbrains.mps.vfs.refresh.CachingFile;
 import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.vfs.refresh.DefaultCachingContext;
+import jetbrains.mps.vfs.refresh.FileListener;
+import jetbrains.mps.vfs.refresh.FileListenerAdapter;
 import jetbrains.mps.vfs.refresh.FileSystemListener;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import org.apache.log4j.LogManager;
@@ -94,13 +95,23 @@ public abstract class BaseIdeaFileSystem implements IFileSystem, CachingFileSyst
     return IFileSystem.super.findExistingFile(path);
   }
 
+  @Override
   public void addListener(@NotNull FileSystemListener listener) {
-    ApplicationManager.getApplication().runReadAction(() -> {myListenersContainer.addListener(listener);});
+    addListener1(listener.getFileToListen(), listener);
   }
 
   @Override
   public void removeListener(@NotNull FileSystemListener listener) {
-    myListenersContainer.removeListener(listener);
+    removeListener1(listener.getFileToListen(), listener);
+  }
+
+  private void addListener1(@NotNull IFile file, @NotNull FileListener listener) {
+    FileListenerAdapter listener1 = new FileListenerAdapter(file, listener);
+    ApplicationManager.getApplication().runReadAction(() -> myListenersContainer.addListener(listener1));
+  }
+
+  private void removeListener1(@NotNull IFile file, @NotNull FileListener listener) {
+    myListenersContainer.removeListener(new FileListenerAdapter(file, listener));
   }
 
   public FileSystemListenersContainer getListenersContainer() {

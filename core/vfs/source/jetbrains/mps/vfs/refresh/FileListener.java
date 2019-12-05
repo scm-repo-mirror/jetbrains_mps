@@ -19,7 +19,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.util.ProgressMonitor;
 
 /**
- * A listener to a file
+ * A listener to file system events
+ *
+ * @see jetbrains.mps.vfs.IFile#addListener(FileListener)
  *
  * Created by apyshkin on 6/23/16.
  */
@@ -33,7 +35,11 @@ public interface FileListener extends FileEventProcessor {
 
   @NotNull
   default FileListeningPreferences listeningPreferences() {
-    // the default comes totally from the legacy -- it must be changed later [AP]
-    return FileListeningPreferences.construct().notifyOnDescendantCreation().notifyOnDescendantChange().notifyOnDescendantRemoval().build();
+    // the default comes totally from the legacy -- it could be changed later [AP]
+    return FileListeningPreferences.construct()
+                                   .notifyOnDescendantCreation()
+                                   .notifyOnDescendantChange()
+                                   .notifyOnDescendantRemoval()
+                                   .build();
   }
 }

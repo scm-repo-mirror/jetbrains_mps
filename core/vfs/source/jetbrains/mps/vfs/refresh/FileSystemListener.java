@@ -15,7 +15,6 @@
  */
 package jetbrains.mps.vfs.refresh;
 
-import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.IFile;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,12 +22,10 @@ import org.jetbrains.annotations.Nullable;
  * The client points the file he wants to know about and also
  * enumerates some other listeners, which are supposed to get notifications before the client.
  *
- * FIXME: AP: too complicated: revise and remove
- * FIXME this listener attaches to {@link IFile} obviously.
- * @deprecated use {@link FileListener} in the case when you do not need to have any dependencies. Otherwise carry on with this one.
+ * Sometimes it is useful to have a single listener and to change IFile (FileListener)
+ *
+ * @see FileListenerAdapter
  */
-@Deprecated
-@ToRemove(version = 3.5)
 public interface FileSystemListener extends FileListener {
   @Nullable IFile getFileToListen();
 }

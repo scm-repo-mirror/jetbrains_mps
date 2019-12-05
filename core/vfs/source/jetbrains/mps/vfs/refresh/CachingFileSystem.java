@@ -18,11 +18,14 @@ package jetbrains.mps.vfs.refresh;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 
 /**
  * special fs for the caching files
+ *
+ * AP : Now I think we could achieve the same introducing a boolean method in FileSystem
  *
  * Created by apyshkin on 6/20/16.
  */

@@ -84,7 +84,6 @@ public final class FileListeningPreferences {
 
     /**
      * a listener attached to the file 's1/models/a.mps' will receive the notification for a change of the 's1/models' directory
-     * fixme does it make any sense? -- probably
      */
     public PreferencesBuilder notifyOnAncestorChange() {
       myNotifyOnParentChange = true;

@@ -25,6 +25,8 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.vfs.VirtualFileSystem;
 import com.intellij.openapi.vfs.newvfs.ArchiveFileSystem;
 import com.intellij.openapi.vfs.newvfs.NewVirtualFile;
+import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer;
+import jetbrains.mps.ide.platform.watching.FileSystemListenersContainer.ListenersForPath;
 import jetbrains.mps.util.IFileUtil;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.vfs.IFileSystem;
@@ -35,6 +37,7 @@ import jetbrains.mps.vfs.refresh.CachingFile;
 import jetbrains.mps.vfs.refresh.CachingFileSystem;
 import jetbrains.mps.vfs.refresh.FileListener;
 import jetbrains.mps.vfs.refresh.FileListenerAdapter;
+import jetbrains.mps.vfs.refresh.FileSystemListener;
 import jetbrains.mps.vfs.util.PathFormatChecker;
 import jetbrains.mps.vfs.util.PathUtil;
 import org.apache.log4j.LogManager;
@@ -53,9 +56,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * NOTE the IdeaFiles' equality now totally depends on the starting string.
@@ -74,9 +75,6 @@ public class IdeaFile implements IFile, CachingFile {
   @NotNull
   private final String myPath;
 
-  @Nullable
-  private VirtualFile myVirtualFilePtr = null;
-
   @Internal
   public IdeaFile(BaseIdeaFileSystem fileSystem, @NotNull String path) {
     myFS = fileSystem;
@@ -85,7 +83,6 @@ public class IdeaFile implements IFile, CachingFile {
 
   private IdeaFile(BaseIdeaFileSystem fileSystem, @NotNull VirtualFile virtualFile) {
     myFS = fileSystem;
-    myVirtualFilePtr = virtualFile;
     String path = virtualFile.getPath();
     new PathFormatChecker(path).absolute().noDots().osIndependentPath().noOddEndSlash();
     myPath = path;
@@ -94,11 +91,8 @@ public class IdeaFile implements IFile, CachingFile {
   @NotNull
   @Override
   public String getPath() {
-    if (findVirtualFile()) {
-      return myVirtualFilePtr.getPath();
-    } else {
-      return myPath;
-    }
+    VirtualFile virtualFile = findVirtualFile();
+    return virtualFile != null ? virtualFile.getPath() : myPath;
   }
 
   @Override
@@ -109,11 +103,9 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public URL getUrl() throws MalformedURLException {
-    if (findVirtualFile()) {
-      return VfsUtilCore.convertToURL(myVirtualFilePtr.getUrl());
-    } else {
-      return new File(myPath).toURI().toURL();
-    }
+    VirtualFile virtualFile = findVirtualFile();
+    return virtualFile != null ? VfsUtilCore.convertToURL(virtualFile.getUrl())
+                               : new File(myPath).toURI().toURL();
   }
 
   @NotNull
@@ -132,9 +124,9 @@ public class IdeaFile implements IFile, CachingFile {
   @NotNull
   @Override
   public String getName() {
-    if (findVirtualFile()) {
-      assert myVirtualFilePtr != null;
-      return myVirtualFilePtr.getName();
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      return virtualFile.getName();
     } else {
       if (PathUtil.isRoot(myPath)) {
         return myPath;
@@ -149,8 +141,9 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public IdeaFile getParent() {
-    if (findVirtualFile()) {
-      VirtualFile parentVirtualFile = myVirtualFilePtr.getParent();
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      VirtualFile parentVirtualFile = virtualFile.getParent();
       if (parentVirtualFile != null) {
         return new IdeaFile(myFS, parentVirtualFile);
       }
@@ -169,12 +162,13 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public List<IFile> getChildren() {
-    if (findVirtualFile()) {
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
       VirtualFile[] children = new VirtualFile[0];
-      if (myVirtualFilePtr.isValid()) {
-        children = myVirtualFilePtr.getChildren();
+      if (virtualFile.isValid()) {
+        children = virtualFile.getChildren();
       }
-      ArrayList<IdeaFile> result = new ArrayList<>();
+      List<IdeaFile> result = new ArrayList<>();
       for (VirtualFile child : children) {
         result.add(new IdeaFile(myFS, child));
       }
@@ -205,38 +199,38 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public boolean isDirectory() {
-    return findVirtualFile() ? myVirtualFilePtr.isDirectory() : new File(myPath).isDirectory();
+    VirtualFile virtualFile = findVirtualFile();
+    return virtualFile != null ? virtualFile.isDirectory()
+                               : new File(myPath).isDirectory();
   }
 
   @Override
   public boolean isReadOnly() {
-    return exists() && !myVirtualFilePtr.isWritable();
+    if (!exists()) {
+      return false;
+    }
+    VirtualFile virtualFile = findVirtualFile();
+    return virtualFile != null && !virtualFile.isWritable();
   }
 
   @Override
   public long lastModified() {
-    if (findVirtualFile()) {
-      return myVirtualFilePtr.getTimeStamp();
-    } else {
-      return -1;
-    }
+    VirtualFile virtualFile = findVirtualFile();
+    return virtualFile != null ? virtualFile.getTimeStamp() : -1;
   }
 
   @Override
   public long length() {
-    if (findVirtualFile()) {
-      return myVirtualFilePtr.getLength();
-    } else {
-      return -1;
-    }
+    VirtualFile virtualFile = findVirtualFile();
+    return virtualFile != null ? virtualFile.getLength() : -1;
   }
 
   @Override
   public boolean createNewFile() {
     ApplicationManager.getApplication().assertWriteAccessAllowed();
-    if (findVirtualFile()) {
-      assert myVirtualFilePtr != null;
-      return !myVirtualFilePtr.isDirectory();
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      return !virtualFile.isDirectory();
     } else {
       try {
         IdeaFile parent = getParent();
@@ -247,7 +241,7 @@ public class IdeaFile implements IFile, CachingFile {
         }
         String fileName = getName();
         directory.findChild(fileName); // This is a workaround for IDEA-67279
-        myVirtualFilePtr = directory.createChildData(getFileSystem(), fileName);
+        directory.createChildData(getFileSystem(), fileName);
         return true;
       } catch (IOException e) {
         LOG.error("Got a problem while creating a new file", e);
@@ -288,14 +282,12 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public boolean mkdirs() {
-    ApplicationManager.getApplication().assertWriteAccessAllowed();
-    if (findVirtualFile()) {
-      assert myVirtualFilePtr != null;
-      return myVirtualFilePtr.isDirectory();
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      return virtualFile.isDirectory();
     } else {
       try {
-        myVirtualFilePtr = createDirectories(myPath);
-        return true;
+        return createDirectories(myPath) != null;
       } catch (IOException ex) {
         return false;
       }
@@ -304,34 +296,34 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public boolean exists() {
-    return findVirtualFile() && myVirtualFilePtr.exists();
+    VirtualFile virtualFile = findVirtualFile();
+    return virtualFile != null && virtualFile.exists();
   }
 
   @Override
   public boolean delete() {
-    if (findVirtualFile()) {
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
       try {
-        assert myVirtualFilePtr != null;
-        myVirtualFilePtr.delete(getFileSystem());
+        checkNoListenersWhenRemove();
+        virtualFile.delete(getFileSystem());
         return true;
       } catch (IOException e) {
-        LOG.warn("Could not delete file: ", e);
+        LOG.warn("Could not delete the file: ", e);
         return false;
       }
     } else {
-//      LOG.warn("Could not find the file to delete: " + myPath/*, new Throwable()*/);
-      // Is it not ok to return true in the case when we did not find any virtual file [AP] -- (comes from the past)
-      return true;
+      LOG.error("Could not find the file to delete: " + myPath, new Throwable());
+      return false;
     }
   }
 
   @Override
   public boolean rename(@NotNull String newName) {
     try {
-      if (findVirtualFile()) {
-        assert myVirtualFilePtr != null;
-        myVirtualFilePtr.rename(getFileSystem(), newName);
-        myVirtualFilePtr = findIdeaFile(false);
+      VirtualFile virtualFile = findVirtualFile();
+      if (virtualFile != null) {
+        virtualFile.rename(getFileSystem(), newName);
         return true;
       } else {
         LOG.error("Could not find the file: " + myPath, new Throwable());
@@ -343,19 +335,53 @@ public class IdeaFile implements IFile, CachingFile {
     }
   }
 
+  private void checkNoListenersWhenRemove() {
+    FileSystemListenersContainer container = myFS.getListenersContainer();
+    ListenersForPath listenersForPath = container.getListenersForPath(myPath);
+    List<FileSystemListener> all = listenersForPath.getMeAndDescendants();
+    if (!all.isEmpty()) {
+      LOG.warn(String.format("%d listener(s) have not been unregistered for the path '%s':", all.size(), getPath()));
+      for (FileSystemListener listener : all) {
+        myFS.removeListener(listener);
+      }
+    }
+  }
+
+  @NotNull
+  @Override
+  public IFile rename1(@NotNull String newName) {
+    try {
+      VirtualFile virtualFile = findVirtualFile();
+      if (virtualFile != null) {
+        VirtualFile existingNewLocation = virtualFile.getParent().findChild(newName);
+        if (existingNewLocation != null) {
+          LOG.info("Could not rename the file, such file already exists: " + existingNewLocation.getPath());
+          return this;
+        }
+        checkNoListenersWhenRemove();
+        virtualFile.rename(getFileSystem(), newName);
+        return getParent().findChild(newName);
+      } else {
+        LOG.warn("Could not find the file: " + myPath);
+        return this;
+      }
+    } catch (IOException e) {
+      LOG.error("Could not rename the file: ", e);
+      return this;
+    }
+  }
+
   @Override
   public boolean move(@NotNull IFile newParent) {
-    if (newParent instanceof IdeaFile && ((IdeaFile) newParent).findVirtualFile()) {
+    if (!(newParent instanceof IdeaFile)) {
+      return false;
+    }
+    VirtualFile newParentFile = ((IdeaFile) newParent).findVirtualFile();
+    if (newParentFile != null) {
       try {
-        if (findVirtualFile()) {
-          assert myVirtualFilePtr != null;
-          VirtualFile parentFile = ((IdeaFile) newParent).getVirtualFile();
-          if (parentFile == null) {
-            LOG.error("Could not find the parent file: " + newParent + ". The file was not moved", new Throwable());
-            return false;
-          }
-          myVirtualFilePtr.move(getFileSystem(), parentFile);
-          myVirtualFilePtr = findIdeaFile(false);
+        VirtualFile virtualFile = findVirtualFile();
+        if (virtualFile != null) {
+          virtualFile.move(getFileSystem(), newParentFile);
           return true;
         } else {
           LOG.error("Could not find the file to move: " + myPath + ". The file was not moved", new Throwable());
@@ -365,57 +391,92 @@ public class IdeaFile implements IFile, CachingFile {
         LOG.warn("Could not rename file: ", e);
         return false;
       }
-    } else {
-      return false;
     }
+    return false;
+  }
+
+  @NotNull
+  public IFile move1(@NotNull IFile newParent) {
+    if (!(newParent instanceof IdeaFile)) {
+      LOG.error("No opportunity to move from IdeaFile to non-IdeaFile yet");
+      // see Files#move, Files#copyToForeignTarget
+      return this;
+    }
+    VirtualFile newParentFile = ((IdeaFile) newParent).findVirtualFile();
+    if (newParentFile != null) {
+      try {
+        VirtualFile virtualFile = findVirtualFile();
+        if (virtualFile != null) {
+          checkNoListenersWhenRemove();
+          virtualFile.move(getFileSystem(), newParentFile);
+          return newParent.findChild(virtualFile.getName());
+        } else {
+          LOG.error("Could not find the file to move: '" + myPath + "'", new Throwable());
+          return this;
+        }
+      } catch (IOException e) {
+        LOG.warn("Could not rename file: ", e);
+        return this;
+      }
+    }
+    return this;
   }
 
   @Override
   public InputStream openInputStream() throws IOException {
-    if (findVirtualFile()) {
-      return myVirtualFilePtr.getInputStream();
-    } else {
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile == null) {
       throw new FileNotFoundException("File not found: " + myPath);
     }
+    return virtualFile.getInputStream();
   }
 
   @Override
   public OutputStream openOutputStream() throws IOException {
     ApplicationManager.getApplication().assertWriteAccessAllowed();
-    if (findVirtualFile() || createNewFile()) {
-      if (myVirtualFilePtr.getFileSystem() instanceof JarFileSystem) {
-        throw new UnsupportedOperationException("Cannot write to JAR files");
-      } else {
-        VirtualFile filePtr = myVirtualFilePtr;
-        if (!myVirtualFilePtr.getFileSystem().isCaseSensitive()) {
-          // Mac default (HFS), NTFS - are case-insensitive, looking up file "b/A" when there's "b/a" gives
-          // existing file. However, Java is strict about case, and won't allow class A to live in file a.java
-          // Hence, when we try to write into a file with the name different from one requested initially,
-          // try to bring the name up to the desired one.
-          final String desiredFileName = getName();
-          if (!filePtr.getName().equals(desiredFileName)) {
-            filePtr.rename(getFileSystem(), desiredFileName);
-          }
-          myVirtualFilePtr = findIdeaFile(false);
-        }
-        return filePtr.getOutputStream(getFileSystem());
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile == null) {
+      if (createNewFile()) {
+        virtualFile = findVirtualFile();
       }
-    } else {
+    }
+    if (virtualFile == null) {
       throw new IOException("Could not create file: " + myPath);
     }
+    if (virtualFile.getFileSystem() instanceof JarFileSystem) {
+      throw new UnsupportedOperationException("Cannot write to JAR files");
+    } else {
+      virtualFile = renameIfCaseSensitive(virtualFile);
+      return virtualFile.getOutputStream(getFileSystem());
+    }
+  }
+
+  private VirtualFile renameIfCaseSensitive(VirtualFile virtualFile) throws IOException {
+    if (!virtualFile.getFileSystem().isCaseSensitive()) {
+      // Mac default (HFS), NTFS - are case-insensitive, looking up file "b/A" when there's "b/a" gives
+      // existing file. However, Java is strict about case, and won't allow class A to live in file a.java
+      // Hence, when we try to write into a file with the name different from one requested initially,
+      // try to bring the name up to the desired one.
+      final String desiredFileName = getName();
+      if (!virtualFile.getName().equals(desiredFileName)) {
+        virtualFile.rename(getFileSystem(), desiredFileName);
+      }
+      virtualFile = findVirtualFile0(false);
+    }
+    return virtualFile;
   }
 
   @Nullable
   public VirtualFile getVirtualFile() {
-    findVirtualFile();
-    return myVirtualFilePtr;
+    return findVirtualFile();
   }
 
   @Override
   public boolean setTimeStamp(long time) {
-    if (findVirtualFile() && myVirtualFilePtr instanceof NewVirtualFile) {
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile instanceof NewVirtualFile) {
       try {
-        ((NewVirtualFile) myVirtualFilePtr).setTimeStamp(time);
+        ((NewVirtualFile) virtualFile).setTimeStamp(time);
         return true;
       } catch (IOException e) {
         LOG.warn("", e);
@@ -426,19 +487,20 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public void refresh(@NotNull CachingContext context) {
-    if (findVirtualFile()) {
-      assert myVirtualFilePtr != null;
-      myVirtualFilePtr.getChildren(); // This was added to force refresh
-      myVirtualFilePtr.refresh(!context.isSynchronous(), context.isRecursive());
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      virtualFile.getChildren(); // This was added to force refresh
+      virtualFile.refresh(!context.isSynchronous(), context.isRecursive());
     } else {
-      findVirtualFile(true);
+      findVirtualFile0(true);
     }
   }
 
   @Override
   public boolean isInArchive() {
-    if (findVirtualFile()) {
-      return myVirtualFilePtr.getFileSystem() instanceof ArchiveFileSystem;
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      return virtualFile.getFileSystem() instanceof ArchiveFileSystem;
     } else {
       return myPath.contains("!");
     }
@@ -452,9 +514,10 @@ public class IdeaFile implements IFile, CachingFile {
   @Override
   public IFile getBundleHome() {
     BaseIdeaFileSystem localFS = myFS.getLocalFS();
-    if (findVirtualFile()) {
-      if (myVirtualFilePtr.getFileSystem() instanceof ArchiveFileSystem) {
-        VirtualFile fileForJar = ((ArchiveFileSystem) myVirtualFilePtr.getFileSystem()).getLocalByEntry(myVirtualFilePtr);
+    VirtualFile virtualFile = findVirtualFile();
+    if (virtualFile != null) {
+      if (virtualFile.getFileSystem() instanceof ArchiveFileSystem) {
+        VirtualFile fileForJar = ((ArchiveFileSystem) virtualFile.getFileSystem()).getLocalByEntry(virtualFile);
         if (fileForJar == null) {
           return null;
         }
@@ -471,28 +534,14 @@ public class IdeaFile implements IFile, CachingFile {
     }
   }
 
-  /**
-   * @return true iff {@link #myVirtualFilePtr} != null
-   */
-  private boolean findVirtualFile() {
-    return findVirtualFile(false);
-  }
-
-  /**
-   * In the case when the underlying virtual file is not valid we perform a "refresh"
-   *
-   * @return true iff {@link #myVirtualFilePtr} != null
-   */
-  private boolean findVirtualFile(boolean withRefresh) {
-    if (myVirtualFilePtr == null || !myVirtualFilePtr.isValid()) {
-      myVirtualFilePtr = findIdeaFile(withRefresh);
-    }
-    return myVirtualFilePtr != null;
+  @Nullable
+  private VirtualFile findVirtualFile() {
+    return findVirtualFile0(false);
   }
 
   // null <=> file was not found
   @Nullable
-  private VirtualFile findIdeaFile(boolean withRefresh) {
+  private VirtualFile findVirtualFile0(boolean withRefresh) {
     VirtualFileSystem fileSystem = myFS.getUnderlyingFS();
     if (withRefresh) {
       return fileSystem.refreshAndFindFileByPath(myPath);
@@ -525,11 +574,7 @@ public class IdeaFile implements IFile, CachingFile {
 
   @Override
   public String toString() {
-    if (myVirtualFilePtr != null) {
-      return "IdeaFile[" + myVirtualFilePtr + "]";
-    } else {
-      return "IdeaFile[path: " + myPath + "]";
-    }
+    return "IdeaFile[path: " + myPath + "]";
   }
 
   @Override

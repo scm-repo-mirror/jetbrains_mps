@@ -24,6 +24,7 @@ import jetbrains.mps.vfs.refresh.FileListener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Immutable;
+import org.jetbrains.mps.annotations.ImmutableReturn;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -68,8 +69,11 @@ public interface IFile {
 
   /**
    * Returns a path of this file in a file system.
+   * The IFile is supposed to return always the same path as it is a pure location pointer
    */
-  @NotNull String getPath();
+  @NotNull
+  @ImmutableReturn
+  String getPath();
 
   /**
    * use getQualifiedPath()
@@ -163,9 +167,7 @@ public interface IFile {
 
   /**
    * Same listener added twice to the same file is ignored
-   * @deprecated move to CachingFile
    */
-  @ToRemove(version = 183)
   default void addListener(@NotNull FileListener listener) {
     // nop
   }
@@ -203,21 +205,58 @@ public interface IFile {
   boolean delete();
 
   /**
+   * the same as {@link #delete()} but fails silently (no log errors or exceptions) if the file does not exist
+   */
+  default boolean deleteIfExists() {
+    if (exists()) {
+      return delete();
+    }
+    return false;
+  }
+
+  /**
    * renames the file at which the instance of this <code>IFile</code> points (if it exists)
    * the file stays under the same directory and changes its name to the <code>newName</code>
+   * this method makes IFile mutable
    *
    * @return true iff success
-//   * @deprecated use {@link #move(IFile)}
+   * @deprecated clients do not see IFile as a pointer, but as a real location holder. use {@link #rename1(String)} instead
    */
-//  @Deprecated
+  @Deprecated
+  @ToRemove(version = 193)
   boolean rename(@NotNull String newName);
+
+  /**
+   * @return this if rename is unsuccessful, new IFile pointing to the new location otherwise
+   */
+  @NotNull
+  default IFile rename1(@NotNull String newName) {
+    if (!rename(newName)) {
+      return this;
+    }
+    return this.getParent().findChild(newName);
+  }
 
   /**
    * moves/renames the file at which the instance of this <code>IFile</code> points
    * @return true iff success
+   * @deprecated see #rename
    */
-//  @Deprecated
+  @Deprecated
+  @ToRemove(version = 193)
   boolean move(@NotNull IFile newParent);
+
+  /**
+   * @return this if the operation is unsuccessful, new IFile pointing to the new location otherwise
+   */
+  @NotNull
+  default IFile move1(@NotNull IFile newParent) {
+    String simpleName = getName();
+    if (!move(newParent)) {
+      return this;
+    }
+    return newParent.findChild(simpleName);
+  }
 
   InputStream openInputStream() throws IOException;
 
