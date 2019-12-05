@@ -5523,12 +5523,12 @@
                       <ref role="3cqZAo" node="5pRqAU9GS7t" resolve="n" />
                     </node>
                     <node concept="1$rogu" id="5pRqAU9GS7H" role="2OqNvi">
-                      <node concept="LIFWc" id="2f0oMWTcJdL" role="lGtFl">
-                        <property role="p6zMs" value="4" />
-                        <property role="LIFWd" value="Constant_227urv_a" />
-                        <property role="p6zMq" value="0" />
+                      <node concept="LIFWc" id="5bN91R5zB7Z" role="lGtFl">
                         <property role="ZRATv" value="true" />
                         <property role="OXtK3" value="true" />
+                        <property role="p6zMq" value="0" />
+                        <property role="p6zMs" value="4" />
+                        <property role="LIFWd" value="ALIAS_EDITOR_COMPONENT" />
                       </node>
                     </node>
                   </node>
