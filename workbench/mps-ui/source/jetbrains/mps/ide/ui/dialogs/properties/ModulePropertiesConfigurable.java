@@ -544,7 +544,7 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         String finalRenameTo = renameTo;
         ApplicationManager.getApplication().invokeLater(() -> {
           String renameTitle = RefactoringBundle.message("rename.title");
-          int dialogResult = Messages.showOkCancelDialog(myIdeaProject, getSubmodulesInfoHtml(myMPSProject, myModule),
+          int dialogResult = Messages.showOkCancelDialog(myIdeaProject, Renamer.getSubmodulesInfoHtml(myMPSProject, myModule),
                                                          renameTitle, renameTitle, Messages.CANCEL_BUTTON, UIUtil.getInformationIcon());
           if (Messages.OK == dialogResult) {
             ProgressManager.getInstance().run(new Task.Modal(myIdeaProject, "Renaming...", false) {
@@ -553,7 +553,6 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
                 WaitForProgressToShow.runOrInvokeAndWaitAboveProgress(() -> {
                   myMPSProject.getModelAccess().executeCommand(() -> {
                     new Renamer(myMPSProject).renameModule(myModule, finalRenameTo);
-
                   });
                 });
               }
@@ -564,21 +563,6 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         });
       }
     }
-  }
-
-  private static String getSubmodulesInfoHtml(@NotNull jetbrains.mps.project.Project project, @NotNull AbstractModule moduleToRename) {
-    final StringBuilder builder = new StringBuilder();
-    builder.append("<ul>");
-    for (AbstractModule subModule : new Renamer(project).getSubModules(moduleToRename)) {
-      builder.append("<li>");
-      builder.append(subModule.getModuleName());
-      if (subModule.getModuleName().contains(moduleToRename.getModuleName())) {
-        builder.append(" (will be renamed)");
-      }
-      builder.append("</li>");
-    }
-    builder.append("</ul>");
-    return "<html><p>" + IdeBundle.message("actions.module.rename.contains.submodules") + builder.toString() + "</p></html>";
   }
 
 

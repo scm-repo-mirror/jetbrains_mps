@@ -119,13 +119,19 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
 
   @Test
   public void renameLanguage() {
-    renameModule(
-        (moduleName) -> {
-          File moduleFolder = new File(getProjectRoot(), "languages");
-          moduleFolder = new File(moduleFolder, moduleName);
-          return NewModuleUtil.createLanguage(moduleName, moduleFolder.getAbsolutePath(), myProject);
-        },
-        (moduleName, module) -> Assert.assertTrue(module instanceof Language)
+    ModuleSupplier moduleSupplier = (moduleName) -> {
+      File moduleFolder = new File(getProjectRoot(), "languages");
+      moduleFolder = new File(moduleFolder, moduleName);
+      return NewModuleUtil.createLanguage(moduleName, moduleFolder.getAbsolutePath(), myProject);
+    };
+    RenamedModuleChecker moduleChecker = (moduleName, module) -> {
+      Assert.assertTrue(module instanceof Language);
+      ((Language) module).getOwnedGenerators().forEach((Generator g) -> {
+        Assert.assertTrue(g.getModuleName().startsWith(moduleName));
+      });
+    };
+    renameModule(moduleSupplier,
+                 moduleChecker
     );
   }
 
@@ -239,11 +245,12 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
       boolean mustBeMoved = module.getModuleName().equals(module.getModuleSourceDir().getName());
       final SModuleId moduleId = module.getModuleId();
 
-      new Renamer(myProject).renameModule(module, newModuleName);
+      AbstractModule result = new Renamer(myProject).renameModule(module, newModuleName);
 
       Assert.assertNull(module.getRepository());
       module = (AbstractModule) myProject.getRepository().getModule(moduleId);
       Assert.assertNotNull("Renamed module was not found in project repository by SModuleId", module);
+      Assert.assertEquals(module, result);
 
       // Check module itself and descriptor file rename
       Assert.assertEquals(newModuleName, module.getModuleName());
@@ -415,13 +422,17 @@ public abstract class ModuleIDETests extends ModuleInProjectTest {
     invokeInCommand(() -> langRef.set(NewModuleUtil.createLanguage(moduleName, getNewDirInProject(moduleName), myProject)));
     invokeInCommand(() -> {
       @NotNull Language lang = langRef.get();
-      new Renamer(myProject).renameModule(lang, newModuleName);
-      deleteModule(lang, deleteFiles);
-      CachingFile descriptorFile = (CachingFile) lang.getDescriptorFile();
+      Language renamedLang = (Language) new Renamer(myProject).renameModule(lang, newModuleName);
+      Assert.assertNull(lang.getRepository());
+      Assert.assertFalse(myProject.getProjectModules().contains(lang));
+      Assert.assertTrue(myProject.getProjectModules().contains(renamedLang));
+      Assert.assertEquals(renamedLang.getModuleName(), newModuleName);
+      deleteModule(renamedLang, deleteFiles);
+      CachingFile descriptorFile = (CachingFile) renamedLang.getDescriptorFile();
       Assert.assertNotNull(descriptorFile);
       descriptorFile.refresh(new DefaultCachingContext(true, false));
       Assert.assertTrue(deleteFiles ^ descriptorFile.exists());
-      Assert.assertFalse(myProject.getProjectModules().contains(lang));
+      Assert.assertFalse(myProject.getProjectModules().contains(renamedLang));
     });
   }
 

@@ -97,7 +97,7 @@ public abstract class ProjectBase extends Project {
   }
 
   @Nullable
-  protected final ModulePath getPath(@NotNull SModule module) {
+  public final ModulePath getPath(@NotNull SModule module) {
     return getPath(module.getModuleReference());
   }
 
@@ -330,7 +330,7 @@ public abstract class ProjectBase extends Project {
 
   // Used to live in StandaloneMPSProject. I don't see why it's restricted to that one, provided any
   // ProjectBase derivative knows about ModulePath and its virtual folder.
-  protected void setVirtualFolder(@NotNull SModule module, String newFolder) {
+  public void setVirtualFolder(@NotNull SModule module, String newFolder) {
     // TODO: remove duplication of ModulePath in ProjectBase.myModuleToPathMap to avoid handling both lists
     ModulePath modulePath = getPath(module);
     if (modulePath != null) {

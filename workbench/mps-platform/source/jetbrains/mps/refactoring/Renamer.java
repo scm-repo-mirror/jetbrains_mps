@@ -21,16 +21,17 @@ import jetbrains.mps.extapi.persistence.FileDataSource;
 import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.library.ModulesMiner;
 import jetbrains.mps.library.ModulesMiner.ModuleHandle;
-import jetbrains.mps.messages.IMessage;
-import jetbrains.mps.messages.IMessageHandler;
-import jetbrains.mps.messages.LogHandler;
 import jetbrains.mps.messages.Message;
 import jetbrains.mps.messages.MessageKind;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.Project;
+import jetbrains.mps.project.ProjectBase;
+import jetbrains.mps.project.ProjectPathUtil;
 import jetbrains.mps.project.io.DescriptorIOFacade;
 import jetbrains.mps.project.structure.modules.GeneratorDescriptor;
 import jetbrains.mps.project.structure.modules.ModuleDescriptor;
+import jetbrains.mps.project.structure.project.ModulePath;
+import jetbrains.mps.refactoring.Renamer.RenameProblem.Severity;
 import jetbrains.mps.smodel.Generator;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.ModuleInstanceFactory;
@@ -40,14 +41,13 @@ import jetbrains.mps.vfs.IFile;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.annotations.Internal;
 import org.jetbrains.mps.annotations.Mutable;
 import org.jetbrains.mps.openapi.model.EditableSModel;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelName;
 import org.jetbrains.mps.openapi.module.SModule;
-import org.jetbrains.mps.openapi.module.SModuleListenerBase;
-import org.jetbrains.mps.openapi.module.SModuleReference;
 import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.ArrayList;
@@ -56,6 +56,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static jetbrains.mps.project.MPSExtentions.DOT;
@@ -68,20 +69,20 @@ import static jetbrains.mps.project.MPSExtentions.DOT;
 public final class Renamer {
   private static final Logger LOG = LogManager.getLogger(Renamer.class);
 
-  private final IMessageHandler myHandler;
+  private final Consumer<RenameProblem> myHandler;
   private final Project myProject;
 
   public Renamer(@NotNull Project project) {
-    this(project, new LogHandler(LOG));
+    this(project, DEFAULT_PROBLEM_HANDLER);
   }
 
-  public Renamer(@NotNull Project project, @NotNull IMessageHandler handler) {
+  public Renamer(@NotNull Project project, @NotNull Consumer<RenameProblem> handler) {
     myHandler = handler;
     myProject = project;
   }
 
-  private void handleMSG(@NotNull IMessage message) {
-    myHandler.handle(message);
+  private void handleProblem(@NotNull RenameProblem problem) {
+    myHandler.accept(problem);
   }
 
   private boolean checkModuleFolderIsAvailable(@NotNull AbstractModule module, String newModuleName) {
@@ -90,8 +91,7 @@ public final class Renamer {
     if (moduleFolder != null && moduleFolder.getName().equals(oldModuleName)) {
       boolean canMove = !moduleFolder.getParent().findChild(newModuleName).exists();
       if (!canMove) {
-        handleMSG(new Message(MessageKind.INFORMATION,
-                              "Module folder with the name '" + newModuleName + "' already exists, MPS will not rename the module directory"));
+        handleProblem(new NaiveRenameProblem(Severity.NO_PROBLEM, "Module folder with the name '" + newModuleName + "' already exists, MPS will not rename the module directory"));
         return false;
       }
     }
@@ -101,7 +101,7 @@ public final class Renamer {
   private boolean checkDescriptorFileExists(@NotNull AbstractModule module) {
     IFile descriptorFile = module.getDescriptorFile();
     if (descriptorFile == null) {
-      handleMSG(new Message(MessageKind.WARNING, String.format("'%s' physical files could not be renamed since the module has no descriptor", module)));
+      handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL, String.format("'%s' physical files could not be renamed since the module has no descriptor", module)));
       return false;
     }
     return true;
@@ -115,10 +115,10 @@ public final class Renamer {
     boolean canRename = !descriptorFile.getParent().findChild(newDescriptorName).exists();
     if (!canRename) {
       IFile target = descriptorFile.getParent().findChild(newDescriptorName);
-      handleMSG(new Message(MessageKind.WARNING, String.format("'%s' descriptor file could not be renamed to the '%s' since the target '%s' already exists on disk",
-                                                               descriptorFile,
-                                                               newDescriptorName,
-                                                               target)));
+      handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL, String.format("'%s' descriptor file could not be renamed to the '%s' since the target '%s' already exists on disk",
+                                                                                descriptorFile,
+                                                                                newDescriptorName,
+                                                                                target)));
       return false;
     }
     return true;
@@ -140,7 +140,7 @@ public final class Renamer {
   }
 
   //models will be named like xxx.modelName, where xxx is a part of newName before sharp symbol
-  public void renameGenerator(@NotNull Generator generator, @NotNull String newModuleName) {
+  private void renameGenerator(@NotNull Generator generator, @NotNull String newModuleName) {
     final String oldModuleName = generator.getModuleName();
     final String oldModuleNameStem = nameUpToSharp(oldModuleName);
     newModuleName = nameUpToSharp(newModuleName);
@@ -148,9 +148,8 @@ public final class Renamer {
 
     generator.save();
 
-    // MPS-22787 - update generator id
-    int sharpIndexNew = newModuleName.indexOf('#');
     GeneratorDescriptor moduleDescriptor = generator.getModuleDescriptor();
+    int sharpIndexNew = newModuleName.indexOf('#');
     if (sharpIndexNew > 0) {
       // new name comes with a #suffix, no need to copy old one
       moduleDescriptor.setNamespace(newModuleName);
@@ -162,23 +161,26 @@ public final class Renamer {
       int sharpIndexOld = oldModuleName.indexOf('#');
       assert sharpIndexNew < 0; // new name without '#'
       moduleDescriptor.setNamespace(sharpIndexOld > 0 ? newModuleName + oldModuleName.substring(sharpIndexOld)
-                                                                     : newModuleName);
+                                                      : newModuleName);
+    }
+    final IFile moduleFolder = generator.getModuleSourceDir();
+//     Only rename generation output path if we expect language folder rename (is equal to language name)
+    if (moduleFolder!= null && moduleFolder.getName().equals(oldModuleNameStem)) {
+//       Update output path for generated files
+      final String generatorOutputPath = ProjectPathUtil.getGeneratorOutputPath(generator.getModuleDescriptor());
+      if (generatorOutputPath != null && generatorOutputPath.contains(oldModuleNameStem)) {
+        ProjectPathUtil.setGeneratorOutputPath(generator.getModuleDescriptor(), generatorOutputPath.replace(oldModuleNameStem, nameUpToSharp(newModuleName)));
+      }
     }
     generator.setModuleDescriptor(moduleDescriptor);
-//    final IFile moduleFolder = generator.getModuleSourceDir();
-    // Only rename generation output path if we expect language folder rename (is equal to language name)
-//    if (moduleFolder!= null && moduleFolder.getName().equals(oldModuleNameStem)) {
-      // Update output path for generated files
-//      final String generatorOutputPath = ProjectPathUtil.getGeneratorOutputPath(generator.getModuleDescriptor());
-//      if (generatorOutputPath != null && generatorOutputPath.contains(oldModuleNameStem)) {
-//        ProjectPathUtil.setGeneratorOutputPath(generator.getModuleDescriptor(), generatorOutputPath.replace(oldModuleNameStem, nameUpToSharp(newModuleName)));
-//      }
-//    }
   }
 
+  /**
+   * @return the renamed module it is not the same module in case of successful rename
+   */
   @NotNull
-  public RenameProblem renameModule(@NotNull AbstractModule module,
-                                    @NotNull String newModuleName) {
+  public AbstractModule renameModule(@NotNull AbstractModule module,
+                                     @NotNull String newModuleName) {
     myProject.getRepository().getModelAccess().checkWriteAccess();
     @Mutable List<AbstractModule> subModules = getSubModules(module);
     module.save();
@@ -188,8 +190,8 @@ public final class Renamer {
 
     final String oldModuleName = module.getModuleName();
     if (newModuleName.equals(oldModuleName)) {
-      handleMSG(new Message(MessageKind.INFORMATION, "Nothing to rename"));
-      return RenameProblem.NON_CRITICAL;
+      handleProblem(new NaiveRenameProblem(Severity.NO_PROBLEM, "Nothing to rename"));
+      return module;
     }
 
     if (checkDescriptorFileExists(module)) {
@@ -225,8 +227,8 @@ public final class Renamer {
                                                                    .filter((AbstractModule it) -> oldModuleName.equals(it.getModuleName()))
                                                                    .findAny();
       if (!optionalModule.isPresent()) {
-        handleMSG(new Message(MessageKind.ERROR, "Could not find the module with the correct name among the renamed modules"));
-        return RenameProblem.CRITICAL;
+        handleProblem(new NaiveRenameProblem(Severity.CRITICAL, "Could not find the module with the correct name among the renamed modules"));
+        return module;
       }
       module = optionalModule.get();
       assert (module != null);
@@ -235,7 +237,7 @@ public final class Renamer {
                                                               .filter((AbstractModule it) -> !oldModuleName.equals(it.getModuleName()))
                                                               .collect(Collectors.toList());
       if (newSubModules.size() < subModules.size()) {
-        handleMSG(new Message(MessageKind.WARNING, "It seems that some of the submodules could have been lost during rename"));
+        handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL, "It seems that some of the submodules could have been lost during rename"));
       } else {
         subModules = newSubModules;
       }
@@ -251,24 +253,30 @@ public final class Renamer {
       renameModelsIfNeeded(subModule, oldName, newSubModuleName);
     }
 
-    // TODO fireModuleRenamed(oldRef); (that is needed for the project to update the module path in its descriptor
-
+    updateModulePathInProject(module);
+    for (AbstractModule subModule : subModules) {
+      updateModulePathInProject(subModule);
+    }
     updateModelAndModuleReferences(myProject.getRepository());
     myProject.getRepository().saveAll();
 
-    return success ? RenameProblem.NO_PROBLEM
-                   : RenameProblem.NON_CRITICAL;
+    if (!success) {
+      handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL, "Seems that rename was not successful for all modules"));
+    }
+
+    return module;
   }
 
   // TODO-TODO-DO
-  public void renameModuleWithBackup(@NotNull AbstractModule module,
-                                     @NotNull String newModuleName) {
+  public AbstractModule renameModuleWithBackup(@NotNull AbstractModule module,
+                                               @NotNull String newModuleName) {
 //    doBackup(module, subModules, project);
 //    if (!renameModule(module, newModuleName, subModules, project)) {
 //      handleMSG(new Message(MessageKind.INFORMATION, "The rename was unsuccessful, reverting the changes..."));
 //      restoreFromBackup();
 //      restoreRepo();
 //    }
+    return module;
   }
 
   // MAIN part of renaming, other stuff is just for their pleasure
@@ -276,7 +284,6 @@ public final class Renamer {
     if (module instanceof Language) {
       for (Generator generator : ((Language) module).getOwnedGenerators()) {
         renameGenerator(generator, newModuleName);
-        renameModuleName(generator, newModuleName);
       }
     }
     ModuleDescriptor descriptor = module.getModuleDescriptor();
@@ -318,7 +325,8 @@ public final class Renamer {
       moduleFolder = moduleFolder.rename1(newModuleName); // here we must have already unregistered all the file system listeners from below this folder
       assert moduleFolder.getParent() != null;
       if (!moduleFolder.getName().equals(newModuleName)) {
-        handleMSG(new Message(MessageKind.ERROR, String.format("Resulting module folder '%s' has incorrect name '%s'", moduleFolder.getName(), newModuleName)));
+        handleProblem(new NaiveRenameProblem(Severity.NON_CRITICAL,
+                                             String.format("Resulting module folder '%s' has incorrect name '%s'", moduleFolder.getName(), newModuleName)));
       }
     }
     return moduleFolder;
@@ -446,33 +454,63 @@ public final class Renamer {
     }
   }
 
-  // XXX use of SModule listener to detect renames smells wrong. I'd say Project shall deal with files, on a lower level than SRepository.
-  //     Perhaps, this comes along missing file rename event from FileListener?
-  // TODO include, give out the proper API from Project
-  private class ModuleRenameListener extends SModuleListenerBase {
-    @Override
-    public void moduleRenamed(@NotNull SModule module, @NotNull SModuleReference oldRef) {
-      // why exceptions, why so intolerable? Just because we added the listener to a module with file?
-      if (!(module instanceof AbstractModule)) {
-        throw new IllegalArgumentException("Support only abstract module here " + module);
+  public void updateModulePathInProject(@NotNull AbstractModule module) {
+    if (myProject instanceof ProjectBase) {
+      ProjectBase projectWithVFolders = (ProjectBase) myProject;
+      IFile descriptorFile = module.getDescriptorFile();
+      if (descriptorFile != null) {
+        @Nullable ModulePath oldPath = projectWithVFolders.getPath(module);
+        if (oldPath != null) {
+          ModulePath newPath = new ModulePath(descriptorFile.getPath(), oldPath.getVirtualFolder());
+          projectWithVFolders.setVirtualFolder(module, newPath.getVirtualFolder());
+        }
       }
-//      ModulePath oldPath = myModuleToPathMap.remove(module.getModuleReference());
-//      IFile descriptorFile = ((AbstractModule) module).getDescriptorFile();
-//      if (descriptorFile == null) {
-//        throw new IllegalArgumentException("The descriptor file is null " + module);
-//      }
-//      ModulePath newPath = new ModulePath(descriptorFile.getPath(), oldPath.getVirtualFolder());
-//      myProjectDescriptor.replacePath(oldPath, newPath);
-//      myModuleToPathMap.put(module.getModuleReference(), newPath);
     }
   }
 
-  private enum RenameProblem {
-    CRITICAL,
-    NON_CRITICAL,
-    NO_PROBLEM;
 
+  interface RenameProblem {
+    enum Severity {
+      CRITICAL, // critical means that the fs state is left broken and needs to be somehow restored
+      NON_CRITICAL,
+      NO_PROBLEM
+    }
+
+    @NotNull Severity getSeverity();
+    @NotNull String getPresentation();
   }
+
+  private static final class NaiveRenameProblem implements RenameProblem {
+    private final Severity mySeverity;
+    private final String myPresentation;
+
+    private NaiveRenameProblem(@NotNull Severity severity, @NotNull String presentation) {
+      mySeverity = severity;
+      myPresentation = presentation;
+    }
+
+    @NotNull
+    @Override
+    public Severity getSeverity() {
+      return mySeverity;
+    }
+
+    @NotNull
+    @Override
+    public String getPresentation() {
+      return myPresentation;
+    }
+  }
+
+  private static final Consumer<RenameProblem> DEFAULT_PROBLEM_HANDLER = (RenameProblem problem) -> {
+    switch (problem.getSeverity()) {
+      case CRITICAL: LOG.error("Critical problem during rename: " + problem.getPresentation(), new IllegalStateException());
+      break;
+      case NON_CRITICAL: LOG.warn("Got a problem during rename: " + problem.getPresentation());
+      break;
+      case NO_PROBLEM: LOG.info(problem.getPresentation());
+    }
+  };
 
   /**
    * @deprecated use the one with return type
@@ -482,9 +520,32 @@ public final class Renamer {
   public static void renameModule(@NotNull AbstractModule module,
                                   @NotNull String newModuleName,
                                   @NotNull Project project) {
-    RenameProblem problem = new Renamer(project).renameModule(module, newModuleName);
-    if (problem == RenameProblem.CRITICAL) {
-      throw new IllegalStateException("Critical problem on rename");
-    }
+    Consumer<RenameProblem> problemConsumer = (RenameProblem p) -> {
+      if (p.getSeverity() == Severity.CRITICAL) {
+        throw new IllegalStateException("Received illegal problem during rename");
+      }
+    };
+    new Renamer(project, problemConsumer).renameModule(module, newModuleName);
   }
+
+
+  /**
+   * todo here is not the place to compose html I suppose
+   */
+  @NotNull
+  public static String getSubmodulesInfoHtml(@NotNull jetbrains.mps.project.Project project, @NotNull AbstractModule moduleToRename) {
+    final StringBuilder builder = new StringBuilder();
+    builder.append("<ul>");
+    for (AbstractModule subModule : new Renamer(project).getSubModules(moduleToRename)) {
+      builder.append("<li>");
+      builder.append(subModule.getModuleName());
+      if (subModule.getModuleName().contains(moduleToRename.getModuleName())) {
+        builder.append(" (will be renamed)");
+      }
+      builder.append("</li>");
+    }
+    builder.append("</ul>");
+    return "<html><p>" + IdeBundle.message("actions.module.rename.contains.submodules") + builder.toString() + "</p></html>";
+  }
+
 }
