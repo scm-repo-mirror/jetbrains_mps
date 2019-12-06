@@ -23,7 +23,6 @@ import org.jetbrains.mps.openapi.repository.WriteActionListener;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * The class is responsible for listening {@link org.jetbrains.mps.openapi.module.SRepositoryListener} events like
@@ -46,8 +45,6 @@ public class ModuleEventsDispatcher implements WriteActionListener {
 
   private final SRepository myRepository;
 
-  private final AtomicBoolean myPaused = new AtomicBoolean(false);
-
   public ModuleEventsDispatcher(@NotNull SRepository repository) {
     myRepository = repository;
     myBatchEventsProcessor = new BatchEventsProcessor(repository);
@@ -63,14 +60,6 @@ public class ModuleEventsDispatcher implements WriteActionListener {
     myBatchEventsProcessor.dispose();
   }
 
-  public void pause() {
-    myPaused.compareAndSet(false, true);
-  }
-
-  public void proceed() {
-    myPaused.set(false);
-  }
-
   @Override
   public void actionStarted() {
     myBatchEventsProcessor.startBatching();
@@ -79,9 +68,6 @@ public class ModuleEventsDispatcher implements WriteActionListener {
   @Override
   public void actionFinished() {
     try {
-      if (myPaused.get()) {
-        return;
-      }
       List<SRepositoryEvent> batchedEvents;
       do {
         batchedEvents = myBatchEventsProcessor.flush();
@@ -95,9 +81,6 @@ public class ModuleEventsDispatcher implements WriteActionListener {
   }
 
   public boolean flush() {
-    if (myPaused.get()) {
-      return false;
-    }
     final List<SRepositoryEvent> batchedEvents = myBatchEventsProcessor.flush();
     if (batchedEvents.isEmpty()) return false;
 

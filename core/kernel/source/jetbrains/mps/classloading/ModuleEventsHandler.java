@@ -51,7 +51,7 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
   private final ModuleEventsDispatcher myDispatcher;
 
   // order for modules loading in order to reproduce any error
-  private static final Comparator<Object> MODULE_COMPARATOR = (m1, m2) -> m1.toString().compareTo(m2.toString());
+  private static final Comparator<Object> MODULE_COMPARATOR = Comparator.comparing(Object::toString);
 
   public ModuleEventsHandler(@NotNull SRepository repository, ModulesWatcher modulesWatcher) {
     myModulesWatcher = modulesWatcher;
@@ -115,14 +115,6 @@ class ModuleEventsHandler implements SRepositoryBatchListener {
     if (!modulesToUnload.isEmpty()) removeModules(modulesToUnload);
     if (!modulesToLoad.isEmpty()) addModules(modulesToLoad);
     if (!modulesToUpdate.isEmpty()) updateModules(modulesToUpdate);
-  }
-
-  public void pause() {
-    myDispatcher.pause();
-  }
-
-  public void proceed() {
-    myDispatcher.proceed();
   }
 
   private class MyModuleEventVisitor implements SModuleEventVisitor {

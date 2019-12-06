@@ -48,6 +48,7 @@ import jetbrains.mps.project.Solution;
 import jetbrains.mps.project.structure.modules.SolutionKind;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.MPSModuleRepository;
+import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.util.JavaNameUtil;
 import jetbrains.mps.util.annotation.Hack;
 import jetbrains.mps.util.annotation.ToRemove;
@@ -336,7 +337,6 @@ public class PluginLoaderRegistry implements Disposable {
       reschedule();
       return;
     }
-    myModelAccess.runReadAction(() -> { // this one helps us to #createPluginContributors AND to fix the classloaders (stop them from reloading)
       LOG.debug("Updating");
       Delta<PluginLoader> loadersDelta;
       synchronized (myLoadersDeltaLock) {
@@ -354,13 +354,12 @@ public class PluginLoaderRegistry implements Disposable {
       assert !myTaskInProgress;
 
       Set<PluginContributor> toUnloadContributors = calcContributorsToUnload(myCurrentContributors, getPluginModules(moduleDelta.toUnload));
-      Set<PluginContributor> toLoadContributors = createPluginContributors(getPluginModules(moduleDelta.toLoad));
+      Set<PluginContributor> toLoadContributors = new ModelAccessHelper(myModelAccess).runReadAction(() -> createPluginContributors(getPluginModules(moduleDelta.toLoad)));
       Delta<PluginContributor> contributorDelta = new Delta<>(toLoadContributors, toUnloadContributors);
 
       assert !myTaskInProgress;
       UpdatingTask task = new UpdatingTask(null, loadersDelta, contributorDelta, snapshot::invokePostRunnables);
       runTask(task);
-    });
   }
 
   private void reschedule() {
@@ -416,12 +415,14 @@ public class PluginLoaderRegistry implements Disposable {
         ThreadUtils.assertEDT();
         assert !myTaskInProgress;
         myTaskInProgress = true;
-        removeLoaders(monitor);
-        removeContributors(monitor);
-        clearIDEMenusFromOurActionRefs();
-        addLoaders(monitor);
-        addIdeaExtPointPluginContributors(monitor);
-        addContributors(monitor);
+        myClassLoaderManager.runTransaction(() -> {
+          removeLoaders(monitor);
+          removeContributors(monitor);
+          clearIDEMenusFromOurActionRefs();
+          addLoaders(monitor);
+          addIdeaExtPointPluginContributors(monitor);
+          addContributors(monitor);
+        });
       } catch (VirtualMachineError e) {
         throw e;
       } catch (Throwable t) {

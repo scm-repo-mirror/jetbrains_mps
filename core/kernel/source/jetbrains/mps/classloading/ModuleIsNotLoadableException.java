@@ -26,7 +26,6 @@ import org.jetbrains.mps.openapi.module.SModule;
  * {@link jetbrains.mps.module.ReloadableModule#getOwnClass(String)}
  * as well as
  * {@link jetbrains.mps.classloading.ClassLoaderManager#getClass}
- * {@link jetbrains.mps.classloading.ClassLoaderManager#getOwnClass}
  *
  * @deprecated It has been to decided to get rid of additional classnotfoundexceptions
  */

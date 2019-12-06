@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 /**
  * Note:
  * This class deals only with MPS-loadable modules
- * @see {@code ClassLoaderManager#myMPSLoadableCondition}
+ *  see ClassLoaderManager#myMPSLoadableCondition
  */
 class MPSClassLoadersRegistry {
   private static final Logger LOG = LogManager.getLogger(MPSClassLoadersRegistry.class);
@@ -200,7 +200,7 @@ class MPSClassLoadersRegistry {
   static final class ModuleClassLoaderDisposer {
     @NotNull
     private final MPSClassLoadersRegistry myRegistry;
-    List<DisposeSession> mySessions = new LinkedList<>();
+    private final List<DisposeSession> mySessions = new LinkedList<>();
 
     public ModuleClassLoaderDisposer(@NotNull MPSClassLoadersRegistry registry) {
       myRegistry = registry;

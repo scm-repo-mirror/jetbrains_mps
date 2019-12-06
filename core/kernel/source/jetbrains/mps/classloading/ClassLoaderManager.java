@@ -102,10 +102,11 @@ import static jetbrains.mps.classloading.ClassLoadersHolder.ClassLoadingProgress
  *
  * CLManager exploits a lazy mechanism of module's reloading. It stacks all module events,
  * and occasionally <em>refresh</em> happens: CLM flushes them and processes all the accumulated events.
- * When CLManager refreshes its state becomes actual. [in the sense of information about modules', their class loading status and their ClassLoader's]
- * The state IS guaranteed to be actual at these points:
+ * When CLManager refreshes, its state becomes actual. [in the sense of information about modules', their class loading status and their ClassLoader's]
+ * The state is guaranteed to be actual at these points:
  * 1. Right after the end of write action [CLManager has a {@link org.jetbrains.mps.openapi.repository.WriteActionListener}]
- * 2. In the middle of write action if a Class or ClassLoader was requested [{@link #getClassLoader}]. Only write action holder is able to provoke <em>refresh</em> [!]
+ * 2. In the middle of write action if a Class or ClassLoader was requested [{@link #getClassLoader}].
+ *     Only write action holder is able to provoke <em>refresh</em> [!]
  * 3. Explicit reload: a call of reload methods [{@link #reloadModule}, {@link #reloadModules}].
  * @see #getClassLoader(org.jetbrains.mps.openapi.module.SModule) documentation for more details on pt. 2
  * @see #refresh()
@@ -116,7 +117,9 @@ import static jetbrains.mps.classloading.ClassLoadersHolder.ClassLoadingProgress
  *
  *
  * FIXME logic here must be rewritten in a more abstract way to allow both lazy and non-lazy implementations
- * FIXME the module dependecy tracking must be isolated from the class loading logic
+ * FIXME the module dependency tracking must be isolated from the class loading logic
+ * FIXME here we give no guarantees when we give out ClassLoader (#getClassLoader) that it will be valid the next moment.
+ *  We need to introduce some kind of write/read actions for that matter
  *
  * TODO the workflow between ModuleEventsHandler, ClassLoaderManager and ModulesWatcher is too complicated and impossible to perceive, it needs to be done over again
  * TODO As for 23.01.19 the refactoring is planned for the 202 version, where the reloadable modules will be equipped with persisted cp.
@@ -263,27 +266,6 @@ public class ClassLoaderManager implements CoreComponent {
   }
 
   /**
-   * TODO refactor all usages of getOwnClass()
-   * @deprecated use module-specific methods which throw different ClassNotFoundExceptions,
-   * you need to process it by yourself (probably show some user notification)
-   * @see jetbrains.mps.module.ReloadableModule
-   * @see ModuleIsNotLoadableException
-   */
-  @Deprecated
-  @ToRemove(version = 3.2)
-  @Nullable
-  public Class<?> getOwnClass(@NotNull SModule module, String classFqName) {
-    assertCanLoad(module);
-    try {
-      return ((ReloadableModule) module).getOwnClass(classFqName);
-    } catch (ModuleIsNotLoadableException e) {
-      LOG.warn("Exception during class loading. Probably one of the solutions has no solution kind set or lacks in Idea plugin facet.", e);
-    } catch (ClassNotFoundException ignored) {
-    }
-    return null;
-  }
-
-  /**
    * @return the class loader associated with the module. Note that sometimes it may return "outdated" ClassLoader.
    * To be exact it returns the classloader for module, which was actual for the moment of last refresh event.
    * @see #refresh()
@@ -321,6 +303,20 @@ public class ClassLoaderManager implements CoreComponent {
     }
     doLoadModules(Collections.singleton(reloadableModule), new EmptyProgressMonitor());
     return doGetClassLoader(reloadableModule);
+  }
+
+  /**
+   * the caller is guaranteed that no reload happen during the transaction
+   * NB if write action is taken inside #transaction then deadlock can happen
+   */
+  @Internal
+  public void runTransaction(@NotNull Runnable transaction) {
+    myLoadingModulesLock.lock();
+    try {
+      transaction.run();
+    } finally {
+      myLoadingModulesLock.unlock();
+    }
   }
 
   @NotNull
@@ -381,21 +377,6 @@ public class ClassLoaderManager implements CoreComponent {
   }
 
   /**
-   * hack for 3.4
-   */
-  @Deprecated
-  @ToRemove(version = 2018.1)
-  @Internal
-  public synchronized void runNonReloadableTransaction(Runnable runnable) {
-    try {
-      myRepositoryListener.pause();
-      runnable.run();
-    } finally {
-      myRepositoryListener.proceed();
-    }
-  }
-
-  /**
    * Creates ModuleClassLoader for those modules which are MPS-loadable and valid
    *
    * @see #myMPSLoadableCondition
@@ -405,25 +386,26 @@ public class ClassLoaderManager implements CoreComponent {
   private Collection<ReloadableModule> doLoadModules(final Iterable<? extends ReloadableModule> modules, final ProgressMonitor monitor) {
     monitor.start("Loading", 1);
     try {
-      return new ModelAccessHelper(myRepository).runReadAction((Computable<Collection<ReloadableModule>>) () -> {
-        synchronized (myLoadingModulesLock) { // provides synchronization only in this block
-          Set<ReloadableModule> modulesToLoad = new LinkedHashSet<>(filterModules(modules, myWatchableCondition, myValidCondition));
-          if (modulesToLoad.isEmpty()) return Collections.emptySet();
+      myLoadingModulesLock.lock();
+      try {
+        Set<ReloadableModule> modulesToLoad = new LinkedHashSet<>(filterModules(modules, myWatchableCondition, myValidCondition));
+        if (modulesToLoad.isEmpty()) return Collections.emptySet();
 
-          // transitive closure
-          modulesToLoad.addAll(myModulesWatcher.getResolvedDependencies(modulesToLoad));
-          modulesToLoad = filterModules(modulesToLoad, myMPSLoadableCondition, myNotLoadedCondition);
-          if (modulesToLoad.isEmpty()) return Collections.emptySet();
+        // transitive closure
+        modulesToLoad.addAll(myModulesWatcher.getResolvedDependencies(modulesToLoad));
+        modulesToLoad = filterModules(modulesToLoad, myMPSLoadableCondition, myNotLoadedCondition);
+        if (modulesToLoad.isEmpty()) return Collections.emptySet();
 
-          LOG.debug("Loading " + modulesToLoad.size() + " modules");
-          monitor.advance(1);
-          if (!filterModules(modulesToLoad, myUnloadedCondition).isEmpty()) {
-            LOG.warn("Some modules are not preloaded yet : cannot load them");
-          }
-          myClassLoadersHolder.doLoadModules(modulesToLoad);
-          return modulesToLoad;
+        LOG.debug("Loading " + modulesToLoad.size() + " modules");
+        monitor.advance(1);
+        if (!filterModules(modulesToLoad, myUnloadedCondition).isEmpty()) {
+          LOG.warn("Some modules are not preloaded yet : cannot load them");
         }
-      });
+        myClassLoadersHolder.doLoadModules(modulesToLoad);
+        return modulesToLoad;
+      } finally {
+        myLoadingModulesLock.unlock();
+      }
     } finally {
       monitor.done();
     }
@@ -440,6 +422,7 @@ public class ClassLoaderManager implements CoreComponent {
   Collection<ReloadableModule> unloadModules(Iterable<? extends SModuleReference> modules, @NotNull ProgressMonitor monitor) {
     checkWriteAccess();
     monitor.start("Unloading", 6);
+    myLoadingModulesLock.lock();
     try {
       Condition<SModuleReference> loadedCondition = new NotCondition<>(myUnloadedRefCondition);
       Set<SModuleReference> modulesToUnload = filterModules(modules, loadedCondition);
@@ -455,7 +438,8 @@ public class ClassLoaderManager implements CoreComponent {
       myClassLoadersHolder.doUnloadModules(modulesToUnload);
 
       return unloadedModules;
-    } finally {
+    } finally{
+      myLoadingModulesLock.unlock();
       monitor.done();
     }
   }

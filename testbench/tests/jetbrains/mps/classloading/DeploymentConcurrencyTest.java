@@ -38,7 +38,7 @@ public class DeploymentConcurrencyTest implements EnvironmentAware {
   private final static Logger LOG = LogManager.getLogger(DeploymentConcurrencyTest.class);
 
   private final static int nThreads = 10;
-  private final static long TIME_OUT_MS = 20000;
+  private final static long TIME_OUT_MS = 10000;
   private Environment myEnvironment;
 
   @Override
@@ -52,14 +52,14 @@ public class DeploymentConcurrencyTest implements EnvironmentAware {
     Collection<Callable<Object>> taskList = new ArrayList<>(nThreads);
     MPSModuleRepository repo = myEnvironment.getPlatform().findComponent(MPSModuleRepository.class);
     taskList.add(() -> {
-      for (int i = 0; i < 10000; ++i) {
+      for (int i = 0; i < 20; ++i) {
         repo.getModelAccess().runWriteAction(() -> getCLM().reloadAll(new EmptyProgressMonitor()));
       }
       return null;
     });
     for (int i = 1; i < nThreads; ++i) {
       taskList.add(() -> {
-        for (int j = 0; j < 1000; ++j) {
+        for (int j = 0; j < 20; ++j) {
           LOG.info("Requesting classloader for modules");
           repo.getModelAccess().runReadAction(() -> {
             for (SModule module : repo.getModules()) {
@@ -72,7 +72,7 @@ public class DeploymentConcurrencyTest implements EnvironmentAware {
     }
     try {
       pool.invokeAll(taskList, TIME_OUT_MS, TimeUnit.MILLISECONDS);
-      new ExecutorServiceShutdownHelper(pool).shutdownAndAwaitTermination(10);
+      new ExecutorServiceShutdownHelper(pool).shutdownAndAwaitTermination(5000);
     } catch (InterruptedException e) {
       e.printStackTrace();
       Assert.fail();
