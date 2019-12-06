@@ -217,6 +217,28 @@ public abstract class BaseKeymapChanges {
         return myShortcutWrappers;
       }
     }
+
+    public static final class ComplexShortcutWrapper extends ComplexShortcut {
+      private final ComplexShortcut myComplexShortcut;
+      private final boolean myRemove;
+      private final boolean myReplaceAll;
+
+      public ComplexShortcutWrapper(ComplexShortcut complexShortcut, boolean remove, boolean replaceAll) {
+        myComplexShortcut = complexShortcut;
+        myRemove = remove;
+        myReplaceAll = replaceAll;
+      }
+
+      @Override
+      public List<Shortcut> getShortcutsFor(Object... params) {
+        return myComplexShortcut.getShortcutsFor(params);
+      }
+
+      @Override
+      List<ShortcutWrapper> getShortcutWrappersFor(Object... params) {
+        return this.getShortcutsFor(params).stream().map(shortcut -> new ShortcutWrapper(shortcut, myRemove, myReplaceAll)).collect(Collectors.toList());
+      }
+    }
   }
 
   protected static class ShortcutWrapper {

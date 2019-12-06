@@ -1184,6 +1184,11 @@
     <node concept="PrWs8" id="7Du95iZMH0h" role="PzmwI">
       <ref role="PrY4T" node="5nN2_Ou2i9S" resolve="ShortcutChange" />
     </node>
+    <node concept="1TJgyi" id="yhFWcL2yIa" role="1TKVEl">
+      <property role="IQ2nx" value="617467876802702218" />
+      <property role="TrG5h" value="change" />
+      <ref role="AX2Wp" node="3Ftr4R6BFqT" resolve="KeyMapChange" />
+    </node>
   </node>
   <node concept="1TIwiD" id="lUOfkjgwbF">
     <property role="R5$K7" value="false" />

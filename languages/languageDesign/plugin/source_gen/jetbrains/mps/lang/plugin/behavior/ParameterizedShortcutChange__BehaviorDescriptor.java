@@ -14,24 +14,39 @@ import jetbrains.mps.core.aspects.behaviour.AccessPrivileges;
 import java.util.List;
 import java.util.Arrays;
 import org.jetbrains.annotations.NotNull;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SEnumOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
+import org.jetbrains.mps.openapi.language.SProperty;
 
 public final class ParameterizedShortcutChange__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e096c3aL, "jetbrains.mps.lang.plugin.structure.ParameterizedShortcutChange");
 
   public static final SMethod<SNode> getExpectedReturnType_idhEwIGRD = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getExpectedReturnType").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIGRD").build();
+  public static final SMethod<Boolean> hasRemoveOrReplaceAllModifiers_idyhFWcL2RFY = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasRemoveOrReplaceAllModifiers").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("yhFWcL2RFY").build();
+  public static final SMethod<Boolean> hasRemove_idyhFWcL2RGa = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasRemove").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("yhFWcL2RGa").build();
+  public static final SMethod<Boolean> hasReplaceAll_idyhFWcL2RGl = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasReplaceAll").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("yhFWcL2RGl").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getExpectedReturnType_idhEwIGRD);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getExpectedReturnType_idhEwIGRD, hasRemoveOrReplaceAllModifiers_idyhFWcL2RFY, hasRemove_idyhFWcL2RGa, hasReplaceAll_idyhFWcL2RGl);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static SNode getExpectedReturnType_idhEwIGRD(@NotNull SNode __thisNode__) {
     return _quotation_createNode_hegoi9_a0a0();
+  }
+  /*package*/ static boolean hasRemoveOrReplaceAllModifiers_idyhFWcL2RFY(@NotNull SNode __thisNode__) {
+    return ((boolean) ParameterizedShortcutChange__BehaviorDescriptor.hasRemove_idyhFWcL2RGa.invoke(__thisNode__)) || ((boolean) ParameterizedShortcutChange__BehaviorDescriptor.hasReplaceAll_idyhFWcL2RGl.invoke(__thisNode__));
+  }
+  /*package*/ static boolean hasRemove_idyhFWcL2RGa(@NotNull SNode __thisNode__) {
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(__thisNode__, PROPS.change$9SAz), 0x5e2b603c8f03666aL);
+  }
+  /*package*/ static boolean hasReplaceAll_idyhFWcL2RGl(@NotNull SNode __thisNode__) {
+    return SEnumOperations.isMember(SPropertyOperations.getEnum(__thisNode__, PROPS.change$9SAz), 0x5e2b603c8f036669L);
   }
 
   /*package*/ ParameterizedShortcutChange__BehaviorDescriptor() {
@@ -51,6 +66,12 @@ public final class ParameterizedShortcutChange__BehaviorDescriptor extends BaseB
     switch (methodIndex) {
       case 0:
         return (T) ((SNode) getExpectedReturnType_idhEwIGRD(node));
+      case 1:
+        return (T) ((Boolean) hasRemoveOrReplaceAllModifiers_idyhFWcL2RFY(node));
+      case 2:
+        return (T) ((Boolean) hasRemove_idyhFWcL2RGa(node));
+      case 3:
+        return (T) ((Boolean) hasReplaceAll_idyhFWcL2RGl(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
@@ -84,5 +105,9 @@ public final class ParameterizedShortcutChange__BehaviorDescriptor extends BaseB
     SNode quotedNode_1 = null;
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc6bf96dL, "VoidType")).getResult();
     return quotedNode_1;
+  }
+
+  private static final class PROPS {
+    /*package*/ static final SProperty change$9SAz = MetaAdapterFactory.getProperty(0x28f9e4973b424291L, 0xaeba0a1039153ab1L, 0x55f30a5d1e096c3aL, 0x891afc3310a2b8aL, "change");
   }
 }
