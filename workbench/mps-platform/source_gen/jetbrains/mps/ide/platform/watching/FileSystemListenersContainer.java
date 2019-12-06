@@ -11,8 +11,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.List;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-
-import jetbrains.mps.vfs.refresh.FileSystemListener;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.vfs.IFile;
 import jetbrains.mps.util.FileUtil;
@@ -29,8 +27,7 @@ import java.util.Collections;
 public class FileSystemListenersContainer {
   private final ReadWriteLock myLock = new ReentrantReadWriteLock();
   private final Node myRootNode = new Node(null, null);
-  private final ConcurrentMap<FileSystemListener, String> myListener2Path = new ConcurrentHashMap<>();
-
+  private final ConcurrentMap<FileSystemListener, String> myListener2Path = new ConcurrentHashMap<FileSystemListener, String>();
 
   public static class ListenersForPath {
     /*package*/ final List<FileSystemListener> ancestorListeners = ListSequence.fromList(new ArrayList<FileSystemListener>());

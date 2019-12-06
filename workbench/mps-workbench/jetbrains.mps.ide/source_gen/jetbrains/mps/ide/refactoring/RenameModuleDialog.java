@@ -4,31 +4,26 @@ package jetbrains.mps.ide.refactoring;
 
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.ide.platform.refactoring.RenameDialog;
-import org.apache.log4j.Logger;
-import org.apache.log4j.LogManager;
 import jetbrains.mps.project.AbstractModule;
 import jetbrains.mps.project.MPSProject;
 import javax.swing.JPanel;
-import java.util.Collection;
+import java.util.List;
 import java.awt.HeadlessException;
 import jetbrains.mps.ide.IdeBundle;
 import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import org.jetbrains.mps.openapi.module.SModule;
 import jetbrains.mps.refactoring.Renamer;
-import org.apache.log4j.Level;
 import javax.swing.JComponent;
 import com.intellij.ui.components.JBPanel;
 import java.awt.FlowLayout;
 import java.util.Collections;
-import java.util.List;
 import javax.swing.JLabel;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.util.ui.UIUtil;
 
 @GeneratedClass(node = "r:5a764b6f-e05f-4050-b22c-cbcad1577f1b(jetbrains.mps.ide.refactoring)/2482360940803573298", model = "r:5a764b6f-e05f-4050-b22c-cbcad1577f1b(jetbrains.mps.ide.refactoring)")
 public class RenameModuleDialog extends RenameDialog {
-  private static final Logger LOG = LogManager.getLogger(RenameModuleDialog.class);
   private final AbstractModule myModule;
   private final MPSProject myProject;
   private JPanel myOptionsPanel;

@@ -52,6 +52,8 @@
     <import index="3ju5" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.vfs(MPS.Core/)" />
     <import index="g1qu" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.util.ui(MPS.IDEA/)" />
     <import index="jrv0" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.findusages.view.treeholder.treeview.path(MPS.Platform/)" />
+    <import index="kwfv" ref="r:c5d41a19-6eb6-4d90-a314-8eea0aaaa458(jetbrains.mps.samples.propertyPersistenceDef.persistence)" />
+    <import index="ends" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.extapi.persistence(MPS.Core/)" />
     <import index="tpce" ref="r:00000000-0000-4000-0000-011c89590292(jetbrains.mps.lang.structure.structure)" implicit="true" />
   </imports>
   <registry>
@@ -311,13 +313,6 @@
       </concept>
       <concept id="8970989240999019143" name="jetbrains.mps.baseLanguage.javadoc.structure.TextCommentLinePart" flags="ng" index="1dT_AC">
         <property id="8970989240999019144" name="text" index="1dT_AB" />
-      </concept>
-    </language>
-    <language id="760a0a8c-eabb-4521-8bfd-65db761a9ba3" name="jetbrains.mps.baseLanguage.logging">
-      <concept id="2034914114981261497" name="jetbrains.mps.baseLanguage.logging.structure.LogLowLevelStatement" flags="ng" index="RRSsy">
-        <property id="2034914114981261751" name="severity" index="RRSoG" />
-        <child id="2034914114981261755" name="throwable" index="RRSow" />
-        <child id="2034914114981261753" name="message" index="RRSoy" />
       </concept>
     </language>
     <language id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel">
@@ -2447,8 +2442,8 @@
             <node concept="3clFbS" id="7msLDqME3k5" role="1bW5cS">
               <node concept="3clFbF" id="7msLDqME3uH" role="3cqZAp">
                 <node concept="2YIFZM" id="4FkYMYI0tre" role="3clFbG">
-                  <ref role="37wK5l" to="smoa:~Renamer.renameModel(org.jetbrains.mps.openapi.model.EditableSModel,java.lang.String)" resolve="renameModel" />
-                  <ref role="1Pybhc" to="smoa:~Renamer" resolve="Renamer" />
+                  <ref role="1Pybhc" node="29N7xYwTG4h" resolve="RenameModelDialog" />
+                  <ref role="37wK5l" node="769yZq7hMSH" resolve="renameModel" />
                   <node concept="37vLTw" id="4FkYMYI0trf" role="37wK5m">
                     <ref role="3cqZAo" node="29N7xYwTG4w" resolve="myModelDescriptor" />
                   </node>
@@ -2482,6 +2477,102 @@
       <node concept="2AHcQZ" id="2174XWuQEdG" role="2AJF6D">
         <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
       </node>
+    </node>
+    <node concept="2tJIrI" id="769yZq7hMqL" role="jymVt" />
+    <node concept="2YIFZL" id="769yZq7hMSH" role="jymVt">
+      <property role="TrG5h" value="renameModel" />
+      <node concept="37vLTG" id="769yZq7hMSI" role="3clF46">
+        <property role="TrG5h" value="model" />
+        <node concept="2AHcQZ" id="769yZq7hMSJ" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+        <node concept="3uibUv" id="769yZq7hMSK" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~EditableSModel" resolve="EditableSModel" />
+        </node>
+      </node>
+      <node concept="37vLTG" id="769yZq7hMSL" role="3clF46">
+        <property role="TrG5h" value="newName" />
+        <node concept="2AHcQZ" id="769yZq7hMSM" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+        <node concept="3uibUv" id="769yZq7hMSN" role="1tU5fm">
+          <ref role="3uigEE" to="wyt6:~String" resolve="String" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="769yZq7hMSO" role="3clF47">
+        <node concept="3clFbF" id="769yZq7hMSP" role="3cqZAp">
+          <node concept="2OqwBi" id="769yZq7hMSQ" role="3clFbG">
+            <node concept="2OqwBi" id="769yZq7hNx2" role="2Oq$k0">
+              <node concept="37vLTw" id="769yZq7hNx1" role="2Oq$k0">
+                <ref role="3cqZAo" node="769yZq7hMSI" resolve="model" />
+              </node>
+              <node concept="liA8E" id="769yZq7hNx3" role="2OqNvi">
+                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+              </node>
+            </node>
+            <node concept="liA8E" id="769yZq7hNIg" role="2OqNvi">
+              <ref role="37wK5l" to="lui2:~SRepository.saveAll()" resolve="saveAll" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="769yZq7hMST" role="3cqZAp">
+          <node concept="2OqwBi" id="769yZq7hNrP" role="3clFbG">
+            <node concept="37vLTw" id="769yZq7hNrO" role="2Oq$k0">
+              <ref role="3cqZAo" node="769yZq7hMSI" resolve="model" />
+            </node>
+            <node concept="liA8E" id="769yZq7hNrQ" role="2OqNvi">
+              <ref role="37wK5l" to="mhbf:~EditableSModel.rename(java.lang.String,boolean)" resolve="rename" />
+              <node concept="37vLTw" id="769yZq7hNrR" role="37wK5m">
+                <ref role="3cqZAo" node="769yZq7hMSL" resolve="newName" />
+              </node>
+              <node concept="2ZW3vV" id="769yZq7hNrS" role="37wK5m">
+                <node concept="2OqwBi" id="769yZq7hNQu" role="2ZW6bz">
+                  <node concept="37vLTw" id="769yZq7hNQt" role="2Oq$k0">
+                    <ref role="3cqZAo" node="769yZq7hMSI" resolve="model" />
+                  </node>
+                  <node concept="liA8E" id="769yZq7hNQv" role="2OqNvi">
+                    <ref role="37wK5l" to="mhbf:~SModel.getSource()" resolve="getSource" />
+                  </node>
+                </node>
+                <node concept="3uibUv" id="769yZq7hOz2" role="2ZW6by">
+                  <ref role="3uigEE" to="ends:~FileDataSource" resolve="FileDataSource" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="769yZq7hMSZ" role="3cqZAp">
+          <node concept="2YIFZM" id="769yZq7hOf5" role="3clFbG">
+            <ref role="37wK5l" to="smoa:~Renamer.updateModelAndModuleReferences(org.jetbrains.mps.openapi.module.SRepository)" resolve="updateModelAndModuleReferences" />
+            <ref role="1Pybhc" to="smoa:~Renamer" resolve="Renamer" />
+            <node concept="2OqwBi" id="769yZq7hNvz" role="37wK5m">
+              <node concept="37vLTw" id="769yZq7hNvy" role="2Oq$k0">
+                <ref role="3cqZAo" node="769yZq7hMSI" resolve="model" />
+              </node>
+              <node concept="liA8E" id="769yZq7hNv$" role="2OqNvi">
+                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbF" id="769yZq7hMT2" role="3cqZAp">
+          <node concept="2OqwBi" id="769yZq7hMT3" role="3clFbG">
+            <node concept="2OqwBi" id="769yZq7hNsY" role="2Oq$k0">
+              <node concept="37vLTw" id="769yZq7hNsX" role="2Oq$k0">
+                <ref role="3cqZAo" node="769yZq7hMSI" resolve="model" />
+              </node>
+              <node concept="liA8E" id="769yZq7hNsZ" role="2OqNvi">
+                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+              </node>
+            </node>
+            <node concept="liA8E" id="769yZq7hNKy" role="2OqNvi">
+              <ref role="37wK5l" to="lui2:~SRepository.saveAll()" resolve="saveAll" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tm6S6" id="769yZq7hMT6" role="1B3o_S" />
+      <node concept="3cqZAl" id="769yZq7hMT7" role="3clF45" />
     </node>
   </node>
   <node concept="312cEu" id="29N7xYwTGoM">
@@ -2526,7 +2617,7 @@
       <property role="3TUv4t" value="false" />
       <node concept="3Tm6S6" id="52AFxJVoNdK" role="1B3o_S" />
       <node concept="3uibUv" id="52AFxJVoOjm" role="1tU5fm">
-        <ref role="3uigEE" to="33ny:~Collection" resolve="Collection" />
+        <ref role="3uigEE" to="33ny:~List" resolve="List" />
         <node concept="3uibUv" id="52AFxJVoR2Z" role="11_B2D">
           <ref role="3uigEE" to="z1c3:~AbstractModule" resolve="AbstractModule" />
         </node>
@@ -2781,42 +2872,18 @@
                   <node concept="17QB3L" id="4P2_rTQdPp3" role="1tU5fm" />
                 </node>
               </node>
-              <node concept="SfApY" id="16Fpg60PyXA" role="3cqZAp">
-                <node concept="3clFbS" id="16Fpg60PyXC" role="SfCbr">
-                  <node concept="3clFbF" id="7msLDqMEkym" role="3cqZAp">
-                    <node concept="2YIFZM" id="684ZMLPnvvy" role="3clFbG">
-                      <ref role="1Pybhc" to="smoa:~Renamer" resolve="Renamer" />
-                      <ref role="37wK5l" to="smoa:~Renamer.renameModuleWithSubModules(jetbrains.mps.project.AbstractModule,java.lang.String,java.util.Collection,jetbrains.mps.project.Project)" resolve="renameModuleWithSubModules" />
-                      <node concept="37vLTw" id="684ZMLPnvvz" role="37wK5m">
-                        <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
-                      </node>
-                      <node concept="37vLTw" id="684ZMLPnvv$" role="37wK5m">
-                        <ref role="3cqZAo" node="5_EKmHbXMu" resolve="newModuleName" />
-                      </node>
-                      <node concept="37vLTw" id="684ZMLPn$9$" role="37wK5m">
-                        <ref role="3cqZAo" node="52AFxJVoR3s" resolve="mySubModules" />
-                      </node>
-                      <node concept="37vLTw" id="44aRABLn0_F" role="37wK5m">
-                        <ref role="3cqZAo" node="2sTGsLqeK$D" resolve="myProject" />
-                      </node>
-                    </node>
+              <node concept="3clFbF" id="7msLDqMEkym" role="3cqZAp">
+                <node concept="2YIFZM" id="684ZMLPnvvy" role="3clFbG">
+                  <ref role="1Pybhc" to="smoa:~Renamer" resolve="Renamer" />
+                  <ref role="37wK5l" to="smoa:~Renamer.renameModuleWithSubModules(jetbrains.mps.project.AbstractModule,java.lang.String,jetbrains.mps.project.Project)" resolve="renameModuleWithSubModules" />
+                  <node concept="37vLTw" id="684ZMLPnvvz" role="37wK5m">
+                    <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
                   </node>
-                </node>
-                <node concept="TDmWw" id="16Fpg60PyXD" role="TEbGg">
-                  <node concept="3cpWsn" id="16Fpg60PyXF" role="TDEfY">
-                    <property role="TrG5h" value="e" />
-                    <node concept="3uibUv" id="16Fpg60PyZm" role="1tU5fm">
-                      <ref role="3uigEE" to="z1c3:~DescriptorTargetFileAlreadyExistsException" resolve="DescriptorTargetFileAlreadyExistsException" />
-                    </node>
+                  <node concept="37vLTw" id="684ZMLPnvv$" role="37wK5m">
+                    <ref role="3cqZAo" node="5_EKmHbXMu" resolve="newModuleName" />
                   </node>
-                  <node concept="3clFbS" id="16Fpg60PyXJ" role="TDEfX">
-                    <node concept="RRSsy" id="3jYQuSB37xt" role="3cqZAp">
-                      <property role="RRSoG" value="gZ5fh_4/error" />
-                      <node concept="Xl_RD" id="16Fpg60P_cL" role="RRSoy" />
-                      <node concept="37vLTw" id="16Fpg60P_cN" role="RRSow">
-                        <ref role="3cqZAo" node="16Fpg60PyXF" resolve="e" />
-                      </node>
-                    </node>
+                  <node concept="37vLTw" id="44aRABLn0_F" role="37wK5m">
+                    <ref role="3cqZAo" node="2sTGsLqeK$D" resolve="myProject" />
                   </node>
                 </node>
               </node>
@@ -2920,24 +2987,25 @@
             </node>
           </node>
         </node>
-        <node concept="3clFbF" id="684ZMLPnAZk" role="3cqZAp">
-          <node concept="37vLTI" id="684ZMLPnCTd" role="3clFbG">
-            <node concept="2YIFZM" id="684ZMLPnDc6" role="37vLTx">
-              <ref role="1Pybhc" to="smoa:~Renamer" resolve="Renamer" />
-              <ref role="37wK5l" to="smoa:~Renamer.getSubModules(org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.project.AbstractModule)" resolve="getSubModules" />
-              <node concept="2OqwBi" id="684ZMLPnE01" role="37wK5m">
-                <node concept="37vLTw" id="684ZMLPnDgQ" role="2Oq$k0">
-                  <ref role="3cqZAo" node="2sTGsLqeK$D" resolve="myProject" />
-                </node>
-                <node concept="liA8E" id="684ZMLPnEGH" role="2OqNvi">
-                  <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
+        <node concept="3clFbF" id="769yZq7hR$t" role="3cqZAp">
+          <node concept="37vLTI" id="769yZq7hR$u" role="3clFbG">
+            <node concept="2OqwBi" id="769yZq7hVIg" role="37vLTx">
+              <node concept="2ShNRf" id="769yZq7hSg4" role="2Oq$k0">
+                <node concept="1pGfFk" id="769yZq7hVgt" role="2ShVmc">
+                  <ref role="37wK5l" to="smoa:~Renamer.&lt;init&gt;(jetbrains.mps.project.Project)" resolve="Renamer" />
+                  <node concept="37vLTw" id="769yZq7hVl2" role="37wK5m">
+                    <ref role="3cqZAo" node="2sTGsLqeK$D" resolve="myProject" />
+                  </node>
                 </node>
               </node>
-              <node concept="37vLTw" id="684ZMLPnF6i" role="37wK5m">
-                <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
+              <node concept="liA8E" id="769yZq7hVZx" role="2OqNvi">
+                <ref role="37wK5l" to="smoa:~Renamer.getSubModules(jetbrains.mps.project.AbstractModule)" resolve="getSubModules" />
+                <node concept="37vLTw" id="769yZq7hWQR" role="37wK5m">
+                  <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
+                </node>
               </node>
             </node>
-            <node concept="37vLTw" id="684ZMLPnAZj" role="37vLTJ">
+            <node concept="37vLTw" id="769yZq7hR$$" role="37vLTJ">
               <ref role="3cqZAo" node="52AFxJVoR3s" resolve="mySubModules" />
             </node>
           </node>
@@ -2955,15 +3023,10 @@
                   <node concept="1pGfFk" id="4xnDkoPo9$2" role="2ShVmc">
                     <ref role="37wK5l" to="qqrq:~JBLabel.&lt;init&gt;(java.lang.String,javax.swing.Icon,int)" resolve="JBLabel" />
                     <node concept="2YIFZM" id="5NLyd09ynar" role="37wK5m">
-                      <ref role="37wK5l" to="smoa:~Renamer.getSubmodulesInfoHtml(org.jetbrains.mps.openapi.module.SRepository,jetbrains.mps.project.AbstractModule)" resolve="getSubmodulesInfoHtml" />
                       <ref role="1Pybhc" to="smoa:~Renamer" resolve="Renamer" />
-                      <node concept="2OqwBi" id="5NLyd09ynas" role="37wK5m">
-                        <node concept="37vLTw" id="5NLyd09ynat" role="2Oq$k0">
-                          <ref role="3cqZAo" node="2sTGsLqeK$D" resolve="myProject" />
-                        </node>
-                        <node concept="liA8E" id="5NLyd09ynau" role="2OqNvi">
-                          <ref role="37wK5l" to="z1c3:~Project.getRepository()" resolve="getRepository" />
-                        </node>
+                      <ref role="37wK5l" to="smoa:~Renamer.getSubmodulesInfoHtml(jetbrains.mps.project.Project,jetbrains.mps.project.AbstractModule)" resolve="getSubmodulesInfoHtml" />
+                      <node concept="37vLTw" id="5NLyd09ynat" role="37wK5m">
+                        <ref role="3cqZAo" node="2sTGsLqeK$D" resolve="myProject" />
                       </node>
                       <node concept="37vLTw" id="5NLyd09ynav" role="37wK5m">
                         <ref role="3cqZAo" node="29N7xYwTGoV" resolve="myModule" />
@@ -3001,7 +3064,7 @@
                 <ref role="3cqZAo" node="52AFxJVoR3s" resolve="mySubModules" />
               </node>
               <node concept="liA8E" id="5NLyd09yifD" role="2OqNvi">
-                <ref role="37wK5l" to="33ny:~Collection.isEmpty()" resolve="isEmpty" />
+                <ref role="37wK5l" to="33ny:~List.isEmpty()" resolve="isEmpty" />
               </node>
             </node>
           </node>
