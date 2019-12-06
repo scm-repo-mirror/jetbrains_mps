@@ -7,48 +7,79 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1068581242864:jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070462154015:jetbrains.mps.baseLanguage.structure.StaticFieldDeclaration" />
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
+  <root nodeRef="r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)/1135569809051521653">
+    <file name="B2_Test.java">
+      <node id="1135569809051521653" at="27,20,28,25" concept="6" />
+      <node id="3188152679658433604" at="32,79,33,70" concept="1" />
+      <node id="1135569809051521653" at="38,52,39,19" concept="6" />
+      <node id="3188152679658433604" at="43,81,44,65" concept="4" />
+      <node id="3188152679658433604" at="44,65,45,63" concept="4" />
+      <node id="3188152679658433604" at="45,63,46,373" concept="1" />
+      <node id="1135569809051521653" at="22,0,24,0" concept="5" trace="ourParamCache" />
+      <node id="1135569809051521653" at="24,0,26,0" concept="2" trace="myWithCommandRule" />
+      <node id="1135569809051521653" at="27,0,30,0" concept="0" trace="B2_Test#()V" />
+      <node id="1135569809051521653" at="38,0,41,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3188152679658433604" at="31,0,35,0" concept="3" trace="test_NodeUnknownRuleCheck3188152679658433604#()V" />
+      <node id="3188152679658433604" at="43,0,48,0" concept="3" trace="test_NodeUnknownRuleCheck3188152679658433604#()V" />
+      <scope id="1135569809051521653" at="27,20,28,25" />
+      <scope id="3188152679658433604" at="32,79,33,70" />
+      <scope id="1135569809051521653" at="38,52,39,19" />
+      <scope id="1135569809051521653" at="27,0,30,0" />
+      <scope id="1135569809051521653" at="38,0,41,0">
+        <var name="owner" id="1135569809051521653" />
+      </scope>
+      <scope id="3188152679658433604" at="43,81,46,373">
+        <var name="nodeToCheck" id="3188152679658433604" />
+        <var name="operation" id="3188152679658433604" />
+      </scope>
+      <scope id="3188152679658433604" at="31,0,35,0" />
+      <scope id="3188152679658433604" at="43,0,48,0" />
+      <unit id="1135569809051521653" at="36,0,50,0" name="messages.sandbox.mB.B2_Test$TestBody" />
+      <unit id="1135569809051521653" at="20,0,51,0" name="messages.sandbox.mB.B2_Test" />
+    </file>
+  </root>
   <root nodeRef="r:85fb8fd8-b1c6-4933-b652-a58a1ce85393(messages.sandbox.mB@tests)/3071492597344700468">
     <file name="B_Test.java">
-      <node id="3071492597344700468" at="26,19,27,25" concept="6" />
-      <node id="3071492597344723261" at="31,79,32,70" concept="1" />
-      <node id="3071492597344723263" at="35,79,36,70" concept="1" />
-      <node id="3071492597344700468" at="41,52,42,19" concept="6" />
-      <node id="3071492597344723261" at="46,81,47,65" concept="4" />
-      <node id="3071492597344723261" at="47,65,48,63" concept="4" />
-      <node id="3071492597344723261" at="48,63,49,254" concept="1" />
-      <node id="3071492597344723263" at="51,81,52,65" concept="4" />
-      <node id="3071492597344723263" at="52,65,53,63" concept="4" />
-      <node id="3071492597344723263" at="53,63,54,254" concept="1" />
-      <node id="3071492597344700468" at="21,0,23,0" concept="5" trace="ourParamCache" />
-      <node id="3071492597344700468" at="23,0,25,0" concept="2" trace="myWithCommandRule" />
-      <node id="3071492597344700468" at="26,0,29,0" concept="0" trace="B_Test#()V" />
-      <node id="3071492597344700468" at="41,0,44,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="3071492597344723261" at="30,0,34,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723261#()V" />
-      <node id="3071492597344723263" at="34,0,38,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723263#()V" />
-      <node id="3071492597344723261" at="46,0,51,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723261#()V" />
-      <node id="3071492597344723263" at="51,0,56,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723263#()V" />
-      <scope id="3071492597344700468" at="26,19,27,25" />
-      <scope id="3071492597344723261" at="31,79,32,70" />
-      <scope id="3071492597344723263" at="35,79,36,70" />
-      <scope id="3071492597344700468" at="41,52,42,19" />
-      <scope id="3071492597344700468" at="26,0,29,0" />
-      <scope id="3071492597344700468" at="41,0,44,0">
+      <node id="3071492597344700468" at="27,19,28,25" concept="6" />
+      <node id="3071492597344723261" at="32,79,33,70" concept="1" />
+      <node id="3071492597344723263" at="36,79,37,70" concept="1" />
+      <node id="3071492597344700468" at="42,52,43,19" concept="6" />
+      <node id="3071492597344723261" at="47,81,48,65" concept="4" />
+      <node id="3071492597344723261" at="48,65,49,63" concept="4" />
+      <node id="3071492597344723261" at="49,63,50,303" concept="1" />
+      <node id="3071492597344723263" at="52,81,53,65" concept="4" />
+      <node id="3071492597344723263" at="53,65,54,63" concept="4" />
+      <node id="3071492597344723263" at="54,63,55,303" concept="1" />
+      <node id="3071492597344700468" at="22,0,24,0" concept="5" trace="ourParamCache" />
+      <node id="3071492597344700468" at="24,0,26,0" concept="2" trace="myWithCommandRule" />
+      <node id="3071492597344700468" at="27,0,30,0" concept="0" trace="B_Test#()V" />
+      <node id="3071492597344700468" at="42,0,45,0" concept="0" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="3071492597344723261" at="31,0,35,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723261#()V" />
+      <node id="3071492597344723263" at="35,0,39,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723263#()V" />
+      <node id="3071492597344723261" at="47,0,52,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723261#()V" />
+      <node id="3071492597344723263" at="52,0,57,0" concept="3" trace="test_NodeUnknownRuleCheck3071492597344723263#()V" />
+      <scope id="3071492597344700468" at="27,19,28,25" />
+      <scope id="3071492597344723261" at="32,79,33,70" />
+      <scope id="3071492597344723263" at="36,79,37,70" />
+      <scope id="3071492597344700468" at="42,52,43,19" />
+      <scope id="3071492597344700468" at="27,0,30,0" />
+      <scope id="3071492597344700468" at="42,0,45,0">
         <var name="owner" id="3071492597344700468" />
       </scope>
-      <scope id="3071492597344723261" at="46,81,49,254">
+      <scope id="3071492597344723261" at="47,81,50,303">
         <var name="nodeToCheck" id="3071492597344723261" />
         <var name="operation" id="3071492597344723261" />
       </scope>
-      <scope id="3071492597344723263" at="51,81,54,254">
+      <scope id="3071492597344723263" at="52,81,55,303">
         <var name="nodeToCheck" id="3071492597344723263" />
         <var name="operation" id="3071492597344723263" />
       </scope>
-      <scope id="3071492597344723261" at="30,0,34,0" />
-      <scope id="3071492597344723263" at="34,0,38,0" />
-      <scope id="3071492597344723261" at="46,0,51,0" />
-      <scope id="3071492597344723263" at="51,0,56,0" />
-      <unit id="3071492597344700468" at="39,0,58,0" name="messages.sandbox.mB.B_Test$TestBody" />
-      <unit id="3071492597344700468" at="19,0,59,0" name="messages.sandbox.mB.B_Test" />
+      <scope id="3071492597344723261" at="31,0,35,0" />
+      <scope id="3071492597344723263" at="35,0,39,0" />
+      <scope id="3071492597344723261" at="47,0,52,0" />
+      <scope id="3071492597344723263" at="52,0,57,0" />
+      <unit id="3071492597344700468" at="40,0,59,0" name="messages.sandbox.mB.B_Test$TestBody" />
+      <unit id="3071492597344700468" at="20,0,60,0" name="messages.sandbox.mB.B_Test" />
     </file>
   </root>
 </debug-info>

@@ -26,6 +26,9 @@
       </concept>
     </language>
     <language id="7127d409-29f0-43e8-917f-f016ea288944" name="jetbrains.mps.lang.feedback.problem.structural">
+      <concept id="2559059706675257210" name="jetbrains.mps.lang.feedback.problem.structural.structure.NoChildInObligatoryRoleProblem" flags="ng" index="24TOh4" />
+      <concept id="5741876244398306564" name="jetbrains.mps.lang.feedback.problem.structural.structure.MultipleChildrenInSingleRoleProblem" flags="ng" index="2cc$G1" />
+      <concept id="5741876244398306563" name="jetbrains.mps.lang.feedback.problem.structural.structure.NoRefInObligatoryRoleProblem" flags="ng" index="2cc$G6" />
       <concept id="5724083730281438001" name="jetbrains.mps.lang.feedback.problem.structural.structure.MissingPropertyInConceptProblem" flags="ng" index="ft9Ny" />
       <concept id="2554379189374329844" name="jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem" flags="ng" index="3Jf5Ay" />
     </language>
@@ -133,7 +136,7 @@
     <node concept="3QByp$" id="1oq9tin1ty6" role="3QBEN7">
       <node concept="16I2mz" id="1oq9tin1ty8" role="16N$OO">
         <node concept="16N$OT" id="2mL_UKGqESd" role="16I2mt">
-          <property role="16N$OU" value="Reference is out of scope: not found " />
+          <property role="16N$OU" value="Reference is out of scope: can not found " />
         </node>
         <node concept="16N$OT" id="2mL_UKGqIpq" role="16I2mt">
           <property role="16N$OU" value="the link '" />
@@ -143,11 +146,8 @@
             <ref role="3QpVTF" to="bea4:5vZLfeXlpEL" resolve="link" />
           </node>
         </node>
-        <node concept="16N$OT" id="2mL_UKGs3zz" role="16I2mt">
-          <property role="16N$OU" value="'" />
-        </node>
         <node concept="16N$OT" id="2mL_UKGqESx" role="16I2mt">
-          <property role="16N$OU" value="in the node " />
+          <property role="16N$OU" value="' in the node " />
         </node>
         <node concept="16Iohu" id="2mL_UKGqESw" role="16I2mt">
           <node concept="3QpRc$" id="2mL_UKGqESB" role="9Y7m$">
@@ -158,6 +158,65 @@
       <node concept="216oCf" id="1oq9tin1$FT" role="3JXyrO">
         <ref role="216p6q" to="pljn:1oq9tin1BEu" resolve="link" />
         <ref role="sa$J1" to="bea4:1mFJTG7e$j" resolve="RefOutOfScope" />
+      </node>
+    </node>
+    <node concept="3QByp$" id="Z2mFAearao" role="3QBEN7">
+      <node concept="16I2mz" id="Z2mFAearap" role="16N$OO">
+        <node concept="16N$OT" id="Z2mFAearbc" role="16I2mt">
+          <property role="16N$OU" value="No ref in the very obligatory role '" />
+        </node>
+        <node concept="16Iohu" id="Z2mFAearbb" role="16I2mt">
+          <node concept="3QpRc$" id="Z2mFAearbh" role="9Y7m$">
+            <ref role="3QpVTF" to="qzsv:4YJfwn3BmNY" resolve="link" />
+          </node>
+        </node>
+        <node concept="16N$OT" id="Z2mFAearbd" role="16I2mt">
+          <property role="16N$OU" value="'" />
+        </node>
+      </node>
+      <node concept="2cc$G6" id="Z2mFAearam" role="3JXyrO">
+        <ref role="sa$J1" to="qzsv:4YJfwn3BmNV" resolve="NoRefInObligatoryRole" />
+      </node>
+    </node>
+    <node concept="3QByp$" id="Z2mFAear8U" role="3QBEN7">
+      <node concept="16I2mz" id="Z2mFAear8V" role="16N$OO">
+        <node concept="16N$OT" id="Z2mFAebeFL" role="16I2mt">
+          <property role="16N$OU" value="No child in the very obligatory role '" />
+        </node>
+        <node concept="16Iohu" id="Z2mFAebeFK" role="16I2mt">
+          <node concept="3QpRc$" id="Z2mFAebeFO" role="9Y7m$">
+            <ref role="3QpVTF" to="qzsv:2e3ANUBpeJ9" resolve="link" />
+          </node>
+        </node>
+        <node concept="16N$OT" id="Z2mFAebeFV" role="16I2mt">
+          <property role="16N$OU" value="'" />
+        </node>
+      </node>
+      <node concept="24TOh4" id="Z2mFAear8S" role="3JXyrO">
+        <ref role="sa$J1" to="qzsv:2e3ANUBpeJ4" resolve="NoChildInObligatoryRole" />
+      </node>
+    </node>
+    <node concept="3QByp$" id="Z2mFAeahEl" role="3QBEN7">
+      <node concept="16I2mz" id="Z2mFAeahEm" role="16N$OO">
+        <node concept="16N$OT" id="Z2mFAebeG1" role="16I2mt">
+          <property role="16N$OU" value="Multiple children in the single role '" />
+        </node>
+        <node concept="16Iohu" id="Z2mFAebeG0" role="16I2mt">
+          <node concept="3QpRc$" id="Z2mFAebeG8" role="9Y7m$">
+            <ref role="3QpVTF" to="qzsv:4YJfwn3BmNM" resolve="link" />
+          </node>
+        </node>
+        <node concept="16N$OT" id="Z2mFAebeG2" role="16I2mt">
+          <property role="16N$OU" value="':  " />
+        </node>
+        <node concept="16Iohu" id="Z2mFAebeFq" role="16I2mt">
+          <node concept="3QpRc$" id="Z2mFAebeFt" role="9Y7m$">
+            <ref role="3QpVTF" to="qzsv:4YJfwn3BmNO" resolve="children" />
+          </node>
+        </node>
+      </node>
+      <node concept="2cc$G1" id="Z2mFAeahEj" role="3JXyrO">
+        <ref role="sa$J1" to="qzsv:4YJfwn3BmNJ" resolve="MultipleChildrenInSingleRole" />
       </node>
     </node>
   </node>

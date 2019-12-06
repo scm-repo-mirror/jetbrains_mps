@@ -187,6 +187,15 @@
   </registry>
   <node concept="3Oh7Pa" id="1mFJTG0Yqe">
     <ref role="3Oh7Pe" to="pljn:5ca4zTvKOOO" resolve="TestConcept" />
+    <node concept="3OnDbq" id="Z2mFAeb9OX" role="3Oh7Pb">
+      <ref role="3OnDbs" to="prp3:6X8eyFnbGDJ" resolve="CanBeRoot" />
+    </node>
+    <node concept="3OnDbq" id="Z2mFAeb9ND" role="3Oh7Pb">
+      <ref role="3OnDbs" to="prp3:6X8eyFnbIRK" resolve="CanBeAncestor" />
+    </node>
+    <node concept="3OnDbq" id="Z2mFAeb9Ml" role="3Oh7Pb">
+      <ref role="3OnDbs" to="prp3:6X8eyFnbIRY" resolve="CanBeParent" />
+    </node>
     <node concept="3OnDbq" id="2mL_UKGe1Oc" role="3Oh7Pb">
       <ref role="3OnDbs" to="prp3:6X8eyFnbIRR" resolve="CanBeChild" />
       <node concept="3QlHBw" id="2Ew8zTEY93J" role="3OnDbr">

@@ -16,13 +16,15 @@
     <classNode dependClassName="java.util.stream.Stream" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.api.FeedbackProvider" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.BaseMessageProvider" />
+    <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.ChildCardinalityContext" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintContext" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintProblemId" />
+    <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.InConceptProblemId" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.MessageProvider" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.MissingChildContext" />
-    <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.MissingFeatureInConceptProblemId" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.MissingPropertyContext" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.PredefinedStructureProblemKind" />
+    <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.RefCardinalityContext" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeContext" />
     <classNode dependClassName="jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeProblemId" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />

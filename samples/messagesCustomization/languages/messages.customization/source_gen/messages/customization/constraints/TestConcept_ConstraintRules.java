@@ -26,7 +26,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
 public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "messages.customization.structure.TestConcept");
 
-  public static final Rule<ContainmentContext> check_id3071492597344669959 = new Rule_unnamed_6y4avc_c0();
+  public static final Rule<ContainmentContext> check_id3071492597344669959 = new Rule_unnamed_6y4avc_c3();
 
   private static final List<Rule<?>> RULES = Collections.unmodifiableList(Arrays.<Rule<?>>asList(check_id3071492597344669959));
 
@@ -72,12 +72,12 @@ public final class TestConcept_ConstraintRules extends BaseRulesConstraintsDescr
     }
   }
 
-  public static final class Rule_unnamed_6y4avc_c0 extends BaseRule<ContainmentContext> {
+  public static final class Rule_unnamed_6y4avc_c3 extends BaseRule<ContainmentContext> {
     private static final SNodeReference SOURCE_NODE_REF = PersistenceFacade.getInstance().createNodeReference("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)/3071492597344669959");
-    public static final RuleId ID_unnamed_6y4avc_c0 = new RuleId(3071492597344669959L, SOURCE_NODE_REF);
+    public static final RuleId ID_unnamed_6y4avc_c3 = new RuleId(3071492597344669959L, SOURCE_NODE_REF);
 
-    public Rule_unnamed_6y4avc_c0() {
-      super(CONCEPT, PredefinedRuleKinds.CAN_BE_CHILD, ID_unnamed_6y4avc_c0, SOURCE_NODE_REF);
+    public Rule_unnamed_6y4avc_c3() {
+      super(CONCEPT, PredefinedRuleKinds.CAN_BE_CHILD, ID_unnamed_6y4avc_c3, SOURCE_NODE_REF);
     }
 
     @Override

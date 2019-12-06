@@ -12,9 +12,10 @@ import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.smodel.SNodePointer;
+import jetbrains.mps.project.ProjectBase;
 
 @MPSLaunch
 public class B_Test extends BaseTransformationTest {
@@ -46,12 +47,12 @@ public class B_Test extends BaseTransformationTest {
     public void test_NodeUnknownRuleCheck3071492597344723261() throws Exception {
       SNode nodeToCheck = getRealNodeById("3071492597344700470");
       SNode operation = getRealNodeById("3071492597344723261");
-      new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "3071492597344669959"), myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "3071492597344669959"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_NodeUnknownRuleCheck3071492597344723263() throws Exception {
       SNode nodeToCheck = getRealNodeById("3071492597344700470");
       SNode operation = getRealNodeById("3071492597344723263");
-      new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "8918166317255507159"), myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "8918166317255507159"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
 
   }

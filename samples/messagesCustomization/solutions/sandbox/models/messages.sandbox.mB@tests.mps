@@ -18,6 +18,9 @@
       <concept id="7835233914436786109" name="jetbrains.mps.lang.test.structure.NodeUnknownErrorCheckOperation" flags="ng" index="mDk06">
         <child id="8333855927540028958" name="errorRef" index="39UlJh" />
       </concept>
+      <concept id="7835233914439520906" name="jetbrains.mps.lang.test.structure.AbstractNodeRuleCheckOperation" flags="ng" index="mZCkL">
+        <child id="710597951278798299" name="expectedMessage" index="1DMPz9" />
+      </concept>
       <concept id="7691029917083831655" name="jetbrains.mps.lang.test.structure.UnknownRuleReference" flags="ng" index="2u4KIi" />
       <concept id="7691029917083872157" name="jetbrains.mps.lang.test.structure.IRuleReference" flags="ng" index="2u4UPC">
         <reference id="8333855927540250453" name="declaration" index="39XzEq" />
@@ -33,6 +36,9 @@
       </concept>
       <concept id="1216989428737" name="jetbrains.mps.lang.test.structure.TestNode" flags="ng" index="1qefOq">
         <child id="1216989461394" name="nodeToCheck" index="1qenE9" />
+      </concept>
+      <concept id="710597951278798236" name="jetbrains.mps.lang.test.structure.ExpectedMessageContainer" flags="ng" index="1DMPye">
+        <property id="710597951278798237" name="text" index="1DMPyf" />
       </concept>
     </language>
     <language id="7cf7c95b-c81e-4da9-a056-45e480a7abd3" name="messages.customization">
@@ -69,6 +75,26 @@
           <node concept="39XrGg" id="2Ew8zTEYm4Z" role="7EUXB">
             <node concept="2u4KIi" id="2Ew8zTEYm50" role="39rjcI">
               <ref role="39XzEq" to="2e5h:7J3GgfrRzNn" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1lH9Xt" id="Z2mFAeb99P">
+    <property role="TrG5h" value="B2" />
+    <node concept="1qefOq" id="Z2mFAeb99X" role="1SKRRt">
+      <node concept="cMlWa" id="Z2mFAeb99Y" role="1qenE9">
+        <property role="TrG5h" value="B" />
+        <property role="3ZEpjE" value="10" />
+        <ref role="2175Xa" to="rk6v:2Ew8zTEY7CR" resolve="A" />
+        <node concept="7CXmI" id="2lja8zi1WvA" role="lGtFl">
+          <node concept="39XrGg" id="2KY_ZxSK2L4" role="7EUXB">
+            <node concept="2u4KIi" id="2KY_ZxSK2L5" role="39rjcI">
+              <ref role="39XzEq" to="2e5h:7J3GgfrRzNn" />
+            </node>
+            <node concept="1DMPye" id="2KY_ZxSK2L6" role="1DMPz9">
+              <property role="1DMPyf" value="Reference is out of scope: can not found the link 'link' in the node B" />
             </node>
           </node>
         </node>

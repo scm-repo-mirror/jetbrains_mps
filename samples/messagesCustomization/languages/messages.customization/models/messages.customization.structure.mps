@@ -29,6 +29,8 @@
       </concept>
       <concept id="1071489288298" name="jetbrains.mps.lang.structure.structure.LinkDeclaration" flags="ig" index="1TJgyj">
         <property id="1071599776563" name="role" index="20kJfa" />
+        <property id="1071599893252" name="sourceCardinality" index="20lbJX" />
+        <property id="1071599937831" name="metaClass" index="20lmBu" />
         <property id="241647608299431140" name="linkId" index="IQ2ns" />
         <reference id="1071599976176" name="target" index="20lvS9" />
       </concept>
@@ -57,6 +59,37 @@
     <node concept="PrWs8" id="1oq9tin1BFJ" role="PzmwI">
       <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
     </node>
+  </node>
+  <node concept="1TIwiD" id="Z2mFAeb9ak">
+    <property role="EcuMT" value="1135569809051521684" />
+    <property role="TrG5h" value="TestConceptParent" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="Z2mFAeb9al" role="1TKVEi">
+      <property role="IQ2ns" value="1135569809051521685" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="obligatoryChildRole" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="5ca4zTvKOOO" resolve="TestConcept" />
+    </node>
+    <node concept="1TJgyj" id="Z2mFAeb9an" role="1TKVEi">
+      <property role="IQ2ns" value="1135569809051521687" />
+      <property role="20kJfa" value="obligatoryRefRole" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="5ca4zTvKOOO" resolve="TestConcept" />
+    </node>
+    <node concept="PrWs8" id="Z2mFAeb9bb" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="Z2mFAeb9KP">
+    <property role="EcuMT" value="1135569809051524149" />
+    <property role="TrG5h" value="TestConcept2" />
+    <ref role="1TJDcQ" node="5ca4zTvKOOO" resolve="TestConcept" />
+  </node>
+  <node concept="1TIwiD" id="Z2mFAeb9KQ">
+    <property role="EcuMT" value="1135569809051524150" />
+    <property role="TrG5h" value="TestConceptParent2" />
+    <ref role="1TJDcQ" node="Z2mFAeb9ak" resolve="TestConceptParent" />
   </node>
 </model>
 

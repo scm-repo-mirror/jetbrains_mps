@@ -12,55 +12,79 @@
   </root>
   <root nodeRef="r:ecf311aa-7fee-4454-acdb-4d199fb64430(messages.customization.feedback)/5983615114019032371">
     <file name="TestConcept_FeedbackFeedback.java">
-      <node id="5983615114019032371" at="29,0,30,0" concept="3" trace="CONCEPT" />
-      <node id="3899121472971926145" at="34,83,35,132" concept="2" />
-      <node id="3899121472971925609" at="41,80,42,125" concept="2" />
-      <node id="7716791493893652418" at="48,93,49,137" concept="2" />
-      <node id="1592627013225928838" at="55,81,56,162" concept="2" />
-      <node id="5983615114019032371" at="60,0,61,0" concept="3" trace="PROVIDERS" />
-      <node id="5983615114019032371" at="62,41,63,19" concept="4" />
-      <node id="5983615114019032371" at="68,58,69,30" concept="2" />
-      <node id="5983615114019032371" at="73,0,74,0" concept="3" trace="TestConcept$83" />
-      <node id="5983615114019032371" at="77,0,78,0" concept="3" trace="prop$PGpb" />
-      <node id="5983615114019032371" at="81,0,82,0" concept="3" trace="link$1Bcs" />
-      <node id="5983615114019032371" at="62,0,65,0" concept="0" trace="TestConcept_FeedbackFeedback#()V" />
-      <node id="3899121472971926145" at="32,0,37,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/MissingPropertyContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="3899121472971925609" at="39,0,44,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/MissingChildContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="7716791493893652418" at="46,0,51,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/FailingPropertyConstraintContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="1592627013225928838" at="53,0,58,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/RefOutOfScopeContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
-      <node id="5983615114019032371" at="66,0,71,0" concept="1" trace="getDeclaredProviders#()Ljava/util/stream/Stream;" />
-      <node id="3899121472971926145" at="31,0,38,0" concept="3" trace="MSGPROVIDER_WhenPropertyIsNotDefinedInConcept_pavl6x_a" />
-      <node id="3899121472971925609" at="38,0,45,0" concept="3" trace="MSGPROVIDER_WhenChildIsNotDefinedInConcept_pavl6x_b" />
-      <node id="7716791493893652418" at="45,0,52,0" concept="3" trace="MSGPROVIDER_WhenPropertyConstraintFails_pavl6x_c" />
-      <node id="1592627013225928838" at="52,0,59,0" concept="3" trace="MSGPROVIDER_WhenReferenceIsOutOfScope_pavl6x_d" />
-      <scope id="3899121472971926145" at="34,83,35,132" />
-      <scope id="3899121472971925609" at="41,80,42,125" />
-      <scope id="7716791493893652418" at="48,93,49,137" />
-      <scope id="1592627013225928838" at="55,81,56,162" />
-      <scope id="5983615114019032371" at="62,41,63,19" />
-      <scope id="5983615114019032371" at="68,58,69,30" />
-      <scope id="5983615114019032371" at="62,0,65,0" />
-      <scope id="3899121472971926145" at="32,0,37,0">
+      <node id="5983615114019032371" at="31,0,32,0" concept="3" trace="CONCEPT" />
+      <node id="3899121472971926145" at="36,83,37,132" concept="2" />
+      <node id="3899121472971925609" at="43,80,44,125" concept="2" />
+      <node id="7716791493893652418" at="50,93,51,137" concept="2" />
+      <node id="1592627013225928838" at="57,81,58,162" concept="2" />
+      <node id="1135569809051333272" at="64,82,65,109" concept="2" />
+      <node id="1135569809051333178" at="71,84,72,111" concept="2" />
+      <node id="1135569809051294357" at="78,84,79,138" concept="2" />
+      <node id="5983615114019032371" at="83,0,84,0" concept="3" trace="PROVIDERS" />
+      <node id="5983615114019032371" at="85,41,86,19" concept="4" />
+      <node id="5983615114019032371" at="91,58,92,30" concept="2" />
+      <node id="5983615114019032371" at="96,0,97,0" concept="3" trace="TestConcept$83" />
+      <node id="5983615114019032371" at="100,0,101,0" concept="3" trace="prop$PGpb" />
+      <node id="5983615114019032371" at="104,0,105,0" concept="3" trace="link$1Bcs" />
+      <node id="5983615114019032371" at="85,0,88,0" concept="0" trace="TestConcept_FeedbackFeedback#()V" />
+      <node id="3899121472971926145" at="34,0,39,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/MissingPropertyContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="3899121472971925609" at="41,0,46,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/MissingChildContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="7716791493893652418" at="48,0,53,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/FailingPropertyConstraintContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="1592627013225928838" at="55,0,60,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/RefOutOfScopeContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="1135569809051333272" at="62,0,67,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/RefCardinalityContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="1135569809051333178" at="69,0,74,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/ChildCardinalityContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="1135569809051294357" at="76,0,81,0" concept="1" trace="yieldMessage#(Ljetbrains/mps/core/aspects/feedback/messages/ChildCardinalityContext;)Ljetbrains/mps/core/aspects/feedback/messages/MessageProvider/StringMsg;" />
+      <node id="5983615114019032371" at="89,0,94,0" concept="1" trace="getDeclaredProviders#()Ljava/util/stream/Stream;" />
+      <node id="3899121472971926145" at="33,0,40,0" concept="3" trace="MSGPROVIDER_WhenPropertyIsNotDefinedInConcept_pavl6x_a" />
+      <node id="3899121472971925609" at="40,0,47,0" concept="3" trace="MSGPROVIDER_WhenChildIsNotDefinedInConcept_pavl6x_b" />
+      <node id="7716791493893652418" at="47,0,54,0" concept="3" trace="MSGPROVIDER_WhenPropertyConstraintFails_pavl6x_c" />
+      <node id="1592627013225928838" at="54,0,61,0" concept="3" trace="MSGPROVIDER_WhenReferenceIsOutOfScope_pavl6x_d" />
+      <node id="1135569809051333272" at="61,0,68,0" concept="3" trace="MSGPROVIDER_WhenThereIsNoRefInRoleWithNonzeroCardinality_pavl6x_e" />
+      <node id="1135569809051333178" at="68,0,75,0" concept="3" trace="MSGPROVIDER_WhenThereIsNoChildInRoleWithNonzeroCardinality_pavl6x_f" />
+      <node id="1135569809051294357" at="75,0,82,0" concept="3" trace="MSGPROVIDER_WhenThereAreMultipleChildrenInRoleWithSingleCardinality_pavl6x_g" />
+      <scope id="3899121472971926145" at="36,83,37,132" />
+      <scope id="3899121472971925609" at="43,80,44,125" />
+      <scope id="7716791493893652418" at="50,93,51,137" />
+      <scope id="1592627013225928838" at="57,81,58,162" />
+      <scope id="1135569809051333272" at="64,82,65,109" />
+      <scope id="1135569809051333178" at="71,84,72,111" />
+      <scope id="1135569809051294357" at="78,84,79,138" />
+      <scope id="5983615114019032371" at="85,41,86,19" />
+      <scope id="5983615114019032371" at="91,58,92,30" />
+      <scope id="5983615114019032371" at="85,0,88,0" />
+      <scope id="3899121472971926145" at="34,0,39,0">
         <var name="context" id="3899121472971926145" />
       </scope>
-      <scope id="3899121472971925609" at="39,0,44,0">
+      <scope id="3899121472971925609" at="41,0,46,0">
         <var name="context" id="3899121472971925609" />
       </scope>
-      <scope id="7716791493893652418" at="46,0,51,0">
+      <scope id="7716791493893652418" at="48,0,53,0">
         <var name="context" id="7716791493893652418" />
       </scope>
-      <scope id="1592627013225928838" at="53,0,58,0">
+      <scope id="1592627013225928838" at="55,0,60,0">
         <var name="context" id="1592627013225928838" />
       </scope>
-      <scope id="5983615114019032371" at="66,0,71,0" />
-      <unit id="5983615114019032371" at="72,0,75,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback$CONCEPTS" />
-      <unit id="5983615114019032371" at="76,0,79,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback$PROPS" />
-      <unit id="5983615114019032371" at="80,0,83,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback$LINKS" />
-      <unit id="3899121472971926145" at="31,125,37,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$1" />
-      <unit id="3899121472971925609" at="38,119,44,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$2" />
-      <unit id="7716791493893652418" at="45,129,51,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$3" />
-      <unit id="1592627013225928838" at="52,115,58,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$4" />
-      <unit id="5983615114019032371" at="28,0,84,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback" />
+      <scope id="1135569809051333272" at="62,0,67,0">
+        <var name="context" id="1135569809051333272" />
+      </scope>
+      <scope id="1135569809051333178" at="69,0,74,0">
+        <var name="context" id="1135569809051333178" />
+      </scope>
+      <scope id="1135569809051294357" at="76,0,81,0">
+        <var name="context" id="1135569809051294357" />
+      </scope>
+      <scope id="5983615114019032371" at="89,0,94,0" />
+      <unit id="5983615114019032371" at="95,0,98,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback$CONCEPTS" />
+      <unit id="5983615114019032371" at="99,0,102,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback$PROPS" />
+      <unit id="5983615114019032371" at="103,0,106,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback$LINKS" />
+      <unit id="3899121472971926145" at="33,125,39,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$1" />
+      <unit id="3899121472971925609" at="40,119,46,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$2" />
+      <unit id="7716791493893652418" at="47,129,53,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$3" />
+      <unit id="1592627013225928838" at="54,115,60,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$4" />
+      <unit id="1135569809051333272" at="61,135,67,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$5" />
+      <unit id="1135569809051333178" at="68,139,74,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$6" />
+      <unit id="1135569809051294357" at="75,148,81,3" name="messages.customization.feedback.TestConcept_FeedbackFeedback$7" />
+      <unit id="5983615114019032371" at="30,0,107,0" name="messages.customization.feedback.TestConcept_FeedbackFeedback" />
     </file>
   </root>
 </debug-info>
