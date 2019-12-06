@@ -102,7 +102,7 @@ public class AbstractConceptDeclaration_Constraints extends BaseConstraintsDescr
       try {
         UUID.fromString(propertyValue);
         return true;
-      } catch (NumberFormatException e) {
+      } catch (IllegalArgumentException e) {
         return false;
       }
     }
