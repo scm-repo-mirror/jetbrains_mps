@@ -25,11 +25,11 @@ public class Mac_10_5_KeymapChanges extends BaseKeymapChanges {
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowConceptInHierarchy_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl H"), false, true));
     addSimpleShortcut("jetbrains.mps.ide.actions.ShowNodeInfo_Action", new BaseKeymapChanges.ShortcutWrapper(getShortcut("ctrl Q"), false, true));
     // simple parameterized 
-    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new BaseKeymapChanges.ComplexShortcut.ParameterizedSimpleShortcut(getShortcut("ctrl 0")));
     // simple parameterized remove/replace  
     addComplexShortcut("jetbrains.mps.ide.actions.GoToRootNode_Action", new BaseKeymapChanges.ComplexShortcut.ParameterizedSimpleShortcut(new BaseKeymapChanges.ShortcutWrapper(getShortcut("meta O"), false, true)));
     // complex 
-    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new GoToBookmark_ShortcutChange_yfpb4i_g());
+    addComplexShortcut("jetbrains.mps.ide.actions.GoToBookmark_Action", new BaseKeymapChanges.ComplexShortcut.ComplexShortcutWrapper(new GoToBookmark_ShortcutChange_yfpb4i_f(), false, true));
+    addComplexShortcut("jetbrains.mps.ide.actions.SetBookmark_Action", new BaseKeymapChanges.ComplexShortcut.ComplexShortcutWrapper(new SetBookmark_ShortcutChange_yfpb4i_g(), false, true));
   }
   public String getScheme() {
     return "Mac OS X 10.5+";
@@ -37,12 +37,21 @@ public class Mac_10_5_KeymapChanges extends BaseKeymapChanges {
   public static Shortcut getShortcut(String stroke) {
     return new KeyboardShortcut(KeyStroke.getKeyStroke(stroke), null);
   }
-  public class GoToBookmark_ShortcutChange_yfpb4i_g extends BaseKeymapChanges.ComplexShortcut {
-    public GoToBookmark_ShortcutChange_yfpb4i_g() {
+  public class GoToBookmark_ShortcutChange_yfpb4i_f extends BaseKeymapChanges.ComplexShortcut {
+    public GoToBookmark_ShortcutChange_yfpb4i_f() {
     }
     public List<Shortcut> getShortcutsFor(Object... objects) {
       List<Shortcut> _result = new ArrayList<Shortcut>();
       _result.add(new KeyboardShortcut(KeyStroke.getKeyStroke("ctrl " + ((Integer) objects[0])), null));
+      return _result;
+    }
+  }
+  public class SetBookmark_ShortcutChange_yfpb4i_g extends BaseKeymapChanges.ComplexShortcut {
+    public SetBookmark_ShortcutChange_yfpb4i_g() {
+    }
+    public List<Shortcut> getShortcutsFor(Object... objects) {
+      List<Shortcut> _result = new ArrayList<Shortcut>();
+      _result.add(new KeyboardShortcut(KeyStroke.getKeyStroke("ctrl shift " + ((Integer) objects[0])), null));
       return _result;
     }
   }

@@ -320,7 +320,9 @@
       <concept id="6193305307616715384" name="jetbrains.mps.lang.plugin.structure.ShortcutChange" flags="lg" index="1bYyw_">
         <reference id="6193305307616734326" name="action" index="1bYAoF" />
       </concept>
-      <concept id="6193305307616734266" name="jetbrains.mps.lang.plugin.structure.ParameterizedShortcutChange" flags="in" index="1bYApB" />
+      <concept id="6193305307616734266" name="jetbrains.mps.lang.plugin.structure.ParameterizedShortcutChange" flags="in" index="1bYApB">
+        <property id="617467876802702218" name="change" index="TASh9" />
+      </concept>
       <concept id="5678361901872075170" name="jetbrains.mps.lang.plugin.structure.EditableModel" flags="ng" index="3dZWAM" />
       <concept id="1206092561075" name="jetbrains.mps.lang.plugin.structure.ActionParameterReferenceOperation" flags="nn" index="3gHZIF" />
       <concept id="5538333046911348654" name="jetbrains.mps.lang.plugin.structure.RequiredCondition" flags="ng" index="1oajcY" />
@@ -15520,13 +15522,6 @@
   <node concept="Zd50a" id="3fhZBTghOOF">
     <property role="Zd52Q" value="1mJS7WEAV1T/Mac OS X" />
     <property role="TrG5h" value="Mac" />
-    <node concept="Zd509" id="2uWhK$n573J" role="Zd508">
-      <ref role="1bYAoF" node="hXheiqL" resolve="GoToBookmark" />
-      <node concept="pLAjd" id="2uWhK$n573K" role="Zd501">
-        <property role="pLAjf" value="VK_0" />
-        <property role="pLAjc" value="ctrl" />
-      </node>
-    </node>
     <node concept="Zd509" id="6R$xsE24DT4" role="Zd508">
       <ref role="1bYAoF" node="6R$xsE24aki" resolve="NewElement" />
       <node concept="pLAjd" id="6R$xsE24DT5" role="Zd501">
@@ -15568,6 +15563,7 @@
       </node>
     </node>
     <node concept="1bYApB" id="73o9OgiF_r2" role="Zd508">
+      <property role="TASh9" value="5SFo3Mf0QpD/replace_all" />
       <ref role="1bYAoF" node="hXheiqL" resolve="GoToBookmark" />
       <node concept="3clFbS" id="73o9OgiF_r3" role="2VODD2">
         <node concept="1ysbro" id="6$w_9FKhuQq" role="3cqZAp">
@@ -15577,6 +15573,22 @@
             </node>
             <node concept="Xl_RD" id="6$w_9FKhuQt" role="3uHU7B">
               <property role="Xl_RC" value="ctrl " />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1bYApB" id="1btS3FbWQ9A" role="Zd508">
+      <property role="TASh9" value="5SFo3Mf0QpD/replace_all" />
+      <ref role="1bYAoF" node="73o9OgiE94U" resolve="SetBookmark" />
+      <node concept="3clFbS" id="1btS3FbWQ9C" role="2VODD2">
+        <node concept="1ysbro" id="1btS3FbWQbQ" role="3cqZAp">
+          <node concept="3cpWs3" id="1btS3FbWQbR" role="1ysQSp">
+            <node concept="3DOySe" id="1btS3FbWQbS" role="3uHU7w">
+              <ref role="3cqZAo" node="73o9OgiE95a" resolve="num" />
+            </node>
+            <node concept="Xl_RD" id="1btS3FbWQbT" role="3uHU7B">
+              <property role="Xl_RC" value="ctrl shift " />
             </node>
           </node>
         </node>
@@ -35760,13 +35772,6 @@
   <node concept="Zd50a" id="2HiVo5Pcmrz">
     <property role="Zd52Q" value="2HiVo5PakU7/Mac OS X 10.5+" />
     <property role="TrG5h" value="Mac_10_5" />
-    <node concept="Zd509" id="2HiVo5Pctgc" role="Zd508">
-      <ref role="1bYAoF" node="hXheiqL" resolve="GoToBookmark" />
-      <node concept="pLAjd" id="2HiVo5Pctgd" role="Zd501">
-        <property role="pLAjf" value="VK_0" />
-        <property role="pLAjc" value="ctrl" />
-      </node>
-    </node>
     <node concept="Zd509" id="2HiVo5Pctge" role="Zd508">
       <ref role="1bYAoF" node="6R$xsE24aki" resolve="NewElement" />
       <node concept="pLAjd" id="2HiVo5Pctgf" role="Zd501">
@@ -35821,6 +35826,7 @@
       </node>
     </node>
     <node concept="1bYApB" id="2HiVo5Pctgp" role="Zd508">
+      <property role="TASh9" value="5SFo3Mf0QpD/replace_all" />
       <ref role="1bYAoF" node="hXheiqL" resolve="GoToBookmark" />
       <node concept="3clFbS" id="2HiVo5Pctgq" role="2VODD2">
         <node concept="1ysbro" id="2HiVo5Pctgr" role="3cqZAp">
@@ -35830,6 +35836,22 @@
             </node>
             <node concept="Xl_RD" id="2HiVo5Pctgu" role="3uHU7B">
               <property role="Xl_RC" value="ctrl " />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1bYApB" id="1btS3FbWQhA" role="Zd508">
+      <property role="TASh9" value="5SFo3Mf0QpD/replace_all" />
+      <ref role="1bYAoF" node="73o9OgiE94U" resolve="SetBookmark" />
+      <node concept="3clFbS" id="1btS3FbWQhC" role="2VODD2">
+        <node concept="1ysbro" id="1btS3FbWQjE" role="3cqZAp">
+          <node concept="3cpWs3" id="1btS3FbWQjF" role="1ysQSp">
+            <node concept="3DOySe" id="1btS3FbWQjG" role="3uHU7w">
+              <ref role="3cqZAo" node="73o9OgiE95a" resolve="num" />
+            </node>
+            <node concept="Xl_RD" id="1btS3FbWQjH" role="3uHU7B">
+              <property role="Xl_RC" value="ctrl shift " />
             </node>
           </node>
         </node>
