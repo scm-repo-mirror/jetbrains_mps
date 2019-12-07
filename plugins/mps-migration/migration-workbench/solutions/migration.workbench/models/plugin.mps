@@ -304,6 +304,7 @@
       <concept id="1204053956946" name="jetbrains.mps.baseLanguage.structure.IMethodCall" flags="ng" index="1ndlxa">
         <reference id="1068499141037" name="baseMethodDeclaration" index="37wK5l" />
         <child id="1068499141038" name="actualArgument" index="37wK5m" />
+        <child id="4972241301747169160" name="typeArgument" index="3PaCim" />
       </concept>
       <concept id="1073063089578" name="jetbrains.mps.baseLanguage.structure.SuperMethodCall" flags="nn" index="3nyPlj" />
       <concept id="1212685548494" name="jetbrains.mps.baseLanguage.structure.ClassCreator" flags="nn" index="1pGfFk">
@@ -6874,7 +6875,15 @@
                           <ref role="3cqZAo" node="4biA4YBuFBU" resolve="s" />
                         </node>
                         <node concept="liA8E" id="4biA4YBuFCa" role="2OqNvi">
-                          <ref role="37wK5l" to="bim2:6fMyXCHDaVU" resolve="getModule" />
+                          <ref role="37wK5l" to="bim2:4EpASiE1I7R" resolve="getModule" />
+                          <node concept="2OqwBi" id="4EpASiE4rw3" role="37wK5m">
+                            <node concept="37vLTw" id="4EpASiE4qG8" role="2Oq$k0">
+                              <ref role="3cqZAo" node="5pUhUVGMybv" resolve="myProject" />
+                            </node>
+                            <node concept="liA8E" id="4EpASiE4scf" role="2OqNvi">
+                              <ref role="37wK5l" to="z1c4:~Project.getRepository()" resolve="getRepository" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
@@ -7268,6 +7277,9 @@
                 <node concept="2YIFZM" id="2jZnSOgp977" role="3cqZAk">
                   <ref role="37wK5l" to="33ny:~Collections.emptyList()" resolve="emptyList" />
                   <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
+                  <node concept="3uibUv" id="4EpASiE4$bw" role="3PaCim">
+                    <ref role="3uigEE" to="bim2:6fMyXCHDaRA" resolve="ScriptApplied" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -7302,6 +7314,9 @@
                 <node concept="2YIFZM" id="2KD2alY89or" role="3cqZAk">
                   <ref role="1Pybhc" to="33ny:~Collections" resolve="Collections" />
                   <ref role="37wK5l" to="33ny:~Collections.emptyList()" resolve="emptyList" />
+                  <node concept="3uibUv" id="4EpASiE4BIq" role="3PaCim">
+                    <ref role="3uigEE" to="bim2:6fMyXCHDaRA" resolve="ScriptApplied" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -7538,21 +7553,21 @@
                                   <node concept="3clFbS" id="6lgfg0ge1RM" role="1bW5cS">
                                     <node concept="3clFbF" id="6lgfg0ge1RN" role="3cqZAp">
                                       <node concept="22lmx$" id="6lgfg0ge1RO" role="3clFbG">
-                                        <node concept="3y3z36" id="6lgfg0ge1RP" role="3uHU7w">
-                                          <node concept="2OqwBi" id="6lgfg0ge1RQ" role="3uHU7w">
-                                            <node concept="37vLTw" id="6lgfg0ge1RR" role="2Oq$k0">
-                                              <ref role="3cqZAo" node="6lgfg0ge1S5" resolve="sa" />
-                                            </node>
-                                            <node concept="liA8E" id="6lgfg0ge1RS" role="2OqNvi">
-                                              <ref role="37wK5l" to="bim2:6fMyXCHDaVU" resolve="getModule" />
-                                            </node>
-                                          </node>
+                                        <node concept="17QLQc" id="4EpASiE4v10" role="3uHU7w">
                                           <node concept="2OqwBi" id="6lgfg0ge1RT" role="3uHU7B">
                                             <node concept="37vLTw" id="6lgfg0ge1RU" role="2Oq$k0">
                                               <ref role="3cqZAo" node="6lgfg0ge1S3" resolve="it" />
                                             </node>
-                                            <node concept="liA8E" id="6lgfg0ge1RV" role="2OqNvi">
-                                              <ref role="37wK5l" to="bim2:6fMyXCHDaVU" resolve="getModule" />
+                                            <node concept="liA8E" id="4EpASiE4sGa" role="2OqNvi">
+                                              <ref role="37wK5l" to="bim2:4EpASiE2NjO" resolve="getModuleReference" />
+                                            </node>
+                                          </node>
+                                          <node concept="2OqwBi" id="6lgfg0ge1RQ" role="3uHU7w">
+                                            <node concept="37vLTw" id="6lgfg0ge1RR" role="2Oq$k0">
+                                              <ref role="3cqZAo" node="6lgfg0ge1S5" resolve="sa" />
+                                            </node>
+                                            <node concept="liA8E" id="4EpASiE4wi6" role="2OqNvi">
+                                              <ref role="37wK5l" to="bim2:4EpASiE2NjO" resolve="getModuleReference" />
                                             </node>
                                           </node>
                                         </node>
