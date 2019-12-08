@@ -15,6 +15,8 @@
  */
 package jetbrains.mps.ide.memManagement;
 
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.registry.Registry;
@@ -95,7 +97,8 @@ public class MemManager implements ProjectComponent {
     long usedMemBefore = getUsedMem();
     long modelsBefore = countModels(true);
     long timeBefore = System.currentTimeMillis();
-    unloadModels();
+    //this needs to be run in EDT as it may want to save models => access files => have Idea write lock
+    ApplicationManager.getApplication().invokeAndWait(this::unloadModels, ModalityState.NON_MODAL);
     long timeAfterUnloading = System.currentTimeMillis();
     System.gc();
     long timeAfter = System.currentTimeMillis();
