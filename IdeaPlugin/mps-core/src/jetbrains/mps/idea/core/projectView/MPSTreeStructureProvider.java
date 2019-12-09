@@ -16,6 +16,7 @@
 package jetbrains.mps.idea.core.projectView;
 
 import com.intellij.ide.DeleteProvider;
+import com.intellij.ide.projectView.ProjectViewNode;
 import com.intellij.ide.projectView.SelectableTreeStructureProvider;
 import com.intellij.ide.projectView.ViewSettings;
 import com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode;
@@ -101,9 +102,9 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
         // if current dir is data source from some model
         FolderDataSource currentDirectoryDataSource = null;
 
-        if (treeNode instanceof PsiDirectoryNode) {
+        if (treeNode instanceof ProjectViewNode && ((ProjectViewNode) treeNode).getVirtualFile() != null && ((ProjectViewNode) treeNode).getVirtualFile().isDirectory()) {
           // let's see if we have a model built from this dir, e.g. in per-root persistence
-          SModel sModel = findModelByPsiDirNode(mpsProject, (PsiDirectoryNode) treeNode);
+          SModel sModel = findModelByPsiDirNode(mpsProject, (ProjectViewNode) treeNode);
           if (sModel != null) {
             // adding root nodes (removing their corresponding files' nodes from the tree is further below)
             List<MPSPsiElementTreeNode> rootsTreeNodes = new ArrayList<>();
@@ -130,11 +131,8 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
         }
 
         for (final AbstractTreeNode child : children) {
-          if (child instanceof PsiFileNode) {
+          if (child instanceof ProjectViewNode && ((ProjectViewNode) child).getVirtualFile() != null && !((ProjectViewNode) child).getVirtualFile().isDirectory()) {
             VirtualFile vFile = ((PsiFileNode) child).getVirtualFile();
-            if (vFile == null) {
-              continue;
-            }
 
             // check if it's a single file model
             IdeaFileSystem fs = mpsProject.getFileSystem();
@@ -158,9 +156,9 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
               updatedChildren.remove(idx);
             }
 
-          } else if (child instanceof PsiDirectoryNode) {
+          } else if (child instanceof ProjectViewNode && ((ProjectViewNode) child).getVirtualFile() != null && ((ProjectViewNode) child).getVirtualFile().isDirectory()) {
             // below code only attaches our action to the directory and makes it show added children - our root nodes
-            final SModel perRootModel = findModelByPsiDirNode(mpsProject, (PsiDirectoryNode) child);
+            final SModel perRootModel = findModelByPsiDirNode(mpsProject, (ProjectViewNode) child);
             if (perRootModel != null) {
               if (updatedChildren == null) updatedChildren = new ArrayList<>(children);
 
@@ -199,7 +197,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
   }
 
   @Nullable
-  private SModel findModelByPsiDirNode(MPSProject p, PsiDirectoryNode dn) {
+  private SModel findModelByPsiDirNode(MPSProject p, ProjectViewNode dn) {
     SModelFileTracker ft = SModelFileTracker.getInstance(p.getRepository());
     IdeaFileSystem fs = p.getFileSystem();
     VirtualFile vf = dn.getVirtualFile();
@@ -342,11 +340,8 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
       }
       return mpsProject.getFileSystem().fromVirtualFile(virtualFile);
 
-    } else if (treeNode instanceof PsiDirectoryNode) {
-      VirtualFile virtualFile = ((PsiDirectoryNode) treeNode).getVirtualFile();
-      if (virtualFile == null) {
-        return null;
-      }
+    } else if (treeNode instanceof ProjectViewNode && ((ProjectViewNode) treeNode).getVirtualFile() != null && ((ProjectViewNode) treeNode).getVirtualFile().isDirectory()) {
+      VirtualFile virtualFile = ((ProjectViewNode) treeNode).getVirtualFile();
       IFile ifile = mpsProject.getFileSystem().fromVirtualFile(virtualFile);
       SModelReference model = SModelFileTracker.getInstance(mpsProject.getRepository()).modelFor(ifile);
       if (model != null) {
@@ -409,8 +404,8 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
       MPSPsiModel psiModel = ((MPSPsiModelTreeNode) selectedNode).getModel();
       SModel sModel = psiModel.getSModelReference().resolve(mpsProject.getRepository());
       return (EditableSModel) sModel;
-    } else if (selectedNode instanceof PsiDirectoryNode) {
-      SModel sModel = findModelByPsiDirNode(mpsProject, (PsiDirectoryNode) selectedNode);
+    } else if (selectedNode instanceof ProjectViewNode && ((ProjectViewNode) selectedNode).getVirtualFile() != null && ((ProjectViewNode) selectedNode).getVirtualFile().isDirectory()) {
+      SModel sModel = findModelByPsiDirNode(mpsProject, (ProjectViewNode) selectedNode);
       if (sModel instanceof EditableSModel) {
         return (EditableSModel) sModel;
       }
