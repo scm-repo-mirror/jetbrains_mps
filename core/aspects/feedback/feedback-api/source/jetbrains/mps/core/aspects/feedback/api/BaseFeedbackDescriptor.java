@@ -100,9 +100,7 @@ public abstract class BaseFeedbackDescriptor implements FeedbackPerConceptDescri
                                                                @NotNull ProblemId problemId,
                                                                @NotNull Context context) {
     checkDescriptorIsInitialized();
-    return allConceptsStream().map(concept -> getSuitableProviders(type, problemId, concept))
-                              .findFirst()
-                              .orElse(Stream.empty());
+    return allConceptsStream().flatMap(concept -> getSuitableProviders(type, problemId, concept));
   }
 
   @Override
