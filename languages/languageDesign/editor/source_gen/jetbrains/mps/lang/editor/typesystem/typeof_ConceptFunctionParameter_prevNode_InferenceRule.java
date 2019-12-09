@@ -7,9 +7,8 @@ import jetbrains.mps.lang.typesystem.runtime.InferenceRule_Runtime;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.typesystem.inference.TypeCheckingContext;
 import jetbrains.mps.lang.typesystem.runtime.IsApplicableStatus;
-import jetbrains.mps.lang.editor.behavior.QueryFunction_StyleParameter__BehaviorDescriptor;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.baseLanguage.behavior.ConceptFunctionParameter__BehaviorDescriptor;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.typesystem.inference.EquationInfo;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
@@ -24,12 +23,13 @@ public class typeof_ConceptFunctionParameter_prevNode_InferenceRule extends Abst
   public typeof_ConceptFunctionParameter_prevNode_InferenceRule() {
   }
   public void applyRule(final SNode node, final TypeCheckingContext typeCheckingContext, IsApplicableStatus status) {
-    SNode refNodeListCellModel = QueryFunction_StyleParameter__BehaviorDescriptor.getContainingCellModelRefNodeList_id3Jh9EXLN9Lo.invoke(SNodeOperations.as(ConceptFunctionParameter__BehaviorDescriptor.findConceptFunction_idhEwJh7Q.invoke(node), CONCEPTS.QueryFunction_StyleParameter$MH));
-    if (refNodeListCellModel != null) {
+    SNode function = ConceptFunctionParameter__BehaviorDescriptor.findConceptFunction_idhEwJh7Q.invoke(node);
+    SNode nodeList = SNodeOperations.getNodeAncestor(function, CONCEPTS.CellModel_RefNodeList$IL, false, false);
+    if (nodeList != null) {
       {
         SNode _nodeToCheck_1029348928467 = node;
-        EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "4310268853341509541", 0, null);
-        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "4310268853341509552", true), (SNode) _quotation_createNode_x6esm1_a1a0c0a0b0b(SLinkOperations.getTarget(SLinkOperations.getTarget(refNodeListCellModel, LINKS.relationDeclaration$wbRV), LINKS.target$egp8)), _info_12389875345);
+        EquationInfo _info_12389875345 = new EquationInfo(_nodeToCheck_1029348928467, null, "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "1494797321794301092", 0, null);
+        typeCheckingContext.createEquation((SNode) typeCheckingContext.typeOf(_nodeToCheck_1029348928467, "r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "1494797321794299012", true), (SNode) _quotation_createNode_x6esm1_a1a0c0a0c0b(SLinkOperations.getTarget(SLinkOperations.getTarget(nodeList, LINKS.relationDeclaration$wbRV), LINKS.target$egp8)), _info_12389875345);
       }
     }
   }
@@ -42,7 +42,7 @@ public class typeof_ConceptFunctionParameter_prevNode_InferenceRule extends Abst
   public boolean overrides() {
     return false;
   }
-  private static SNode _quotation_createNode_x6esm1_a1a0c0a0b0b(Object parameter_1) {
+  private static SNode _quotation_createNode_x6esm1_a1a0c0a0c0b(Object parameter_1) {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_2 = null;
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0x7866978ea0f04cc7L, 0x81bc4d213d9375e1L, "jetbrains.mps.lang.smodel"), 0x108f968b3caL, "SNodeType")).getResult();
@@ -51,7 +51,7 @@ public class typeof_ConceptFunctionParameter_prevNode_InferenceRule extends Abst
   }
 
   private static final class CONCEPTS {
-    /*package*/ static final SConcept QueryFunction_StyleParameter$MH = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x11c4cd1c73aL, "jetbrains.mps.lang.editor.structure.QueryFunction_StyleParameter");
+    /*package*/ static final SConcept CellModel_RefNodeList$IL = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0xf9eb0ad38eL, "jetbrains.mps.lang.editor.structure.CellModel_RefNodeList");
     /*package*/ static final SConcept ConceptFunctionParameter_prevNode$eT = MetaAdapterFactory.getConcept(0x18bc659203a64e29L, 0xa83a7ff23bde13baL, 0x6ee8c7d6704ae9f2L, "jetbrains.mps.lang.editor.structure.ConceptFunctionParameter_prevNode");
   }
 

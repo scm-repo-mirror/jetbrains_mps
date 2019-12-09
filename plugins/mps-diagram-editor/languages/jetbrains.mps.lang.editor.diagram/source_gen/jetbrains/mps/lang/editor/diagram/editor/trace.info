@@ -4184,7 +4184,7 @@
       <node id="6306886970791072640" at="123,28,124,20" concept="8" />
       <node id="6306886970791072640" at="126,40,127,39" concept="8" />
       <node id="6306886970791072640" at="129,48,130,40" concept="8" />
-      <node id="5355858557208963028" at="133,39,134,17" concept="8" />
+      <node id="5355858557208963028" at="133,69,134,17" concept="8" />
       <node id="6306886970791072640" at="136,57,137,83" concept="7" />
       <node id="6306886970791072640" at="137,83,138,65" concept="2" />
       <node id="6306886970791072640" at="138,65,139,25" concept="8" />
@@ -4200,8 +4200,8 @@
       <node id="6306886970791072640" at="157,34,158,142" concept="2" />
       <node id="6306886970791072640" at="158,142,159,146" concept="2" />
       <node id="6306886970791072640" at="161,122,162,146" concept="2" />
-      <node id="6306886970791072640" at="167,75,168,156" concept="7" />
-      <node id="6306886970791072640" at="168,156,169,38" concept="2" />
+      <node id="6306886970791072640" at="167,75,168,174" concept="7" />
+      <node id="6306886970791072640" at="168,174,169,38" concept="2" />
       <node id="6306886970791072640" at="169,38,170,36" concept="7" />
       <node id="6306886970791072640" at="170,36,171,55" concept="2" />
       <node id="6306886970791072640" at="171,55,172,56" concept="2" />
@@ -4257,7 +4257,7 @@
       <node id="6306886970791072640" at="52,0,55,0" concept="6" trace="createCell#()Ljetbrains/mps/openapi/editor/cells/EditorCell;" />
       <node id="6306886970791072640" at="126,0,129,0" concept="6" trace="getSLink#()Lorg/jetbrains/mps/openapi/language/SContainmentLink;" />
       <node id="6306886970791072640" at="129,0,132,0" concept="6" trace="getChildSConcept#()Lorg/jetbrains/mps/openapi/language/SAbstractConcept;" />
-      <node id="6306886970791072640" at="133,0,136,0" concept="6" trace="getSeparatorText#()Ljava/lang/String;" />
+      <node id="6306886970791072640" at="133,0,136,0" concept="6" trace="getSeparatorText#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
       <node id="6306886970791072640" at="160,9,163,9" concept="5" />
       <node id="6306886970791072640" at="218,87,221,7" concept="5" />
       <node id="6306886970791072640" at="221,7,224,7" concept="5" />
@@ -4293,7 +4293,7 @@
       <scope id="6306886970791072640" at="123,28,124,20" />
       <scope id="6306886970791072640" at="126,40,127,39" />
       <scope id="6306886970791072640" at="129,48,130,40" />
-      <scope id="5355858557208962143" at="133,39,134,17" />
+      <scope id="5355858557208962143" at="133,69,134,17" />
       <scope id="6306886970791072640" at="150,17,151,42" />
       <scope id="6306886970791072640" at="161,122,162,146" />
       <scope id="6306886970791072640" at="204,28,205,20" />
@@ -4311,7 +4311,10 @@
       <scope id="6306886970791072640" at="52,0,55,0" />
       <scope id="6306886970791072640" at="126,0,129,0" />
       <scope id="6306886970791072640" at="129,0,132,0" />
-      <scope id="6306886970791072640" at="133,0,136,0" />
+      <scope id="6306886970791072640" at="133,0,136,0">
+        <var name="nextNode" id="6306886970791072640" />
+        <var name="prevNode" id="6306886970791072640" />
+      </scope>
       <scope id="6306886970791072640" at="136,57,139,25">
         <var name="elementCell" id="6306886970791072640" />
       </scope>

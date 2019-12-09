@@ -29049,6 +29049,14 @@
           </node>
           <node concept="3Tm6S6" id="XrrhtvD5xR" role="1B3o_S" />
           <node concept="17QB3L" id="XrrhtvD5xU" role="3clF45" />
+          <node concept="37vLTG" id="3C6UWWqkmze" role="3clF46">
+            <property role="TrG5h" value="prevNode" />
+            <node concept="3Tqbb2" id="3C6UWWqkmzd" role="1tU5fm" />
+          </node>
+          <node concept="37vLTG" id="3C6UWWqkqBD" role="3clF46">
+            <property role="TrG5h" value="nextNode" />
+            <node concept="3Tqbb2" id="3C6UWWqkuee" role="1tU5fm" />
+          </node>
         </node>
         <node concept="3clFb_" id="XrrhtvD5xX" role="jymVt">
           <property role="TrG5h" value="createNodeCell" />
@@ -30226,15 +30234,6 @@
               <node concept="3clFbS" id="XrrhtvD5CO" role="2VODD2">
                 <node concept="3clFbF" id="XrrhtvD5CP" role="3cqZAp">
                   <node concept="22lmx$" id="XrrhtvD5CQ" role="3clFbG">
-                    <node concept="3y3z36" id="XrrhtvD5CR" role="3uHU7w">
-                      <node concept="10Nm6u" id="XrrhtvD5CS" role="3uHU7w" />
-                      <node concept="2OqwBi" id="XrrhtvD5CT" role="3uHU7B">
-                        <node concept="3TrcHB" id="XrrhtvD5CU" role="2OqNvi">
-                          <ref role="3TsBF5" to="tpc2:gAczwbX" resolve="separatorText" />
-                        </node>
-                        <node concept="30H73N" id="XrrhtvD5CV" role="2Oq$k0" />
-                      </node>
-                    </node>
                     <node concept="3y3z36" id="XrrhtvD5CW" role="3uHU7B">
                       <node concept="10Nm6u" id="XrrhtvD5CX" role="3uHU7w" />
                       <node concept="2OqwBi" id="XrrhtvD5CY" role="3uHU7B">
@@ -30243,6 +30242,15 @@
                         </node>
                         <node concept="30H73N" id="XrrhtvD5D0" role="2Oq$k0" />
                       </node>
+                    </node>
+                    <node concept="3y3z36" id="XrrhtvD5CR" role="3uHU7w">
+                      <node concept="2OqwBi" id="XrrhtvD5CT" role="3uHU7B">
+                        <node concept="3TrcHB" id="XrrhtvD5CU" role="2OqNvi">
+                          <ref role="3TsBF5" to="tpc2:gAczwbX" resolve="separatorText" />
+                        </node>
+                        <node concept="30H73N" id="XrrhtvD5CV" role="2Oq$k0" />
+                      </node>
+                      <node concept="10Nm6u" id="XrrhtvD5CS" role="3uHU7w" />
                     </node>
                   </node>
                 </node>
@@ -30257,6 +30265,9 @@
             <node concept="3cpWs8" id="XrrhtvD5D6" role="3cqZAp">
               <node concept="3cpWsn" id="XrrhtvD5D7" role="3cpWs9">
                 <property role="TrG5h" value="editorCell" />
+                <node concept="3uibUv" id="XrrhtvD5D_" role="1tU5fm">
+                  <ref role="3uigEE" to="g51k:~EditorCell_Constant" resolve="EditorCell_Constant" />
+                </node>
                 <node concept="2ShNRf" id="XrrhtvD5D8" role="33vP2m">
                   <node concept="1pGfFk" id="XrrhtvD5D9" role="2ShVmc">
                     <ref role="37wK5l" to="g51k:~EditorCell_Constant.&lt;init&gt;(jetbrains.mps.openapi.editor.EditorContext,org.jetbrains.mps.openapi.model.SNode,java.lang.String)" resolve="EditorCell_Constant" />
@@ -30304,6 +30315,12 @@
                           <node concept="2OqwBi" id="XrrhtvD5Dw" role="gfFT$">
                             <node concept="liA8E" id="XrrhtvD5Dx" role="2OqNvi">
                               <ref role="37wK5l" node="XrrhtvD5xz" resolve="getSeparatorText" />
+                              <node concept="37vLTw" id="3C6UWWqlp4x" role="37wK5m">
+                                <ref role="3cqZAo" node="XrrhtvD5Fl" resolve="prevNode" />
+                              </node>
+                              <node concept="37vLTw" id="3C6UWWqlpLi" role="37wK5m">
+                                <ref role="3cqZAo" node="XrrhtvD5Fn" resolve="nextNode" />
+                              </node>
                             </node>
                             <node concept="Xjq3P" id="XrrhtvD5D$" role="2Oq$k0">
                               <ref role="1HBi2w" node="XrrhtvD5w1" resolve="_context_.class_CellModel_RefNodeList_ListHandler" />
@@ -30313,9 +30330,6 @@
                       </node>
                     </node>
                   </node>
-                </node>
-                <node concept="3uibUv" id="XrrhtvD5D_" role="1tU5fm">
-                  <ref role="3uigEE" to="g51k:~EditorCell_Constant" resolve="EditorCell_Constant" />
                 </node>
               </node>
             </node>

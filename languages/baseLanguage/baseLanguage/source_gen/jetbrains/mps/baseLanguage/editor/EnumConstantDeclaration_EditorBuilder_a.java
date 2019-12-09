@@ -274,7 +274,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return CONCEPTS.InstanceMethodDeclaration$An;
     }
 
-    private String getSeparatorText() {
+    private String getSeparatorText(SNode prevNode, SNode nextNode) {
       return "";
     }
     public EditorCell createNodeCell(SNode elementNode) {
@@ -309,7 +309,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     @Override
     public EditorCell createSeparatorCell(SNode prevNode, SNode nextNode) {
-      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), getNode(), methodListHandler_u66lwb_b5a.this.getSeparatorText());
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), getNode(), methodListHandler_u66lwb_b5a.this.getSeparatorText(prevNode, nextNode));
       editorCell.setSelectable(false);
       Style style = new StyleImpl();
       style.set(StyleAttributes.LAYOUT_CONSTRAINT, "");

@@ -96,6 +96,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_SelectableCustomizedContainer;
   private ConceptPresentation props_SelectionChild;
   private ConceptPresentation props_SelectionContainer;
+  private ConceptPresentation props_SeparatorsTestParent;
   private ConceptPresentation props_SideTranformWrapper;
   private ConceptPresentation props_SimpleNode;
   private ConceptPresentation props_SimpleNodeHidingAttribute;
@@ -746,6 +747,13 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_SelectionContainer = cpb.create();
         }
         return props_SelectionContainer;
+      case LanguageConceptSwitch.SeparatorsTestParent:
+        if (props_SeparatorsTestParent == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("separators test");
+          props_SeparatorsTestParent = cpb.create();
+        }
+        return props_SeparatorsTestParent;
       case LanguageConceptSwitch.SideTranformWrapper:
         if (props_SideTranformWrapper == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

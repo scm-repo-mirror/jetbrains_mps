@@ -1851,5 +1851,18 @@
     <property role="34LRSv" value="bool" />
     <ref role="1TJDcQ" node="64$ALJKywP4" resolve="SmartCompletionTypedChild" />
   </node>
+  <node concept="1TIwiD" id="56tx2aw9n9U">
+    <property role="EcuMT" value="5881001972666299002" />
+    <property role="TrG5h" value="SeparatorsTestParent" />
+    <property role="34LRSv" value="separators test" />
+    <ref role="1TJDcQ" to="tpee:fzclF8l" resolve="Statement" />
+    <node concept="1TJgyj" id="56tx2aw9n9V" role="1TKVEi">
+      <property role="IQ2ns" value="5881001972666299003" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="values" />
+      <property role="20lbJX" value="fLJekj5/_0__n" />
+      <ref role="20lvS9" to="tpee:fzcmrck" resolve="IntegerConstant" />
+    </node>
+  </node>
 </model>
 

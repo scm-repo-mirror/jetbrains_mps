@@ -261,7 +261,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return CONCEPTS.ExecuteCommandPart$EP;
     }
 
-    private String getSeparatorText() {
+    private String getSeparatorText(SNode prevNode, SNode nextNode) {
       return "";
     }
     public EditorCell createNodeCell(SNode elementNode) {
@@ -296,7 +296,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     @Override
     public EditorCell createSeparatorCell(SNode prevNode, SNode nextNode) {
-      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), getNode(), executePartListHandler_y485ry_b3a.this.getSeparatorText());
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), getNode(), executePartListHandler_y485ry_b3a.this.getSeparatorText(prevNode, nextNode));
       editorCell.setSelectable(false);
       Style style = new StyleImpl();
       style.set(StyleAttributes.LAYOUT_CONSTRAINT, "");
@@ -357,7 +357,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
       return CONCEPTS.CommandMethod$qA;
     }
 
-    private String getSeparatorText() {
+    private String getSeparatorText(SNode prevNode, SNode nextNode) {
       return "";
     }
     public EditorCell createNodeCell(SNode elementNode) {
@@ -392,7 +392,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
     }
     @Override
     public EditorCell createSeparatorCell(SNode prevNode, SNode nextNode) {
-      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), getNode(), methodListHandler_y485ry_b5a.this.getSeparatorText());
+      EditorCell_Constant editorCell = new EditorCell_Constant(getEditorContext(), getNode(), methodListHandler_y485ry_b5a.this.getSeparatorText(prevNode, nextNode));
       editorCell.setSelectable(false);
       Style style = new StyleImpl();
       style.set(StyleAttributes.LAYOUT_CONSTRAINT, "");

@@ -393,6 +393,9 @@
         <child id="1077509448393313715" name="child" index="1Bq5yh" />
       </concept>
       <concept id="3568961255313559966" name="jetbrains.mps.lang.editor.editorTest.structure.SubstTestChild_DefaultConcreteConcept" flags="ng" index="1LBUV4" />
+      <concept id="5881001972666299002" name="jetbrains.mps.lang.editor.editorTest.structure.SeparatorsTestParent" flags="ng" index="3LIfpo">
+        <child id="5881001972666299003" name="values" index="3LIfpp" />
+      </concept>
       <concept id="6739703022154345521" name="jetbrains.mps.lang.editor.editorTest.structure.DeleteLineTestRoot" flags="ng" index="3MEH01">
         <child id="7814731350146768884" name="multipleChildrenWithNested" index="1gUdWQ" />
         <child id="6739703022154345522" name="verticalMultiple" index="3MEH02" />
@@ -11674,6 +11677,75 @@
                   <property role="Xl_RC" value="Fourth" />
                 </node>
               </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="56tx2awaJ0K">
+    <property role="3GE5qa" value="separators" />
+    <property role="TrG5h" value="Separators_Custom" />
+    <node concept="3clFbS" id="56tx2awaJ0L" role="LjaKd">
+      <node concept="2TK7Tu" id="56tx2awaRWs" role="3cqZAp">
+        <property role="2TTd_B" value="0" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="56tx2awaJ0P" role="25YQCW">
+      <node concept="9aQIb" id="56tx2awaJ0Q" role="1qenE9">
+        <node concept="3clFbS" id="56tx2awaJ0R" role="9aQI4">
+          <node concept="3LIfpo" id="56tx2awaRHz" role="3cqZAp">
+            <node concept="3cmrfG" id="56tx2awaRHH" role="3LIfpp">
+              <property role="3cmrfH" value="1" />
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRHP" role="3LIfpp">
+              <property role="3cmrfH" value="2" />
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRI4" role="3LIfpp">
+              <property role="3cmrfH" value="3" />
+              <node concept="LIFWc" id="56tx2awaRXE" role="lGtFl">
+                <property role="ZRATv" value="true" />
+                <property role="OXtK3" value="true" />
+                <property role="p6zMq" value="1" />
+                <property role="p6zMs" value="1" />
+                <property role="LIFWd" value="property_value" />
+              </node>
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRIb" role="3LIfpp">
+              <property role="3cmrfH" value="4" />
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRIg" role="3LIfpp">
+              <property role="3cmrfH" value="5" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="56tx2awaJ1d" role="25YQFr">
+      <node concept="9aQIb" id="56tx2awaJ1e" role="1qenE9">
+        <node concept="3clFbS" id="56tx2awaJ1f" role="9aQI4">
+          <node concept="3LIfpo" id="56tx2awaRR1" role="3cqZAp">
+            <node concept="3cmrfG" id="56tx2awaRRb" role="3LIfpp">
+              <property role="3cmrfH" value="1" />
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRRg" role="3LIfpp">
+              <property role="3cmrfH" value="2" />
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRRp" role="3LIfpp">
+              <property role="3cmrfH" value="30" />
+              <node concept="LIFWc" id="56tx2awaRZ6" role="lGtFl">
+                <property role="ZRATv" value="true" />
+                <property role="OXtK3" value="true" />
+                <property role="p6zMq" value="2" />
+                <property role="p6zMs" value="2" />
+                <property role="LIFWd" value="property_value" />
+              </node>
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRRt" role="3LIfpp">
+              <property role="3cmrfH" value="4" />
+            </node>
+            <node concept="3cmrfG" id="56tx2awaRRy" role="3LIfpp">
+              <property role="3cmrfH" value="5" />
             </node>
           </node>
         </node>
