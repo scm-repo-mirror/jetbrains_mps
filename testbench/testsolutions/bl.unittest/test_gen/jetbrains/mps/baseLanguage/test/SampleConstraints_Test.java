@@ -12,10 +12,11 @@ import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
+import jetbrains.mps.project.ProjectBase;
+import jetbrains.mps.lang.test.runtime.CheckErrorMessagesRunnable;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
@@ -53,17 +54,17 @@ public class SampleConstraints_Test extends BaseTransformationTest {
     public void test_NodeVariableHasNotBeenInitializedErrorCheck2675718132411786724() throws Exception {
       SNode nodeToCheck = getRealNodeById("7638302724810915512");
       SNode operation = getRealNodeById("2675718132411786724");
-      new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1529050434900907669"), myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1529050434900907669"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_NodeUnknownRuleCheck2675718132411786726() throws Exception {
       SNode nodeToCheck = getRealNodeById("7638302724810915512");
       SNode operation = getRealNodeById("2675718132411786726");
-      new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1791178592936928836"), myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1791178592936928836"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_ErrorMessagesCheck7638302724810894630() throws Exception {
       SNode nodeToCheck = getRealNodeById("7638302724810894536");
       SNode operation = getRealNodeById("7638302724810894630");
-      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageAction>(), new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(getRealNodeById("7638302724810915512"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1529050434900907669"), myProject.getRepository()), new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(getRealNodeById("7638302724810915512"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1791178592936928836"), myProject.getRepository()))).run();
+      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("7638302724810915512"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1529050434900907669"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("7638302724810915512"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c1(jetbrains.mps.baseLanguage.constraints)", "1791178592936928836"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run();
     }
 
   }

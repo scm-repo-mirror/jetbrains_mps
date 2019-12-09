@@ -12,10 +12,11 @@ import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
+import jetbrains.mps.lang.test.runtime.CheckErrorMessagesRunnable;
+import jetbrains.mps.project.ProjectBase;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.smodel.SNodePointer;
 
@@ -53,17 +54,17 @@ public class IfStatementWrongUnreachable_Test extends BaseTransformationTest {
     public void test_ErrorMessagesCheck1217864879944() throws Exception {
       SNode nodeToCheck = getRealNodeById("1217861284985");
       SNode operation = getRealNodeById("1217864879944");
-      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageAction>())).run();
+      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
     }
     public void test_NodeUnreachableNodeErrorCheck6923385624927388248() throws Exception {
       SNode nodeToCheck = getRealNodeById("3951985765451228077");
       SNode operation = getRealNodeById("6923385624927388248");
-      new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1597542831870510169"), myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1597542831870510169"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_ErrorMessagesCheck1217864892290() throws Exception {
       SNode nodeToCheck = getRealNodeById("1217864474226");
       SNode operation = getRealNodeById("1217864892290");
-      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageAction>(), new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(getRealNodeById("3951985765451228077"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1597542831870510169"), myProject.getRepository()))).run();
+      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(getRealNodeById("3951985765451228077"), MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)", "1597542831870510169"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run();
     }
 
   }

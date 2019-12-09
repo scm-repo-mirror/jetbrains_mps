@@ -12,8 +12,9 @@ import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.project.ProjectBase;
 
 @MPSLaunch
 public class Cardinalities_Test extends BaseTransformationTest {
@@ -49,17 +50,17 @@ public class Cardinalities_Test extends BaseTransformationTest {
     public void test_NodeErrorCheck1875480895988114782() throws Exception {
       SNode nodeToCheck = getRealNodeById("1875480895988095647");
       SNode operation = getRealNodeById("1875480895988114782");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_NodeErrorCheck1875480895987852095() throws Exception {
       SNode nodeToCheck = getRealNodeById("1875480895987852074");
       SNode operation = getRealNodeById("1875480895987852095");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_NodeErrorCheck1875480895987615991() throws Exception {
       SNode nodeToCheck = getRealNodeById("1875480895987615784");
       SNode operation = getRealNodeById("1875480895987615991");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
 
   }

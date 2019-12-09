@@ -12,9 +12,10 @@ import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
-import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
+import jetbrains.mps.project.ProjectBase;
+import jetbrains.mps.lang.test.runtime.CheckErrorMessagesRunnable;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 
@@ -60,27 +61,27 @@ public class ArrayCreatorTest_Test extends BaseTransformationTest {
     public void test_NodeErrorCheck1100850602766327583() throws Exception {
       SNode nodeToCheck = getRealNodeById("1100850602766324278");
       SNode operation = getRealNodeById("1100850602766327583");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_NodeErrorCheck1100850602766335141() throws Exception {
       SNode nodeToCheck = getRealNodeById("1100850602766329249");
       SNode operation = getRealNodeById("1100850602766335141");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_NodeErrorCheck1100850602766345812() throws Exception {
       SNode nodeToCheck = getRealNodeById("1100850602766336178");
       SNode operation = getRealNodeById("1100850602766345812");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_NodeErrorCheck1100850602766347329() throws Exception {
       SNode nodeToCheck = getRealNodeById("1100850602766342464");
       SNode operation = getRealNodeById("1100850602766347329");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
     public void test_ErrorMessagesCheck1100850602766276669() throws Exception {
       SNode nodeToCheck = getRealNodeById("1100850602766276657");
       SNode operation = getRealNodeById("1100850602766276669");
-      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageAction>(), new CheckExpectedMessageAction.CheckAnyMessageAction(getRealNodeById("1100850602766324278"), MessageStatus.ERROR, myProject.getRepository()), new CheckExpectedMessageAction.CheckAnyMessageAction(getRealNodeById("1100850602766329249"), MessageStatus.ERROR, myProject.getRepository()), new CheckExpectedMessageAction.CheckAnyMessageAction(getRealNodeById("1100850602766336178"), MessageStatus.ERROR, myProject.getRepository()), new CheckExpectedMessageAction.CheckAnyMessageAction(getRealNodeById("1100850602766342464"), MessageStatus.ERROR, myProject.getRepository()))).run();
+      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromListAndArray(new ArrayList<CheckExpectedMessageRunnable>(), new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(getRealNodeById("1100850602766324278"), MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()), new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(getRealNodeById("1100850602766329249"), MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()), new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(getRealNodeById("1100850602766336178"), MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()), new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(getRealNodeById("1100850602766342464"), MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()))).run();
     }
 
   }

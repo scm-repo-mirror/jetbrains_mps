@@ -14,6 +14,7 @@ import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.test.behavior.INodesTestMethod__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.project.ProjectBase;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -43,7 +44,7 @@ public class SimpleUnreachable_Test extends BaseTransformationTest {
     public void test_NodeUnreachableCheck3715262949174660907() throws Exception {
       SNode nodeToCheck = getRealNodeById("2702384151998850297");
       SNode operation = getRealNodeById("3715262949174660907");
-      INodesTestMethod__BehaviorDescriptor.perform_id1kgh5YabdhC.invoke(SNodeOperations.cast(operation, CONCEPTS.INodesTestMethod$ck), nodeToCheck);
+      INodesTestMethod__BehaviorDescriptor.perform_id1kgh5YabdhC.invoke(SNodeOperations.cast(operation, CONCEPTS.INodesTestMethod$ck), nodeToCheck, ((ProjectBase) myProject).getPlatform());
     }
 
   }

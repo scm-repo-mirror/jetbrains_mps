@@ -15,10 +15,11 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.typechecking.TypecheckingFacade;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
+import jetbrains.mps.lang.test.runtime.CheckErrorMessagesRunnable;
+import jetbrains.mps.project.ProjectBase;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import org.jetbrains.mps.openapi.language.SConcept;
 
 @MPSLaunch
@@ -60,7 +61,7 @@ public class FloatConstantType_Test extends BaseTransformationTest {
     public void test_ErrorMessagesCheck5868639094267614275() throws Exception {
       SNode nodeToCheck = getRealNodeById("5868639094257179249");
       SNode operation = getRealNodeById("5868639094267614275");
-      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageAction>())).run();
+      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
     }
 
   }

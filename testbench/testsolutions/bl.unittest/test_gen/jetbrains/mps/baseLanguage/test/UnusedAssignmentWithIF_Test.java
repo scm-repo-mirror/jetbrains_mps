@@ -12,10 +12,11 @@ import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
+import jetbrains.mps.lang.test.runtime.CheckErrorMessagesRunnable;
+import jetbrains.mps.project.ProjectBase;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 
 @MPSLaunch
 public class UnusedAssignmentWithIF_Test extends BaseTransformationTest {
@@ -43,7 +44,7 @@ public class UnusedAssignmentWithIF_Test extends BaseTransformationTest {
     public void test_ErrorMessagesCheck1217866439753() throws Exception {
       SNode nodeToCheck = getRealNodeById("1217866140840");
       SNode operation = getRealNodeById("1217866439753");
-      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageAction>())).run();
+      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(false).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
     }
 
   }
