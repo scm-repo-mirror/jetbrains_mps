@@ -29,8 +29,9 @@ public final class StringLiteral__BehaviorDescriptor extends BaseBHDescriptor {
   public static final SMethod<Object> getCompileTimeConstantValue_idi1LP2xI = new SMethodBuilder<Object>(new SJavaCompoundTypeImpl(Object.class)).name("getCompileTimeConstantValue").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("i1LP2xI").build(SMethodBuilder.createJavaParameter(SModule.class, ""));
   public static final SMethod<Boolean> isCorrect_idhLEXzwL = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isCorrect").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hLEXzwL").build();
   /*package*/ static final SMethod<Boolean> isHexChar_idhLEZYVw = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("isHexChar").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("hLEZYVw").build(SMethodBuilder.createJavaParameter(Character.TYPE, ""));
+  public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(constant_id1653mnvAgr2, isCompileTimeConstant_idi1LOPRp, getCompileTimeConstantValue_idi1LP2xI, isCorrect_idhLEXzwL, isHexChar_idhLEZYVw);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(constant_id1653mnvAgr2, isCompileTimeConstant_idi1LOPRp, getCompileTimeConstantValue_idi1LP2xI, isCorrect_idhLEXzwL, isHexChar_idhLEZYVw, getPresentation_idhEwIMiw);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
@@ -104,6 +105,9 @@ public final class StringLiteral__BehaviorDescriptor extends BaseBHDescriptor {
     char lc = Character.toLowerCase(ch);
     return lc >= 'a' && lc <= 'f';
   }
+  /*package*/ static String getPresentation_idhEwIMiw(@NotNull SNode __thisNode__) {
+    return "StringLiteral='" + SPropertyOperations.getString(__thisNode__, PROPS.value$kiE0) + "'";
+  }
 
   /*package*/ StringLiteral__BehaviorDescriptor() {
   }
@@ -128,6 +132,8 @@ public final class StringLiteral__BehaviorDescriptor extends BaseBHDescriptor {
         return (T) ((Boolean) isCorrect_idhLEXzwL(node));
       case 4:
         return (T) ((Boolean) isHexChar_idhLEZYVw(node, ((char) (Character) parameters[0])));
+      case 5:
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       default:
         throw new BHMethodNotFoundException(this, method);
     }
