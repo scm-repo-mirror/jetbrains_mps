@@ -19,30 +19,26 @@ import jetbrains.mps.core.aspects.feedback.problem.ProblemId;
 import jetbrains.mps.core.aspects.feedback.problem.ProblemKind;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.annotations.Immutable;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 import java.util.Objects;
 
 @Immutable
-public final class InConceptProblemId implements ProblemId {
-  private final SAbstractConcept myConcept;
+public final class ProblemKindId implements ProblemId {
   private final ProblemKind myKind;
 
-  public InConceptProblemId(@NotNull SAbstractConcept concept, @NotNull ProblemKind kind) {
-    myConcept = concept;
+  public ProblemKindId(@NotNull ProblemKind kind) {
     myKind = kind;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(myConcept, myKind);
+    return myKind.hashCode();
   }
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof InConceptProblemId) {
-      return Objects.equals(((InConceptProblemId) obj).myConcept, myConcept) &&
-             Objects.equals(((InConceptProblemId) obj).myKind, myKind);
+    if (obj instanceof ProblemKindId) {
+      return Objects.equals(((ProblemKindId) obj).myKind, myKind);
     }
     return false;
   }

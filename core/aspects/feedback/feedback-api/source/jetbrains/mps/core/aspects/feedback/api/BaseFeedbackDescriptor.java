@@ -78,6 +78,9 @@ public abstract class BaseFeedbackDescriptor implements FeedbackPerConceptDescri
     return StreamSupport.stream(allConcepts.spliterator(), false);
   }
 
+  /**
+   * @param concept can be subconcept of the concept of some declared provider
+   */
   @NotNull
   private Stream<FeedbackProvider> getSuitableProviders(@NotNull FeedbackType type,
                                                         @NotNull ProblemId problemId,

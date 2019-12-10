@@ -27,13 +27,20 @@ import org.jetbrains.mps.openapi.model.SNodeReference;
 @Immutable
 public final class InConceptProblem implements Problem {
   private final ProblemId myId;
+  private final SAbstractConcept myConcept;
   private final SNodeReference mySourceNode;
   private final ProblemKind myKind;
 
   public InConceptProblem(@NotNull SAbstractConcept concept, @NotNull ProblemKind kind, @Nullable SNodeReference sourceNode) {
+    myConcept = concept;
     mySourceNode = sourceNode;
     myKind = kind;
-    myId = new InConceptProblemId(concept, kind);
+    myId = new ProblemKindId(kind);
+  }
+
+  @NotNull
+  public SAbstractConcept getConcept() {
+    return myConcept;
   }
 
   @NotNull
