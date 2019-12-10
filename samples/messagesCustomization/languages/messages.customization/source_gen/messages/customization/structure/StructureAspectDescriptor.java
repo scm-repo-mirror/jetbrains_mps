@@ -15,6 +15,8 @@ import jetbrains.mps.smodel.adapter.ids.PrimitiveTypeId;
 
 public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
   /*package*/ final ConceptDescriptor myConceptAuxConcept = createDescriptorForAuxConcept();
+  /*package*/ final ConceptDescriptor myConceptBrokenConcept = createDescriptorForBrokenConcept();
+  /*package*/ final ConceptDescriptor myConceptCardinalityTestConcept = createDescriptorForCardinalityTestConcept();
   /*package*/ final ConceptDescriptor myConceptTestConcept = createDescriptorForTestConcept();
   /*package*/ final ConceptDescriptor myConceptTestConcept0 = createDescriptorForTestConcept0();
   private final LanguageConceptSwitch myIndexSwitch;
@@ -31,7 +33,7 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
 
   @Override
   public Collection<ConceptDescriptor> getDescriptors() {
-    return Arrays.asList(myConceptAuxConcept, myConceptTestConcept, myConceptTestConcept0);
+    return Arrays.asList(myConceptAuxConcept, myConceptBrokenConcept, myConceptCardinalityTestConcept, myConceptTestConcept, myConceptTestConcept0);
   }
 
   @Override
@@ -40,6 +42,10 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     switch (myIndexSwitch.index(id)) {
       case LanguageConceptSwitch.AuxConcept:
         return myConceptAuxConcept;
+      case LanguageConceptSwitch.BrokenConcept:
+        return myConceptBrokenConcept;
+      case LanguageConceptSwitch.CardinalityTestConcept:
+        return myConceptCardinalityTestConcept;
       case LanguageConceptSwitch.TestConcept:
         return myConceptTestConcept;
       case LanguageConceptSwitch.TestConcept0:
@@ -63,6 +69,24 @@ public class StructureAspectDescriptor extends BaseStructureAspectDescriptor {
     b.class_(false, false, true);
     b.origin("r:7117f6c4-faaf-4889-b5b9-3fe628e41cf8(messages.customization.structure)/2884486869351428739");
     b.version(2);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForBrokenConcept() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("messages.customization", "BrokenConcept", 0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x61692e8b97e7c311L);
+    b.class_(false, false, true);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:7117f6c4-faaf-4889-b5b9-3fe628e41cf8(messages.customization.structure)/7019192671317508881");
+    b.version(2);
+    return b.create();
+  }
+  private static ConceptDescriptor createDescriptorForCardinalityTestConcept() {
+    ConceptDescriptorBuilder2 b = new ConceptDescriptorBuilder2("messages.customization", "CardinalityTestConcept", 0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x61692e8b97e96c6cL);
+    b.class_(false, false, true);
+    b.parent(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L);
+    b.origin("r:7117f6c4-faaf-4889-b5b9-3fe628e41cf8(messages.customization.structure)/7019192671317617772");
+    b.version(2);
+    b.associate("obligatoryref", 0x61692e8b97e8bfb0L).target(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x61692e8b97e96c6cL).optional(false).origin("7019192671317617778").done();
+    b.aggregate("obligatorychild", 0x61692e8b97e8bfb4L).target(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x61692e8b97e96c6cL).optional(false).ordered(true).multiple(false).origin("7019192671317617776").done();
     return b.create();
   }
   private static ConceptDescriptor createDescriptorForTestConcept() {

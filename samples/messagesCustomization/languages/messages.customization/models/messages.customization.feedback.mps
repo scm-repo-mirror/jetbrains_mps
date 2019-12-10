@@ -30,6 +30,7 @@
       <concept id="5741876244398306564" name="jetbrains.mps.lang.feedback.problem.structural.structure.MultipleChildrenInSingleRoleProblem" flags="ng" index="2cc$G1" />
       <concept id="5741876244398306563" name="jetbrains.mps.lang.feedback.problem.structural.structure.NoRefInObligatoryRoleProblem" flags="ng" index="2cc$G6" />
       <concept id="5724083730281438001" name="jetbrains.mps.lang.feedback.problem.structural.structure.MissingPropertyInConceptProblem" flags="ng" index="ft9Ny" />
+      <concept id="1640022677634386488" name="jetbrains.mps.lang.feedback.problem.structural.structure.MissingRefInConceptProblem" flags="ng" index="2PegRn" />
       <concept id="2554379189374329844" name="jetbrains.mps.lang.feedback.problem.structural.structure.MissingChildInConceptProblem" flags="ng" index="3Jf5Ay" />
     </language>
     <language id="cd17a113-ca4e-472f-a8de-c49008f9eea8" name="jetbrains.mps.lang.feedback">
@@ -72,42 +73,6 @@
   </registry>
   <node concept="3QByoM" id="5ca4zTvKOON">
     <ref role="3Z9TSV" to="pljn:5ca4zTvKOOO" resolve="TestConcept" />
-    <node concept="3QByp$" id="3ost_8W_IE1" role="3QBEN7">
-      <node concept="ft9Ny" id="3ost_8W_IDZ" role="3JXyrO">
-        <ref role="sa$J1" to="qzsv:4XK1Xd019ID" resolve="MissingProperty" />
-      </node>
-      <node concept="16I2mz" id="5XPa2npPDZc" role="16N$OO">
-        <node concept="16N$OT" id="2mL_UKGqpXJ" role="16I2mt">
-          <property role="16N$OU" value="Property '" />
-        </node>
-        <node concept="16Iohu" id="2mL_UKGqpXI" role="16I2mt">
-          <node concept="3QpRc$" id="2mL_UKGqpXN" role="9Y7m$">
-            <ref role="3QpVTF" to="qzsv:1mFJTG7MCZ" resolve="property" />
-          </node>
-        </node>
-        <node concept="16N$OT" id="2dMY_rcipX2" role="16I2mt">
-          <property role="16N$OU" value="' does not belong to the concept 'TestConcept'" />
-        </node>
-      </node>
-    </node>
-    <node concept="3QByp$" id="3ost_8W_IxD" role="3QBEN7">
-      <node concept="3Jf5Ay" id="3ost_8W_IxB" role="3JXyrO">
-        <ref role="sa$J1" to="qzsv:2dMY_rcjEws" resolve="MissingChild" />
-      </node>
-      <node concept="16I2mz" id="7J3GgfrRU50" role="16N$OO">
-        <node concept="16N$OT" id="2mL_UKGqERK" role="16I2mt">
-          <property role="16N$OU" value="Child '" />
-        </node>
-        <node concept="16Iohu" id="2mL_UKGqERJ" role="16I2mt">
-          <node concept="3QpRc$" id="2mL_UKGqERP" role="9Y7m$">
-            <ref role="3QpVTF" to="qzsv:2dMY_rcjEww" resolve="child" />
-          </node>
-        </node>
-        <node concept="16N$OT" id="2mL_UKGqERL" role="16I2mt">
-          <property role="16N$OU" value="' does not belong to the concept 'TestConcept" />
-        </node>
-      </node>
-    </node>
     <node concept="3QByp$" id="6GnzfDRinZ2" role="3QBEN7">
       <node concept="16I2mz" id="6GnzfDRinZ4" role="16N$OO">
         <node concept="16N$OT" id="63vaCZf7_6e" role="16I2mt">
@@ -160,63 +125,123 @@
         <ref role="sa$J1" to="bea4:1mFJTG7e$j" resolve="RefOutOfScope" />
       </node>
     </node>
-    <node concept="3QByp$" id="Z2mFAearao" role="3QBEN7">
-      <node concept="16I2mz" id="Z2mFAearap" role="16N$OO">
-        <node concept="16N$OT" id="Z2mFAearbc" role="16I2mt">
+  </node>
+  <node concept="3QByoM" id="65DbCInUbUx">
+    <ref role="3Z9TSV" to="pljn:65DbCInUmLG" resolve="CardinalityTestConcept" />
+    <node concept="3QByp$" id="65DbCInUbV3" role="3QBEN7">
+      <node concept="16I2mz" id="65DbCInUbV4" role="16N$OO">
+        <node concept="16N$OT" id="65DbCInUbV5" role="16I2mt">
           <property role="16N$OU" value="No ref in the very obligatory role '" />
         </node>
-        <node concept="16Iohu" id="Z2mFAearbb" role="16I2mt">
-          <node concept="3QpRc$" id="Z2mFAearbh" role="9Y7m$">
+        <node concept="16Iohu" id="65DbCInUbV6" role="16I2mt">
+          <node concept="3QpRc$" id="65DbCInUbV7" role="9Y7m$">
             <ref role="3QpVTF" to="qzsv:4YJfwn3BmNY" resolve="link" />
           </node>
         </node>
-        <node concept="16N$OT" id="Z2mFAearbd" role="16I2mt">
+        <node concept="16N$OT" id="65DbCInUbV8" role="16I2mt">
           <property role="16N$OU" value="'" />
         </node>
       </node>
-      <node concept="2cc$G6" id="Z2mFAearam" role="3JXyrO">
+      <node concept="2cc$G6" id="65DbCInUbV9" role="3JXyrO">
         <ref role="sa$J1" to="qzsv:4YJfwn3BmNV" resolve="NoRefInObligatoryRole" />
       </node>
     </node>
-    <node concept="3QByp$" id="Z2mFAear8U" role="3QBEN7">
-      <node concept="16I2mz" id="Z2mFAear8V" role="16N$OO">
-        <node concept="16N$OT" id="Z2mFAebeFL" role="16I2mt">
+    <node concept="3QByp$" id="65DbCInUbVa" role="3QBEN7">
+      <node concept="16I2mz" id="65DbCInUbVb" role="16N$OO">
+        <node concept="16N$OT" id="65DbCInUbVc" role="16I2mt">
           <property role="16N$OU" value="No child in the very obligatory role '" />
         </node>
-        <node concept="16Iohu" id="Z2mFAebeFK" role="16I2mt">
-          <node concept="3QpRc$" id="Z2mFAebeFO" role="9Y7m$">
+        <node concept="16Iohu" id="65DbCInUbVd" role="16I2mt">
+          <node concept="3QpRc$" id="65DbCInUbVe" role="9Y7m$">
             <ref role="3QpVTF" to="qzsv:2e3ANUBpeJ9" resolve="link" />
           </node>
         </node>
-        <node concept="16N$OT" id="Z2mFAebeFV" role="16I2mt">
+        <node concept="16N$OT" id="65DbCInUbVf" role="16I2mt">
           <property role="16N$OU" value="'" />
         </node>
       </node>
-      <node concept="24TOh4" id="Z2mFAear8S" role="3JXyrO">
+      <node concept="24TOh4" id="65DbCInUbVg" role="3JXyrO">
         <ref role="sa$J1" to="qzsv:2e3ANUBpeJ4" resolve="NoChildInObligatoryRole" />
       </node>
     </node>
-    <node concept="3QByp$" id="Z2mFAeahEl" role="3QBEN7">
-      <node concept="16I2mz" id="Z2mFAeahEm" role="16N$OO">
-        <node concept="16N$OT" id="Z2mFAebeG1" role="16I2mt">
+    <node concept="3QByp$" id="65DbCInUbVh" role="3QBEN7">
+      <node concept="16I2mz" id="65DbCInUbVi" role="16N$OO">
+        <node concept="16N$OT" id="65DbCInUbVj" role="16I2mt">
           <property role="16N$OU" value="Multiple children in the single role '" />
         </node>
-        <node concept="16Iohu" id="Z2mFAebeG0" role="16I2mt">
-          <node concept="3QpRc$" id="Z2mFAebeG8" role="9Y7m$">
+        <node concept="16Iohu" id="65DbCInUbVk" role="16I2mt">
+          <node concept="3QpRc$" id="65DbCInUbVl" role="9Y7m$">
             <ref role="3QpVTF" to="qzsv:4YJfwn3BmNM" resolve="link" />
           </node>
         </node>
-        <node concept="16N$OT" id="Z2mFAebeG2" role="16I2mt">
+        <node concept="16N$OT" id="65DbCInUbVm" role="16I2mt">
           <property role="16N$OU" value="':  " />
         </node>
-        <node concept="16Iohu" id="Z2mFAebeFq" role="16I2mt">
-          <node concept="3QpRc$" id="Z2mFAebeFt" role="9Y7m$">
+        <node concept="16Iohu" id="65DbCInUbVn" role="16I2mt">
+          <node concept="3QpRc$" id="65DbCInUbVo" role="9Y7m$">
             <ref role="3QpVTF" to="qzsv:4YJfwn3BmNO" resolve="children" />
           </node>
         </node>
       </node>
-      <node concept="2cc$G1" id="Z2mFAeahEj" role="3JXyrO">
+      <node concept="2cc$G1" id="65DbCInUbVp" role="3JXyrO">
         <ref role="sa$J1" to="qzsv:4YJfwn3BmNJ" resolve="MultipleChildrenInSingleRole" />
+      </node>
+    </node>
+  </node>
+  <node concept="3QByoM" id="65DbCInUmOS">
+    <ref role="3Z9TSV" to="pljn:65DbCInTWch" resolve="BrokenConcept" />
+    <node concept="3QByp$" id="65DbCInUmOT" role="3QBEN7">
+      <node concept="ft9Ny" id="65DbCInUmOU" role="3JXyrO">
+        <ref role="sa$J1" to="qzsv:4XK1Xd019ID" resolve="MissingProperty" />
+      </node>
+      <node concept="16I2mz" id="65DbCInUmOV" role="16N$OO">
+        <node concept="16N$OT" id="65DbCInUmOW" role="16I2mt">
+          <property role="16N$OU" value="Property '" />
+        </node>
+        <node concept="16Iohu" id="65DbCInUmOX" role="16I2mt">
+          <node concept="3QpRc$" id="65DbCInUmOY" role="9Y7m$">
+            <ref role="3QpVTF" to="qzsv:1mFJTG7MCZ" resolve="property" />
+          </node>
+        </node>
+        <node concept="16N$OT" id="65DbCInVpOL" role="16I2mt">
+          <property role="16N$OU" value="' does not belong to the concept!!!" />
+        </node>
+      </node>
+    </node>
+    <node concept="3QByp$" id="65DbCInUmP0" role="3QBEN7">
+      <node concept="3Jf5Ay" id="65DbCInUmP1" role="3JXyrO">
+        <ref role="sa$J1" to="qzsv:2dMY_rcjEws" resolve="MissingChild" />
+      </node>
+      <node concept="16I2mz" id="65DbCInUmP2" role="16N$OO">
+        <node concept="16N$OT" id="65DbCInUmP3" role="16I2mt">
+          <property role="16N$OU" value="Child '" />
+        </node>
+        <node concept="16Iohu" id="65DbCInUmP4" role="16I2mt">
+          <node concept="3QpRc$" id="65DbCInUmP5" role="9Y7m$">
+            <ref role="3QpVTF" to="qzsv:2dMY_rcjEww" resolve="child" />
+          </node>
+        </node>
+        <node concept="16N$OT" id="65DbCInVpOZ" role="16I2mt">
+          <property role="16N$OU" value="' does not belong to the concept!!!" />
+        </node>
+      </node>
+    </node>
+    <node concept="3QByp$" id="65DbCInVpNr" role="3QBEN7">
+      <node concept="16I2mz" id="65DbCInVpNs" role="16N$OO">
+        <node concept="16N$OT" id="65DbCInVpOg" role="16I2mt">
+          <property role="16N$OU" value="Reference '" />
+        </node>
+        <node concept="16Iohu" id="65DbCInVpOf" role="16I2mt">
+          <node concept="3QpRc$" id="65DbCInVpOj" role="9Y7m$">
+            <ref role="3QpVTF" to="qzsv:1oq9tin0UZe" resolve="link" />
+          </node>
+        </node>
+        <node concept="16N$OT" id="65DbCInVpOE" role="16I2mt">
+          <property role="16N$OU" value="' does not belong to the concept!!!" />
+        </node>
+      </node>
+      <node concept="2PegRn" id="65DbCInVpNp" role="3JXyrO">
+        <ref role="sa$J1" to="qzsv:2dMY_rcjEws" resolve="MissingChild" />
       </node>
     </node>
   </node>

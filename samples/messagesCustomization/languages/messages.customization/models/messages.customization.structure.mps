@@ -10,6 +10,9 @@
   </imports>
   <registry>
     <language id="c72da2b9-7cce-4447-8389-f407dc1158b7" name="jetbrains.mps.lang.structure">
+      <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
+        <property id="7862711839422615217" name="text" index="t5JxN" />
+      </concept>
       <concept id="1169125787135" name="jetbrains.mps.lang.structure.structure.AbstractConceptDeclaration" flags="ig" index="PkWjJ">
         <property id="6714410169261853888" name="conceptId" index="EcuMT" />
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
@@ -32,14 +35,25 @@
       </concept>
       <concept id="1071489288298" name="jetbrains.mps.lang.structure.structure.LinkDeclaration" flags="ig" index="1TJgyj">
         <property id="1071599776563" name="role" index="20kJfa" />
+        <property id="1071599893252" name="sourceCardinality" index="20lbJX" />
         <property id="1071599937831" name="metaClass" index="20lmBu" />
         <property id="241647608299431140" name="linkId" index="IQ2ns" />
         <reference id="1071599976176" name="target" index="20lvS9" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
+      <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
+        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
+      </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ng" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
+      </concept>
+      <concept id="709746936026466394" name="jetbrains.mps.lang.core.structure.ChildAttribute" flags="ng" index="3VBwX9">
+        <property id="709746936026609031" name="linkId" index="3V$3ak" />
+        <property id="709746936026609029" name="role_DebugInfo" index="3V$3am" />
+      </concept>
+      <concept id="4452961908202556907" name="jetbrains.mps.lang.core.structure.BaseCommentAttribute" flags="ng" index="1X3_iC">
+        <child id="3078666699043039389" name="commentedNode" index="8Wnug" />
       </concept>
     </language>
   </registry>
@@ -83,6 +97,68 @@
     <property role="TrG5h" value="AuxConcept" />
     <property role="19KtqR" value="true" />
     <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+  </node>
+  <node concept="1TIwiD" id="65DbCInTWch">
+    <property role="EcuMT" value="7019192671317508881" />
+    <property role="TrG5h" value="BrokenConcept" />
+    <property role="19KtqR" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="t5JxF" id="65DbCInTWci" role="lGtFl">
+      <property role="t5JxN" value="tests undefined properties, links" />
+    </node>
+    <node concept="1X3_iC" id="65DbCInVqDF" role="lGtFl">
+      <property role="3V$3am" value="propertyDeclaration" />
+      <property role="3V$3ak" value="c72da2b9-7cce-4447-8389-f407dc1158b7/1169125787135/1071489727084" />
+      <node concept="1TJgyi" id="65DbCInTWck" role="8Wnug">
+        <property role="IQ2nx" value="7019192671317508884" />
+        <property role="TrG5h" value="prop" />
+        <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
+      </node>
+    </node>
+    <node concept="1X3_iC" id="65DbCInUtm0" role="lGtFl">
+      <property role="3V$3am" value="linkDeclaration" />
+      <property role="3V$3ak" value="c72da2b9-7cce-4447-8389-f407dc1158b7/1169125787135/1071489727083" />
+      <node concept="1TJgyj" id="65DbCInTWcm" role="8Wnug">
+        <property role="IQ2ns" value="7019192671317508886" />
+        <property role="20lmBu" value="fLJjDmT/aggregation" />
+        <property role="20kJfa" value="child" />
+        <ref role="20lvS9" node="65DbCInTWch" resolve="BrokenConcept" />
+      </node>
+    </node>
+    <node concept="1X3_iC" id="65DbCInVpPC" role="lGtFl">
+      <property role="3V$3am" value="linkDeclaration" />
+      <property role="3V$3ak" value="c72da2b9-7cce-4447-8389-f407dc1158b7/1169125787135/1071489727083" />
+      <node concept="1TJgyj" id="65DbCInTWco" role="8Wnug">
+        <property role="IQ2ns" value="7019192671317508888" />
+        <property role="20kJfa" value="ref" />
+        <ref role="20lvS9" node="65DbCInTWch" resolve="BrokenConcept" />
+      </node>
+    </node>
+    <node concept="PrWs8" id="65DbCInU38T" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="65DbCInUmLG">
+    <property role="EcuMT" value="7019192671317617772" />
+    <property role="TrG5h" value="CardinalityTestConcept" />
+    <property role="19KtqR" value="true" />
+    <ref role="1TJDcQ" to="tpck:gw2VY9q" resolve="BaseConcept" />
+    <node concept="1TJgyj" id="65DbCInUmLK" role="1TKVEi">
+      <property role="IQ2ns" value="7019192671317573556" />
+      <property role="20lmBu" value="fLJjDmT/aggregation" />
+      <property role="20kJfa" value="obligatorychild" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="65DbCInUmLG" resolve="CardinalityTestConcept" />
+    </node>
+    <node concept="1TJgyj" id="65DbCInUmLM" role="1TKVEi">
+      <property role="IQ2ns" value="7019192671317573552" />
+      <property role="20kJfa" value="obligatoryref" />
+      <property role="20lbJX" value="fLJekj4/_1" />
+      <ref role="20lvS9" node="65DbCInUmLG" resolve="CardinalityTestConcept" />
+    </node>
+    <node concept="PrWs8" id="65DbCInUmLN" role="PzmwI">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
   </node>
 </model>
 

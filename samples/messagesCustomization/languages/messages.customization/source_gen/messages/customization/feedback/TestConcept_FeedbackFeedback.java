@@ -6,81 +6,39 @@ import jetbrains.mps.core.aspects.feedback.api.BaseFeedbackDescriptor;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.core.aspects.feedback.api.FeedbackProvider;
-import jetbrains.mps.core.aspects.feedback.messages.MissingPropertyContext;
+import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintContext;
 import jetbrains.mps.core.aspects.feedback.messages.BaseMessageProvider;
-import jetbrains.mps.core.aspects.feedback.messages.InConceptProblemId;
-import jetbrains.mps.core.aspects.feedback.messages.PredefinedStructureProblemKind;
+import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintProblemId;
 import org.jetbrains.annotations.NotNull;
 import jetbrains.mps.core.aspects.feedback.messages.MessageProvider;
-import jetbrains.mps.core.aspects.feedback.messages.MissingChildContext;
-import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintContext;
-import jetbrains.mps.core.aspects.feedback.messages.FailingPropertyConstraintProblemId;
 import jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeContext;
 import jetbrains.mps.core.aspects.feedback.messages.RefOutOfScopeProblemId;
-import jetbrains.mps.core.aspects.feedback.messages.RefCardinalityContext;
-import jetbrains.mps.core.aspects.feedback.messages.ChildCardinalityContext;
 import java.util.List;
 import java.util.Collections;
 import java.util.Arrays;
 import java.util.stream.Stream;
-import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SReferenceLink;
 
 public final class TestConcept_FeedbackFeedback extends BaseFeedbackDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "messages.customization.structure.TestConcept");
 
-  private static final FeedbackProvider<MissingPropertyContext> MSGPROVIDER_WhenPropertyIsNotDefinedInConcept_pavl6x_a = new BaseMessageProvider<MissingPropertyContext>(new InConceptProblemId(CONCEPTS.TestConcept$83, PredefinedStructureProblemKind.MISSING_PROPERTY)) {
-    @NotNull
-    @Override
-    public MessageProvider.StringMsg yieldMessage(MissingPropertyContext context) {
-      return new MessageProvider.StringMsg("Property '" + context.getProperty() + "' does not belong to the concept 'TestConcept'");
-    }
-  };
-  private static final FeedbackProvider<MissingChildContext> MSGPROVIDER_WhenChildIsNotDefinedInConcept_pavl6x_b = new BaseMessageProvider<MissingChildContext>(new InConceptProblemId(CONCEPTS.TestConcept$83, PredefinedStructureProblemKind.MISSING_CHILD)) {
-    @NotNull
-    @Override
-    public MessageProvider.StringMsg yieldMessage(MissingChildContext context) {
-      return new MessageProvider.StringMsg("Child '" + context.getChild() + "' does not belong to the concept 'TestConcept");
-    }
-  };
-  private static final FeedbackProvider<FailingPropertyConstraintContext> MSGPROVIDER_WhenPropertyConstraintFails_pavl6x_c = new BaseMessageProvider<FailingPropertyConstraintContext>(new FailingPropertyConstraintProblemId(PROPS.prop$PGpb)) {
+  private static final FeedbackProvider<FailingPropertyConstraintContext> MSGPROVIDER_WhenPropertyConstraintFails_pavl6x_a = new BaseMessageProvider<FailingPropertyConstraintContext>(new FailingPropertyConstraintProblemId(PROPS.prop$PGpb)) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(FailingPropertyConstraintContext context) {
       return new MessageProvider.StringMsg("Property constraints are broken for the property" + " " + context.getProperty() + " " + " ");
     }
   };
-  private static final FeedbackProvider<RefOutOfScopeContext> MSGPROVIDER_WhenReferenceIsOutOfScope_pavl6x_d = new BaseMessageProvider<RefOutOfScopeContext>(new RefOutOfScopeProblemId(LINKS.link$1Bcs)) {
+  private static final FeedbackProvider<RefOutOfScopeContext> MSGPROVIDER_WhenReferenceIsOutOfScope_pavl6x_b = new BaseMessageProvider<RefOutOfScopeContext>(new RefOutOfScopeProblemId(LINKS.link$1Bcs)) {
     @NotNull
     @Override
     public MessageProvider.StringMsg yieldMessage(RefOutOfScopeContext context) {
       return new MessageProvider.StringMsg("Reference is out of scope: can not found " + "the link '" + context.getLink() + "' in the node " + context.getNode());
     }
   };
-  private static final FeedbackProvider<RefCardinalityContext> MSGPROVIDER_WhenThereIsNoRefInRoleWithNonzeroCardinality_pavl6x_e = new BaseMessageProvider<RefCardinalityContext>(new InConceptProblemId(CONCEPTS.TestConcept$83, PredefinedStructureProblemKind.NO_REF_IN_OBLIGATORY_ROLE)) {
-    @NotNull
-    @Override
-    public MessageProvider.StringMsg yieldMessage(RefCardinalityContext context) {
-      return new MessageProvider.StringMsg("No ref in the very obligatory role '" + context.getLink() + "'");
-    }
-  };
-  private static final FeedbackProvider<ChildCardinalityContext> MSGPROVIDER_WhenThereIsNoChildInRoleWithNonzeroCardinality_pavl6x_f = new BaseMessageProvider<ChildCardinalityContext>(new InConceptProblemId(CONCEPTS.TestConcept$83, PredefinedStructureProblemKind.NO_CHILD_IN_OBLIGATORY_ROLE)) {
-    @NotNull
-    @Override
-    public MessageProvider.StringMsg yieldMessage(ChildCardinalityContext context) {
-      return new MessageProvider.StringMsg("No child in the very obligatory role '" + context.getLink() + "'");
-    }
-  };
-  private static final FeedbackProvider<ChildCardinalityContext> MSGPROVIDER_WhenThereAreMultipleChildrenInRoleWithSingleCardinality_pavl6x_g = new BaseMessageProvider<ChildCardinalityContext>(new InConceptProblemId(CONCEPTS.TestConcept$83, PredefinedStructureProblemKind.ONLY_ONE_CHILD_CAN_BE_IN_ROLE)) {
-    @NotNull
-    @Override
-    public MessageProvider.StringMsg yieldMessage(ChildCardinalityContext context) {
-      return new MessageProvider.StringMsg("Multiple children in the single role '" + context.getLink() + "':  " + context.getChildren());
-    }
-  };
 
-  private static final List<FeedbackProvider> PROVIDERS = Collections.unmodifiableList(Arrays.<FeedbackProvider>asList(MSGPROVIDER_WhenPropertyIsNotDefinedInConcept_pavl6x_a, MSGPROVIDER_WhenChildIsNotDefinedInConcept_pavl6x_b, MSGPROVIDER_WhenPropertyConstraintFails_pavl6x_c, MSGPROVIDER_WhenReferenceIsOutOfScope_pavl6x_d, MSGPROVIDER_WhenThereIsNoRefInRoleWithNonzeroCardinality_pavl6x_e, MSGPROVIDER_WhenThereIsNoChildInRoleWithNonzeroCardinality_pavl6x_f, MSGPROVIDER_WhenThereAreMultipleChildrenInRoleWithSingleCardinality_pavl6x_g));
+  private static final List<FeedbackProvider> PROVIDERS = Collections.unmodifiableList(Arrays.<FeedbackProvider>asList(MSGPROVIDER_WhenPropertyConstraintFails_pavl6x_a, MSGPROVIDER_WhenReferenceIsOutOfScope_pavl6x_b));
 
   public TestConcept_FeedbackFeedback() {
     super(CONCEPT);
@@ -90,10 +48,6 @@ public final class TestConcept_FeedbackFeedback extends BaseFeedbackDescriptor {
   @Override
   public Stream<FeedbackProvider> getDeclaredProviders() {
     return PROVIDERS.stream();
-  }
-
-  private static final class CONCEPTS {
-    /*package*/ static final SConcept TestConcept$83 = MetaAdapterFactory.getConcept(0x7cf7c95bc81e4da9L, 0xa05645e480a7abd3L, 0x530a123e5fc34d34L, "messages.customization.structure.TestConcept");
   }
 
   private static final class PROPS {

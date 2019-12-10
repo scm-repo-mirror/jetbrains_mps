@@ -8,8 +8,13 @@ import org.junit.ClassRule;
 import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Rule;
 import jetbrains.mps.lang.test.runtime.RunWithCommand;
+import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
+import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
+import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.project.ProjectBase;
 
 @MPSLaunch
 public class FeedbackPropIsNotDefined_Test extends BaseTransformationTest {
@@ -22,6 +27,10 @@ public class FeedbackPropIsNotDefined_Test extends BaseTransformationTest {
     super(ourParamCache);
   }
 
+  @Test
+  public void test_NodeErrorCheck7019192671317891513() throws Throwable {
+    new TestBody(this).test_NodeErrorCheck7019192671317891513();
+  }
 
   /*package*/ static class TestBody extends BaseTestBody {
 
@@ -30,6 +39,11 @@ public class FeedbackPropIsNotDefined_Test extends BaseTransformationTest {
     }
 
 
+    public void test_NodeErrorCheck7019192671317891513() throws Exception {
+      SNode nodeToCheck = getRealNodeById("7019192671317644658");
+      SNode operation = getRealNodeById("7019192671317891513");
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "Property 'prop' does not belong to the concept 'TestConcept'!!!", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+    }
 
   }
 }

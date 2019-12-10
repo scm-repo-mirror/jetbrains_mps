@@ -14,8 +14,8 @@ import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
-import jetbrains.mps.smodel.SNodePointer;
 import jetbrains.mps.project.ProjectBase;
+import jetbrains.mps.smodel.SNodePointer;
 
 @MPSLaunch
 public class FeedbackRefOutOfScope_Test extends BaseTransformationTest {
@@ -29,8 +29,12 @@ public class FeedbackRefOutOfScope_Test extends BaseTransformationTest {
   }
 
   @Test
-  public void test_NodeUnknownRuleCheck2802122285522068046() throws Throwable {
-    new TestBody(this).test_NodeUnknownRuleCheck2802122285522068046();
+  public void test_NodeErrorCheck7019192671317902489() throws Throwable {
+    new TestBody(this).test_NodeErrorCheck7019192671317902489();
+  }
+  @Test
+  public void test_NodeUnknownRuleCheck7019192671317924833() throws Throwable {
+    new TestBody(this).test_NodeUnknownRuleCheck7019192671317924833();
   }
 
   /*package*/ static class TestBody extends BaseTestBody {
@@ -40,9 +44,14 @@ public class FeedbackRefOutOfScope_Test extends BaseTransformationTest {
     }
 
 
-    public void test_NodeUnknownRuleCheck2802122285522068046() throws Exception {
+    public void test_NodeErrorCheck7019192671317902489() throws Exception {
       SNode nodeToCheck = getRealNodeById("2802122285522027685");
-      SNode operation = getRealNodeById("2802122285522068046");
+      SNode operation = getRealNodeById("7019192671317902489");
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "Unresolved reference: B", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
+    }
+    public void test_NodeUnknownRuleCheck7019192671317924833() throws Exception {
+      SNode nodeToCheck = getRealNodeById("7019192671317902494");
+      SNode operation = getRealNodeById("7019192671317924833");
       new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:5dbac061-aef9-4696-88ee-0f21fe5598f3(messages.customization.constraints)", "8918166317255507159"), "Reference is out of scope: can not found the link 'link' in the node A", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
 

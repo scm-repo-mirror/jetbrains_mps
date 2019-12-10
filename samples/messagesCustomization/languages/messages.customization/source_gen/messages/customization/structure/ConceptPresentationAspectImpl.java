@@ -10,6 +10,8 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_AuxConcept;
+  private ConceptPresentation props_BrokenConcept;
+  private ConceptPresentation props_CardinalityTestConcept;
   private ConceptPresentation props_TestConcept;
   private ConceptPresentation props_TestConcept0;
 
@@ -25,6 +27,20 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_AuxConcept = cpb.create();
         }
         return props_AuxConcept;
+      case LanguageConceptSwitch.BrokenConcept:
+        if (props_BrokenConcept == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_BrokenConcept = cpb.create();
+        }
+        return props_BrokenConcept;
+      case LanguageConceptSwitch.CardinalityTestConcept:
+        if (props_CardinalityTestConcept == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_CardinalityTestConcept = cpb.create();
+        }
+        return props_CardinalityTestConcept;
       case LanguageConceptSwitch.TestConcept:
         if (props_TestConcept == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

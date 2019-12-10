@@ -18,6 +18,7 @@
       <concept id="1215607067978" name="jetbrains.mps.lang.test.structure.CheckNodeForErrorMessagesOperation" flags="ng" index="7OXhh">
         <property id="3743352646565420194" name="includeSelf" index="GvXf4" />
       </concept>
+      <concept id="7835233914436786109" name="jetbrains.mps.lang.test.structure.NodeUnknownErrorCheckOperation" flags="ng" index="mDk06" />
       <concept id="7835233914439520906" name="jetbrains.mps.lang.test.structure.AbstractNodeRuleCheckOperation" flags="ng" index="mZCkL">
         <child id="710597951278798299" name="expectedMessage" index="1DMPz9" />
       </concept>
@@ -52,6 +53,11 @@
       <concept id="5983615114019032372" name="messages.customization.structure.TestConcept" flags="ng" index="cMlWa">
         <property id="5778414857994410328" name="prop" index="3ZEpjE" />
         <reference id="1592627013225970334" name="link" index="2175Xa" />
+      </concept>
+      <concept id="7019192671317508881" name="messages.customization.structure.BrokenConcept" flags="ng" index="3QzIQq">
+        <property id="7019192671317508884" name="prop" index="3QzIQv" />
+        <reference id="7019192671317508888" name="ref" index="3QzIQj" />
+        <child id="7019192671317508886" name="child" index="3QzIQt" />
       </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
@@ -106,9 +112,37 @@
   </node>
   <node concept="1lH9Xt" id="2w7KopAY0zR">
     <property role="TrG5h" value="FeedbackChildIsNotDefined" />
+    <node concept="1qefOq" id="65DbCInUtlG" role="1SKRRt">
+      <node concept="3QzIQq" id="65DbCInUtlF" role="1qenE9">
+        <property role="TrG5h" value="A" />
+        <node concept="3QzIQq" id="65DbCInUtlJ" role="3QzIQt">
+          <property role="TrG5h" value="no_child" />
+        </node>
+        <node concept="7CXmI" id="65DbCInUtAe" role="lGtFl">
+          <node concept="mDk06" id="65DbCInVqVZ" role="7EUXB">
+            <node concept="1DMPye" id="65DbCInVqW0" role="1DMPz9">
+              <property role="1DMPyf" value="Child 'no_child' does not belong to the concept!!!" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="1lH9Xt" id="2w7KopAY0$4">
     <property role="TrG5h" value="FeedbackPropIsNotDefined" />
+    <node concept="1qefOq" id="65DbCInUtlL" role="1SKRRt">
+      <node concept="3QzIQq" id="65DbCInUtlM" role="1qenE9">
+        <property role="TrG5h" value="A" />
+        <property role="3QzIQv" value="true" />
+        <node concept="7CXmI" id="65DbCInVpAS" role="lGtFl">
+          <node concept="mDk06" id="65DbCInVpAT" role="7EUXB">
+            <node concept="1DMPye" id="65DbCInVpAU" role="1DMPz9">
+              <property role="1DMPyf" value="Property 'prop' does not belong to the concept 'TestConcept'!!!" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
   </node>
   <node concept="1lH9Xt" id="2rz8PXlJKiz">
     <property role="TrG5h" value="FeedbackRefOutOfScope" />
@@ -118,12 +152,42 @@
         <property role="3ZEpjE" value="10" />
         <ref role="2175Xa" to="dotu:2w7KopAY0Wd" resolve="B" />
         <node concept="7CXmI" id="2rz8PXlJKiA" role="lGtFl">
-          <node concept="39XrGg" id="2rz8PXlJU9e" role="7EUXB">
-            <node concept="2u4KIi" id="2rz8PXlJU9f" role="39rjcI">
+          <node concept="mDk06" id="65DbCInVsip" role="7EUXB">
+            <node concept="1DMPye" id="65DbCInVsiq" role="1DMPz9">
+              <property role="1DMPyf" value="Unresolved reference: B" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="65DbCInVsit" role="1SKRRt">
+      <node concept="cMlWa" id="65DbCInVsiu" role="1qenE9">
+        <property role="TrG5h" value="A" />
+        <property role="3ZEpjE" value="10" />
+        <ref role="2175Xa" to="dotu:2Ew8zTEYgwQ" resolve="B" />
+        <node concept="7CXmI" id="65DbCInVsiv" role="lGtFl">
+          <node concept="39XrGg" id="65DbCInVxJx" role="7EUXB">
+            <node concept="2u4KIi" id="65DbCInVxJy" role="39rjcI">
               <ref role="39XzEq" to="2e5h:7J3GgfrRzNn" />
             </node>
-            <node concept="1DMPye" id="2rz8PXlJU9g" role="1DMPz9">
+            <node concept="1DMPye" id="65DbCInVxJz" role="1DMPz9">
               <property role="1DMPyf" value="Reference is out of scope: can not found the link 'link' in the node A" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1lH9Xt" id="65DbCInVpPy">
+    <property role="TrG5h" value="FeedbackRefIsNotDefined" />
+    <node concept="1qefOq" id="65DbCInVqW5" role="1SKRRt">
+      <node concept="3QzIQq" id="65DbCInVqW6" role="1qenE9">
+        <property role="TrG5h" value="A" />
+        <ref role="3QzIQj" node="65DbCInVqW6" resolve="A" />
+        <node concept="7CXmI" id="65DbCInVqW8" role="lGtFl">
+          <node concept="mDk06" id="65DbCInVqWh" role="7EUXB">
+            <node concept="1DMPye" id="65DbCInVqWi" role="1DMPz9">
+              <property role="1DMPyf" value="Reference 'ref' does not belong to the concept!!!" />
             </node>
           </node>
         </node>
