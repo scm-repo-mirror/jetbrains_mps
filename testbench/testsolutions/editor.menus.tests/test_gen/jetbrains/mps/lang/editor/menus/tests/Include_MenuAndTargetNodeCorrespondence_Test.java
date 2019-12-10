@@ -20,8 +20,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import junit.framework.Assert;
 import jetbrains.mps.lang.test.matcher.NodesMatcher;
-import jetbrains.mps.lang.test.runtime.CheckErrorMessagesAction;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckErrorMessagesRunnable;
+import jetbrains.mps.project.ProjectBase;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
 import jetbrains.mps.smodel.SNodePointer;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
@@ -72,12 +73,12 @@ public class Include_MenuAndTargetNodeCorrespondence_Test extends BaseTransforma
     public void test_MatchingMenuForCurrentNode6903010549536714073() throws Exception {
       SNode nodeToCheck = getRealNodeById("6903010549536713473");
       SNode operation = getRealNodeById("6903010549536714073");
-      new CheckErrorMessagesAction(nodeToCheck, false, false).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageAction>())).run();
+      new CheckErrorMessagesRunnable(nodeToCheck, false, false, ((ProjectBase) myProject).getPlatform()).includeSelf(true).exclude(ListSequence.fromList(new ArrayList<CheckExpectedMessageRunnable>())).run();
     }
     public void test_NonMatchingMenuForCurrentNode6903010549536714075() throws Exception {
       SNode nodeToCheck = getRealNodeById("6903010549536712731");
       SNode operation = getRealNodeById("6903010549536714075");
-      new CheckExpectedMessageAction.CheckExpectedRuleMessageAction(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "6903010549536798466"), myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckExpectedRuleMessageRunnable(nodeToCheck, MessageStatus.ERROR, new SNodePointer("r:00000000-0000-4000-0000-011c8959029a(jetbrains.mps.lang.editor.typesystem)", "6903010549536798466"), "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
 
     private static SNode createSNodeType_sxmjox_a0a0a0c0d9() {

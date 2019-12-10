@@ -17,8 +17,9 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.baseLanguage.closures.helper.ClosureLiteralTarget;
 import jetbrains.mps.baseLanguage.closures.behavior.FunctionType__BehaviorDescriptor;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.project.ProjectBase;
 import jetbrains.mps.baseLanguage.closures.helper.Values;
 import junit.framework.Assert;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
@@ -65,7 +66,7 @@ public class ClosureLiteraltargetFunType_Test extends BaseTransformationTest {
     public void test_NodeErrorCheck3981396688773519576() throws Exception {
       SNode nodeToCheck = getRealNodeById("6374750171056867612");
       SNode operation = getRealNodeById("3981396688773519576");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.ERROR, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.ERROR, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
 
     public TemplateQueryContext getContext() {

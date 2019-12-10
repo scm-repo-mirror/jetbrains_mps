@@ -12,8 +12,9 @@ import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.test.runtime.CheckExpectedMessageAction;
+import jetbrains.mps.lang.test.runtime.CheckExpectedMessageRunnable;
 import jetbrains.mps.errors.MessageStatus;
+import jetbrains.mps.project.ProjectBase;
 
 @MPSLaunch
 public class FontFamilyLiteralWarningTest_Test extends BaseTransformationTest {
@@ -41,7 +42,7 @@ public class FontFamilyLiteralWarningTest_Test extends BaseTransformationTest {
     public void test_NodeWarningCheck1715298588355941914() throws Exception {
       SNode nodeToCheck = getRealNodeById("1715298588355941887");
       SNode operation = getRealNodeById("1715298588355941914");
-      new CheckExpectedMessageAction.CheckAnyMessageAction(nodeToCheck, MessageStatus.WARNING, myProject.getRepository()).run();
+      new CheckExpectedMessageRunnable.CheckAnyMessageRunnable(nodeToCheck, MessageStatus.WARNING, "", myProject.getRepository(), ((ProjectBase) myProject).getPlatform()).run();
     }
 
   }

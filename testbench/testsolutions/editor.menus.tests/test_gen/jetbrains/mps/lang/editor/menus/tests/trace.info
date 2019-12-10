@@ -146,33 +146,33 @@
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/2153278993333625967">
     <file name="NonexistentDefaultMenu_Test.java">
-      <node id="2153278993333625967" at="26,40,27,25" concept="11" />
-      <node id="2153278993334499810" at="31,89,32,80" concept="2" />
-      <node id="2153278993333625967" at="37,52,38,19" concept="11" />
-      <node id="2153278993334499810" at="42,91,43,65" concept="5" />
-      <node id="2153278993334499810" at="43,65,44,63" concept="5" />
-      <node id="2153278993334499810" at="44,63,45,253" concept="2" />
-      <node id="2153278993333625967" at="21,0,23,0" concept="9" trace="ourParamCache" />
-      <node id="2153278993333625967" at="23,0,25,0" concept="3" trace="myWithCommandRule" />
-      <node id="2153278993333625967" at="26,0,29,0" concept="1" trace="NonexistentDefaultMenu_Test#()V" />
-      <node id="2153278993333625967" at="37,0,40,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="2153278993334499810" at="30,0,34,0" concept="4" trace="test_NodeDefaultTransformationCheck2153278993334499810#()V" />
-      <node id="2153278993334499810" at="42,0,47,0" concept="4" trace="test_NodeDefaultTransformationCheck2153278993334499810#()V" />
-      <scope id="2153278993333625967" at="26,40,27,25" />
-      <scope id="2153278993334499810" at="31,89,32,80" />
-      <scope id="2153278993333625967" at="37,52,38,19" />
-      <scope id="2153278993333625967" at="26,0,29,0" />
-      <scope id="2153278993333625967" at="37,0,40,0">
+      <node id="2153278993333625967" at="27,40,28,25" concept="11" />
+      <node id="2153278993334499810" at="32,89,33,80" concept="2" />
+      <node id="2153278993333625967" at="38,52,39,19" concept="11" />
+      <node id="2153278993334499810" at="43,91,44,65" concept="5" />
+      <node id="2153278993334499810" at="44,65,45,63" concept="5" />
+      <node id="2153278993334499810" at="45,63,46,302" concept="2" />
+      <node id="2153278993333625967" at="22,0,24,0" concept="9" trace="ourParamCache" />
+      <node id="2153278993333625967" at="24,0,26,0" concept="3" trace="myWithCommandRule" />
+      <node id="2153278993333625967" at="27,0,30,0" concept="1" trace="NonexistentDefaultMenu_Test#()V" />
+      <node id="2153278993333625967" at="38,0,41,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="2153278993334499810" at="31,0,35,0" concept="4" trace="test_NodeDefaultTransformationCheck2153278993334499810#()V" />
+      <node id="2153278993334499810" at="43,0,48,0" concept="4" trace="test_NodeDefaultTransformationCheck2153278993334499810#()V" />
+      <scope id="2153278993333625967" at="27,40,28,25" />
+      <scope id="2153278993334499810" at="32,89,33,80" />
+      <scope id="2153278993333625967" at="38,52,39,19" />
+      <scope id="2153278993333625967" at="27,0,30,0" />
+      <scope id="2153278993333625967" at="38,0,41,0">
         <var name="owner" id="2153278993333625967" />
       </scope>
-      <scope id="2153278993334499810" at="42,91,45,253">
+      <scope id="2153278993334499810" at="43,91,46,302">
         <var name="nodeToCheck" id="2153278993334499810" />
         <var name="operation" id="2153278993334499810" />
       </scope>
-      <scope id="2153278993334499810" at="30,0,34,0" />
-      <scope id="2153278993334499810" at="42,0,47,0" />
-      <unit id="2153278993333625967" at="35,0,49,0" name="jetbrains.mps.lang.editor.menus.tests.NonexistentDefaultMenu_Test$TestBody" />
-      <unit id="2153278993333625967" at="19,0,50,0" name="jetbrains.mps.lang.editor.menus.tests.NonexistentDefaultMenu_Test" />
+      <scope id="2153278993334499810" at="31,0,35,0" />
+      <scope id="2153278993334499810" at="43,0,48,0" />
+      <unit id="2153278993333625967" at="36,0,50,0" name="jetbrains.mps.lang.editor.menus.tests.NonexistentDefaultMenu_Test$TestBody" />
+      <unit id="2153278993333625967" at="20,0,51,0" name="jetbrains.mps.lang.editor.menus.tests.NonexistentDefaultMenu_Test" />
     </file>
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/2314756748950360685">
@@ -408,77 +408,77 @@
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/2705676212746996045">
     <file name="Include_MenuAndTargetNodeCorrespondence_Test.java">
-      <node id="2705676212746996045" at="39,57,40,25" concept="11" />
-      <node id="6903010549535817802" at="44,80,45,71" concept="2" />
-      <node id="6903010549536714073" at="48,85,49,76" concept="2" />
-      <node id="6903010549536714075" at="52,88,53,79" concept="2" />
-      <node id="2705676212746996045" at="58,52,59,19" concept="11" />
-      <node id="2705676212747008271" at="62,82,63,41" concept="2" />
-      <node id="6903010549536712693" at="63,41,64,41" concept="2" />
-      <node id="6903010549535864651" at="65,7,66,125" concept="5" />
-      <node id="6903010549535864651" at="66,125,67,450" concept="5" />
-      <node id="6903010549535864651" at="67,450,68,160" concept="2" />
-      <node id="6903010549536714073" at="72,87,73,65" concept="5" />
-      <node id="6903010549536714073" at="73,65,74,63" concept="5" />
-      <node id="6903010549536714073" at="74,63,75,162" concept="2" />
-      <node id="6903010549536714075" at="77,90,78,65" concept="5" />
-      <node id="6903010549536714075" at="78,65,79,63" concept="5" />
-      <node id="6903010549536714075" at="79,63,80,256" concept="2" />
-      <node id="6903010549536975861" at="83,62,84,65" concept="5" />
-      <node id="6903010549536975861" at="84,65,85,81" concept="5" />
-      <node id="6903010549536975861" at="85,81,86,241" concept="2" />
-      <node id="6903010549536975861" at="86,241,87,38" concept="6" />
-      <node id="2705676212746996045" at="92,0,93,0" concept="9" trace="SNodeType$gn" />
-      <node id="2705676212746996045" at="96,0,97,0" concept="9" trace="concept$HWFQ" />
-      <node id="2705676212746996045" at="34,0,36,0" concept="9" trace="ourParamCache" />
-      <node id="2705676212746996045" at="36,0,38,0" concept="3" trace="myWithCommandRule" />
-      <node id="2705676212746996045" at="39,0,42,0" concept="1" trace="Include_MenuAndTargetNodeCorrespondence_Test#()V" />
-      <node id="2705676212746996045" at="58,0,61,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="6903010549535817802" at="43,0,47,0" concept="4" trace="test_targetNodeForMenuShouldReturnMenuConcept#()V" />
-      <node id="6903010549536714073" at="47,0,51,0" concept="4" trace="test_MatchingMenuForCurrentNode6903010549536714073#()V" />
-      <node id="6903010549536714075" at="51,0,55,0" concept="4" trace="test_NonMatchingMenuForCurrentNode6903010549536714075#()V" />
-      <node id="6903010549535864651" at="64,41,69,7" concept="0" />
-      <node id="6903010549536714073" at="72,0,77,0" concept="4" trace="test_MatchingMenuForCurrentNode6903010549536714073#()V" />
-      <node id="6903010549536714075" at="77,0,82,0" concept="4" trace="test_NonMatchingMenuForCurrentNode6903010549536714075#()V" />
-      <node id="6903010549536975861" at="83,0,89,0" concept="10" trace="createSNodeType_sxmjox_a0a0a0c0d9#()Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="6903010549535817802" at="62,0,71,0" concept="4" trace="test_targetNodeForMenuShouldReturnMenuConcept#()V" />
-      <scope id="2705676212746996045" at="39,57,40,25" />
-      <scope id="6903010549535817802" at="44,80,45,71" />
-      <scope id="6903010549536714073" at="48,85,49,76" />
-      <scope id="6903010549536714075" at="52,88,53,79" />
-      <scope id="2705676212746996045" at="58,52,59,19" />
-      <scope id="2705676212746996045" at="39,0,42,0" />
-      <scope id="2705676212746996045" at="58,0,61,0">
+      <node id="2705676212746996045" at="40,57,41,25" concept="11" />
+      <node id="6903010549535817802" at="45,80,46,71" concept="2" />
+      <node id="6903010549536714073" at="49,85,50,76" concept="2" />
+      <node id="6903010549536714075" at="53,88,54,79" concept="2" />
+      <node id="2705676212746996045" at="59,52,60,19" concept="11" />
+      <node id="2705676212747008271" at="63,82,64,41" concept="2" />
+      <node id="6903010549536712693" at="64,41,65,41" concept="2" />
+      <node id="6903010549535864651" at="66,7,67,125" concept="5" />
+      <node id="6903010549535864651" at="67,125,68,450" concept="5" />
+      <node id="6903010549535864651" at="68,450,69,160" concept="2" />
+      <node id="6903010549536714073" at="73,87,74,65" concept="5" />
+      <node id="6903010549536714073" at="74,65,75,63" concept="5" />
+      <node id="6903010549536714073" at="75,63,76,207" concept="2" />
+      <node id="6903010549536714075" at="78,90,79,65" concept="5" />
+      <node id="6903010549536714075" at="79,65,80,63" concept="5" />
+      <node id="6903010549536714075" at="80,63,81,305" concept="2" />
+      <node id="6903010549536975861" at="84,62,85,65" concept="5" />
+      <node id="6903010549536975861" at="85,65,86,81" concept="5" />
+      <node id="6903010549536975861" at="86,81,87,241" concept="2" />
+      <node id="6903010549536975861" at="87,241,88,38" concept="6" />
+      <node id="2705676212746996045" at="93,0,94,0" concept="9" trace="SNodeType$gn" />
+      <node id="2705676212746996045" at="97,0,98,0" concept="9" trace="concept$HWFQ" />
+      <node id="2705676212746996045" at="35,0,37,0" concept="9" trace="ourParamCache" />
+      <node id="2705676212746996045" at="37,0,39,0" concept="3" trace="myWithCommandRule" />
+      <node id="2705676212746996045" at="40,0,43,0" concept="1" trace="Include_MenuAndTargetNodeCorrespondence_Test#()V" />
+      <node id="2705676212746996045" at="59,0,62,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="6903010549535817802" at="44,0,48,0" concept="4" trace="test_targetNodeForMenuShouldReturnMenuConcept#()V" />
+      <node id="6903010549536714073" at="48,0,52,0" concept="4" trace="test_MatchingMenuForCurrentNode6903010549536714073#()V" />
+      <node id="6903010549536714075" at="52,0,56,0" concept="4" trace="test_NonMatchingMenuForCurrentNode6903010549536714075#()V" />
+      <node id="6903010549535864651" at="65,41,70,7" concept="0" />
+      <node id="6903010549536714073" at="73,0,78,0" concept="4" trace="test_MatchingMenuForCurrentNode6903010549536714073#()V" />
+      <node id="6903010549536714075" at="78,0,83,0" concept="4" trace="test_NonMatchingMenuForCurrentNode6903010549536714075#()V" />
+      <node id="6903010549536975861" at="84,0,90,0" concept="10" trace="createSNodeType_sxmjox_a0a0a0c0d9#()Lorg/jetbrains/mps/openapi/model/SNode;" />
+      <node id="6903010549535817802" at="63,0,72,0" concept="4" trace="test_targetNodeForMenuShouldReturnMenuConcept#()V" />
+      <scope id="2705676212746996045" at="40,57,41,25" />
+      <scope id="6903010549535817802" at="45,80,46,71" />
+      <scope id="6903010549536714073" at="49,85,50,76" />
+      <scope id="6903010549536714075" at="53,88,54,79" />
+      <scope id="2705676212746996045" at="59,52,60,19" />
+      <scope id="2705676212746996045" at="40,0,43,0" />
+      <scope id="2705676212746996045" at="59,0,62,0">
         <var name="owner" id="2705676212746996045" />
       </scope>
-      <scope id="6903010549535864651" at="65,7,68,160">
+      <scope id="6903010549535864651" at="66,7,69,160">
         <var name="nodesAfter" id="6903010549535864651" />
         <var name="nodesBefore" id="6903010549535864651" />
       </scope>
-      <scope id="6903010549536714073" at="72,87,75,162">
+      <scope id="6903010549536714073" at="73,87,76,207">
         <var name="nodeToCheck" id="6903010549536714073" />
         <var name="operation" id="6903010549536714073" />
       </scope>
-      <scope id="6903010549536714075" at="77,90,80,256">
+      <scope id="6903010549536714075" at="78,90,81,305">
         <var name="nodeToCheck" id="6903010549536714075" />
         <var name="operation" id="6903010549536714075" />
       </scope>
-      <scope id="6903010549535817802" at="43,0,47,0" />
-      <scope id="6903010549536714073" at="47,0,51,0" />
-      <scope id="6903010549536714075" at="51,0,55,0" />
-      <scope id="6903010549536975861" at="83,62,87,38">
+      <scope id="6903010549535817802" at="44,0,48,0" />
+      <scope id="6903010549536714073" at="48,0,52,0" />
+      <scope id="6903010549536714075" at="52,0,56,0" />
+      <scope id="6903010549536975861" at="84,62,88,38">
         <var name="facade" id="6903010549536975861" />
         <var name="rootBuilder1" id="6903010549536975861" />
       </scope>
-      <scope id="6903010549536714073" at="72,0,77,0" />
-      <scope id="6903010549536714075" at="77,0,82,0" />
-      <scope id="6903010549536975861" at="83,0,89,0" />
-      <scope id="6903010549535817802" at="62,82,69,7" />
-      <scope id="6903010549535817802" at="62,0,71,0" />
-      <unit id="2705676212746996045" at="91,0,94,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test$CONCEPTS" />
-      <unit id="2705676212746996045" at="95,0,98,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test$LINKS" />
-      <unit id="2705676212746996045" at="56,0,90,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test$TestBody" />
-      <unit id="2705676212746996045" at="32,0,99,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test" />
+      <scope id="6903010549536714073" at="73,0,78,0" />
+      <scope id="6903010549536714075" at="78,0,83,0" />
+      <scope id="6903010549536975861" at="84,0,90,0" />
+      <scope id="6903010549535817802" at="63,82,70,7" />
+      <scope id="6903010549535817802" at="63,0,72,0" />
+      <unit id="2705676212746996045" at="92,0,95,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test$CONCEPTS" />
+      <unit id="2705676212746996045" at="96,0,99,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test$LINKS" />
+      <unit id="2705676212746996045" at="57,0,91,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test$TestBody" />
+      <unit id="2705676212746996045" at="33,0,100,0" name="jetbrains.mps.lang.editor.menus.tests.Include_MenuAndTargetNodeCorrespondence_Test" />
     </file>
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/3526874291840104597">
@@ -630,72 +630,72 @@
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/4740302442485155889">
     <file name="FeaturesAndLocations_Test.java">
-      <node id="4740302442485155889" at="29,38,30,25" concept="11" />
-      <node id="4740302442485194061" at="34,91,35,82" concept="2" />
-      <node id="4740302442485174508" at="38,83,39,74" concept="2" />
-      <node id="4740302442485195517" at="42,77,43,68" concept="2" />
-      <node id="4740302442485195092" at="46,77,47,68" concept="2" />
-      <node id="4740302442485155889" at="52,52,53,19" concept="11" />
-      <node id="4740302442485194061" at="57,93,58,65" concept="5" />
-      <node id="4740302442485194061" at="58,65,59,63" concept="5" />
-      <node id="4740302442485194061" at="59,63,60,256" concept="2" />
-      <node id="4740302442485174508" at="62,85,63,65" concept="5" />
-      <node id="4740302442485174508" at="63,65,64,63" concept="5" />
-      <node id="4740302442485174508" at="64,63,65,256" concept="2" />
-      <node id="4740302442485195517" at="67,79,68,65" concept="5" />
-      <node id="4740302442485195517" at="68,65,69,63" concept="5" />
-      <node id="4740302442485195517" at="69,63,70,162" concept="2" />
-      <node id="4740302442485195092" at="72,79,73,65" concept="5" />
-      <node id="4740302442485195092" at="73,65,74,63" concept="5" />
-      <node id="4740302442485195092" at="74,63,75,162" concept="2" />
-      <node id="4740302442485155889" at="24,0,26,0" concept="9" trace="ourParamCache" />
-      <node id="4740302442485155889" at="26,0,28,0" concept="3" trace="myWithCommandRule" />
-      <node id="4740302442485155889" at="29,0,32,0" concept="1" trace="FeaturesAndLocations_Test#()V" />
-      <node id="4740302442485155889" at="52,0,55,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="4740302442485194061" at="33,0,37,0" concept="4" trace="test_NodeThisFeatureIsNotAllowedCheck4740302442485194061#()V" />
-      <node id="4740302442485174508" at="37,0,41,0" concept="4" trace="test_NodeMissingFeaturesCheck4740302442485174508#()V" />
-      <node id="4740302442485195517" at="41,0,45,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195517#()V" />
-      <node id="4740302442485195092" at="45,0,49,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195092#()V" />
-      <node id="4740302442485194061" at="57,0,62,0" concept="4" trace="test_NodeThisFeatureIsNotAllowedCheck4740302442485194061#()V" />
-      <node id="4740302442485174508" at="62,0,67,0" concept="4" trace="test_NodeMissingFeaturesCheck4740302442485174508#()V" />
-      <node id="4740302442485195517" at="67,0,72,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195517#()V" />
-      <node id="4740302442485195092" at="72,0,77,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195092#()V" />
-      <scope id="4740302442485155889" at="29,38,30,25" />
-      <scope id="4740302442485194061" at="34,91,35,82" />
-      <scope id="4740302442485174508" at="38,83,39,74" />
-      <scope id="4740302442485195517" at="42,77,43,68" />
-      <scope id="4740302442485195092" at="46,77,47,68" />
-      <scope id="4740302442485155889" at="52,52,53,19" />
-      <scope id="4740302442485155889" at="29,0,32,0" />
-      <scope id="4740302442485155889" at="52,0,55,0">
+      <node id="4740302442485155889" at="30,38,31,25" concept="11" />
+      <node id="4740302442485194061" at="35,91,36,82" concept="2" />
+      <node id="4740302442485174508" at="39,83,40,74" concept="2" />
+      <node id="4740302442485195517" at="43,77,44,68" concept="2" />
+      <node id="4740302442485195092" at="47,77,48,68" concept="2" />
+      <node id="4740302442485155889" at="53,52,54,19" concept="11" />
+      <node id="4740302442485194061" at="58,93,59,65" concept="5" />
+      <node id="4740302442485194061" at="59,65,60,63" concept="5" />
+      <node id="4740302442485194061" at="60,63,61,305" concept="2" />
+      <node id="4740302442485174508" at="63,85,64,65" concept="5" />
+      <node id="4740302442485174508" at="64,65,65,63" concept="5" />
+      <node id="4740302442485174508" at="65,63,66,305" concept="2" />
+      <node id="4740302442485195517" at="68,79,69,65" concept="5" />
+      <node id="4740302442485195517" at="69,65,70,63" concept="5" />
+      <node id="4740302442485195517" at="70,63,71,207" concept="2" />
+      <node id="4740302442485195092" at="73,79,74,65" concept="5" />
+      <node id="4740302442485195092" at="74,65,75,63" concept="5" />
+      <node id="4740302442485195092" at="75,63,76,207" concept="2" />
+      <node id="4740302442485155889" at="25,0,27,0" concept="9" trace="ourParamCache" />
+      <node id="4740302442485155889" at="27,0,29,0" concept="3" trace="myWithCommandRule" />
+      <node id="4740302442485155889" at="30,0,33,0" concept="1" trace="FeaturesAndLocations_Test#()V" />
+      <node id="4740302442485155889" at="53,0,56,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="4740302442485194061" at="34,0,38,0" concept="4" trace="test_NodeThisFeatureIsNotAllowedCheck4740302442485194061#()V" />
+      <node id="4740302442485174508" at="38,0,42,0" concept="4" trace="test_NodeMissingFeaturesCheck4740302442485174508#()V" />
+      <node id="4740302442485195517" at="42,0,46,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195517#()V" />
+      <node id="4740302442485195092" at="46,0,50,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195092#()V" />
+      <node id="4740302442485194061" at="58,0,63,0" concept="4" trace="test_NodeThisFeatureIsNotAllowedCheck4740302442485194061#()V" />
+      <node id="4740302442485174508" at="63,0,68,0" concept="4" trace="test_NodeMissingFeaturesCheck4740302442485174508#()V" />
+      <node id="4740302442485195517" at="68,0,73,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195517#()V" />
+      <node id="4740302442485195092" at="73,0,78,0" concept="4" trace="test_ErrorMessagesCheck4740302442485195092#()V" />
+      <scope id="4740302442485155889" at="30,38,31,25" />
+      <scope id="4740302442485194061" at="35,91,36,82" />
+      <scope id="4740302442485174508" at="39,83,40,74" />
+      <scope id="4740302442485195517" at="43,77,44,68" />
+      <scope id="4740302442485195092" at="47,77,48,68" />
+      <scope id="4740302442485155889" at="53,52,54,19" />
+      <scope id="4740302442485155889" at="30,0,33,0" />
+      <scope id="4740302442485155889" at="53,0,56,0">
         <var name="owner" id="4740302442485155889" />
       </scope>
-      <scope id="4740302442485194061" at="57,93,60,256">
+      <scope id="4740302442485194061" at="58,93,61,305">
         <var name="nodeToCheck" id="4740302442485194061" />
         <var name="operation" id="4740302442485194061" />
       </scope>
-      <scope id="4740302442485174508" at="62,85,65,256">
+      <scope id="4740302442485174508" at="63,85,66,305">
         <var name="nodeToCheck" id="4740302442485174508" />
         <var name="operation" id="4740302442485174508" />
       </scope>
-      <scope id="4740302442485195517" at="67,79,70,162">
+      <scope id="4740302442485195517" at="68,79,71,207">
         <var name="nodeToCheck" id="4740302442485195517" />
         <var name="operation" id="4740302442485195517" />
       </scope>
-      <scope id="4740302442485195092" at="72,79,75,162">
+      <scope id="4740302442485195092" at="73,79,76,207">
         <var name="nodeToCheck" id="4740302442485195092" />
         <var name="operation" id="4740302442485195092" />
       </scope>
-      <scope id="4740302442485194061" at="33,0,37,0" />
-      <scope id="4740302442485174508" at="37,0,41,0" />
-      <scope id="4740302442485195517" at="41,0,45,0" />
-      <scope id="4740302442485195092" at="45,0,49,0" />
-      <scope id="4740302442485194061" at="57,0,62,0" />
-      <scope id="4740302442485174508" at="62,0,67,0" />
-      <scope id="4740302442485195517" at="67,0,72,0" />
-      <scope id="4740302442485195092" at="72,0,77,0" />
-      <unit id="4740302442485155889" at="50,0,79,0" name="jetbrains.mps.lang.editor.menus.tests.FeaturesAndLocations_Test$TestBody" />
-      <unit id="4740302442485155889" at="22,0,80,0" name="jetbrains.mps.lang.editor.menus.tests.FeaturesAndLocations_Test" />
+      <scope id="4740302442485194061" at="34,0,38,0" />
+      <scope id="4740302442485174508" at="38,0,42,0" />
+      <scope id="4740302442485195517" at="42,0,46,0" />
+      <scope id="4740302442485195092" at="46,0,50,0" />
+      <scope id="4740302442485194061" at="58,0,63,0" />
+      <scope id="4740302442485174508" at="63,0,68,0" />
+      <scope id="4740302442485195517" at="68,0,73,0" />
+      <scope id="4740302442485195092" at="73,0,78,0" />
+      <unit id="4740302442485155889" at="51,0,80,0" name="jetbrains.mps.lang.editor.menus.tests.FeaturesAndLocations_Test$TestBody" />
+      <unit id="4740302442485155889" at="23,0,81,0" name="jetbrains.mps.lang.editor.menus.tests.FeaturesAndLocations_Test" />
     </file>
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/5339489019635994809">
@@ -935,85 +935,85 @@
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/8095208975669422562">
     <file name="IncludeDefaultMenu_Test.java">
-      <node id="8095208975669422562" at="26,36,27,25" concept="11" />
-      <node id="8095208975669727090" at="31,92,32,83" concept="2" />
-      <node id="8095208975669728885" at="35,92,36,83" concept="2" />
-      <node id="8095208975669729693" at="39,92,40,83" concept="2" />
-      <node id="8095208975669729758" at="43,92,44,83" concept="2" />
-      <node id="8095208975669730924" at="47,92,48,83" concept="2" />
-      <node id="8095208975669422562" at="53,52,54,19" concept="11" />
-      <node id="8095208975669727090" at="58,94,59,65" concept="5" />
-      <node id="8095208975669727090" at="59,65,60,63" concept="5" />
-      <node id="8095208975669727090" at="60,63,61,256" concept="2" />
-      <node id="8095208975669728885" at="63,94,64,65" concept="5" />
-      <node id="8095208975669728885" at="64,65,65,63" concept="5" />
-      <node id="8095208975669728885" at="65,63,66,256" concept="2" />
-      <node id="8095208975669729693" at="68,94,69,65" concept="5" />
-      <node id="8095208975669729693" at="69,65,70,63" concept="5" />
-      <node id="8095208975669729693" at="70,63,71,256" concept="2" />
-      <node id="8095208975669729758" at="73,94,74,65" concept="5" />
-      <node id="8095208975669729758" at="74,65,75,63" concept="5" />
-      <node id="8095208975669729758" at="75,63,76,256" concept="2" />
-      <node id="8095208975669730924" at="78,94,79,65" concept="5" />
-      <node id="8095208975669730924" at="79,65,80,63" concept="5" />
-      <node id="8095208975669730924" at="80,63,81,256" concept="2" />
-      <node id="8095208975669422562" at="21,0,23,0" concept="9" trace="ourParamCache" />
-      <node id="8095208975669422562" at="23,0,25,0" concept="3" trace="myWithCommandRule" />
-      <node id="8095208975669422562" at="26,0,29,0" concept="1" trace="IncludeDefaultMenu_Test#()V" />
-      <node id="8095208975669422562" at="53,0,56,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
-      <node id="8095208975669727090" at="30,0,34,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669727090#()V" />
-      <node id="8095208975669728885" at="34,0,38,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669728885#()V" />
-      <node id="8095208975669729693" at="38,0,42,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729693#()V" />
-      <node id="8095208975669729758" at="42,0,46,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729758#()V" />
-      <node id="8095208975669730924" at="46,0,50,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669730924#()V" />
-      <node id="8095208975669727090" at="58,0,63,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669727090#()V" />
-      <node id="8095208975669728885" at="63,0,68,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669728885#()V" />
-      <node id="8095208975669729693" at="68,0,73,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729693#()V" />
-      <node id="8095208975669729758" at="73,0,78,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729758#()V" />
-      <node id="8095208975669730924" at="78,0,83,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669730924#()V" />
-      <scope id="8095208975669422562" at="26,36,27,25" />
-      <scope id="8095208975669727090" at="31,92,32,83" />
-      <scope id="8095208975669728885" at="35,92,36,83" />
-      <scope id="8095208975669729693" at="39,92,40,83" />
-      <scope id="8095208975669729758" at="43,92,44,83" />
-      <scope id="8095208975669730924" at="47,92,48,83" />
-      <scope id="8095208975669422562" at="53,52,54,19" />
-      <scope id="8095208975669422562" at="26,0,29,0" />
-      <scope id="8095208975669422562" at="53,0,56,0">
+      <node id="8095208975669422562" at="27,36,28,25" concept="11" />
+      <node id="8095208975669727090" at="32,92,33,83" concept="2" />
+      <node id="8095208975669728885" at="36,92,37,83" concept="2" />
+      <node id="8095208975669729693" at="40,92,41,83" concept="2" />
+      <node id="8095208975669729758" at="44,92,45,83" concept="2" />
+      <node id="8095208975669730924" at="48,92,49,83" concept="2" />
+      <node id="8095208975669422562" at="54,52,55,19" concept="11" />
+      <node id="8095208975669727090" at="59,94,60,65" concept="5" />
+      <node id="8095208975669727090" at="60,65,61,63" concept="5" />
+      <node id="8095208975669727090" at="61,63,62,305" concept="2" />
+      <node id="8095208975669728885" at="64,94,65,65" concept="5" />
+      <node id="8095208975669728885" at="65,65,66,63" concept="5" />
+      <node id="8095208975669728885" at="66,63,67,305" concept="2" />
+      <node id="8095208975669729693" at="69,94,70,65" concept="5" />
+      <node id="8095208975669729693" at="70,65,71,63" concept="5" />
+      <node id="8095208975669729693" at="71,63,72,305" concept="2" />
+      <node id="8095208975669729758" at="74,94,75,65" concept="5" />
+      <node id="8095208975669729758" at="75,65,76,63" concept="5" />
+      <node id="8095208975669729758" at="76,63,77,305" concept="2" />
+      <node id="8095208975669730924" at="79,94,80,65" concept="5" />
+      <node id="8095208975669730924" at="80,65,81,63" concept="5" />
+      <node id="8095208975669730924" at="81,63,82,305" concept="2" />
+      <node id="8095208975669422562" at="22,0,24,0" concept="9" trace="ourParamCache" />
+      <node id="8095208975669422562" at="24,0,26,0" concept="3" trace="myWithCommandRule" />
+      <node id="8095208975669422562" at="27,0,30,0" concept="1" trace="IncludeDefaultMenu_Test#()V" />
+      <node id="8095208975669422562" at="54,0,57,0" concept="1" trace="TestBody#(Ljetbrains/mps/lang/test/runtime/TransformationTest;)V" />
+      <node id="8095208975669727090" at="31,0,35,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669727090#()V" />
+      <node id="8095208975669728885" at="35,0,39,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669728885#()V" />
+      <node id="8095208975669729693" at="39,0,43,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729693#()V" />
+      <node id="8095208975669729758" at="43,0,47,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729758#()V" />
+      <node id="8095208975669730924" at="47,0,51,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669730924#()V" />
+      <node id="8095208975669727090" at="59,0,64,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669727090#()V" />
+      <node id="8095208975669728885" at="64,0,69,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669728885#()V" />
+      <node id="8095208975669729693" at="69,0,74,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729693#()V" />
+      <node id="8095208975669729758" at="74,0,79,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669729758#()V" />
+      <node id="8095208975669730924" at="79,0,84,0" concept="4" trace="test_NodeConceptShouldBeSpecifiedCheck8095208975669730924#()V" />
+      <scope id="8095208975669422562" at="27,36,28,25" />
+      <scope id="8095208975669727090" at="32,92,33,83" />
+      <scope id="8095208975669728885" at="36,92,37,83" />
+      <scope id="8095208975669729693" at="40,92,41,83" />
+      <scope id="8095208975669729758" at="44,92,45,83" />
+      <scope id="8095208975669730924" at="48,92,49,83" />
+      <scope id="8095208975669422562" at="54,52,55,19" />
+      <scope id="8095208975669422562" at="27,0,30,0" />
+      <scope id="8095208975669422562" at="54,0,57,0">
         <var name="owner" id="8095208975669422562" />
       </scope>
-      <scope id="8095208975669727090" at="58,94,61,256">
+      <scope id="8095208975669727090" at="59,94,62,305">
         <var name="nodeToCheck" id="8095208975669727090" />
         <var name="operation" id="8095208975669727090" />
       </scope>
-      <scope id="8095208975669728885" at="63,94,66,256">
+      <scope id="8095208975669728885" at="64,94,67,305">
         <var name="nodeToCheck" id="8095208975669728885" />
         <var name="operation" id="8095208975669728885" />
       </scope>
-      <scope id="8095208975669729693" at="68,94,71,256">
+      <scope id="8095208975669729693" at="69,94,72,305">
         <var name="nodeToCheck" id="8095208975669729693" />
         <var name="operation" id="8095208975669729693" />
       </scope>
-      <scope id="8095208975669729758" at="73,94,76,256">
+      <scope id="8095208975669729758" at="74,94,77,305">
         <var name="nodeToCheck" id="8095208975669729758" />
         <var name="operation" id="8095208975669729758" />
       </scope>
-      <scope id="8095208975669730924" at="78,94,81,256">
+      <scope id="8095208975669730924" at="79,94,82,305">
         <var name="nodeToCheck" id="8095208975669730924" />
         <var name="operation" id="8095208975669730924" />
       </scope>
-      <scope id="8095208975669727090" at="30,0,34,0" />
-      <scope id="8095208975669728885" at="34,0,38,0" />
-      <scope id="8095208975669729693" at="38,0,42,0" />
-      <scope id="8095208975669729758" at="42,0,46,0" />
-      <scope id="8095208975669730924" at="46,0,50,0" />
-      <scope id="8095208975669727090" at="58,0,63,0" />
-      <scope id="8095208975669728885" at="63,0,68,0" />
-      <scope id="8095208975669729693" at="68,0,73,0" />
-      <scope id="8095208975669729758" at="73,0,78,0" />
-      <scope id="8095208975669730924" at="78,0,83,0" />
-      <unit id="8095208975669422562" at="51,0,85,0" name="jetbrains.mps.lang.editor.menus.tests.IncludeDefaultMenu_Test$TestBody" />
-      <unit id="8095208975669422562" at="19,0,86,0" name="jetbrains.mps.lang.editor.menus.tests.IncludeDefaultMenu_Test" />
+      <scope id="8095208975669727090" at="31,0,35,0" />
+      <scope id="8095208975669728885" at="35,0,39,0" />
+      <scope id="8095208975669729693" at="39,0,43,0" />
+      <scope id="8095208975669729758" at="43,0,47,0" />
+      <scope id="8095208975669730924" at="47,0,51,0" />
+      <scope id="8095208975669727090" at="59,0,64,0" />
+      <scope id="8095208975669728885" at="64,0,69,0" />
+      <scope id="8095208975669729693" at="69,0,74,0" />
+      <scope id="8095208975669729758" at="74,0,79,0" />
+      <scope id="8095208975669730924" at="79,0,84,0" />
+      <unit id="8095208975669422562" at="52,0,86,0" name="jetbrains.mps.lang.editor.menus.tests.IncludeDefaultMenu_Test$TestBody" />
+      <unit id="8095208975669422562" at="20,0,87,0" name="jetbrains.mps.lang.editor.menus.tests.IncludeDefaultMenu_Test" />
     </file>
   </root>
   <root nodeRef="r:4f8193a2-048e-4ddf-b505-dfca00e8c910(jetbrains.mps.lang.editor.menus.tests@tests)/8991930073416032080">
