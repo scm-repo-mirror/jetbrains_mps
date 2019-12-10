@@ -17,7 +17,6 @@
 package jetbrains.mps.idea.core.tests;
 
 import com.intellij.facet.FacetManager;
-import com.intellij.ide.util.gotoByName.ChooseByNamePopupComponent.Callback;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
@@ -44,7 +43,6 @@ import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.util.IterableUtil;
 import jetbrains.mps.vfs.IFile;
-import jetbrains.mps.workbench.choose.ChooseByNameData;
 import org.jetbrains.mps.openapi.language.SLanguage;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
@@ -53,9 +51,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by danilla on 03/06/16.
@@ -100,27 +96,18 @@ public class UseLanguageInPackageTest extends DataMPSFixtureTestCase {
     ApplicationManager.getApplication().invokeAndWait(() -> action.actionPerformed(e), ModalityState.NON_MODAL);
   }
 
-  protected final Interaction cancelInteraction = new Interaction() {
-    @Override
-    public void chooseLanguage(ChooseByNameData<SLanguage> data, Callback callback) {
-      // closing it right away without choosing anything
-      // we _must_ close the "window", real UI probably always calls this method
-      callback.onClose();
-    }
+  // closing it right away without choosing anything
+  // we _must_ close the "window", real UI probably always calls this method
+  protected final Interaction cancelInteraction = (data, callback) -> callback.onClose();
 
-  };
-
-  protected final Interaction chooseOnlyBaseLanguageInteraction = new Interaction() {
-    @Override
-    public void chooseLanguage(ChooseByNameData<SLanguage> data, Callback callback) {
-      String[] names = data.getNames(true);
-      assertTrue(Arrays.asList(names).contains("jetbrains.mps.baseLanguage"));
-      Object[] navigationItems = data.getElementsByName("jetbrains.mps.baseLanguage", true, null);
-      assertTrue(navigationItems.length > 0);
-      callback.elementChosen(navigationItems[0]);
-      // we _must_ close the "window", real UI probably always calls this method
-      callback.onClose();
-    }
+  protected final Interaction chooseOnlyBaseLanguageInteraction = (data, callback) -> {
+    String[] names = data.getNames(true);
+    assertTrue(Arrays.asList(names).contains("jetbrains.mps.baseLanguage"));
+    Object[] navigationItems = data.getElementsByName("jetbrains.mps.baseLanguage", true, null);
+    assertTrue(navigationItems.length > 0);
+    callback.elementChosen(navigationItems[0]);
+    // we _must_ close the "window", real UI probably always calls this method
+    callback.onClose();
   };
 
   public void testCancelCreationOfModelInDir() {

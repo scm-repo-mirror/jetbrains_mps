@@ -20,18 +20,14 @@ import com.intellij.ide.util.gotoByName.ChooseByNamePopupComponent.Callback;
 import com.intellij.openapi.actionSystem.ShortcutSet;
 import com.intellij.openapi.application.ModalityState;
 import jetbrains.mps.module.ReloadableModule;
-import jetbrains.mps.project.structure.modules.ModuleReference;
 import jetbrains.mps.scope.ConditionalScope;
-import jetbrains.mps.smodel.BootstrapLanguages;
 import jetbrains.mps.smodel.Language;
-import jetbrains.mps.smodel.SLanguageHierarchy;
-import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
-import jetbrains.mps.smodel.adapter.ids.SLanguageId;
+import jetbrains.mps.smodel.SModelInternal;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.language.LanguageRegistry;
 import jetbrains.mps.util.Reference;
 import jetbrains.mps.workbench.choose.ChooseByNameData;
-import jetbrains.mps.workbench.choose.LanguagesPresentation;
+import jetbrains.mps.workbench.choose.ModulesPresentation;
 import jetbrains.mps.workbench.goTo.ui.MpsPopupFactory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -43,8 +39,12 @@ import org.jetbrains.mps.openapi.module.SRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Facility to interoperate with user to add a new used language to a model/devkit.
@@ -113,31 +113,31 @@ public final class LanguageImportHelper {
    * @param devkit affected devkit, the one to add new export
    */
   public void addExportedLanguage(@NotNull final DevKit devkit) {
-    chooseLanguage((SLanguage param) -> {
-      /*TODO: rewrite importing:
-       * If module is already imported itself/by devkit either do nothing or show message.
-       * Better try to filter all such imports in the first place.
-       * */
-      myProject.getModelAccess().executeCommand(new Runnable() {
-        @Override
-        public void run() {
-          SModuleReference ref = moduleRefForLanguage(param);
-          SModule lang = ref.resolve(myProject.getRepository());
-          if (lang instanceof Language) {
-            devkit.getModuleDescriptor().getExportedLanguages().add(ref);
-            devkit.setChanged();
-          }
-        }
+    chooseLanguage((SModuleReference moduleReference) -> myProject.getModelAccess().executeCommand(() -> {
+      SModule module = moduleReference.resolve(myProject.getRepository());
+      if (module instanceof Language) {
+        devkit.getModuleDescriptor().getExportedLanguages().add(moduleReference);
+      } else if (module instanceof DevKit) {
+        devkit.getModuleDescriptor().getExtendedDevkits().add(moduleReference);
+      }
+      devkit.setChanged();
+    }), getAllDevkitModules(devkit));
+  }
 
-        // FIXME copied from SModelDescriptorStub#moduleRefForLanguage as there's no way to go backwards from newer concepts
-        private SModuleReference moduleRefForLanguage(SLanguage lang) {
-          String name = lang.getQualifiedName();
-          SLanguageId id = MetaIdHelper.getLanguage(lang);
-          ModuleId moduleId = ModuleId.regular(id.getIdValue());
-          return new ModuleReference(name, moduleId);
-        }
-      });
+  private Set<SModuleReference> getAllDevkitModules(@NotNull DevKit devkit) {
+    Set<SModuleReference> usedModules = new HashSet<>();
+    myProject.getModelAccess().runReadAction(() -> {
+      usedModules.addAll(devkit.getAllExtendedDevkits().stream()
+                               .map(AbstractModule::getModuleReference)
+                               .collect(Collectors.toSet()));
+
+      usedModules.addAll(StreamSupport.stream(devkit.getAllExportedLanguageIds().spliterator(), false)
+                                      .map(SLanguage::getSourceModule).filter(Objects::nonNull)
+                                      .map(SModule::getModuleReference).collect(Collectors.toSet()));
+
+      usedModules.add(devkit.getModuleReference());
     });
+    return usedModules;
   }
 
   /**
@@ -146,61 +146,99 @@ public final class LanguageImportHelper {
    * @param model affected model, the one to get another language to use
    */
   public void addUsedLanguage(@NotNull final SModel model) {
-    chooseLanguage((SLanguage param) -> {
-      /*TODO: rewrite importing:
-       * If module is already imported itself/by devkit either do nothing or show message.
-       * Better try to filter all such imports in the first place.
-       * */
-
+    final SModelInternal modelInternal = (SModelInternal) model;
+    chooseLanguage((SModuleReference param) -> {
       myProject.getModelAccess().executeCommand(() -> {
-        boolean reload = false;
-        final boolean reloadableModule = model.getModule() instanceof ReloadableModule;
-        Set<SLanguage> existingUsedLanguages = reloadableModule ? model.getModule().getUsedLanguages() : Collections.emptySet();
-        if (!existingUsedLanguages.contains(param)) {
-          // If model gets the new import, then its module would get new dependency
-          reload = true;
+        final SModule module = param.resolve(myProject.getRepository());
+
+        if (module instanceof Language) {
+          modelInternal.addLanguage(MetaAdapterFactory.getLanguage(param));
+        } else if (module instanceof DevKit) {
+          modelInternal.addDevKit(param);
         }
-        ((jetbrains.mps.smodel.SModelInternal) model).addLanguage(param);
-        if (reloadableModule && reload) {
-          ((ReloadableModule) model.getModule()).reload();
+
+        if (module instanceof ReloadableModule) {
+          ((ReloadableModule) module).reload();
         }
       });
+    }, getAllModelLanguagesAndDevkits(modelInternal));
+  }
+
+  private Set<SModuleReference> getAllModelLanguagesAndDevkits(SModelInternal modelInternal) {
+    final Set<SModuleReference> usedModules = new HashSet<>();
+    myProject.getModelAccess().runReadAction(() -> {
+      usedModules.addAll(modelInternal
+                             .importedLanguageIds()
+                             .stream()
+                             .map(SLanguage::getSourceModuleReference)
+                             .filter(Objects::nonNull)
+                             .collect(Collectors.toSet())
+      );
+
+      usedModules.addAll(modelInternal.importedDevkits());
+
+      usedModules.addAll(modelInternal
+                             .importedDevkits()
+                             .stream()
+                             .map(moduleReference -> (DevKit) moduleReference.resolve(myProject.getRepository()))
+                             .flatMap(devkit -> StreamSupport
+                                                    .stream(devkit.getAllExportedLanguageIds().spliterator(), false)
+                                                    .map(SLanguage::getSourceModuleReference)
+                                                    .filter(Objects::nonNull))
+                             .collect(Collectors.toSet())
+      );
+
+      usedModules.addAll(modelInternal
+                             .importedDevkits()
+                             .stream()
+                             .map(moduleReference -> (DevKit) moduleReference.resolve(myProject.getRepository()))
+                             .flatMap(devkit -> devkit.getAllExtendedDevkits().stream().map(DevKit::getModuleReference))
+                             .collect(Collectors.toSet())
+      );
+
+      usedModules.add(((SModel)modelInternal).getModule().getModuleReference());
     });
+
+    return usedModules;
   }
 
-  /*package*/ Set<SLanguage> getExtendedLanguages(SLanguage param) {
-    final LanguageRegistry languageRegistry = myProject.getComponent(LanguageRegistry.class);
-    SLanguageHierarchy langHierarchy = new SLanguageHierarchy(languageRegistry, Collections.singleton(param));
-    Set<SLanguage> langs = langHierarchy.getExtended();
-    langs.remove(param);
-    // todo: ! ?
-    //this is added in language implicitly, so we don't show this import
-    langs.remove(BootstrapLanguages.getLangCore());
-    return langs;
-  }
-
-  private void chooseLanguage(final jetbrains.mps.util.Callback<SLanguage> addLanguageAction) {
+  private void chooseLanguage(final Consumer<SModuleReference> addLanguageAction,
+                              Set<SModuleReference> modules2ignore) {
     final SRepository repo = myProject.getRepository();
-    final Reference<Collection<SLanguage>> projectScope = new Reference<>();
+    final Reference<Collection<SModuleReference>> projectScope = new Reference<>();
+    final Reference<Collection<SModuleReference>> globalScope = new Reference<>();
 
     repo.getModelAccess().runReadAction(() -> {
-      ArrayList<SLanguage> projectLanguages = new ArrayList<>(20);
-      for (SModule m : new ConditionalScope(myProject.getScope(), new ModuleInstanceCondition(Language.class), null).getModules()) {
-        assert m instanceof Language;
-        projectLanguages.add(MetaAdapterFactory.getLanguage(m.getModuleReference()));
+      ArrayList<SModuleReference> projectLanguagesAndDevkits = new ArrayList<>(20);
+      for (SModule m : new ConditionalScope(myProject.getScope(), new ModuleInstanceCondition(Language.class, DevKit.class), null).getModules()) {
+        assert m instanceof Language || m instanceof DevKit;
+        if (!modules2ignore.contains(m.getModuleReference())) {
+          projectLanguagesAndDevkits.add(m.getModuleReference());
+        }
       }
-      projectScope.set(projectLanguages);
+      projectScope.set(projectLanguagesAndDevkits);
+    });
+    repo.getModelAccess().runReadAction(() -> {
+      ArrayList<SModuleReference> globalLanguagesAndDevkits = new ArrayList<>(200);
+      for (SModule m : new ConditionalScope(new GlobalScope(myProject.getRepository()), new ModuleInstanceCondition(Language.class, DevKit.class),
+                                            null).getModules()) {
+        assert m instanceof Language || m instanceof DevKit;
+        if (!modules2ignore.contains(m.getModuleReference())) {
+          globalLanguagesAndDevkits.add(m.getModuleReference());
+        }
+      }
+      globalScope.set(globalLanguagesAndDevkits);
     });
 
     final LanguageRegistry languageRegistry = myProject.getComponent(LanguageRegistry.class);
-    ChooseByNameData<SLanguage> gotoData = new ChooseByNameData<>(new LanguagesPresentation());
-    gotoData.setScope(projectScope.get(), languageRegistry.getAllLanguages());
-    gotoData.derivePrompts("language").setPrompts("Import language:", gotoData.getNotFoundMessage(), gotoData.getNotInMessage());
+    ChooseByNameData<SModuleReference> gotoData = new ChooseByNameData<>(new ModulesPresentation(myProject.getRepository()));
+    gotoData.setScope(projectScope.get(), globalScope.get());
+    gotoData.derivePrompts("module").setPrompts("Import language or devkit:", gotoData.getNotFoundMessage(), gotoData.getNotInMessage());
 
     // we used to allow multiple selection, but didn't handle it in any special way
     // (each selected language would trigger own extra dialog to import extended, which is odd)
     myInteraction.chooseLanguage(gotoData, new Callback() {
-      private SLanguage myLanguage;
+      private SModuleReference myModuleReference;
 
       /**
        * Just save chosen element here.
@@ -209,8 +247,8 @@ public final class LanguageImportHelper {
        * */
       @Override
       public void elementChosen(Object element) {
-        if (element instanceof SLanguage) {
-          myLanguage = (SLanguage) element;
+        if (element instanceof SModuleReference) {
+          myModuleReference = (SModuleReference) element;
         }
       }
 
@@ -224,8 +262,8 @@ public final class LanguageImportHelper {
        * */
       @Override
       public void onClose() {
-        if (myLanguage != null) {
-          addLanguageAction.call(myLanguage);
+        if (myModuleReference != null) {
+          addLanguageAction.accept(myModuleReference);
         }
 
         if (myOnCloseActivity != null) {
@@ -242,12 +280,12 @@ public final class LanguageImportHelper {
    * This class is used to make LanguageImportHelper testable in headless mode.
    */
   public interface Interaction {
-    void chooseLanguage(ChooseByNameData<SLanguage> model, Callback addLanguageAction);
+    void chooseLanguage(ChooseByNameData<SModuleReference> model, Callback addLanguageAction);
   }
 
   private class UiInteraction implements Interaction {
     @Override
-    public void chooseLanguage(ChooseByNameData<SLanguage> model, Callback addLanguageAction) {
+    public void chooseLanguage(ChooseByNameData<SModuleReference> model, Callback addLanguageAction) {
       final ChooseByNamePopup popup = MpsPopupFactory.createPackagePopup(myProject.getProject(), model, null);
       if (myShortcut != null) {
         popup.setCheckBoxShortcut(myShortcut);
