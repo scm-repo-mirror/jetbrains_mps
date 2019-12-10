@@ -109,7 +109,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
             // adding root nodes (removing their corresponding files' nodes from the tree is further below)
             List<MPSPsiElementTreeNode> rootsTreeNodes = new ArrayList<>();
             for (SNode root : sModel.getRootNodes()) {
-              rootsTreeNodes.add(new MPSPsiElementTreeNode(treeNode.getProject(), (MPSPsiRootNode) mpsPsiProvider.getPsi(root).getContainingFile(), settings));
+              rootsTreeNodes.add(new MPSPsiElementTreeNode(treeNode.getProject(), (MPSPsiRootNode) mpsPsiProvider.getMPSPsi(root).getContainingFile(), settings));
             }
             if (!rootsTreeNodes.isEmpty()) {
               updatedChildren = new ArrayList<>(children);
@@ -132,7 +132,7 @@ public class MPSTreeStructureProvider implements SelectableTreeStructureProvider
 
         for (final AbstractTreeNode child : children) {
           if (child instanceof ProjectViewNode && ((ProjectViewNode) child).getVirtualFile() != null && !((ProjectViewNode) child).getVirtualFile().isDirectory()) {
-            VirtualFile vFile = ((PsiFileNode) child).getVirtualFile();
+            VirtualFile vFile = ((ProjectViewNode) child).getVirtualFile();
 
             // check if it's a single file model
             IdeaFileSystem fs = mpsProject.getFileSystem();

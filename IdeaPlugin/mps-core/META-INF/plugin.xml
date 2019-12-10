@@ -226,6 +226,13 @@
                     anchor="first"/>
       <keyboard-shortcut first-keystroke="ctrl alt shift M" keymap="$default"/>
     </action>
+    <action id="jetbrains.mps.idea.core.actions.GoToMpsStubs"
+            class="jetbrains.mps.idea.core.actions.GoToMpsStubs"
+            text="MPS Stub">
+      <add-to-group group-id="jetbrains.mps.ide.editor.actions.GoToEditorPopupAddition_ActionGroup"
+                    anchor="first"/>
+      <keyboard-shortcut first-keystroke="ctrl shift B" keymap="$default" />
+    </action>
 
 
 

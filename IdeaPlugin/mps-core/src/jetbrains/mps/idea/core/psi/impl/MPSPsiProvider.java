@@ -176,6 +176,12 @@ public class MPSPsiProvider extends AbstractProjectComponent {
       return source;
     }
 
+    return getMPSPsi(node);
+  }
+
+  public MPSPsiNode getMPSPsi(SNode node) {
+    if (node == null) return null;
+
     final SModel containingModel = node.getModel();
     if (containingModel == null) return null;
 

@@ -30,6 +30,7 @@ import com.intellij.psi.SingleRootFileViewProvider;
 import jetbrains.mps.fileTypes.MPSLanguage;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.idea.core.psi.impl.MPSPsiModel;
+import jetbrains.mps.idea.core.psi.impl.MPSPsiNode;
 import jetbrains.mps.idea.core.psi.impl.MPSPsiProvider;
 import jetbrains.mps.idea.core.psi.impl.MPSPsiRootNode;
 import jetbrains.mps.nodefs.MPSNodeVirtualFile;
@@ -91,12 +92,12 @@ public class MPSNodeFileViewProvider extends SingleRootFileViewProvider {
     Project p = ProjectHelper.fromIdeaProject(getManager().getProject());
     assert p != null;
     final SRepository repo = p.getRepository();
-    final Ref<PsiElement> result = new Ref<>(null);
+    final Ref<MPSPsiNode> result = new Ref<>(null);
     // todo use MPSNodeVirtualFile.getNode() (rewrite it to project repo)
     repo.getModelAccess().runReadAction(() -> {
       SNode sNode = ((MPSNodeVirtualFile) getVirtualFile()).getSNodePointer().resolve(repo);
       if (sNode != null) {
-        result.set(MPSPsiProvider.getInstance(getManager().getProject()).getPsi(sNode));
+        result.set(MPSPsiProvider.getInstance(getManager().getProject()).getMPSPsi(sNode));
       }
     });
 
