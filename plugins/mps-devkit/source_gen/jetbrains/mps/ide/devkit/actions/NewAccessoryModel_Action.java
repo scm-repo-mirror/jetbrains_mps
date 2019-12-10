@@ -58,6 +58,9 @@ public class NewAccessoryModel_Action extends BaseAction {
       if (p == null) {
         return false;
       }
+      if (!(moduleCondition(p))) {
+        return false;
+      }
     }
     {
       TreeNode p = event.getData(MPSCommonDataKeys.TREE_NODE);
@@ -86,5 +89,8 @@ public class NewAccessoryModel_Action extends BaseAction {
         super.onModelCreated(model);
       }
     };
+  }
+  public boolean moduleCondition(SModule parameter) {
+    return parameter instanceof Language;
   }
 }

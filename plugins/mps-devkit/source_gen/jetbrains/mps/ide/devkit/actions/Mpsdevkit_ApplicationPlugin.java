@@ -109,6 +109,7 @@ public class Mpsdevkit_ApplicationPlugin extends BaseApplicationPlugin {
     insertGroupIntoAnother(IntentionsGroup_ActionGroup.ID, "jetbrains.mps.ide.editor.actions.ActionsAsIntentions_ActionGroup", null);
     insertGroupIntoAnother(DevKitTools_ActionGroup.ID, Tools_ActionGroup.ID, Tools_ActionGroup.LABEL_ID_devkitTools);
     insertGroupIntoAnother(EditorInternalEx_ActionGroup.ID, DebugActions_ActionGroup.ID, DebugActions_ActionGroup.LABEL_ID_editor);
+    insertGroupIntoAnother(AccessoriesGroupActions_ActionGroup.ID, LanguageNewActionsEx_ActionGroup.ID, LanguageNewActionsEx_ActionGroup.LABEL_ID_accessory);
     insertGroupIntoAnother(LanguageNewCustomPartActions_ActionGroup.ID, LanguageNewActions_ActionGroup.ID, LanguageNewActions_ActionGroup.LABEL_ID_newAspect);
     insertGroupIntoAnother(NamespaceNewActionsEx_ActionGroup.ID, NamespaceNewActions_ActionGroup.ID, null);
     insertGroupIntoAnother(FindLanguageUsages_ActionGroup.ID, LanguageActions_ActionGroup.ID, LanguageActions_ActionGroup.LABEL_ID_find_usages);
