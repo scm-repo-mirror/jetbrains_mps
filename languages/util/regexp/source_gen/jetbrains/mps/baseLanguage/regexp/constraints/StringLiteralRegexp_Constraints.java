@@ -39,7 +39,7 @@ public class StringLiteralRegexp_Constraints extends BaseConstraintsDescriptor {
       return result;
     }
     private static boolean staticValidateProperty(SNode node, String propertyValue) {
-      return propertyValue.charAt(propertyValue.length() - 1) != ' ';
+      return (propertyValue != null && propertyValue.length() > 0) && propertyValue.charAt(propertyValue.length() - 1) != ' ';
     }
   }
   @Override
