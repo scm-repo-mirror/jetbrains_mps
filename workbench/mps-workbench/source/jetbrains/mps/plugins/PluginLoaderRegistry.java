@@ -415,13 +415,15 @@ public class PluginLoaderRegistry implements Disposable {
         ThreadUtils.assertEDT();
         assert !myTaskInProgress;
         myTaskInProgress = true;
-        myClassLoaderManager.runTransaction(() -> {
-          removeLoaders(monitor);
-          removeContributors(monitor);
-          clearIDEMenusFromOurActionRefs();
-          addLoaders(monitor);
-          addIdeaExtPointPluginContributors(monitor);
-          addContributors(monitor);
+        myModelAccess.runReadAction(() -> {
+          myClassLoaderManager.runTransaction(() -> {
+            removeLoaders(monitor);
+            removeContributors(monitor);
+            clearIDEMenusFromOurActionRefs();
+            addLoaders(monitor);
+            addIdeaExtPointPluginContributors(monitor);
+            addContributors(monitor);
+          });
         });
       } catch (VirtualMachineError e) {
         throw e;

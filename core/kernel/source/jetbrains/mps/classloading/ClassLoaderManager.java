@@ -23,6 +23,7 @@ import jetbrains.mps.progress.EmptyProgressMonitor;
 import jetbrains.mps.smodel.ModelAccessHelper;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.util.Computable;
+import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.NotCondition;
 import jetbrains.mps.util.annotation.ToRemove;
 import org.apache.log4j.LogManager;
@@ -307,16 +308,24 @@ public class ClassLoaderManager implements CoreComponent {
 
   /**
    * the caller is guaranteed that no reload happen during the transaction
-   * NB if write action is taken inside #transaction then deadlock can happen
+   * due to possible deadlock at least the read access is demanded
    */
   @Internal
   public void runTransaction(@NotNull Runnable transaction) {
+    myRepository.getModelAccess().checkReadAccess();
+
     myLoadingModulesLock.lock();
     try {
       transaction.run();
     } finally {
       myLoadingModulesLock.unlock();
     }
+  }
+
+  private <T> T runTransaction(@NotNull Computable<T> transaction) {
+    ComputeRunnable<T> runnable = new ComputeRunnable<>(transaction);
+    runnable.run();
+    return runnable.getResult();
   }
 
   @NotNull
@@ -386,8 +395,7 @@ public class ClassLoaderManager implements CoreComponent {
   private Collection<ReloadableModule> doLoadModules(final Iterable<? extends ReloadableModule> modules, final ProgressMonitor monitor) {
     monitor.start("Loading", 1);
     try {
-      myLoadingModulesLock.lock();
-      try {
+      return runTransaction(() -> {
         Set<ReloadableModule> modulesToLoad = new LinkedHashSet<>(filterModules(modules, myWatchableCondition, myValidCondition));
         if (modulesToLoad.isEmpty()) return Collections.emptySet();
 
@@ -403,9 +411,7 @@ public class ClassLoaderManager implements CoreComponent {
         }
         myClassLoadersHolder.doLoadModules(modulesToLoad);
         return modulesToLoad;
-      } finally {
-        myLoadingModulesLock.unlock();
-      }
+      });
     } finally {
       monitor.done();
     }
@@ -422,24 +428,24 @@ public class ClassLoaderManager implements CoreComponent {
   Collection<ReloadableModule> unloadModules(Iterable<? extends SModuleReference> modules, @NotNull ProgressMonitor monitor) {
     checkWriteAccess();
     monitor.start("Unloading", 6);
-    myLoadingModulesLock.lock();
     try {
-      Condition<SModuleReference> loadedCondition = new NotCondition<>(myUnloadedRefCondition);
-      Set<SModuleReference> modulesToUnload = filterModules(modules, loadedCondition);
-      if (modulesToUnload.isEmpty()) return Collections.emptySet();
+      return runTransaction(() -> {
+        Condition<SModuleReference> loadedCondition = new NotCondition<>(myUnloadedRefCondition);
+        Set<SModuleReference> modulesToUnload = filterModules(modules, loadedCondition);
+        if (modulesToUnload.isEmpty()) return Collections.emptySet();
 
-      // transitive closure
-      Collection<? extends SModuleReference> modulesAndBackDeps = myModulesWatcher.getBackDependencies(modulesToUnload);
-      modulesToUnload = filterModules(modulesAndBackDeps, loadedCondition);
-      if (modulesToUnload.isEmpty()) return Collections.emptySet();
+        // transitive closure
+        Collection<? extends SModuleReference> modulesAndBackDeps = myModulesWatcher.getBackDependencies(modulesToUnload);
+        modulesToUnload = filterModules(modulesAndBackDeps, loadedCondition);
+        if (modulesToUnload.isEmpty()) return Collections.emptySet();
 
-      LOG.debug("Unloading " + modulesToUnload.size() + " modules");
-      Collection<ReloadableModule> unloadedModules = myBroadCaster.onUnload(modulesToUnload, monitor.subTask(5, SubProgressKind.AS_COMMENT));
-      myClassLoadersHolder.doUnloadModules(modulesToUnload);
+        LOG.debug("Unloading " + modulesToUnload.size() + " modules");
+        Collection<ReloadableModule> unloadedModules = myBroadCaster.onUnload(modulesToUnload, monitor.subTask(5, SubProgressKind.AS_COMMENT));
+        myClassLoadersHolder.doUnloadModules(modulesToUnload);
 
-      return unloadedModules;
-    } finally{
-      myLoadingModulesLock.unlock();
+        return unloadedModules;
+      });
+    } finally {
       monitor.done();
     }
   }
