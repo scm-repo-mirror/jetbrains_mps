@@ -66,6 +66,7 @@
     <classNode dependClassName="jetbrains.mps.smodel.ModelAccessHelper" />
     <classNode dependClassName="jetbrains.mps.testbench.junit.runners.MPSCompositeProjectStrategy" />
     <classNode dependClassName="jetbrains.mps.testbench.junit.runners.TeamCityParameterizedRunner" />
+    <classNode dependClassName="jetbrains.mps.tool.environment.Environment" />
     <classNode dependClassName="jetbrains.mps.tool.environment.EnvironmentConfig" />
     <classNode dependClassName="jetbrains.mps.tool.environment.MpsEnvironment" />
     <classNode dependClassName="jetbrains.mps.tool.environment.ProjectStrategy" />
@@ -155,6 +156,7 @@
     <classNode dependClassName="jetbrains.mps.checkers.ModelPropertiesChecker" />
     <classNode dependClassName="jetbrains.mps.checkers.ModuleChecker" />
     <classNode dependClassName="jetbrains.mps.checkers.SuppressErrorsChecker" />
+    <classNode dependClassName="jetbrains.mps.components.ComponentHost" />
     <classNode dependClassName="jetbrains.mps.errors.item.IssueKindReportItem" />
     <classNode dependClassName="jetbrains.mps.extapi.model.GeneratableSModel" />
     <classNode dependClassName="jetbrains.mps.generator.GenerationFacade" />
@@ -274,6 +276,7 @@
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations" />
     <classNode dependClassName="jetbrains.mps.project.AbstractModule" />
+    <classNode dependClassName="jetbrains.mps.project.FileBasedProject" />
     <classNode dependClassName="jetbrains.mps.project.Project" />
     <classNode dependClassName="jetbrains.mps.smodel.BaseScope" />
     <classNode dependClassName="jetbrains.mps.smodel.SModelStereotype" />

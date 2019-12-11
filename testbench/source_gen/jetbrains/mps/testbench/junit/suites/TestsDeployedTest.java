@@ -14,6 +14,7 @@ import org.junit.AfterClass;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.smodel.SModelStereotype;
 import jetbrains.mps.project.AbstractModule;
+import jetbrains.mps.project.FileBasedProject;
 import jetbrains.mps.vfs.VFSManager;
 import java.util.Objects;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
@@ -70,8 +71,10 @@ public class TestsDeployedTest {
     if (module.getModuleName().contains("sandbox")) {
       return true;
     }
-    if (module.getDescriptorFile().isDescendant(ourEnvironment.getPlatform().findComponent(VFSManager.class).getFileSystem(VFSManager.FILE_FS).getFile(ourProject.getProjectFile()).findChild("samples"))) {
-      return true;
+    if (ourProject instanceof FileBasedProject) {
+      if (module.getDescriptorFile().isDescendant(ourEnvironment.getPlatform().findComponent(VFSManager.class).getFileSystem(VFSManager.FILE_FS).getFile(((FileBasedProject) ourProject).getProjectFile()).findChild("samples"))) {
+        return true;
+      }
     }
     return false;
   }

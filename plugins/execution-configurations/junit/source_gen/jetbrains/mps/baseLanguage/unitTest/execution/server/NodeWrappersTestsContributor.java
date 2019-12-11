@@ -31,6 +31,7 @@ import jetbrains.mps.project.Project;
 import java.io.File;
 import jetbrains.mps.project.ProjectManager;
 import jetbrains.mps.ide.ThreadUtils;
+import jetbrains.mps.project.FileBasedProject;
 import java.io.IOException;
 
 /**
@@ -187,7 +188,10 @@ public class NodeWrappersTestsContributor implements TestsContributor {
     }
 
     private static boolean projectHasPath(Project project, File path) {
-      File projectFile = project.getProjectFile();
+      File projectFile = null;
+      if (project instanceof FileBasedProject) {
+        projectFile = ((FileBasedProject) project).getProjectFile();
+      }
       if (projectFile == null) {
         return false;
       }

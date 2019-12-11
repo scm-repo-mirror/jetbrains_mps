@@ -17,6 +17,7 @@ import jetbrains.mps.checkers.ModelPropertiesChecker;
 import jetbrains.mps.checkers.AbstractNodeCheckerInEditor;
 import jetbrains.mps.project.validation.StructureChecker;
 import jetbrains.mps.checkers.SuppressErrorsChecker;
+import jetbrains.mps.components.ComponentHost;
 import org.junit.Assume;
 import java.util.List;
 import jetbrains.mps.generator.impl.dependencies.GenerationDependenciesCache;
@@ -51,13 +52,17 @@ public class CheckProjectStructure extends BaseCheckerTest {
   @Test
   @Order(value = 3)
   public void checkStructure() {
-    super.runCheck(ListSequence.fromListAndArray(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>(), (AbstractNodeCheckerInEditor) (AbstractNodeCheckerInEditor) new StructureChecker(null).withoutBrokenReferences(), new SuppressErrorsChecker()), null, "Structure errors:");
+    super.runCheck(ListSequence.fromListAndArray(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>(), (AbstractNodeCheckerInEditor) (AbstractNodeCheckerInEditor) new StructureChecker(getHost()).withoutBrokenReferences(), new SuppressErrorsChecker()), null, "Structure errors:");
+  }
+
+  private ComponentHost getHost() {
+    return getEnvironment().getPlatform();
   }
 
   @Test
   @Order(value = 4)
   public void checkReferences() {
-    super.runCheck(ListSequence.fromListAndArray(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>(), (AbstractNodeCheckerInEditor) (AbstractNodeCheckerInEditor) new StructureChecker(null).withoutCardinalities().withoutMissingRTLanguages(), new SuppressErrorsChecker()), null, "Broken reference errors");
+    super.runCheck(ListSequence.fromListAndArray(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>(), (AbstractNodeCheckerInEditor) (AbstractNodeCheckerInEditor) new StructureChecker(getHost()).withoutCardinalities().withoutMissingRTLanguages(), new SuppressErrorsChecker()), null, "Broken reference errors");
   }
 
   @Test

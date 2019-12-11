@@ -4820,13 +4820,40 @@
               <node concept="3uibUv" id="1_D5Bk1OLCX" role="1tU5fm">
                 <ref role="3uigEE" to="guwi:~File" resolve="File" />
               </node>
-              <node concept="2OqwBi" id="1_D5Bk1OLCY" role="33vP2m">
-                <node concept="37vLTw" id="1_D5Bk1OLCZ" role="2Oq$k0">
-                  <ref role="3cqZAo" node="1_D5Bk1OLDB" resolve="project" />
+              <node concept="10Nm6u" id="5yBbuOf$Lf$" role="33vP2m" />
+            </node>
+          </node>
+          <node concept="3clFbJ" id="5yBbuOf$LO$" role="3cqZAp">
+            <node concept="3clFbS" id="5yBbuOf$LOA" role="3clFbx">
+              <node concept="3clFbF" id="5yBbuOf$KVJ" role="3cqZAp">
+                <node concept="37vLTI" id="5yBbuOf$KVL" role="3clFbG">
+                  <node concept="2OqwBi" id="1_D5Bk1OLCY" role="37vLTx">
+                    <node concept="liA8E" id="5yBbuOf$NSC" role="2OqNvi">
+                      <ref role="37wK5l" to="z1c3:~FileBasedProject.getProjectFile()" resolve="getProjectFile" />
+                    </node>
+                    <node concept="1eOMI4" id="5yBbuOf$NJD" role="2Oq$k0">
+                      <node concept="10QFUN" id="5yBbuOf$MY0" role="1eOMHV">
+                        <node concept="3uibUv" id="5yBbuOf$N7H" role="10QFUM">
+                          <ref role="3uigEE" to="z1c3:~FileBasedProject" resolve="FileBasedProject" />
+                        </node>
+                        <node concept="37vLTw" id="1_D5Bk1OLCZ" role="10QFUP">
+                          <ref role="3cqZAo" node="1_D5Bk1OLDB" resolve="project" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="37vLTw" id="5yBbuOf$KVP" role="37vLTJ">
+                    <ref role="3cqZAo" node="1_D5Bk1OLCW" resolve="projectFile" />
+                  </node>
                 </node>
-                <node concept="liA8E" id="1_D5Bk1OLD0" role="2OqNvi">
-                  <ref role="37wK5l" to="z1c3:~Project.getProjectFile()" resolve="getProjectFile" />
-                </node>
+              </node>
+            </node>
+            <node concept="2ZW3vV" id="5yBbuOf$Mke" role="3clFbw">
+              <node concept="3uibUv" id="5yBbuOf$Mr8" role="2ZW6by">
+                <ref role="3uigEE" to="z1c3:~FileBasedProject" resolve="FileBasedProject" />
+              </node>
+              <node concept="37vLTw" id="5yBbuOf$LY1" role="2ZW6bz">
+                <ref role="3cqZAo" node="1_D5Bk1OLDB" resolve="project" />
               </node>
             </node>
           </node>

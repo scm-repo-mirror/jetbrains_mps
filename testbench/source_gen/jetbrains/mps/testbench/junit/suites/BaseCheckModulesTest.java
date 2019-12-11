@@ -17,6 +17,7 @@ import jetbrains.mps.tool.environment.EnvironmentConfig;
 import jetbrains.mps.tool.environment.ProjectStrategy;
 import jetbrains.mps.testbench.junit.runners.MPSCompositeProjectStrategy;
 import org.junit.AfterClass;
+import jetbrains.mps.tool.environment.Environment;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -58,6 +59,10 @@ public class BaseCheckModulesTest {
     ourEnvironment.closeProject(ourContextProject);
     ourEnvironment.dispose();
     ourEnvironment = null;
+  }
+
+  public Environment getEnvironment() {
+    return ourEnvironment;
   }
 
   protected static List<Object[]> createTestParametersFromModules(Iterable<? extends SModule> modules) {
