@@ -20,7 +20,6 @@ import jetbrains.mps.lang.editor.menus.substitute.ConstraintsFilteringSubstitute
 import jetbrains.mps.lang.editor.menus.ParameterizedMenuPart;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.lang.editor.menus.substitute.SingleItemSubstituteMenuPart;
 import org.apache.log4j.Logger;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuItem;
@@ -35,6 +34,7 @@ import jetbrains.mps.openapi.editor.menus.substitute.SubstituteMenuLookup;
 import jetbrains.mps.openapi.editor.EditorContext;
 import jetbrains.mps.lang.editor.menus.substitute.DefaultSubstituteMenuLookup;
 import jetbrains.mps.smodel.language.LanguageRegistry;
+import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
 public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
@@ -127,7 +127,7 @@ public class BaseConcept_SubstituteMenu extends SubstituteMenuBase {
         @Nullable
         @Override
         protected Iterable<? extends SAbstractConcept> getParameters(SubstituteMenuContext _context) {
-          return ((Iterable<SConcept>) SConceptOperations.getAllSubConcepts2(CONCEPTS.BaseConcept$Sz, SNodeOperations.getModel(_context.getParentNode())));
+          return ((Iterable<SAbstractConcept>) SConceptOperations.getAllSubConcepts(CONCEPTS.BaseConcept$Sz, SNodeOperations.getModel(_context.getParentNode())));
         }
         private class SMP_Action_s3h0kg_a0a0 extends SingleItemSubstituteMenuPart {
           private final SAbstractConcept myParameterObject;
