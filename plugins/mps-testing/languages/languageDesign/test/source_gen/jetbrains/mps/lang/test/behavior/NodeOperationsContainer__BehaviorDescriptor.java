@@ -20,6 +20,7 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.annotations.Nullable;
+import jetbrains.mps.util.PathManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.project.MPSProject;
@@ -61,9 +62,11 @@ public final class NodeOperationsContainer__BehaviorDescriptor extends BaseBHDes
       }
     }
     // only local 
-    SLinkOperations.setTarget(newNode, LINKS.expectedMessage$gXqz, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x9dc8d126017d59cL, "jetbrains.mps.lang.test.structure.ExpectedMessageContainer")));
-    SPropertyOperations.assign(SLinkOperations.getTarget(newNode, LINKS.expectedMessage$gXqz), PROPS.text$lGWw, reporter.getMessage());
-    ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.nodeOperations$HdFm)).addElement(newNode);
+    if (PathManager.isFromSources()) {
+      SLinkOperations.setTarget(newNode, LINKS.expectedMessage$gXqz, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0x8585453e6bfb4d80L, 0x98deb16074f1d86cL, 0x9dc8d126017d59cL, "jetbrains.mps.lang.test.structure.ExpectedMessageContainer")));
+      SPropertyOperations.assign(SLinkOperations.getTarget(newNode, LINKS.expectedMessage$gXqz), PROPS.text$lGWw, reporter.getMessage());
+      ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.nodeOperations$HdFm)).addElement(newNode);
+    }
   }
   /*package*/ static boolean suppress_id3612de_vrfV(@NotNull final SNode __thisNode__, final NodeReportItem reportItem) {
     MPSProject mpsProject = CurrentProjectAccessUtil.getMPSProjectFromUI();

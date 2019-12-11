@@ -235,6 +235,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.ExpectedMessageContainer:
         if (props_ExpectedMessageContainer == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.experimental(true);
           cpb.rawPresentation("ExpectedMessageContainer");
           props_ExpectedMessageContainer = cpb.create();
         }

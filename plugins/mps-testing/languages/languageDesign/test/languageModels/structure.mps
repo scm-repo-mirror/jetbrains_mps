@@ -41,6 +41,9 @@
         <property id="1225118929411" name="build" index="YLPcu" />
         <property id="1225118933224" name="comment" index="YLQ7P" />
       </concept>
+      <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
+        <property id="7862711839422615217" name="text" index="t5JxN" />
+      </concept>
       <concept id="6054523464627964745" name="jetbrains.mps.lang.structure.structure.AttributeInfo_AttributedConcept" flags="ng" index="trNpa">
         <reference id="6054523464627965081" name="concept" index="trN6q" />
       </concept>
@@ -80,6 +83,7 @@
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
+      <concept id="418049251856799813" name="jetbrains.mps.lang.structure.structure.ExperimentalAPINodeAttribute" flags="ig" index="1AhYRh" />
       <concept id="1071489090640" name="jetbrains.mps.lang.structure.structure.ConceptDeclaration" flags="ig" index="1TIwiD">
         <property id="5404671619616246344" name="staticScope" index="2_RsDV" />
         <property id="1096454100552" name="rootable" index="19KtqR" />
@@ -1506,6 +1510,10 @@
       <property role="IQ2nx" value="710597951278798237" />
       <property role="TrG5h" value="text" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+    </node>
+    <node concept="1AhYRh" id="5lg0Ljo9oOz" role="lGtFl" />
+    <node concept="t5JxF" id="5lg0Ljo9p1T" role="lGtFl">
+      <property role="t5JxN" value="In 193 I enabled this feature only internally" />
     </node>
   </node>
   <node concept="1TIwiD" id="426cbTMdZVv">
