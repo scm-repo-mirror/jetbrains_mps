@@ -72,7 +72,7 @@ public class LanguageUsagesFinder implements IFinder {
     if (value instanceof SModule) {
       searchedModule = ((SModule) value);
     } else if (value instanceof SModuleReference) {
-      searchedModule = query.getScope().resolve(((SModuleReference) value));
+      searchedModule = query.getSearchObjectResolver().resolve(((SModuleReference) value));
     } else if (value instanceof SLanguage) {
       return Collections.singletonList(((SLanguage) value));
     } else {

@@ -3640,12 +3640,12 @@
                       <node concept="37vLTw" id="ZVS8OJne2r" role="2Oq$k0">
                         <ref role="3cqZAo" node="ZVS8OJndXj" resolve="query" />
                       </node>
-                      <node concept="liA8E" id="ZVS8OJne2s" role="2OqNvi">
-                        <ref role="37wK5l" to="9erk:~SearchQuery.getScope()" resolve="getScope" />
+                      <node concept="liA8E" id="2mzj0Is4Pf_" role="2OqNvi">
+                        <ref role="37wK5l" to="9erk:~SearchQuery.getSearchObjectResolver()" resolve="getSearchObjectResolver" />
                       </node>
                     </node>
                     <node concept="liA8E" id="ZVS8OJne2t" role="2OqNvi">
-                      <ref role="37wK5l" to="lui2:~SearchScope.resolve(org.jetbrains.mps.openapi.module.SModuleReference)" resolve="resolve" />
+                      <ref role="37wK5l" to="9erk:~SearchObjectResolver.resolve(org.jetbrains.mps.openapi.module.SModuleReference)" resolve="resolve" />
                       <node concept="1eOMI4" id="ZVS8OJne2u" role="37wK5m">
                         <node concept="10QFUN" id="ZVS8OJne2v" role="1eOMHV">
                           <node concept="37vLTw" id="ZVS8OJne2w" role="10QFUP">
