@@ -14,9 +14,10 @@ import jetbrains.mps.lang.test.behavior.NodesTestCase__BehaviorDescriptor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Collections;
 import jetbrains.mps.intentions.AbstractIntentionExecutable;
-import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.smodel.CurrentProjectAccessUtil;
 import jetbrains.mps.components.ComponentHost;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.project.ProjectBase;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.lang.test.scripts.SpecifyRuleMessagesHelper;
 import jetbrains.mps.openapi.intentions.IntentionDescriptor;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -61,8 +62,13 @@ public final class SpecifyRuleReferences_Intention extends AbstractIntentionDesc
     @Override
     public void execute(final SNode node, final EditorContext editorContext) {
       // when we have component host in editorContext, rewrite 
-      MPSProject mpsProject = CurrentProjectAccessUtil.getMPSProjectFromUI();
-      ComponentHost host = (mpsProject == null ? null : mpsProject.getPlatform());
+      ComponentHost host = null;
+      SRepository repository = SNodeOperations.getModel(node).getRepository();
+      ProjectBase project = (ProjectBase) ProjectHelper.getProject(repository);
+      if (project != null) {
+        host = project.getPlatform();
+      }
+
       new SpecifyRuleMessagesHelper(node, host).fillContainerWithRuleMessages();
     }
     @Override

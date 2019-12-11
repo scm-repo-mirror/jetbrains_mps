@@ -111,7 +111,7 @@ public final class TestsErrorsChecker {
     new NonTypesystemChecker().check(myRoot, repository, errorCollector, new EmptyProgressMonitor());
     new ConstraintsChecker(myHost).asRootChecker().check(myRoot, repository, errorCollector, new EmptyProgressMonitor());
     new RefScopeChecker(myHost).asRootChecker().check(myRoot, repository, errorCollector, new EmptyProgressMonitor());
-    new TargetConceptChecker().asRootChecker().check(myRoot, repository, errorCollector, new EmptyProgressMonitor());
+    new TargetConceptChecker(myHost).asRootChecker().check(myRoot, repository, errorCollector, new EmptyProgressMonitor());
     new StructureChecker(myHost).asRootChecker().check(myRoot, repository, errorCollector, new EmptyProgressMonitor());
 
     final ErrorReportHelper helper = new ErrorReportHelper();

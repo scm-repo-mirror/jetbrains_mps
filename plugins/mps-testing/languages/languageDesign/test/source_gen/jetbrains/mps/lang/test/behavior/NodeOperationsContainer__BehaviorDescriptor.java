@@ -23,9 +23,11 @@ import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.util.PathManager;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import jetbrains.mps.project.MPSProject;
-import jetbrains.mps.smodel.CurrentProjectAccessUtil;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.components.ComponentHost;
+import org.jetbrains.mps.openapi.module.SRepository;
+import jetbrains.mps.project.ProjectBase;
+import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.core.aspects.behaviour.api.SConstructor;
 import jetbrains.mps.core.aspects.behaviour.api.BHMethodNotFoundException;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
@@ -68,12 +70,16 @@ public final class NodeOperationsContainer__BehaviorDescriptor extends BaseBHDes
       ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.nodeOperations$HdFm)).addElement(newNode);
     }
   }
-  /*package*/ static boolean suppress_id3612de_vrfV(@NotNull final SNode __thisNode__, final NodeReportItem reportItem) {
-    MPSProject mpsProject = CurrentProjectAccessUtil.getMPSProjectFromUI();
-    final ComponentHost host = mpsProject.getPlatform();
+  /*package*/ static boolean suppress_id3612de_vrfV(@NotNull SNode __thisNode__, final NodeReportItem reportItem) {
+    final Wrappers._T<ComponentHost> host = new Wrappers._T<ComponentHost>(null);
+    final SRepository repository = SNodeOperations.getModel(__thisNode__).getRepository();
+    ProjectBase project = (ProjectBase) ProjectHelper.getProject(repository);
+    if (project != null) {
+      host.value = project.getPlatform();
+    }
     return ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.nodeOperations$HdFm)).any(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
-        return (boolean) NodeCheckOperation__BehaviorDescriptor.expectsErrorsInside_id77$odk0vlBj.invoke(it, reportItem, SNodeOperations.getModel(__thisNode__).getRepository(), host);
+        return (boolean) NodeCheckOperation__BehaviorDescriptor.expectsErrorsInside_id77$odk0vlBj.invoke(it, reportItem, repository, host.value);
       }
     });
   }

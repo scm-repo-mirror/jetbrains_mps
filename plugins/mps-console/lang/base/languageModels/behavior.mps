@@ -32,6 +32,7 @@
     <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" />
     <import index="d6hs" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.errors.item(MPS.Core/)" />
     <import index="be1c" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.unscramble(MPS.IDEA/)" />
+    <import index="mhfm" ref="3f233e7f-b8a6-46d2-a57f-795d56775243/java:org.jetbrains.annotations(Annotations/)" />
     <import index="fq2o" ref="r:11d950c0-cabb-4b20-860f-4f2898171c08(jetbrains.mps.lang.smodel.query.behavior)" implicit="true" />
     <import index="tpek" ref="r:00000000-0000-4000-0000-011c895902c0(jetbrains.mps.baseLanguage.behavior)" implicit="true" />
   </imports>
@@ -3066,13 +3067,13 @@
           </node>
         </node>
       </node>
+      <node concept="10P_77" id="3A3g2XgqUJH" role="3clF45" />
       <node concept="37vLTG" id="3A3g2XgqUJF" role="3clF46">
         <property role="TrG5h" value="reportItem" />
         <node concept="3uibUv" id="3A3g2XgqUJG" role="1tU5fm">
           <ref role="3uigEE" to="d6hs:~NodeReportItem" resolve="NodeReportItem" />
         </node>
       </node>
-      <node concept="10P_77" id="3A3g2XgqUJH" role="3clF45" />
     </node>
   </node>
 </model>
