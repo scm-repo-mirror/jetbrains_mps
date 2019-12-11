@@ -26,6 +26,10 @@ import java.util.List;
  * Project entity which denotes the working environment.
  * There might be multiple projects opened in the single environment
  *
+ * fixme: Just to clarify: this is the 'API to be' for the notion of project in MPS.
+ *  the base-base class jetbrains.mps.Project seems to be cluttered with no clear API
+ *  it is better to be removed
+ *
  * @author apyshkin
  * @since 2017.1
  */

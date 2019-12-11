@@ -26,6 +26,8 @@ import java.util.List;
 /**
  * MPS project interface
  *
+ * fixme remove
+ *
  * Created by apyshkin on 11/3/15.
  */
 public interface IProject extends org.jetbrains.mps.openapi.project.Project {
