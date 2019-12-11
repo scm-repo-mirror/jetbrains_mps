@@ -321,7 +321,10 @@ public class AnnotationColumn extends AbstractLeftColumn {
     if (cell == null) {
       return Sequence.fromIterable(Collections.<Integer>emptyList());
     }
-    final int startPseudoLine = Collections.binarySearch((List) myPseudoLinesY, cell.getY());
+    final Wrappers._int startPseudoLine = new Wrappers._int(Collections.binarySearch((List) myPseudoLinesY, cell.getY()));
+    if (startPseudoLine.value < 0) {
+      startPseudoLine.value = -startPseudoLine.value - 1;
+    }
     final Wrappers._int endPseudoLine = new Wrappers._int(Collections.binarySearch((List) myPseudoLinesY, cell.getY() + cell.getHeight()));
     if (endPseudoLine.value < 0) {
       endPseudoLine.value = -endPseudoLine.value - 1;
@@ -341,7 +344,7 @@ __switch__:
                       assert false : "Internal error";
                       return false;
                     case 2:
-                      this._2_pseudoLine = startPseudoLine;
+                      this._2_pseudoLine = startPseudoLine.value;
                     case 3:
                       if (!(_2_pseudoLine < endPseudoLine.value)) {
                         this.__CP__ = 1;
