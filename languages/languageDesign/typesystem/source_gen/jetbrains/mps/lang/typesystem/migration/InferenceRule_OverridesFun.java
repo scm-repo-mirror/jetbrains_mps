@@ -23,7 +23,7 @@ import jetbrains.mps.lang.migration.runtime.base.MigrationScriptReference;
 import org.jetbrains.mps.openapi.language.SAbstractConcept;
 
 public class InferenceRule_OverridesFun extends MigrationScriptBase {
-  private final String description = "InferenceRule_OverridesFun";
+  private final String description = "Automatic migration: move node `overridesFun`";
   public String getCaption() {
     return description;
   }

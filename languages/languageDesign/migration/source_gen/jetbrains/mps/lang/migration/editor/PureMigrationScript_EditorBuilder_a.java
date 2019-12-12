@@ -29,7 +29,7 @@ import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
-import jetbrains.mps.lang.migration.behavior.PureMigrationScript__BehaviorDescriptor;
+import jetbrains.mps.lang.migration.behavior.IMigrationUnit__BehaviorDescriptor;
 import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
@@ -203,7 +203,7 @@ import org.jetbrains.mps.openapi.language.SConcept;
   private EditorCell createModelAccess_0() {
     ModelAccessor modelAccessor = new ModelAccessor() {
       public String getText() {
-        return (String) PureMigrationScript__BehaviorDescriptor.getDescription_id1RqXnPV415t.invoke(myNode);
+        return (String) IMigrationUnit__BehaviorDescriptor.getDescription_id1RqXnPV415t.invoke(myNode);
       }
       public void setText(String text) {
         SPropertyOperations.set(myNode, PROPS.description$9$QN, text);
