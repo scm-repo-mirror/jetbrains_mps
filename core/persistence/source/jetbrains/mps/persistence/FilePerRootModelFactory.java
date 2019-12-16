@@ -94,9 +94,16 @@ public class FilePerRootModelFactory implements ModelFactory, IndexAwareModelFac
       return new DataSourceNotSupportedProblem(dataSource);
     }
     if (dataSource instanceof FileSystemBasedDataSource) {
-      if (((FileSystemBasedDataSource) dataSource).exists()) {
-        return () -> "Some of the data sources already exist";
+      FileSystemBasedDataSource dataSource1 = (FileSystemBasedDataSource) dataSource;
+//      for (IFile file : dataSource1.getAffectedFiles()) {
+//        if (!FilePerRootDataSource.ROOT_EXTENSION.equals(FileUtil.getExtension(file.getName()))) {
+//          if (file.exists()) {
+      if (dataSource1.exists()) {
+        return () -> "Some of the data source files already exist on the disk";
       }
+//          }
+//        }
+//      }
     }
     return NO_PROBLEM;
   }
