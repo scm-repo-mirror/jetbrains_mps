@@ -11,13 +11,7 @@ public class Command_Constraints extends BaseConstraintsDescriptor {
     super(CONCEPTS.Command$sT);
   }
 
-  @Override
-  public SConcept getDefaultConcreteConcept() {
-    return CONCEPTS.BLCommand$ib;
-  }
-
   private static final class CONCEPTS {
     /*package*/ static final SConcept Command$sT = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x5f1fb64db424879fL, "jetbrains.mps.console.base.structure.Command");
-    /*package*/ static final SConcept BLCommand$ib = MetaAdapterFactory.getConcept(0xde1ad86d6e504a02L, 0xb306d4d17f64c375L, 0x4bd43869e610f3e9L, "jetbrains.mps.console.base.structure.BLCommand");
   }
 }

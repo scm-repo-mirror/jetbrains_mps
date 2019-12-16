@@ -19,7 +19,27 @@ public class Delete_StringValueInLiteral {
         this.execute_internal(editorContext, node);
       }
       public void execute_internal(EditorContext editorContext, SNode node) {
+        // In all such cases should delete not only the node itself, but also the parent node if it is a simple wrapper. 
+        // Automatically derived BACKSPACE action has such behavior, but implement it every time by code is too complex. 
         SNodeOperations.deleteNode(node);
+      }
+
+    };
+  }
+  /*package*/ static AbstractCellAction createAction_BACKSPACE(final SNode node) {
+    return new AbstractCellAction() {
+      public void execute(EditorContext editorContext) {
+        this.execute_internal(editorContext, node);
+      }
+      public void execute_internal(EditorContext editorContext, SNode node) {
+        // this empty action prevents DELETE action from being expanded into BACKSPACE also 
+      }
+      @Override
+      public boolean canExecute(EditorContext editorContext) {
+        return this.canExecute_internal(editorContext, node);
+      }
+      public boolean canExecute_internal(EditorContext editorContext, SNode node) {
+        return false;
       }
 
     };
@@ -47,6 +67,7 @@ public class Delete_StringValueInLiteral {
 
     // set cell actions defined directly in this action map 
     editorCell.setAction(CellActionType.DELETE, createAction_DELETE(node));
+    editorCell.setAction(CellActionType.BACKSPACE, createAction_BACKSPACE(node));
 
   }
 
@@ -57,6 +78,9 @@ public class Delete_StringValueInLiteral {
     // set cell action of the given type defined directly in this action map 
     if (Objects.equals(actionType, CellActionType.DELETE)) {
       editorCell.setAction(actionType, createAction_DELETE(node));
+    }
+    if (Objects.equals(actionType, CellActionType.BACKSPACE)) {
+      editorCell.setAction(actionType, createAction_BACKSPACE(node));
     }
   }
 }

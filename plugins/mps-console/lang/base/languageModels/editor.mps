@@ -416,6 +416,7 @@
       <concept id="6677504323281689838" name="jetbrains.mps.lang.smodel.structure.SConceptType" flags="in" index="3bZ5Sz">
         <reference id="6677504323281689839" name="conceptDeclaraton" index="3bZ5Sy" />
       </concept>
+      <concept id="1139613262185" name="jetbrains.mps.lang.smodel.structure.Node_GetParentOperation" flags="nn" index="1mfA1w" />
       <concept id="1139621453865" name="jetbrains.mps.lang.smodel.structure.Node_IsInstanceOfOperation" flags="nn" index="1mIQ4w">
         <child id="1177027386292" name="conceptArgument" index="cj9EA" />
       </concept>
@@ -1115,6 +1116,31 @@
               <node concept="1P9Npp" id="PtBTHLX4PU" role="2OqNvi">
                 <node concept="37vLTw" id="PtBTHLX4Rk" role="1P9ThW">
                   <ref role="3cqZAo" node="PtBTHLWMQp" resolve="blCommand" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="jK8Ss" id="2bn98YD6wMl" role="jK8aL">
+        <node concept="3clFbS" id="2bn98YD6wMm" role="2VODD2">
+          <node concept="3clFbF" id="2bn98YD6xd$" role="3cqZAp">
+            <node concept="1Wc70l" id="2bn98YD6ztY" role="3clFbG">
+              <node concept="2OqwBi" id="2bn98YD6$ka" role="3uHU7w">
+                <node concept="2OqwBi" id="2bn98YD6zNC" role="2Oq$k0">
+                  <node concept="0IXxy" id="2bn98YD6zyO" role="2Oq$k0" />
+                  <node concept="1mfA1w" id="2bn98YD6$53" role="2OqNvi" />
+                </node>
+                <node concept="1BlSNk" id="2bn98YD6$zy" role="2OqNvi">
+                  <ref role="1BmUXE" to="eynw:1nVd0kvs_CG" resolve="ConsoleRoot" />
+                  <ref role="1Bn3mz" to="eynw:1nVd0kvs_IL" resolve="commandHolder" />
+                </node>
+              </node>
+              <node concept="2OqwBi" id="2bn98YD6xua" role="3uHU7B">
+                <node concept="0IXxy" id="2bn98YD6xdz" role="2Oq$k0" />
+                <node concept="1BlSNk" id="2bn98YD6xMR" role="2OqNvi">
+                  <ref role="1BmUXE" to="eynw:jysm2GH4xb" resolve="CommandHolder" />
+                  <ref role="1Bn3mz" to="eynw:jysm2GH4$$" resolve="command" />
                 </node>
               </node>
             </node>

@@ -46,6 +46,9 @@
       </concept>
     </language>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
+      <concept id="1070475926800" name="jetbrains.mps.baseLanguage.structure.StringLiteral" flags="nn" index="Xl_RD">
+        <property id="1070475926801" name="value" index="Xl_RC" />
+      </concept>
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
       </concept>
@@ -232,6 +235,51 @@
   </node>
   <node concept="2XOHcx" id="10gsdiJDoBW">
     <property role="2XOHcw" value="${mps_home}" />
+  </node>
+  <node concept="LiM7Y" id="2bn98YD6lXg">
+    <property role="TrG5h" value="RemoveStringExpression" />
+    <node concept="1qefOq" id="2bn98YD6lY9" role="25YQCW">
+      <node concept="aymSD" id="2bn98YD6lYl" role="1qenE9">
+        <node concept="3balQm" id="2bn98YD6lYm" role="aymYE" />
+        <node concept="2Clz$F" id="2bn98YD6lYn" role="aymYO">
+          <node concept="f80E0" id="2bn98YD6lZC" role="2Clzx4">
+            <node concept="Xl_RD" id="2bn98YD6lZB" role="f80$r">
+              <property role="Xl_RC" value="" />
+              <node concept="LIFWc" id="2bn98YD6lZR" role="lGtFl">
+                <property role="ZRATv" value="true" />
+                <property role="OXtK3" value="true" />
+                <property role="p6zMq" value="0" />
+                <property role="p6zMs" value="0" />
+                <property role="LIFWd" value="property_value" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="2_V_lH" id="2bn98YD6lYo" role="1PhJh3" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2bn98YD6m00" role="25YQFr">
+      <node concept="aymSD" id="2bn98YD6lZW" role="1qenE9">
+        <node concept="3balQm" id="2bn98YD6lZX" role="aymYE" />
+        <node concept="2Clz$F" id="2bn98YD6lZY" role="aymYO">
+          <node concept="LIFWc" id="2bn98YD6m0A" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="Constant_nvbf9m_a1a" />
+          </node>
+        </node>
+        <node concept="2_V_lH" id="2bn98YD6lZZ" role="1PhJh3" />
+      </node>
+    </node>
+    <node concept="3clFbS" id="2bn98YD6m0K" role="LjaKd">
+      <node concept="2HxZob" id="2bn98YD6m24" role="3cqZAp">
+        <node concept="1iFQzN" id="2bn98YD6m2g" role="3iKnsn">
+          <ref role="1iFR8X" to="ekwn:7HPyHg86S0x" resolve="Backspace" />
+        </node>
+      </node>
+    </node>
   </node>
 </model>
 

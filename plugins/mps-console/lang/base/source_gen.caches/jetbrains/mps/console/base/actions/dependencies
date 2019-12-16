@@ -9,6 +9,9 @@
     <classNode dependClassName="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_0" />
     <classNode dependClassName="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_1" />
     <classNode dependClassName="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_2" />
+    <classNode dependClassName="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_3" />
+    <classNode dependClassName="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_4" />
+    <classNode dependClassName="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_5" />
     <classNode dependClassName="jetbrains.mps.console.base.actions.printStatement_NodeFactories" />
     <classNode dependClassName="jetbrains.mps.openapi.actions.descriptor.NodeFactory" />
     <classNode dependClassName="jetbrains.mps.openapi.actions.descriptor.PasteWrapper" />
@@ -37,6 +40,39 @@
     <classNode extendsClassName="jetbrains.mps.openapi.actions.descriptor.PasteWrapper" />
   </dependency>
   <dependency className="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_2">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.openapi.actions.descriptor.PasteWrapper" />
+  </dependency>
+  <dependency className="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_3">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.openapi.actions.descriptor.PasteWrapper" />
+  </dependency>
+  <dependency className="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_4">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode dependClassName="jetbrains.mps.smodel.builder.SNodeBuilder" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SConcept" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.language.SContainmentLink" />
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode extendsClassName="jetbrains.mps.openapi.actions.descriptor.PasteWrapper" />
+  </dependency>
+  <dependency className="jetbrains.mps.console.base.actions.blExpression_PasteWrapper_5">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
