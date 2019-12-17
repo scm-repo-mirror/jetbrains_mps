@@ -9,6 +9,7 @@ mps-core/languages
 mps-java/lib
 mps-java/META-INF/platform
 mps-java/META-INF/JavaPlatform.xml
+mps-java/META-INF/JavaPlatformActions.xml
 mps-vcs/lib
 mps-vcs/languages
 mps-vcs/META-INF/MPSVcs.xml
