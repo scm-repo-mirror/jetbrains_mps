@@ -62,11 +62,10 @@ public final class PureMigrationScript__BehaviorDescriptor extends BaseBHDescrip
       return SPropertyOperations.getString(__thisNode__, PROPS.description$9$QN);
     }
     StringBuilder result = new StringBuilder();
-    if (Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.part$x6zr), CONCEPTS.IncludeMigrationPart$zz)).count() == 1) {
+    if (Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.part$x6zr), CONCEPTS.IncludeMigrationPart$zz)).count() == 1 && (SLinkOperations.getTarget(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.part$x6zr), CONCEPTS.IncludeMigrationPart$zz)).first(), LINKS.target$s$xW) != null)) {
       result.append("Addition to: ").append(IMigrationUnit__BehaviorDescriptor.getDescription_id1RqXnPV415t.invoke(SLinkOperations.getTarget(Sequence.fromIterable(SNodeOperations.ofConcept(SLinkOperations.getChildren(__thisNode__, LINKS.part$x6zr), CONCEPTS.IncludeMigrationPart$zz)).first(), LINKS.target$s$xW)));
       return result.toString();
     }
-    result.append("Automatic migration");
     if (ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$x6zr)).all(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return SNodeOperations.isInstanceOf(it, CONCEPTS.MoveNodeMigrationPart$gB);
@@ -74,21 +73,26 @@ public final class PureMigrationScript__BehaviorDescriptor extends BaseBHDescrip
     })) {
       List<Tuples._2<SNode, SNode>> movedNodes = ListSequence.fromList(SLinkOperations.getChildren(__thisNode__, LINKS.part$x6zr)).select(new ISelector<SNode, Tuples._2<SNode, SNode>>() {
         public Tuples._2<SNode, SNode> select(SNode it) {
-          return MultiTuple.<SNode,SNode>from(AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.MoveNodeMigrationPart$gB), LINKS.fromNode$JVN3)).resolve(SNodeOperations.getModel(it).getRepository()), AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.MoveNodeMigrationPart$gB), LINKS.toNode$JVO1)).resolve(SNodeOperations.getModel(it).getRepository()));
+          return MultiTuple.<SNode,SNode>from(((SNode) AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.MoveNodeMigrationPart$gB), LINKS.fromNode$JVN3)).resolve(SNodeOperations.getModel(it).getRepository())), ((SNode) AbstractNodeReference__BehaviorDescriptor.getNodeReference_id4uVwhQyQbdz.invoke(SLinkOperations.getTarget(SNodeOperations.cast(it, CONCEPTS.MoveNodeMigrationPart$gB), LINKS.toNode$JVO1)).resolve(SNodeOperations.getModel(it).getRepository())));
         }
       }).toListSequence();
-      if (ListSequence.fromList(movedNodes).isNotEmpty() && ListSequence.fromList(movedNodes).first()._0().isInstanceOfConcept(CONCEPTS.INamedConcept$nV) && ListSequence.fromList(movedNodes).isNotEmpty() && ListSequence.fromList(movedNodes).first()._1().isInstanceOfConcept(CONCEPTS.INamedConcept$nV)) {
+      if (ListSequence.fromList(movedNodes).isNotEmpty() && SNodeOperations.isInstanceOf(ListSequence.fromList(movedNodes).first()._0(), CONCEPTS.INamedConcept$nV) && ListSequence.fromList(movedNodes).isNotEmpty() && SNodeOperations.isInstanceOf(ListSequence.fromList(movedNodes).first()._1(), CONCEPTS.INamedConcept$nV)) {
+        result.append("Automatic migration");
         result.append(": move node `").append(SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(movedNodes).first()._1(), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)).append("`");
-        if (ListSequence.fromList(movedNodes).first()._0().getParent() != null && ListSequence.fromList(movedNodes).first()._0().getContainingRoot().isInstanceOfConcept(CONCEPTS.INamedConcept$nV)) {
-          result.append(" from `").append(SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(movedNodes).first()._0().getContainingRoot(), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)).append("`");
+        if (SNodeOperations.getParent(ListSequence.fromList(movedNodes).first()._0()) != null && SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(ListSequence.fromList(movedNodes).first()._0()), CONCEPTS.INamedConcept$nV)) {
+          result.append(" from `").append(SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getContainingRoot(ListSequence.fromList(movedNodes).first()._0()), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)).append("`");
         }
-        if (ListSequence.fromList(movedNodes).first()._1().getParent() != null && ListSequence.fromList(movedNodes).first()._1().getContainingRoot().isInstanceOfConcept(CONCEPTS.INamedConcept$nV)) {
-          result.append(" to `").append(SPropertyOperations.getString(SNodeOperations.cast(ListSequence.fromList(movedNodes).first()._1().getContainingRoot(), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)).append("`");
+        if (SNodeOperations.getParent(ListSequence.fromList(movedNodes).first()._1()) != null && SNodeOperations.isInstanceOf(SNodeOperations.getContainingRoot(ListSequence.fromList(movedNodes).first()._1()), CONCEPTS.INamedConcept$nV)) {
+          result.append(" to `").append(SPropertyOperations.getString(SNodeOperations.cast(SNodeOperations.getContainingRoot(ListSequence.fromList(movedNodes).first()._1()), CONCEPTS.INamedConcept$nV), PROPS.name$tAp1)).append("`");
+        }
+        if (ListSequence.fromList(movedNodes).count() > 1) {
+          result.append(" and ").append(ListSequence.fromList(movedNodes).count() - 1).append(" others");
         }
       }
-      if (ListSequence.fromList(movedNodes).count() > 1) {
-        result.append(" and ").append(ListSequence.fromList(movedNodes).count() - 1).append(" others");
-      }
+    }
+    if (result.length() == 0) {
+      result.append(SPropertyOperations.getString(__thisNode__, PROPS.name$tAp1));
+      result.append(" (automatic migration)");
     }
     return result.toString();
   }
