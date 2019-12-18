@@ -290,9 +290,6 @@
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
       <concept id="1146644641414" name="jetbrains.mps.baseLanguage.structure.ProtectedVisibility" flags="nn" index="3Tmbuc" />
-      <concept id="1116615150612" name="jetbrains.mps.baseLanguage.structure.ClassifierClassExpression" flags="nn" index="3VsKOn">
-        <reference id="1116615189566" name="classifier" index="3VsUkX" />
-      </concept>
       <concept id="1080120340718" name="jetbrains.mps.baseLanguage.structure.AndExpression" flags="nn" index="1Wc70l" />
       <concept id="1200397529627" name="jetbrains.mps.baseLanguage.structure.CharConstant" flags="nn" index="1Xhbcc">
         <property id="1200397540847" name="charConstant" index="1XhdNS" />
@@ -731,22 +728,15 @@
             <node concept="liA8E" id="3KdzViril1a" role="2OqNvi">
               <ref role="37wK5l" to="7e8u:~MPSTreeNode.setIcon(javax.swing.Icon)" resolve="setIcon" />
               <node concept="2OqwBi" id="3yHXoEB_2_B" role="37wK5m">
-                <node concept="2OqwBi" id="3yHXoEB$WXa" role="2Oq$k0">
-                  <node concept="37vLTw" id="3yHXoEB$UtQ" role="2Oq$k0">
-                    <ref role="3cqZAo" node="2HP68CXWGx$" resolve="myProject" />
-                  </node>
-                  <node concept="liA8E" id="3yHXoEB$XSP" role="2OqNvi">
-                    <ref role="37wK5l" to="z1c3:~Project.getComponent(java.lang.Class)" resolve="getComponent" />
-                    <node concept="3VsKOn" id="3yHXoEB_2ns" role="37wK5m">
-                      <ref role="3VsUkX" to="xnls:~GlobalIconManager" resolve="GlobalIconManager" />
-                    </node>
-                  </node>
-                </node>
                 <node concept="liA8E" id="3yHXoEB_3PK" role="2OqNvi">
                   <ref role="37wK5l" to="xnls:~BaseIconManager.getIconFor(org.jetbrains.mps.openapi.module.SModule)" resolve="getIconFor" />
                   <node concept="37vLTw" id="3yHXoEB_7a7" role="37wK5m">
                     <ref role="3cqZAo" node="3YtP95zXLeP" resolve="myModule" />
                   </node>
+                </node>
+                <node concept="2YIFZM" id="73i1guT_c36" role="2Oq$k0">
+                  <ref role="37wK5l" to="xnls:~GlobalIconManager.getInstance()" resolve="getInstance" />
+                  <ref role="1Pybhc" to="xnls:~GlobalIconManager" resolve="GlobalIconManager" />
                 </node>
               </node>
             </node>
