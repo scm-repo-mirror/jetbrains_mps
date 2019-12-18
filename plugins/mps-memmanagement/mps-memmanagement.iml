@@ -12,5 +12,6 @@
     <orderEntry type="library" name="Idea-platform" level="project" />
     <orderEntry type="module" module-name="logging" />
     <orderEntry type="module" module-name="mps-platform" />
+    <orderEntry type="module" module-name="make-runtime" />
   </component>
 </module>

@@ -15,12 +15,15 @@
  */
 package jetbrains.mps.ide.memManagement;
 
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationDisplayType;
+import com.intellij.notification.NotificationGroup;
+import com.intellij.notification.Notifications;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.registry.Registry;
-import com.intellij.openapi.util.registry.RegistryValue;
 import com.intellij.openapi.wm.IdeFrame;
 import com.intellij.openapi.wm.StatusBarWidget;
 import com.intellij.openapi.wm.ex.StatusBarEx;
@@ -28,7 +31,10 @@ import com.intellij.openapi.wm.ex.WindowManagerEx;
 import com.intellij.openapi.wm.impl.status.MemoryUsagePanel;
 import com.intellij.util.Alarm;
 import com.intellij.util.Alarm.ThreadToUse;
+import jetbrains.mps.components.ComponentHost;
+import jetbrains.mps.ide.MPSCoreComponents;
 import jetbrains.mps.ide.project.ProjectHelper;
+import jetbrains.mps.make.MakeServiceComponent;
 import jetbrains.mps.project.MPSProject;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -47,17 +53,22 @@ public class MemManager implements ProjectComponent {
   private static final Logger LOG = LogManager.getLogger(MemManager.class);
   private static final int DELAY2 = DELAY * 2;
 
-  private Project myProject;
+  // a) I hate static final fields, but using NotificationsConfiguration.register from ProjectComponent is troublesome (with multiple project in mind)
+  // b) Perhaps, shall use NotificationsConfiguration.LIGHTWEIGHT_PREFIX for a group id?
+  private static final NotificationGroup ourNotificationGroup = new NotificationGroup("MPS Memory Stats", NotificationDisplayType.BALLOON, false);
+
+  private final Project myProject;
+  private final ComponentHost myComponentHost;
   private MemoryUsagePanel myMemUsagePanel = null;
-  private ActionListener myActionListener = e -> {
-    cleanup();
-  };
+  private ActionListener myActionListener = e -> cleanupFromAction();
 
   private Alarm myCleanupAlarm;
   private Alarm myAlarm;
 
   public MemManager(Project project) {
     myProject = project;
+    final MPSCoreComponents mpsCore = ApplicationManager.getApplication().getComponent(MPSCoreComponents.class);
+    myComponentHost = mpsCore.getPlatform();
     myAlarm = new Alarm(ThreadToUse.POOLED_THREAD, myProject);
     myCleanupAlarm = new Alarm(ThreadToUse.POOLED_THREAD, myProject);
   }
@@ -93,7 +104,19 @@ public class MemManager implements ProjectComponent {
     }
   }
 
+  private void cleanupFromAction() {
+    if (myComponentHost.findComponent(MakeServiceComponent.class).isSessionActive()) {
+      final Notification n = ourNotificationGroup.createNotification().setContent("Can not perform cleanup while Make is in progress");
+      Notifications.Bus.notify(n, myProject);
+      return;
+    }
+    cleanup();
+  }
+
   private void cleanup() {
+    if (myComponentHost.findComponent(MakeServiceComponent.class).isSessionActive()) {
+      return;
+    }
     long usedMemBefore = getUsedMem();
     long modelsBefore = countModels(true);
     long timeBefore = System.currentTimeMillis();
