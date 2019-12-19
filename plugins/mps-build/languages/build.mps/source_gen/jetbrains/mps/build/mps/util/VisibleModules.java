@@ -6,13 +6,17 @@ import java.util.Map;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.HashMap;
 import jetbrains.mps.messages.IMessageHandler;
+import jetbrains.mps.generator.template.TemplateQueryContext;
+import org.jetbrains.annotations.Nullable;
 import jetbrains.mps.messages.LogHandler;
 import org.apache.log4j.LogManager;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.model.SNodeReference;
+import jetbrains.mps.build.util.DependenciesHelper;
 import java.util.Queue;
 import jetbrains.mps.internal.collections.runtime.QueueSequence;
 import java.util.LinkedList;
 import java.util.Set;
-import org.jetbrains.mps.openapi.model.SNodeId;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
 import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -27,7 +31,6 @@ import org.jetbrains.mps.openapi.language.SLanguage;
 import jetbrains.mps.project.ModuleId;
 import jetbrains.mps.smodel.adapter.ids.MetaIdHelper;
 import org.jetbrains.mps.openapi.module.SModuleReference;
-import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -40,27 +43,42 @@ public final class VisibleModules {
   private Map<String, SNode> myId2Module = new HashMap<String, SNode>();
   private final SNode myProject;
   private final IMessageHandler myMsgHandler;
+  private final TemplateQueryContext myGenContext;
 
   public VisibleModules(SNode project) {
-    myProject = project;
-    myMsgHandler = new LogHandler(LogManager.getLogger(VisibleModules.class));
+    this(project, null);
   }
 
-  public VisibleModules(SNode project, IMessageHandler msgHandler) {
+  public VisibleModules(SNode project, @Nullable TemplateQueryContext genContext) {
+    this(project, new LogHandler(LogManager.getLogger(VisibleModules.class)), genContext);
+  }
+
+  public VisibleModules(@NotNull SNode project, @NotNull IMessageHandler msgHandler, @Nullable TemplateQueryContext genContext) {
     myProject = project;
     myMsgHandler = msgHandler;
+    myGenContext = genContext;
+  }
+
+  private SNodeReference createRef(SNode node) {
+    SNode original = node;
+    if (myGenContext != null) {
+      original = DependenciesHelper.getOriginalNode(node, myGenContext);
+    }
+    return original.getReference();
   }
 
   public void collect() {
     Queue<SNode> queue = QueueSequence.fromQueue(new LinkedList<SNode>());
     QueueSequence.fromQueue(queue).addLastElement(myProject);
-    Set<SNodeId> seen = SetSequence.fromSet(new HashSet<SNodeId>());
+
+    Set<SNodeReference> seen = SetSequence.fromSet(new HashSet<SNodeReference>());
     while (QueueSequence.fromQueue(queue).isNotEmpty()) {
       SNode project = QueueSequence.fromQueue(queue).removeFirstElement();
-      if (seen.contains(project.getNodeId())) {
+      SNodeReference projectRef = createRef(project);
+      if (seen.contains(projectRef)) {
         continue;
       }
-      seen.add(project.getNodeId());
+      seen.add(projectRef);
       for (SNode dep : SLinkOperations.getChildren(project, LINKS.dependencies$tpR5)) {
         SNode projectDependency = SNodeOperations.as(dep, CONCEPTS.BuildProjectDependency$Ug);
         if (projectDependency == null) {
@@ -70,7 +88,7 @@ public final class VisibleModules {
         SNode depproj = SLinkOperations.getTarget(projectDependency, LINKS.script$mz1x);
         if ((depproj == null)) {
           SReference ref = SNodeOperations.getReference(projectDependency, LINKS.script$mz1x);
-          report("Cannot find the build project dependency " + SLinkOperations.getResolveInfo(ref) + " in the model " + check_xuwpka_a0a1a4a3a3a9(ref.getTargetSModelReference()), projectDependency);
+          report("Cannot find the build project dependency " + SLinkOperations.getResolveInfo(ref) + " in the model " + check_xuwpka_a0a1a4a4a4a41(ref.getTargetSModelReference()), projectDependency);
         }
         if (depproj != null && !(seen.contains(depproj.getNodeId()))) {
           QueueSequence.fromQueue(queue).addLastElement(depproj);
@@ -145,7 +163,7 @@ public final class VisibleModules {
     }
     return result;
   }
-  private static String check_xuwpka_a0a1a4a3a3a9(SModelReference checkedDotOperand) {
+  private static String check_xuwpka_a0a1a4a4a4a41(SModelReference checkedDotOperand) {
     if (null != checkedDotOperand) {
       return checkedDotOperand.getModelName();
     }

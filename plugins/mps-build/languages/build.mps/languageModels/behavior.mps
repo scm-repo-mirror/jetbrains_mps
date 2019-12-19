@@ -6226,13 +6226,21 @@
             </node>
             <node concept="2ShNRf" id="50RHf4RGXF5" role="33vP2m">
               <node concept="1pGfFk" id="50RHf4RGXF7" role="2ShVmc">
-                <ref role="37wK5l" to="tken:50RHf4RGVPm" resolve="VisibleModules" />
+                <ref role="37wK5l" to="tken:6DVIxeQOJcb" resolve="VisibleModules" />
                 <node concept="2OqwBi" id="27eOSzOUTyk" role="37wK5m">
                   <node concept="37vLTw" id="5YheE7ibOcy" role="2Oq$k0">
                     <ref role="3cqZAo" node="27eOSzOUT_S" resolve="artifacts" />
                   </node>
                   <node concept="liA8E" id="27eOSzOUTyq" role="2OqNvi">
                     <ref role="37wK5l" to="o3n2:2fLy7QGT4hw" resolve="getProject" />
+                  </node>
+                </node>
+                <node concept="2OqwBi" id="6DVIxeQOHC3" role="37wK5m">
+                  <node concept="37vLTw" id="6DVIxeQOHwP" role="2Oq$k0">
+                    <ref role="3cqZAo" node="27eOSzOUT_U" resolve="builder" />
+                  </node>
+                  <node concept="liA8E" id="6DVIxeQOHOa" role="2OqNvi">
+                    <ref role="37wK5l" to="o3n2:7eQOMx82$Ev" resolve="getGenContext" />
                   </node>
                 </node>
               </node>
