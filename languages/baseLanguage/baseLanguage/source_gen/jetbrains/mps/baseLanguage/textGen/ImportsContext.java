@@ -13,9 +13,13 @@ import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import java.util.Objects;
+import jetbrains.mps.internal.collections.runtime.ListSequence;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.baseLanguage.behavior.IClassifierMember__BehaviorDescriptor;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
+import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class ImportsContext {
@@ -52,12 +56,15 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
     int dotIndex = nestedName.indexOf('.');
     String rootClassifierName = ((dotIndex == -1) ? nestedName : nestedName.substring(0, dotIndex));
     String nestedPart = nestedName.substring(rootClassifierName.length());
-
     ImportEntry rootClassifierEntry = getRootClassifierRefText(packageName, rootClassifierName, contextNode);
     if ((nestedPart != null && nestedPart.length() > 0)) {
       // just need to check whether I reference the enclosing root class 
       String rootClassifierFqName = packageName + "." + rootClassifierName;
-      if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(myRootNode), rootClassifierFqName)) {
+      if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(myRootNode), rootClassifierFqName) && (SNodeOperations.getNodeAncestor(contextNode, CONCEPTS.StaticKind$hY, false, false) == null) && ListSequence.fromList(SNodeOperations.getNodeAncestors(contextNode, CONCEPTS.Classifier$hJ, true)).where(new IWhereFilter<SNode>() {
+        public boolean accept(SNode it) {
+          return (boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(it) && SNodeOperations.getParent(it) != null;
+        }
+      }).isEmpty()) {
         SNode n = contextNode;
         while (n != null && SNodeOperations.getParent(n) != myRootNode) {
           n = SNodeOperations.getParent(n);
@@ -122,6 +129,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
+    /*package*/ static final SInterfaceConcept StaticKind$hY = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x427c475b3d6201deL, "jetbrains.mps.baseLanguage.structure.StaticKind");
   }
 
   private static final class LINKS {
