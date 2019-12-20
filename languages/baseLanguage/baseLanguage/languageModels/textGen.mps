@@ -51,6 +51,7 @@
         <child id="1068498886295" name="lValue" index="37vLTJ" />
       </concept>
       <concept id="1153417849900" name="jetbrains.mps.baseLanguage.structure.GreaterThanOrEqualsExpression" flags="nn" index="2d3UOw" />
+      <concept id="1153422305557" name="jetbrains.mps.baseLanguage.structure.LessThanOrEqualsExpression" flags="nn" index="2dkUwp" />
       <concept id="4836112446988635817" name="jetbrains.mps.baseLanguage.structure.UndefinedType" flags="in" index="2jxLKc" />
       <concept id="1202948039474" name="jetbrains.mps.baseLanguage.structure.InstanceMethodCallOperation" flags="nn" index="liA8E" />
       <concept id="1465982738277781862" name="jetbrains.mps.baseLanguage.structure.PlaceholderMember" flags="ng" index="2tJIrI" />
@@ -238,6 +239,7 @@
       </concept>
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
+        <child id="1350122676458893092" name="text" index="3ndbpf" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
@@ -10960,6 +10962,91 @@
         </node>
         <node concept="3clFbJ" id="7wR9Ao0QeAM" role="3cqZAp">
           <node concept="3clFbS" id="7wR9Ao0QeAO" role="3clFbx">
+            <node concept="3SKdUt" id="7Hw8iNTIN9u" role="3cqZAp">
+              <node concept="1PaTwC" id="7Hw8iNTIN9v" role="3ndbpf">
+                <node concept="3oM_SD" id="7Hw8iNTIN9x" role="1PaTwD">
+                  <property role="3oM_SC" value="To" />
+                </node>
+                <node concept="3oM_SD" id="7Hw8iNTIPo1" role="1PaTwD">
+                  <property role="3oM_SC" value="handle" />
+                </node>
+                <node concept="3oM_SD" id="7Hw8iNTIPoc" role="1PaTwD">
+                  <property role="3oM_SC" value="ConstructorDeclaration" />
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="7Hw8iNTIHRF" role="3cqZAp">
+              <node concept="37vLTI" id="7Hw8iNTIIgf" role="3clFbG">
+                <node concept="2OqwBi" id="7Hw8iNTIIlT" role="37vLTx">
+                  <node concept="37vLTw" id="7Hw8iNTIIi8" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4nB19mAMblz" resolve="target" />
+                  </node>
+                  <node concept="2Xjw5R" id="7Hw8iNTIIYh" role="2OqNvi">
+                    <node concept="1xMEDy" id="7Hw8iNTIIYj" role="1xVPHs">
+                      <node concept="chp4Y" id="7Hw8iNTIJ5B" role="ri$Ld">
+                        <ref role="cht4Q" to="tpee:g7pOWCK" resolve="Classifier" />
+                      </node>
+                    </node>
+                    <node concept="1xIGOp" id="7Hw8iNTIJf_" role="1xVPHs" />
+                  </node>
+                </node>
+                <node concept="37vLTw" id="7Hw8iNTIHRD" role="37vLTJ">
+                  <ref role="3cqZAo" node="4nB19mAMblz" resolve="target" />
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs8" id="2qKFNTWmOoF" role="3cqZAp">
+              <node concept="3cpWsn" id="2qKFNTWmOoG" role="3cpWs9">
+                <property role="TrG5h" value="distinctClassifierPath" />
+                <node concept="2I9FWS" id="2qKFNTWmOlE" role="1tU5fm">
+                  <ref role="2I9WkF" to="tpee:g7pOWCK" resolve="Classifier" />
+                </node>
+                <node concept="3K4zz7" id="2qKFNTWo3pH" role="33vP2m">
+                  <node concept="3y3z36" id="2qKFNTWo43u" role="3K4Cdx">
+                    <node concept="10Nm6u" id="2qKFNTWo45y" role="3uHU7w" />
+                    <node concept="37vLTw" id="2qKFNTWo3Ee" role="3uHU7B">
+                      <ref role="3cqZAo" node="4nB19mAMblz" resolve="target" />
+                    </node>
+                  </node>
+                  <node concept="2ShNRf" id="2qKFNTWo4pG" role="3K4GZi">
+                    <node concept="Tc6Ow" id="2qKFNTWo4Ka" role="2ShVmc">
+                      <node concept="3Tqbb2" id="2qKFNTWo4YD" role="HW$YZ">
+                        <ref role="ehGHo" to="tpee:g7pOWCK" resolve="Classifier" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="2qKFNTWmOoH" role="3K4E3e">
+                    <node concept="37vLTw" id="2qKFNTWmOoI" role="2Oq$k0">
+                      <ref role="3cqZAo" node="4nB19mAMblz" resolve="target" />
+                    </node>
+                    <node concept="2qgKlT" id="2qKFNTWmOoJ" role="2OqNvi">
+                      <ref role="37wK5l" to="tpek:2qKFNTWlEOm" resolve="getClassifierPathDistinctFromContext" />
+                      <node concept="37vLTw" id="2qKFNTWmOoK" role="37wK5m">
+                        <ref role="3cqZAo" node="7QHNx0BoylC" resolve="contextNode" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs8" id="2qKFNTW_KtK" role="3cqZAp">
+              <node concept="3cpWsn" id="2qKFNTW_KtL" role="3cpWs9">
+                <property role="TrG5h" value="b" />
+                <node concept="10P_77" id="2qKFNTW_Kia" role="1tU5fm" />
+                <node concept="2dkUwp" id="2qKFNTW_KtM" role="33vP2m">
+                  <node concept="3cmrfG" id="2qKFNTW_KtN" role="3uHU7w">
+                    <property role="3cmrfH" value="1" />
+                  </node>
+                  <node concept="2OqwBi" id="2qKFNTW_KtO" role="3uHU7B">
+                    <node concept="37vLTw" id="2qKFNTW_KtP" role="2Oq$k0">
+                      <ref role="3cqZAo" node="2qKFNTWmOoG" resolve="distinctClassifierPath" />
+                    </node>
+                    <node concept="34oBXx" id="2qKFNTW_KtQ" role="2OqNvi" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="2qKFNTWDjGK" role="3cqZAp" />
             <node concept="3SKdUt" id="jTHL0cA_8O" role="3cqZAp">
               <node concept="1PaTwC" id="jTHL0cA_8P" role="1aUNEU">
                 <node concept="3oM_SD" id="jTHL0cA_9s" role="1PaTwD">
@@ -11232,6 +11319,24 @@
                 </node>
               </node>
             </node>
+            <node concept="3cpWs8" id="2qKFNTWq6Qc" role="3cqZAp">
+              <node concept="3cpWsn" id="2qKFNTWq6Qd" role="3cpWs9">
+                <property role="TrG5h" value="classifierPath" />
+                <node concept="17QB3L" id="2qKFNTWq6L2" role="1tU5fm" />
+                <node concept="2OqwBi" id="2qKFNTWq6Qe" role="33vP2m">
+                  <node concept="37vLTw" id="2qKFNTWq6Qf" role="2Oq$k0">
+                    <ref role="3cqZAo" node="4nB19mAMblz" resolve="target" />
+                  </node>
+                  <node concept="2qgKlT" id="2qKFNTWq6Qg" role="2OqNvi">
+                    <ref role="37wK5l" to="tpek:2qKFNTWoqtI" resolve="buildClassifierPath" />
+                    <node concept="37vLTw" id="2qKFNTWq6Qh" role="37wK5m">
+                      <ref role="3cqZAo" node="2qKFNTWmOoG" resolve="distinctClassifierPath" />
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbH" id="7Hw8iNTHnCX" role="3cqZAp" />
             <node concept="3cpWs6" id="7wR9Ao0QfK0" role="3cqZAp">
               <node concept="2ShNRf" id="jTHL0c$07_" role="3cqZAk">
                 <node concept="1pGfFk" id="jTHL0c$07A" role="2ShVmc">
