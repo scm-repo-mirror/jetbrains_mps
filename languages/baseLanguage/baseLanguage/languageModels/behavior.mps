@@ -9347,10 +9347,22 @@
                   <node concept="1mfA1w" id="4nB19mAtBUT" role="2OqNvi" />
                 </node>
               </node>
-              <node concept="2OqwBi" id="4nB19mAtBUU" role="3uHU7B">
-                <node concept="13iPFW" id="4nB19mAtBUV" role="2Oq$k0" />
-                <node concept="2qgKlT" id="4nB19mAtBUW" role="2OqNvi">
-                  <ref role="37wK5l" node="6r77ob2USS8" resolve="isStatic" />
+              <node concept="1eOMI4" id="7Hw8iNVf0Nz" role="3uHU7B">
+                <node concept="22lmx$" id="7Hw8iNVf00y" role="1eOMHV">
+                  <node concept="2OqwBi" id="7Hw8iNVeYZt" role="3uHU7B">
+                    <node concept="13iPFW" id="7Hw8iNVeYEq" role="2Oq$k0" />
+                    <node concept="1mIQ4w" id="7Hw8iNVeZCz" role="2OqNvi">
+                      <node concept="chp4Y" id="7Hw8iNVeZMX" role="cj9EA">
+                        <ref role="cht4Q" to="tpee:g7HP654" resolve="Interface" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="2OqwBi" id="4nB19mAtBUU" role="3uHU7w">
+                    <node concept="13iPFW" id="4nB19mAtBUV" role="2Oq$k0" />
+                    <node concept="2qgKlT" id="4nB19mAtBUW" role="2OqNvi">
+                      <ref role="37wK5l" node="6r77ob2USS8" resolve="isStatic" />
+                    </node>
+                  </node>
                 </node>
               </node>
             </node>
@@ -9373,6 +9385,9 @@
                   </node>
                   <node concept="3gn64h" id="5kb9snP1xj0" role="3gmYPZ">
                     <ref role="3gnhBz" to="tpee:49WhPGXow7u" resolve="StaticKind" />
+                  </node>
+                  <node concept="3gn64h" id="LHoC_meigH" role="3gmYPZ">
+                    <ref role="3gnhBz" to="tpee:g7uibYu" resolve="ClassifierType" />
                   </node>
                 </node>
                 <node concept="1xIGOp" id="5kb9snP1xj1" role="1xVPHs" />
@@ -9436,6 +9451,56 @@
                       <node concept="1mIQ4w" id="5kb9snP2k3s" role="2OqNvi">
                         <node concept="chp4Y" id="5kb9snP2kb8" role="cj9EA">
                           <ref role="cht4Q" to="tpee:49WhPGXow7u" resolve="StaticKind" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbJ" id="LHoC_mek$s" role="3cqZAp">
+                    <node concept="3clFbS" id="LHoC_mek$t" role="3clFbx">
+                      <node concept="3zACq4" id="LHoC_mek$u" role="3cqZAp" />
+                    </node>
+                    <node concept="1Wc70l" id="LHoC_melno" role="3clFbw">
+                      <node concept="1eOMI4" id="LHoC_memOM" role="3uHU7w">
+                        <node concept="22lmx$" id="LHoC_meo_M" role="1eOMHV">
+                          <node concept="2OqwBi" id="LHoC_mep5I" role="3uHU7w">
+                            <node concept="37vLTw" id="LHoC_meoNu" role="2Oq$k0">
+                              <ref role="3cqZAo" node="5kb9snP2c$4" resolve="ancestor" />
+                            </node>
+                            <node concept="1BlSNk" id="LHoC_mepnl" role="2OqNvi">
+                              <ref role="1BmUXE" to="tpee:g7HP654" resolve="Interface" />
+                              <ref role="1Bn3mz" to="tpee:g7HQHFn" resolve="extendedInterface" />
+                            </node>
+                          </node>
+                          <node concept="22lmx$" id="LHoC_menhz" role="3uHU7B">
+                            <node concept="2OqwBi" id="LHoC_melQ9" role="3uHU7B">
+                              <node concept="37vLTw" id="LHoC_mel$n" role="2Oq$k0">
+                                <ref role="3cqZAo" node="5kb9snP2c$4" resolve="ancestor" />
+                              </node>
+                              <node concept="1BlSNk" id="LHoC_mem6D" role="2OqNvi">
+                                <ref role="1BmUXE" to="tpee:fz12cDA" resolve="ClassConcept" />
+                                <ref role="1Bn3mz" to="tpee:gXzkM_H" resolve="superclass" />
+                              </node>
+                            </node>
+                            <node concept="2OqwBi" id="LHoC_menKP" role="3uHU7w">
+                              <node concept="37vLTw" id="LHoC_mentP" role="2Oq$k0">
+                                <ref role="3cqZAo" node="5kb9snP2c$4" resolve="ancestor" />
+                              </node>
+                              <node concept="1BlSNk" id="LHoC_meo1g" role="2OqNvi">
+                                <ref role="1BmUXE" to="tpee:fz12cDA" resolve="ClassConcept" />
+                                <ref role="1Bn3mz" to="tpee:fWEKbgp" resolve="implementedInterface" />
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
+                      <node concept="2OqwBi" id="LHoC_mek$v" role="3uHU7B">
+                        <node concept="37vLTw" id="LHoC_mek$w" role="2Oq$k0">
+                          <ref role="3cqZAo" node="5kb9snP2c$4" resolve="ancestor" />
+                        </node>
+                        <node concept="1mIQ4w" id="LHoC_mek$x" role="2OqNvi">
+                          <node concept="chp4Y" id="LHoC_mekYV" role="cj9EA">
+                            <ref role="cht4Q" to="tpee:g7uibYu" resolve="ClassifierType" />
+                          </node>
                         </node>
                       </node>
                     </node>

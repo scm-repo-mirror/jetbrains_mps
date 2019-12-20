@@ -53,7 +53,7 @@ public class InheritanceCheckingCallback implements ClassifierTraversalCallback 
     /*package*/ SignatureRecord() {
     }
 
-    /*package*/ SignatureRecord(SignatureRecord record) {
+    /*package*/ SignatureRecord(InheritanceCheckingCallback.SignatureRecord record) {
       MapSequence.fromMap(mySignature2TopMostImpl).putAll(record.mySignature2TopMostImpl);
     }
 

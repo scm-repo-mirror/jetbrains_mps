@@ -67,7 +67,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_a.Item item = new SMP_Action_w0ulk7_a.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -147,7 +147,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_b.Item item = new SMP_Action_w0ulk7_b.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -212,7 +212,7 @@ public class constants extends SubstituteMenuBase {
     @NotNull
     @Override
     protected List<SubstituteMenuItem> createItems(Boolean parameter, SubstituteMenuContext context) {
-      return new SMP_Param_w0ulk7_c.SMP_Action_w0ulk7_a2(parameter).createItems(context);
+      return new SMP_Action_w0ulk7_a2(parameter).createItems(context);
     }
     @NotNull
     @Override
@@ -239,7 +239,7 @@ public class constants extends SubstituteMenuBase {
       @Nullable
       @Override
       protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-        SMP_Param_w0ulk7_c.SMP_Action_w0ulk7_a2.Item item = new SMP_Param_w0ulk7_c.SMP_Action_w0ulk7_a2.Item(_context);
+        Item item = new Item(_context);
         String description;
         try {
           description = "Substitute item: " + item.getMatchingText("");
@@ -311,7 +311,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_d.Item item = new SMP_Action_w0ulk7_d.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -377,7 +377,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_e.Item item = new SMP_Action_w0ulk7_e.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");
@@ -443,7 +443,7 @@ public class constants extends SubstituteMenuBase {
     @Nullable
     @Override
     protected SubstituteMenuItem createItem(SubstituteMenuContext _context) {
-      SMP_Action_w0ulk7_f.Item item = new SMP_Action_w0ulk7_f.Item(_context);
+      Item item = new Item(_context);
       String description;
       try {
         description = "Substitute item: " + item.getMatchingText("");

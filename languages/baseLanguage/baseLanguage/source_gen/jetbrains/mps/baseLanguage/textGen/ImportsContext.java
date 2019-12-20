@@ -12,14 +12,14 @@ import java.util.HashSet;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SModelOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
-import java.util.Objects;
-import jetbrains.mps.baseLanguage.behavior.IClassifierMember__BehaviorDescriptor;
+import java.util.List;
+import jetbrains.mps.baseLanguage.behavior.Classifier__BehaviorDescriptor;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import java.util.ArrayList;
+import java.util.Objects;
 import org.jetbrains.mps.openapi.language.SProperty;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
-import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 /*package*/ class ImportsContext {
@@ -58,20 +58,20 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
     String nestedPart = nestedName.substring(rootClassifierName.length());
     ImportEntry rootClassifierEntry = getRootClassifierRefText(packageName, rootClassifierName, contextNode);
     if ((nestedPart != null && nestedPart.length() > 0)) {
+      // To handle ConstructorDeclaration 
+      target = SNodeOperations.getNodeAncestor(target, CONCEPTS.Classifier$hJ, true, false);
+
+      // classifiers that prepend the target classifier and not the context node's location 
+      List<SNode> distinctClassifierPath = (target != null ? Classifier__BehaviorDescriptor.getClassifierPathDistinctFromContext_id2qKFNTWlEOm.invoke(target, contextNode) : ListSequence.fromList(new ArrayList<SNode>()));
+
       // just need to check whether I reference the enclosing root class 
       String rootClassifierFqName = packageName + "." + rootClassifierName;
-      if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(myRootNode), rootClassifierFqName) && (target == null || (boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(target) || SNodeOperations.isInstanceOf(target, CONCEPTS.Interface$Kp) || ((SNodeOperations.getNodeAncestor(contextNode, CONCEPTS.StaticKind$hY, false, false) == null) && ListSequence.fromList(SNodeOperations.getNodeAncestors(contextNode, CONCEPTS.Classifier$hJ, true)).where(new IWhereFilter<SNode>() {
-        public boolean accept(SNode it) {
-          return (boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(it) && SNodeOperations.getParent(it) != null;
-        }
-      }).isEmpty()))) {
-        SNode n = contextNode;
-        while (n != null && SNodeOperations.getParent(n) != myRootNode) {
-          n = SNodeOperations.getParent(n);
-        }
-        if (n != null && SNodeOperations.hasRole(n, LINKS.member$oYX5)) {
-          assert nestedPart.startsWith(".");
-          return new ImportEntry(nestedPart.substring(1));
+
+      // Is the root of the target the same as the root of the context node 
+      if (Objects.equals(INamedConcept__BehaviorDescriptor.getFqName_idhEwIO9y.invoke(myRootNode), rootClassifierFqName)) {
+        // Can we use a shorter path than the full path from the root 
+        if (ListSequence.fromList(distinctClassifierPath).count() > 0 && SNodeOperations.getParent(ListSequence.fromList(distinctClassifierPath).getElement(0)) != null && SNodeOperations.hasRole(ListSequence.fromList(distinctClassifierPath).getElement(0), LINKS.member$oYX5)) {
+          return new ImportEntry(Classifier__BehaviorDescriptor.buildClassifierPath_id2qKFNTWoqtI.invoke(target, distinctClassifierPath));
         }
       }
       return new ImportEntry(nestedPart, rootClassifierEntry);
@@ -129,8 +129,6 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
 
   private static final class CONCEPTS {
     /*package*/ static final SConcept Classifier$hJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");
-    /*package*/ static final SConcept Interface$Kp = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101edd46144L, "jetbrains.mps.baseLanguage.structure.Interface");
-    /*package*/ static final SInterfaceConcept StaticKind$hY = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x427c475b3d6201deL, "jetbrains.mps.baseLanguage.structure.StaticKind");
   }
 
   private static final class LINKS {
