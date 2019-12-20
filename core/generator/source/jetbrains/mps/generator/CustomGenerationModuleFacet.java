@@ -41,11 +41,6 @@ public class CustomGenerationModuleFacet extends ModuleFacetBase implements Mode
     super(FACET_TYPE);
   }
 
-  @Override
-  public String getFacetPresentation() {
-    return "Custom generation";
-  }
-
   @Nullable
   public ModelGenerationPlan getPlan(@NotNull SModel model) {
     if (myPlanModel == null) {

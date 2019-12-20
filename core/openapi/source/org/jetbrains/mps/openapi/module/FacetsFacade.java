@@ -92,5 +92,13 @@ public abstract class FacetsFacade {
     default SModuleFacet create(@NotNull SModule module) {
       return create();
     }
+
+    /**
+     * @return user readable name for UI
+     */
+    @NotNull
+    default String getPresentation() {
+      return "";
+    }
   }
 }

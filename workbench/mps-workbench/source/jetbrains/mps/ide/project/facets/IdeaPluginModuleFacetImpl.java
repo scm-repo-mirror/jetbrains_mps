@@ -39,11 +39,6 @@ public class IdeaPluginModuleFacetImpl extends ModuleFacetBase implements IdeaPl
   }
 
   @Override
-  public String getFacetPresentation() {
-    return "Idea Plugin";
-  }
-
-  @Override
   public boolean setModule(SModule module) {
     return module instanceof Solution && super.setModule(module);
   }

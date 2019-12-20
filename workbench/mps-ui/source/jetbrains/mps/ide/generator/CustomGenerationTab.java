@@ -46,7 +46,7 @@ class CustomGenerationTab extends BaseTab implements FacetTab {
   private GenPlanPickPanel myPlanPanel;
 
   public CustomGenerationTab(MPSProject mpsProject, CustomGenerationModuleFacet moduleFacet) {
-    super("Custom generation", IdeIcons.GENERATOR_ICON, "Alternative generation process for models of the module");
+    super("Custom Generation", IdeIcons.GENERATOR_ICON, "Alternative generation process for models of the module");
     myProject = mpsProject;
     myModuleFacet = moduleFacet;
   }

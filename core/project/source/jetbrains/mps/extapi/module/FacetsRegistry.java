@@ -22,6 +22,8 @@ import jetbrains.mps.project.facets.JavaModuleFacetImpl;
 import jetbrains.mps.project.facets.TestsFacet;
 import jetbrains.mps.project.facets.TestsFacetImpl;
 import jetbrains.mps.smodel.BootstrapLanguages;
+import jetbrains.mps.util.NameUtil;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.util.containers.MultiMap;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -47,6 +49,12 @@ public class FacetsRegistry extends FacetsFacade implements CoreComponent {
       rv.setModule(module);
       return rv;
     }
+
+    @NotNull
+    @Override
+    public String getPresentation() {
+      return "Tests";
+    }
   };
 
   private final FacetFactory JAVA_MODULE_FACET_FACTORY = new FacetFactory() {
@@ -55,6 +63,12 @@ public class FacetsRegistry extends FacetsFacade implements CoreComponent {
       final JavaModuleFacetImpl rv = new JavaModuleFacetImpl();
       rv.setModule(module);
       return rv;
+    }
+
+    @NotNull
+    @Override
+    public String getPresentation() {
+      return "Java";
     }
   };
 
@@ -138,6 +152,12 @@ public class FacetsRegistry extends FacetsFacade implements CoreComponent {
           final DumbIdeaPluginFacet rv = new DumbIdeaPluginFacet();
           rv.setModule(module);
           return rv;
+        }
+
+        @NotNull
+        @Override
+        public String getPresentation() {
+          return "Idea Plugin";
         }
       };
       addFactory(DumbIdeaPluginFacet.FACET_TYPE, DUMB_IDEA_PLUGIN_FACET_FACTORY);

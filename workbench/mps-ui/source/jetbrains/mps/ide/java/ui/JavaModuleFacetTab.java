@@ -82,7 +82,7 @@ public class JavaModuleFacetTab extends BaseTab implements FacetTab {
   private final JavaModuleFacetImpl myJavaModuleFacet;
 
   public JavaModuleFacetTab(JavaModuleFacetImpl javaModuleFacet) {
-    super(javaModuleFacet.getFacetPresentation(), General.Java, PropertiesBundle.message("facet.java.tip"));
+    super("Java", General.Java, PropertiesBundle.message("facet.java.tip"));
     myJavaModuleFacet = javaModuleFacet;
   }
 

@@ -16,7 +16,6 @@
 package jetbrains.mps.ide.project.facets;
 
 import com.intellij.openapi.Disposable;
-import com.intellij.openapi.components.ApplicationComponent;
 import jetbrains.mps.classloading.IdeaPluginModuleFacet;
 import jetbrains.mps.extapi.module.FacetsRegistry;
 import jetbrains.mps.ide.MPSCoreComponents;
@@ -40,6 +39,12 @@ public final class IdeaPluginModuleFacetImplComponent implements IdeaPluginFacet
     @Override
     public boolean isApplicable(@NotNull SModule module) {
       return module instanceof Solution;
+    }
+
+    @NotNull
+    @Override
+    public String getPresentation() {
+      return "Idea Plugin";
     }
   };
 

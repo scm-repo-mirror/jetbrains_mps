@@ -297,10 +297,15 @@ public class SModelTreeNode extends MPSTreeNode implements TreeElement {
       }
 
       if (getTree() instanceof MPSTreeChildOrder) {
+        final MPSTreeChildOrder childOrderTree = (MPSTreeChildOrder) getTree();
         final ArrayList<MPSTreeNode> copyToSort = new ArrayList<>(getChildren());
-        if (((MPSTreeChildOrder) getTree()).reorder(this, copyToSort)) {
+        if (childOrderTree.reorder(this, copyToSort)) {
           removeAllChildren();
           copyToSort.forEach(this::add);
+        }
+        for (PackageNode pn : myPackageNodes.values()) {
+          final List<MPSTreeNode> pnChildren = (List<MPSTreeNode>) pn.getChildren();
+          childOrderTree.reorder(pn, pnChildren);
         }
       }
 

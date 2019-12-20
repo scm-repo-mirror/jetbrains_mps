@@ -57,11 +57,6 @@ public class JavaModuleFacetImpl extends ModuleFacetBase implements JavaModuleFa
   }
 
   @Override
-  public String getFacetPresentation() {
-    return "Java";
-  }
-
-  @Override
   public boolean isCompileInMps() {
     AbstractModule module = getModule();
     ModuleDescriptor descriptor = module.getModuleDescriptor();

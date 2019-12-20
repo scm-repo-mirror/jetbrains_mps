@@ -65,6 +65,12 @@ public class ModulesReloadTest extends ModuleMpsTest {
       rv.setModule(module);
       return rv;
     }
+
+    @NotNull
+    @Override
+    public String getPresentation() {
+      return "Java";
+    }
   };
 
   private static File createTempDir() {

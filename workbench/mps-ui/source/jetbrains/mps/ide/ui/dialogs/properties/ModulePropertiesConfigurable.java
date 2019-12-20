@@ -60,7 +60,6 @@ import jetbrains.mps.extapi.module.FacetsRegistry;
 import jetbrains.mps.extapi.module.ModuleFacetBase;
 import jetbrains.mps.findUsages.CompositeFinder;
 import jetbrains.mps.icons.MPSIcons.General;
-import jetbrains.mps.ide.IdeBundle;
 import jetbrains.mps.ide.findusages.model.IResultProvider;
 import jetbrains.mps.ide.findusages.model.SearchQuery;
 import jetbrains.mps.ide.findusages.model.holders.GenericHolder;
@@ -120,10 +119,11 @@ import jetbrains.mps.util.ComputeRunnable;
 import jetbrains.mps.util.ConditionalIterable;
 import jetbrains.mps.util.FileUtil;
 import jetbrains.mps.util.IterableUtil;
+import jetbrains.mps.util.NameUtil;
 import jetbrains.mps.util.Pair;
 import jetbrains.mps.util.ToStringComparator;
+import jetbrains.mps.util.annotation.ToRemove;
 import jetbrains.mps.vfs.util.PathUtil;
-import org.apache.log4j.LogManager;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -132,6 +132,7 @@ import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.model.SModelReference;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
+import org.jetbrains.mps.openapi.module.FacetsFacade;
 import org.jetbrains.mps.openapi.module.SDependencyScope;
 import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleFacet;
@@ -512,9 +513,9 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
         ((DevkitDescriptor) myModuleDescriptor).setAssociatedPlan(myPlanPanel.getPlanModel());
         myPlanPickScope.reset();
       } else {
-        if (myGenOut != null ){
+        if (myGenOut != null) {
           String genOut = PathUtil.toSystemIndependent(myGenOut.getText());
-          if(!genOut.equals(getGenOutPath())) {
+          if (!genOut.equals(getGenOutPath())) {
             // here we imply getGenOutPath uses ProjectPathUtil.getGeneratorOutputPath
             ProjectPathUtil.setGeneratorOutputPath(myModuleDescriptor, genOut);
           }
@@ -1450,28 +1451,33 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
           () -> facetsRegistry.getApplicableFacetTypes(myModule.getUsedLanguages()));
 
       for (String facetType : facetsRegistry.getFacetTypes()) {
-        SModuleFacet existingFacetInstance = existingFacetTypes.get(facetType);
-        String facetPresentation;
-        if (existingFacetInstance == null) {
-          // first, consult if the new one is for this sort of modules.
-          // For existing, we might want to denote those not applicable as 'useless' in UI.
-          if (!facetsRegistry.getFacetFactory(facetType).isApplicable(myModule)) {
-            continue;
-          }
-          facetPresentation = facetType;
-        } else {
-          facetPresentation = existingFacetInstance instanceof ModuleFacetBase ? ((ModuleFacetBase) existingFacetInstance).getFacetPresentation() : facetType;
+        if (!facetsRegistry.getFacetFactory(facetType).isApplicable(myModule)) {
+          continue;
         }
-        String fmt = PropertiesBundle.message("module.facets.checkbox.title");
-        facetPresentation = applicableFacetTypes.contains(facetType)
-                            ? String.format(fmt, facetPresentation) : facetPresentation;
+
+        SModuleFacet existingFacetInstance = existingFacetTypes.get(facetType);
+        String facetPresentation = facetsRegistry.getFacetFactory(facetType).getPresentation();
+        if (facetPresentation.isEmpty()) {
+          facetPresentation = type2PresentationConverter(facetType);
+        }
+        if (applicableFacetTypes.contains(facetType)) {
+          facetPresentation = String.format(
+              PropertiesBundle.message("module.facets.checkbox.title"),
+              facetPresentation
+          );
+        }
         FacetCheckBox checkBox = existingFacetTypes.containsKey(facetType)
-                                 ? new FacetCheckBox(AddFacetsTab.this, existingFacetInstance, myFacetTabsPersistence.getFacetTab(existingFacetInstance),
+                                 ? new FacetCheckBox(AddFacetsTab.this,
+                                                     existingFacetInstance,
+                                                     myFacetTabsPersistence.getFacetTab(existingFacetInstance),
                                                      facetPresentation)
-                                 : new FacetCheckBox(AddFacetsTab.this, facetType, facetPresentation);
+                                 : new FacetCheckBox(AddFacetsTab.this,
+                                                     facetType,
+                                                     facetPresentation);
 
         myCheckBoxes.add(checkBox);
       }
+
       Collections.sort(myCheckBoxes);
       final JPanel panel = new JPanel();
       panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -1482,6 +1488,27 @@ public class ModulePropertiesConfigurable extends MPSPropertiesConfigurable {
       }
 
       setTabComponent(panel);
+    }
+
+    /**
+     * Converts ID-like facet type to better human readable label.
+     * <p>
+     * This is temporary helper method for transition period.
+     * Should be removed alongside with {@link FacetsFacade#addFactory(String, FacetsFacade.FacetFactory)}.
+     */
+    @ToRemove(version = 2020.1)
+    private String type2PresentationConverter(String facetType) {
+      final StringBuilder builder = new StringBuilder(facetType.length());
+      if (!facetType.isEmpty()) {
+        builder.append(Character.toUpperCase(facetType.charAt(0)));
+      }
+      for (int i = 1; i < facetType.length(); i++) {
+        if (Character.isUpperCase(facetType.charAt(i))) {
+          builder.append(' ');
+        }
+        builder.append(facetType.charAt(i));
+      }
+      return NameUtil.captionWithNamingPolicy(builder.toString());
     }
 
     @Override
