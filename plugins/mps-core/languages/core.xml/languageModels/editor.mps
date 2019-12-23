@@ -1508,6 +1508,20 @@
       </node>
       <node concept="3F0A7n" id="5M4a$b5j9jb" role="3EZMnx">
         <ref role="1NtTu8" to="tpck:h0TrG11" resolve="name" />
+      </node>
+      <node concept="3F0ifn" id="6EZFicH$E76" role="3EZMnx">
+        <property role="3F0ifm" value="." />
+        <node concept="11L4FC" id="6EZFicH$HPi" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+        <node concept="11LMrY" id="6EZFicH$HRn" role="3F10Kt">
+          <property role="VOm3f" value="true" />
+        </node>
+      </node>
+      <node concept="3F0A7n" id="6EZFicH$Eaq" role="3EZMnx">
+        <property role="1O74Pk" value="true" />
+        <property role="1$x2rV" value="xml" />
+        <ref role="1NtTu8" to="iuxj:6EZFicH$DRV" resolve="fileExtension" />
         <node concept="ljvvj" id="5M4a$b5j9jh" role="3F10Kt">
           <property role="VOm3f" value="true" />
         </node>
