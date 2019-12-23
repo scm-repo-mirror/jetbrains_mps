@@ -20,6 +20,7 @@
     <dependency reexport="false">f2f32c65-17db-4e68-ad2f-8b0e2554dbd6(tests.testPersistence)</dependency>
     <dependency reexport="false">99305b9b-aa2f-490a-a517-130cdd46b087(CloneModule.test)</dependency>
     <dependency reexport="false">64b24ebe-97a2-466e-83d8-bd3afefcbb41(refactoring.test)</dependency>
+    <dependency reexport="false">9ebe73c6-437b-4a56-95a7-1d7eec081f24(mps.test.findusages)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:9f846aef-4e4a-4a84-828e-7e83fe2697f2:jetbrains.mps.build.mps.testManifest" version="0" />
@@ -42,6 +43,7 @@
     <module reference="fdaaf35f-8ee3-4c37-b09d-9efaeaaa7a41(jetbrains.mps.core.tool.environment)" version="0" />
     <module reference="422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)" version="0" />
     <module reference="9e98f4e2-decf-4e97-bf80-9109e8b759aa(jetbrains.mps.lang.feedback.context)" version="0" />
+    <module reference="9ebe73c6-437b-4a56-95a7-1d7eec081f24(mps.test.findusages)" version="0" />
     <module reference="64b24ebe-97a2-466e-83d8-bd3afefcbb41(refactoring.test)" version="0" />
     <module reference="f4227833-0d14-4ab5-8560-70880fd9d5ef(testSubstituteType)" version="0" />
     <module reference="b3170ec7-82d9-4e10-a3f0-31baa75ffc0c(testSubtypingTest)" version="0" />
