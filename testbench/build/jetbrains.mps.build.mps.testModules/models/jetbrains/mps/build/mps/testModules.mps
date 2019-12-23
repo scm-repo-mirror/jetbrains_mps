@@ -13,6 +13,7 @@
     <import index="cpet" ref="r:8ef4c1fc-fb61-4d5c-806c-7a971cfb9392(tests.testPersistence.test@tests)" />
     <import index="2apo" ref="r:20ab6a94-5179-4062-a795-403815374f72(CloneModule.test.test@tests)" />
     <import index="q08g" ref="r:7da8cb5d-b937-4ac8-a4e8-0f345dfd2711(jetbrains.mps.refactoring.test.test@tests)" />
+    <import index="8ytb" ref="r:0fc0617b-a58c-4b18-af63-dc67be77023b(mps.test.findusages@tests)" />
   </imports>
   <registry>
     <language id="9f846aef-4e4a-4a84-828e-7e83fe2697f2" name="jetbrains.mps.build.mps.testManifest">
@@ -61,6 +62,9 @@
     </node>
     <node concept="2Uj$md" id="3iBi5uuKAAO" role="2Uj_Yd">
       <ref role="2Uj$mc" to="q08g:6rP_NjK3fBF" resolve="RefactoringTest" />
+    </node>
+    <node concept="2Uj$md" id="4tzJw0sqrFJ" role="2Uj_Yd">
+      <ref role="2Uj$mc" to="8ytb:4tzJw0sqrF_" resolve="FindUsages" />
     </node>
     <node concept="1dCxOl" id="4JE22xb2zS5" role="3cVaLd">
       <property role="1XweGQ" value="r:12897c41-1d23-444a-8c3d-8a254e74f9b6" />
