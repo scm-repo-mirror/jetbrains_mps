@@ -20,6 +20,7 @@ import com.intellij.ide.CutProvider;
 import com.intellij.ide.PasteProvider;
 import com.intellij.ide.projectView.ProjectView;
 import com.intellij.ide.projectView.impl.AbstractProjectViewPane;
+import com.intellij.ide.projectView.impl.ProjectViewState;
 import com.intellij.openapi.actionSystem.ActionPlaces;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
@@ -118,6 +119,10 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
 
   public ProjectView getProjectView() {
     return myProjectView;
+  }
+
+  /*package*/ ProjectViewState getProjectViewState() {
+    return ProjectViewState.getInstance(getProject());
   }
 
   public abstract void rebuild();
@@ -220,7 +225,10 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
 
   public boolean isSortByConcept() {
     // we re-use IDEA's sort by type for MPS 'sort by root concept'
-    return getProjectView().isSortByType(getId());
+    // However, can not re-use it by getProjectView.isSortByType because we have to override supportsSortByType() to return false
+    // not to get IDEA's UI action contributed (we've got our own), but IDEA doesn't set the option unless supportsSortByType() gives true,
+    // see ProjectViewImpl.mySortByType.isEnabled and ProjectViewImpl.Option.isEnabled(), therefore we resort right to view state implementation
+    return getProjectViewState().getSortByType();
   }
 
   @Override
@@ -628,7 +636,7 @@ public abstract class BaseLogicalViewProjectPane extends AbstractProjectViewPane
     @Override
     public void setSelected(@Nullable AnActionEvent e, boolean state) {
       if (state != isSortByConcept()) {
-        getProjectView().setSortByType(getId(), state);
+        getProjectViewState().setSortByType(state);
         rebuild();
       }
     }

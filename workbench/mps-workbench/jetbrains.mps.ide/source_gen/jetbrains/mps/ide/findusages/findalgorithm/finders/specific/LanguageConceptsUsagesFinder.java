@@ -11,19 +11,21 @@ import org.jetbrains.mps.openapi.module.SModule;
 import org.jetbrains.mps.openapi.module.SModuleReference;
 import jetbrains.mps.smodel.Language;
 import org.jetbrains.mps.openapi.model.SModel;
-import java.util.List;
+import java.util.Set;
 import org.jetbrains.mps.openapi.model.SNode;
-import java.util.LinkedList;
+import java.util.LinkedHashSet;
 import jetbrains.mps.ide.findusages.findalgorithm.finders.SearchedObjects;
-import jetbrains.mps.util.IterableUtil;
+import jetbrains.mps.ide.findusages.model.holders.ModelHolder;
+import jetbrains.mps.ide.findusages.model.SearchResults;
 import jetbrains.mps.ide.findusages.view.FindUtils;
-import jetbrains.mps.project.AllUserModelsScope;
 import jetbrains.mps.ide.ui.finders.ModelImportsUsagesFinder;
+import java.util.List;
 import java.util.ArrayList;
-import org.jetbrains.mps.openapi.module.SearchScope;
+import org.jetbrains.mps.openapi.module.FindUsagesFacade;
 import jetbrains.mps.ide.findusages.model.scopes.ModelsScope;
+import org.jetbrains.mps.openapi.util.Consumer;
+import org.jetbrains.mps.openapi.model.SReference;
 import jetbrains.mps.ide.findusages.model.SearchResult;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
 
 @GeneratedClass(node = "r:3decc57d-6015-4d6c-ad86-7f2134c013b6(jetbrains.mps.ide.findusages.findalgorithm.finders.specific)/7228605397000826641", model = "r:3decc57d-6015-4d6c-ad86-7f2134c013b6(jetbrains.mps.ide.findusages.findalgorithm.finders.specific)")
 public class LanguageConceptsUsagesFinder implements IFinder {
@@ -36,13 +38,13 @@ public class LanguageConceptsUsagesFinder implements IFinder {
   }
 
   @Override
-  public void find(SearchQuery query, @NotNull final IFinder.FindCallback callback, @NotNull ProgressMonitor monitor) {
+  public final void find(SearchQuery query, @NotNull final IFinder.FindCallback callback, @NotNull ProgressMonitor monitor) {
     Object value = query.getObjectHolder().getObject();
     SModule module = null;
     if (value instanceof SModule) {
       module = ((SModule) value);
     } else if (value instanceof SModuleReference) {
-      module = query.getScope().resolve(((SModuleReference) value));
+      module = query.getSearchObjectResolver().resolve(((SModuleReference) value));
     }
     if (!(module instanceof Language)) {
       return;
@@ -55,32 +57,32 @@ public class LanguageConceptsUsagesFinder implements IFinder {
     if (!(structureModel.getRootNodes().iterator().hasNext())) {
       return;
     }
-    List<SNode> roots = new LinkedList<SNode>();
+    monitor.start(getDescription(), 4);
+    // I'm not sure linked set is of any value here, just would like to keep the order the way it was with a list. 
+    Set<SNode> roots = new LinkedHashSet<SNode>();
     for (SNode root : structureModel.getRootNodes()) {
       roots.add(root);
     }
     callback.onSearchedObjectsCalculated(new SearchedObjects(roots));
 
-    monitor.start("", IterableUtil.asCollection(structureModel.getRootNodes()).size() + 1);
+    monitor.advance(1);
     try {
-      FindUtils.searchForResults(monitor.subTask(1), callback, new SearchQuery(structureModel.getReference(), AllUserModelsScope.getInstance()), ((IFinder) new ModelImportsUsagesFinder()));
+      SearchQuery modelImportsQuery = new SearchQuery(new ModelHolder(structureModel.getReference()), query.getSearchObjectResolver(), query.getScope());
+      SearchResults<?> modelsWithImport = FindUtils.getSearchResults(monitor.subTask(1), modelImportsQuery, new ModelImportsUsagesFinder());
       List<SModel> models = new ArrayList<SModel>();
-      SearchScope scope = new ModelsScope(models.toArray(new SModel[models.size()]));
-      for (SNode node : roots) {
-        if (monitor.isCanceled()) {
-          break;
+      for (Object mr : modelsWithImport.getResultObjects()) {
+        if (mr instanceof SModel) {
+          models.add((SModel) mr);
         }
-        FindUtils.searchForResults(monitor.subTask(1), new IFinder.FindCallback() {
-          public void onUsageFound(@NotNull SearchResult<?> searchResult) {
-            SNode nodeParam = (SNode) searchResult.getObject();
-            new _FunctionTypes._void_P1_E0<SNode>() {
-              public void invoke(SNode foundNode) {
-                callback.onUsageFound(new SearchResult(foundNode, null));
-              }
-            }.invoke(nodeParam);
-          }
-        }, new SearchQuery(node, scope), FindUtils.getFinder("jetbrains.mps.lang.structure.findUsages.NodeUsages_Finder"));
       }
+      // don't use NodeUsages finder for each root, as it's quite ineffective with large model scope (each model from the scope is walked completely to see if any of its node's reference 
+      // points to the supplied node, i.e. each model is completely traversed N (== roots.size) times. Imagine looking up concepts of BL (hundreds of roots, in hundreds of models). 
+      FindUsagesFacade.getInstance().findUsages(new ModelsScope(models), roots, new Consumer<SReference>() {
+        @Override
+        public void consume(@NotNull SReference ref) {
+          callback.onUsageFound(new SearchResult(ref.getSourceNode(), "Concept Usage"));
+        }
+      }, monitor.subTask(2));
     } finally {
       monitor.done();
     }

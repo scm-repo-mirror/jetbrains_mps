@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2011 JetBrains s.r.o.
+ * Copyright 2003-2019 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,9 +19,15 @@ import jetbrains.mps.extapi.model.TransientSModel;
 import jetbrains.mps.extapi.module.TransientSModule;
 import jetbrains.mps.smodel.tempmodel.TempModule;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
+import jetbrains.mps.util.annotation.ToRemove;
 import org.jetbrains.mps.openapi.model.SModel;
 import org.jetbrains.mps.openapi.module.SModule;
 
+/**
+ * @deprecated alternative instance of singleton GlobalScope, don't use. Stick to project scope or any other limited scope instead.
+ */
+@Deprecated
+@ToRemove(version = 2019.3)
 public class AllUserModelsScope extends FilteredScope {
   public AllUserModelsScope() {
     super(GlobalScope.getInstance());
