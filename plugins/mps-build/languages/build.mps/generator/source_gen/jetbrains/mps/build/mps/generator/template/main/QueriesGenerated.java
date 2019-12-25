@@ -1781,7 +1781,7 @@ public class QueriesGenerated extends QueryProviderBase {
     return plugins.getPluginPaths();
   }
   public static Object varMacro_Value_10_8(final TemplateVarContext _context) {
-    VisibleModules visibleModules = new VisibleModules(_context.getNode());
+    VisibleModules visibleModules = new VisibleModules(_context.getNode(), _context);
     visibleModules.collect();
     // jetbrains.mps.tool.gentest 
     SNode gentest = visibleModules.resolveById("3ba7b7cf-6a5a-4981-ba0b-3302e59ffef7");
