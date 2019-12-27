@@ -460,6 +460,7 @@ public class LanguageRegistry implements CoreComponent, DeployListener {
       monitor.advance(1);
 
       for (LanguageRuntime languageRuntime : languagesToUnload) {
+        languageRuntime.dispose();
         myLanguagesById.remove(languageRuntime.getId());
       }
       reinitialize();

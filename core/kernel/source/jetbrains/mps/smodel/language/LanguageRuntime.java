@@ -225,6 +225,10 @@ public abstract class LanguageRuntime {
     myExtendedLanguages.clear();
   }
 
+  void dispose() {
+    myAspectDescriptors.values().forEach(ILanguageAspect::dispose);
+  }
+
   @Override
   public String toString() {
     return getNamespace() + " runtime";
