@@ -337,17 +337,19 @@ public final class Classifier__BehaviorDescriptor extends BaseBHDescriptor {
     return ((String) Classifier__BehaviorDescriptor.getNestedNameInContext_id7q4lzBFjvF8.invoke(__thisNode__, null));
   }
   /*package*/ static List<SNode> getClassifierPathToContext_id2qKFNTWiPl1(@NotNull SNode __thisNode__, SNode context) {
-    boolean targetIsStatic = (SNodeOperations.isInstanceOf(__thisNode__, CONCEPTS.Interface$Kp) || ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(__thisNode__))) && SNodeOperations.getParent(__thisNode__) != null;
+    final boolean targetIsStatic = (SNodeOperations.isInstanceOf(__thisNode__, CONCEPTS.Interface$Kp) || ((boolean) IClassifierMember__BehaviorDescriptor.isStatic_id6r77ob2USS8.invoke(__thisNode__))) && SNodeOperations.getParent(__thisNode__) != null;
     List<SNode> contextAncestors = SNodeOperations.getNodeAncestorsWhereConceptInList(context, new SAbstractConcept[]{CONCEPTS.Classifier$hJ, CONCEPTS.StaticKind$hY, CONCEPTS.ClassifierType$IZ}, true);
 
     List<SNode> contextContainers = ListSequence.fromList(new ArrayList<SNode>());
-    for (SNode ancestor : contextAncestors) {
-      if (SNodeOperations.isInstanceOf(ancestor, CONCEPTS.ClassifierType$IZ) && SNodeOperations.isInstanceOf(SNodeOperations.getParent(ancestor), CONCEPTS.ClassifierType$IZ)) {
-        SNode p = SNodeOperations.getParent(ancestor);
-        if (SNodeOperations.hasRole(p, LINKS.superclass$_pqe) || SNodeOperations.hasRole(p, LINKS.implementedInterface$mdc6) || SNodeOperations.hasRole(p, LINKS.extendedInterface$rbvY)) {
-          break;
+    for (final SNode ancestor : contextAncestors) {
+      if (SNodeOperations.isInstanceOf(ancestor, CONCEPTS.ClassifierType$IZ) && ListSequence.fromList(SNodeOperations.getNodeAncestors(ancestor, null, false)).any(new IWhereFilter<SNode>() {
+        public boolean accept(SNode it) {
+          return (targetIsStatic || !(Objects.equals(it, SNodeOperations.getParent(ancestor)))) && (SNodeOperations.hasRole(it, LINKS.superclass$_pqe) || SNodeOperations.hasRole(it, LINKS.implementedInterface$mdc6) || SNodeOperations.hasRole(it, LINKS.extendedInterface$rbvY));
         }
+      })) {
+        break;
       }
+
       if (SNodeOperations.isInstanceOf(ancestor, CONCEPTS.ClassifierType$IZ) && (SNodeOperations.isInstanceOf(SNodeOperations.getParent(ancestor), CONCEPTS.TypeVariableDeclaration$Cc))) {
         // The type variable parametrizes the target of the ClassifierType reference 
         if (Objects.equals(SNodeOperations.getParent(SNodeOperations.getParent(ancestor)), __thisNode__)) {

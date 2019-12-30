@@ -19465,7 +19465,7 @@
   <root nodeRef="r:00000000-0000-4000-0000-011c895902c5(jetbrains.mps.baseLanguage.typesystem)/3950519302558109353">
     <file name="InheritanceCheckingCallback.java">
       <node id="3950519302550427998" at="51,0,52,0" concept="7" trace="mySignature2TopMostImpl" />
-      <node id="3950519302597384228" at="56,85,57,90" concept="6" />
+      <node id="3950519302597384228" at="56,57,57,90" concept="6" />
       <node id="3950519302569090372" at="60,73,61,73" concept="13" />
       <node id="3950519302593202651" at="64,43,65,67" concept="13" />
       <node id="3950519302550661968" at="69,0,70,0" concept="7" trace="myClassifier2Signatures" />
@@ -19643,7 +19643,7 @@
       <node id="7861981782405030048" at="214,103,237,5" concept="10" />
       <node id="7861981782404870397" at="214,0,240,0" concept="11" trace="chooseDominatingMethodOrReportError#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <scope id="3950519302597365431" at="53,35,53,35" />
-      <scope id="3950519302597371459" at="56,85,57,90" />
+      <scope id="3950519302597371459" at="56,57,57,90" />
       <scope id="3950519302569079387" at="60,73,61,73" />
       <scope id="3950519302593199008" at="64,43,65,67" />
       <scope id="3950519302558227357" at="91,46,92,20" />
