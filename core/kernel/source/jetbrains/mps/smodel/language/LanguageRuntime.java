@@ -268,8 +268,10 @@ public abstract class LanguageRuntime {
   /**
    * Same as {@link #forEachContributor(Class, Consumer)} except that gives access to {@link LanguageRuntime} instance for clients that need it.
    * Prefer {@link #forEachContributor(Class, Consumer)} when possible.
+   *
+   * XXX Has to be final, but there are tests that don't utilize LanguageRegistry and need to tweak LanguageRuntime implementation
    */
-  public final void forEachContributor(Consumer<LanguageRuntime> visitor, Class<? extends ILanguageAspect> aspectClass) {
+  public void forEachContributor(Consumer<LanguageRuntime> visitor, Class<? extends ILanguageAspect> aspectClass) {
     if (myLanguageRegistry == null) {
       // generally shall not happen
       String msg = String.format("Attempt to access contributors of non-initialized language runtime, ignored. Requested aspect: %s", aspectClass);
