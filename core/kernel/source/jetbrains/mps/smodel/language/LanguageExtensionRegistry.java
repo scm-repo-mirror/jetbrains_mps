@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package jetbrains.mps.smodel.language;
 
 import jetbrains.mps.smodel.adapter.ids.SLanguageId;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.runtime.ILanguageAspect;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.mps.openapi.language.SLanguage;
@@ -93,6 +94,12 @@ class LanguageExtensionRegistry {
         // there's no real need to go through LangRegistry here, could stick to MetaIdHelper.getLanguage(targetLanguage):SLanguageId
         final LanguageRuntime language = languageRegistry.getLanguage(targetLanguage);
         LanguageExtensionRegistry.this.record(language, aspectClass, contributorRuntime);
+      }
+
+      @Override
+      public void recordContribution(String targetLanguageName, String targetLanguageId, Class<? extends ILanguageAspect> aspectClass) {
+        final SLanguage l = MetaAdapterFactory.getLanguage(SLanguageId.deserialize(targetLanguageId), targetLanguageName);
+        recordContribution(l, aspectClass);
       }
     };
   }

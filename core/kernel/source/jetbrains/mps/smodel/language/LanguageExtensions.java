@@ -1,5 +1,5 @@
 /*
- * Copyright 2003-2019 JetBrains s.r.o.
+ * Copyright 2003-2020 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,4 +40,9 @@ public interface LanguageExtensions {
    * @param aspectClass identifies an aspect of the target language.
    */
   void recordContribution(SLanguage targetLanguage, Class<? extends ILanguageAspect> aspectClass);
+
+  /**
+   * Same as {@link #recordContribution(SLanguage, Class)}, handy for use from generated code
+   */
+  void recordContribution(String targetLanguageName, String targetLanguageId, Class<? extends ILanguageAspect> aspectClass);
 }
