@@ -189,7 +189,7 @@
       <node id="5584387755566226691" at="32,26,33,42" concept="6" />
       <node id="4634869729620616181" at="35,54,36,22" concept="12" />
       <node id="4634869729620616188" at="38,45,39,23" concept="12" />
-      <node id="4634869729620616195" at="41,46,42,44" concept="11" />
+      <node id="4634869729620616195" at="41,73,42,57" concept="11" />
       <node id="4634869729620616205" at="43,50,44,62" concept="11" />
       <node id="5177999194904498680" at="44,62,45,99" concept="11" />
       <node id="4634869729620616212" at="45,99,46,136" concept="11" />
@@ -207,8 +207,8 @@
       <node id="4634869729620616131" at="30,0,35,0" concept="3" trace="Cluster#(Ljava/lang/Iterable;Ljava/lang/Iterable;Ljetbrains/mps/smodel/language/LanguageRegistry;)V" />
       <node id="4634869729620616226" at="46,136,51,10" concept="6" />
       <node id="4634869729620616241" at="51,10,56,10" concept="6" />
-      <node id="8948874851850926300" at="42,44,57,5" concept="8" />
-      <node id="4634869729620616193" at="41,0,60,0" concept="10" trace="createScriptBuilder#()Ljetbrains/mps/make/script/ScriptBuilder;" />
+      <node id="8948874851850926300" at="42,57,57,5" concept="8" />
+      <node id="4634869729620616193" at="41,0,60,0" concept="10" trace="createScriptBuilder#(Ljetbrains/mps/make/facet/FacetRegistry;)Ljetbrains/mps/make/script/ScriptBuilder;" />
       <scope id="4634869729620616180" at="35,54,36,22" />
       <scope id="4634869729620616187" at="38,45,39,23" />
       <scope id="4634869729620616234" at="48,47,49,31" />
@@ -238,81 +238,83 @@
         <var name="fcts" id="4634869729620616213" />
         <var name="lr" id="4634869729620616206" />
       </scope>
-      <scope id="8948874851850926300" at="42,44,57,5">
+      <scope id="8948874851850926300" at="42,57,57,5">
         <var name="ns" id="8948874851850926306" />
       </scope>
-      <scope id="4634869729620616194" at="41,46,58,88">
+      <scope id="4634869729620616194" at="41,73,58,88">
         <var name="scb" id="4634869729620616196" />
       </scope>
-      <scope id="4634869729620616193" at="41,0,60,0" />
+      <scope id="4634869729620616193" at="41,0,60,0">
+        <var name="facetRegistry" id="6716154713813669155" />
+      </scope>
       <unit id="4634869729620616233" at="47,64,51,7" name="jetbrains.mps.make.dependencies.Cluster$1" />
-      <unit id="4634869729620616246" at="52,131,56,7" name="jetbrains.mps.make.dependencies.Cluster$2" />
+      <unit id="4634869729620616246" at="52,117,56,7" name="jetbrains.mps.make.dependencies.Cluster$2" />
       <unit id="4634869729620616118" at="23,0,67,0" name="jetbrains.mps.make.dependencies.Cluster" />
     </file>
   </root>
   <root nodeRef="r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)/4634869729620720374">
     <file name="MakeSequence.java">
-      <node id="4634869729621399404" at="17,0,18,0" concept="7" trace="myClusters" />
-      <node id="8062545178933548886" at="18,0,19,0" concept="7" trace="myInputRes" />
-      <node id="8062545178933555019" at="19,0,20,0" concept="7" trace="myDefaultScript" />
-      <node id="8062545178933561056" at="20,0,21,0" concept="7" trace="myMakeSession" />
-      <node id="8062545178933563364" at="22,130,23,26" concept="6" />
-      <node id="8062545178933566363" at="23,26,24,36" concept="6" />
-      <node id="8062545178933568537" at="24,36,25,32" concept="6" />
-      <node id="5183215718037214928" at="25,32,26,22" concept="6" />
-      <node id="2034046503361595792" at="31,25,32,79" concept="11" />
-      <node id="2034046503361595797" at="32,79,33,56" concept="6" />
-      <node id="4634869729620575067" at="39,34,40,41" concept="6" />
-      <node id="4634869729620577257" at="41,12,42,60" concept="11" />
-      <node id="4634869729620581449" at="42,60,43,57" concept="6" />
-      <node id="4634869729621417708" at="47,22,48,53" concept="12" />
-      <node id="4634869729621548553" at="51,127,52,102" concept="13" />
-      <node id="8062545178933611302" at="53,34,54,32" concept="6" />
-      <node id="4634869729621547708" at="55,64,56,14" concept="2" />
-      <node id="4634869729620576577" at="41,10,44,5" concept="1" />
-      <node id="4634869729620887738" at="47,0,50,0" concept="10" trace="steps#()I" />
-      <node id="4634869729621546246" at="54,32,57,7" concept="9" />
-      <node id="2034046503361595790" at="31,0,35,0" concept="10" trace="run#()V" />
-      <node id="4634869729621283863" at="22,0,28,0" concept="3" trace="MakeSequence#(Ljava/lang/Iterable;Ljetbrains/mps/make/script/IScript;Ljetbrains/mps/make/MakeSession;)V" />
-      <node id="5584387755566232581" at="29,34,35,7" concept="6" />
-      <node id="4634869729620573805" at="38,56,44,5" concept="9" />
-      <node id="4634869729621539187" at="52,102,58,5" concept="8" />
-      <node id="4634869729620720415" at="29,0,37,0" concept="10" trace="prepareClusters#()V" />
-      <node id="4634869729620724588" at="38,0,46,0" concept="10" trace="prepareSciptForCluster#(Ljetbrains/mps/make/dependencies/Cluster;)V" />
-      <node id="4634869729620780491" at="51,0,60,0" concept="10" trace="iterate#(Ljetbrains/mps/baseLanguage/closures/runtime/_FunctionTypes/_return_P2_E0;)V" />
-      <scope id="4634869729620573806" at="39,34,40,41" />
-      <scope id="4634869729620887742" at="47,22,48,53" />
-      <scope id="4634869729621546249" at="55,64,56,14" />
-      <scope id="2034046503361595791" at="31,25,33,56">
+      <node id="4634869729621399404" at="18,0,19,0" concept="7" trace="myClusters" />
+      <node id="8062545178933548886" at="19,0,20,0" concept="7" trace="myInputRes" />
+      <node id="8062545178933555019" at="20,0,21,0" concept="7" trace="myDefaultScript" />
+      <node id="8062545178933561056" at="21,0,22,0" concept="7" trace="myMakeSession" />
+      <node id="8062545178933563364" at="23,130,24,26" concept="6" />
+      <node id="8062545178933566363" at="24,26,25,36" concept="6" />
+      <node id="8062545178933568537" at="25,36,26,32" concept="6" />
+      <node id="5183215718037214928" at="26,32,27,22" concept="6" />
+      <node id="2034046503361595792" at="32,25,33,79" concept="11" />
+      <node id="2034046503361595797" at="33,79,34,56" concept="6" />
+      <node id="4634869729620575067" at="40,34,41,41" concept="6" />
+      <node id="4634869729620577257" at="42,12,43,120" concept="11" />
+      <node id="4634869729620581449" at="43,120,44,57" concept="6" />
+      <node id="4634869729621417708" at="48,22,49,53" concept="12" />
+      <node id="4634869729621548553" at="52,127,53,102" concept="13" />
+      <node id="8062545178933611302" at="54,34,55,32" concept="6" />
+      <node id="4634869729621547708" at="56,64,57,14" concept="2" />
+      <node id="4634869729620576577" at="42,10,45,5" concept="1" />
+      <node id="4634869729620887738" at="48,0,51,0" concept="10" trace="steps#()I" />
+      <node id="4634869729621546246" at="55,32,58,7" concept="9" />
+      <node id="2034046503361595790" at="32,0,36,0" concept="10" trace="run#()V" />
+      <node id="4634869729621283863" at="23,0,29,0" concept="3" trace="MakeSequence#(Ljava/lang/Iterable;Ljetbrains/mps/make/script/IScript;Ljetbrains/mps/make/MakeSession;)V" />
+      <node id="5584387755566232581" at="30,34,36,7" concept="6" />
+      <node id="4634869729620573805" at="39,56,45,5" concept="9" />
+      <node id="4634869729621539187" at="53,102,59,5" concept="8" />
+      <node id="4634869729620720415" at="30,0,38,0" concept="10" trace="prepareClusters#()V" />
+      <node id="4634869729620724588" at="39,0,47,0" concept="10" trace="prepareSciptForCluster#(Ljetbrains/mps/make/dependencies/Cluster;)V" />
+      <node id="4634869729620780491" at="52,0,61,0" concept="10" trace="iterate#(Ljetbrains/mps/baseLanguage/closures/runtime/_FunctionTypes/_return_P2_E0;)V" />
+      <scope id="4634869729620573806" at="40,34,41,41" />
+      <scope id="4634869729620887742" at="48,22,49,53" />
+      <scope id="4634869729621546249" at="56,64,57,14" />
+      <scope id="2034046503361595791" at="32,25,34,56">
         <var name="clusterizer" id="2034046503361595793" />
       </scope>
-      <scope id="4634869729620576578" at="41,12,43,57">
+      <scope id="4634869729620576578" at="42,12,44,57">
         <var name="builder" id="4634869729620577258" />
       </scope>
-      <scope id="4634869729620887738" at="47,0,50,0" />
-      <scope id="4634869729621283866" at="22,130,26,22" />
-      <scope id="2034046503361595790" at="31,0,35,0" />
-      <scope id="4634869729621539188" at="53,34,57,7" />
-      <scope id="4634869729621283863" at="22,0,28,0">
+      <scope id="4634869729620887738" at="48,0,51,0" />
+      <scope id="4634869729621283866" at="23,130,27,22" />
+      <scope id="2034046503361595790" at="32,0,36,0" />
+      <scope id="4634869729621539188" at="54,34,58,7" />
+      <scope id="4634869729621283863" at="23,0,29,0">
         <var name="defaultScript" id="8062545178933544252" />
         <var name="inputRes" id="8062545178932948687" />
         <var name="makeSession" id="8062545178933545101" />
       </scope>
-      <scope id="4634869729620720419" at="29,34,35,7" />
-      <scope id="4634869729620724591" at="38,56,44,5" />
-      <scope id="4634869729621539187" at="52,102,58,5">
+      <scope id="4634869729620720419" at="30,34,36,7" />
+      <scope id="4634869729620724591" at="39,56,45,5" />
+      <scope id="4634869729621539187" at="53,102,59,5">
         <var name="c" id="4634869729621539189" />
       </scope>
-      <scope id="4634869729620780495" at="51,127,58,5" />
-      <scope id="4634869729620720415" at="29,0,37,0" />
-      <scope id="4634869729620724588" at="38,0,46,0">
+      <scope id="4634869729620780495" at="52,127,59,5" />
+      <scope id="4634869729620720415" at="30,0,38,0" />
+      <scope id="4634869729620724588" at="39,0,47,0">
         <var name="cluster" id="8062545178933601627" />
       </scope>
-      <scope id="4634869729620780491" at="51,0,60,0">
+      <scope id="4634869729620780491" at="52,0,61,0">
         <var name="iterator" id="4634869729620780551" />
       </scope>
-      <unit id="2034046503361595790" at="30,66,35,5" name="jetbrains.mps.make.dependencies.MakeSequence$1" />
-      <unit id="4634869729620720374" at="15,0,61,0" name="jetbrains.mps.make.dependencies.MakeSequence" />
+      <unit id="2034046503361595790" at="31,66,36,5" name="jetbrains.mps.make.dependencies.MakeSequence$1" />
+      <unit id="4634869729620720374" at="16,0,62,0" name="jetbrains.mps.make.dependencies.MakeSequence" />
     </file>
   </root>
   <root nodeRef="r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)/5888262800849895741">

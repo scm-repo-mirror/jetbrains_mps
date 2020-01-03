@@ -2438,7 +2438,10 @@
               </node>
               <node concept="2ShNRf" id="7Lza_WeTGlJ" role="33vP2m">
                 <node concept="1pGfFk" id="7Lza_WeTGlK" role="2ShVmc">
-                  <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                  <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                  <node concept="37vLTw" id="5OO$M3_uVXS" role="37wK5m">
+                    <ref role="3cqZAo" node="DgErZvRq$n" resolve="myFacetRegistry" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -2636,7 +2639,10 @@
               </node>
               <node concept="2ShNRf" id="3SVf9h63jb$" role="33vP2m">
                 <node concept="1pGfFk" id="3SVf9h63jb_" role="2ShVmc">
-                  <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                  <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                  <node concept="37vLTw" id="5OO$M3_uZ57" role="37wK5m">
+                    <ref role="3cqZAo" node="DgErZvRq$n" resolve="myFacetRegistry" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -2834,7 +2840,10 @@
               </node>
               <node concept="2ShNRf" id="3SVf9h63jZ1" role="33vP2m">
                 <node concept="1pGfFk" id="3SVf9h63jZ2" role="2ShVmc">
-                  <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                  <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                  <node concept="37vLTw" id="5OO$M3_uZId" role="37wK5m">
+                    <ref role="3cqZAo" node="DgErZvRq$n" resolve="myFacetRegistry" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -3013,7 +3022,10 @@
               </node>
               <node concept="2ShNRf" id="4O1dS63TRsH" role="33vP2m">
                 <node concept="1pGfFk" id="4O1dS63TRH7" role="2ShVmc">
-                  <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                  <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                  <node concept="37vLTw" id="5OO$M3_v0oW" role="37wK5m">
+                    <ref role="3cqZAo" node="DgErZvRq$n" resolve="myFacetRegistry" />
+                  </node>
                 </node>
               </node>
             </node>
@@ -3120,7 +3132,10 @@
             <node concept="37vLTI" id="54Z1$RHn2C3" role="3clFbG">
               <node concept="2ShNRf" id="54Z1$RHn2OF" role="37vLTx">
                 <node concept="1pGfFk" id="54Z1$RHn6oC" role="2ShVmc">
-                  <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                  <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                  <node concept="37vLTw" id="5OO$M3_v2Id" role="37wK5m">
+                    <ref role="3cqZAo" node="DgErZvRq$n" resolve="myFacetRegistry" />
+                  </node>
                 </node>
               </node>
               <node concept="37vLTw" id="54Z1$RHn2og" role="37vLTJ">

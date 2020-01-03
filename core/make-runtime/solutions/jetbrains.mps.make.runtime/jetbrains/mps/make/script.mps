@@ -3073,10 +3073,70 @@
         </node>
       </node>
     </node>
+    <node concept="312cEg" id="5OO$M3_rC2u" role="jymVt">
+      <property role="TrG5h" value="myFacetRegistry" />
+      <property role="3TUv4t" value="true" />
+      <node concept="3Tm6S6" id="5OO$M3_rC2v" role="1B3o_S" />
+      <node concept="3uibUv" id="5OO$M3_rC2x" role="1tU5fm">
+        <ref role="3uigEE" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+      </node>
+    </node>
+    <node concept="2tJIrI" id="5OO$M3_rF1N" role="jymVt" />
     <node concept="3clFbW" id="1i9nLvh04$r" role="jymVt">
       <node concept="3cqZAl" id="1i9nLvh04$s" role="3clF45" />
       <node concept="3Tm1VV" id="1i9nLvh04$t" role="1B3o_S" />
-      <node concept="3clFbS" id="1i9nLvh04$u" role="3clF47" />
+      <node concept="3clFbS" id="1i9nLvh04$u" role="3clF47">
+        <node concept="1VxSAg" id="5OO$M3_rR0l" role="3cqZAp">
+          <ref role="37wK5l" node="5OO$M3_rzyt" resolve="ScriptBuilder" />
+          <node concept="2YIFZM" id="5OO$M3_rS1N" role="37wK5m">
+            <ref role="37wK5l" to="ud0o:5mqBoD3U4qe" resolve="getInstance" />
+            <ref role="1Pybhc" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+          </node>
+        </node>
+      </node>
+      <node concept="P$JXv" id="5OO$M3_rPgC" role="lGtFl">
+        <node concept="TZ5HI" id="5OO$M3_rPgD" role="3nqlJM">
+          <node concept="TZ5HA" id="5OO$M3_rPgE" role="3HnX3l">
+            <node concept="1dT_AC" id="5OO$M3_rV_h" role="1dT_Ay">
+              <property role="1dT_AB" value="replace with the one that takes FacetRegistry argument" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="5OO$M3_rPgF" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
+      </node>
+      <node concept="2AHcQZ" id="5OO$M3_rPJe" role="2AJF6D">
+        <ref role="2AI5Lk" to="ncw5:~ToRemove" resolve="ToRemove" />
+        <node concept="2B6LJw" id="5OO$M3_rQHt" role="2B76xF">
+          <ref role="2B6OnR" to="ncw5:~ToRemove.version()" resolve="version" />
+          <node concept="3b6qkQ" id="5OO$M3_rQRp" role="2B70Vg">
+            <property role="$nhwW" value="2020.1" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="3clFbW" id="5OO$M3_rzyt" role="jymVt">
+      <node concept="3cqZAl" id="5OO$M3_rzyu" role="3clF45" />
+      <node concept="3Tm1VV" id="5OO$M3_rzyv" role="1B3o_S" />
+      <node concept="3clFbS" id="5OO$M3_rzyw" role="3clF47">
+        <node concept="3clFbF" id="5OO$M3_rC2y" role="3cqZAp">
+          <node concept="37vLTI" id="5OO$M3_rC2$" role="3clFbG">
+            <node concept="37vLTw" id="5OO$M3_rC2B" role="37vLTJ">
+              <ref role="3cqZAo" node="5OO$M3_rC2u" resolve="myFacetRegistry" />
+            </node>
+            <node concept="37vLTw" id="5OO$M3_rC2C" role="37vLTx">
+              <ref role="3cqZAo" node="5OO$M3_rB_i" resolve="facetRegistry" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="37vLTG" id="5OO$M3_rB_i" role="3clF46">
+        <property role="TrG5h" value="facetRegistry" />
+        <node concept="3uibUv" id="5OO$M3_rB_h" role="1tU5fm">
+          <ref role="3uigEE" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+        </node>
+      </node>
     </node>
     <node concept="3clFb_" id="1i9nLvh04ps" role="jymVt">
       <property role="TrG5h" value="withFacetName" />
@@ -3776,6 +3836,19 @@
             </node>
           </node>
         </node>
+        <node concept="3clFbF" id="1Hzkh2dL3a4" role="3cqZAp">
+          <node concept="2OqwBi" id="1Hzkh2dL6rW" role="3clFbG">
+            <node concept="37vLTw" id="1Hzkh2dL3a2" role="2Oq$k0">
+              <ref role="3cqZAo" node="1i9nLvh04ta" resolve="sc" />
+            </node>
+            <node concept="liA8E" id="1Hzkh2dL7fF" role="2OqNvi">
+              <ref role="37wK5l" to="jqcx:1Hzkh2dKu50" resolve="setFacetRegistry" />
+              <node concept="37vLTw" id="1Hzkh2dL7n6" role="37wK5m">
+                <ref role="3cqZAo" node="5OO$M3_rC2u" resolve="myFacetRegistry" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3clFbF" id="1i9nLvh04tu" role="3cqZAp">
           <node concept="37vLTw" id="3GM_nagTB$I" role="3clFbG">
             <ref role="3cqZAo" node="1i9nLvh04ta" resolve="sc" />
@@ -3828,9 +3901,8 @@
                   <ref role="3uigEE" to="ud0o:5mqBoD3U3U8" resolve="IFacet" />
                 </node>
                 <node concept="2OqwBi" id="6Lwhjun_Uam" role="33vP2m">
-                  <node concept="2YIFZM" id="6Lwhjun_Uan" role="2Oq$k0">
-                    <ref role="1Pybhc" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
-                    <ref role="37wK5l" to="ud0o:5mqBoD3U4qe" resolve="getInstance" />
+                  <node concept="37vLTw" id="5OO$M3_rVT3" role="2Oq$k0">
+                    <ref role="3cqZAo" node="5OO$M3_rC2u" resolve="myFacetRegistry" />
                   </node>
                   <node concept="liA8E" id="6Lwhjun_Uao" role="2OqNvi">
                     <ref role="37wK5l" to="ud0o:5mqBoD3U4pV" resolve="lookup" />

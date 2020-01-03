@@ -4875,7 +4875,10 @@
             </node>
             <node concept="2ShNRf" id="41innpAfQg6" role="33vP2m">
               <node concept="1pGfFk" id="41innpAfQg7" role="2ShVmc">
-                <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                <node concept="37vLTw" id="5OO$M3_rXqe" role="37wK5m">
+                  <ref role="3cqZAo" node="5OO$M3_rtkz" resolve="facetRegistry" />
+                </node>
               </node>
             </node>
           </node>
@@ -5039,9 +5042,8 @@
                           </node>
                         </node>
                       </node>
-                      <node concept="2YIFZM" id="41innpAfQh1" role="2Oq$k0">
-                        <ref role="37wK5l" to="ud0o:5mqBoD3U4qe" resolve="getInstance" />
-                        <ref role="1Pybhc" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+                      <node concept="37vLTw" id="5OO$M3_ruEm" role="2Oq$k0">
+                        <ref role="3cqZAo" node="5OO$M3_rtkz" resolve="facetRegistry" />
                       </node>
                     </node>
                   </node>
@@ -5084,6 +5086,12 @@
       <node concept="3Tm1VV" id="41innpAfQh8" role="1B3o_S" />
       <node concept="3uibUv" id="41innpAfQh9" role="3clF45">
         <ref role="3uigEE" to="i9so:1i9nLvh04oW" resolve="ScriptBuilder" />
+      </node>
+      <node concept="37vLTG" id="5OO$M3_rtkz" role="3clF46">
+        <property role="TrG5h" value="facetRegistry" />
+        <node concept="3uibUv" id="5OO$M3_rtky" role="1tU5fm">
+          <ref role="3uigEE" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+        </node>
       </node>
     </node>
     <node concept="3clFb_" id="41innpAfQha" role="jymVt">
@@ -5353,6 +5361,22 @@
                     </node>
                     <node concept="liA8E" id="41innpAfH$y" role="2OqNvi">
                       <ref role="37wK5l" node="41innpAfQg1" resolve="createScriptBuilder" />
+                      <node concept="2OqwBi" id="5OO$M3_rsGG" role="37wK5m">
+                        <node concept="2OqwBi" id="5OO$M3_rspP" role="2Oq$k0">
+                          <node concept="37vLTw" id="5OO$M3_rsg9" role="2Oq$k0">
+                            <ref role="3cqZAo" node="6ZzUxXZRSrw" resolve="myMakeSession" />
+                          </node>
+                          <node concept="liA8E" id="5OO$M3_rsvL" role="2OqNvi">
+                            <ref role="37wK5l" to="hfuk:2BjwmTxTf34" resolve="getProject" />
+                          </node>
+                        </node>
+                        <node concept="liA8E" id="5OO$M3_rsPI" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c3:~Project.getComponent(java.lang.Class)" resolve="getComponent" />
+                          <node concept="3VsKOn" id="5OO$M3_rsUN" role="37wK5m">
+                            <ref role="3VsUkX" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+                          </node>
+                        </node>
+                      </node>
                     </node>
                   </node>
                 </node>

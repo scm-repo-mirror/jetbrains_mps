@@ -506,7 +506,10 @@
               </node>
               <node concept="2ShNRf" id="2dB$GwFJswd" role="33vP2m">
                 <node concept="1pGfFk" id="2dB$GwFJswe" role="2ShVmc">
-                  <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                  <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                  <node concept="37vLTw" id="5OO$M3_v8er" role="37wK5m">
+                    <ref role="3cqZAo" node="DgErZvR_5J" resolve="myFacetRegistry" />
+                  </node>
                 </node>
               </node>
             </node>

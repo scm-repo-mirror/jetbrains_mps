@@ -88,6 +88,7 @@
     <import index="qq03" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.ide.actions(MPS.Platform/)" />
     <import index="tqbz" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.ide.actions(MPS.IDEA/)" />
     <import index="yo81" ref="r:4ea5a78b-cb8a-4831-b227-f7860a22491d(jetbrains.mps.make.resources)" />
+    <import index="ud0o" ref="r:71895ceb-c89d-4545-aa38-89d1cd891f17(jetbrains.mps.make.facet)" />
     <import index="tpcu" ref="r:00000000-0000-4000-0000-011c89590282(jetbrains.mps.lang.core.behavior)" implicit="true" />
     <import index="22ra" ref="1ed103c3-3aa6-49b7-9c21-6765ee11f224/java:jetbrains.mps.openapi.editor.update(MPS.Editor/)" implicit="true" />
   </imports>
@@ -8524,7 +8525,18 @@
                 <node concept="2OqwBi" id="1xyr94TevBH" role="2Oq$k0">
                   <node concept="2ShNRf" id="1xyr94TevBI" role="2Oq$k0">
                     <node concept="1pGfFk" id="1xyr94TevBJ" role="2ShVmc">
-                      <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                      <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                      <node concept="2OqwBi" id="5OO$M3_vpPg" role="37wK5m">
+                        <node concept="37vLTw" id="5OO$M3_vpad" role="2Oq$k0">
+                          <ref role="3cqZAo" node="3wGjY11t7jE" resolve="project" />
+                        </node>
+                        <node concept="liA8E" id="5OO$M3_vqod" role="2OqNvi">
+                          <ref role="37wK5l" to="z1c3:~Project.getComponent(java.lang.Class)" resolve="getComponent" />
+                          <node concept="3VsKOn" id="5OO$M3_vrw_" role="37wK5m">
+                            <ref role="3VsUkX" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+                          </node>
+                        </node>
+                      </node>
                     </node>
                   </node>
                   <node concept="liA8E" id="1xyr94TevBK" role="2OqNvi">

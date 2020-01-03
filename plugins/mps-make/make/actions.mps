@@ -81,6 +81,7 @@
     <import index="z1c4" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.project(MPS.Platform/)" />
     <import index="vndm" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.language(MPS.Core/)" />
     <import index="wyuk" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.components(MPS.Core/)" />
+    <import index="ud0o" ref="r:71895ceb-c89d-4545-aa38-89d1cd891f17(jetbrains.mps.make.facet)" />
     <import index="7bx7" ref="742f6602-5a2f-4313-aa6e-ae1cd4ffdc61/java:jetbrains.mps.workbench.action(MPS.Platform/)" implicit="true" />
     <import index="tprs" ref="r:00000000-0000-4000-0000-011c895904a4(jetbrains.mps.ide.actions)" implicit="true" />
     <import index="1m72" ref="498d89d2-c2e9-11e2-ad49-6cf049e62fe5/java:com.intellij.openapi.components(MPS.IDEA/)" implicit="true" />
@@ -6327,7 +6328,18 @@
                     <node concept="2OqwBi" id="9D0Ba05uSL" role="2Oq$k0">
                       <node concept="2ShNRf" id="9D0Ba05uSM" role="2Oq$k0">
                         <node concept="1pGfFk" id="9D0Ba05uSN" role="2ShVmc">
-                          <ref role="37wK5l" to="i9so:1i9nLvh04$r" resolve="ScriptBuilder" />
+                          <ref role="37wK5l" to="i9so:5OO$M3_rzyt" resolve="ScriptBuilder" />
+                          <node concept="2OqwBi" id="5OO$M3_vjUO" role="37wK5m">
+                            <node concept="37vLTw" id="5OO$M3_vixr" role="2Oq$k0">
+                              <ref role="3cqZAo" node="4OAoGY4h0CM" resolve="mpsProject" />
+                            </node>
+                            <node concept="liA8E" id="5OO$M3_vlua" role="2OqNvi">
+                              <ref role="37wK5l" to="z1c4:~MPSProject.getComponent(java.lang.Class)" resolve="getComponent" />
+                              <node concept="3VsKOn" id="5OO$M3_vo1l" role="37wK5m">
+                                <ref role="3VsUkX" to="ud0o:5mqBoD3U4oX" resolve="FacetRegistry" />
+                              </node>
+                            </node>
+                          </node>
                         </node>
                       </node>
                       <node concept="liA8E" id="9D0Ba05uSO" role="2OqNvi">
