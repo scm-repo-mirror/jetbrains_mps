@@ -3074,19 +3074,6 @@
                                   </node>
                                 </node>
                               </node>
-                              <node concept="3clFbF" id="6FWa_mOTadT" role="3cqZAp">
-                                <node concept="2OqwBi" id="6FWa_mOTae9" role="3clFbG">
-                                  <node concept="37vLTw" id="2BHiRxgmz2j" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="6bNGrOcTfoq" resolve="ctl" />
-                                  </node>
-                                  <node concept="liA8E" id="6FWa_mOTaee" role="2OqNvi">
-                                    <ref role="37wK5l" to="i9so:6vhB1lBPZPh" resolve="useMonitor" />
-                                    <node concept="37vLTw" id="3GM_nagTBWi" role="37wK5m">
-                                      <ref role="3cqZAo" node="43l$qHE99kI" resolve="subMonitor" />
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
                               <node concept="3cpWs8" id="6bNGrOcTfs4" role="3cqZAp">
                                 <node concept="3cpWsn" id="6bNGrOcTfon" role="3cpWs9">
                                   <property role="TrG5h" value="job" />
@@ -3429,17 +3416,6 @@
                                     <node concept="liA8E" id="6bNGrOcTftA" role="2OqNvi">
                                       <ref role="37wK5l" to="i9so:5mqBoD3U3Wz" resolve="stopRequested" />
                                     </node>
-                                  </node>
-                                </node>
-                              </node>
-                              <node concept="3clFbF" id="6FWa_mOTaeg" role="3cqZAp">
-                                <node concept="2OqwBi" id="6FWa_mOTaeh" role="3clFbG">
-                                  <node concept="37vLTw" id="2BHiRxgkWi5" role="2Oq$k0">
-                                    <ref role="3cqZAo" node="6bNGrOcTfoq" resolve="ctl" />
-                                  </node>
-                                  <node concept="liA8E" id="6FWa_mOTaej" role="2OqNvi">
-                                    <ref role="37wK5l" to="i9so:6vhB1lBPZPh" resolve="useMonitor" />
-                                    <node concept="10Nm6u" id="6FWa_mOTael" role="37wK5m" />
                                   </node>
                                 </node>
                               </node>

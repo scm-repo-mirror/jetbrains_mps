@@ -247,7 +247,7 @@ __switch__:
     }
     return (target.requiresInput() || target.producesOutput() ? 100 : 10);
   }
-  private void executeTargets(final IScriptController ctl, final Iterable<ITarget> toExecute, final Iterable<? extends IResource> scriptInput, final ParametersPool pool, final CompositeResult results, final ProgressMonitor monitor) {
+  private void executeTargets(IScriptController ctl, final Iterable<ITarget> toExecute, final Iterable<? extends IResource> scriptInput, final ParametersPool pool, final CompositeResult results, final ProgressMonitor monitor) {
     final Map<ITarget.Name, Long> timeStatistic = MapSequence.fromMap(new HashMap<ITarget.Name, Long>());
     // add time statistic result first - in composite result output() is the last one 
     results.addResult(TIME_STATISTIC_RESULT_NAME, new IResult.SUCCESS(Sequence.<IResource>singleton(new TimeStatisticResource(timeStatistic))));
@@ -304,7 +304,6 @@ with_targets:
               }
 
               ProgressMonitor subMonitor = monitor.subTask(workEstimate(trg));
-              ctl.useMonitor(subMonitor);
               IJob job = trg.createJob();
               long startTime = System.currentTimeMillis();
               IResult jr;
@@ -328,7 +327,6 @@ with_targets:
                 LOG.debug((jr.isSucessful() ? "Stop requested" : "Execution failed"));
                 return;
               }
-              ctl.useMonitor(null);
 
               monitor.advance(0);
             } catch (TimeOutRuntimeException to) {

@@ -5303,16 +5303,6 @@
       <property role="TrG5h" value="Controller" />
       <property role="2bfB8j" value="true" />
       <node concept="3Tm6S6" id="9D0Ba05v2g" role="1B3o_S" />
-      <node concept="3uibUv" id="9D0Ba05v8h" role="1zkMxy">
-        <ref role="3uigEE" to="i9so:4TqQgK0ryjt" resolve="IScriptController.Stub" />
-      </node>
-      <node concept="312cEg" id="197H7I2L_6h" role="jymVt">
-        <property role="TrG5h" value="progressMonitor" />
-        <node concept="3Tm6S6" id="197H7I2L_6i" role="1B3o_S" />
-        <node concept="3uibUv" id="197H7I2LCcp" role="1tU5fm">
-          <ref role="3uigEE" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
-        </node>
-      </node>
       <node concept="312cEg" id="9D0Ba05v24" role="jymVt">
         <property role="TrG5h" value="delegateScrCtr" />
         <property role="3TUv4t" value="true" />
@@ -5821,37 +5811,6 @@
         </node>
       </node>
       <node concept="2tJIrI" id="1k3_r9OYzcZ" role="jymVt" />
-      <node concept="3clFb_" id="9D0Ba05v6o" role="jymVt">
-        <property role="1EzhhJ" value="false" />
-        <property role="TrG5h" value="useMonitor" />
-        <node concept="3cqZAl" id="9D0Ba05v6p" role="3clF45" />
-        <node concept="3Tm1VV" id="9D0Ba05v6q" role="1B3o_S" />
-        <node concept="37vLTG" id="9D0Ba05v6r" role="3clF46">
-          <property role="TrG5h" value="monitor" />
-          <node concept="3uibUv" id="9D0Ba05v6s" role="1tU5fm">
-            <ref role="3uigEE" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
-          </node>
-        </node>
-        <node concept="3clFbS" id="9D0Ba05v6t" role="3clF47">
-          <node concept="3clFbF" id="197H7I2LCYy" role="3cqZAp">
-            <node concept="37vLTI" id="197H7I2LDJI" role="3clFbG">
-              <node concept="37vLTw" id="197H7I2LE9G" role="37vLTx">
-                <ref role="3cqZAo" node="9D0Ba05v6r" resolve="monitor" />
-              </node>
-              <node concept="2OqwBi" id="197H7I2LDax" role="37vLTJ">
-                <node concept="Xjq3P" id="197H7I2LCYw" role="2Oq$k0" />
-                <node concept="2OwXpG" id="197H7I2LDo9" role="2OqNvi">
-                  <ref role="2Oxat5" node="197H7I2L_6h" resolve="progressMonitor" />
-                </node>
-              </node>
-            </node>
-          </node>
-        </node>
-        <node concept="2AHcQZ" id="9D0Ba05v6z" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-        </node>
-      </node>
-      <node concept="2tJIrI" id="1k3_r9OYzd0" role="jymVt" />
       <node concept="3clFb_" id="9D0Ba05v6$" role="jymVt">
         <property role="TrG5h" value="init" />
         <node concept="3cqZAl" id="9D0Ba05v6_" role="3clF45" />
@@ -5991,21 +5950,21 @@
                       <node concept="3Tm1VV" id="9D0Ba05v7w" role="1B3o_S" />
                       <node concept="10P_77" id="9D0Ba05v7x" role="3clF45" />
                       <node concept="3clFbS" id="9D0Ba05v7y" role="3clF47">
-                        <node concept="3clFbF" id="197H7I2LESM" role="3cqZAp">
-                          <node concept="1Wc70l" id="197H7I2LFBc" role="3clFbG">
-                            <node concept="2OqwBi" id="197H7I2LGlL" role="3uHU7w">
-                              <node concept="37vLTw" id="197H7I2LG1A" role="2Oq$k0">
-                                <ref role="3cqZAo" node="197H7I2L_6h" resolve="progressMonitor" />
+                        <node concept="3clFbF" id="1Hzkh2dO$xp" role="3cqZAp">
+                          <node concept="1Wc70l" id="1Hzkh2dOAL9" role="3clFbG">
+                            <node concept="2OqwBi" id="1Hzkh2dOD0z" role="3uHU7w">
+                              <node concept="37vLTw" id="1Hzkh2dOERq" role="2Oq$k0">
+                                <ref role="3cqZAo" node="9D0Ba05v27" resolve="delegateConfMon" />
                               </node>
-                              <node concept="liA8E" id="197H7I2LGx$" role="2OqNvi">
-                                <ref role="37wK5l" to="yyf4:~ProgressMonitor.isCanceled()" resolve="isCanceled" />
+                              <node concept="liA8E" id="1Hzkh2dOFh6" role="2OqNvi">
+                                <ref role="37wK5l" to="i9so:5mqBoD3U3Wz" resolve="stopRequested" />
                               </node>
                             </node>
-                            <node concept="3y3z36" id="197H7I2LFcU" role="3uHU7B">
-                              <node concept="37vLTw" id="197H7I2LESL" role="3uHU7B">
-                                <ref role="3cqZAo" node="197H7I2L_6h" resolve="progressMonitor" />
+                            <node concept="3y3z36" id="1Hzkh2dO_nA" role="3uHU7B">
+                              <node concept="37vLTw" id="1Hzkh2dOE1P" role="3uHU7B">
+                                <ref role="3cqZAo" node="9D0Ba05v27" resolve="delegateConfMon" />
                               </node>
-                              <node concept="10Nm6u" id="197H7I2LFlH" role="3uHU7w" />
+                              <node concept="10Nm6u" id="1Hzkh2dOAah" role="3uHU7w" />
                             </node>
                           </node>
                         </node>
@@ -6074,6 +6033,9 @@
             </node>
           </node>
         </node>
+      </node>
+      <node concept="3uibUv" id="1Hzkh2dOtxK" role="EKbjA">
+        <ref role="3uigEE" to="i9so:4231y0oKQyu" resolve="IScriptController" />
       </node>
     </node>
   </node>

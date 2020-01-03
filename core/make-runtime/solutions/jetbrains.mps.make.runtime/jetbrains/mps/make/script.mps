@@ -2289,22 +2289,6 @@
         </node>
       </node>
     </node>
-    <node concept="3clFb_" id="6vhB1lBPZPh" role="jymVt">
-      <property role="1EzhhJ" value="false" />
-      <property role="TrG5h" value="useMonitor" />
-      <node concept="3cqZAl" id="6vhB1lBPZPi" role="3clF45" />
-      <node concept="3Tm1VV" id="6vhB1lBPZPj" role="1B3o_S" />
-      <node concept="3clFbS" id="6vhB1lBPZPk" role="3clF47" />
-      <node concept="37vLTG" id="6vhB1lBPZPl" role="3clF46">
-        <property role="TrG5h" value="monitor" />
-        <node concept="3uibUv" id="6vhB1lBPZPm" role="1tU5fm">
-          <ref role="3uigEE" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
-        </node>
-      </node>
-      <node concept="2AHcQZ" id="43l$qHE81$2" role="2AJF6D">
-        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-      </node>
-    </node>
     <node concept="312cEu" id="4TqQgK0ryjt" role="jymVt">
       <property role="TrG5h" value="Stub" />
       <node concept="3Tm1VV" id="4TqQgK0ryju" role="1B3o_S" />
@@ -2518,22 +2502,6 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="3tYsUK_sH3q" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-        </node>
-      </node>
-      <node concept="3clFb_" id="6vhB1lBQ1XS" role="jymVt">
-        <property role="1EzhhJ" value="false" />
-        <property role="TrG5h" value="useMonitor" />
-        <node concept="3cqZAl" id="6vhB1lBQ1XT" role="3clF45" />
-        <node concept="3Tm1VV" id="6vhB1lBQ1XU" role="1B3o_S" />
-        <node concept="37vLTG" id="6vhB1lBQ1XV" role="3clF46">
-          <property role="TrG5h" value="monitor" />
-          <node concept="3uibUv" id="6vhB1lBQ1XW" role="1tU5fm">
-            <ref role="3uigEE" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
-          </node>
-        </node>
-        <node concept="3clFbS" id="6vhB1lBQ1XX" role="3clF47" />
-        <node concept="2AHcQZ" id="3tYsUK_sH3n" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>
@@ -2891,25 +2859,6 @@
           </node>
         </node>
         <node concept="2AHcQZ" id="3rCIVT6G1nt" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
-        </node>
-      </node>
-      <node concept="3clFb_" id="3rCIVT6G1nu" role="jymVt">
-        <property role="1EzhhJ" value="false" />
-        <property role="TrG5h" value="useMonitor" />
-        <node concept="3cqZAl" id="3rCIVT6G1nv" role="3clF45" />
-        <node concept="3Tm1VV" id="3rCIVT6G1nw" role="1B3o_S" />
-        <node concept="37vLTG" id="3rCIVT6G1ny" role="3clF46">
-          <property role="TrG5h" value="monitor" />
-          <node concept="3uibUv" id="3rCIVT6G1nz" role="1tU5fm">
-            <ref role="3uigEE" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
-          </node>
-        </node>
-        <node concept="2AHcQZ" id="3rCIVT6G1n$" role="2AJF6D">
-          <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
-        </node>
-        <node concept="3clFbS" id="3rCIVT6G1n_" role="3clF47" />
-        <node concept="2AHcQZ" id="3rCIVT6G1nA" role="2AJF6D">
           <ref role="2AI5Lk" to="wyt6:~Override" resolve="Override" />
         </node>
       </node>

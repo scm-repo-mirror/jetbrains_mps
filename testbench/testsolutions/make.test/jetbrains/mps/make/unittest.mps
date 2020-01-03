@@ -12788,37 +12788,6 @@
                               </node>
                             </node>
                           </node>
-                          <node concept="3clFbF" id="2pfHV77kHh7" role="3cqZAp">
-                            <node concept="2OqwBi" id="2pfHV77kHhg" role="3clFbG">
-                              <node concept="2OqwBi" id="2pfHV77kHha" role="2Oq$k0">
-                                <node concept="1rXfSq" id="4hiugqyyZbR" role="2Oq$k0">
-                                  <ref role="37wK5l" to="mg6i:~AbstractExpectations.atLeast(int)" resolve="atLeast" />
-                                  <node concept="3cmrfG" id="2pfHV77kHh9" role="37wK5m">
-                                    <property role="3cmrfH" value="1" />
-                                  </node>
-                                </node>
-                                <node concept="liA8E" id="2pfHV77kHhe" role="2OqNvi">
-                                  <ref role="37wK5l" to="atif:~ReceiverClause.of(java.lang.Object)" resolve="of" />
-                                  <node concept="37vLTw" id="3GM_nagTuIk" role="37wK5m">
-                                    <ref role="3cqZAo" node="4HGj3MeUsSX" resolve="mons" />
-                                  </node>
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="2pfHV77kHhk" role="2OqNvi">
-                                <ref role="37wK5l" to="i9so:6vhB1lBPZPh" resolve="useMonitor" />
-                                <node concept="1rXfSq" id="4hiugqyzkkN" role="37wK5m">
-                                  <ref role="37wK5l" to="mg6i:~AbstractExpectations.with(java.lang.Object)" resolve="with" />
-                                  <node concept="2YIFZM" id="41innpAhqby" role="37wK5m">
-                                    <ref role="1Pybhc" to="mg6i:~Expectations" resolve="Expectations" />
-                                    <ref role="37wK5l" to="mg6i:~AbstractExpectations.aNonNull(java.lang.Class)" resolve="aNonNull" />
-                                    <node concept="3VsKOn" id="41innpAhqbz" role="37wK5m">
-                                      <ref role="3VsUkX" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
-                          </node>
                           <node concept="3clFbF" id="4HGj3MeUsXE" role="3cqZAp">
                             <node concept="2OqwBi" id="4HGj3MeUsXF" role="3clFbG">
                               <node concept="2OqwBi" id="4HGj3MeUsXG" role="2Oq$k0">
@@ -12925,37 +12894,6 @@
                                           </node>
                                         </node>
                                       </node>
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
-                          </node>
-                          <node concept="3clFbF" id="2pfHV77kJ1h" role="3cqZAp">
-                            <node concept="2OqwBi" id="2pfHV77kJ1i" role="3clFbG">
-                              <node concept="2OqwBi" id="2pfHV77kJ1j" role="2Oq$k0">
-                                <node concept="1rXfSq" id="4hiugqyz9Rz" role="2Oq$k0">
-                                  <ref role="37wK5l" to="mg6i:~AbstractExpectations.exactly(int)" resolve="exactly" />
-                                  <node concept="3cmrfG" id="2pfHV77kJ1l" role="37wK5m">
-                                    <property role="3cmrfH" value="1" />
-                                  </node>
-                                </node>
-                                <node concept="liA8E" id="2pfHV77kJ1m" role="2OqNvi">
-                                  <ref role="37wK5l" to="atif:~ReceiverClause.of(java.lang.Object)" resolve="of" />
-                                  <node concept="37vLTw" id="3GM_nagTBhO" role="37wK5m">
-                                    <ref role="3cqZAo" node="4HGj3MeUsSX" resolve="mons" />
-                                  </node>
-                                </node>
-                              </node>
-                              <node concept="liA8E" id="2pfHV77kJ1o" role="2OqNvi">
-                                <ref role="37wK5l" to="i9so:6vhB1lBPZPh" resolve="useMonitor" />
-                                <node concept="1rXfSq" id="4hiugqyzhr4" role="37wK5m">
-                                  <ref role="37wK5l" to="mg6i:~AbstractExpectations.with(java.lang.Object)" resolve="with" />
-                                  <node concept="2YIFZM" id="41innpAhqbD" role="37wK5m">
-                                    <ref role="1Pybhc" to="mg6i:~Expectations" resolve="Expectations" />
-                                    <ref role="37wK5l" to="mg6i:~AbstractExpectations.aNull(java.lang.Class)" resolve="aNull" />
-                                    <node concept="3VsKOn" id="41innpAhqbE" role="37wK5m">
-                                      <ref role="3VsUkX" to="yyf4:~ProgressMonitor" resolve="ProgressMonitor" />
                                     </node>
                                   </node>
                                 </node>
