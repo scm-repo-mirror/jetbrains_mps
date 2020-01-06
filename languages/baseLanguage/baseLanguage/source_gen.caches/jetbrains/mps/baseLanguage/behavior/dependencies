@@ -1484,6 +1484,7 @@
     <classNode dependClassName="java.util.LinkedHashMap" />
     <classNode dependClassName="org.jetbrains.mps.openapi.language.SAbstractConcept" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNodeAccessUtil" />
+    <classNode dependClassName="jetbrains.mps.baseLanguage.behavior.Pattern_qw8l7c_b0a0a0hb" />
     <classNode dependClassName="jetbrains.mps.lang.scopes.runtime.ScopeUtils" />
     <classNode dependClassName="jetbrains.mps.lang.smodel.generator.smodelAdapter.AttributeOperations" />
     <classNode dependClassName="jetbrains.mps.smodel.SReference" />
@@ -4540,6 +4541,11 @@
     <classNode extendsClassName="jetbrains.mps.lang.pattern.GeneratedMatcher" />
   </dependency>
   <dependency className="jetbrains.mps.baseLanguage.behavior.Pattern_qw8l7c_b0a0a0gb">
+    <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
+    <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
+    <classNode extendsClassName="jetbrains.mps.lang.pattern.GeneratedMatcher" />
+  </dependency>
+  <dependency className="jetbrains.mps.baseLanguage.behavior.Pattern_qw8l7c_b0a0a0hb">
     <classNode dependClassName="jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory" />
     <classNode dependClassName="org.jetbrains.mps.openapi.model.SNode" />
     <classNode extendsClassName="jetbrains.mps.lang.pattern.GeneratedMatcher" />
