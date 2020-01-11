@@ -14,7 +14,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="ConstraintsAspectDescriptor.java">
-      <unit at="13,0,45,0" name="jetbrains.mps.lang.pattern.constraints.ConstraintsAspectDescriptor" />
+      <unit at="13,0,47,0" name="jetbrains.mps.lang.pattern.constraints.ConstraintsAspectDescriptor" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c89590340(jetbrains.mps.lang.pattern.constraints)/1213104858853">
@@ -464,6 +464,49 @@
       <unit id="8144732810705663998" at="54,0,61,0" name="jetbrains.mps.lang.pattern.constraints.PatternBuilder_Constraints$CONCEPTS" />
       <unit id="8144732810705663998" at="32,15,43,5" name="jetbrains.mps.lang.pattern.constraints.PatternBuilder_Constraints$1" />
       <unit id="8144732810705663998" at="25,0,71,0" name="jetbrains.mps.lang.pattern.constraints.PatternBuilder_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:00000000-0000-4000-0000-011c89590340(jetbrains.mps.lang.pattern.constraints)/8950533135207612073">
+    <file name="PatternVariableProperty_Constraints.java">
+      <node id="8950533135207612073" at="20,48,21,47" concept="11" />
+      <node id="8950533135207612073" at="28,127,29,128" concept="6" />
+      <node id="8950533135207612073" at="29,128,30,0" concept="8" />
+      <node id="8950533135207612073" at="31,55,32,71" concept="2" />
+      <node id="8950533135207612073" at="33,9,34,0" concept="8" />
+      <node id="8950533135207612073" at="34,0,35,22" concept="7" />
+      <node id="8950533135208229455" at="39,128,40,54" concept="7" />
+      <node id="8950533135207612073" at="42,0,43,0" concept="9" trace="canBeChildBreakingPoint" />
+      <node id="8950533135207612073" at="45,0,46,0" concept="9" trace="PatternVariableProperty$JI" />
+      <node id="8950533135207612073" at="49,0,50,0" concept="9" trace="initValue$nhHN" />
+      <node id="8950533135207612073" at="20,0,23,0" concept="1" trace="PatternVariableProperty_Constraints#()V" />
+      <node id="8950533135207612073" at="30,0,33,9" concept="4" />
+      <node id="8950533135207612073" at="39,0,42,0" concept="10" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
+      <node id="8950533135207612073" at="27,0,37,0" concept="5" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
+      <node id="8950533135207612073" at="25,103,37,6" concept="7" />
+      <node id="8950533135207612073" at="24,0,39,0" concept="5" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
+      <scope id="8950533135207612073" at="20,48,21,47" />
+      <scope id="8950533135207612073" at="31,55,32,71" />
+      <scope id="8950533135207612075" at="39,128,40,54" />
+      <scope id="8950533135207612073" at="20,0,23,0" />
+      <scope id="8950533135207612073" at="39,0,42,0">
+        <var name="childConcept" id="8950533135207612073" />
+        <var name="link" id="8950533135207612073" />
+        <var name="node" id="8950533135207612073" />
+        <var name="parentNode" id="8950533135207612073" />
+      </scope>
+      <scope id="8950533135207612073" at="28,127,35,22">
+        <var name="result" id="8950533135207612073" />
+      </scope>
+      <scope id="8950533135207612073" at="27,0,37,0">
+        <var name="checkingNodeContext" id="8950533135207612073" />
+        <var name="context" id="8950533135207612073" />
+      </scope>
+      <scope id="8950533135207612073" at="25,103,37,6" />
+      <scope id="8950533135207612073" at="24,0,39,0" />
+      <unit id="8950533135207612073" at="44,0,47,0" name="jetbrains.mps.lang.pattern.constraints.PatternVariableProperty_Constraints$CONCEPTS" />
+      <unit id="8950533135207612073" at="48,0,51,0" name="jetbrains.mps.lang.pattern.constraints.PatternVariableProperty_Constraints$LINKS" />
+      <unit id="8950533135207612073" at="26,15,37,5" name="jetbrains.mps.lang.pattern.constraints.PatternVariableProperty_Constraints$1" />
+      <unit id="8950533135207612073" at="19,0,52,0" name="jetbrains.mps.lang.pattern.constraints.PatternVariableProperty_Constraints" />
     </file>
   </root>
 </debug-info>

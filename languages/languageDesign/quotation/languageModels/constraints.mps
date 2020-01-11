@@ -17,8 +17,8 @@
     <import index="lui2" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.module(MPS.OpenAPI/)" />
     <import index="33ny" ref="6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.util(JDK/)" />
     <import index="pjrh" ref="6ed54515-acc8-4d1e-a16c-9fd6cfe951ea/java:jetbrains.mps.smodel.adapter(MPS.Core/)" />
-    <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
     <import index="c17a" ref="8865b7a8-5271-43d3-884c-6fd1d9cfdd34/java:org.jetbrains.mps.openapi.language(MPS.OpenAPI/)" implicit="true" />
+    <import index="tpee" ref="r:00000000-0000-4000-0000-011c895902ca(jetbrains.mps.baseLanguage.structure)" implicit="true" />
   </imports>
   <registry>
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage">
@@ -227,12 +227,20 @@
     </node>
     <node concept="9SLcT" id="63LzO9sJqTg" role="9SGkU">
       <node concept="3clFbS" id="63LzO9sJqTh" role="2VODD2">
-        <node concept="3clFbF" id="63LzO9sJqXd" role="3cqZAp">
-          <node concept="2OqwBi" id="63LzO9sJrkE" role="3clFbG">
-            <node concept="2DD5aU" id="63LzO9sJqXc" role="2Oq$k0" />
-            <node concept="2Zo12i" id="63LzO9sJrwA" role="2OqNvi">
-              <node concept="chp4Y" id="63LzO9sJrBJ" role="2Zo12j">
-                <ref role="cht4Q" to="tp3r:63LzO9stDA2" resolve="NodeBuilderInitPropertyValue" />
+        <node concept="3clFbF" id="7KQFBrEqHZG" role="3cqZAp">
+          <node concept="22lmx$" id="7KQFBrEqIVr" role="3clFbG">
+            <node concept="2OqwBi" id="7KQFBrEqIeH" role="3uHU7B">
+              <node concept="2DD5aU" id="7KQFBrEqHZE" role="2Oq$k0" />
+              <node concept="liA8E" id="7KQFBrEqI$E" role="2OqNvi">
+                <ref role="37wK5l" to="c17a:~SAbstractConcept.isAbstract()" resolve="isAbstract" />
+              </node>
+            </node>
+            <node concept="2OqwBi" id="63LzO9sJrkE" role="3uHU7w">
+              <node concept="2DD5aU" id="63LzO9sJqXc" role="2Oq$k0" />
+              <node concept="2Zo12i" id="63LzO9sJrwA" role="2OqNvi">
+                <node concept="chp4Y" id="63LzO9sJrBJ" role="2Zo12j">
+                  <ref role="cht4Q" to="tp3r:63LzO9stDA2" resolve="NodeBuilderInitPropertyValue" />
+                </node>
               </node>
             </node>
           </node>

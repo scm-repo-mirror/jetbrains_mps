@@ -46,6 +46,7 @@
       <concept id="1068498886296" name="jetbrains.mps.baseLanguage.structure.VariableReference" flags="nn" index="37vLTw">
         <reference id="1068581517664" name="variableDeclaration" index="3cqZAo" />
       </concept>
+      <concept id="1225271283259" name="jetbrains.mps.baseLanguage.structure.NPEEqualsExpression" flags="nn" index="17R0WA" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -624,6 +625,23 @@
                 </node>
               </node>
             </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="7KQFBrEqrUD">
+    <property role="3GE5qa" value="light" />
+    <ref role="1M2myG" to="tp3t:63LzO9stD_y" resolve="PatternVariableProperty" />
+    <node concept="9S07l" id="7KQFBrEqrUE" role="9Vyp8">
+      <node concept="3clFbS" id="7KQFBrEqrUF" role="2VODD2">
+        <node concept="3cpWs6" id="7KQFBrEsMDf" role="3cqZAp">
+          <node concept="17R0WA" id="7KQFBrEqsrZ" role="3cqZAk">
+            <node concept="359W_D" id="7KQFBrEqswJ" role="3uHU7w">
+              <ref role="359W_E" to="tp3r:4IP40Bi2Kc_" resolve="NodeBuilderInitProperty" />
+              <ref role="359W_F" to="tp3r:1o$2SUuutyh" resolve="initValue" />
+            </node>
+            <node concept="2DA6wF" id="7KQFBrEqs3w" role="3uHU7B" />
           </node>
         </node>
       </node>
