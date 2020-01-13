@@ -64,7 +64,7 @@ public class ModulesCluster {
 
   public Iterable<List<SModule>> buildOrder(Iterable<SModule> pool) {
     collectRequired(pool);
-    List<ModulesGraph.Cycle> compacted = new ModulesGraph().compactTotalOrder();
+    List<ModulesGraph.Cycle> compacted = new ModulesGraph(MapSequence.fromMap(myDepsGraph).values()).compactTotalOrder();
     return ListSequence.fromList(compacted).select(new ISelector<ModulesGraph.Cycle, List<SModule>>() {
       public List<SModule> select(ModulesGraph.Cycle cycle) {
         return cycle.modules();
@@ -166,7 +166,7 @@ public class ModulesCluster {
     rv.requires(reqs);
   }
 
-  /*package*/ static class ModuleDeps {
+  /*package*/ class ModuleDeps {
     private final SModule myModule;
     private final SModuleReference myModuleRef;
     /*package*/ List<SModuleReference> dependent = ListSequence.fromList(new LinkedList<SModuleReference>());
@@ -185,6 +185,21 @@ public class ModulesCluster {
       return myModule;
     }
 
+    /*package*/ Iterable<ModuleDeps> dependent() {
+      return ListSequence.fromList(dependent).select(new ISelector<SModuleReference, ModuleDeps>() {
+        public ModuleDeps select(SModuleReference it) {
+          return MapSequence.fromMap(myDepsGraph).get(it);
+        }
+      });
+    }
+    /*package*/ Iterable<ModuleDeps> required() {
+      return ListSequence.fromList(required).select(new ISelector<SModuleReference, ModuleDeps>() {
+        public ModuleDeps select(SModuleReference it) {
+          return MapSequence.fromMap(myDepsGraph).get(it);
+        }
+      });
+    }
+
     public void requires(Iterable<ModuleDeps> others) {
       ListSequence.fromList(required).addSequence(Sequence.fromIterable(others).select(new ISelector<ModuleDeps, SModuleReference>() {
         public SModuleReference select(ModuleDeps it) {
@@ -201,28 +216,32 @@ public class ModulesCluster {
     }
   }
 
-  public class ModulesGraph extends GraphAnalyzer<SModuleReference> {
-    public ModulesGraph() {
+  /*package*/ static class ModulesGraph extends GraphAnalyzer<ModuleDeps> {
+    private List<ModuleDeps> myAllVertices;
+
+    public ModulesGraph(Iterable<ModuleDeps> allVertices) {
+      myAllVertices = Sequence.fromIterable(allVertices).toListSequence();
+    }
+
+    @Override
+    public Iterable<ModuleDeps> forwardEdges(ModuleDeps v) {
+      return v.dependent();
     }
     @Override
-    public Iterable<SModuleReference> forwardEdges(SModuleReference v) {
-      return MapSequence.fromMap(myDepsGraph).get(v).dependent;
+    public Iterable<ModuleDeps> backwardEdges(ModuleDeps v) {
+      return v.required();
     }
     @Override
-    public Iterable<SModuleReference> backwardEdges(SModuleReference v) {
-      return MapSequence.fromMap(myDepsGraph).get(v).required;
-    }
-    @Override
-    public Iterable<SModuleReference> vertices() {
-      return MapSequence.fromMap(myDepsGraph).keySet();
+    public Iterable<ModuleDeps> vertices() {
+      return myAllVertices;
     }
 
     public List<ModulesGraph.Cycle> compactTotalOrder() {
-      List<List<SModuleReference>> order = totalOrder();
+      List<List<ModuleDeps>> order = totalOrder();
       // XXX what's the point of this code, what do we 'compact' here? Do we merge cycles so that they are built together and later has a chance to load ok? 
       ModulesGraph.Cycle prev = null;
       List<ModulesGraph.Cycle> rv = ListSequence.fromList(new ArrayList<ModulesGraph.Cycle>());
-      for (List<SModuleReference> c : ListSequence.fromList(order)) {
+      for (List<ModuleDeps> c : ListSequence.fromList(order)) {
         ModulesGraph.Cycle cycle = toCycle(c);
         if (prev == null) {
           prev = cycle;
@@ -241,26 +260,26 @@ public class ModulesCluster {
       return rv;
     }
 
-    private ModulesGraph.Cycle toCycle(List<SModuleReference> cycle) {
+    private ModulesGraph.Cycle toCycle(List<ModuleDeps> cycle) {
       return new ModulesGraph.Cycle(cycle);
     }
 
-    /*package*/ class Cycle {
-      private List<SModuleReference> myElements;
+    /*package*/ static class Cycle {
+      private final List<ModuleDeps> myElements;
 
-      /*package*/ Cycle(List<SModuleReference> elements) {
+      /*package*/ Cycle(List<ModuleDeps> elements) {
         myElements = elements;
       }
 
       /*package*/ boolean independent(ModulesGraph.Cycle other) {
         // name of the method is pure guess 
-        return ListSequence.fromList(other.myElements).translate(new ITranslator2<SModuleReference, SModuleReference>() {
-          public Iterable<SModuleReference> translate(SModuleReference mr) {
-            return backwardEdges(mr);
+        return ListSequence.fromList(other.myElements).translate(new ITranslator2<ModuleDeps, ModuleDeps>() {
+          public Iterable<ModuleDeps> translate(ModuleDeps mr) {
+            return mr.required();
           }
-        }).intersect(ListSequence.fromList(myElements).translate(new ITranslator2<SModuleReference, SModuleReference>() {
-          public Iterable<SModuleReference> translate(SModuleReference mr) {
-            return forwardEdges(mr);
+        }).intersect(ListSequence.fromList(myElements).translate(new ITranslator2<ModuleDeps, ModuleDeps>() {
+          public Iterable<ModuleDeps> translate(ModuleDeps mr) {
+            return mr.dependent();
           }
         })).isEmpty();
       }
@@ -270,9 +289,9 @@ public class ModulesCluster {
       }
 
       /*package*/ List<SModule> modules() {
-        return ListSequence.fromList(myElements).select(new ISelector<SModuleReference, SModule>() {
-          public SModule select(SModuleReference mr) {
-            return MapSequence.fromMap(myDepsGraph).get(mr).getModule();
+        return ListSequence.fromList(myElements).select(new ISelector<ModuleDeps, SModule>() {
+          public SModule select(ModuleDeps md) {
+            return md.getModule();
           }
         }).toListSequence();
       }

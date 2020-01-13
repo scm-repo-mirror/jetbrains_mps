@@ -315,7 +315,6 @@
       <concept id="1162935959151" name="jetbrains.mps.baseLanguage.collections.structure.GetSizeOperation" flags="nn" index="34oBXx" />
       <concept id="1167380149909" name="jetbrains.mps.baseLanguage.collections.structure.RemoveElementOperation" flags="nn" index="3dhRuq" />
       <concept id="1201792049884" name="jetbrains.mps.baseLanguage.collections.structure.TranslateOperation" flags="nn" index="3goQfb" />
-      <concept id="1201872418428" name="jetbrains.mps.baseLanguage.collections.structure.GetKeysOperation" flags="nn" index="3lbrtF" />
       <concept id="1197683403723" name="jetbrains.mps.baseLanguage.collections.structure.MapType" flags="in" index="3rvAFt">
         <child id="1197683466920" name="keyType" index="3rvQeY" />
         <child id="1197683475734" name="valueType" index="3rvSg0" />
@@ -778,6 +777,12 @@
               <node concept="2ShNRf" id="6TPAzrVfe$K" role="2Oq$k0">
                 <node concept="1pGfFk" id="6TPAzrVfe$L" role="2ShVmc">
                   <ref role="37wK5l" node="6QF8nMT33I7" resolve="ModulesCluster.ModulesGraph" />
+                  <node concept="2OqwBi" id="7k5h70pwKxz" role="37wK5m">
+                    <node concept="37vLTw" id="7k5h70pwJTH" role="2Oq$k0">
+                      <ref role="3cqZAo" node="6QF8nMT33Id" resolve="myDepsGraph" />
+                    </node>
+                    <node concept="T8wYR" id="7k5h70pwKV5" role="2OqNvi" />
+                  </node>
                 </node>
               </node>
               <node concept="liA8E" id="7LvIcpX4EF0" role="2OqNvi">
@@ -2949,7 +2954,7 @@
     <node concept="2tJIrI" id="3bdlBcZvaVx" role="jymVt" />
     <node concept="312cEu" id="6QF8nMT33HA" role="jymVt">
       <property role="TrG5h" value="ModuleDeps" />
-      <property role="2bfB8j" value="false" />
+      <property role="2bfB8j" value="true" />
       <node concept="312cEg" id="TfU9m6n3P3" role="jymVt">
         <property role="34CwA1" value="false" />
         <property role="eg7rD" value="false" />
@@ -3110,6 +3115,81 @@
           </node>
         </node>
       </node>
+      <node concept="2tJIrI" id="7k5h70pvdfT" role="jymVt" />
+      <node concept="3clFb_" id="7k5h70pvjWy" role="jymVt">
+        <property role="TrG5h" value="dependent" />
+        <node concept="A3Dl8" id="7k5h70pvnsT" role="3clF45">
+          <node concept="3uibUv" id="7k5h70pvqIL" role="A3Ik2">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="7k5h70pvjW_" role="3clF47">
+          <node concept="3cpWs6" id="7k5h70pvtzy" role="3cqZAp">
+            <node concept="2OqwBi" id="7k5h70pvzOk" role="3cqZAk">
+              <node concept="37vLTw" id="7k5h70pvwcI" role="2Oq$k0">
+                <ref role="3cqZAo" node="6QF8nMT33HH" resolve="dependent" />
+              </node>
+              <node concept="3$u5V9" id="7k5h70pvAr5" role="2OqNvi">
+                <node concept="1bVj0M" id="7k5h70pvAr7" role="23t8la">
+                  <node concept="3clFbS" id="7k5h70pvAr8" role="1bW5cS">
+                    <node concept="3clFbF" id="7k5h70pvHKb" role="3cqZAp">
+                      <node concept="3EllGN" id="7k5h70pvLCX" role="3clFbG">
+                        <node concept="37vLTw" id="7k5h70pvOSE" role="3ElVtu">
+                          <ref role="3cqZAo" node="7k5h70pvAr9" resolve="it" />
+                        </node>
+                        <node concept="37vLTw" id="7k5h70pvHKa" role="3ElQJh">
+                          <ref role="3cqZAo" node="6QF8nMT33Id" resolve="myDepsGraph" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="Rh6nW" id="7k5h70pvAr9" role="1bW2Oz">
+                    <property role="TrG5h" value="it" />
+                    <node concept="2jxLKc" id="7k5h70pvAra" role="1tU5fm" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3clFb_" id="7k5h70pvVCh" role="jymVt">
+        <property role="TrG5h" value="required" />
+        <node concept="A3Dl8" id="7k5h70pvYS5" role="3clF45">
+          <node concept="3uibUv" id="7k5h70pw2G8" role="A3Ik2">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
+          </node>
+        </node>
+        <node concept="3clFbS" id="7k5h70pvVCk" role="3clF47">
+          <node concept="3cpWs6" id="7k5h70pwb17" role="3cqZAp">
+            <node concept="2OqwBi" id="7k5h70pwgZ0" role="3cqZAk">
+              <node concept="37vLTw" id="7k5h70pwdmp" role="2Oq$k0">
+                <ref role="3cqZAo" node="6QF8nMT33HT" resolve="required" />
+              </node>
+              <node concept="3$u5V9" id="7k5h70pwkw5" role="2OqNvi">
+                <node concept="1bVj0M" id="7k5h70pwkw7" role="23t8la">
+                  <node concept="3clFbS" id="7k5h70pwkw8" role="1bW5cS">
+                    <node concept="3clFbF" id="7k5h70pwnMI" role="3cqZAp">
+                      <node concept="3EllGN" id="7k5h70pwrOk" role="3clFbG">
+                        <node concept="37vLTw" id="7k5h70pwusJ" role="3ElVtu">
+                          <ref role="3cqZAo" node="7k5h70pwkw9" resolve="it" />
+                        </node>
+                        <node concept="37vLTw" id="7k5h70pwnMH" role="3ElQJh">
+                          <ref role="3cqZAo" node="6QF8nMT33Id" resolve="myDepsGraph" />
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="Rh6nW" id="7k5h70pwkw9" role="1bW2Oz">
+                    <property role="TrG5h" value="it" />
+                    <node concept="2jxLKc" id="7k5h70pwkwa" role="1tU5fm" />
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
       <node concept="2tJIrI" id="7LvIcpX29DM" role="jymVt" />
       <node concept="3clFb_" id="7LvIcpX2ju4" role="jymVt">
         <property role="TrG5h" value="requires" />
@@ -3219,47 +3299,73 @@
     <node concept="2tJIrI" id="3bdlBcZvmMA" role="jymVt" />
     <node concept="312cEu" id="6QF8nMT33I5" role="jymVt">
       <property role="TrG5h" value="ModulesGraph" />
-      <property role="2bfB8j" value="true" />
-      <node concept="3Tm1VV" id="6QF8nMT33I6" role="1B3o_S" />
       <node concept="3uibUv" id="6QF8nMT33Ir" role="1zkMxy">
         <ref role="3uigEE" to="rk9m:1FvZhs40BNW" resolve="GraphAnalyzer" />
-        <node concept="3uibUv" id="6QF8nMT33KH" role="11_B2D">
-          <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+        <node concept="3uibUv" id="7k5h70pwByv" role="11_B2D">
+          <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
         </node>
       </node>
+      <node concept="312cEg" id="7k5h70pwznT" role="jymVt">
+        <property role="TrG5h" value="myAllVertices" />
+        <node concept="3Tm6S6" id="7k5h70pwznU" role="1B3o_S" />
+        <node concept="_YKpA" id="7k5h70pwCRG" role="1tU5fm">
+          <node concept="3uibUv" id="7k5h70pwCRI" role="_ZDj9">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
+          </node>
+        </node>
+      </node>
+      <node concept="2tJIrI" id="7k5h70pw$Ak" role="jymVt" />
       <node concept="3clFbW" id="6QF8nMT33I7" role="jymVt">
         <node concept="3cqZAl" id="6QF8nMT33I8" role="3clF45" />
         <node concept="3Tm1VV" id="6QF8nMT33I9" role="1B3o_S" />
-        <node concept="3clFbS" id="6QF8nMT33Ia" role="3clF47" />
+        <node concept="3clFbS" id="6QF8nMT33Ia" role="3clF47">
+          <node concept="3clFbF" id="7k5h70pwznY" role="3cqZAp">
+            <node concept="37vLTI" id="7k5h70pwzo0" role="3clFbG">
+              <node concept="37vLTw" id="7k5h70pwzo3" role="37vLTJ">
+                <ref role="3cqZAo" node="7k5h70pwznT" resolve="myAllVertices" />
+              </node>
+              <node concept="2OqwBi" id="7k5h70pwDlX" role="37vLTx">
+                <node concept="37vLTw" id="7k5h70pwzo4" role="2Oq$k0">
+                  <ref role="3cqZAo" node="7k5h70pwy6H" resolve="allVertices" />
+                </node>
+                <node concept="ANE8D" id="7k5h70pwD_5" role="2OqNvi" />
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="37vLTG" id="7k5h70pwy6H" role="3clF46">
+          <property role="TrG5h" value="allVertices" />
+          <node concept="A3Dl8" id="7k5h70pwy6F" role="1tU5fm">
+            <node concept="3uibUv" id="7k5h70pwyqq" role="A3Ik2">
+              <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
+            </node>
+          </node>
+        </node>
       </node>
+      <node concept="2tJIrI" id="7k5h70pw_xr" role="jymVt" />
       <node concept="3clFb_" id="6QF8nMT33I_" role="jymVt">
         <property role="1EzhhJ" value="false" />
         <property role="TrG5h" value="forwardEdges" />
         <node concept="3Tm1VV" id="6QF8nMT33IA" role="1B3o_S" />
         <node concept="A3Dl8" id="6QF8nMT33IB" role="3clF45">
-          <node concept="3uibUv" id="6QF8nMT33KI" role="A3Ik2">
-            <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+          <node concept="3uibUv" id="7k5h70pwFgq" role="A3Ik2">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
           </node>
         </node>
         <node concept="37vLTG" id="6QF8nMT33ID" role="3clF46">
           <property role="TrG5h" value="v" />
-          <node concept="3uibUv" id="6QF8nMT33KK" role="1tU5fm">
-            <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+          <node concept="3uibUv" id="7k5h70pwEE4" role="1tU5fm">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
           </node>
         </node>
         <node concept="3clFbS" id="6QF8nMT33IF" role="3clF47">
           <node concept="3clFbF" id="6QF8nMT33Ju" role="3cqZAp">
             <node concept="2OqwBi" id="6QF8nMT33Jw" role="3clFbG">
-              <node concept="3EllGN" id="6QF8nMT33Jx" role="2Oq$k0">
-                <node concept="37vLTw" id="2BHiRxghg9W" role="3ElVtu">
-                  <ref role="3cqZAo" node="6QF8nMT33ID" resolve="v" />
-                </node>
-                <node concept="37vLTw" id="2BHiRxeujV6" role="3ElQJh">
-                  <ref role="3cqZAo" node="6QF8nMT33Id" resolve="myDepsGraph" />
-                </node>
+              <node concept="37vLTw" id="7k5h70pwHUZ" role="2Oq$k0">
+                <ref role="3cqZAo" node="6QF8nMT33ID" resolve="v" />
               </node>
-              <node concept="2OwXpG" id="6QF8nMT33JJ" role="2OqNvi">
-                <ref role="2Oxat5" node="6QF8nMT33HH" resolve="dependent" />
+              <node concept="liA8E" id="7k5h70pwI5$" role="2OqNvi">
+                <ref role="37wK5l" node="7k5h70pvjWy" resolve="dependent" />
               </node>
             </node>
           </node>
@@ -3273,29 +3379,24 @@
         <property role="TrG5h" value="backwardEdges" />
         <node concept="3Tm1VV" id="6QF8nMT33Iv" role="1B3o_S" />
         <node concept="A3Dl8" id="6QF8nMT33Iw" role="3clF45">
-          <node concept="3uibUv" id="6QF8nMT33KJ" role="A3Ik2">
-            <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+          <node concept="3uibUv" id="7k5h70pwG0o" role="A3Ik2">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
           </node>
         </node>
         <node concept="37vLTG" id="6QF8nMT33Iy" role="3clF46">
           <property role="TrG5h" value="v" />
-          <node concept="3uibUv" id="6QF8nMT33KO" role="1tU5fm">
-            <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+          <node concept="3uibUv" id="7k5h70pwGtB" role="1tU5fm">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
           </node>
         </node>
         <node concept="3clFbS" id="6QF8nMT33I$" role="3clF47">
           <node concept="3clFbF" id="6QF8nMT33IX" role="3cqZAp">
             <node concept="2OqwBi" id="6QF8nMT33J3" role="3clFbG">
-              <node concept="3EllGN" id="6QF8nMT33IZ" role="2Oq$k0">
-                <node concept="37vLTw" id="2BHiRxgm1iN" role="3ElVtu">
-                  <ref role="3cqZAo" node="6QF8nMT33Iy" resolve="v" />
-                </node>
-                <node concept="37vLTw" id="2BHiRxeuOPJ" role="3ElQJh">
-                  <ref role="3cqZAo" node="6QF8nMT33Id" resolve="myDepsGraph" />
-                </node>
+              <node concept="37vLTw" id="7k5h70pwHcU" role="2Oq$k0">
+                <ref role="3cqZAo" node="6QF8nMT33Iy" resolve="v" />
               </node>
-              <node concept="2OwXpG" id="6QF8nMT33J7" role="2OqNvi">
-                <ref role="2Oxat5" node="6QF8nMT33HT" resolve="required" />
+              <node concept="liA8E" id="7k5h70pwHCA" role="2OqNvi">
+                <ref role="37wK5l" node="7k5h70pvVCh" resolve="required" />
               </node>
             </node>
           </node>
@@ -3309,17 +3410,14 @@
         <property role="TrG5h" value="vertices" />
         <node concept="3Tm1VV" id="6QF8nMT33IH" role="1B3o_S" />
         <node concept="A3Dl8" id="6QF8nMT33II" role="3clF45">
-          <node concept="3uibUv" id="6QF8nMT33KP" role="A3Ik2">
-            <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+          <node concept="3uibUv" id="7k5h70pwDGk" role="A3Ik2">
+            <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
           </node>
         </node>
         <node concept="3clFbS" id="6QF8nMT33IK" role="3clF47">
           <node concept="3clFbF" id="6QF8nMT33IP" role="3cqZAp">
-            <node concept="2OqwBi" id="6QF8nMT33IR" role="3clFbG">
-              <node concept="37vLTw" id="2BHiRxeuXyI" role="2Oq$k0">
-                <ref role="3cqZAo" node="6QF8nMT33Id" resolve="myDepsGraph" />
-              </node>
-              <node concept="3lbrtF" id="6QF8nMT33IV" role="2OqNvi" />
+            <node concept="37vLTw" id="7k5h70pwEh6" role="3clFbG">
+              <ref role="3cqZAo" node="7k5h70pwznT" resolve="myAllVertices" />
             </node>
           </node>
         </node>
@@ -3336,8 +3434,8 @@
               <property role="TrG5h" value="order" />
               <node concept="_YKpA" id="7LvIcpX4z1K" role="1tU5fm">
                 <node concept="_YKpA" id="7LvIcpX4z1L" role="_ZDj9">
-                  <node concept="3uibUv" id="7LvIcpX4z1M" role="_ZDj9">
-                    <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+                  <node concept="3uibUv" id="7k5h70pwI8P" role="_ZDj9">
+                    <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
                   </node>
                 </node>
               </node>
@@ -3630,22 +3728,22 @@
         <node concept="37vLTG" id="7LvIcpX8Fh5" role="3clF46">
           <property role="TrG5h" value="cycle" />
           <node concept="_YKpA" id="7LvIcpX8KAW" role="1tU5fm">
-            <node concept="3uibUv" id="7LvIcpX8KTM" role="_ZDj9">
-              <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+            <node concept="3uibUv" id="7k5h70pwIE9" role="_ZDj9">
+              <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
             </node>
           </node>
         </node>
       </node>
       <node concept="2tJIrI" id="7LvIcpX9Mu0" role="jymVt" />
       <node concept="312cEu" id="7LvIcpX8kkL" role="jymVt">
-        <property role="2bfB8j" value="true" />
         <property role="TrG5h" value="Cycle" />
         <node concept="312cEg" id="7LvIcpX9hbJ" role="jymVt">
           <property role="TrG5h" value="myElements" />
+          <property role="3TUv4t" value="true" />
           <node concept="3Tm6S6" id="7LvIcpX9gUa" role="1B3o_S" />
           <node concept="_YKpA" id="7LvIcpX9gZI" role="1tU5fm">
-            <node concept="3uibUv" id="7LvIcpX9h07" role="_ZDj9">
-              <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+            <node concept="3uibUv" id="7k5h70pwL3N" role="_ZDj9">
+              <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
             </node>
           </node>
         </node>
@@ -3654,8 +3752,8 @@
           <node concept="37vLTG" id="7LvIcpX9hJn" role="3clF46">
             <property role="TrG5h" value="elements" />
             <node concept="_YKpA" id="7LvIcpX9hK4" role="1tU5fm">
-              <node concept="3uibUv" id="7LvIcpX9hK5" role="_ZDj9">
-                <ref role="3uigEE" to="lui2:~SModuleReference" resolve="SModuleReference" />
+              <node concept="3uibUv" id="7k5h70pwMqz" role="_ZDj9">
+                <ref role="3uigEE" node="6QF8nMT33HA" resolve="ModulesCluster.ModuleDeps" />
               </node>
             </node>
           </node>
@@ -3718,10 +3816,12 @@
                       <node concept="1bVj0M" id="7LvIcpXck5g" role="23t8la">
                         <node concept="3clFbS" id="7LvIcpXck5h" role="1bW5cS">
                           <node concept="3clFbF" id="7LvIcpXck5i" role="3cqZAp">
-                            <node concept="1rXfSq" id="7LvIcpXck5j" role="3clFbG">
-                              <ref role="37wK5l" node="6QF8nMT33Iu" resolve="backwardEdges" />
-                              <node concept="37vLTw" id="7LvIcpXck5k" role="37wK5m">
+                            <node concept="2OqwBi" id="7k5h70pwO5f" role="3clFbG">
+                              <node concept="37vLTw" id="7k5h70pwNC0" role="2Oq$k0">
                                 <ref role="3cqZAo" node="7LvIcpXck5l" resolve="mr" />
+                              </node>
+                              <node concept="liA8E" id="7k5h70pwQmV" role="2OqNvi">
+                                <ref role="37wK5l" node="7k5h70pvVCh" resolve="required" />
                               </node>
                             </node>
                           </node>
@@ -3742,10 +3842,12 @@
                         <node concept="1bVj0M" id="7LvIcpXck5r" role="23t8la">
                           <node concept="3clFbS" id="7LvIcpXck5s" role="1bW5cS">
                             <node concept="3clFbF" id="7LvIcpXck5t" role="3cqZAp">
-                              <node concept="1rXfSq" id="7LvIcpXck5u" role="3clFbG">
-                                <ref role="37wK5l" node="6QF8nMT33I_" resolve="forwardEdges" />
-                                <node concept="37vLTw" id="7LvIcpXck5v" role="37wK5m">
+                              <node concept="2OqwBi" id="7k5h70pwPAN" role="3clFbG">
+                                <node concept="37vLTw" id="7k5h70pwP36" role="2Oq$k0">
                                   <ref role="3cqZAo" node="7LvIcpXck5w" resolve="mr" />
+                                </node>
+                                <node concept="liA8E" id="7k5h70pwQ3l" role="2OqNvi">
+                                  <ref role="37wK5l" node="7k5h70pvjWy" resolve="dependent" />
                                 </node>
                               </node>
                             </node>
@@ -3831,13 +3933,8 @@
                       <node concept="3clFbS" id="7LvIcpXd9L5" role="1bW5cS">
                         <node concept="3clFbF" id="7LvIcpXd9L6" role="3cqZAp">
                           <node concept="2OqwBi" id="7LvIcpXd9L7" role="3clFbG">
-                            <node concept="3EllGN" id="7LvIcpXd9L8" role="2Oq$k0">
-                              <node concept="37vLTw" id="7LvIcpXd9L9" role="3ElQJh">
-                                <ref role="3cqZAo" node="6QF8nMT33Id" resolve="myDepsGraph" />
-                              </node>
-                              <node concept="37vLTw" id="7LvIcpXd9La" role="3ElVtu">
-                                <ref role="3cqZAo" node="7LvIcpXd9Lc" resolve="mr" />
-                              </node>
+                            <node concept="37vLTw" id="7k5h70pwT8h" role="2Oq$k0">
+                              <ref role="3cqZAo" node="7LvIcpXd9Lc" resolve="md" />
                             </node>
                             <node concept="liA8E" id="7LvIcpXd9Lb" role="2OqNvi">
                               <ref role="37wK5l" node="TfU9m6nncy" resolve="getModule" />
@@ -3846,7 +3943,7 @@
                         </node>
                       </node>
                       <node concept="Rh6nW" id="7LvIcpXd9Lc" role="1bW2Oz">
-                        <property role="TrG5h" value="mr" />
+                        <property role="TrG5h" value="md" />
                         <node concept="2jxLKc" id="7LvIcpXd9Ld" role="1tU5fm" />
                       </node>
                     </node>
