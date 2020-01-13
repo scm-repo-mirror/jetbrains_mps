@@ -14,13 +14,8 @@ import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.smodel.Language;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import java.util.List;
-import jetbrains.mps.internal.collections.runtime.ISelector;
-import jetbrains.mps.internal.collections.runtime.IListSequence;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import java.util.Iterator;
-import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
+import jetbrains.mps.internal.collections.runtime.ISelector;
 import java.util.ArrayList;
 import java.util.Set;
 import jetbrains.mps.internal.collections.runtime.SetSequence;
@@ -35,6 +30,10 @@ import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import java.util.LinkedList;
 import jetbrains.mps.internal.make.runtime.util.GraphAnalyzer;
+import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
+import jetbrains.mps.internal.collections.runtime.ITranslator2;
+import java.util.Iterator;
+import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
 
 @GeneratedClass(node = "r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)/5888262800849895741", model = "r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)")
 public class ModulesCluster {
@@ -66,17 +65,18 @@ public class ModulesCluster {
     }
   }
 
-  public Iterable<? extends Iterable<SModule>> buildOrder(Iterable<SModule> pool) {
+  public Iterable<List<SModule>> buildOrder(Iterable<SModule> pool) {
     collectRequired(pool);
-    List<List<SModuleReference>> order = new ModulesGraph().totalOrder();
-    Iterable<? extends Iterable<SModuleReference>> compacted = Sequence.fromIterable(this.compact(order)).toListSequence();
-    return Sequence.fromIterable(compacted).select(new ISelector<Iterable<SModuleReference>, IListSequence<SModule>>() {
-      public IListSequence<SModule> select(Iterable<SModuleReference> cycle) {
-        return Sequence.fromIterable(cycle).select(new ISelector<SModuleReference, SModule>() {
+    List<List<SModuleReference>> compacted = new ModulesGraph().compactTotalOrder();
+    return ListSequence.fromList(compacted).select(new ISelector<List<SModuleReference>, List<SModule>>() {
+      public List<SModule> select(List<SModuleReference> cycle) {
+        List<SModule> list = ListSequence.fromList(cycle).select(new ISelector<SModuleReference, SModule>() {
           public SModule select(SModuleReference mr) {
             return MapSequence.fromMap(myDepsGraph).get(mr).getModule();
           }
         }).toListSequence();
+        // XXX need explicit list<SModule> here, as it gives j.u.List<SModule>, not IListSequence<SModule> which doesn't compile 
+        return list;
       }
     }).toListSequence();
   }
@@ -86,97 +86,6 @@ public class ModulesCluster {
     // and also we need these languages to detect facets to activate in build script. Not to build this set twice, re-use once computed 
     assert MapSequence.fromMap(myDepsGraph).containsKey(m.getModuleReference());
     return MapSequence.fromMap(myDepsGraph).get(m.getModuleReference()).usedLanguages;
-  }
-
-  private Iterable<? extends Iterable<SModuleReference>> compact(List<List<SModuleReference>> order) {
-    // XXX what's the point of this code, what do we 'compact' here? Do we merge cycles so that they are built together and later has a chance to load ok? 
-    final Wrappers._T<Iterable<SModuleReference>> prev = new Wrappers._T<Iterable<SModuleReference>>(null);
-    return ListSequence.fromList(order).concat(Sequence.fromIterable(Sequence.<List<SModuleReference>>singleton(null))).translate(new ITranslator2<List<SModuleReference>, Iterable<SModuleReference>>() {
-      public Iterable<Iterable<SModuleReference>> translate(final List<SModuleReference> cycle) {
-        return new Iterable<Iterable<SModuleReference>>() {
-          public Iterator<Iterable<SModuleReference>> iterator() {
-            return new YieldingIterator<Iterable<SModuleReference>>() {
-              private int __CP__ = 0;
-              protected boolean moveToNext() {
-__loop__:
-                do {
-__switch__:
-                  switch (this.__CP__) {
-                    case -1:
-                      assert false : "Internal error";
-                      return false;
-                    case 2:
-                      if (cycle == null) {
-                        this.__CP__ = 3;
-                        break;
-                      } else if (prev.value == null) {
-                        this.__CP__ = 6;
-                        break;
-                      }
-                      this.__CP__ = 8;
-                      break;
-                    case 9:
-                      if (ListSequence.fromList(cycle).translate(new ITranslator2<SModuleReference, SModuleReference>() {
-                        public Iterable<SModuleReference> translate(SModuleReference mr) {
-                          return MapSequence.fromMap(myDepsGraph).get(mr).required;
-                        }
-                      }).intersect(Sequence.fromIterable(prev.value).translate(new ITranslator2<SModuleReference, SModuleReference>() {
-                        public Iterable<SModuleReference> translate(SModuleReference mr) {
-                          return MapSequence.fromMap(myDepsGraph).get(mr).dependent;
-                        }
-                      })).isEmpty()) {
-                        this.__CP__ = 10;
-                        break;
-                      }
-                      this.__CP__ = 12;
-                      break;
-                    case 4:
-                      this.__CP__ = 5;
-                      this.yield(prev.value);
-                      return true;
-                    case 13:
-                      this.__CP__ = 14;
-                      this.yield(prev.value);
-                      return true;
-                    case 0:
-                      this.__CP__ = 2;
-                      break;
-                    case 3:
-                      this.__CP__ = 4;
-                      break;
-                    case 5:
-                      prev.value = null;
-                      this.__CP__ = 1;
-                      break;
-                    case 6:
-                      prev.value = ListSequence.fromList(cycle).toListSequence();
-                      this.__CP__ = 1;
-                      break;
-                    case 8:
-                      this.__CP__ = 9;
-                      break;
-                    case 10:
-                      prev.value = Sequence.fromIterable(prev.value).concat(ListSequence.fromList(cycle).toListSequence());
-                      this.__CP__ = 1;
-                      break;
-                    case 12:
-                      this.__CP__ = 13;
-                      break;
-                    case 14:
-                      prev.value = ListSequence.fromList(cycle).toListSequence();
-                      this.__CP__ = 1;
-                      break;
-                    default:
-                      break __loop__;
-                  }
-                } while (true);
-                return false;
-              }
-            };
-          }
-        };
-      }
-    });
   }
 
   private void fillEdges(ModuleDeps rv) {
@@ -221,7 +130,7 @@ __switch__:
       if (MapSequence.fromMap(languageModules).containsKey(language)) {
         // module uses a language which is part of the make sequence 
         ModuleDeps lmd = MapSequence.fromMap(languageModules).get(language);
-        Language lm = as_7qjyo9_a0a2a4a01a41(lmd.getModule(), Language.class);
+        Language lm = as_7qjyo9_a0a2a4a01a21(lmd.getModule(), Language.class);
         // if a module of any used language happens to be among modules to build, ensure it's build first, as well as their generators... 
         // Note with this approach we ignore workspace dependencies of a deployed language. E.g. if there's a changed RT solution, its language module unchanged, 
         // and we make RT solution and the one that uses the language, we may miss the dependency that RT needs to be 'Make' first 
@@ -316,8 +225,100 @@ __switch__:
     public Iterable<SModuleReference> vertices() {
       return MapSequence.fromMap(myDepsGraph).keySet();
     }
+
+    public List<List<SModuleReference>> compactTotalOrder() {
+      List<List<SModuleReference>> order = totalOrder();
+      // XXX what's the point of this code, what do we 'compact' here? Do we merge cycles so that they are built together and later has a chance to load ok? 
+      final Wrappers._T<List<SModuleReference>> prev = new Wrappers._T<List<SModuleReference>>(null);
+      return ListSequence.fromList(order).concat(Sequence.fromIterable(Sequence.<List<SModuleReference>>singleton(null))).translate(new ITranslator2<List<SModuleReference>, List<SModuleReference>>() {
+        public Iterable<List<SModuleReference>> translate(final List<SModuleReference> cycle) {
+          return new Iterable<List<SModuleReference>>() {
+            public Iterator<List<SModuleReference>> iterator() {
+              return new YieldingIterator<List<SModuleReference>>() {
+                private int __CP__ = 0;
+                protected boolean moveToNext() {
+__loop__:
+                  do {
+__switch__:
+                    switch (this.__CP__) {
+                      case -1:
+                        assert false : "Internal error";
+                        return false;
+                      case 2:
+                        if (cycle == null) {
+                          this.__CP__ = 3;
+                          break;
+                        } else if (prev.value == null) {
+                          this.__CP__ = 6;
+                          break;
+                        }
+                        this.__CP__ = 8;
+                        break;
+                      case 9:
+                        if (ListSequence.fromList(cycle).translate(new ITranslator2<SModuleReference, SModuleReference>() {
+                          public Iterable<SModuleReference> translate(SModuleReference mr) {
+                            return backwardEdges(mr);
+                          }
+                        }).intersect(ListSequence.fromList(prev.value).translate(new ITranslator2<SModuleReference, SModuleReference>() {
+                          public Iterable<SModuleReference> translate(SModuleReference mr) {
+                            return forwardEdges(mr);
+                          }
+                        })).isEmpty()) {
+                          this.__CP__ = 10;
+                          break;
+                        }
+                        this.__CP__ = 12;
+                        break;
+                      case 4:
+                        this.__CP__ = 5;
+                        this.yield(prev.value);
+                        return true;
+                      case 13:
+                        this.__CP__ = 14;
+                        this.yield(prev.value);
+                        return true;
+                      case 0:
+                        this.__CP__ = 2;
+                        break;
+                      case 3:
+                        this.__CP__ = 4;
+                        break;
+                      case 5:
+                        prev.value = null;
+                        this.__CP__ = 1;
+                        break;
+                      case 6:
+                        prev.value = ListSequence.fromList(cycle).toListSequence();
+                        this.__CP__ = 1;
+                        break;
+                      case 8:
+                        this.__CP__ = 9;
+                        break;
+                      case 10:
+                        prev.value = ListSequence.fromList(prev.value).concat(ListSequence.fromList(cycle)).toListSequence();
+                        this.__CP__ = 1;
+                        break;
+                      case 12:
+                        this.__CP__ = 13;
+                        break;
+                      case 14:
+                        prev.value = ListSequence.fromList(cycle).toListSequence();
+                        this.__CP__ = 1;
+                        break;
+                      default:
+                        break __loop__;
+                    }
+                  } while (true);
+                  return false;
+                }
+              };
+            }
+          };
+        }
+      }).toListSequence();
+    }
   }
-  private static <T> T as_7qjyo9_a0a2a4a01a41(Object o, Class<T> type) {
+  private static <T> T as_7qjyo9_a0a2a4a01a21(Object o, Class<T> type) {
     return (type.isInstance(o) ? (T) o : null);
   }
 }
