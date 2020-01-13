@@ -30,10 +30,7 @@ import jetbrains.mps.project.dependency.GlobalModuleDependenciesManager;
 import jetbrains.mps.internal.collections.runtime.NotNullWhereFilter;
 import java.util.LinkedList;
 import jetbrains.mps.internal.make.runtime.util.GraphAnalyzer;
-import jetbrains.mps.baseLanguage.closures.runtime.Wrappers;
 import jetbrains.mps.internal.collections.runtime.ITranslator2;
-import java.util.Iterator;
-import jetbrains.mps.baseLanguage.closures.runtime.YieldingIterator;
 
 @GeneratedClass(node = "r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)/5888262800849895741", model = "r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)")
 public class ModulesCluster {
@@ -67,16 +64,10 @@ public class ModulesCluster {
 
   public Iterable<List<SModule>> buildOrder(Iterable<SModule> pool) {
     collectRequired(pool);
-    List<List<SModuleReference>> compacted = new ModulesGraph().compactTotalOrder();
-    return ListSequence.fromList(compacted).select(new ISelector<List<SModuleReference>, List<SModule>>() {
-      public List<SModule> select(List<SModuleReference> cycle) {
-        List<SModule> list = ListSequence.fromList(cycle).select(new ISelector<SModuleReference, SModule>() {
-          public SModule select(SModuleReference mr) {
-            return MapSequence.fromMap(myDepsGraph).get(mr).getModule();
-          }
-        }).toListSequence();
-        // XXX need explicit list<SModule> here, as it gives j.u.List<SModule>, not IListSequence<SModule> which doesn't compile 
-        return list;
+    List<ModulesGraph.Cycle> compacted = new ModulesGraph().compactTotalOrder();
+    return ListSequence.fromList(compacted).select(new ISelector<ModulesGraph.Cycle, List<SModule>>() {
+      public List<SModule> select(ModulesGraph.Cycle cycle) {
+        return cycle.modules();
       }
     }).toListSequence();
   }
@@ -226,96 +217,65 @@ public class ModulesCluster {
       return MapSequence.fromMap(myDepsGraph).keySet();
     }
 
-    public List<List<SModuleReference>> compactTotalOrder() {
+    public List<ModulesGraph.Cycle> compactTotalOrder() {
       List<List<SModuleReference>> order = totalOrder();
       // XXX what's the point of this code, what do we 'compact' here? Do we merge cycles so that they are built together and later has a chance to load ok? 
-      final Wrappers._T<List<SModuleReference>> prev = new Wrappers._T<List<SModuleReference>>(null);
-      return ListSequence.fromList(order).concat(Sequence.fromIterable(Sequence.<List<SModuleReference>>singleton(null))).translate(new ITranslator2<List<SModuleReference>, List<SModuleReference>>() {
-        public Iterable<List<SModuleReference>> translate(final List<SModuleReference> cycle) {
-          return new Iterable<List<SModuleReference>>() {
-            public Iterator<List<SModuleReference>> iterator() {
-              return new YieldingIterator<List<SModuleReference>>() {
-                private int __CP__ = 0;
-                protected boolean moveToNext() {
-__loop__:
-                  do {
-__switch__:
-                    switch (this.__CP__) {
-                      case -1:
-                        assert false : "Internal error";
-                        return false;
-                      case 2:
-                        if (cycle == null) {
-                          this.__CP__ = 3;
-                          break;
-                        } else if (prev.value == null) {
-                          this.__CP__ = 6;
-                          break;
-                        }
-                        this.__CP__ = 8;
-                        break;
-                      case 9:
-                        if (ListSequence.fromList(cycle).translate(new ITranslator2<SModuleReference, SModuleReference>() {
-                          public Iterable<SModuleReference> translate(SModuleReference mr) {
-                            return backwardEdges(mr);
-                          }
-                        }).intersect(ListSequence.fromList(prev.value).translate(new ITranslator2<SModuleReference, SModuleReference>() {
-                          public Iterable<SModuleReference> translate(SModuleReference mr) {
-                            return forwardEdges(mr);
-                          }
-                        })).isEmpty()) {
-                          this.__CP__ = 10;
-                          break;
-                        }
-                        this.__CP__ = 12;
-                        break;
-                      case 4:
-                        this.__CP__ = 5;
-                        this.yield(prev.value);
-                        return true;
-                      case 13:
-                        this.__CP__ = 14;
-                        this.yield(prev.value);
-                        return true;
-                      case 0:
-                        this.__CP__ = 2;
-                        break;
-                      case 3:
-                        this.__CP__ = 4;
-                        break;
-                      case 5:
-                        prev.value = null;
-                        this.__CP__ = 1;
-                        break;
-                      case 6:
-                        prev.value = ListSequence.fromList(cycle).toListSequence();
-                        this.__CP__ = 1;
-                        break;
-                      case 8:
-                        this.__CP__ = 9;
-                        break;
-                      case 10:
-                        prev.value = ListSequence.fromList(prev.value).concat(ListSequence.fromList(cycle)).toListSequence();
-                        this.__CP__ = 1;
-                        break;
-                      case 12:
-                        this.__CP__ = 13;
-                        break;
-                      case 14:
-                        prev.value = ListSequence.fromList(cycle).toListSequence();
-                        this.__CP__ = 1;
-                        break;
-                      default:
-                        break __loop__;
-                    }
-                  } while (true);
-                  return false;
-                }
-              };
-            }
-          };
+      ModulesGraph.Cycle prev = null;
+      List<ModulesGraph.Cycle> rv = ListSequence.fromList(new ArrayList<ModulesGraph.Cycle>());
+      for (List<SModuleReference> c : ListSequence.fromList(order)) {
+        ModulesGraph.Cycle cycle = toCycle(c);
+        if (prev == null) {
+          prev = cycle;
+        } else {
+          if (cycle.independent(prev)) {
+            prev = prev.concat(cycle);
+          } else {
+            ListSequence.fromList(rv).addElement(prev);
+            prev = cycle;
+          }
         }
-      }).toListSequence();
+      }
+      if (prev != null) {
+        ListSequence.fromList(rv).addElement(prev);
+      }
+      return rv;
+    }
+
+    private ModulesGraph.Cycle toCycle(List<SModuleReference> cycle) {
+      return new ModulesGraph.Cycle(cycle);
+    }
+
+    /*package*/ class Cycle {
+      private List<SModuleReference> myElements;
+
+      /*package*/ Cycle(List<SModuleReference> elements) {
+        myElements = elements;
+      }
+
+      /*package*/ boolean independent(ModulesGraph.Cycle other) {
+        // name of the method is pure guess 
+        return ListSequence.fromList(other.myElements).translate(new ITranslator2<SModuleReference, SModuleReference>() {
+          public Iterable<SModuleReference> translate(SModuleReference mr) {
+            return backwardEdges(mr);
+          }
+        }).intersect(ListSequence.fromList(myElements).translate(new ITranslator2<SModuleReference, SModuleReference>() {
+          public Iterable<SModuleReference> translate(SModuleReference mr) {
+            return forwardEdges(mr);
+          }
+        })).isEmpty();
+      }
+
+      /*package*/ ModulesGraph.Cycle concat(ModulesGraph.Cycle other) {
+        return new ModulesGraph.Cycle(ListSequence.fromList(myElements).concat(ListSequence.fromList(other.myElements)).toListSequence());
+      }
+
+      /*package*/ List<SModule> modules() {
+        return ListSequence.fromList(myElements).select(new ISelector<SModuleReference, SModule>() {
+          public SModule select(SModuleReference mr) {
+            return MapSequence.fromMap(myDepsGraph).get(mr).getModule();
+          }
+        }).toListSequence();
+      }
     }
   }
   private static <T> T as_7qjyo9_a0a2a4a01a21(Object o, Class<T> type) {
