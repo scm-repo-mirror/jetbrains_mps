@@ -3201,7 +3201,7 @@
                     <ref role="3cqZAo" node="7LvIcpX3aYX" resolve="o" />
                   </node>
                   <node concept="liA8E" id="7LvIcpX3078" role="2OqNvi">
-                    <ref role="37wK5l" node="7LvIcpX2EVX" resolve="dependsFrom" />
+                    <ref role="37wK5l" node="7LvIcpX2EVX" resolve="dependencyOf" />
                     <node concept="Xjq3P" id="7LvIcpX30cI" role="37wK5m" />
                   </node>
                 </node>
@@ -3230,7 +3230,7 @@
       </node>
       <node concept="2tJIrI" id="7LvIcpX2t6V" role="jymVt" />
       <node concept="3clFb_" id="7LvIcpX2EVX" role="jymVt">
-        <property role="TrG5h" value="dependsFrom" />
+        <property role="TrG5h" value="dependencyOf" />
         <node concept="3clFbS" id="7LvIcpX2EW0" role="3clF47">
           <node concept="1gVbGN" id="7k5h70pxutb" role="3cqZAp">
             <node concept="3fqX7Q" id="7k5h70pxvVw" role="1gVkn0">
@@ -3586,13 +3586,13 @@
                   <node concept="3clFbS" id="7LvIcpXbm2h" role="9aQI4">
                     <node concept="3clFbJ" id="7LvIcpXbnBX" role="3cqZAp">
                       <node concept="2OqwBi" id="7LvIcpXbnUY" role="3clFbw">
-                        <node concept="37vLTw" id="7LvIcpXbnEf" role="2Oq$k0">
-                          <ref role="3cqZAo" node="7LvIcpXbn0r" resolve="cycle" />
+                        <node concept="37vLTw" id="70EBQz$AdeY" role="2Oq$k0">
+                          <ref role="3cqZAo" node="6TPAzrVfe$O" resolve="prev" />
                         </node>
                         <node concept="liA8E" id="7LvIcpXbnZg" role="2OqNvi">
                           <ref role="37wK5l" node="7LvIcpX9gKp" resolve="independent" />
-                          <node concept="37vLTw" id="7LvIcpXbo2d" role="37wK5m">
-                            <ref role="3cqZAo" node="6TPAzrVfe$O" resolve="prev" />
+                          <node concept="37vLTw" id="70EBQz$Ad7X" role="37wK5m">
+                            <ref role="3cqZAo" node="7LvIcpXbn0r" resolve="cycle" />
                           </node>
                         </node>
                       </node>

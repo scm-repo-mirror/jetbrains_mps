@@ -191,11 +191,11 @@ public class ModulesCluster {
     /*package*/ void requires(Iterable<ModuleDeps> others) {
       ListSequence.fromList(myRequired).addSequence(Sequence.fromIterable(others));
       for (ModuleDeps o : others) {
-        o.dependsFrom(this);
+        o.dependencyOf(this);
       }
     }
 
-    private void dependsFrom(ModuleDeps other) {
+    private void dependencyOf(ModuleDeps other) {
       assert !(ListSequence.fromList(myDependent).contains(other)) : "duplicated dependency";
       ListSequence.fromList(myDependent).addElement(other);
     }
@@ -231,7 +231,7 @@ public class ModulesCluster {
         if (prev == null) {
           prev = cycle;
         } else {
-          if (cycle.independent(prev)) {
+          if (prev.independent(cycle)) {
             prev = prev.concat(cycle);
           } else {
             ListSequence.fromList(rv).addElement(prev);
