@@ -178,6 +178,12 @@ public final class IdeaEnvironment extends EnvironmentBase implements Disposable
     if (LOG.isInfoEnabled()) {
       LOG.info("Creating IdeaCmdApplication");
     }
+    final String PERF_LOG_KEY = "idea.log.perf.stats";
+    if (System.getProperty(PERF_LOG_KEY) == null) {
+      // see StartUpPerformanceReporter.kt/logStats, which logs statistics when App.isInternal (our case).  
+      // I doubt there's any reason for an end-user to see this statistics in a regular MPS scenario. Still, they could opt to do so with system property explicitly set. 
+      System.setProperty(PERF_LOG_KEY, Boolean.FALSE.toString());
+    }
     if (myUnitTestMode) {
       String oldValue = System.getProperty(CREATE_PLUGIN_CLASSLOADERS);
       if (oldValue == null) {
