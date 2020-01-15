@@ -209,7 +209,7 @@ public class QueriesGenerated extends QueryProviderBase {
   }
   public static Object propertyMacro_GetValue_0_10(final PropertyMacroContext _context) {
     final String pathText = BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(_context.getNode());
-    // first, check if there's overridden location for the path 
+    // first, check if there's overridden location for the path provided by the moduleXml itself (override jar locations) 
     String result = ListSequence.fromList(SLinkOperations.getChildren(((SNode) _context.getVariable("var:moduleXml")), LINKS.jarLocations$s1qM)).where(new IWhereFilter<SNode>() {
       public boolean accept(SNode it) {
         return Objects.equals(BuildSourcePath__BehaviorDescriptor.getRelativePath_id4Kip2_918YF.invoke(SLinkOperations.getTarget(it, LINKS.path$TJ8w)), pathText);

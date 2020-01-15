@@ -3179,6 +3179,30 @@
                             <node concept="3oM_SD" id="ATZLwXo2pS" role="1PaTwD">
                               <property role="3oM_SC" value="path" />
                             </node>
+                            <node concept="3oM_SD" id="3vW0fDNReZY" role="1PaTwD">
+                              <property role="3oM_SC" value="provided" />
+                            </node>
+                            <node concept="3oM_SD" id="3vW0fDNRf0B" role="1PaTwD">
+                              <property role="3oM_SC" value="by" />
+                            </node>
+                            <node concept="3oM_SD" id="3vW0fDNRf0Q" role="1PaTwD">
+                              <property role="3oM_SC" value="the" />
+                            </node>
+                            <node concept="3oM_SD" id="3vW0fDNRf2v" role="1PaTwD">
+                              <property role="3oM_SC" value="moduleXml" />
+                            </node>
+                            <node concept="3oM_SD" id="3vW0fDNRf3b" role="1PaTwD">
+                              <property role="3oM_SC" value="itself" />
+                            </node>
+                            <node concept="3oM_SD" id="3vW0fDNRf4j" role="1PaTwD">
+                              <property role="3oM_SC" value="(override" />
+                            </node>
+                            <node concept="3oM_SD" id="3vW0fDNRf51" role="1PaTwD">
+                              <property role="3oM_SC" value="jar" />
+                            </node>
+                            <node concept="3oM_SD" id="3vW0fDNRf5l" role="1PaTwD">
+                              <property role="3oM_SC" value="locations)" />
+                            </node>
                           </node>
                         </node>
                         <node concept="3cpWs8" id="3LQl9buGSS_" role="3cqZAp">

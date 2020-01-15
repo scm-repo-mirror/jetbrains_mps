@@ -1403,7 +1403,7 @@
       <node id="1362762974884954044" at="206,43,207,216" concept="5" />
       <node id="1362762974884573757" at="207,216,208,62" concept="6" />
       <node id="4356762679305801247" at="210,89,211,121" concept="5" />
-      <node id="3766778465388201516" at="211,121,212,64" concept="7" />
+      <node id="3766778465388201516" at="211,121,212,122" concept="7" />
       <node id="4356762679305801269" at="214,39,215,162" concept="6" />
       <node id="4356762679305801282" at="218,38,219,78" concept="6" />
       <node id="4356762679305801291" at="222,25,223,20" concept="6" />
@@ -1704,7 +1704,7 @@
       <node id="1362762974883028545" at="1300,0,1307,0" concept="9" trace="sourceNodesQuery_0_10#(Ljetbrains/mps/generator/template/SourceSubstituteMacroNodesContext;)Ljava/lang/Iterable;" />
       <node id="1362762974881123190" at="1639,0,1646,0" concept="9" trace="varMacro_Value_0_4#(Ljetbrains/mps/generator/template/TemplateVarContext;)Ljava/lang/Object;" />
       <node id="5471664488998054841" at="1324,0,1332,0" concept="4" trace="accept#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
-      <node id="4356762679305801253" at="212,64,221,15" concept="5" />
+      <node id="4356762679305801253" at="212,122,221,15" concept="5" />
       <node id="4421917191016427109" at="1220,15,1229,10" concept="1" />
       <node id="4421917191016427143" at="1243,15,1252,29" concept="1" />
       <node id="202934866058978572" at="1268,15,1277,39" concept="1" />
