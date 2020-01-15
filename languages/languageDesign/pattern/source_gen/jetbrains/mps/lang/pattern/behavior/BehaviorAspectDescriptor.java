@@ -18,8 +18,13 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
   private final BHDescriptor myPatternVariableDeclaration__BehaviorDescriptor = new PatternVariableDeclaration__BehaviorDescriptor();
   private final BHDescriptor myPropertyPatternVariableDeclaration__BehaviorDescriptor = new PropertyPatternVariableDeclaration__BehaviorDescriptor();
   private final BHDescriptor myLinkPatternVariableDeclaration__BehaviorDescriptor = new LinkPatternVariableDeclaration__BehaviorDescriptor();
+  private final BHDescriptor myPatternSwitchCase__BehaviorDescriptor = new PatternSwitchCase__BehaviorDescriptor();
+  private final BHDescriptor myAbstractPatternProvider__BehaviorDescriptor = new AbstractPatternProvider__BehaviorDescriptor();
+  private final BHDescriptor myPatternReference__BehaviorDescriptor = new PatternReference__BehaviorDescriptor();
   private final BHDescriptor myPatternBuilder__BehaviorDescriptor = new PatternBuilder__BehaviorDescriptor();
   private final BHDescriptor myActionStatement__BehaviorDescriptor = new ActionStatement__BehaviorDescriptor();
+  private final BHDescriptor myPatternVariableProperty__BehaviorDescriptor = new PatternVariableProperty__BehaviorDescriptor();
+  private final BHDescriptor myInlinePatternProvider__BehaviorDescriptor = new InlinePatternProvider__BehaviorDescriptor();
 
   public BehaviorAspectDescriptor() {
   }
@@ -29,24 +34,34 @@ public final class BehaviorAspectDescriptor extends BaseBehaviorAspectDescriptor
     SAbstractConcept cncpt = concept;
     switch (conceptIndex.index(cncpt)) {
       case 0:
-        return myActionStatement__BehaviorDescriptor;
+        return myAbstractPatternProvider__BehaviorDescriptor;
       case 1:
-        return myAsPattern__BehaviorDescriptor;
+        return myActionStatement__BehaviorDescriptor;
       case 2:
-        return myLinkPatternVariableDeclaration__BehaviorDescriptor;
+        return myAsPattern__BehaviorDescriptor;
       case 3:
-        return myPattern__BehaviorDescriptor;
+        return myInlinePatternProvider__BehaviorDescriptor;
       case 4:
-        return myPatternBuilder__BehaviorDescriptor;
+        return myLinkPatternVariableDeclaration__BehaviorDescriptor;
       case 5:
-        return myPatternExpression__BehaviorDescriptor;
+        return myPattern__BehaviorDescriptor;
       case 6:
-        return myPatternVariableDeclaration__BehaviorDescriptor;
+        return myPatternBuilder__BehaviorDescriptor;
       case 7:
+        return myPatternExpression__BehaviorDescriptor;
+      case 8:
+        return myPatternReference__BehaviorDescriptor;
+      case 9:
+        return myPatternSwitchCase__BehaviorDescriptor;
+      case 10:
+        return myPatternVariableDeclaration__BehaviorDescriptor;
+      case 11:
+        return myPatternVariableProperty__BehaviorDescriptor;
+      case 12:
         return myPropertyPatternVariableDeclaration__BehaviorDescriptor;
       default:
     }
     return null;
   }
-  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1815d960L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478dL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108d36d955aL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478fL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x240625574192fa19L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4795L)).seal();
+  private static final ConceptSwitchIndex conceptIndex = new ConceptSwitchIndexBuilder().put(MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x174c7ed18b16ecfbL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x3d3ef1fc1815d960L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478dL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x7c36ae76ea76f63bL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108d36d955aL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb478fL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x240625574192fa19L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4791L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x174c7ed18b16ecfcL), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x174c7ed18a9a3416L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4793L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x60f18f425c769962L), MetaIdFactory.conceptId(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L, 0x108a9cb4795L)).seal();
 }

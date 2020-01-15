@@ -21,8 +21,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch1_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0a0();
-    Pattern1_Pattern pattern;
-    if ((pattern = new Pattern1_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -32,8 +31,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch1_referenceMismatch() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0b0();
-    Pattern1_Pattern pattern;
-    if ((pattern = new Pattern1_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -43,8 +41,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch2_unexpectedReference() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0c0();
-    Pattern2_Pattern pattern;
-    if ((pattern = new Pattern2_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -54,8 +51,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch3_matchesWithReference() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0d0();
-    Pattern3_Pattern pattern;
-    if ((pattern = new Pattern3_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -65,8 +61,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch3_matchesWithoutReference() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0e0();
-    Pattern3_Pattern pattern;
-    if ((pattern = new Pattern3_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;

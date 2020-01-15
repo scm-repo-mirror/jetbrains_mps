@@ -106,6 +106,9 @@
       <concept id="1147467790433" name="jetbrains.mps.lang.constraints.structure.ConstraintFunction_PropertyGetter" flags="in" index="Eqf_E" />
       <concept id="1147468365020" name="jetbrains.mps.lang.constraints.structure.ConstraintsFunctionParameter_node" flags="nn" index="EsrRn" />
       <concept id="5564765827938091039" name="jetbrains.mps.lang.constraints.structure.ConstraintFunction_ReferentSearchScope_Scope" flags="ig" index="3dgokm" />
+      <concept id="8401916545537438642" name="jetbrains.mps.lang.constraints.structure.InheritedNodeScopeFactory" flags="ng" index="1dDu$B">
+        <reference id="8401916545537438643" name="kind" index="1dDu$A" />
+      </concept>
       <concept id="1213093968558" name="jetbrains.mps.lang.constraints.structure.ConceptConstraints" flags="ng" index="1M2fIO">
         <reference id="1213093996982" name="concept" index="1M2myG" />
         <child id="6702802731807532730" name="canBeAncestor" index="9SGkC" />
@@ -644,6 +647,16 @@
             <node concept="2DA6wF" id="7KQFBrEqs3w" role="3uHU7B" />
           </node>
         </node>
+      </node>
+    </node>
+  </node>
+  <node concept="1M2fIO" id="2r4rhgaESkW">
+    <property role="3GE5qa" value="light.bL" />
+    <ref role="1M2myG" to="tp3t:2r4rhgaDx25" resolve="PatternBuilderVariableReference" />
+    <node concept="1N5Pfh" id="2r4rhgaESkX" role="1Mr941">
+      <ref role="1N5Vy1" to="tp3t:2r4rhgaDx28" resolve="declaration" />
+      <node concept="1dDu$B" id="2r4rhgaESl1" role="1N6uqs">
+        <ref role="1dDu$A" to="tp3t:2r4rhgaDx1I" resolve="PatternBuilderVariable" />
       </node>
     </node>
   </node>

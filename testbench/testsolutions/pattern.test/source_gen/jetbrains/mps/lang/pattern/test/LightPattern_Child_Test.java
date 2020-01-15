@@ -18,8 +18,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch1_childMismatch() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0a0();
-    Pattern1_Pattern pattern;
-    if ((pattern = new Pattern1_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -29,8 +28,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch1_missingChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0b0();
-    Pattern1_Pattern pattern;
-    if ((pattern = new Pattern1_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -40,8 +38,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch1_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0c0();
-    Pattern1_Pattern pattern;
-    if ((pattern = new Pattern1_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -51,8 +48,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch2_unexpectedChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0d0();
-    Pattern2_Pattern pattern;
-    if ((pattern = new Pattern2_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -62,8 +58,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch2_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0e0();
-    Pattern2_Pattern pattern;
-    if ((pattern = new Pattern2_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -73,8 +68,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch3_matchesWithChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0f0();
-    Pattern3_Pattern pattern;
-    if ((pattern = new Pattern3_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -84,8 +78,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch3_matchesWithoutChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0g0();
-    Pattern3_Pattern pattern;
-    if ((pattern = new Pattern3_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -95,8 +88,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch4_matchesWithChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0h0();
-    Pattern4_Pattern pattern;
-    if ((pattern = new Pattern4_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -106,8 +98,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch4_matchesWithoutChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0i0();
-    Pattern4_Pattern pattern;
-    if ((pattern = new Pattern4_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;

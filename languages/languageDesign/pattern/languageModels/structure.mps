@@ -32,6 +32,9 @@
         <child id="1071489727083" name="linkDeclaration" index="1TKVEi" />
         <child id="1071489727084" name="propertyDeclaration" index="1TKVEl" />
       </concept>
+      <concept id="1169125989551" name="jetbrains.mps.lang.structure.structure.InterfaceConceptDeclaration" flags="ig" index="PlHQZ">
+        <child id="1169127546356" name="extends" index="PrDN$" />
+      </concept>
       <concept id="1169127622168" name="jetbrains.mps.lang.structure.structure.InterfaceConceptReference" flags="ig" index="PrWs8">
         <reference id="1169127628841" name="intfc" index="PrY4T" />
       </concept>
@@ -402,8 +405,8 @@
     <node concept="PrWs8" id="2g69lt1BJHL" role="PzmwI">
       <ref role="PrY4T" to="tp3r:7vKHTLu5SzY" resolve="NodeBuilderInitValueChild" />
     </node>
-    <node concept="PrWs8" id="2g69lt1BLHS" role="PzmwI">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    <node concept="PrWs8" id="2r4rhgaDx1T" role="PzmwI">
+      <ref role="PrY4T" node="2r4rhgaDx1I" resolve="PatternBuilderVariable" />
     </node>
   </node>
   <node concept="1TIwiD" id="53SOuJl2VUK">
@@ -430,10 +433,10 @@
     <property role="EcuMT" value="6985522012210239842" />
     <property role="3GE5qa" value="light" />
     <property role="TrG5h" value="PatternVariableProperty" />
-    <property role="34LRSv" value="%variable" />
+    <property role="34LRSv" value="%&lt;variable&gt;" />
     <ref role="1TJDcQ" to="tp3r:63LzO9stDA2" resolve="NodeBuilderInitPropertyValue" />
-    <node concept="PrWs8" id="63LzO9stD_$" role="PzmwI">
-      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    <node concept="PrWs8" id="2r4rhgaDx21" role="PzmwI">
+      <ref role="PrY4T" node="2r4rhgaDx1I" resolve="PatternBuilderVariable" />
     </node>
   </node>
   <node concept="1TIwiD" id="1tcvH6aAlHh">
@@ -486,6 +489,9 @@
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="1tcvH6b5INV" resolve="AbstractPatternProvider" />
     </node>
+    <node concept="PrWs8" id="2r4rhgaESl3" role="PzmwI">
+      <ref role="PrY4T" to="tpck:3fifI_xCcJN" resolve="ScopeProvider" />
+    </node>
   </node>
   <node concept="1TIwiD" id="1tcvH6b5INV">
     <property role="EcuMT" value="1678856199549152507" />
@@ -517,6 +523,25 @@
       <property role="20kJfa" value="pattern" />
       <property role="20lbJX" value="fLJekj4/_1" />
       <ref role="20lvS9" node="2g69lt1$JCp" resolve="PatternBuilder" />
+    </node>
+  </node>
+  <node concept="PlHQZ" id="2r4rhgaDx1I">
+    <property role="EcuMT" value="2793477601721978990" />
+    <property role="3GE5qa" value="light" />
+    <property role="TrG5h" value="PatternBuilderVariable" />
+    <node concept="PrWs8" id="2r4rhgaDx2K" role="PrDN$">
+      <ref role="PrY4T" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2r4rhgaDx25">
+    <property role="EcuMT" value="2793477601721979013" />
+    <property role="3GE5qa" value="light.bL" />
+    <property role="TrG5h" value="PatternBuilderVariableReference" />
+    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
+    <node concept="1TJgyj" id="2r4rhgaDx28" role="1TKVEi">
+      <property role="IQ2ns" value="2793477601721979016" />
+      <property role="20kJfa" value="declaration" />
+      <ref role="20lvS9" node="2r4rhgaDx1I" resolve="PatternBuilderVariable" />
     </node>
   </node>
 </model>

@@ -28,16 +28,18 @@ public final class LanguageConceptSwitch {
   public static final int Pattern = 16;
   public static final int PatternBuilder = 17;
   public static final int PatternBuilderClassifierMember = 18;
-  public static final int PatternExpression = 19;
-  public static final int PatternReference = 20;
-  public static final int PatternSwitchCase = 21;
-  public static final int PatternSwitchStatement = 22;
-  public static final int PatternVariableDeclaration = 23;
-  public static final int PatternVariableNode = 24;
-  public static final int PatternVariableProperty = 25;
-  public static final int PatternVariableReference = 26;
-  public static final int PropertyPatternVariableDeclaration = 27;
-  public static final int WildcardPattern = 28;
+  public static final int PatternBuilderVariable = 19;
+  public static final int PatternBuilderVariableReference = 20;
+  public static final int PatternExpression = 21;
+  public static final int PatternReference = 22;
+  public static final int PatternSwitchCase = 23;
+  public static final int PatternSwitchStatement = 24;
+  public static final int PatternVariableDeclaration = 25;
+  public static final int PatternVariableNode = 26;
+  public static final int PatternVariableProperty = 27;
+  public static final int PatternVariableReference = 28;
+  public static final int PropertyPatternVariableDeclaration = 29;
+  public static final int WildcardPattern = 30;
 
   public LanguageConceptSwitch() {
     LanguageConceptIndexBuilder builder = new LanguageConceptIndexBuilder(0xd4615e3bd6714ba9L, 0xaf012b78369b0ba7L);
@@ -60,6 +62,8 @@ public final class LanguageConceptSwitch {
     builder.put(0x108a9cb478fL, Pattern);
     builder.put(0x240625574192fa19L, PatternBuilder);
     builder.put(0x50f8d1ebd50bbeb0L, PatternBuilderClassifierMember);
+    builder.put(0x26c46d140aa6106eL, PatternBuilderVariable);
+    builder.put(0x26c46d140aa61085L, PatternBuilderVariableReference);
     builder.put(0x108a9cb4791L, PatternExpression);
     builder.put(0x174c7ed18b16ecfcL, PatternReference);
     builder.put(0x174c7ed18a9a3416L, PatternSwitchCase);

@@ -28,6 +28,8 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
   private ConceptPresentation props_Pattern;
   private ConceptPresentation props_PatternBuilder;
   private ConceptPresentation props_PatternBuilderClassifierMember;
+  private ConceptPresentation props_PatternBuilderVariable;
+  private ConceptPresentation props_PatternBuilderVariableReference;
   private ConceptPresentation props_PatternExpression;
   private ConceptPresentation props_PatternReference;
   private ConceptPresentation props_PatternSwitchCase;
@@ -175,6 +177,19 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_PatternBuilderClassifierMember = cpb.create();
         }
         return props_PatternBuilderClassifierMember;
+      case LanguageConceptSwitch.PatternBuilderVariable:
+        if (props_PatternBuilderVariable == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_PatternBuilderVariable = cpb.create();
+        }
+        return props_PatternBuilderVariable;
+      case LanguageConceptSwitch.PatternBuilderVariableReference:
+        if (props_PatternBuilderVariableReference == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.rawPresentation("PatternBuilderVariableReference");
+          props_PatternBuilderVariableReference = cpb.create();
+        }
+        return props_PatternBuilderVariableReference;
       case LanguageConceptSwitch.PatternExpression:
         if (props_PatternExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();

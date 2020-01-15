@@ -16,6 +16,7 @@
 package jetbrains.mps.lang.pattern;
 
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.builder.AbstractNodeBuilder;
 import jetbrains.mps.util.ListMap;
@@ -92,11 +93,11 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
         return false;
       }
       if (myNextMatcher != null) {
-        if (!myNextMatcher.myMatcher.match(nodeToMatch.getNextSibling())) {
+        if (!myNextMatcher.myMatcher.match(SNodeOperations.getNextSibling(nodeToMatch))) {
           return false;
         }
       } else {
-        if (nodeToMatch.getNextSibling() != null) {
+        if (SNodeOperations.getNextSibling(nodeToMatch) != null) {
           return false;
         }
       }

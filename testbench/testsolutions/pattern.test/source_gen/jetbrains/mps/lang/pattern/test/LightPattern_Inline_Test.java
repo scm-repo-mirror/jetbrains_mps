@@ -4,6 +4,9 @@ package jetbrains.mps.lang.pattern.test;
 
 import junit.framework.TestCase;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import java.util.Objects;
 import junit.framework.Assert;
 import jetbrains.mps.lang.pattern.AbstractGeneratedPattern;
 import jetbrains.mps.util.Reference;
@@ -13,33 +16,35 @@ import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SProperty;
 
 public class LightPattern_Inline_Test extends TestCase {
   public void test_testInline() throws Exception {
-    boolean matches;
-    SNode nodeToMatch = _quotation_createNode_c1xprt_a0b0a0();
-    Pattern_c1xprt_a0b0a0 pattern;
-    Pattern_c1xprt_a1b0a0 pattern1;
-    if ((pattern = new Pattern_c1xprt_a0b0a0()).matches(nodeToMatch)) {
-      matches = true;
-    } else if ((pattern1 = new Pattern_c1xprt_a1b0a0()).matches(nodeToMatch)) {
-      matches = true;
+    boolean matches1 = false;
+    boolean matches2 = false;
+    SNode nodeToMatch = _quotation_createNode_c1xprt_a0c0a0();
+    Pattern_c1xprt_a0c0a0 pattern0;
+    Pattern_c1xprt_a1c0a0 pattern1;
+    if ((pattern0 = new Pattern_c1xprt_a0c0a0()).matches(nodeToMatch)) {
+      matches1 = SPropertyOperations.getInteger(pattern0.getValue()) >= 5 && SNodeOperations.isInstanceOf(pattern0.getType(), CONCEPTS.IntegerType$Eo) && pattern0.getDecl() != null;
+    } else if ((pattern1 = new Pattern_c1xprt_a1c0a0()).matches(nodeToMatch)) {
+      matches2 = Objects.equals(pattern1.getName(), "x");
     } else {
-      matches = false;
     }
-    Assert.assertTrue(matches);
+    Assert.assertTrue(matches1);
+    Assert.assertFalse(matches2);
   }
-  private static class Pattern_c1xprt_a1b0a0 extends AbstractGeneratedPattern {
+  private static class Pattern_c1xprt_a1c0a0 extends AbstractGeneratedPattern {
     private Reference<String> myName = new Reference<String>();
-    public Pattern_c1xprt_a1b0a0() {
+    public Pattern_c1xprt_a1c0a0() {
     }
     @Override
     protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n14 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
-        n14.forChild(LINKS.type$pLrO).init(CONCEPTS.StringType$2b);
+        n14.forChild(LINKS.type$pLrO).init(CONCEPTS.IntegerType$Eo);
         n14.setPropertyVariable(PROPS.name$tAp1, myName);
       }
       return rootBuilder.getMatcher().match(node);
@@ -49,52 +54,96 @@ public class LightPattern_Inline_Test extends TestCase {
       return myName.get();
     }
   }
-  private static class Pattern_c1xprt_a0b0a0 extends AbstractGeneratedPattern {
+  private static class Pattern_c1xprt_a0c0a0 extends AbstractGeneratedPattern {
+    private Reference<SNode> myType = new Reference<SNode>();
+    private Reference<SNode> myDecl = new Reference<SNode>();
     private Reference<String> myName = new Reference<String>();
-    public Pattern_c1xprt_a0b0a0() {
+    private Reference<String> myValue = new Reference<String>();
+    public Pattern_c1xprt_a0c0a0() {
     }
     @Override
     protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n15 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
-        n15.forChild(LINKS.type$pLrO).init(CONCEPTS.IntegerType$Eo);
+        n15.forChild(LINKS.type$pLrO).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(myType));
         n15.setPropertyVariable(PROPS.name$tAp1, myName);
+        {
+          NodeMatcherBuilder n16 = n15.forChild(LINKS.initializer$KgD).init(CONCEPTS.PlusExpression$Re);
+          {
+            NodeMatcherBuilder n17 = n16.forChild(LINKS.leftExpression$rxLZ).init(CONCEPTS.IntegerConstant$mo);
+            n17.setPropertyVariable(PROPS.value$ZeO0, myValue);
+          }
+          {
+            NodeMatcherBuilder n18 = n16.forChild(LINKS.rightExpression$rxBl).init(CONCEPTS.VariableReference$sQ);
+            n18.setReferenceVariable(LINKS.variableDeclaration$2ky6, myDecl);
+          }
+        }
       }
       return rootBuilder.getMatcher().match(node);
+    }
+    public SNode getType() {
+      ensureMatched();
+      return myType.get();
+    }
+    public SNode getDecl() {
+      ensureMatched();
+      return myDecl.get();
     }
     public String getName() {
       ensureMatched();
       return myName.get();
     }
+    public String getValue() {
+      ensureMatched();
+      return myValue.get();
+    }
   }
-  private static SNode _quotation_createNode_c1xprt_a0b0a0() {
+  private static SNode _quotation_createNode_c1xprt_a0c0a0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     SNode quotedNode_2 = null;
     SNode quotedNode_3 = null;
+    SNode quotedNode_4 = null;
+    SNode quotedNode_5 = null;
+    SNode quotedNode_6 = null;
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7f0L, "LocalVariableDeclarationStatement")).getResult();
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7efL, "LocalVariableDeclaration")).getResult();
     quotedNode_2.setProperty(MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name"), "x");
     quotedNode_3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf940d22479L, "IntegerType")).getResult();
     quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type"), quotedNode_3);
+    quotedNode_4 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7fbL, "PlusExpression")).getResult();
+    quotedNode_5 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8c77f1e98L, "VariableReference")).getResult();
+    quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_5);
+    quotedNode_6 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant")).getResult();
+    quotedNode_6.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "8");
+    quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_6);
+    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer"), quotedNode_4);
     quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration"), quotedNode_2);
+    quotedNode_5.setReferenceTarget(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration"), quotedNode_2);
     return quotedNode_1;
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept IntegerType$Eo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
     /*package*/ static final SConcept LocalVariableDeclarationStatement$BI = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement");
     /*package*/ static final SConcept LocalVariableDeclaration$Bf = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7efL, "jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration");
-    /*package*/ static final SConcept StringType$2b = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11d47da71ecL, "jetbrains.mps.baseLanguage.structure.StringType");
-    /*package*/ static final SConcept IntegerType$Eo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940d22479L, "jetbrains.mps.baseLanguage.structure.IntegerType");
+    /*package*/ static final SConcept PlusExpression$Re = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7fbL, "jetbrains.mps.baseLanguage.structure.PlusExpression");
+    /*package*/ static final SConcept IntegerConstant$mo = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, "jetbrains.mps.baseLanguage.structure.IntegerConstant");
+    /*package*/ static final SConcept VariableReference$sQ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, "jetbrains.mps.baseLanguage.structure.VariableReference");
   }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink localVariableDeclaration$O0D0 = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc67c7f0L, 0xf8cc67c7f1L, "localVariableDeclaration");
     /*package*/ static final SContainmentLink type$pLrO = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
+    /*package*/ static final SContainmentLink initializer$KgD = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37a7f6eL, 0xf8c37f506eL, "initializer");
+    /*package*/ static final SContainmentLink leftExpression$rxLZ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression");
+    /*package*/ static final SContainmentLink rightExpression$rxBl = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression");
+    /*package*/ static final SReferenceLink variableDeclaration$2ky6 = MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c77f1e98L, 0xf8cc6bf960L, "variableDeclaration");
   }
 
   private static final class PROPS {
     /*package*/ static final SProperty name$tAp1 = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+    /*package*/ static final SProperty value$ZeO0 = MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value");
   }
 }

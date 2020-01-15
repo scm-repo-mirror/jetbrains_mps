@@ -20,8 +20,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch2_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0a0(null);
-    Pattern2_Pattern pattern;
-    if ((pattern = new Pattern2_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -31,8 +30,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch2_nullInsteadOfEmpty() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0b0("");
-    Pattern2_Pattern pattern;
-    if ((pattern = new Pattern2_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -42,8 +40,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch3_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0c0("");
-    Pattern3_Pattern pattern;
-    if ((pattern = new Pattern3_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -53,8 +50,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch3_emptyInsteadOfNull() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0d0(null);
-    Pattern3_Pattern pattern;
-    if ((pattern = new Pattern3_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -64,8 +60,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch4_matchesNull() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0e0(null);
-    Pattern4_Pattern pattern;
-    if ((pattern = new Pattern4_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -75,8 +70,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch4_matchesEmpty() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0f0("");
-    Pattern4_Pattern pattern;
-    if ((pattern = new Pattern4_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -86,8 +80,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch4_matchesValue() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0g0();
-    Pattern4_Pattern pattern;
-    if ((pattern = new Pattern4_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -97,8 +90,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch5_matchesNull() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0h0(null);
-    Pattern5_Pattern pattern;
-    if ((pattern = new Pattern5_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern5_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -108,8 +100,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch5_matchesEmpty() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0i0("");
-    Pattern5_Pattern pattern;
-    if ((pattern = new Pattern5_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern5_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -119,8 +110,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch5_matchesValue() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0j0();
-    Pattern5_Pattern pattern;
-    if ((pattern = new Pattern5_Pattern()).matches(nodeToMatch)) {
+    if (new Pattern5_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
