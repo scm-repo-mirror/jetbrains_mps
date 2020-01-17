@@ -15458,11 +15458,6 @@
               <ref role="3bR37D" node="7Kfy9QB6Lg8" resolve="jetbrains.mps.runtime" />
             </node>
           </node>
-          <node concept="1SiIV0" id="5jW07ocjtuv" role="3bR37C">
-            <node concept="3bR9La" id="5jW07ocjtuw" role="1SiIV1">
-              <ref role="3bR37D" node="7Kfy9QB6L9O" resolve="jetbrains.mps.lang.smodel" />
-            </node>
-          </node>
           <node concept="1BupzO" id="73GUf$umm_E" role="3bR31x">
             <property role="3ZfqAx" value="generators/baseLanguage/templates" />
             <property role="1Hdu6h" value="true" />
@@ -15492,6 +15487,11 @@
               <node concept="3qWCbU" id="73GUf$umm_G" role="3LXTna">
                 <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
               </node>
+            </node>
+          </node>
+          <node concept="1SiIV0" id="5jW07ocjtuv" role="3bR37C">
+            <node concept="3bR9La" id="5jW07ocjtuw" role="1SiIV1">
+              <ref role="3bR37D" node="7Kfy9QB6L9O" resolve="jetbrains.mps.lang.smodel" />
             </node>
           </node>
         </node>
@@ -39930,7 +39930,7 @@
       <property role="TZNOO" value="" />
       <property role="2_Ic$B" value="true" />
       <node concept="3qWCbU" id="4ioEhxPa2$j" role="2_Ic$A">
-        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info" />
+        <property role="3qWCbO" value="**/*.properties, **/*.xml, **/*.html, **/*.png, **/*.txt, **/*.ico, **/*.zip, **/*.info, **/*.svg" />
       </node>
     </node>
     <node concept="398b33" id="2aRSPSKEe9G" role="3989C9">
