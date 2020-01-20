@@ -6167,6 +6167,11 @@
             </node>
           </node>
         </node>
+        <node concept="1SiIV0" id="3Icw6yffBfV" role="3bR37C">
+          <node concept="3bR9La" id="3Icw6yffBfW" role="1SiIV1">
+            <ref role="3bR37D" node="mXGwHwhVPj" resolve="JDK" />
+          </node>
+        </node>
       </node>
       <node concept="1E1JtA" id="7Kfy9QB6LgV" role="2G$12L">
         <property role="BnDLt" value="true" />
@@ -7686,6 +7691,9 @@
         <node concept="3LEDTy" id="2$j3xkqQUHh" role="3LEDUa">
           <ref role="3LEDTV" node="1d41uYMTVPu" resolve="jetbrains.mps.lang.scopes" />
         </node>
+        <node concept="3LEz8M" id="2$j3xkqQUHg" role="3LEz9a">
+          <ref role="3LEz8N" node="SHPhCD4rwl" resolve="jetbrains.mps.devkit.aspect.constraints.rulesAndMessages" />
+        </node>
         <node concept="3LEDTy" id="2$j3xkqQUHi" role="3LEDUa">
           <ref role="3LEDTV" node="7Kfy9QB6KZc" resolve="jetbrains.mps.baseLanguage.checkedDots" />
         </node>
@@ -7763,9 +7771,6 @@
         </node>
         <node concept="3LEDTy" id="2$j3xkqQUHF" role="3LEDUa">
           <ref role="3LEDTV" node="14x5$qAUbkv" resolve="jetbrains.mps.lang.resources" />
-        </node>
-        <node concept="3LEz8M" id="2$j3xkqQUHg" role="3LEz9a">
-          <ref role="3LEz8N" node="SHPhCD4rwl" resolve="jetbrains.mps.devkit.aspect.constraints.rulesAndMessages" />
         </node>
       </node>
       <node concept="3LEwk6" id="5d4qc2fzGWE" role="2G$12L">
@@ -7902,6 +7907,9 @@
         <node concept="3LEDTM" id="2$j3xkqQUI2" role="3LEDUa">
           <ref role="3LEDTN" node="4DalL5sdlK7" resolve="jetbrains.mps.lang.descriptor.aspects" />
         </node>
+        <node concept="3LEz8M" id="2$j3xkqQUI0" role="3LEz9a">
+          <ref role="3LEz8N" node="SHPhCD4reb" resolve="jetbrains.mps.devkit.aspect.constraints.rules" />
+        </node>
         <node concept="3LEDTy" id="2$j3xkqQUI3" role="3LEDUa">
           <ref role="3LEDTV" node="7Kfy9QB6KZc" resolve="jetbrains.mps.baseLanguage.checkedDots" />
         </node>
@@ -7983,9 +7991,6 @@
         <node concept="3LEDTy" id="2$j3xkqQUIt" role="3LEDUa">
           <ref role="3LEDTV" node="14x5$qAUbkv" resolve="jetbrains.mps.lang.resources" />
         </node>
-        <node concept="3LEz8M" id="2$j3xkqQUI0" role="3LEz9a">
-          <ref role="3LEz8N" node="SHPhCD4reb" resolve="jetbrains.mps.devkit.aspect.constraints.rules" />
-        </node>
       </node>
       <node concept="3LEwk6" id="SHPhCD4rEz" role="2G$12L">
         <property role="BnDLt" value="true" />
@@ -8023,6 +8028,9 @@
         </node>
         <node concept="3LEDTM" id="2$j3xkqQUI$" role="3LEDUa">
           <ref role="3LEDTN" node="4DalL5sdlK7" resolve="jetbrains.mps.lang.descriptor.aspects" />
+        </node>
+        <node concept="3LEz8M" id="2$j3xkqQUIu" role="3LEz9a">
+          <ref role="3LEz8N" node="SHPhCD4rMU" resolve="main-feedback" />
         </node>
         <node concept="3LEDTy" id="2$j3xkqQUI_" role="3LEDUa">
           <ref role="3LEDTV" node="7Kfy9QB6KZc" resolve="jetbrains.mps.baseLanguage.checkedDots" />
@@ -8077,9 +8085,6 @@
         </node>
         <node concept="3LEDTy" id="2$j3xkqQUIQ" role="3LEDUa">
           <ref role="3LEDTV" node="7Kfy9QB6KZA" resolve="jetbrains.mps.baseLanguage.classifiers" />
-        </node>
-        <node concept="3LEz8M" id="2$j3xkqQUIu" role="3LEz9a">
-          <ref role="3LEz8N" node="SHPhCD4rMU" resolve="main-feedback" />
         </node>
       </node>
       <node concept="3LEwk6" id="SHPhCD4rMU" role="2G$12L">
@@ -14454,11 +14459,6 @@
                 </node>
               </node>
             </node>
-          </node>
-        </node>
-        <node concept="1SiIV0" id="3qkjbZn7Zwn" role="3bR37C">
-          <node concept="3bR9La" id="3qkjbZn7Zwo" role="1SiIV1">
-            <ref role="3bR37D" node="7Kfy9QB6KYb" resolve="jetbrains.mps.baseLanguage" />
           </node>
         </node>
         <node concept="1SiIV0" id="3qkjbZn7Zwp" role="3bR37C">

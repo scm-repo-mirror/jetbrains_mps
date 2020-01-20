@@ -38,6 +38,7 @@ import jetbrains.mps.internal.collections.runtime.CollectionSequence;
 @GeneratedClass(node = "r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)/1077540970775387654", model = "r:d357a980-6a2b-481f-acb3-29792a9d3728(jetbrains.mps.make.dependencies)")
 public class ModulesClusterizer {
   private static Logger LOG = LogManager.getLogger(ModulesCluster.class);
+  private static boolean NEW_CLUSTERS = Boolean.getBoolean("mps.make.newclusters");
   private final MakeSession mySession;
   private final LanguageRegistry myLanguageRegistry;
 
@@ -77,14 +78,12 @@ public class ModulesClusterizer {
 
     Iterable<IResource> rest = Sequence.fromIterable(((Iterable<IResource>) input)).subtract(ListSequence.fromList(mres)).subtract(ListSequence.fromList(emptyInput));
     // FIXME use ProgressMonitor as graph ordering may take some time 
-    //  
-    ListSequence.fromList(result).addSequence(Sequence.fromIterable(moduleResourcesToClustersOld(mres)));
+    Iterable<Cluster> mr2cluster = (NEW_CLUSTERS ? moduleResourcesToClustersNew(mres) : moduleResourcesToClustersOld(mres));
+    ListSequence.fromList(result).addSequence(Sequence.fromIterable(mr2cluster));
 
     if (Sequence.fromIterable(rest).isNotEmpty()) {
       ListSequence.fromList(result).addElement(new Cluster(rest, ListSequence.fromList(new ArrayList<SLanguage>()), myLanguageRegistry));
     }
-
-    moduleResourcesToClustersNew(mres);
 
     return result;
   }
@@ -110,13 +109,6 @@ public class ModulesClusterizer {
 
     return Sequence.fromIterable(mresBuildOrder).select(new ISelector<Iterable<MResource>, Cluster>() {
       public Cluster select(Iterable<MResource> s) {
-        System.out.println("LC[");
-        Sequence.fromIterable(s).visitAll(new IVisitor<MResource>() {
-          public void visit(MResource it) {
-            System.out.println(it.module().getModuleName());
-          }
-        });
-        System.out.println("]LC");
 
         return new Cluster(s, allLanguagesToActivateFacets(s, clst), myLanguageRegistry);
       }
@@ -130,7 +122,6 @@ public class ModulesClusterizer {
         return r.module();
       }
     }));
-    System.out.println("=======");
     return Sequence.fromIterable(mods2cluster(mres, mbs.phaseOne())).concat(Sequence.fromIterable(mods2cluster(mres, mbs.phaseTwo()))).concat(Sequence.fromIterable(mods2cluster(mres, mbs.phaseThree())));
   }
 
