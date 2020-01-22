@@ -246,6 +246,12 @@
       <concept id="1227013049127" name="jetbrains.mps.lang.plugin.structure.AddStatement" flags="nn" index="2JFkCU">
         <child id="1227013166210" name="item" index="2JFLmv" />
       </concept>
+      <concept id="1512255007353869535" name="jetbrains.mps.lang.plugin.structure.ActionReference" flags="ln" index="2JRCWP">
+        <reference id="1512255007353869536" name="actionDeclaration" index="2JRCWa" />
+      </concept>
+      <concept id="1512255007353869532" name="jetbrains.mps.lang.plugin.structure.NonDumbAwareActions" flags="ng" index="2JRCWQ">
+        <child id="1512255007353869533" name="actions" index="2JRCWR" />
+      </concept>
       <concept id="1227019068586" name="jetbrains.mps.lang.plugin.structure.ToStringConceptFunction" flags="in" index="2K2imR" />
       <concept id="1227019310584" name="jetbrains.mps.lang.plugin.structure.ToStringParameter" flags="nn" index="2K3dj_" />
       <concept id="1239975356883" name="jetbrains.mps.lang.plugin.structure.UpdateGroupBlock" flags="ng" index="2OiAzN">
@@ -16478,6 +16484,12 @@
     <node concept="tT9cl" id="DmFJ5GCG21" role="2f5YQi">
       <ref role="tU$_T" to="tprs:miYJQAr2Uj" resolve="CommonModuleActions" />
       <ref role="2f8Tey" to="tprs:miYJQAr2UA" resolve="refactoring" />
+    </node>
+  </node>
+  <node concept="2JRCWQ" id="28ev8vAk8S4">
+    <property role="TrG5h" value="mpsdevkit" />
+    <node concept="2JRCWP" id="28ev8vAkwFs" role="2JRCWR">
+      <ref role="2JRCWa" node="1Fww89lnTk0" resolve="LanguageHierarchy" />
     </node>
   </node>
 </model>
