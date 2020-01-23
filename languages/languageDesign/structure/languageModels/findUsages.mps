@@ -273,6 +273,7 @@
       </concept>
       <concept id="334628810661441841" name="jetbrains.mps.lang.smodel.structure.AsSConcept" flags="nn" index="1rGIog" />
       <concept id="1171999116870" name="jetbrains.mps.lang.smodel.structure.Node_IsNullOperation" flags="nn" index="3w_OXm" />
+      <concept id="1172008320231" name="jetbrains.mps.lang.smodel.structure.Node_IsNotNullOperation" flags="nn" index="3x8VRR" />
       <concept id="1144101972840" name="jetbrains.mps.lang.smodel.structure.OperationParm_Concept" flags="ng" index="1xMEDy">
         <child id="1207343664468" name="conceptArgument" index="ri$Ld" />
       </concept>
@@ -1354,6 +1355,9 @@
         <node concept="3Tqbb2" id="172ROKPwkpU" role="1tU5fm">
           <ref role="ehGHo" to="tpce:f_TIwhg" resolve="ConceptDeclaration" />
         </node>
+        <node concept="2AHcQZ" id="6xjafMJkeEs" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="172ROKPwkf0" role="jymVt" />
@@ -1505,27 +1509,42 @@
             <ref role="3cqZAo" node="172ROKPx7nz" resolve="superInterfaces" />
           </node>
           <node concept="3clFbS" id="172ROKPx7nF" role="2LFqv$">
-            <node concept="3clFbF" id="172ROKPx7nG" role="3cqZAp">
-              <node concept="2OqwBi" id="172ROKPx7nH" role="3clFbG">
-                <node concept="37vLTw" id="172ROKPx7nI" role="2Oq$k0">
-                  <ref role="3cqZAo" node="172ROKPx7ns" resolve="result" />
-                </node>
-                <node concept="liA8E" id="172ROKPx7nJ" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
-                  <node concept="2ShNRf" id="172ROKPx7nK" role="37wK5m">
-                    <node concept="1pGfFk" id="172ROKPx7nL" role="2ShVmc">
-                      <ref role="37wK5l" node="172ROKPwWwt" resolve="InterfaceConceptWrap" />
-                      <node concept="2OqwBi" id="172ROKPx7nM" role="37wK5m">
-                        <node concept="2GrUjf" id="172ROKPx7nN" role="2Oq$k0">
-                          <ref role="2Gs0qQ" node="172ROKPx7nD" resolve="superInterfaceRef" />
-                        </node>
-                        <node concept="3TrEf2" id="172ROKPx7nO" role="2OqNvi">
-                          <ref role="3Tt5mk" to="tpce:h0PrY0D" resolve="intfc" />
+            <node concept="3clFbJ" id="6xjafMJkl5z" role="3cqZAp">
+              <node concept="3clFbS" id="6xjafMJkl5_" role="3clFbx">
+                <node concept="3clFbF" id="172ROKPx7nG" role="3cqZAp">
+                  <node concept="2OqwBi" id="172ROKPx7nH" role="3clFbG">
+                    <node concept="37vLTw" id="172ROKPx7nI" role="2Oq$k0">
+                      <ref role="3cqZAo" node="172ROKPx7ns" resolve="result" />
+                    </node>
+                    <node concept="liA8E" id="172ROKPx7nJ" role="2OqNvi">
+                      <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
+                      <node concept="2ShNRf" id="172ROKPx7nK" role="37wK5m">
+                        <node concept="1pGfFk" id="172ROKPx7nL" role="2ShVmc">
+                          <ref role="37wK5l" node="172ROKPwWwt" resolve="InterfaceConceptWrap" />
+                          <node concept="2OqwBi" id="172ROKPx7nM" role="37wK5m">
+                            <node concept="2GrUjf" id="172ROKPx7nN" role="2Oq$k0">
+                              <ref role="2Gs0qQ" node="172ROKPx7nD" resolve="superInterfaceRef" />
+                            </node>
+                            <node concept="3TrEf2" id="172ROKPx7nO" role="2OqNvi">
+                              <ref role="3Tt5mk" to="tpce:h0PrY0D" resolve="intfc" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
                   </node>
                 </node>
+              </node>
+              <node concept="2OqwBi" id="6xjafMJklN_" role="3clFbw">
+                <node concept="2OqwBi" id="6xjafMJkln4" role="2Oq$k0">
+                  <node concept="2GrUjf" id="6xjafMJkleB" role="2Oq$k0">
+                    <ref role="2Gs0qQ" node="172ROKPx7nD" resolve="superInterfaceRef" />
+                  </node>
+                  <node concept="3TrEf2" id="6xjafMJklzA" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpce:h0PrY0D" resolve="intfc" />
+                  </node>
+                </node>
+                <node concept="3x8VRR" id="6xjafMJkm9E" role="2OqNvi" />
               </node>
             </node>
           </node>
@@ -2082,6 +2101,9 @@
         <node concept="3Tqbb2" id="172ROKPwWwC" role="1tU5fm">
           <ref role="ehGHo" to="tpce:h0PlHMJ" resolve="InterfaceConceptDeclaration" />
         </node>
+        <node concept="2AHcQZ" id="6xjafMJkjIs" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
       </node>
     </node>
     <node concept="2tJIrI" id="172ROKPwXxY" role="jymVt" />
@@ -2151,27 +2173,42 @@
             <ref role="3cqZAo" node="172ROKPwZJG" resolve="superInterfaces" />
           </node>
           <node concept="3clFbS" id="172ROKPx105" role="2LFqv$">
-            <node concept="3clFbF" id="172ROKPx1aH" role="3cqZAp">
-              <node concept="2OqwBi" id="172ROKPx1Gu" role="3clFbG">
-                <node concept="37vLTw" id="172ROKPx1aG" role="2Oq$k0">
-                  <ref role="3cqZAo" node="172ROKPx06D" resolve="result" />
-                </node>
-                <node concept="liA8E" id="172ROKPx2gR" role="2OqNvi">
-                  <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
-                  <node concept="2ShNRf" id="172ROKPx53F" role="37wK5m">
-                    <node concept="1pGfFk" id="172ROKPx5ql" role="2ShVmc">
-                      <ref role="37wK5l" node="172ROKPwWwt" resolve="InterfaceConceptWrap" />
-                      <node concept="2OqwBi" id="172ROKPx60T" role="37wK5m">
-                        <node concept="2GrUjf" id="172ROKPx5KT" role="2Oq$k0">
-                          <ref role="2Gs0qQ" node="172ROKPx101" resolve="superInterfaceRef" />
-                        </node>
-                        <node concept="3TrEf2" id="172ROKPx6gs" role="2OqNvi">
-                          <ref role="3Tt5mk" to="tpce:h0PrY0D" resolve="intfc" />
+            <node concept="3clFbJ" id="6xjafMJknJ4" role="3cqZAp">
+              <node concept="3clFbS" id="6xjafMJknJ6" role="3clFbx">
+                <node concept="3clFbF" id="172ROKPx1aH" role="3cqZAp">
+                  <node concept="2OqwBi" id="172ROKPx1Gu" role="3clFbG">
+                    <node concept="37vLTw" id="172ROKPx1aG" role="2Oq$k0">
+                      <ref role="3cqZAo" node="172ROKPx06D" resolve="result" />
+                    </node>
+                    <node concept="liA8E" id="172ROKPx2gR" role="2OqNvi">
+                      <ref role="37wK5l" to="33ny:~List.add(java.lang.Object)" resolve="add" />
+                      <node concept="2ShNRf" id="172ROKPx53F" role="37wK5m">
+                        <node concept="1pGfFk" id="172ROKPx5ql" role="2ShVmc">
+                          <ref role="37wK5l" node="172ROKPwWwt" resolve="InterfaceConceptWrap" />
+                          <node concept="2OqwBi" id="172ROKPx60T" role="37wK5m">
+                            <node concept="2GrUjf" id="172ROKPx5KT" role="2Oq$k0">
+                              <ref role="2Gs0qQ" node="172ROKPx101" resolve="superInterfaceRef" />
+                            </node>
+                            <node concept="3TrEf2" id="172ROKPx6gs" role="2OqNvi">
+                              <ref role="3Tt5mk" to="tpce:h0PrY0D" resolve="intfc" />
+                            </node>
+                          </node>
                         </node>
                       </node>
                     </node>
                   </node>
                 </node>
+              </node>
+              <node concept="2OqwBi" id="6xjafMJkoLV" role="3clFbw">
+                <node concept="2OqwBi" id="6xjafMJknVQ" role="2Oq$k0">
+                  <node concept="2GrUjf" id="6xjafMJknNx" role="2Oq$k0">
+                    <ref role="2Gs0qQ" node="172ROKPx101" resolve="superInterfaceRef" />
+                  </node>
+                  <node concept="3TrEf2" id="6xjafMJko8N" role="2OqNvi">
+                    <ref role="3Tt5mk" to="tpce:h0PrY0D" resolve="intfc" />
+                  </node>
+                </node>
+                <node concept="3x8VRR" id="6xjafMJkp9F" role="2OqNvi" />
               </node>
             </node>
           </node>
