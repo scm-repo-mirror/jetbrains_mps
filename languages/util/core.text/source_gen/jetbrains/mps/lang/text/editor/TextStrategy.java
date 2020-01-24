@@ -5,9 +5,10 @@ package jetbrains.mps.lang.text.editor;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import java.util.List;
-import org.jetbrains.mps.openapi.language.SAbstractConcept;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import org.jetbrains.mps.openapi.language.SAbstractConcept;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import jetbrains.mps.internal.collections.runtime.Sequence;
 import org.jetbrains.mps.openapi.language.SConcept;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 
@@ -44,10 +45,17 @@ import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
    * @return The Line contained in the container, can be null
    */
   public static SNode findLineInContainer(SNode lineContainer) {
-    List<SNode> lines = SNodeOperations.getNodeDescendants(lineContainer, CONCEPTS.Line$w3, true, new SAbstractConcept[]{});
-    // todo set to 1 after removing the text child to SingleLineComment in BL 
-    assert ListSequence.fromList(lines).count() <= 2;
-    return ListSequence.fromList(lines).first();
+    if (SNodeOperations.isInstanceOf(lineContainer, CONCEPTS.Line$w3)) {
+      return SNodeOperations.as(lineContainer, CONCEPTS.Line$w3);
+    }
+
+    Iterable<SNode> lines = ListSequence.fromList(SNodeOperations.getNodeDescendants(lineContainer, CONCEPTS.Line$w3, false, new SAbstractConcept[]{})).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return !(SNodeOperations.getContainingLink(it).isMultiple());
+      }
+    });
+    assert Sequence.fromIterable(lines).count() <= 1;
+    return Sequence.fromIterable(lines).first();
   }
 
   /**
