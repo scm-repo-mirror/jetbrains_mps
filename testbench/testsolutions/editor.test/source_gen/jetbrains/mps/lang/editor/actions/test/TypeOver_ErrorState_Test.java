@@ -9,7 +9,6 @@ import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
-import jetbrains.mps.lang.test.runtime.EditorTestUtil;
 import junit.framework.Assert;
 
 @MPSLaunch
@@ -35,12 +34,8 @@ public class TypeOver_ErrorState_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("570774940890225468", "570774940890225481");
-      EditorTestUtil.runWithTypeOverExistingText(new EditorTestUtil.EditorTestRunnable() {
-        public void run() throws Exception {
-          typeString("for ");
-          Assert.assertTrue(getEditorComponent().getNodeSubstituteChooser().isVisible());
-        }
-      }, true);
+      typeString("for ");
+      Assert.assertTrue(getEditorComponent().getNodeSubstituteChooser().isVisible());
     }
   }
 }

@@ -11,16 +11,16 @@ import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
 
 @MPSLaunch
-public class TypeOver_AssignmentBefore_Test extends BaseTransformationTest {
+public class TypeOver_ReturnStatement_Test extends BaseTransformationTest {
   @ClassRule
-  public static final TestParametersCache ourParamCache = new TestParametersCache(TypeOver_AssignmentBefore_Test.class, "${mps_home}", "r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)", false);
+  public static final TestParametersCache ourParamCache = new TestParametersCache(TypeOver_ReturnStatement_Test.class, "${mps_home}", "r:c44f4b8c-137c-4225-8bd9-38d232a9b736(jetbrains.mps.lang.editor.actions.test)", false);
 
-  public TypeOver_AssignmentBefore_Test() {
+  public TypeOver_ReturnStatement_Test() {
     super(ourParamCache);
   }
 
   @Test
-  public void test_TypeOver_AssignmentBefore() throws Throwable {
+  public void test_TypeOver_ReturnStatement() throws Throwable {
     new TestBody(this).testMethod();
   }
 
@@ -32,8 +32,8 @@ public class TypeOver_AssignmentBefore_Test extends BaseTransformationTest {
 
     @Override
     public void testMethodImpl() throws Exception {
-      initEditorComponent("614331455315044119", "614331455315044132");
-      typeString("=");
+      initEditorComponent("3087957895633154206", "3087957895633154850");
+      typeString("return null");
     }
   }
 }

@@ -487,7 +487,7 @@ public abstract class EditorCell_Label extends EditorCell_Basic implements jetbr
           result = IntelligentInputUtil.processCell(this, getContext(), pattern, side);
         }
       }
-      if (!result && isTypeOverExistingText() && typeOverExistingText(keyEvent)) {
+      if (allowErrors && !result && isTypeOverExistingText() && typeOverExistingText(keyEvent)) {
         return true;
       }
     }

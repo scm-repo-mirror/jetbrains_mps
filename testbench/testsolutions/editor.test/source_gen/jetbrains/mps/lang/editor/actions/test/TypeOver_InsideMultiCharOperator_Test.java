@@ -9,7 +9,6 @@ import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
-import jetbrains.mps.lang.test.runtime.EditorTestUtil;
 
 @MPSLaunch
 public class TypeOver_InsideMultiCharOperator_Test extends BaseTransformationTest {
@@ -34,11 +33,7 @@ public class TypeOver_InsideMultiCharOperator_Test extends BaseTransformationTes
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("5557211017848461512", "5557211017848461517");
-      EditorTestUtil.runWithTypeOverExistingText(new EditorTestUtil.EditorTestRunnable() {
-        public void run() throws Exception {
-          typeString("+");
-        }
-      }, true);
+      typeString("+");
     }
   }
 }

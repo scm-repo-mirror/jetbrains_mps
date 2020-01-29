@@ -9,7 +9,6 @@ import jetbrains.mps.lang.test.runtime.TestParametersCache;
 import org.junit.Test;
 import jetbrains.mps.lang.test.runtime.BaseEditorTestBody;
 import jetbrains.mps.lang.test.runtime.TransformationTest;
-import jetbrains.mps.lang.test.runtime.EditorTestUtil;
 
 @MPSLaunch
 public class TypeOver_ArrayInitializer_Test extends BaseTransformationTest {
@@ -34,14 +33,10 @@ public class TypeOver_ArrayInitializer_Test extends BaseTransformationTest {
     @Override
     public void testMethodImpl() throws Exception {
       initEditorComponent("553922048626467066", "553922048626467085");
-      EditorTestUtil.runWithTypeOverExistingText(new EditorTestUtil.EditorTestRunnable() {
-        public void run() throws Exception {
-          typeString("]{");
-          invokeAction("jetbrains.mps.ide.editor.actions.MoveRight_Action");
-          invokeAction("jetbrains.mps.ide.editor.actions.MoveRight_Action");
-          typeString("};");
-        }
-      }, true);
+      typeString("]{");
+      invokeAction("jetbrains.mps.ide.editor.actions.MoveRight_Action");
+      invokeAction("jetbrains.mps.ide.editor.actions.MoveRight_Action");
+      typeString("};");
     }
   }
 }

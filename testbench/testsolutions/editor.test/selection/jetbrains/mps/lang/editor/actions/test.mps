@@ -11762,21 +11762,8 @@
     <property role="TrG5h" value="TypeOver_AssigmentAfter" />
     <property role="3YCmrE" value="int a =| 20;    &gt; = &gt;  int a =| 20;" />
     <node concept="3clFbS" id="y6yNgCnJJx" role="LjaKd">
-      <node concept="3clFbF" id="42dJ8K6zsyX" role="3cqZAp">
-        <node concept="2YIFZM" id="42dJ8K6zs$J" role="3clFbG">
-          <ref role="37wK5l" to="tp6m:42dJ8K6y4X2" resolve="runWithTypeOverExistingText" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
-          <node concept="1bVj0M" id="42dJ8K6zsLa" role="37wK5m">
-            <node concept="3clFbS" id="42dJ8K6zsLc" role="1bW5cS">
-              <node concept="2TK7Tu" id="y6yNgCoqAy" role="3cqZAp">
-                <property role="2TTd_B" value="=" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbT" id="42dJ8K6zsCj" role="37wK5m">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
+      <node concept="2TK7Tu" id="y6yNgCoqAy" role="3cqZAp">
+        <property role="2TTd_B" value="=" />
       </node>
     </node>
     <node concept="1qefOq" id="y6yNgCnJJ_" role="25YQCW">
@@ -11857,21 +11844,8 @@
     <property role="TrG5h" value="TypeOver_BeforeAndAfterSemicolon" />
     <property role="3YCmrE" value="System.out.print(&quot;First&quot;)|;  &gt; ; &gt;  System.out.print(&quot;First&quot;);|" />
     <node concept="3clFbS" id="y6yNgCoQFe" role="LjaKd">
-      <node concept="3clFbF" id="42dJ8K6$mLA" role="3cqZAp">
-        <node concept="2YIFZM" id="42dJ8K6$mLB" role="3clFbG">
-          <ref role="37wK5l" to="tp6m:42dJ8K6y4X2" resolve="runWithTypeOverExistingText" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
-          <node concept="1bVj0M" id="42dJ8K6$mLC" role="37wK5m">
-            <node concept="3clFbS" id="42dJ8K6$mLD" role="1bW5cS">
-              <node concept="2TK7Tu" id="y6yNgCoQFf" role="3cqZAp">
-                <property role="2TTd_B" value=";" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbT" id="42dJ8K6$mLF" role="37wK5m">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
+      <node concept="2TK7Tu" id="y6yNgCoQFf" role="3cqZAp">
+        <property role="2TTd_B" value=";" />
       </node>
     </node>
     <node concept="1qefOq" id="y6yNgCoQFg" role="25YQCW">
@@ -11962,21 +11936,8 @@
     <property role="TrG5h" value="TypeOver_InsideMultiCharOperator" />
     <property role="3YCmrE" value="y+|+;   = + =&gt;  y ++| 20;" />
     <node concept="3clFbS" id="4OvbvCOJDz5" role="LjaKd">
-      <node concept="3clFbF" id="42dJ8K6$31U" role="3cqZAp">
-        <node concept="2YIFZM" id="42dJ8K6$31V" role="3clFbG">
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
-          <ref role="37wK5l" to="tp6m:42dJ8K6y4X2" resolve="runWithTypeOverExistingText" />
-          <node concept="1bVj0M" id="42dJ8K6$31W" role="37wK5m">
-            <node concept="3clFbS" id="42dJ8K6$31X" role="1bW5cS">
-              <node concept="2TK7Tu" id="42dJ8K6$31Y" role="3cqZAp">
-                <property role="2TTd_B" value="+" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbT" id="42dJ8K6$31Z" role="37wK5m">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
+      <node concept="2TK7Tu" id="42dJ8K6$31Y" role="3cqZAp">
+        <property role="2TTd_B" value="+" />
       </node>
     </node>
     <node concept="1qefOq" id="4OvbvCOJDz7" role="25YQCW">
@@ -12043,21 +12004,8 @@
     <property role="TrG5h" value="TypeOver_AssignmentBefore" />
     <property role="3YCmrE" value="int a |= 30;   &gt; = &gt;   int a =| 30;" />
     <node concept="3clFbS" id="y6yNgCpIsk" role="LjaKd">
-      <node concept="3clFbF" id="42dJ8K6zKaR" role="3cqZAp">
-        <node concept="2YIFZM" id="42dJ8K6zKaS" role="3clFbG">
-          <ref role="37wK5l" to="tp6m:42dJ8K6y4X2" resolve="runWithTypeOverExistingText" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
-          <node concept="1bVj0M" id="42dJ8K6zKaT" role="37wK5m">
-            <node concept="3clFbS" id="42dJ8K6zKaU" role="1bW5cS">
-              <node concept="2TK7Tu" id="42dJ8K6zKaV" role="3cqZAp">
-                <property role="2TTd_B" value="=" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbT" id="42dJ8K6zKaW" role="37wK5m">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
+      <node concept="2TK7Tu" id="42dJ8K6zKaV" role="3cqZAp">
+        <property role="2TTd_B" value="=" />
       </node>
     </node>
     <node concept="1qefOq" id="y6yNgCpIsm" role="25YQCW">
@@ -12138,21 +12086,8 @@
     <property role="TrG5h" value="TypeOver_InsideKeyWord" />
     <property role="3YCmrE" value="ca|tch    = tcc =&gt;  catc|h" />
     <node concept="3clFbS" id="4ryrbqx4zQS" role="LjaKd">
-      <node concept="3clFbF" id="3jgtTXXKSSu" role="3cqZAp">
-        <node concept="2YIFZM" id="3jgtTXXKSU2" role="3clFbG">
-          <ref role="37wK5l" to="tp6m:42dJ8K6y4X2" resolve="runWithTypeOverExistingText" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
-          <node concept="1bVj0M" id="3jgtTXXKSVJ" role="37wK5m">
-            <node concept="3clFbS" id="3jgtTXXKSVK" role="1bW5cS">
-              <node concept="2TK7Tu" id="3jgtTXXK_Hb" role="3cqZAp">
-                <property role="2TTd_B" value="tcc" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbT" id="3jgtTXXKT1D" role="37wK5m">
-            <property role="3clFbU" value="true" />
-          </node>
-        </node>
+      <node concept="2TK7Tu" id="3jgtTXXK_Hb" role="3cqZAp">
+        <property role="2TTd_B" value="tcc" />
       </node>
     </node>
     <node concept="1qefOq" id="4ryrbqx4zQU" role="25YQCW">
@@ -12211,32 +12146,19 @@
     <property role="TrG5h" value="TypeOver_ErrorState" />
     <property role="3YCmrE" value="Make sure Skip feature is not triggered inside error cells" />
     <node concept="3clFbS" id="vFNczutdGO" role="LjaKd">
-      <node concept="3clFbF" id="vFNczutdGP" role="3cqZAp">
-        <node concept="2YIFZM" id="vFNczutdGQ" role="3clFbG">
-          <ref role="37wK5l" to="tp6m:42dJ8K6y4X2" resolve="runWithTypeOverExistingText" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
-          <node concept="1bVj0M" id="vFNczutxeu" role="37wK5m">
-            <node concept="3clFbS" id="vFNczutxew" role="1bW5cS">
-              <node concept="2TK7Tu" id="vFNczutxpr" role="3cqZAp">
-                <property role="2TTd_B" value="for " />
-              </node>
-              <node concept="3vwNmj" id="hT_dk7V" role="3cqZAp">
-                <node concept="2OqwBi" id="hT_dk7W" role="3vwVQn">
-                  <node concept="2OqwBi" id="hT_dk7X" role="2Oq$k0">
-                    <node concept="liA8E" id="hT_dk81" role="2OqNvi">
-                      <ref role="37wK5l" to="exr9:~EditorComponent.getNodeSubstituteChooser()" resolve="getNodeSubstituteChooser" />
-                    </node>
-                    <node concept="369mXd" id="23pxZJWPS2S" role="2Oq$k0" />
-                  </node>
-                  <node concept="liA8E" id="hT_dk82" role="2OqNvi">
-                    <ref role="37wK5l" to="6lvu:~NodeSubstituteChooser.isVisible()" resolve="isVisible" />
-                  </node>
-                </node>
-              </node>
+      <node concept="2TK7Tu" id="vFNczutxpr" role="3cqZAp">
+        <property role="2TTd_B" value="for " />
+      </node>
+      <node concept="3vwNmj" id="hT_dk7V" role="3cqZAp">
+        <node concept="2OqwBi" id="hT_dk7W" role="3vwVQn">
+          <node concept="2OqwBi" id="hT_dk7X" role="2Oq$k0">
+            <node concept="liA8E" id="hT_dk81" role="2OqNvi">
+              <ref role="37wK5l" to="exr9:~EditorComponent.getNodeSubstituteChooser()" resolve="getNodeSubstituteChooser" />
             </node>
+            <node concept="369mXd" id="23pxZJWPS2S" role="2Oq$k0" />
           </node>
-          <node concept="3clFbT" id="vFNczutdGU" role="37wK5m">
-            <property role="3clFbU" value="true" />
+          <node concept="liA8E" id="hT_dk82" role="2OqNvi">
+            <ref role="37wK5l" to="6lvu:~NodeSubstituteChooser.isVisible()" resolve="isVisible" />
           </node>
         </node>
       </node>
@@ -12315,34 +12237,21 @@
     <property role="TrG5h" value="TypeOver_ArrayInitializer" />
     <property role="3YCmrE" value="int[] foo = new int[|]{20};  &gt; ; &gt;  int[] foo = new int[]{20};|" />
     <node concept="3clFbS" id="uJViGtCM3J" role="LjaKd">
-      <node concept="3clFbF" id="uJViGtCM3K" role="3cqZAp">
-        <node concept="2YIFZM" id="uJViGtCM3L" role="3clFbG">
-          <ref role="37wK5l" to="tp6m:42dJ8K6y4X2" resolve="runWithTypeOverExistingText" />
-          <ref role="1Pybhc" to="tp6m:5s44y2Lh6_5" resolve="EditorTestUtil" />
-          <node concept="1bVj0M" id="uJViGtCM3M" role="37wK5m">
-            <node concept="3clFbS" id="uJViGtCM3N" role="1bW5cS">
-              <node concept="2TK7Tu" id="uJViGtCM3O" role="3cqZAp">
-                <property role="2TTd_B" value="]{" />
-              </node>
-              <node concept="2HxZob" id="uJViGtCM3P" role="3cqZAp">
-                <node concept="1iFQzN" id="uJViGtCM3Q" role="3iKnsn">
-                  <ref role="1iFR8X" to="ekwn:R3$tg1aBNW" resolve="MoveRight" />
-                </node>
-              </node>
-              <node concept="2HxZob" id="uJViGtCQpY" role="3cqZAp">
-                <node concept="1iFQzN" id="uJViGtCQpZ" role="3iKnsn">
-                  <ref role="1iFR8X" to="ekwn:R3$tg1aBNW" resolve="MoveRight" />
-                </node>
-              </node>
-              <node concept="2TK7Tu" id="uJViGtCM3R" role="3cqZAp">
-                <property role="2TTd_B" value="};" />
-              </node>
-            </node>
-          </node>
-          <node concept="3clFbT" id="uJViGtCM3S" role="37wK5m">
-            <property role="3clFbU" value="true" />
-          </node>
+      <node concept="2TK7Tu" id="uJViGtCM3O" role="3cqZAp">
+        <property role="2TTd_B" value="]{" />
+      </node>
+      <node concept="2HxZob" id="uJViGtCM3P" role="3cqZAp">
+        <node concept="1iFQzN" id="uJViGtCM3Q" role="3iKnsn">
+          <ref role="1iFR8X" to="ekwn:R3$tg1aBNW" resolve="MoveRight" />
         </node>
+      </node>
+      <node concept="2HxZob" id="uJViGtCQpY" role="3cqZAp">
+        <node concept="1iFQzN" id="uJViGtCQpZ" role="3iKnsn">
+          <ref role="1iFR8X" to="ekwn:R3$tg1aBNW" resolve="MoveRight" />
+        </node>
+      </node>
+      <node concept="2TK7Tu" id="uJViGtCM3R" role="3cqZAp">
+        <property role="2TTd_B" value="};" />
       </node>
     </node>
     <node concept="1qefOq" id="uJViGtCM3T" role="25YQCW">
@@ -12398,6 +12307,56 @@
               <property role="p6zMq" value="1" />
               <property role="p6zMs" value="1" />
               <property role="LIFWd" value="Constant_y9czm0_b0" />
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </node>
+  <node concept="LiM7Y" id="2FqClxE$Usx">
+    <property role="3GE5qa" value="typeOverExistingText" />
+    <property role="TrG5h" value="TypeOver_ReturnStatement" />
+    <property role="3YCmrE" value="Do not skip semicolon after return keyword by typing space" />
+    <node concept="3clFbS" id="2FqClxE$Usy" role="LjaKd">
+      <node concept="2TK7Tu" id="2FqClxE$Usz" role="3cqZAp">
+        <property role="2TTd_B" value="return null" />
+      </node>
+    </node>
+    <node concept="1qefOq" id="2FqClxE$UsE" role="25YQCW">
+      <node concept="2YIFZL" id="2FqClxE$V2u" role="1qenE9">
+        <property role="TrG5h" value="method" />
+        <node concept="3uibUv" id="2FqClxE$V77" role="3clF45">
+          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+        </node>
+        <node concept="3Tm1VV" id="2FqClxE$V2w" role="1B3o_S" />
+        <node concept="3clFbS" id="2FqClxE$V2x" role="3clF47">
+          <node concept="LIFWc" id="2FqClxE$Vk9" role="lGtFl">
+            <property role="ZRATv" value="true" />
+            <property role="OXtK3" value="true" />
+            <property role="p6zMq" value="0" />
+            <property role="p6zMs" value="0" />
+            <property role="LIFWd" value="Constant_u338ov_a0a" />
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1qefOq" id="2FqClxE$Vcx" role="25YQFr">
+      <node concept="2YIFZL" id="2FqClxE$Vcy" role="1qenE9">
+        <property role="TrG5h" value="method" />
+        <node concept="3uibUv" id="2FqClxE$Vcz" role="3clF45">
+          <ref role="3uigEE" to="wyt6:~Object" resolve="Object" />
+        </node>
+        <node concept="3Tm1VV" id="2FqClxE$Vc$" role="1B3o_S" />
+        <node concept="3clFbS" id="2FqClxE$Vc_" role="3clF47">
+          <node concept="3cpWs6" id="2FqClxE_e5L" role="3cqZAp">
+            <node concept="10Nm6u" id="2FqClxE_e6v" role="3cqZAk">
+              <node concept="LIFWc" id="2FqClxE_e6V" role="lGtFl">
+                <property role="ZRATv" value="true" />
+                <property role="OXtK3" value="true" />
+                <property role="p6zMq" value="4" />
+                <property role="p6zMs" value="4" />
+                <property role="LIFWd" value="Constant_ttt6c2_a" />
+              </node>
             </node>
           </node>
         </node>
