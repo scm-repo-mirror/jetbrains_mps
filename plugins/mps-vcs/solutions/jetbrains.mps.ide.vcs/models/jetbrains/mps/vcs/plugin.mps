@@ -2148,9 +2148,9 @@
   </node>
   <node concept="sE7Ow" id="6ySnuJfjmm_">
     <property role="TrG5h" value="ShowDiffererenceWithCurrentRevision" />
-    <property role="72QZ$" value="true" />
     <property role="3GE5qa" value="Actions" />
     <property role="2uzpH1" value="Compare with the Same Repository Version" />
+    <property role="72QZ$" value="true" />
     <node concept="2XrIbr" id="7HIuVrrXzoa" role="32lrUH">
       <property role="TrG5h" value="getVcsActionsUtil" />
       <node concept="3uibUv" id="7HIuVrrXE8N" role="3clF45">
@@ -2218,13 +2218,20 @@
                   <ref role="2WH_rO" node="6ySnuJfjmmC" resolve="project" />
                 </node>
               </node>
-              <node concept="2OqwBi" id="7HIuVrrXGEe" role="37wK5m">
-                <node concept="2WthIp" id="7HIuVrrXGEf" role="2Oq$k0" />
-                <node concept="3gHZIF" id="7HIuVrrXGEg" role="2OqNvi">
-                  <ref role="2WH_rO" node="5a5$n2xupB2" resolve="node" />
+              <node concept="2OqwBi" id="1Hxk2C1j3V_" role="37wK5m">
+                <node concept="2JrnkZ" id="1Hxk2C1j3Gv" role="2Oq$k0">
+                  <node concept="2OqwBi" id="7HIuVrrXGEe" role="2JrQYb">
+                    <node concept="2WthIp" id="7HIuVrrXGEf" role="2Oq$k0" />
+                    <node concept="3gHZIF" id="7HIuVrrXGEg" role="2OqNvi">
+                      <ref role="2WH_rO" node="5a5$n2xupB2" resolve="node" />
+                    </node>
+                  </node>
+                </node>
+                <node concept="liA8E" id="1Hxk2C1j46Y" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SNode.getReference()" resolve="getReference" />
                 </node>
               </node>
-              <node concept="37vLTw" id="7HIuVrrXGEh" role="37wK5m">
+              <node concept="37vLTw" id="1Hxk2C1hijL" role="37wK5m">
                 <ref role="3cqZAo" node="7HIuVrrXGDX" resolve="rootName" />
               </node>
             </node>
