@@ -2469,7 +2469,7 @@
                 <ref role="1Pybhc" to="wyt6:~String" resolve="String" />
                 <ref role="37wK5l" to="wyt6:~String.format(java.lang.String,java.lang.Object...)" resolve="format" />
                 <node concept="Xl_RD" id="3Ss$euZpA6O" role="37wK5m">
-                  <property role="Xl_RC" value="Conflicting content in memory and on disk for model %s from %s. Unfortunately, MPS does not support conflict resolution for models from multiple files yet, conflict ignored." />
+                  <property role="Xl_RC" value="Conflicting content in memory and on disk for models '%s' and '%s'. MPS does not support this data source; it will save the model and ignore the external modifications." />
                 </node>
                 <node concept="2OqwBi" id="3Ss$euZpCIs" role="37wK5m">
                   <node concept="37vLTw" id="3Ss$euZpCdp" role="2Oq$k0">
@@ -2491,6 +2491,14 @@
                   <node concept="liA8E" id="3Ss$euZpF0o" role="2OqNvi">
                     <ref role="37wK5l" to="dush:~DataSource.getLocation()" resolve="getLocation" />
                   </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3clFbF" id="pDr3l3zAld" role="3cqZAp">
+              <node concept="1rXfSq" id="pDr3l3zAlb" role="3clFbG">
+                <ref role="37wK5l" node="pDr3l3zv$Y" resolve="saveModel" />
+                <node concept="37vLTw" id="pDr3l3zBDO" role="37wK5m">
+                  <ref role="3cqZAo" node="6KmbN9hT18Q" resolve="model" />
                 </node>
               </node>
             </node>
@@ -3174,47 +3182,11 @@
                           </node>
                         </node>
                       </node>
-                      <node concept="3clFbF" id="1KUoCiqb66_" role="3cqZAp">
-                        <node concept="2OqwBi" id="1KUoCiqb66A" role="3clFbG">
-                          <node concept="2OqwBi" id="4tEWdMGHxEx" role="2Oq$k0">
-                            <node concept="2OqwBi" id="4tEWdMGHx86" role="2Oq$k0">
-                              <node concept="37vLTw" id="4tEWdMGHw7d" role="2Oq$k0">
-                                <ref role="3cqZAo" node="6KmbN9hT18Q" resolve="model" />
-                              </node>
-                              <node concept="liA8E" id="4tEWdMGHxpf" role="2OqNvi">
-                                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
-                              </node>
-                            </node>
-                            <node concept="liA8E" id="4tEWdMGHy2h" role="2OqNvi">
-                              <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
-                            </node>
-                          </node>
-                          <node concept="liA8E" id="1KUoCiqb66C" role="2OqNvi">
-                            <ref role="37wK5l" to="lui2:~ModelAccess.runWriteAction(java.lang.Runnable)" resolve="runWriteAction" />
-                            <node concept="1bVj0M" id="1KUoCiqb66D" role="37wK5m">
-                              <node concept="3clFbS" id="1KUoCiqb66E" role="1bW5cS">
-                                <node concept="3clFbF" id="1KUoCiqb66G" role="3cqZAp">
-                                  <node concept="2OqwBi" id="1KUoCiqb66H" role="3clFbG">
-                                    <node concept="liA8E" id="1KUoCiqb66I" role="2OqNvi">
-                                      <ref role="37wK5l" to="mhbf:~EditableSModel.updateTimestamp()" resolve="updateTimestamp" />
-                                    </node>
-                                    <node concept="37vLTw" id="6JliwLNg8bQ" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="6KmbN9hT18Q" resolve="model" />
-                                    </node>
-                                  </node>
-                                </node>
-                                <node concept="3clFbF" id="1KUoCiqb66K" role="3cqZAp">
-                                  <node concept="2OqwBi" id="1KUoCiqb66L" role="3clFbG">
-                                    <node concept="liA8E" id="1KUoCiqb66M" role="2OqNvi">
-                                      <ref role="37wK5l" to="mhbf:~EditableSModel.save()" resolve="save" />
-                                    </node>
-                                    <node concept="37vLTw" id="6JliwLNg8zj" role="2Oq$k0">
-                                      <ref role="3cqZAo" node="6KmbN9hT18Q" resolve="model" />
-                                    </node>
-                                  </node>
-                                </node>
-                              </node>
-                            </node>
+                      <node concept="3clFbF" id="pDr3l3zv_3" role="3cqZAp">
+                        <node concept="1rXfSq" id="pDr3l3zv_2" role="3clFbG">
+                          <ref role="37wK5l" node="pDr3l3zv$Y" resolve="saveModel" />
+                          <node concept="37vLTw" id="pDr3l3zv_1" role="37wK5m">
+                            <ref role="3cqZAo" node="6KmbN9hT18Q" resolve="model" />
                           </node>
                         </node>
                       </node>
@@ -3318,6 +3290,98 @@
         <property role="TrG5h" value="model" />
         <node concept="3uibUv" id="6JliwLNg0Vr" role="1tU5fm">
           <ref role="3uigEE" to="mhbf:~EditableSModel" resolve="EditableSModel" />
+        </node>
+        <node concept="2AHcQZ" id="pDr3l3zBMk" role="2AJF6D">
+          <ref role="2AI5Lk" to="mhfm:~NotNull" resolve="NotNull" />
+        </node>
+      </node>
+    </node>
+    <node concept="2tJIrI" id="pDr3l3zxwM" role="jymVt" />
+    <node concept="3clFb_" id="pDr3l3zv$Y" role="jymVt">
+      <property role="TrG5h" value="saveModel" />
+      <node concept="3Tm6S6" id="pDr3l3zv$Z" role="1B3o_S" />
+      <node concept="3cqZAl" id="pDr3l3zv_0" role="3clF45" />
+      <node concept="37vLTG" id="pDr3l3zv$R" role="3clF46">
+        <property role="TrG5h" value="model" />
+        <node concept="3uibUv" id="pDr3l3zv$S" role="1tU5fm">
+          <ref role="3uigEE" to="mhbf:~EditableSModel" resolve="EditableSModel" />
+        </node>
+      </node>
+      <node concept="3clFbS" id="pDr3l3zv$$" role="3clF47">
+        <node concept="3clFbF" id="pDr3l3zv$_" role="3cqZAp">
+          <node concept="2OqwBi" id="pDr3l3zv$A" role="3clFbG">
+            <node concept="2OqwBi" id="pDr3l3zv$B" role="2Oq$k0">
+              <node concept="2OqwBi" id="pDr3l3zv$C" role="2Oq$k0">
+                <node concept="37vLTw" id="pDr3l3zv$U" role="2Oq$k0">
+                  <ref role="3cqZAo" node="pDr3l3zv$R" resolve="model" />
+                </node>
+                <node concept="liA8E" id="pDr3l3zv$E" role="2OqNvi">
+                  <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
+                </node>
+              </node>
+              <node concept="liA8E" id="pDr3l3zv$F" role="2OqNvi">
+                <ref role="37wK5l" to="lui2:~SRepository.getModelAccess()" resolve="getModelAccess" />
+              </node>
+            </node>
+            <node concept="liA8E" id="pDr3l3zv$G" role="2OqNvi">
+              <ref role="37wK5l" to="lui2:~ModelAccess.runWriteAction(java.lang.Runnable)" resolve="runWriteAction" />
+              <node concept="1bVj0M" id="pDr3l3zv$H" role="37wK5m">
+                <node concept="3clFbS" id="pDr3l3zv$I" role="1bW5cS">
+                  <node concept="3SKdUt" id="pDr3l3zD14" role="3cqZAp">
+                    <node concept="1PaTwC" id="pDr3l3zD15" role="3ndbpf">
+                      <node concept="3oM_SD" id="pDr3l3zD17" role="1PaTwD">
+                        <property role="3oM_SC" value="fixme" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zP7n" role="1PaTwD">
+                        <property role="3oM_SC" value="why" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zDe0" role="1PaTwD">
+                        <property role="3oM_SC" value="this?" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zDe3" role="1PaTwD">
+                        <property role="3oM_SC" value="--" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zDhJ" role="1PaTwD">
+                        <property role="3oM_SC" value="#save" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zEx8" role="1PaTwD">
+                        <property role="3oM_SC" value="updates" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zEBw" role="1PaTwD">
+                        <property role="3oM_SC" value="timestamp" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zEK9" role="1PaTwD">
+                        <property role="3oM_SC" value="by" />
+                      </node>
+                      <node concept="3oM_SD" id="pDr3l3zENT" role="1PaTwD">
+                        <property role="3oM_SC" value="itself" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbF" id="pDr3l3zv$J" role="3cqZAp">
+                    <node concept="2OqwBi" id="pDr3l3zv$K" role="3clFbG">
+                      <node concept="liA8E" id="pDr3l3zv$L" role="2OqNvi">
+                        <ref role="37wK5l" to="mhbf:~EditableSModel.updateTimestamp()" resolve="updateTimestamp" />
+                      </node>
+                      <node concept="37vLTw" id="pDr3l3zv$V" role="2Oq$k0">
+                        <ref role="3cqZAo" node="pDr3l3zv$R" resolve="model" />
+                      </node>
+                    </node>
+                  </node>
+                  <node concept="3clFbF" id="pDr3l3zv$N" role="3cqZAp">
+                    <node concept="2OqwBi" id="pDr3l3zv$O" role="3clFbG">
+                      <node concept="liA8E" id="pDr3l3zv$P" role="2OqNvi">
+                        <ref role="37wK5l" to="mhbf:~EditableSModel.save()" resolve="save" />
+                      </node>
+                      <node concept="37vLTw" id="pDr3l3zv$T" role="2Oq$k0">
+                        <ref role="3cqZAo" node="pDr3l3zv$R" resolve="model" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+          </node>
         </node>
       </node>
     </node>
