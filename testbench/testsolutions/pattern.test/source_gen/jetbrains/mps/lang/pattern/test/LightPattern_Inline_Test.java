@@ -4,13 +4,13 @@ package jetbrains.mps.lang.pattern.test;
 
 import junit.framework.TestCase;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import java.util.Objects;
 import junit.framework.Assert;
 import jetbrains.mps.lang.pattern.AbstractGeneratedPattern;
-import jetbrains.mps.util.Reference;
 import jetbrains.mps.lang.pattern.NodeMatcherBuilder;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -26,77 +26,60 @@ public class LightPattern_Inline_Test extends TestCase {
     SNode nodeToMatch = _quotation_createNode_c1xprt_a0c0a0();
     Pattern_c1xprt_a0c0a0 pattern0;
     Pattern_c1xprt_a1c0a0 pattern1;
-    if ((pattern0 = new Pattern_c1xprt_a0c0a0()).matches(nodeToMatch)) {
-      matches1 = SPropertyOperations.getInteger(pattern0.getValue()) >= 5 && SNodeOperations.isInstanceOf(pattern0.getType(), CONCEPTS.IntegerType$Eo) && pattern0.getDecl() != null;
-    } else if ((pattern1 = new Pattern_c1xprt_a1c0a0()).matches(nodeToMatch)) {
-      matches2 = Objects.equals(pattern1.getName(), "x");
-    } else {
+    if ((pattern0 = new Pattern_c1xprt_a0c0a0()).match(nodeToMatch)) {
+      matches1 = pattern0.getValue(nodeToMatch) >= 8 && pattern0.getValue(nodeToMatch) <= 8 && SNodeOperations.isInstanceOf(pattern0.getType(nodeToMatch), CONCEPTS.IntegerType$Eo) && pattern0.getDecl(nodeToMatch) != null;
+    } else if ((pattern1 = new Pattern_c1xprt_a1c0a0()).match(nodeToMatch)) {
+      matches2 = Objects.equals(pattern1.getName(nodeToMatch), "x");
     }
     Assert.assertTrue(matches1);
     Assert.assertFalse(matches2);
   }
   private static class Pattern_c1xprt_a1c0a0 extends AbstractGeneratedPattern {
-    private Reference<String> myName = new Reference<String>();
     public Pattern_c1xprt_a1c0a0() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n14 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
         n14.forChild(LINKS.type$pLrO).init(CONCEPTS.IntegerType$Eo);
-        n14.setPropertyVariable(PROPS.name$tAp1, myName);
+        n14.setPropertyVariable(PROPS.name$tAp1);
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
-    public String getName() {
-      ensureMatched();
-      return myName.get();
+    public String getName(SNode rootNode) {
+      return SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.LocalVariableDeclarationStatement$BI), LINKS.localVariableDeclaration$O0D0), CONCEPTS.LocalVariableDeclaration$Bf), PROPS.name$tAp1);
     }
   }
   private static class Pattern_c1xprt_a0c0a0 extends AbstractGeneratedPattern {
-    private Reference<SNode> myType = new Reference<SNode>();
-    private Reference<SNode> myDecl = new Reference<SNode>();
-    private Reference<String> myName = new Reference<String>();
-    private Reference<String> myValue = new Reference<String>();
     public Pattern_c1xprt_a0c0a0() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n15 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
-        n15.forChild(LINKS.type$pLrO).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(true, myType));
-        n15.setPropertyVariable(PROPS.name$tAp1, myName);
+        n15.forChild(LINKS.type$pLrO).init(new NodeMatcherBuilder.NodeWildcardMatcher(true));
+        n15.setPropertyVariable(PROPS.name$tAp1);
         {
           NodeMatcherBuilder n16 = n15.forChild(LINKS.initializer$KgD).init(CONCEPTS.PlusExpression$Re);
           {
             NodeMatcherBuilder n17 = n16.forChild(LINKS.leftExpression$rxLZ).init(CONCEPTS.IntegerConstant$mo);
-            n17.setPropertyVariable(PROPS.value$ZeO0, myValue);
+            n17.setPropertyVariable(PROPS.value$ZeO0);
           }
           {
             NodeMatcherBuilder n18 = n16.forChild(LINKS.rightExpression$rxBl).init(CONCEPTS.VariableReference$sQ);
-            n18.setReferenceVariable(LINKS.variableDeclaration$2ky6, myDecl);
+            n18.setReferenceVariable(LINKS.variableDeclaration$2ky6);
           }
         }
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
-    public SNode getType() {
-      ensureMatched();
-      return myType.get();
+    public String getName(SNode rootNode) {
+      return SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.LocalVariableDeclarationStatement$BI), LINKS.localVariableDeclaration$O0D0), CONCEPTS.LocalVariableDeclaration$Bf), PROPS.name$tAp1);
     }
-    public SNode getDecl() {
-      ensureMatched();
-      return myDecl.get();
+    public int getValue(SNode rootNode) {
+      return SPropertyOperations.getInteger(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.LocalVariableDeclarationStatement$BI), LINKS.localVariableDeclaration$O0D0), CONCEPTS.LocalVariableDeclaration$Bf), LINKS.initializer$KgD), CONCEPTS.PlusExpression$Re), LINKS.leftExpression$rxLZ), CONCEPTS.IntegerConstant$mo), PROPS.value$ZeO0);
     }
-    public String getName() {
-      ensureMatched();
-      return myName.get();
+    public SNode getType(SNode rootNode) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.LocalVariableDeclarationStatement$BI), LINKS.localVariableDeclaration$O0D0), CONCEPTS.LocalVariableDeclaration$Bf), LINKS.type$pLrO);
     }
-    public String getValue() {
-      ensureMatched();
-      return myValue.get();
+    public SNode getDecl(SNode rootNode) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.LocalVariableDeclarationStatement$BI), LINKS.localVariableDeclaration$O0D0), CONCEPTS.LocalVariableDeclaration$Bf), LINKS.initializer$KgD), CONCEPTS.PlusExpression$Re), LINKS.rightExpression$rxBl), CONCEPTS.VariableReference$sQ), LINKS.variableDeclaration$2ky6);
     }
   }
   private static SNode _quotation_createNode_c1xprt_a0c0a0() {

@@ -18,7 +18,6 @@ package jetbrains.mps.lang.pattern;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.builder.AbstractNodeBuilder;
 import jetbrains.mps.util.ListMap;
-import jetbrains.mps.util.Reference;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.mps.openapi.language.SConcept;
@@ -38,7 +37,7 @@ import java.util.function.Predicate;
 
 public class NodeMatcherBuilder implements AbstractNodeBuilder {
 
-  public static class NodeMatcherWrapper {
+  private static class NodeMatcherWrapper {
     private NodeMatcher myMatcher;
   }
 

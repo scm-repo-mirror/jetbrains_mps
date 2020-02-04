@@ -15,19 +15,23 @@
  */
 package jetbrains.mps.lang.pattern;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.model.SNode;
 
-public abstract class AbstractGeneratedPattern {
-  private SNode myMatchingNode;
-  private boolean myMatched;
-  public boolean matches(SNode nodeToMatch) {
-    myMatchingNode = nodeToMatch;
-    return myMatched = apply(nodeToMatch);
+public abstract class AbstractGeneratedPattern implements IMatchingPattern {
+  private NodeMatcherBuilder.NodeMatcher myMatcher;
+  // to be called from constructor
+  protected final void setMatcher(NodeMatcherBuilder.NodeMatcher matcher) {
+    myMatcher = matcher;
   }
-  protected void ensureMatched() {
-    if (myMatchingNode == null || !myMatched) {
-      throw new IllegalStateException();
-    }
+  @Override
+  public boolean match(SNode nodeToMatch) {
+    return myMatcher.match(nodeToMatch);
   }
-  protected abstract boolean apply(SNode nodeToMatch);
+  @NotNull
+  @Override
+  public SConcept getConcept() {
+    return myMatcher.getConcept();
+  }
 }

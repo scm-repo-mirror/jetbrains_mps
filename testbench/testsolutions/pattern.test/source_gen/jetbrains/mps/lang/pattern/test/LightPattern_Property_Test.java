@@ -7,7 +7,9 @@ import org.jetbrains.mps.openapi.model.SNode;
 import junit.framework.Assert;
 import jetbrains.mps.lang.pattern.AbstractGeneratedPattern;
 import jetbrains.mps.lang.pattern.NodeMatcherBuilder;
-import jetbrains.mps.util.Reference;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -20,7 +22,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch2_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0a0(null);
-    if (new Pattern2_Pattern().matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -30,7 +32,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch2_nullInsteadOfEmpty() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0b0("");
-    if (new Pattern2_Pattern().matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -40,7 +42,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch3_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0c0("");
-    if (new Pattern3_Pattern().matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -50,7 +52,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch3_emptyInsteadOfNull() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0d0(null);
-    if (new Pattern3_Pattern().matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -60,7 +62,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch4_matchesNull() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0e0(null);
-    if (new Pattern4_Pattern().matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -70,7 +72,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch4_matchesEmpty() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0f0("");
-    if (new Pattern4_Pattern().matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -80,7 +82,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch4_matchesValue() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0g0();
-    if (new Pattern4_Pattern().matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -90,7 +92,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch5_matchesNull() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0h0(null);
-    if (new Pattern5_Pattern().matches(nodeToMatch)) {
+    if (new Pattern5_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -100,7 +102,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch5_matchesEmpty() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0i0("");
-    if (new Pattern5_Pattern().matches(nodeToMatch)) {
+    if (new Pattern5_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -110,7 +112,7 @@ public class LightPattern_Property_Test extends TestCase {
   public void test_patternSwitch5_matchesValue() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_v07ekb_a0b0j0();
-    if (new Pattern5_Pattern().matches(nodeToMatch)) {
+    if (new Pattern5_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -119,69 +121,52 @@ public class LightPattern_Property_Test extends TestCase {
   }
   private static class Pattern1_Pattern extends AbstractGeneratedPattern {
     public Pattern1_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n10 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.IntegerConstant$mo);
         n10.setProperty(PROPS.value$ZeO0, PROPS.value$ZeO0.getType().toString(239));
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern2_Pattern extends AbstractGeneratedPattern {
     public Pattern2_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n11 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.StringLiteral$4G);
         n11.setProperty(PROPS.value$kiE0, PROPS.value$kiE0.getType().toString(null));
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern3_Pattern extends AbstractGeneratedPattern {
     public Pattern3_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n12 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.StringLiteral$4G);
         n12.setProperty(PROPS.value$kiE0, "");
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern4_Pattern extends AbstractGeneratedPattern {
     public Pattern4_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.StringLiteral$4G);
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern5_Pattern extends AbstractGeneratedPattern {
-    private Reference<String> myVar = new Reference<String>();
     public Pattern5_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n13 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.StringLiteral$4G);
-        n13.setPropertyVariable(PROPS.value$kiE0, myVar);
+        n13.setPropertyVariable(PROPS.value$kiE0);
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
-    public String getVar() {
-      ensureMatched();
-      return myVar.get();
+    public String getVar(SNode rootNode) {
+      return SPropertyOperations.getString(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.ReturnStatement$SF), LINKS.expression$EsbK), CONCEPTS.StringLiteral$4G), PROPS.value$kiE0);
     }
   }
 

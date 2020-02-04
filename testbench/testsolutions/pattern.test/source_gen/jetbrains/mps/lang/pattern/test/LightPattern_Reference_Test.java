@@ -9,7 +9,8 @@ import jetbrains.mps.lang.pattern.AbstractGeneratedPattern;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.lang.pattern.NodeMatcherBuilder;
 import jetbrains.mps.smodel.SNodePointer;
-import jetbrains.mps.util.Reference;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.SReference;
@@ -21,7 +22,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch1_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0a0();
-    if (new Pattern1_Pattern().matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -31,7 +32,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch1_referenceMismatch() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0b0();
-    if (new Pattern1_Pattern().matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -41,7 +42,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch2_unexpectedReference() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0c0();
-    if (new Pattern2_Pattern().matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -51,7 +52,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch3_matchesWithReference() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0d0();
-    if (new Pattern3_Pattern().matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -61,7 +62,7 @@ public class LightPattern_Reference_Test extends TestCase {
   public void test_patternSwitch3_matchesWithoutReference() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_z02wj9_a0b0e0();
-    if (new Pattern3_Pattern().matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -70,9 +71,6 @@ public class LightPattern_Reference_Test extends TestCase {
   }
   private static class Pattern1_Pattern extends AbstractGeneratedPattern {
     public Pattern1_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       PersistenceFacade facade = PersistenceFacade.getInstance();
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
@@ -82,14 +80,11 @@ public class LightPattern_Reference_Test extends TestCase {
           n2.setReference(LINKS.baseMethodDeclaration$$A7i, new SNodePointer(facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Object.<init>()")));
         }
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern2_Pattern extends AbstractGeneratedPattern {
     public Pattern2_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n3 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.GenericNewExpression$ev);
@@ -98,59 +93,46 @@ public class LightPattern_Reference_Test extends TestCase {
           n4.setReferenceTarget(LINKS.baseMethodDeclaration$$A7i, null);
         }
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern3_Pattern extends AbstractGeneratedPattern {
     public Pattern3_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n5 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.GenericNewExpression$ev);
         n5.forChild(LINKS.creator$itDQ).init(CONCEPTS.ClassCreator$yU);
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern4_Pattern extends AbstractGeneratedPattern {
-    private final SNode myNode0;
     public Pattern4_Pattern(SNode node0) {
-      myNode0 = node0;
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n6 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.GenericNewExpression$ev);
         {
           NodeMatcherBuilder n7 = n6.forChild(LINKS.creator$itDQ).init(CONCEPTS.ClassCreator$yU);
-          n7.setReferenceTarget(LINKS.baseMethodDeclaration$$A7i, myNode0);
+          n7.setReferenceTarget(LINKS.baseMethodDeclaration$$A7i, node0);
         }
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern5_Pattern extends AbstractGeneratedPattern {
-    private Reference<SNode> myVar = new Reference<SNode>();
     public Pattern5_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       {
         NodeMatcherBuilder n8 = rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.GenericNewExpression$ev);
         {
           NodeMatcherBuilder n9 = n8.forChild(LINKS.creator$itDQ).init(CONCEPTS.ClassCreator$yU);
-          n9.setReferenceVariable(LINKS.constructorDeclaration$KXsm, myVar);
+          n9.setReferenceVariable(LINKS.constructorDeclaration$KXsm);
         }
       }
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
-    public SNode getVar() {
-      ensureMatched();
-      return myVar.get();
+    public SNode getVar(SNode rootNode) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.ReturnStatement$SF), LINKS.expression$EsbK), CONCEPTS.GenericNewExpression$ev), LINKS.creator$itDQ), CONCEPTS.ClassCreator$yU), LINKS.baseMethodDeclaration$$A7i);
     }
   }
 

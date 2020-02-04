@@ -7,7 +7,8 @@ import org.jetbrains.mps.openapi.model.SNode;
 import junit.framework.Assert;
 import jetbrains.mps.lang.pattern.AbstractGeneratedPattern;
 import jetbrains.mps.lang.pattern.NodeMatcherBuilder;
-import jetbrains.mps.util.Reference;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
@@ -18,7 +19,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch1_childMismatch() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0a0();
-    if (new Pattern1_Pattern().matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -28,7 +29,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch1_missingChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0b0();
-    if (new Pattern1_Pattern().matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -38,7 +39,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch1_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0c0();
-    if (new Pattern1_Pattern().matches(nodeToMatch)) {
+    if (new Pattern1_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -48,7 +49,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch2_unexpectedChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0d0();
-    if (new Pattern2_Pattern().matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -58,7 +59,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch2_matches() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0e0();
-    if (new Pattern2_Pattern().matches(nodeToMatch)) {
+    if (new Pattern2_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -68,7 +69,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch3_matchesWithChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0f0();
-    if (new Pattern3_Pattern().matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -78,7 +79,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch3_matchesWithoutChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0g0();
-    if (new Pattern3_Pattern().matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -88,7 +89,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch4_matchesWithChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0h0();
-    if (new Pattern4_Pattern().matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -98,7 +99,7 @@ public class LightPattern_Child_Test extends TestCase {
   public void test_patternSwitch4_matchesWithoutChild() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_55eq59_a0b0i0();
-    if (new Pattern4_Pattern().matches(nodeToMatch)) {
+    if (new Pattern4_Pattern().match(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
@@ -107,46 +108,32 @@ public class LightPattern_Child_Test extends TestCase {
   }
   private static class Pattern1_Pattern extends AbstractGeneratedPattern {
     public Pattern1_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       rootBuilder.forChild(LINKS.expression$EsbK).init(CONCEPTS.NullLiteral$q4);
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern2_Pattern extends AbstractGeneratedPattern {
     public Pattern2_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
       rootBuilder.forChild(LINKS.expression$EsbK).initNull();
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern3_Pattern extends AbstractGeneratedPattern {
     public Pattern3_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
-      return rootBuilder.getMatcher().match(node);
+      setMatcher(rootBuilder.getMatcher());
     }
   }
   private static class Pattern4_Pattern extends AbstractGeneratedPattern {
-    private Reference<SNode> myVar = new Reference<SNode>();
     public Pattern4_Pattern() {
-    }
-    @Override
-    protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
-      rootBuilder.forChild(LINKS.expression$EsbK).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(true, myVar));
-      return rootBuilder.getMatcher().match(node);
+      rootBuilder.forChild(LINKS.expression$EsbK).init(new NodeMatcherBuilder.NodeWildcardMatcher(true));
+      setMatcher(rootBuilder.getMatcher());
     }
-    public SNode getVar() {
-      ensureMatched();
-      return myVar.get();
+    public SNode getVar(SNode rootNode) {
+      return SLinkOperations.getTarget(SNodeOperations.cast(rootNode, CONCEPTS.ReturnStatement$SF), LINKS.expression$EsbK);
     }
   }
   private static SNode _quotation_createNode_55eq59_a0b0a0() {
