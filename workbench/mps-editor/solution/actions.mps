@@ -9,7 +9,7 @@
     <use id="28f9e497-3b42-4291-aeba-0a1039153ab1" name="jetbrains.mps.lang.plugin" version="-1" />
     <use id="f2801650-65d5-424e-bb1b-463a8781b786" name="jetbrains.mps.baseLanguage.javadoc" version="-1" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="-1" />
-    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="10" />
+    <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="-1" />
     <use id="982eb8df-2c96-4bd7-9963-11712ea622e5" name="jetbrains.mps.lang.resources" version="-1" />
     <use id="63650c59-16c8-498a-99c8-005c7ee9515d" name="jetbrains.mps.lang.access" version="-1" />
     <use id="a247e09e-2435-45ba-b8d2-07e93feba96a" name="jetbrains.mps.baseLanguage.tuples" version="-1" />
@@ -8823,6 +8823,89 @@
     <property role="2uzpH1" value="Add Language Import" />
     <property role="1teQrl" value="true" />
     <property role="72QZ$" value="true" />
+    <node concept="2XrIbr" id="1yqbt3NqNdI" role="32lrUH">
+      <property role="TrG5h" value="configureImportHelper" />
+      <node concept="3cqZAl" id="1yqbt3NqOGc" role="3clF45" />
+      <node concept="3clFbS" id="1yqbt3NqNdK" role="3clF47">
+        <node concept="3SKdUt" id="1yqbt3NqP5r" role="3cqZAp">
+          <node concept="1PaTwC" id="1yqbt3NqP5s" role="1aUNEU">
+            <node concept="3oM_SD" id="1yqbt3NqP5Q" role="1PaTwD">
+              <property role="3oM_SC" value="no-op," />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP60" role="1PaTwD">
+              <property role="3oM_SC" value="intended" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP6b" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP6f" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP6s" role="1PaTwD">
+              <property role="3oM_SC" value="overridden" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP6E" role="1PaTwD">
+              <property role="3oM_SC" value="in" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP6L" role="1PaTwD">
+              <property role="3oM_SC" value="subclass" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP7h" role="1PaTwD">
+              <property role="3oM_SC" value="(mps-idea-plugin" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP82" role="1PaTwD">
+              <property role="3oM_SC" value="needs" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP8k" role="1PaTwD">
+              <property role="3oM_SC" value="additional" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP8J" role="1PaTwD">
+              <property role="3oM_SC" value="activities" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP93" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqP9g" role="1PaTwD">
+              <property role="3oM_SC" value="be" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPal" role="1PaTwD">
+              <property role="3oM_SC" value="executed" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPaG" role="1PaTwD">
+              <property role="3oM_SC" value="when" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPb4" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPbt" role="1PaTwD">
+              <property role="3oM_SC" value="language" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPbZ" role="1PaTwD">
+              <property role="3oM_SC" value="is" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPci" role="1PaTwD">
+              <property role="3oM_SC" value="added" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPcA" role="1PaTwD">
+              <property role="3oM_SC" value="to" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPcV" role="1PaTwD">
+              <property role="3oM_SC" value="a" />
+            </node>
+            <node concept="3oM_SD" id="1yqbt3NqPdp" role="1PaTwD">
+              <property role="3oM_SC" value="model)" />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="3Tmbuc" id="1yqbt3NqNjj" role="1B3o_S" />
+      <node concept="37vLTG" id="1yqbt3NqO1N" role="3clF46">
+        <property role="TrG5h" value="helper" />
+        <node concept="3uibUv" id="1yqbt3NqOXY" role="1tU5fm">
+          <ref role="3uigEE" to="z1c4:~LanguageImportHelper" resolve="LanguageImportHelper" />
+        </node>
+      </node>
+    </node>
     <node concept="1DS2jV" id="5uaEgp6nCtJ" role="1NuT2Z">
       <property role="TrG5h" value="project" />
       <ref role="1DUlNI" to="qq03:~MPSCommonDataKeys.MPS_PROJECT" resolve="MPS_PROJECT" />
@@ -9034,89 +9117,6 @@
       <node concept="10M0yZ" id="5PCQuKdiD5E" role="3xaMm5">
         <ref role="1PxDUh" to="l7us:~MPSIcons$Nodes" resolve="MPSIcons.Nodes" />
         <ref role="3cqZAo" to="l7us:~MPSIcons$Nodes.Language" resolve="Language" />
-      </node>
-    </node>
-    <node concept="2XrIbr" id="1yqbt3NqNdI" role="32lrUH">
-      <property role="TrG5h" value="configureImportHelper" />
-      <node concept="3cqZAl" id="1yqbt3NqOGc" role="3clF45" />
-      <node concept="3clFbS" id="1yqbt3NqNdK" role="3clF47">
-        <node concept="3SKdUt" id="1yqbt3NqP5r" role="3cqZAp">
-          <node concept="1PaTwC" id="1yqbt3NqP5s" role="1aUNEU">
-            <node concept="3oM_SD" id="1yqbt3NqP5Q" role="1PaTwD">
-              <property role="3oM_SC" value="no-op," />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP60" role="1PaTwD">
-              <property role="3oM_SC" value="intended" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP6b" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP6f" role="1PaTwD">
-              <property role="3oM_SC" value="be" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP6s" role="1PaTwD">
-              <property role="3oM_SC" value="overridden" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP6E" role="1PaTwD">
-              <property role="3oM_SC" value="in" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP6L" role="1PaTwD">
-              <property role="3oM_SC" value="subclass" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP7h" role="1PaTwD">
-              <property role="3oM_SC" value="(mps-idea-plugin" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP82" role="1PaTwD">
-              <property role="3oM_SC" value="needs" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP8k" role="1PaTwD">
-              <property role="3oM_SC" value="additional" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP8J" role="1PaTwD">
-              <property role="3oM_SC" value="activities" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP93" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqP9g" role="1PaTwD">
-              <property role="3oM_SC" value="be" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPal" role="1PaTwD">
-              <property role="3oM_SC" value="executed" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPaG" role="1PaTwD">
-              <property role="3oM_SC" value="when" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPb4" role="1PaTwD">
-              <property role="3oM_SC" value="a" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPbt" role="1PaTwD">
-              <property role="3oM_SC" value="language" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPbZ" role="1PaTwD">
-              <property role="3oM_SC" value="is" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPci" role="1PaTwD">
-              <property role="3oM_SC" value="added" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPcA" role="1PaTwD">
-              <property role="3oM_SC" value="to" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPcV" role="1PaTwD">
-              <property role="3oM_SC" value="a" />
-            </node>
-            <node concept="3oM_SD" id="1yqbt3NqPdp" role="1PaTwD">
-              <property role="3oM_SC" value="model)" />
-            </node>
-          </node>
-        </node>
-      </node>
-      <node concept="3Tmbuc" id="1yqbt3NqNjj" role="1B3o_S" />
-      <node concept="37vLTG" id="1yqbt3NqO1N" role="3clF46">
-        <property role="TrG5h" value="helper" />
-        <node concept="3uibUv" id="1yqbt3NqOXY" role="1tU5fm">
-          <ref role="3uigEE" to="z1c4:~LanguageImportHelper" resolve="LanguageImportHelper" />
-        </node>
       </node>
     </node>
   </node>
@@ -17670,6 +17670,19 @@
               <ref role="37wK5l" to="lui2:~ModelAccess.runReadAction(java.lang.Runnable)" resolve="runReadAction" />
               <node concept="1bVj0M" id="706B9ZFvPKX" role="37wK5m">
                 <node concept="3clFbS" id="706B9ZFvPKY" role="1bW5cS">
+                  <node concept="3clFbF" id="2PJbQK9$WUh" role="3cqZAp">
+                    <node concept="2OqwBi" id="2PJbQK9$XTx" role="3clFbG">
+                      <node concept="2OqwBi" id="2PJbQK9$WUb" role="2Oq$k0">
+                        <node concept="2WthIp" id="2PJbQK9$WUe" role="2Oq$k0" />
+                        <node concept="1DTwFV" id="2PJbQK9$WUg" role="2OqNvi">
+                          <ref role="2WH_rO" node="3zdPyHKBfcm" resolve="editorComponent" />
+                        </node>
+                      </node>
+                      <node concept="liA8E" id="4sU0LYlsTSW" role="2OqNvi">
+                        <ref role="37wK5l" to="exr9:~EditorComponent.deactivateSubstituteChooser()" resolve="deactivateSubstituteChooser" />
+                      </node>
+                    </node>
+                  </node>
                   <node concept="3clFbF" id="odQdBSgYb1" role="3cqZAp">
                     <node concept="2OqwBi" id="odQdBSh2et" role="3clFbG">
                       <node concept="2OqwBi" id="odQdBSh1LW" role="2Oq$k0">
