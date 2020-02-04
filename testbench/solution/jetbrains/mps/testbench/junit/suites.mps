@@ -1486,7 +1486,10 @@
                 </node>
                 <node concept="2ShNRf" id="34euvBSHAJz" role="HW$Y0">
                   <node concept="1pGfFk" id="34euvBSHAJ$" role="2ShVmc">
-                    <ref role="37wK5l" to="wsw7:6qi2OtU3tVc" resolve="TargetConceptChecker" />
+                    <ref role="37wK5l" to="k2t0:~TargetConceptChecker.&lt;init&gt;(jetbrains.mps.components.ComponentHost)" resolve="TargetConceptChecker" />
+                    <node concept="37vLTw" id="6uBDHAbjJE" role="37wK5m">
+                      <ref role="3cqZAo" node="5yBbuOfGDlJ" resolve="host" />
+                    </node>
                   </node>
                 </node>
                 <node concept="2ShNRf" id="1valgbdNIn9" role="HW$Y0">

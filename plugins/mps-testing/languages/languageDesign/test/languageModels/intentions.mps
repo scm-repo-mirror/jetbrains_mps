@@ -1687,15 +1687,10 @@
             <node concept="3uibUv" id="5yBbuOfC1ik" role="1tU5fm">
               <ref role="3uigEE" to="lui2:~SRepository" resolve="SRepository" />
             </node>
-            <node concept="2OqwBi" id="5yBbuOfC7fR" role="33vP2m">
-              <node concept="liA8E" id="5yBbuOfC7pU" role="2OqNvi">
-                <ref role="37wK5l" to="mhbf:~SModel.getRepository()" resolve="getRepository" />
-              </node>
-              <node concept="2JrnkZ" id="5yBbuOfC7g0" role="2Oq$k0">
-                <node concept="2OqwBi" id="5yBbuOfC6L8" role="2JrQYb">
-                  <node concept="2Sf5sV" id="5yBbuOfC6BN" role="2Oq$k0" />
-                  <node concept="I4A8Y" id="5yBbuOfC6VO" role="2OqNvi" />
-                </node>
+            <node concept="2OqwBi" id="6uBDHAbxUM" role="33vP2m">
+              <node concept="1XNTG" id="6uBDHAbxL7" role="2Oq$k0" />
+              <node concept="liA8E" id="6uBDHAby7n" role="2OqNvi">
+                <ref role="37wK5l" to="cj4x:~EditorContext.getRepository()" resolve="getRepository" />
               </node>
             </node>
           </node>

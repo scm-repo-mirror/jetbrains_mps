@@ -33,7 +33,7 @@ public class AuditConstraints extends BaseCheckerTest {
   public void checkConstraints() {
     Environment environment = getEnvironment();
     Platform host = environment.getPlatform();
-    List<IChecker<?, ? extends IssueKindReportItem>> checkers = ListSequence.fromListAndArray(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>(), new ConstraintsChecker(host), new RefScopeChecker(host), new TargetConceptChecker(), new UsedLanguagesChecker(), new SuppressErrorsChecker());
+    List<IChecker<?, ? extends IssueKindReportItem>> checkers = ListSequence.fromListAndArray(new ArrayList<IChecker<?, ? extends IssueKindReportItem>>(), new ConstraintsChecker(host), new RefScopeChecker(host), new TargetConceptChecker(host), new UsedLanguagesChecker(), new SuppressErrorsChecker());
     runCheck(checkers, AuditTypeSystem.ourStats, "Constraints and scopes errors");
   }
 }
