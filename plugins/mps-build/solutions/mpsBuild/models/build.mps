@@ -25393,7 +25393,7 @@
             <node concept="398BVA" id="5xa9wY2vqcc" role="2HvfZ0">
               <ref role="398BVh" node="2eDSGe9d1qB" resolve="mps_home" />
               <node concept="2Ry0Ak" id="5xa9wY2vqcd" role="iGT6I">
-                <property role="2Ry0Am" value="workbench" />
+                <property role="2Ry0Am" value="core" />
                 <node concept="2Ry0Ak" id="5xa9wY2vqce" role="2Ry0An">
                   <property role="2Ry0Am" value="resources_en" />
                   <node concept="2Ry0Ak" id="5xa9wY2vqcf" role="2Ry0An">

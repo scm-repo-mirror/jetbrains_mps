@@ -704,7 +704,7 @@
       <fileset dir="${mps_home}/workbench/resources/source" />
     </jar>
     <jar destfile="${build.layout}/lib/mps-resources_en.jar" duplicate="preserve">
-      <fileset dir="${mps_home}/workbench/resources_en/source" />
+      <fileset dir="${mps_home}/core/resources_en/source" />
     </jar>
     <jar destfile="${build.layout}/lib/mps-boot.jar" duplicate="preserve">
       <fileset dir="${build.tmp}/java/out/startup" />
