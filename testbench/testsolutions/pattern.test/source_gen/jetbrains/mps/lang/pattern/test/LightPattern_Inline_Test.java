@@ -66,7 +66,7 @@ public class LightPattern_Inline_Test extends TestCase {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.LocalVariableDeclarationStatement$BI);
       {
         NodeMatcherBuilder n15 = rootBuilder.forChild(LINKS.localVariableDeclaration$O0D0).init(CONCEPTS.LocalVariableDeclaration$Bf);
-        n15.forChild(LINKS.type$pLrO).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(myType));
+        n15.forChild(LINKS.type$pLrO).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(true, myType));
         n15.setPropertyVariable(PROPS.name$tAp1, myName);
         {
           NodeMatcherBuilder n16 = n15.forChild(LINKS.initializer$KgD).init(CONCEPTS.PlusExpression$Re);

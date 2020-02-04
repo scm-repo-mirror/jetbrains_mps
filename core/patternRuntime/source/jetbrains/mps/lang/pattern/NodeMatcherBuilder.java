@@ -15,9 +15,7 @@
  */
 package jetbrains.mps.lang.pattern;
 
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
-import jetbrains.mps.smodel.SNodeUtil;
 import jetbrains.mps.smodel.builder.AbstractNodeBuilder;
 import jetbrains.mps.util.ListMap;
 import jetbrains.mps.util.Reference;
@@ -30,14 +28,13 @@ import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.model.SNode;
 import org.jetbrains.mps.openapi.model.SNodeReference;
 import org.jetbrains.mps.openapi.model.SReference;
+import org.jetbrains.mps.util.Condition;
 
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.function.Predicate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class NodeMatcherBuilder implements AbstractNodeBuilder {
 
@@ -49,15 +46,18 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
 
   }
 
-  public static class NodeVariableMatcher extends NodeMatcher {
+  public static class NodeVariableMatcher extends SingleNodeMatcher {
+    private final boolean myNullable;
     private Reference<SNode> myRef;
-    public NodeVariableMatcher(Reference<SNode> ref) {
+    public NodeVariableMatcher(boolean nullable, Reference<SNode> ref) {
+      super(Condition.<SConcept>always().asPredicate());
+      myNullable = nullable;
       myRef = ref;
     }
     @Override
     public final boolean match(SNode nodeToMatch) {
       myRef.set(nodeToMatch);
-      return true;
+      return myNullable ? nodeToMatch == null || super.match(nodeToMatch) : super.match(nodeToMatch);
     }
     @NotNull
     @Override
@@ -66,30 +66,22 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
     }
   }
 
-  public static class ExactConceptNodeMatcher extends NodeMatcher {
-    private SConcept myConcept;
-    private Map<SContainmentLink, NodeMatcherWrapper> myChildMatchers = new ListMap<>();
-    private NodeMatcherWrapper myNextMatcher;
-    private Map<SProperty, Predicate<String>> myPropertyMatchers = new ListMap<>();
-    private Map<SReferenceLink, Predicate<SReference>> myReferenceMatchers = new ListMap<>();
-    public ExactConceptNodeMatcher(SConcept concept) {
-      myConcept = concept;
+  public static abstract class SingleNodeMatcher extends NodeMatcher {
+    protected final Predicate<SConcept> myConceptMatcher;
+    protected Map<SProperty, Predicate<String>> myPropertyMatchers = new ListMap<>();
+    protected Map<SContainmentLink, NodeMatcherWrapper> myChildMatchers = new ListMap<>();
+    protected NodeMatcherWrapper myNextMatcher = null;
+    protected Map<SReferenceLink, Predicate<SReference>> myReferenceMatchers = new ListMap<>();
+    protected SingleNodeMatcher(Predicate<SConcept> conceptMatcher) {
+      myConceptMatcher = conceptMatcher;
     }
-    @Nullable
-    private static <T> T getFirst(Iterable<T> iterable) {
-      Iterator<T> iterator = iterable.iterator();
-      if (iterator.hasNext()) {
-        return iterator.next();
-      } else {
-        return null;
-      }
-    }
+
     @Override
     public boolean match(SNode nodeToMatch) {
       if (nodeToMatch == null) {
         return false;
       }
-      if (!nodeToMatch.getConcept().equals(myConcept)) {
+      if (!myConceptMatcher.test(nodeToMatch.getConcept())) {
         return false;
       }
       if (myNextMatcher != null) {
@@ -116,8 +108,25 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
           return false;
         }
       }
-      //todo: unordered and other features
       return true;
+    }
+  }
+
+  @Nullable
+  private static <T> T getFirst(Iterable<T> iterable) {
+    Iterator<T> iterator = iterable.iterator();
+    if (iterator.hasNext()) {
+      return iterator.next();
+    } else {
+      return null;
+    }
+  }
+
+  public static class ExactConceptNodeMatcher extends SingleNodeMatcher {
+    private SConcept myConcept;
+    public ExactConceptNodeMatcher(SConcept concept) {
+      super(concept::equals);
+      myConcept = concept;
     }
     @NotNull
     @Override
@@ -176,10 +185,10 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
 
   @Override
   public void setProperty(SProperty property, String expected) {
-    if (!(myMatcherWrapper.myMatcher instanceof ExactConceptNodeMatcher)) {
+    if (!(myMatcherWrapper.myMatcher instanceof SingleNodeMatcher)) {
       throw new IllegalStateException();
     }
-    ((ExactConceptNodeMatcher) myMatcherWrapper.myMatcher).myPropertyMatchers.put(property, value -> Objects.equals(expected, value));
+    ((SingleNodeMatcher) myMatcherWrapper.myMatcher).myPropertyMatchers.put(property, value -> Objects.equals(expected, value));
   }
 
   public void setPropertyVariable(SProperty property, @NotNull Reference<String> variable) {
@@ -187,10 +196,10 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
   }
 
   public void setPropertyVariable(SProperty property, @NotNull Reference<String> variable, @Nullable Predicate<String> predicate) {
-    if (!(myMatcherWrapper.myMatcher instanceof ExactConceptNodeMatcher)) {
+    if (!(myMatcherWrapper.myMatcher instanceof SingleNodeMatcher)) {
       throw new IllegalStateException();
     }
-    ((ExactConceptNodeMatcher) myMatcherWrapper.myMatcher).myPropertyMatchers.put(property, value -> {
+    ((SingleNodeMatcher) myMatcherWrapper.myMatcher).myPropertyMatchers.put(property, value -> {
       if (predicate == null || predicate.test(value)) {
         variable.set(value);
         return true;
@@ -202,19 +211,19 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
 
   @Override
   public void setReference(SReferenceLink link, SNodeReference expectedTarget) {
-    if (!(myMatcherWrapper.myMatcher instanceof ExactConceptNodeMatcher)) {
+    if (!(myMatcherWrapper.myMatcher instanceof SingleNodeMatcher)) {
       throw new IllegalStateException();
     }
-    ((ExactConceptNodeMatcher) myMatcherWrapper.myMatcher).myReferenceMatchers.put(link, sReference -> {
+    ((SingleNodeMatcher) myMatcherWrapper.myMatcher).myReferenceMatchers.put(link, sReference -> {
       return Objects.equals(expectedTarget, sReference == null ? null : sReference.getTargetNodeReference());
     });
   }
 
   public void setReferenceVariable(SReferenceLink link, @NotNull Reference<SNode> variable) {
-    if (!(myMatcherWrapper.myMatcher instanceof ExactConceptNodeMatcher)) {
+    if (!(myMatcherWrapper.myMatcher instanceof SingleNodeMatcher)) {
       throw new IllegalStateException();
     }
-    ((ExactConceptNodeMatcher) myMatcherWrapper.myMatcher).myReferenceMatchers.put(link, sReference -> {
+    ((SingleNodeMatcher) myMatcherWrapper.myMatcher).myReferenceMatchers.put(link, sReference -> {
       variable.set(sReference.getTargetNode());
       return true;
     });
@@ -225,10 +234,10 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
     if (target != null && (target.getModel() == null || target.getModel().getRepository() == null)) {
       setReference(link, target.getReference());
     }
-    if (!(myMatcherWrapper.myMatcher instanceof ExactConceptNodeMatcher)) {
+    if (!(myMatcherWrapper.myMatcher instanceof SingleNodeMatcher)) {
       throw new IllegalStateException();
     }
-    ((ExactConceptNodeMatcher) myMatcherWrapper.myMatcher).myReferenceMatchers.put(link, sReference -> {
+    ((SingleNodeMatcher) myMatcherWrapper.myMatcher).myReferenceMatchers.put(link, sReference -> {
       if (target == null) {
         return sReference == null;
       } else {
@@ -237,25 +246,25 @@ public class NodeMatcherBuilder implements AbstractNodeBuilder {
     });
   }
 
-  private ExactConceptNodeMatcher getMyExactConceptMatcher() {
+  private SingleNodeMatcher getNodeMatcher() {
     NodeMatcher matcher = myMatcherWrapper.myMatcher;
-    if (!(matcher instanceof ExactConceptNodeMatcher)) {
+    if (!(matcher instanceof SingleNodeMatcher)) {
       throw new IllegalStateException();
     }
-    return (ExactConceptNodeMatcher) matcher;
+    return (SingleNodeMatcher) matcher;
   }
 
   @Override
   public NodeMatcherBuilder forChild(SContainmentLink link) {
     NodeMatcherWrapper childMatcherWrapper = new NodeMatcherWrapper();
-    getMyExactConceptMatcher().myChildMatchers.put(link, childMatcherWrapper);
+    getNodeMatcher().myChildMatchers.put(link, childMatcherWrapper);
     return new NodeMatcherBuilder(childMatcherWrapper);
   }
 
   @Override
   public NodeMatcherBuilder forSibling() {
     NodeMatcherWrapper nextMatcherWrapper = new NodeMatcherWrapper();
-    getMyExactConceptMatcher().myNextMatcher = nextMatcherWrapper;
+    getNodeMatcher().myNextMatcher = nextMatcherWrapper;
     return new NodeMatcherBuilder(nextMatcherWrapper);
   }
 

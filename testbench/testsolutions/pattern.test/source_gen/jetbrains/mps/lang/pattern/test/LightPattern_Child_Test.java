@@ -141,7 +141,7 @@ public class LightPattern_Child_Test extends TestCase {
     @Override
     protected boolean apply(SNode node) {
       NodeMatcherBuilder rootBuilder = new NodeMatcherBuilder().init(CONCEPTS.ReturnStatement$SF);
-      rootBuilder.forChild(LINKS.expression$EsbK).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(myVar));
+      rootBuilder.forChild(LINKS.expression$EsbK).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(true, myVar));
       return rootBuilder.getMatcher().match(node);
     }
     public SNode getVar() {

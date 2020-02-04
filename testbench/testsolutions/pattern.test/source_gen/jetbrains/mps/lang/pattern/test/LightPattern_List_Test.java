@@ -11,6 +11,7 @@ import jetbrains.mps.util.Reference;
 import org.jetbrains.mps.openapi.persistence.PersistenceFacade;
 import jetbrains.mps.smodel.builder.SNodeBuilder;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.smodel.SReference;
 import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 
@@ -65,7 +66,7 @@ public class LightPattern_List_Test extends TestCase {
     }
     Assert.assertTrue(matches);
   }
-  public void test_patternSwitch3_matchesWithoutTail() throws Exception {
+  public void test_patternSwitch3_missingTail() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_zi1spz_a0b0f0();
     if (new Pattern3_Pattern().matches(nodeToMatch)) {
@@ -73,9 +74,9 @@ public class LightPattern_List_Test extends TestCase {
     } else {
       matches = false;
     }
-    Assert.assertTrue(matches);
+    Assert.assertFalse(matches);
   }
-  public void test_patternSwitch3_expectedNotFound() throws Exception {
+  public void test_patternSwitch3_tailTooLong() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_zi1spz_a0b0g0();
     if (new Pattern3_Pattern().matches(nodeToMatch)) {
@@ -85,17 +86,17 @@ public class LightPattern_List_Test extends TestCase {
     }
     Assert.assertFalse(matches);
   }
-  public void test_patternSwitch4_matchesWithHead() throws Exception {
+  public void test_patternSwitch3_expectedNotFound() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_zi1spz_a0b0h0();
-    if (new Pattern4_Pattern().matches(nodeToMatch)) {
+    if (new Pattern3_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
       matches = false;
     }
-    Assert.assertTrue(matches);
+    Assert.assertFalse(matches);
   }
-  public void test_patternSwitch4_matchesWithoutHead() throws Exception {
+  public void test_patternSwitch4_matchesWithHead() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_zi1spz_a0b0i0();
     if (new Pattern4_Pattern().matches(nodeToMatch)) {
@@ -105,9 +106,19 @@ public class LightPattern_List_Test extends TestCase {
     }
     Assert.assertTrue(matches);
   }
-  public void test_patternSwitch4_expectedNotFound() throws Exception {
+  public void test_patternSwitch4_missingHead() throws Exception {
     boolean matches;
     SNode nodeToMatch = _quotation_createNode_zi1spz_a0b0j0();
+    if (new Pattern4_Pattern().matches(nodeToMatch)) {
+      matches = true;
+    } else {
+      matches = false;
+    }
+    Assert.assertFalse(matches);
+  }
+  public void test_patternSwitch4_expectedNotFound() throws Exception {
+    boolean matches;
+    SNode nodeToMatch = _quotation_createNode_zi1spz_a0b0k0();
     if (new Pattern4_Pattern().matches(nodeToMatch)) {
       matches = true;
     } else {
@@ -144,7 +155,7 @@ public class LightPattern_List_Test extends TestCase {
     }
   }
   private static class Pattern3_Pattern extends AbstractGeneratedPattern {
-    private Reference<SNode> myOthers = new Reference<SNode>();
+    private Reference<SNode> myOther = new Reference<SNode>();
     public Pattern3_Pattern() {
     }
     @Override
@@ -154,18 +165,18 @@ public class LightPattern_List_Test extends TestCase {
         NodeMatcherBuilder n22 = rootBuilder.forChild(LINKS.statements$uqR0).init(CONCEPTS.StatementList$TN);
         {
           NodeMatcherBuilder n23 = n22.forChild(LINKS.statement$WHn8).init(CONCEPTS.ReturnStatement$SF);
-          NodeMatcherBuilder n24 = n23.forSibling().initVariable(new NodeMatcherBuilder.NodeVariableMatcher(myOthers));
+          NodeMatcherBuilder n24 = n23.forSibling().initVariable(new NodeMatcherBuilder.NodeVariableMatcher(false, myOther));
         }
       }
       return rootBuilder.getMatcher().match(node);
     }
-    public SNode getOthers() {
+    public SNode getOther() {
       ensureMatched();
-      return myOthers.get();
+      return myOther.get();
     }
   }
   private static class Pattern4_Pattern extends AbstractGeneratedPattern {
-    private Reference<SNode> myOthers = new Reference<SNode>();
+    private Reference<SNode> myOther = new Reference<SNode>();
     public Pattern4_Pattern() {
     }
     @Override
@@ -174,15 +185,15 @@ public class LightPattern_List_Test extends TestCase {
       {
         NodeMatcherBuilder n25 = rootBuilder.forChild(LINKS.statements$uqR0).init(CONCEPTS.StatementList$TN);
         {
-          NodeMatcherBuilder n26 = n25.forChild(LINKS.statement$WHn8).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(myOthers));
+          NodeMatcherBuilder n26 = n25.forChild(LINKS.statement$WHn8).initVariable(new NodeMatcherBuilder.NodeVariableMatcher(false, myOther));
           NodeMatcherBuilder n27 = n26.forSibling().init(CONCEPTS.ReturnStatement$SF);
         }
       }
       return rootBuilder.getMatcher().match(node);
     }
-    public SNode getOthers() {
+    public SNode getOther() {
       ensureMatched();
-      return myOthers.get();
+      return myOther.get();
     }
   }
   private static SNode _quotation_createNode_zi1spz_a0b0a0() {
@@ -307,6 +318,42 @@ public class LightPattern_List_Test extends TestCase {
     SNode quotedNode_4 = null;
     SNode quotedNode_5 = null;
     SNode quotedNode_6 = null;
+    SNode quotedNode_7 = null;
+    SNode quotedNode_8 = null;
+    SNode quotedNode_9 = null;
+    SNode quotedNode_10 = null;
+    quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xfc092b6b77L, "BlockStatement")).getResult();
+    quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b200L, "StatementList")).getResult();
+    quotedNode_3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7feL, "ReturnStatement")).getResult();
+    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"), quotedNode_3);
+    quotedNode_4 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b213L, "ExpressionStatement")).getResult();
+    quotedNode_6 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc67c7fbL, "PlusExpression")).getResult();
+    quotedNode_8 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant")).getResult();
+    quotedNode_8.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "1");
+    quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11cL, "leftExpression"), quotedNode_8);
+    quotedNode_9 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc59b314L, "IntegerConstant")).getResult();
+    quotedNode_9.setProperty(MetaAdapterFactory.getProperty(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc59b314L, 0xf8cc59b315L, "value"), "2");
+    quotedNode_6.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbdeb6fecfL, 0xfbdeb7a11bL, "rightExpression"), quotedNode_9);
+    quotedNode_4.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b213L, 0xf8cc56b214L, "expression"), quotedNode_6);
+    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"), quotedNode_4);
+    quotedNode_5 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10f3ee082d8L, "ThrowStatement")).getResult();
+    quotedNode_7 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x10ab8473cc5L, "GenericNewExpression")).getResult();
+    quotedNode_10 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0x11a59b0fbceL, "ClassCreator")).getResult();
+    quotedNode_10.setReference(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), SReference.create(MetaAdapterFactory.getReferenceLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x11857355952L, 0xf8c78301adL, "baseMethodDeclaration"), quotedNode_10, facade.createModelReference("6354ebe7-c22a-4a0f-ac54-50b52ab9b065/java:java.lang(JDK/)"), facade.createNodeId("~Exception.<init>()")));
+    quotedNode_7.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10ab8473cc5L, 0x10ab847b486L, "creator"), quotedNode_10);
+    quotedNode_5.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f3ee082d8L, 0x10f3ee0cd6fL, "throwable"), quotedNode_7);
+    quotedNode_2.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b200L, 0xf8cc6bf961L, "statement"), quotedNode_5);
+    quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"), quotedNode_2);
+    return quotedNode_1;
+  }
+  private static SNode _quotation_createNode_zi1spz_a0b0h0() {
+    PersistenceFacade facade = PersistenceFacade.getInstance();
+    SNode quotedNode_1 = null;
+    SNode quotedNode_2 = null;
+    SNode quotedNode_3 = null;
+    SNode quotedNode_4 = null;
+    SNode quotedNode_5 = null;
+    SNode quotedNode_6 = null;
     quotedNode_1 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xfc092b6b77L, "BlockStatement")).getResult();
     quotedNode_2 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b200L, "StatementList")).getResult();
     quotedNode_3 = new SNodeBuilder(null, null).init(MetaAdapterFactory.getConcept(MetaAdapterFactory.getLanguage(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, "jetbrains.mps.baseLanguage"), 0xf8cc56b213L, "ExpressionStatement")).getResult();
@@ -322,7 +369,7 @@ public class LightPattern_List_Test extends TestCase {
     quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"), quotedNode_2);
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_zi1spz_a0b0h0() {
+  private static SNode _quotation_createNode_zi1spz_a0b0i0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     SNode quotedNode_2 = null;
@@ -348,7 +395,7 @@ public class LightPattern_List_Test extends TestCase {
     quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"), quotedNode_2);
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_zi1spz_a0b0i0() {
+  private static SNode _quotation_createNode_zi1spz_a0b0j0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     SNode quotedNode_2 = null;
@@ -360,7 +407,7 @@ public class LightPattern_List_Test extends TestCase {
     quotedNode_1.addChild(MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfc092b6b77L, 0xfc092b6b78L, "statements"), quotedNode_2);
     return quotedNode_1;
   }
-  private static SNode _quotation_createNode_zi1spz_a0b0j0() {
+  private static SNode _quotation_createNode_zi1spz_a0b0k0() {
     PersistenceFacade facade = PersistenceFacade.getInstance();
     SNode quotedNode_1 = null;
     SNode quotedNode_2 = null;

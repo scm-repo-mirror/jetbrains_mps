@@ -5838,7 +5838,27 @@
                   <ref role="37wK5l" to="7jhi:~NodeMatcherBuilder.initVariable(jetbrains.mps.lang.pattern.NodeMatcherBuilder$NodeVariableMatcher)" resolve="initVariable" />
                   <node concept="2ShNRf" id="1tcvH6a$Cxi" role="37wK5m">
                     <node concept="1pGfFk" id="1tcvH6a$Cxj" role="2ShVmc">
-                      <ref role="37wK5l" to="7jhi:~NodeMatcherBuilder$NodeVariableMatcher.&lt;init&gt;(jetbrains.mps.util.Reference)" resolve="NodeMatcherBuilder.NodeVariableMatcher" />
+                      <ref role="37wK5l" to="7jhi:~NodeMatcherBuilder$NodeVariableMatcher.&lt;init&gt;(boolean,jetbrains.mps.util.Reference)" resolve="NodeMatcherBuilder.NodeVariableMatcher" />
+                      <node concept="3clFbT" id="1h7oXxydVWe" role="37wK5m">
+                        <node concept="17Uvod" id="1h7oXxydW0x" role="lGtFl">
+                          <property role="2qtEX9" value="value" />
+                          <property role="P4ACc" value="f3061a53-9226-4cc5-a443-f952ceaf5816/1068580123137/1068580123138" />
+                          <node concept="3zFVjK" id="1h7oXxydW0y" role="3zH0cK">
+                            <node concept="3clFbS" id="1h7oXxydW0z" role="2VODD2">
+                              <node concept="3clFbF" id="1h7oXxye5lh" role="3cqZAp">
+                                <node concept="2OqwBi" id="1h7oXxye5Cm" role="3clFbG">
+                                  <node concept="v3LJS" id="1h7oXxye5ld" role="2Oq$k0">
+                                    <ref role="v3LJV" node="7vKHTLu4rZT" resolve="allowNull" />
+                                  </node>
+                                  <node concept="liA8E" id="1h7oXxye5NU" role="2OqNvi">
+                                    <ref role="37wK5l" to="33ny:~Optional.get()" resolve="get" />
+                                  </node>
+                                </node>
+                              </node>
+                            </node>
+                          </node>
+                        </node>
+                      </node>
                       <node concept="37vLTw" id="1tcvH6a$Cxk" role="37wK5m">
                         <ref role="3cqZAo" node="1tcvH6a$Cep" resolve="varField" />
                         <node concept="1ZhdrF" id="1tcvH6a$Cxl" role="lGtFl">
