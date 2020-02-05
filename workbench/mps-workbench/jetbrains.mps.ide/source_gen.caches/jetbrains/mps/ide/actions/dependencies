@@ -3248,7 +3248,7 @@
     <classNode extendsClassName="jetbrains.mps.workbench.action.BaseAction" />
   </dependency>
   <dependency className="jetbrains.mps.ide.actions.SetPluginIdToCompileInIdeaModules_Action">
-    <classNode dependClassName="com.intellij.ide.plugins.PluginManager" />
+    <classNode dependClassName="com.intellij.ide.plugins.PluginManagerCore" />
     <classNode dependClassName="com.intellij.ide.plugins.cl.PluginClassLoader" />
     <classNode dependClassName="com.intellij.openapi.actionSystem.AnActionEvent" />
     <classNode dependClassName="java.lang.ClassLoader" />
