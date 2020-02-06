@@ -6,7 +6,7 @@
     <use id="d7a92d38-f7db-40d0-8431-763b0c3c9f20" name="jetbrains.mps.lang.intentions" version="1" />
     <use id="13744753-c81f-424a-9c1b-cf8943bf4e86" name="jetbrains.mps.lang.sharedConcepts" version="0" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="13" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="14" />
     <devkit ref="fbc25dd2-5da4-483a-8b19-70928e1b62d7(jetbrains.mps.devkit.general-purpose)" />
   </languages>
   <imports>
@@ -174,7 +174,6 @@
       <concept id="1208890769693" name="jetbrains.mps.baseLanguage.structure.ArrayLengthOperation" flags="nn" index="1Rwk04" />
       <concept id="6329021646629104954" name="jetbrains.mps.baseLanguage.structure.SingleLineComment" flags="nn" index="3SKdUt">
         <child id="8356039341262087992" name="line" index="1aUNEU" />
-        <child id="1350122676458893092" name="text" index="3ndbpf" />
       </concept>
       <concept id="1146644602865" name="jetbrains.mps.baseLanguage.structure.PublicVisibility" flags="nn" index="3Tm1VV" />
       <concept id="1146644623116" name="jetbrains.mps.baseLanguage.structure.PrivateVisibility" flags="nn" index="3Tm6S6" />
@@ -5109,7 +5108,7 @@
     <node concept="2SaL7w" id="ZO6TdbT0a0" role="2ZfVeh">
       <node concept="3clFbS" id="ZO6TdbT0a1" role="2VODD2">
         <node concept="3SKdUt" id="ZO6TdbT3S$" role="3cqZAp">
-          <node concept="1PaTwC" id="ZO6TdbT3S_" role="3ndbpf">
+          <node concept="1PaTwC" id="ZO6TdbT3S_" role="1aUNEU">
             <node concept="3oM_SD" id="ZO6TdbT3SA" role="1PaTwD">
               <property role="3oM_SC" value="disable" />
             </node>
@@ -5631,7 +5630,7 @@
     <node concept="2SaL7w" id="thxZHeNwki" role="2ZfVeh">
       <node concept="3clFbS" id="thxZHeNwkj" role="2VODD2">
         <node concept="3SKdUt" id="thxZHeNynX" role="3cqZAp">
-          <node concept="1PaTwC" id="thxZHeN$A$" role="3ndbpf">
+          <node concept="1PaTwC" id="thxZHeN$A$" role="1aUNEU">
             <node concept="3oM_SD" id="thxZHeNyo0" role="1PaTwD">
               <property role="3oM_SC" value="disable" />
             </node>
@@ -5718,7 +5717,7 @@
     <node concept="2SaL7w" id="ZO6TdbT51x" role="2ZfVeh">
       <node concept="3clFbS" id="ZO6TdbT51y" role="2VODD2">
         <node concept="3SKdUt" id="ZO6TdbT55N" role="3cqZAp">
-          <node concept="1PaTwC" id="ZO6TdbT55O" role="3ndbpf">
+          <node concept="1PaTwC" id="ZO6TdbT55O" role="1aUNEU">
             <node concept="3oM_SD" id="ZO6TdbT55P" role="1PaTwD">
               <property role="3oM_SC" value="disable" />
             </node>

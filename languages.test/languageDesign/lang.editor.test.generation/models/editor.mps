@@ -2,7 +2,7 @@
 <model ref="r:5198f57a-b6fe-4b27-af15-f0dc1a790395(jetbrains.mps.lang.editor.test.generation.editor)">
   <persistence version="9" />
   <languages>
-    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="13" />
+    <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="14" />
     <devkit ref="2677cb18-f558-4e33-bc38-a5139cee06dc(jetbrains.mps.devkit.language-design)" />
   </languages>
   <imports>
@@ -16,6 +16,7 @@
       <concept id="1161622753914" name="jetbrains.mps.lang.sharedConcepts.structure.ConceptFunctionParameter_operationContext" flags="nn" index="1Q79dO" />
     </language>
     <language id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor">
+      <concept id="5991739802479784074" name="jetbrains.mps.lang.editor.structure.MenuTypeNamed" flags="ng" index="22hDWg" />
       <concept id="1071666914219" name="jetbrains.mps.lang.editor.structure.ConceptEditorDeclaration" flags="ig" index="24kQdi" />
       <concept id="1176897764478" name="jetbrains.mps.lang.editor.structure.QueryFunction_NodeFactory" flags="in" index="4$FPG" />
       <concept id="1164052439493" name="jetbrains.mps.lang.editor.structure.CellMenuPart_AbstractGroup_MatchingText" flags="in" index="6VE3a" />
@@ -172,6 +173,7 @@
       </concept>
       <concept id="1630016958697344083" name="jetbrains.mps.lang.editor.structure.IMenu_Concept" flags="ng" index="2ZABuq">
         <reference id="6591946374543067572" name="conceptDeclaration" index="aqKnT" />
+        <child id="5991739802479788259" name="type" index="22hAXT" />
       </concept>
       <concept id="1165004207520" name="jetbrains.mps.lang.editor.structure.CellMenuPart_ReplaceNode_Group" flags="ng" index="ZEniJ">
         <child id="1165004529293" name="createFunction" index="ZF_Y2" />
@@ -336,7 +338,7 @@
         <child id="1225900141900" name="modelAccessor" index="1HlULh" />
       </concept>
       <concept id="1187258617779" name="jetbrains.mps.lang.editor.structure.ForegroundNullColorStyleClassItem" flags="ln" index="1I8cUB" />
-      <concept id="5624877018226904808" name="jetbrains.mps.lang.editor.structure.TransformationMenu_Named" flags="ng" index="3ICXOK" />
+      <concept id="5624877018226900666" name="jetbrains.mps.lang.editor.structure.TransformationMenu" flags="ng" index="3ICUPy" />
       <concept id="6419604448124516209" name="jetbrains.mps.lang.editor.structure.QueryFunction_IsMethodCurrent" flags="in" index="3LVrda" />
       <concept id="1161622981231" name="jetbrains.mps.lang.editor.structure.ConceptFunctionParameter_editorContext" flags="nn" index="1Q80Hx" />
       <concept id="1176717779940" name="jetbrains.mps.lang.editor.structure.ConceptFunctionParameter_text" flags="nn" index="3TQ6bP" />
@@ -2324,10 +2326,6 @@
   <node concept="1Xs25n" id="2XU9kLD8Lt">
     <property role="TrG5h" value="TestTargetMenuComponent" />
     <node concept="OXEIz" id="2XU9kLD8Lu" role="1XvlXI" />
-  </node>
-  <node concept="3ICXOK" id="2XU9kLDfrF">
-    <property role="TrG5h" value="TestTargetTransformationMenu" />
-    <ref role="aqKnT" to="ytt5:2XU9kLDC6x" resolve="AbstractCellTest" />
   </node>
   <node concept="1h_SRR" id="2XU9kLDg7n">
     <property role="TrG5h" value="TestTargetActionMap" />
@@ -25890,6 +25888,12 @@
     <ref role="1XX52x" to="ytt5:3iX8RSsB3Yb" resolve="Property" />
     <node concept="3F0A7n" id="3iX8RSsBpkZ" role="2wV5jI">
       <ref role="1NtTu8" to="ytt5:3iX8RSsBpkN" resolve="theProperty" />
+    </node>
+  </node>
+  <node concept="3ICUPy" id="2XU9kLDfrF">
+    <ref role="aqKnT" to="ytt5:2XU9kLDC6x" resolve="AbstractCellTest" />
+    <node concept="22hDWg" id="xzgvwPPoX0" role="22hAXT">
+      <property role="TrG5h" value="TestTargetTransformationMenu" />
     </node>
   </node>
 </model>
